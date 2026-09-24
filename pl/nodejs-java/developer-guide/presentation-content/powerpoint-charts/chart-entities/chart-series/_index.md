@@ -10,34 +10,34 @@ keywords:
 - nazwa serii
 - punkt danych
 - komórka skoroszytu
-- przerwa między seriami
+- przerwa serii
 - wartość ujemna
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy i wartościami ujemnymi w prezentacjach przy użyciu JavaScript."
+description: "Dowiedz się, jak zarządzać seriami wykresów, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy oraz wartościami ujemnymi w prezentacjach przy użyciu JavaScript."
 ---
 ## **Przegląd**
 
-Wykres przechowuje swoje rysowane dane w skoroszycie danych wykresu. Obiekt [ChartSeries](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [ChartDataPoint](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/) w serii odnosi się do jednej lub wielu komórek skoroszytu. Obiekty [ChartCategory](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartcategory/) dostarczają etykiety lub wartości grupowania współdzielone przez serie. Nazwa serii, kategorie i wartości punktów są więc powiązane z obiektami [ChartDataCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/) zamiast być przechowywane wyłącznie jako tekst wyświetlany.
+Wykres przechowuje swoje dane wykreślone w skoroszycie danych wykresu. [ChartSeries](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [ChartDataPoint](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/) w serii odnosi się do jednej lub kilku komórek skoroszytu. Obiekty [ChartCategory](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartcategory/) zapewniają etykiety lub wartości grupujące współdzielone przez serie. Nazwa serii, kategorie i wartości punktów są więc połączone z obiektami [ChartDataCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/), a nie przechowywane wyłącznie jako tekst wyświetlany.
 
-W typowym wykresie kategorialnym domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#getCell) są zerowe. Ten układ jest przydatny przy tworzeniu wykresu z danymi domyślnymi, ale nie należy zakładać, że każdy istniejący wykres go używa. W przypadku wczytanej prezentacji należy sprawdzić komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
+Dla typowego wykresu kategoriowego domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#getCell) są zerowe. Ten układ jest przydatny, gdy tworzysz wykres z domyślnymi danymi, ale nie zakładaj, że każdy istniejący wykres go używa. Wczytując prezentację, sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
 
 Ustawienia wykresu mają trzy różne zakresy:
 
-- Ustawienia na poziomie serii, takie jak [ChartSeries.getFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getFormat), określają domyślny wygląd wszystkich punktów w jednej serii.
+- Ustawienia na poziomie serii, takie jak [ChartSeries.getFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getFormat), zapewniają domyślny wygląd dla wszystkich punktów w jednej serii.
 - Ustawienia punktu danych, takie jak [ChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#getFormat), nadpisują wygląd serii dla jednego punktu.
-- Ustawienia grupowe mają zastosowanie do kompatybilnych serii należących do tej samej [ChartSeriesGroup](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/). Dostęp do grupy uzyskuje się przez [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup), gdy trzeba ustawić opcje takie jak nakładanie (overlap) lub szerokość przerwy (gap width).
+- Ustawienia grupowe dotyczą zgodnych serii, które należą do tej samej [ChartSeriesGroup](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/). Dostęp do grupy uzyskujesz przez [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup), gdy musisz ustawić opcje takie jak overlap lub szerokość przerwy.
 
-Gdy nie jest ustawione wyraźne wypełnienie punktu lub serii, styl wykresu i motyw określają automatyczny wygląd. Gdy istnieje zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
+Gdy nie jest ustawione żadne explicite wypełnienie punktu lub serii, styl wykresu i motyw określają automatyczny wygląd. Gdy istnieje zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![seria wykresu PowerPoint](chart-series-powerpoint.png)
 
 ## **Ustaw nakładanie serii wykresu**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getOverlap) raportuje, jak bardzo paski lub kolumny nakładają się na siebie w wykresie 2D, w przedziale od -100 do 100 procent. Jest to projekcja ustawienia w grupie nadrzędnej serii, dostępna tylko do odczytu. Użyj [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap), aby zaktualizować wszystkie kompatybilne serie w tej grupie. Ta opcja ma zastosowanie do typów wykresów wyświetlających grupowane paski lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getOverlap) informuje, o ile słupki lub kolumny zachodzą na siebie w wykresie 2D, w zakresie od -100 do 100 procent. Jest to projekcja ustawienia tylko do odczytu na grupie serii nadrzędnej. Użyj [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap), aby zaktualizować każdą zgodną serię w tej grupie. Opcja ta ma zastosowanie do typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
 
 Poniższy przykład ustawia nakładanie dla grupy zawierającej pierwszą serię:
 
@@ -68,13 +68,13 @@ try {
 
 Wynik:
 
-![The series overlap](series_overlap.png)
+![Nakładanie serii](series_overlap.png)
 
 ## **Zmień kolor wypełnienia serii**
 
-Użyj [ChartSeries.getFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getFormat), aby ustawić domyślne wypełnienie całej serii. Jeśli punkt już ma wyraźne wypełnienie, jego ustawienie [ChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#getFormat) nadpisuje wypełnienie serii dla tego punktu.
+Użyj [ChartSeries.getFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getFormat), aby ustawić domyślne wypełnienie dla całej serii. Jeśli punkt ma już explicite wypełnienie, jego ustawienie [ChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#getFormat) nadpisuje wypełnienie serii dla tego punktu.
 
-Poniższy przykład stosuje jednolite niebieskie wypełnienie do pierwszej serii:
+Poniższy przykład stosuje jednorodne niebieskie wypełnienie do pierwszej serii:
 
 ```javascript
 const aspose = {};
@@ -104,11 +104,11 @@ try {
 
 Wynik:
 
-![The color of the series](series_color.png)
+![Kolor serii](series_color.png)
 
 ## **Zmień nazwę serii**
 
-Nazwa serii jest przechowywana w skoroszycie danych wykresu i zazwyczaj wyświetlana w legendzie. W domyślnym skoroszycie tworzonym dla wykresu kolumnowego grupowanego, komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Nazwane stałe w poniższym przykładzie wyraźnie określają tę strukturę:
+Nazwa serii jest przechowywana w skoroszycie danych wykresu i zwykle wyświetlana w legendzie. W domyślnym skoroszycie tworzonym dla wykresu słupkowego grupowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Nazwane stałe w poniższym przykładzie wyraźnie przedstawiają tę strukturę:
 
 ```javascript
 const aspose = {};
@@ -135,7 +135,7 @@ try {
 }
 ```
 
-Można także zaktualizować komórkę już odwoływaną przez [ChartSeries.getName](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getName). To podejście eliminuje konieczność zakładania konkretnego wiersza i kolumny w istniejącym wykresie:
+Możesz także zaktualizować komórkę już odwoływaną przez [ChartSeries.getName](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getName). To podejście pozwala uniknąć zakładania konkretnego wiersza i kolumny w istniejącym wykresie:
 
 ```javascript
 const aspose = {};
@@ -163,11 +163,11 @@ try {
 
 Wynik:
 
-![The series name](series_name.png)
+![Nazwa serii](series_name.png)
 
 ## **Pobierz automatyczny kolor wypełnienia serii**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało wyraźnie określone. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało zdefiniowane explicite. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
 
 Poniższy przykład wypisuje automatyczny kolor każdej domyślnej serii:
 
@@ -207,9 +207,9 @@ Dokładne kolory zależą od stylu wykresu i motywu.
 
 ## **Ustaw odwrócony kolor wypełnienia dla serii wykresu**
 
-Dla serii słupkowych, kolumnowych i bąbelkowych, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwrócenie i przypisz kolor dla wartości ujemnych za pomocą [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Ujemne liczby pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
+Dla serii słupkowych, kolumnowych i bąbelkowych, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw zwykłe wypełnienie serii na jednorodne, włącz odwracanie i przypisz kolor wartości ujemnych za pomocą [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Liczby ujemne pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
 
-Poniższy przykład zastępuje domyślne dane wykresu jedną serią. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 zawiera nazwy kategorii, a kolumna 1 zawiera wartości:
+Poniższy przykład zamienia domyślne dane wykresu na jedną serię. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 zawiera nazwy kategorii, a kolumna 1 zawiera wartości:
 
 ```javascript
 const aspose = {};
@@ -269,9 +269,9 @@ try {
 
 Wynik:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Odwrócony jednorodny kolor wypełnienia](inverted_solid_fill_color.png)
 
-Można włączyć odwrócenie dla jednego punktu za pomocą [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). W poniższym przykładzie odwrócenie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punkt otrzymuje także wartość ujemną, aby efekt był widoczny:
+Możesz włączyć odwracanie dla jednego punktu za pomocą [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). W poniższym przykładzie odwracanie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punktowi przypisano również wartość ujemną, aby efekt był widoczny:
 
 ```javascript
 const aspose = {};
@@ -308,9 +308,9 @@ try {
 }
 ```
 
-## **Wyczyść konkretną wartość punktu danych**
+## **Wyczyść wartość konkretnego punktu danych**
 
-Aby uczynić jeden punkt pustym bez usuwania pozostałych punktów, ustaw powiązaną z nim komórkę skoroszytu na `null`. W wykresie kolumnowym wykreślana wartość jest dostępna za pośrednictwem [ChartDataPoint.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#getValue). Punkt danych pozostaje w tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
+Aby uczynić jeden punkt pustym bez usuwania pozostałych punktów, ustaw jego komórkę w skoroszycie na `null`. Dla wykresu słupkowego wyświetlana wartość jest dostępna za pośrednictwem [ChartDataPoint.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#getValue). Punkt danych pozostaje na tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami wartości pustych wykresu.
 
 Poniższy przykład czyści tylko drugi punkt w pierwszej serii:
 
@@ -338,13 +338,69 @@ try {
 }
 ```
 
-Wykresy punktowe używają oddzielnych komórek X i Y, a wykresy bąbelkowe także używają komórki rozmiaru. Wyczyść tylko komórkę reprezentującą wartość, którą chcesz usunąć. Nie wywołuj [ChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapointcollection/#clear), gdy chcesz zachować pozostałe punkty, ponieważ ta metoda usuwa każdy punkt danych z kolekcji.
+Wykresy punktowe używają osobnych komórek X i Y, a wykresy bąbelkowe dodatkowo używają komórki rozmiaru. Czyść tylko tę komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj [ChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapointcollection/#clear), gdy chcesz zachować pozostałe punkty, ponieważ ta metoda usuwa każdy punkt danych z kolekcji.
 
-## **Ustaw szerokość przerwy między seriami**
+## **Kontroluj wyświetlanie pustych komórek**
 
-Szerokość przerwy to przestrzeń między sąsiadującymi skupiskami słupków lub kolumn, wyrażona w procentach szerokości słupka lub kolumny. Podobnie jak nakładanie, należy do grupy nadrzędnej serii, a nie do jednej serii. Wywołaj [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) raz dla grupy. Większa wartość tworzy więcej przestrzeni między skupiskami; mniejsza wartość sprawia, że są gęstsze.
+Pusta komórka skoroszytu reprezentuje brakujące dane; komórka zawierająca `0` reprezentuje znaną wartość liczbową. Wywołaj [ChartDataCell.setValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setValue) z `null`, aby uczynić komórkę pustą. Zero liczbowe pozostaje zerem niezależnie od ustawienia pustej komórki.
 
-Poniższy przykład zmienia szerokość przerwy i zapisuje tylko ostateczną prezentację:
+Użyj [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs), aby wybrać, jak wykres wyświetla puste komórki. To ustawienie dotyczy całego wykresu. Zmienia sposób wykreślania pustych miejsc, nie wypełniając pustej komórki skoroszytu zerem ani wartością interpolowaną.
+
+Poniższy samodzielny przykład tworzy wykres liniowy z jedną serią, usuwa wartość dla Dnia 3 i zapisuje ten sam wykres w każdym trybie. Nie jest wymagany plik wejściowy. [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/) używa arkusza 0, kolumny 0 dla etykiet kategorii i kolumny 1 dla wartości; wiersz 0 zawiera nazwę serii. Końcowe dane to `10, 20, empty, 30, 40`.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 40, 40, 640, 400);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Measurements");
+    const series = chartData.getSeries().add(seriesNameCell, chart.getType());
+    const values = [10, 20, 25, 30, 40];
+
+    for (let i = 0; i < values.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, "Day " + (i + 1));
+        chartData.getCategories().add(categoryCell);
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // Pozostaw dzień 3 rzeczywiście pusty, zachowując jego kategorię i punkt danych.
+    workbook.getCell(0, 3, 1).setValue(null);
+
+    const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
+    const modeNames = ["Gap", "Zero", "Span"];
+    for (let i = 0; i < modes.length; i++) {
+        chart.setDisplayBlanksAs(modes[i]);
+        presentation.save("empty_cells_" + modeNames[i] + ".pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Każdy plik wyjściowy przechowuje tryb przypisany przed zapisem: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` i `empty_cells_Span.pptx`. Aby zapisać tylko jedną wersję, ustaw żądany tryb i zapisz prezentację raz, zamiast iterować po trybach.
+
+Poniższe porównanie pokazuje te same dane we wszystkich trzech plikach. Dzień 3 jest pusty w skoroszycie w każdym przypadku:
+
+![Wykresy liniowe z identycznymi danymi: Gap przerywa linię w Dniu 3, Zero obniża linię do zera, a Span łączy Dzień 2 z Dniem 4.](display_blanks_as.png)
+
+Widoczny efekt zależy od typu wykresu. Wykres liniowy umożliwia łatwe porównanie wszystkich trzech trybów. Wykresy słupkowe i kolumnowe nie mają linii do połączenia przez brakującą kategorię, więc `Span` nie może wygenerować łącznika pokazanego powyżej; brakująca kolumna i kolumna o wysokości zero mogą również wyglądać podobnie. Podobnie wykres punktowy z samymi znacznikami nie ma linii łączącej. Nie oczekuj trzech odrębnych wyników dla każdego typu wykresu; sprawdź wynik dla używanego typu.
+
+## **Ustaw szerokość przerwy serii**
+
+Szerokość przerwy to odległość między sąsiadującymi grupami słupków lub kolumn, wyrażona jako procent szerokości słupka lub kolumny. Podobnie jak overlap, należy ona do grupy serii nadrzędnej, a nie do jednej serii. Wywołaj [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) raz dla grupy. większa wartość tworzy większą przestrzeń między grupami; mniejsza wartość powoduje ich zagęszczenie.
+
+Poniższy przykład zmienia szerokość przerwy i zapisuje tylko finalną prezentację:
 
 ```javascript
 const aspose = {};
@@ -371,46 +427,46 @@ try {
 
 Wynik:
 
-![The gap width](gap_width.png)
+![Szerokość przerwy](gap_width.png)
 
 ## **FAQ**
 
-**Które typy wykresów obsługują serie danych?**
+**Jakie typy wykresów obsługują serie danych?**
 
-Wszystkie typy wykresów reprezentowane w wyliczeniu [ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/) korzystają z danych wykresu, ale ich serie nie mają takiej samej struktury wartości ani ustawień. Na przykład wykresy kategorialne używają kategorii i wartości, wykresy punktowe używają wartości X i Y, a wykresy bąbelkowe dodają rozmiary bąbelków. Należy używać metody tworzenia punktów danych zgodnej z typem serii. Opcje takie jak nakładanie i szerokość przerwy obowiązują tylko dla kompatybilnych grup słupków lub kolumn.
+Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/) korzystają z danych wykresu, ale ich serie nie mają takiej samej struktury wartości ani ustawień. Na przykład wykresy kategoriowe używają kategorii i wartości, wykresy punktowe używają wartości X i Y, a wykresy bąbelkowe dodają rozmiary bąbelków. Użyj metody tworzenia punktu danych odpowiadającej typowi serii. Opcje takie jak overlap i szerokość przerwy mają zastosowanie tylko do zgodnych grup słupków lub kolumn.
 
 **Czym jest grupa serii wykresu?**
 
-A [ChartSeriesGroup](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia wykreślania na poziomie grupy. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmieni wszystkie serie w wykresie.
+[ChartSeriesGroup](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/) zawiera zgodne serie, które współdzielą ustawienia wykreślania na poziomie grupy. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy dostępnej przez jedną serię niekoniecznie zmienia wszystkie serie w wykresie.
 
-**Czy nowo utworzony wykres zawiera dane domyślne?**
+**Czy nowo utworzony wykres zawiera domyślne dane?**
 
-Tak. Domyślnie [ShapeCollection.addChart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapecollection/#addChart) tworzy przykładowe serie, kategorie i wartości. Można edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może również utworzyć wykres bez danych domyślnych.
+Tak. Domyślnie [ShapeCollection.addChart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapecollection/#addChart) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może także utworzyć wykres bez domyślnych danych.
 
 **Jak obiekty wykresu są powiązane z komórkami skoroszytu?**
 
-Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/). Zmiana odwoływanej komórki aktualizuje odpowiadający element wykresu. Tworząc własne dane, utrzymuj wiersze kategorii i wiersze wartości serii wyrównane, aby każdy punkt był wykreślony pod właściwą kategorią.
+Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/). Zmiana odwołanej komórki aktualizuje odpowiadający element wykresu. Tworząc własne dane, utrzymuj wiersze kategorii i wiersze wartości serii wyrównane, aby każdy punkt był wykreślony pod zamierzoną kategorią.
 
 **Jak wyczyścić jeden punkt zamiast całej serii?**
 
-Aby zachować pozycję kategorii punktu jako pusty punkt, ustaw odpowiednią komórkę wartości na `null`. Używaj [ChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapointcollection/#clear) tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostały wyrównane z kolekcją kategorii.
+Ustaw odpowiednią komórkę wartości na `null`, aby zachować pozycję kategorii punktu jako pusty punkt. Używaj [ChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapointcollection/#clear) tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj każdą serię, aby ich wartości pozostały wyrównane z kolekcją kategorii.
 
 **Jak wyświetlane są puste punkty?**
 
-Rezultat zależy od typu wykresu i ustawienia wartości konfigurowanego przez [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartość zero lub poprzez połączenie sąsiednich punktów. Wybierz ustawienie odpowiadające znaczeniu brakujących danych w prezentacji.
+Wynik zależy od typu wykresu i wartości skonfigurowanej przez [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zero lub poprzez łączenie sąsiednich punktów. Wybierz ustawienie odpowiadające znaczeniu brakujących danych w twojej prezentacji. Zobacz [Kontroluj wyświetlanie pustych komórek](#control-the-display-of-empty-cells) po kompletny przykład i porównanie wizualne.
 
 **Jak formatowane są wartości ujemne?**
 
-Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) i ustaw kolor zwracany przez [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Możesz nadpisać zachowanie dla pojedynczego punktu za pomocą [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Metody te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
+Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) i ustaw kolor zwracany przez [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Możesz nadpisać zachowanie dla pojedynczego punktu za pomocą [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Te metody wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
 
 **Które formatowanie ma pierwszeństwo, gdy zarówno seria, jak i punkt są sformatowane?**
 
-Wyraźne formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal używają wyraźnego formatu serii lub, gdy format serii nie jest zdefiniowany, automatycznego stylu i motywu wykresu. Ustawienia grup, takie jak nakładanie i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania na poziomie punktu.
+Explicite formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal używają explicite formatu serii lub, gdy format serii nie jest określony, automatycznego stylu wykresu i motywu. Ustawienia grupowe, takie jak overlap i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania na poziomie punktu.
 
-**Czy istnieje limit liczby serii, które może zawierać wykres?**
+**Czy istnieje limit liczby serii, które wykres może zawierać?**
 
-Aspose.Slides nie narzuca oddzielnego stałego limitu liczby serii. W praktyce ograniczenia pliku prezentacji, dostępna pamięć, czas renderowania i czytelność wykresu wyznaczają użyteczny limit.
+Aspose.Slides nie narzuca osobnego stałego limitu liczby serii. W praktyce ograniczenia pliku prezentacji, dostępna pamięć, czas renderowania i czytelność wykresu określają praktyczny limit.
 
-**Co zmienić, gdy kolumny są zbyt blisko siebie lub zbyt daleko od siebie?**
+**Co zmienić, gdy kolumny są zbyt blisko siebie lub zbyt oddalone?**
 
-Wywołaj [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) na odpowiedniej grupie nadrzędnej serii. Zwiększ wartość, aby poszerzyć przestrzeń między grupami, lub zmniejsz ją, aby przybliżyć grupy do siebie.
+Wywołaj [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) na odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć odstęp między grupami, lub zmniejsz ją, aby przybliżyć grupy.

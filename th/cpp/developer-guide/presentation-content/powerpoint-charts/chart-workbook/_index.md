@@ -1,35 +1,37 @@
 ---
-title: จัดการสมุดงานแผนภูมิในพรีเซนเทชันโดยใช้ C++
-linktitle: สมุดงานแผนภูมิ
+title: จัดการเวิร์กบุ๊กแผนภูมิในการนำเสนอโดยใช้ C++
+linktitle: เวิร์กบุ๊กแผนภูมิ
 type: docs
 weight: 70
 url: /th/cpp/chart-workbook/
 keywords:
-- สมุดงานแผนภูมิ
+- เวิร์กบุ๊กแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์สมุดงาน
-- ป้ายกำกับข้อมูล
+- เซลล์เวิร์กบุ๊ก
+- ป้ายข้อมูล
 - แผ่นงาน
 - แหล่งข้อมูล
-- สมุดงานภายนอก
+- เวิร์กบุ๊กภายนอก
 - ข้อมูลภายนอก
-- แคชของแผนภูมิ
-- การกู้คืนสมุดงาน
+- แคชแผนภูมิ
+- การกู้คืนเวิร์กบุ๊ก
 - PowerPoint
-- พรีเซนเทชัน
+- การนำเสนอ
 - C++
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ C++: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อทำให้ข้อมูลพรีเซนเทชันของคุณเป็นระบบระเบียบ"
+description: "ค้นพบ Aspose.Slides สำหรับ C++: จัดการเวิร์กบุ๊กแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อทำให้ข้อมูลการนำเสนอของคุณเป็นระบบและมีประสิทธิภาพ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับสมุดงานแผนภูมิใน Aspose.Slides โดยแสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิโดยใช้สตรีมของสมุดงาน ใช้เซลล์ของสมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันของแผ่นงาน และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีการทำงานกับเวิร์กบุ๊กแผนภูมิใน Aspose.Slides แสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของเวิร์กบุ๊ก ใช้เซลล์ของเวิร์กบุ๊กเป็นป้ายข้อมูลของแผนภูมิ เข้าถึงคอลเลกชันเวิร์กชีต และระบุประเภทของแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-บทความนี้ยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีการสร้างและกำหนดสมุดงานภายนอก การดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ และการแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานพร้อมใช้งาน
+มันยังครอบคลุมการทำงานกับเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีการสร้างและกำหนดเวิร์กบุ๊กภายนอก ดึงเส้นทางของเวิร์กบุ๊กภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กบุ๊กพร้อมใช้งาน
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
+สำหรับเซลล์เวิร์กบุ๊กที่แสดงข้อมูลที่หายไป ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/cpp/chart-series/) เพื่อเปรียบเทียบความแตกต่างระหว่างเซลล์ว่างกับศูนย์ และเปรียบเทียบแบบแผนภูมิเส้นของโหมดการแสดงผลที่มีให้เลือก
 
-Aspose.Slides ให้บริการเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ช่วยให้คุณสามารถอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **Note** ว่าข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งข้อมูล
+## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กบุ๊ก**
+
+Aspose.Slides มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ช่วยให้คุณอ่านและเขียนเวิร์กบุ๊กข้อมูลแผนภูมิ (ซึ่งอาจถูกแก้ไขด้วย Aspose.Cells) **Note** ว่าข้อมูลแผนภูมิต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูลเดิม
 
 ``` cpp
 #include <DOM/Chart/Chart.h>
@@ -59,15 +61,15 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-### **ตรวจสอบโครงสร้างแผนภูมิหลังการแก้ไขสมุดงาน**
+### **ตรวจสอบการจัดรูปแบบแผนภูมิหลังจากการแก้ไขเวิร์กบุ๊ก**
 
-เมื่อคุณแทนที่สมุดงานที่ฝังอยู่ด้วยสมุดงานที่แก้ไขแล้ว แผนภูมิจะยังคงรักษาชุดข้อมูลและประเภทของหมวดหมู่เดิมไว้ ความไม่ตรงกันนี้อาจทำให้ [IChart::ValidateChartLayout](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด out-of-range ให้ล้างชุดข้อมูลและหมวดหมู่ที่มีอยู่ก่อนที่จะเขียนสมุดงานที่อัปเดตกลับไปยังแผนภูมิ
+เมื่อคุณแทนที่เวิร์กบุ๊กที่ฝังอยู่ด้วยเวิร์กบุ๊กที่แก้ไขแล้ว แผนภูมิจะคงชุดข้อมูลและคอลเลกชันประเภทเดิม ความไม่ตรงกันนี้อาจทำให้ [IChart::ValidateChartLayout](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาดดัชนีอยู่นอกช่วง ให้ลบชุดข้อมูลและประเภทที่มีอยู่ก่อนเขียนเวิร์กบุ๊กที่อัปเดตกลับไปที่แผนภูมิ
 
 ```cpp
-// หลังจากการแก้ไขสตรีมของสมุดงาน (เช่น การใช้ Aspose.Cells)
+// หลังจากแก้ไขสตรีมของเวิร์กบุ๊ก (เช่น ใช้ Aspose.Cells)
 auto updatedWorkbook = chartData->ReadWorkbookStream();
 
-// ล้างการอ้างอิงข้อมูลที่มีอยู่.
+// ลบการอ้างอิงข้อมูลที่มีอยู่.
 chartData->get_Series()->Clear();
 chartData->get_Categories()->Clear();
 
@@ -77,20 +79,20 @@ chartData->WriteWorkbookStream(updatedWorkbook);
 chart->ValidateChartLayout();
 ```
 
-การล้างคอลเลกชันช่วยให้โครงสร้างข้อมูลแผนภูมิตรงกันกับสมุดงานใหม่ ทำให้ `ValidateChartLayout` ทำงานสำเร็จโดยไม่มีข้อผิดพลาด
+การล้างคอลเลกชันทำให้โครงสร้างข้อมูลแผนภูมิเคลียร์สอดคล้องกับเวิร์กบุ๊กใหม่ ทำให้ `ValidateChartLayout` สำเร็จโดยไม่มีข้อผิดพลาด
 
-## **ตั้งค่าเซลล์สมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ**
+## **กำหนดเซลล์เวิร์กบุ๊กเป็นป้ายข้อมูลแผนภูมิ**
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) 
-1. รับอ้างอิงสไลด์ผ่านดัชนีของมัน
-1. เพิ่มแผนภูมิ Bubble พร้อมข้อมูลบางส่วน
-1. เข้าถึงซีรีส์ของแผนภูมิ
-1. ตั้งค่าเซลล์สมุดงานเป็นป้ายกำกับข้อมูล
-1. บันทึกพรีเซนเทชัน
+1. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน
+1. เพิ่มแผนภูมิบับเบิลพร้อมข้อมูลบางส่วน
+1. เข้าถึงชุดข้อมูลของแผนภูมิ
+1. ตั้งค่าเซลล์เวิร์กบุ๊กเป็นป้ายข้อมูล
+1. บันทึกการนำเสนอ
 
-โค้ด C++ ตัวอย่างต่อไปนี้แสดงวิธีตั้งค่าเซลล์สมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ:
+โค้ด C++ นี้แสดงวิธีการกำหนดเซลล์เวิร์กบุ๊กเป็นป้ายข้อมูลแผนภูมิ:
 
-```cpp
+``` cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
@@ -115,7 +117,7 @@ System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์พรีเซนเทชัน
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์การนำเสนอ
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -135,9 +137,9 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## **จัดการแผ่นงาน**
+## **จัดการเวิร์กชีต**
 
-โค้ด C++ ตัวอย่างต่อไปนี้สาธิตการดำเนินการที่ใช้เมธอด [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) เพื่อเข้าถึงคอลเลกชันของแผ่นงาน:
+โค้ด C++ นี้สาธิตการดำเนินการที่ใช้เมธอด [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) เพื่อเข้าถึงคอลเลกชันเวิร์กชีต:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -166,9 +168,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **ระบุประเภทแหล่งข้อมูล**
+## **ระบุประเภทของแหล่งข้อมูล**
 
-โค้ด C++ ตัวอย่างต่อไปนี้แสดงวิธีระบุประเภทสำหรับแหล่งข้อมูล:
+โค้ด C++ นี้แสดงวิธีการระบุประเภทสำหรับแหล่งข้อมูล:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -203,9 +205,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **ตรวจจับรูปแบบสมุดงานที่ฝังอยู่ซึ่งไม่รองรับ**
+## **ตรวจจับรูปแบบเวิร์กบุ๊กที่ฝังอยู่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `get_EmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/) พร้อมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิเหล่านั้น
+Aspose.Slides ไม่รองรับรูปแบบเวิร์กบุ๊ก Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `get_EmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/) ร่วมกับการนับค่า [WorkbookType](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/workbooktype/) เพื่อค้นหารูปแบบที่ไม่รองรับและข้ามแผนภูมิเช่านั้น
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -237,25 +239,23 @@ for (auto&& shape : System::IterateOver(slide->get_Shapes()))
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // สมุดงานที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
+        // เวิร์กบุ๊กที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
         continue;
     }
 
-    // อ่านหรือแก้ไขข้อมูลสมุดงานของแผนภูมิที่นี่.
+    // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กของแผนภูมิได้ที่นี่.
 }
 ```
 
-## **สมุดงานภายนอก**
+## **เวิร์กบุ๊กภายนอก**
 
-{{% alert color="info" %}} 
-ใน [Aspose.Slides](https://releases.aspose.com/slides/th/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) รุ่น 19.4 เราได้เพิ่มการสนับสนุนสมุดงานภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
-{{% /alert %}} 
+Aspose.Slides รองรับการใช้เวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
 
-### **สร้างสมุดงานภายนอก**
+### **สร้างเวิร์กบุ๊กภายนอก**
 
-โดยใช้เมธอด **`ReadWorkbookStream`** และ **`SetExternalWorkbook`** คุณสามารถสร้างสมุดงานภายนอกจากศูนย์หรือทำให้สมุดงานภายในกลายเป็นภายนอก
+โดยใช้เมธอด **`ReadWorkbookStream`** และ **`SetExternalWorkbook`** คุณสามารถสร้างเวิร์กบุ๊กภายนอกจากศูนย์หรือทำให้เวิร์กบุ๊กภายในกลายเป็นภายนอกได้
 
-โค้ด C++ ตัวอย่างต่อไปนี้สาธิตกระบวนการสร้างสมุดงานภายนอก:
+โค้ด C++ นี้สาธิตกระบวนการสร้างเวิร์กบุ๊กภายนอก:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -294,13 +294,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **กำหนดสมุดงานภายนอก**
+### **ตั้งค่าเวิร์กบุ๊กภายนอก**
 
-โดยใช้เมธอด **`IChartData::SetExternalWorkbook`** คุณสามารถกำหนดสมุดงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้อัปเดตเส้นทางไปยังสมุดงานภายนอก (หากไฟล์ดังกล่าวถูกย้าย)
+โดยใช้เมธอด **`IChartData::SetExternalWorkbook`** คุณสามารถกำหนดเวิร์กบุ๊กภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางไปยังเวิร์กบุ๊กภายนอก (หากไฟล์นั้นถูกย้าย)
 
-แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่เก็บอยู่ในตำแหน่งระยะไกลหรือทรัพยากรได้ แต่คุณยังสามารถใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางแบบสัมพันธ์สำหรับสมุดงานภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้ว่าจะไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊กที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรได้ คุณยังสามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากกำหนดเส้นทางแบบสัมพันธ์สำหรับเวิร์กบุ๊กภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-โค้ด C++ ตัวอย่างต่อไปนี้แสดงวิธีกำหนดสมุดงานภายนอก:
+โค้ด C++ นี้แสดงวิธีการตั้งค่าเวิร์กบุ๊กภายนอก:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -343,10 +343,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-พารามิเตอร์ `updateChartData` (ภายใต้เมธอด `SetExternalWorkbook`) ใช้ระบุว่าจะโหลดสมุดงาน Excel หรือไม่  
+พารามิเตอร์ `updateChartData` (ภายใต้เมธอด `SetExternalWorkbook`) ใช้เพื่อระบุว่าควรโหลดเวิร์กบุ๊ก Excel หรือไม่  
 
-* เมื่อค่าของ `updateChartData` ตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของสมุดงาน — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากสมุดงานเป้าหมาย คุณอาจใช้การตั้งค่านี้ในกรณีที่สมุดงานเป้าหมายไม่มีหรือไม่พร้อมใช้งาน  
-* เมื่อค่าของ `updateChartData` ตั้งเป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากสมุดงานเป้าหมาย
+* เมื่อค่าของ `updateChartData` ตั้งเป็น `false` เฉพาะเส้นทางของเวิร์กบุ๊กจะได้รับการอัปเดต — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กบุ๊กเป้าหมาย คุณอาจใช้การตั้งค่านี้เมื่อต้องเผชิญกับสถานการณ์ที่เวิร์กบุ๊กเป้าหมายไม่มีอยู่หรือไม่สามารถเข้าถึงได้  
+* เมื่อค่าของ `updateChartData` ตั้งเป็น `true` ข้อมูลแผนภูมิจะได้รับการอัปเดตจากเวิร์กบุ๊กเป้าหมาย
 
 ```c++
 #include <DOM/Chart/ChartData.h>
@@ -372,15 +372,15 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **ดึงเส้นทางของสมุดงานแหล่งข้อมูลภายนอกของแผนภูมิ**
+### **รับเส้นทางของเวิร์กบุ๊กแหล่งข้อมูลภายนอกจากแผนภูมิ**
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. สร้างอ็อบเจ็กต์สำหรับรูปร่างแผนภูมิ  
-1. สร้างอ็อบเจ็กต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แทนแหล่งข้อมูลของแผนภูมิ  
-1. ระบุเงื่อนไขที่เกี่ยวข้องโดยอิงจากประเภทแหล่งข้อมูลที่เป็นสมุดงานภายนอกเดียวกัน
+1. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. สร้างอ็อบเจกต์สำหรับรูปร่างแผนภูมิ  
+1. สร้างอ็อบเจกต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แทนแหล่งข้อมูลของแผนภูมิ  
+1. ระบุเงื่อนไขที่เกี่ยวข้องตามประเภทแหล่งข้อมูลที่ตรงกับประเภทแหล่งข้อมูลเวิร์กบุ๊กภายนอก
 
-โค้ด C++ ตัวอย่างต่อไปนี้สาธิตการดำเนินการ:
+โค้ด C++ นี้สาธิตการดำเนินการ:
 
 ```c++
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -405,15 +405,15 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// บันทึกพรีเซนเทชัน
+// Saves the presentation
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกได้เช่นเดียวกับการแก้ไขเนื้อหาของสมุดงานภายใน เมื่อตัวสมุดงานภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊กภายนอกได้เช่นเดียวกับการทำการเปลี่ยนแปลงในเวิร์กบุ๊กภายใน เมื่อเวิร์กบุ๊กภายนอกไม่สามารถโหลดได้ จะมีการโยนข้อยกเว้น
 
-โค้ด C++ ตัวอย่างต่อไปนี้เป็นการดำเนินการตามที่อธิบายไว้:
+โค้ด C++ นี้เป็นการนำเสนอขั้นตอนที่อธิบายไว้:
 
 ```c++
 #include <DOM/Chart/Chart.h>
@@ -449,11 +449,11 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **กู้คืนสมุดงานจากแคชของแผนภูมิ**
+### **กู้คืนเวิร์กบุ๊กจากแคชของแผนภูมิ**
 
-หากแผนภูมิกำลังใช้สมุดงานภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างสมุดงานแผนภูมิจากข้อมูลที่เก็บไว้ในแคชของพรีเซนเทชันได้ สร้างอ็อบเจ็กต์ [LoadOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/), ตั้งค่าโดยใช้เมธอด [set_SpreadsheetOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), แล้วเรียก [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) ด้วยค่า `true` ก่อนเปิดพรีเซนเทชัน
+หากแผนภูมิใช้เวิร์กบุ๊กภายนอกที่หายไปหรือไม่สามารถเข้าถึงได้ Aspose.Slides สามารถสร้างเวิร์กบุ๊กของแผนภูมิจากข้อมูลที่แคชไว้ในไฟล์การนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/) ตั้งค่าโดยใช้ [set_SpreadsheetOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) และเรียก [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) ให้เป็น `true` ก่อนเปิดการนำเสนอ
 
-ตัวอย่าง C++ ด้านล่างเปิดพรีเซนเทชันที่แผนภูมิเชื่อมโยงกับสมุดงานภายนอกที่ไม่พร้อมใช้งานและเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart::get_ChartData](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichart/get_chartdata/) และ [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+ตัวอย่าง C++ ด้านล่างเปิดการนำเสนอที่แผนภูมิมีการอ้างอิงเวิร์กบุ๊กภายนอกที่ไม่สามารถใช้ได้และเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart::get_ChartData](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichart/get_chartdata/) และ [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) :
 
 ```cpp
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
@@ -474,30 +474,25 @@ auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 presentation->Dispose();
 ```
 
-หากสมุดงานภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยน `System::InvalidOperationException` เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิจากแคชเป็นทางเลือกที่ยอมรับได้ เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในสมุดงานภายนอกหลังจากพรีเซนเทชันได้รับการอัปเดตล่าสุด
+หากเวิร์กบุ๊กภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยน `System::InvalidOperationException` เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิจากแคชเป็นแนวทางสำรองที่ยอมรับได้ เพราะแคชอาจไม่มีการเปลี่ยนแแปลงที่ทำกับเวิร์กบุ๊กภายนอกหลังจากการนำเสนอได้รับการอัปเดตครั้งล่าสุด
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถระบุได้หรือไม่ว่าแผนภูมิกำหนดลิงก์ไปยังสมุดงานภายนอกหรือสมุดงานที่ฝังอยู่?**
+**ฉันสามารถระบุได้หรือไม่ว่าแผนภูมิใดเชื่อมโยงกับเวิร์กบุ๊กภายนอกหรือเวิร์กบุ๊กที่ฝังอยู่?**  
+ใช่ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) หากแหล่งข้อมูลเป็นเวิร์กบุ๊กภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ามีการใช้ไฟล์ภายนอกหรือไม่  
 
-ได้ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) หากแหล่งข้อมูลเป็นสมุดงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ามีการใช้ไฟล์ภายนอก
+**รองรับเส้นทางสัมพันธ์ไปยังเวิร์กบุ๊กภายนอกหรือไม่ และมันถูกจัดเก็บอย่างไร?**  
+ใช่ หากคุณระบุเส้นทางสัมพันธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโครงการ อย่างไรก็ตาม การนำเสนอจะจัดเก็บเส้นทางเต็มในไฟล์ PPTX  
 
-**รองรับเส้นทางแบบสัมพันธ์สำหรับสมุดงานภายนอกหรือไม่ และเก็บไว้แบบใด?**
+**ฉันสามารถใช้เวิร์กบุ๊กที่อยู่บนเครือข่ายหรือแชร์ได้หรือไม่?**  
+ได้ เวิร์กบุ๊กเหล่านี้สามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขเวิร์กบุ๊กระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น  
 
-รองรับ หากคุณระบุเส้นทางแบบสัมพันธ์ ระบบจะเปลี่ยนเป็นเส้นทางแบบเต็มโดยอัตโนมัติ ซึ่งช่วยให้โครงการพกพาได้ง่ายขึ้น แต่โปรดทราบว่าพรีเซนเทชันจะเก็บเส้นทางแบบเต็มไว้ในไฟล์ PPTX
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**  
+ไม่ การนำเสนอจะเก็บ [link to the external file](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) และใช้ลิงก์นั้นในการอ่านข้อมูล ไฟล์ภายนอกเองจะไม่ถูกแก้ไขเมื่อบันทึกการนำเสนอ  
 
-**ฉันสามารถใช้สมุดงานที่อยู่บนทรัพยากรเครือข่ายหรือแชร์ไฟล์ได้หรือไม่?**
+**ถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน ควรทำอย่างไร?**  
+Aspose.Slides ไม่รับรหัสผ่านขณะเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่น ใช้ [Aspose.Cells](/cells/cpp/)) แล้วเชื่อมโยงไปยังสำเนานั้น  
 
-ได้ สามารถใช้สมุดงานเหล่านี้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+**หลายแผนภูมิสามารถอ้างอิงเวิร์กบุ๊กภายนอกเดียวกันได้หรือไม่?**  
+ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในทุกแผนภูมิในครั้งต่อไปที่โหลดข้อมูล  
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกพรีเซนเทชันหรือไม่?**
-
-ไม่ พรีเซนเทชันจะเก็บ [link to the external file](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกจะไม่ถูกแก้ไขเมื่อพรีเซนเทชันถูกบันทึก
-
-**ถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่านฉันควรทำอย่างไร?**
-
-Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการลิงก์ วิธีทั่วไปคือการลบการป้องกันล่วงหน้า หรือเตรียมสำเนาที่ถอดรหัส (เช่น โดยใช้ [Aspose.Cells](/cells/cpp/)) แล้วลิงก์ไปยังสำเนานั้น
-
-**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
-
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล

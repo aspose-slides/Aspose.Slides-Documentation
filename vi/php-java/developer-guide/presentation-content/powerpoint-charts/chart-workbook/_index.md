@@ -1,6 +1,6 @@
 ---
-title: Quản lý Sổ làm việc Biểu đồ trong Bản trình chiếu bằng PHP
-linktitle: Sổ làm việc Biểu đồ
+title: Quản lý sổ làm việc biểu đồ trong bài thuyết trình sử dụng PHP
+linktitle: Sổ làm việc biểu đồ
 type: docs
 weight: 70
 url: /vi/php-java/chart-workbook/
@@ -13,24 +13,26 @@ keywords:
 - nguồn dữ liệu
 - sổ làm việc bên ngoài
 - dữ liệu bên ngoài
-- bộ nhớ đệm biểu đồ
+- bộ nhớ cache biểu đồ
 - khôi phục sổ làm việc
 - PowerPoint
-- bản trình chiếu
+- bài thuyết trình
 - PHP
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho PHP thông qua Java: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho PHP thông qua Java: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bài thuyết trình của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua các luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập bảng tính, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô trong sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập bảng tính, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc khả dụng.
+Nó cũng bao gồm cách làm việc với sổ làm việc bên ngoài như là nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
 
-## **Đọc và Ghi Dữ liệu Biểu đồ từ Sổ Làm việc**
-Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#readWorkbookStream) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#writeWorkbookStream) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc có cấu trúc tương tự như nguồn.
+Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, xem [Kiểm soát hiển thị của các ô trống](/slides/vi/php-java/chart-series/) để hiểu sự khác nhau giữa ô trống và giá trị zero, và so sánh biểu đồ đường giữa các chế độ hiển thị khả dụng.
 
-Đoạn mã PHP sau đây trình bày một thao tác mẫu:
+## **Đọc và ghi dữ liệu biểu đồ từ một sổ làm việc**
+Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#readWorkbookStream) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#writeWorkbookStream) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
+
+Đoạn mã PHP sau đây minh họa một thao tác mẫu:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -48,9 +50,9 @@ Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://refer
   }
 ```
 
-### **Xác Thực Bố Cục Biểu Đồ Sau Khi Sửa Đổi Sổ Làm việc**
+### **Xác minh bố cục biểu đồ sau khi sửa đổi sổ làm việc**
 
-Khi bạn thay thế một sổ làm việc nhúng bằng một sổ đã được chỉnh sửa, biểu đồ vẫn giữ lại các bộ sưu tập chuỗi và danh mục gốc. Sự không khớp này có thể gây lỗi cho [Chart::validateChartLayout](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/validatechartlayout/) với lỗi chỉ mục ngoài phạm vi. Hãy xóa các chuỗi và danh mục hiện có trước khi ghi lại sổ làm việc đã cập nhật vào biểu đồ.
+Khi bạn thay thế một sổ làm việc nhúng bằng một sổ đã sửa đổi, biểu đồ vẫn giữ lại các bộ sưu tập series và category ban đầu. Sự không khớp này có thể khiến [Chart::validateChartLayout](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/validatechartlayout/) thất bại với lỗi chỉ mục ngoài phạm vi. Hãy xóa các series và categories hiện có trước khi ghi sổ làm việc đã cập nhật trở lại biểu đồ.
 
 ```php
 // Sau khi chỉnh sửa luồng sổ làm việc (ví dụ, sử dụng Aspose.Cells)
@@ -65,18 +67,18 @@ $chartData->writeWorkbookStream($updatedWorkbook);
 $chart->validateChartLayout();
 ```
 
-Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đồ nhất quán với sổ làm việc mới, cho phép `validateChartLayout` hoàn thành mà không gặp lỗi.
+Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đồ đồng nhất với sổ làm việc mới, cho phép `validateChartLayout` hoàn thành mà không có lỗi.
 
-## **Đặt Ô Sổ Làm việc làm Nhãn Dữ liệu Biểu đồ**
+## **Đặt một ô sổ làm việc làm nhãn dữ liệu biểu đồ**
 
-1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/php-java/aspose.slides/presentation).  
-1. Lấy tham chiếu slide thông qua chỉ mục của nó.  
-1. Thêm một biểu đồ Bubble với một số dữ liệu.  
-1. Truy cập chuỗi biểu đồ.  
-1. Đặt ô sổ làm việc làm nhãn dữ liệu.  
+1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/php-java/aspose.slides/presentation) .
+1. Lấy tham chiếu của một slide thông qua chỉ số của nó.
+1. Thêm một biểu đồ Bubble với một số dữ liệu.
+1. Truy cập series của biểu đồ.
+1. Đặt ô sổ làm việc làm nhãn dữ liệu.
 1. Lưu bản trình chiếu.
 
-Đoạn mã PHP sau đây cho bạn cách đặt ô sổ làm việc làm nhãn dữ liệu biểu đồ:
+Đoạn mã PHP sau cho bạn cách đặt một ô sổ làm việc làm nhãn dữ liệu biểu đồ:
 
 ```php
   $lbl0 = "Label 0 cell value";
@@ -102,7 +104,7 @@ Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đ�
   }
 ```
 
-## **Quản lý Bảng tính**
+## **Quản lý các bảng tính**
 
 Đoạn mã PHP này minh họa một thao tác trong đó phương thức [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/#getWorksheets) được sử dụng để truy cập bộ sưu tập bảng tính:
 
@@ -121,7 +123,7 @@ Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đ�
   }
 ```
 
-## **Chỉ định Loại Nguồn Dữ liệu**
+## **Chỉ định loại nguồn dữ liệu**
 
 Đoạn mã PHP này cho bạn cách chỉ định một loại cho nguồn dữ liệu:
 
@@ -142,9 +144,9 @@ Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đ�
   }
 ```
 
-## **Phát hiện Định dạng Sổ Làm việc Nhúng Không được Hỗ trợ**
+## **Phát hiện định dạng sổ làm việc nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sổ làm việc nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
+Aspose.Slides không hỗ trợ định dạng sổ làm việc nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/) kết hợp với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua những biểu đồ đó.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -168,22 +170,22 @@ try {
       continue;
     }
 
-    # Đọc hoặc chỉnh sửa dữ liệu sổ làm việc biểu đồ ở đây.
+    # Đọc hoặc chỉnh sửa dữ liệu sổ làm việc biểu đồ tại đây.
   }
 } finally {
   $presentation->dispose();
 }
 ```
 
-## **Sổ Làm việc Bên Ngoài**
+## **Sổ làm việc bên ngoài**
 
-Aspose.Slides hỗ trợ sổ làm việc bên ngoài làm nguồn dữ liệu cho các biểu đồ.
+Aspose.Slides hỗ trợ sổ làm việc bên ngoài như một nguồn dữ liệu cho biểu đồ.
 
-### **Tạo Sổ Làm việc Bên Ngoài**
+### **Tạo một sổ làm việc bên ngoài**
 
 Sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWorkbook`**, bạn có thể tạo một sổ làm việc bên ngoài từ đầu hoặc biến một sổ làm việc nội bộ thành bên ngoài.
 
-Đoạn mã PHP sau đây trình bày quy trình tạo sổ làm việc bên ngoài:
+Đoạn mã PHP sau minh họa quá trình tạo sổ làm việc bên ngoài:
 
 ```php
   $pres = new Presentation();
@@ -211,13 +213,13 @@ Sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWork
   }
 ```
 
-### **Đặt Sổ Làm việc Bên Ngoài**
+### **Gán một sổ làm việc bên ngoài**
 
-Sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một sổ làm việc bên ngoài cho một biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn đến sổ làm việc bên ngoài (nếu sổ đã được di chuyển).
+Sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một sổ làm việc bên ngoài cho biểu đồ như là nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc bên ngoài (nếu sổ này đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các sổ đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho sổ làm việc bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu tại các vị trí từ xa hoặc tài nguyên, bạn vẫn có thể dùng các sổ này làm nguồn dữ liệu bên ngoài. Nếu đường dẫn tương đối cho sổ làm việc bên ngoài được cung cấp, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
 
-Đoạn mã PHP sau đây cho bạn cách đặt một sổ làm việc bên ngoài:
+Đoạn mã PHP sau cho bạn cách gán một sổ làm việc bên ngoài:
 
 ```php
   # Tạo một thể hiện của lớp Presentation
@@ -241,10 +243,10 @@ Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm vi�
   }
 ```
 
-Tham số `ChartData` (được truyền vào phương thức `setExternalWorkbook`) được dùng để chỉ định xem sổ Excel có được tải hay không.
+Tham số `ChartData` (trong phương thức `setExternalWorkbook`) được dùng để chỉ định liệu một sổ Excel có được tải hay không.
 
-* Khi giá trị `ChartData` được đặt thành `false`, chỉ đường dẫn sổ làm việc được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ sổ đích. Bạn có thể dùng thiết lập này khi sổ đích không tồn tại hoặc không khả dụng.  
-* Khi giá trị `ChartData` được đặt thành `true`, dữ liệu biểu đồ sẽ được cập nhật từ sổ đích.
+* Khi giá trị `ChartData` được đặt là `false`, chỉ đường dẫn sổ làm việc được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ sổ làm việc đích. Bạn có thể dùng cài đặt này khi sổ làm việc đích không tồn tại hoặc không khả dụng. 
+* Khi giá trị `ChartData` được đặt là `true`, dữ liệu biểu đồ sẽ được cập nhật từ sổ làm việc đích.
 
 ```php
   # Tạo một thể hiện của lớp Presentation
@@ -261,15 +263,15 @@ Tham số `ChartData` (được truyền vào phương thức `setExternalWorkbo
   }
 ```
 
-### **Lấy Đường dẫn Nguồn Dữ liệu Bên Ngoài của Biểu đồ**
+### **Lấy đường dẫn sổ làm việc nguồn dữ liệu bên ngoài của một biểu đồ**
 
-1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/php-java/aspose.slides/presentation).  
-1. Lấy tham chiếu slide thông qua chỉ mục của nó.  
-1. Tạo một đối tượng cho hình dạng biểu đồ.  
-1. Tạo một đối tượng cho loại nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.  
-1. Xác định điều kiện liên quan dựa trên việc loại nguồn giống với loại nguồn dữ liệu sổ làm việc bên ngoài.
+1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/php-java/aspose.slides/presentation) .
+1. Lấy tham chiếu của một slide thông qua chỉ số của nó.
+1. Tạo một đối tượng cho hình dạng biểu đồ.
+1. Tạo một đối tượng cho loại nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
+1. Chỉ định điều kiện liên quan dựa trên việc loại nguồn giống với loại nguồn dữ liệu sổ làm việc bên ngoài.
 
-Đoạn mã PHP này minh họa thao tác:
+Đoạn mã PHP sau minh họa thao tác này:
 
 ```php
   # Tạo một thể hiện của lớp Presentation
@@ -290,11 +292,11 @@ Tham số `ChartData` (được truyền vào phương thức `setExternalWorkbo
   }
 ```
 
-### **Chỉnh sửa Dữ liệu Biểu đồ**
+### **Chỉnh sửa dữ liệu biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong sổ làm việc bên ngoài theo cách tương tự như khi thay đổi nội dung của sổ làm việc nội bộ. Khi một sổ làm việc bên ngoài không thể tải, một ngoại lệ sẽ được ném ra.
+Bạn có thể chỉnh sửa dữ liệu trong sổ làm việc bên ngoài tương tự như khi thay đổi nội dung của sổ làm việc nội bộ. Khi một sổ làm việc bên ngoài không thể tải, một ngoại lệ sẽ được ném.
 
-Đoạn mã PHP này thực hiện quy trình đã mô tả:
+Đoạn mã PHP này là một triển khai của quy trình đã mô tả:
 
 ```php
   # Tạo một thể hiện của lớp Presentation
@@ -311,11 +313,11 @@ Bạn có thể chỉnh sửa dữ liệu trong sổ làm việc bên ngoài the
   }
 ```
 
-### **Khôi phục Sổ Làm việc từ Bộ nhớ Đệm Biểu đồ**
+### **Khôi phục sổ làm việc từ bộ nhớ cache của biểu đồ**
 
-Nếu một biểu đồ sử dụng sổ làm việc bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ làm việc biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/), cấu hình nó với [SpreadsheetOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/spreadsheetoptions/), và gọi [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) với `true` trước khi mở bản trình chiếu.
+Nếu một biểu đồ sử dụng sổ làm việc bên ngoài mà thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ làm việc biểu đồ từ dữ liệu đã lưu trong bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/), cấu hình nó với [SpreadsheetOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/spreadsheetoptions/), và gọi [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) với `true` trước khi mở bản trình chiếu.
 
-Ví dụ PHP sau mở một bản trình chiếu mà biểu đồ tham chiếu đến sổ làm việc bên ngoài không khả dụng và truy cập dữ liệu đã khôi phục qua [Chart::getChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/#getChartData) và [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Ví dụ PHP sau mở một bản trình chiếu mà biểu đồ tham chiếu tới một sổ làm việc bên ngoài không khả dụng và truy cập dữ liệu đã khôi phục qua [Chart::getChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/#getChartData) và [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```php
 $spreadsheetOptions = new SpreadsheetOptions();
@@ -329,36 +331,36 @@ try {
     $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-    # Đọc hoặc chỉnh sửa dữ liệu sổ làm việc đã khôi phục ở đây.
+    # Đọc hoặc chỉnh sửa dữ liệu sổ làm việc đã khôi phục tại đây.
 } finally {
     $presentation->dispose();
 }
 ```
 
-Nếu sổ làm việc bên ngoài không khả dụng và chế độ khôi phục bị tắt, Aspose.Slides sẽ ném ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một lựa chọn chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã thực hiện trên sổ làm việc bên ngoài sau lần cập nhật cuối cùng của bản trình chiếu.
+Nếu sổ làm việc bên ngoài không khả dụng và khôi phục bị tắt, Aspose.Slides sẽ ném ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã lưu trong cache là một phương án dự phòng chấp nhận được, vì cache có thể không chứa các thay đổi được thực hiện trên sổ làm việc bên ngoài sau lần cập nhật cuối cùng của bản trình chiếu.
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định xem một biểu đồ cụ thể có liên kết đến sổ làm việc bên ngoài hay nhúng không?**
+**Tôi có thể xác định liệu một biểu đồ cụ thể có được liên kết với sổ làm việc bên ngoài hay nhúng không?**
 
 Có. Một biểu đồ có [loại nguồn dữ liệu](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getdatasourcetype/) và một [đường dẫn tới sổ làm việc bên ngoài](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là sổ làm việc bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
 **Các đường dẫn tương đối tới sổ làm việc bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này tiện lợi cho việc di động dự án; tuy nhiên, lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này thuận tiện cho tính di động của dự án; tuy nhiên, hãy lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
 
-**Tôi có thể dùng các sổ làm việc nằm trên các tài nguyên/mạng chia sẻ không?**
+**Tôi có thể sử dụng sổ làm việc nằm trên các tài nguyên/mạng chung không?**
 
-Có, các sổ làm việc đó có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các sổ làm việc từ xa trong Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, những sổ làm việc này có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các sổ làm việc từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình chiếu không?**
 
-Không. Bản trình chiếu lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/) và sử dụng nó để đọc dữ liệu. Tệp bên ngoài không bị thay đổi khi bản trình chiếu được lưu.
+Không. Bản trình chiếu lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/) và dùng nó để đọc dữ liệu. Tệp bên ngoài không bị thay đổi khi bản trình chiếu được lưu.
 
-**Nếu tệp bên ngoài được bảo vệ bằng mật khẩu thì tôi phải làm gì?**
+**Nếu file bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường được dùng là gỡ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng [Aspose.Cells](/cells/php-java/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Cách phổ biến là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/php-java/)) và liên kết tới bản sao đó.
 
 **Nhiều biểu đồ có thể tham chiếu cùng một sổ làm việc bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ khi dữ liệu được tải lại.
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu tất cả chúng đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.

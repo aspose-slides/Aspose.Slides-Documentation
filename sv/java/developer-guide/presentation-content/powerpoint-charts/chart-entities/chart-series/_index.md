@@ -5,7 +5,7 @@ type: docs
 url: /sv/java/chart-series/
 keywords:
 - diagramserie
-- serieröverlappning
+- serieöverlappning
 - seriefärg
 - serienamn
 - datapunkt
@@ -16,29 +16,29 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsboksceller, formatering, överlappning, mellanrum och negativa värden i presentationer med Java."
+description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsboks-celler, formatering, överlappning, mellanrum och negativa värden i presentationer med Java."
 ---
 ## **Översikt**
 
-Ett diagram lagrar sina plottade data i en diagramdataarbetsbok. En [IChartSeries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/) representerar en uppsättning relaterade värden, och varje [IChartDataPoint](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/) i serien refererar till en eller flera celler i arbetsboken. [IChartCategory](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartcategory/)‑objekt tillhandahåller etiketter eller grupperingvärden som delas av serierna. Serienamnet, kategorierna och punktvärdena är därför kopplade till [IChartDataCell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatacell/)‑objekt snarare än att lagras endast som visningstext.
+Ett diagram lagrar sina plottade data i en diagramdatabok. En [IChartSeries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/) representerar en uppsättning relaterade värden, och varje [IChartDataPoint](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/) i serien hänvisar till en eller flera celler i arbetsboken. [IChartCategory](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartcategory/)‑objekt tillhandahåller etiketter eller grupperingvärden som delas av serierna. Serienamnet, kategorierna och punktvärdena är därför kopplade till [IChartDataCell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatacell/)‑objekt snarare än att bara lagras som visningstext.
 
-För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn och de resterande cellerna för serievärden. Arbetsblad, rad‑ och kolumnindex som skickas till [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera cellerna som refereras av serierna, kategorierna och datapunkterna innan du ändrar arbetsboksvärden.
+För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn och de återstående cellerna för serievärden. Arbetsblad, rad‑ och kolumnindex som skickas till [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera cellerna som refereras av serier, kategorier och datapunkter innan du ändrar arbetsbokens värden.
 
 Diagraminställningar har tre olika omfattningar:
 
-- Inställningar på serienivå, såsom [IChartSeries.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getFormat--), ger standardutseendet för alla punkter i en serie.
-- Inställningar för datapunkter, såsom [IChartDataPoint.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#getFormat--), åsidosätter serieutseendet för en enskild punkt.
-- Gruppinställningar gäller kompatibla serier som tillhör samma [IChartSeriesGroup](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/). Åtkomst till gruppen sker via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) när du behöver ange alternativ som överlappning eller mellanrum.
+- Inställningar på serie‑nivå, såsom [IChartSeries.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getFormat--), förser standardutseendet för alla punkter i en serie.
+- Inställningar på datapunkt‑nivå, såsom [IChartDataPoint.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#getFormat--), åsidosätter serieutseendet för en punkt.
+- Gruppinställningar gäller kompatibla serier som tillhör samma [IChartSeriesGroup](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/). Läs åt gruppen via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) när du behöver ange alternativ som överlappning eller mellanrum.
 
-När ingen explicit punkt‑ eller serie‑fyllning är angiven bestämmer diagramstilen och temat det automatiska utseendet. När både serie‑ och punktformatering finns, har punktformateringen företräde för den punkten.
+När ingen explicit fyllning för punkt eller serie har angetts bestämmer diagramstilen och temat det automatiska utseendet. När både serie‑ och punktformatering finns, har punktformateringen företräde för den punkten.
 
-![diagram-serier-powerpoint](chart-series-powerpoint.png)
+![diagram-serie-powerpoint](chart-series-powerpoint.png)
 
 ## **Ställ in överlappning för diagramserier**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getOverlap--) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D‑diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade serieggruppen. Använd [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) för att uppdatera varje kompatibel serie i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade serieggrupper i ett kombinationsdiagram.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getOverlap--) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D‑diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade serie‑gruppen. Använd [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) för att uppdatera varje kompatibel serie i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade seriegupper i ett kombinationsdiagram.
 
-Följande exempel sätter överlappning för den grupp som innehåller den första serien:
+Följande exempel ställer in överlappning för gruppen som innehåller den första serien:
 
 ```java
 import com.aspose.slides.*;
@@ -65,11 +65,11 @@ try {
 
 Resultatet:
 
-![Seriernas överlappning](series_overlap.png)
+![Serie‑överlappning](series_overlap.png)
 
-## **Ändra seriens fyllningsfärg**
+## **Ändra fyllningsfärg för serien**
 
-Använd [IChartSeries.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getFormat--) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning, åsidosätter dess [IChartDataPoint.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#getFormat--) inställning serie‑fyllningen för den punkten.
+Använd [IChartSeries.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getFormat--) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning åsidosätter dess [IChartDataPoint.getFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#getFormat--) inställning serie‑fyllningen för den punkten.
 
 Följande exempel applicerar en solid blå fyllning på den första serien:
 
@@ -98,11 +98,11 @@ try {
 
 Resultatet:
 
-![Seriens färg](series_color.png)
+![Seriefärg](series_color.png)
 
 ## **Ändra seriens namn**
 
-Ett serienamn lagras i diagramdataarbetsboken och visas normalt i förklaringen. I standardarbetsboken som skapas för ett grupperat kolumndiagram är cell B1 på rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen explicit:
+Ett serienamn lagras i diagramdataboken och visas normalt i förklaringen. I standardarbetsboken som skapas för ett grupperat kolumndiagram, är cell B1 på rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen explicit:
 
 ```java
 import com.aspose.slides.*;
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-Du kan också uppdatera cellen som redan refereras av [IChartSeries.getName](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getName--). Detta tillvägagångssätt undviker antagandet om en specifik rad och kolumn i ett befintligt diagram:
+Du kan också uppdatera den cell som redan refereras av [IChartSeries.getName](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getName--). Detta tillvägagångssätt undviker att anta en viss rad och kolumn i ett befintligt diagram:
 
 ```java
 import com.aspose.slides.*;
@@ -155,11 +155,11 @@ try {
 
 Resultatet:
 
-![Seriens namn](series_name.png)
+![Serienamn](series_name.png)
 
-## **Hämta den automatiska fyllningsfärgen för en serie**
+## **Hämta den automatiska fyllningsfärgen för serien**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) returnerar färgen som beräknas utifrån serie‑indexet och diagramstilen. Detta är färgen som används när serie‑fyllningen inte har definierats explicit. Metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) returnerar färgen som beräknas utifrån serieindex och diagramstil. Detta är färgen som används när serie‑fyllningen inte har definierats explicit. Att anropa metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
 
 Följande exempel skriver ut den automatiska färgen för varje standardserie:
 
@@ -194,11 +194,11 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-De exakt färgerna beror på diagramstil och tema.
+De exakta färgerna beror på diagramstil och tema.
 
 ## **Ställ in inverterad fyllningsfärg för en diagramserie**
 
-För stapel‑, kolumn‑ och bubbelsekvenser kan [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) visa negativa värden med en annan fyllning. Sätt den vanliga serie‑fyllningen till solid, aktivera inversion och tilldela den negativa färgen via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negativa tal förblir oförändrade i arbetsboken; endast deras displayfärg ändras.
+För stapel‑, kolumn‑ och bubbeldiagram kan [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) visa negativa värden med en annan fyllning. Ställ in den vanliga serie‑fyllningen till solid, aktivera invertering och ange den negativa färgen via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negativa tal förblir oförändrade i arbetsboken; endast deras visningsfärg ändras.
 
 Följande exempel ersätter standarddiagramdata med en serie. Arbetsbladets rad 0 innehåller serienamnet, kolumn 0 innehåller kategorinamnen och kolumn 1 innehåller värdena:
 
@@ -259,7 +259,7 @@ Resultatet:
 
 ![Inverterad solid fyllningsfärg](inverted_solid_fill_color.png)
 
-Du kan aktivera inversion för en enskild punkt via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). I följande exempel är inversion inaktiverad för serien och bara aktiverad för den valda punkten. Punkten tilldelas också ett negativt värde så att effekten blir synlig:
+Du kan aktivera invertering för en punkt via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). I följande exempel är invertering inaktiverad för serien och endast aktiverad för den markerade punkten. Punkten tilldelas också ett negativt värde så att effekten blir synlig:
 
 ```java
 import com.aspose.slides.*;
@@ -293,9 +293,9 @@ try {
 }
 ```
 
-## **Rensa ett specifikt datapunktvärde**
+## **Rensa ett specifikt datapunkt‑värde**
 
-För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande arbetsboks‑cell till `null`. För ett kolumndiagram är det plottade värdet tillgängligt via [IChartDataPoint.getValue](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#getValue--). Datapunkten behåller samma kategoriposition, men diagrammet behandlar dess värde som tomt enligt diagrammets inställning för tomma värden.
+För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande arbetsbokscell till `null`. För ett kolumndiagram är det plottade värdet tillgängligt via [IChartDataPoint.getValue](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#getValue--). Datapunkten förblir på samma kategoriposition, men diagrammet behandlar dess värde som tomt enligt diagrammets inställning för tomma värden.
 
 Följande exempel rensar endast den andra punkten i den första serien:
 
@@ -322,13 +322,68 @@ try {
 }
 ```
 
-Spridningsdiagram använder separata X‑ och Y‑celler, och bubbeldiagram använder även en storlekscell. Rensa endast den cell som representerar värdet du avser att ta bort. Anropa inte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapointcollection/#clear--) när du vill behålla de andra punkterna, eftersom den metoden tar bort varje datapunkt i samlingen.
+Spridningsdiagram använder separata X‑ och Y‑celler, och bubbeldiagram använder även en storlekscell. Rensa endast den cell som representerar det värde du avser att ta bort. Anropa inte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapointcollection/#clear--) när du vill behålla de andra punkterna, eftersom den metoden tar bort varje datapunkt i samlingen.
 
-## **Ställ in serie­mellanrumets bredd**
+## **Styr hur tomma celler visas**
 
-Mellanrumets bredd är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt som procent av stapel‑ eller kolumnbredden. Liksom överlappning tillhör den den överordnade serieggruppen snarare än en enskild serie. Anropa [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) en gång för gruppen. Ett större värde skapar mer utrymme mellan klustren; ett mindre värde gör dem tätare.
+En tom arbetsbokscell representerar saknade data; en cell som innehåller `0` representerar ett känt numeriskt värde. Anropa [IChartDataCell.setValue](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) med `null` för att göra en cell tom. En numerisk nolla förblir noll oavsett inställning för tom cell.
 
-Följande exempel ändrar mellanrumets bredd och sparar endast den slutgiltiga presentationen:
+Använd [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) för att välja hur diagrammet visar tomma celler. Denna inställning gäller hela diagrammet. Den ändrar hur luckor plottas, utan att fylla den tomma arbetsbokscellen med noll eller ett interpolerat värde.
+
+Följande självständiga exempel skapar ett linjediagram med en serie, rensar värdet för Dag 3 och sparar samma diagram med varje läge. Ingen indatafil behövs. [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/) använder arbetsblad 0, kolumn 0 för kategorietiketter och kolumn 1 för värden; rad 0 innehåller serienamnet. Slutdata är `10, 20, empty, 30, 40`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 40, 40, 640, 400);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Measurements");
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chart.getType());
+    int[] values = { 10, 20, 25, 30, 40 };
+
+    for (int i = 0; i < values.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Day " + (i + 1));
+        chartData.getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // Lämna dag 3 verkligen tom, samtidigt som du behåller dess kategori och datapunkt.
+    workbook.getCell(0, 3, 1).setValue(null);
+
+    int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
+    String[] modeNames = { "Gap", "Zero", "Span" };
+    for (int i = 0; i < modes.length; i++) {
+        chart.setDisplayBlanksAs(modes[i]);
+        presentation.save("empty_cells_" + modeNames[i] + ".pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Varje utdatafil lagrar det läge som tilldelats innan sparning: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` och `empty_cells_Span.pptx`. För att spara bara en version, tilldela önskat läge och spara presentationen en gång istället för att iterera över lägena.
+
+Jämförelsen nedan visar samma data i alla tre filer. Dag 3 är tom i arbetsboken i varje fall:
+
+![Linjediagram med identiska data: Gap bryter linjen vid Dag 3, Zero sänker linjen till noll, och Span kopplar Dag 2 till Dag 4.](display_blanks_as.png)
+
+Den synliga effekten beror på diagramtyp. Ett linjediagram gör alla tre lägen lätta att jämföra. Stapel‑ och kolumndiagram har ingen linje att koppla över en saknad kategori, så `Span` kan inte producera den anslutande sektionen som visas ovan; en saknad kolumn och en noll‑höjd kolumn kan också se lika ut. På samma sätt har ett spridningsdiagram med endast markörer ingen anslutande linje. Förvänta dig inte tre distinkta resultat för alla diagramtyper; kontrollera utdata för den typ du använder.
+
+## **Ställ in serie‑bredd för mellanrum**
+
+Mellanrum är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt i procent av stapel‑ eller kolumnbredden. Likt överlappning tillhör det den överordnade serie‑gruppen snarare än en enskild serie. Anropa [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) en gång för gruppen. Ett större värde skapar mer utrymme mellan klusterna; ett mindre värde gör dem tätare.
+
+Följande exempel ändrar mellanrum och sparar endast den slutgiltiga presentationen:
 
 ```java
 import com.aspose.slides.*;
@@ -354,46 +409,46 @@ try {
 
 Resultatet:
 
-![Mellanrumets bredd](gap_width.png)
+![Mellanrum](gap_width.png)
 
 ## **FAQ**
 
-**Vilka diagramtyper stödjer dataserier?**
+**Vilka diagramtyper stöder dataserier?**
 
-Alla diagramtyper som representeras av uppräkningen [ChartType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/) använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, spridningsdiagram använder X‑ och Y‑värden, och bubbeldiagram lägger till bubbelformer. Använd den datapunkt‑skapandemetod som matchar serietypen. Alternativ som överlappning och mellanrum gäller endast kompatibla stapel‑ eller kolumngrupper.
+Alla diagramtyper som representeras av [ChartType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/charttype/)-enumerationen använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, spridningsdiagram använder X‑ och Y‑värden, och bubbeldiagram lägger till bubbelformat. Använd den datapunkt‑skapande metoden som matchar serietypen. Alternativ som överlappning och mellanrum gäller endast kompatibla stapel‑ eller kolumngrupper.
 
-**Vad är en diagramserieggrupp?**
+**Vad är en diagramseriegoup?**
 
-En [IChartSeriesGroup](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/) innehåller kompatibla serier som delar gruppnivå‑plotinställningar. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändra gruppen som nås via en serie inte nödvändigtvis ändrar varje serie i diagrammet.
+En [IChartSeriesGroup](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/) innehåller kompatibla serier som delar grupp‑nivå plot‑inställningar. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändra gruppen som nås via en serie förändrar inte nödvändigtvis alla serier i diagrammet.
 
-**Innehåller ett nyskapat diagram standarddata?**
+**Innehåller ett nyss skapat diagram standarddata?**
 
-Ja. Som standard skapar [IShapeCollection.addChart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) exempelserier, kategorier och värden. Du kan redigera dessa celler eller rensa både serie‑ och kategorisamlingarna innan du lägger till en helt egen datasats. En överlagring kan också skapa ett diagram utan standarddata.
+Ja. Som standard skapar [IShapeCollection.addChart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) exempelserier, kategorier och värden. Du kan redigera dessa celler eller rensa både serie‑ och kategorisamlingarna innan du lägger till en helt anpassad datasats. En overload kan också skapa ett diagram utan standarddata.
 
 **Hur är diagramobjekt kopplade till arbetsboks­celler?**
 
-Serienamn, kategorietiketter och datapunktvärden refererar celler i en [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagramdel. När du bygger anpassade data, håll kategorirader och serie‑värderader i linje så att varje punkt plottas under den avsedda kategorin.
+Serienamn, kategorietiketter och datapunkt‑värden refererar till celler i ett [IChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagramdetalj. När du bygger anpassade data, håll kategorirader och serie‑värderader i linje så att varje punkt plottas under rätt kategori.
 
-**Hur rensar jag en punkt istället för hela serien?**
+**Hur rensar jag en punkt utan att ta bort hela serien?**
 
-Sätt den relevanta värdecellen till `null` för att behålla punktens kategori­position som en tom punkt. Använd [IChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapointcollection/#clear--) endast när du avser att ta bort alla punkter från den serien. Om du också tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategorisamlingen.
+Sätt den relevanta värdecellen till `null` för att behålla punktens kategoriposition som en tom punkt. Använd [IChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapointcollection/#clear--) endast när du avser att ta bort alla punkter från den serien. Om du även tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategorisamlingen.
 
 **Hur visas tomma punkter?**
 
-Resultatet beror på diagramtypen och värdet som konfigurerats via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Stödda diagram kan visa tomrum som luckor, som nollvärden eller genom att koppla ihop intilliggande punkter. Välj den inställning som motsvarar innebörden av saknade data i din presentation.
+Resultatet beror på diagramtyp och värdet som konfigurerats via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Stödda diagram kan visa luckor som mellanrum, som nollvärden eller genom att ansluta närliggande punkter. Välj den inställning som matchar betydelsen av saknad data i din presentation. Se [Styr hur tomma celler visas](#control-the-display-of-empty-cells) för ett komplett exempel och visuell jämförelse.
 
 **Hur formateras negativa värden?**
 
-För stödda stapel‑, kolumn‑ och bubbelsekvenser, anropa [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) och ange färgen som returneras av [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Du kan åsidosätta beteendet för en enskild punkt med [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Dessa metoder påverkar formatering, inte de lagrade numeriska värdena.
+För stödda stapel‑, kolumn‑ och bubbeldiagram, anropa [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) och sätt färgen som returneras av [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Du kan åsidosätta beteendet för en individuell punkt med [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Dessa metoder påverkar formatering, inte de lagrade numeriska värdena.
 
-**Vilken formatering har företräde när både en serie och en punkt är formaterade?**
+**Vilken formatering vinner när både en serie och en punkt är formaterade?**
 
-Explicit datapunkt‑formatering har företräde för den punkten. Övriga punkter fortsätter att använda den explicita serie‑formatet eller, när serie‑formatet inte är definierat, det automatiska diagramstilen och temat. Gruppinställningar såsom överlappning och mellanrum styr layout och är inte punkt‑nivå‑formateringsöverskrivningar.
+Explicit datapunkt‑formatering har företräde för den punkten. Övriga punkter fortsätter att använda den explicit angivna serie‑formaten eller, när serie‑formatet inte är definierat, den automatiska diagramstilen och temat. Gruppinställningar såsom överlappning och mellanrum styr layout och är inte punkt‑nivå formateringsöverskrivningar.
 
-**Finns det någon gräns för hur många serier ett diagram kan innehålla?**
+**Finns det en gräns för hur många serier ett diagram kan innehålla?**
 
-Aspose.Slides har ingen separat fast gräns för antalet serier. I praktiken bestäms en meningsfull gräns av presentationsfilens begränsningar, tillgängligt minne, renderingtid och diagrammets läsbarhet.
+Aspose.Slides har ingen separat fast gräns för antal serier. I praktiken bestämmer presentationsfilens begränsningar, tillgängligt minne, renderingstid och diagram­läslighet en användbar gräns.
 
-**Vad bör jag ändra när kolumner är för nära varandra eller för långt ifrån?**
+**Vad bör jag ändra när kolumner är för nära varandra eller för långt ifrån varandra?**
 
-Anropa [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) på den aktuella föräldraserieggruppen. Öka värdet för att bredda utrymmet mellan klustren, eller minska det för att föra klustren närmare varandra.
+Anropa [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) på den aktuella föräldra‑serieggruppen. Öka värdet för att bredda avståndet mellan kluster, eller minska det för att föra klustren närmare varandra.

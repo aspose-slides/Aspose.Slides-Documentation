@@ -1,43 +1,43 @@
 ---
-title: Diagrammdatenreihen in Präsentationen mit JavaScript verwalten
-linktitle: Datenreihen
+title: Diagrammdatenserien in Präsentationen mit JavaScript verwalten
+linktitle: Datenserien
 type: docs
 url: /de/nodejs-java/chart-series/
 keywords:
-- Diagrammreihe
-- Reihenüberlappung
-- Reihenfarbe
-- Reihenname
+- Diagrammserie
+- Serienüberlappung
+- Serienfarbe
+- Serienname
 - Datenpunkt
 - Arbeitsmappenzelle
-- Reihenlücke
-- Negativer Wert
+- Serienabstand
+- negativer Wert
 - PowerPoint
 - Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammreihen, Datenpunkte, Arbeitsmappenzellen, Formatierung, Überlappung, Lückenbreite und negative Werte in Präsentationen mit JavaScript verwalten."
+description: "Erfahren Sie, wie Sie Diagrammserien, Datenpunkte, Arbeitsmappendatei‑Zellen, Formatierungen, Überlappungen, Abstandsb reite und negative Werte in Präsentationen mit JavaScript verwalten."
 ---
 ## **Übersicht**
 
-Ein Diagramm speichert seine geplotteten Daten in einer Diagrammdaten‑Arbeitsmappe. Eine [ChartSeries](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/) repräsentiert einen Satz zusammengehöriger Werte, und jeder [ChartDataPoint](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/) in der Serie verweist auf eine oder mehrere Arbeitsmappendaten‑zellen. [ChartCategory](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartcategory/)‑Objekte stellen die Beschriftungen oder Gruppierungswerte bereit, die von den Serien gemeinsam genutzt werden. Der Serienname, die Kategorien und die Punktwerte sind daher mit [ChartDataCell](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatacell/)‑Objekten verknüpft und nicht nur als Anzeigetext gespeichert.
+Ein Diagramm speichert seine geplotteten Daten in einer Diagrammdaten‑Arbeitsmappe. Eine [ChartSeries](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/) repräsentiert einen Satz zusammengehöriger Werte, und jeder [ChartDataPoint](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/) in der Serie bezieht sich auf eine oder mehrere Arbeitsmappenzellen. [ChartCategory](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartcategory/)-Objekte liefern die Beschriftungen oder Gruppierungswerte, die von den Serien gemeinsam genutzt werden. Der Serienname, die Kategorien und die Punktwerte sind daher mit [ChartDataCell](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatacell/)-Objekten verbunden, anstatt nur als Anzeigetext gespeichert zu werden.
 
-Bei einem typischen Kategorien‑Diagramm verwendet die Standard‑Arbeitsmappe Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/#getCell) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, aber gehen Sie nicht davon aus, dass jedes vorhandene Diagramm es verwendet. Bei einer geladenen Präsentation prüfen Sie die von den Serien, Kategorien und Datenpunkten referenzierten Zellen, bevor Sie Arbeitsmappenwerte ändern.
+Für ein typisches Kategoriendiagramm verwendet die Standard‑Arbeitsmappe Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/#getCell) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, jedoch sollten Sie nicht davon ausgehen, dass jedes vorhandene Diagramm es verwendet. Bei einer geladenen Präsentation sollten Sie die von den Serien, Kategorien und Datenpunkten referenzierten Zellen prüfen, bevor Sie Arbeitsmappenwerte ändern.
 
 Diagrammeinstellungen haben drei verschiedene Geltungsbereiche:
 
-- Einstellungen auf Serienebene, wie [ChartSeries.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getFormat), geben das Standard‑Aussehen für alle Punkte einer Serie vor.
-- Einstellungen für Datenpunkte, wie [ChartDataPoint.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getFormat), überschreiben das Serien‑Aussehen für einen einzelnen Punkt.
-- Gruppeneinstellungen gelten für kompatible Serien, die derselben [ChartSeriesGroup](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/) angehören. Greifen Sie über [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) auf die Gruppe zu, wenn Sie Optionen wie Überlappung oder Lückenbreite festlegen müssen.
+- Einstellungen auf Serienebene, wie [ChartSeries.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getFormat), stellen das Standardaussehen für alle Punkte einer Serie bereit.
+- Einstellungen auf Datenpunktebene, wie [ChartDataPoint.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getFormat), überschreiben das Serienaussehen für einen einzelnen Punkt.
+- Gruppeneinstellungen gelten für kompatible Serien, die zur gleichen [ChartSeriesGroup](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/) gehören. Greifen Sie über [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) auf die Gruppe zu, wenn Sie Optionen wie Überlappung oder Abstandsb Breite festlegen müssen.
 
-Wenn kein expliziter Punkt‑ oder Serien‑Füllstil gesetzt ist, bestimmen Diagramm‑Stil und -Design das automatische Aussehen. Wenn sowohl Serien‑ als auch Punkt‑Formatierung vorhanden sind, hat die Punkt‑Formatierung für diesen Punkt Vorrang.
+Wenn kein explizites Punkt‑ oder Serien‑Füllformat gesetzt ist, bestimmen der Diagrammstil und das Thema das automatische Aussehen. Wenn sowohl Serien‑ als auch Punktformatierung vorhanden sind, hat die Punktformatierung für diesen Punkt Vorrang.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![Diagramm-Serie-PowerPoint](chart-series-powerpoint.png)
 
-## **Überlappung der Diagramm‑Serie festlegen**
+## **Diagramm‑Serien‑Überlappung festlegen**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getOverlap) gibt an, wie stark Balken oder Säulen in einem 2D‑Diagramm überlappen, von –100 bis 100 Prozent. Es ist eine schreibgeschützte Projektion der Einstellung in der übergeordneten Serien‑Gruppe. Verwenden Sie [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap), um jede kompatible Serie in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Säulen darstellen; sie beeinflusst nicht unrelated Serien‑Gruppen in einem Kombinationsdiagramm.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getOverlap) gibt an, wie stark Balken oder Säulen in einem 2D‑Diagramm überlappen, von -100 bis 100 Prozent. Es ist eine schreibgeschützte Projektion der Einstellung der übergeordneten Seriengruppe. Verwenden Sie [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap), um jede kompatible Serie in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Säulen anzeigen; sie wirkt sich nicht auf nicht verwandte Seriengruppen in einem Kombinationsdiagramm aus.
 
 Das folgende Beispiel setzt die Überlappung für die Gruppe, die die erste Serie enthält:
 
@@ -68,13 +68,13 @@ try {
 
 Das Ergebnis:
 
-![The series overlap](series_overlap.png)
+![Die Serienüberlappung](series_overlap.png)
 
-## **Füllfarbe der Serie ändern**
+## **Serienfüllfarbe ändern**
 
-Verwenden Sie [ChartSeries.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getFormat), um die Standard‑Füllung für eine gesamte Serie festzulegen. Hat ein Punkt bereits eine explizite Füllung, überschreibt dessen [ChartDataPoint.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getFormat) die Serien‑Füllung für diesen Punkt.
+Verwenden Sie [ChartSeries.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getFormat), um die Standardfüllung für eine gesamte Serie festzulegen. Wenn ein Punkt bereits eine explizite Füllung hat, überschreibt dessen [ChartDataPoint.getFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getFormat)-Einstellung die Serienfüllung für diesen Punkt.
 
-Das folgende Beispiel wendet eine durchgehend blaue Füllung auf die erste Serie an:
+Das folgende Beispiel wendet eine einfarbige blaue Füllung auf die erste Serie an:
 
 ```javascript
 const aspose = {};
@@ -104,11 +104,11 @@ try {
 
 Das Ergebnis:
 
-![The color of the series](series_color.png)
+![Die Farbe der Serie](series_color.png)
 
 ## **Seriennamen ändern**
 
-Ein Serienname wird in der Diagrammdaten‑Arbeitsmappe gespeichert und normalerweise in der Legende angezeigt. In der Standard‑Arbeitsmappe, die für ein gruppiertes Säulendiagramm erstellt wird, befindet sich Zelle B1 in Zeile 0, Spalte 1 und enthält den Namen der ersten Serie. Die benannten Konstanten im folgenden Beispiel machen diese Struktur explizit:
+Ein Serienname wird in der Diagrammdaten‑Arbeitsmappe gespeichert und normalerweise in der Legende angezeigt. In der Standard‑Arbeitsmappe, die für ein gruppiertes Säulendiagramm erstellt wird, befindet sich die Zelle B1 in Zeile 0, Spalte 1 und enthält den Namen der ersten Serie. Die benannten Konstanten im folgenden Beispiel machen diese Struktur explizit:
 
 ```javascript
 const aspose = {};
@@ -135,7 +135,7 @@ try {
 }
 ```
 
-Sie können außerdem die Zelle aktualisieren, die bereits von [ChartSeries.getName](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getName) referenziert wird. Dieser Ansatz vermeidet Annahmen über eine bestimmte Zeile und Spalte in einem bestehenden Diagramm:
+Sie können auch die bereits von [ChartSeries.getName](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getName) referenzierte Zelle aktualisieren. Dieser Ansatz vermeidet Annahmen über eine bestimmte Zeile und Spalte in einem bestehenden Diagramm:
 
 ```javascript
 const aspose = {};
@@ -163,13 +163,13 @@ try {
 
 Das Ergebnis:
 
-![The series name](series_name.png)
+![Der Serienname](series_name.png)
 
-## **Automatische Serien‑Füllfarbe abrufen**
+## **Automatische Serienfüllfarbe abrufen**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) liefert die Farbe, die aus dem Serien‑Index und dem Diagramm‑Stil berechnet wird. Dies ist die Farbe, die verwendet wird, wenn die Serien‑Füllung nicht explizit definiert ist. Der Aufruf der Methode liest die berechnete Farbe; er weist keine neue Füllung zu.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) gibt die Farbe zurück, die aus dem Serien‑Index und dem Diagrammstil berechnet wird. Dies ist die Farbe, die verwendet wird, wenn die Serienfüllung nicht explizit definiert wurde. Der Aufruf der Methode liest die berechnete Farbe; er weist keine neue Füllung zu.
 
-Das folgende Beispiel gibt die automatische Farbe jeder Standard‑Serie aus:
+Das folgende Beispiel gibt die automatische Farbe jeder Standardserie aus:
 
 ```javascript
 const aspose = {};
@@ -195,7 +195,7 @@ try {
 }
 ```
 
-Beispielausgabe für den Standard‑Diagramm‑Stil:
+Beispielausgabe für den Standard‑Diagrammstil:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -203,11 +203,11 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Die genauen Farben hängen vom Diagramm‑Stil und -Design ab.
+Die genauen Farben hängen vom Diagrammstil und -thema ab.
 
-## **Invertierte Füllfarbe für eine Diagramm‑Serie festlegen**
+## **Invertierte Füllfarbe für eine Diagrammserie festlegen**
 
-Für Balken‑, Säulen‑ und Blasendiagramme kann [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) negative Werte mit einer anderen Füllung darstellen. Setzen Sie die reguläre Serien‑Füllung auf „solid“, aktivieren Sie die Invertierung und weisen Sie die Farbe für negative Werte über [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) zu. Negative Zahlen bleiben in der Arbeitsmappe unverändert; nur ihre Anzeigefarbe ändert sich.
+Für Balken‑, Säulen‑ und Blasensereien kann [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) negative Werte mit einer anderen Füllung anzeigen. Setzen Sie die reguläre Serienfüllung auf einfarbig, aktivieren Sie die Inversion und weisen Sie die Farbwert für negative Werte über [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) zu. Negative Zahlen bleiben in der Arbeitsmappe unverändert; nur ihre Anzeigefarbe ändert sich.
 
 Das folgende Beispiel ersetzt die Standard‑Diagrammdaten durch eine Serie. Zeile 0 des Arbeitsblatts enthält den Seriennamen, Spalte 0 die Kategorienamen und Spalte 1 die Werte:
 
@@ -269,9 +269,9 @@ try {
 
 Das Ergebnis:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Die invertierte einfarbige Füllfarbe](inverted_solid_fill_color.png)
 
-Sie können die Invertierung für einen einzelnen Punkt über [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) aktivieren. Im folgenden Beispiel ist die Invertierung für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Der Punkt erhält zudem einen negativen Wert, damit der Effekt sichtbar wird:
+Sie können die Inversion für einen einzelnen Punkt über [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) aktivieren. Im folgenden Beispiel ist die Inversion für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Dem Punkt wird außerdem ein negativer Wert zugewiesen, damit der Effekt sichtbar wird:
 
 ```javascript
 const aspose = {};
@@ -308,11 +308,11 @@ try {
 }
 ```
 
-## **Wert eines bestimmten Datenpunkts leeren**
+## **Einen bestimmten Datenpunktwert löschen**
 
-Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie die zugehörige Arbeitsmappendatei‑Zelle auf `null`. Bei einem Säulendiagramm ist der geplottete Wert über [ChartDataPoint.getValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getValue) abrufbar. Der Datenpunkt bleibt an derselben Kategorienposition, das Diagramm behandelt seinen Wert jedoch als leer gemäß den Diagramm‑Einstellungen für leere Werte.
+Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie die zugehörige Arbeitsmappendatei‑Zelle auf `null`. Für ein Säulendiagramm ist der geplottete Wert über [ChartDataPoint.getValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getValue) verfügbar. Der Datenpunkt bleibt an derselben Kategorienposition, aber das Diagramm behandelt seinen Wert als leer gemäß den Leererwert‑Einstellungen des Diagramms.
 
-Das folgende Beispiel leert nur den zweiten Punkt der ersten Serie:
+Das folgende Beispiel löscht nur den zweiten Punkt in der ersten Serie:
 
 ```javascript
 const aspose = {};
@@ -338,13 +338,69 @@ try {
 }
 ```
 
-Scatter‑Diagramme verwenden separate X‑ und Y‑Zellen, Blasendiagramme zusätzlich eine Größenzelle. Löschen Sie nur die Zelle, die den zu entfernenden Wert repräsentiert. Rufen Sie nicht [ChartDataPointCollection.clear](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapointcollection/#clear) auf, wenn Sie die anderen Punkte behalten möchten, da diese Methode alle Datenpunkte aus der Sammlung entfernt.
+Streudiagramme verwenden separate X‑ und Y‑Zellen, und Blasendiagramme nutzen zusätzlich eine Größenzelle. Löschen Sie nur die Zelle, die den zu entfernenden Wert repräsentiert. Rufen Sie nicht [ChartDataPointCollection.clear](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapointcollection/#clear) auf, wenn Sie die anderen Punkte behalten möchten, da diese Methode alle Datenpunkte aus der Sammlung entfernt.
 
-## **Lückenbreite der Serie festlegen**
+## **Anzeige leerer Zellen steuern**
 
-Die Lückenbreite ist der Abstand zwischen benachbarten Balken‑ oder Säulen‑Clustern, angegeben als Prozentsatz der Balken‑ bzw. Säulenbreite. Wie die Überlappung gehört sie zur übergeordneten Serien‑Gruppe und nicht zu einer einzelnen Serie. Rufen Sie [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) einmal für die Gruppe auf. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
+Eine leere Arbeitsmappendatei‑Zelle steht für fehlende Daten; eine Zelle mit `0` stellt einen bekannten numerischen Wert dar. Rufen Sie [ChartDataCell.setValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatacell/#setValue) mit `null` auf, um eine Zelle leer zu machen. Eine numerische Null bleibt eine Null, unabhängig von der Einstellung für leere Zellen.
 
-Das folgende Beispiel ändert die Lückenbreite und speichert nur die finale Präsentation:
+Verwenden Sie [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs), um auszuwählen, wie das Diagramm leere Zellen darstellt. Diese Einstellung gilt für das gesamte Diagramm. Sie ändert, wie Leerstellen geplottet werden, ohne die leere Arbeitsmappendatei‑Zelle mit Null oder einem interpolierten Wert zu füllen.
+
+Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit einer Serie, löscht den Wert für Tag 3 und speichert dasselbe Diagramm in jedem Modus. Keine Eingabedatei ist erforderlich. Der [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) verwendet Arbeitsblatt 0, Spalte 0 für Kategorienamen und Spalte 1 für Werte; Zeile 0 enthält den Seriennamen. Die endgültigen Daten sind `10, 20, empty, 30, 40`.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 40, 40, 640, 400);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Measurements");
+    const series = chartData.getSeries().add(seriesNameCell, chart.getType());
+    const values = [10, 20, 25, 30, 40];
+
+    for (let i = 0; i < values.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, "Day " + (i + 1));
+        chartData.getCategories().add(categoryCell);
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // Lassen Sie Tag 3 wirklich leer, während Sie seine Kategorie und den Datenpunkt behalten.
+    workbook.getCell(0, 3, 1).setValue(null);
+
+    const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
+    const modeNames = ["Gap", "Zero", "Span"];
+    for (let i = 0; i < modes.length; i++) {
+        chart.setDisplayBlanksAs(modes[i]);
+        presentation.save("empty_cells_" + modeNames[i] + ".pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Jede Ausgabedatei speichert den vor dem Speichern zugewiesenen Modus: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` und `empty_cells_Span.pptx`. Um nur eine Version zu speichern, weisen Sie den gewünschten Modus zu und speichern die Präsentation einmal, anstatt über die Modi zu iterieren.
+
+Der untenstehende Vergleich zeigt dieselben Daten in allen drei Dateien. Tag 3 ist in der Arbeitsmappe in jedem Fall leer:
+
+![Linien‑Diagramme mit identischen Daten: Gap unterbricht die Linie bei Tag 3, Zero lässt die Linie auf Null fallen und Span verbindet Tag 2 mit Tag 4.](display_blanks_as.png)
+
+Der sichtbare Effekt hängt vom Diagrammtyp ab. Ein Liniendiagramm ermöglicht einen einfachen Vergleich aller drei Modi. Balken‑ und Säulendiagramme haben keine Linie, die über eine fehlende Kategorie hinweg verbindet, sodass `Span` das oben gezeigte Verbindungselement nicht erzeugen kann; eine fehlende Säule und eine Säule mit Höhe 0 können ebenfalls ähnlich aussehen. Ebenso hat ein Streudiagramm mit nur Markern keine verbindende Linie. Erwarten Sie nicht für jeden Diagrammtyp drei unterschiedliche Ergebnisse; prüfen Sie die Ausgabe für den von Ihnen verwendeten Typ.
+
+## **Serienabstand festlegen**
+
+Der Abstand ist der Raum zwischen benachbarten Balken‑ oder Säulen‑Clustern, angegeben als Prozentsatz der Balken‑ bzw. Säulenbreite. Ähnlich wie die Überlappung gehört er zur übergeordneten Seriengruppe und nicht zu einer einzelnen Serie. Rufen Sie [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) einmal für die Gruppe auf. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
+
+Das folgende Beispiel ändert den Abstand und speichert nur die abschließende Präsentation:
 
 ```javascript
 const aspose = {};
@@ -371,46 +427,46 @@ try {
 
 Das Ergebnis:
 
-![The gap width](gap_width.png)
+![Der Abstand](gap_width.png)
 
 ## **FAQ**
 
-**Welche Diagrammtypen unterstützen Datenreihen?**
+**Welche Diagrammtypen unterstützen Datenserien?**
 
-Alle Diagrammtypen, die durch die [ChartType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/)‑Aufzählung vertreten werden, verwenden Diagrammdaten, aber ihre Reihen besitzen nicht überall dieselbe Wertstruktur oder dieselben Einstellungen. Beispielsweise verwenden Kategoriediagramme Kategorien und Werte, Scatter‑Diagramme X‑ und Y‑Werte und Blasendiagramme zusätzlich Bubble‑Größen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die zum Serientyp passt. Optionen wie Überlappung und Lückenbreite gelten nur für kompatible Balken‑ oder Säulengruppen.
+Alle Diagrammtypen, die durch die Aufzählung [ChartType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/) repräsentiert werden, verwenden Diagrammdaten, jedoch haben ihre Serien nicht alle dieselbe Werte‑Struktur oder dieselben Einstellungen. Beispielsweise verwenden Kategoriendiagramme Kategorien und Werte, Streudiagramme X‑ und Y‑Werte, und Blasendiagramme zusätzlich Bubble‑Größen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die dem Serientyp entspricht. Optionen wie Überlappung und Abstand gelten nur für kompatible Balken‑ oder Säulengruppen.
 
-**Was ist eine Diagramm‑Serien‑Gruppe?**
+**Was ist eine Diagramm‑Seriengruppe?**
 
-Eine [ChartSeriesGroup](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/) enthält kompatible Serien, die gruppenbezogene Darstellungs‑Einstellungen teilen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der Gruppe, die über eine Serie erreicht wird, nicht notwendigerweise jede Serie im Diagramm beeinflusst.
+Eine [ChartSeriesGroup](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/) enthält kompatible Serien, die gruppen‑weite Plot‑Einstellungen gemeinsam nutzen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der über eine Serie erreichten Gruppe nicht zwingend alle Serien im Diagramm ändert.
 
 **Enthält ein neu erstelltes Diagramm Standarddaten?**
 
-Ja. Standardmäßig erzeugt [ShapeCollection.addChart](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/#addChart) Beispielserien, -kategorien und -werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategorien‑Sammlungen leeren, bevor Sie ein komplett benutzerdefiniertes Datenset hinzufügen. Eine Überladung kann außerdem ein Diagramm ohne Standarddaten erzeugen.
+Ja. Standardmäßig erstellt [ShapeCollection.addChart](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/#addChart) Beispielserien, Kategorien und Werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategoriekollektionen leeren, bevor Sie ein vollständig benutzerdefiniertes Datenset hinzufügen. Ein Überladen kann ebenfalls ein Diagramm ohne Standarddaten erzeugen.
 
-**Wie sind Diagramm‑Objekte mit Arbeitsmappendaten verknüpft?**
+**Wie sind Diagrammobjekte mit Arbeitsmappendateien verknüpft?**
 
-Serien‑Namen, Kategorien‑Beschriftungen und Datenpunkt‑Werte referenzieren Zellen in einem [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/). Das Ändern einer referenzierten Zelle aktualisiert das entsprechende Diagrammelement. Wenn Sie benutzerdefinierte Daten erstellen, halten Sie Kategorie‑Zeilen und Serien‑Wert‑Zeilen ausgerichtet, damit jeder Punkt unter der gewünschten Kategorie geplottet wird.
+Seriennamen, Kategorielabels und Datenpunktwerte referenzieren Zellen in einem [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/). Das Ändern einer referenzierten Zelle aktualisiert das entsprechende Diagrammelement. Wenn Sie benutzerdefinierte Daten erstellen, halten Sie Kategorie‑Zeilen und Serien‑Wert‑Zeilen ausgerichtet, sodass jeder Punkt unter der vorgesehenen Kategorie geplottet wird.
 
-**Wie leere ich einen einzelnen Punkt statt der gesamten Serie?**
+**Wie lösche ich einen Punkt anstatt der gesamten Serie?**
 
-Setzen Sie die zugehörige Wert‑Zelle auf `null`, um die Kategorien‑Position des Punktes als leeren Punkt beizubehalten. Verwenden Sie [ChartDataPointCollection.clear](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapointcollection/#clear) nur, wenn Sie sämtliche Punkte dieser Serie entfernen möchten. Entfernen Sie zudem Kategorien, aktualisieren Sie jede Serie, damit deren Werte mit der Kategorien‑Sammlung abgestimmt bleiben.
+Setzen Sie die relevante Wertzelle auf `null`, um die Kategorienposition des Punktes als leeren Punkt beizubehalten. Verwenden Sie [ChartDataPointCollection.clear](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapointcollection/#clear) nur, wenn Sie alle Punkte dieser Serie entfernen möchten. Wenn Sie auch Kategorien entfernen, aktualisieren Sie jede Serie, sodass deren Werte mit der Kategoriesammlung ausgerichtet bleiben.
 
-**Wie werden leere Punkte dargestellt?**
+**Wie werden leere Punkte angezeigt?**
 
-Das Ergebnis hängt vom Diagrammtyp und von der über [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) konfigurierten Einstellung ab. Unterstützte Diagramme können Lücken als Lücken, als Nullwerte oder durch Verbinden benachbarter Punkte darstellen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht.
+Das Ergebnis hängt vom Diagrammtyp und dem über [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) konfigurierten Wert ab. Unterstützte Diagramme können Leerstellen als Lücken, als Nullwerte oder durch Verbinden benachbarter Punkte anzeigen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht. Siehe [Anzeige leerer Zellen steuern](#control-the-display-of-empty-cells) für ein vollständiges Beispiel und einen visuellen Vergleich.
 
 **Wie werden negative Werte formatiert?**
 
-Für unterstützte Balken‑, Säulen‑ und Blasendiagramme rufen Sie [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) auf und setzen die über [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) zurückgegebene Farbe. Sie können das Verhalten für einen einzelnen Punkt mit [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) überschreiben. Diese Methoden beeinflussen die Formatierung, nicht die gespeicherten numerischen Werte.
+Für unterstützte Balken‑, Säulen‑ und Blasensereien rufen Sie [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) auf und setzen die über [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) zurückgegebene Farbe. Sie können das Verhalten für einen einzelnen Punkt mit [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) überschreiben. Diese Methoden beeinflussen die Formatierung, nicht die gespeicherten numerischen Werte.
 
 **Welche Formatierung gewinnt, wenn sowohl eine Serie als auch ein Punkt formatiert sind?**
 
-Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte nutzen weiterhin die explizite Serien‑Formatierung oder, wenn keine Serien‑Formatierung definiert ist, den automatischen Diagramm‑Stil und das Design. Gruppeneinstellungen wie Überlappung und Lückenbreite steuern das Layout und stellen keine punktbezogenen Formatierungs‑Überschreibungen dar.
+Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte verwenden weiterhin das explizite Serienformat oder, wenn das Serienformat nicht definiert ist, den automatischen Diagrammstil und das -thema. Gruppeneinstellungen wie Überlappung und Abstand steuern das Layout und sind keine punktbezogenen Formatierungsüberschreibungen.
 
 **Gibt es ein Limit, wie viele Serien ein Diagramm enthalten kann?**
 
-Aspose.Slides legt kein separates festes Serien‑Zahl‑Limit fest. In der Praxis bestimmen Dateigrößen‑Beschränkungen, verfügbarer Speicher, Rendering‑Zeit und die Lesbarkeit des Diagramms ein sinnvolles Limit.
+Aspose.Slides legt kein separates festes Serien‑Zahl‑Limit fest. Praktisch bestimmen Beschränkungen der Präsentationsdatei, verfügbarer Speicher, Renderzeit und Diagrammlesbarkeit ein sinnvolles Limit.
 
-**Was sollte ich ändern, wenn Spalten zu dicht beieinander oder zu weit auseinander liegen?**
+**Was soll ich ändern, wenn Säulen zu eng beieinander oder zu weit auseinander liegen?**
 
-Rufen Sie [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) auf der entsprechenden übergeordneten Serien‑Gruppe auf. Erhöhen Sie den Wert, um den Abstand zwischen den Clustern zu vergrößern, oder verringern Sie ihn, um die Cluster näher zusammenzubringen.
+Rufen Sie [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) auf der entsprechenden übergeordneten Seriengruppe auf. Erhöhen Sie den Wert, um den Abstand zwischen den Clustern zu vergrößern, oder verringern Sie ihn, um die Cluster näher zusammenzubringen.

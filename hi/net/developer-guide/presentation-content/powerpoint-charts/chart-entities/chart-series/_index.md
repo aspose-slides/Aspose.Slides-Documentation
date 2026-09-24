@@ -1,5 +1,5 @@
 ---
-title: .NET में प्रस्तुतियों में चार्ट डेटा श्रृंखला प्रबंधन
+title: .NET में प्रस्तुतियों में चार्ट डेटा श्रृंखला का प्रबंधन
 linktitle: डेटा श्रृंखला
 type: docs
 url: /hi/net/chart-series/
@@ -9,36 +9,36 @@ keywords:
 - श्रृंखला रंग
 - श्रेणी रंग
 - श्रृंखला नाम
-- डेटा पॉइंट
+- डेटा बिंदु
 - श्रृंखला गैप
 - PowerPoint
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "C# के साथ प्रस्तुतियों में चार्ट श्रृंखला, डेटा पॉइंट, वर्कबुक कोशिकाएँ, फ़ॉर्मेटिंग, ओवरलैप, गैप चौड़ाई और नकारात्मक मानों को कैसे प्रबंधित करें सीखें।"
+description: "C# के साथ प्रस्तुतियों में चार्ट श्रृंखला, डेटा बिंदु, वर्कबुक कोशिकाएँ, स्वरूपण, ओवरलैप, गैप चौड़ाई और नकारात्मक मानों को कैसे प्रबंधित करें, सीखें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-एक चार्ट अपने प्लॉट किए गए डेटा को एक चार्ट डेटा वर्कबुक में संग्रहीत करता है। एक [IChartSeries](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/) एक संबंधित मानों के सेट को दर्शाता है, और श्रृंखला में प्रत्येक [IChartDataPoint](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/) एक या अधिक वर्कबुक सेल्स की ओर इशारा करता है। [IChartCategory](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartcategory/) वस्तुएँ श्रेणी के लेबल या समूह मान प्रदान करती हैं जो श्रृंखला द्वारा साझा किए जाते हैं। इसलिए श्रृंखला का नाम, श्रेणियाँ, और पॉइंट मान [IChartDataCell](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/) वस्तुओं से जुड़ते हैं न कि केवल प्रदर्शित टेक्स्ट के रूप में संग्रहीत होते हैं।
+एक चार्ट अपने प्लॉट किए गए डेटा को चार्ट डेटा वर्कबुक में संग्रहीत करता है। एक [IChartSeries](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/) एक संबंधित मानों के सेट का प्रतिनिधित्व करता है, और श्रृंखला में प्रत्येक [IChartDataPoint](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/) एक या अधिक वर्कबुक कोशिकाओं को संदर्भित करता है। [IChartCategory](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartcategory/) वस्तुएँ लेबल या समूहित मान प्रदान करती हैं जो श्रृंखला द्वारा साझा किए जाते हैं। इसलिए श्रृंखला का नाम, श्रेणियाँ, और बिंदु मान [IChartDataCell](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/) वस्तुओं से जुड़े होते हैं, न कि केवल प्रदर्शित पाठ के रूप में संग्रहीत।
 
-एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक पंक्ति 0 को श्रृंखला नामों के लिए, स्तम्भ 0 को श्रेणी नामों के लिए, और शेष कोशिकाओं को श्रृंखला मानों के लिए उपयोग करती है। वर्कशीट, पंक्ति, और स्तम्भ अनुक्रमणांक जो [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/getcell/) को पास किए जाते हैं, शून्य‑आधारित होते हैं। यह लेआउट डिफ़ॉल्ट डेटा के साथ चार्ट बनाते समय उपयोगी है, लेकिन यह मानना नहीं चाहिए कि प्रत्येक मौजूदा चार्ट इसका उपयोग करता है। लोडेड प्रस्तुति के लिए, वर्कबुक मान बदलने से पहले श्रृंखला, श्रेणियाँ और डेटा पॉइंट्स द्वारा संदर्भित कोशिकाओं का निरीक्षण करें।
+एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक में श्रृंखला नामों के लिए पंक्ति 0, श्रेणी नामों के लिए कॉलम 0, और शेष कोशिकाएँ श्रृंखला मूल्यों के लिए उपयोग की जाती हैं। वर्कशीट, पंक्ति, और कॉलम सूचकांक जो [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/getcell/) को पास किए जाते हैं, शून्य‑आधारित होते हैं। यह लेआउट डिफ़ॉल्ट डेटा के साथ चार्ट बनाते समय उपयोगी है, लेकिन यह मान लेना सही नहीं है कि हर मौजूदा चार्ट इसका उपयोग करता है। लोड की गई प्रस्तुति के लिए, वर्कबुक मान बदलने से पहले श्रृंखला, श्रेणियाँ और डेटा बिंदुओं द्वारा संदर्भित कोशिकाओं की जाँच करें।
 
-चार्ट सेटिंग्स के तीन अलग-अलग दायरे होते हैं:
+चार्ट सेटिंग्स के तीन अलग-अलग स्तर होते हैं:
 
-- श्रृंखला‑स्तरीय सेटिंग्स, जैसे [IChartSeries.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/format/), सभी पॉइंट्स के लिए डिफ़ॉल्ट स्वरूप प्रदान करती हैं।
-- डेटा‑पॉइंट सेटिंग्स, जैसे [IChartDataPoint.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/format/), एक पॉइंट के लिए श्रृंखला के स्वरूप को ओवरराइट करती हैं।
-- समूह सेटिंग्स समान [IChartSeriesGroup](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/) की संगत श्रृंखलाओं पर लागू होती हैं। जब आपको ओवरलैप या गैप चौड़ाई जैसी विकल्प सेट करने की आवश्यकता हो, तो [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/parentseriesgroup/) के माध्यम से समूह तक पहुँचें।
+- Series-level सेटिंग्स, जैसे कि [IChartSeries.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/format/), एक श्रृंखला के सभी बिंदुओं के लिए डिफ़ॉल्ट रूप प्रदान करती हैं।
+- Data-point सेटिंग्स, जैसे कि [IChartDataPoint.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/format/), एक बिंदु के लिए श्रृंखला की उपस्थिति को अधिरोहित करती हैं।
+- Group सेटिंग्स, संगत श्रृंखलाओं पर लागू होती हैं जो एक ही [IChartSeriesGroup](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/) से संबंधित होती हैं। समूह तक पहुंचें [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/parentseriesgroup/) के माध्यम से जब आपको ओवरलैप या गैप चौड़ाई जैसे विकल्प सेट करने हों।
 
-जब कोई स्पष्ट पॉइंट या श्रृंखला फ़िल नहीं निर्धारित किया गया हो, तो चार्ट शैली और थीम स्वचालित रूप से स्वरूप तय करती हैं। जब दोनों श्रृंखला और पॉइंट फ़ॉर्मेटिंग मौजूद हो, तो पॉइंट फ़ॉर्मेटिंग उस पॉइंट के लिए प्राथमिकता लेती है।
+जब कोई स्पष्ट बिंदु या श्रृंखला भराव सेट नहीं किया जाता, तो चार्ट स्टाइल और थीम स्वचालित रूप से स्वरूप निर्धारित करती है। जब श्रृंखला और बिंदु दोनों का स्वरूप मौजूद होता है, तो बिंदु का स्वरूप उस बिंदु के लिए प्राथमिकता लेता है।
 
-![चार्ट-सीरीज़-पावरपॉइंट](chart-series-powerpoint.png)
+![चार्ट श्रृंखला (PowerPoint)](chart-series-powerpoint.png)
 
 ## **चार्ट श्रृंखला ओवरलैप सेट करें**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/overlap/) रिपोर्ट करता है कि 2D चार्ट में बार या कॉलम कितने प्रतिशत ओवरलैप करते हैं, -100 से 100 प्रतिशत तक। यह पैरेंट श्रृंखला समूह पर सेटिंग का केवल‑पढ़ने‑योग्य प्रक्षेपण है। सभी संगत श्रृंखलाओं को अपडेट करने के लिए [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/overlap/) सेट करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम प्रदर्शित करते हैं; यह संयोजन चार्ट में असंबंधित श्रृंखला समूहों को प्रभावित नहीं करता।
+[IChartSeries.Overlap](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/overlap/) एक 2D चार्ट में बार या कॉलम के ओवरलैप प्रतिशत को -100 से 100 तक दर्शाता है। यह पैरेंट श्रृंखला समूह पर सेटिंग का केवल‑पढ़ने‑योग्य प्रक्षेपण है। समूह में सभी संगत श्रृंखलाओं को अपडेट करने के लिए [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/overlap/) सेट करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम प्रदर्शित करते हैं; यह संयोजन चार्ट में असंबंधित श्रृंखला समूहों को प्रभावित नहीं करता।
 
-निम्नलिखित उदाहरण पहले श्रृंखला वाले समूह के लिए ओवरलैप सेट करता है:
+निम्न उदाहरण पहले श्रृंखला को शामिल करने वाले समूह के लिए ओवरलैप सेट करता है:
 
 ```cs
 using Aspose.Slides;
@@ -63,13 +63,13 @@ presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![श्रेणी ओवरलैप](series_overlap.png)
+![श्रृंखला ओवरलैप](series_overlap.png)
 
-## **श्रृंखला फ़िल रंग बदलें**
+## **श्रृंखला भरने का रंग बदलें**
 
-पूरा श्रृंखला का डिफ़ॉल्ट फ़िल सेट करने के लिए [IChartSeries.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/format/) का उपयोग करें। यदि किसी पॉइंट का फ़िल पहले से स्पष्ट रूप से निर्धारित है, तो उसके [IChartDataPoint.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/format/) सेटिंग उस पॉइंट के लिए श्रृंखला फ़िल को ओवरराइड करती है।
+[IChartSeries.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/format/) का उपयोग करके पूरी श्रृंखला के लिए डिफ़ॉल्ट भराव सेट करें। यदि किसी बिंदु का स्पष्ट भराव पहले से परिभाषित है, तो उसका [IChartDataPoint.Format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/format/) सेटिंग उस बिंदु के लिए श्रृंखला भराव को अधिरोहित करती है।
 
-निम्नलिखित उदाहरण पहले श्रृंखला पर ठोस नीला फ़िल लागू करता है:
+निम्न उदाहरण पहली श्रृंखला पर ठोस नीला भराव लागू करता है:
 
 ```cs
 using System.Drawing;
@@ -96,9 +96,9 @@ presentation.Save("series_color.pptx", SaveFormat.Pptx);
 
 ![श्रृंखला का रंग](series_color.png)
 
-## **श्रृंखला नाम बदलें**
+## **श्रृंखला का नाम बदलें**
 
-एक श्रृंखला नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लीजेंड में दिखाया जाता है। क्लस्टर कॉलम चार्ट के लिए बनाई गई डिफ़ॉल्ट वर्कबुक में, सेल B1 पंक्ति 0, स्तम्भ 1 पर स्थित है और पहले श्रृंखला का नाम रखती है। निम्नलिखित उदाहरण में नामित स्थिरांक उस संरचना को स्पष्ट रूप से दर्शाते हैं:
+एक श्रृंखला का नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लेजेंड में दिखाया जाता है। क्लस्टर्ड कॉलम चार्ट के लिए बनाए गए डिफ़ॉल्ट वर्कबुक में, सेल B1 पंक्ति 0, कॉलम 1 पर स्थित होता है और पहली श्रृंखला का नाम रखता है। निम्न उदाहरण में नामित स्थिरांक इस संरचना को स्पष्ट रूप से दर्शाते हैं:
 
 ```cs
 using Aspose.Slides;
@@ -122,7 +122,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-आप [IChartSeries.Name](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/name/) द्वारा पहले से संदर्भित सेल को भी अपडेट कर सकते हैं। यह दृष्टिकोण मौजूदा चार्ट में किसी विशिष्ट पंक्ति या स्तम्भ को मानने से बचाता है:
+आप [IChartSeries.Name](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/name/) द्वारा पहले से संदर्भित सेल को भी अपडेट कर सकते हैं। यह तरीका मौजूदा चार्ट में किसी विशिष्ट पंक्ति या कॉलम को मानते हुए त्रुटि से बचाता है:
 
 ```cs
 using Aspose.Slides;
@@ -147,13 +147,13 @@ presentation.Save("series_name.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![श्रृंखला नाम](series_name.png)
+![श्रृंखला का नाम](series_name.png)
 
-## **स्वतः उत्पन्न श्रृंखला फ़िल रंग प्राप्त करें**
+## **स्वचालित श्रृंखला भरने का रंग प्राप्त करें**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) श्रृंखला सूचकांक और चार्ट शैली से गणना किया गया रंग लौटाता है। यह वह रंग है जो तब उपयोग होता है जब श्रृंखला फ़िल स्पष्ट रूप से परिभाषित नहीं किया गया हो। यह विधि गणना किया गया रंग पढ़ती है; यह नया फ़िल असाइन नहीं करती।
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) श्रृंखला सूचकांक और चार्ट स्टाइल के आधार पर गणना किया गया रंग लौटाता है। यह वह रंग है जो तब उपयोग होता है जब श्रृंखला भराव स्पष्ट रूप से परिभाषित नहीं किया गया हो। मेथड को कॉल करने से गणना किया गया रंग पढ़ा जाता है; यह नया भराव नहीं बनाता।
 
-निम्नलिखित उदाहरण डिफ़ॉल्ट प्रत्येक श्रृंखला के स्वतः रंग को प्रिंट करता है:
+निम्न उदाहरण प्रत्येक डिफ़ॉल्ट श्रृंखला का स्वचालित रंग प्रदर्शित करता है:
 
 ```cs
 using System;
@@ -176,7 +176,7 @@ for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 }
 ```
 
-डिफ़ॉल्ट चार्ट शैली के लिए उदाहरण आउटपुट:
+डिफ़ॉल्ट चार्ट स्टाइल के लिए उदाहरण आउटपुट:
 
 ```text
 Series 0: ff4f81bd
@@ -186,11 +186,11 @@ Series 2: ff9bbb59
 
 सटीक रंग चार्ट शैली और थीम पर निर्भर करते हैं।
 
-## **एक चार्ट श्रृंखला के लिए इनवर्ट फ़िल रंग सेट करें**
+## **चार्ट श्रृंखला के लिए उलटा भरने का रंग सेट करें**
 
-बार, कॉलम और बबल श्रृंखलाओं के लिए, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertifnegative/) नकारात्मक मानों को भिन्न फ़िल के साथ दिखा सकता है। सामान्य श्रृंखला फ़िल को ठोस सेट करें, इनवर्शन सक्षम करें, और नकारात्मक‑मान रंग को [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) द्वारा असाइन करें। नकारात्मक संख्याएँ वर्कबुक में अपरिवर्तित रहती हैं; केवल उनका प्रदर्शित रंग बदलता है।
+बार, कॉलम और बबल श्रृंखलाओं के लिए, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertifnegative/) नकारात्मक मानों को अलग भराव के साथ दिखा सकता है। नियमित श्रृंखला भराव को ठोस सेट करें, उलटा रंग सक्षम करें, और नकारात्मक‑मान रंग को [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) के माध्यम से असाइन करें। नकारात्मक संख्याओं का वर्कबुक में मान नहीं बदलता; केवल उनका प्रदर्शन रंग बदलता है।
 
-निम्नलिखित उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक श्रृंखला से बदलता है। वर्कशीट पंक्ति 0 में श्रृंखला नाम, स्तम्भ 0 में श्रेणी नाम, और स्तम्भ 1 में मान होते हैं:
+निम्न उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक श्रृंखला से बदलता है। वर्कशीट पंक्ति 0 में श्रृंखला नाम, कॉलम 0 में श्रेणी नाम, और कॉलम 1 में मान होते हैं:
 
 ```cs
 using System.Drawing;
@@ -245,9 +245,9 @@ presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![इनवर्टेड ठोस फ़िल रंग](inverted_solid_fill_color.png)
+![उलटा ठोस भरने का रंग](inverted_solid_fill_color.png)
 
-आप एक पॉइंट के लिए इनवर्शन को [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) से सक्षम कर सकते हैं। निम्नलिखित उदाहरण में, श्रृंखला के लिए इनवर्शन अक्षम है और केवल चयनित पॉइंट के लिए सक्षम है। प्रभाव दिखाने के लिए पॉइंट को नकारात्मक मान भी असाइन किया गया है:
+आप एक बिंदु के लिए [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) के माध्यम से उलटा सक्षम कर सकते हैं। निम्न उदाहरण में, श्रृंखला के लिए उलटा अक्षम किया गया है और केवल चयनित बिंदु के लिए सक्षम किया गया है। बिंदु को नकारात्मक मान भी असाइन किया गया है ताकि प्रभाव दिखाई दे:
 
 ```cs
 using System.Drawing;
@@ -279,11 +279,11 @@ dataPoint.InvertIfNegative = true;
 presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **विशिष्ट डेटा पॉइंट मान साफ़ करें**
+## **किसी विशिष्ट डेटा बिंदु का मान साफ़ करें**
 
-एक पॉइंट को खाली बनाने के लिए, जबकि अन्य पॉइंट्स को न हटाने के लिए, उसकी बैकिंग वर्कबुक सेल को `null` सेट करें। कॉलम चार्ट के लिए, प्लॉट किया गया मान [IChartDataPoint.YValue](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/yvalue/) के माध्यम से उपलब्ध होता है। डेटा पॉइंट वही श्रेणी स्थिति में रहता है, लेकिन चार्ट उसकी मान को खाली मानता है, चार्ट की खाली‑मान सेटिंग्स के अनुसार।
+एक बिंदु को खाली करने के लिए, उसके पीछे की वर्कबुक कोशिका को `null` सेट करें, जबकि अन्य बिंदुओं को नहीं हटाते। कॉलम चार्ट के लिए, प्लॉटेड मान [IChartDataPoint.YValue](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/yvalue/) के माध्यम से उपलब्ध है। डेटा बिंदु उसी श्रेणी स्थिति पर बना रहता है, लेकिन चार्ट उसके मान को खाली मान सेटिंग के अनुसार मानता है।
 
-निम्नलिखित उदाहरण पहले श्रृंखला में केवल दूसरे पॉइंट को साफ़ करता है:
+निम्न उदाहरण पहली श्रृंखला में केवल दूसरे बिंदु को साफ़ करता है:
 
 ```cs
 using Aspose.Slides;
@@ -306,13 +306,67 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-स्कैटर चार्ट अलग‑अलग X और Y कोशिकाओं का उपयोग करते हैं, और बबल चार्ट एक आकार कोशिका भी उपयोग करता है। केवल उस सेल को साफ़ करें जो आप हटाना चाहते हैं। यदि आप अन्य पॉइंट्स को बनाए रखना चाहते हैं, तो [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapointcollection/clear/) न बुलाएँ, क्योंकि वह सभी डेटा पॉइंट्स को संग्रह से हटा देता है।
+स्कैटर चार्ट अलग‑अलग X और Y कोशिकाओं का उपयोग करते हैं, और बबल चार्ट एक आकार कोशिका भी उपयोग करता है। केवल उस कोशिका को साफ़ करें जो हटाए जाने वाले मान को दर्शाती है। जब आप अन्य बिंदुओं को बनाए रखना चाहते हैं तो [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapointcollection/clear/) को न कॉल करें, क्योंकि यह विधि संग्रह से सभी डेटा बिंदुओं को हटा देती है।
+
+## **खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें**
+
+एक खाली वर्कबुक कोशिका लापता डेटा को दर्शाती है; `0` वाला कोशिका ज्ञात संख्यात्मक मान को दर्शाता है। किसी कोशिका को खाली बनाने के लिए [IChartDataCell.Value](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/value/) को `null` सेट करें। संख्या‑शून्य शून्य ही रहता है, चाहे खाली‑कोशिका सेटिंग कुछ भी हो।
+
+खाली कोशिकाएँ कैसे दिखें, यह चुनने के लिए [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichart/displayblanksas/) का उपयोग करें। यह सेटिंग पूरे चार्ट पर लागू होती है। यह खाली मानों को प्लॉट करने के तरीके को बदलती है, बिना खाली वर्कबुक कोशिका को शून्य या अंतर्वर्ती मान से भरने के।
+
+निम्न स्वतंत्र उदाहरण एक लाइन चार्ट एक श्रृंखला के साथ बनाता है, दिन 3 का मान खाली करता है, और प्रत्येक मोड के साथ वही चार्ट सहेजता है। कोई इनपुट फ़ाइल आवश्यक नहीं है। [IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/) वर्कशीट 0, कॉलम 0 को श्रेणी लेबल के लिए और कॉलम 1 को मानों के लिए उपयोग करता है; पंक्ति 0 में श्रृंखला नाम रहता है। अंतिम डेटा `10, 20, empty, 30, 40` है।
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 40, 40, 640, 400);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Measurements");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+var values = new[] { 10, 20, 25, 30, 40 };
+
+for (var i = 0; i < values.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Day {i + 1}");
+    chartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+}
+
+// Leave Day 3 genuinely empty, while retaining its category and data point.
+workbook.GetCell(0, 3, 1).Value = null;
+
+var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
+foreach (var mode in modes)
+{
+    chart.DisplayBlanksAs = mode;
+    presentation.Save($"empty_cells_{mode}.pptx", SaveFormat.Pptx);
+}
+```
+
+प्रत्येक आउटपुट फ़ाइल सहेजने से पहले असाइन किए गए मोड को संग्रहीत करती है: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, और `empty_cells_Span.pptx`। केवल एक संस्करण सहेजने के लिए, इच्छित मोड असाइन करें और प्रस्तुति को एक बार सहेजें, सभी मोडों पर पुनरावृत्ति करने के बजाय।
+
+नीचे तुलना दिखाती है कि सभी तीन फ़ाइलों में समान डेटा कैसे दिखता है। प्रत्येक मामले में कार्यपुस्तिका में दिन 3 खाली है:
+
+![खाली कोशिकाओं को प्रदर्शित करने के साथ लाइन चार्ट: गैप, ज़ीरो, स्पैन](display_blanks_as.png)
+
+दिखाई देने वाला प्रभाव चार्ट प्रकार पर निर्भर करता है। लाइन चार्ट सभी तीन मोडों को आसानी से तुलना करने योग्य बनाता है। बार और कॉलम चार्ट में लापता श्रेणी केAcross कोई लाइन नहीं होती, इसलिए `Span` ऊपर दिखाए गए कनेक्टिंग सेगमेंट को उत्पन्न नहीं कर सकता; एक लापता कॉलम और शून्य‑ऊँचाई वाला कॉलम भी समान दिख सकते हैं। इसी प्रकार, केवल मार्कर वाले स्कैटर चार्ट में कोई कनेक्टिंग लाइन नहीं होती। हर चार्ट प्रकार के लिए तीन अलग‑अलग परिणाम की अपेक्षा न करें; आप जिस प्रकार का उपयोग कर रहे हैं, उसके आउटपुट को जाँचें।
 
 ## **श्रृंखला गैप चौड़ाई सेट करें**
 
-गैप चौड़ाई पास‑पास के बार या कॉलम क्लस्टर के बीच का अंतराल है, जिसे बार या कॉलम चौड़ाई के प्रतिशत में व्यक्त किया जाता है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से संबंधित है, न कि किसी एकल श्रृंखला से। समूह के लिए एक बार [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) सेट करें। बड़ा मान क्लस्टर के बीच अधिक जगह बनाता है; छोटा मान उन्हें सघन करता है।
+गैप चौड़ाई समीपस्थ बार या कॉलम क्लस्टर के बीच की दूरी है, जो बार या कॉलम चौड़ाई के प्रतिशत के रूप में व्यक्त की जाती है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से संबंधित है, न कि किसी एकल श्रृंखला से। समूह के लिए एक बार [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) सेट करें। बड़ी मान क्लस्टर के बीच अधिक जगह बनाता है; छोटी मान उन्हें अधिक घना बनाती है।
 
-निम्नलिखित उदाहरण गैप चौड़ाई बदलता है और केवल अंतिम प्रस्तुति को सहेजता है:
+निम्न उदाहरण गैप चौड़ाई बदलता है और केवल अंतिम प्रस्तुति सहेजता है:
 
 ```cs
 using Aspose.Slides;
@@ -340,42 +394,42 @@ presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**कौन से चार्ट प्रकार डेटा श्रृंखला का समर्थन करते हैं?**
+**कौन से चार्ट प्रकार डेटा श्रृंखलाओं को समर्थन देते हैं?**
 
-[ChartType](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/charttype/) गणना द्वारा प्रतिनिधित्व किए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी श्रृंखलाओं में मान संरचना या सेटिंग्स समान नहीं होतीं। उदाहरण के लिए, श्रेणी चार्ट में श्रेणियों और मानों का उपयोग होता है, स्कैटर चार्ट में X और Y मान, और बबल चार्ट में बबल आकार भी जोड़ता है। डेटा‑पॉइंट निर्माण विधि का चयन श्रृंखला प्रकार के अनुसार करें। ओवरलैप और गैप चौड़ाई जैसी विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
+[ChartType](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/charttype/) एन्यूमरेशन द्वारा प्रतिनिधित्व किए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी श्रृंखलाओं का मान संरचना या सेटिंग समान नहीं होती। उदाहरण के लिए, श्रेणी चार्ट श्रेणियाँ और मान उपयोग करते हैं, स्कैटर चार्ट X और Y मान, और बबल चार्ट बबल आकार जोड़ते हैं। श्रृंखला प्रकार से मेल खाती डेटा‑बिंदु निर्माण विधि का उपयोग करें। ओवरलैप और गैप चौड़ाई जैसे विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
 
 **एक चार्ट श्रृंखला समूह क्या है?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/) समान सेटिंग्स साझा करने वाली संगत श्रृंखलाओं को रखता है। एक संयोजन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक श्रृंखला के माध्यम से पहुँचे समूह को बदलने से आवश्यक नहीं कि चार्ट की सभी श्रृंखलाएँ बदलें।
+[IChartSeriesGroup](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/) उस समूह को दर्शाता है जिसमें संगत श्रृंखलाएँ होती हैं जो समूह‑स्तरीय प्लॉटिंग सेटिंग्स साझा करती हैं। संयोजन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक श्रृंखला के माध्यम से पहुँचा गया समूह बदलना आवश्यक नहीं कि चार्ट की सभी श्रृंखलाएँ बदल जाएँ।
 
-**क्या नए बनाए गए चार्ट में डिफ़ॉल्ट डेटा शामिल होता है?**
+**क्या नई बनाई गई चार्ट में डिफ़ॉल्ट डेटा होता है?**
 
-हां। डिफ़ॉल्ट रूप से, [IShapeCollection.AddChart](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addchart/) नमूना श्रृंखलाएँ, श्रेणियाँ और मान बनाता है। आप उन कोशिकाओं को संपादित कर सकते हैं या पूर्णतः कस्टम डेटा सेट जोड़ने से पहले श्रृंखला और श्रेणी संग्रह को साफ़ कर सकते हैं। एक ओवरलोड भी डिफ़ॉल्ट डेटा बिना चार्ट बना सकता है।
+हां। डिफ़ॉल्ट रूप से, [IShapeCollection.AddChart](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addchart/) नमूना श्रृंखलाएँ, श्रेणियाँ और मान बनाता है। आप उन कोशिकाओं को संपादित कर सकते हैं या पूरी तरह से कस्टम डेटा सेट जोड़ने से पहले श्रृंखला और श्रेणी संग्रह दोनों को साफ़ कर सकते हैं। एक ओवरलोड भी डिफ़ॉल्ट डेटा के बिना चार्ट बना सकता है।
 
-**चार्ट ऑब्जेक्ट्स वर्कबुक कोशिकाओं से कैसे जुड़े होते हैं?**
+**चार्ट वस्तुएँ वर्कबुक कोशिकाओं से कैसे जुड़ी होती हैं?**
 
-श्रृंखला नाम, श्रेणी लेबल और डेटा‑पॉइंट मान एक [IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/) की कोशिकाओं से संदर्भित होते हैं। संदर्भित सेल को बदलने से संबंधित चार्ट तत्व अपडेट हो जाता है। जब आप कस्टम डेटा बनाते हैं, तो श्रेणी पंक्तियों और श्रृंखला‑मान पंक्तियों को इस प्रकार संरेखित रखें कि प्रत्येक पॉइंट इच्छित श्रेणी के अन्तर्गत प्लॉट हो।
+श्रृंखला नाम, श्रेणी लेबल और डेटा‑बिंदु मान [IChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/) में कोशिकाओं को संदर्भित करते हैं। संदर्भित कोशिका बदलने से संबंधित चार्ट तत्व अपडेट हो जाता है। जब आप कस्टम डेटा बनाते हैं, तो श्रेणी पंक्तियों और श्रृंखला‑मान पंक्तियों को इस प्रकार संरेखित रखें कि प्रत्येक बिंदु इच्छित श्रेणी के तहत प्लॉट हो।
 
-**मैं पूरे श्रृंखला के बजाय एक पॉइंट कैसे साफ़ करूँ?**
+**मैं पूरी श्रृंखला के बजाय केवल एक बिंदु कैसे साफ़ करूँ?**
 
-संबंधित मान सेल को `null` सेट करें ताकि पॉइंट का श्रेणी स्थान खाली पॉइंट के रूप में बना रहे। केवल तभी [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapointcollection/clear/) का उपयोग करें जब आप पूरी श्रृंखला के सभी पॉइंट्स हटाना चाहते हों। यदि आप श्रेणियों को भी हटाते हैं, तो प्रत्येक श्रृंखला को अपडेट करें ताकि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
+बिंदु की संबंधित मान कोशिका को `null` सेट करें ताकि उसकी श्रेणी स्थिति खाली बिंदु के रूप में बनी रहे। केवल तब [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapointcollection/clear/) का उपयोग करें जब आप पूरी श्रृंखला के सभी बिंदुओं को हटाना चाहते हों। यदि आप श्रेणियों को भी हटाते हैं, तो सभी श्रृंखलाओं को अपडेट करें ताकि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
 
-**खाली पॉइंट्स कैसे दिखाए जाते हैं?**
+**खाली बिंदु कैसे दिखते हैं?**
 
-परिणाम चार्ट प्रकार और [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichart/displayblanksas/) पर निर्भर करता है। समर्थित चार्ट खाली पॉइंट्स को गैप, शून्य मान, या पड़ोसी पॉइंट्स को जोड़कर दिखा सकते हैं। वह सेटिंग चुनें जो आपके प्रस्तुति में अनुपस्थित डेटा के अर्थ से मेल खाती हो।
+परिणाम चार्ट प्रकार और [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichart/displayblanksas/) पर निर्भर करता है। समर्थित चार्ट खाली को गैप, शून्य मान या पड़ोसी बिंदुओं को जोड़कर दिखा सकते हैं। अपनी प्रस्तुति में लापता डेटा के अर्थ के अनुसार सेटिंग चुनें। पूर्ण उदाहरण और दृश्य तुलना के लिए देखें **[खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](#control-the-display-of-empty-cells)**।
 
-**नकारात्मक मान कैसे स्वरूपित होते हैं?**
+**नकारात्मक मानों का स्वरूप क्या है?**
 
-समर्थित बार, कॉलम और बबल श्रृंखलाओं के लिए, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertifnegative/) सक्षम करें और [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) सेट करें। आप एक व्यक्तिगत पॉइंट के लिए [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) के साथ व्यवहार ओवरराइड कर सकते हैं। ये प्रॉपर्टी फ़ॉर्मेटिंग को प्रभावित करती हैं, न कि संग्रहीत संख्यात्मक मानों को।
+समर्थित बार, कॉलम और बबल श्रृंखलाओं के लिए, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertifnegative/) सक्षम करें और [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) के माध्यम से नकारात्मक‑मान रंग सेट करें। आप व्यक्तिगत बिंदु के लिए स्वरूप को [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) से अधिरोहित कर सकते हैं। ये प्रॉपर्टी स्वरूप को प्रभावित करती हैं, न कि संग्रहीत संख्यात्मक मानों को।
 
-**जब दोनों श्रृंखला और पॉइंट फ़ॉर्मेट किए जाते हैं तो कौन सा फ़ॉर्मेट जीतता है?**
+**जब श्रृंखला और बिंदु दोनों का स्वरूप हो, तो कौन जीतेगा?**
 
-स्पष्ट डेटा‑पॉइंट फ़ॉर्मेटिंग उस पॉइंट के लिए प्राथमिकता लेती है। अन्य पॉइंट्स स्पष्ट श्रृंखला फ़ॉर्मेट या, जब श्रृंखला फ़ॉर्मेट परिभाषित नहीं है, तो स्वचालित चार्ट शैली और थीम का उपयोग जारी रखते हैं। समूह गुण जैसे ओवरलैप और गैप चौड़ाई लेआउट को नियंत्रित करते हैं और पॉइंट‑स्तर फ़ॉर्मेटिंग ओवरराइड नहीं होते।
+स्पष्ट डेटा‑बिंदु स्वरूप उस बिंदु के लिए प्राथमिकता लेता है। अन्य बिंदु स्पष्ट श्रृंखला स्वरूप या, यदि श्रृंखला स्वरूप परिभाषित नहीं है, तो स्वचालित चार्ट स्टाइल और थीम का उपयोग जारी रखेंगे। समूह प्रॉपर्टी जैसे ओवरलैप और गैप चौड़ाई लेआउट को नियंत्रित करती हैं और बिंदु‑स्तर के स्वरूप को अधिरोहित नहीं करतीं।
 
-**क्या चार्ट में अधिकतम कितनी श्रृंखलाएँ हो सकती हैं?**
+**क्या चार्ट में श्रृंखलाओं की संख्या पर कोई सीमा है?**
 
-Aspose.Slides कोई अलग फ़िक्स्ड श्रृंखला‑गणना सीमा नहीं लगाता। व्यवहार में, प्रस्तुति फ़ाइल सीमाएँ, उपलब्ध मेमोरी, रेंडरिंग समय, और चार्ट की पढ़ने‑योग्यता उपयोगी सीमा निर्धारित करती हैं।
+Aspose.Slides किसी अलग स्थिर श्रृंखला‑गणना सीमा नहीं लगाता। व्यावहारिक रूप से, प्रस्तुति फ़ाइल की सीमाएँ, उपलब्ध मेमोरी, रेंडरिंग समय और चार्ट की पठनीयता उपयोगी सीमा निर्धारित करती हैं।
 
-**जब कॉलम बहुत करीब या बहुत दूर हों तो क्या बदलना चाहिए?**
+**जब कॉलम बहुत निकट या बहुत दूर हों, तो मुझे क्या बदलना चाहिए?**
 
-उपयुक्त पैरेंट श्रृंखला समूह पर [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) सेट करें। क्लस्टरों के बीच स्थान बढ़ाने के लिए मान बढ़ाएँ, या उन्हें करीब लाने के लिए मान घटाएँ।
+उपयुक्त पैरेंट श्रृंखला समूह पर [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) सेट करें। मान बढ़ाने से क्लस्टर के बीच की जगह चौड़ी होगी, या मान घटाने से क्लस्टर अधिक करीब आ जाएंगे।

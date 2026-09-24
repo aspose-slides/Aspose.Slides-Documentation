@@ -1,43 +1,43 @@
 ---
-title: JavaScript を使用したプレゼンテーションでのチャート データシリーズの管理
-linktitle: データシリーズ
+title: JavaScript を使用したプレゼンテーションでのチャート データ シリーズの管理
+linktitle: データ シリーズ
 type: docs
 url: /ja/nodejs-java/chart-series/
 keywords:
-- チャートシリーズ
-- シリーズオーバーラップ
-- シリーズカラー
-- シリーズ名
-- データポイント
-- ワークブックセル
-- シリーズギャップ
+- チャート シリーズ
+- シリーズ オーバーラップ
+- シリーズ 色
+- シリーズ 名称
+- データ ポイント
+- ワークブック セル
+- シリーズ ギャップ
 - 負の値
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript を使用して、プレゼンテーション内のチャートシリーズ、データポイント、ワークブックセル、書式設定、オーバーラップ、ギャップ幅、負の値の管理方法を学びます。"
+description: "JavaScript を使用して、プレゼンテーション内のチャート シリーズ、データ ポイント、ワークブック セル、書式設定、オーバーラップ、ギャップ幅、負の値の管理方法を学びます。"
 ---
 ## **概要**
 
-チャートはプロットされたデータをチャート データ ワークブックに保存します。[ChartSeries](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/) は関連する値の 1 セットを表し、シリーズ内の各[ChartDataPoint](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/)は 1 つ以上のワークブック セルを参照します。[ChartCategory](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartcategory/) オブジェクトは、シリーズ間で共有されるラベルまたはグループ化値を提供します。シリーズ名、カテゴリ、およびポイント値は、表示テキストとしてだけでなく、[ChartDataCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatacell/) オブジェクトに接続されます。
+チャートはプロットされたデータをチャート データ ワークブックに保存します。 [ChartSeries](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/) は関連する値のセットを表し、シリーズ内の各 [ChartDataPoint](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/) は 1 つ以上のワークブックセルを参照します。 [ChartCategory](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartcategory/) オブジェクトはシリーズが共有するラベルまたはグループ化値を提供します。したがって、シリーズ名、カテゴリ、ポイント値は [ChartDataCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatacell/) オブジェクトに接続されており、単なる表示テキストとしてだけ保存されているわけではありません。
 
-典型的なカテゴリ チャートの場合、デフォルトのワークブックは行 0 をシリーズ名、列 0 をカテゴリ名に使用し、残りのセルにシリーズ値を格納します。[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/#getCell) に渡すワークシート、行、列のインデックスは 0 ベースです。このレイアウトはデフォルト データでチャートを作成するときに便利ですが、すべての既存チャートがこれを使用しているとは限りません。ロードされたプレゼンテーションでは、ワークブックの値を変更する前に、シリーズ、カテゴリ、データポイントが参照しているセルを確認してください。
+典型的なカテゴリ チャートの場合、デフォルト ワークブックは行 0 にシリーズ名、列 0 にカテゴリ名、残りのセルにシリーズ値を使用します。 [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/#getCell) に渡すワークシート、行、列のインデックスは 0 ベースです。このレイアウトはデフォルト データでチャートを作成する際に便利ですが、すべての既存チャートがこれを使用しているとは限りません。ロードされたプレゼンテーションの場合、ワークブックの値を変更する前に、シリーズ、カテゴリ、データ ポイントが参照しているセルを確認してください。
 
 チャート設定には 3 つのスコープがあります。
 
-- シリーズ レベルの設定 (例: [ChartSeries.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getFormat)) は、1 シリーズ内のすべてのポイントのデフォルトの外観を提供します。
-- データ ポイント設定 (例: [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#getFormat)) は、1 ポイントのシリーズ外観を上書きします。
-- グループ設定は、同じ[ChartSeriesGroup](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/)に属する互換シリーズに適用されます。オーバーラップやギャップ幅などのオプションを設定する必要がある場合は、[ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) を介してグループにアクセスしてください。
+- シリーズ レベルの設定 (例: [ChartSeries.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getFormat)) は、1 つのシリーズ内のすべてのポイントの既定の外観を提供します。
+- データ ポイント 設定 (例: [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#getFormat)) は、1 つのポイントに対してシリーズの外観を上書きします。
+- グループ設定は、同じ [ChartSeriesGroup](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/) に属する互換性のあるシリーズに適用されます。オーバーラップやギャップ幅などのオプションを設定する必要がある場合は、[ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) を使用してグループにアクセスします。
 
-明示的にポイントまたはシリーズの塗りが設定されていない場合、チャートのスタイルとテーマが自動的な外観を決定します。シリーズとポイントの書式設定が両方存在する場合、ポイントの書式設定がそのポイントに対して優先されます。
+明示的なポイントまたはシリーズの塗りつぶしが設定されていない場合、チャート スタイルとテーマが自動的な外観を決定します。シリーズとポイントの書式設定が両方存在する場合、ポイントの書式設定がそのポイントに対して優先されます。
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **チャート シリーズのオーバーラップを設定する**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getOverlap) は、2D チャートの棒または列がどれだけオーバーラップするかを -100% から 100% の範囲で報告します。これは親シリーズ グループの設定の読み取り専用投影です。グループ内のすべての互換シリーズを更新するには、[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) を使用します。このオプションは、グループ化された棒や列を表示するチャート タイプに適用され、組み合わせチャートの無関係なシリーズ グループには影響しません。
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getOverlap) は、2D チャートにおける棒または列のオーバーラップ率を -100 から 100 パーセントで報告します。これは親シリーズ グループの設定の読み取り専用投影です。すべての互換シリーズに対してオーバーラップを更新するには、[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) を使用します。このオプションは、グループ化された棒または列を表示するチャート タイプに適用されます。組み合わせチャートの無関係なシリーズ グループには影響しません。
 
 次の例は、最初のシリーズを含むグループのオーバーラップを設定します。
 
@@ -54,7 +54,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // 新しいチャートにはサンプルのシリーズ、カテゴリ、値が含まれています。
+    // 新しいチャートにはサンプルシリーズ、カテゴリ、値が含まれています。
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -70,11 +70,11 @@ try {
 
 ![The series overlap](series_overlap.png)
 
-## **シリーズの塗りの色を変更する**
+## **シリーズの塗りつぶし色を変更する**
 
-[ChartSeries.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getFormat) を使用して、シリーズ全体のデフォルト塗りを設定します。ポイントに明示的な塗りが既にある場合、その[ChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#getFormat) 設定がそのポイントのシリーズ塗りを上書きします。
+[ChartSeries.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getFormat) を使用して、シリーズ全体の既定の塗りつぶしを設定します。ポイントに明示的な塗りつぶしが既に設定されている場合、その [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#getFormat) 設定がそのポイントのシリーズ塗りつぶしを上書きします。
 
-次の例は、最初のシリーズに単色の青塗りを適用します。
+次の例は、最初のシリーズに純色の青い塗りつぶしを適用します。
 
 ```javascript
 const aspose = {};
@@ -108,7 +108,7 @@ try {
 
 ## **シリーズ名を変更する**
 
-シリーズ名はチャート データ ワークブックに保存され、通常は凡例に表示されます。クラスター化列チャート用にデフォルトで作成されたワークブックでは、セル B1 が行 0、列 1 にあり、最初のシリーズ名が格納されています。以下の例の名前付き定数はその構造を明示的に示しています。
+シリーズ名はチャート データ ワークブックに保存され、通常は凡例に表示されます。クラスター化された列チャートのデフォルト ワークブックでは、セル B1 は行 0、列 1 にあり、最初のシリーズの名前が格納されています。以下の例の名前付き定数は、その構造を明示的に示します。
 
 ```javascript
 const aspose = {};
@@ -135,7 +135,7 @@ try {
 }
 ```
 
-また、[ChartSeries.getName](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getName) が参照しているセルを直接更新することもできます。この方法は、既存チャートで特定の行や列を前提としないので安全です。
+また、[ChartSeries.getName](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getName) がすでに参照しているセルを更新することもできます。このアプローチは、既存のチャートで特定の行や列を仮定することを避けます。
 
 ```javascript
 const aspose = {};
@@ -165,9 +165,9 @@ try {
 
 ![The series name](series_name.png)
 
-## **自動シリーズ塗り色を取得する**
+## **自動シリーズ塗りつぶし色を取得する**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) は、シリーズインデックスとチャート スタイルから計算された色を返します。これは、シリーズの塗りが明示的に定義されていない場合に使用される色です。このメソッドを呼び出すと計算された色を取得しますが、塗りは設定されません。
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) は、シリーズインデックスとチャート スタイルから計算された色を返します。これは、シリーズの塗りつぶしが明示的に定義されていない場合に使用される色です。このメソッドを呼び出すと計算された色が取得されますが、新しい塗りつぶしは割り当てられません。
 
 次の例は、デフォルトの各シリーズの自動色を出力します。
 
@@ -195,7 +195,7 @@ try {
 }
 ```
 
-デフォルトのチャート スタイルの例出力:
+デフォルトのチャート スタイルのサンプル出力:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -205,11 +205,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 正確な色はチャート スタイルとテーマに依存します。
 
-## **シリーズの塗りを反転させる色を設定する**
+## **チャート シリーズの反転塗りつぶし色を設定する**
 
-棒、列、バブルシリーズでは、[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) を使用して負の値を別の塗りで表示できます。通常のシリーズ塗りを単色に設定し、反転を有効にし、負の値の色を[ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) で割り当てます。負の数値自体はワークブック内で変更されず、表示色だけが変わります。
+棒、列、およびバブル シリーズでは、[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) を使用して負の値を別の塗りつぶしで表示できます。通常のシリーズ塗りつぶしを純色に設定し、反転を有効にし、負の値の色を [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) で割り当てます。ワークブック内の負の数値は変更されず、表示色だけが変わります。
 
-次の例は、デフォルトのチャート データを 1 系列に置き換えます。ワークシートの行 0 にシリーズ名、列 0 にカテゴリ名、列 1 に値が格納されます。
+次の例は、デフォルトのチャート データを 1 つのシリーズに置き換えます。ワークシートの行 0 にシリーズ名、列 0 にカテゴリ名、列 1 に値が格納されます。
 
 ```javascript
 const aspose = {};
@@ -271,7 +271,7 @@ try {
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-1 ポイントだけ反転させるには、[ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) を使用します。以下の例では、シリーズ全体の反転を無効にし、選択したポイントだけに有効にしています。そのポイントには負の値も割り当て、効果が見えるようにしています。
+1 つのポイントに対しては、[ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) で反転を有効にできます。以下の例では、シリーズ全体の反転を無効にし、選択したポイントだけに有効にしています。そのポイントには負の値も割り当てられているため、効果が確認できます。
 
 ```javascript
 const aspose = {};
@@ -310,7 +310,7 @@ try {
 
 ## **特定のデータ ポイントの値をクリアする**
 
-1 ポイントだけを空にして他のポイントを残すには、対応するワークブック セルを `null` に設定します。列チャートの場合、プロットされた値は[ChartDataPoint.getValue](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#getValue) を介して取得できます。データ ポイントは同じカテゴリ位置に残りますが、チャートはその値を空白として扱います（チャートの空白値設定に従う）。
+1 つのポイントだけを空にしたい場合は、対応するバックエンド ワークブック セルを `null` に設定します。列チャートの場合、プロットされた値は [ChartDataPoint.getValue](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#getValue) で取得できます。データ ポイントは同じカテゴリ位置に残りますが、チャートはブランク値設定に従ってその値を空として扱います。
 
 次の例は、最初のシリーズの 2 番目のポイントのみをクリアします。
 
@@ -338,13 +338,69 @@ try {
 }
 ```
 
-散布図は X と Y の別々のセルを使用し、バブル チャートはサイズセルも使用します。削除したい値に対応するセルだけをクリアしてください。ポイントを残したまま他のポイントを削除したい場合は、[ChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapointcollection/#clear) を呼び出さないでください。このメソッドはコレクション内のすべてのデータ ポイントを削除します。
+散布図は X と Y のセルが別々に使用され、バブル チャートはサイズセルも使用します。削除したい値に対応するセルだけをクリアしてください。ポイントを残したまま他のポイントを保持したい場合は、[ChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapointcollection/#clear) を呼び出さないでください。このメソッドはコレクション内のすべてのデータ ポイントを削除します。
+
+## **空セルの表示を制御する**
+
+空のワークブック セルはデータが欠落していることを表し、`0` が入っているセルは既知の数値を表します。セルを空にするには、`null` を渡して [ChartDataCell.setValue](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatacell/#setValue) を呼び出します。数値のゼロは空セル設定にかかわらずゼロのままです。
+
+チャート全体の空セル表示方法は、[Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) で選択できます。この設定は空白のプロット方法を変更し、空のワークブック セルをゼロや補間値で埋めることはありません。
+
+次の自己完結型例は、1 系列の折れ線グラフを作成し、Day 3 の値をクリアし、各モードで同じチャートを保存します。入力ファイルは不要です。[ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) はワークシート 0、列 0 にカテゴリ ラベル、列 1 に値を使用し、行 0 にシリーズ名を保持します。最終データは `10, 20, empty, 30, 40` です。
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 40, 40, 640, 400);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Measurements");
+    const series = chartData.getSeries().add(seriesNameCell, chart.getType());
+    const values = [10, 20, 25, 30, 40];
+
+    for (let i = 0; i < values.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, "Day " + (i + 1));
+        chartData.getCategories().add(categoryCell);
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // Day 3 を実際に空のままにし、カテゴリとデータポイントは保持します。
+    workbook.getCell(0, 3, 1).setValue(null);
+
+    const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
+    const modeNames = ["Gap", "Zero", "Span"];
+    for (let i = 0; i < modes.length; i++) {
+        chart.setDisplayBlanksAs(modes[i]);
+        presentation.save("empty_cells_" + modeNames[i] + ".pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+各出力ファイルは保存前に設定したモードを保持します: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, `empty_cells_Span.pptx`。1 つのバージョンだけを保存したい場合は、目的のモードを割り当ててプレゼンテーションを 1 回だけ保存すれば、モードごとの反復は不要です。
+
+下の比較は、3 つのファイルすべてで同じデータがどのように表示されるかを示しています。Day 3 はすべてのケースでワークブック上で空です。
+
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+
+可視効果はチャート タイプに依存します。折れ線グラフは 3 つのモードを比較しやすいですが、棒や列のチャートは欠損したカテゴリを結ぶ線がないため、`Span` は上図のような接続セグメントを生成できません。欠損した列とゼロ高さの列は見た目が似ていることがあります。同様に、マーカーのみの散布図も接続線がありません。すべてのチャート タイプで 3 つの明確な結果が得られるとは限らないため、使用するタイプで出力を確認してください。
 
 ## **シリーズのギャップ幅を設定する**
 
-ギャップ幅は、隣接する棒または列クラスター間の空間を棒または列の幅のパーセンテージで表したものです。オーバーラップと同様に、親シリーズ グループに属し、個々のシリーズには属しません。グループ全体に対して一度だけ[ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出します。値を大きくするとクラスター間の間隔が広がり、小さくすると密集します。
+ギャップ幅は隣接する棒または列クラスター間のスペースを、棒または列の幅のパーセンテージで表したものです。オーバーラップと同様に、これは個々のシリーズではなく親シリーズ グループに属します。グループ全体に対して一度だけ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出します。値を大きくするとクラスター間のスペースが広がり、値を小さくすると密になります。
 
-次の例はギャップ幅を変更し、最終的なプレゼンテーションだけを保存します。
+次の例はギャップ幅を変更し、最終プレゼンテーションだけを保存します。
 
 ```javascript
 const aspose = {};
@@ -377,40 +433,40 @@ try {
 
 **どのチャート タイプがデータ シリーズをサポートしていますか？**
 
-[ChartType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/) 列挙体で表されるすべてのチャート タイプはチャート データを使用しますが、シリーズの値構造や設定はすべて同じではありません。たとえば、カテゴリ チャートはカテゴリと値を使用し、散布図は X と Y の値を使用し、バブル チャートはバブル サイズを追加します。シリーズのタイプに合わせたデータ ポイント作成メソッドを使用してください。オーバーラップやギャップ幅などのオプションは、互換性のある棒または列のグループにのみ適用されます。
+[ChartType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/) 列挙体で表されるすべてのチャート タイプはチャート データを使用しますが、シリーズごとに同じ値構造や設定があるわけではありません。たとえば、カテゴリ チャートはカテゴリと値を使用し、散布図は X と Y の値を使用し、バブル チャートはバブルのサイズを追加します。シリーズ タイプに合ったデータ ポイント作成メソッドを使用してください。オーバーラップやギャップ幅などのオプションは、互換性のある棒または列のグループにのみ適用されます。
 
 **チャート シリーズ グループとは何ですか？**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/) には、グループレベルのプロット設定を共有する互換シリーズが含まれます。組み合わせチャートは複数のグループを含むことができるため、あるシリーズを通じて取得したグループを変更しても、必ずしもチャート内のすべてのシリーズが変更されるわけではありません。
+[ChartSeriesGroup](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/) は、グループレベルのプロット設定を共有する互換性のあるシリーズを含みます。組み合わせチャートは複数のグループを持つことができるため、あるシリーズを通じて取得したグループの設定を変更しても、必ずしもチャート内のすべてのシリーズが変更されるわけではありません。
 
-**新しく作成したチャートはデフォルト データを含みますか？**
+**新しく作成したチャートにはデフォルト データが含まれますか？**
 
-はい。デフォルトでは、[ShapeCollection.addChart](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shapecollection/#addChart) はサンプルのシリーズ、カテゴリ、および値を作成します。これらのセルを編集するか、カスタム データセットを追加する前にシリーズとカテゴリのコレクションをクリアできます。オーバーロードを使用してデフォルト データなしでチャートを作成することも可能です。
+はい。デフォルトでは、[ShapeCollection.addChart](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shapecollection/#addChart) がサンプルシリーズ、カテゴリ、値を作成します。これらのセルを編集するか、カスタム データ セットを追加する前にシリーズとカテゴリのコレクションをクリアできます。オーバーロードを使用してデフォルト データなしでチャートを作成することも可能です。
 
-**チャート オブジェクトはワークブック セルとどのように接続されていますか？**
+**チャート オブジェクトはワークブックのセルとどのように接続されていますか？**
 
-シリーズ名、カテゴリ ラベル、データ ポイント値はすべて[ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) のセルを参照しています。参照セルを変更すると、対応するチャート要素が更新されます。カスタム データを作成するときは、各ポイントが意図したカテゴリの下にプロットされるよう、カテゴリ行とシリーズ値行を整列させてください。
+シリーズ名、カテゴリ ラベル、データ ポイント値はすべて [ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) のセルを参照します。参照セルを変更すると、対応するチャート要素が更新されます。カスタム データを構築する際は、カテゴリ行とシリーズ値行が整合するように配置し、各ポイントが意図したカテゴリの下にプロットされるようにしてください。
 
-**シリーズ全体ではなく 1 ポイントだけをクリアするにはどうすればよいですか？**
+**シリーズ全体ではなく 1 つのポイントだけをクリアするには？**
 
-該当する値セルを `null` に設定すると、ポイントのカテゴリ位置は保持され、空のポイントとして扱われます。[ChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapointcollection/#clear) は、そのシリーズのすべてのポイントを削除する場合にのみ使用してください。カテゴリも削除する場合は、すべてのシリーズの値がカテゴリコレクションと整合するように更新してください。
+該当する値セルを `null` に設定して、ポイントのカテゴリ位置はそのままに空のポイントとして保持します。シリーズ全体のポイントをすべて削除したい場合のみ、[ChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapointcollection/#clear) を使用してください。カテゴリも同時に削除する場合は、すべてのシリーズがカテゴリコレクションと整合するように更新してください。
 
 **空のポイントはどのように表示されますか？**
 
-表示はチャート タイプと[Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) の設定に依存します。サポートされているチャートは、空白をギャップ、ゼロ値、または隣接ポイントの接続として表示できます。プレゼンテーションの欠損データの意味に合わせた設定を選択してください。
+表示はチャート タイプと [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) で設定された値に依存します。サポートされているチャートは、空白をギャップ、ゼロ値、または隣接ポイントを接続して表示できます。プレゼンテーションの欠損データの意味に合わせて設定を選択してください。完全な例とビジュアル比較は「空セルの表示を制御する」セクションをご参照ください。
 
 **負の値はどのように書式設定されますか？**
 
-サポートされている棒、列、バブル シリーズの場合、[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) を呼び出し、[ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) が返す色を設定します。個々のポイントに対しては[ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) で動作を上書きできます。これらのメソッドは書式設定に影響し、格納された数値は変更しません。
+サポートされている棒、列、バブル シリーズについては、[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) を呼び出し、[ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) で取得した色を設定します。個々のポイントに対しては、[ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) で動作を上書きできます。これらのメソッドは書式設定に影響しますが、数値自体は変更しません。
 
 **シリーズとポイントの両方が書式設定されている場合、どちらが優先されますか？**
 
-明示的なデータ ポイントの書式設定がそのポイントに対して優先されます。他のポイントは、明示的なシリーズ書式が定義されていない場合は、自動的なチャート スタイルとテーマが適用されます。オーバーラップやギャップ幅などのグループ設定はレイアウトを制御し、ポイントレベルの書式設定の上書きではありません。
+明示的なデータ ポイントの書式設定がそのポイントに対して優先されます。他のポイントは、明示的にシリーズの書式が定義されていればそれを使用し、定義されていなければ自動的なチャート スタイルとテーマが適用されます。オーバーラップやギャップ幅などのグループ設定はレイアウトに影響し、ポイントレベルの書式設定の上書きではありません。
 
 **チャートに含められるシリーズ数に上限はありますか？**
 
-Aspose.Slides には固定されたシリーズ数の上限はありません。実際の制限は、プレゼンテーション ファイルのサイズ、使用可能なメモリ、レンダリング時間、およびチャートの可読性に依存します。
+Aspose.Slides には別途固定されたシリーズ数の上限はありません。実務上は、プレゼンテーション ファイルの制約、利用可能なメモリ、レンダリング時間、そしてチャートの可読性が実用的な上限を決定します。
 
-**列が互いに近すぎる、または離れすぎる場合はどうすればよいですか？**
+**列が互いに近すぎる、または遠すぎる場合はどうすればよいですか？**
 
-適切な親シリーズ グループに対して[ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出します。値を増やすとクラスター間の間隔が広がり、減らすとクラスターが近づきます。
+適切な親シリーズ グループに対して [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出します。値を大きくするとクラスター間のスペースが広がり、値を小さくするとクラスターが近くなります。

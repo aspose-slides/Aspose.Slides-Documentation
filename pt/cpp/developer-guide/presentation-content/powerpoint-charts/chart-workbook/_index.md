@@ -1,35 +1,37 @@
 ---
-title: Gerenciar Planilhas de Gráficos em Apresentações Usando C++
-linktitle: Planilha de Gráfico
+title: Gerenciar Pastas de Trabalho de Gráficos em Apresentações Usando C++
+linktitle: Pasta de Trabalho de Gráfico
 type: docs
 weight: 70
 url: /pt/cpp/chart-workbook/
 keywords:
-- planilha de gráfico
+- pasta de trabalho de gráfico
 - dados de gráfico
-- célula de planilha
+- célula da pasta de trabalho
 - rótulo de dados
 - planilha
 - fonte de dados
-- planilha externa
+- pasta de trabalho externa
 - dados externos
 - cache de gráfico
-- recuperação de planilha
+- recuperação de pasta de trabalho
 - PowerPoint
 - apresentação
 - C++
 - Aspose.Slides
-description: "Descubra o Aspose.Slides para C++: gerencie facilmente planilhas de gráficos nos formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
+description: "Descubra Aspose.Slides para C++: gerencie facilmente pastas de trabalho de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
 ---
-## **Visão geral**
+## **Visão Geral**
 
-Este artigo explica como trabalhar com livros de planilhas de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos através de fluxos de planilhas, usar células de planilha como rótulos de dados de gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos por meio de streams de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para os valores do gráfico.
 
-Também cobre o trabalho com planilhas externas como origens de dados de gráficos. Os exemplos demonstram como criar e atribuir uma planilha externa, recuperar o caminho de uma planilha externa vinculada a um gráfico e editar os dados do gráfico quando a planilha está disponível.
+Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
-## **Ler e gravar dados de gráfico a partir de uma planilha**
+Para células da pasta de trabalho que representam dados ausentes, veja [Controlar a Exibição de Células Vazias](/slides/pt/cpp/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
 
-Aspose.Slides fornece os métodos [ReadWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) que permitem ler e gravar livros de planilhas de dados de gráficos (contendo dados de gráfico editados com Aspose.Cells). **Note** que os dados do gráfico precisam estar organizados da mesma maneira ou ter uma estrutura semelhante à fonte.
+## **Ler e Gravar Dados de Gráficos a partir de uma Pasta de Trabalho**
+
+Aspose.Slides fornece os métodos [ReadWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados de gráficos editados com Aspose.Cells). **Nota** que os dados do gráfico precisam ser organizados da mesma forma ou ter uma estrutura semelhante à fonte.
 
 ``` cpp
 #include <DOM/Chart/Chart.h>
@@ -59,12 +61,12 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-### **Validar layout do gráfico após modificação da planilha**
+### **Validar o Layout do Gráfico após Modificação da Pasta de Trabalho**
 
-Quando você substitui uma planilha incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [IChart::ValidateChartLayout](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a planilha atualizada de volta ao gráfico.
+Quando você substitui uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [IChart::ValidateChartLayout](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta ao gráfico.
 
 ```cpp
-// Após modificar o fluxo da planilha (por exemplo, usando Aspose.Cells)
+// Após modificar o stream da pasta de trabalho (por exemplo, usando Aspose.Cells)
 auto updatedWorkbook = chartData->ReadWorkbookStream();
 
 // Limpar referências de dados existentes.
@@ -77,18 +79,18 @@ chartData->WriteWorkbookStream(updatedWorkbook);
 chart->ValidateChartLayout();
 ```
 
-Limpar as coleções garante que a estrutura dos dados do gráfico seja consistente com a nova planilha, permitindo que `ValidateChartLayout` seja concluído sem erros.
+Limpar as coleções garante que a estrutura de dados do gráfico seja consistente com a nova pasta de trabalho, permitindo que `ValidateChartLayout` seja concluído sem erros.
 
-## **Definir uma célula de planilha como rótulo de dados do gráfico**
+## **Definir uma Célula da Pasta de Trabalho como Rótulo de Dados do Gráfico**
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/).
-1. Obtenha a referência de um slide através de seu índice.
-1. Adicione um gráfico de Bolhas com alguns dados.
-1. Acesse as séries do gráfico.
-1. Defina a célula da planilha como um rótulo de dados.
-1. Salve a apresentação.
+2. Obtenha a referência de um slide por meio do seu índice.
+3. Adicione um gráfico de Bolha com alguns dados.
+4. Acesse as séries do gráfico.
+5. Defina a célula da pasta de trabalho como um rótulo de dados.
+6. Salve a apresentação.
 
-Este código C++ mostra como definir uma célula de planilha como rótulo de dados do gráfico:
+Este código C++ mostra como definir uma célula da pasta de trabalho como um rótulo de dados do gráfico:
 
 ``` cpp
 #include <DOM/Chart/ChartType.h>
@@ -135,7 +137,7 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## **Gerenciar planilhas**
+## **Gerenciar Planilhas**
 
 Este código C++ demonstra uma operação onde o método [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) é usado para acessar uma coleção de planilhas:
 
@@ -166,9 +168,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Especificar o tipo de origem de dados**
+## **Especificar o Tipo de Fonte de Dados**
 
-Este código C++ mostra como especificar um tipo para uma origem de dados:
+Este código C++ mostra como especificar um tipo para uma fonte de dados:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -203,9 +205,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Detectar formatos de planilhas incorporadas não suportados**
+## **Detectar Formatos de Pasta de Trabalho Incorporados Não Suportados**
 
-Aspose.Slides não oferece suporte ao formato de planilha binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `get_EmbeddedWorkbookType` em [IChartData](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/) junto com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos.
+Aspose.Slides não suporta o formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `get_EmbeddedWorkbookType` em [IChartData](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -237,25 +239,23 @@ for (auto&& shape : System::IterateOver(slide->get_Shapes()))
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // A planilha incorporada está no formato .xlsb, que não é suportado.
+        // A pasta de trabalho incorporada está no formato .xlsb, que não é suportado.
         continue;
     }
 
-    // Ler ou modificar os dados da planilha do gráfico aqui.
+    // Leia ou modifique os dados da pasta de trabalho do gráfico aqui.
 }
 ```
 
-## **Planilha externa**
+## **Pasta de Trabalho Externa**
 
-{{% alert color="info"%}} 
-Em [Aspose.Slides](https://releases.aspose.com/slides/pt/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, implementamos suporte para planilhas externas como origem de dados para gráficos.
-{{% /alert %}} 
+Aspose.Slides oferece suporte ao uso de pastas de trabalho externas como fonte de dados para gráficos.
 
-### **Criar uma planilha externa**
+### **Criar uma Pasta de Trabalho Externa**
 
-Usando os métodos **`ReadWorkbookStream`** e **`SetExternalWorkbook`**, você pode criar uma planilha externa do zero ou tornar uma planilha interna externa.
+Usando os métodos **`ReadWorkbookStream`** e **`SetExternalWorkbook`**, você pode criar uma pasta de trabalho externa do zero ou tornar uma pasta de trabalho interna externa.
 
-Este código C++ demonstra o processo de criação da planilha externa:
+Este código C++ demonstra o processo de criação da pasta de trabalho externa:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -294,13 +294,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Definir uma planilha externa**
+### **Definir uma Pasta de Trabalho Externa**
 
-Usando o método **`IChartData::SetExternalWorkbook`**, você pode atribuir uma planilha externa a um gráfico como sua origem de dados. Esse método também pode ser usado para atualizar o caminho da planilha externa (se esta foi movida).
+Usando o método **`IChartData::SetExternalWorkbook`**, você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se esta foi movida).
 
-Embora não seja possível editar os dados em planilhas armazenadas em locais remotos ou recursos, você ainda pode usar essas planilhas como origem de dados externa. Se for fornecido um caminho relativo para a planilha externa, ele será convertido automaticamente para um caminho completo.
+Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usar essas pastas de trabalho como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente em um caminho completo.
 
-Este código C++ mostra como definir uma planilha externa:
+Este código C++ mostra como definir uma pasta de trabalho externa:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -343,10 +343,9 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-O parâmetro `updateChartData` (no método `SetExternalWorkbook`) é usado para especificar se uma planilha Excel será carregada ou não.
-
-* Quando o valor de `updateChartData` é definido como `false`, somente o caminho da planilha é atualizado — os dados do gráfico não serão carregados nem atualizados a partir da planilha de destino. Use essa configuração quando a planilha de destino não existir ou estiver indisponível. 
-* Quando o valor de `updateChartData` é definido como `true`, os dados do gráfico são atualizados a partir da planilha de destino.
+O parâmetro `updateChartData` (baixo do método `SetExternalWorkbook`) é usado para especificar se uma pasta de trabalho Excel será carregada ou não. 
+* Quando o valor de `updateChartData` for `false`, apenas o caminho da pasta de trabalho é atualizado—os dados do gráfico não serão carregados ou atualizados a partir da pasta de trabalho de destino. Você pode querer usar esta configuração quando a pasta de trabalho de destino não existir ou não estiver disponível. 
+* Quando o valor de `updateChartData` for `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
 
 ```c++
 #include <DOM/Chart/ChartData.h>
@@ -372,13 +371,13 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Obter o caminho da planilha de origem de dados externa de um gráfico**
+### **Obter o Caminho da Pasta de Trabalho Fonte de Dados Externa de um Gráfico**
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/).
-1. Obtenha a referência de um slide através de seu índice.
-1. Crie um objeto para a forma de gráfico.
-1. Crie um objeto para o tipo de origem (`ChartDataSourceType`) que representa a origem de dados do gráfico.
-1. Especifique a condição relevante com base no tipo de origem sendo o mesmo que o tipo de origem de planilha externa.
+2. Obtenha a referência de um slide por seu índice.
+3. Crie um objeto para a forma do gráfico.
+4. Crie um objeto para o tipo de fonte (`ChartDataSourceType`) que representa a fonte de dados do gráfico.
+5. Especifique a condição relevante com base no tipo de fonte sendo o mesmo que o tipo de fonte de dados da pasta de trabalho externa.
 
 Este código C++ demonstra a operação:
 
@@ -405,13 +404,13 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Saves the presentation
+// Salva a apresentação
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **Editar dados do gráfico**
+### **Editar Dados do Gráfico**
 
-Você pode editar os dados em planilhas externas da mesma forma que altera o conteúdo de planilhas internas. Quando uma planilha externa não pode ser carregada, uma exceção é lançada.
+Você pode editar os dados em pastas de trabalho externas da mesma forma que faz alterações no conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
 
 Este código C++ é uma implementação do processo descrito:
 
@@ -449,11 +448,11 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Recuperar uma planilha do cache do gráfico**
+### **Recuperar uma Pasta de Trabalho do Cache do Gráfico**
 
-Se um gráfico usa uma planilha externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a planilha do gráfico a partir dos dados armazenados em cache na apresentação. Crie um [LoadOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/), configure-o com [set_SpreadsheetOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), e chame [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) com `true` antes de abrir a apresentação.
+Se um gráfico usar uma pasta de trabalho externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados armazenados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/), configure-a com [set_SpreadsheetOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), e chame [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) com `true` antes de abrir a apresentação.
 
-O exemplo C++ a seguir abre uma apresentação cujo gráfico referencia uma planilha externa indisponível e acessa os dados recuperados através de [IChart::get_ChartData](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichart/get_chartdata/) e [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+O exemplo C++ a seguir abre uma apresentação cujo gráfico referencia uma pasta de trabalho externa indisponível e acessa os dados recuperados através de [IChart::get_ChartData](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichart/get_chartdata/) e [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
@@ -474,30 +473,30 @@ auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 presentation->Dispose();
 ```
 
-Se a planilha externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lançará uma `System::InvalidOperationException`. Habilite a recuperação somente quando o uso dos dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na planilha externa após a última atualização da apresentação.
+Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma `System::InvalidOperationException`. Habilite a recuperação somente quando usar os dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
 
 ## **FAQ**
 
-**Posso determinar se um gráfico específico está vinculado a uma planilha externa ou incorporada?**
+**Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
 
-Sim. Um gráfico tem um [tipo de origem de dados](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) e um [caminho para uma planilha externa](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); se a origem for uma planilha externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico possui um [data source type](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) e um [path to an external workbook](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Caminhos relativos para planilhas externas são suportados e como são armazenados?**
+**Caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. Isso facilita a portabilidade do projeto; entretanto, esteja ciente de que a apresentação armazenará o caminho absoluto no arquivo PPTX.
+Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. Isso é conveniente para a portabilidade do projeto; porém, esteja ciente de que a apresentação armazenará o caminho absoluto no arquivo PPTX.
 
-**Posso usar planilhas localizadas em recursos/redes compartilhadas?**
+**Posso usar pastas de trabalho localizadas em recursos ou compartilhamentos de rede?**
 
-Sim, essas planilhas podem ser usadas como origem de dados externa. Contudo, a edição direta de planilhas remotas a partir do Aspose.Slides não é suportada — elas podem ser usadas apenas como fonte.
+Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, a edição de pastas de trabalho remotas diretamente pelo Aspose.Slides não é suportada—elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-Não. A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) e o utiliza para leitura dos dados. O arquivo externo em si não é modificado ao salvar a apresentação.
+Não. A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) e o usa para ler os dados. O arquivo externo em si não é modificado quando a apresentação é salva.
 
-**O que fazer se o arquivo externo estiver protegido por senha?**
+**O que devo fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita senha ao criar o link. Uma abordagem comum é remover a proteção previamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/cpp/)) e vincular a essa cópia.
+Aspose.Slides não aceita senha ao vincular. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/cpp/)) e vincular a essa cópia.
 
-**Vários gráficos podem referenciar a mesma planilha externa?**
+**Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
 
 Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.

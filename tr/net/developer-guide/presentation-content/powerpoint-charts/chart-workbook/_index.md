@@ -1,5 +1,5 @@
 ---
-title: ".NET'te Sunumlarda Grafik Çalışma Kitaplarını Yönetme"
+title: ".NET'de Sunumlarda Grafik Çalışma Kitaplarını Yönetme"
 linktitle: "Grafik Çalışma Kitabı"
 type: docs
 weight: 70
@@ -20,18 +20,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'i keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi sadeleştirin."
+description: "Aspose.Slides for .NET'i keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yöneterek sunum verilerinizi kolaylaştırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketleri olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme yollarını gösterir.
+Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketi olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme yöntemlerini gösterir.
 
-Ayrıca, harici çalışma kitaplarının grafik veri kaynakları olarak kullanılmasını da kapsar. Örnekler, bir harici çalışma kitabının nasıl oluşturulup atanacağını, bir grafik ile ilişkilendirilmiş harici çalışma kitabının yolunun nasıl alınacağını ve çalışma kitabı mevcut olduğunda grafik verisinin nasıl düzenleneceğini gösterir.
+Ayrıca harici çalışma kitaplarını grafik veri kaynakları olarak kullanmayı da kapsar. Örnekler, harici bir çalışma kitabı oluşturup atamayı, bir grafik ile ilişkilendirilmiş harici çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verisini düzenlemeyi gösterir.
 
-## **Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
-Aspose.Slides, grafik verileri (Aspose.Cells ile düzenlenmiş grafik verilerini içeren) çalışma kitaplarını okumanıza ve yazmanıza izin veren [ReadWorkbookStream](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdata/readworkbookstream/) ve [WriteWorkbookStream](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdata/writeworkbookstream/) yöntemlerini sağlar. **Not**: grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
+Eksik veriyi temsil eden çalışma kitabı hücreleri için boş hücrelerin görüntülenmesini kontrol etmek ve boş hücre ile sıfır arasındaki farkı görmek, ayrıca mevcut gösterim modlarının bir çizgi grafik karşılaştırması için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/net/chart-series/) sayfasına bakın.
 
-Bu C# kodu bir örnek işlemi göstermektedir:
+## **Çizelge Verilerini Bir Çalışma Kitabından Okuma ve Yazma**
+
+Aspose.Slides, grafik verilerini (Aspose.Cells ile düzenlenmiş) içeren çalışma kitaplarını okuma ve yazma imkanı sunan [ReadWorkbookStream](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdata/readworkbookstream/) ve [WriteWorkbookStream](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdata/writeworkbookstream/) yöntemlerini sağlar. **Not** grafik verileri kaynakla aynı şekilde düzenlenmiş ya da benzer bir yapıya sahip olmalıdır.
+
+Bu C# kodu örnek bir işlemi gösterir:
 
 ```c#
 using Aspose.Slides;
@@ -52,12 +55,12 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-### **Çalışma Kitabı Değiştirildikten Sonra Grafik Düzenini Doğrulama**
+### **Çalışma Kitabı Değişikliği Sonrası Grafik Düzenini Doğrulama**
 
-Bir gömülü çalışma kitabını değiştirilmiş bir sürümle değiştirdiğinizde, grafik orijinal serileri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [IChart.ValidateChartLayout](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichart/validatechartlayout/) yönteminin indeks dışı hata vermesine neden olabilir. Güncellenmiş çalışma kitabını grafik üzerine geri yazmadan önce mevcut serileri ve kategorileri temizleyin.
+Gömülü bir çalışma kitabını değiştirilmiş bir sürümüyle değiştirdiğinizde, grafik orijinal seri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [IChart.ValidateChartLayout](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichart/validatechartlayout/) yönteminin indeks dışı hata vermesine neden olabilir. Güncellenmiş çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin.
 
 ```csharp
-// Çalışma kitabı akışı değiştirildikten sonra (ör. Aspose.Cells kullanarak)
+// Çalışma kitabı akışını (örneğin Aspose.Cells kullanarak) değiştirdikten sonra
 using var updatedWorkbook = chartData.ReadWorkbookStream();
 
 // Mevcut veri referanslarını temizle.
@@ -73,14 +76,14 @@ chart.ValidateChartLayout();
 Koleksiyonların temizlenmesi, grafik veri yapısının yeni çalışma kitabıyla tutarlı olmasını sağlar ve `ValidateChartLayout` hatasız tamamlanır.
 
 ## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeks üzerinden slayt referansını alın.  
-1. Bazı verilerle bir Bubble (Balon) grafiği ekleyin.  
-1. Grafik serisine erişin.  
-1. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeks üzerinden bir slayt referansı alın.
+1. Bir Bubble grafiği bazı verilerle ekleyin.
+1. Grafik serisine erişin.
+1. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.
 1. Sunumu kaydedin.
 
-Bu C# kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak ayarlamayı gösterir:
+Bu C# kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak nasıl ayarlayacağınızı gösterir:
 
 ```c#
 using Aspose.Slides;
@@ -89,8 +92,7 @@ using Aspose.Slides.Charts;
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
-
-// Sunum dosyasını temsil eden bir Presentation sınıfını örnekleştirir
+// Bir sunum dosyasını temsil eden sunum sınıfını örnekler
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -115,7 +117,7 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 
 ## **Çalışma Sayfalarını Yönetme**
 
-Bu C# kodu, [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) özelliği kullanılarak bir çalışma sayfası koleksiyonuna erişilen bir işlemi gösterir:
+Bu C# kodu, [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) özelliğinin bir çalışma sayfası koleksiyonuna erişmek için nasıl kullanılacağını gösterir:
 
 ``` csharp
 using Aspose.Slides;
@@ -132,7 +134,7 @@ using (Presentation pres = new Presentation())
 
 ## **Veri Kaynağı Türünü Belirleme**
 
-Bu C# kodu, bir veri kaynağı için tür nasıl belirleneceğini gösterir:
+Bu C# kodu, bir veri kaynağı için tür nasıl belirtilir gösterir:
 
 ```c#
 using Aspose.Slides;
@@ -154,9 +156,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Desteklenmeyen Gömülü Çalışma Kitabı Formatlarını Algılama**
+## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algılama**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen formatları algılamak ve bu grafikleri atlamak için [IChartData](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdata/) üzerindeki `EmbeddedWorkbookType` özelliği ile [WorkbookType](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/workbooktype/) enum değerini birlikte kullanabilirsiniz.
+Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) biçimini desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafikleri atlamak için [IChartData](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdata/) üzerindeki `EmbeddedWorkbookType` özelliği ile [WorkbookType](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/workbooktype/) sayımını birlikte kullanabilirsiniz.
 
 ```csharp
 using Aspose.Slides;
@@ -175,23 +177,22 @@ using (var presentation = new Presentation("sample.pptx"))
         if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
             chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
         {
-            // Gömülü çalışma kitabı .xlsb formatında, bu format desteklenmiyor.
+            // Gömülü çalışma kitabı .xlsb formatında ve desteklenmiyor.
             continue;
         }
 
-        // Burada grafik çalışma kitabı verilerini okuyabilir veya düzenleyebilirsiniz.
+        // Burada grafik çalışma kitabı verisini okuyabilir veya değiştirebilirsiniz.
     }
 }
 ```
 
 ## **Harici Çalışma Kitabı**
 
-{{% alert color="info" %}} 
-[Aspose.Slides 19.4](https://docs.aspose.com/slides/tr/net/aspose-slides-for-net-19-4-release-notes/) sürümünde, grafikler için veri kaynağı olarak harici çalışma kitapları desteği ekledik.
-{{% /alert %}} 
+Aspose.Slides, grafikler için veri kaynağı olarak harici çalışma kitaplarını kullanmayı destekler.
 
 ### **Harici Çalışma Kitabı Oluşturma**
-**`ReadWorkbookStream`** ve **`SetExternalWorkbook`** yöntemlerini kullanarak ya sıfırdan bir harici çalışma kitabı oluşturabilir ya da içsel bir çalışma kitabını harici hâle getirebilirsiniz.
+
+**`ReadWorkbookStream`** ve **`SetExternalWorkbook`** yöntemlerini kullanarak sıfırdan bir harici çalışma kitabı oluşturabilir veya iç bir çalışma kitabını harici hâle getirebilirsiniz.
 
 Bu C# kodu, harici çalışma kitabı oluşturma sürecini gösterir:
 
@@ -218,9 +219,10 @@ using (Presentation pres = new Presentation())
 ```
 
 ### **Harici Çalışma Kitabını Ayarlama**
-**`SetExternalWorkbook`** yöntemiyle bir harici çalışma kitabını grafiğin veri kaynağı olarak atayabilirsiniz. Bu yöntem aynı zamanda (harici çalışma kitabı taşındıysa) yol güncellemesi için de kullanılabilir.
 
-Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu çalışma kitaplarını harici veri kaynağı olarak yine de kullanabilirsiniz. Bir harici çalışma kitabı için göreceli yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
+**`SetExternalWorkbook`** yöntemi, bir grafiğin veri kaynağı olarak harici bir çalışma kitabı atamanıza olanak tanır. Ayrıca, harici çalışma kitabının yolu (taşınmışsa) güncellenebilir.
+
+Uzak konumlardaki veya kaynaklardaki çalışma kitaplarının verileri düzenlenemez, ancak bu çalışma kitapları harici veri kaynağı olarak kullanılabilir. Harici çalışma kitabı için bir göreli yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
 
 Bu C# kodu, harici bir çalışma kitabının nasıl ayarlanacağını gösterir:
 
@@ -229,7 +231,7 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Belgeler dizininin yolu.
+// Belgeler dizinine giden yol.
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -250,10 +252,10 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-`SetExternalWorkbook` yöntemi altındaki `ChartData` parametresi, bir Excel çalışma kitabının yüklenip yüklenmeyeceğini belirtmek için kullanılır. 
+`SetExternalWorkbook` metodundaki `ChartData` parametresi, bir Excel çalışma kitabının yüklenip yüklenmeyeceğini belirlemek için kullanılır.
 
-* `ChartData` değeri **false** olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir—grafik verisi hedef çalışma kitabından yüklenmez veya güncellenmez. Bu ayar, hedef çalışma kitabı mevcut değilse veya erişilemezse tercih edilebilir.  
-* `ChartData` değeri **true** olduğunda, grafik verisi hedef çalışma kitabından güncellenir.
+* `ChartData` değeri `false` olarak ayarlandığında yalnızca çalışma kitabı yolu güncellenir—grafik verisi hedef çalışma kitabından yüklenmez veya güncellenmez. Hedef çalışma kitabı mevcut değilse veya erişilemezse bu ayar kullanılabilir.
+* `ChartData` değeri `true` olarak ayarlandığında grafik verisi hedef çalışma kitabından güncellenir.
 
 ```c#
 using Aspose.Slides;
@@ -271,15 +273,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Almak**
+### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Alın**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeks üzerinden slayt referansını alın.  
-1. Grafik şekli için bir nesne oluşturun.  
-1. Grafiğin veri kaynağını temsil eden (`ChartDataSourceType`) kaynak nesnesini oluşturun.  
-1. Kaynak türünün harici çalışma kitabı veri kaynağı türüyle aynı olması durumuna göre ilgili koşulu belirtin.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeks üzerinden bir slayt referansı alın.
+1. Grafik şekli için bir nesne oluşturun.
+1. Grafiğin veri kaynağını temsil eden (`ChartDataSourceType`) nesneyi oluşturun.
+1. Kaynak türünün harici çalışma kitabı veri kaynağı türü ile aynı olup olmadığına göre ilgili koşulu belirtin.
 
-Bu C# kodu, işlemi göstermektedir:
+Bu C# kodu işlemi gösterir:
 
 ```c#
 using Aspose.Slides;
@@ -303,7 +305,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Grafik Verisini Düzenleme**
 
-Harici çalışma kitaplarındaki veriyi, içsel çalışma kitaplarındaki gibi düzenleyebilirsiniz. Bir harici çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
+Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarındaki gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemezse bir istisna fırlatılır.
 
 Bu C# kodu, açıklanan sürecin bir uygulamasıdır:
 
@@ -323,11 +325,11 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
-### **Grafikten Çalışma Kitabını Önbellekten Kurtarma**
+### **Grafik Önbelleğinden Çalışma Kitabını Kurtarma**
 
-Bir grafik, eksik veya kullanılabilir olmayan bir harici çalışma kitabı kullanıyorsa, Aspose.Slides sunumda önbellekte tutulan veriden grafik çalışma kitabını yeniden oluşturabilir. **LoadOptions** oluşturun, **SpreadsheetOptions** yapılandırın ve **ISpreadsheetOptions.RecoverWorkbookFromChartCache** özelliğini `true` yapın; ardından sunumu açın.
+Bir grafik, eksik veya erişilemez bir harici çalışma kitabı kullanıyorsa, Aspose.Slides sunumda önbelleğe alınan verilerden grafik çalışma kitabını yeniden inşa edebilir. [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) oluşturun, onun [SpreadsheetOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/spreadsheetoptions/) ayarlayın ve sunumu açmadan önce [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/tr/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) özelliğini `true` olarak ayarlayın.
 
-Aşağıdaki C# örneği, kullanılabilir olmayan bir harici çalışma kitabına başvuran bir sunumu açar ve kurtarılan verilere **IChart.ChartData** ve **IChartData.ChartDataWorkbook** üzerinden erişir:
+Aşağıdaki C# örneği, grafiği erişilemez bir harici çalışma kitabına başvuran bir sunumu açar ve kurtarılan verilere [IChart.ChartData](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichart/chartdata/) ve [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdata/chartdataworkbook/) aracılığıyla erişir:
 
 ```csharp
 using Aspose.Slides;
@@ -346,27 +348,33 @@ using var presentation = new Presentation("presentation.pptx", loadOptions);
 var chart = (IChart)presentation.Slides[0].Shapes[0];
 var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-// Kurtarılan çalışma kitabı verilerini burada okuyabilir veya değiştirebilirsiniz.
+// Kurtarılan çalışma kitabı verisini burada okuyabilir veya değiştirebilirsiniz.
 ```
 
-Harici çalışma kitabı kullanılabilir değilse ve kurtarma devre dışı bırakılmışsa, Aspose.Slides bir `InvalidOperationException` fırlatır. Önbellekten kurtarma yalnızca önbellekteki grafik verisinin kabul edilebilir bir geri dönüş olduğu durumlarda etkinleştirilmelidir; çünkü önbellek, sunum son güncellendiğinden sonra harici çalışma kitabında yapılan değişiklikleri içermeyebilir.
+Harici çalışma kitabı bulunamaz ve kurtarma devre dışı bırakılmışsa, Aspose.Slides bir `InvalidOperationException` fırlatır. Ön bellekteki grafik verilerini kullanmak kabul edilebilir bir geri dönüş ise yalnızca kurtarmayı etkinleştirin; çünkü ön bellek, sunum son güncellendiğinden sonra harici çalışma kitabında yapılan değişiklikleri içermeyebilir.
 
 ## **SSS**
 
-**Belirli bir grafiğin harici bir çalışma kitabına mı yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**  
-Evet. Bir grafiğin bir [data source type](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/datasourcetype/) ve bir [external workbook path](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/externalworkbookpath/) vardır; kaynak harici bir çalışma kitabıysa, tam yolu okuyarak dış bir dosyanın kullanıldığını doğrulayabilirsiniz.
+**Belirli bir grafiğin harici bir çalışma kitabına mı yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**
 
-**Harici çalışma kitapları için göreceli yollar destekleniyor mu, nasıl depolanıyor?**  
-Evet. Göreceli bir yol belirtirseniz, otomatik olarak mutlak yola dönüştürülür. Bu, proje taşınabilirliği açısından kullanışlıdır; ancak sunum, PPTX dosyasında mutlak yolu saklar.
+Evet. Bir grafik, bir [data source type](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/datasourcetype/) ve bir [path to an external workbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/externalworkbookpath/) içerir; kaynak harici bir çalışma kitabıysa, tam yolu okuyarak harici bir dosyanın kullanıldığından emin olabilirsiniz.
 
-**Ağ kaynakları/paylaşımları üzerindeki çalışma kitaplarını kullanabilir miyim?**  
-Evet, bu çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, uzaktaki çalışma kitaplarını doğrudan Aspose.Slides ile düzenlemek desteklenmez—yalnızca kaynak olarak kullanılabilirler.
+**Harici çalışma kitapları için göreli yollar destekleniyor mu ve nasıl depolanıyor?**
 
-**Aspose.Slides sunumu kaydederken harici XLSX dosyasını üzerine yazıyor mu?**  
-Hayır. Sunum, dış dosyaya bir [link](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/externalworkbookpath/) saklar ve veri okuma için bu linki kullanır. Sunum kaydedildiğinde harici dosya değişmez.
+Evet. Göreli bir yol belirttiğinizde otomatik olarak mutlak yola dönüştürülür. Bu, proje taşınabilirliği açısından uygundur; ancak sunum, PPTX dosyasında mutlak yolu saklayacağını unutmayın.
 
-**Harici dosya şifreli ise ne yapmalıyım?**  
-Aspose.Slides bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, şifre korumasını önceden kaldırmak veya şifresiz bir kopya (örneğin, [Aspose.Cells](/cells/net/) kullanarak) hazırlayıp ona bağlanmaktır.
+**Ağ kaynakları/paylaşımları üzerindeki çalışma kitaplarını kullanabilir miyim?**
 
-**Birden fazla grafik aynı harici çalışma kitabına başvurabilir mi?**  
-Evet. Her grafik kendi linkini saklar. Hepsi aynı dosyaya işaret ediyorsa, dosyada yapılan güncellemeler bir sonraki veri yüklemesinde her grafiğe yansır.
+Evet, bu tür çalışma kitapları harici bir veri kaynağı olarak kullanılabilir. Ancak, Aspose.Slides üzerinden uzak çalışma kitaplarını doğrudan düzenlemek desteklenmez—yalnızca kaynak olarak kullanılabilirler.
+
+**Aspose.Slides, sunumu kaydederken harici XLSX dosyasını üzerine yazar mı?**
+
+Hayır. Sunum, bir [link to the external file](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/externalworkbookpath/) saklar ve bu bağlantıyı veri okuma için kullanır. Sunum kaydedildiğinde harici dosya değiştirilmez.
+
+**Harici dosya şifre korumalıysa ne yapmalıyım?**
+
+Aspose.Slides, bağlantı sırasında şifre kabul etmez. Yaygın bir yöntem, önce korumayı kaldırmak ya da şifresi çözülmüş bir kopya hazırlamaktır (örneğin [Aspose.Cells](/cells/net/) kullanarak) ve bu kopyaya bağlanmaktır.
+
+**Birden fazla grafik aynı harici çalışma kitabına başvurabilir mi?**
+
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosyada yapılan güncellemeler bir sonraki veri yüklemesinde tüm grafiklerde görünür.

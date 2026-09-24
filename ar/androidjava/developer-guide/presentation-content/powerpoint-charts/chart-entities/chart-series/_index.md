@@ -1,10 +1,10 @@
 ---
 title: إدارة سلاسل بيانات المخطط في العروض التقديمية على Android
-linktitle: سلسلة البيانات
+linktitle: سلاسل البيانات
 type: docs
 url: /ar/androidjava/chart-series/
 keywords:
-- سلسلة المخطط
+- سلسلة مخطط
 - تداخل السلسلة
 - لون السلسلة
 - اسم السلسلة
@@ -17,29 +17,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل المخطط، ونقاط البيانات، وخلايا دفتر العمل، والتنسيق، والتداخل، وعرض الفجوة، والقيم السلبية في العروض التقديمية على Android."
+description: "تعلم كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السلبية في العروض التقديمية على Android."
 ---
 ## **نظرة عامة**
 
-يخزن المخطط بياناته المرسومة في دفتر عمل بيانات المخطط. تمثّل [IChartSeries](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/) مجموعة واحدة من القيم المرتبطة، وكل [IChartDataPoint](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [IChartCategory](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. لذلك يتم ربط اسم السلسلة والفئات وقيم النقاط بكائنات [IChartDataCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatacell/) بدلاً من تخزينها كنص عرض فقط.
+يخزن المخطط بياناته المرسومة في دفتر بيانات المخطط. تمثل [IChartSeries](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/) مجموعة واحدة من القيم المرتبطة، وكل [IChartDataPoint](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [IChartCategory](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. لذلك يتم ربط اسم السلسلة والفئات وقيم النقاط بـ [IChartDataCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatacell/) بدلاً من تخزينها فقط كنص عرض.
 
-بالنسبة إلى مخطط فئة نموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، العمود 0 لأسماء الفئات، وتُستخدم الخلايا المتبقية لقيم السلسلة. الفهارس الخاصة بورقة العمل والصف والعمود التي تُمرّر إلى [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) هي صفرية الأساس. هذا التخطيط مفيد عندما تنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة إلى عرض تقديمي محمّل، افحص الخلايا التي تشير إليها السلاسل والفئات ونقاط البيانات قبل تغيير قيم دفتر العمل.
+للمخطط الفئوي النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، العمود 0 لأسماء الفئات، وتبقى الخلايا لبقية قيم السلاسل. الفهارس الخاصة بورقة العمل والصف والعمود التي تُمرَّر إلى [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) تبدأ من صفر. هذا التخطيط مفيد عندما تنشئ مخططًا ببيانات افتراضية، ولكن لا تفترض أن كل المخططات الموجودة تستخدمه. بالنسبة لعرض تقديمي محمَّل، افحص الخلايا المشار إليها من قبل السلاسل والفئات ونقاط البيانات قبل تعديل قيم دفتر العمل.
 
 لإعدادات المخطط ثلاث نطاقات مختلفة:
 
-- إعدادات على مستوى السلسلة، مثل [IChartSeries.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getFormat--)، توفّر الشكل الافتراضي لجميع النقاط في سلسلة واحدة.
-- إعدادات نقطة البيانات، مثل [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)، تتجاوز شكل السلسلة لنقطة واحدة.
-- إعدادات المجموعة تطبق على السلاسل المتوافقة التي تنتمي إلى نفس [IChartSeriesGroup](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/). يمكن الوصول إلى المجموعة عبر [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) عندما تحتاج إلى ضبط خيارات مثل التداخل أو عرض الفجوة.
+- إعدادات على مستوى السلسلة، مثل [IChartSeries.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getFormat--)، توفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات نقطة البيانات، مثل [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)، تتجاوز مظهر السلسلة لنقطة واحدة.
+- إعدادات المجموعة تُطبق على سلاسل متوافقة تنتمي إلى نفس [IChartSeriesGroup](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/). يمكن الوصول إلى المجموعة عبر [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) عندما تحتاج إلى ضبط خيارات مثل التداخل أو عرض الفجوة.
 
-عند عدم تعيين تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، فإن تنسيق النقطة له الأولوية لتلك النقطة.
+عند عدم تحديد تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، تتفوق تنسيق النقطة لتلك النقطة.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![سلسلة المخطط في PowerPoint](chart-series-powerpoint.png)
 
-## **تعيين تداخل سلسلة المخطط**
+## **ضبط تداخل سلسلة المخطط**
 
-تقارير [IChartSeries.getOverlap](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getOverlap--) مقدار تداخل الأعمدة أو الأشرطة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمئة. إنها إسقاط قراءة‑فقط للإعداد على مجموعة السلاسل الأصلية. استخدم [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أشرطة أو أعمدة مجمّعة؛ لا يؤثر على مجموعات السلاسل غير ذات الصلة في مخطط مركب.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getOverlap--) يبلّغ مقدار تداخل الأعمدة أو الأشرطة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمئة. وهو عرض للقراءة فقط للإعداد على مجموعة السلاسل الأصلية. استخدم [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) لتحديث كل السلاسل المتوافقة في تلك المجموعة. هذا الخيار يُطبق على أنواع المخططات التي تعرض أشرطة أو أعمدة مجموعّة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط مركب.
 
-المثال التالي يعيّن التداخل للمجموعة التي تحتوي على السلسلة الأولى:
+المثال التالي يضبط التداخل للمجموعة التي تحتوي على السلسلة الأولى:
 
 ```java
 import com.aspose.slides.*;
@@ -52,7 +52,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // المخطط الجديد يحتوي على سلاسل وعناصر تصنيف وقيم تجريبية.
+    // المخطط الجديد يحتوي على سلاسل وعينات وفئات وقيم.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -66,13 +66,13 @@ try {
 
 النتيجة:
 
-![The series overlap](series_overlap.png)
+![تداخل السلسلة](series_overlap.png)
 
 ## **تغيير لون تعبئة السلسلة**
 
-استخدم [IChartSeries.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getFormat--) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة تمتلك تعبئة صريحة بالفعل، فإن إعداد [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) يتجاوز تعبئة السلسلة لتلك النقطة.
+استخدم [IChartSeries.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getFormat--) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت نقطة ما لديها تعبئة صريحة بالفعل، فإن إعداد [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) يتجاوز تعبئة السلسلة لتلك النقطة.
 
-المثال التالي يطبّق تعبئة صلبة زرقاء على السلسلة الأولى:
+المثال التالي يطبق تعبئة صلبة باللون الأزرق على السلسلة الأولى:
 
 ```java
 import com.aspose.slides.*;
@@ -99,11 +99,11 @@ try {
 
 النتيجة:
 
-![The color of the series](series_color.png)
+![لون السلسلة](series_color.png)
 
 ## **تغيير اسم السلسلة**
 
-يُخزن اسم السلسلة في دفتر عمل بيانات المخطط ويظهر عادةً في المفتاح. في دفتر العمل الافتراضي الذي يُنشأ لمخطط أعمدة متكتلة، تكون الخلية B1 في الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المسماة في المثال التالي تجعل هذا الهيكل واضحًا:
+يُخزن اسم السلسلة في دفتر بيانات المخطط وعادةً ما يُعرض في الأسطورة. في دفتر العمل الافتراضي الذي يُنشأ لمخطط أعمدة متجمِّعة، تكون الخلية B1 في الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المسماة في المثال التالي تجعل تلك البنية صريحة:
 
 ```java
 import com.aspose.slides.*;
@@ -129,7 +129,7 @@ try {
 }
 ```
 
-يمكنك أيضًا تحديث الخلية التي يشير إليها [IChartSeries.getName](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getName--) مباشرة. يجنبك هذا المنهج افتراض صف وعمود محددين في مخطط موجود:
+يمكنك أيضًا تحديث الخلية التي يشير إليها [IChartSeries.getName](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getName--) مباشرة. هذا النهج يتجنّب افتراض صف وعمود معينين في مخطط موجود:
 
 ```java
 import com.aspose.slides.*;
@@ -156,11 +156,11 @@ try {
 
 النتيجة:
 
-![The series name](series_name.png)
+![اسم السلسلة](series_name.png)
 
 ## **الحصول على لون تعبئة السلسلة التلقائي**
 
-تُعيد [IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) اللون المحسوب من فهرس السلسلة ونمط المخطط كعدد صحيح ARGB لنظام Android. هذا هو اللون المستخدم عندما لا تُعرّف تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المحسوب؛ لا يُعيّن تعبئة جديدة.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) يُرجِع اللون المُحسب من فهرس السلسلة ونمط المخطط كعدد صحيح لون ARGB لأندرويد. هذا هو اللون المستخدم عندما لا تُحدد تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المُحسب؛ ولا يُعيّن تعبئة جديدة.
 
 المثال التالي يطبع عدد اللون التلقائي لكل سلسلة افتراضية:
 
@@ -186,13 +186,13 @@ try {
 }
 ```
 
-تتوقف القيم الصحيحة على نمط المخطط والموضوع.
+القيم الصحيحة تعتمد على نمط المخطط والموضوع.
 
-## **تعيين تعبئة عكسية للسلسلة**
+## **ضبط عكس لون التعبئة لسلسلة المخطط**
 
-بالنسبة إلى سلاسل الأشرطة والأعمدة والفقاعات، يمكن لـ [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) عرض القيم السلبية بتعبئة مختلفة. عيّن تعبئة السلسلة العادية إلى صلبة، فعّل العكس، وحدد لون القيمة السلبية عبر [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). تظل الأرقام السلبية في دفتر العمل دون تغيير؛ يتغير لون عرضها فقط.
+بالنسبة لسلاسل الأشرطة والأعمدة والفقاعات، يمكن لـ [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) عرض القيم السالبة بتعبئة مختلفة. اضبط تعبئة السلسلة العادية إلى صلبة، فعّل العكس، وعين لون القيمة السالبة عبر [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). تبقى الأرقام السالبة دون تغيير في دفتر العمل؛ يتغيّر فقط لون العرض.
 
-المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. يحتوي صف ورقة العمل 0 على اسم السلسلة، العمود 0 على أسماء الفئات، والعمود 1 على القيم:
+المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 في ورقة العمل يحتوي على اسم السلسلة، العمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
 
 ```java
 import com.aspose.slides.*;
@@ -249,9 +249,9 @@ try {
 
 النتيجة:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![لون التعبئة الصلبة المعكوس](inverted_solid_fill_color.png)
 
-يمكنك تمكين العكس لنقطة واحدة عبر [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). في المثال التالي تم إلغاء العكس للسلسلة وتفعيله فقط للنقطة المحددة. تُعيّن النقطة أيضًا قيمة سلبية لتظهر التأثير:
+يمكنك تمكين العكس لنقطة واحدة عبر [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). في المثال التالي، تم إلغاء العكس للسلسلة وتفعيل العكس فقط للنقطة المختارة. تم أيضًا تعيين قيمة سالبة للنقطة لتظهر التأثير:
 
 ```java
 import com.aspose.slides.*;
@@ -287,7 +287,7 @@ try {
 
 ## **مسح قيمة نقطة بيانات محددة**
 
-لجعل نقطة واحدة فارغة دون إزالة النقاط الأخرى، اضبط خلية دفتر العمل الداعمة لها إلى `null`. في مخطط الأعمدة، القيمة المرسومة متاحة عبر [IChartDataPoint.getValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). تظل نقطة البيانات في موضع الفئة نفسه، لكن المخطط يتعامل مع قيمتها كفارغة وفقًا لإعدادات القيم الفارغة للمخطط.
+لجعل نقطة واحدة فارغة دون إزالة باقي النقاط، اضبط خلية دفتر العمل الداعمة لها إلى `null`. بالنسبة لمخطط عمودي، تكون القيمة المرسومة متاحة عبر [IChartDataPoint.getValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). تبقى نقطة البيانات في نفس موضع الفئة، لكن المخطط يعامل قيمتها كفراغ وفقًا لإعدادات قيمة الفراغ في المخطط.
 
 المثال التالي يمسح فقط النقطة الثانية في السلسلة الأولى:
 
@@ -314,11 +314,66 @@ try {
 }
 ```
 
-تستخدم مخططات التبعثر خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية حجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تستدعِ [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) عندما تريد الاحتفاظ بالنقاط الأخرى، لأن هذه الطريقة تُزيل كل نقاط البيانات من المجموعة.
+تستخدم مخططات التشتت خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية الحجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تستدعِ [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) عندما تريد الاحتفاظ بالنقاط الأخرى، لأن هذه الطريقة تزيل كل نقاط البيانات من المجموعة.
 
-## **تعيين عرض الفجوة للسلسلة**
+## **التحكم في عرض الخلايا الفارغة**
 
-عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتجاورة، معبرًا عنه كنسبة مئوية من عرض الشريط أو العمود. مثل التداخل، ينتمي إلى مجموعة السلاسل الأصلية وليس إلى سلسلة واحدة. استدعِ [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) مرة واحدة للمجموعة. قيمة أكبر تُنشئ مساحة أكبر بين المجموعات؛ قيمة أصغر تجعلها أكثر تلاصقًا.
+تمثل الخلية الفارغة في دفتر العمل بيانات مفقودة؛ الخلية التي تحتوي على `0` تمثل قيمة عددية معروفة. استدعِ [IChartDataCell.setValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) مع `null` لجعل الخلية فارغة. الصفر الرقمي يبقى صفرًا بغض النظر عن إعداد الخلية الفارغة.
+
+استخدم [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) لاختيار طريقة عرض المخطط للخلايا الفارغة. هذا الإعداد يُطبق على المخطط بأكمله. يغيّر طريقة رسم الفراغات دون تعبئة الخلية الفارغة بالصفر أو قيمة مُقربة.
+
+المثال التالي المستقل ينشئ مخطط خط بسلسلة واحدة، يمسح القيمة لليوم الثالث، ويحفظ المخطط نفسه بكل نمط. لا حاجة لملف إدخال. يستخدم [IChartDataWorkbook](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdataworkbook/) ورقة عمل 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 40, 40, 640, 400);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Measurements");
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chart.getType());
+    int[] values = { 10, 20, 25, 30, 40 };
+
+    for (int i = 0; i < values.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Day " + (i + 1));
+        chartData.getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // اترك اليوم 3 فارغًا فعلاً، مع الاحتفاظ بالفئة ونقطة البيانات الخاصة به.
+    workbook.getCell(0, 3, 1).setValue(null);
+
+    int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
+    String[] modeNames = { "Gap", "Zero", "Span" };
+    for (int i = 0; i < modes.length; i++) {
+        chart.setDisplayBlanksAs(modes[i]);
+        presentation.save("empty_cells_" + modeNames[i] + ".pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+كل ملف ناتج يُخزّن النمط المحدد قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و`empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن النمط المطلوب واحفظ العرض التقديمي مرة واحدة بدلاً من التكرار عبر الأنماط.
+
+المقارنة أدناه تُظهر نفس البيانات في جميع الملفات الثلاثة. اليوم الثالث فارغ في دفتر العمل في كل حالة:
+
+![مخططات الخط مع بيانات متطابقة: الفجوة تقطع الخط في اليوم 3، الصفر يخفض الخط إلى الصفر، والاتصال يربط اليوم 2 باليوم 4.](display_blanks_as.png)
+
+التأثير المرئي يعتمد على نوع المخطط. يُسهِّل مخطط الخط مقارنة جميع الأنماط الثلاثة. لا يحتوي مخطط الأعمدة أو المخططات العمودية على خط لتوصيل الفئات المفقودة، لذا لا يمكن لـ `Span` إنتاج الجزء المتصل المعروض أعلاه؛ يمكن أن يبدو العمود المفقود والعمود صفر الارتفاع متشابهين. بالمثل، مخطط التشتت مع علامات فقط لا يملك خطًا رابطًا. لا تتوقع ثلاث نتائج متميزة لكل نوع مخطط؛ تحقق من المخرجات للنوع الذي تستخدمه.
+
+## **ضبط عرض الفجوة بين السلاسل**
+
+عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتجاورة، ويُعبر عنها كنسبة مئوية من عرض الشريط أو العمود. مثل التداخل، ينتمي إلى مجموعة السلاسل الأصلية وليس إلى سلسلة واحدة. استدعِ [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ القيمة الأصغر تجعلها أكثر كثافة.
 
 المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
 
@@ -346,46 +401,46 @@ try {
 
 النتيجة:
 
-![The gap width](gap_width.png)
+![عرض الفجوة](gap_width.png)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
+**Which chart types support data series?**
 
-جميع أنواع المخططات الممثلة في تعداد [ChartType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تشترك جميعها في نفس هيكل القيم أو الإعدادات. على سبيل المثال، تستخدم مخططات الفئات الفئات والقيم، وتستخدم مخططات التبعثر قيم X وY، وتضيف مخططات الفقاعات أحجام الفقاع. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأشرطة أو الأعمدة المتوافقة.
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
-**ما هي مجموعة سلسلة المخطط؟**
+**What is a chart series group?**
 
-تحتوي [IChartSeriesGroup](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/) على سلاسل متوافقة تشترك في إعدادات الرسم على مستوى المجموعة. يمكن لمخطط مركب أن يحتوي على أكثر من مجموعة، لذا قد لا يؤدي تغيير المجموعة التي يتم الوصول إليها عبر سلسلة واحدة إلى تغيير كل السلاسل في المخطط.
+An [IChartSeriesGroup](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
 
-**هل يحتوي المخطط الذي تم إنشاؤه حديثًا على بيانات افتراضية؟**
+**Does a newly created chart contain default data?**
 
-نعم. بشكل افتراضي، يُنشئ [IShapeCollection.addChart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) سلاسل وعناصر تصنيف وقيم عينة. يمكنك تعديل تلك الخلايا أو مسح مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة تمامًا. يمكن أيضًا استخدام نسخة م overload لإنشاء مخطط بدون بيانات افتراضية.
+Yes. By default, [IShapeCollection.addChart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
 
-**كيف ترتبط كائنات المخطط بخلايا دفتر العمل؟**
+**How are chart objects connected to workbook cells?**
 
-تشير أسماء السلاسل، وتسميات الفئات، وقيم نقاط البيانات إلى خلايا في [IChartDataWorkbook](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdataworkbook/). يؤدي تغيير خلية مُشار إليها إلى تحديث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، حافظ على توافق صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
+Series names, category labels, and data-point values reference cells in an [IChartDataWorkbook](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
 
-**كيف أُمسح نقطة واحدة بدلاً من السلسلة بأكملها؟**
+**How do I clear one point instead of the whole series?**
 
-عيّن خلية القيمة المعنية إلى `null` للاحتفاظ بموضع الفئة للنقطة كقطة فارغة. استخدم [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) فقط عندما تريد إزالة جميع النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل بحيث تظل قيمها متطابقة مع مجموعة الفئات.
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
 
-**كيف تُعرض النقاط الفارغة؟**
+**How are empty points displayed?**
 
-تعتمد النتيجة على نوع المخطط والقيمة المُكوَّنة عبر [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). يمكن للمخططات المدعومة عرض الفراغات كفجوات أو كقيم صفرية أو بربط النقاط المتجاورة. اختر الإعداد الذي يتماشى مع معنى البيانات المفقودة في عرضك.
+The result depends on the chart type and the value configured through [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
 
-**كيف تُنسق القيم السلبية؟**
+**How are negative values formatted?**
 
-بالنسبة إلى سلاسل الأشرطة والأعمدة والفقاعات المدعومة، استدعِ [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) وحدد اللون عبر [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). يمكنك تجاوز السلوك لنقطة فردية باستخدام [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). تؤثر هذه الأساليب على التنسيق فقط، دون تغيير القيم الرقمية المخزنة.
+For supported bar, column, and bubble series, call [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) and set the color returned by [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). You can override the behavior for an individual point with [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). These methods affect formatting, not the stored numeric values.
 
-**أي تنسيق ينتصر عندما يتم تنسيق كل من السلسلة والنقطة؟**
+**Which formatting wins when both a series and a point are formatted?**
 
-يفضل تنسيق نقطة البيانات الصريح لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، إذا لم يُعرّف تنسيق السلسلة، النمط والموضوع التلقائي للمخطط. إعدادات المجموعة مثل التداخل وعرض الفجوة تتحكم في التخطيط ولا تُعتَبر تجاوزات تنسيق على مستوى النقطة.
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
 
-**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها المخطط؟**
+**Is there a limit to how many series a chart can contain?**
 
-لا تفرض Aspose.Slides حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، تحدد قيود ملف العرض، والذاكرة المتاحة، وزمن التقديم، وقراءة المخطط حدًا عمليًا.
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
 
-**ماذا يجب تعديل عندما تكون الأعمدة قريبة جدًا أو متباعدة جدًا؟**
+**What should I change when columns are too close together or too far apart?**
 
-استدعِ [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) على مجموعة السلاسل الأصلية المناسبة. زِد القيمة لتوسيع المسافة بين المجموعات، أو قللها لتقريب المجموعات من بعضها البعض.
+Call [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.

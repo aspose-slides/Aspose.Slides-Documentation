@@ -19,17 +19,19 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET'i keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi düzene koyun."
+description: "Aspose.Slides for Python via .NET'i keşfedin: PowerPoint ve OpenDocument formatlarındaki grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi kolaylaştırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketleri olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
+Bu makale, Aspose.Slides'te grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketi olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
 
-Ayrıca harici çalışma kitaplarını grafik veri kaynakları olarak kullanmayı da kapsar. Örnekler, harici bir çalışma kitabı oluşturup atamayı, bir grafikle ilişkili harici çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verilerini düzenlemeyi gösterir.
+Ayrıca, harici çalışma kitaplarını grafik veri kaynağı olarak kullanma konusunu da kapsar. Örnekler, harici bir çalışma kitabı oluşturup atamayı, bir grafiğe bağlı harici çalışma kitabının yolunu almayı ve çalışma kitabı kullanılabilir olduğunda grafik verilerini düzenlemeyi gösterir.
 
-## **Çalışma Kitabından Grafik Verilerini Oku ve Yaz**
+Eksik verileri temsil eden çalışma kitabı hücreleri için, boş bir hücre ile sıfır arasındaki farkı ve mevcut görüntüleme modlarının çizgi grafik karşılaştırmasını görmek üzere [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/python-net/chart-series/) bölümüne bakın.
 
-Aspose.Slides, grafik verileri çalışma kitaplarını (Aspose.Cells ile düzenlenen grafik verilerini içeren) okuma ve yazma yöntemleri sağlar. **Not:** Grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
+## **Bir Çalışma Kitabı'dan Grafik Verilerini Okuma ve Yazma**
+
+Aspose.Slides, grafik verileri çalışma kitaplarını (Aspose.Cells ile düzenlenmiş grafik verilerini içeren) okuma ve yazma yöntemleri sağlar. **Not:** Grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
 
 Aşağıdaki Python kodu örnek bir işlemi gösterir:
 
@@ -48,12 +50,12 @@ with slides.Presentation("chart.pptx") as presentation:
     chart.chart_data.write_workbook_stream(data_stream)
 ```
 
-### **Çalışma Kitabı Değiştirildikten Sonra Grafik Düzenini Doğrula**
+### **Çalışma Kitabı Değiştirildikten Sonra Grafik Düzenini Doğrulama**
 
-Gömülü bir çalışma kitabını değiştirilmiş bir sürümle değiştirdiğinizde, grafik orijinal serileri ve kategori koleksiyonlarını korur. Bu uyuşmazlık, [IChart.validate_chart_layout](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/ichart/validate_chart_layout/) metodunun indeks dışı hata vermesine neden olabilir. Güncellenmiş çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin.
+Yerleşik bir çalışma kitabını değiştirilmiş bir çalışma kitabıyla değiştirdiğinizde, grafik orijinal serileri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [IChart.validate_chart_layout](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/ichart/validate_chart_layout/) çağrısının indeks dışı hata vermesine neden olabilir. Güncellenmiş çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin.
 
 ```python
-# Çalışma kitabı akışı (ör. Aspose.Cells kullanarak) değiştirildikten sonra
+# Çalışma kitabı akışı (ör. Aspose.Cells) değiştirildikten sonra
 updated_workbook = chart_data.read_workbook_stream()
 
 # Mevcut veri referanslarını temizle.
@@ -66,18 +68,18 @@ chart_data.write_workbook_stream(updated_workbook)
 chart.validate_chart_layout()
 ```
 
-Koleksiyonların temizlenmesi, grafik veri yapısının yeni çalışma kitabıyla tutarlı olmasını sağlar ve `validate_chart_layout` hatasız bir şekilde tamamlanabilir.
+Koleksiyonların temizlenmesi, grafik veri yapısının yeni çalışma kitabıyla tutarlı olmasını sağlar ve `validate_chart_layout` hatasız olarak tamamlanabilir.
 
-## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarla**
+## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
 
-Bazen grafik etiketlerinin, temel veri çalışma kitabındaki hücrelerden doğrudan gelmesi gerekir. Aspose.Slides, veri etiketlerini belirli çalışma kitabı hücrelerine bağlamanıza olanak tanır; böylece etiket metni her zaman hücrenin değerini yansıtır. Aşağıdaki örnek, hücre‑tanımlı etiketleri etkinleştirmeyi ve seçilen etiketlerin grafik çalışma kitabındaki özelleştirilmiş hücrelere işaret etmesini gösterir.
+Bazen grafik etiketlerinin doğrudan temel veri çalışma kitabındaki hücrelerden gelmesi gerekir. Aspose.Slides, veri etiketlerini belirli çalışma kitabı hücrelerine bağlamanıza izin verir, böylece etiket metni her zaman hücrenin değerini yansıtır. Aşağıdaki örnek, hücreden değer etiketlerini etkinleştirmeyi ve seçili etiketleri grafiğin çalışma kitabındaki özel hücrelere yönlendirmeyi gösterir.
 
 1. [Presentation](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Dizine göre slayta referans alın.  
-3. Örnek veriyle bir balon grafik ekleyin.  
-4. Grafik serisine erişin.  
-5. Bir çalışma kitabı hücresini veri etiketi olarak kullanın.  
-6. Sunumu kaydedin.
+1. İndeksine göre slayta bir referans alın.  
+1. Örnek verilerle bir balon grafiği ekleyin.  
+1. Grafik serisine erişin.  
+1. Bir çalışma kitabı hücresini veri etiketi olarak kullanın.  
+1. Sunumu kaydedin.  
 
 Aşağıdaki Python kodu bir çalışma kitabı hücresini grafik veri etiketi olarak ayarlamayı gösterir:
 
@@ -85,7 +87,7 @@ Aşağıdaki Python kodu bir çalışma kitabı hücresini grafik veri etiketi o
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-# Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -104,7 +106,7 @@ with slides.Presentation() as presentation:
     presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Çalışma Sayfalarını Yönet**
+## **Çalışma Sayfalarını Yönetme**
 
 Aşağıdaki Python kodu, `worksheets` özelliğini kullanarak çalışma sayfası koleksiyonuna nasıl erişileceğini gösterir:
 
@@ -122,9 +124,9 @@ with slides.Presentation() as presentation:
         print(workbook.worksheets[i].name)
 ```
 
-## **Veri Kaynağı Türünü Belirle**
+## **Veri Kaynağı Türünü Belirleme**
 
-Aşağıdaki Python kodu veri kaynağı türünün nasıl belirleneceğini gösterir:
+Aşağıdaki Python kodu, bir veri kaynağı türünün nasıl belirtileceğini gösterir:
 
 ```python
 import aspose.slides as slides
@@ -145,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algıla**
+## **Desteklenmeyen Yerleşik Çalışma Kitabı Formatlarını Algılama**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) biçimini desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafikleri atlamak için [ChartData](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/) üzerindeki `embedded_workbook_type` özelliği ile [WorkbookType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/workbooktype/) sayımını birlikte kullanabilirsiniz.
+Aspose.Slides, bazı grafiklerde yerleştirilebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen formatları algılamak ve bu grafikleri atlamak için [ChartData](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/) üzerindeki `embedded_workbook_type` özelliğini, [WorkbookType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/workbooktype/) enumu ile birlikte kullanabilirsiniz.
 
 ```py
 import aspose.slides as slides
@@ -165,7 +167,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
         if (chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK and
                 chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO):
-            # Gömülü çalışma kitabı .xlsb formatında ve bu format desteklenmiyor.
+            # Gömülü çalışma kitabı .xlsb formatında, bu format desteklenmemektedir.
             continue
 
         # Burada grafik çalışma kitabı verisini okuyabilir veya değiştirebilirsiniz.
@@ -175,13 +177,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Aspose.Slides, harici çalışma kitaplarını grafikler için veri kaynağı olarak kullanmayı destekler.
 
-### **Harici Çalışma Kitaplarını Ayarla**
+### **Harici Çalışma Kitaplarını Ayarlama**
 
-[ChartData.set_external_workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metodunu kullanarak, bir grafik için veri kaynağı olarak harici bir çalışma kitabı atayabilirsiniz. Bu yöntem, harici çalışma kitabının konumu taşındıysa yolu da güncelleyebilir.
+[ChartData.set_external_workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metodunu kullanarak bir harici çalışma kitabını grafiğin veri kaynağı olarak atayabilirsiniz. Bu metod, çalışma kitabı taşınmışsa yolunu da güncelleyebilir.
 
-Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu kitapları harici veri kaynakları olarak kullanabilirsiniz. Harici bir çalışma kitabı için göreli bir yol sağlarsanız, otomatik olarak tam yola dönüştürülür.
+Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri düzenleyemesiniz de, bu çalışma kitaplarını harici veri kaynağı olarak kullanabilirsiniz. Harici bir çalışma kitabı için göreceli bir yol sağlarsanız, otomatik olarak tam yola dönüştürülür.
 
-Aşağıdaki Python kodu bir harici çalışma kitabının nasıl ayarlanacağını gösterir:
+Aşağıdaki Python kodu, harici bir çalışma kitabının nasıl ayarlanacağını gösterir:
 
 ```python
 import aspose.slides as slides
@@ -191,22 +193,22 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    # False değerini geçirerek yalnızca yolun kaydedilmesini sağla: hedef çalışma kitabının henüz var olması gerekmez.
+    # False değerini geçerek yalnızca yol saklanır: hedef çalışma kitabının henüz var olması gerekmez.
     chart.chart_data.set_external_workbook("external_workbook.xlsx", False)
 
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[set_external_workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metodundaki `update_chart_data` parametresi, Excel çalışma kitabının yüklenip yüklenmeyeceğini belirtir.
+`set_external_workbook` metodunun `update_chart_data` parametresi, Excel çalışma kitabının yüklenip yüklenmeyeceğini belirler.
 
-- `update_chart_data` **False** olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir; grafik verileri hedef çalışma kitabından yüklenmez veya yenilenmez. Hedef çalışma kitabı mevcut değilse veya erişilemezse bu ayarı kullanın.  
-- `update_chart_data` **True** (varsayılan) olduğunda, grafik verileri hedef çalışma kitabından yüklenir ve güncellenir. O çalışma kitap açılamazsa, “External workbook is not available” mesajlı bir istisna fırlatılır.
+- `update_chart_data` `False` olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir; grafik verisi hedef çalışma kitabından yüklenmez veya yenilenmez. Hedef çalışma kitabı mevcut değilse veya erişilemezse bu ayarı kullanın.  
+- `update_chart_data` `True` (varsayılan) olduğunda, grafik verisi hedef çalışma kitabından yüklenir ve güncellenir. Bu çalışma kitabı açılamazsa, “External workbook is not available” mesajlı bir istisna yükseltilir.
 
-### **Harici Çalışma Kitapları Oluştur**
+### **Harici Çalışma Kitapları Oluşturma**
 
-[read_workbook_stream](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) ve [set_external_workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metodlarını kullanarak, ya sıfırdan bir harici çalışma kitabı oluşturabilir ya da içsel bir çalışma kitabını hariciye dönüştürebilirsiniz.
+[read_workbook_stream](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) ve [set_external_workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metodlarını kullanarak ya sıfırdan bir harici çalışma kitabı oluşturabilir ya da iç bir çalışma kitabını harici bir çalışmaya dönüştürebilirsiniz.
 
-Bu Python kodu harici çalışma kitabı oluşturma sürecini gösterir:
+Bu Python kodu, harici çalışma kitabı oluşturma sürecini gösterir:
 
 ```python
 import pathlib
@@ -231,17 +233,17 @@ with slides.Presentation() as presentation:
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Bir Grafik İçin Harici Veri Kaynağı Çalışma Kitabı Yolunu Al**
+### **Bir Grafik İçin Harici Veri Kaynağı Çalışma Kitabı Yolunu Alma**
 
-Bazen bir grafiğin verileri, sunumun gömülü verileri yerine harici bir Excel çalışma kitabına bağlanır. Aspose.Slides ile grafiğin veri kaynağını inceleyebilir ve eğer harici bir çalışma kitabıysa tam yolunu okuyabilirsiniz.
+Bazen bir grafiğin verileri, sunumun gömülü verileri yerine harici bir Excel çalışma kitabına bağlanır. Aspose.Slides ile grafiğin veri kaynağını inceleyebilir ve eğer harici bir çalışma kitabı ise tam yolunu okuyabilirsiniz.
 
 1. [Presentation](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Dizine göre slayta referans alın.  
-3. Grafik şekline referans alın.  
-4. Grafiğin veri kaynağını temsil eden [ChartDataSourceType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatasourcetype/) öğesini elde edin.  
-5. Kaynak türünün harici çalışma kitabı veri kaynağı türüyle eşleşip eşleşmediğini kontrol edin.
+1. İndeksine göre slayta bir referans alın.  
+1. Grafik şekline bir referans alın.  
+1. Grafiğin veri kaynağını temsil eden ([ChartDataSourceType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatasourcetype/)) kaynağı elde edin.  
+1. Kaynak türünün harici çalışma kitabı veri kaynağı türüyle eşleşip eşleşmediğini kontrol edin.  
 
-Aşağıdaki Python kodu işlemi gösterir:
+Aşağıdaki Python kodu bu işlemi gösterir:
 
 ```python
 import aspose.slides as slides
@@ -254,9 +256,9 @@ with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
         print(chart.chart_data.external_workbook_path)
 ```
 
-### **Grafik Verilerini Düzenle**
+### **Grafik Verilerini Düzenleme**
 
-Harici çalışma kitaplarındaki verileri, içsel çalışma kitaplarındaki gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemezse, bir istisna fırlatılır.
+Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarındaki verileri düzenlediğiniz gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemezse bir istisna fırlatılır.
 
 ```python
 import aspose.slides as slides
@@ -267,11 +269,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Grafik Önbelleğinden Bir Çalışma Kitabını Kurtar**
+### **Grafik Önbelleğinden Çalışma Kitabını Kurtarma**
 
-Bir grafik, eksik veya kullanılamayan bir harici çalışma kitabı kullanıyorsa, Aspose.Slides sunumda önbelleğe alınan verilerden grafik çalışma kitabını yeniden oluşturabilir. Öncelikle [LoadOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/) oluşturun, ardından sunumu açmadan önce `LoadOptions.spreadsheet_options` aracılığıyla [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/tr/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) özelliğini etkinleştirin.
+Bir grafik, eksik veya kullanılamayan bir harici çalışma kitabını kullanıyorsa, Aspose.Slides sunumda önbelleğe alınmış verilerden grafik çalışma kitabını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/) oluşturun, ardından sunumu açmadan önce [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/spreadsheet_options/) üzerinden [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/tr/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) özelliğini etkinleştirin.
 
-Aşağıdaki Python örneği, harici bir çalışma kitabına referans veren bir sunumu açar ve [Chart.chart_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chart/chart_data/) ve [ChartData.chart_data_workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) aracılığıyla elde edilen kurtarılmış veriye erişir:
+Aşağıdaki Python örneği, grafiği kullanılabilir olmayan bir harici çalışma kitabına referans veren bir sunumu açar ve kurtarılan verilere [Chart.chart_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chart/chart_data/) ve [ChartData.chart_data_workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) aracılığıyla erişir:
 
 ```python
 import aspose.slides as slides
@@ -283,33 +285,33 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
     chart = presentation.slides[0].shapes[0]
     recovered_workbook = chart.chart_data.chart_data_workbook
 
-    # Kurtarılmış çalışma kitabı verisini burada okuyabilir veya değiştirebilirsiniz.
+    # Kurtarılan çalışma kitabı verisini burada okuyabilir veya değiştirebilirsiniz.
 ```
 
-Harici çalışma kitabı kullanılamaz ve kurtarma devre dışı bırakılmışsa, Aspose.Slides bir istisna fırlatır. Kurtarmayı yalnızca önbellekteki grafik verilerinin kabul edilebilir bir geri dönüş olduğu durumlarda etkinleştirin; çünkü önbellek, sunum son güncellendiğinden beri harici çalışma kitabına yapılan değişiklikleri içermeyebilir.
+Harici çalışma kitabı kullanılabilir değilse ve kurtarma devre dışı bırakılmışsa, Aspose.Slides bir istisna yükseltir. Önbelleğe alınmış grafik verilerinin kullanılabilir bir geri dönüş olduğu durumlarda yalnızca kurtarmayı etkinleştirin; çünkü önbellek, sunum son güncellendiğinden sonra harici çalışma kitabında yapılan değişiklikleri içermeyebilir.
 
 ## **SSS**
 
-**Belirli bir grafiğin harici mi yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**
+**Belirli bir grafiğin harici bir çalışma kitabına mı yoksa gömülü bir çalışma kitabına mı bağlandığını belirleyebilir miyim?**
 
-Evet. Bir grafiğin [data source type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/data_source_type/) ve bir [path to an external workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) vardır; kaynak harici bir çalışma kitabıysa, tam yolu okuyarak bir harici dosyanın kullanıldığını doğrulayabilirsiniz.
+Evet. Bir grafiğin bir [data source type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/data_source_type/) ve bir [path to an external workbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) vardır; kaynak bir harici çalışma kitabıysa, bir harici dosyanın kullanıldığını doğrulamak için tam yolu okuyabilirsiniz.
 
-**Harici çalışma kitapları için göreli yollar destekleniyor mu, nasıl depolanıyor?**
+**Harici çalışma kitapları için göreceli yollar destekleniyor mu ve nasıl depolanıyor?**
 
-Evet. Göreli bir yol belirttiğinizde otomatik olarak mutlak yola dönüştürülür. Bu, proje taşınabilirliği açısından kullanışlıdır; ancak sunum, mutlak yolu PPTX dosyasında saklar.
+Evet. Göreceli bir yol belirttiğinizde otomatik olarak mutlak bir yola dönüştürülür. Bu, proje taşınabilirliği için kullanışlıdır; ancak sunum, mutlak yolu PPTX dosyasında saklayacaktır.
 
-**Ağ kaynaklarındaki/paylaşımlardaki çalışma kitaplarını kullanabilir miyim?**
+**Ağ kaynakları/paylaşım alanlarında bulunan çalışma kitaplarını kullanabilir miyim?**
 
-Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak Aspose.Slides üzerinden uzak çalışma kitaplarını doğrudan düzenlemek desteklenmez—yalnızca kaynak olarak kullanılabilirler.
+Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, uzaktaki çalışma kitaplarını Aspose.Slides ile doğrudan düzenlemek desteklenmez—yalnızca kaynak olarak kullanılabilirler.
 
 **Aspose.Slides, sunumu kaydederken harici XLSX dosyasını üzerine yazar mı?**
 
-Yalnızca grafik verilerini düzenlediyseniz yazar. Sunum, [link to the external file](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) tutar ve veri okuma için bunu kullanır; bu yüzden bir sunumu açıp kaydetmek çalışma kitabını dokunulmaz bırakır. Ancak grafik verileri üzerinden yaptığınız değişiklikler ([Edit Chart Data](#edit-chart-data) bölümüne bakın) sunum kaydedildiğinde harici çalışma kitabına geri yazılır—orijinalin değişmemesi gerekiyorsa bir kopya üzerinde çalışın.
+Sadece grafik verilerini düzenlediyseniz yazar. Sunum, bir [link to the external file](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) saklar ve veri okuma için bunu kullanır; bu yüzden bir sunumu açıp kaydetmek çalışma kitabını dokunulmaz bırakır. Ancak, grafik verileri aracılığıyla (bkz. [Edit Chart Data](#edit-chart-data) bölümü) yaptığınız değişiklikler sunum kaydedildiğinde harici çalışma kitabına geri yazılır—orijinali bozulmamalıysa bir kopya üzerinde çalışın.
 
 **Harici dosya şifre korumalıysa ne yapmalıyım?**
 
-Aspose.Slides, bağlantı sırasında şifre kabul etmez. Yaygın bir yaklaşım, önce korumayı kaldırmak veya şifresiz bir kopya hazırlamaktır (örneğin [Aspose.Cells](/cells/python-net/) kullanarak) ve bu kopyaya bağlanmaktır.
+Aspose.Slides, bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak veya şifresiz bir kopya (örneğin [Aspose.Cells](/cells/python-net/) kullanarak) hazırlamak ve o kopyaya bağlanmaktır.
 
 **Birden fazla grafik aynı harici çalışma kitabına referans verebilir mi?**
 
-Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosyada yapılan güncellemeler bir sonraki veri yüklemesinde her grafikte yansıtılır.
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki yüklemede her grafik için yansıtılacaktır.

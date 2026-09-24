@@ -19,19 +19,21 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Découvrez Aspose.Slides pour PHP via Java : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour rationaliser les données de votre présentation."
+description: "Découvrez Aspose.Slides pour PHP via Java : gérez facilement les classeurs de graphiques aux formats PowerPoint et OpenDocument pour rationaliser les données de votre présentation."
 ---
 ## **Vue d'ensemble**
 
 Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire les données de graphique via des flux de classeur, utiliser les cellules du classeur comme étiquettes de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
 
-Il couvre également le travail avec des classeurs externes comme sources de données de graphique. Les exemples montrent comment créer et assigner un classeur externe, récupérer le chemin d'un classeur externe lié à un graphique, et modifier les données du graphique lorsque le classeur est disponible.
+Il couvre également l’utilisation de classeurs externes comme sources de données de graphique. Les exemples montrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
 
-## **Lire et écrire des données de graphique depuis un classeur**
+Pour les cellules du classeur représentant des données manquantes, voir [Contrôler l’affichage des cellules vides](/slides/fr/php-java/chart-series/) pour la différence entre une cellule vide et zéro, ainsi qu’une comparaison en graphique en courbes des modes d’affichage disponibles.
 
-Aspose.Slides fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#readWorkbookStream) et [writeWorkbookStream](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#writeWorkbookStream) qui vous permettent de lire et d’écrire des classeurs de données de graphique (contenant des données de graphique modifiées avec Aspose.Cells). **Remarque** les données du graphique doivent être organisées de la même manière ou posséder une structure similaire à la source.
+## **Lire et écrire des données de graphique à partir d’un classeur**
+Aspose.Slides fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#readWorkbookStream) et [writeWorkbookStream](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#writeWorkbookStream) qui vous permettent de lire et d’écrire des classeurs de données de graphique (contenant des données de graphique éditées avec Aspose.Cells). **Remarque** : les données du graphique doivent être organisées de la même manière ou avoir une structure similaire à la source.
 
-Ce code PHP montre une opération d'exemple :
+Ce code PHP montre une opération d’exemple :
+
 ```php
   $pres = new Presentation("chart.pptx");
   try {
@@ -48,11 +50,12 @@ Ce code PHP montre une opération d'exemple :
   }
 ```
 
-### **Valider la mise en page du graphique après modification du classeur**
+### **Valider la disposition du graphique après la modification du classeur**
 
-Lorsque vous remplacez un classeur incorporé par un classeur modifié, le graphique conserve ses collections de séries et de catégories d'origine. Cette incohérence peut provoquer l'échec de [Chart::validateChartLayout](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chart/validatechartlayout/) avec une erreur d'indice hors limites. Effacez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique.
+Lorsque vous remplacez un classeur intégré par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut entraîner un échec de [Chart::validateChartLayout](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chart/validatechartlayout/) avec une erreur d’indice hors plage. Videz les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique.
+
 ```php
-// Après avoir modifié le flux du classeur (par exemple, en utilisant Aspose.Cells)
+// Après avoir modifié le flux du classeur (p. ex., en utilisant Aspose.Cells)
 $updatedWorkbook = $chartData->readWorkbookStream();
 
 // Effacer les références de données existantes.
@@ -64,23 +67,24 @@ $chartData->writeWorkbookStream($updatedWorkbook);
 $chart->validateChartLayout();
 ```
 
-Effacer les collections garantit que la structure des données du graphique est cohérente avec le nouveau classeur, permettant à `validateChartLayout` de s’exécuter sans erreurs.
+Vider les collections garantit que la structure des données du graphique est cohérente avec le nouveau classeur, permettant à `validateChartLayout` de s’exécuter sans erreurs.
 
 ## **Définir une cellule de classeur comme étiquette de données de graphique**
 
-1. Créer une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/php-java/aspose.slides/presentation).
-2. Obtenir la référence d’une diapositive via son index.
-3. Ajouter un graphique à bulles avec quelques données.
-4. Accéder aux séries du graphique.
-5. Définir la cellule du classeur comme étiquette de données.
-6. Enregistrer la présentation.
+1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/php-java/aspose.slides/presentation).
+1. Obtenez la référence d’une diapositive via son indice.
+1. Ajoutez un graphique à bulles avec quelques données.
+1. Accédez aux séries du graphique.
+1. Définissez la cellule du classeur comme une étiquette de données.
+1. Enregistrez la présentation.
 
 Ce code PHP montre comment définir une cellule de classeur comme étiquette de données de graphique :
+
 ```php
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  # Instancie une classe Presentation qui représente un fichier de présentation
+  # Instancie une classe de présentation qui représente un fichier de présentation
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -103,6 +107,7 @@ Ce code PHP montre comment définir une cellule de classeur comme étiquette de 
 ## **Gérer les feuilles de calcul**
 
 Ce code PHP montre une opération où la méthode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdataworkbook/#getWorksheets) est utilisée pour accéder à une collection de feuilles de calcul :
+
 ```php
   $pres = new Presentation();
   try {
@@ -121,6 +126,7 @@ Ce code PHP montre une opération où la méthode [ChartDataWorkbook::getWorkshe
 ## **Spécifier le type de source de données**
 
 Ce code PHP montre comment spécifier un type pour une source de données :
+
 ```php
   $pres = new Presentation();
   try {
@@ -138,9 +144,10 @@ Ce code PHP montre comment spécifier un type pour une source de données :
   }
 ```
 
-## **Détecter les formats de classeur incorporé non pris en charge**
+## **Détecter les formats de classeur intégré non pris en charge**
 
-Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être incorporé dans certains graphiques. Vous pouvez utiliser la méthode `getEmbeddedWorkbookType` sur [ChartData](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/) ainsi que l’enumération [WorkbookType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques.
+Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être intégré à certains graphiques. Vous pouvez utiliser la méthode `getEmbeddedWorkbookType` sur [ChartData](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/) avec l’énumération [WorkbookType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques.
+
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
@@ -159,11 +166,11 @@ try {
 
     if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
         java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # Le classeur incorporé est au format .xlsb, qui n'est pas supporté.
+      # Le classeur intégré est au format .xlsb, qui n'est pas pris en charge.
       continue;
     }
 
-    # Lire ou modifier les données du classeur du graphique ici.
+    # Lire ou modifier les données du classeur de graphique ici.
   }
 } finally {
   $presentation->dispose();
@@ -177,7 +184,9 @@ Aspose.Slides prend en charge les classeurs externes comme source de données po
 ### **Créer un classeur externe**
 
 En utilisant les méthodes **`readWorkbookStream`** et **`setExternalWorkbook`**, vous pouvez soit créer un classeur externe à partir de zéro, soit rendre un classeur interne externe.
-Ce code PHP montre le processus de création du classeur externe :
+
+Ce code PHP montre le processus de création d’un classeur externe :
+
 ```php
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
@@ -204,13 +213,14 @@ Ce code PHP montre le processus de création du classeur externe :
   }
 ```
 
-### **Attribuer un classeur externe**
+### **Définir un classeur externe**
 
-En utilisant la méthode **`setExternalWorkbook`**, vous pouvez assigner un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin du classeur externe (si ce dernier a été déplacé).
+En utilisant la méthode **`setExternalWorkbook`**, vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également servir à mettre à jour le chemin du classeur externe (si ce dernier a été déplacé).
 
-Bien que vous ne puissiez pas modifier les données des classeurs stockés à distance ou dans des ressources, vous pouvez toujours les utiliser comme source de données externe. Si le chemin relatif d’un classeur externe est fourni, il est automatiquement converti en chemin complet.
+Bien que vous ne puissiez pas modifier les données des classeurs stockés dans des emplacements distants ou des ressources, vous pouvez toujours les utiliser comme source de données externe. Si un chemin relatif pour un classeur externe est fourni, il est automatiquement converti en chemin complet.
 
-Ce code PHP montre comment attribuer un classeur externe :
+Ce code PHP montre comment définir un classeur externe :
+
 ```php
   # Crée une instance de la classe Presentation
   $pres = new Presentation("chart.pptx");
@@ -233,10 +243,10 @@ Ce code PHP montre comment attribuer un classeur externe :
   }
 ```
 
-Le paramètre `ChartData` (dans la méthode `setExternalWorkbook`) sert à spécifier si un classeur Excel sera chargé ou non. 
+Le paramètre `ChartData` (dans la méthode `setExternalWorkbook`) indique si le classeur Excel sera chargé ou non.
 
-* Lorsque la valeur de `ChartData` est `false`, seul le chemin du classeur est mis à jour — les données du graphique ne seront pas chargées ou mises à jour à partir du classeur cible. Vous pouvez utiliser ce paramètre lorsqu’il n’y a pas de classeur cible ou qu’il n’est pas disponible. 
-* Lorsque la valeur de `ChartData` est `true`, les données du graphique sont mises à jour à partir du classeur cible. 
+* Lorsque la valeur de `ChartData` est `false`, seul le chemin du classeur est mis à jour — les données du graphique ne sont pas chargées ni mises à jour depuis le classeur cible. Utilisez ce réglage lorsque le classeur cible est inexistant ou indisponible.
+* Lorsque la valeur de `ChartData` est `true`, les données du graphique sont mises à jour depuis le classeur cible.
 
 ```php
   # Crée une instance de la classe Presentation
@@ -255,13 +265,14 @@ Le paramètre `ChartData` (dans la méthode `setExternalWorkbook`) sert à spéc
 
 ### **Obtenir le chemin du classeur source de données externe d’un graphique**
 
-1. Créer une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/php-java/aspose.slides/presentation).
-2. Obtenir la référence d’une diapositive via son index.
-3. Créer un objet pour la forme du graphique.
-4. Créer un objet pour le type source (`ChartDataSourceType`) qui représente la source de données du graphique.
-5. Spécifier la condition pertinente en fonction du fait que le type de source corresponde au type de source de données du classeur externe.
+1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/php-java/aspose.slides/presentation).
+1. Obtenez la référence d’une diapositive via son indice.
+1. Créez un objet pour la forme du graphique.
+1. Créez un objet pour le type source (`ChartDataSourceType`) qui représente la source de données du graphique.
+1. Spécifiez la condition pertinente en fonction du type de source correspondant au type de source de données du classeur externe.
 
-Ce code PHP montre l’opération :
+Ce code PHP illustre l’opération :
+
 ```php
   # Crée une instance de la classe Presentation
   $pres = new Presentation("chart.pptx");
@@ -283,9 +294,10 @@ Ce code PHP montre l’opération :
 
 ### **Modifier les données du graphique**
 
-Vous pouvez modifier les données des classeurs externes de la même manière que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
+Vous pouvez modifier les données des classeurs externes de la même façon que vous modifiez le contenu des classeurs internes. Si un classeur externe ne peut pas être chargé, une exception est levée.
 
 Ce code PHP implémente le processus décrit :
+
 ```php
   # Crée une instance de la classe Presentation
   $pres = new Presentation("chart.pptx");
@@ -301,11 +313,12 @@ Ce code PHP implémente le processus décrit :
   }
 ```
 
-### **Récupérer un classeur depuis le cache du graphique**
+### **Récupérer un classeur à partir du cache du graphique**
 
-Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/), configurez-le avec [SpreadsheetOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/spreadsheetoptions/), et appelez [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fr/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) avec `true` avant d’ouvrir la présentation.
+Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez un [LoadOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/), configurez‑le avec [SpreadsheetOptions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/spreadsheetoptions/), puis appelez [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fr/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) avec `true` avant d’ouvrir la présentation.
 
-L’exemple PHP suivant ouvre une présentation dont le graphique référence un classeur externe indisponible et accède aux données récupérées via [Chart::getChartData](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chart/#getChartData) et [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+L’exemple PHP suivant ouvre une présentation dont le graphique fait référence à un classeur externe indisponible et accède aux données récupérées via [Chart::getChartData](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chart/#getChartData) et [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#getChartDataWorkbook) :
+
 ```php
 $spreadsheetOptions = new SpreadsheetOptions();
 $spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
@@ -324,24 +337,30 @@ try {
 }
 ```
 
-Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une exception. Activez la récupération uniquement lorsque l’utilisation des données de graphique mises en cache est une solution de secours acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
+Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une exception. Activez la récupération uniquement lorsque l’utilisation des données de graphique en cache constitue une solution de repli acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
 
 ## **FAQ**
 
-**Puis-je déterminer si un graphique spécifique est lié à un classeur externe ou incorporé ?**  
-Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/getdatasourcetype/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/getexternalworkbookpath/); si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
+**Puis‑je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**
 
-**Les chemins relatifs vers les classeurs externes sont-ils pris en charge, et comment sont-ils stockés ?**  
-Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela est pratique pour la portabilité du projet ; toutefois, sachez que la présentation stockera le chemin absolu dans le fichier PPTX.
+Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/getdatasourcetype/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
 
-**Puis-je utiliser des classeurs situés sur des ressources ou partages réseau ?**  
-Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être utilisés qu’en tant que source.
+**Les chemins relatifs vers les classeurs externes sont‑ils pris en charge et comment sont‑ils stockés ?**
 
-**Aspose.Slides écrase-t-il le fichier XLSX externe lors de l’enregistrement de la présentation ?**  
-Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/getexternalworkbookpath/) et l’utilise pour lire les données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement de la présentation.
+Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela facilite la portabilité du projet ; toutefois, la présentation enregistrera le chemin absolu dans le fichier PPTX.
 
-**Que faire si le fichier externe est protégé par un mot de passe ?**  
-Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à enlever la protection à l’avance ou à préparer une copie déchiffrée (par exemple, en utilisant [Aspose.Cells](/cells/php-java/)) et à créer le lien vers cette copie.
+**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**
 
-**Plusieurs graphiques peuvent-ils référencer le même classeur externe ?**  
+Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être utilisés qu’en lecture.
+
+**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
+
+Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/getexternalworkbookpath/) et l’utilise pour lire les données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement.
+
+**Que faire si le fichier externe est protégé par mot de passe ?**
+
+Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à enlever la protection à l’avance ou à préparer une copie décryptée (par exemple avec [Aspose.Cells](/cells/php-java/)) et à créer le lien vers cette copie.
+
+**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**
+
 Oui. Chaque graphique stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque graphique lors du prochain chargement des données.

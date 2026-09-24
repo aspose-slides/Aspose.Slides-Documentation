@@ -1,35 +1,37 @@
 ---
-title: "Beheer diagramwerkboeken in presentaties met C++"
-linktitle: "Diagramwerkboek"
+title: Beheer grafiekwerkboeken in presentaties met C++
+linktitle: Grafiekwerkboek
 type: docs
 weight: 70
 url: /nl/cpp/chart-workbook/
 keywords:
-- diagramwerkboek
-- diagramgegevens
+- grafiekwerkboek
+- grafiekgegevens
 - werkboekcel
 - gegevenslabel
 - werkblad
 - gegevensbron
 - extern werkboek
 - externe gegevens
-- diagramcache
+- grafiekcache
 - werkboekherstel
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor C++: beheer moeiteloos diagramwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor C++: beheer moeiteloos grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je met diagramwerkboeken in Aspose.Slides kunt werken. Het laat zien hoe je diagramgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als diagramgegevenslabels, werkbladcollecties kunt benaderen en het gegevenstype voor diagramwaarden kunt opgeven.
+Dit artikel legt uit hoe je met grafiek-werkboeken kunt werken in Aspose.Slides. Het laat zien hoe je grafiekgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als grafiekdatalabels, toegang krijgt tot werkbladcollecties, en het gegevenstype‑brontype voor grafiekwaarden kunt opgeven.
 
-Het behandelt ook het werken met externe werkboeken als gegevensbronnen voor diagrammen. De voorbeelden demonstreren hoe je een extern werkboek kunt maken en toewijzen, het pad van een extern werkboek dat aan een diagram is gekoppeld kunt ophalen, en diagramgegevens kunt bewerken wanneer het werkboek beschikbaar is.
+Het behandelt ook het werken met externe werkboeken als gegevensbronnen voor grafieken. De voorbeelden laten zien hoe je een extern werkboek kunt maken en toewijzen, het pad van een extern werkboek dat aan een grafiek is gekoppeld kunt ophalen, en grafiekgegevens kunt bewerken wanneer het werkboek beschikbaar is.
 
-## **Diagramgegevens lezen en schrijven vanuit een werkboek**
+Voor werkboekcellen die ontbrekende gegevens vertegenwoordigen, zie [Regel de weergave van lege cellen](/slides/nl/cpp/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiekvergelijking van de beschikbare weergavemodi.
 
-Aspose.Slides biedt de [ReadWorkbookStream](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/)‑ en [WriteWorkbookStream](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/)‑methoden waarmee je diagramwerkboeken (die diagramgegevens bevatten die met Aspose.Cells zijn bewerkt) kunt lezen en schrijven. **Note** dat de diagramgegevens op dezelfde manier moeten zijn georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
+## **Grafiekgegevens lezen en schrijven vanuit een werkboek**
+
+Aspose.Slides biedt de [ReadWorkbookStream](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) en [WriteWorkbookStream](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) methoden die je in staat stellen grafiekgegevens‑werkboeken te lezen en te schrijven (bevatten grafiekgegevens bewerkt met Aspose.Cells). **Opmerking** dat de grafiekgegevens op dezelfde manier moeten worden georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
 
 ``` cpp
 #include <DOM/Chart/Chart.h>
@@ -59,15 +61,15 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-### **Diagramlay-out valideren na wijziging van werkboek**
+### **Grafieklayout valideren na werkboekwijziging**
 
-Wanneer je een ingebed werkboek vervangt door een gewijzigd werkboek, behoudt het diagram zijn oorspronkelijke serie‑ en categorieverzamelingen. Deze mismatch kan ervoor zorgen dat [IChart::ValidateChartLayout](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/validatechartlayout/) faalt met een index‑out‑of‑range fout. Maak eerst de bestaande series en categorieën leeg voordat je het bijgewerkte werkboek terugschrijft naar het diagram.
+Wanneer je een ingebed werkboek vervangt door een gewijzigd werkboek, behoudt de grafiek zijn oorspronkelijke serie‑ en categorie‑collecties. Deze mismatch kan ervoor zorgen dat [IChart::ValidateChartLayout](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/validatechartlayout/) faalt met een index‑buiten‑bereik‑fout. Wis de bestaande series en categorieën voordat je het bijgewerkte werkboek terugschrijft naar de grafiek.
 
 ```cpp
-// Na het aanpassen van de werkboek-stream (bijv. met Aspose.Cells)
+// Na het wijzigen van de werkboekstream (bijv. met Aspose.Cells)
 auto updatedWorkbook = chartData->ReadWorkbookStream();
 
-// Verwijder bestaande gegevensreferenties.
+// Wis bestaande gegevensreferenties.
 chartData->get_Series()->Clear();
 chartData->get_Categories()->Clear();
 
@@ -77,18 +79,18 @@ chartData->WriteWorkbookStream(updatedWorkbook);
 chart->ValidateChartLayout();
 ```
 
-Door de collecties te legen, zorg je ervoor dat de diagramgegevensstructuur overeenkomt met het nieuwe werkboek, waardoor `ValidateChartLayout` zonder fouten kan worden voltooid.
+Het wissen van de collecties zorgt ervoor dat de structuur van de grafiekgegevens consistent is met het nieuwe werkboek, waardoor `ValidateChartLayout` zonder fouten kan worden voltooid.
 
-## **Een werkboekcel instellen als diagramgegevenslabel**
+## **Een werkboekcel instellen als een grafiekdatalabel**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
-2. Haal een verwijzing naar een dia op via de index.
-3. Voeg een bubbeldiagram toe met enige gegevens.
-4. Benader de diagramseries.
-5. Stel de werkboekcel in als gegevenslabel.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse aan.  
+2. Haal een referentie naar een dia op via de index.  
+3. Voeg een Bubbelgrafiek toe met enkele gegevens.  
+4. Toegang tot de grafiekseries.  
+5. Stel de werkboekcel in als een datalabel.  
 6. Sla de presentatie op.
 
-Deze C++‑code laat zien hoe je een werkboekcel instelt als diagramgegevenslabel:
+Deze C++‑code laat zien hoe je een werkboekcel instelt als een grafiekdatalabel:
 
 ``` cpp
 #include <DOM/Chart/ChartType.h>
@@ -115,7 +117,7 @@ System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// Instantieert een Presentation-klasse die een presentatiebestand weergeeft 
+// Instantieert een Presentation-klasse die een presentatiebestand vertegenwoordigt 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -137,7 +139,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Werkbladen beheren**
 
-Deze C++‑code toont een bewerking waarbij de [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/)‑methode wordt gebruikt om een werkbladcollectie te benaderen:
+Deze C++‑code demonstreert een bewerking waarbij de [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) methode wordt gebruikt om een werkbladcollectie te openen:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -166,7 +168,7 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Gegevenstype opgeven**
+## **Gegevenstypebron opgeven**
 
 Deze C++‑code laat zien hoe je een type voor een gegevensbron specificeert:
 
@@ -203,9 +205,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Niet‑ondersteunde ingesloten werkboekformaten detecteren**
+## **Niet‑ondersteunde ingebedde werkboekformaten detecteren**
 
-Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) niet, dat in sommige diagrammen kan worden ingesloten. Je kunt de `get_EmbeddedWorkbookType`‑methode op [IChartData](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/) gebruiken in combinatie met de [WorkbookType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/workbooktype/)‑enumeratie om niet‑ondersteunde formaten te detecteren en die diagrammen over te slaan.
+Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) dat in sommige grafieken kan worden ingebed niet. Je kunt de `get_EmbeddedWorkbookType`‑methode op [IChartData](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/) samen met de [WorkbookType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/workbooktype/) enumeratie gebruiken om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -237,23 +239,21 @@ for (auto&& shape : System::IterateOver(slide->get_Shapes()))
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // Ingesloten werkboek is in .xlsb-indeling, die niet wordt ondersteund.
+        // Ingebed werkboek is in .xlsb-indeling, wat niet ondersteund wordt.
         continue;
     }
 
-    // Lees of wijzig hier de diagramwerkboekgegevens.
+    // Lees of wijzig hier de grafiek-werkboekgegevens.
 }
 ```
 
 ## **Extern werkboek**
 
-{{% alert color="info" %}} 
-In [Aspose.Slides](https://releases.aspose.com/slides/nl/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 hebben we ondersteuning geïmplementeerd voor externe werkboeken als gegevensbron voor diagrammen.
-{{% /alert %}} 
+Aspose.Slides ondersteunt het gebruik van externe werkboeken als gegevensbron voor grafieken.
 
-### **Extern werkboek maken**
+### **Een extern werkboek maken**
 
-Met de **`ReadWorkbookStream`**‑ en **`SetExternalWorkbook`**‑methoden kun je ofwel een extern werkboek vanaf nul maken of een intern werkboek extern maken.
+Met behulp van de **`ReadWorkbookStream`**‑ en **`SetExternalWorkbook`**‑methoden kun je een extern werkboek vanaf nul maken of een intern werkboek extern maken.
 
 Deze C++‑code demonstreert het proces van het maken van een extern werkboek:
 
@@ -294,11 +294,11 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Extern werkboek instellen**
+### **Een extern werkboek instellen**
 
-Met de **`IChartData::SetExternalWorkbook`**‑methode kun je een extern werkboek aan een diagram toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om het pad naar het externe werkboek bij te werken (als dat bestand is verplaatst).
+Met de **`IChartData::SetExternalWorkbook`**‑methode kun je een extern werkboek toewijzen aan een grafiek als gegevensbron. Deze methode kan ook worden gebruikt om het pad naar het externe werkboek bij te werken (als het laatstgenoemde is verplaatst).
 
-Hoewel je de gegevens in werkboeken die zich op externe locaties of bronnen bevinden niet kunt bewerken, kun je die werkboeken wel als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
+Hoewel je de gegevens in werkboeken die op externe locaties of bronnen zijn opgeslagen niet kunt bewerken, kun je dergelijke werkboeken nog steeds gebruiken als externe gegevensbron. Als er een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
 
 Deze C++‑code laat zien hoe je een extern werkboek instelt:
 
@@ -343,10 +343,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-De parameter `updateChartData` (onder de `SetExternalWorkbook`‑methode) wordt gebruikt om aan te geven of een Excel‑werkboek moet worden geladen of niet.
+De `updateChartData`‑parameter (onder de `SetExternalWorkbook`‑methode) wordt gebruikt om op te geven of een Excel‑werkboek wel of niet wordt geladen.
 
-* Wanneer `updateChartData` is ingesteld op `false`, wordt alleen het werkboekpad bijgewerkt — de diagramgegevens worden niet geladen of bijgewerkt vanuit het doelwerkboek. Deze instelling is nuttig wanneer het doelwerkboek niet bestaat of niet beschikbaar is.  
-* Wanneer `updateChartData` is ingesteld op `true`, worden de diagramgegevens bijgewerkt vanuit het doelwerkboek.
+* Wanneer de waarde van `updateChartData` op `false` staat, wordt alleen het pad van het werkboek bijgewerkt – de grafiekgegevens worden niet geladen of bijgewerkt vanuit het doelformulier. Je kunt deze instelling gebruiken wanneer het doelwerkboek niet bestaat of niet beschikbaar is.  
+* Wanneer de waarde van `updateChartData` op `true` staat, worden de grafiekgegevens bijgewerkt vanuit het doelwerkboek.
 
 ```c++
 #include <DOM/Chart/ChartData.h>
@@ -372,13 +372,13 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Pad van de externe gegevensbron‑werkboek van een diagram ophalen**
+### **Het pad van de externe gegevensbron‑werkboek van een grafiek opvragen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
-2. Haal een verwijzing naar een dia op via de index.
-3. Maak een object voor de diagramvorm.
-4. Maak een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van het diagram vertegenwoordigt.
-5. Specificeer de relevante voorwaarde op basis van het bron‑type dat gelijk is aan het externe werkboek‑gegevensbrontype.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse.  
+2. Haal een referentie naar een dia op via de index.  
+3. Maak een object voor de grafiekvorm.  
+4. Maak een object voor het bron (`ChartDataSourceType`) type dat de gegevensbron van de grafiek vertegenwoordigt.  
+5. Specificeer de relevante voorwaarde op basis van het feit dat het bron‑type identiek is aan het externe werkboek‑gegevensbron‑type.
 
 Deze C++‑code demonstreert de bewerking:
 
@@ -405,15 +405,15 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Saves the presentation
+// Slaat de presentatie op
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **Diagramgegevens bewerken**
+### **Grafiekgegevens bewerken**
 
-Je kunt de gegevens in externe werkboeken op dezelfde manier bewerken als je veranderingen aanbrengt in interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering gegooid.
+Je kunt de gegevens in externe werkboeken bewerken op dezelfde manier als je wijzigingen aanbrengt in de inhoud van interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering gegooid.
 
-Deze C++‑code is een implementatie van het beschreven proces:
+Deze C++‑code implementeert het beschreven proces:
 
 ```c++
 #include <DOM/Chart/Chart.h>
@@ -449,11 +449,11 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Een werkboek herstellen uit de diagram‑cache**
+### **Een werkboek herstellen vanuit de grafiekcache**
 
-Als een diagram een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het diagram‑werkboek reconstrueren vanuit de in de presentatie gecachte gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/)‑object, configureer het met [set_SpreadsheetOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), en roep [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) aan met `true` voordat je de presentatie opent.
+Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het grafiek‑werkboek reconstrueren vanuit de in de presentatie gecachte gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/) aan, configureer deze met [set_SpreadsheetOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), en roep [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) aan met `true` voordat je de presentatie opent.
 
-Het volgende C++‑voorbeeld opent een presentatie waarvan het diagram een niet‑beschikbaar extern werkboek verwijst en benadert de herstelde gegevens via [IChart::get_ChartData](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/get_chartdata/) en [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+Het volgende C++‑voorbeeld opent een presentatie waarvan de grafiek naar een niet‑beschikbaar extern werkboek verwijst en krijgt toegang tot de herstelde gegevens via [IChart::get_ChartData](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/get_chartdata/) en [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
@@ -474,30 +474,30 @@ auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 presentation->Dispose();
 ```
 
-Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een `System::InvalidOperationException`. Schakel herstel alleen in wanneer het gebruiken van de gecachte diagramgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste update van de presentatie in het externe werkboek zijn aangebracht.
+Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een `System::InvalidOperationException`. Schakel herstel alleen in wanneer het gebruik van de gecachte grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk wijzigingen in het externe werkboek die na de laatste update van de presentatie zijn aangebracht, niet bevat.
 
 ## **FAQ**
 
-**Kan ik bepalen of een specifiek diagram is gekoppeld aan een extern of een ingesloten werkboek?**
+**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een extern of een ingebed werkboek?**
 
-Ja. Een diagram heeft een [gegevensbron‑type](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); als de bron een extern werkboek is, kun je het volledige pad lezen om te verifiëren dat een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); als de bron een extern werkboek is, kun je het volledige pad lezen om te controleren of er een extern bestand wordt gebruikt.
 
 **Worden relatieve paden naar externe werkboeken ondersteund, en hoe worden ze opgeslagen?**
 
-Ja. Als je een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor project‑portabiliteit; houd er echter rekening mee dat de presentatie het absolute pad in het PPTX‑bestand opslaat.
+Ja. Als je een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor de draagbaarheid van een project; houd echter rekening mee dat de presentatie het absolute pad opslaat in het PPTX‑bestand.
 
-**Kan ik werkboeken gebruiken die zich op netwerklocaties/-shares bevinden?**
+**Kan ik werkboeken gebruiken die zich op netwerkbronnen/gedeelde locaties bevinden?**
 
-Ja, dergelijke werkboeken kunnen worden gebruikt als externe gegevensbron. Het direct bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund — ze kunnen alleen als bron dienen.
+Ja, dergelijke werkboeken kunnen worden gebruikt als een externe gegevensbron. Bewerken van externe werkboeken rechtstreeks vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
 
 **Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**
 
-Nee. De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) op en gebruikt die voor het lezen van gegevens. Het externe bestand zelf wordt niet aangepast bij het opslaan van de presentatie.
+Nee. De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) op en gebruikt deze om gegevens te lezen. Het externe bestand zelf wordt niet aangepast wanneer de presentatie wordt opgeslagen.
 
 **Wat moet ik doen als het externe bestand met een wachtwoord is beveiligd?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gebruikelijke aanpak is om de beveiliging vooraf te verwijderen of een gedecrypteerde kopie (bijvoorbeeld met [Aspose.Cells](/cells/cpp/)) voor te bereiden en naar die kopie te linken.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare werkwijze is om de bescherming vooraf te verwijderen of een gedecodeerde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/cpp/)) en naar die kopie te linken.
 
-**Kunnen meerdere diagrammen naar hetzelfde externe werkboek verwijzen?**
+**Kunnen meerdere grafieken naar hetzelfde externe werkboek verwijzen?**
 
-Ja. Elk diagram slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een wijziging in dat bestand in elk diagram weerspiegeld de volgende keer dat de gegevens worden geladen.
+Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt bij het bijwerken van dat bestand de wijziging in elke grafiek zichtbaar bij de volgende keer dat de gegevens worden geladen.

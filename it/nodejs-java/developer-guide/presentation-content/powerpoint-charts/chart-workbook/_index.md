@@ -1,38 +1,40 @@
 ---
-title: Gestire le Cartelle di Lavoro dei Grafici nelle Presentazioni con JavaScript
-linktitle: Cartella di Lavoro del Grafico
+title: Gestire i workbook dei grafici nelle presentazioni usando JavaScript
+linktitle: Workbook del grafico
 type: docs
 weight: 70
 url: /it/nodejs-java/chart-workbook/
 keywords:
-- cartella di lavoro del grafico
+- workbook del grafico
 - dati del grafico
-- cella della cartella di lavoro
+- cella del workbook
 - etichetta dati
 - foglio di lavoro
 - origine dati
-- cartella di lavoro esterna
+- workbook esterno
 - dati esterni
 - cache del grafico
-- recupero della cartella di lavoro
+- recupero del workbook
 - PowerPoint
 - presentazione
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Scopri Aspose.Slides per Node.js tramite Java: gestisci senza sforzo le cartelle di lavoro dei grafici nei formati PowerPoint e OpenDocument per semplificare i dati delle tue presentazioni."
+description: "Scopri Aspose.Slides per Node.js tramite Java: gestisci facilmente i workbook dei grafici in formato PowerPoint e OpenDocument per semplificare i dati della tua presentazione."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con le cartelle di lavoro dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite flussi di cartelle di lavoro, utilizzare le celle della cartella di lavoro come etichette dei dati del grafico, accedere alle raccolte di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
+Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite i flussi del workbook, utilizzare le celle del workbook come etichette di dati del grafico, accedere alle raccolte di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
 
-Copre inoltre l'utilizzo di cartelle di lavoro esterne come origini dati per i grafici. Gli esempi dimostrano come creare e assegnare una cartella di lavoro esterna, recuperare il percorso di una cartella di lavoro esterna collegata a un grafico e modificare i dati del grafico quando la cartella di lavoro è disponibile.
+Tratta anche l'uso di workbook esterni come origine dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
 
-## **Leggere e Scrivere Dati del Grafico da una Cartella di Lavoro**
+Per le celle del workbook che rappresentano dati mancanti, vedere [Controllare la visualizzazione delle celle vuote](/slides/it/nodejs-java/chart-series/) per la differenza tra una cella vuota e zero, e un confronto a linee dei modi di visualizzazione disponibili.
 
-Aspose.Slides fornisce i metodi [readWorkbookStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) e [writeWorkbookStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) che consentono di leggere e scrivere le cartelle di lavoro dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o avere una struttura simile a quella della sorgente.
+## **Leggere e scrivere dati del grafico da un workbook**
 
-Questo codice JavaScript dimostra un'operazione di esempio:
+Aspose.Slides fornisce i metodi [readWorkbookStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) e [writeWorkbookStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) che consentono di leggere e scrivere i workbook dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati allo stesso modo o avere una struttura simile a quella della sorgente.
+
+Questo codice JavaScript mostra un'operazione di esempio:
 
 ```javascript
 var aspose = aspose || {};
@@ -53,12 +55,12 @@ try {
 }
 ```
 
-### **Convalidare il Layout del Grafico Dopo la Modifica della Cartella di Lavoro**
+### **Convalidare il layout del grafico dopo la modifica del workbook**
 
-Quando si sostituisce una cartella di lavoro incorporata con una modificata, il grafico mantiene le sue serie e le collezioni di categorie originali. Questa discrepanza può causare il fallimento di [Chart.validateChartLayout](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Chart#validateChartLayout--) con un errore di indice fuori intervallo. Cancella le serie e le categorie esistenti prima di scrivere la cartella di lavoro aggiornata nel grafico.
+Quando si sostituisce un workbook incorporato con uno modificato, il grafico mantiene le sue collezioni originali di serie e categorie. Questa discrepanza può causare il fallimento di [Chart.validateChartLayout](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Chart#validateChartLayout--) con un errore di indice fuori intervallo. Svuotare le serie e le categorie esistenti prima di scrivere il workbook aggiornato nel grafico.
 
 ```javascript
-// Dopo aver modificato lo stream della cartella di lavoro (ad esempio, usando Aspose.Cells)
+// Dopo aver modificato lo stream del workbook (ad es., usando Aspose.Cells)
 var updatedWorkbook = chartData.readWorkbookStream();
 
 // Cancella i riferimenti ai dati esistenti.
@@ -70,18 +72,18 @@ chartData.writeWorkbookStream(updatedWorkbook);
 chart.validateChartLayout();
 ```
 
-La cancellazione delle collezioni garantisce che la struttura dei dati del grafico sia coerente con la nuova cartella di lavoro, consentendo a `validateChartLayout` di completarsi senza errori.
+Svuotare le collezioni garantisce che la struttura dei dati del grafico sia coerente con il nuovo workbook, permettendo a `validateChartLayout` di completarsi senza errori.
 
-## **Impostare la Cella della Cartella di Lavoro come Etichetta Dati del Grafico**
+## **Impostare la cella del workbook come etichetta dati del grafico**
 
-1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation).
-1. Ottenere il riferimento a una diapositiva tramite il suo indice.
-1. Aggiungere un grafico a bolle con alcuni dati.
-1. Accedere alle serie del grafico.
-1. Impostare la cella della cartella di lavoro come etichetta dati.
-1. Salvare la presentazione.
+1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation) .
+2. Ottenere il riferimento di una diapositiva tramite il suo indice.
+3. Aggiungere un grafico a bolle con alcuni dati.
+4. Accedere alle serie del grafico.
+5. Impostare la cella del workbook come etichetta dati.
+6. Salvare la presentazione.
 
-Questo codice JavaScript mostra come impostare una cella della cartella di lavoro come etichetta dati del grafico:
+Questo codice JavaScript mostra come impostare una cella del workbook come etichetta dati del grafico:
 
 ```javascript
 var aspose = aspose || {};
@@ -110,9 +112,9 @@ try {
 }
 ```
 
-## **Gestire i Fogli di Lavoro**
+## **Gestire i fogli di lavoro**
 
-Questo codice JavaScript dimostra un'operazione in cui il metodo [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) viene utilizzato per accedere a una raccolta di fogli di lavoro:
+Questo codice JavaScript dimostra un'operazione in cui il metodo [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) viene utilizzato per accedere a una collezione di fogli di lavoro:
 
 ```javascript
 var aspose = aspose || {};
@@ -132,7 +134,7 @@ try {
 }
 ```
 
-## **Specificare il Tipo di Origine Dati**
+## **Specificare il tipo di origine dati**
 
 Questo codice JavaScript mostra come specificare un tipo per un'origine dati:
 
@@ -156,9 +158,9 @@ try {
 }
 ```
 
-## **Rilevare Formati di Cartelle di Lavoro Incorporate Non Supportati**
+## **Rilevare formati di workbook incorporati non supportati**
 
-Aspose.Slides non supporta il formato di cartella di lavoro binaria Excel (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `getEmbeddedWorkbookType` su [ChartData](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/workbooktype/) per rilevare formati non supportati e ignorare quei grafici.
+Aspose.Slides non supporta il formato di workbook binario Excel (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `getEmbeddedWorkbookType` su [ChartData](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/workbooktype/) per rilevare i formati non supportati e ignorare quei grafici.
 
 ```js
 var aspose = aspose || {};
@@ -180,26 +182,26 @@ try {
 
         if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // La cartella di lavoro incorporata è in formato .xlsb, che non è supportato.
+            // Il workbook incorporato è in formato .xlsb, che non è supportato.
             continue;
         }
 
-        // Leggi o modifica i dati della cartella di lavoro del grafico qui.
+        // Leggi o modifica i dati del workbook del grafico qui.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Cartella di Lavoro Esterna**
+## **Workbook esterno**
 
-Aspose.Slides supporta cartelle di lavoro esterne come origine dati per i grafici.
+Aspose.Slides supporta i workbook esterni come origine dati per i grafici.
 
-### **Creare una Cartella di Lavoro Esterna**
+### **Creare un workbook esterno**
 
-Utilizzando i metodi **`readWorkbookStream`** e **`setExternalWorkbook`**, è possibile creare una cartella di lavoro esterna da zero o rendere esterna una cartella di lavoro interna.
+Utilizzando i metodi **`readWorkbookStream`** e **`setExternalWorkbook`**, è possibile creare un workbook esterno da zero o rendere esterno un workbook interno.
 
-Questo codice JavaScript dimostra il processo di creazione della cartella di lavoro esterna:
+Questo codice JavaScript dimostra il processo di creazione di un workbook esterno:
 
 ```javascript
 var aspose = aspose || {};
@@ -210,7 +212,7 @@ var pres = new aspose.slides.Presentation();
 try {
     var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    // readWorkbookStream restituisce i byte della cartella di lavoro come Buffer Node.
+    // readWorkbookStream restituisce i byte del workbook come Buffer Node.
     var workbookData = chart.getChartData().readWorkbookStream();
     fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
     chart.getChartData().setExternalWorkbook(workbookPath);
@@ -223,13 +225,13 @@ try {
 }
 ```
 
-### **Impostare la Cartella di Lavoro Esterna**
+### **Impostare il workbook esterno**
 
-Utilizzando il metodo **`setExternalWorkbook`**, è possibile assegnare una cartella di lavoro esterna a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso della cartella di lavoro esterna (se quest'ultima è stata spostata).
+Utilizzando il metodo **`setExternalWorkbook`**, è possibile assegnare un workbook esterno a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso del workbook esterno (se quest'ultimo è stato spostato).
 
-Pur non potendo modificare i dati nelle cartelle di lavoro memorizzate in posizioni remote o risorse, è comunque possibile utilizzare tali cartelle di lavoro come origine dati esterna. Se viene fornito un percorso relativo per una cartella di lavoro esterna, esso viene convertito automaticamente in un percorso completo.
+Sebbene non sia possibile modificare i dati nei workbook memorizzati in posizioni o risorse remote, è comunque possibile utilizzare tali workbook come origine dati esterna. Se viene fornito un percorso relativo per un workbook esterno, viene convertito automaticamente in un percorso completo.
 
-Questo codice JavaScript mostra come impostare una cartella di lavoro esterna:
+Questo codice JavaScript mostra come impostare un workbook esterno:
 
 ```javascript
 var aspose = aspose || {};
@@ -256,10 +258,10 @@ try {
 }
 ```
 
-Il secondo parametro del metodo `setExternalWorkbook`, `updateChartData`, specifica se la cartella di lavoro Excel verrà caricata o meno.
+Il secondo parametro del metodo `setExternalWorkbook`, `updateChartData`, specifica se il workbook Excel verrà caricato o meno.
 
-* Quando `updateChartData` è impostato su `false`, viene aggiornato solo il percorso della cartella di lavoro — i dati del grafico non verranno caricati o aggiornati dalla cartella di lavoro di destinazione. È consigliabile usare questa impostazione quando la cartella di lavoro di destinazione non esiste o non è disponibile.
-* Quando `updateChartData` è impostato su `true`, i dati del grafico vengono aggiornati dalla cartella di lavoro di destinazione.
+* Quando `updateChartData` è impostato su `false`, viene aggiornato solo il percorso del workbook — i dati del grafico non verranno caricati né aggiornati dal workbook di destinazione. È consigliabile utilizzare questa impostazione quando il workbook di destinazione è inesistente o non disponibile.
+* Quando `updateChartData` è impostato su `true`, i dati del grafico vengono aggiornati dal workbook di destinazione.
 
 ```javascript
 var aspose = aspose || {};
@@ -279,13 +281,13 @@ try {
 }
 ```
 
-### **Ottenere il Percorso della Cartella di Lavoro di Origine Dati Esterna del Grafico**
+### **Ottenere il percorso del workbook dell'origine dati esterna del grafico**
 
-1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation).
-1. Ottenere il riferimento a una diapositiva tramite il suo indice.
-1. Creare un oggetto per la forma del grafico.
-1. Creare un oggetto per il tipo di origine (`ChartDataSourceType`) che rappresenta l'origine dati del grafico.
-1. Specificare la condizione pertinente in base al fatto che il tipo di origine sia lo stesso del tipo di origine dati della cartella di lavoro esterna.
+1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation) .
+2. Ottenere il riferimento di una diapositiva tramite il suo indice.
+3. Creare un oggetto per la forma del grafico.
+4. Creare un oggetto per il tipo di origine (`ChartDataSourceType`) che rappresenta l'origine dati del grafico.
+5. Specificare la condizione pertinente in base al fatto che il tipo di origine sia lo stesso del tipo di origine dati del workbook esterno.
 
 Questo codice JavaScript dimostra l'operazione:
 
@@ -311,9 +313,11 @@ try {
 }
 ```
 
-### **Modificare i Dati del Grafico**
+### **Modificare i dati del grafico**
 
-È possibile modificare i dati nelle cartelle di lavoro esterne nello stesso modo in cui si apportano modifiche al contenuto delle cartelle di lavoro interne. Quando una cartella di lavoro esterna non può essere caricata, viene sollevata un'eccezione.
+È possibile modificare i dati nei workbook esterni allo stesso modo in cui si apportano modifiche al contenuto dei workbook interni. Quando un workbook esterno non può essere caricato, viene generata un'eccezione.
+
+Questo codice JavaScript è un'implementazione del processo descritto:
 
 ```javascript
 var aspose = aspose || {};
@@ -333,11 +337,11 @@ try {
 }
 ```
 
-### **Recuperare una Cartella di Lavoro dalla Cache del Grafico**
+### **Recuperare un workbook dalla cache del grafico**
 
-Se un grafico utilizza una cartella di lavoro esterna mancante o non disponibile, Aspose.Slides può ricostruire la cartella di lavoro del grafico dai dati memorizzati nella cache della presentazione. Creare [LoadOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/), configurarlo con [SpreadsheetOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/spreadsheetoptions/), e chiamare [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) con `true` prima di aprire la presentazione.
+Se un grafico utilizza un workbook esterno mancante o non disponibile, Aspose.Slides può ricostruire il workbook del grafico dai dati memorizzati nella cache della presentazione. Creare [LoadOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/), configurarlo con [SpreadsheetOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/spreadsheetoptions/), e chiamare [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) con `true` prima di aprire la presentazione.
 
-Il seguente esempio JavaScript apre una presentazione il cui grafico fa riferimento a una cartella di lavoro esterna non disponibile e accede ai dati recuperati tramite [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Il seguente esempio JavaScript apre una presentazione il cui grafico fa riferimento a un workbook esterno non disponibile e accede ai dati recuperati tramite [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
 var aspose = aspose || {};
@@ -354,36 +358,36 @@ try {
     const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // Leggi o modifica i dati della cartella di lavoro recuperata qui.
+    // Leggi o modifica i dati del workbook recuperato qui.
 } finally {
     presentation.dispose();
 }
 ```
 
-Se la cartella di lavoro esterna non è disponibile e il recupero è disabilitato, Aspose.Slides solleva un'eccezione. Abilitare il recupero solo quando l'uso dei dati del grafico nella cache è una soluzione accettabile, poiché la cache potrebbe non contenere le modifiche apportate alla cartella di lavoro esterna dopo l'ultimo aggiornamento della presentazione.
+Se il workbook esterno è non disponibile e il recupero è disabilitato, Aspose.Slides genera un'eccezione. Abilitare il recupero solo quando l'uso dei dati del grafico in cache è una soluzione accettabile, poiché la cache potrebbe non contenere le modifiche apportate al workbook esterno dopo l'ultimo aggiornamento della presentazione.
 
 ## **FAQ**
 
-**Posso determinare se un grafico specifico è collegato a una cartella di lavoro esterna o incorporata?**
+**Posso determinare se un grafico specifico è collegato a un workbook esterno o incorporato?**
 
-Sì. Un grafico ha un [data source type](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) e un [path to an external workbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); se la sorgente è una cartella di lavoro esterna, è possibile leggere il percorso completo per verificare che venga utilizzato un file esterno.
+Sì. Un grafico ha un [tipo di origine dati](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) e un [percorso a un workbook esterno](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); se l'origine è un workbook esterno, è possibile leggere il percorso completo per assicurarsi che venga utilizzato un file esterno.
 
-**Sono supportati i percorsi relativi alle cartelle di lavoro esterne e come vengono memorizzati?**
+**Sono supportati i percorsi relativi ai workbook esterni e come vengono memorizzati?**
 
-Sì. Se si specifica un percorso relativo, esso viene convertito automaticamente in un percorso assoluto. Ciò è comodo per la portabilità del progetto; tuttavia, è necessario sapere che la presentazione memorizzerà il percorso assoluto nel file PPTX.
+Sì. Se si specifica un percorso relativo, viene automaticamente convertito in un percorso assoluto. Questo è comodo per la portabilità del progetto; tuttavia, è importante sapere che la presentazione memorizzerà il percorso assoluto nel file PPTX.
 
-**Posso utilizzare cartelle di lavoro situate su risorse di rete/condivisioni?**
+**Posso utilizzare workbook situati su risorse di rete/condivisioni?**
 
-Sì, tali cartelle di lavoro possono essere utilizzate come origine dati esterna. Tuttavia, la modifica diretta di cartelle di lavoro remote da Aspose.Slides non è supportata — possono essere usate solo come sorgente.
+Sì, tali workbook possono essere utilizzati come origine dati esterna. Tuttavia, la modifica di workbook remoti direttamente da Aspose.Slides non è supportata: possono essere usati solo come fonte.
 
-**Aspose.Slides sovrascrive il file XLSX esterno quando salva la presentazione?**
+**Aspose.Slides sovrascrive il file XLSX esterno quando si salva la presentazione?**
 
-No. La presentazione memorizza un [link to the external file](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato quando la presentazione viene salvata.
+No. La presentazione memorizza un [collegamento al file esterno](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno non viene modificato quando la presentazione viene salvata.
 
 **Cosa devo fare se il file esterno è protetto da password?**
 
 Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](/cells/nodejs-java/)) e collegarsi a quella copia.
 
-**Più grafici possono fare riferimento alla stessa cartella di lavoro esterna?**
+**Possono più grafici fare riferimento allo stesso workbook esterno?**
 
-Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l'aggiornamento di quel file verrà riflesso in ciascun grafico al successivo caricamento dei dati.
+Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l'aggiornamento di quel file verrà riflesso in ogni grafico al successivo caricamento dei dati.

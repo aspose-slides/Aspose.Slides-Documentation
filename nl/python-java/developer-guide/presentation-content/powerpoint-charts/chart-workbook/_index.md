@@ -1,36 +1,37 @@
 ---
-title: Beheer grafiekwerkboeken in presentaties met Python via Java
-linktitle: Grafiekwerkboek
+title: Beheer grafiekwerkmappen in presentaties met Python via Java
+linktitle: Grafiekwerkmap
 type: docs
 weight: 70
 url: /nl/python-java/chart-workbook/
 keywords:
-- grafiekwerkboek
+- grafiekwerkmap
 - grafiekgegevens
-- werkboekcel
-- databelabel
+- werkbladcel
+- gegevenslabel
 - werkblad
 - gegevensbron
-- extern werkboek
+- externe werkmap
 - externe gegevens
 - grafiekcache
-- werkboekherstel
+- werkmapherstel
 - PowerPoint
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor Python via Java: beheer moeiteloos grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor Python via Java: beheer grafiekwerkmappen moeiteloos in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met grafiekwerkboeken in Aspose.Slides kunt werken. Het laat zien hoe u grafiekgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als grafiek‑databelabels, toegang kunt krijgen tot werkbladverzamelingen en het gegevenstypebron voor grafiekwaarden kunt specificeren.
+Dit artikel legt uit hoe u met grafiek‑werkmappen werkt in Aspose.Slides. Het toont hoe u grafiekgegevens kunt lezen en schrijven via werkmap‑streams, werkbladcellen kunt gebruiken als grafiekgegevens‑labels, toegang krijgt tot werkbladcollecties, en het type gegevensbron voor grafiekwaarden kunt specificeren.
 
-Het behandelt ook het werken met externe werkboeken als gegevensbron voor grafieken. De voorbeelden demonstreren hoe u een extern werkboek kunt maken en toewijzen, het pad kunt ophalen van een extern werkboek dat aan een grafiek is gekoppeld, en grafiekgegevens kunt bewerken wanneer het werkboek beschikbaar is.
+Het behandelt ook het werken met externe werkmappen als grafiekgegevensbronnen. De voorbeelden laten zien hoe u een externe werkmap kunt maken en toewijzen, het pad van een externe werkmap die aan een grafiek is gekoppeld kunt ophalen, en grafiekgegevens kunt bewerken wanneer de werkmap beschikbaar is.
 
-## **Grafiekgegevens lezen en schrijven vanuit een werkboek**
+Voor werkbladcellen die ontbrekende gegevens vertegenwoordigen, zie [Beheer de weergave van lege cellen](/slides/nl/python-java/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiekvergelijking van de beschikbare weergavemodi.
 
-Aspose.Slides biedt de [readWorkbookStream](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#readWorkbookStream) en [writeWorkbookStream](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#writeWorkbookStream) methoden die u in staat stellen grafiekdataverwerkboeken te lezen en te schrijven (bevat grafiekgegevens bewerkt met Aspose.Cells). **Opmerking** dat de grafiekgegevens op dezelfde manier moeten worden georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
+## **Grafiekgegevens lezen en schrijven vanuit een werkmap**
+Aspose.Slides biedt de methoden [readWorkbookStream](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#readWorkbookStream) en [writeWorkbookStream](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#writeWorkbookStream) waarmee u werkmappen met grafiekgegevens kunt lezen en schrijven (bevat graficgegevens bewerkt met Aspose.Cells). **Opmerking** dat de grafiekgegevens op dezelfde manier moeten worden georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
 
 Deze Python‑code toont een voorbeeldoperatie:
 
@@ -55,9 +56,8 @@ finally:
     presentation.dispose()
 ```
 
-### **Grafiekindeling valideren na wijziging van werkboek**
-
-Wanneer u een ingesloten werkboek vervangt door een aangepast werkboek, behoudt de grafiek zijn oorspronkelijke serie‑ en categorie‑collecties. Deze inconsistentie kan er toe leiden dat [Chart.validateChartLayout](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/#validateChartLayout) een `ArgumentOutOfRangeException` (parameter: index) gooit. Om de uitzondering te vermijden, moet u de bestaande series en categorieën **voor** het terugschrijven van het bijgewerkte werkboek naar de grafiek wissen.
+### **Grafieklay-out valideren na wijziging van de werkmap**
+Wanneer u een ingesloten werkmap vervangt door een gewijzigde versie, behoudt de grafiek zijn oorspronkelijke serie‑ en categorie‑collecties. Deze inconsistentie kan ervoor zorgen dat [Chart.validateChartLayout](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/#validateChartLayout) een `ArgumentOutOfRangeException` (parameter: index) gooit. Om de uitzondering te vermijden, verwijdert u de bestaande series en categorieën **voordat** u de bijgewerkte werkmap terugschrijft naar de grafiek.
 
 ```python
 import jpype
@@ -70,7 +70,7 @@ from asposeslides.api import Presentation
 
 from pathlib import Path
 
-# Lees het werkboek na bewerken (bijv. met Aspose.Cells).
+# Lees de werkmap na bewerking (bijv. met Aspose.Cells).
 updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
 
 presentation = Presentation("chart.pptx")
@@ -78,30 +78,29 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     chart_data = chart.getChartData()
 
-    # Wis bestaande gegevensreferenties.
+    # Verwijder bestaande gegevensreferenties.
     chart_data.getSeries().clear()
     chart_data.getCategories().clear()
-    chart_data.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
+    chart.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
     chart.validateChartLayout()
 finally:
     presentation.dispose()
 ```
 
-Het wissen van de collecties zorgt ervoor dat de structuur van de grafiekgegevens overeenkomt met het nieuwe werkboek, waardoor [validateChartLayout](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/#validateChartLayout) zonder fouten kan worden voltooid.
+Het legen van de collecties zorgt ervoor dat de structuur van de grafiekgegevens overeenkomt met de nieuwe werkmap, waardoor [validateChartLayout](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/#validateChartLayout) zonder fouten kan worden voltooid.
 
-## **Een werkboekcel instellen als grafiek‑databelabel**
+## **Een werkbladcel instellen als een grafiekgegevens‑label**
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) .
+2. Haal een referentie naar een dia op via de index.
+3. Voeg een Bubble‑grafiek toe met enkele gegevens.
+4. Toegang tot de grafiekseries.
+5. Stel de werkbladcel in als een gegevenslabel.
+6. Sla de presentatie op.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.  
-1. Haal een referentie naar een dia op basis van de index.  
-1. Voeg een Bubbel‑grafiek toe met enkele gegevens.  
-1. Toegang tot de grafiekseries.  
-1. Stel de werkboekcel in als databelabel.  
-1. Sla de presentatie op.
-
-Deze Python‑code laat zien hoe u een werkboekcel als grafiek‑databelabel instelt:
+Deze Python‑code laat zien hoe u een werkbladcel instelt als een grafiekgegevens‑label:
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -127,8 +126,7 @@ finally:
 ```
 
 ## **Werkbladen beheren**
-
-Deze Python‑code demonstreert een bewerking waarbij de [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdataworkbook/#getWorksheets) methode wordt gebruikt om toegang te krijgen tot een werkbladcollectie:
+Deze Python‑code toont een operatie waarbij de methode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdataworkbook/#getWorksheets) wordt gebruikt om een werkbladcollectie te benaderen:
 
 ```python
 import jpype
@@ -149,8 +147,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Het gegevenstypebron specificeren**
-
+## **Het type gegevensbron specificeren**
 Deze Python‑code laat zien hoe u een type voor een gegevensbron specificeert:
 
 ```python
@@ -176,9 +173,8 @@ finally:
     presentation.dispose()
 ```
 
-## **Detecteer niet‑ondersteunde ingesloten werkboekformaten**
-
-Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) niet, dat in sommige grafieken kan worden ingesloten. U kunt de [getEmbeddedWorkbookType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) methode op [ChartData](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/) samen met de [WorkbookType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/workbooktype/) opsomming gebruiken om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
+## **Niet‑ondersteunde ingesloten werkmapformaten detecteren**
+Aspose.Slides ondersteunt het binaire Excel‑werkmapformaat (.xlsb) dat in sommige grafieken kan worden ingesloten niet. U kunt de methode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) op [ChartData](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/) samen met de enumeratie [WorkbookType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/workbooktype/) gebruiken om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
 
 ```python
 import jpype
@@ -197,18 +193,20 @@ try:
             continue
         chart_data = shape.getChartData()
         if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # Ingebed werkboek heeft .xlsb-formaat, wat niet wordt ondersteund.
+            # Ingesloten werkmap is in .xlsb-formaat, wat niet wordt ondersteund.
             continue
-        # Lees of wijzig hier de grafiekwerkboekgegevens.
+        # Lees of wijzig hier de grafiekwerkmapgegevens.
 finally:
     presentation.dispose()
 ```
 
-### **Een extern werkboek maken**
+## **Externe werkmap**
+Aspose.Slides ondersteunt het gebruik van externe werkmappen als gegevensbron voor grafieken.
 
-Met behulp van de [readWorkbookStream](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#readWorkbookStream) en [setExternalWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#setExternalWorkbook) methoden kunt u een extern werkboek vanaf nul maken of een intern werkboek extern maken.
+### **Een externe werkmap maken**
+Met behulp van de methoden [readWorkbookStream](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#readWorkbookStream) en [setExternalWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#setExternalWorkbook) kunt u een externe werkmap vanaf nul maken of een interne werkmap extern maken.
 
-Deze Python‑code demonstreert het proces van het aanmaken van een extern werkboek:
+Deze Python‑code toont het proces van het maken van een externe werkmap:
 
 ```python
 import jpype
@@ -233,13 +231,12 @@ finally:
     presentation.dispose()
 ```
 
-### **Een extern werkboek instellen**
+### **Een externe werkmap toewijzen**
+Met de methode [setExternalWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#setExternalWorkbook) kunt u een externe werkmap aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om het pad naar de externe werkmap bij te werken (als die verplaatst is).
 
-Met behulp van de [setExternalWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#setExternalWorkbook) methode kunt u een extern werkboek aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om het pad naar het externe werkboek bij te werken (als het laatstgenoemde is verplaatst).
+Hoewel u de gegevens in werkmappen die op externe locaties of bronnen zijn opgeslagen niet kunt bewerken, kunt u dergelijke werkmappen nog steeds als externe gegevensbron gebruiken. Als een relatief pad voor een externe werkmap wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
 
-Hoewel u de gegevens in werkboeken die op externe locaties of bronnen zijn opgeslagen niet kunt bewerken, kunt u dergelijke werkboeken nog steeds gebruiken als externe gegevensbron. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
-
-Deze Python‑code laat zien hoe u een extern werkboek instelt:
+Deze Python‑code laat zien hoe u een externe werkmap instelt:
 
 ```python
 import jpype
@@ -269,9 +266,10 @@ finally:
     presentation.dispose()
 ```
 
-De tweede (`bool`) parameter van de [setExternalWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#setExternalWorkbook) methode wordt gebruikt om op te geven of een Excel‑werkboek geladen moet worden of niet. 
-* Wanneer de waarde `False` is, wordt alleen het pad van het werkboek bijgewerkt – de grafiekgegevens worden niet geladen of bijgewerkt vanuit het doel‑werkboek. Deze instelling is nuttig wanneer het doel‑werkboek niet bestaat of niet beschikbaar is. 
-* Wanneer de waarde `True` is, worden de grafiekgegevens bijgewerkt vanuit het doel‑werkboek.
+De tweede (`bool`)‑parameter van de methode [setExternalWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#setExternalWorkbook) wordt gebruikt om op te geven of een Excel‑werkmap al dan niet wordt geladen.
+
+* Wanneer de waarde is ingesteld op `False`, wordt alleen het pad van de werkmap bijgewerkt – de grafiekgegevens worden niet geladen of bijgewerkt vanuit de doelwerkmap. U kunt deze instelling gebruiken wanneer de doelwerkmap niet bestaat of niet beschikbaar is.
+* Wanneer de waarde is ingesteld op `True`, worden de grafiekgegevens bijgewerkt vanuit de doelwerkmap.
 
 ```python
 import jpype
@@ -292,15 +290,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Het pad van het externe gegevensbron‑werkboek van een grafiek ophalen**
+### **Het pad van de externe gegevensbron‑werkmap van een grafiek ophalen**
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) .
+2. Haal een referentie naar een dia op via de index.
+3. Maak een object voor de grafiekvorm.
+4. Maak een object voor het bron‑type ([ChartDataSourceType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdatasourcetype/)) dat de gegevensbron van de grafiek vertegenwoordigt.
+5. Specificeer de relevante voorwaarde op basis van het feit dat het bron‑type gelijk is aan het type van de externe werkmapgegevensbron.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.  
-1. Haal een referentie naar een dia op basis van de index.  
-1. Maak een object voor de grafiekvorm.  
-1. Maak een object voor het bron‑type ([ChartDataSourceType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdatasourcetype/)) dat de gegevensbron van de grafiek vertegenwoordigt.  
-1. Specificeer de relevante voorwaarde op basis van het feit dat het bron‑type hetzelfde is als het externe werkboek‑gegevensbron‑type.
-
-Deze Python‑code demonstreert de bewerking:
+Deze Python‑code toont de operatie:
 
 ```python
 import jpype
@@ -324,8 +321,7 @@ finally:
 ```
 
 ### **Grafiekgegevens bewerken**
-
-U kunt de gegevens in externe werkboeken bewerken op dezelfde manier als u wijzigingen aanbrengt in de inhoud van interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering gegooid.
+U kunt de gegevens in externe werkmappen bewerken op dezelfde manier als u wijzigingen aanbrengt in de inhoud van interne werkmappen. Wanneer een externe werkmap niet kan worden geladen, wordt er een uitzondering gegooid.
 
 Deze Python‑code is een implementatie van het beschreven proces:
 
@@ -348,11 +344,10 @@ finally:
     presentation.dispose()
 ```
 
-### **Een werkboek herstellen uit de grafiek‑cache**
+### **Een werkmap herstellen uit de grafiekkachel**
+Als een grafiek een externe werkmap gebruikt die ontbreekt of niet beschikbaar is, kan Aspose.Slides de grafiekwerkmap reconstrueren uit de gegevens die in de presentatie zijn gecached. Maak [LoadOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/), configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/spreadsheetoptions/), en roep [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) aan met `True` voordat u de presentatie opent.
 
-Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het werkboek van de grafiek reconstrueren uit de in de presentatie gecachte gegevens. Maak [LoadOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/), configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/spreadsheetoptions/), en roep [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) aan met `True` voordat u de presentatie opent.
-
-Het volgende Python‑voorbeeld opent een presentatie waarbij de grafiek een niet‑beschikbaar extern werkboek verwijst en benadert de herstelde gegevens via [Chart.getChartData](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/#getChartData) en [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Het volgende Python‑voorbeeld opent een presentatie waarvan de grafiek verwijst naar een niet‑beschikbare externe werkmap en haalt de herstelde gegevens op via [Chart.getChartData](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/#getChartData) en [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -373,35 +368,29 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Lees of wijzig hier de herstelde werkboekgegevens.
+    # Lees of wijzig hier de herstelde werkmapgegevens.
 finally:
     presentation.dispose()
 ```
 
-Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruiken van de gecachte grafiekgegevens een acceptabele terugval is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste bijwerking van de presentatie in het externe werkboek zijn aangebracht.
+Als de externe werkmap niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachete grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste update van de presentatie in de externe werkmap zijn aangebracht.
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik bepalen of een specifieke grafiek gekoppeld is aan een extern of ingesloten werkboek?**
+**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een externe of een ingesloten werkmap?**  
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getDataSourceType) en een [pad naar een externe werkmap](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); als de bron een externe werkmap is, kunt u het volledige pad lezen om te bevestigen dat er een extern bestand wordt gebruikt.
 
-Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getDataSourceType) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); als de bron een extern werkboek is, kunt u het volledige pad lezen om te bevestigen dat een extern bestand wordt gebruikt.
+**Worden relatieve paden naar externe werkmappen ondersteund, en hoe worden ze opgeslagen?**  
+Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor de portabiliteit van het project; houd er echter rekening mee dat de presentatie het absolute pad opslaat in het PPTX‑bestand.
 
-**Worden relatieve paden naar externe werkboeken ondersteund, en hoe worden ze opgeslagen?**
+**Kan ik werkmappen gebruiken die zich bevinden op netwerkbronnen/gedeelde mappen?**  
+Ja, dergelijke werkmappen kunnen worden gebruikt als een externe gegevensbron. Het bewerken van externe werkmappen rechtstreeks vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
 
-Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor projectportabiliteit; houd er echter rekening mee dat de presentatie het absolute pad opslaat in het PPTX‑bestand.
+**Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**  
+Nee. De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) op en gebruikt deze voor het lezen van gegevens. Het externe bestand zelf wordt niet gewijzigd wanneer de presentatie wordt opgeslagen.
 
-**Kan ik werkboeken gebruiken die zich op netwerkbronnen/netwerkschijven bevinden?**
+**Wat moet ik doen als het externe bestand met een wachtwoord is beveiligd?**  
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is om de bescherming vooraf te verwijderen of een gedecrypteerde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/python-java/)) en naar die kopie te linken.
 
-Ja, dergelijke werkboeken kunnen worden gebruikt als externe gegevensbron. Het direct bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
-
-**Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**
-
-Nee. De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) op en gebruikt deze om gegevens te lezen. Het externe bestand zelf wordt niet aangepast wanneer de presentatie wordt opgeslagen.
-
-**Wat moet ik doen als het externe bestand met een wachtwoord is beveiligd?**
-
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is om de beveiliging vooraf te verwijderen of een ontcijferde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/python-java/)) en naar die kopie te linken.
-
-**Kunnen meerdere grafieken naar hetzelfde externe werkboek verwijzen?**
-
-Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, zal een update van dat bestand in elke grafiek zichtbaar worden de volgende keer dat de gegevens worden geladen.
+**Kunnen meerdere grafieken naar dezelfde externe werkmap verwijzen?**  
+Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, zal het bijwerken van dat bestand bij de volgende lading van de gegevens in elke grafiek worden weerspiegeld.

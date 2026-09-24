@@ -1,5 +1,5 @@
 ---
-title: Diagrammdatenserien in Präsentationen verwalten in C++
+title: Diagrammdatenserien in Präsentationen mit C++
 linktitle: Datenserien
 type: docs
 url: /de/cpp/chart-series/
@@ -7,7 +7,7 @@ keywords:
 - Diagrammserie
 - Serienüberlappung
 - Serienfarbe
-- Kategoriefarbe
+- Kategorienfarbe
 - Serienname
 - Datenpunkt
 - Serienlücke
@@ -15,29 +15,29 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammserien, Datenpunkte, Arbeitsmappen‑Zellen, Formatierungen, Überlappungen, Lückenbreite und negative Werte in Präsentationen mit C++ verwalten."
+description: "Erfahren Sie, wie Sie Diagrammserien, Datenpunkte, Arbeitsmappendateien, Formatierung, Überlappung, Lückenbreite und negative Werte in Präsentationen mit C++ verwalten."
 ---
 ## **Übersicht**
 
-Ein Diagramm speichert seine dargestellten Daten in einer Diagrammdaten‑Arbeitsmappe. Eine [IChartSeries](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/) repräsentiert einen Satz zusammenhängender Werte, und jedes [IChartDataPoint](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/) in der Serie bezieht sich auf eine oder mehrere Zellen der Arbeitsmappe. [IChartCategory](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartcategory/)‑Objekte liefern die Beschriftungen oder Gruppierungswerte, die von den Serien gemeinsam genutzt werden. Der Serienname, die Kategorien und die Punktwerte sind daher mit [IChartDataCell](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/)‑Objekten verknüpft und nicht nur als Anzeigetext gespeichert.
+Ein Diagramm speichert seine geplotteten Daten in einer Diagrammdatentabelle. Eine [IChartSeries](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/) repräsentiert einen Satz zusammengehöriger Werte, und jeder [IChartDataPoint](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/) in der Serie bezieht sich auf eine oder mehrere Zellen der Arbeitsmappe. [IChartCategory](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartcategory/)‑Objekte liefern die Beschriftungen oder Gruppierungswerte, die von den Serien gemeinsam genutzt werden. Der Serienname, die Kategorien und die Punktwerte sind daher mit [IChartDataCell](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/)‑Objekten verknüpft und nicht nur als Anzeigetext gespeichert.
 
-Für ein typisches Kategoriediagramm verwendet die Standard‑Arbeitsmappe Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, aber gehen Sie nicht davon aus, dass jedes vorhandene Diagramm es verwendet. Für eine geladene Präsentation prüfen Sie die von den Serien, Kategorien und Datenpunkten referenzierten Zellen, bevor Sie Arbeitsmappenwerte ändern.
+Bei einem typischen Kategoriediagramm verwendet die Standard‑Arbeitsmappe Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, aber gehen Sie nicht davon aus, dass jedes vorhandene Diagramm es verwendet. Für eine geladene Präsentation sollten Sie die von Serien, Kategorien und Datenpunkten referenzierten Zellen prüfen, bevor Sie Arbeitsmappenwerte ändern.
 
 Diagrammeinstellungen haben drei verschiedene Geltungsbereiche:
 
-- Serien‑bezogene Einstellungen, wie [IChartSeries::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_format/), bieten das Standard‑Aussehen für alle Punkte einer Serie.
-- Datenpunkt‑Einstellungen, wie [IChartDataPoint::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/get_format/), überschreiben das Serien‑Aussehen für einen Punkt.
-- Gruppeneinstellungen gelten für kompatible Serien, die zur selben [IChartSeriesGroup](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/). Greifen Sie über [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) auf die Gruppe zu, wenn Sie Optionen wie Überlappung oder Lückenbreite festlegen müssen.
+- Einstellungen auf Seriene‑Ebene, wie [IChartSeries::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_format/), legen das Standard‑Erscheinungsbild aller Punkte einer Serie fest.
+- Datenpunkt‑Einstellungen, wie [IChartDataPoint::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/get_format/), überschreiben das Seriene‑Erscheinungsbild für einen einzelnen Punkt.
+- Gruppeneinstellungen gelten für kompatible Serien, die derselben [IChartSeriesGroup](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/) angehören. Greifen Sie über [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) auf die Gruppe zu, wenn Sie Optionen wie Überlappung oder Lückenbreite festlegen müssen.
 
-Wenn keine explizite Füllung für Punkt oder Serie festgelegt ist, bestimmen Diagramm‑Stil und -Design das automatische Aussehen. Wenn sowohl Serien‑ als auch Punktformatierung vorhanden sind, hat die Punktformatierung für diesen Punkt Vorrang.
+Wenn keine explizite Punkt‑ oder Serien‑Füllung gesetzt ist, bestimmen Diagramm‑Style und Theme das automatische Erscheinungsbild. Wenn sowohl Serien‑ als auch Punktformatierung vorhanden sind, hat die Punktformatierung für diesen Punkt Vorrang.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Serien‑Überlappung festlegen**
+## **Überlappung der Diagramm‑Serien festlegen**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_overlap/) gibt an, wie stark Balken oder Spalten in einem 2D‑Diagramm überlappen, von -100 bis 100 Prozent. Es ist eine schreibgeschützte Projektion der Einstellung in der übergeordneten Seriengruppe. Rufen Sie [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) auf, um jede kompatible Serie in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Spalten anzeigen; sie beeinflusst nicht nicht zugehörige Seriengruppen in einem Kombinationsdiagramm.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_overlap/) gibt an, wie stark Balken oder Säulen in einem 2D‑Diagramm überlappen, von ‑100 bis 100 Prozent. Es handelt sich um eine schreibgeschützte Projektion der Einstellung in der übergeordneten Seriengruppe. Rufen Sie [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) auf, um jede kompatible Serie in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Säulen anzeigen; sie beeinflusst nicht unverknüpfte Seriengruppen in einem Kombinationsdiagramm.
 
-Das folgende Beispiel legt die Überlappung für die Gruppe fest, die die erste Serie enthält:
+Das folgende Beispiel setzt die Überlappung für die Gruppe, die die erste Serie enthält:
 
 ```cpp
 #include <cstdint>
@@ -79,9 +79,9 @@ Das Ergebnis:
 
 ![The series overlap](series_overlap.png)
 
-## **Serien‑Füllfarbe ändern**
+## **Füllfarbe der Serie ändern**
 
-Verwenden Sie [IChartSeries::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_format/), um die Standard‑Füllung für eine komplette Serie festzulegen. Wenn ein Punkt bereits eine explizite Füllung hat, überschreibt seine [IChartDataPoint::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/get_format/)‑Einstellung die Serien‑Füllung für diesen Punkt.
+Verwenden Sie [IChartSeries::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_format/), um die Standard‑Füllung für eine gesamte Serie festzulegen. Hat ein Punkt bereits eine explizite Füllung, überschreibt seine [IChartDataPoint::get_Format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/get_format/) Einstellung die Serien‑Füllung für diesen Punkt.
 
 Das folgende Beispiel wendet eine einfarbige blaue Füllung auf die erste Serie an:
 
@@ -130,9 +130,9 @@ Das Ergebnis:
 
 ![The color of the series](series_color.png)
 
-## **Serien‑Name ändern**
+## **Seriennamen ändern**
 
-Ein Serienname wird in der Diagrammdaten‑Arbeitsmappe gespeichert und normalerweise in der Legende angezeigt. In der Standard‑Arbeitsmappe, die für ein gruppiertes Säulendiagramm erstellt wird, befindet sich Zelle B1 in Zeile 0, Spalte 1 und enthält den Namen der ersten Serie. Die benannten Konstanten im folgenden Beispiel machen diese Struktur explizit:
+Ein Serienname wird in der Diagrammdatentabelle gespeichert und normalerweise in der Legende angezeigt. In der Standard‑Arbeitsmappe, die für ein gruppiertes Säulendiagramm erstellt wird, befindet sich Zelle B1 in Zeile 0, Spalte 1 und enthält den Namen der ersten Serie. Die benannten Konstanten im folgenden Beispiel machen diese Struktur explizit:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +173,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sie können auch die Zelle aktualisieren, auf die bereits [IChartSeries::get_Name](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_name/) verweist. Dieser Ansatz vermeidet Annahmen über eine bestimmte Zeile und Spalte in einem bestehenden Diagramm:
+Sie können auch die bereits von [IChartSeries::get_Name](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_name/) referenzierte Zelle aktualisieren. Dieser Ansatz vermeidet Annahmen über bestimmte Zeilen‑ und Spaltenpositionen in einem bestehenden Diagramm:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -224,7 +224,7 @@ Das Ergebnis:
 
 ## **Automatische Serien‑Füllfarbe abrufen**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) gibt die aus dem Serien‑Index und dem Diagrammstil berechnete Farbe zurück. Dies ist die Farbe, die verwendet wird, wenn die Serien‑Füllung nicht explizit definiert wurde. Der Aufruf der Methode liest die berechnete Farbe; er weist keine neue Füllung zu.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) gibt die Farbe zurück, die aus dem Serien‑Index und dem Diagramm‑Style berechnet wird. Dies ist die Farbe, die verwendet wird, wenn die Serien‑Füllung nicht explizit definiert wurde. Der Aufruf der Methode liest die berechnete Farbe; er weist keine neue Füllung zu.
 
 Das folgende Beispiel gibt die automatische Farbe jeder Standard‑Serie aus:
 
@@ -268,19 +268,21 @@ for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 presentation->Dispose();
 ```
 
+Beispielausgabe für den Standard‑Diagramm‑Style:
+
 ```text
 Series 0: ff4f81bd
 Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Die genauen Farben hängen vom Diagrammstil und -design ab.
+Die genauen Farben hängen vom Diagramm‑Style und Theme ab.
 
 ## **Invertierte Füllfarbe für eine Diagramm‑Serie festlegen**
 
-Für Balken‑, Säulen‑ und Blasendiagramm‑Serien kann [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) negative Werte mit einer anderen Füllung anzeigen. Stellen Sie die reguläre Serien‑Füllung auf einfarbig ein, aktivieren Sie die Invertierung und weisen Sie die Farbe für negative Werte über [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) zu. Negative Zahlen bleiben in der Arbeitsmappe unverändert; nur ihre Anzeigefarbe ändert sich.
+Für Balken‑, Säulen‑ und Blasendiagramme kann [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) negative Werte mit einer anderen Füllung darstellen. Setzen Sie die reguläre Serien‑Füllung auf einfarbig, aktivieren Sie die Invertierung und weisen Sie die Farbe für negative Werte über [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) zu. Negative Zahlen bleiben in der Arbeitsmappe unverändert; nur die Anzeigefarbe ändert sich.
 
-Das folgende Beispiel ersetzt die Standard‑Diagrammdaten durch eine Serie. Zeile 0 im Arbeitsblatt enthält den Seriennamen, Spalte 0 die Kategorienamen und Spalte 1 die Werte:
+Das folgende Beispiel ersetzt die Standard‑Diagrammdaten durch eine Serie. Zeile 0 des Arbeitsblatts enthält den Seriennamen, Spalte 0 die Kategorienamen und Spalte 1 die Werte:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -370,7 +372,7 @@ Das Ergebnis:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Sie können die Invertierung für einen Punkt über [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) aktivieren. Im folgenden Beispiel ist die Invertierung für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Der Punkt erhält außerdem einen negativen Wert, sodass der Effekt sichtbar wird:
+Sie können die Invertierung für einen einzelnen Punkt über [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) aktivieren. Im folgenden Beispiel ist die Invertierung für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Dem Punkt wird zudem ein negativer Wert zugewiesen, damit der Effekt sichtbar wird:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -428,9 +430,9 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **Einen bestimmten Datenpunktwert löschen**
+## **Bestimmten Datenpunktwert löschen**
 
-Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie seine zugrunde liegende Arbeitsmappenzelle auf `nullptr`. Für ein Säulendiagramm ist der geplottete Wert über [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) verfügbar. Der Datenpunkt bleibt an derselben Kategorienposition, aber das Diagramm behandelt seinen Wert als leer gemäß den Leere‑Wert‑Einstellungen des Diagramms.
+Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie dessen zugrunde liegende Arbeitsmappendatei‑Zelle auf `nullptr`. Für ein Säulendiagramm ist der geplottete Wert über [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) verfügbar. Der Datenpunkt bleibt an derselben Kategorienposition, aber das Diagramm behandelt seinen Wert als leer gemäß den Leere‑Wert‑Einstellungen des Diagramms.
 
 Das folgende Beispiel löscht nur den zweiten Punkt in der ersten Serie:
 
@@ -471,13 +473,95 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Scatter‑Diagramme verwenden separate X‑ und Y‑Zellen, und Blasendiagramme zusätzlich eine Größenzelle. Löschen Sie nur die Zelle, die den Wert repräsentiert, den Sie entfernen möchten. Rufen Sie nicht [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) auf, wenn Sie die anderen Punkte behalten wollen, da diese Methode alle Datenpunkte aus der Sammlung entfernt.
+Scatter‑Diagramme verwenden separate X‑ und Y‑Zellen, und Blasendiagramme verwenden zusätzlich eine Größenzelle. Löschen Sie nur die Zelle, die den zu entfernenden Wert darstellt. Rufen Sie [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) nicht auf, wenn Sie die anderen Punkte behalten wollen, da diese Methode alle Datenpunkte aus der Sammlung entfernt.
 
-## **Serien‑Lückenbreite festlegen**
+## **Anzeige leerer Zellen steuern**
 
-Die Lückenbreite ist der Abstand zwischen benachbarten Balken‑ oder Säulen‑Clustern, angegeben als Prozentsatz der Balken‑ bzw. Säulenbreite. Wie die Überlappung gehört sie zur übergeordneten Seriengruppe und nicht zu einer einzelnen Serie. Rufen Sie [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) einmal für die Gruppe auf. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
+Eine leere Arbeitsmappendatei‑Zelle steht für fehlende Daten; eine Zelle mit `0` steht für einen bekannten numerischen Wert. Rufen Sie [IChartDataCell::set_Value](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/set_value/) mit `nullptr` auf, um eine Zelle leer zu machen. Eine numerische Null bleibt eine Null, unabhängig von der Einstellung für leere Zellen.
 
-Das folgende Beispiel ändert die Lückenbreite und speichert nur die abschließende Präsentation:
+Verwenden Sie [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichart/set_displayblanksas/), um festzulegen, wie das Diagramm leere Zellen darstellt. Diese Einstellung gilt für das gesamte Diagramm. Sie ändert, wie Lücken geplottet werden, ohne die leere Arbeitsmappendatei‑Zelle mit Null oder einem interpolierten Wert zu füllen.
+
+Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit einer Serie, löscht den Wert für Tag 3 und speichert dasselbe Diagramm in jedem Modus. Keine Eingabedatei ist erforderlich. Der [IChartDataWorkbook](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/) verwendet Arbeitsblatt 0, Spalte 0 für Kategorienamen und Spalte 1 für Werte; Zeile 0 enthält den Seriennamen. Die Enddaten lauten `10, 20, empty, 30, 40`.
+
+```cpp
+#include <array>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/DisplayBlanksAsType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using System::ObjectExt;
+using System::String;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::LineWithMarkers, 40.0f, 40.0f, 640.0f, 400.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+
+auto seriesName = ObjectExt::Box<String>(u"Measurements");
+auto seriesNameCell = workbook->GetCell(0, 0, 1, seriesName);
+auto series = chartData->get_Series()->Add(seriesNameCell, chart->get_Type());
+auto values = std::array<int, 5>{10, 20, 25, 30, 40};
+
+for (auto i = 0; i < values.size(); i++)
+{
+    auto categoryName = String::Format(u"Day {0}", i + 1);
+    auto boxedCategoryName = ObjectExt::Box<String>(categoryName);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, boxedCategoryName);
+    chartData->get_Categories()->Add(categoryCell);
+    auto boxedValue = ObjectExt::Box<int>(values[i]);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, boxedValue);
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
+
+// Lassen Sie Tag 3 wirklich leer, während Sie seine Kategorie und den Datenpunkt beibehalten.
+workbook->GetCell(0, 3, 1)->set_Value(nullptr);
+
+auto modes = std::array<DisplayBlanksAsType, 3>{DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span};
+for (auto mode : modes)
+{
+    chart->set_DisplayBlanksAs(mode);
+    auto outputPath = String::Format(u"empty_cells_{0}.pptx", mode);
+    presentation->Save(outputPath, SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Jede Ausgabedatei speichert den vor dem Speichern zugewiesenen Modus: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` und `empty_cells_Span.pptx`. Um nur eine Version zu speichern, weisen Sie den gewünschten Modus zu und speichern die Präsentation einmal, anstatt über die Modi zu iterieren.
+
+Der Vergleich unten zeigt dieselben Daten in allen drei Dateien. Tag 3 ist in der Arbeitsmappe in jedem Fall leer:
+
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+
+Der sichtbare Effekt hängt vom Diagrammtyp ab. Ein Liniendiagramm macht alle drei Modi leicht vergleichbar. Balken‑ und Säulendiagramme besitzen keine Linie, die über eine fehlende Kategorie hinweg verbindet, sodass `Span` nicht das im Bild gezeigte Verbindungssegment erzeugen kann; eine fehlende Säule und eine Säule mit Höhe 0 können ebenfalls ähnlich aussehen. Ebenso hat ein Scatter‑Diagramm ohne Linien keine Verbindungslinie. Erwarten Sie nicht drei unterschiedliche Ergebnisse für jeden Diagrammtyp; prüfen Sie die Ausgabe für den von Ihnen verwendeten Typ.
+
+## **Lückenbreite der Serie festlegen**
+
+Die Lückenbreite ist der Abstand zwischen benachbarten Balken‑ oder Säulen‑Clustern, ausgedrückt als Prozentsatz der Balken‑ bzw. Säulenbreite. Wie die Überlappung gehört sie zur übergeordneten Seriengruppe und nicht zu einer einzelnen Serie. Rufen Sie [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) einmal für die Gruppe auf. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
+
+Das folgende Beispiel ändert die Lückenbreite und speichert nur die finale Präsentation:
 
 ```cpp
 #include <cstdint>
@@ -522,40 +606,40 @@ Das Ergebnis:
 
 **Welche Diagrammtypen unterstützen Datenserien?**
 
-Alle Diagrammtypen, die durch die Aufzählung [ChartType](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/charttype/) repräsentiert werden, verwenden Diagrammdaten, aber ihre Serien haben nicht alle dieselbe Werte‑Struktur oder dieselben Einstellungen. Beispielsweise verwenden Kategoriediagramme Kategorien und Werte, Streudiagramme X‑ und Y‑Werte und Blasendiagramme zusätzlich Bubble‑Größen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die zum Seri­entyp passt. Optionen wie Überlappung und Lückenbreite gelten nur für kompatible Balken‑ oder Säulengruppen.
+Alle Diagrammtypen, die durch die [ChartType](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/charttype/)‑Aufzählung dargestellt werden, nutzen Diagrammdaten, aber ihre Serien besitzen nicht alle dieselbe Wertstruktur oder dieselben Einstellungen. Beispielsweise verwenden Kategoriediagramme Kategorien und Werte, Scatter‑Diagramme X‑ und Y‑Werte und Blasendiagramme zusätzlich Blasengrößen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die zum Serientyp passt. Optionen wie Überlappung und Lückenbreite gelten nur für kompatible Balken‑‑ oder Säulengruppen.
 
-**Was ist eine Diagramm‑Serien‑Gruppe?**
+**Was ist eine Diagramm‑Seriengruppe?**
 
-Eine [IChartSeriesGroup](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/) enthält kompatible Serien, die gruppen‑bezogene Plot‑Einstellungen teilen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der Gruppe, die über eine Serie erreicht wird, nicht unbedingt jede Serie im Diagramm ändert.
+Eine [IChartSeriesGroup](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/) enthält kompatible Serien, die gruppenweite Darstellungs‑Einstellungen teilen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der über eine Serie erreichten Gruppe nicht zwangsläufig jede Serie im Diagramm beeinflusst.
 
 **Enthält ein neu erstelltes Diagramm Standarddaten?**
 
-Ja. Standardmäßig erzeugt [IShapeCollection::AddChart](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/addchart/) Beispielserien, -kategorien und -werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategoriensammlungen leeren, bevor Sie einen komplett eigenen Datensatz hinzufügen. Eine Überladung kann zudem ein Diagramm ohne Standarddaten erstellen.
+Ja. Standardmäßig erstellt [IShapeCollection::AddChart](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/addchart/) Beispielserien, -kategorien und -werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategorien‑Sammlungen leeren, bevor Sie ein völlig benutzerdefiniertes Datenset hinzufügen. Eine Überladung kann ebenfalls ein Diagramm ohne Standarddaten erzeugen.
 
-**Wie sind Diagrammobjekte mit Arbeitsmappendaten verknüpft?**
+**Wie sind Diagrammobjekte mit Arbeitsmappendateien verknüpft?**
 
-Serien‑Namen, Kategorien‑Bezeichnungen und Datenpunkt‑Werte verweisen auf Zellen in einem [IChartDataWorkbook](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/). Ändert man eine referenzierte Zelle, wird das entsprechende Diagrammelement aktualisiert. Beim Erstellen benutzerdefinierter Daten sollten Kategorie‑Zeilen und Serien‑Wert‑Zeilen ausgerichtet sein, sodass jeder Punkt unter der beabsichtigten Kategorie geplottet wird.
+Seriennamen, Kategorielabels und Datenpunktwerte referenzieren Zellen in einem [IChartDataWorkbook](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/). Das Ändern einer referenzierten Zelle aktualisiert das entsprechende Diagrammelement. Wenn Sie benutzerdefinierte Daten erstellen, halten Sie Kategorie‑Zeilen und Serien‑Wert‑Zeilen ausgerichtet, sodass jeder Punkt unter der beabsichtigten Kategorie geplottet wird.
 
-**Wie lösche ich einen Punkt anstatt der gesamten Serie?**
+**Wie lösche ich einen einzelnen Punkt statt der gesamten Serie?**
 
-Setzen Sie die entsprechende Wertzelle auf `nullptr`, um die Kategorienposition des Punkts als leeren Punkt beizubehalten. Rufen Sie [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) nur auf, wenn Sie alle Punkte dieser Serie entfernen möchten. Wenn Sie auch Kategorien entfernen, aktualisieren Sie jede Serie, sodass ihre Werte mit der Kategorien‑Sammlung übereinstimmen.
+Setzen Sie die betreffende Wertzelle auf `nullptr`, um die Kategorienposition des Punktes als leeren Punkt zu behalten. Rufen Sie [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) nur auf, wenn Sie alle Punkte dieser Serie entfernen möchten. Wenn Sie zusätzlich Kategorien entfernen, aktualisieren Sie jede Serie, damit deren Werte mit der Kategoriesammlung ausgerichtet bleiben.
 
-**Wie werden leere Punkte dargestellt?**
+**Wie werden leere Punkte angezeigt?**
 
-Das Ergebnis hängt vom Diagrammtyp und [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichart/get_displayblanksas/) ab. Unterstützte Diagramme können Lücken als Lücken, als Nullwerte oder durch Verbinden benachbarter Punkte darstellen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht.
+Das Ergebnis hängt vom Diagrammtyp und von [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichart/get_displayblanksas/) ab. Unterstützte Diagramme können Lücken als Lücken, als Nullwerte oder durch Verbinden benachbarter Punkte darstellen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht. Siehe **Anzeige leerer Zellen steuern** für ein vollständiges Beispiel und einen visuellen Vergleich.
 
 **Wie werden negative Werte formatiert?**
 
-Für unterstützte Balken‑, Säulen‑ und Blasendiagramm‑Serien rufen Sie [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) auf und setzen die Farbe über [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Sie können das Verhalten für einen einzelnen Punkt mit [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) überschreiben. Diese Methoden beeinflussen die Formatierung, nicht die im Diagramm gespeicherten numerischen Werte.
+Für unterstützte Balken‑, Säulen‑ und Blasendiagramme rufen Sie [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) auf und setzen die Farbe über [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Sie können das Verhalten für einen einzelnen Punkt mit [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) überschreiben. Diese Methoden wirken sich auf die Formatierung aus, nicht auf die gespeicherten numerischen Werte.
 
 **Welche Formatierung hat Vorrang, wenn sowohl eine Serie als auch ein Punkt formatiert sind?**
 
-Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte verwenden weiterhin das explizite Serienformat oder, wenn das Serienformat nicht definiert ist, den automatischen Diagrammstil und das Design. Gruppeneinstellungen wie Überlappung und Lückenbreite steuern das Layout und sind keine überschreibenden Punkt‑Formatierungen.
+Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte verwenden weiterhin das explizite Serien‑Format oder, wenn kein Serien‑Format definiert ist, den automatischen Diagramm‑Style und das Theme. Gruppeneinstellungen wie Überlappung und Lückenbreite steuern das Layout und sind keine punktbezogenen Formatierungs‑Überschreibungen.
 
-**Gibt es eine Obergrenze für die Anzahl der Serien in einem Diagramm?**
+**Gibt es ein Limit, wie viele Serien ein Diagramm enthalten kann?**
 
-Aspose.Slides setzt kein separates festes Limit für die Serienanzahl. In der Praxis bestimmen Dateigrößen‑Beschränkungen, verfügbarer Speicher, Render‑Zeit und die Lesbarkeit des Diagramms ein sinnvolles Limit.
+Aspose.Slides legt kein separates festes Serien‑Zahl‑Limit fest. In der Praxis bestimmen Dateigrößen‑Beschränkungen, verfügbarer Speicher, Render‑Zeit und die Lesbarkeit des Diagramms ein sinnvolles Limit.
 
-**Was sollte ich ändern, wenn Säulen zu nahe beieinander oder zu weit auseinander liegen?**
+**Was soll ich ändern, wenn Spalten zu eng beieinander oder zu weit auseinander liegen?**
 
 Rufen Sie [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) auf der entsprechenden übergeordneten Seriengruppe auf. Erhöhen Sie den Wert, um den Abstand zwischen den Clustern zu vergrößern, oder verringern Sie ihn, um die Cluster näher zusammenzubringen.

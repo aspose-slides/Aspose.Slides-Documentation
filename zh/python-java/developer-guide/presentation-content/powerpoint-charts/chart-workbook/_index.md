@@ -1,5 +1,5 @@
 ---
-title: 使用 Python via Java 在演示文稿中管理图表工作簿
+title: 在演示文稿中使用 Python via Java 管理图表工作簿
 linktitle: 图表工作簿
 type: docs
 weight: 70
@@ -20,18 +20,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python via Java：轻松在 PowerPoint 和 OpenDocument 格式中管理图表工作簿，以简化演示文稿数据。"
+description: "发现适用于 Python via Java 的 Aspose.Slides：轻松在 PowerPoint 和 OpenDocument 格式中管理图表工作簿，以简化演示文稿数据。"
 ---
 ## **概述**
 
-本文说明了如何在 Aspose.Slides 中使用图表工作簿。它展示了如何通过工作簿流读取和写入图表数据、将工作簿单元格用作图表数据标签、访问工作表集合以及为图表值指定数据源类型。
+本文说明如何在 Aspose.Slides 中使用图表工作簿。它展示了如何通过工作簿流读取和写入图表数据、将工作簿单元格用作图表数据标签、访问工作表集合以及为图表值指定数据源类型。
 
-还包括使用外部工作簿作为图表数据源的用法。示例演示了如何创建并分配外部工作簿、检索链接到图表的外部工作簿路径，以及在工作簿可用时编辑图表数据。
+还涵盖了将外部工作簿用作图表数据源的操作。示例演示了如何创建并分配外部工作簿、检索链接到图表的外部工作簿路径以及在工作簿可用时编辑图表数据。
+
+有关表示缺失数据的工作簿单元格，请参阅[控制空单元格的显示](/slides/zh/python-java/chart-series/)以了解空单元格与零的区别，以及可用显示模式的折线图比较。
 
 ## **从工作簿读取和写入图表数据**
-Aspose.Slides 提供了[readWorkbookStream](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#readWorkbookStream)和[writeWorkbookStream](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#writeWorkbookStream)方法，允许您读取和写入包含使用 Aspose.Cells 编辑的图表数据的工作簿。**注意**图表数据必须以相同方式组织，或具有类似于源的结构。
+Aspose.Slides 提供了[readWorkbookStream](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#readWorkbookStream)和[writeWorkbookStream](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#writeWorkbookStream)方法，允许您读取和写入包含使用 Aspose.Cells 编辑的图表数据的工作簿。**注意**图表数据必须以相同方式组织，或具有与源相似的结构。
 
-此 Python 代码演示了一个示例操作：
+下面的 Python 代码演示了一个示例操作：
 
 ```python
 import jpype
@@ -56,7 +58,7 @@ finally:
 
 ### **在工作簿修改后验证图表布局**
 
-当您用已修改的工作簿替换嵌入的工作簿时，图表仍保留原始的系列和类别集合。此不一致可能导致[Chart.validateChartLayout](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chart/#validateChartLayout)抛出 `ArgumentOutOfRangeException`（参数：index）。为避免异常，请在将更新的工作簿写回图表之前 **先** 清除现有的系列和类别。
+当您用已修改的工作簿替换嵌入的工作簿时，图表会保留其原始系列和类别集合。这种不一致可能导致[Chart.validateChartLayout](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chart/#validateChartLayout)抛出 `ArgumentOutOfRangeException`（参数：index）。为避免异常，请在将更新后的工作簿写回图表**之前**清除现有的系列和类别。
 
 ```python
 import jpype
@@ -69,7 +71,7 @@ from asposeslides.api import Presentation
 
 from pathlib import Path
 
-# 在修改后读取工作簿（例如，使用 Aspose.Cells）。
+# 读取已修改的工作簿（例如使用 Aspose.Cells）。
 updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
 
 presentation = Presentation("chart.pptx")
@@ -80,24 +82,24 @@ try:
     # 清除现有的数据引用。
     chart_data.getSeries().clear()
     chart_data.getCategories().clear()
-    chart_data.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
+    chart.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
     chart.validateChartLayout()
 finally:
     presentation.dispose()
 ```
 
-清除集合可确保图表数据结构与新工作簿保持一致，从而使[validateChartLayout](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chart/#validateChartLayout)能够顺利完成。
+清除集合可确保图表数据结构与新工作簿保持一致，从而使[validateChartLayout](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chart/#validateChartLayout)能够顺利完成而不会出错。
 
-## **将工作簿单元格设置为图表数据标签**
+## **将工作簿单元格设为图表数据标签**
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/)类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 添加一个带有数据的气泡图。  
-4. 访问图表系列。  
-5. 将工作簿单元格设为数据标签。  
-6. 保存演示文稿。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 实例。  
+1. 通过索引获取幻灯片的引用。  
+1. 添加一个带有数据的气泡图。  
+1. 访问图表系列。  
+1. 将工作簿单元格设为数据标签。  
+1. 保存演示文稿。
 
-此 Python 代码展示了如何将工作簿单元格设置为图表数据标签：
+下面的 Python 代码演示了如何将工作簿单元格设为图表数据标签：
 
 ```python
 import jpype
@@ -127,7 +129,7 @@ finally:
 
 ## **管理工作表**
 
-此 Python 代码演示了使用[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdataworkbook/#getWorksheets)方法访问工作表集合的操作：
+下面的 Python 代码演示了使用[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdataworkbook/#getWorksheets)方法访问工作表集合的操作：
 
 ```python
 import jpype
@@ -150,7 +152,7 @@ finally:
 
 ## **指定数据源类型**
 
-此 Python 代码展示了如何为数据源指定类型：
+下面的 Python 代码展示了如何为数据源指定类型：
 
 ```python
 import jpype
@@ -177,7 +179,7 @@ finally:
 
 ## **检测不受支持的嵌入式工作簿格式**
 
-Aspose.Slides 不支持某些图表中可能嵌入的 Excel 二进制工作簿（.xlsb）格式。您可以在[ChartData](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/)上使用[getEmbeddedWorkbookType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType)方法，并结合[WorkbookType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/workbooktype/)枚举来检测不受支持的格式并跳过这些图表。
+Aspose.Slides 不支持可以嵌入某些图表的 Excel 二进制工作簿（.xlsb）格式。您可以在[ChartData](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/)上使用[getEmbeddedWorkbookType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType)方法，并结合[WorkbookType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/workbooktype/)枚举来检测不受支持的格式并跳过这些图表。
 
 ```python
 import jpype
@@ -196,18 +198,22 @@ try:
             continue
         chart_data = shape.getChartData()
         if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # 嵌入式工作簿为 .xlsb 格式，不受支持。
+            # 嵌入的工作簿为 .xlsb 格式，不受支持。
             continue
         # 在此读取或修改图表工作簿数据。
 finally:
     presentation.dispose()
 ```
 
+## **外部工作簿**
+
+Aspose.Slides 支持使用外部工作簿作为图表的数据源。
+
 ### **创建外部工作簿**
 
-使用[readWorkbookStream](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#readWorkbookStream)和[setExternalWorkbook](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#setExternalWorkbook)方法，您可以从头创建外部工作簿，或将内部工作簿转换为外部工作簿。
+使用[readWorkbookStream](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#readWorkbookStream)和[setExternalWorkbook](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#setExternalWorkbook)方法，您可以从头创建外部工作簿，或将内部工作簿设为外部工作簿。
 
-此 Python 代码演示了外部工作簿的创建过程：
+下面的 Python 代码演示了外部工作簿的创建过程：
 
 ```python
 import jpype
@@ -238,7 +244,7 @@ finally:
 
 虽然无法编辑存储在远程位置或资源中的工作簿数据，但仍可将此类工作簿用作外部数据源。如果提供了外部工作簿的相对路径，系统会自动将其转换为完整路径。
 
-此 Python 代码展示了如何设置外部工作簿：
+下面的 Python 代码展示了如何设置外部工作簿：
 
 ```python
 import jpype
@@ -270,7 +276,7 @@ finally:
 
 [setExternalWorkbook](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#setExternalWorkbook)方法的第二个 (`bool`) 参数用于指定是否加载 Excel 工作簿。
 
-* 当其值设为 `False` 时，仅更新工作簿路径——图表数据不会从目标工作簿加载或更新。当目标工作簿不存在或不可用时可以使用此设置。  
+* 当其值设为 `False` 时，仅更新工作簿路径——图表数据不会从目标工作簿加载或更新。当目标工作簿不存在或不可用时，可使用此设置。  
 * 当其值设为 `True` 时，图表数据会从目标工作簿更新。
 
 ```python
@@ -294,13 +300,13 @@ finally:
 
 ### **获取图表的外部数据源工作簿路径**
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/)类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 为图表形状创建对象。  
-4. 为表示图表数据源的源（[ChartDataSourceType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdatasourcetype/)）类型创建对象。  
-5. 根据源类型与外部工作簿数据源类型相同的条件指定相应的条件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 实例。  
+1. 通过索引获取幻灯片的引用。  
+1. 为图表形状创建对象。  
+1. 为表示图表数据源的源（[ChartDataSourceType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdatasourcetype/)）类型创建对象。  
+1. 根据源类型与外部工作簿数据源类型相同的条件，指定相应条件。
 
-此 Python 代码演示了该操作：
+下面的 Python 代码演示了该操作：
 
 ```python
 import jpype
@@ -325,9 +331,9 @@ finally:
 
 ### **编辑图表数据**
 
-您可以像修改内部工作簿内容一样编辑外部工作簿中的数据。当外部工作簿无法加载时，会抛出异常。
+您可以像编辑内部工作簿内容一样编辑外部工作簿中的数据。当外部工作簿无法加载时，会抛出异常。
 
-此 Python 代码实现了上述过程：
+下面的 Python 代码实现了上述过程：
 
 ```python
 import jpype
@@ -348,11 +354,11 @@ finally:
     presentation.dispose()
 ```
 
-### **从图表缓存恢复工作簿**
+### **从图表缓存中恢复工作簿**
 
-如果图表使用的外部工作簿缺失或不可用，Aspose.Slides 可以从演示文稿中缓存的数据重建图表工作簿。创建[LoadOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/)，使用[SpreadsheetOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/spreadsheetoptions/)进行配置，并在打开演示文稿前将[SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/zh/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache)设为 `True`。
+如果图表使用的外部工作簿缺失或不可用，Aspose.Slides 可以从演示文稿中缓存的数据重建图表工作簿。创建[LoadOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/)，使用[SpreadsheetOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/spreadsheetoptions/)进行配置，并在打开演示文稿前调用[SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/zh/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache)并传入 `True`。
 
-以下 Python 示例打开了一个图表引用不可用外部工作簿的演示文稿，并通过[Chart.getChartData](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chart/#getChartData)和[ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getChartDataWorkbook)访问恢复的数据：
+下面的 Python 示例打开了一个图表引用不可用外部工作簿的演示文稿，并通过[Chart.getChartData](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chart/#getChartData)和[ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getChartDataWorkbook)访问恢复后的数据：
 
 ```python
 import jpype
@@ -373,34 +379,34 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-    # 读取或修改此处恢复的工作簿数据。
+    # 在此读取或修改恢复的工作簿数据。
 finally:
     presentation.dispose()
 ```
 
-如果外部工作簿不可用且未启用恢复，Aspose.Slides 将抛出异常。仅在使用缓存的图表数据是可接受的后备方案时才启用恢复，因为缓存可能不包含演示文稿上次更新后对外部工作簿所做的更改。
+如果外部工作簿不可用且未启用恢复，Aspose.Slides 将抛出异常。仅在将缓存的图表数据作为可接受的后备时才启用恢复，因为缓存可能不包含演示文稿上次更新后对外部工作簿所做的更改。
 
-## **常见问题解答**
+## **常见问题**
 
-**我能判断特定图表是链接到外部工作簿还是嵌入式工作簿吗？**
+**我可以判断特定图表是链接到外部工作簿还是嵌入工作簿吗？**
 
-可以。图表具有[data source type](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getDataSourceType)和[external workbook path](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)；如果源是外部工作簿，您可以读取完整路径以确认使用的是外部文件。
+可以。图表具有[data source type](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getDataSourceType)和[external workbook path](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)；如果源是外部工作簿，您可以读取完整路径以确认正在使用外部文件。
 
-**是否支持相对路径的外部工作簿，且它们如何存储？**
+**是否支持相对路径的外部工作簿，如何存储？**
 
-支持。如果指定相对路径，系统会自动转换为绝对路径。这对项目可移植性很方便；但请注意，演示文稿会在 PPTX 文件中存储绝对路径。
+支持。若指定相对路径，系统会自动转换为绝对路径。这对项目可移植性很便利，但请注意演示文稿会在 PPTX 文件中存储绝对路径。
 
 **可以使用位于网络资源/共享上的工作簿吗？**
 
-可以，这类工作簿可用作外部数据源。但 Aspose.Slides 不支持直接编辑远程工作簿——只能作为数据源使用。
+可以，这类工作簿可用作外部数据源。不过，Aspose.Slides 不支持直接编辑远程工作簿——只能将其用作数据源。
 
 **保存演示文稿时，Aspose.Slides 会覆盖外部 XLSX 吗？**
 
-不会。演示文稿仅存储一个[link to the external file](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)并在读取数据时使用它。保存演示文稿时不会修改外部文件本身。
+不会。演示文稿仅存储[外部文件的链接](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)，并在读取数据时使用该链接。保存时不会修改外部文件本身。
 
 **如果外部文件受密码保护该怎么办？**
 
-Aspose.Slides 在链接时不接受密码。常见做法是预先解除保护或准备一个已解密的副本（例如使用[Aspose.Cells](/cells/python-java/)），然后链接该副本。
+Aspose.Slides 在链接时不接受密码。常见做法是事先解除保护或准备一个已解密的副本（例如使用[Aspose.Cells](/cells/python-java/)），然后链接到该副本。
 
 **多个图表可以引用同一个外部工作簿吗？**
 
