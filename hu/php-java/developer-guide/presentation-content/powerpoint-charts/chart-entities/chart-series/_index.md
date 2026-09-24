@@ -1,5 +1,5 @@
 ---
-title: Diagram adat sorozatok kezelése prezentációkban PHP-ben
+title: Diagramadat-sorozatok kezelése prezentációkban PHP-ben
 linktitle: Adatsorozatok
 type: docs
 url: /hu/php-java/chart-series/
@@ -16,29 +16,29 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Megtanulhatja, hogyan kezelje a diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket prezentációkban PHP-vel."
+description: "Ismerkedjen meg azzal, hogyan kezelje a diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézagszélességet és negatív értékeket a prezentációkban PHP segítségével."
 ---
 ## **Áttekintés**
 
-A diagram a megjelenített adatokat egy diagram adat munkafüzetben tárolja. A [ChartSeries](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/) egy kapcsolódó értékek halmazát képviseli, és a sorozat minden egyes [ChartDataPoint](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/) egy vagy több munkafüzetcellára hivatkozik. A [ChartCategory](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartcategory/) objektumok a sorozatok által megosztott címkéket vagy csoportosítási értékeket biztosítják. Ezért a sorozat neve, a kategóriák és az adatpont értékek a [ChartDataCell](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatacell/) objektumokhoz kapcsolódnak, nem csak megjelenő szövegként tárolódnak.
+A diagram a megjelenített adatokat egy diagramadatok munkafüzetben tárolja. A [ChartSeries](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/) egy kapcsolódó értékkészletet képvisel, és a sorozat minden [ChartDataPoint](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/) egy vagy több munkafüzetcellára hivatkozik. A [ChartCategory](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartcategory/) objektumok biztosítják a címkéket vagy a sorozatok által megosztott csoportosítási értékeket. A sorozat neve, a kategóriák és a pontértékek ezért a [ChartDataCell](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatacell/) objektumokhoz kapcsolódnak, nem csak megjelenő szövegként vannak tárolva.
 
-Egy tipikus kategória diagram esetén az alapértelmezett munkafüzet a 0. sort használja a sorozatneveknek, a 0. oszlopot a kategórianévnek, és a maradék cellákat a sorozatértékeknek. A [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/#getCell) metódusnak átadott munkalap, sor és oszlop indexek **nulla alapúak**. Ez a felépítés hasznos, ha alapértelmezett adatokkal hoz létre diagramot, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt módosítaná a munkafüzet értékeit.
+Egy tipikus kategória diagram esetén az alapértelmezett munkafüzet a 0‑s sort használja a sorozatnevekhez, a 0‑s oszlopot a kategória nevekhez, a többi cellát pedig a sorozatértékekhez. A [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/#getCell)‑nek átadott munkalap, sor és oszlop indexek nullával kezdődnek. Ez a felépítés hasznos, ha egy diagramot alapértelmezett adatokkal hoz létre, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit módosítaná.
 
-A diagram beállításainak három különböző hatóköre van:
+A diagram beállításai három különböző hatókörben léteznek:
 
-- Sorozat szintű beállítások, például a [ChartSeries.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getFormat), az adott sorozat összes pontjára vonatkozó alapértelmezett megjelenést biztosítják.  
-- Adatpont szintű beállítások, például a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#getFormat), felülbírálják a sorozat megjelenését egy adott pontnál.  
-- Csoport beállítások kompatibilis sorozatokra vonatkoznak, amelyek ugyanahhoz a [ChartSeriesGroup](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/) csoporthoz tartoznak. A csoportot a [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getParentSeriesGroup) segítségével érheti el, ha például átfedési vagy hézag szélességi beállításokat szeretne megadni.
+- Sorozatszintű beállítások, például a [ChartSeries.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getFormat), amely az összes pont alapértelmezett megjelenését biztosít egy sorozaton belül.
+- Adatpont szintű beállítások, például a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#getFormat), amely egy pont esetén felülírja a sorozat megjelenését.
+- Csoportbeállítások, amelyek kompatibilis sorozatokra vonatkoznak, amelyek ugyanahhoz a [ChartSeriesGroup](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/) tartoznak. A csoportot a [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getParentSeriesGroup) segítségével érheti el, ha például átfedést vagy hézagszélességet szeretne beállítani.
 
-Ha nem állít be kifejezett pont- vagy sorozat kitöltést, a diagram stílusa és témája határozza meg az automatikus megjelenést. Ha mind a sorozat, mind a pont formázása meg van adva, a pont formázása lesz előnyben a adott pontnál.
+Ha nincs kifejezetten beállítva pont- vagy sorozattöltés, a diagram stílusa és sablonja határozza meg az automatikus megjelenést. Ha mind a sorozat, mind a pont formázása meg van adva, a pont formázása élvez elsőbbséget az adott pontnál.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![diagram-sorozat-powerpoint](chart-series-powerpoint.png)
 
 ## **A diagram sorozat átfedésének beállítása**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getOverlap) megadja, hogy a sávok vagy oszlopok mennyire fednek át egy 2D diagramon, -100 és 100 százalék között. Ez egy csak olvasható leképezése a szülő sorozatcsoport beállításának. Használja a [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/#setOverlap) metódust a csoport **minden** kompatibilis sorozatának frissítéséhez. Ez a lehetőség a csoportos sávokat vagy oszlopokat megjelenítő diagramtípusokra vonatkozik; a kombinált diagramon lévő nem kapcsolódó sorozatcsoportokra nincs hatása.
+A [ChartSeries.getOverlap](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getOverlap) jelzi, hogy a 2D diagramon a sávok vagy oszlopok mennyire fedik át egymást, -100‑tól 100‑ig terjedő százalékban. Ez csak olvasható leképezése a szülő sorozatcsoport beállításának. Használja a [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/#setOverlap) metódust, hogy frissítse a csoport összes kompatibilis sorozatát. Ez a lehetőség olyan diagramtípusokra vonatkozik, amelyek csoportos sávokat vagy oszlopokat jelenítenek meg; a kombinált diagramokban a nem kapcsolódó sorozatcsoportokat nem befolyásolja.
 
-A következő példa beállítja az átfedést annak a csoportra, amely az első sorozatot tartalmazza:
+Az alábbi példa beállítja az átfedést arra a csoportra, amely az első sorozatot tartalmazza:
 
 ```php
 $firstSlideIndex = 0;
@@ -69,9 +69,9 @@ Az eredmény:
 
 ## **A sorozat kitöltőszínének módosítása**
 
-Használja a [ChartSeries.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getFormat) metódust egy teljes sorozat alapértelmezett kitöltésének beállításához. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#getFormat) beállítása felülbírálja a sorozat kitöltését az adott pontnál.
+Használja a [ChartSeries.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getFormat) metódust, hogy az egész sorozatra alapértelmezett kitöltést állítson be. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#getFormat) beállítása felülírja a sorozat kitöltését az adott pontnál.
 
-A következő példa szilárd kék kitöltést alkalmaz az első sorozatra:
+Az alábbi példa szilárd kék kitöltést alkalmaz az első sorozatra:
 
 ```php
 $firstSlideIndex = 0;
@@ -102,7 +102,7 @@ Az eredmény:
 
 ## **A sorozat nevének módosítása**
 
-A sorozat neve a diagram adat munkafüzetben tárolódik, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzetben, amely egy klaszterezett oszlopdiagramhoz jön létre, a B1 cella a 0. sorban, 1. oszlopban található, és az első sorozat nevét tartalmazza. A következő példa elnevezett változói egyértelművé teszik ezt a struktúrát:
+A sorozat neve a diagram adatmunka könyvben van tárolva, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzet, amely egy csoportos oszlopdiagramhoz jön létre, a B1 cella (0‑s sor, 1‑s oszlop) tartalmazza az első sorozat nevét. Az alábbi példában a változók egyértelművé teszik ezt a szerkezetet:
 
 ```php
 $firstSlideIndex = 0;
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-Frissítheti azt a cellát is, amelyre a [ChartSeries.getName](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getName) már hivatkozik. Ez a megközelítés elkerüli egy adott sor és oszlop feltételezését egy meglévő diagramban:
+A cellát már a [ChartSeries.getName](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getName) által hivatkozott helyen is frissítheti. Ez a megközelítés elkerüli a meglévő diagram egy adott sor és oszlop feltételezését:
 
 ```php
 $firstSlideIndex = 0;
@@ -157,11 +157,11 @@ Az eredmény:
 
 ![A sorozat neve](series_name.png)
 
-## **Az automatikus sorozat kitöltőszín lekérése**
+## **Az automatikus sorozatkitöltő szín lekérése**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) visszaadja a sorozat indexéből és a diagram stílusából számított színt. Ez a szín akkor használatos, amikor a sorozat kitöltése nincs kifejezetten meghatározva. A metódus meghívása csak kiolvassa a kiszámított színt; nem állít be új kitöltést.
+A [ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) visszaadja a sorozat indexéből és a diagram stílusából számított színt. Ez a szín akkor kerül felhasználásra, amikor a sorozat kitöltése nincs kifejezetten definiálva. A metódus meghívása csak kiolvassa a számított színt; nem állít be új kitöltést.
 
-A következő példa kiírja minden alapértelmezett sorozat automatikus színét:
+Az alábbi példa kiírja minden alapértelmezett sorozat automatikus színét:
 
 ```php
 $firstSlideIndex = 0;
@@ -188,7 +188,7 @@ try {
 }
 ```
 
-Példa kimenet az alapértelmezett diagram stílusra:
+Példa kimenet az alapértelmezett diagramstílusra:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -196,13 +196,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-A pontos színek a diagram stílusától és témájától függenek.
+A pontos színek a diagram stílusától és sablonjától függenek.
 
-## **Invertált kitöltőszín beállítása diagram sorozathoz**
+## **Inverz kitöltőszín beállítása egy diagram sorozathoz**
 
-Sáv-, oszlop- és buborék sorozatoknál a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#setInvertIfNegative) különböző kitöltéssel jelenítheti meg a negatív értékeket. Állítsa be a normál sorozat kitöltését szilárdra, engedélyezze az invertálást, és rendelje hozzá a negatív érték színét a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) segítségével. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük módosul.
+Sáv-, oszlop- és buboréksorozatok esetén a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#setInvertIfNegative) segítségével negatív értékekhez másik kitöltés jeleníthető meg. Állítsa a normál sorozatkitöltést szilárdra, engedélyezze az invertálást, majd adja meg a negatív érték színét a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) által visszaadott színnel. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük változik.
 
-A következő példa lecseréli az alapértelmezett diagram adatokat egy sorozatra. A munkalap 0. sora a sorozat nevét, a 0. oszlop a kategória neveket, az 1. oszlop pedig az értékeket tartalmazza:
+Az alábbi példa a alapértelmezett diagramadatot egy sorozatra cseréli. A munkalap 0‑s sorában a sorozat neve, a 0‑s oszlopban a kategória nevek, az 1‑s oszlopban az értékek vannak:
 
 ```php
 $firstSlideIndex = 0;
@@ -262,7 +262,7 @@ Az eredmény:
 
 ![Az invertált szilárd kitöltőszín](inverted_solid_fill_color.png)
 
-Az invertálást egy pontnál a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) metódussal engedélyezheti. A következő példában a sorozatnál le van tiltva az invertálás, és csak a kiválasztott pontnál van engedélyezve. A pontnak negatív értéket is adunk, hogy a hatás látható legyen:
+Az invertálást egy pont esetén a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) segítségével is engedélyezheti. Az alábbi példában az invertálás le van tiltva a sorozaton, de csak a kiválasztott pontnál van engedélyezve. A pont negatív értéket is kap, hogy a hatás látható legyen:
 
 ```php
 $firstSlideIndex = 0;
@@ -298,9 +298,9 @@ try {
 
 ## **Egy adott adatpont értékének törlése**
 
-Egy pont üresre állításához a többi pont eltávolítása nélkül állítsa be a mögöttes munkafüzetcellát `null`-ra. Oszlopdiagram esetén a megjelenített érték a [ChartDataPoint.getValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#getValue) segítségével érhető el. Az adatpont a ugyanazon kategória pozícióban marad, de a diagram a beállított üres‑érték szabályok szerint üresként kezeli.
+Egy pont üresre állításához a többi pont eltávolítása nélkül állítsa a mögöttes munkafüzetcellát `null`‑ra. Oszlopdiagram esetén a megjelenített érték a [ChartDataPoint.getValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#getValue) segítségével érhető el. Az adatpont a ugyanabban a kategóriapozícióban marad, de a diagram a értékét üresnek tekinti a diagram üres‑érték beállítása szerint.
 
-A következő példa csak a második pontot törli az első sorozatban:
+Az alábbi példa csak a második pontot törli az első sorozatban:
 
 ```php
 $firstSlideIndex = 0;
@@ -325,13 +325,71 @@ try {
 }
 ```
 
-A szórt diagramok külön X és Y cellákat használnak, a buborék diagramok pedig méret cellát is. Csak azt a cellát törölje, amely a eltávolítani kívánt értéket képviseli. Ne hívja meg a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapointcollection/#clear) metódust, ha a többi pontot meg szeretné tartani, mert ez a metódus a gyűjtemény minden adatpontját eltávolítja.
+A szórásdiagramok külön X és Y cellákat használnak, a buborékgrafikonok pedig méretcellát is. Törölje csak azt a cellát, amely a törlendő értéket tartalmazza. Ne hívja a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapointcollection/#clear) metódust, ha a többi pontot meg szeretné tartani, mivel ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
 
-## **A sorozat hézag szélességének beállítása**
+## **Az üres cellák megjelenítésének szabályozása**
 
-A hézag szélessége a szomszédos sáv vagy oszlop csoportok közötti távolság, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez is a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. Hívja meg egyszer a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/#setGapWidth) metódust a csoport számára. A nagyobb érték nagyobb távolságot hoz létre a csoportok között; a kisebb érték sűrűbbé teszi őket.
+Egy üres munkafüzetcellát hiányzó adatként kezelünk; a `0` értékű cella ismert numerikus értéket jelent. Hívja meg a [ChartDataCell::setValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatacell/#setValue) metódust `null`‑val, hogy egy cellát üresre állítson. A numerikus nulla továbbra is nulla marad, függetlenül az üres‑cella beállítástól.
 
-A következő példa megváltoztatja a hézag szélességét, és csak a végső prezentációt menti:
+Használja a [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/#setDisplayBlanksAs) metódust, hogy kiválassza, a diagram hogyan jelenítse meg az üres cellákat. Ez a beállítás a teljes diagramra vonatkozik. Megváltoztatja, hogy a hiányosságok hogyan legyenek ábrázolva, anélkül, hogy az üres munkafüzetcellát nullával vagy interpolált értékkel töltené fel.
+
+Az alábbi önálló példa egy vonaldiagramot hoz létre egy sorozattal, törli a 3‑as nap értékét, majd ugyanazt a diagramot elmenti minden módhoz. Bemeneti fájlra nincs szükség. A [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) a 0‑s munkalapot, 0‑s oszlopot használja a kategóriacímkékhez, és 1‑s oszlopot az értékekhez; a 0‑s sor a sorozat nevét tartalmazza. A végső adatok: `10, 20, empty, 30, 40`.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\DisplayBlanksAsType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 40, 40, 640, 400);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Measurements");
+    $series = $chartData->getSeries()->add($seriesNameCell, $chart->getType());
+    $values = [10, 20, 25, 30, 40];
+
+    for ($i = 0; $i < count($values); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Day " . ($i + 1));
+        $chartData->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
+    // Hagyja a 3. napot valóban üresen, miközben megtartja a kategóriát és az adatpontot.
+    $workbook->getCell(0, 3, 1)->setValue(null);
+
+    $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
+    $modeNames = ["Gap", "Zero", "Span"];
+    for ($i = 0; $i < count($modes); $i++) {
+        $chart->setDisplayBlanksAs($modes[$i]);
+        $presentation->save("empty_cells_" . $modeNames[$i] . ".pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Minden kimeneti fájl a mentés előtt beállított módot tartalmazza: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verziót szeretne menteni, állítsa be a kívánt módot, és egyszer mentse a prezentációt a módok ismétlése helyett.
+
+Az alábbi összehasonlítás három fájl azonos adatát mutatja. A 3‑as nap üres a munkafüzetben minden esetben:
+
+![Vonaldiagramok azonos adatokkal: A Gap a vonalat szaggatja a 3‑as napnál, a Zero a vonalat nullához viszi, a Span pedig összeköti a 2‑es és a 4‑es napot.](display_blanks_as.png)
+
+A látható hatás a diagram típusától függ. Egy vonaldiagramnál a három mód könnyen összehasonlítható. Sáv‑ és oszlopdiagramoknál nincs vonal, amely összekötné a hiányzó kategóriát, így a `Span` nem tudja előállítani a fent látható összekötő szegmenst; egy hiányzó oszlop és egy nullmagasságú oszlop is hasonlóan nézhet ki. Hasonlóan, egy pontdiagram csak jelölőkkel nem rendelkezik összekötő vonallal. Ne számítson három különböző eredményre minden diagramtípus esetén; ellenőrizze a kimenetet a használt típusnál.
+
+## **A sorozat hézagszélességének beállítása**
+
+A hézagszélesség a szomszédos sáv‑ vagy oszlopcsoportok közötti távolságot jelenti, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. Hívja meg egyszer a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/#setGapWidth) metódust a csoportra. Egy nagyobb érték több helyet hoz létre a csoportok között; egy kisebb érték sűrűbbé teszi őket.
+
+Az alábbi példa módosítja a hézagszélességet, és csak a végső prezentációt menti el:
 
 ```php
 $firstSlideIndex = 0;
@@ -357,36 +415,46 @@ try {
 
 Az eredmény:
 
-![A hézag szélessége](gap_width.png)
+![A hézagszélesség](gap_width.png)
 
 ## **GYIK**
 
-**Mely diagramtípusok támogatják az adat sorozatokat?**  
-Minden, a [ChartType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/) felsorolás által képviselt diagramtípus használ diagram adatot, de a sorozataik nem mindegyike rendelkezik ugyanazzal az értékstruktúrával vagy beállításokkal. Például a kategória diagramok kategóriákat és értékeket használnak, a szórt diagramok X és Y értékeket, a buborék diagramok pedig buborék méreteket adnak hozzá. Használja az adatpont létrehozásához a sorozattípussal megegyező metódust. Az olyan opciók, mint az átfedés és a hézag szélesség, csak a kompatibilis sáv vagy oszlop csoportokra vonatkoznak.
+**Mely diagramtípusok támogatják az adat sorozatokat?**
 
-**Mi az a diagram sorozat csoport?**  
-A [ChartSeriesGroup](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoport szintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több csoportot is tartalmazhat, így egy sorozaton keresztül elért csoport módosítása nem feltétlenül változtatja meg a diagram **összes** sorozatát.
+Az összes, a [ChartType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/charttype/) felsorolásban szereplő diagramtípus használ diagramadatokat, azonban sorozataik nem minden esetben rendelkeznek azonos értékstruktúrával vagy beállításokkal. Például a kategória diagramok kategóriákat és értékeket használnak, a pontdiagramok X és Y értékeket, a buborékgrafikonok pedig buborékméreteket adnak hozzá. A sorozattípusnak megfelelő adatpont‑létrehozó módszert kell alkalmazni. Az olyan opciók, mint az átfedés és a hézagszélesség, csak kompatibilis sáv‑ vagy oszlopcsoportokra vonatkoznak.
 
-**Tartalmaz-e egy újonnan létrehozott diagram alapértelmezett adatot?**  
-Igen. Alapértelmezés szerint a [ShapeCollection.addChart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/#addChart) minta sorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy a sorozat- és kategória gyűjteményeket törölheti, mielőtt teljesen egyedi adatkészletet adna hozzá. Egy túlterhelés (overload) képes diagramot létrehozni alapértelmezett adatok nélkül is.
+**Mi az a diagram sorozatcsoport?**
 
-**Hogyan kapcsolódnak a diagram objektumok a munkafüzet celláihoz?**  
-A sorozatnevek, a kategória címkék és az adatpont értékek a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagram elemet. Egyedi adatok építésekor tartsa a kategória sorokat és a sorozat‑érték sorokat igazítva, hogy minden pont a megfelelő kategória alatt legyen ábrázolva.
+A [ChartSeriesGroup](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoport‑szintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több csoportot is tartalmazhat, így egy sorozaton keresztül elérhető csoport módosítása nem feltétlenül változtatja meg a diagram összes sorozatát.
 
-**Hogyan török egy pontot a teljes sorozat helyett?**  
-Állítsa a megfelelő érték cellát `null`-ra, hogy a pont kategória pozíciója megmaradjon üres pontként. A [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapointcollection/#clear) metódust csak akkor használja, ha az adott sorozat **összes** pontját el kívánja távolítani. Ha a kategóriákat is eltávolítja, frissítse minden sorozatot, hogy az értékek továbbra is azonos sorban legyenek a kategória gyűjteménnyel.
+**Egy frissen létrehozott diagram alapértelmezett adatokat tartalmaz?**
 
-**Hogyan jelennek meg az üres pontok?**  
-Az eredmény a diagram típusától és a [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/#setDisplayBlanksAs) beállítástól függ. A támogatott diagramok üres helyeket jeleníthetnek meg **hézagként**, **null értékként** vagy a **szomszédos pontok összekapcsolásával**. Válassza ki azt a beállítást, amely a prezentációjában a hiányzó adatok jelentésének leginkább megfelel.
+Igen. Alapértelmezés szerint a [ShapeCollection.addChart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/#addChart) minta sorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy törölheti a sorozat‑ és kategória‑gyűjteményeket, mielőtt teljesen egyedi adatkészletet adna hozzá. Egy túlterhelés (overload) segítségével diagramot is létrehozhat alapértelmezett adatok nélkül.
 
-**Hogyan formázódnak a negatív értékek?**  
-A támogatott sáv, oszlop és buborék sorozatoknál hívja meg a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#setInvertIfNegative) metódust, és állítsa be a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) által visszaadott színt. Egy egyedi pont viselkedését felülírhatja a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) metódussal. Ezek a metódusok a formázást befolyásolják, nem a tárolt numerikus értékeket.
+**Hogyan kapcsolódnak a diagramobjektumok a munkafüzetcellákhoz?**
 
-**Melyik formázás nyer, ha egy sorozat és egy pont is formázva van?**  
-A kifejezett adatpont formázás lesz az előnyben az adott pontnál. A többi pont továbbra is a kifejezett sorozat formátumot használja, vagy ha a sorozat formátum nincs definiálva, akkor az **automatikus diagram stílus** és **téma**. A csoport beállítások, mint például az átfedés és a hézag szélesség, a **elrendezést** szabályozzák, és nem pont szintű formázási felülírások.
+A sorozatnevek, kategória címkék és adatpont értékek a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagramelemet. Egyedi adatépítéskor tartsa a kategória‑sorokat és a sorozat‑érték‑sorokat igazítva, hogy minden pont a kívánt kategória alá kerüljön.
 
-**Van korlát arra, hogy hány sorozatot tartalmazhat egy diagram?**  
-Az Aspose.Slides nem szab ki külön, rögzített sorozatszám korlátot. Gyakorlatban a prezentáció fájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos korlátot.
+**Hogyan töröljek egy pontot a teljes sorozat helyett?**
 
-**Mit kell módosítanom, ha az oszlopok túl közel vagy túl messze vannak egymástól?**  
-Hívja meg a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/#setGapWidth) metódust a megfelelő szülő sorozatcsoporton. Növelje az értéket a csoportok közötti távolság bővítéséhez, vagy csökkentse, hogy a csoportok közelebb kerüljenek egymáshoz.
+Állítsa a releváns értékcellát `null`‑ra, hogy a pont kategóriapozícióját üres pontként megtartsa. A [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapointcollection/#clear) metódust csak akkor használja, ha az adott sorozat összes pontját el akarja távolítani. Ha a kategóriákat is törli, frissítse az összes sorozatot, hogy az értékek továbbra is a kategória‑gyűjteménnyel legyenek összehangolva.
+
+**Hogyan jelennek meg az üres pontok?**
+
+Az eredmény a diagramtípustól és a [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/#setDisplayBlanksAs) által beállított értéktől függ. A támogatott diagramok megjeleníthetik az üresek helyét hézagként, nullaként vagy a szomszédos pontok összekapcsolásával. Válassza ki azt a beállítást, amely a hiányzó adatok jelentését a prezentációjában legjobban tükrözi. Lásd a **Az üres cellák megjelenítésének szabályozása** részt a teljes példa és vizuális összehasonlítás miatt.
+
+**Hogyan formázódnak a negatív értékek?**
+
+Támogatott sáv‑, oszlop‑ és buboréksorozatok esetén hívja meg a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#setInvertIfNegative) metódust, és állítsa be a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) által visszaadott színt. Egy adott pont viselkedését a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) metódussal is felülírhatja. Ezek a módszerek a formázásra, nem a tárolt numerikus értékekre hatnak.
+
+**Melyik formázás nyer, ha a sorozat és a pont is formázva van?**
+
+A kifejezett adatpont‑formázás elsőbbséget élvez az adott pontnál. A többi pont továbbra is a kifejezett sorozat‑formázást vagy, ha az nincs definiálva, az automatikus diagramstílust és sablont használja. A csoportbeállítások, mint az átfedés és a hézagszélesség, a layoutot szabályozzák, és nem pont‑szintű formázási felülírások.
+
+**Van korlátozás arra, hogy hány sorozatot tartalmazhat egy diagram?**
+
+Az Aspose.Slides nem határoz meg különálló rögzített sorozatszám‑korlátot. Gyakorlatban a prezentációfájl mérete, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg az ésszerű felső határt.
+
+**Mit kell módosítanom, ha az oszlopok túl közel vagy túl távol vannak egymástól?**
+
+Hívja meg a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseriesgroup/#setGapWidth) metódust a megfelelő szülő sorozatcsoporton. Növelje az értéket a csoportok közötti tér növeléséhez, vagy csökkentse, hogy a csoportok közelebb kerüljenek egymáshoz.

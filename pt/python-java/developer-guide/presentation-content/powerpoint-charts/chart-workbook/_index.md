@@ -1,5 +1,5 @@
 ---
-title: Gerenciar pastas de trabalho de gráficos em apresentações usando Python via Java
+title: Gerenciar Pastas de Trabalho de Gráficos em Apresentações Usando Python via Java
 linktitle: Pasta de Trabalho de Gráfico
 type: docs
 weight: 70
@@ -7,7 +7,7 @@ url: /pt/python-java/chart-workbook/
 keywords:
 - pasta de trabalho de gráfico
 - dados de gráfico
-- célula de pasta de trabalho
+- célula da pasta de trabalho
 - rótulo de dados
 - planilha
 - fonte de dados
@@ -24,12 +24,14 @@ description: "Descubra Aspose.Slides para Python via Java: gerencie facilmente p
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele demonstra como ler e gravar dados de gráfico por meio de fluxos de pasta de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para os valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráfico através de fluxos de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados de gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para valores de gráfico.
 
-Também aborda o uso de pastas de trabalho externas como fontes de dados de gráficos. Os exemplos mostram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
+Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
-## **Ler e gravar dados de gráfico de uma pasta de trabalho**
-Aspose.Slides fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#readWorkbookStream) e [writeWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#writeWorkbookStream) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Nota** que os dados do gráfico precisam estar organizados da mesma maneira ou ter uma estrutura semelhante à fonte.
+Para células da pasta de trabalho que representam dados ausentes, veja [Control the Display of Empty Cells](/slides/pt/python-java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
+
+## **Ler e Gravar Dados de Gráfico a partir de uma Pasta de Trabalho**
+Aspose.Slides fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#readWorkbookStream) e [writeWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#writeWorkbookStream) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Note** que os dados do gráfico precisam estar organizados da mesma forma ou ter uma estrutura similar à fonte.
 
 Este código Python demonstra uma operação de exemplo:
 
@@ -54,9 +56,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Validar o layout do gráfico após a modificação da pasta de trabalho**
+### **Validar o Layout do Gráfico após Modificação da Pasta de Trabalho**
 
-Ao substituir uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa inconsistência pode fazer com que [Chart.validateChartLayout](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#validateChartLayout) lance uma `ArgumentOutOfRangeException` (parâmetro: index). Para evitar a exceção, limpe as séries e categorias existentes **antes** de gravar a pasta de trabalho atualizada de volta ao gráfico.
+Ao substituir uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa inconsistência pode fazer com que [Chart.validateChartLayout](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#validateChartLayout) lance uma `ArgumentOutOfRangeException` (parâmetro: index). Para evitar a exceção, limpe as séries e categorias existentes **antes** de gravar a pasta de trabalho atualizada de volta no gráfico.
 
 ```python
 import jpype
@@ -69,7 +71,7 @@ from asposeslides.api import Presentation
 
 from pathlib import Path
 
-# Leia a pasta de trabalho após modificá‑la (por exemplo, usando Aspose.Cells).
+# Leia a pasta de trabalho após modificá-la (por exemplo, usando Aspose.Cells).
 updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
 
 presentation = Presentation("chart.pptx")
@@ -77,7 +79,7 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     chart_data = chart.getChartData()
 
-    # Limpe as referências de dados existentes.
+    # Limpar referências de dados existentes.
     chart_data.getSeries().clear()
     chart_data.getCategories().clear()
     chart_data.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
@@ -88,16 +90,16 @@ finally:
 
 Limpar as coleções garante que a estrutura dos dados do gráfico esteja alinhada com a nova pasta de trabalho, permitindo que [validateChartLayout](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#validateChartLayout) seja concluído sem erros.
 
-## **Definir uma célula da pasta de trabalho como rótulo de dados do gráfico**
+## **Definir uma Célula de Pasta de Trabalho como Rótulo de Dados do Gráfico**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
-1. Obtenha a referência de um slide por seu índice.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) .
+1. Obtenha a referência de um slide através do seu índice.
 1. Adicione um gráfico de Bolhas com alguns dados.
-1. Acesse a série do gráfico.
+1. Acesse as séries do gráfico.
 1. Defina a célula da pasta de trabalho como um rótulo de dados.
 1. Salve a apresentação.
 
-Este código Python mostra como definir uma célula da pasta de trabalho como rótulo de dados do gráfico:
+Este código Python mostra como definir uma célula de pasta de trabalho como um rótulo de dados do gráfico:
 
 ```python
 import jpype
@@ -125,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Gerenciar planilhas**
+## **Gerenciar Planilhas**
 
 Este código Python demonstra uma operação onde o método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdataworkbook/#getWorksheets) é usado para acessar uma coleção de planilhas:
 
@@ -148,7 +150,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Especificar o tipo de fonte de dados**
+## **Especificar o Tipo de Fonte de Dados**
 
 Este código Python mostra como especificar um tipo para uma fonte de dados:
 
@@ -175,7 +177,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Detectar formatos de pasta de trabalho incorporada não suportados**
+## **Detectar Formatos de Pasta de Trabalho Incorporada Não Suportados**
 
 Aspose.Slides não oferece suporte ao formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método [getEmbeddedWorkbookType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) em [ChartData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos.
 
@@ -196,14 +198,18 @@ try:
             continue
         chart_data = shape.getChartData()
         if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # Pasta de trabalho incorporada está no formato .xlsb, que não é suportado.
+            # A pasta de trabalho incorporada está no formato .xlsb, que não é suportado.
             continue
         # Leia ou modifique os dados da pasta de trabalho do gráfico aqui.
 finally:
     presentation.dispose()
 ```
 
-### **Criar uma pasta de trabalho externa**
+## **Pasta de Trabalho Externa**
+
+Aspose.Slides oferece suporte ao uso de pastas de trabalho externas como fonte de dados para gráficos.
+
+### **Criar uma Pasta de Trabalho Externa**
 
 Usando os métodos [readWorkbookStream](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#readWorkbookStream) e [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook), você pode criar uma pasta de trabalho externa do zero ou tornar uma pasta de trabalho interna externa.
 
@@ -232,11 +238,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Definir uma pasta de trabalho externa**
+### **Definir uma Pasta de Trabalho Externa**
 
-Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (caso ela tenha sido movida).
+Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se esta foi movida).
 
-Embora não seja possível editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, você ainda pode usá‑las como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente em um caminho completo.
+Embora não seja possível editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda é possível usar tais pastas como fonte externa de dados. Se um caminho relativo para uma pasta de trabalho externa for fornecido, ele será convertido automaticamente em um caminho completo.
 
 Este código Python mostra como definir uma pasta de trabalho externa:
 
@@ -268,9 +274,9 @@ finally:
     presentation.dispose()
 ```
 
-O segundo parâmetro (`bool`) do método [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook) é usado para especificar se uma pasta de trabalho do Excel será carregada ou não.
+O segundo parâmetro (`bool`) do método [setExternalWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#setExternalWorkbook) serve para especificar se uma pasta de trabalho Excel será carregada ou não. 
 
-* Quando seu valor é definido como `False`, apenas o caminho da pasta de trabalho é atualizado — os dados do gráfico não serão carregados nem atualizados a partir da pasta de trabalho de destino. Use essa configuração quando a pasta de trabalho de destino não existir ou não estiver disponível.  
+* Quando seu valor é definido como `False`, apenas o caminho da pasta de trabalho é atualizado—os dados do gráfico não serão carregados ou atualizados a partir da pasta de trabalho de destino. Use essa configuração quando a pasta de trabalho de destino não existir ou estiver indisponível. 
 * Quando seu valor é definido como `True`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
 
 ```python
@@ -292,11 +298,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Obter o caminho da pasta de trabalho fonte de dados externa de um gráfico**
+### **Obter o Caminho da Pasta de Trabalho Fonte de Dados Externa de um Gráfico**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
-1. Obtenha a referência de um slide por seu índice.
-1. Crie um objeto para a forma de gráfico.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) .
+1. Obtenha a referência de um slide através do seu índice.
+1. Crie um objeto para a forma do gráfico.
 1. Crie um objeto para o tipo de fonte ([ChartDataSourceType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdatasourcetype/)) que representa a fonte de dados do gráfico.
 1. Especifique a condição relevante com base no tipo de fonte ser o mesmo que o tipo de fonte de dados da pasta de trabalho externa.
 
@@ -323,7 +329,7 @@ finally:
     presentation.dispose()
 ```
 
-### **Editar dados do gráfico**
+### **Editar Dados do Gráfico**
 
 Você pode editar os dados em pastas de trabalho externas da mesma forma que altera o conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
 
@@ -348,11 +354,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Recuperar uma pasta de trabalho do cache do gráfico**
+### **Recuperar uma Pasta de Trabalho a partir do Cache do Gráfico**
 
-Se um gráfico usar uma pasta de trabalho externa que esteja ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie um objeto [LoadOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/), configure‑o com [SpreadsheetOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/spreadsheetoptions/), e chame [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) com `True` antes de abrir a apresentação.
+Se um gráfico usar uma pasta de trabalho externa que esteja ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados armazenados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/), configure-o com [SpreadsheetOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/spreadsheetoptions/), e chame [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) com `True` antes de abrir a apresentação.
 
-O exemplo Python a seguir abre uma apresentação cujo gráfico referencia uma pasta de trabalho externa indisponível e acessa os dados recuperados por meio de [Chart.getChartData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#getChartData) e [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+O exemplo Python a seguir abre uma apresentação cujo gráfico referencia uma pasta de trabalho externa indisponível e acessa os dados recuperados através de [Chart.getChartData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#getChartData) e [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -378,30 +384,30 @@ finally:
     presentation.dispose()
 ```
 
-Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Ative a recuperação somente quando o uso dos dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
+Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Habilite a recuperação somente quando usar os dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
 **Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
 
-Sim. Um gráfico possui um [data source type](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getDataSourceType) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico tem um [data source type](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getDataSourceType) e um [path to an external workbook](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
+**Os caminhos relativos para pastas de trabalho externas são suportados, e como são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. Isso facilita a portabilidade do projeto; porém, esteja ciente de que a apresentação armazenará o caminho absoluto no arquivo PPTX.
+Sim. Se você especificar um caminho relativo, ele é convertido automaticamente em um caminho absoluto. Isso é conveniente para portabilidade do projeto; porém, observe que a apresentação armazenará o caminho absoluto no arquivo PPTX.
 
 **Posso usar pastas de trabalho localizadas em recursos ou compartilhamentos de rede?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, a edição direta de pastas de trabalho remotas a partir do Aspose.Slides não é suportada — elas podem ser usadas apenas como fonte.
+Sim, essas pastas de trabalho podem ser usadas como fonte externa de dados. Contudo, editar pastas de trabalho remotas diretamente do Aspose.Slides não é suportado—elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-Não. A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) e o utiliza para leitura dos dados. O arquivo externo em si não é modificado ao salvar a apresentação.
+Não. A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) e o utiliza para leitura dos dados. O arquivo externo em si não é modificado quando a apresentação é salva.
 
-**O que fazer se o arquivo externo estiver protegido por senha?**
+**O que devo fazer se o arquivo externo estiver protegido por senha?**
 
 Aspose.Slides não aceita senha ao criar o vínculo. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/python-java/)) e vincular a essa cópia.
 
 **Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
 
-Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima carga dos dados.
+Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.

@@ -1,35 +1,37 @@
 ---
-title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از C++
-linktitle: کتاب‌کار نمودار
+title: مدیریت دفتر کار چارت در ارائه‌ها با C++
+linktitle: دفتر کار چارت
 type: docs
 weight: 70
 url: /fa/cpp/chart-workbook/
 keywords:
-- کتاب‌کار نمودار
-- داده‌های نمودار
-- سلول کتاب‌کار
+- دفتر کار چارت
+- داده‌های چارت
+- سلول دفتر کار
 - برچسب داده
 - کاربرگ
 - منبع داده
-- کتاب‌کار خارجی
+- دفتر کار خارجی
 - داده خارجی
-- کش نمودار
-- بازیابی کتاب‌کار
-- پاورپوینت
+- کش چارت
+- بازیابی دفتر کار
+- PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "Aspose.Slides برای C++ را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
+description: "Aspose.Slides برای C++ را کشف کنید: به راحتی دفترهای کار چارت را در قالب‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
 ---
-## **مروری کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار می‌کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به‌عنوان برچسب‌های داده‌های نمودار استفاده کنید، به مجموعه‌های کاربرگ دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
+این مقاله توضیح می‌دهد که چگونه با دفترهای کار چارت در Aspose.Slides کار کنید. نحوه خواندن و نوشتن داده‌های چارت از طریق جریان‌های دفترکار، استفاده از سلول‌های دفترکار به عنوان برچسب‌های داده چارت، دسترسی به مجموعه‌های کاربرگ و تعیین نوع منبع داده برای مقادیر چارت را نشان می‌دهد.
 
-همچنین کار با کتاب‌کارهای خارجی به‌عنوان منابع دادهٔ نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص دهید، مسیر کتاب‌کار خارجی مرتبط با یک نمودار را دریافت کنید و داده‌های نمودار را زمانی که کتاب‌کار در دسترس است ویرایش کنید.
+همچنین کار با دفترهای کار خارجی به عنوان منابع داده چارت را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک دفتر کار خارجی ایجاد و اختصاص دهید، مسیر دفتر کار خارجی مرتبط با یک چارت را بازیابی کنید و داده‌های چارت را زمانی که دفتر کار در دسترس باشد ویرایش کنید.
 
-## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
+برای سلول‌های دفترکار که داده‌های گمشده را نشان می‌دهند، به [Control the Display of Empty Cells](/slides/fa/cpp/chart-series/) مراجعه کنید تا تفاوت بین سلول خالی و صفر و مقایسه‌ی خط‌چارت حالت‌های نمایش موجود را مشاهده کنید.
 
-Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای دادهٔ نمودار (حاوی داده‌های ویرایش شده با Aspose.Cells) را بخوانید و بنویسید. **Note** داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+## **خواندن و نوشتن داده‌های چارت از دفترکار**
+
+Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که به شما امکان خواندن و نوشتن دفترهای کار داده‌های چارت (حاوی داده‌های چارت ویرایش‌شده با Aspose.Cells) را می‌دهد. **Note** این که داده‌های چارت باید به همان صورت سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
 
 ``` cpp
 #include <DOM/Chart/Chart.h>
@@ -59,15 +61,15 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-### **اعتبارسنجی چیدمان نمودار پس از اصلاح کتاب‌کار**
+### **اعتبارسنجی چیدمان چارت پس از اصلاح دفترکار**
 
-وقتی کتاب‌کار توکار را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌بندی‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شود متد [IChart::ValidateChartLayout](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/validatechartlayout/) با خطای «index‑out‑of‑range» شکست بخورد. پیش از نوشتن کتاب‌کار به‌روزشده به نمودار، سری‌ها و دسته‌بندی‌های موجود را پاک کنید.
+وقتی یک دفترکار جاسازی‌شده را با یک دفترکار اصلاح‌شده جایگزین می‌کنید، چارت مجموعه‌های سری و دسته‌بندی اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شکست [IChart::ValidateChartLayout](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/validatechartlayout/) با خطای out-of-range شود. قبل از نوشتن دفترکار به‌روز شده به چارت، سری‌ها و دسته‌بندی‌های موجود را پاک کنید.
 
 ```cpp
-// پس از تغییر جریان کتاب‌کار (به عنوان مثال با استفاده از Aspose.Cells)
+// پس از اصلاح جریان دفترکار (به عنوان مثال، با استفاده از Aspose.Cells)
 auto updatedWorkbook = chartData->ReadWorkbookStream();
 
-// پاک کردن مراجعات داده‌های موجود.
+// پاک‌سازی ارجاعات داده‌های موجود.
 chartData->get_Series()->Clear();
 chartData->get_Categories()->Clear();
 
@@ -77,18 +79,18 @@ chartData->WriteWorkbookStream(updatedWorkbook);
 chart->ValidateChartLayout();
 ```
 
-پاک کردن مجموعه‌ها اطمینان می‌دهد که ساختار دادهٔ نمودار با کتاب‌کار جدید سازگار است و `ValidateChartLayout` بدون خطا تکمیل می‌شود.
+پاک‌سازی مجموعه‌ها تضمین می‌کند که ساختار داده‌های چارت با دفترکار جدید سازگار باشد و `ValidateChartLayout` بدون خطا کامل شود.
 
-## **تنظیم یک سلول کتاب‌کار به‌عنوان برچسب دادهٔ نمودار**
+## **تنظیم یک سلول دفترکار به عنوان برچسب داده چارت**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
 2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-3. یک نمودار حبابی با برخی داده‌ها اضافه کنید.  
-4. به سری‌های نمودار دسترسی پیدا کنید.  
-5. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.  
+3. یک چارت حبابی با برخی داده‌ها اضافه کنید.  
+4. به سری‌های چارت دسترسی پیدا کنید.  
+5. سلول دفترکار را به عنوان برچسب داده تنظیم کنید.  
 6. ارائه را ذخیره کنید.
 
-این کد C++ نشان می‌دهد چگونه یک سلول کتاب‌کار را به‌عنوان برچسب دادهٔ نمودار تنظیم کنید:
+این کد C++ نشان می‌دهد چگونه یک سلول دفترکار را به عنوان برچسب داده چارت تنظیم کنید:
 
 ``` cpp
 #include <DOM/Chart/ChartType.h>
@@ -115,7 +117,7 @@ System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است
+// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -137,7 +139,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **مدیریت کاربرگ‌ها**
 
-این کد C++ عملی را نشان می‌دهد که در آن متد [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) برای دسترسی به مجموعهٔ کاربرگ‌ها استفاده می‌شود:
+این کد C++ نشان می‌دهد که چگونه از متد [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) برای دسترسی به مجموعه کاربرگ‌ها استفاده کنید:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -166,7 +168,7 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **مشخص کردن نوع منبع داده**
+## **تعیین نوع منبع داده**
 
 این کد C++ نشان می‌دهد چگونه برای یک منبع داده نوعی را مشخص کنید:
 
@@ -203,9 +205,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **تشخیص قالب‌های توکار کتاب‌کار که پشتیبانی نمی‌شوند**
+## **تشخیص فرمت‌های پشتیبانی‌نشده دفترکار جاسازی‌شده**
 
-Aspose.Slides از قالب کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها توکار شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد `get_EmbeddedWorkbookType` در [IChartData](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/) همراه با شمارش‌گر [WorkbookType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/workbooktype/) قالب‌های پشتیبانی‌نشده را شناسایی کرده و آن نمودارها را نادیده بگیرید.
+Aspose.Slides از فرمت دفترکار باینری Excel (.xlsb) که می‌تواند در برخی چارت‌ها جاسازی شود پشتیبانی نمی‌کند. می‌توانید از متد `get_EmbeddedWorkbookType` در [IChartData](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/) همراه با شمارنده [WorkbookType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/workbooktype/) برای تشخیص فرمت‌های پشتیبانی‌نشده و حذف آن چارت‌ها استفاده کنید.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -237,25 +239,23 @@ for (auto&& shape : System::IterateOver(slide->get_Shapes()))
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // دفتر کاری توکار در قالب .xlsb است که پشتیبانی نمی‌شود.
+        // دفترکار جاسازی‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
         continue;
     }
 
-    // در اینجا داده‌های دفتر کاری نمودار را بخوانید یا اصلاح کنید.
+    // در اینجا داده‌های دفترکار چارت را بخوانید یا ویرایش کنید.
 }
 ```
 
-## **کتاب‌کار خارجی**
+## **دفترکار خارجی**
 
-{{% alert color="info" %}} 
-در [Aspose.Slides](https://releases.aspose.com/slides/fa/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4، ما پشتیبانی از کتاب‌کارهای خارجی را به عنوان منبع دادهٔ نمودارها پیاده‌سازی کرده‌ایم. 
-{{% /alert %}} 
+Aspose.Slides از استفاده از دفترکارهای خارجی به عنوان منبع داده برای چارت‌ها پشتیبانی می‌کند.
 
-### **ایجاد یک کتاب‌کار خارجی**
+### **ایجاد یک دفترکار خارجی**
 
-با استفاده از متدهای **`ReadWorkbookStream`** و **`SetExternalWorkbook`** می‌توانید یا یک کتاب‌کار خارجی را از صفر ایجاد کنید یا یک کتاب‌کار داخلی را به‌صورت خارجی درآورید.
+با استفاده از متدهای **`ReadWorkbookStream`** و **`SetExternalWorkbook`** می‌توانید یا یک دفترکار خارجی از ابتدا ایجاد کنید یا یک دفترکار داخلی را خارجی کنید.
 
-این کد C++ فرآیند ایجاد کتاب‌کار خارجی را نشان می‌دهد:
+این کد C++ فرآیند ایجاد دفترکار خارجی را نشان می‌دهد:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -294,13 +294,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **تخصیص یک کتاب‌کار خارجی**
+### **تنظیم یک دفترکار خارجی**
 
-با استفاده از متد **`IChartData::SetExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را به یک نمودار به‌عنوان منبع دادهٔ آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (در صورت جابجا شدن آن) استفاده شود.
+با استفاده از متد **`IChartData::SetExternalWorkbook`** می‌توانید یک دفترکار خارجی را به عنوان منبع داده چارت اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر دفترکار خارجی (اگر دفتر کار جابجا شده باشد) استفاده شود.
 
-در حالی که نمی‌توانید داده‌های موجود در کتاب‌کارهایی که در مکان‌های شبکه‌ای یا منابع دوردست ذخیره شده‌اند را مستقیما ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به‌عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای یک کتاب‌کار خارجی فراهم شود، به‌طور خودکار به مسیر کامل تبدیل می‌گردد.
+در حالی که نمی‌توانید داده‌های موجود در دفترکارهای ذخیره‌شده در مکان‌های راه دور یا منابع را ویرایش کنید، می‌توانید همچنان از چنین دفترکارهایی به عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای دفتر کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
 
-این کد C++ نشان می‌دهد چگونه یک کتاب‌کار خارجی را تنظیم کنید:
+این کد C++ نشان می‌دهد چگونه یک دفترکار خارجی تنظیم کنید:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -343,10 +343,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-پارامتر `updateChartData` (در زیر متد `SetExternalWorkbook`) برای تعیین اینکه آیا یک کتاب‌کار Excel بارگذاری شود یا نه استفاده می‌شود.
+پارامتر `updateChartData` (در متد `SetExternalWorkbook`) برای تعیین این‌که آیا یک دفتر کار اکسل بارگذاری شود یا نه استفاده می‌شود.
 
-* وقتی مقدار `updateChartData` برابر `false` باشد، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود—داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شوند. می‌توانید از این تنظیم وقتی کتاب‌کار هدف وجود ندارد یا در دسترس نیست، استفاده کنید.  
-* وقتی مقدار `updateChartData` برابر `true` باشد، داده‌های نمودار از کتاب‌کار هدف به‌روزرسانی می‌شوند.
+* وقتی مقدار `updateChartData` روی `false` تنظیم شود، فقط مسیر دفترکار به‌روزرسانی می‌شود—داده‌های چارت از دفترکار هدف بارگذاری یا به‌روزرسانی نمی‌شوند. می‌توانید این تنظیم را وقتی که دفترکار هدف موجود نیست یا در دسترس نیست، به کار ببرید.  
+* وقتی مقدار `updateChartData` روی `true` تنظیم شود، داده‌های چارت از دفترکار هدف به‌روز می‌شوند.
 
 ```c++
 #include <DOM/Chart/ChartData.h>
@@ -372,15 +372,15 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
+### **دریافت مسیر دفترکار منبع داده خارجی یک چارت**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
 2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-3. یک شی برای شکل نمودار بسازید.  
-4. یک شی برای نوع منبع (`ChartDataSourceType`) که منبع دادهٔ نمودار را نشان می‌دهد، ایجاد کنید.  
-5. شرط مربوطه را بر اساس این‌که نوع منبع همان نوع منبع دادهٔ کتاب‌کار خارجی باشد، مشخص کنید.
+3. یک شی برای شکل چارت ایجاد کنید.  
+4. یک شی برای نوع منبع (`ChartDataSourceType`) که نمایانگر منبع داده چارت است ایجاد کنید.  
+5. شرط مربوطه را بر اساس این‌که نوع منبع همان نوع منبع دفترکار خارجی باشد، تعیین کنید.
 
-این کد C++ عمل را نشان می‌دهد:
+این کد C++ عملیات را نشان می‌دهد:
 
 ```c++
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -405,13 +405,13 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// ذخیرهٔ ارائه
+// Saves the presentation
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **ویرایش داده‌های نمودار**
+### **ویرایش داده‌های چارت**
 
-می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را همانند تغییرات در محتویات کتاب‌کارهای داخلی ویرایش کنید. وقتی کتاب‌کار خارجی قابل بارگذاری نباشد، یک استثنا پرتاب می‌شود.
+ می‌توانید داده‌های موجود در دفترکارهای خارجی را همانند تغییر محتواهای دفترکارهای داخلی ویرایش کنید. وقتی یک دفترکار خارجی قابل بارگذاری نباشد، استثنایی رخ می‌دهد.
 
 این کد C++ پیاده‌سازی فرآیند توصیف‌شده را نشان می‌دهد:
 
@@ -449,11 +449,11 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **بازیابی کتاب‌کار از کش نمودار**
+### **بازگرداندن دفترکار از کش چارت**
 
-اگر یک نمودار از کتاب‌کار خارجی استفاده کند که غائب یا در دسترس نباشد، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش شده در ارائه بازسازی کند. یک شی [LoadOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/) ایجاد کنید، آن را با متد [set_SpreadsheetOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن ارائه، متد [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) را با مقدار `true` صدا بزنید.
+اگر یک چارت از دفترکار خارجی استفاده کند که موجود نیست یا در دسترس نیست، Aspose.Slides می‌تواند دفترکار چارت را از داده‌های کش‌شده در ارائه بازسازی کند. یک شی [LoadOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/) ایجاد کنید، آن را با [set_SpreadsheetOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن ارائه، `true` را به متد [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) پاس دهید.
 
-مثال زیر یک ارائه را باز می‌کند که نمودار آن به یک کتاب‌کار خارجی غیرفعال اشاره دارد و داده‌های بازیابی‌شده را از طریق [IChart::get_ChartData](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/get_chartdata/) و [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) دسترسی می‌یابد:
+مثال زیر C++ یک ارائه را باز می‌کند که چارت آن به یک دفترکار خارجی غیرفعال ارجاع دارد و داده‌های بازگردانده‌شده را از طریق [IChart::get_ChartData](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/get_chartdata/) و [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) دسترسی می‌یابد:
 
 ```cpp
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
@@ -474,24 +474,24 @@ auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 presentation->Dispose();
 ```
 
-اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides یک `System::InvalidOperationException` پرتاب می‌کند. فقط زمانی که استفاده از داده‌های کش شده نمودار یک گزینهٔ قابل قبول باشد، بازیابی را فعال کنید، زیرا کش ممکن است شامل تغییراتی که پس از آخرین به‌روزرسانی ارائه در کتاب‌کار خارجی ایجاد شده باشد، نباشد.
+اگر دفترکار خارجی در دسترس نباشد و بازگردانی غیرفعال باشد، Aspose.Slides یک `System::InvalidOperationException` پرتاب می‌کند. بازگردانی را فقط زمانی فعال کنید که استفاده از داده‌های چارت کش‌شده یک گزینه‌پذیر باشد، زیرا کش ممکن است تغییرات ایجادشده در دفترکار خارجی پس از آخرین بروز رسانی ارائه را شامل نشود.
 
-## **پرسش‌های متداول**
+## **سؤال‌های متداول**
 
-**آیا می‌توانم تشخیص دهم که یک نمودار خاص به یک کتاب‌کار خارجی یا توکار لینک شده است؟**  
-بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و [path to an external workbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
+**آیا می‌توانم تعیین کنم که یک چارت خاص به یک دفترکار خارجی یا جاسازی‌شده لینک دارد؟**  
+بله. یک چارت دارای [data source type](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و [path to an external workbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) است؛ اگر منبع یک دفترکار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید که از یک فایل خارجی استفاده می‌شود.
 
-**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**  
-بله. اگر مسیر نسبی مشخص کنید، به‌طور خودکار به مسیر مطلق تبدیل می‌شود. این برای جابجایی پروژه مناسب است؛ اما باید توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
+**آیا مسیرهای نسبی به دفترکارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**  
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. این برای جابجایی پروژه راحت است؛ اما توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
 
-**آیا می‌توانم از کتاب‌کارهایی که در منابع/اشتراک‌های شبکه‌ای قرار دارند استفاده کنم؟**  
-بله، چنین کتاب‌کارهایی می‌توانند به‌عنوان منبع دادهٔ خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای راه دور از طریق Aspose.Slides پشتیبانی نمی‌شود—فقط می‌توان آنها را به‌عنوان منبع استفاده کرد.
+**آیا می‌توانم از دفترکارهایی که در منابع/به‌اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**  
+بله، چنین دفترکارهایی می‌توانند به عنوان منبع داده خارجی استفاده شوند. با این حال، ویرایش مستقیم دفترکارهای راه دور از طریق Aspose.Slides پشتیبانی نمی‌شود—آنها فقط می‌توانند به عنوان منبع مورد استفاده قرار گیرند.
 
-**آیا Aspose.Slides هنگام ذخیرهٔ ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**  
-نه. ارائه فقط یک [link to the external file](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیرهٔ ارائه تغییر نمی‌کند.
+**آیا Aspose.Slides هنگام ذخیره ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**  
+نه. ارائه یک [link to the external file](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیره ارائه تغییر نمی‌کند.
 
-**اگر فایل خارجی با رمز عبور محافظت شده باشد چه کاری باید انجام دهم؟**  
-Aspose.Slides هنگام لینک‌دهی رمز عبور را نمی‌پذیرد. یک روش معمول این است که پیش از لینک‌دهی محافظت را حذف کنید یا یک نسخهٔ رمزگشایی‌شده (مثلاً با استفاده از [Aspose.Cells](/cells/cpp/)) تهیه کنید و به آن لینک دهید.
+**اگر فایل خارجی با رمز عبور محافظت شده باشد چه باید کرد؟**  
+Aspose.Slides هنگام لینک کردن رمز عبور را پذیرش نمی‌کند. رویکرد معمول حذف محافظت از پیش یا تهیه یک نسخه رمزگشایی‌شده (به عنوان مثال با استفاده از [Aspose.Cells](/cells/cpp/)) و لینک به آن نسخه است.
 
-**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی اشاره کنند؟**  
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در هر نمودار منعکس می‌شود.
+**آیا می‌توان چندین چارت را به یک دفترکار خارجی ارجاع داد؟**  
+بله. هر چارت لینک مخصوص خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام چارت‌ها منعکس می‌شود.

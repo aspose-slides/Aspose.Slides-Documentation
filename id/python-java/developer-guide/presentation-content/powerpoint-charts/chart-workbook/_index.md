@@ -1,37 +1,40 @@
 ---
-title: Mengelola Workbook Diagram dalam Presentasi Menggunakan Python via Java
-linktitle: Workbook Diagram
+title: Mengelola Buku Kerja Diagram dalam Presentasi Menggunakan Python via Java
+linktitle: Buku Kerja Diagram
 type: docs
 weight: 70
 url: /id/python-java/chart-workbook/
 keywords:
-- workbook diagram
+- buku kerja diagram
 - data diagram
-- sel workbook
+- sel buku kerja
 - label data
 - lembar kerja
 - sumber data
-- workbook eksternal
+- buku kerja eksternal
 - data eksternal
 - cache diagram
-- pemulihan workbook
+- pemulihan buku kerja
 - PowerPoint
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Temukan Aspose.Slides untuk Python via Java: dengan mudah mengelola workbook diagram dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
+description: "Temukan Aspose.Slides untuk Python via Java: kelola buku kerja diagram dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan workbook diagram di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data diagram melalui aliran workbook, menggunakan sel workbook sebagai label data diagram, mengakses koleksi worksheet, dan menentukan jenis sumber data untuk nilai diagram.
+Artikel ini menjelaskan cara bekerja dengan buku kerja diagram di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data diagram melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data diagram, mengakses koleksi lembar kerja, dan menentukan jenis sumber data untuk nilai diagram.
 
-Artikel ini juga membahas cara bekerja dengan workbook eksternal sebagai sumber data diagram. Contoh-contoh menunjukkan cara membuat dan menetapkan workbook eksternal, mengambil jalur workbook eksternal yang terhubung ke diagram, dan mengedit data diagram ketika workbook tersedia.
+Artikel ini juga mencakup penggunaan buku kerja eksternal sebagai sumber data diagram. Contoh-contoh menunjukkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke diagram, serta mengedit data diagram ketika buku kerja tersedia.
 
-## **Baca dan Tulis Data Diagram dari Workbook**
-Aspose.Slides menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#writeWorkbookStream) yang memungkinkan Anda untuk membaca dan menulis workbook data diagram (yang berisi data diagram yang diedit dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau harus memiliki struktur yang mirip dengan sumber.
+Untuk sel buku kerja yang mewakili data yang hilang, lihat [Control the Display of Empty Cells](/slides/id/python-java/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan diagram garis dari mode tampilan yang tersedia.
 
-Kode Python berikut menunjukkan contoh operasi:
+## **Baca dan Tulis Data Diagram dari Buku Kerja**
+
+Aspose.Slides menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#writeWorkbookStream) yang memungkinkan Anda membaca dan menulis buku kerja data diagram (yang berisi data diagram yang diedit dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumbernya.
+
+Kode Python ini mendemonstrasikan operasi contoh:
 
 ```python
 import jpype
@@ -54,9 +57,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Validasi Tata Letak Diagram Setelah Modifikasi Workbook**
+### **Validasi Tata Letak Diagram Setelah Modifikasi Buku Kerja**
 
-Ketika Anda mengganti workbook yang disematkan dengan yang telah dimodifikasi, diagram tetap mempertahankan kumpulan seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart.validateChartLayout](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#validateChartLayout) melemparkan `ArgumentOutOfRangeException` (parameter: index). Untuk menghindari pengecualian, bersihkan seri dan kategori yang ada **sebelum** menulis kembali workbook yang diperbarui ke diagram.
+Ketika Anda mengganti buku kerja tertanam dengan yang sudah dimodifikasi, diagram tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart.validateChartLayout](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#validateChartLayout) melempar `ArgumentOutOfRangeException` (parameter: index). Untuk menghindari pengecualian, bersihkan seri dan kategori yang ada **sebelum** menulis kembali buku kerja yang diperbarui ke diagram.
 
 ```python
 import jpype
@@ -69,7 +72,7 @@ from asposeslides.api import Presentation
 
 from pathlib import Path
 
-# Baca workbook setelah memodifikasinya (mis., menggunakan Aspose.Cells).
+# Baca buku kerja setelah memodifikasinya (mis., menggunakan Aspose.Cells).
 updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
 
 presentation = Presentation("chart.pptx")
@@ -86,18 +89,18 @@ finally:
     presentation.dispose()
 ```
 
-Membersihkan koleksi memastikan bahwa struktur data diagram sesuai dengan workbook baru, sehingga [validateChartLayout](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#validateChartLayout) dapat selesai tanpa kesalahan.
+Membersihkan koleksi memastikan struktur data diagram selaras dengan buku kerja baru, sehingga [validateChartLayout](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#validateChartLayout) dapat selesai tanpa kesalahan.
 
-## **Atur Sel Workbook sebagai Label Data Diagram**
+## **Atur Sel Buku Kerja sebagai Label Data Diagram**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram Bubble dengan beberapa data.
-4. Akses seri diagram.
-5. Setel sel workbook sebagai label data.
-6. Simpan presentasi.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
+1. Dapatkan referensi slide melalui indeksnya.
+1. Tambahkan diagram gelembung dengan beberapa data.
+1. Akses seri diagram.
+1. Atur sel buku kerja sebagai label data.
+1. Simpan presentasi.
 
-Kode Python berikut menunjukkan cara mengatur sel workbook sebagai label data diagram:
+Kode Python ini menunjukkan cara mengatur sel buku kerja sebagai label data diagram:
 
 ```python
 import jpype
@@ -125,9 +128,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Kelola Worksheet**
+## **Kelola Lembar Kerja**
 
-Kode Python berikut menunjukkan operasi di mana metode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/#getWorksheets) digunakan untuk mengakses koleksi worksheet:
+Kode Python ini mendemonstrasikan operasi di mana metode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/#getWorksheets) digunakan untuk mengakses koleksi lembar kerja:
 
 ```python
 import jpype
@@ -150,7 +153,7 @@ finally:
 
 ## **Tentukan Jenis Sumber Data**
 
-Kode Python berikut menunjukkan cara menentukan jenis untuk sumber data:
+Kode Python ini menunjukkan cara menentukan jenis untuk sebuah sumber data:
 
 ```python
 import jpype
@@ -175,9 +178,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Deteksi Format Workbook Tertanam yang Tidak Didukung**
+## **Deteksi Format Buku Kerja Tertanam yang Tidak Didukung**
 
-Aspose.Slides tidak mendukung format workbook biner Excel (.xlsb) yang dapat disematkan dalam beberapa diagram. Anda dapat menggunakan metode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) pada [ChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan diagram tersebut.
+Aspose.Slides tidak mendukung format buku kerja biner Excel (.xlsb) yang dapat tertanam di beberapa diagram. Anda dapat menggunakan metode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) pada [ChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan diagram tersebut.
 
 ```python
 import jpype
@@ -196,18 +199,22 @@ try:
             continue
         chart_data = shape.getChartData()
         if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # Workbook yang disematkan berada dalam format .xlsb, yang tidak didukung.
+            # Buku kerja tertanam berada dalam format .xlsb, yang tidak didukung.
             continue
-        # Baca atau modifikasi data workbook diagram di sini.
+        # Baca atau ubah data buku kerja diagram di sini.
 finally:
     presentation.dispose()
 ```
 
-### **Buat Workbook Eksternal**
+## **Buku Kerja Eksternal**
 
-Dengan menggunakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook), Anda dapat membuat workbook eksternal dari awal atau menjadikan workbook internal menjadi eksternal.
+Aspose.Slides mendukung penggunaan buku kerja eksternal sebagai sumber data untuk diagram.
 
-Kode Python berikut menunjukkan proses pembuatan workbook eksternal:
+### **Buat Buku Kerja Eksternal**
+
+Dengan menggunakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook), Anda dapat membuat buku kerja eksternal dari awal atau menjadikan buku kerja internal menjadi eksternal.
+
+Kode Python ini mendemonstrasikan proses pembuatan buku kerja eksternal:
 
 ```python
 import jpype
@@ -232,13 +239,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Tetapkan Workbook Eksternal**
+### **Atur Buku Kerja Eksternal**
 
-Dengan menggunakan metode [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook), Anda dapat menetapkan workbook eksternal ke diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke workbook eksternal (jika workbook tersebut telah dipindahkan).
+Dengan menggunakan metode [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook), Anda dapat menetapkan buku kerja eksternal ke sebuah diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
 
-Meskipun Anda tidak dapat mengedit data dalam workbook yang disimpan di lokasi atau sumber daya jarak jauh, Anda masih dapat menggunakan workbook tersebut sebagai sumber data eksternal. Jika jalur relatif untuk workbook eksternal diberikan, jalur tersebut secara otomatis dikonversi menjadi jalur penuh.
+Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi atau sumber daya jauh, Anda tetap dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis dikonversi menjadi jalur lengkap.
 
-Kode Python berikut menunjukkan cara menetapkan workbook eksternal:
+Kode Python ini menunjukkan cara mengatur buku kerja eksternal:
 
 ```python
 import jpype
@@ -268,9 +275,10 @@ finally:
     presentation.dispose()
 ```
 
-Parameter kedua (`bool`) dari metode [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook) digunakan untuk menentukan apakah workbook Excel akan dimuat atau tidak. 
-* Ketika nilainya diatur ke `False`, hanya jalur workbook yang diperbarui—data diagram tidak akan dimuat atau diperbarui dari workbook target. Anda mungkin ingin menggunakan pengaturan ini ketika workbook target tidak ada atau tidak tersedia. 
-* Ketika nilainya diatur ke `True`, data diagram diperbarui dari workbook target.
+Parameter (`bool`) kedua dari metode [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook) digunakan untuk menentukan apakah buku kerja Excel akan dimuat atau tidak.
+
+* Ketika nilainya disetel ke `False`, hanya jalur buku kerja yang diperbarui — data diagram tidak akan dimuat atau diperbarui dari buku kerja target. Anda mungkin ingin menggunakan pengaturan ini ketika buku kerja target tidak ada atau tidak tersedia.
+* Ketika nilainya disetel ke `True`, data diagram diperbarui dari buku kerja target.
 
 ```python
 import jpype
@@ -291,15 +299,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Dapatkan Jalur Workbook Sumber Data Eksternal dari Diagram**
+### **Dapatkan Jalur Buku Kerja Sumber Data Eksternal dari Diagram**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Buat objek untuk bentuk diagram.
-4. Buat objek untuk tipe sumber ([ChartDataSourceType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdatasourcetype/)) yang mewakili sumber data diagram.
-5. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data workbook eksternal.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
+1. Dapatkan referensi slide melalui indeksnya.
+1. Buat objek untuk bentuk diagram.
+1. Buat objek untuk tipe sumber ([ChartDataSourceType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdatasourcetype/)) yang mewakili sumber data diagram.
+1. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data buku kerja eksternal.
 
-Kode Python berikut menunjukkan operasi tersebut:
+Kode Python ini mendemonstrasikan operasi tersebut:
 
 ```python
 import jpype
@@ -324,9 +332,9 @@ finally:
 
 ### **Edit Data Diagram**
 
-Anda dapat mengedit data di workbook eksternal dengan cara yang sama seperti Anda mengubah isi workbook internal. Ketika workbook eksternal tidak dapat dimuat, pengecualian akan dilempar.
+Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
 
-Kode Python berikut merupakan implementasi dari proses yang dijelaskan:
+Kode Python ini adalah implementasi proses yang dijelaskan:
 
 ```python
 import jpype
@@ -347,18 +355,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Pulihkan Workbook dari Cache Diagram**
+### **Pulihkan Buku Kerja dari Cache Diagram**
 
-Jika sebuah diagram menggunakan workbook eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat membangun kembali workbook diagram dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/loadoptions/), konfigurasikan dengan [SpreadsheetOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/spreadsheetoptions/), dan panggil [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) dengan `True` sebelum membuka presentasi.
+Jika sebuah diagram menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat merekonstruksi buku kerja diagram dari data yang disimpan dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/loadoptions/), konfigurasikan dengan [SpreadsheetOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/spreadsheetoptions/), dan panggil [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) dengan `True` sebelum membuka presentasi.
 
-Contoh Python berikut membuka presentasi yang diagramnya merujuk ke workbook eksternal yang tidak tersedia dan mengakses data yang dipulihkan melalui [Chart.getChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#getChartData) dan [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Contoh Python berikut membuka presentasi yang diagramnya merujuk ke buku kerja eksternal yang tidak tersedia dan mengakses data yang dipulihkan melalui [Chart.getChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#getChartData) dan [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
-    jpime.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import LoadOptions, Presentation, SpreadsheetOptions
 
@@ -372,29 +380,35 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Baca atau modifikasi data workbook yang dipulihkan di sini.
+    # Baca atau ubah data buku kerja yang dipulihkan di sini.
 finally:
     presentation.dispose()
 ```
 
-Jika workbook eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika penggunaan data diagram yang di‑cache dapat diterima sebagai alternatif, karena cache mungkin tidak berisi perubahan yang dilakukan pada workbook eksternal setelah presentasi terakhir diperbarui.
+Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika penggunaan data diagram yang disimpan dalam cache dapat diterima sebagai alternatif, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir kali diperbarui.
 
 ## **FAQ**
 
-**Apakah saya dapat menentukan apakah sebuah diagram tertentu terhubung ke workbook eksternal atau yang tertanam?**  
-Ya. Sebuah diagram memiliki [jenis sumber data](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getDataSourceType) dan [jalur ke workbook eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); jika sumbernya adalah workbook eksternal, Anda dapat membaca jalur lengkap untuk memastikan bahwa file eksternal sedang digunakan.
+**Apakah saya dapat menentukan apakah diagram tertentu terhubung ke buku kerja eksternal atau tertanam?**
 
-**Apakah jalur relatif ke workbook eksternal didukung, dan bagaimana mereka disimpan?**  
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, perlu diketahui bahwa presentasi akan menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) di dalam file PPTX.
+Ya. Sebuah diagram memiliki [jenis sumber data](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getDataSourceType) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
 
-**Apakah saya dapat menggunakan workbook yang terletak di sumber daya/sistem berbagi jaringan?**  
-Ya, workbook tersebut dapat digunakan sebagai sumber data eksternal. Namun, mengedit workbook jarak jauh secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat digunakan sebagai sumber.
+**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana mereka disimpan?**
 
-**Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**  
-Tidak. Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak diubah ketika presentasi disimpan.
+Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Hal ini memudahkan portabilitas proyek; namun, perlu diketahui bahwa presentasi akan menyimpan jalur absolut dalam file PPTX.
 
-**Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**  
-Aspose.Slides tidak menerima kata sandi saat menautkan. Pendekatan umum adalah menghapus perlindungan terlebih dahulu atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/python-java/)) dan menautkan ke salinan tersebut.
+**Apakah saya dapat menggunakan buku kerja yang berada di sumber daya/jaringan bersama?**
 
-**Apakah beberapa diagram dapat merujuk ke workbook eksternal yang sama?**  
-Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin di setiap diagram pada saat data dimuat berikutnya.
+Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, penyuntingan buku kerja jauh secara langsung dari Aspose.Slides tidak didukung — mereka hanya dapat digunakan sebagai sumber.
+
+**Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
+
+Tidak. Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak dimodifikasi saat presentasi disimpan.
+
+**Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**
+
+Aspose.Slides tidak menerima kata sandi saat membuat tautan. Pendekatan umum adalah menghapus perlindungan sebelumnya atau menyiapkan salinan yang sudah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/python-java/)) dan menautkan ke salinan tersebut.
+
+**Dapatkah beberapa diagram merujuk ke buku kerja eksternal yang sama?**
+
+Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap diagram pada saat berikutnya data dimuat.

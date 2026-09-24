@@ -1,5 +1,5 @@
 ---
-title: Z zarządzanie seriami danych wykresu w prezentacjach w Pythonie
+title: Zarządzanie seriami danych wykresu w prezentacjach w Pythonie
 linktitle: Serie danych
 type: docs
 url: /pl/python-java/chart-series/
@@ -17,29 +17,29 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy i wartościami ujemnymi w prezentacjach przy użyciu Aspose.Slides dla Pythona poprzez Java."
+description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy oraz wartościami ujemnymi w prezentacjach przy użyciu Aspose.Slides dla Pythona w środowisku Java."
 ---
 ## **Przegląd**
 
-Wykres przechowuje swoje wyświetlane dane w skoroszycie danych wykresu. A [ChartSeries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [ChartDataPoint](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapoint/) w serii odnosi się do jednej lub wielu komórek skoroszytu. Obiekty [ChartCategory](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartcategory/) dostarczają etykiet lub wartości grupowania współdzielonych przez serie. Nazwa serii, kategorie i wartości punktów są więc połączone z obiektami [ChartDataCell](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatacell/), a nie przechowywane wyłącznie jako tekst wyświetlany.
+Wykres przechowuje swoje wykreślone dane w skoroszycie danych wykresu. **ChartSeries** reprezentuje jeden zestaw powiązanych wartości, a każdy **ChartDataPoint** w serii odnosi się do jednej lub kilku komórek skoroszytu. Obiekty **ChartCategory** dostarczają etykiety lub wartości grupujące współdzielone przez serie. Nazwa serii, kategorie i wartości punktów są więc powiązane z obiektami **ChartDataCell**, a nie przechowywane wyłącznie jako tekst wyświetlany.
 
-Dla typowego wykresu kategoriowego domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii i pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdataworkbook/#getCell) są zerowe. Ten układ jest przydatny, gdy tworzysz wykres z danymi domyślnymi, ale nie zakładaj, że każdy istniejący wykres go używa. Dla wczytanej prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
+Dla typowego wykresu kategorialnego domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumn przekazywane do **ChartDataWorkbook.getCell** są zerowe. Takie ułożenie jest przydatne przy tworzeniu wykresu z danymi domyślnymi, ale nie należy zakładać, że każdy istniejący wykres używa go. Dla załadowanej prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
 
 Ustawienia wykresu mają trzy różne zakresy:
 
-- Ustawienia na poziomie serii, takie jak [ChartSeries.getFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getFormat), zapewniają domyślny wygląd wszystkich punktów w jednej serii.  
-- Ustawienia punktu danych, takie jak [ChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapoint/#getFormat), nadpisują wygląd serii dla jednego punktu.  
-- Ustawienia grupy mają zastosowanie do kompatybilnych serii, które należą do tej samej [ChartSeriesGroup](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseriesgroup/). Dostęp do grupy uzyskujesz przez [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getParentSeriesGroup), gdy musisz ustawić opcje takie jak nakładanie lub szerokość przerwy.
+- Ustawienia na poziomie serii, takie jak **ChartSeries.getFormat**, określają domyślny wygląd wszystkich punktów w jednej serii.
+- Ustawienia punktu danych, takie jak **ChartDataPoint.getFormat**, nadpisują wygląd serii dla jednego punktu.
+- Ustawienia grupy dotyczą zgodnych serii należących do tego samego **ChartSeriesGroup**. Dostęp do grupy uzyskuje się przez **ChartSeries.getParentSeriesGroup**, gdy trzeba ustawić opcje takie jak nakładanie lub szerokość przerwy.
 
-Gdy nie jest ustawione wyraźne wypełnienie punktu lub serii, styl i motyw wykresu określają automatyczny wygląd. Gdy istnieje zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
+Gdy nie jest ustawione wyraźne wypełnienie punktu lub serii, styl i motyw wykresu określają automatyczny wygląd. Gdy obecne są zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Ustaw nakładanie serii wykresu**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getOverlap) raportuje, jak bardzo słupki lub kolumny nakładają się w wykresie 2D, w przedziale od -100 do 100 procent. Jest to projekcja tylko do odczytu ustawienia w grupie nadrzędnej serii. Użyj [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseriesgroup/#setOverlap), aby zaktualizować każdą kompatybilną serię w tej grupie. Opcja ta obowiązuje typy wykresów wyświetlające grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
+**ChartSeries.getOverlap** podaje, jak bardzo słupki lub kolumny nachodzą na siebie w wykresie 2 D, w przedziale od ‑100 do 100 procent. Jest to odczytowa projekcja ustawienia w grupie nadrzędnej serii. Użyj **ChartSeriesGroup.setOverlap**, aby zaktualizować wszystkie zgodne serie w tej grupie. Opcja ta ma zastosowanie do typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
 
-Poniższy przykład ustawia nakładanie dla grupy, która zawiera pierwszą serię:
+Poniższy przykład ustawia nakładanie dla grupy zawierającej pierwszą serię:
 
 ```python
 import jpype
@@ -75,7 +75,7 @@ Wynik:
 
 ## **Zmień kolor wypełnienia serii**
 
-Użyj [ChartSeries.getFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getFormat), aby ustawić domyślne wypełnienie całej serii. Jeśli punkt ma już wyraźne wypełnienie, jego ustawienie [ChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapoint/#getFormat) nadpisuje wypełnienie serii dla tego punktu.
+Użyj **ChartSeries.getFormat**, aby ustawić domyślne wypełnienie dla całej serii. Jeśli punkt ma już wyraźne wypełnienie, jego ustawienie **ChartDataPoint.getFormat** nadpisuje wypełnienie serii dla tego punktu.
 
 Poniższy przykład stosuje jednolite niebieskie wypełnienie do pierwszej serii:
 
@@ -114,7 +114,7 @@ Wynik:
 
 ## **Zmień nazwę serii**
 
-Nazwa serii jest przechowywana w skoroszycie danych wykresu i zazwyczaj wyświetlana jest w legendzie. W domyślnym skoroszycie utworzonym dla wykresu kolumnowego skumulowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Zmienna nazwana w poniższym przykładzie wyraźnie opisuje tę strukturę:
+Nazwa serii jest przechowywana w skoroszycie danych wykresu i zwykle wyświetlana w legendzie. W domyślnym skoroszycie utworzonym dla wykresu kolumnowego grupowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Zmienna w poniższym przykładzie wyraźnie określa tę strukturę:
 
 ```python
 import jpype
@@ -145,7 +145,7 @@ finally:
     presentation.dispose()
 ```
 
-Możesz także zaktualizować komórkę już odwoływaną przez [ChartSeries.getName](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getName). To podejście unika zakładania określonego wiersza i kolumny w istniejącym wykresie:
+Możesz także zaktualizować komórkę już odwoływaną przez **ChartSeries.getName**. Takie podejście unika założenia określonego wiersza i kolumny w istniejącym wykresie:
 
 ```python
 import jpype
@@ -181,7 +181,7 @@ Wynik:
 
 ## **Pobierz automatyczny kolor wypełnienia serii**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało wyraźnie zdefiniowane. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
+**ChartSeries.getAutomaticSeriesColor** zwraca kolor wyliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało jawnie określone. Wywołanie metody odczytuje wyliczony kolor; nie przypisuje nowego wypełnienia.
 
 Poniższy przykład wypisuje automatyczny kolor każdej domyślnej serii:
 
@@ -223,9 +223,9 @@ Dokładne kolory zależą od stylu i motywu wykresu.
 
 ## **Ustaw odwrócony kolor wypełnienia dla serii wykresu**
 
-Dla serii słupkowych, kolumnowych i bąbelkowych metoda [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#setInvertIfNegative) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwracanie i przypisz kolor wartości ujemnej przez [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Ujemne liczby pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
+Dla serii słupkowych, kolumnowych i bąbelkowych **ChartSeries.setInvertIfNegative** może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwracanie i przypisz kolor wartości ujemnej przez **ChartSeries.getInvertedSolidFillColor**. Liczby ujemne pozostają niezmienione w skoroszycie; zmienia się jedynie ich kolor wyświetlania.
 
-Poniższy przykład zamienia domyślne dane wykresu jedną serią. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 – nazwy kategorii, a kolumna 1 – wartości:
+Poniższy przykład zastępuje domyślne dane wykresu jedną serią. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 – nazwy kategorii, kolumna 1 – wartości:
 
 ```python
 import jpype
@@ -289,7 +289,7 @@ Wynik:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Możesz włączyć odwrócenie dla jednego punktu przez [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). W poniższym przykładzie odwrócenie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punktowi przypisano także wartość ujemną, aby efekt był widoczny:
+Odwrócenie można włączyć dla jednego punktu za pomocą **ChartDataPoint.setInvertIfNegative**. W poniższym przykładzie odwracanie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punkt otrzymuje także wartość ujemną, aby efekt był widoczny:
 
 ```python
 import jpype
@@ -329,9 +329,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Wyczyść określoną wartość punktu danych**
+## **Wyczyść konkretną wartość punktu danych**
 
-Aby uczynić jeden punkt pustym bez usuwania pozostałych, ustaw jego komórkę w skoroszycie na `None`. Dla wykresu kolumnowego wyświetlana wartość jest dostępna przez [ChartDataPoint.getValue](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapoint/#getValue). Punkt danych pozostaje w tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
+Aby uczynić jeden punkt pustym bez usuwania pozostałych, ustaw jego komórkę w skoroszycie na `None`. Dla wykresu kolumnowego wyświetlana wartość jest dostępna przez **ChartDataPoint.getValue**. Punkt pozostaje na tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
 
 Poniższy przykład czyści tylko drugi punkt w pierwszej serii:
 
@@ -363,13 +363,71 @@ finally:
     presentation.dispose()
 ```
 
-Wykresy punktowe (scatter) używają oddzielnych komórek X i Y, a wykresy bąbelkowe także komórki rozmiaru. Czyść tylko tę komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj [ChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapointcollection/#clear), gdy chcesz zachować pozostałe punkty, ponieważ metoda ta usuwa wszystkie punkty danych z kolekcji.
+Wykresy rozrzutu używają osobnych komórek X i Y, a wykresy bąbelkowe dodatkowo komórki rozmiaru. Czyść tylko komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj **ChartDataPointCollection.clear**, gdy chcesz zachować pozostałe punkty, ponieważ metoda ta usuwa wszystkie punkty z kolekcji.
 
-## **Ustaw szerokość przerwy między seriami**
+## **Kontroluj wyświetlanie pustych komórek**
 
-Szerokość przerwy to odstęp między sąsiadującymi skupiskami słupków lub kolumn, wyrażony jako procent szerokości słupka lub kolumny. Podobnie jak nakładanie, należy ona do grupy nadrzędnej serii, a nie do jednej serii. Wywołaj [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseriesgroup/#setGapWidth) raz dla grupy. większa wartość tworzy więcej przestrzeni między skupiskami; mniejsza wartość powoduje ich zagęszczenie.
+Pusta komórka skoroszytu oznacza brak danych; komórka zawierająca `0` oznacza znaną wartość liczbową. Wywołaj **ChartDataCell.setValue** z `None`, aby uczynić komórkę pustą. Zero liczbowe pozostaje zerem, niezależnie od ustawienia pustej komórki.
 
-Poniższy przykład zmienia szerokość przerwy i zapisuje tylko końcową prezentację:
+Użyj **Chart.setDisplayBlanksAs**, aby wybrać sposób wyświetlania pustych komórek przez wykres. Ustawienie to ma zastosowanie do całego wykresu. Zmienia sposób rysowania luk, nie wypełniając pustej komórki zerem ani interpolowaną wartością.
+
+Poniższy samodzielny przykład tworzy wykres liniowy z jedną serią, czyści wartość dla Dnia 3 i zapisuje wykres w trzech trybach. Nie wymaga pliku wejściowego. **ChartDataWorkbook** używa arkusza 0, kolumny 0 dla etykiet kategorii i kolumny 1 dla wartości; wiersz 0 zawiera nazwę serii. Ostateczne dane to `10, 20, empty, 30, 40`.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, DisplayBlanksAsType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 40, 40, 640, 400)
+    chart_data = chart.getChartData()
+    workbook = chart_data.getChartDataWorkbook()
+
+    chart_data.getSeries().clear()
+    chart_data.getCategories().clear()
+
+    series_name_cell = workbook.getCell(0, 0, 1, "Measurements")
+    series = chart_data.getSeries().add(series_name_cell, chart.getType())
+    values = [10, 20, 25, 30, 40]
+
+    for i, value in enumerate(values):
+        category_cell = workbook.getCell(0, i + 1, 0, f"Day {i + 1}")
+        chart_data.getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(value))
+        series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    # Pozostaw dzień 3 naprawdę pusty, zachowując jego kategorię i punkt danych.
+    workbook.getCell(0, 3, 1).setValue(None)
+
+    modes = [DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span]
+    mode_names = ["Gap", "Zero", "Span"]
+    for mode, mode_name in zip(modes, mode_names):
+        chart.setDisplayBlanksAs(mode)
+        presentation.save(f"empty_cells_{mode_name}.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Każdy plik wynikowy przechowuje tryb przypisany przed zapisem: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` i `empty_cells_Span.pptx`. Aby zapisać tylko jedną wersję, przypisz żądany tryb i zapisz prezentację raz, zamiast iterować po trybach.
+
+Poniższe porównanie pokazuje te same dane w trzech plikach. Dzień 3 jest pusty w skoroszycie we wszystkich przypadkach:
+
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+
+Widoczny efekt zależy od typu wykresu. Wykres liniowy umożliwia łatwe porównanie wszystkich trzech trybów. Wykresy słupkowe i kolumnowe nie mają linii łączącej brakującą kategorię, więc **Span** nie może utworzyć pokazanego segmentu; brakująca kolumna i kolumna o wysokości zerowej mogą wyglądać podobnie. Podobnie wykres rozrzutu z samymi znacznikami nie ma linii łączącej. Nie oczekuj trzech odrębnych wyników dla każdego typu wykresu; sprawdź wynik dla używanego typu.
+
+## **Ustaw szerokość przerwy serii**
+
+Szerokość przerwy to odstęp między sąsiednimi klastrami słupków lub kolumn, wyrażony jako procent szerokości słupka lub kolumny. Podobnie jak nakładanie, należy do grupy nadrzędnej serii, a nie do jednej serii. Wywołaj **ChartSeriesGroup.setGapWidth** raz dla grupy. Większa wartość tworzy większy odstęp między klastrami; mniejsza – zagęszcza je.
+
+Poniższy przykład zmienia szerokość przerwy i zapisuje tylko ostateczną prezentację:
 
 ```python
 import jpype
@@ -404,42 +462,42 @@ Wynik:
 
 ## **FAQ**
 
-**Jakie typy wykresów obsługują serie danych?**
+**Które typy wykresów obsługują serie danych?**
 
-Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/charttype/) używają danych wykresu, lecz ich serie nie zawsze mają tę samą strukturę wartości ani ustawienia. Na przykład wykresy kategorii używają kategorii i wartości, wykresy rozrzutu używają wartości X i Y, a wykresy bąbelkowe dodają rozmiary bąbelków. Użyj metody tworzenia punktu danych odpowiadającej typowi serii. Opcje takie jak nakładanie i szerokość przerwy mają zastosowanie tylko do kompatybilnych grup słupków lub kolumn.
+Wszystkie typy wykresów reprezentowane przez wyliczenie **ChartType** używają danych wykresu, ale ich serie nie mają takiej samej struktury wartości ani ustawień. Na przykład wykresy kategorialne używają kategorii i wartości, wykresy rozrzutu – wartości X i Y, a wykresy bąbelkowe dodatkowo rozmiary bąbelków. Użyj metody tworzenia punktu danych, która odpowiada typowi serii. Opcje takie jak nakładanie i szerokość przerwy mają zastosowanie tylko do zgodnych grup słupków lub kolumn.
 
-**Czym jest grupa serii wykresu?**
+** czym jest grupa serii wykresu?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia wykresu na poziomie grupy. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmieni wszystkie serie w wykresie.
+**ChartSeriesGroup** zawiera zgodne serie, które współdzielą ustawienia poziomu grupy. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmieni wszystkie serie w wykresie.
 
 **Czy nowo utworzony wykres zawiera domyślne dane?**
 
-Tak. Domyślnie metoda [ShapeCollection.addChart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/#addChart) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może także utworzyć wykres bez danych domyślnych.
+Tak. Domyślnie **ShapeCollection.addChart** tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub usunąć zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może także utworzyć wykres bez danych domyślnych.
 
-**W jaki sposób obiekty wykresu są powiązane z komórkami skoroszytu?**
+**Jak obiekty wykresu są powiązane z komórkami skoroszytu?**
 
-Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdataworkbook/). Zmiana odwoływanej komórki aktualizuje odpowiadający element wykresu. Budując własne dane, zachowaj wyrównanie wierszy kategorii i wierszy wartości serii, aby każdy punkt był wykreślony pod odpowiednią kategorią.
+Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w **ChartDataWorkbook**. Zmiana odwołanej komórki aktualizuje odpowiadający element wykresu. Tworząc własne dane, zachowaj wyrównanie wierszy kategorii i wierszy wartości serii, aby każdy punkt był wykreślony pod właściwą kategorią.
 
 **Jak wyczyścić jeden punkt zamiast całej serii?**
 
-Ustaw odpowiednią komórkę wartości na `None`, aby zachować pozycję punktu w kategorii jako pusty punkt. Używaj [ChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapointcollection/#clear) tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostały zgodne z kolekcją kategorii.
+Ustaw odpowiednią komórkę wartości na `None`, aby zachować pozycję kategorii punktu jako pusty punkt. Używaj **ChartDataPointCollection.clear** tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostały wyrównane z kolekcją kategorii.
 
 **Jak wyświetlane są puste punkty?**
 
-Wynik zależy od typu wykresu oraz wartości skonfigurowanej w [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#setDisplayBlanksAs). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zero lub poprzez połączenie sąsiednich punktów. Wybierz ustawienie odpowiadające znaczeniu brakujących danych w Twojej prezentacji.
+Wynik zależy od typu wykresu i ustawienia wybranego w **Chart.setDisplayBlanksAs**. Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zerowe lub łącząc sąsiednie punkty. Wybierz ustawienie odpowiadające znaczeniu brakujących danych w prezentacji. Zobacz **Kontroluj wyświetlanie pustych komórek** po kompletny przykład i porównanie wizualne.
 
 **Jak formatowane są wartości ujemne?**
 
-Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#setInvertIfNegative) i ustaw kolor zwracany przez [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Zachowanie można nadpisać dla pojedynczego punktu przy użyciu [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Metody te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
+Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj **ChartSeries.setInvertIfNegative** i ustaw kolor zwrócony przez **ChartSeries.getInvertedSolidFillColor**. Zachowanie można nadpisać dla pojedynczego punktu przy pomocy **ChartDataPoint.setInvertIfNegative**. Metody te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
 
-**Które formatowanie ma pierwszeństwo, gdy zarówno seria, jak i punkt są sformatowane?**
+**Które formatowanie wygrywa, gdy zarówno seria, jak i punkt są sformatowane?**
 
-Wyraźne formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal używają wyraźnego formatu serii lub, gdy format serii nie jest zdefiniowany, automatycznego stylu i motywu wykresu. Ustawienia grupy, takie jak nakładanie i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania na poziomie punktu.
+Jawne formatowanie punktu ma pierwszeństwo dla tego punktu. Inne punkty nadal używają wyraźnego formatu serii lub, gdy format serii nie jest zdefiniowany, automatycznego stylu i motywu wykresu. Ustawienia grupy, takie jak nakładanie i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania na poziomie punktu.
 
-**Czy istnieje limit liczby serii, które wykres może zawierać?**
+**Czy istnieje limit liczby serii w wykresie?**
 
-Aspose.Slides nie narzuca odrębnego stałego limitu liczby serii. W praktyce ograniczenia wynikają z rozmiaru pliku prezentacji, dostępnej pamięci, czasu renderowania oraz czytelności wykresu.
+Aspose.Slides nie narzuca oddzielnego stałego limitu liczby serii. W praktyce ograniczenia wynikają z ograniczeń pliku prezentacji, dostępnej pamięci, czasu renderowania oraz czytelności wykresu.
 
-**Co zmienić, gdy kolumny są za blisko siebie lub za daleko od siebie?**
+**Co zmienić, gdy kolumny są zbyt blisko siebie lub zbyt daleko od siebie?**
 
-Wywołaj [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseriesgroup/#setGapWidth) na odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć odstęp między grupami, lub zmniejsz ją, aby przybliżyć grupy do siebie.
+Wywołaj **ChartSeriesGroup.setGapWidth** na odpowiedniej grupie nadrzędnej serii. Zwiększ wartość, aby poszerzyć odstęp między klastrami, lub zmniejsz, aby przybliżyć je do siebie.

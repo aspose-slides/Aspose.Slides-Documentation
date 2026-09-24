@@ -1,11 +1,11 @@
 ---
-title: Hantera diagramserier i presentationer i C++
+title: Hantera diagramdataserier i presentationer i C++
 linktitle: Dataserier
 type: docs
 url: /sv/cpp/chart-series/
 keywords:
 - diagramserie
-- serielöverlappning
+- serieöverlappning
 - seriefärg
 - kategorifärg
 - serienamn
@@ -19,25 +19,25 @@ description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsbokscel
 ---
 ## **Översikt**
 
-Ett diagram lagrar sina plottade data i en diagramdatabok. En [IChartSeries](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/) representerar en uppsättning relaterade värden, och varje [IChartDataPoint](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/) i serien refererar till en eller flera celler i arbetsboken. [IChartCategory](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartcategory/)‑objekt tillhandahåller etiketter eller grupperingvärden som delas av serierna. Serienamn, kategorier och datapunktvärden är därför kopplade till [IChartDataCell](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatacell/)‑objekt snarare än att bara lagras som visningstext.
+Ett diagram lagrar sina plottade data i en diagramdataarbetsbok. En [IChartSeries](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/) representerar ett set av relaterade värden, och varje [IChartDataPoint](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/) i serien refererar till en eller flera celler i arbetsboken. [IChartCategory](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartcategory/)‑objekt tillhandahåller etiketter eller grupperingsvärden som delas av serierna. Serienamnet, kategorierna och punktvärdena är därför kopplade till [IChartDataCell](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatacell/)‑objekt snarare än att bara lagras som visningstext.
 
-För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn och de återstående cellerna för serievärden. Arbetsblad, rad‑ och kolumnindex som skickas till [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera cellerna som refereras av serierna, kategorierna och datapunkterna innan du ändrar arbetsboksvärden.
+För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn och de återstående cellerna för serievärden. Arbetsblads‑, rad‑ och kolumnindex som skickas till [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera cellerna som refereras av serierna, kategorierna och datapunkterna innan du ändrar arbetsboksvärden.
 
-Diagraminställningar har tre olika räckvidder:
+Diagraminställningarna har tre olika omfång:
 
-- Inställningar på serienivå, såsom [IChartSeries::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_format/), ger standardutseendet för alla punkter i en serie.
-- Inställningar för datapunkt, såsom [IChartDataPoint::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_format/), åsidosätter serieutseendet för en punkt.
-- Gruppinställningar gäller kompatibla serier som tillhör samma [IChartSeriesGroup](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/). Åtkom gruppen via [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) när du behöver ange alternativ såsom överlappning eller gapbredd.
+- Inställningar på serie‑nivå, såsom [IChartSeries::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_format/), anger standardutseendet för alla punkter i en serie.
+- Inställningar på datapunkt‑nivå, såsom [IChartDataPoint::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_format/), åsidosätter serieutseendet för en enskild punkt.
+- Gruppinställningar gäller kompatibla serier som tillhör samma [IChartSeriesGroup](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/). Åtkomst till gruppen sker via [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) när du behöver ange alternativ som överlappning eller gapbredd.
 
-När ingen explicit punkt‑ eller seriefyllning är angiven bestämmer diagramstilen och temat det automatiska utseendet. När både serie‑ och punktformatering finns, har punktformateringen företräde för den punkten.
+När ingen explicit fyllning för punkt eller serie är angiven bestämmer diagramstilen och temat det automatiska utseendet. När både serie‑ och punktformat finns, har punktformatet företräde för den punkten.
 
-![diagram-serier-powerpoint](chart-series-powerpoint.png)
+![diagram-serie-powerpoint](chart-series-powerpoint.png)
 
-## **Ställ in diagramseriens överlappning**
+## **Ställ in överlappning för diagramserier**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_overlap/) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D‑diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade seriegroupsen. Anropa [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) för att uppdatera alla kompatibla serier i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade seriegupper i ett kombinationsdiagram.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_overlap/) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D‑diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade seriesgruppen. Anropa [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) för att uppdatera varje kompatibel serie i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade seriesgrupper i ett kombinationsdiagram.
 
-Följande exempel sätter överlappningen för den grupp som innehåller den första serien:
+Följande exempel ställer in överlappning för gruppen som innehåller den första serien:
 
 ```cpp
 #include <cstdint>
@@ -77,13 +77,13 @@ presentation->Dispose();
 
 Resultatet:
 
-![Seriens överlappning](series_overlap.png)
+![Serie‑överlappning](series_overlap.png)
 
-## **Ändra seriefyllningsfärgen**
+## **Ändra färg för serie‑fyllning**
 
-Använd [IChartSeries::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_format/) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning, åsidosätter dess [IChartDataPoint::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_format/) inställning seriefyllningen för den punkten.
+Använd [IChartSeries::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_format/) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning åsidosätter dess [IChartDataPoint::get_Format](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_format/) inställning seriefyllningen för den punkten.
 
-Följande exempel applicerar en solid blå fyllning på den första serien:
+Följande exempel tillämpar en solid blå fyllning på den första serien:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -128,11 +128,11 @@ presentation->Dispose();
 
 Resultatet:
 
-![Färgen på serien](series_color.png)
+![Serie‑färgen](series_color.png)
 
-## **Ändra seriens namn**
+## **Ändra serienamnet**
 
-Ett serienamn lagras i diagramdataboken och visas normalt i förklaringen. I standardarbetsboken som skapas för ett grupperat stapeldiagram ligger cell B1 i rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen explicit:
+Ett serienamn lagras i diagramdataarbetsboken och visas normalt i förklaringen. I standardarbetsboken som skapas för ett grupperat kolumndiagram är cell B1 på rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen tydlig:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +173,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Du kan också uppdatera den cell som redan refereras av [IChartSeries::get_Name](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_name/). Detta tillvägagångssätt undviker att anta en särskild rad och kolumn i ett befintligt diagram:
+Du kan också uppdatera cellen som redan refereras av [IChartSeries::get_Name](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_name/). Detta tillvägagångssätt undviker att anta en särskild rad och kolumn i ett befintligt diagram:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -220,11 +220,11 @@ presentation->Dispose();
 
 Resultatet:
 
-![Seriens namn](series_name.png)
+![Serie‑namn](series_name.png)
 
-## **Hämta den automatiska seriefyllningsfärgen**
+## **Hämta automatisk färg för serie‑fyllning**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) returnerar färgen som beräknas utifrån serie‑indexet och diagramstilen. Detta är färgen som används när seriefyllningen inte har definierats explicit. Att anropa metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) returnerar färgen som beräknas utifrån serieindexet och diagramstilen. Detta är färgen som används när seriefyllningen inte har definierats explicit. Anropet läser den beräknade färgen; det tilldelar ingen ny fyllning.
 
 Följande exempel skriver ut den automatiska färgen för varje standardserie:
 
@@ -276,13 +276,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-De exakta färgerna beror på diagramstil och tema.
+De exakta färgerna beror på diagramstilen och temat.
 
 ## **Ställ in inverterad fyllningsfärg för en diagramserie**
 
-För stapel‑, kolumn‑ och bubbelse serier kan [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) visa negativa värden med en annan fyllning. Ställ in den vanliga seriefyllningen till solid, aktivera invertering och tilldela färgen för negativa värden via [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Negativa tal förblir oförändrade i arbetsboken; endast deras displayfärg ändras.
+För stapel‑, kolumn‑ och bubbeldiagram kan [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) visa negativa värden med en annan fyllning. Ställ in den vanliga seriefyllningen till solid, aktivera inversion och tilldela färgen för negativa värden via [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Negativa tal förblir oförändrade i arbetsboken; bara deras visningsfärg ändras.
 
-Följande exempel ersätter standarddiagramdata med en serie. Arbetsbladsrad 0 innehåller serienamnet, kolumn 0 innehåller kategorinamn och kolumn 1 innehåller värdena:
+Följande exempel ersätter standarddiagramdata med en serie. Arbetsbladsrad 0 innehåller serienamnet, kolumn 0 innehåller kategorinamnen och kolumn 1 innehåller värdena:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -370,9 +370,9 @@ presentation->Dispose();
 
 Resultatet:
 
-![Den inverterade solida fyllningsfärgen](inverted_solid_fill_color.png)
+![Inverterad solid fyllningsfärg](inverted_solid_fill_color.png)
 
-Du kan aktivera invertering för en punkt genom [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). I följande exempel är inverteringen inaktiverad för serien och endast aktiverad för den valda punkten. Punkten får också ett negativt värde så att effekten syns:
+Du kan aktivera inversion för en punkt via [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). I följande exempel är inversion inaktiverad för serien och endast aktiverad för den valda punkten. Punkten får dessutom ett negativt värde så att effekten blir synlig:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -432,7 +432,7 @@ presentation->Dispose();
 
 ## **Rensa ett specifikt datapunktvärde**
 
-För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande arbetsboks­cell till `nullptr`. För ett stapeldiagram är det plottade värdet tillgängligt via [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Datapunkten behåller samma kategori­position, men diagrammet behandlar värdet som tomt enligt diagrammets inställningar för tomma värden.
+För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande arbetsbokscell till `nullptr`. För ett kolumndiagram är det plottade värdet tillgängligt via [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Datapunkten behåller samma kategori‑position, men diagrammet behandlar dess värde som tomt enligt diagrammets inställningar för tomma värden.
 
 Följande exempel rensar endast den andra punkten i den första serien:
 
@@ -473,13 +473,95 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Scatter‑diagram använder separata X‑ och Y‑celler, och bubbeldiagram använder också en storlekscell. Rensa endast den cell som representerar värdet du vill ta bort. Anropa inte [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) när du vill behålla de andra punkterna, eftersom den metoden tar bort alla datapunkter i samlingen.
+Spridningsdiagram använder separata X‑ och Y‑celler, och bubbeldiagram använder också en storlekscell. Rensa endast den cell som representerar det värde du avser att ta bort. Anropa inte [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) när du vill behålla de andra punkterna, eftersom den metoden tar bort varje datapunkt i samlingen.
 
-## **Ställ in seriegapbredden**
+## **Styr visning av tomma celler**
 
-Gapbredd är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt i procent av stapel‑ eller kolumnbredden. Liksom överlappning hör den till den överordnade seriegroupsen snarare än till en enskild serie. Anropa [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) en gång för gruppen. Ett större värde skapar mer utrymme mellan klustren; ett mindre värde gör dem tätare.
+En tom arbetsbokscell representerar saknade data; en cell som innehåller `0` representerar ett känt numeriskt värde. Anropa [IChartDataCell::set_Value](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatacell/set_value/) med `nullptr` för att göra en cell tom. Ett numeriskt nollvärde förblir noll oavsett inställning för tomma celler.
 
-Följande exempel ändrar gapbredden och sparar endast den slutgiltiga presentationen:
+Använd [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/set_displayblanksas/) för att välja hur diagrammet visar tomma celler. Denna inställning gäller för hela diagrammet. Den ändrar hur tomma värden plottas utan att fylla den tomma arbetsbokscellen med noll eller ett interpolerat värde.
+
+Följande fristående exempel skapar ett linjediagram med en serie, rensar värdet för Dag 3 och sparar samma diagram med varje läge. Ingen indatafil krävs. [IChartDataWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/) använder arbetsblad 0, kolumn 0 för kategorietiketter och kolumn 1 för värden; rad 0 innehåller serienamnet. Den slutliga datan är `10, 20, empty, 30, 40`.
+
+```cpp
+#include <array>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/DisplayBlanksAsType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using System::ObjectExt;
+using System::String;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::LineWithMarkers, 40.0f, 40.0f, 640.0f, 400.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+
+auto seriesName = ObjectExt::Box<String>(u"Measurements");
+auto seriesNameCell = workbook->GetCell(0, 0, 1, seriesName);
+auto series = chartData->get_Series()->Add(seriesNameCell, chart->get_Type());
+auto values = std::array<int, 5>{10, 20, 25, 30, 40};
+
+for (auto i = 0; i < values.size(); i++)
+{
+    auto categoryName = String::Format(u"Day {0}", i + 1);
+    auto boxedCategoryName = ObjectExt::Box<String>(categoryName);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, boxedCategoryName);
+    chartData->get_Categories()->Add(categoryCell);
+    auto boxedValue = ObjectExt::Box<int>(values[i]);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, boxedValue);
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
+
+// Leave Day 3 genuinely empty, while retaining its category and data point.
+workbook->GetCell(0, 3, 1)->set_Value(nullptr);
+
+auto modes = std::array<DisplayBlanksAsType, 3>{DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span};
+for (auto mode : modes)
+{
+    chart->set_DisplayBlanksAs(mode);
+    auto outputPath = String::Format(u"empty_cells_{0}.pptx", mode);
+    presentation->Save(outputPath, SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Varje utdatafil sparar läget som tilldelats innan sparning: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` och `empty_cells_Span.pptx`. För att spara endast en version, tilldela önskat läge och spara presentationen en gång istället för att iterera över lägena.
+
+Jämförelsen nedan visar samma data i alla tre filerna. Dag 3 är tom i arbetsboken i varje fall:
+
+![Linjediagram med identiska data: Gap bryter linjen vid Dag 3, Zero sänker linjen till noll, och Span kopplar Dag 2 till Dag 4.](display_blanks_as.png)
+
+Den synliga effekten beror på diagramtypen. Ett linjediagram gör alla tre lägen enkla att jämföra. Stapel‑ och kolumndiagram har ingen linje att koppla över en saknad kategori, så `Span` kan inte skapa den anslutande sektionen som visas ovan; en saknad kolumn och en noll‑höjd kolumn kan också se lika ut. På samma sätt har ett spridningsdiagram med endast markörer ingen anslutningslinje. Förvänta dig inte tre distinkta resultat för varje diagramtyp; kontrollera utdata för den typ du använder.
+
+## **Ställ in serienas gapbredd**
+
+Gapbredd är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt som procent av stapel‑ eller kolumnbredden. På samma sätt som överlappning tillhör den den överordnade seriesgruppen snarare än en enskild serie. Anropa [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) en gång för gruppen. Ett större värde skapar mer utrymme mellan klustren; ett mindre värde gör dem tätare.
+
+Följande exempel ändrar gapbredden och sparar endast den slutliga presentationen:
 
 ```cpp
 #include <cstdint>
@@ -518,46 +600,46 @@ presentation->Dispose();
 
 Resultatet:
 
-![Gapbredden](gap_width.png)
+![Gapbredd](gap_width.png)
 
 ## **FAQ**
 
-**Vilka diagramtyper stödjer dataserier?**
+**Vilka diagramtyper stöder dataserier?**
 
-Alla diagramtyper som representeras av enumen [ChartType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/charttype/) använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, scatter‑diagram använder X‑ och Y‑värden, och bubbeldiagram lägger till bubbelframstorlekar. Använd den datapunkt‑skapandemetod som matchar serietypen. Alternativ såsom överlappning och gapbredd gäller endast kompatibla stapel‑ eller kolumngrupper.
+Alla diagramtyper som representeras av uppräkningen [ChartType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/charttype/) använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, spridningsdiagram använder X‑ och Y‑värden, och bubbeldiagram lägger till bubbelförråd. Använd den datapunkt‑skapar‑metod som matchar serietypen. Alternativ som överlappning och gapbredd gäller endast kompatibla stapel‑ eller kolumngrupper.
 
-**Vad är en diagramseriegroupp?**
+**Vad är en diagramseriegroupe?**
 
-En [IChartSeriesGroup](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/) innehåller kompatibla serier som delar gruppnivå‑plotting‑inställningar. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändra gruppen som nås via en serie nödvändigtvis inte förändrar varje serie i diagrammet.
+En [IChartSeriesGroup](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/) innehåller kompatibla serier som delar grupp‑nivå plotinställningar. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändra gruppen som nås via en serie förändrar inte nödvändigtvis alla serier i diagrammet.
 
-**Skapar ett nyskapat diagram standarddata?**
+**Innehåller ett nyskapat diagram standarddata?**
 
-Ja. Som standard skapar [IShapeCollection::AddChart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/addchart/) exempelserier, kategorier och värden. Du kan redigera dessa celler eller rensa både serie‑ och kategori‑samlingarna innan du lägger till ett helt anpassat datasätt. En överlagring kan också skapa ett diagram utan standarddata.
+Ja. Som standard skapar [IShapeCollection::AddChart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/addchart/) exempelserier, kategorier och värden. Du kan redigera dessa celler eller rensa både serie‑ och kategorisamlingarna innan du lägger till ett helt anpassat dataset. En overload kan också skapa ett diagram utan standarddata.
 
-**Hur är diagramobjekt kopplade till arbetsboks‑celler?**
+**Hur är diagramobjekt kopplade till arbetsboksceller?**
 
-Serienamn, kategori‑etiketter och datapunktvärden refererar till celler i en [IChartDataWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagramdel. När du bygger anpassade data, håll kategorirader och serie‑värderader i linje så att varje punkt plottas under rätt kategori.
+Serienamn, kategorietiketter och datapunktvärden refererar till celler i en [IChartDataWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagramdel. När du bygger anpassade data, håll kategorirader och serie‑värderader i synk så att varje punkt plottas under avsedd kategori.
 
-**Hur rensar jag en punkt istället för hela serien?**
+**Hur rensar jag en punkt utan att rensa hela serien?**
 
-Sätt den relevanta värdecellen till `nullptr` för att behålla punktens kategori­position som en tom punkt. Anropa [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) endast när du avser att ta bort alla punkter från den serien. Om du även tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategori‑samlingen.
+Sätt den relevanta värdecellen till `nullptr` för att behålla punktens kategori‑position som en tom punkt. Anropa [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) endast när du avser att ta bort alla punkter från den serien. Om du även tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategorisamlingen.
 
 **Hur visas tomma punkter?**
 
-Resultatet beror på diagramtyp och [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Stödda diagram kan visa tomma värden som luckor, som nollvärden eller genom att ansluta närliggande punkter. Välj det alternativ som matchar innebörden av saknad data i din presentation.
+Resultatet beror på diagramtyp och [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Stödda diagram kan visa tomrum som gap, som nollvärden eller genom att ansluta grannpunkter. Välj den inställning som motsvarar betydelsen av saknade data i din presentation. Se avsnittet [Styr visning av tomma celler](#control-the-display-of-empty-cells) för ett komplett exempel och visuell jämförelse.
 
 **Hur formateras negativa värden?**
 
-För stödda stapel‑, kolumn‑ och bubbelse kan du anropa [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) och ange färgen via [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Du kan åsidosätta beteendet för en enskild punkt med [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Dessa metoder påverkar formatering, inte de lagrade numeriska värdena.
+För stödda stapel‑, kolumn‑ och bubbeldiagram, anropa [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) och ange färgen via [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Du kan åsidosätta beteendet för en enskild punkt med [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Dessa metoder påverkar formatering, inte de lagrade numeriska värdena.
 
-**Vilken formatering har företräde när både en serie och en punkt är formaterade?**
+**Vilken formatering vinner när både en serie och en punkt är formaterade?**
 
-Explicit datapunktformatering har företräde för den punkten. Övriga punkter fortsätter att använda den explicita serieformaten eller, när serieformatet inte är definierat, den automatiska diagramstilen och temat. Gruppinställningar såsom överlappning och gapbredd styr layout och är inte punkt‑nivå‑formateringsåsidosättningar.
+Explicit datapunkt‑formatering har företräde för den punkten. Andra punkter fortsätter att använda den explicita serieformatet eller, när serieformatet inte är definierat, den automatiska diagramstilen och temat. Gruppinställningar såsom överlappning och gapbredd styr layout och är inte format‑överskrivningar på punkt‑nivå.
 
 **Finns det en gräns för hur många serier ett diagram kan innehålla?**
 
-Aspose.Slides har ingen separat fast gräns för antalet serier. I praktiken bestäms en användbar gräns av presentationsfilens begränsningar, tillgängligt minne, renderings‑tid och diagrammets läsbarhet.
+Aspose.Slides pålägger ingen separat fast gräns för antalet serier. I praktiken bestäms en rimlig gräns av presentationsfilens begränsningar, tillgängligt minne, renderingtid och diagrammets läsbarhet.
 
-**Vad bör jag ändra när kolumner är för nära varandra eller för långt ifrån varandra?**
+**Vad bör jag justera när kolumnerna är för nära varandra eller för långt isär?**
 
-Anropa [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) på den aktuella överordnade seriegroupsen. Öka värdet för att bredda avståndet mellan kluster, eller minska det för att föra klustren närmare varandra.
+Anropa [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) på den aktuella överordnade seriesgruppen. Öka värdet för att bredda avståndet mellan klustren, eller minska det för att föra klustren närmare varandra.

@@ -1,14 +1,14 @@
 ---
-title: Gérer les classeurs de graphiques dans les présentations avec JavaScript
+title: Gestion des classeurs de graphiques dans les présentations avec JavaScript
 linktitle: Classeur de graphique
 type: docs
 weight: 70
 url: /fr/nodejs-java/chart-workbook/
 keywords:
 - classeur de graphique
-- données du graphique
+- données de graphique
 - cellule de classeur
-- étiquette de données
+- libellé de données
 - feuille de calcul
 - source de données
 - classeur externe
@@ -20,17 +20,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Découvrez Aspose.Slides pour Node.js via Java : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour rationaliser les données de votre présentation."
+description: "Découvrez Aspose.Slides pour Node.js via Java: gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument afin d'optimiser les données de votre présentation."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire les données de graphiques via des flux de classeur, utiliser les cellules du classeur comme étiquettes de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs des graphiques.
+Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire des données de graphique via des flux de classeur, utiliser les cellules du classeur comme libellés de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
 
-Il couvre également le travail avec des classeurs externes comme sources de données de graphiques. Les exemples démontrent comment créer et affecter un classeur externe, récupérer le chemin d'un classeur externe lié à un graphique, et modifier les données du graphique lorsque le classeur est disponible.
+Il couvre également l’utilisation de classeurs externes comme sources de données pour les graphiques. Les exemples démontrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
 
-## **Lire et écrire des données de graphique depuis un classeur**
+Pour les cellules de classeur représentant des données manquantes, consultez [Contrôler l’affichage des cellules vides](/slides/fr/nodejs-java/chart-series/) pour connaître la différence entre une cellule vide et zéro, ainsi qu’une comparaison en graphique linéaire des modes d’affichage disponibles.
 
-Aspose.Slides fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) et [writeWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) qui permettent de lire et d'écrire les classeurs de données de graphique (contenant des données de graphique éditées avec Aspose.Cells). **Note** que les données du graphique doivent être organisées de la même manière ou posséder une structure similaire à la source.
+## **Lire et écrire des données de graphique à partir d’un classeur**
+
+Aspose.Slides fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) et [writeWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) qui permettent de lire et d’écrire des classeurs de données de graphique (contenant des données éditées avec Aspose.Cells). **Note** que les données du graphique doivent être organisées de la même manière ou posséder une structure similaire à la source.
+
+Ce code JavaScript montre une opération d’exemple :
 
 ```javascript
 var aspose = aspose || {};
@@ -51,12 +55,12 @@ try {
 }
 ```
 
-### **Valider la disposition du graphique après modification du classeur**
+### **Valider la mise en page du graphique après modification du classeur**
 
-Lorsque vous remplacez un classeur incorporé par un classeur modifié, le graphique conserve ses collections de séries et de catégories d'origine. Cette incohérence peut provoquer l'échec de [Chart.validateChartLayout](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/Chart#validateChartLayout--) avec une erreur d'index hors limites. Nettoyez les séries et catégories existantes avant d'écrire le classeur mis à jour dans le graphique.
+Lorsque vous remplacez un classeur incorporé par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut entraîner l’échec de [Chart.validateChartLayout](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/Chart#validateChartLayout--) avec une erreur d’indice hors plage. Effacez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique.
 
 ```javascript
-// Après avoir modifié le flux du classeur (p. ex., en utilisant Aspose.Cells)
+// Après avoir modifié le flux du classeur (par exemple, en utilisant Aspose.Cells)
 var updatedWorkbook = chartData.readWorkbookStream();
 
 // Effacer les références de données existantes.
@@ -68,18 +72,18 @@ chartData.writeWorkbookStream(updatedWorkbook);
 chart.validateChartLayout();
 ```
 
-Le nettoyage des collections garantit que la structure des données du graphique est cohérente avec le nouveau classeur, permettant ainsi à `validateChartLayout` de s'exécuter sans erreurs.
+Effacer les collections garantit que la structure des données du graphique est cohérente avec le nouveau classeur, ce qui permet à `validateChartLayout` de s’exécuter sans erreurs.
 
-## **Définir la cellule du classeur comme étiquette de données du graphique**
+## **Définir une cellule de classeur comme libellé de données du graphique**
 
-1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation) .
-1. Obtenez une référence à une diapositive via son indice.
+1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation).
+1. Obtenez la référence d’une diapositive via son indice.
 1. Ajoutez un graphique à bulles avec quelques données.
 1. Accédez aux séries du graphique.
-1. Définissez la cellule du classeur comme étiquette de données.
+1. Définissez la cellule du classeur comme libellé de données.
 1. Enregistrez la présentation.
 
-Ce code JavaScript montre comment définir une cellule de classeur comme étiquette de données du graphique :
+Ce code JavaScript montre comment définir une cellule de classeur comme libellé de données du graphique :
 
 ```javascript
 var aspose = aspose || {};
@@ -132,6 +136,8 @@ try {
 
 ## **Spécifier le type de source de données**
 
+Ce code JavaScript montre comment spécifier un type pour une source de données :
+
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
@@ -152,9 +158,9 @@ try {
 }
 ```
 
-## **Détecter les formats de classeur incorporés non pris en charge**
+## **Détecter les formats de classeur incorporé non pris en charge**
 
-Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être incorporé dans certains graphiques. Vous pouvez utiliser la méthode `getEmbeddedWorkbookType` sur [ChartData](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/) avec l'énumération [WorkbookType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques.
+Aspose.Slides ne prend pas en charge le format de classeur binaire Excel (.xlsb) qui peut être incorporé dans certains graphiques. Vous pouvez utiliser la méthode `getEmbeddedWorkbookType` sur [ChartData](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/) conjointement avec l’énumération [WorkbookType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques.
 
 ```js
 var aspose = aspose || {};
@@ -176,11 +182,11 @@ try {
 
         if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Le classeur incorporé est au format .xlsb, qui n’est pas pris en charge.
+            // Le classeur incorporé est au format .xlsb, qui n'est pas pris en charge.
             continue;
         }
 
-        // Lisez ou modifiez les données du classeur du graphique ici.
+        // Lire ou modifier les données du classeur du graphique ici.
     }
 } finally {
     presentation.dispose();
@@ -195,7 +201,7 @@ Aspose.Slides prend en charge les classeurs externes comme source de données po
 
 En utilisant les méthodes **`readWorkbookStream`** et **`setExternalWorkbook`**, vous pouvez soit créer un classeur externe à partir de zéro, soit rendre un classeur interne externe.
 
-Ce code JavaScript démontre le processus de création d'un classeur externe :
+Ce code JavaScript illustre le processus de création d’un classeur externe :
 
 ```javascript
 var aspose = aspose || {};
@@ -223,7 +229,7 @@ try {
 
 En utilisant la méthode **`setExternalWorkbook`**, vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin du classeur externe (si ce dernier a été déplacé).
 
-Bien que vous ne puissiez pas modifier les données dans les classeurs stockés à des emplacements distants ou dans des ressources, vous pouvez toujours les utiliser comme source de données externe. Si un chemin relatif pour un classeur externe est fourni, il est automatiquement converti en chemin absolu.
+Bien que vous ne puissiez pas modifier les données des classeurs stockés dans des emplacements distants ou des ressources, vous pouvez toujours les utiliser comme source de données externe. Si le chemin relatif d’un classeur externe est fourni, il est automatiquement converti en chemin complet.
 
 Ce code JavaScript montre comment définir un classeur externe :
 
@@ -254,7 +260,7 @@ try {
 
 Le deuxième paramètre de la méthode `setExternalWorkbook`, `updateChartData`, indique si le classeur Excel sera chargé ou non.
 
-* Lorsque `updateChartData` est défini sur `false`, seul le chemin du classeur est mis à jour — les données du graphique ne seront pas chargées ou mises à jour à partir du classeur cible. Vous pouvez utiliser ce paramètre lorsqu’il est possible que le classeur cible n’existe pas ou soit indisponible.
+* Lorsque `updateChartData` est défini sur `false`, seul le chemin du classeur est mis à jour — les données du graphique ne seront pas chargées ou mises à jour à partir du classeur cible. Cette option est utile lorsqu’il n’existe pas ou que le classeur cible est indisponible.
 * Lorsque `updateChartData` est défini sur `true`, les données du graphique sont mises à jour à partir du classeur cible.
 
 ```javascript
@@ -277,13 +283,13 @@ try {
 
 ### **Obtenir le chemin du classeur source de données externe du graphique**
 
-1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation) .
-1. Obtenez une référence à une diapositive via son indice.
+1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation).
+1. Obtenez la référence d’une diapositive via son indice.
 1. Créez un objet pour la forme du graphique.
-1. Créez un objet pour le type source (`ChartDataSourceType`) qui représente la source de données du graphique.
-1. Spécifiez la condition pertinente en fonction du type de source étant le même que le type de source de données du classeur externe.
+1. Créez un objet pour le type de source (`ChartDataSourceType`) qui représente la source de données du graphique.
+1. Spécifiez la condition pertinente en fonction du type de source qui est le même que le type de source de données du classeur externe.
 
-Ce code JavaScript démontre l'opération :
+Ce code JavaScript montre l’opération :
 
 ```javascript
 var aspose = aspose || {};
@@ -309,9 +315,9 @@ try {
 
 ### **Modifier les données du graphique**
 
-Vous pouvez modifier les données dans les classeurs externes de la même manière que vous modifiez le contenu des classeurs internes. Lorsqu'un classeur externe ne peut pas être chargé, une exception est levée.
+Vous pouvez modifier les données des classeurs externes de la même façon que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
 
-Ce code JavaScript est une implémentation du processus décrit :
+Ce code JavaScript implémente le processus décrit :
 
 ```javascript
 var aspose = aspose || {};
@@ -333,9 +339,9 @@ try {
 
 ### **Récupérer un classeur depuis le cache du graphique**
 
-Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez un [LoadOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/loadoptions/), configurez-le avec [SpreadsheetOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/spreadsheetoptions/), et appelez [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) avec `true` avant d'ouvrir la présentation.
+Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/loadoptions/), configurez-le avec [SpreadsheetOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/spreadsheetoptions/), et appelez [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) avec `true` avant d’ouvrir la présentation.
 
-L'exemple JavaScript suivant ouvre une présentation dont le graphique référence un classeur externe indisponible et accède aux données récupérées via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) :
+L’exemple JavaScript suivant ouvre une présentation dont le graphique référence un classeur externe indisponible et accède aux données récupérées via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) :
 
 ```javascript
 var aspose = aspose || {};
@@ -358,30 +364,30 @@ try {
 }
 ```
 
-Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une exception. Activez la récupération uniquement lorsque l'utilisation des données de graphique en cache constitue une solution de secours acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
+Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une exception. Activez la récupération uniquement lorsque l’utilisation des données de graphique mises en cache constitue une solution de secours acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
 
 ## **FAQ**
 
-**Puis-je déterminer si un graphique spécifique est lié à un classeur externe ou incorporé ?**
+**Puis‑je déterminer si un graphique spécifique est lié à un classeur externe ou incorporé ?**
 
 Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
 
-**Les chemins relatifs vers des classeurs externes sont-ils pris en charge, et comment sont-ils stockés ?**
+**Les chemins relatifs vers les classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**
 
 Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela facilite la portabilité du projet ; cependant, la présentation stockera le chemin absolu dans le fichier PPTX.
 
-**Puis-je utiliser des classeurs situés sur des ressources ou partages réseau ?**
+**Puis‑je utiliser des classeurs situés sur des ressources/partages réseau ?**
 
-Oui, ces classeurs peuvent être utilisés comme source de données externe. Toutefois, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être utilisés qu’en tant que source.
+Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être qu’une source.
 
-**Aspose.Slides écrase-t-il le fichier XLSX externe lors de l'enregistrement de la présentation ?**
+**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
 
-Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) et l’utilise pour lire les données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement de la présentation.
+Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) et l’utilise uniquement pour la lecture des données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement de la présentation.
 
-**Que faire si le fichier externe est protégé par un mot de passe ?**
+**Que faire si le fichier externe est protégé par mot de passe ?**
 
-Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à supprimer la protection à l’avance ou à préparer une copie décryptée (par exemple en utilisant [Aspose.Cells](/cells/nodejs-java/)) et à créer le lien vers cette copie.
+Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à retirer la protection au préalable ou à préparer une copie décryptée (par exemple en utilisant [Aspose.Cells](/cells/nodejs-java/)) et à créer le lien vers cette copie.
 
-**Plusieurs graphiques peuvent-ils référencer le même classeur externe ?**
+**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**
 
 Oui. Chaque graphique stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque graphique lors du prochain chargement des données.

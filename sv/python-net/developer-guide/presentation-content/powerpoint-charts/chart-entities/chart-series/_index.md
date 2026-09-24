@@ -5,7 +5,7 @@ type: docs
 url: /sv/python-net/chart-series/
 keywords:
 - diagramserie
-- serieöverlappning
+- seriens överlapp
 - seriefärg
 - kategorifärg
 - serienamn
@@ -15,29 +15,29 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsboksceller, formatering, överlappning, glappbredd och negativa värden i presentationer med Python."
+description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsboksceller, formatering, överlapp, gapbredd och negativa värden i presentationer med Python."
 ---
 ## **Översikt**
 
-Ett diagram lagrar sina plottade data i en diagramdatabok. En [ChartSeries](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/) representerar en uppsättning relaterade värden, och varje [ChartDataPoint](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/) i serien hänvisar till en eller flera celler i arbetsboken. [ChartCategory](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartcategory/)-objekt tillhandahåller etiketter eller gruppvärden som delas av serierna. Serienamnet, kategorierna och punktvärdena är därför kopplade till [ChartDataCell](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatacell/)-objekt snarare än att bara lagras som displaytext.
+Ett diagram lagrar sina plottade data i en diagramdatabok. En [ChartSeries](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/) representerar ett set av relaterade värden, och varje [ChartDataPoint](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/) i serien refererar till en eller flera celler i arbetsboken. [ChartCategory](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartcategory/)‑objekt tillhandahåller etiketter eller grupperingsvärden som delas av serierna. Serienamn, kategorier och punktvärden är därför kopplade till [ChartDataCell](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatacell/)‑objekt snarare än att bara lagras som visningstext.
 
-För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn, och de återstående cellerna för serievärden. Arbetsblad, rad- och kolumnindex som skickas till [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera cellerna som refereras av serierna, kategorierna och datapunkterna innan du ändrar arbetsbokens värden.
+För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn och de återstående cellerna för serievärden. Arbetsblad, rad‑ och kolumnindex som skickas till [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera cellerna som refereras av serierna, kategorierna och datapunkterna innan du ändrar värden i arbetsboken.
 
-Diagraminställningar har tre olika omfattningar:
+Diagraminställningar har tre olika omfång:
 
-- Inställningar på serienivå, såsom [ChartSeries.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/format/), tillhandahåller standardutseendet för alla punkter i en serie.
-- Inställningar för datapunkt, såsom [ChartDataPoint.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/format/), åsidosätter serieutseendet för en punkt.
-- Gruppinställningar gäller för kompatibla serier som tillhör samma [ChartSeriesGroup](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/). Åtkomst till gruppen sker via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/parent_series_group/) när du behöver sätta alternativ som överlappning eller glappbredd.
+- Inställningar på serienivå, såsom [ChartSeries.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/format/), ger standardutseendet för alla punkter i en serie.
+- Punktinställningar, såsom [ChartDataPoint.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/format/), åsidosätter serieutseendet för en enskild punkt.
+- Gruppinställningar gäller kompatibla serier som tillhör samma [ChartSeriesGroup](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/). Åtkomst till gruppen sker via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/parent_series_group/) när du behöver ange alternativ som överlapp eller gapbredd.
 
-När ingen explicit punkt- eller seriefyllning är angiven bestämmer diagramstilen och temat det automatiska utseendet. När både serie- och punktformatering finns, har punktformateringen företräde för den punkten.
+När ingen explicit fyllning för punkt eller serie har angetts, bestäms det automatiska utseendet av diagramstilen och temat. När både serie‑ och punktformatering finns, har punktformateringen företräde för den punkten.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![Diagramserie PowerPoint](chart-series-powerpoint.png)
 
-## **Ställ in överlappning för diagramserier**
+## **Ställ in överlapp för diagramserien**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/overlap/) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D-diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade seriegruppen. Sätt [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/overlap/) för att uppdatera alla kompatibla serier i den gruppen. Detta alternativ gäller för diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade seriegrupper i ett kombinationsdiagram.
+[ChartSeries.overlap](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/overlap/) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D‑diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade seriesgruppen. Ställ in [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/overlap/) för att uppdatera varje kompatibel serie i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade seriesgrupper i ett kombinationsdiagram.
 
-Följande exempel sätter överlappningen för den grupp som innehåller den första serien:
+Följande exempel anger överlapp för gruppen som innehåller den första serien:
 
 ```py
 import aspose.slides as slides
@@ -61,11 +61,11 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Series överlappning](series_overlap.png)
+![Seriens överlapp](series_overlap.png)
 
-## **Ändra fyllningsfärgen för serien**
+## **Ändra fyllningsfärg för serien**
 
-Använd [ChartSeries.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/format/) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning åsidosätter dess [ChartDataPoint.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/format/) inställning seriefyllningen för den punkten.
+Använd [ChartSeries.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/format/) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning, åsidosätter dess [ChartDataPoint.format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/format/) inställning serie­fyllningen för den punkten.
 
 Följande exempel tillämpar en solid blå fyllning på den första serien:
 
@@ -91,11 +91,11 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Färgen på serien](series_color.png)
+![Seriens färg](series_color.png)
 
 ## **Ändra serienamnet**
 
-Ett serienamn lagras i diagrammets datarbok och visas normalt i förklaringen. I standardarbetsboken som skapas för ett grupperat kolumnDiagram är cell B1 på rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen explicit:
+Ett serienamn lagras i diagramdataboken och visas normalt i förklaringen. I standardarbetsboken som skapas för ett grupperat kolumndiagram ligger cell B1 i rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen tydlig:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Du kan även uppdatera cellen som redan refereras av [ChartSeries.name](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/name/). Detta tillvägagångssätt undviker att anta en viss rad och kolumn i ett befintligt diagram:
+Du kan också uppdatera den cell som redan refereras av [ChartSeries.name](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/name/). Detta förfarande undviker antagandet om en specifik rad och kolumn i ett befintligt diagram:
 
 ```py
 import aspose.slides as slides
@@ -142,11 +142,11 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Serienamnet](series_name.png)
+![Seriens namn](series_name.png)
 
 ## **Hämta den automatiska fyllningsfärgen för serien**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) returnerar färgen som beräknas utifrån serieindexet och diagramstilen. Detta är färgen som används när seriefyllningen inte har definierats explicit. Att anropa metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) returnerar färgen som beräknas utifrån serie‑indexet och diagramstilen. Detta är färgen som används när serie­fyllningen inte har definierats explicit. Metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
 
 Följande exempel skriver ut den automatiska färgen för varje standardserie:
 
@@ -176,13 +176,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-De exakta färgerna beror på diagramstilen och temat.
+De exakt färgerna beror på diagramstilen och temat.
 
 ## **Ställ in inverterad fyllningsfärg för en diagramserie**
 
-För stapel-, kolumn- och bubbelseerer kan [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/invert_if_negative/) visa negativa värden med en annan fyllning. Ställ in den vanliga seriefyllningen till solid, aktivera invertering och tilldela färgen för negativa värden via [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Negativa tal förblir oförändrade i arbetsboken; endast deras displayfärg ändras.
+För stapel‑, kolumn‑ och bubbelserier kan [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/invert_if_negative/) visa negativa värden med en annan fyllning. Ställ in den vanliga serie­fyllningen till solid, aktivera inversion och tilldela färgen för negativa värden via [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Negativa tal förblir oförändrade i arbetsboken; endast deras displayfärg förändras.
 
-Följande exempel ersätter standarddiagramdata med en serie. Arbetsbladets rad 0 innehåller serienamnet, kolumn 0 innehåller kategorinamnen och kolumn 1 innehåller värdena:
+Följande exempel ersätter standarddiagramdata med en serie. Arbetsbladsrad 0 innehåller serienamnet, kolumn 0 innehåller kategorinamnen och kolumn 1 innehåller värdena:
 
 ```py
 import aspose.pydrawing as drawing
@@ -237,7 +237,7 @@ Resultatet:
 
 ![Den inverterade solida fyllningsfärgen](inverted_solid_fill_color.png)
 
-Du kan aktivera invertering för en punkt via [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). I följande exempel är invertering inaktiverad för serien och aktiverad endast för den valda punkten. Punkten tilldelas också ett negativt värde så att effekten syns:
+Du kan aktivera inversion för en enskild punkt via [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). I följande exempel är inversion inaktiverad för serien och endast aktiverad för den valda punkten. Punkten får också ett negativt värde så att effekten syns:
 
 ```py
 import aspose.pydrawing as drawing
@@ -270,7 +270,7 @@ with slides.Presentation() as presentation:
 
 ## **Rensa ett specifikt datapunktvärde**
 
-För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande arbetsbokscell till `None`. För ett kolumndiagram är det plottade värdet tillgängligt via [ChartDataPoint.value](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/value/). Datapunkten förblir på samma kategori‑position, men diagrammet behandlar dess värde som tomt enligt diagrammets inställningar för tomma värden.
+För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess bakgrundscell i arbetsboken till `None`. För ett kolumndiagram är det plottade värdet tillgängligt via [ChartDataPoint.value](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/value/). Datapunkten förblir på samma kategoriposition, men diagrammet behandlar dess värde som tomt enligt diagrammets inställningar för tomma värden.
 
 Följande exempel rensar endast den andra punkten i den första serien:
 
@@ -294,13 +294,62 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Spridningsdiagram använder separata X‑ och Y‑celler, och bubbeldiagram använder också en storlekscell. Rensa endast den cell som representerar det värde du vill ta bort. Anropa inte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointcollection/clear/) när du vill behålla de andra punkterna, eftersom metoden tar bort varje datapunkt från samlingen.
+Spridningsdiagram använder separata X‑ och Y‑celler, och bubbeldiagram använder dessutom en storlekscell. Rensa bara den cell som representerar det värde du avser att ta bort. Anropa inte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointcollection/clear/) när du vill behålla de andra punkterna, eftersom den metoden tar bort alla datapunkter i samlingen.
 
-## **Ställ in glappbredd för serien**
+## **Styr visning av tomma celler**
 
-Glappbredd är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt som en procentandel av stapel‑ eller kolumnbredden. Liksom överlappning tillhör den den överordnade seriegruppen snarare än en enskild serie. Sätt [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) en gång för gruppen. Ett större värde skapar mer utrymme mellan klustren; ett mindre värde gör dem tätare.
+En tom cell i arbetsboken representerar saknade data; en cell som innehåller `0` representerar ett känt numeriskt värde. Sätt [ChartDataCell.value](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatacell/value/) till `None` för att göra en cell tom. En numerisk nolla förblir noll oavsett inställningen för tomma celler.
 
-Följande exempel ändrar glappbredden och sparar endast den slutgiltiga presentationen:
+Använd [Chart.display_blanks_as](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/display_blanks_as/) för att välja hur diagrammet visar tomma celler. Denna inställning gäller för hela diagrammet. Den ändrar hur tomma värden plottas utan att fylla den tomma arbetsboks‑cellen med noll eller ett interpolerat värde.
+
+Följande självständiga exempel skapar ett linjediagram med en serie, rensar värdet för Dag 3 och sparar samma diagram med varje läge. Ingen indatafil krävs. [ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/) använder arbetsblad 0, kolumn 0 för kategorietiketter och kolumn 1 för värden; rad 0 innehåller serienamnet. De slutgiltiga data är `10, 20, empty, 30, 40`.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 40, 40, 640, 400)
+    chart_data = chart.chart_data
+    workbook = chart_data.chart_data_workbook
+
+    chart_data.series.clear()
+    chart_data.categories.clear()
+
+    series_name_cell = workbook.get_cell(0, 0, 1, "Measurements")
+    series = chart_data.series.add(series_name_cell, chart.type)
+    values = [10, 20, 25, 30, 40]
+
+    for i, value in enumerate(values):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Day {i + 1}")
+        chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        series.data_points.add_data_point_for_line_series(value_cell)
+
+    # Lämna dag 3 verkligen tom, samtidigt som du behåller dess kategori och datapunkt.
+    workbook.get_cell(0, 3, 1).value = None
+
+    modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
+    for mode_name, mode in modes:
+        chart.display_blanks_as = mode
+        presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Varje utdatafil lagrar det läge som tilldelats före sparning: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` och `empty_cells_Span.pptx`. För att spara bara en version, ange önskat läge och spara presentationen en gång istället för att iterera över lägena.
+
+Jämförelsen nedan visar samma data i alla tre filer. Dag 3 är tom i arbetsboken i alla fall:
+
+![Linjediagram med identiska data: Gap bryter linjen vid Dag 3, Zero sänker linjen till noll, och Span kopplar Dag 2 till Dag 4.](display_blanks_as.png)
+
+Den synliga effekten beror på diagramtypen. Ett linjediagram gör det enkelt att jämföra alla tre lägen. Stapel‑ och kolumndiagram har ingen linje att koppla över en saknad kategori, så `SPAN` kan inte skapa den förbindelse som visas ovan; en saknad kolumn och en noll‑höjd kolumn kan också se lika ut. På samma sätt har ett spridningsdiagram med enbart markörer ingen anslutande linje. Förvänta dig inte tre distinkta resultat för varje diagramtyp; kontrollera utdata för den typ du använder.
+
+## **Ställ in seriegap‑bredd**
+
+Gap‑bredd är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt som procent av stapel‑ eller kolumnbredden. Liksom överlapp tillhör den överordnade seriesgruppen snarare än en enskild serie. Sätt [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) en gång för gruppen. Ett högre värde skapar mer utrymme mellan klustren; ett lägre värde gör dem tätare.
+
+Följande exempel ändrar gap‑bredden och sparar endast den slutgiltiga presentationen:
 
 ```py
 import aspose.slides as slides
@@ -323,46 +372,46 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Glappbredden](gap_width.png)
+![Gap‑bredden](gap_width.png)
 
 ## **FAQ**
 
-**Vilka diagramtyper stödjer dataserier?**
+**Vilka diagramtyper stöder dataserier?**
 
-Alla diagramtyper som representeras av [ChartType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/charttype/)-enumerationen använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, spridningsdiagram använder X‑ och Y‑värden, och bubbeldiagram lägger till bubbelformer. Använd den datapunkt‑skapande metoden som matchar serietypen. Alternativ som överlappning och glappbredd gäller endast för kompatibla stapel‑ eller kolumngrupper.
+Alla diagramtyper som representeras av [ChartType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/charttype/)‑enumerationen använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, spridningsdiagram använder X‑ och Y‑värden, och bubbeldiagram lägger till bubbelstorlekar. Använd den datapunkt‑skapande metod som matchar serietypen. Alternativ som överlapp och gap‑bredd gäller endast kompatibla stapel‑ eller kolumngrupper.
 
-**Vad är en diagramseriegrupp?**
+**Vad är en diagramseriegupp?**
 
-En [ChartSeriesGroup](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/) innehåller kompatibla serier som delar gruppnivå‑plottinginställningar. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändra gruppen via en serie förändrar inte nödvändigtvis varje serie i diagrammet.
+En [ChartSeriesGroup](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/) innehåller kompatibla serier som delar gruppnivå‑plot‑inställningar. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändra gruppen som nås via en serie inte nödvändigtvis ändrar varje serie i diagrammet.
 
-**Innehåller ett nyskapat diagram standarddata?**
+**Innehåller ett nyss skapat diagram standarddata?**
 
-Ja. Som standard skapar [ShapeCollection.add_chart](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_chart/) exempelserier, kategorier och värden. Du kan redigera dessa celler eller rensa både serie‑ och kategorisamlingarna innan du lägger till ett helt anpassat datumset. En överlagring kan också skapa ett diagram utan standarddata.
+Ja. Som standard skapar [ShapeCollection.add_chart](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_chart/) exempelserier, kategorier och värden. Du kan redigera dessa celler eller rensa både serie‑ och kategorisamlingarna innan du lägger till en helt anpassad datamängd. En överlagring kan också skapa ett diagram utan standarddata.
 
-**Hur är diagramobjekt kopplade till arbetsboks-celler?**
+**Hur är diagramobjekt kopplade till arbetsboks‑celler?**
 
-Serienamn, kategorietiketter och datapunktvärden refererar till celler i en [ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagram‑element. När du bygger anpassad data, håll kategorirader och serie‑värderader i linje så att varje punkt plottas under den avsedda kategorin.
+Serienamn, kategorietiketter och datapunktvärden refererar celler i en [ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagramdel. När du bygger anpassade data, håll kategorirader och serie‑värderader i takt så att varje punkt plottas under avsedd kategori.
 
-**Hur rensar jag en punkt istället för hela serien?**
+**Hur rensar jag en punkt utan att ta bort hela serien?**
 
-Sätt den relevanta värdecellen till `None` för att behålla punktens kategori‑position som en tom punkt. Använd [ChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointcollection/clear/) endast när du avser att ta bort alla punkter från den serien. Om du också tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategori‑samlingen.
+Sätt den relevanta värdecellen till `None` för att behålla punktens kategoriposition som en tom punkt. Använd [ChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointcollection/clear/) endast när du avser att ta bort alla punkter från den serien. Om du också tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategori‑samlingen.
 
 **Hur visas tomma punkter?**
 
-Resultatet beror på diagramtypen och [Chart.display_blanks_as](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/display_blanks_as/). Stödda diagram kan visa tomma värden som glapp, som nollvärden eller genom att ansluta närliggande punkter. Välj den inställning som motsvarar innebörden av saknad data i din presentation.
+Resultatet beror på diagramtypen och [Chart.display_blanks_as](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/display_blanks_as/). Stödda diagram kan visa tomma värden som gap, som nollvärden eller genom att koppla ihop närliggande punkter. Välj den inställning som motsvarar betydelsen av saknade data i din presentation. Se [Styr visning av tomma celler](#control-the-display-of-empty-cells) för ett komplett exempel och visuell jämförelse.
 
 **Hur formateras negativa värden?**
 
-För stödda stapel‑, kolumn‑ och bubbelseerer, aktivera [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/invert_if_negative/) och sätt [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Du kan åsidosätta beteendet för en enskild punkt med [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Dessa egenskaper påverkar formatering, inte de lagrade numeriska värdena.
+För stödda stapel‑, kolumn‑ och bubbelserier, aktivera [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/invert_if_negative/) och sätt [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Du kan åsidosätta beteendet för en enskild punkt med [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Dessa egenskaper påverkar formateringen, inte de lagrade numeriska värdena.
 
-**Vilken formatering har företräde när både en serie och en punkt är formaterade?**
+**Vilken formatering vinner när både en serie och en punkt är formaterade?**
 
-Explicit datapunkt‑formatering har företräde för den punkten. Andra punkter fortsätter att använda den explicita serieformaten eller, när serieformatet inte är definierat, den automatiska diagramstilen och temat. Grupp‑egenskaper såsom överlappning och glappbredd styr layouten och är inte formateringsöverskrivningar på punkt‑nivå.
+Explicit datapunkt‑formatering har företräde för den punkten. Andra punkter fortsätter att använda den explicita serie‑formatet eller, när serieformatet inte är definierat, den automatiska diagramstilen och temat. Grupp‑egenskaper som överlapp och gap‑bredd styr layout och är inte punkt‑nivå‑formateringsåsidosättningar.
 
-**Finns det en gräns för hur många serier ett diagram kan innehålla?**
+**Finns det någon gräns för hur många serier ett diagram kan innehålla?**
 
-Aspose.Slides pålägger ingen separat fast gräns för antalet serier. I praktiken avgör presentationsfilens begränsningar, tillgängligt minne, renderingtid och diagrammets läsbarhet en användbar gräns.
+Aspose.Slides inför inget separat fast maxantal serier. I praktiken bestäms den användbara gränsen av presentationsfilens begränsningar, tillgängligt minne, renderingtid och diagrammets läsbarhet.
 
-**Vad bör jag ändra när kolumner är för nära varandra eller för långt ifrån varandra?**
+**Vad bör jag ändra när kolumner är för nära varandra eller för långt ifrån?**
 
-Ställ in [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) på lämplig föräldraseriegrupp. Öka värdet för att bredda avståndet mellan klustren, eller minska det för att föra klustren närmare varandra.
+Ställ in [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) på den relevanta överordnade seriesgruppen. Öka värdet för att bredda avståndet mellan klustren, eller minska det för att föra klustren närmare varandra.

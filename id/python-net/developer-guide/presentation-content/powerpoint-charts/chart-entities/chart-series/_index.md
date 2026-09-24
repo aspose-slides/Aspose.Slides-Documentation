@@ -15,27 +15,27 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara mengelola seri diagram, titik data, sel workbook, pemformatan, tumpang tindih, lebar celah, dan nilai negatif dalam presentasi dengan Python."
+description: "Pelajari cara mengelola seri diagram, titik data, sel buku kerja, pemformatan, tumpang tindih, lebar celah, dan nilai negatif dalam presentasi dengan Python."
 ---
 ## **Gambaran Umum**
 
-Sebuah diagram menyimpan data yang dipetakan dalam sebuah workbook data diagram. Sebuah [ChartSeries](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/) mewakili satu set nilai terkait, dan setiap [ChartDataPoint](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/) dalam seri mengacu pada satu atau beberapa sel workbook. Objek [ChartCategory](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartcategory/) menyediakan label atau nilai pengelompokan yang dibagikan oleh seri. Nama seri, kategori, dan nilai titik oleh karena itu terhubung ke objek [ChartDataCell](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatacell/) bukan hanya disimpan sebagai teks tampilan.
+Diagram menyimpan data yang dipetakan dalam sebuah buku kerja data diagram. Sebuah [ChartSeries](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/) mewakili satu set nilai yang terkait, dan setiap [ChartDataPoint](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/) dalam seri merujuk ke satu atau beberapa sel buku kerja. Objek [ChartCategory](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartcategory/) menyediakan label atau nilai pengelompokan yang dibagikan oleh seri. Nama seri, kategori, dan nilai titik oleh karena itu terhubung ke objek [ChartDataCell](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatacell/) alih-alih hanya disimpan sebagai teks tampilan.
 
-Untuk diagram kategori tipikal, workbook default menggunakan baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel‑sel sisanya untuk nilai seri. Indeks lembar kerja, baris, dan kolom yang diteruskan ke [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) bersifat berbasis nol. Tata letak ini berguna ketika Anda membuat diagram dengan data default, tetapi jangan berasumsi bahwa setiap diagram yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel‑sel yang dirujuk oleh seri, kategori, dan titik data sebelum mengubah nilai workbook.
+Untuk diagram kategori tipikal, buku kerja default menggunakan baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel-sel lainnya untuk nilai seri. Indeks worksheet, baris, dan kolom yang diberikan ke [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) berbasis nol. Tata letak ini berguna ketika Anda membuat diagram dengan data default, tetapi jangan menganggap bahwa setiap diagram yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel yang dirujuk oleh seri, kategori, dan titik data sebelum mengubah nilai buku kerja.
 
-Pengaturan diagram memiliki tiga ruang lingkup berbeda:
+Pengaturan diagram memiliki tiga lingkup berbeda:
 
-- Pengaturan tingkat seri, seperti [ChartSeries.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/format/), memberikan tampilan default untuk semua titik dalam satu seri.
-- Pengaturan titik data, seperti [ChartDataPoint.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/format/), menimpa tampilan seri untuk satu titik.
-- Pengaturan grup berlaku untuk seri yang kompatibel yang berada dalam satu [ChartSeriesGroup](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/). Akses grup melalui [ChartSeries.parent_series_group](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/parent_series_group/) ketika Anda perlu mengatur opsi seperti tumpang tindih atau lebar celah.
+- Pengaturan tingkat seri, seperti [ChartSeries.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/format/), memberikan tampilan default untuk semua titik dalam satu seri.  
+- Pengaturan titik data, seperti [ChartDataPoint.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/format/), menimpa tampilan seri untuk satu titik.  
+- Pengaturan grup berlaku untuk seri yang kompatibel yang termasuk dalam [ChartSeriesGroup](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/). Akses grup melalui [ChartSeries.parent_series_group](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/parent_series_group/) ketika Anda perlu mengatur opsi seperti tumpang tindih atau lebar celah.
 
-Ketika tidak ada isian titik atau seri yang eksplisit, gaya dan tema diagram menentukan tampilan otomatis. Ketika kedua format seri dan titik ada, format titik memiliki prioritas untuk titik tersebut.
+Ketika tidak ada pengisian titik atau seri yang eksplisit, gaya dan tema diagram menentukan tampilan otomatis. Ketika format seri dan titik keduanya ada, format titik memiliki prioritas untuk titik tersebut.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Atur Tumpang Tindih Seri Diagram**
+## **Setel Tumpang Tindih Seri Diagram**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/overlap/) melaporkan seberapa banyak batang atau kolom saling tumpang tindih dalam diagram 2D, dari -100 sampai 100 persen. Ini adalah proyeksi baca‑saja dari pengaturan pada grup seri induk. Atur [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/overlap/) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe diagram yang menampilkan batang atau kolom berkelompok; tidak memengaruhi grup seri yang tidak terkait dalam diagram kombinasi.
+[ChartSeries.overlap](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/overlap/) melaporkan seberapa banyak batang atau kolom saling tumpang tindih dalam diagram 2D, dari -100 hingga 100 persen. Ini adalah proyeksi hanya-baca dari pengaturan pada grup seri induk. Atur [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/overlap/) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe diagram yang menampilkan batang atau kolom yang dikelompokkan; tidak memengaruhi grup seri yang tidak berhubungan dalam diagram kombinasi.
 
 Contoh berikut mengatur tumpang tindih untuk grup yang berisi seri pertama:
 
@@ -61,13 +61,13 @@ with slides.Presentation() as presentation:
 
 Hasilnya:
 
-![Tumpang tindih seri](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Ubah Warna Isi Seri**
 
-Gunakan [ChartSeries.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/format/) untuk mengatur isian default bagi seluruh seri. Jika sebuah titik sudah memiliki isian eksplisit, pengaturan [ChartDataPoint.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.chats.chartdatapoint/format/) menimpa isian seri untuk titik tersebut.
+Gunakan [ChartSeries.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/format/) untuk mengatur isi default bagi seluruh seri. Jika sebuah titik sudah memiliki isi eksplisit, pengaturan [ChartDataPoint.format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/format/) menimpa isi seri untuk titik tersebut.
 
-Contoh berikut menerapkan isian biru padat pada seri pertama:
+Contoh berikut menerapkan isi biru padat pada seri pertama:
 
 ```py
 import aspose.pydrawing as drawing
@@ -91,11 +91,11 @@ with slides.Presentation() as presentation:
 
 Hasilnya:
 
-![Warna seri](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Ubah Nama Seri**
 
-Nama seri disimpan dalam workbook data diagram dan biasanya ditampilkan dalam legenda. Pada workbook default yang dibuat untuk diagram kolom berkelompok, sel B1 berada di baris 0, kolom 1 dan berisi nama seri pertama. Konstanta bernama dalam contoh berikut membuat struktur tersebut eksplisit:
+Nama seri disimpan dalam buku kerja data diagram dan biasanya ditampilkan di legenda. Dalam buku kerja default yang dibuat untuk diagram kolom berkelompok, sel B1 berada pada baris 0, kolom 1 dan berisi nama seri pertama. Konstanta bernama dalam contoh berikut membuat struktur itu eksplisit:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Anda juga dapat memperbarui sel yang sudah dirujuk oleh [ChartSeries.name](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/name/). Pendekatan ini menghindari asumsi baris dan kolom tertentu dalam diagram yang ada:
+Anda juga dapat memperbarui sel yang sudah dirujuk oleh [ChartSeries.name](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/name/). Pendekatan ini menghindari asumsi baris dan kolom tertentu dalam diagram yang sudah ada:
 
 ```py
 import aspose.slides as slides
@@ -142,13 +142,13 @@ with slides.Presentation() as presentation:
 
 Hasilnya:
 
-![Nama seri](series_name.png)
+![The series name](series_name.png)
 
 ## **Dapatkan Warna Isi Seri Otomatis**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) mengembalikan warna yang dihitung dari indeks seri dan gaya diagram. Ini adalah warna yang digunakan ketika isian seri tidak didefinisikan secara eksplisit. Memanggil metode ini hanya membaca warna yang dihitung; tidak menetapkan isian baru.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) mengembalikan warna yang dihitung dari indeks seri dan gaya diagram. Ini adalah warna yang digunakan ketika isi seri tidak didefinisikan secara eksplisit. Memanggil metode ini hanya membaca warna yang dihitung; tidak menetapkan isi baru.
 
-Contoh berikut mencetak warna otomatis untuk setiap seri default:
+Contoh berikut mencetak warna otomatis setiap seri default:
 
 ```py
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
         print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-Output contoh untuk gaya diagram default:
+Contoh keluaran untuk gaya diagram default:
 
 ```text
 Series 0: ff4f81bd
@@ -176,13 +176,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Warna tepatnya tergantung pada gaya dan tema diagram.
+Warna pasti tergantung pada gaya dan tema diagram.
 
-## **Atur Warna Isi Terbalik untuk Seri Diagram**
+## **Setel Warna Isi Terbalik untuk Seri Diagram**
 
-Untuk seri batang, kolom, dan gelembung, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/invert_if_negative/) dapat menampilkan nilai negatif dengan isian berbeda. Atur isian seri reguler menjadi padat, aktifkan inversi, dan tetapkan warna nilai negatif melalui [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Angka negatif tetap tidak berubah dalam workbook; hanya warna tampilan yang berubah.
+Untuk seri batang, kolom, dan gelembung, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/invert_if_negative/) dapat menampilkan nilai negatif dengan isi yang berbeda. Atur isi seri reguler menjadi padat, aktifkan inversi, dan tetapkan warna nilai negatif melalui [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Angka negatif tetap tidak berubah di buku kerja; hanya warna tampilan yang berubah.
 
-Contoh berikut mengganti data diagram default dengan satu seri. Baris lembar kerja 0 berisi nama seri, kolom 0 berisi nama kategori, dan kolom 1 berisi nilai:
+Contoh berikut mengganti data diagram default dengan satu seri. Baris worksheet 0 berisi nama seri, kolom 0 berisi nama kategori, dan kolom 1 berisi nilai:
 
 ```py
 import aspose.pydrawing as drawing
@@ -235,9 +235,9 @@ with slides.Presentation() as presentation:
 
 Hasilnya:
 
-![Warna isi padat terbalik](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Anda dapat mengaktifkan inversi untuk satu titik melalui [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Pada contoh berikut, inversi dinonaktifkan untuk seri dan diaktifkan hanya untuk titik yang dipilih. Titik tersebut juga diberikan nilai negatif agar efeknya terlihat:
+Anda dapat mengaktifkan inversi untuk satu titik melalui [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Pada contoh berikut, inversi dinonaktifkan untuk seri dan diaktifkan hanya untuk titik yang dipilih. Titik tersebut juga diberi nilai negatif agar efeknya terlihat:
 
 ```py
 import aspose.pydrawing as drawing
@@ -270,9 +270,9 @@ with slides.Presentation() as presentation:
 
 ## **Bersihkan Nilai Titik Data Spesifik**
 
-Untuk mengosongkan satu titik tanpa menghapus titik lain, setel sel workbook yang mendasarinya ke `None`. Untuk diagram kolom, nilai yang dipetakan tersedia melalui [ChartDataPoint.value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/value/). Titik data tetap berada pada posisi kategori yang sama, tetapi diagram memperlakukan nilainya sebagai kosong sesuai pengaturan nilai kosong diagram.
+Untuk membuat satu titik kosong tanpa menghapus titik lainnya, atur sel workbook yang mendasarinya menjadi `None`. Untuk diagram kolom, nilai yang dipetakan tersedia melalui [ChartDataPoint.value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/value/). Titik data tetap berada pada posisi kategori yang sama, tetapi diagram memperlakukan nilainya sebagai kosong menurut pengaturan nilai kosong diagram.
 
-Contoh berikut hanya membersihkan titik kedua dalam seri pertama:
+Contoh berikut membersihkan hanya titik kedua dalam seri pertama:
 
 ```py
 import aspose.slides as slides
@@ -294,11 +294,60 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Diagram sebar menggunakan sel X dan Y terpisah, dan diagram gelembung juga menggunakan sel ukuran. Bersihkan hanya sel yang mewakili nilai yang ingin Anda hapus. Jangan panggil [ChartDataPointCollection.clear](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapointcollection/clear/) ketika Anda ingin mempertahankan titik lain, karena metode tersebut menghapus semua titik data dari koleksi.
+Diagram sebar menggunakan sel X dan Y terpisah, dan diagram gelembung juga menggunakan sel ukuran. Bersihkan hanya sel yang mewakili nilai yang ingin Anda hapus. Jangan panggil [ChartDataPointCollection.clear](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapointcollection/clear/) ketika Anda ingin mempertahankan titik lainnya, karena metode itu menghapus semua titik data dari koleksi.
 
-## **Atur Lebar Celah Seri**
+## **Kendalikan Tampilan Sel Kosong**
 
-Lebar celah adalah ruang antara klaster batang atau kolom yang berdekatan, dinyatakan sebagai persentase lebar batang atau kolom. Seperti tumpang tindih, ini milik grup seri induk bukan satu seri. Setel [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) sekali untuk grup. Nilai yang lebih besar menghasilkan lebih banyak ruang antara klaster; nilai yang lebih kecil membuatnya lebih padat.
+Sel workbook kosong mewakili data yang hilang; sel yang berisi `0` mewakili nilai numerik yang diketahui. Atur [ChartDataCell.value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatacell/value/) menjadi `None` untuk membuat sel kosong. Nol numerik tetap nol terlepas dari pengaturan sel kosong.
+
+Gunakan [Chart.display_blanks_as](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/display_blanks_as/) untuk memilih cara diagram menampilkan sel kosong. Pengaturan ini berlaku untuk seluruh diagram. Ini mengubah cara kekosongan dipetakan, tanpa mengisi sel workbook kosong dengan nol atau nilai interpolasi.
+
+Contoh mandiri berikut membuat diagram garis dengan satu seri, mengosongkan nilai untuk Hari 3, dan menyimpan diagram yang sama dengan setiap mode. Tidak diperlukan berkas input. [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/) menggunakan worksheet 0, kolom 0 untuk label kategori, dan kolom 1 untuk nilai; baris 0 memegang nama seri. Data akhir adalah `10, 20, empty, 30, 40`.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 40, 40, 640, 400)
+    chart_data = chart.chart_data
+    workbook = chart_data.chart_data_workbook
+
+    chart_data.series.clear()
+    chart_data.categories.clear()
+
+    series_name_cell = workbook.get_cell(0, 0, 1, "Measurements")
+    series = chart_data.series.add(series_name_cell, chart.type)
+    values = [10, 20, 25, 30, 40]
+
+    for i, value in enumerate(values):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Day {i + 1}")
+        chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        series.data_points.add_data_point_for_line_series(value_cell)
+
+    # Biarkan Hari 3 benar-benar kosong, sambil mempertahankan kategorinya dan titik datanya.
+    workbook.get_cell(0, 3, 1).value = None
+
+    modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
+    for mode_name, mode in modes:
+        chart.display_blanks_as = mode
+        presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Setiap berkas keluaran menyimpan mode yang ditetapkan sebelum penyimpanan: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, dan `empty_cells_Span.pptx`. Untuk menyimpan hanya satu versi, tetapkan mode yang diinginkan dan simpan presentasi sekali saja alih-alih mengulangi semua mode.
+
+Perbandingan di bawah menunjukkan data yang sama dalam ketiga berkas. Hari 3 kosong dalam workbook pada setiap kasus:
+
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+
+Efek yang terlihat tergantung pada tipe diagram. Diagram garis memudahkan perbandingan ketiga mode. Diagram batang dan kolom tidak memiliki garis untuk menghubungkan kategori yang hilang, sehingga `SPAN` tidak dapat menghasilkan segmen penghubung seperti di atas; kolom yang hilang dan kolom dengan tinggi nol juga dapat terlihat serupa. Demikian pula, diagram sebar dengan hanya penanda tidak memiliki garis penghubung. Jangan mengharapkan tiga hasil berbeda untuk setiap tipe diagram; periksa keluaran untuk tipe yang Anda gunakan.
+
+## **Setel Lebar Celah Seri**
+
+Lebar celah adalah ruang antara kelompok batang atau kolom yang berdekatan, dinyatakan sebagai persentase lebar batang atau kolom. Seperti tumpang tindih, lebar celah milik grup seri induk, bukan satu seri. Atur [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) sekali untuk grup. Nilai yang lebih besar membuat ruang antar kelompok lebih lebar; nilai yang lebih kecil membuatnya lebih rapat.
 
 Contoh berikut mengubah lebar celah dan menyimpan hanya presentasi akhir:
 
@@ -323,46 +372,46 @@ with slides.Presentation() as presentation:
 
 Hasilnya:
 
-![Lebar celah](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
-**Tipe diagram mana yang mendukung seri data?**
+**Tipe diagram apa yang mendukung seri data?**
 
-Semua tipe diagram yang diwakili oleh enumerasi [ChartType](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/charttype/) menggunakan data diagram, tetapi seri mereka tidak semuanya memiliki struktur nilai atau pengaturan yang sama. Misalnya, diagram kategori menggunakan kategori dan nilai, diagram sebar menggunakan nilai X dan Y, dan diagram gelembung menambahkan ukuran gelembung. Gunakan metode pembuatan titik data yang sesuai dengan tipe seri. Opsi seperti tumpang tindih dan lebar celah hanya berlaku untuk grup batang atau kolom yang kompatibel.
+Semua tipe diagram yang direpresentasikan oleh enumerasi [ChartType](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/charttype/) menggunakan data diagram, tetapi seri mereka tidak semua memiliki struktur nilai atau pengaturan yang sama. Misalnya, diagram kategori menggunakan kategori dan nilai, diagram sebar menggunakan nilai X dan Y, dan diagram gelembung menambahkan ukuran gelembung. Gunakan metode pembuatan titik data yang sesuai dengan tipe seri. Opsi seperti tumpang tindih dan lebar celah hanya berlaku untuk grup batang atau kolom yang kompatibel.
 
 **Apa itu grup seri diagram?**
 
-Sebuah [ChartSeriesGroup](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/) berisi seri yang kompatibel yang berbagi pengaturan plot tingkat grup. Diagram kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup yang dicapai melalui satu seri tidak selalu mengubah setiap seri dalam diagram.
+[ChartSeriesGroup](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/) berisi seri yang kompatibel yang berbagi pengaturan plot tingkat grup. Diagram kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup melalui satu seri tidak selalu mengubah setiap seri dalam diagram.
 
 **Apakah diagram yang baru dibuat berisi data default?**
 
-Ya. Secara default, [ShapeCollection.add_chart](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_chart/) membuat seri contoh, kategori, dan nilai. Anda dapat menyunting sel‑sel tersebut atau mengosongkan koleksi seri dan kategori sebelum menambahkan satu set data yang sepenuhnya kustom. Overload juga dapat membuat diagram tanpa data default.
+Ya. Secara default, [ShapeCollection.add_chart](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_chart/) membuat contoh seri, kategori, dan nilai. Anda dapat menyunting sel‑sel tersebut atau mengosongkan koleksi seri dan kategori sebelum menambahkan kumpulan data yang sepenuhnya kustom. Overload juga dapat membuat diagram tanpa data default.
 
 **Bagaimana objek diagram terhubung ke sel workbook?**
 
-Nama seri, label kategori, dan nilai titik data merujuk ke sel dalam sebuah [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/). Mengubah sel yang dirujuk memperbarui elemen diagram yang bersangkutan. Saat Anda membangun data kustom, jaga agar baris kategori dan baris nilai seri tetap selaras sehingga setiap titik dipetakan di bawah kategori yang dimaksud.
+Nama seri, label kategori, dan nilai titik data merujuk ke sel dalam [ChartDataWorkbook](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/). Mengubah sel yang dirujuk memperbarui elemen diagram yang bersangkutan. Saat Anda membangun data kustom, jaga agar baris kategori dan baris nilai seri tetap selaras sehingga setiap titik dipetakan di bawah kategori yang dimaksud.
 
-**Bagaimana cara mengosongkan satu titik alih‑alih seluruh seri?**
+**Bagaimana cara mengosongkan satu titik tanpa menghapus seluruh seri?**
 
-Setel sel nilai yang relevan ke `None` untuk mempertahankan posisi kategori titik sebagai titik kosong. Gunakan [ChartDataPointCollection.clear](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapointcollection/clear/) hanya ketika Anda ingin menghapus semua titik dari seri tersebut. Jika Anda juga menghapus kategori, perbarui setiap seri supaya nilainya tetap selaras dengan koleksi kategori.
+Atur sel nilai yang relevan menjadi `None` untuk mempertahankan posisi kategori titik sebagai titik kosong. Gunakan [ChartDataPointCollection.clear](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapointcollection/clear/) hanya ketika Anda ingin menghapus semua titik dari seri tersebut. Jika Anda juga menghapus kategori, perbarui setiap seri agar nilai mereka tetap selaras dengan koleksi kategori.
 
 **Bagaimana titik kosong ditampilkan?**
 
-Hasilnya tergantung pada tipe diagram dan [Chart.display_blanks_as](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/display_blanks_as/). Diagram yang didukung dapat menampilkan kosong sebagai celah, sebagai nilai nol, atau dengan menghubungkan titik‑titik tetangga. Pilih pengaturan yang sesuai dengan makna data yang hilang dalam presentasi Anda.
+Hasilnya tergantung pada tipe diagram dan [Chart.display_blanks_as](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/display_blanks_as/). Diagram yang didukung dapat menampilkan kekosongan sebagai celah, sebagai nilai nol, atau dengan menghubungkan titik tetangga. Pilih pengaturan yang sesuai dengan makna data yang hilang dalam presentasi Anda. Lihat **Kendalikan Tampilan Sel Kosong** untuk contoh lengkap dan perbandingan visual.
 
 **Bagaimana nilai negatif diformat?**
 
-Untuk seri batang, kolom, dan gelembung yang didukung, aktifkan [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/invert_if_negative/) dan setel [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Anda dapat menimpa perilaku untuk titik individual dengan [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Properti ini memengaruhi pemformatan, bukan nilai numerik yang disimpan.
+Untuk seri batang, kolom, dan gelembung yang didukung, aktifkan [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/invert_if_negative/) dan atur [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Anda dapat menimpa perilaku untuk titik individu dengan [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Properti ini memengaruhi pemformatan, bukan nilai numerik yang disimpan.
 
-**Format mana yang menang ketika baik seri maupun titik diformat?**
+**Format mana yang menang ketika seri dan titik keduanya diformat?**
 
-Pemformatan titik data eksplisit memiliki prioritas untuk titik tersebut. Titik lain tetap menggunakan format seri eksplisit atau, bila format seri tidak didefinisikan, gaya dan tema diagram otomatis. Properti grup seperti tumpang tindih dan lebar celah mengontrol tata letak dan bukan penimpaan pemformatan tingkat titik.
+Pemformatan titik data yang eksplisit memiliki prioritas untuk titik tersebut. Titik lain terus menggunakan format seri eksplisit atau, bila format seri tidak didefinisikan, gaya dan tema diagram otomatis. Properti grup seperti tumpang tindih dan lebar celah mengontrol tata letak dan tidak menimpa format tingkat titik.
 
-**Apakah ada batas berapa banyak seri yang dapat dimiliki sebuah diagram?**
+**Apakah ada batas berapa banyak seri yang dapat dimiliki diagram?**
 
 Aspose.Slides tidak memberlakukan batas tetap terpisah untuk jumlah seri. Pada praktiknya, batas dipengaruhi oleh batasan berkas presentasi, memori yang tersedia, waktu rendering, dan keterbacaan diagram.
 
-**Apa yang harus diubah ketika kolom terlalu berdekatan atau terlalu jauh?**
+**Apa yang harus diubah ketika kolom terlalu berdekatan atau terlalu terpisah?**
 
-Setel [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) pada grup seri induk yang tepat. Tingkatkan nilai untuk memperlebar ruang antara klaster, atau turunkan nilai untuk mendekatkan klaster satu sama lain.
+Atur [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) pada grup seri induk yang tepat. Tingkatkan nilai untuk memperlebar ruang antara kelompok, atau turunkan nilai untuk mendekatkan kelompok.

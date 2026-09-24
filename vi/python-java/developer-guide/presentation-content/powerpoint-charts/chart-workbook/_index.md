@@ -1,38 +1,40 @@
 ---
-title: Quản lý Sổ công việc Biểu đồ trong Bản trình chiếu bằng Python qua Java
-linktitle: Sổ công việc Biểu đồ
+title: Quản lý Workbook Biểu đồ trong Bản trình bày bằng Python qua Java
+linktitle: Workbook Biểu đồ
 type: docs
 weight: 70
 url: /vi/python-java/chart-workbook/
 keywords:
-- sổ công việc biểu đồ
+- workbook biểu đồ
 - dữ liệu biểu đồ
-- ô sổ công việc
+- ô workbook
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- sổ công việc bên ngoài
+- workbook bên ngoài
 - dữ liệu bên ngoài
-- bộ nhớ đệm biểu đồ
-- khôi phục sổ công việc
+- bộ nhớ cache biểu đồ
+- khôi phục workbook
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Python
 - Java
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho Python qua Java: dễ dàng quản lý sổ công việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho Python qua Java: dễ dàng quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình bày của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ công việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ công việc, sử dụng các ô sổ công việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập bảng tính, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với workbook biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng workbook, sử dụng các ô workbook làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet, và chỉ định kiểu nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng bao gồm việc làm việc với sổ công việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ công việc bên ngoài, lấy đường dẫn của sổ công việc bên ngoài được liên kết với một biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ công việc có sẵn.
+Nó cũng đề cập đến việc làm việc với workbook bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một workbook bên ngoài, lấy đường dẫn của workbook bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi workbook có sẵn.
 
-## **Đọc và Ghi Dữ liệu Biểu đồ từ Sổ công việc**
+Đối với các ô workbook đại diện cho dữ liệu thiếu, hãy xem [Kiểm soát hiển thị ô trống](/slides/vi/python-java/chart-series/) để hiểu sự khác nhau giữa ô trống và số zero, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
 
-Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#readWorkbookStream) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#writeWorkbookStream) cho phép bạn đọc và ghi sổ công việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ được chỉnh sửa bằng Aspose.Cells). **Lưu ý** dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
+## **Đọc và ghi dữ liệu biểu đồ từ Workbook**
+Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#readWorkbookStream) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#writeWorkbookStream) cho phép bạn đọc và ghi các workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
 
-Mã Python này minh họa một thao tác mẫu:
+Đoạn mã Python này minh họa một thao tác mẫu:
+
 ```python
 import jpype
 import asposeslides
@@ -54,9 +56,10 @@ finally:
     presentation.dispose()
 ```
 
-### **Xác thực Bố cục Biểu đồ Sau Khi Sửa đổi Sổ công việc**
+### **Xác thực bố cục biểu đồ sau khi chỉnh sửa Workbook**
 
-Khi bạn thay thế một sổ công việc nhúng bằng một phiên bản đã được sửa đổi, biểu đồ vẫn giữ lại các bộ sưu tập chuỗi và danh mục gốc. Sự không đồng nhất này có thể khiến [Chart.validateChartLayout](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#validateChartLayout) ném ra một `ArgumentOutOfRangeException` (tham số: index). Để tránh ngoại lệ, hãy xóa các chuỗi và danh mục hiện có **trước khi** ghi sổ công việc đã cập nhật trở lại biểu đồ.
+Khi bạn thay thế một workbook được nhúng bằng một workbook đã được chỉnh sửa, biểu đồ vẫn giữ lại các bộ sưu tập series và category gốc. Sự không nhất quán này có thể gây ra lỗi cho [Chart.validateChartLayout](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#validateChartLayout) với `ArgumentOutOfRangeException` (tham số: index). Để tránh lỗi, hãy xóa các series và category hiện có **trước** khi ghi workbook đã cập nhật trở lại biểu đồ.
+
 ```python
 import jpype
 import asposeslides
@@ -68,7 +71,7 @@ from asposeslides.api import Presentation
 
 from pathlib import Path
 
-# Đọc sổ công việc sau khi đã chỉnh sửa (ví dụ, sử dụng Aspose.Cells).
+# Đọc workbook sau khi đã chỉnh sửa (ví dụ, sử dụng Aspose.Cells).
 updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
 
 presentation = Presentation("chart.pptx")
@@ -85,18 +88,19 @@ finally:
     presentation.dispose()
 ```
 
-Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đồ phù hợp với sổ công việc mới, cho phép [validateChartLayout](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#validateChartLayout) hoàn thành mà không gặp lỗi.
+Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đồ phù hợp với workbook mới, cho phép [validateChartLayout](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#validateChartLayout) hoàn thành mà không có lỗi.
 
-## **Đặt Ô Sổ công việc làm Nhãn Dữ liệu Biểu đồ**
+## **Đặt ô Workbook làm nhãn dữ liệu biểu đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
-3. Thêm một biểu đồ Bubble với một số dữ liệu.
-4. Truy cập các chuỗi của biểu đồ.
-5. Đặt ô sổ công việc làm nhãn dữ liệu.
-6. Lưu bản trình chiếu.
+1. Lấy tham chiếu của slide thông qua chỉ số của nó.
+1. Thêm biểu đồ Bubble với một số dữ liệu.
+1. Truy cập series của biểu đồ.
+1. Đặt ô workbook làm nhãn dữ liệu.
+1. Lưu bản trình bày.
 
-Mã Python này cho bạn thấy cách đặt ô sổ công việc làm nhãn dữ liệu biểu đồ:
+Đoạn mã Python này cho bạn thấy cách đặt ô workbook làm nhãn dữ liệu biểu đồ:
+
 ```python
 import jpype
 import asposeslides
@@ -123,9 +127,10 @@ finally:
     presentation.dispose()
 ```
 
-## **Quản lý Bảng tính**
+## **Quản lý Worksheets**
 
-Mã Python này minh họa một thao tác trong đó phương thức [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdataworkbook/#getWorksheets) được sử dụng để truy cập một bộ sưu tập bảng tính:
+Đoạn mã Python này minh họa một thao tác trong đó phương thức [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdataworkbook/#getWorksheets) được sử dụng để truy cập bộ sưu tập worksheet:
+
 ```python
 import jpype
 import asposeslides
@@ -145,9 +150,10 @@ finally:
     presentation.dispose()
 ```
 
-## **Chỉ định Loại Nguồn Dữ liệu**
+## **Chỉ định kiểu nguồn dữ liệu**
 
-Mã Python này cho bạn thấy cách chỉ định một loại cho nguồn dữ liệu:
+Đoạn mã Python này cho bạn thấy cách chỉ định một kiểu cho nguồn dữ liệu:
+
 ```python
 import jpype
 import asposeslides
@@ -171,9 +177,10 @@ finally:
     presentation.dispose()
 ```
 
-## **Phát hiện Định dạng Sổ công việc Nhúng Không được Hỗ trợ**
+## **Phát hiện định dạng Workbook nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sổ công việc nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức [getEmbeddedWorkbookType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) trên [ChartData](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/) kết hợp với liệt kê [WorkbookType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua những biểu đồ đó.
+Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức [getEmbeddedWorkbookType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) trên [ChartData](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/) cùng với enum [WorkbookType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
+
 ```python
 import jpype
 import asposeslides
@@ -191,18 +198,23 @@ try:
             continue
         chart_data = shape.getChartData()
         if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # Sổ công việc nhúng ở định dạng .xlsb, không được hỗ trợ.
+            # Workbook nhúng ở định dạng .xlsb, không được hỗ trợ.
             continue
-        # Đọc hoặc sửa đổi dữ liệu sổ công việc biểu đồ tại đây.
+        # Đọc hoặc chỉnh sửa dữ liệu workbook của biểu đồ tại đây.
 finally:
     presentation.dispose()
 ```
 
-### **Tạo một Sổ công việc Bên ngoài**
+## **Workbook bên ngoài**
 
-Sử dụng các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#readWorkbookStream) và [setExternalWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#setExternalWorkbook), bạn có thể tạo một sổ công việc bên ngoài từ đầu hoặc chuyển một sổ công việc nội bộ thành bên ngoài.
+Aspose.Slides hỗ trợ việc sử dụng workbook bên ngoài làm nguồn dữ liệu cho biểu đồ.
 
-Mã Python này minh họa quy trình tạo sổ công việc bên ngoài:
+### **Tạo một Workbook bên ngoài**
+
+Sử dụng các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#readWorkbookStream) và [setExternalWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#setExternalWorkbook), bạn có thể tạo một workbook bên ngoài từ đầu hoặc biến một workbook nội bộ thành bên ngoài.
+
+Đoạn mã Python này minh họa quá trình tạo workbook bên ngoài:
+
 ```python
 import jpype
 import asposeslides
@@ -226,13 +238,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Gán một Sổ công việc Bên ngoài**
+### **Gán một Workbook bên ngoài**
 
-Sử dụng phương thức [setExternalWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#setExternalWorkbook), bạn có thể gán một sổ công việc bên ngoài cho biểu đồ làm nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ công việc bên ngoài (nếu sổ công việc đó đã được di chuyển).
+Sử dụng phương thức [setExternalWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#setExternalWorkbook), bạn có thể gán một workbook bên ngoài cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ công việc được lưu ở vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng các sổ công việc đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho một sổ công việc bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook lưu trữ tại các vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng chúng làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho một workbook bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
 
-Mã Python này cho bạn thấy cách gán một sổ công việc bên ngoài:
+Đoạn mã Python này cho bạn thấy cách gán một workbook bên ngoài:
+
 ```python
 import jpype
 import asposeslides
@@ -261,10 +274,11 @@ finally:
     presentation.dispose()
 ```
 
-Tham số thứ hai (`bool`) của phương thức [setExternalWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#setExternalWorkbook) được dùng để chỉ định liệu một sổ công việc Excel có được tải hay không.
+Tham số thứ hai (`bool`) của phương thức [setExternalWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#setExternalWorkbook) được dùng để chỉ định liệu workbook Excel có được tải hay không.
 
-* Khi giá trị của nó được đặt thành `False`, chỉ đường dẫn sổ công việc được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ sổ công việc đích. Bạn có thể muốn sử dụng cài đặt này khi sổ công việc đích không tồn tại hoặc không khả dụng.  
-* Khi giá trị của nó được đặt thành `True`, dữ liệu biểu đồ sẽ được cập nhật từ sổ công việc đích.  
+* Khi giá trị được đặt là `False`, chỉ đường dẫn workbook được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ workbook đích. Bạn có thể muốn dùng cài đặt này khi workbook đích không tồn tại hoặc không khả dụng.  
+* Khi giá trị được đặt là `True`, dữ liệu biểu đồ sẽ được cập nhật từ workbook đích.
+
 ```python
 import jpype
 import asposeslides
@@ -284,15 +298,16 @@ finally:
     presentation.dispose()
 ```
 
-### **Lấy Đường dẫn Sổ công việc Nguồn Dữ liệu Bên ngoài của Một Biểu đồ**
+### **Lấy đường dẫn Workbook nguồn dữ liệu bên ngoài của một biểu đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
-3. Tạo một đối tượng cho hình dạng biểu đồ.
-4. Tạo một đối tượng cho loại nguồn ([ChartDataSourceType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdatasourcetype/)) đại diện cho nguồn dữ liệu của biểu đồ.
-5. Xác định điều kiện phù hợp dựa trên việc loại nguồn giống với loại nguồn dữ liệu sổ công việc bên ngoài.
+1. Lấy tham chiếu của slide thông qua chỉ số của nó.
+1. Tạo một đối tượng cho shape biểu đồ.
+1. Tạo một đối tượng cho kiểu nguồn ([ChartDataSourceType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdatasourcetype/)) đại diện cho nguồn dữ liệu của biểu đồ.
+1. Xác định điều kiện phù hợp dựa trên việc kiểu nguồn giống với kiểu nguồn dữ liệu workbook bên ngoài.
 
-Mã Python này minh họa thao tác:
+Đoạn mã Python này minh họa thao tác:
+
 ```python
 import jpype
 import asposeslides
@@ -314,11 +329,12 @@ finally:
     presentation.dispose()
 ```
 
-### **Chỉnh sửa Dữ liệu Biểu đồ**
+### **Chỉnh sửa dữ liệu biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong sổ công việc bên ngoài tương tự như cách bạn thay đổi nội dung của sổ công việc nội bộ. Khi không thể tải một sổ công việc bên ngoài, một ngoại lệ sẽ được ném ra.
+Bạn có thể chỉnh sửa dữ liệu trong workbook bên ngoài theo cách tương tự như khi thay đổi nội dung của workbook nội bộ. Khi không thể tải workbook bên ngoài, một ngoại lệ sẽ được ném ra.
 
-Mã Python này là một triển khai của quy trình đã mô tả:
+Đoạn mã Python này là triển khai của quy trình trên:
+
 ```python
 import jpype
 import asposeslides
@@ -338,11 +354,12 @@ finally:
     presentation.dispose()
 ```
 
-### **Khôi phục Sổ công việc từ Bộ nhớ Đệm Biểu đồ**
+### **Khôi phục một Workbook từ bộ nhớ cache của biểu đồ**
 
-Nếu một biểu đồ sử dụng sổ công việc bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ công việc biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/), cấu hình nó với [SpreadsheetOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/spreadsheetoptions/), và gọi [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) với `True` trước khi mở bản trình chiếu.
+Nếu một biểu đồ sử dụng workbook bên ngoài mà thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook của biểu đồ từ dữ liệu đã được lưu trong cache của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/), cấu hình nó với [SpreadsheetOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/spreadsheetoptions/), và gọi [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) với `True` trước khi mở bản trình bày.
 
-Ví dụ Python sau mở một bản trình chiếu mà trong đó biểu đồ tham chiếu một sổ công việc bên ngoài không khả dụng và truy cập dữ liệu đã khôi phục thông qua [Chart.getChartData](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#getChartData) và [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Ví dụ Python sau mở một bản trình bày mà biểu đồ tham chiếu tới một workbook bên ngoài không khả dụng và truy cập dữ liệu đã khôi phục thông qua [Chart.getChartData](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#getChartData) và [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
 ```python
 import jpype
 import asposeslides
@@ -362,35 +379,35 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Đọc hoặc sửa đổi dữ liệu sổ công việc được khôi phục tại đây.
+    # Đọc hoặc chỉnh sửa dữ liệu workbook đã khôi phục tại đây.
 finally:
     presentation.dispose()
 ```
 
-Nếu sổ công việc bên ngoài không khả dụng và việc khôi phục bị tắt, Aspose.Slides sẽ ném ra một ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một giải pháp dự phòng chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi được thực hiện trên sổ công việc bên ngoài sau khi bản trình chiếu được cập nhật lần cuối.
+Nếu workbook bên ngoài không khả dụng và tính năng khôi phục bị tắt, Aspose.Slides sẽ ném ra một ngoại lệ. Chỉ bật tính năng khôi phục khi việc sử dụng dữ liệu biểu đồ đã được cache là chấp nhận được, vì cache có thể không chứa các thay đổi đã thực hiện trên workbook bên ngoài sau lần cập nhật cuối cùng của bản trình bày.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định xem một biểu đồ cụ thể có được liên kết tới sổ công việc bên ngoài hay sổ công việc nhúng không?**
+**Tôi có thể xác định một biểu đồ cụ thể có liên kết tới workbook bên ngoài hay workbook được nhúng không?**
 
-Có. Một biểu đồ có một [loại nguồn dữ liệu](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getDataSourceType) và một [đường dẫn tới sổ công việc bên ngoài](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); nếu nguồn là một sổ công việc bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
+Có. Một biểu đồ có [kiểu nguồn dữ liệu](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getDataSourceType) và một [đường dẫn tới workbook bên ngoài](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); nếu nguồn là một workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
-**Các đường dẫn tương đối tới sổ công việc bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
+**Các đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này thuận tiện cho việc di động của dự án; tuy nhiên, hãy lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này tiện lợi cho việc di động dự án; tuy nhiên, hãy lưu ý rằng bản trình bày sẽ lưu đường dẫn tuyệt đối trong file PPTX.
 
-**Tôi có thể sử dụng các sổ công việc nằm trên tài nguyên/mạng chia sẻ không?**
+**Tôi có thể sử dụng các workbook nằm trên tài nguyên/mạng chia sẻ không?**
 
-Có, những sổ công việc như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa các sổ công việc từ xa trực tiếp từ Aspose.Slides không được hỗ trợ — chúng chỉ có thể được sử dụng làm nguồn.
+Có, các workbook như vậy có thể được sử dụng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình bày không?**
 
-Không. Bản trình chiếu lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) và sử dụng nó để đọc dữ liệu. Tệp bên ngoài không bị thay đổi khi bản trình chiếu được lưu.
+Không. Bản trình bày lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) và sử dụng nó để đọc dữ liệu. Tệp bên ngoài sẽ không bị thay đổi khi bản trình bày được lưu.
 
-**Tôi nên làm gì nếu tệp bên ngoài được bảo vệ bằng mật khẩu?**
+**Nếu tệp bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường được dùng là gỡ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/python-java/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là gỡ bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng cách sử dụng [Aspose.Cells](/cells/python-java/)) và liên kết tới bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu tới cùng một sổ công việc bên ngoài không?**
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu trữ liên kết riêng của mình. Nếu tất cả chúng đều trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ lần tiếp theo dữ liệu được tải.
+Có. Mỗi biểu đồ lưu trữ liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ lần tiếp theo dữ liệu được tải.

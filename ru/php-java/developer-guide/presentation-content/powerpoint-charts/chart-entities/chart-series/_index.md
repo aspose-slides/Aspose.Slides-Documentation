@@ -1,10 +1,10 @@
 ---
-title: Управление данными серии диаграмм в презентациях на PHP
+title: Управление сериями данных диаграммы в презентациях на PHP
 linktitle: Серии данных
 type: docs
 url: /ru/php-java/chart-series/
 keywords:
-- серия диаграммы
+- серии диаграммы
 - перекрытие серий
 - цвет серии
 - имя серии
@@ -20,23 +20,23 @@ description: "Узнайте, как управлять сериями диаг�
 ---
 ## **Обзор**
 
-Диаграмма хранит свои построенные данные в рабочей книге данных диаграммы. Объект [ChartSeries](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/) представляет один набор связанных значений, и каждый [ChartDataPoint](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [ChartCategory](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartcategory/) предоставляют метки или значения группировки, общие для серии. Поэтому имя серии, категории и значения точек связаны с объектами [ChartDataCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/), а не хранятся только как отображаемый текст.
+Диаграмма хранит отображаемые данные в рабочей книге данных диаграммы. A [ChartSeries](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/) представляет один набор связанных значений, и каждый [ChartDataPoint](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [ChartCategory](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartcategory/) предоставляют метки или значения группировки, общие для серии. Поэтому имя серии, категории и значения точек соединены с объектами [ChartDataCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/), а не хранятся только как текст отображения.
 
-Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#getCell), начинаются с нуля. Такой макет удобен, когда вы создаёте диаграмму с данными по умолчанию, но не следует предполагать, что каждая существующая диаграмма использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем изменять значения в рабочей книге.
+Для типичной диаграммы категорий стандартная рабочая книга использует строку 0 для имён серий, столбец 0 для имён категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#getCell), нулевые. Такая раскладка полезна при создании диаграммы с данными по умолчанию, но не следует предполагать, что каждый существующий график использует её. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем менять значения в рабочей книге.
 
 Настройки диаграммы имеют три разных уровня:
 
-- Настройки уровня серии, такие как [ChartSeries.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getFormat), определяют внешний вид по умолчанию для всех точек одной серии.
-- Настройки уровня точки, такие как [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#getFormat), переопределяют внешний вид серии для одной точки.
-- Настройки группы применяются к совместимым сериям, принадлежащим к одному [ChartSeriesGroup](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/). Получите доступ к группе через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getParentSeriesGroup), когда необходимо задать параметры, такие как перекрытие или ширина промежутка.
+- Настройки уровня серии, такие как [ChartSeries.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getFormat), определяют внешний вид всех точек в одной серии по умолчанию.
+- Настройки отдельной точки данных, такие как [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#getFormat), переопределяют внешний вид серии для одной точки.
+- Настройки группы применяются к совместимым сериям, принадлежащим к одной [ChartSeriesGroup](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/). Доступ к группе осуществляется через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getParentSeriesGroup), когда необходимо задать параметры, такие как перекрытие или ширина промежутка.
 
-Когда явная заливка точки или серии не задана, стиль и тема диаграммы определяют автоматический внешний вид. Когда одновременно присутствуют форматирование серии и точки, форматирование точки имеет приоритет для этой точки.
+Когда явная заливка точки или серии не задана, стиль и тема диаграммы определяют автоматический внешний вид. Если задаются как форматирование серии, так и точки, форматирование точки имеет приоритет для этой точки.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![график серии PowerPoint](chart-series-powerpoint.png)
 
 ## **Установить перекрытие серии диаграммы**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getOverlap) сообщает, насколько столбцы или полосы перекрываются в 2D‑диаграмме, от -100 до 100 процентов. Это только чтение текущего значения, унаследованного от родительской группы серий. Используйте [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/#setOverlap), чтобы обновить каждую совместимую серию в этой группе. Эта опция применяется к типам диаграмм, отображающим сгруппированные столбцы или полосы; она не влияет на несвязанные группы серий в комбинированной диаграмме.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getOverlap) сообщает, насколько столбцы или столбики перекрываются в 2‑D диаграмме, в диапазоне от ‑100 до 100 процентов. Это только чтение проекции настройки в родительской группе серий. Используйте [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/#setOverlap) для обновления всех совместимых серий в этой группе. Этот параметр применяется к типам диаграмм, отображающим группированные столбцы или столбики; он не влияет на несвязанные группы серий в комбинированной диаграмме.
 
 Следующий пример задаёт перекрытие для группы, содержащей первую серию:
 
@@ -49,7 +49,7 @@ $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-    // Новая диаграмма содержит образцы серий, категорий и значений.
+    // Новая диаграмма содержит примерные серии, категории и значения.
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
     $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
@@ -69,7 +69,7 @@ try {
 
 ## **Изменить цвет заливки серии**
 
-Используйте [ChartSeries.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getFormat), чтобы задать заливку по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#getFormat) переопределяет заливку серии для этой точки.
+Используйте [ChartSeries.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getFormat) для установки заливки по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#getFormat) переопределяет заливку серии для этой точки.
 
 Следующий пример применяет сплошную синюю заливку к первой серии:
 
@@ -102,7 +102,7 @@ try {
 
 ## **Изменить имя серии**
 
-Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для сгруппированной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные переменные в следующем примере делают эту структуру явной:
+Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В стандартной рабочей книге, созданной для кластерной столбчатой диаграммы, ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные переменные в следующем примере делают эту структуру явной:
 
 ```php
 $firstSlideIndex = 0;
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-Вы также можете обновить ячейку, уже используемую в [ChartSeries.getName](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getName). Такой подход избегает предположения о конкретных строке и столбце в существующей диаграмме:
+Вы также можете обновить ячейку, уже возвращаемую методом [ChartSeries.getName](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getName). Такой подход исключает предположение о конкретных строках и столбцах в уже существующей диаграмме:
 
 ```php
 $firstSlideIndex = 0;
@@ -159,7 +159,7 @@ try {
 
 ## **Получить автоматический цвет заливки серии**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) возвращает цвет, вычисленный на основе индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии не была явно определена. Вызов метода только считывает вычисленный цвет; он не задаёт новую заливку.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) возвращает цвет, вычисляемый на основе индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии не задана явно. Вызов метода только читает вычисленный цвет; он не присваивает новую заливку.
 
 Следующий пример выводит автоматический цвет каждой серии по умолчанию:
 
@@ -196,13 +196,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Точные цвета зависят от стиля диаграммы и темы.
+Точные цвета зависят от стиля и темы диаграммы.
 
 ## **Установить инвертированный цвет заливки для серии диаграммы**
 
-Для серий столбцов, полос и пузырей [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#setInvertIfNegative) может отображать отрицательные значения другим цветом. Задайте обычную заливку серии как сплошную, включите инверсию и укажите цвет отрицательных значений через [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Отрицательные числа в рабочей книге остаются неизменными; меняется только их цвет отображения.
+Для столбцов, столбиков и пузырьковых серий метод [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#setInvertIfNegative) может отображать отрицательные значения другой заливкой. Установите обычную заливку серии как сплошную, включите инверсию и задайте цвет отрицательного значения через [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Отрицательные числа остаются неизменными в рабочей книге; меняется только их цвет отображения.
 
-Следующий пример заменяет данные диаграммы по умолчанию одной серией. Строка листа 0 содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
+Следующий пример заменяет стандартные данные диаграммы одной серией. В листе строка 0 содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
 
 ```php
 $firstSlideIndex = 0;
@@ -262,7 +262,7 @@ try {
 
 ![Инвертированный сплошной цвет заливки](inverted_solid_fill_color.png)
 
-Вы можете включить инверсию для одной точки через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присваивается отрицательное значение, чтобы эффект был видим:
+Вы можете включить инверсию для одной точки через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присвоено отрицательное значение, чтобы эффект был виден:
 
 ```php
 $firstSlideIndex = 0;
@@ -298,7 +298,7 @@ try {
 
 ## **Очистить конкретное значение точки данных**
 
-Чтобы сделать одну точку пустой, не удаляя остальные, задайте её ячейке в рабочей книге значение `null`. Для столбчатой диаграммы построенное значение доступно через [ChartDataPoint.getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#getValue). Точка остаётся в той же позиции категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками отображения пустых значений.
+Чтобы сделать одну точку пустой, не удаляя остальные, установите её ячейку в рабочей книге в `null`. Для столбчатой диаграммы отображаемое значение доступно через [ChartDataPoint.getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#getValue). Точка остаётся в той же позиции категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками обработки пустых значений.
 
 Следующий пример очищает только вторую точку в первой серии:
 
@@ -325,13 +325,71 @@ try {
 }
 ```
 
-Диаграммы рассеяния используют отдельные ячейки X и Y, а диаграммы пузырей — также ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое нужно удалить. Не вызывайте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapointcollection/#clear), если хотите сохранить остальные точки, потому что этот метод удаляет все точки из коллекции.
+Диаграммы разброса используют отдельные ячейки X и Y, а пузырьковые диаграммы также используют ячейку размера. Очищайте только ячейку, представляющую значение, которое хотите удалить. Не вызывайте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapointcollection/#clear), если хотите сохранить другие точки, поскольку этот метод удалит все точки из коллекции.
 
-## **Установить ширину промежутка между сериями**
+## **Управление отображением пустых ячеек**
 
-Ширина промежутка — это пространство между соседними кластерами столбцов или полос, выраженное в процентах от их ширины. Как и перекрытие, она относится к родительской группе серий, а не к отдельной серии. Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/#setGapWidth) один раз для группы. Большое значение создаёт больше пространства между кластерами; маленькое — делает их плотнее.
+Пустая ячейка рабочей книги представляет отсутствие данных; ячейка, содержащая `0`, представляет известное числовое значение. Вызовите [ChartDataCell::setValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setValue) с `null`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки пустых ячеек.
 
-Следующий пример изменяет ширину промежутка и сохраняет только финальную презентацию:
+Используйте [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chart/#setDisplayBlanksAs), чтобы выбрать, как диаграмма отображает пустые ячейки. Эта настройка применяется ко всей диаграмме. Она меняет способ построения пустых точек, не заполняя пустую ячейку нулём или интерполированным значением.
+
+Следующий автономный пример создаёт линейную диаграмму с одной серией, очищает значение для Дня 3 и сохраняет одну и ту же диаграмму в каждом режиме. Входной файл не требуется. [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/) использует лист 0, столбец 0 для меток категорий и столбец 1 для значений; строка 0 хранит имя серии. Итоговые данные: `10, 20, empty, 30, 40`.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\DisplayBlanksAsType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 40, 40, 640, 400);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Measurements");
+    $series = $chartData->getSeries()->add($seriesNameCell, $chart->getType());
+    $values = [10, 20, 25, 30, 40];
+
+    for ($i = 0; $i < count($values); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Day " . ($i + 1));
+        $chartData->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
+    // Оставить третий день действительно пустым, сохранив его категорию и точку данных.
+    $workbook->getCell(0, 3, 1)->setValue(null);
+
+    $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
+    $modeNames = ["Gap", "Zero", "Span"];
+    for ($i = 0; $i < count($modes); $i++) {
+        $chart->setDisplayBlanksAs($modes[$i]);
+        $presentation->save("empty_cells_" . $modeNames[$i] . ".pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Каждый выходной файл сохраняет режим, выбранный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз вместо перебора режимов.
+
+Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст в рабочей книге во всех случаях:
+
+![Графики линии с одинаковыми данными: Gap разрывает линию в День 3, Zero опускает линию к нулю, а Span соединяет День 2 с Днем 4.](display_blanks_as.png)
+
+Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнивать все три режима. Для столбчатых и колонных диаграмм нет линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный сегмент, как показано выше; отсутствие столбца и столбец нулевой высоты могут выглядеть одинаково. Аналогично, диаграмма разброса только с маркерами не имеет соединительной линии. Не рассчитывайте получить три различных результата для каждого типа диаграммы; проверьте вывод для используемого типа.
+
+## **Установить ширину промежутка серии**
+
+Ширина промежутка — это пространство между соседними кластерами столбцов или полос, выраженное в процентах от ширины столбца или полосы. Как и перекрытие, она относится к родительской группе серий, а не к отдельной серии. Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/#setGapWidth) один раз для группы. Большое значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
+
+Следующий пример меняет ширину промежутка и сохраняет только конечную презентацию:
 
 ```php
 $firstSlideIndex = 0;
@@ -359,44 +417,44 @@ try {
 
 ![Ширина промежутка](gap_width.png)
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Какие типы диаграмм поддерживают серии данных?**
 
-Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/), используют данные диаграммы, но их серии не всегда имеют одинаковую структуру значений или настройки. Например, диаграммы категорий используют категории и значения, диаграммы рассеяния — X и Y, а диаграммы пузырей добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам столбцов или полос.
+Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/charttype/), используют данные диаграммы, но их серии не имеют одинаковой структуры значений или настроек. Например, диаграммы категорий используют категории и значения, диаграммы разброса используют X и Y, а пузырьковые диаграммы добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам столбцов или полос.
 
-**Что такое группа серии диаграммы?**
+**Что такое группа серий диаграммы?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/) содержит совместимые серии, которые используют общие настройки построения уровня группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно меняет все серии в диаграмме.
+[ChartSeriesGroup](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/) содержит совместимые серии, которые разделяют настройки уровня группы. В комбинированной диаграмме может быть более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно изменит все серии в диаграмме.
 
-**Создаётся ли в новой диаграмме набор данных по умолчанию?**
+**Содержит ли только что созданная диаграмма данные по умолчанию?**
 
-Да. По умолчанию [ShapeCollection.addChart](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/#addChart) создаёт образцы серий, категорий и значений. Вы можете отредактировать эти ячейки или очистить коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Существует перегрузка, позволяющая создать диаграмму без данных по умолчанию.
+Да. По умолчанию [ShapeCollection.addChart](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/#addChart) создаёт образцы серий, категорий и значений. Вы можете изменить эти ячейки или очистить коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Перегрузка может также создать диаграмму без данных по умолчанию.
 
-**Как объекты диаграммы связаны с ячейками рабочей книги?**
+**Как объекты диаграмм связаны с ячейками рабочей книги?**
 
-Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/). Изменение ссылочной ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных держите строки категорий и строки значений серий выровненными, чтобы каждая точка отображалась под нужной категорией.
+Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных сохраняйте выравнивание строк категорий и строк значений серий, чтобы каждая точка отображалась под нужной категорией.
 
-**Как очистить одну точку, а не всю серию?**
+**Как очистить одну точку вместо всей серии?**
 
-Задайте соответствующей ячейке значение `null`, чтобы сохранить позицию категории точки как пустой. Используйте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapointcollection/#clear) только тогда, когда необходимо удалить все точки из серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались согласованными с коллекцией категорий.
+Установите соответствующую ячейку значения в `null`, чтобы оставить позицию категории точки, но сделать её пустой. Используйте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapointcollection/#clear) только тогда, когда хотите удалить все точки из серии. Если вы также удаляете категории, обновите все серии, чтобы их значения оставались согласованными с коллекцией категорий.
 
 **Как отображаются пустые точки?**
 
-Результат зависит от типа диаграммы и настройки, задаваемой через [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chart/#setDisplayBlanksAs). Поддерживаемые диаграммы могут показывать пустоты как пробелы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации.
+Результат зависит от типа диаграммы и значения, установленного через [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chart/#setDisplayBlanksAs). Поддерживаемые диаграммы могут отображать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. раздел **Управление отображением пустых ячеек** для полного примера и визуального сравнения.
 
 **Как форматируются отрицательные значения?**
 
-Для поддерживаемых столбчатых, столбцовых и пузырчатых серий вызовите [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#setInvertIfNegative) и задайте цвет, возвращаемый [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Поведение отдельной точки можно переопределить с помощью [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Эти методы влияют только на форматирование, а не на хранимые числовые значения.
+Для поддерживаемых столбцовых, колонных и пузырьковых серий вызовите [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#setInvertIfNegative) и задайте цвет, возвращаемый [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Для отдельной точки можно переопределить поведение с помощью [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Эти методы влияют только на форматирование, а не на хранящиеся числовые значения.
 
-**Какой формат имеет приоритет, если серия и точка отформатированы?**
+**Какое форматирование имеет приоритет, когда форматируются и серия, и точка?**
 
-Явное форматирование точки имеет приоритет для этой точки. Остальные точки продолжают использовать явный формат серии или, если формат серии не задан, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина промежутка, управляют расположением и не являются переопределениями форматирования точек.
+Явное форматирование отдельной точки данных имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина промежутка, управляют компоновкой и не переопределяют форматирование на уровне точек.
 
 **Есть ли ограничение на количество серий в диаграмме?**
 
-Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения определяются размером файла презентации, доступной памятью, временем рендеринга и читаемостью диаграммы.
+Aspose.Slides не накладывает отдельное фиксированное ограничение на количество серий. На практике ограничения задают размеры файла презентации, доступная память, время рендеринга и читаемость диаграммы.
 
-**Что менять, если столбцы слишком близко или слишком далеко друг от друга?**
+**Что следует изменить, если столбцы слишком близко друг к другу или слишком далеко?**
 
-Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/#setGapWidth) у соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы сблизить кластеры.
+Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseriesgroup/#setGapWidth) у соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы собрать кластеры ближе.

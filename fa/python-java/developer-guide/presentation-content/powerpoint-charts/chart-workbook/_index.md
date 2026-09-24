@@ -1,36 +1,39 @@
 ---
-title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از Python از طریق Java
-linktitle: کتاب‌کار نمودار
+title: "مدیریت کتاب‌های کاری نمودار در ارائه‌ها با استفاده از پایتون از طریق جاوا"
+linktitle: "کتاب کار نمودار"
 type: docs
 weight: 70
 url: /fa/python-java/chart-workbook/
 keywords:
-- کتاب‌کار نمودار
-- داده‌های نمودار
-- سلول کتاب‌کار
-- برچسب داده
-- ورک‌شیت
-- منبع داده
-- کتاب‌کار خارجی
-- داده خارجی
-- حافظه‌پنهان نمودار
-- بازیابی کتاب‌کار
-- PowerPoint
-- ارائه
-- Python
-- Java
-- Aspose.Slides
-description: "Aspose.Slides برای Python از طریق Java را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را ساده‌سازی کنید."
+- "کتاب کار نمودار"
+- "داده‌های نمودار"
+- "سلول کتاب کار"
+- "برچسب داده"
+- "ورق کار"
+- "منبع داده"
+- "کتاب کار خارجی"
+- "داده خارجی"
+- "کش نمودار"
+- "بازیابی کتاب کار"
+- "PowerPoint"
+- "ارائه"
+- "پایتون"
+- "جاوا"
+- "Aspose.Slides"
+description: "Aspose.Slides برای پایتون از طریق جاوا را کشف کنید: به راحتی کتاب‌های کاری نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائهٔ خود را بهینه کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های ورک‌شیت دسترسی داشته باشید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
+این مقاله نحوه کار با کتاب‌های کاری نمودار در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه می‌توان داده‌های نمودار را از طریق جریان‌های کتاب کاری خواند و نوشت، از سلول‌های کتاب کاری به عنوان برچسب‌های داده نمودار استفاده کرد، به مجموعه‌های ورق‌های کار دسترسی یافت و نوع منبع داده برای مقادیر نمودار را مشخص کرد.
 
-همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص دهید، مسیر کتاب‌کار خارجی پیوندخورده به یک نمودار را بازیابی کنید و داده‌های نمودار را هنگامی که کتاب‌کار در دسترس باشد ویرایش کنید.
+همچنین کار با کتاب‌های کاری خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب کاری خارجی ایجاد و اختصاص داده شود، مسیر کتاب کاری خارجی مرتبط با یک نمودار بازیابی شود و داده‌های نمودار زمانی که کتاب کاری در دسترس باشد، ویرایش شود.
 
-## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
+برای سلول‌های کتاب کاری که داده‌های گم‌شده را نشان می‌دهند، به [Control the Display of Empty Cells](/slides/fa/python-java/chart-series/) مراجعه کنید تا تفاوت بین یک سلول خالی و صفر و مقایسه حالت‌های نمایش در نمودار خطی را ببینید.
 
-Aspose.Slides متدهای [readWorkbookStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#readWorkbookStream) و [writeWorkbookStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#writeWorkbookStream) را فراهم می‌آورد که به شما امکان می‌دهند کتاب‌کارهای داده نمودار (حاوی داده‌های نمودار ویرایش شده با Aspose.Cells) را بخوانید و بنویسید. **Note** اینکه داده‌های نمودار باید به همان شکلی سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+## **خواندن و نوشتن داده‌های نمودار از کتاب کاری**
+Aspose.Slides روش‌های [readWorkbookStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#readWorkbookStream) و [writeWorkbookStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#writeWorkbookStream) را ارائه می‌دهد که به شما امکان می‌دهد کتاب‌های کاری داده‌های نمودار (حاوی داده‌های ویرایش شده با Aspose.Cells) را بخوانید و بنویسید. **نکته** این است که داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+
+این کد پایتون یک عملیات نمونه را نشان می‌دهد:
 
 ```python
 import jpype
@@ -53,9 +56,9 @@ finally:
     presentation.dispose()
 ```
 
-### **اعتبارسنجی چیدمان نمودار پس از تغییر کتاب‌کار**
+### **اعتبارسنجی چیدمان نمودار پس از تغییر کتاب کاری**
 
-وقتی یک کتاب‌کار جاسازی‌شده را با یک نسخهٔ تغییر یافته جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌بندی‌های اصلی خود را نگه می‌دارد. این ناسازگاری می‌تواند باعث شود [Chart.validateChartLayout](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#validateChartLayout) یک `ArgumentOutOfRangeException` (پارامتر: index) را پرتاب کند. برای جلوگیری از این استثناء، **before** پاک کنید سری‌ها و دسته‌بندی‌های موجود را قبل از نوشتن کتاب‌کار به‌روز شده به نمودار.
+هنگامی که یک کتاب کاری جاسازی‌شده را با نسخه‌ای اصلاح‌شده جایگزین می‌کنید، نمودار سری‌ها و مجموعه‌های دسته‌بندی اصلی خود را حفظ می‌کند. این ناهماهنگی می‌تواند باعث شود متد [Chart.validateChartLayout](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#validateChartLayout) یک `ArgumentOutOfRangeException` (پارامتر: index) پرتاب کند. برای جلوگیری از این استثناء، قبل از نوشتن کتاب کاری به‌روزرسانی‌شده به نمودار، سری‌ها و دسته‌بندی‌های موجود را **پیش از** نوشتن پاک کنید.
 
 ```python
 import jpype
@@ -68,7 +71,7 @@ from asposeslides.api import Presentation
 
 from pathlib import Path
 
-# پس از ویرایش کتاب‌کار (به‌عنوان مثال با استفاده از Aspose.Cells) آن را بخوانید.
+# پس از تغییر کتاب‌کار (مثلاً با استفاده از Aspose.Cells) کتاب‌کار را بخوانید.
 updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
 
 presentation = Presentation("chart.pptx")
@@ -76,7 +79,7 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     chart_data = chart.getChartData()
 
-    # مراجع داده‌های موجود را پاک کنید.
+    # پاک‌سازی ارجاعات داده موجود.
     chart_data.getSeries().clear()
     chart_data.getCategories().clear()
     chart_data.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
@@ -85,18 +88,18 @@ finally:
     presentation.dispose()
 ```
 
-پاک‌سازی این مجموعه‌ها اطمینان می‌دهد که ساختار داده‌های نمودار با کتاب‌کار جدید هم‌راستا است و اجازه می‌دهد [validateChartLayout](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#validateChartLayout) بدون خطا کامل شود.
+پاک‌سازی مجموعه‌ها تضمین می‌کند ساختار داده‌های نمودار با کتاب کاری جدید هم‌راستا باشد و اجازه می‌دهد [validateChartLayout](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#validateChartLayout) بدون خطا اجرا شود.
 
-## **تنظیم یک سلول کتاب‌کار به عنوان برچسب دادهٔ نمودار**
+## **تنظیم یک سلول کتاب کاری به‌عنوان برچسب داده نمودار**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.  
-1. مراجع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار حبابی (Bubble) با برخی داده‌ها اضافه کنید.  
+1. مرجع اسلاید را از طریق ایندکس آن دریافت کنید.  
+1. یک نمودار حبابی با مقداری داده اضافه کنید.  
 1. به سری‌های نمودار دسترسی پیدا کنید.  
-1. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.  
-1. ارائه (Presentation) را ذخیره کنید.
+1. سلول کتاب کاری را به‌عنوان برچسب داده تنظیم کنید.  
+1. ارائه را ذخیره کنید.
 
-این کد پایتون نشان می‌دهد چگونه یک سلول کتاب‌کار را به عنوان برچسب دادهٔ نمودار تنظیم کنید:
+این کد پایتون نشان می‌دهد چگونه یک سلول کتاب کاری را به‌عنوان برچسب داده نمودار تنظیم کنید:
 
 ```python
 import jpype
@@ -124,9 +127,9 @@ finally:
     presentation.dispose()
 ```
 
-## **مدیریت ورک‌شیت‌ها**
+## **مدیریت ورق‌های کار**
 
-این کد پایتون عملیاتی را نشان می‌دهد که در آن متد [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdataworkbook/#getWorksheets) برای دسترسی به مجموعهٔ ورک‌شیت‌ها استفاده می‌شود:
+این کد پایتون یک عملیاتی را نشان می‌دهد که در آن متد [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdataworkbook/#getWorksheets) برای دسترسی به مجموعه ورق‌های کار استفاده می‌شود:
 
 ```python
 import jpype
@@ -149,7 +152,7 @@ finally:
 
 ## **مشخص کردن نوع منبع داده**
 
-این کد پایتون نشان می‌دهد چگونه یک نوع برای منبع داده مشخص کنید:
+این کد پایتون نشان می‌دهد چگونه برای یک منبع داده نوعی را مشخص کنید:
 
 ```python
 import jpype
@@ -174,9 +177,9 @@ finally:
     presentation.dispose()
 ```
 
-## **تشخیص قالب‌های پشتیبانی‌نشدهٔ کتاب‌کارهای جاسازی‌شده**
+## **تشخیص قالب‌های کتاب کاری جاسازی‌شده پشتیبانی‌نشده**
 
-Aspose.Slides از قالب کتاب‌کار باینری اکسل (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید از متد [getEmbeddedWorkbookType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) بر روی [ChartData](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/) همراه با شمارشگر [WorkbookType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/workbooktype/) برای تشخیص قالب‌های پشتیبانی‌نشده و حذف آن نمودارها استفاده کنید.
+Aspose.Slides از قالب کتاب کاری باینری اکسل (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید از متد [getEmbeddedWorkbookType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) بر روی [ChartData](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/) همراه با شمارش‌گر [WorkbookType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/workbooktype/) برای شناسایی قالب‌های پشتیبانی‌نشده استفاده کرده و آن نمودارها را نادیده بگیرید.
 
 ```python
 import jpype
@@ -195,16 +198,22 @@ try:
             continue
         chart_data = shape.getChartData()
         if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # کتاب‌کار جاسازی‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
+            # کتاب کاری جاسازی‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
             continue
-        # داده‌های کتاب‌کار نمودار را در اینجا بخوانید یا ویرایش کنید.
+        # داده‌های کتاب کاری نمودار را در اینجا بخوانید یا اصلاح کنید.
 finally:
     presentation.dispose()
 ```
 
-### **ایجاد یک کتاب‌کار خارجی**
+## **کتاب کاری خارجی**
 
-با استفاده از متدهای [readWorkbookStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#readWorkbookStream) و [setExternalWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#setExternalWorkbook), می‌توانید یا یک کتاب‌کار خارجی از ابتدا ایجاد کنید یا یک کتاب‌کار داخلی را به خارجی تبدیل کنید.
+Aspose.Slides از استفاده از کتاب‌های کاری خارجی به‌عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
+
+### **ایجاد یک کتاب کاری خارجی**
+
+با استفاده از متدهای [readWorkbookStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#readWorkbookStream) و [setExternalWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#setExternalWorkbook) می‌توانید یک کتاب کاری خارجی را از ابتدا ایجاد کنید یا یک کتاب کاری داخلی را خارجی کنید.
+
+این کد پایتون فرآیند ایجاد کتاب کاری خارجی را نشان می‌دهد:
 
 ```python
 import jpype
@@ -229,11 +238,13 @@ finally:
     presentation.dispose()
 ```
 
-### **تنظیم یک کتاب‌کار خارجی**
+### **تنظیم یک کتاب کاری خارجی**
 
-با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#setExternalWorkbook), می‌توانید یک کتاب‌کار خارجی را به عنوان منبع دادهٔ یک نمودار اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی استفاده شود (اگر کتاب‌کار جابجا شده باشد).
+با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#setExternalWorkbook) می‌توانید یک کتاب کاری خارجی را به‌عنوان منبع داده به یک نمودار اختصاص دهید. این متد می‌تواند برای به‌روزرسانی مسیر به کتاب کاری خارجی (در صورت جابجا شدن آن) نیز استفاده شود.
 
-اگرچه نمی‌توانید داده‌های موجود در کتاب‌کارهای ذخیره‌شده در مکان‌ها یا منابع دوردست را ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی فراهم شود، به‌طور خودکار به مسیر کامل تبدیل می‌شود.
+در حالی که نمی‌توانید داده‌های کتاب‌های کاری ذخیره‌شده در مکان‌های دوردست یا منابع را ویرایش کنید، همچنان می‌توانید از چنین کتاب‌های کاری به‌عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای کتاب کاری خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
+
+این کد پایتون نشان می‌دهد چگونه یک کتاب کاری خارجی تنظیم کنید:
 
 ```python
 import jpype
@@ -263,10 +274,10 @@ finally:
     presentation.dispose()
 ```
 
-پارامتر دوم (`bool`) متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#setExternalWorkbook) برای مشخص کردن این استفاده می‌شود که آیا یک کتاب‌کار اکسل بارگذاری شود یا نه.
+پارامتر دوم (`bool`) متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#setExternalWorkbook) برای مشخص کردن اینکه آیا یک کتاب کاری اکسل بارگذاری شود یا خیر، استفاده می‌شود.
 
-* وقتی مقدار آن به `False` تنظیم شود، تنها مسیر کتاب‌کار به‌روز می‌شود—داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روز نمی‌شوند. ممکن است در موقعیتی که کتاب‌کار هدف وجود نداشته یا در دسترس نباشد، از این تنظیم استفاده کنید.  
-* وقتی مقدار آن به `True` تنظیم شود، داده‌های نمودار از کتاب‌کار هدف به‌روز می‌شوند.
+* وقتی مقدار آن `False` باشد، فقط مسیر کتاب کاری به‌روزرسانی می‌شود—داده‌های نمودار از کتاب کاری هدف بارگذاری یا به‌روزرسانی نمی‌شوند. می‌توانید از این تنظیم زمانی که کتاب کاری هدف وجود ندارد یا در دسترس نیست استفاده کنید.  
+* وقتی مقدار آن `True` باشد، داده‌های نمودار از کتاب کاری هدف به‌روزرسانی می‌شوند.
 
 ```python
 import jpype
@@ -287,15 +298,15 @@ finally:
     presentation.dispose()
 ```
 
-### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
+### **دریافت مسیر کتاب کاری منبع داده خارجی یک نمودار**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.  
-1. مراجع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک شیء برای شکل (shape) نمودار ایجاد کنید.  
-1. یک شیء برای نوع منبع ([ChartDataSourceType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdatasourcetype/)) ایجاد کنید که نمایانگر منبع دادهٔ نمودار است.  
-1. شرط مربوطه را بر اساس اینکه نوع منبع برابر با نوع منبع دادهٔ کتاب‌کار خارجی باشد، مشخص کنید.
+1. مرجع اسلاید را از طریق ایندکس آن دریافت کنید.  
+1. یک شیء برای شکل نمودار بسازید.  
+1. یک شیء برای منبع ([ChartDataSourceType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdatasourcetype/)) که نمایانگر منبع داده نمودار است، ایجاد کنید.  
+1. شرط مربوطه را بر اساس اینکه نوع منبع همان نوع منبع داده کتاب کاری خارجی باشد، مشخص کنید.
 
-این کد پایتون عملیات را نشان می‌دهد:
+این کد پایتون این عملیات را نشان می‌دهد:
 
 ```python
 import jpype
@@ -320,7 +331,9 @@ finally:
 
 ### **ویرایش داده‌های نمودار**
 
-می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را به همان روشی که محتویات کتاب‌کارهای داخلی را تغییر می‌دهید، ویرایش کنید. وقتی یک کتاب‌کار خارجی قابل بارگذاری نباشد، استثنایی پرتاب می‌شود.
+می‌توانید داده‌های موجود در کتاب‌های کاری خارجی را همانند تغییر محتویات کتاب‌های کاری داخلی ویرایش کنید. وقتی کتاب کاری خارجی قابل بارگذاری نباشد، استثنا پرتاب می‌شود.
+
+این کد پایتون پیاده‌سازی فرآیند توضیح داده شده را نشان می‌دهد:
 
 ```python
 import jpype
@@ -341,11 +354,11 @@ finally:
     presentation.dispose()
 ```
 
-### **بازیابی کتاب‌کار از حافظهٔ پنهان نمودار**
+### **بازیابی کتاب کاری از کش نمودار**
 
-اگر یک نمودار از کتاب‌کار خارجی که گم شده یا در دسترس نیست استفاده کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های ذخیره‌شده در ارائه بازسازی کند. قبل از باز کردن ارائه، یک [LoadOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/) ایجاد کنید، آن را با [SpreadsheetOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/spreadsheetoptions/) پیکربندی کنید و متد [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) را با مقدار `True` فراخوانی کنید.
+اگر یک نمودار از کتاب کاری خارجی که گم شده یا در دسترس نیست استفاده کند، Aspose.Slides می‌تواند کتاب کاری نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/) ایجاد کنید، آن را با [SpreadsheetOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن ارائه، متد [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) را با مقدار `True` فراخوانی کنید.
 
-مثال پایتون زیر یک ارائه را باز می‌کند که نمودار آن به یک کتاب‌کار خارجی در دسترس نیست ارجاع می‌دهد و داده‌های بازیابی‌شده را از طریق [Chart.getChartData](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#getChartData) و [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getChartDataWorkbook) دسترسی می‌یابد:
+مثال پایتون زیر یک ارائه را که نمودار آن به یک کتاب کاری خارجی در دسترس نیست ارجاع می‌دهد، باز می‌کند و داده‌های بازیابی‌شده را از طریق [Chart.getChartData](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#getChartData) و [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getChartDataWorkbook) دسترسی می‌یابد:
 
 ```python
 import jpype
@@ -366,29 +379,35 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-    # داده‌های کتاب‌کار بازیابی‌شده را در اینجا بخوانید یا ویرایش کنید.
+    # خواندن یا اصلاح داده‌های کتاب‌کار بازیابی‌شده در اینجا.
 finally:
     presentation.dispose()
 ```
 
-اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنایی پرتاب می‌کند. بازیابی را تنها زمانی فعال کنید که استفاده از داده‌های نمودار ذخیره‌شده گزینهٔ قابل قبول باشد، زیرا ممکن است حافظهٔ پنهان شامل تغییرات اعمال‌شده بر کتاب‌کار خارجی پس از آخرین به‌روزرسانی ارائه نباشد.
+اگر کتاب کاری خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنا پرتاب می‌کند. فقط زمانی که استفاده از داده‌های کش‌شده نمودار به‌عنوان یک راه‌حل قابل قبول است، بازیابی را فعال کنید، زیرا کش ممکن است تغییرات اعمال‌شده به کتاب کاری خارجی پس از آخرین به‌روزرسانی ارائه را شامل نشود.
 
-## **پرسش‌های متداول**
+## **سؤال‌های متداول**
 
-**آیا می‌توانم تعیین کنم آیا یک نمودار خاص به یک کتاب‌کار خارجی یا جاسازی‌شده پیوند دارد؟**  
-بله. یک نمودار دارای یک [data source type](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getDataSourceType) و یک [path to an external workbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید یک فایل خارجی استفاده می‌شود.
+**آیا می‌توانم تعیین کنم که یک نمودار خاص به یک کتاب کاری خارجی یا جاسازی‌شده لینک دارد؟**
 
-**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**  
-بله. اگر مسیر نسبی را مشخص کنید، به‌طور خودکار به مسیر مطلق تبدیل می‌شود. این برای قابلیت انتقال پروژه مناسب است؛ با این حال، توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
+بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getDataSourceType) و یک [path to an external workbook](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) است؛ اگر منبع یک کتاب کاری خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
 
-**آیا می‌توانم از کتاب‌کارهای موجود در منابع/اشتراک‌های شبکه استفاده کنم؟**  
-بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم کتاب‌کارهای راه دور از طریق Aspose.Slides پشتیبانی نمی‌شود—آنها فقط می‌توانند به عنوان منبع استفاده شوند.
+**آیا مسیرهای نسبی به کتاب‌های کاری خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-**آیا Aspose.Slides هنگام ذخیرهٔ ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**  
-خیر. ارائه یک [link to the external file](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) را ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. خود فایل خارجی هنگام ذخیرهٔ ارائه تغییر نمی‌کند.
+بله. اگر مسیر نسبی را مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. این برای قابل‌حمل بودن پروژه مفید است؛ هرچند، توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
 
-**در صورتی که فایل خارجی با رمز عبور محافظت شود، باید چه کنم؟**  
-Aspose.Slides هنگام ایجاد پیوند، رمز عبور را نمی‌پذیرد. یک روش رایج این است که پیش از آن حفاظت را حذف کنید یا یک نسخهٔ رمزگشای شده (مثلاً با استفاده از [Aspose.Cells](/cells/python-java/)) تهیه کنید و به آن نسخه پیوند دهید.
+**آیا می‌توانم از کتاب‌های کاری که روی منابع/به‌اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**
 
-**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی یکسان ارجاع دهند؟**  
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در هر نمودار منعکس خواهد شد.
+بله، چنین کتاب‌های کاری می‌توانند به‌عنوان منبع داده خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌های کاری راه دور از Aspose.Slides پشتیبانی نمی‌شود—فقط می‌توان از آن‌ها به‌عنوان منبع استفاده کرد.
+
+**آیا Aspose.Slides هنگام ذخیره ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**
+
+خیر. ارائه یک [link to the external file](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیره ارائه تغییری نمی‌کند.
+
+**اگر فایل خارجی با رمز عبور محافظت شده باشد چه کار کنم؟**
+
+Aspose.Slides هنگام لینک کردن رمز عبور را قبول نمی‌کند. یک روش معمول این است که پیش از استفاده محافظت را حذف کنید یا یک نسخهٔ رمزگشایی‌شده (مثلاً با استفاده از [Aspose.Cells](/cells/python-java/)) تهیه کنید و به آن نسخه لینک دهید.
+
+**آیا چندین نمودار می‌توانند به یک کتاب کاری خارجی اشاره کنند؟**
+
+بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها منعکس می‌شود.

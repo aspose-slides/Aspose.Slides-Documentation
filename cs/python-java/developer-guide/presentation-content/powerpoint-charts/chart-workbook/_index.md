@@ -1,5 +1,5 @@
 ---
-title: Správa sešitů grafů v prezentacích pomocí Pythonu přes Java
+title: Spravujte sešity grafů v prezentacích pomocí Pythonu přes Java
 linktitle: Sešit grafu
 type: docs
 weight: 70
@@ -10,7 +10,7 @@ keywords:
 - buňka sešitu
 - popisek dat
 - list
-- zdroj dat
+- datový zdroj
 - externí sešit
 - externí data
 - mezipaměť grafu
@@ -20,14 +20,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro Python přes Java: snadno spravujte sešity grafů v formátech PowerPoint a OpenDocument a zjednodušte data své prezentace."
+description: "Objevte Aspose.Slides pro Python přes Java: snadno spravujte sešity grafů v PowerPointu a formátech OpenDocument a zefektivněte data své prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu prostřednictvím streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat ke kolekcím listů a specifikovat typ zdroje dat pro hodnoty grafu. Také se zabývá prací s externími sešity jako zdroji dat grafu. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit k dispozici.
+Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu prostřednictvím streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat ke kolekcím listů a specifikovat typ datového zdroje pro hodnoty grafu.
+
+Také se zabývá prací s externími sešity jako datovými zdroji grafu. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit dostupný.
+
+Pro buňky sešitu, které představují chybějící data, viz [Řízení zobrazení prázdných buněk](/slides/cs/python-java/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a srovnání liniového grafu dostupných režimů zobrazení.
 
 ## **Čtení a zápis dat grafu ze sešitu**
-Aspose.Slides poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#readWorkbookStream) a [writeWorkbookStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#writeWorkbookStream), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka** že data grafu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
+Aspose.Slides poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#readWorkbookStream) a [writeWorkbookStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#writeWorkbookStream), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka** že data grafu musí být uspořádána stejným způsobem nebo musí mít strukturu podobnou zdroji.
+
+Tento Python kód demonstruje ukázkovou operaci:
 
 ```python
 import jpype
@@ -50,9 +56,8 @@ finally:
     presentation.dispose()
 ```
 
-### **Ověření rozložení grafu po úpravě sešitu**
-
-Když nahradíte vložený sešit upraveným, graf si ponechává své původní kolekce sérií a kategorií. Tato nesrovnalost může způsobit, že [Chart.validateChartLayout](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/#validateChartLayout) vyhodí výjimku `ArgumentOutOfRangeException` (parameter: index). Aby se výjimka předešlo, vymazáním existujících sérií a kategorií **před** zápisem aktualizovaného sešitu zpět do grafu.
+### **Ověření rozvržení grafu po úpravě sešitu**
+Když nahradíte vložený sešit upraveným, graf si zachová své původní kolekce řad a kategorií. Tato nekonzistence může způsobit, že [Chart.validateChartLayout](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/#validateChartLayout) vyhodí `ArgumentOutOfRangeException` (parametr: index). Pro zamezení výjimky vymažte existující řady a kategorie **před** zápisem aktualizovaného sešitu zpět do grafu.
 
 ```python
 import jpype
@@ -82,16 +87,17 @@ finally:
     presentation.dispose()
 ```
 
-Vymazání kolekcí zajišťuje, že struktura dat grafu odpovídá novému sešitu, což umožňuje [validateChartLayout](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/#validateChartLayout) dokončit bez chyb.
+Vymazání kolekcí zajišťuje, že struktura dat grafu souhlasí s novým sešitem, což umožní metodě [validateChartLayout](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/#validateChartLayout) dokončit se bez chyb.
 
 ## **Nastavení buňky sešitu jako popisku dat grafu**
-
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte bublinový graf s některými daty.
-4. Přistupte k sériím grafu.
-5. Nastavte buňku sešitu jako popisek dat.
-6. Uložte prezentaci.
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte bublinový graf s některými daty.
+1. Přistupte k řadám grafu.
+1. Nastavte buňku sešitu jako popisek dat.
+1. Uložte prezentaci.
+
+Tento Python kód vám ukazuje, jak nastavit buňku sešitu jako popisek dat grafu:
 
 ```python
 import jpype
@@ -120,8 +126,7 @@ finally:
 ```
 
 ## **Správa listů**
-
-Ukázkový kód v Pythonu demonstruje operaci, kde se metoda [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/#getWorksheets) používá k přístupu ke kolekci listů:
+Tento Python kód demonstruje operaci, kde se metoda [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdataworkbook/#getWorksheets) používá k přístupu ke kolekci listů:
 
 ```python
 import jpype
@@ -142,9 +147,8 @@ finally:
     presentation.dispose()
 ```
 
-## **Určení typu zdroje dat**
-
-Tento kód v Pythonu ukazuje, jak určit typ pro zdroj dat:
+## **Určení typu datového zdroje**
+Tento Python kód vám ukazuje, jak specifikovat typ pro datový zdroj:
 
 ```python
 import jpype
@@ -170,8 +174,7 @@ finally:
 ```
 
 ## **Detekce nepodporovaných formátů vložených sešitů**
-
-Aspose.Slides nepodporuje formát binárního sešitu Excel (.xlsb), který může být vložen v některých grafech. Můžete použít metodu [getEmbeddedWorkbookType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) na [ChartData](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/workbooktype/) pro detekci nepodporovaných formátů a přeskakování těchto grafů.
+Aspose.Slides nepodporuje binární formát Excel sešitu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu [getEmbeddedWorkbookType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) na [ChartData](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/) společně s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/workbooktype/), abyste detekovali nepodporované formáty a tyto grafy přeskočili.
 
 ```python
 import jpype
@@ -197,9 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření externího sešitu**
+## **Externí sešit**
+Aspose.Slides podporuje používání externích sešitů jako datového zdroje pro grafy.
 
-Pomocí metod [readWorkbookStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#readWorkbookStream) a [setExternalWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#setExternalWorkbook) můžete buď vytvořit externí sešit od nuly, nebo převést interní sešit na externí.
+### **Vytvoření externího sešitu**
+Pomocí metod [readWorkbookStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#readWorkbookStream) a [setExternalWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#setExternalWorkbook) můžete buď vytvořit externí sešit od nuly, nebo učinit interní sešit externím.
+
+Tento Python kód demonstruje proces vytvoření externího sešitu:
 
 ```python
 import jpype
@@ -225,10 +232,11 @@ finally:
 ```
 
 ### **Nastavení externího sešitu**
+Pomocí metody [setExternalWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#setExternalWorkbook) můžete přiřadit externí sešit grafu jako jeho datový zdroj. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl ten druhý přesunut).
 
-Pomocí metody [setExternalWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#setExternalWorkbook) můžete přiřadit externí sešit grafu jako jeho zdroj dat. Tuto metodu lze také použít k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
+I když nemůžete upravovat data v sešitech uložených na vzdálených místech nebo v prostředcích, můžete takové sešity stále používat jako externí datový zdroj. Pokud je zadána relativní cesta k externímu sešitovi, je automaticky převedena na úplnou cestu.
 
-Ačkoliv nemůžete upravovat data v sešitech uložených na vzdálených místech nebo zdrojích, můžete je stále používat jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
+Tento Python kód vám ukazuje, jak nastavit externí sešit:
 
 ```python
 import jpype
@@ -258,8 +266,8 @@ finally:
     presentation.dispose()
 ```
 
-Druhý parametr (`bool`) metody [setExternalWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#setExternalWorkbook) se používá k určení, zda bude Excel sešit načten nebo ne. 
-* Když je jeho hodnota nastavena na `False`, aktualizuje se pouze cesta k sešitu – data grafu nebudou načtena ani aktualizována z cílového sešitu. Toto nastavení můžete použít v situaci, kdy cílový sešit neexistuje nebo není dostupný. 
+Druhý (`bool`) parametr metody [setExternalWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#setExternalWorkbook) slouží k určení, zda bude Excel sešit načten nebo ne. 
+* Když je jeho hodnota nastavena na `False`, aktualizuje se pouze cesta k sešitu — data grafu nebudou načtena ani aktualizována z cílového sešitu. Toto nastavení můžete použít v situaci, kdy cílový sešit neexistuje nebo není dostupný. 
 * Když je jeho hodnota nastavena na `True`, data grafu se aktualizují z cílového sešitu.
 
 ```python
@@ -281,13 +289,14 @@ finally:
     presentation.dispose()
 ```
 
-### **Získání cesty k externímu sešitu zdroje dat grafu**
-
+### **Získání cesty k externímu sešitu datového zdroje grafu**
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Vytvořte objekt pro tvar grafu.
-4. Vytvořte objekt pro typ zdroje ([ChartDataSourceType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdatasourcetype/)) který představuje zdroj dat grafu.
-5. Určete příslušnou podmínku na základě toho, že typ zdroje je stejný jako typ externího sešitu zdroje dat.
+1. Získejte referenci na snímek pomocí jeho indexu.
+1. Vytvořte objekt pro tvar grafu.
+1. Vytvořte objekt pro typ zdroje ([ChartDataSourceType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdatasourcetype/)), který představuje datový zdroj grafu.
+1. Specifikujte relevantní podmínku na základě toho, že typ zdroje je stejný jako typ externího sešitu datového zdroje.
+
+Tento Python kód demonstruje operaci:
 
 ```python
 import jpype
@@ -311,8 +320,9 @@ finally:
 ```
 
 ### **Úprava dat grafu**
+Můžete upravovat data v externích sešitech stejným způsobem, jako provádíte změny v obsahu interních sešitů. Když není možné externí sešit načíst, je vyvolána výjimka.
 
-Data v externích sešitech můžete upravovat stejným způsobem, jako provádíte změny v obsahu interních sešitů. Když není externí sešit načten, je vyvolána výjimka.
+Tento Python kód je implementací popsaného procesu:
 
 ```python
 import jpype
@@ -334,10 +344,9 @@ finally:
 ```
 
 ### **Obnovení sešitu z mezipaměti grafu**
+Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [SpreadsheetOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/spreadsheetoptions/) a před otevřením prezentace zavolejte [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) s hodnotou `True`.
 
-Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [SpreadsheetOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/spreadsheetoptions/), a před otevřením prezentace zavolejte [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) s hodnotou `True`.
-
-Následující příklad v Pythonu otevře prezentaci, jejíž graf odkazuje na nedostupný externí sešit, a získá obnovená data prostřednictvím [Chart.getChartData](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/#getChartData) a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Následující Python příklad otevře prezentaci, jejíž graf odkazuje na nedostupný externí sešit, a získá obnovená data pomocí [Chart.getChartData](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/#getChartData) a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -358,34 +367,34 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Přečtěte nebo upravte obnovená data sešitu zde.
+    # Přečtěte nebo upravte data obnoveného sešitu zde.
 finally:
     presentation.dispose()
 ```
 
-Pokud je externí sešit nedostupný a obnovení je zakázáno, Aspose.Slides vyhodí výjimku. Povolit obnovu pouze v případě, že použití dat z mezipaměti grafu je přijatelné jako náhradní řešení, protože mezipaměť nemusí obsahovat změny provedené v externím sešitě po poslední aktualizaci prezentace.
+Pokud je externí sešit nedostupný a obnovení je zakázáno, Aspose.Slides vyhodí výjimku. Povolit obnovení jen tehdy, když je použití dat z mezipaměti grafu přijatelnou alternativou, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
 
 ## **Často kladené otázky**
 
 **Mohu zjistit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
 
-Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getDataSourceType) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); pokud je zdrojem externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
+Ano. Graf má [typ datového zdroje](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getDataSourceType) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
 
-**Jsou relativní cesty k externím sešitům podporovány a jak jsou uloženy?**
+**Jsou podporovány relativní cesty k externím sešitům a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. To je výhodné pro přenositelnost projektu; však mějte na vědomí, že prezentace uloží absolutní cestu do souboru PPTX.
+Ano. Pokud specifikujete relativní cestu, je automaticky převedena na absolutní cestu. To je výhodné pro přenositelnost projektu; však si uvědomte, že prezentace uloží absolutní cestu v souboru PPTX.
 
-**Mohu použít sešity umístěné na síťových zdrojích/ sdílených složkách?**
+**Mohu používat sešity umístěné na síťových zdrojích/sdíleních?**
 
-Ano, takové sešity lze použít jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována – mohou být použity pouze jako zdroj.
+Ano, takové sešity mohou být použity jako externí datový zdroj. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována — mohou být použity jen jako zdroj.
 
 **Přepisuje Aspose.Slides externí XLSX při ukládání prezentace?**
 
-Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) a používá jej k načítání dat. Samotný externí soubor není při ukládání prezentace upravován.
+Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) a používá jej k načítání dat. Externí soubor samotný není při ukládání prezentace změněn.
 
 **Co mám dělat, pokud je externí soubor chráněn heslem?**
 
-Aspose.Slides při propojení neumožňuje zadat heslo. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/python-java/)) a na ni odkazovat.
+Aspose.Slides nepřijímá heslo při vytváření odkazu. Běžný postup je odebrat ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/python-java/)) a odkazovat na tuto kopii.
 
 **Může více grafů odkazovat na stejný externí sešit?**
 

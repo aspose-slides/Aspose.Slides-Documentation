@@ -1,36 +1,38 @@
 ---
-title: Diagramm‑Workbooks in Präsentationen mit PHP verwalten
-linktitle: Diagramm‑Workbook
+title: Diagramm-Arbeitsmappe in Präsentationen mit PHP verwalten
+linktitle: Diagramm-Arbeitsmappe
 type: docs
 weight: 70
 url: /de/php-java/chart-workbook/
 keywords:
-- Diagramm‑Workbook
+- Diagramm-Arbeitsmappe
 - Diagrammdaten
-- Workbook‑Zelle
+- Arbeitsmappen-Zelle
 - Datenbeschriftung
 - Arbeitsblatt
 - Datenquelle
-- Externes Workbook
+- Externe Arbeitsmappe
 - Externe Daten
-- Diagramm‑Cache
-- Workbook‑Wiederherstellung
+- Diagramm-Cache
+- Arbeitsmappen-Wiederherstellung
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für PHP über Java: Verwalten Sie Diagramm‑Workbooks in PowerPoint‑ und OpenDocument‑Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
+description: "Entdecken Sie Aspose.Slides für PHP via Java: Verwalten Sie Diagramm-Arbeitsmappen in PowerPoint- und OpenDocument-Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man mit Diagramm‑Workbooks in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Workbook‑Streams liest und schreibt, Workbook‑Zellen als Diagrammdatenbeschriftungen verwendet, auf Arbeitsblatt‑Sammlungen zugreift und den Datentyp der Datenquelle für Diagrammwerte festlegt.
+Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Arbeitsmappen‑Streams liest und schreibt, Arbeitsmappen‑Zellen als Diagrammdatenbeschriftungen verwendet, auf Arbeitsblatt‑Sammlungen zugreift und den Datentyp für Diagrammwerte festlegt.
 
-Er behandelt außerdem die Arbeit mit externen Workbooks als Diagrammdatenquellen. Die Beispiele demonstrieren, wie man ein externes Workbook erstellt und zuweist, den Pfad eines mit einem Diagramm verknüpften externen Workbooks abruft und Diagrammdaten bearbeitet, wenn das Workbook verfügbar ist.
+Außerdem wird die Arbeit mit externen Arbeitsmappen als Datenquellen für Diagramme behandelt. Die Beispiele demonstrieren, wie man eine externe Arbeitsmappe erstellt und zuweist, den Pfad einer externen Arbeitsmappe, die mit einem Diagramm verknüpft ist, abruft und Diagrammdaten bearbeitet, wenn die Arbeitsmappe verfügbar ist.
 
-## **Diagrammdaten aus einem Workbook lesen und schreiben**
-Aspose.Slides stellt die [readWorkbookStream](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/#readWorkbookStream) und [writeWorkbookStream](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/#writeWorkbookStream) Methoden zur Verfügung, mit denen Sie Diagrammdaten‑Workbooks lesen und schreiben können (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden). **Hinweis**: Die Diagrammdaten müssen auf dieselbe Weise organisiert sein oder eine dem Quell‑Workbook ähnliche Struktur aufweisen.
+Für Arbeitsmappen‑Zellen, die fehlende Daten darstellen, siehe [Steuern Sie die Anzeige leerer Zellen](/slides/de/php-java/chart-series/) für den Unterschied zwischen einer leeren Zelle und Null sowie einen Liniendiagramm‑Vergleich der verfügbaren Anzeigemodi.
 
-Dieser PHP‑Code demonstriert einen Beispielvorgang:
+## **Diagrammdaten aus einer Arbeitsmappe lesen und schreiben**
+Aspose.Slides stellt die Methoden [readWorkbookStream](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/#readWorkbookStream) und [writeWorkbookStream](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/#writeWorkbookStream) bereit, mit denen Sie Diagramm‑Arbeitsmappen (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden) lesen und schreiben können. **Hinweis:** Die Diagrammdaten müssen in derselben Weise organisiert sein oder eine ähnliche Struktur wie die Quelle aufweisen.
+
+Der folgende PHP‑Code demonstriert einen Beispielvorgang:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -48,12 +50,12 @@ Dieser PHP‑Code demonstriert einen Beispielvorgang:
   }
 ```
 
-### **Diagrammlayout nach Workbook‑Änderung validieren**
+### **Diagrammlayout nach Arbeitsmappen‑Änderung validieren**
 
-Wenn Sie ein eingebettetes Workbook durch ein geändertes ersetzen, behält das Diagramm seine ursprünglichen Reihen‑ und Kategorien‑Sammlungen bei. Diese Diskrepanz kann dazu führen, dass [Chart::validateChartLayout](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/validatechartlayout/) mit einem „index-out-of-range“-Fehler fehlschlägt. Löschen Sie die vorhandenen Reihen und Kategorien, bevor Sie das aktualisierte Workbook zurück in das Diagramm schreiben.
+Wenn Sie eine eingebettete Arbeitsmappe durch eine geänderte ersetzen, behält das Diagramm seine ursprünglichen Reihen‑ und Kategorien‑Sammlungen bei. Diese Diskrepanz kann dazu führen, dass [Chart::validateChartLayout](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/validatechartlayout/) mit einem „index out of range“-Fehler fehlschlägt. Löschen Sie die vorhandenen Reihen und Kategorien, bevor Sie die aktualisierte Arbeitsmappe zurück in das Diagramm schreiben.
 
 ```php
-// Nach dem Ändern des Workbook-Streams (z. B. mit Aspose.Cells)
+// Nach dem Ändern des Arbeitsmappen-Streams (z. B. mit Aspose.Cells)
 $updatedWorkbook = $chartData->readWorkbookStream();
 
 // Vorhandene Datenreferenzen löschen.
@@ -65,18 +67,18 @@ $chartData->writeWorkbookStream($updatedWorkbook);
 $chart->validateChartLayout();
 ```
 
-Das Leeren der Sammlungen stellt sicher, dass die Diagrammdatenstruktur mit dem neuen Workbook übereinstimmt, sodass `validateChartLayout` ohne Fehler abgeschlossen werden kann.
+Das Leeren der Sammlungen stellt sicher, dass die Diagrammdatenstruktur mit der neuen Arbeitsmappe übereinstimmt, sodass `validateChartLayout` ohne Fehler abgeschlossen werden kann.
 
-## **Eine Workbook‑Zelle als Diagrammdatenbeschriftung festlegen**
+## **Eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen**
 
 1. Erstellen Sie eine Instanz der [Presentation](https://apireference.aspose.com/slides/de/php-java/aspose.slides/presentation) Klasse.  
-2. Rufen Sie die Referenz einer Folie über deren Index ab.  
-3. Fügen Sie ein Bubble‑Diagramm mit einigen Daten hinzu.  
-4. Greifen Sie auf die Diagramm‑Reihen zu.  
-5. Setzen Sie die Workbook‑Zelle als Datenbeschriftung.  
-6. Speichern Sie die Präsentation.
+1. Holen Sie sich über den Index den Verweis auf eine Folie.  
+1. Fügen Sie ein Bubble‑Diagramm mit einigen Daten hinzu.  
+1. Greifen Sie auf die Diagramm‑Reihen zu.  
+1. Legen Sie die Arbeitsmappen‑Zelle als Datenbeschriftung fest.  
+1. Speichern Sie die Präsentation.
 
-Dieser PHP‑Code zeigt, wie Sie eine Workbook‑Zelle als Diagrammdatenbeschriftung festlegen:
+Der folgende PHP‑Code zeigt, wie Sie eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen:
 
 ```php
   $lbl0 = "Label 0 cell value";
@@ -104,7 +106,7 @@ Dieser PHP‑Code zeigt, wie Sie eine Workbook‑Zelle als Diagrammdatenbeschrif
 
 ## **Arbeitsblätter verwalten**
 
-Dieser PHP‑Code demonstriert einen Vorgang, bei dem die [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#getWorksheets) Methode verwendet wird, um auf eine Arbeitsblatt‑Sammlung zuzugreifen:
+Dieser PHP‑Code demonstriert einen Vorgang, bei dem die Methode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#getWorksheets) verwendet wird, um auf eine Arbeitsblatt‑Sammlung zuzugreifen:
 
 ```php
   $pres = new Presentation();
@@ -142,9 +144,9 @@ Dieser PHP‑Code zeigt, wie Sie einen Typ für eine Datenquelle festlegen:
   }
 ```
 
-## **Nicht unterstützte eingebettete Workbook‑Formate erkennen**
+## **Nicht unterstützte eingebettete Arbeitsmappen‑Formate erkennen**
 
-Aspose.Slides unterstützt das Excel‑Binär‑Workbook (.xlsb), das in einigen Diagrammen eingebettet werden kann, nicht. Sie können die Methode `getEmbeddedWorkbookType` auf [ChartData](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/de/php-java/aspose.slides/workbooktype/) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen.
+Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb) nicht, das in einigen Diagrammen eingebettet werden kann. Mit der Methode `getEmbeddedWorkbookType` auf [ChartData](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/de/php-java/aspose.slides/workbooktype/) können Sie nicht unterstützte Formate erkennen und diese Diagramme überspringen.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -164,26 +166,26 @@ try {
 
     if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
         java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # Eingebettetes Workbook ist im .xlsb-Format, das nicht unterstützt wird.
+      # Eingebettete Arbeitsmappe ist im .xlsb-Format, das nicht unterstützt wird.
       continue;
     }
 
-    # Hier das Diagramm-Workbook lesen oder ändern.
+    # Diagramm-Arbeitsmappendaten hier lesen oder ändern.
   }
 } finally {
   $presentation->dispose();
 }
 ```
 
-## **Externes Workbook**
+## **Externe Arbeitsmappe**
 
-Aspose.Slides unterstützt externe Workbooks als Datenquelle für Diagramme.
+Aspose.Slides unterstützt externe Arbeitsmappen als Datenquelle für Diagramme.
 
-### **Ein externes Workbook erstellen**
+### **Externe Arbeitsmappe erstellen**
 
-Mit den Methoden **`readWorkbookStream`** und **`setExternalWorkbook`** können Sie entweder ein externes Workbook von Grund auf neu erstellen oder ein internes Workbook extern machen.
+Mit den Methoden **`readWorkbookStream`** und **`setExternalWorkbook`** können Sie entweder eine externe Arbeitsmappe von Grund auf neu erstellen oder eine interne Arbeitsmappe extern machen.
 
-Dieser PHP‑Code demonstriert den Erstellungsprozess für ein externes Workbook:
+Der folgende PHP‑Code demonstriert den Erstellungsprozess einer externen Arbeitsmappe:
 
 ```php
   $pres = new Presentation();
@@ -211,13 +213,13 @@ Dieser PHP‑Code demonstriert den Erstellungsprozess für ein externes Workbook
   }
 ```
 
-### **Externes Workbook zuweisen**
+### **Externe Arbeitsmappe festlegen**
 
-Mit der Methode **`setExternalWorkbook`** können Sie einem Diagramm ein externes Workbook als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zu einem externen Workbook zu aktualisieren (falls dieses verschoben wurde).
+Mit der Methode **`setExternalWorkbook`** können Sie einer Diagramm‑Datenquelle eine externe Arbeitsmappe zuweisen. Diese Methode kann auch verwendet werden, um einen Pfad zu einer externen Arbeitsmappe zu aktualisieren (falls diese verschoben wurde).
 
-Während Sie die Daten in Workbooks, die an entfernten Speicherorten oder Ressourcen liegen, nicht bearbeiten können, können Sie solche Workbooks dennoch als externe Datenquelle verwenden. Wird ein relativer Pfad für ein externes Workbook angegeben, wird er automatisch in einen vollständigen Pfad umgewandelt.
+Während Sie die Daten in Arbeitsmappen, die an Remote‑Standorten oder Ressourcen gespeichert sind, nicht bearbeiten können, können Sie solche Arbeitsmappen dennoch als externe Datenquelle verwenden. Wird ein relativer Pfad zu einer externen Arbeitsmappe angegeben, wird er automatisch in einen absoluten Pfad umgewandelt.
 
-Dieser PHP‑Code zeigt, wie Sie ein externes Workbook zuweisen:
+Der folgende PHP‑Code zeigt, wie Sie eine externe Arbeitsmappe festlegen:
 
 ```php
   # Erstellt eine Instanz der Presentation-Klasse
@@ -241,10 +243,10 @@ Dieser PHP‑Code zeigt, wie Sie ein externes Workbook zuweisen:
   }
 ```
 
-Der `ChartData`‑Parameter (unter der `setExternalWorkbook`‑Methode) gibt an, ob ein Excel‑Workbook geladen wird oder nicht.
+Der Parameter `ChartData` (unter der Methode `setExternalWorkbook`) gibt an, ob eine Excel‑Arbeitsmappe geladen werden soll oder nicht.
 
-* Wenn der `ChartData`‑Wert auf `false` gesetzt ist, wird nur der Workbook‑Pfad aktualisiert — die Diagrammdaten werden nicht aus dem Ziel‑Workbook geladen oder aktualisiert. Diese Einstellung ist nützlich, wenn das Ziel‑Workbook nicht existiert oder nicht verfügbar ist.  
-* Wenn der `ChartData`‑Wert auf `true` gesetzt ist, werden die Diagrammdaten aus dem Ziel‑Workbook aktualisiert.
+* Wenn der Wert von `ChartData` auf `false` gesetzt ist, wird nur der Pfad der Arbeitsmappe aktualisiert – die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Diese Einstellung ist nützlich, wenn die Zielarbeitsmappe nicht existiert oder nicht verfügbar ist.  
+* Wenn der Wert von `ChartData` auf `true` gesetzt ist, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
 
 ```php
   # Erstellt eine Instanz der Presentation-Klasse
@@ -261,15 +263,15 @@ Der `ChartData`‑Parameter (unter der `setExternalWorkbook`‑Methode) gibt an,
   }
 ```
 
-### **Pfad des externen Datenquellen‑Workbooks eines Diagramms abrufen**
+### **Pfad der externen Datenquellen‑Arbeitsmappe eines Diagramms abrufen**
 
 1. Erstellen Sie eine Instanz der [Presentation](https://apireference.aspose.com/slides/de/php-java/aspose.slides/presentation) Klasse.  
-2. Rufen Sie die Referenz einer Folie über deren Index ab.  
-3. Erstellen Sie ein Objekt für die Diagramm‑Form (ChartShape).  
-4. Erstellen Sie ein Objekt für den Quelltyp (`ChartDataSourceType`), der die Datenquelle des Diagramms repräsentiert.  
-5. Geben Sie die entsprechende Bedingung an, basierend darauf, dass der Quelltyp dem externen Workbook‑Datenquellentyp entspricht.
+1. Holen Sie sich über den Index den Verweis auf eine Folie.  
+1. Erzeugen Sie ein Objekt für das Diagramm‑Shape.  
+1. Erzeugen Sie ein Objekt für den Quelltyp (`ChartDataSourceType`), das die Datenquelle des Diagramms repräsentiert.  
+1. Geben Sie die relevante Bedingung an, basierend darauf, dass der Quelltyp dem Typ der externen Arbeitsmappe entspricht.
 
-Dieser PHP‑Code demonstriert den Vorgang:
+Der folgende PHP‑Code demonstriert den Vorgang:
 
 ```php
   # Erstellt eine Instanz der Presentation-Klasse
@@ -292,7 +294,9 @@ Dieser PHP‑Code demonstriert den Vorgang:
 
 ### **Diagrammdaten bearbeiten**
 
-Sie können die Daten in externen Workbooks auf die gleiche Weise bearbeiten, wie Sie den Inhalt interner Workbooks ändern. Wenn ein externes Workbook nicht geladen werden kann, wird eine Ausnahme ausgelöst.
+Sie können die Daten in externen Arbeitsmappen auf dieselbe Weise bearbeiten, wie Sie Änderungen an internen Arbeitsmappen vornehmen. Kann eine externe Arbeitsmappe nicht geladen werden, wird eine Ausnahme ausgelöst.
+
+Der folgende PHP‑Code implementiert den beschriebenen Prozess:
 
 ```php
   # Erstellt eine Instanz der Presentation-Klasse
@@ -309,11 +313,11 @@ Sie können die Daten in externen Workbooks auf die gleiche Weise bearbeiten, wi
   }
 ```
 
-### **Ein Workbook aus dem Diagramm‑Cache wiederherstellen**
+### **Arbeitsmappe aus dem Diagramm‑Cache wiederherstellen**
 
-Wenn ein Diagramm ein externes Workbook verwendet, das fehlt oder nicht verfügbar ist, kann Aspose.Slides das Diagramm‑Workbook aus den im Präsentations‑Cache gespeicherten Daten rekonstruieren. Erstellen Sie [LoadOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/), konfigurieren Sie sie mit [SpreadsheetOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/spreadsheetoptions/), und rufen Sie [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/de/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) mit `true` auf, bevor Sie die Präsentation öffnen.
+Verwendet ein Diagramm eine externe Arbeitsmappe, die fehlt oder nicht verfügbar ist, kann Aspose.Slides die Diagramm‑Arbeitsmappe aus den im Dokument zwischengespeicherten Daten rekonstruieren. Erstellen Sie ein [LoadOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/), konfigurieren Sie es mit [SpreadsheetOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/spreadsheetoptions/), und rufen Sie [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/de/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) mit `true` auf, bevor Sie die Präsentation öffnen.
 
-Das folgende PHP‑Beispiel öffnet eine Präsentation, deren Diagramm ein nicht verfügbares externes Workbook referenziert, und greift über [Chart::getChartData](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/#getChartData) und [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/#getChartDataWorkbook) auf die wiederhergestellten Daten zu:
+Das folgende PHP‑Beispiel öffnet eine Präsentation, deren Diagramm auf eine nicht verfügbare externe Arbeitsmappe verweist, und greift über [Chart::getChartData](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/#getChartData) sowie [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/#getChartDataWorkbook) auf die wiederhergestellten Daten zu:
 
 ```php
 $spreadsheetOptions = new SpreadsheetOptions();
@@ -327,36 +331,36 @@ try {
     $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-    # Wiederhergestellte Workbook-Daten hier lesen oder bearbeiten.
+    # Wiederhergestellte Arbeitsmappendaten hier lesen oder ändern.
 } finally {
     $presentation->dispose();
 }
 ```
 
-Ist das externe Workbook nicht verfügbar und die Wiederherstellung deaktiviert, wirft Aspose.Slides eine Ausnahme. Aktivieren Sie die Wiederherstellung nur, wenn die Verwendung der im Cache gespeicherten Diagrammdaten ein akzeptabler Rückfall ist, da der Cache möglicherweise Änderungen am externen Workbook nach der letzten Aktualisierung der Präsentation nicht enthält.
+Ist die externe Arbeitsmappe nicht verfügbar und die Wiederherstellung deaktiviert, wirft Aspose.Slides eine Ausnahme. Aktivieren Sie die Wiederherstellung nur, wenn die Verwendung der zwischengespeicherten Diagrammdaten als akzeptabler Rückgriff in Ordnung ist, da der Cache möglicherweise nicht die nach der letzten Aktualisierung der Präsentation an der externen Arbeitsmappe vorgenommenen Änderungen enthält.
 
 ## **FAQ**
 
-**Kann ich feststellen, ob ein bestimmtes Diagramm mit einem externen oder eingebetteten Workbook verknüpft ist?**
+**Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder einer eingebetteten Arbeitsmappe verknüpft ist?**
 
-Ja. Ein Diagramm verfügt über einen [data source type](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/getdatasourcetype/) und einen [path to an external workbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/getexternalworkbookpath/); ist die Quelle ein externes Workbook, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
+Ja. Ein Diagramm besitzt einen [data source type](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/getdatasourcetype/) und einen [path to an external workbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/getexternalworkbookpath/); ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
 
-**Werden relative Pfade zu externen Workbooks unterstützt und wie werden sie gespeichert?**
+**Werden relative Pfade zu externen Arbeitsmappen unterstützt und wie werden sie gespeichert?**
 
 Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absoluten Pfad umgewandelt. Das ist praktisch für die Portabilität von Projekten; beachten Sie jedoch, dass die Präsentation den absoluten Pfad in der PPTX‑Datei speichert.
 
-**Kann ich Workbooks verwenden, die sich auf Netzwerkressourcen/Freigaben befinden?**
+**Kann ich Arbeitsmappen auf Netzwerk‑Ressourcen/Freigaben verwenden?**
 
-Ja, solche Workbooks können als externe Datenquelle verwendet werden. Das direkte Bearbeiten von entfernten Workbooks über Aspose.Slides wird jedoch nicht unterstützt — sie können nur als Quelle dienen.
+Ja, solche Arbeitsmappen können als externe Datenquelle verwendet werden. Das direkte Bearbeiten von Remote‑Arbeitsmappen über Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle dienen.
 
-**Überschreibt Aspose.Slides das externe XLSX beim Speichern der Präsentation?**
+**Überschreibt Aspose.Slides die externe XLSX‑Datei beim Speichern der Präsentation?**
 
-Nein. Die Präsentation speichert einen [link to the external file](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/getexternalworkbookpath/) und verwendet diesen zum Lesen der Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht verändert.
+Nein. Die Präsentation speichert einen [link to the external file](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdata/getexternalworkbookpath/) und verwendet ihn zum Lesen der Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht geändert.
 
-**Was soll ich tun, wenn die externe Datei passwortgeschützt ist?**
+**Was ist zu tun, wenn die externe Datei passwortgeschützt ist?**
 
-Aspose.Slides akzeptiert kein Passwort beim Verknüpfen. Ein gängiger Ansatz besteht darin, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie (z. B. mithilfe von [Aspose.Cells](/cells/php-java/)) vorzubereiten und auf diese Kopie zu verlinken.
+Aspose.Slides akzeptiert kein Passwort beim Verlinken. Ein gängiger Ansatz besteht darin, den Schutz im Vorfeld zu entfernen oder eine entschlüsselte Kopie (z. B. mit [Aspose.Cells](/cells/php-java/)) vorzubereiten und darauf zu verlinken.
 
-**Können mehrere Diagramme dasselbe externe Workbook referenzieren?**
+**Können mehrere Diagramme dieselbe externe Arbeitsmappe referenzieren?**
 
-Ja. Jedes Diagramm speichert seinen eigenen Link. Wenn sie alle auf dieselbe Datei zeigen, wird eine Aktualisierung dieser Datei bei jedem Laden der Diagrammdaten in allen Diagrammen wirksam.
+Ja. Jedes Diagramm speichert seinen eigenen Link. Wenn alle auf dieselbe Datei zeigen, wird ein Update dieser Datei in jedem Diagramm beim nächsten Laden der Daten reflektiert.

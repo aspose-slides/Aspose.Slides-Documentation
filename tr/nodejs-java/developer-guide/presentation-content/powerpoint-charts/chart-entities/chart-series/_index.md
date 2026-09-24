@@ -1,5 +1,5 @@
 ---
-title: JavaScript Kullanarak Sunumlarda Grafik Veri Serilerini Yönetme
+title: Sunumlarda JavaScript Kullanarak Grafik Veri Serilerini Yönetme
 linktitle: Veri Serileri
 type: docs
 url: /tr/nodejs-java/chart-series/
@@ -17,27 +17,27 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, örtüşmeyi, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
+description: "JavaScript ile sunumlarda grafik serileri, veri noktaları, çalışma kitabı hücreleri, biçimlendirme, örtüşme, boşluk genişliği ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bir grafik, çizilen verilerini bir chart data workbook içinde saklar. Bir [ChartSeries](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/) bir grup ilgili değeri temsil eder ve serideki her [ChartDataPoint](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [ChartCategory](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartcategory/) nesneleri, seri tarafından paylaşılan etiketleri veya gruplama değerlerini sağlar. Serinin adı, kategoriler ve nokta değerleri bu nedenle yalnızca görüntü metni olarak depolanmak yerine [ChartDataCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatacell/) nesnelerine bağlanır.
+Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında saklar. Bir [ChartSeries](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/) bir dizi ilgili değeri temsil eder ve serideki her [ChartDataPoint](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [ChartCategory](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartcategory/) nesneleri seriler arasında paylaşılan etiketleri veya gruplama değerlerini sağlar. Bu nedenle serinin adı, kategoriler ve nokta değerleri yalnızca görüntü metni olarak saklanmak yerine [ChartDataCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatacell/) nesnelerine bağlanır.
 
-Tipik bir kategori grafiği için, varsayılan workbook satır 0'ı seri adları için, sütun 0'ı kategori adları için ve kalan hücreleri seri değerleri için kullanır. [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/#getCell) metoduna geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır‑tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda kullanışlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, workbook değerlerini değiştirmeden önce seriler, kategoriler ve veri noktalarıyla ilişkili hücreleri inceleyin.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve kalan hücreler seri değerleri için kullanılır. [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/#getCell) yöntemine geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır tabanlıdır. Bu düzen, varsayılan veriyle bir grafik oluşturduğunuzda kullanışlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
 
 Grafik ayarlarının üç farklı kapsamı vardır:
 
-- Seri‑seviyesi ayarlar, örneğin [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getFormat), bir serideki tüm noktalar için varsayılan görünümü sağlar.
-- Veri‑nokta ayarları, örneğin [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getFormat), bir nokta için serinin görünümünü geçersiz kılar.
-- Grup ayarları, aynı [ChartSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/) içinde yer alan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde, grup üzerinden [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) ile erişin.
+- Seri düzeyindeki ayarlar, örneğin [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getFormat), bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri noktası ayarları, örneğin [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getFormat), bir nokta için seri görünümünü geçersiz kılar.
+- Grup ayarları, aynı [ChartSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/) içinde yer alan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde grubu [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) aracılığıyla erişin.
 
-Açık bir nokta ya da seri dolgusu ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcutsa, nokta biçimlendirmesi o nokta için önceliklidir.
+Açık bir nokta veya seri dolgu ayarı yapılmadığında, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için öncelikli olur.
 
-![grafik-seri-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Grafik Seri Örtüşmesini Ayarla**
+## **Grafik Serisi Örtüşmesini Ayarla**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getOverlap) 2D bir grafikte çubukların ya da sütunların ne kadar örtüştüğünü –%‑100 ila %100 arasında – raporlar. Bu, üst seri grubundaki ayarın yalnızca okunabilir bir yansımasıdır. O gruptaki tüm uyumlu serileri güncellemek için [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) kullanın. Bu seçenek, gruplanmış çubuk ya da sütun gösteren grafik türlerine uygulanır; birleşik bir grafikte ilişkili olmayan seri gruplarını etkilemez.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getOverlap) 2B bir grafikte çubukların veya sütunların -%100 ile %100 arasında ne kadar örtüştüğünü raporlar. Bu, üst seri grubundaki ayarın yalnızca okunabilir bir yansımasıdır. Grup içindeki tüm uyumlu serileri güncellemek için [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) kullanın. Bu seçenek, gruplanmış çubuk veya sütunları gösteren grafik tiplerine uygulanır; kombinasyon grafiğinde ilişkili olmayan seri gruplarını etkilemez.
 
 Aşağıdaki örnek, ilk seriyi içeren grup için örtüşmeyi ayarlar:
 
@@ -72,7 +72,7 @@ Sonuç:
 
 ## **Seri Dolgu Rengini Değiştir**
 
-Tüm bir seri için varsayılan dolgu ayarlamak üzere [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getFormat) kullanın. Bir nokta zaten açık bir dolguye sahipse, onun [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getFormat) ayarı o nokta için seri dolgusunu geçersiz kılar.
+[ChartSeries.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getFormat) kullanarak bir serinin tamamı için varsayılan dolgu ayarlanabilir. Bir nokta zaten açık bir dolgu içeriyorsa, onun [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getFormat) ayarı o nokta için seri dolgusunu geçersiz kılar.
 
 Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
 
@@ -104,11 +104,11 @@ try {
 
 Sonuç:
 
-![Seri rengi](series_color.png)
+![Serinin rengi](series_color.png)
 
 ## **Seri Adını Değiştir**
 
-Bir seri adı, grafik veri workbook'unda saklanır ve genellikle lejende görüntülenir. Kümeleme sütun grafiği için oluşturulan varsayılan workbook'ta, B1 hücresi satır 0, sütun 1'de bulunur ve ilk serinin adını içerir. Aşağıdaki örnekte adlandırılmış sabitler bu yapıyı açıkça gösterir:
+Bir seri adı, grafik veri çalışma kitabında saklanır ve genellikle lejende görüntülenir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1 konumunda olup ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı açıkça gösterir:
 
 ```javascript
 const aspose = {};
@@ -135,7 +135,7 @@ try {
 }
 ```
 
-Ayrıca, [ChartSeries.getName](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getName) ile zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
+Ayrıca, zaten [ChartSeries.getName](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getName) tarafından başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
 
 ```javascript
 const aspose = {};
@@ -167,7 +167,7 @@ Sonuç:
 
 ## **Otomatik Seri Dolgu Rengini Al**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) seri indeksine ve grafik stiline göre hesaplanan rengi döndürür. Bu, seri dolgu açıkça tanımlanmadığında kullanılan renktir. Metodu çağırmak hesaplanan rengi okur; yeni bir dolgu atamaz.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) serinin indeksine ve grafik stiline göre hesaplanan rengi döndürür. Bu, seri dolgusunun açıkça tanımlanmadığı durumlarda kullanılan renktir. Yöntemi çağırmak hesaplanan rengi okur; yeni bir dolgu atamaz.
 
 Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
 
@@ -203,13 +203,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Kesin renkler grafik stiline ve temaya bağlıdır.
+Tam renkler grafik stili ve temasına bağlıdır.
 
-## **Bir Grafik Serisi için Ters Çevirme Dolgu Rengini Ayarla**
+## **Grafik Serisi İçin Ters Dolgu Rengini Ayarla**
 
-Çubuk, sütun ve balon serileri için, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) negatif değerleri farklı bir dolgu ile gösterebilir. Düzenli seri dolgusunu katı olarak ayarlayın, ters çevirme özelliğini etkinleştirin ve negatif değer rengine [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) üzerinden atayın. Negatif sayılar workbook'ta değişmez; yalnızca görüntü renkleri değişir.
+Çubuk, sütun ve balon serileri için [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengini [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) aracılığıyla atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca görüntülenme rengi değişir.
 
-Aşağıdaki örnek, varsayılan grafik verisini tek bir seriyle değiştirir. Çalışma sayfasının satır 0'ı seri adını, sütun 0'ı kategori adlarını, sütun 1'i değerleri içerir:
+Aşağıdaki örnek, varsayılan grafik verisini tek bir seri ile değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
 
 ```javascript
 const aspose = {};
@@ -269,9 +269,9 @@ try {
 
 Sonuç:
 
-![Ters çevrilmiş katı dolgu rengi](inverted_solid_fill_color.png)
+![Ters katı dolgu rengi](inverted_solid_fill_color.png)
 
-Bir nokta için ters çevirme, [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile etkinleştirilebilir. Aşağıdaki örnekte, ters çevirme seri için devre dışı bırakılmış ve yalnızca seçilen nokta için etkinleştirilmiştir. Efektin görülmesi için nokta ayrıca negatif bir değer alır:
+Bir nokta için terslemeyi [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılmış ve yalnızca seçilen nokta için etkinleştirilmiştir. Etkiyi görmek için noktaya negatif bir değer atanmıştır:
 
 ```javascript
 const aspose = {};
@@ -308,11 +308,11 @@ try {
 }
 ```
 
-## **Belirli Bir Veri Noktası Değerini Temizle**
+## **Belirli Bir Veri Noktasının Değerini Temizle**
 
-Diğer noktaları kaldırmadan bir noktayı boş bırakmak için, onun arka plan workbook hücresini `null` olarak ayarlayın. Bir sütun grafiğinde, çizilen değer [ChartDataPoint.getValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getValue) üzerinden elde edilebilir. Veri noktası aynı kategori konumunda kalır, ancak grafik değerini boş olarak kabul eder (grafiğin boş‑değer ayarlarına göre).
+Diğer noktaları kaldırmadan bir noktayı boş bırakmak için ilgili çalışma kitabı hücresini `null` olarak ayarlayın. Sütun grafiği için çizilen değer [ChartDataPoint.getValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getValue) aracılığıyla alınabilir. Veri noktası aynı kategori konumunda kalır, ancak grafik değerini grafik boş‑değer ayarına göre boş kabul eder.
 
-Aşağıdaki örnek, ilk serideki yalnızca ikinci noktayı temizler:
+Aşağıdaki örnek, ilk seride yalnızca ikinci noktayı temizler:
 
 ```javascript
 const aspose = {};
@@ -338,13 +338,69 @@ try {
 }
 ```
 
-Dağılım grafiklerinde X ve Y hücreleri ayrı ayrı, balon grafiklerinde ise bir boyut hücresi de bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları tutmak istediğinizde [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapointcollection/#clear) metodunu çağırmayın; bu metod koleksiyondaki tüm veri noktalarını siler.
+Dağılım grafiklerinde X ve Y hücreleri ayrı, balon grafiklerinde ise bir boyut hücresi ek olarak bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca o hücreyi temizleyin. Diğer noktaları korumak istediğinizde [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapointcollection/#clear) metodunu çağırmayın; bu metod serinin tüm veri noktalarını kaldırır.
+
+## **Boş Hücrelerin Görüntülenmesini Kontrol Et**
+
+Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen sayısal bir değeri temsil eder. Bir hücreyi boş yapmak için [ChartDataCell.setValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatacell/#setValue) metodunu `null` ile çağırın. Sayısal sıfır, boş‑hücre ayarına bakılmaksızın sıfır olarak kalır.
+
+Grafiğin boş hücreleri nasıl göstereceğini seçmek için [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) kullanın. Bu ayar tüm grafik için geçerlidir. Boşlukları çizim olarak değiştirir, boş hücreyi sıfır veya ara değerle doldurmaz.
+
+Aşağıdaki bağımsız örnek, bir seri içeren bir çizgi grafik oluşturur, 3. günün değerini temizler ve aynı grafiği her modda kaydeder. Girdi dosyası gerekmez. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) çalışma sayfası 0, sütun 0 kategori etiketleri, sütun 1 değerler için kullanır; satır 0 seri adını tutar. Son veri `10, 20, empty, 30, 40` şeklindedir.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 40, 40, 640, 400);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Measurements");
+    const series = chartData.getSeries().add(seriesNameCell, chart.getType());
+    const values = [10, 20, 25, 30, 40];
+
+    for (let i = 0; i < values.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, "Day " + (i + 1));
+        chartData.getCategories().add(categoryCell);
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // Gün 3'ü gerçekten boş bırak, ancak kategorisini ve veri noktasını koru.
+    workbook.getCell(0, 3, 1).setValue(null);
+
+    const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
+    const modeNames = ["Gap", "Zero", "Span"];
+    for (let i = 0; i < modes.length; i++) {
+        chart.setDisplayBlanksAs(modes[i]);
+        presentation.save("empty_cells_" + modeNames[i] + ".pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Her çıktı dosyası kaydetmeden önce atanan modu saklar: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir versiyonu kaydetmek için istediğiniz modu atayın ve sunumu bir kez kaydedin, modlar arasında döngü yapmayın.
+
+Aşağıdaki karşılaştırma aynı veriyi üç dosyada gösterir. 3. gün çalışma kitabında her durumda boştur:
+
+![Aynı veriye sahip çizgi grafikler: Boşluk, 3. günde çizgiyi keser; Sıfır, çizgiyi sıfıra düşürür; Aralık, 2. günü 4. günle bağlar.](display_blanks_as.png)
+
+Görünür etki grafik tipine bağlıdır. Çizgi grafiği, üç modu da kolayca karşılaştırmanıza olanak tanır. Çubuk ve sütun grafiklerinde eksik bir kategori için bağlayacak bir çizgi olmadığından `Span` yukarıda gösterilen bağlantı segmentini oluşturamaz; eksik bir sütun ile sıfır‑yükseklikteki bir sütun da benzer görünebilir. Benzer şekilde sadece işaretçili bir dağılım grafiğinde de bağlayıcı bir çizgi yoktur. Her grafik tipinde üç ayrı sonuç beklemeyin; kullandığınız tip için çıktıyı kontrol edin.
 
 ## **Seri Boşluk Genişliğini Ayarla**
 
-Boşluk genişliği, bitişik çubuk ya da sütun kümeleri arasındaki boşluk olup, çubuk ya da sütun genişliğinin yüzdesi olarak ifade edilir. Örtüşme gibi, bu da bir seri grubuna aittir, tek bir seriye değil. Grup için bir kez [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) metodunu çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha sıklaştırır.
+Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup çubuğun veya sütunun genişliğinin yüzdesi olarak ifade edilir. Örtüşme gibi, bu da tek bir seriye değil, üst seri grubuna aittir. Grup için bir kez [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) metodunu çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha yoğun yapar.
 
-Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
+Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca nihai sunumu kaydeder:
 
 ```javascript
 const aspose = {};
@@ -375,42 +431,42 @@ Sonuç:
 
 ## **SSS**
 
-**Hangi grafik türleri veri serilerini destekler?**
+**Hangi grafik tipleri veri serilerini destekler?**
 
-[ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/) enum'ı tarafından temsil edilen tüm grafik türleri veri kullanır, ancak serileri aynı değer yapısına ya da ayarlara sahip değildir. Örneğin, kategori grafiklerinde kategoriler ve değerler, dağılım grafiklerinde X ve Y değerleri, balon grafiklerinde ise balon boyutları bulunur. Seri tipine uygun veri‑nokta oluşturma metodunu kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk ya da sütun gruplarına uygulanır.
+[ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/)枚举 tarafından temsil edilen tüm grafik tipleri veri kullanır, ancak serilerinin değer yapısı veya ayarları aynı değildir. Örneğin, kategori grafikleri kategori ve değer kullanır, dağılım grafikleri X ve Y değerlerini, balon grafikleri ise balon boyutlarını ekler. Seri tipine uygun veri‑nokta oluşturma metodunu kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
 
 **Grafik seri grubu nedir?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/) aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir birleşik grafik birden çok grup içerebilir; bu yüzden bir seriden erişilen grup ayarını değiştirmek, grafikteki tüm serileri zorunlu olarak etkilemez.
+[ChartSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/) aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir kombinasyon grafiği birden fazla grup içerebilir; bir seriden ulaşarak grup ayarını değiştirmek, grafikteki tüm serileri mutlaka etkilemez.
 
-**Yeni oluşturulan bir grafikte varsayılan veri bulunur mu?**
+**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
 
-Evet. Varsayılan olarak [ShapeCollection.addChart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addChart) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir ya da tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan da bir grafik oluşturabilir.
+Evet. Varsayılan olarak, [ShapeCollection.addChart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addChart) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan bir grafik de oluşturabilir.
 
-**Grafik nesneleri workbook hücrelerine nasıl bağlanır?**
+**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
 
-Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirilirse ilgili grafik öğesi güncellenir. Özel veri oluştururken, kategori satırları ile seri‑değer satırlarının hizalı olduğundan emin olun; böylece her nokta istenen kategori altında çizilir.
+Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirildiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın istenen kategori altında çizildiğinden emin olmak için kategori satırlarını ve seri‑değer satırlarını hizalı tutun.
 
-**Bir seriyi değil, sadece bir noktayı nasıl temizlerim?**
+**Bir serinin tamamı yerine tek bir noktayı nasıl temizlerim?**
 
-İlgili değer hücresini `null` yaparak noktanın kategori konumunu boş bir nokta olarak tutun. Bu seriden tüm noktaları kaldırmak istediğinizde yalnızca [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapointcollection/#clear) metodunu kullanın. Kategorileri de kaldırıyorsanız, her serinin değerlerini kategori koleksiyonuyla hizalı tutacak şekilde güncelleyin.
+İlgili değer hücresini `null` yaparak noktayı kategori pozisyonunda boş bir nokta olarak tutun. [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapointcollection/#clear) metodunu yalnızca seriden tüm noktaları kaldırmak istediğinizde kullanın. Kategorileri de kaldırıyorsanız, her serinin değerlerini kategori koleksiyonuyla hizalanmış tutmak için güncelleyin.
 
 **Boş noktalar nasıl görüntülenir?**
 
-Sonuç, grafik türüne ve [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) ile yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları, sıfır değerlerini ya da komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına uygun ayarı seçin.
+Sonuç, grafik tipine ve [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) aracılığıyla yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları boşluk olarak, sıfır değerler olarak ya da komşu noktaları bağlayarak gösterebilir. Eksik verinin anlamına uygun ayarı seçin. Tam örnek ve görsel karşılaştırma için **[Boş Hücrelerin Görüntülenmesini Kontrol Et](#control-the-display-of-empty-cells)** bölümüne bakın.
 
 **Negatif değerler nasıl biçimlendirilir?**
 
-Desteklenen çubuk, sütun ve balon serileri için [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) çağırın ve [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) tarafından döndürülen rengi ayarlayın. Bireysel bir nokta için davranışı [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile geçersiz kılabilirsiniz. Bu yöntemler biçimlendirmeyi etkiler, saklanan sayısal değerleri değil.
+Desteklenen çubuk, sütun ve balon serileri için [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) metodunu çağırın ve [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) ile dönen rengi ayarlayın. Bireysel bir nokta için biçimlendirmeyi [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile geçersiz kılabilirsiniz. Bu yöntemler biçimlendirmeyi etkiler, saklanan sayısal değerleri değiştirmez.
 
-**Hem seri hem de nokta biçimlendirilmişse hangi biçimlendirme kazanır?**
+**Hem seri hem de nokta biçimlendirilmiş olduğunda hangisi kazanır?**
 
-Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri formatını ya da seri formatı tanımlı değilse otomatik grafik stilini ve temayı kullanmaya devam eder. Örtüşme ve boşluk genişliği gibi grup ayarları düzeni kontrol eder ve nokta‑seviyesi biçimlendirme geçersiz kılmaları değildir.
+Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri biçimini ya da seri biçimi tanımlı değilse otomatik grafik stilini ve temasını kullanmaya devam eder. Grup ayarları (örneğin örtüşme ve boşluk genişliği) düzeni kontrol eder ve nokta‑seviyesi biçimlendirme geçersiz kılmaları değildir.
 
-**Bir grafikte kaç seri bulunabilir? Bir limit var mı?**
+**Bir grafiğin içerebileceği seri sayısına bir sınırlama var mı?**
 
-Aspose.Slides ayrı bir sabit seri sayısı sınırı koymaz. Gerçekte, sunum dosyası kısıtlamaları, mevcut bellek, işleme süresi ve grafiğin okunabilirliği kullanılabilir bir sınır belirler.
+Aspose.Slides ayrı bir sabit seri sayısı limiti uygulamaz. Pratikte, sunum dosyası kısıtlamaları, kullanılabilir bellek, render süresi ve grafik okunabilirliği faydalı bir sınırı belirler.
 
-**Sütunlar çok yakın ya da çok uzak olduğunda ne değiştirilmelidir?**
+**Sütunlar çok yaklaştığında veya çok uzaklaştığında neyi değiştirmeliyim?**
 
-Uygun üst seri grubunda [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) metodunu çağırın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri birbirine yaklaştırın.
+Uygun üst seri grubunda [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) metodunu çağırın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri birbirine daha yakın hâle getirin.

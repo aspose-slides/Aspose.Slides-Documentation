@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie zeszytami wykresów w prezentacjach przy użyciu Pythona przez Java
+title: Zarządzanie zeszytami wykresów w prezentacjach przy użyciu Pythona w środowisku Java
 linktitle: Zeszyt wykresu
 type: docs
 weight: 70
@@ -12,7 +12,7 @@ keywords:
 - arkusz
 - źródło danych
 - zewnętrzny zeszyt
-- dane zewnętrzne
+- zewnętrzne dane
 - pamięć podręczna wykresu
 - odzyskiwanie zeszytu
 - PowerPoint
@@ -20,18 +20,18 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Odkryj Aspose.Slides dla Pythona przez Java: łatwo zarządzaj zeszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w prezentacji."
+description: "Odkryj Aspose.Slides dla Pythona w środowisku Java: łatwo zarządzaj zeszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane swojej prezentacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z zeszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pośrednictwem strumieni zeszytu, używać komórek zeszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
+Ten artykuł wyjaśnia, jak pracować z zeszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu przy użyciu strumieni zeszytów, używać komórek zeszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
 
-Opisuje także pracę z zewnętrznymi zeszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny zeszyt, pobrać ścieżkę zewnętrznego zeszytu powiązanego z wykresem oraz edytować dane wykresu, gdy zeszyt jest dostępny.
+Omówiono również pracę z zewnętrznymi zeszytami jako źródłami danych wykresu. Przykłady pokazują, jak utworzyć i przypisać zewnętrzny zeszyt, pobrać ścieżkę zewnętrznego zeszytu powiązanego z wykresem oraz edytować dane wykresu, gdy zeszyt jest dostępny.
+
+Dla komórek zeszytu, które reprezentują brakujące dane, zobacz [Control the Display of Empty Cells](/slides/pl/python-java/chart-series/) aby poznać różnicę między pustą komórką a zerem oraz porównanie trybów wyświetlania w wykresie liniowym.
 
 ## **Odczyt i zapis danych wykresu z zeszytu**
-Aspose.Slides udostępnia metody [readWorkbookStream](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#readWorkbookStream) i [writeWorkbookStream](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#writeWorkbookStream), które pozwalają odczytywać i zapisywać zeszyty danych wykresu (zawierające dane wykresu edytowane w Aspose.Cells). **Uwaga**, że dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
-
-Ten kod w Pythonie przedstawia przykładową operację:
+Aspose.Slides udostępnia metody [readWorkbookStream](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#readWorkbookStream) i [writeWorkbookStream](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#writeWorkbookStream), które pozwalają odczytywać i zapisywać zeszyty danych wykresu (zawierające dane wykresu edytowane przy użyciu Aspose.Cells). **Uwaga**, dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
 
 ```python
 import jpype
@@ -54,9 +54,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Walidacja układu wykresu po modyfikacji zeszytu**
+### **Sprawdź układ wykresu po modyfikacji zeszytu**
 
-Po zastąpieniu osadzonego zeszytu zmodyfikowanym, wykres zachowuje oryginalne kolekcje serii i kategorii. Ta niespójność może spowodować, że [Chart.validateChartLayout](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#validateChartLayout) zgłosi `ArgumentOutOfRangeException` (parameter: index). Aby uniknąć wyjątku, należy wyczyścić istniejące serie i kategorie **przed** zapisaniem zaktualizowanego zeszytu z powrotem do wykresu.
+Kiedy zamieniasz osadzony zeszyt na zmodyfikowany, wykres zachowuje swoje pierwotne kolekcje serii i kategorii. Ta niespójność może spowodować, że [Chart.validateChartLayout](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#validateChartLayout) rzuci `ArgumentOutOfRangeException` (parameter: index). Aby uniknąć wyjątku, wyczyść istniejące serie i kategorie **przed** zapisaniem zaktualizowanego zeszytu z powrotem do wykresu.
 
 ```python
 import jpype
@@ -69,7 +69,7 @@ from asposeslides.api import Presentation
 
 from pathlib import Path
 
-    # Wczytaj zeszyt po jego modyfikacji (np. przy użyciu Aspose.Cells).
+# Odczytaj zeszyt po jego modyfikacji (np. przy użyciu Aspose.Cells).
 updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
 
 presentation = Presentation("chart.pptx")
@@ -86,18 +86,16 @@ finally:
     presentation.dispose()
 ```
 
-Wyczyszczenie kolekcji zapewnia, że struktura danych wykresu jest zgodna z nowym zeszytem, co umożliwia wykonanie [validateChartLayout](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#validateChartLayout) bez błędów.
+Wyczyszczenie kolekcji zapewnia, że struktura danych wykresu jest zgodna z nowym zeszytem, co pozwala [validateChartLayout](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#validateChartLayout) zakończyć bez błędów.
 
-## **Ustawienie komórki zeszytu jako etykiety danych wykresu**
+## **Ustaw komórkę zeszytu jako etykietę danych wykresu**
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) .
-1. Pobierz odwołanie do slajdu przez jego indeks.
-1. Dodaj wykres bąbelkowy z pewnymi danymi.
+1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+1. Dodaj wykres typu Bubble z pewnymi danymi.
 1. Uzyskaj dostęp do serii wykresu.
 1. Ustaw komórkę zeszytu jako etykietę danych.
 1. Zapisz prezentację.
-
-Ten kod w Pythonie pokazuje, jak ustawić komórkę zeszytu jako etykietę danych wykresu:
 
 ```python
 import jpype
@@ -127,7 +125,7 @@ finally:
 
 ## **Zarządzanie arkuszami**
 
-Ten kod w Pythonie demonstruje użycie metody [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdataworkbook/#getWorksheets) do uzyskania dostępu do kolekcji arkuszy:
+Ten kod Pythona demonstruje operację, w której metoda [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdataworkbook/#getWorksheets) jest używana do uzyskania dostępu do kolekcji arkuszy:
 
 ```python
 import jpype
@@ -148,9 +146,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Określenie typu źródła danych**
+## **Określ typ źródła danych**
 
-Ten kod w Pythonie pokazuje, jak określić typ źródła danych:
+Ten kod Pythona pokazuje, jak określić typ dla źródła danych:
 
 ```python
 import jpype
@@ -175,9 +173,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Wykrywanie nieobsługiwanych formatów osadzonych zeszytów**
+## **Wykryj nieobsługiwane formaty osadzonych zeszytów**
 
-Aspose.Slides nie obsługuje formatu binarnego zeszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody [getEmbeddedWorkbookType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) na obiekcie [ChartData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/) wraz z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/workbooktype/), aby wykryć nieobsługiwane formaty i pominąć te wykresy.
+Aspose.Slides nie obsługuje binarnego formatu zeszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody [getEmbeddedWorkbookType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) na [ChartData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/) wraz z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/workbooktype/), aby wykryć nieobsługiwane formaty i pominąć te wykresy.
 
 ```python
 import jpype
@@ -198,16 +196,18 @@ try:
         if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
             # Osadzony zeszyt jest w formacie .xlsb, który nie jest obsługiwany.
             continue
-        # Odczytaj lub zmodyfikuj tutaj dane zeszytu wykresu.
+        # Tutaj odczytaj lub zmodyfikuj dane zeszytu wykresu.
 finally:
     presentation.dispose()
 ```
 
-### **Utworzenie zewnętrznego zeszytu**
+## **Zewnętrzny zeszyt**
 
-Przy użyciu metod [readWorkbookStream](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#readWorkbookStream) i [setExternalWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#setExternalWorkbook) możesz zarówno utworzyć zewnętrzny zeszyt od podstaw, jak i uczynić istniejący zeszyt wewnętrzny zewnętrznym.
+Aspose.Slides obsługuje używanie zewnętrznych zeszytów jako źródła danych dla wykresów.
 
-Ten kod w Pythonie demonstruje proces tworzenia zewnętrznego zeszytu:
+### **Utwórz zewnętrzny zeszyt**
+
+Korzystając z metod [readWorkbookStream](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#readWorkbookStream) i [setExternalWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#setExternalWorkbook), możesz albo utworzyć zewnętrzny zeszyt od podstaw, albo uczynić wewnętrzny zeszyt zewnętrznym.
 
 ```python
 import jpype
@@ -232,13 +232,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Ustawienie zewnętrznego zeszytu**
+### **Ustaw zewnętrzny zeszyt**
 
-Przy użyciu metody [setExternalWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#setExternalWorkbook) możesz przypisać zewnętrzny zeszyt do wykresu jako jego źródło danych. Metodę tę można także użyć do zaktualizowania ścieżki do zewnętrznego zeszytu (jeśli został on przeniesiony).
+Za pomocą metody [setExternalWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#setExternalWorkbook) możesz przypisać zewnętrzny zeszyt do wykresu jako jego źródło danych. Metodę tę można także użyć do zaktualizowania ścieżki do zewnętrznego zeszytu (jeśli ten został przeniesiony).
 
-Choć nie możesz edytować danych w zeszytach przechowywanych w zdalnych lokalizacjach lub zasobach, możesz nadal używać takich zeszytów jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego zeszytu, zostaje ona automatycznie przekształcona na pełną ścieżkę.
-
-Ten kod w Pythonie pokazuje, jak ustawić zewnętrzny zeszyt:
+Choć nie możesz edytować danych w zeszytach przechowywanych w zdalnych lokalizacjach lub zasobach, możesz nadal używać takich zeszytów jako zewnętrznego źródła danych. Jeśli podana zostanie ścieżka względna do zewnętrznego zeszytu, zostanie ona automatycznie przekształcona w pełną ścieżkę.
 
 ```python
 import jpype
@@ -268,10 +266,10 @@ finally:
     presentation.dispose()
 ```
 
-Drugi parametr (`bool`) metody [setExternalWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#setExternalWorkbook) służy do określenia, czy zeszyt Excel zostanie załadowany.
+Drugi parametr (`bool`) metody [setExternalWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#setExternalWorkbook) określa, czy zeszyt Excel zostanie załadowany.
 
 * Gdy jego wartość jest ustawiona na `False`, aktualizowana jest tylko ścieżka zeszytu – dane wykresu nie zostaną załadowane ani zaktualizowane z docelowego zeszytu. Użyj tej opcji, gdy docelowy zeszyt nie istnieje lub jest niedostępny.  
-* Gdy jego wartość jest ustawiona na `True`, dane wykresu zostają zaktualizowane z docelowego zeszytu.
+* Gdy jego wartość jest ustawiona na `True`, dane wykresu zostaną zaktualizowane z docelowego zeszytu.
 
 ```python
 import jpype
@@ -292,15 +290,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Pobranie ścieżki zewnętrznego źródła danych wykresu**
+### **Uzyskaj ścieżkę zewnętrznego zeszytu źródła danych wykresu**
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) .
-1. Pobierz odwołanie do slajdu przez jego indeks.
+1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
 1. Utwórz obiekt dla kształtu wykresu.
 1. Utwórz obiekt dla typu źródła ([ChartDataSourceType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdatasourcetype/)) reprezentującego źródło danych wykresu.
-1. Określ odpowiedni warunek w zależności od tego, czy typ źródła jest taki sam jak typ zewnętrznego źródła danych zeszytu.
-
-Ten kod w Pythonie demonstruje tę operację:
+1. Określ odpowiedni warunek, bazując na tym, że typ źródła jest taki sam jak typ zewnętrznego zeszytu źródła danych.
 
 ```python
 import jpype
@@ -323,11 +319,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Edycja danych wykresu**
+### **Edytuj dane wykresu**
 
-Możesz edytować dane w zewnętrznych zeszytach tak samo, jak zmieniasz zawartość wewnętrznych zeszytów. Gdy zewnętrzny zeszyt nie może zostać załadowany, zostaje rzucony wyjątek.
-
-Ten kod w Pythonie jest implementacją opisanego procesu:
+Możesz edytować dane w zewnętrznych zeszytach tak samo, jak wprowadzisz zmiany w zawartości wewnętrznych zeszytów. Gdy zewnętrzny zeszyt nie może zostać załadowany, zostaje wyrzucony wyjątek.
 
 ```python
 import jpype
@@ -348,11 +342,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Odzyskiwanie zeszytu z pamięci podręcznej wykresu**
+### **Odzyskaj zeszyt z pamięci podręcznej wykresu**
 
-Jeśli wykres używa zewnętrznego zeszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć zeszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz obiekt [LoadOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/), skonfiguruj go przy pomocy [SpreadsheetOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/spreadsheetoptions/), i wywołaj [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) z wartością `True` przed otwarciem prezentacji.
+Jeśli wykres używa zewnętrznego zeszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć zeszyt wykresu z danych buforowanych w prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/), skonfiguruj je przy pomocy [SpreadsheetOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/spreadsheetoptions/), i wywołaj [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) z wartością `True` przed otwarciem prezentacji.
 
-Poniższy przykład w Pythonie otwiera prezentację, której wykres odwołuje się do niedostępnego zewnętrznego zeszytu, i uzyskuje dostęp do odzyskanych danych poprzez [Chart.getChartData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#getChartData) oraz [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Poniższy przykład Pythona otwiera prezentację, której wykres odwołuje się do niedostępnego zewnętrznego zeszytu, i uzyskuje dostęp do odzyskanych danych poprzez [Chart.getChartData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#getChartData) oraz [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -373,35 +367,35 @@ try:
     chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Wczytaj lub zmodyfikuj tutaj dane odzyskanego zeszytu.
+    # Odczytaj lub zmodyfikuj tutaj odzyskane dane zeszytu.
 finally:
     presentation.dispose()
 ```
 
-Jeśli zewnętrzny zeszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides zgłasza wyjątek. Włącz odzyskiwanie tylko wtedy, gdy użycie danych wykresu z pamięci podręcznej jest dopuszczalnym rozwiązaniem awaryjnym, ponieważ pamięć podręczna może nie zawierać zmian wprowadzonych w zewnętrznym zeszycie po ostatniej aktualizacji prezentacji.
+Jeśli zewnętrzny zeszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides rzuca wyjątek. Włącz odzyskiwanie tylko wtedy, gdy użycie buforowanych danych wykresu jest akceptowalnym rozwiązaniem awaryjnym, ponieważ bufor może nie zawierać zmian wprowadzonych w zewnętrznym zeszycie po ostatniej aktualizacji prezentacji.
 
 ## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym zeszytem?**
+**Czy mogę określić, czy konkretny wykres jest połączony ze zewnętrznym czy osadzonym zeszytem?**
 
 Tak. Wykres posiada [data source type](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getDataSourceType) oraz [path to an external workbook](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); jeśli źródłem jest zewnętrzny zeszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
 
-**Czy obsługiwane są względne ścieżki do zewnętrznych zeszytów i w jaki sposób są przechowywane?**
+**Czy ścieżki względne do zewnętrznych zeszytów są obsługiwane i jak są przechowywane?**
 
-Tak. Jeśli podasz względną ścieżkę, zostanie ona automatycznie przekształcona na ścieżkę bezwzględną. Jest to wygodne dla przenoszenia projektów; jednak prezentacja zapisze ścieżkę bezwzględną w pliku PPTX.
+Tak. Jeśli podasz ścieżkę względną, zostanie ona automatycznie przekształcona w ścieżkę bezwzględną. Ułatwia to przenoszenie projektów; pamiętaj jednak, że prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX.
 
-**Czy mogę używać zeszytów znajdujących się w zasobach sieciowych/udostępnieniach?**
+**Czy mogę używać zeszytów znajdujących się na zasobach/udostępnieniach sieciowych?**
 
-Tak, takie zeszyty mogą być używane jako zewnętrzne źródło danych. Edycja zdalnych zeszytów bezpośrednio z poziomu Aspose.Slides nie jest obsługiwana – mogą być używane wyłącznie jako źródło.
+Tak, takie zeszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja zdalnych zeszytów bezpośrednio z Aspose.Slides nie jest obsługiwana – mogą być wykorzystywane jedynie jako źródło.
 
 **Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisywaniu prezentacji?**
 
-Nie. Prezentacja przechowuje [link to the external file](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) i używa go do odczytu danych. Zewnętrzny plik nie jest modyfikowany podczas zapisu prezentacji.
+Nie. Prezentacja przechowuje [link to the external file](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) i używa go do odczytu danych. Sam plik zewnętrzny nie jest modyfikowany podczas zapisu prezentacji.
 
-**Co zrobić, gdy zewnętrzny plik jest chroniony hasłem?**
+**Co zrobić, jeśli zewnętrzny plik jest zabezpieczony hasłem?**
 
-Aspose.Slides nie akceptuje hasła przy tworzeniu łącza. Typowym rozwiązaniem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](/cells/python-java/)) i odwołanie się do tej kopii.
+Aspose.Slides nie akceptuje hasła przy tworzeniu linku. Typowym podejściem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](/cells/python-java/)) i wskazanie tej kopii.
 
 **Czy wiele wykresów może odwoływać się do tego samego zewnętrznego zeszytu?**
 
-Tak. Każdy wykres przechowuje własne łącze. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.
+Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują ten sam plik, zmiana tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.

@@ -1,11 +1,11 @@
 ---
-title: Gestisci le cartelle di lavoro dei grafici nelle presentazioni su Android
+title: Gestire le cartelle di lavoro dei grafici nelle presentazioni su Android
 linktitle: Cartella di lavoro del grafico
 type: docs
 weight: 70
 url: /it/androidjava/chart-workbook/
 keywords:
-- cartella di lavoro grafico
+- cartella di lavoro del grafico
 - dati del grafico
 - cella della cartella di lavoro
 - etichetta dati
@@ -20,16 +20,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Scopri Aspose.Slides per Android tramite Java: gestisci facilmente le cartelle di lavoro dei grafici nei formati PowerPoint e OpenDocument per ottimizzare i dati della tua presentazione."
+description: "Scopri Aspose.Slides per Android via Java: gestisci facilmente le cartelle di lavoro dei grafici in formato PowerPoint e OpenDocument per semplificare i dati della tua presentazione."
 ---
 ## **Panoramica**
 
 Questo articolo spiega come lavorare con le cartelle di lavoro dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite flussi di cartelle di lavoro, utilizzare le celle della cartella di lavoro come etichette dei dati del grafico, accedere alle collezioni di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
 
-Copre anche l'utilizzo di cartelle di lavoro esterne come origini dati per i grafici. Gli esempi mostrano come creare e assegnare una cartella di lavoro esterna, recuperare il percorso di una cartella di lavoro esterna collegata a un grafico e modificare i dati del grafico quando la cartella di lavoro è disponibile.
+Tratta anche l'uso di cartelle di lavoro esterne come origini dati per i grafici. Gli esempi mostrano come creare e assegnare una cartella di lavoro esterna, recuperare il percorso di una cartella di lavoro esterna collegata a un grafico e modificare i dati del grafico quando la cartella di lavoro è disponibile.
 
-## **Leggere e Scrivere Dati del Grafico da una Cartella di Lavoro**
-Aspose.Slides fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) e [WriteWorkbookStream](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) che consentono di leggere e scrivere le cartelle di lavoro dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o devono avere una struttura simile a quella della sorgente.
+Per le celle della cartella di lavoro che rappresentano dati mancanti, vedere [Controllare la visualizzazione delle celle vuote](/slides/it/androidjava/chart-series/) per la differenza tra una cella vuota e zero, e un confronto a linee dei modi di visualizzazione disponibili.
+
+## **Leggere e scrivere dati del grafico da una cartella di lavoro**
+
+Aspose.Slides fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) e [WriteWorkbookStream](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) che consentono di leggere e scrivere le cartelle di lavoro dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati allo stesso modo o devono avere una struttura simile all'origine.
+
+Questo codice Java dimostra un'operazione di esempio:
 
 ```java
 import com.aspose.slides.*;
@@ -50,9 +55,9 @@ try {
 }
 ```
 
-### **Convalidare il Layout del Grafico Dopo la Modifica della Cartella di Lavoro**
+### **Convalidare il layout del grafico dopo la modifica della cartella di lavoro**
 
-Quando si sostituisce una cartella di lavoro incorporata con una modificata, il grafico mantiene le collezioni originali di serie e categorie. Questa discrepanza può causare il fallimento di [IChart.validateChartLayout](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChart#validateChartLayout--) con un errore di indice fuori intervallo. È necessario svuotare le serie e le categorie esistenti prima di scrivere la cartella di lavoro aggiornata nel grafico.
+Quando si sostituisce una cartella di lavoro incorporata con una modificata, il grafico mantiene le collezioni originali di serie e categorie. Questa incompatibilità può causare il fallimento di [IChart.validateChartLayout](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChart#validateChartLayout--) con un errore di indice fuori intervallo. Svuotare le serie e le categorie esistenti prima di scrivere la cartella di lavoro aggiornata nel grafico.
 
 ```java
 // Dopo aver modificato lo stream della cartella di lavoro (ad esempio, usando Aspose.Cells)
@@ -67,18 +72,18 @@ chartData.writeWorkbookStream(updatedWorkbook);
 chart.validateChartLayout();
 ```
 
-Svuotare le collezioni garantisce che la struttura dei dati del grafico sia coerente con la nuova cartella di lavoro, consentendo a `validateChartLayout` di completarsi senza errori.
+Svuotare le collezioni garantisce che la struttura dei dati del grafico sia coerente con la nuova cartella di lavoro, permettendo a `validateChartLayout` di completarsi senza errori.
 
-## **Impostare una Cella della Cartella di Lavoro come Etichetta dei Dati del Grafico**
+## **Impostare una cella della cartella di lavoro come etichetta dati del grafico**
 
 1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation) .
-1. Ottenere il riferimento a una diapositiva tramite il suo indice.
+1. Ottenere un riferimento a una diapositiva tramite il suo indice.
 1. Aggiungere un grafico a bolle con alcuni dati.
-1. Accedere alla serie del grafico.
-1. Impostare la cella della cartella di lavoro come etichetta dei dati.
+1. Accedere alle serie del grafico.
+1. Impostare la cella della cartella di lavoro come etichetta dati.
 1. Salvare la presentazione.
 
-Questo codice Java mostra come impostare una cella della cartella di lavoro come etichetta dei dati del grafico:
+Questo codice Java mostra come impostare una cella della cartella di lavoro come etichetta dati del grafico:
 
 ```java
 import com.aspose.slides.*;
@@ -87,7 +92,7 @@ String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Istanzia una classe di presentazione che rappresenta un file di presentazione
+// Instanzia una classe di presentazione che rappresenta un file di presentazione
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -109,7 +114,7 @@ try {
 }
 ```
 
-## **Gestire i Fogli di Lavoro**
+## **Gestire i fogli di lavoro**
 
 Questo codice Java dimostra un'operazione in cui il metodo [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) viene utilizzato per accedere a una collezione di fogli di lavoro:
 
@@ -127,7 +132,7 @@ try {
 }
 ```
 
-## **Specificare il Tipo di Origine Dati**
+## **Specificare il tipo di origine dati**
 
 Questo codice Java mostra come specificare un tipo per un'origine dati:
 
@@ -151,9 +156,9 @@ try {
 }
 ```
 
-## **Rilevare Formati di Cartelle di Lavoro Incorporate Non Supportati**
+## **Rilevare formati di cartelle di lavoro incorporate non supportati**
 
-Aspose.Slides non supporta il formato di cartella di lavoro Excel binario (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `getEmbeddedWorkbookType` su [IChartData](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChartData) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/WorkbookType) per rilevare formati non supportati e saltare quei grafici.
+Aspose.Slides non supporta il formato di cartella di lavoro binario di Excel (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `getEmbeddedWorkbookType` su [IChartData](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IChartData) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/WorkbookType) per rilevare formati non supportati e ignorare quei grafici.
 
 ```java
 import com.aspose.slides.*;
@@ -170,7 +175,7 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // Il workbook incorporato è nel formato .xlsb, che non è supportato.
+            // Il workbook incorporato è in formato .xlsb, che non è supportato.
             continue;
         }
 
@@ -181,15 +186,15 @@ try {
 }
 ```
 
-## **Cartella di Lavoro Esterna**
+## **Cartella di lavoro esterna**
 
-Aspose.Slides supporta cartelle di lavoro esterne come origine dati per i grafici.
+Aspose.Slides supporta l'uso di cartelle di lavoro esterne come origine dati per i grafici.
 
-### **Creare una Cartella di Lavoro Esterna**
+### **Creare una cartella di lavoro esterna**
 
 Utilizzando i metodi **`readWorkbookStream`** e **`setExternalWorkbook`**, è possibile creare una cartella di lavoro esterna da zero o rendere esterna una cartella di lavoro interna.
 
-Questo codice Java dimostra il processo di creazione di una cartella di lavoro esterna:
+Questo codice Java dimostra il processo di creazione della cartella di lavoro esterna:
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +223,11 @@ try {
 }
 ```
 
-### **Impostare una Cartella di Lavoro Esterna**
+### **Impostare una cartella di lavoro esterna**
 
 Utilizzando il metodo **`setExternalWorkbook`**, è possibile assegnare una cartella di lavoro esterna a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso della cartella di lavoro esterna (se quest'ultima è stata spostata).
 
-Sebbene non sia possibile modificare i dati nelle cartelle di lavoro archiviate in posizioni remote o risorse, è comunque possibile utilizzare tali cartelle di lavoro come fonte dati esterna. Se viene fornito un percorso relativo per una cartella di lavoro esterna, viene convertito automaticamente in un percorso assoluto.
+Pur non potendo modificare i dati in cartelle di lavoro archiviate in posizioni remote o risorse, è comunque possibile utilizzare tali cartelle di lavoro come fonte dati esterna. Se viene fornito un percorso relativo per una cartella di lavoro esterna, questo viene convertito automaticamente in un percorso completo.
 
 Questo codice Java mostra come impostare una cartella di lavoro esterna:
 
@@ -252,9 +257,9 @@ try {
 }
 ```
 
-Il parametro `updateChartData` (sotto il metodo `setExternalWorkbook`) viene usato per specificare se una cartella di lavoro Excel verrà caricata o meno.
+Il parametro `updateChartData` (nel metodo `setExternalWorkbook`) viene utilizzato per specificare se una cartella di lavoro Excel verrà caricata o meno.
 
-* Quando il valore di `updateChartData` è impostato su `false`, viene aggiornato solo il percorso della cartella di lavoro: i dati del grafico non verranno caricati né aggiornati dalla cartella di lavoro di destinazione. Questa impostazione è utile quando la cartella di lavoro di destinazione è inesistente o non disponibile.  
+* Quando il valore di `updateChartData` è impostato su `false`, viene aggiornato solo il percorso della cartella di lavoro — i dati del grafico non verranno caricati o aggiornati dalla cartella di lavoro di destinazione. È possibile utilizzare questa impostazione quando la cartella di lavoro di destinazione è inesistente o non disponibile. 
 * Quando il valore di `updateChartData` è impostato su `true`, i dati del grafico vengono aggiornati dalla cartella di lavoro di destinazione.
 
 ```java
@@ -274,13 +279,13 @@ try {
 }
 ```
 
-### **Ottenere il Percorso della Cartella di Lavoro Esterna di Origine Dati di un Grafico**
+### **Ottenere il percorso della cartella di lavoro della fonte dati esterna di un grafico**
 
 1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation) .
-1. Ottenere il riferimento a una diapositiva tramite il suo indice.
+1. Ottenere un riferimento a una diapositiva tramite il suo indice.
 1. Creare un oggetto per la forma del grafico.
-1. Creare un oggetto per il tipo di origine (`ChartDataSourceType`) che rappresenta l'origine dati del grafico.
-1. Specificare la condizione pertinente in base al fatto che il tipo di origine sia lo stesso del tipo di origine dati della cartella di lavoro esterna.
+1. Creare un oggetto per il tipo di sorgente (`ChartDataSourceType`) che rappresenta l'origine dati del grafico.
+1. Specificare la condizione pertinente in base al fatto che il tipo di sorgente sia lo stesso del tipo di origine dati della cartella di lavoro esterna.
 
 Questo codice Java dimostra l'operazione:
 
@@ -306,11 +311,9 @@ try {
 }
 ```
 
-### **Modificare i Dati del Grafico**
+### **Modificare i dati del grafico**
 
-È possibile modificare i dati nelle cartelle di lavoro esterne nello stesso modo in cui si apportano modifiche al contenuto delle cartelle di lavoro interne. Quando una cartella di lavoro esterna non può essere caricata, viene sollevata un'eccezione.
-
-Questo codice Java è un'implementazione del processo descritto:
+È possibile modificare i dati nelle cartelle di lavoro esterne allo stesso modo in cui si apportano modifiche al contenuto delle cartelle di lavoro interne. Quando una cartella di lavoro esterna non può essere caricata, viene generata un'eccezione.
 
 ```java
 import com.aspose.slides.*;
@@ -329,9 +332,9 @@ try {
 }
 ```
 
-### **Recuperare una Cartella di Lavoro dalla Cache del Grafico**
+### **Recuperare una cartella di lavoro dalla cache del grafico**
 
-Se un grafico utilizza una cartella di lavoro esterna mancante o non disponibile, Aspose.Slides può ricostruire la cartella di lavoro del grafico dai dati memorizzati nella presentazione. Creare un oggetto [LoadOptions](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/loadoptions/), configurarlo con [SpreadsheetOptions](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/spreadsheetoptions/), e chiamare [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) con `true` prima di aprire la presentazione.
+Se un grafico utilizza una cartella di lavoro esterna mancante o non disponibile, Aspose.Slides può ricostruire la cartella di lavoro del grafico dai dati memorizzati nella cache della presentazione. Creare [LoadOptions](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/loadoptions/), configurarlo con [SpreadsheetOptions](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/spreadsheetoptions/), e chiamare [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) con `true` prima di aprire la presentazione.
 
 Il seguente esempio Java apre una presentazione il cui grafico fa riferimento a una cartella di lavoro esterna non disponibile e accede ai dati recuperati tramite [IChart.getChartData](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ichart/#getChartData--) e [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
@@ -355,24 +358,30 @@ try {
 }
 ```
 
-Se la cartella di lavoro esterna è non disponibile e il recupero è disabilitato, Aspose.Slides genera un'eccezione. Abilitare il recupero solo quando l'uso dei dati del grafico memorizzati nella cache è un'opzione accettabile, perché la cache potrebbe non contenere le modifiche apportate alla cartella di lavoro esterna dopo l'ultimo aggiornamento della presentazione.
+Se la cartella di lavoro esterna è non disponibile e il recupero è disabilitato, Aspose.Slides genera un'eccezione. Abilitare il recupero solo quando l'uso dei dati del grafico nella cache è un'alternativa accettabile, poiché la cache potrebbe non contenere le modifiche apportate alla cartella di lavoro esterna dopo l'ultimo aggiornamento della presentazione.
 
 ## **FAQ**
 
-**Posso determinare se un grafico specifico è collegato a una cartella di lavoro esterna o incorporata?**  
-Sì. Un grafico dispone di un [tipo di origine dati](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) e di un [percorso a una cartella di lavoro esterna](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); se la sorgente è una cartella di lavoro esterna, è possibile leggere il percorso completo per verificare che venga utilizzato un file esterno.
+**Posso determinare se un grafico specifico è collegato a una cartella di lavoro esterna o incorporata?**
 
-**Sono supportati percorsi relativi alle cartelle di lavoro esterne e come vengono memorizzati?**  
-Sì. Se si specifica un percorso relativo, questo viene convertito automaticamente in un percorso assoluto. Ciò è comodo per la portabilità del progetto; tuttavia, il percorso assoluto viene memorizzato nel file PPTX.
+Sì. Un grafico ha un [data source type](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) e un [path to an external workbook](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); se la sorgente è una cartella di lavoro esterna, è possibile leggere il percorso completo per verificare che sia stato utilizzato un file esterno.
 
-**Posso usare cartelle di lavoro situate su risorse di rete/condivisioni?**  
-Sì, tali cartelle di lavoro possono essere utilizzate come origine dati esterna. Tuttavia, la modifica diretta di cartelle di lavoro remote da Aspose.Slides non è supportata: possono essere usate solo come sorgente.
+**I percorsi relativi alle cartelle di lavoro esterne sono supportati e come vengono memorizzati?**
 
-**Aspose.Slides sovrascrive il file XLSX esterno quando salvo la presentazione?**  
-No. La presentazione memorizza un [collegamento al file esterno](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) e lo usa per la lettura dei dati. Il file esterno stesso non viene modificato al salvataggio della presentazione.
+Sì. Se si specifica un percorso relativo, viene automaticamente convertito in un percorso assoluto. Questo è comodo per la portabilità del progetto; tuttavia, bisogna tenere presente che la presentazione memorizzerà il percorso assoluto nel file PPTX.
 
-**Cosa devo fare se il file esterno è protetto da password?**  
-Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio usando [Aspose.Cells](/cells/androidjava/)) e collegarsi a quella copia.
+**Posso utilizzare cartelle di lavoro situate su risorse di rete/condivisioni?**
 
-**Più grafici possono fare riferimento alla stessa cartella di lavoro esterna?**  
-Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l'aggiornamento di quel file verrà riflesso in ciascun grafico al successivo caricamento dei dati.
+Sì, tali cartelle di lavoro possono essere utilizzate come origine dati esterna. Tuttavia, la modifica di cartelle di lavoro remote direttamente da Aspose.Slides non è supportata: possono essere utilizzate solo come sorgente.
+
+**Aspose.Slides sovrascrive il file XLSX esterno quando si salva la presentazione?**
+
+No. La presentazione memorizza un [link to the external file](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato quando la presentazione viene salvata.
+
+**Cosa devo fare se il file esterno è protetto da password?**
+
+Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](/cells/androidjava/)) e collegarsi a quella copia.
+
+**Più grafici possono fare riferimento alla stessa cartella di lavoro esterna?**
+
+Sì. Ogni grafico conserva il proprio link. Se tutti puntano allo stesso file, l'aggiornamento di quel file sarà riflesso in ciascun grafico al prossimo caricamento dei dati.

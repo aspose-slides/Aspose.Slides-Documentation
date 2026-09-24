@@ -1,35 +1,37 @@
 ---
-title: Správa sešitů diagramů v prezentacích pomocí C++
-linktitle: Sešit diagramu
+title: Spravujte sešity grafů v prezentacích pomocí C++
+linktitle: Grafový sešit
 type: docs
 weight: 70
 url: /cs/cpp/chart-workbook/
 keywords:
-- sešit diagramu
-- data diagramu
+- grafový sešit
+- data grafu
 - buňka sešitu
 - popisek dat
 - list
 - zdroj dat
 - externí sešit
 - externí data
-- mezipaměť diagramu
-- obnovení sešitu
+- mezipaměť grafu
+- obnova sešitu
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro C++: snadno spravujte sešity diagramů v PowerPoint a OpenDocument formátech a zjednodušte data své prezentace."
+description: "Objevte Aspose.Slides pro C++: snadno spravujte grafové sešity v PowerPoint a OpenDocument formátech a zefektivněte data své prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat se sešity diagramů v Aspose.Slides. Ukazuje, jak číst a zapisovat data diagramu pomocí proudů sešitu, používat buňky sešitu jako popisky dat diagramu, přistupovat ke kolekcím listů a určovat typ zdroje dat pro hodnoty diagramu.
+Tento článek vysvětluje, jak pracovat s grafickými sešity v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu pomocí streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat k kolekcím listů a specifikovat typ zdroje dat pro hodnoty grafu.
 
-Také se věnuje práci s externími sešity jako zdroji dat pro diagramy. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s diagramem a upravit data diagramu, když je sešit dostupný.
+Také zahrnuje práci s externími sešity jako zdroji dat grafu. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit k dispozici.
 
-## **Čtení a zápis dat diagramu ze sešitu**
+Pro buňky sešitu, které představují chybějící data, viz [Kontrola zobrazení prázdných buněk](/slides/cs/cpp/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a porovnání lineárního grafu dostupných režimů zobrazení.
 
-Aspose.Slides poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a [WriteWorkbookStream](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), které umožňují číst a zapisovat sešity s daty diagramu (obsahující data diagramu editovaná pomocí Aspose.Cells). **Note** že data diagramu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
+## **Čtení a zápis dat grafu ze sešitu**
+
+Aspose.Slides poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a [WriteWorkbookStream](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka** že data grafu musí být organizována stejným způsobem nebo mít strukturu podobnou zdroji.
 
 ``` cpp
 #include <DOM/Chart/Chart.h>
@@ -59,12 +61,12 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-### **Ověření rozvržení diagramu po úpravě sešitu**
+### **Ověření rozvržení grafu po úpravě sešitu**
 
-Když nahradíte vložený sešit upraveným, diagram si zachová původní kolekce řad a kategorií. Tento nesoulad může způsobit selhání [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/validatechartlayout/) s chybou index‑out‑of‑range. Vymažte existující řady a kategorie před zápisem aktualizovaného sešitu zpět do diagramu.
+Když nahradíte vložený sešit upraveným, graf si ponechá své původní kolekce řad a kategorií. Tento nesoulad může způsobit, že [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/validatechartlayout/) selže s chybou index mimo rozsah. Vymažte existující řady a kategorie před zápisem aktualizovaného sešitu zpět do grafu.
 
 ```cpp
-// Po úpravě proudu sešitu (např. pomocí Aspose.Cells)
+// Po úpravě streamu sešitu (např. pomocí Aspose.Cells)
 auto updatedWorkbook = chartData->ReadWorkbookStream();
 
 // Vymazat existující odkazy na data.
@@ -77,18 +79,18 @@ chartData->WriteWorkbookStream(updatedWorkbook);
 chart->ValidateChartLayout();
 ```
 
-Vymazání kolekcí zajistí, že struktura dat diagramu bude konzistentní s novým sešitem, což umožní `ValidateChartLayout` dokončit bez chyb.
+Vymazání kolekcí zajistí, že struktura dat grafu bude konzistentní s novým sešitem, což umožní `ValidateChartLayout` dokončit bez chyb.
 
-## **Nastavte buňku sešitu jako popisek dat diagramu**
+## **Nastavit buňku sešitu jako popisek dat grafu**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte bublinový diagram s několika daty.
-4. Přistupte k řadě diagramu.
+3. Přidejte bublinový graf s několika daty.
+4. Získejte přístup k řadám grafu.
 5. Nastavte buňku sešitu jako popisek dat.
 6. Uložte prezentaci.
 
-Tento C++ kód ukazuje, jak nastavit buňku sešitu jako popisek dat diagramu:
+Tento kód v C++ vám ukazuje, jak nastavit buňku sešitu jako popisek dat grafu:
 
 ``` cpp
 #include <DOM/Chart/ChartType.h>
@@ -137,7 +139,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Správa listů**
 
-Tento C++ kód demonstruje operaci, kde je metoda [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) použita k přístupu ke kolekci listů:
+Tento kód v C++ demonstruje operaci, kde se metoda [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) používá k přístupu ke kolekci listů:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -168,7 +170,7 @@ for (auto ws : System::IterateOver(worksheets))
 
 ## **Určení typu zdroje dat**
 
-Tento C++ kód ukazuje, jak specifikovat typ pro zdroj dat:
+Tento kód v C++ vám ukazuje, jak specifikovat typ pro zdroj dat:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -205,7 +207,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **Detekce nepodporovaných formátů vložených sešitů**
 
-Aspose.Slides nepodporuje binární formát Excelu (.xlsb), který může být vložen v některých diagramech. Můžete použít metodu `get_EmbeddedWorkbookType` na [IChartData](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/workbooktype/), abyste detekovali nepodporované formáty a tyto diagramy přeskočili.
+Aspose.Slides nepodporuje formát binárního sešitu Excel (.xlsb), který může být vložen v některých grafech. Můžete použít metodu `get_EmbeddedWorkbookType` na rozhraní [IChartData](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/workbooktype/) k detekci nepodporovaných formátů a přeskočit tyto grafy.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -241,21 +243,19 @@ for (auto&& shape : System::IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // Zde načtěte nebo upravte data sešitu diagramu.
+    // Zde přečtěte nebo upravte data sešitu grafu.
 }
 ```
 
 ## **Externí sešit**
 
-{{% alert color="info" %}} 
-V [Aspose.Slides](https://releases.aspose.com/slides/cs/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 jsme implementovali podporu externích sešitů jako zdroje dat pro diagramy.
-{{% /alert %}} 
+Aspose.Slides podporuje používání externích sešitů jako zdroje dat pro grafy.
 
-### **Vytvořte externí sešit**
+### **Vytvořit externí sešit**
 
 Pomocí metod **`ReadWorkbookStream`** a **`SetExternalWorkbook`** můžete buď vytvořit externí sešit od nuly, nebo učinit interní sešit externím.
 
-Tento C++ kód demonstruje proces vytvoření externího sešitu:
+Tento kód v C++ demonstruje proces vytvoření externího sešitu:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -294,13 +294,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Nastavte externí sešit**
+### **Nastavit externí sešit**
 
-Pomocí metody **`IChartData::SetExternalWorkbook`** můžete přiřadit externí sešit k diagramu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
+Pomocí metody **`IChartData::SetExternalWorkbook`** můžete přiřadit externí sešit grafu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl následně přesunut).
 
-I když nemůžete upravovat data v sešitech uložených na vzdálených místech nebo v prostředcích, můžete takové sešity nadále používat jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
+Zatímco nemůžete upravovat data v sešitech uložených na vzdálených místech nebo zdrojích, můžete takové sešity stále použít jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
 
-Tento C++ kód ukazuje, jak nastavit externí sešit:
+Tento kód v C++ ukazuje, jak nastavit externí sešit:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -343,10 +343,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-Parametr `updateChartData` (u metody `SetExternalWorkbook`) slouží k určení, zda bude excelový sešit načten.
+Parametr `updateChartData` (u metody `SetExternalWorkbook`) slouží k určení, zda bude excelový sešit načten nebo ne.
 
-* Když je hodnota `updateChartData` nastavena na `false`, aktualizuje se jen cesta k sešitu — data diagramu nebudou načtena ani aktualizována ze zvoleného sešitu. Toto nastavení se hodí, když cílový sešit neexistuje nebo není dostupný.  
-* Když je hodnota `updateChartData` nastavena na `true`, data diagramu se aktualizují ze zvoleného sešitu.
+* Když je hodnota `updateChartData` nastavena na `false`, aktualizuje se pouze cesta k sešitu — data grafu nebudou načtena ani aktualizována z cílového sešitu. Toto nastavení můžete použít v situaci, kdy cílový sešit neexistuje nebo není dostupný.
+* Když je hodnota `updateChartData` nastavena na `true`, data grafu se aktualizují z cílového sešitu.
 
 ```c++
 #include <DOM/Chart/ChartData.h>
@@ -372,15 +372,15 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Získejte cestu k externímu zdroji dat sešitu diagramu**
+### **Získat cestu k externímu zdroji dat sešitu grafu**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Vytvořte objekt pro tvar diagramu.
-4. Vytvořte objekt pro typ zdroje (`ChartDataSourceType`), který představuje zdroj dat diagramu.
-5. Specifikujte příslušnou podmínku na základě toho, že typ zdroje je stejný jako typ externího sešitu.
+3. Vytvořte objekt pro tvar grafu.
+4. Vytvořte objekt pro typ zdroje (`ChartDataSourceType`), který představuje zdroj dat grafu.
+5. Specifikujte relevantní podmínku na základě toho, zda je typ zdroje stejný jako typ externího zdroje dat sešitu.
 
-Tento C++ kód demonstruje operaci:
+Tento kód v C++ demonstruje operaci:
 
 ```c++
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -409,11 +409,11 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **Upravte data diagramu**
+### **Upravit data grafu**
 
-Data v externích sešitech můžete upravovat stejným způsobem jako v interních sešitech. Když nelze externí sešit načíst, vyvolá se výjimka.
+Můžete upravovat data v externích sešitech stejným způsobem, jako měníte obsah interních sešitů. Když není externí sešit načten, vyvolá se výjimka.
 
-Tento C++ kód je implementací popsaného postupu:
+Tento kód v C++ je implementací popsaného procesu:
 
 ```c++
 #include <DOM/Chart/Chart.h>
@@ -449,11 +449,11 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Obnovte sešit z mezipaměti diagramu**
+### **Obnovit sešit z mezipaměti grafu**
 
-Pokud diagram používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit diagramu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [set_SpreadsheetOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), a zavolejte [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) s hodnotou `true` před otevřením prezentace.
+Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [set_SpreadsheetOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), a před otevřením prezentace zavolejte [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) s hodnotou `true`.
 
-Následující C++ příklad otevírá prezentaci, jejíž diagram odkazuje na nedostupný externí sešit, a přistupuje k obnoveným datům prostřednictvím [IChart::get_ChartData](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/get_chartdata/) a [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+Následující příklad v C++ otevírá prezentaci, jejíž graf odkazuje na nedostupný externí sešit, a přistupuje k obnoveným datům přes [IChart::get_ChartData](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/get_chartdata/) a [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
@@ -474,30 +474,30 @@ auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 presentation->Dispose();
 ```
 
-Pokud je externí sešit nedostupný a obnova je vypnuta, Aspose.Slides vyhodí `System::InvalidOperationException`. Povolit obnovu použijte jen tehdy, když je použití dat z mezipaměti přijatelnou náhradou, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
+Pokud je externí sešit nedostupný a obnova je zakázána, Aspose.Slides vyvolá `System::InvalidOperationException`. Povolit obnovu použijte pouze v případě, že je použití dat z mezipaměti přijatelné jako náhradní řešení, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
 
 ## **Často kladené otázky**
 
-**Mohu zjistit, zda je konkrétní diagram propojen s externím nebo vloženým sešitem?**
+**Mohu zjistit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
 
-Ano. Diagram má [typ zdroje dat](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
+Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ujistit se, že je používán externí soubor.
 
-**Jsou podporovány relativní cesty k externím sešitům a jak jsou uloženy?**
+**Jsou relativní cesty k externím sešitům podporovány a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní. To je výhodné pro přenositelnost projektu; však si uvědomte, že prezentace uloží absolutní cestu v souboru PPTX.
+Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. To je výhodné pro přenositelnost projektu; mějte však na paměti, že prezentace uloží absolutní cestu v souboru PPTX.
 
-**Mohu použít sešity umístěné na síťových zdrojích/sdíleních?**
+**Mohu používat sešity umístěné na síťových zdrojích/úložištích?**
 
-Ano, takové sešity mohou být použity jako externí zdroj dat. Přímé úpravy vzdálených sešitů z Aspose.Slides však nejsou podporovány – mohou být použity jen jako zdroj.
+Ano, takové sešity lze použít jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována — mohou být použity pouze jako zdroj.
 
 **Přepisuje Aspose.Slides externí XLSX při ukládání prezentace?**
 
-Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) a používá jej pro čtení dat. Externí soubor samotný není při uložení prezentace upravován.
+Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) a používá jej k načítání dat. Samotný externí soubor není při uložení prezentace upravován.
 
-**Co mám dělat, když je externí soubor chráněn heslem?**
+**Co mám dělat, pokud je externí soubor chráněn heslem?**
 
-Aspose.Slides nepřijímá heslo při vytváření odkazu. Běžný přístup je odstranit ochranu předem nebo připravit dešifrovanou kopii (např. pomocí [Aspose.Cells](/cells/cpp/)) a odkazovat na tuto kopii.
+Aspose.Slides nepřijímá heslo při vytváření odkazu. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/cpp/)) a odkazovat na tuto kopii.
 
-**Může více diagramů odkazovat na stejný externí sešit?**
+**Může více grafů odkazovat na stejný externí sešit?**
 
-Ano. Každý diagram ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace tohoto souboru se projeví ve všech diagramech při dalším načtení dat.
+Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, jeho aktualizace se projeví v každém grafu při dalším načtení dat.

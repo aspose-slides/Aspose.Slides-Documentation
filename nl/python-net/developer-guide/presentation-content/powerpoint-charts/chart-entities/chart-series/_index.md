@@ -1,43 +1,43 @@
 ---
-title: Beheer grafiekdataseries in presentaties met Python
-linktitle: Dataseries
+title: Beheer grafiekgegevensreeksen in presentaties met Python
+linktitle: Gegevensreeksen
 type: docs
 url: /nl/python-net/chart-series/
 keywords:
-- grafiekserie
-- serie-overlap
-- serie-kleur
-- categorie-kleur
-- serie-naam
+- grafiekreeks
+- reeks overlap
+- reeks kleur
+- categorie kleur
+- reeks naam
 - datapunt
-- serie-gat
+- reeksafstand
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u grafiekseries, datapunten, werkmapcellen, opmaak, overlap, gatbreedte en negatieve waarden in presentaties kunt beheren met Python."
+description: "Leer hoe u grafiekreeksen, datapunten, werkboekcellen, opmaak, overlap, breedte van de ruimte en negatieve waarden in presentaties kunt beheren met Python."
 ---
 ## **Overzicht**
 
-Een grafiek slaat zijn geplotte gegevens op in een grafiekgegevens‑werkmap. Een [ChartSeries](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/) vertegenwoordigt één set gerelateerde waarden, en elk [ChartDataPoint](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/) in de serie verwijst naar één of meer cellen in de werkmap. [ChartCategory](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartcategory/)‑objecten leveren de labels of groepeerwaarden die door de series worden gedeeld. De serienaam, categorieën en puntwaarden zijn daarom gekoppeld aan [ChartDataCell](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatacell/)‑objecten in plaats van alleen als weergavetekst te worden opgeslagen.
+Een grafiek slaat zijn geplaatste gegevens op in een grafiek‑databoek. Een [ChartSeries](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/) vertegenwoordigt één set gerelateerde waarden, en elk [ChartDataPoint](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/) in de reeks verwijst naar één of meer cellen in het werkboek. [ChartCategory](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartcategory/)‑objecten leveren de labels of groeperingswaarden die door de reeksen gedeeld worden. De reeksnaam, categorieën en puntwaarden zijn daarom gekoppeld aan [ChartDataCell](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatacell/)‑objecten in plaats van alleen als weergavetekst opgeslagen te worden.
 
-Voor een typische categorie‑grafiek gebruikt de standaard werkmap rij 0 voor serienamen, kolom 0 voor categorienamen en de resterende cellen voor seriewaarden. Werkblad‑, rij‑ en kolomindexen die worden doorgegeven aan [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) zijn nul‑gebaseerd. Deze lay‑out is handig wanneer u een grafiek met standaardgegevens maakt, maar ga er niet van uit dat elke bestaande grafiek deze gebruikt. Voor een geladen presentatie inspecteert u de cellen die door de series, categorieën en datapunten worden gerefereerd voordat u werkmap‑waarden wijzigt.
+Voor een typische categoriegrafiek gebruikt het standaardwerkboek rij 0 voor reeksnamen, kolom 0 voor categorienamen en de resterende cellen voor reekswaarden. Werkblad‑, rij‑ en kolom‑indexen die aan [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) worden doorgegeven, zijn nul‑gebaseerd. Deze indeling is handig wanneer u een grafiek met standaardgegevens maakt, maar ga er niet van uit dat elke bestaande grafiek deze indeling gebruikt. Voor een geladen presentatie, inspecteer de cellen die door de reeksen, categorieën en datapunten worden gerefereerd voordat u werkboekwaarden wijzigt.
 
-Grafiekinstellingen hebben drie verschillende reikwijdtes:
+Instellingen voor grafieken hebben drie verschillende scopes:
 
-- Instellingen op serieniveau, zoals [ChartSeries.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/format/), bieden de standaardopmaak voor alle punten in één serie.
-- Instellingen voor datapunt, zoals [ChartDataPoint.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/format/), overschrijven de serie‑opmaak voor één punt.
-- Groepsinstellingen zijn van toepassing op compatibele series die tot dezelfde [ChartSeriesGroup](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/) behoren. Open de groep via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/parent_series_group/) wanneer u opties zoals overlap of gatbreedte wilt instellen.
+- Instellingen op reeksniveau, zoals [ChartSeries.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/format/), bepalen de standaardweergave voor alle punten in één reeks.
+- Instellingen op datapunt‑niveau, zoals [ChartDataPoint.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/format/), overschrijven de reeksweergave voor één punt.
+- Groepsinstellingen gelden voor compatibele reeksen die tot dezelfde [ChartSeriesGroup](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/) behoren. Open de groep via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/parent_series_group/) wanneer u opties wilt instellen, zoals overlap of breedte van de ruimte tussen reeksen.
 
-Wanneer er geen expliciete punt‑ of serie‑vulling is ingesteld, bepalen het grafiek‑stijl en het thema de automatische weergave. Wanneer zowel serie‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
+Wanneer geen expliciete punt‑ of reeks‑opvulling is ingesteld, bepalen de grafiekstijl en het thema het automatische uiterlijk. Wanneer zowel reeks‑ als puntformattering aanwezig zijn, heeft de puntformattering voorrang voor dat punt.
 
-![grafiek-series-powerpoint](chart-series-powerpoint.png)
+![grafiek-reeks-powerpoint](chart-series-powerpoint.png)
 
-## **Stel de overlap van de grafiekserie in**
+## **Stel de overlap van de grafiekreeks in**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/overlap/) geeft weer hoeveel balken of kolommen overlappen in een 2D‑grafiek, van -100 tot 100 procent. Het is een alleen‑lezen weergave van de instelling op de bovenliggende seriegroep. Stel [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/overlap/) in om elke compatibele serie in die groep bij te werken. Deze optie is van toepassing op grafiektype die gegroepeerde balken of kolommen weergeven; het beïnvloedt geen niet‑gerelateerde seriegroepen in een combinatie‑grafiek.
+[ChartSeries.overlap](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/overlap/) geeft aan hoeveel balken of kolommen overlappen in een 2D‑grafiek, van -100 tot 100 percent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende reeksgroep. Stel [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/overlap/) in om elke compatibele reeks in die groep bij te werken. Deze optie geldt voor grafiektype‑s die gegroepeerde balken of kolommen tonen; hij heeft geen invloed op niet‑gerelateerde reeksgroepen in een combinatiegrafiek.
 
-Het volgende voorbeeld stelt de overlap in voor de groep die de eerste serie bevat:
+Het volgende voorbeeld stelt de overlap in voor de groep die de eerste reeks bevat:
 
 ```py
 import aspose.slides as slides
@@ -61,13 +61,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De serie‑overlap](series_overlap.png)
+![De reeksoverlap](series_overlap.png)
 
-## **Wijzig de vullingkleur van de serie**
+## **Wijzig de opvulkleur van de reeks**
 
-Gebruik [ChartSeries.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/format/) om de standaardvulling voor een volledige serie in te stellen. Als een punt al een expliciete vulling heeft, overschrijft zijn [ChartDataPoint.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/format/)‑instelling de serievulling voor dat punt.
+Gebruik [ChartSeries.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/format/) om de standaardopvulling voor een volledige reeks in te stellen. Als een punt al een expliciete opvulling heeft, overschrijft zijn [ChartDataPoint.format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/format/) instelling de reeksopvulling voor dat punt.
 
-Het volgende voorbeeld past een effen blauwe vulling toe op de eerste serie:
+Het volgende voorbeeld past een effen blauwe opvulling toe op de eerste reeks:
 
 ```py
 import aspose.pydrawing as drawing
@@ -91,11 +91,11 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De kleur van de serie](series_color.png)
+![De kleur van de reeks](series_color.png)
 
-## **Wijzig de serienaam**
+## **Wijzig de naam van de reeks**
 
-Een serienaam wordt opgeslagen in de grafiekgegevens‑werkmap en wordt normaal weergegeven in de legenda. In de standaard werkmap die wordt aangemaakt voor een gegroepeerde kolomgrafiek, bevindt cel B1 zich in rij 0, kolom 1 en bevat de naam van de eerste serie. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
+Een reeksnaam wordt opgeslagen in het grafiek‑databoek en normaal weergegeven in de legenda. In het standaardwerkboek dat voor een gegroepeerde kolomgrafiek wordt aangemaakt, bevindt cel B1 zich op rij 0, kolom 1 en bevat de naam van de eerste reeks. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-U kunt ook de cel bijwerken die al wordt gerefereerd door [ChartSeries.name](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/name/). Deze aanpak vermijdt het aannemen van een specifieke rij en kolom in een bestaande grafiek:
+U kunt ook de cel bijwerken die al door [ChartSeries.name](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/name/) wordt gerefereerd. Deze aanpak vermijdt het aannemen van een specifieke rij en kolom in een bestaande grafiek:
 
 ```py
 import aspose.slides as slides
@@ -142,13 +142,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De serienaam](series_name.png)
+![De reeksnaam](series_name.png)
 
-## **Haal de automatische serievullingskleur op**
+## **Haal de automatische opvulkleur van de reeks op**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) retourneert de kleur die is berekend op basis van de seriële index en de grafiekstijl. Dit is de kleur die wordt gebruikt wanneer de serievulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; het wijst geen nieuwe vulling toe.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) retourneert de kleur die wordt berekend op basis van de reeksindex en de grafiekstijl. Dit is de kleur die wordt gebruikt wanneer de reeksopvulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; het wijst geen nieuwe opvulling toe.
 
-Het volgende voorbeeld print de automatische kleur van elke standaard serie:
+Het volgende voorbeeld print de automatische kleur van elke standaardreeks:
 
 ```py
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
         print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-Voorbeeldoutput voor de standaard grafiekstijl:
+Voorbeeldoutput voor de standaardgrafiekstijl:
 
 ```text
 Series 0: ff4f81bd
@@ -178,11 +178,11 @@ Series 2: ff9bbb59
 
 De exacte kleuren hangen af van de grafiekstijl en het thema.
 
-## **Stel omgekeerde vullingskleur in voor een grafiekserie**
+## **Stel omgekeerde opvulkleur in voor een grafiekreeks**
 
-Voor balk‑, kolom‑ en bubbel‑series kan [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/invert_if_negative/) negatieve waarden weergeven met een andere vulling. Stel de reguliere serievulling in op effen, schakel inversie in, en wijs de negatieve‑waarde‑kleur toe via [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Negatieve getallen blijven ongewijzigd in de werkmap; alleen hun weergavekleur verandert.
+Voor balk‑, kolom‑ en bubbelreeksen kan [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/invert_if_negative/) negatieve waarden weergeven met een andere opvulling. Stel de reguliere reeksopvulling in op effen, schakel omkering in, en ken de negatieve‑waarde‑kleur toe via [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergavekleur verandert.
 
-Het volgende voorbeeld vervangt de standaard grafiekgegevens door één serie. Rij 0 van het werkblad bevat de serienaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
+Het volgende voorbeeld vervangt de standaardgrafiekgegevens door één reeks. Werkbladrij 0 bevat de reeksnaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
 
 ```py
 import aspose.pydrawing as drawing
@@ -235,9 +235,9 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De omgekeerde effen vullingskleur](inverted_solid_fill_color.png)
+![De omgekeerde effen opvulkleur](inverted_solid_fill_color.png)
 
-U kunt inversie inschakelen voor één punt via [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). In het volgende voorbeeld is inversie uitgeschakeld voor de serie en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt ook een negatieve waarde zodat het effect zichtbaar is:
+U kunt omkering voor één punt inschakelen via [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). In het volgende voorbeeld is omkering uitgeschakeld voor de reeks en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt ook een negatieve waarde toegewezen zodat het effect zichtbaar is:
 
 ```py
 import aspose.pydrawing as drawing
@@ -270,9 +270,9 @@ with slides.Presentation() as presentation:
 
 ## **Wis een specifieke datapuntwaarde**
 
-Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkmapcel in op `None`. Voor een kolomgrafiek is de geplotte waarde beschikbaar via [ChartDataPoint.value](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/value/). Het datapunt blijft op dezelfde categorische positie, maar de grafiek behandelt de waarde als leeg volgens de instellingen voor lege waarden van de grafiek.
+Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkboekcel in op `None`. Voor een kolomgrafiek is de geplaatste waarde beschikbaar via [ChartDataPoint.value](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/value/). Het datapunt blijft op dezelfde categorielocatie staan, maar de grafiek behandelt zijn waarde als leeg volgens de instellingen voor lege waarden van de grafiek.
 
-Het volgende voorbeeld wist alleen het tweede punt in de eerste serie:
+Het volgende voorbeeld wist alleen het tweede punt in de eerste reeks:
 
 ```py
 import aspose.slides as slides
@@ -294,13 +294,62 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Scatter‑grafieken gebruiken aparte X‑ en Y‑cellen, en bubbel‑grafieken gebruiken bovendien een grootte‑cel. Wis alleen de cel die de waarde vertegenwoordigt die u wilt verwijderen. Roep [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapointcollection/clear/) niet aan wanneer u de andere punten wilt behouden, omdat die methode elk datapunt uit de collectie verwijdert.
+Scatter‑grafieken gebruiken aparte X‑ en Y‑cellen, en bubbelgrafieken gebruiken ook een groottecel. Wis alleen de cel die de waarde vertegenwoordigt die u wilt verwijderen. Roep [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapointcollection/clear/) niet aan wanneer u de andere punten wilt behouden, want die methode verwijdert elk datapunt uit de collectie.
 
-## **Stel de gatbreedte van de serie in**
+## **Stuur de weergave van lege cellen aan**
 
-De gatbreedte is de ruimte tussen aangrenzende balk‑ of kolom‑clusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlap behoort deze tot de bovenliggende seriegroep en niet tot één serie. Stel [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) één keer in voor de groep. Een hogere waarde creëert meer ruimte tussen clusters; een lagere waarde maakt ze dichter.
+Een lege werkboekcel staat voor missende gegevens; een cel met `0` staat voor een bekende numerieke waarde. Stel [ChartDataCell.value](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatacell/value/) in op `None` om een cel leeg te maken. Een numerieke nul blijft een nul, ongeacht de instelling voor lege cellen.
 
-Het volgende voorbeeld wijzigt de gatbreedte en slaat alleen de uiteindelijke presentatie op:
+Gebruik [Chart.display_blanks_as](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chart/display_blanks_as/) om te kiezen hoe de grafiek lege cellen weergeeft. Deze instelling geldt voor de gehele grafiek. Hij wijzigt hoe lege waarden worden uitgebeeld, zonder de lege werkboekcel met nul of een geïnterpoleerde waarde te vullen.
+
+Het volgende zelfstandige voorbeeld maakt een lijngrafiek met één reeks, wist de waarde voor Dag 3, en slaat dezelfde grafiek op met elke modus. Er is geen invoerbestand vereist. De [ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels en kolom 1 voor waarden; rij 0 bevat de reeksnaam. De uiteindelijke gegevens zijn `10, 20, empty, 30, 40`.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 40, 40, 640, 400)
+    chart_data = chart.chart_data
+    workbook = chart_data.chart_data_workbook
+
+    chart_data.series.clear()
+    chart_data.categories.clear()
+
+    series_name_cell = workbook.get_cell(0, 0, 1, "Measurements")
+    series = chart_data.series.add(series_name_cell, chart.type)
+    values = [10, 20, 25, 30, 40]
+
+    for i, value in enumerate(values):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Day {i + 1}")
+        chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        series.data_points.add_data_point_for_line_series(value_cell)
+
+    # Laat Dag 3 echt leeg, terwijl de categorie en het datapunt behouden blijven.
+    workbook.get_cell(0, 3, 1).value = None
+
+    modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
+    for mode_name, mode in modes:
+        chart.display_blanks_as = mode
+        presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Elk uitvoerbestand slaat de modus op die vóór het opslaan is ingesteld: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, stelt u de gewenste modus in en slaat u de presentatie één keer op in plaats van over de modi te itereren.
+
+De vergelijking hieronder toont dezelfde gegevens in alle drie de bestanden. Dag 3 is in elk geval leeg in het werkboek:
+
+![Lijngrafieken met identieke gegevens: Gap onderbreekt de lijn op Dag 3, Zero laat de lijn naar nul dalen, en Span verbindt Dag 2 met Dag 4.](display_blanks_as.png)
+
+Het zichtbare effect hangt af van het grafiektype. Een lijngrafiek maakt alle drie de modi gemakkelijk vergelijkbaar. Balk‑ en kolomgrafieken hebben geen lijn om over een missende categorie heen te verbinden, dus `SPAN` kan het verbindingssegment hierboven niet produceren; een missende kolom en een kolom met nul‑hoogte kunnen er ook vergelijkbaar uitzien. Evenzo heeft een scatter‑grafiek met alleen markers geen verbindingslijn. Verwacht geen drie onderscheidende resultaten voor elk grafiektype; controleer de uitvoer voor het type dat u gebruikt.
+
+## **Stel de breedte van de ruimte tussen reeksen in**
+
+De breedte van de ruimte (gap width) is de afstand tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlap behoort deze eigenschap tot de bovenliggende reeksgroep en niet tot één enkele reeks. Stel [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) eenmaal in voor de groep. Een grotere waarde creëert meer ruimte tussen de clusters; een kleinere waarde maakt ze dichter.
+
+Het volgende voorbeeld wijzigt de breedte van de ruimte en slaat alleen de uiteindelijke presentatie op:
 
 ```py
 import aspose.slides as slides
@@ -323,46 +372,46 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De gatbreedte](gap_width.png)
+![De breedte van de ruimte](gap_width.png)
 
 ## **FAQ**
 
-**Welke grafiektypen ondersteunen dataseries?**
+**Welke grafiektype‑s ondersteunen reeksen?**
 
-Alle grafiektypen die worden weergegeven door de [ChartType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/charttype/)‑enumeratie gebruiken grafiekgegevens, maar hun series hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categorie‑grafieken gebruiken categorieën en waarden, scatter‑grafieken gebruiken X‑ en Y‑waarden, en bubbel‑grafieken voegen bubbelgroottes toe. Gebruik de datapunt‑creatiemethode die overeenkomt met het serietype. Opties zoals overlap en gatbreedte zijn alleen van toepassing op compatibele balk‑ of kolom‑groepen.
+Alle grafiektype‑s die worden vertegenwoordigd door de [ChartType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/charttype/)‑enumeratie gebruiken grafiekdata, maar hun reeksen hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categoriegrafieken gebruiken categorieën en waarden, scatter‑grafieken gebruiken X‑ en Y‑waarden, en bubbelgrafieken voegen bubbelgroottes toe. Gebruik de methode voor het aanmaken van datapunt die overeenkomt met het type reeks. Opties zoals overlap en breedte van de ruimte gelden alleen voor compatibele balk‑ of kolomgroepen.
 
-**Wat is een grafiekserie‑groep?**
+**Wat is een grafiekreeks‑groep?**
 
-Een [ChartSeriesGroup](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/) bevat compatibele series die groeps‑niveau plotinstellingen delen. Een combinatie‑grafiek kan meer dan één groep bevatten, dus het wijzigen van de groep die via één serie wordt bereikt, betekent niet noodzakelijk dat elke serie in de grafiek wordt aangepast.
+Een [ChartSeriesGroup](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/) bevat compatibele reeksen die groeps‑level plotinstellingen delen. Een combinatiegrafiek kan meer dan één groep bevatten, dus het wijzigen van de groep die via één reeks wordt bereikt, verandert niet noodzakelijkerwijs elke reeks in de grafiek.
 
-**Bevat een nieuw aangemaakte grafiek standaardgegevens?**
+**Bevat een nieuw aangemaakte grafiek standaarddata?**
 
-Ja. Standaard maakt [ShapeCollection.add_chart](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_chart/) voorbeeld‑series, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de serie‑ als categoricollecties wissen voordat u een volledig aangepaste dataset toevoegt. Een overload kan ook een grafiek maken zonder standaardgegevens.
+Ja. Standaard maakt [ShapeCollection.add_chart](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_chart/) voorbeeldreeksen, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de reeks‑ als de categorieverzamelingen leegmaken voordat u een volledig aangepaste dataset toevoegt. Een overload kan ook een grafiek zonder standaarddata creëren.
 
-**Hoe zijn grafiekobjecten verbonden met werkmapcellen?**
+**Hoe worden grafiekobjecten gekoppeld aan werkboekcellen?**
 
-Serienamen, categorielabels en datapuntwaarden refereren naar cellen in een [ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige grafiekelement bij. Wanneer u aangepaste gegevens opbouwt, houd dan categorierijen en seriewaarde‑rijen op één lijn zodat elk punt onder de beoogde categorie wordt geplot.
+Reeksnamen, categorielabels en datapuntwaarden refereren naar cellen in een [ChartDataWorkbook](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige grafiekelement bij. Wanneer u aangepaste data bouwt, houdt u de rijen voor categorieën en de rijen voor reeks‑waarden op één lijn zodat elk punt onder de bedoelde categorie wordt uitgezet.
 
-**Hoe wis ik één punt in plaats van de hele serie?**
+**Hoe wis ik één punt in plaats van de hele reeks?**
 
-Stel de betreffende waardecel in op `None` om de categorische positie van het punt te behouden als een leeg punt. Gebruik [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapointcollection/clear/) alleen wanneer u alle punten uit die serie wilt verwijderen. Als u ook categorieën verwijdert, werk dan elke serie bij zodat hun waarden uitgelijnd blijven met de categoricollectie.
+Stel de relevante waardecel in op `None` om de positie van het punt in de categorie te behouden als een leeg punt. Gebruik [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapointcollection/clear/) alleen wanneer u alle punten van die reeks wilt verwijderen. Als u ook categorieën verwijdert, werk dan elke reeks bij zodat hun waarden uitgelijnd blijven met de categorieverzameling.
 
 **Hoe worden lege punten weergegeven?**
 
-Het resultaat hangt af van het grafiektype en [Chart.display_blanks_as](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chart/display_blanks_as/). Ondersteunde grafieken kunnen lege waarden weergeven als gaten, als nul‑waarden, of door aangrenzende punten te verbinden. Kies de instelling die overeenkomt met de betekenis van ontbrekende gegevens in uw presentatie.
+Het resultaat hangt af van het grafiektype en [Chart.display_blanks_as](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chart/display_blanks_as/). Ondersteunde grafieken kunnen lege waarden tonen als gaten, als nul‑waarden, of door naburige punten te verbinden. Kies de instelling die overeenkomt met de betekenis van missende data in uw presentatie. Zie [Stuur de weergave van lege cellen aan](#control-the-display-of-empty-cells) voor een compleet voorbeeld en visuele vergelijking.
 
 **Hoe worden negatieve waarden opgemaakt?**
 
-Voor ondersteunde balk‑, kolom‑ en bubbel‑series schakelt u [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/invert_if_negative/) in en stelt u [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) in. U kunt het gedrag voor een individueel punt overschrijven met [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Deze eigenschappen beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
+Voor ondersteunde balk‑, kolom‑ en bubbelreeksen, schakel [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/invert_if_negative/) in en stel [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) in. U kunt het gedrag voor een individueel punt overschrijven met [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Deze eigenschappen beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
 
-**Welke opmaak heeft voorrang wanneer zowel een serie als een punt zijn opgemaakt?**
+**Welke opmaak wint wanneer zowel een reeks als een punt zijn opgemaakt?**
 
-Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete serie‑opmaak gebruiken of, wanneer de serie‑opmaak niet is gedefinieerd, de automatische grafiekstijl en het thema. Groeps‑eigenschappen zoals overlap en gatbreedte bepalen de lay‑out en zijn geen overschrijvingen op puntniveau.
+Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer de reeks‑opmaak niet is gedefinieerd, de automatische grafiekstijl en het thema. Groepseigenschappen zoals overlap en breedte van de ruimte regelen de lay‑out en zijn geen punt‑level opmaak‑overschrijvingen.
 
-**Is er een limiet aan hoeveel series een grafiek kan bevatten?**
+**Is er een limiet aan het aantal reeksen dat een grafiek kan bevatten?**
 
-Aspose.Slides legt geen aparte vaste limiet op voor het aantal series. In de praktijk bepalen de beperkingen van het presentatie‑bestand, beschikbaar geheugen, render‑tijd en de leesbaarheid van de grafiek een praktisch limiet.
+Aspose.Slides legt geen afzonderlijke vaste limiet op het aantal reeksen. In de praktijk bepalen de beperkingen van het presentatiebestand, beschikbaar geheugen, render‑tijd en leesbaarheid van de grafiek een bruikbare limiet.
 
-**Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver van elkaar staan?**
+**Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver uit elkaar staan?**
 
-Stel [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) in op de juiste bovenliggende seriegroep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag deze om de clusters dichter bij elkaar te brengen.
+Stel [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) in op de juiste bovenliggende reeksgroep. Verhoog de waarde om de ruimte tussen clusters te verbreden, of verlaag hem om de clusters dichter bij elkaar te brengen.
