@@ -1,5 +1,5 @@
 ---
-title: 管理 Python via Java 的 PowerPoint 文字段落
+title: 在 Python via Java 中管理 PowerPoint 文字段落
 linktitle: 管理段落
 type: docs
 weight: 40
@@ -8,54 +8,54 @@ aliases:
   - /python-java/paragraph/
   - /python-java/portion/
 keywords:
-  - 新增文字
-  - 新增段落
-  - 管理文字
-  - 管理段落
-  - 管理項目符號
-  - 段落縮排
-  - 懸掛縮排
-  - 段落項目符號
-  - 編號清單
-  - 項目符號清單
-  - 段落屬性
-  - 匯入 HTML
-  - 文字轉 HTML
-  - 段落轉 HTML
-  - 段落轉影像
-  - 文字轉影像
-  - 匯出段落
-  - PowerPoint
-  - 簡報
-  - Python
-  - Java
-  - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Python via Java 建立與格式化段落、文字片段、項目符號、編號清單、縮排、HTML 內容以及段落影像。"
+- 新增文字
+- 新增段落
+- 管理文字
+- 管理段落
+- 管理項目符號
+- 段落縮排
+- 懸掛縮排
+- 段落項目符號
+- 編號清單
+- 項目清單
+- 段落屬性
+- 匯入 HTML
+- 文字轉 HTML
+- 段落轉 HTML
+- 段落轉圖像
+- 文字轉圖像
+- 匯出段落
+- PowerPoint
+- 簡報
+- Python
+- Java
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via Java 建立與格式化段落、文字片段、項目符號、編號清單、縮排、HTML 內容以及段落圖像。"
 ---
-## **概览**
+## **概述**
 
-Aspose.Slides for Python via Java 將文字表示為文字框、段落和文字片段的層級結構：
+Aspose.Slides for Python via Java 將文字表示為文字框、段落與文字片段的層級結構：
 
-* [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/) 表示形狀中的文字容器，並提供對其段落集合的存取。
-* [Paragraph](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/) 表示文字框中的一個段落，並提供對其文字片段及段落層級格式設定的存取。
-* [Portion](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/portion/) 表示段落內的一段文字。每個文字片段都可以擁有自己的文字內容和字元層級的格式設定。
+* [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/) 代表形狀中的文字容器，並提供對其段落集合的存取。
+* [Paragraph](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/) 代表文字框中的一個段落，並提供對其文字片段及段落層級格式設定的存取。
+* [Portion](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/portion/) 代表段落內的一段文字。每個文字片段可以有自己的文字與字元層級格式設定。
 
-因此，段落可以透過使用多個文字片段來包含不同字型、顏色、大小和其他格式的文字。
+段落因此可以透過使用多個文字片段，包含具有不同字型、顏色、大小以及其他格式設定的文字。
 
 ## **建立與格式化段落**
 
-### **建立包含多個文字片段的段落**
+### **建立具有多個文字片段的段落**
 
-以下步驟建立一個文字框，內含三個段落，每個段落都有三個文字片段：
+以下步驟會建立一個文字框，內含三個段落，每個段落包含三個文字片段：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相應的投影片。
-3. 在投影片上新增一個矩形的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
-4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/)。
-5. 使用預設段落，並向文字框中再加入兩個 [Paragraph](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/) 物件。
-6. 為每個段落新增足夠的 [Portion](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/portion/) 物件，使其包含三個文字片段。預設段落已包含一個空的文字片段。
-7. 設定每個文字片段的文字內容。
-8. 透過 [Portion.getPortionFormat](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/portion/#getPortionFormat) 套用字元層級的格式設定。
+1. 建立 [Presentation] 類別的實例。
+2. 透過索引存取相關投影片。
+3. 在投影片上新增一個矩形的 [AutoShape]。
+4. 存取形狀的 [TextFrame]。
+5. 使用預設段落，並向文字框新增另外兩個 [Paragraph] 物件。
+6. 為每個段落新增足夠的 [Portion] 物件，使其包含三個文字片段。預設段落已包含一個空的文字片段。
+7. 設定每個文字片段的文字。
+8. 透過 [Portion.getPortionFormat] 套用字元層級的格式設定。
 9. 儲存已修改的簡報。
 
 此 Python 範例實作上述步驟：
@@ -110,26 +110,26 @@ finally:
     presentation.dispose()
 ```
 
-## **建立項目符號與編號清單**
+## **建立項目與編號清單**
 
-### **建立項目符號或編號清單**
+### **建立項目或編號清單**
 
-項目符號與編號可以讓相關項目更易於瀏覽。於 Aspose.Slides 中，清單設定是透過 [BulletFormat](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bulletformat/) 定義的。
+項目符號與編號可讓相關項目更易於掃描。在 Aspose.Slides 中，清單設定是透過 [BulletFormat] 定義的。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相應的投影片。
-3. 在選取的投影片上新增一個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
-4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/)。
+1. 建立 [Presentation] 類別的實例。
+2. 透過索引存取相關投影片。
+3. 在選取的投影片上新增一個 [AutoShape]。
+4. 存取形狀的 [TextFrame]。
 5. 從文字框中移除預設段落。
-6. 為符號項目符號建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/)。
-7. 將 [BulletFormat.setType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bulletformat/#setType) 設為 [BulletType.Symbol](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bullettype/#Symbol)，並指定項目符號字元。
-8. 設定段落文字、縮排、項目符號顏色和項目符號高度。
+6. 建立一個用於符號項目的 [Paragraph]。
+7. 將 [BulletFormat.setType] 設為 [BulletType.Symbol]，並指定項目符號字符。
+8. 設定段落文字、縮排、項目顏色與項目高度。
 9. 將段落加入文字框。
-10. 建立第二個段落，並將 [BulletFormat.setType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bulletformat/#setType) 設為 [BulletType.Numbered](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bullettype/#Numbered)。
-11. 配置編號項目符號樣式，並將段落加入文字框。
+10. 建立第二個段落，並將 [BulletFormat.setType] 設為 [BulletType.Numbered]。
+11. 設定編號項目樣式，並將段落加入文字框。
 12. 儲存簡報。
 
-此 Python 範例建立符號項目符號與編號項目符號：
+此 Python 範例建立符號項目與編號項目：
 
 ```python
 import jpype
@@ -172,22 +172,22 @@ finally:
     presentation.dispose()
 ```
 
-### **使用圖片項目符號**
+### **使用圖片項目**
 
-圖片項目符號讓您使用自訂圖像取代符號或數字。
+圖片項目允許您使用自訂圖片代替符號或編號。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相應的投影片。
-3. 新增一個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/) 並取得其 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/)。
+1. 建立 [Presentation] 類別的實例。
+2. 透過索引存取相關投影片。
+3. 新增一個 [AutoShape]，並存取其 [TextFrame]。
 4. 從文字框中移除預設段落。
-5. 載入項目符號圖像，並以 [PPImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/ppimage/) 方式加入簡報的圖像集合。
-6. 建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/) 並設定其文字。
-7. 將 [BulletFormat.setType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bulletformat/#setType) 設為 [BulletType.Picture](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bullettype/#Picture)。
-8. 透過 [BulletFormat.getPicture](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bulletformat/#getPicture) 指定圖像，並設定項目符號高度。
+5. 載入項目圖片，並以 [PPImage] 形式加入簡報的圖像集合中。
+6. 建立一個 [Paragraph] 並設定其文字。
+7. 將 [BulletFormat.setType] 設為 [BulletType.Picture]。
+8. 透過 [BulletFormat.getPicture] 指定圖像，並設定項目高度。
 9. 將段落加入文字框。
 10. 儲存已修改的簡報。
 
-此 Python 範例建立圖片項目符號：
+此 Python 範例建立圖片項目：
 
 ```python
 import jpype
@@ -221,17 +221,17 @@ finally:
     presentation.dispose()
 ```
 
-### **建立多層級清單**
+### **建立多層次清單**
 
-將 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setDepth) 設為不同的深度，以將段落放置於清單的不同層級。最高層的深度為 `0`。
+將 [ParagraphFormat.setDepth] 設定為不同深度，可將段落放置於清單的不同層級。最高層的深度為 `0`。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 並存取投影片。
-2. 新增一個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/) 並清除其文字框中的預設段落。
-3. 建立四個段落並配置其項目符號符號。
-4. 為它們的 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setDepth) 設定值 `0`、`1`、`2`、`3`。
+1. 建立一個 [Presentation] 並存取投影片。
+2. 新增一個 [AutoShape]，並清除其文字框中的預設段落。
+3. 建立四個段落，並設定它們的項目符號。
+4. 將它們的 [ParagraphFormat.setDepth] 值分別設定為 `0`、`1`、`2`、`3`。
 5. 將段落加入文字框，並儲存簡報。
 
-此 Python 範例建立四層級的項目符號清單：
+此 Python 範例建立四層級的項目清單：
 
 ```python
 import jpype
@@ -286,17 +286,17 @@ finally:
     presentation.dispose()
 ```
 
-### **自訂編號清單起始值**
+### **從自訂值開始編號清單項目**
 
-使用 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 來設定編號段落的起始數字。
+使用 [BulletFormat.setNumberedBulletStartWith] 可設定編號段落的起始編號。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 並在投影片上新增一個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
+1. 建立 [Presentation] 類別的實例並存取投影片。
 2. 清除形狀文字框中的預設段落。
 3. 建立三個編號段落。
-4. 為相應段落將 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 設為 `2`、`3`、`7`。
+4. 對相應段落將 [BulletFormat.setNumberedBulletStartWith] 設為 `2`、`3`、`7`。
 5. 將段落加入文字框，並儲存簡報。
 
-此 Python 範例為每個段落指定自訂的起始編號：
+此 Python 範例為每個段落指派自訂的起始編號：
 
 ```python
 import jpype
@@ -337,17 +337,13 @@ finally:
 
 ### **設定首行縮排**
 
-使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent) 來控制段落的首行縮排。此方法僅移動第一行相對於段落左邊距的距離。正值會將首行向右移，而其餘行則保持與段落正文對齊。
+使用 [ParagraphFormat.setIndent] 來控制段落的首行縮排。此方法僅移動首行相對於段落左邊距的距離。正值會將首行向右移動，而其餘行則保持與段落本體對齊。若需移動整段文字，請使用 [ParagraphFormat.setMarginLeft]；若僅需移動首行，請使用 [ParagraphFormat.setIndent]。以下範例建立多個段落，並套用不同的 [ParagraphFormat.setIndent] 值，以示範首行縮排如何影響段落版面。
 
-當需要移動整個段落時，請使用 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setMarginLeft)；當只需要移動首行時，請使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent)。
-
-以下範例建立多個段落，並套用不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent) 值，以示範首行縮排如何影響段落版面。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 取得目標投影片。
-3. 在投影片上新增一個矩形的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
-4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/) 並移除預設段落。
-5. 建立多個段落，為它們設定不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent) 值。
+1. 建立 [Presentation] 類別的實例。
+2. 存取目標投影片。
+3. 在投影片上新增一個矩形的 [AutoShape]。
+4. 存取形狀的 [TextFrame]，並移除預設段落。
+5. 建立多個段落，並為它們設定不同的 [ParagraphFormat.setIndent] 值。
 6. 將段落加入文字框。
 7. 儲存已修改的簡報。
 
@@ -405,18 +401,14 @@ finally:
 
 ### **設定懸掛縮排**
 
-懸掛縮排是指段落的第一行位於其餘行左側的版面配置。於 Aspose.Slides 中，可透過 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent) 並傳入負值，使第一行相對於段落正文向左移動。
+懸掛縮排是一種段落版面配置，第一行起始位置位於其餘行的左側。在 Aspose.Slides 中，可透過 [ParagraphFormat.setIndent] 產生此效果。傳入負值即可將第一行向左移動，相對於段落本體。實務上，[ParagraphFormat.setMarginLeft] 定義段落本體的左側位置，而 [ParagraphFormat.setIndent] 定義第一行相對於該邊距的位置。若要建立懸掛縮排，請對 [ParagraphFormat.setMarginLeft] 傳入正值，並對 [ParagraphFormat.setIndent] 傳入負值。此種格式化對於書目、參考文獻、詞彙表條目，以及其他需要讓換行後的文字對齊段落本體，而非對齊首行第一個字元的段落特別有用。
 
-實作上，[ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setMarginLeft) 定義段落正文的左側位置，而 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent) 定義第一行相對於該左側位置的偏移。若要建立懸掛縮排，請對 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setMarginLeft) 傳入正值，並對 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent) 傳入負值。
-
-此格式在參考文獻、書目、詞彙表等需要讓換行後的文字對齊於段落正文而非首行第一個字元的情況下特別有用。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 取得目標投影片。
-3. 在投影片上新增一個矩形的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
-4. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/) 並移除預設段落。
-5. 為每個段落傳入正值至 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setMarginLeft)。
-6. 傳入負值至 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setIndent) 以建立懸掛縮排效果。
+1. 建立 [Presentation] 類別的實例。
+2. 存取目標投影片。
+3. 在投影片上新增一個矩形的 [AutoShape]。
+4. 存取形狀的 [TextFrame]，並移除預設段落。
+5. 建立段落，並對每個段落傳入正值給 [ParagraphFormat.setMarginLeft]。
+6. 傳入負值給 [ParagraphFormat.setIndent] 以產生懸掛縮排效果。
 7. 將段落加入文字框。
 8. 儲存已修改的簡報。
 
@@ -450,7 +442,7 @@ try:
     first_paragraph.getParagraphFormat().setIndent(-20.0)
     second_paragraph = Paragraph()
     second_paragraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(60.0)
     second_paragraph.getParagraphFormat().setIndent(-30.0)
@@ -467,14 +459,14 @@ finally:
 
 ### **設定段落結尾執行屬性**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) 控制段落結尾標記的格式設定。以下範例為第二個段落的結尾標記指定字型大小與拉丁字型：
+[Paragraph.setEndParagraphPortionFormat] 控制段落結尾標記的格式設定。以下範例將字型大小與拉丁字型套用於第二個段落的結尾標記：
 
-1. 載入一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 並取得投影片。
-2. 新增一個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/) 並清除其預設段落。
-3. 建立兩個段落，並向它們加入文字片段。
-4. 為第二個段落的結尾標記建立一個 [PortionFormat](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/portionformat/)。
-5. 設定 [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseportionformat/#setFontHeight) 與 [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseportionformat/#setLatinFont)。
-6. 以 [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) 套用格式，並儲存簡報。
+1. 載入一個 [Presentation] 並存取投影片。
+2. 新增一個 [AutoShape]，並清除其預設段落。
+3. 建立兩個段落，並為其加入文字片段。
+4. 為第二個段落的結尾標記建立一個 [PortionFormat]。
+5. 設定 [BasePortionFormat.setFontHeight] 與 [BasePortionFormat.setLatinFont]。
+6. 使用 [Paragraph.setEndParagraphPortionFormat] 指派格式，並儲存簡報。
 
 ```python
 import jpype
@@ -509,17 +501,65 @@ finally:
     presentation.dispose()
 ```
 
+## **計算呈現行數**
+
+使用 [Paragraph.getLinesCount] 可計算段落在文字版面布局後佔用的行數，包含自動換行。此功能在檢查簡報範本的文字長度與版面配置時相當有用。段落是 [TextFrame.getParagraphs] 中的單一項目，且可能佔用多行呈現。段落內的明確換行會強制產生新行，但不會建立新段落。自動換行則根據可用寬度產生行，而不會在文字中插入明確的換行字元。因此，僅統計段落數或換行字元無法得到實際呈現的行數。以下範例建立一個文字形狀，計算其行數，縮小形狀寬度，然後以較短的字串取代文字。啟用換行且停用自動調整大小，使形狀寬度控制換行，而不會自動縮小文字或調整形狀尺寸。形狀尺寸以點為單位。最後，範例再加入另一個段落，並將文字框內所有段落的行數相加。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import NullableBool, Paragraph, Presentation, ShapeType, TextAutofitType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 200)
+    text_frame = shape.getTextFrame()
+    text_frame.getTextFrameFormat().setWrapText(NullableBool.True_)
+    text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+
+    paragraph = text_frame.getParagraphs().get_Item(0)
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.")
+    print("Original width:", paragraph.getLinesCount())
+
+    shape.setWidth(150)
+    print("Narrower shape:", paragraph.getLinesCount())
+
+    paragraph.setText("Short text.")
+    print("Shorter text:", paragraph.getLinesCount())
+
+    second_paragraph = Paragraph()
+    second_paragraph.setText("Another paragraph.")
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    text_frame.getParagraphs().add(second_paragraph)
+
+    total_line_count = 0
+    for current_paragraph in text_frame.getParagraphs():
+        total_line_count += current_paragraph.getLinesCount()
+    print("Total lines in the text frame:", total_line_count)
+finally:
+    presentation.dispose()
+```
+
+依據此文字與尺寸，縮小形狀會增加行數，而以短字串取代文字則會減少行數。實際行數可能因字型是否可用與取代、字型大小、邊距、縮排、換行與自動調整設定而有所不同。在檢查範本時，請使用目標環境的字型與版面設定。僅行數本身無法判斷文字是否溢出其容器。可用高度、行高、段落與行間距以及自動調整行為也會影響；即使是一行文字，若停用換行，也可能超過可用寬度。
+
 ## **匯入與匯出段落內容**
 
 ### **將 HTML 文字匯入段落**
 
-使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphcollection/#addFromHtml) 可將 HTML 標記轉換為文字框中的段落與文字片段。
+使用 [ParagraphCollection.addFromHtml] 可將 HTML 標記轉換為文字框中的段落與文字片段。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 取得投影片並新增一個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
-3. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/) 並清除預設段落。
+1. 建立 [Presentation] 類別的實例。
+2. 存取投影片，並新增一個 [AutoShape]。
+3. 存取形狀的 [TextFrame]，並清除預設段落。
 4. 讀取來源 HTML 檔案。
-5. 將 HTML 字串傳入 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphcollection/#addFromHtml)。
+5. 將 HTML 字串傳遞給 [ParagraphCollection.addFromHtml]。
 6. 儲存已修改的簡報。
 
 此 Python 範例將 HTML 匯入文字框：
@@ -554,15 +594,15 @@ finally:
 
 ### **將段落文字匯出為 HTML**
 
-使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphcollection/#exportToHtml) 可將選取的段落範圍匯出為 HTML。
+使用 [ParagraphCollection.exportToHtml] 可將選取的段落範圍匯出為 HTML。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例並載入目標簡報。
-2. 取得投影片，並找出包含文字的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
-3. 取得形狀的 [TextFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/)。
-4. 呼叫 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphcollection/#exportToHtml)，並提供起始段落索引與要匯出的段落數量。
+1. 建立 [Presentation] 類別的實例，並載入所需的簡報。
+2. 存取投影片，並找出包含文字的 [AutoShape]。
+3. 存取形狀的 [TextFrame]。
+4. 呼叫 [ParagraphCollection.exportToHtml]，傳入起始段落索引與要匯出的段落數量。
 5. 將回傳的 HTML 字串寫入檔案。
 
-此 Python 範例匯出第一個文字形狀中的所有段落：
+此 Python 範例將第一個文字形狀的所有段落匯出：
 
 ```python
 import jpype
@@ -595,19 +635,18 @@ finally:
     presentation.dispose()
 ```
 
-### **將段落渲染為影像**
+### **將段落渲染為圖像**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/) 可直接渲染單一段落並回傳影像物件。使用其 `save` 方法將結果儲存至檔案或串流。您不必渲染整個形狀或手動裁切位圖。
+[Paragraph.getImage] 可直接渲染單一段落並回傳圖像物件。使用其 `save` 方法將結果儲存為檔案或串流。無需渲染包含的形狀或手動裁切位圖。  
+如果段落在其父集合中找不到、沒有有效的渲染邊界，或無法渲染，[Paragraph.getImage] 可能會回傳 `None`。請在儲存前檢查結果，並於使用完畢後釋放回傳的圖像。
 
-如果段落在父集合中找不到、沒有有效的渲染範圍，或無法渲染，[Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/) 會回傳 `None`。在儲存之前請先檢查結果，使用完畢後記得釋放影像。
+#### **以預設比例渲染段落**
 
-#### **在預設比例渲染段落**
-
-假設我們有一個名為 sample.pptx 的簡報檔，內有一張投影片，第一個形狀是一個包含三個段落的文字方塊。
+假設我們有一個名為 sample.pptx 的簡報檔，包含一張投影片，第一個形狀是一個包含三個段落的文字方塊。
 
 ![包含三個段落的文字方塊](paragraph_to_image_input.png)
 
-以下範例在預設比例下渲染第二個段落，並以 PNG 格式儲存回傳的影像。`finally` 區塊確保正確釋放影像。
+以下範例以預設比例渲染一般文字形狀中的第二個段落，並以 PNG 格式儲存回傳的圖像。`finally` 區塊確保圖像能正確釋放。
 
 ```python
 import jpype
@@ -642,16 +681,14 @@ finally:
     presentation.dispose()
 ```
 
-結果：
+![段落圖像](paragraph_to_image_output.png)
 
-![段落影像](paragraph_to_image_output.png)
+#### **在表格儲存格中以縮放比例渲染段落**
 
-#### **在表格儲存格中以縮放渲染段落**
-
-使用接受 `scale_x` 與 `scale_y` 參數的 [Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/) 重載，以設定水平與垂直的縮放比例。以下範例建立一個表格，於第一個儲存格中以兩倍寬度與高度渲染段落，並將結果存為 PNG 影像。
+使用接受 `scale_x` 與 `scale_y` 參數的 [Paragraph.getImage] 重載，以設定水平與垂直縮放係數。以下範例建立一個表格，於其第一個儲存格中以兩倍預設寬高渲染段落，並將結果儲存為 PNG 圖像。
 
 ```python
-import jpype
+import jpide
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -679,24 +716,23 @@ finally:
     presentation.dispose()
 ```
 
-縮放因子 `1` 代表該軸保留預設像素大小。例如，兩個因子皆為 `2` 時，產生的影像寬高大約為預設尺寸的兩倍，像素數量則為四倍。較大的因子通常提供較銳利的文字，以利放大或高解析度輸出，但也會增加記憶體使用量與檔案大小。低於 `1` 的因子會產生較小且細節較少的影像。使用相同的水平與垂直因子可保留段落的長寬比例；不同的因子則會分別拉伸輸出。
-
-在需要包含形狀填色、邊框或其他視覺上下文時，仍可使用 [Shape.getImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shape/#getImage) 來渲染整個形狀。若僅需段落影像，請使用 [Paragraph.getImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/)。
+`1` 的縮放係數會維持該軸的預設像素大小。例如，同時使用 `2` 會產生寬度與高度約為預設兩倍的圖像，像素數量為原來的四倍。較大的係數通常可產生較銳利的文字，適用於放大或高解析度輸出，但也會增加記憶體使用與檔案大小。低於 `1` 的係數會產生較小且細節較少的圖像。使用相同的係數可保留段落的長寬比；不同的水平與垂直係數則會獨立拉伸輸出。  
+在輸出必須包含形狀的填充、邊框或其他視覺環境時，使用 [Shape.getImage] 來渲染整個形狀仍然有用。若僅需段落圖像，請使用 [Paragraph.getImage]。
 
 ## **常見問題**
 
-**我可以完全停用文字框內的自動換行嗎？**
+**我能完全停用文字框內的換行嗎？**
 
-可以。將 [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframeformat/#setWrapText) 設為 `False` 即可停用換行，使文字不在文字框邊緣斷行。
+可以。將 [TextFrameFormat.setWrapText] 設為停用，即可關閉換行，使行不會在文字框邊緣斷行。
 
-**如何取得特定段落在投影片上的實際邊界？**
+**如何取得特定段落在投影片上的精確邊界？**
 
-使用 [Paragraph.getRect](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraph/#getRect) 可取得段落的外接矩形。若要取得單一文字片段的邊界，請使用 [Portion.getRect](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/portion/#getRect)。
+使用 [Paragraph.getRect] 取得段落的邊界矩形。 [Portion.getRect] 可取得單一文字片段的邊界。
 
-**段落對齊方式（左、右、置中或兩端對齊）在哪裡設定？**
+**段落對齊（左、右、置中或兩端對齊）在何處設定？**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/paragraphformat/#setAlignment) 為段落層級的設定，會套用於整個段落，與各文字片段的格式無關。
+[ParagraphFormat.setAlignment] 為段落層級設定，會套用於整段文字，不受單一文字片段格式的影響。
 
-**我可以為段落中的部分文字設定校對語言嗎？**
+**我能為段落的一部分設定校對語言嗎？**
 
-可以。對個別文字片段使用 [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseportionformat/#setLanguageId) 即可讓同一段落包含多種語言的文字。
+可以。對個別文字片段設定 [BasePortionFormat.setLanguageId]，即可讓同一段落包含多種語言的文字。

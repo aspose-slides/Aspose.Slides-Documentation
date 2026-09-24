@@ -8,16 +8,16 @@ aliases:
   - /cpp/paragraph/
   - /cpp/portion/
 keywords:
-- tambahkan teks
-- tambahkan paragraf
-- kelola teks
-- kelola paragraf
-- kelola tanda peluru
+- menambahkan teks
+- menambahkan paragraf
+- mengelola teks
+- mengelola paragraf
+- mengelola bullet
 - indentasi paragraf
-- indentasi menggantung
-- tanda peluru paragraf
+- indentasi gantung
+- bullet paragraf
 - daftar bernomor
-- daftar bertanda peluru
+- daftar bullet
 - properti paragraf
 - impor HTML
 - teks ke HTML
@@ -29,15 +29,15 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara membuat dan memformat paragraf, bagian, tanda peluru, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk C++."
+description: "Pelajari cara membuat dan memformat paragraf, bagian, bullet, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk C++."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Aspose.Slides untuk C++ merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
+Aspose.Slides for C++ merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
 
 * [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) mewakili kontainer teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
-* [IParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/) mewakili satu paragraf dalam sebuah bingkai teks dan menyediakan akses ke bagian‑bagian serta pemformatan tingkat paragraf.
-* [IPortion](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/) mewakili rentetan teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter tersendiri.
+* [IParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/) mewakili satu paragraf dalam sebuah bingkai teks dan menyediakan akses ke bagian‑bagian serta pemformatan level paragraf.
+* [IPortion](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/) mewakili satu rangkaian teks dalam paragraf. Setiap bagian dapat memiliki teks dan pemformatan karakter tersendiri.
 
 Dengan demikian sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lain yang berbeda‑beda menggunakan beberapa bagian.
 
@@ -47,14 +47,14 @@ Dengan demikian sebuah paragraf dapat berisi teks dengan font, warna, ukuran, da
 
 Langkah‑langkah berikut membuat sebuah bingkai teks dengan tiga paragraf, masing‑masing berisi tiga bagian:
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) persegi panjang ke slide.
 4. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk tersebut.
 5. Gunakan paragraf default dan tambahkan dua objek [IParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/) lagi ke bingkai teks.
-6. Tambahkan cukup objek [IPortion](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/) untuk setiap paragraf agar berisi tiga bagian. Paragraf default sudah berisi satu bagian kosong.
+6. Tambahkan cukup objek [IPortion](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/) untuk setiap paragraf agar masing‑masing berisi tiga bagian. Paragraf default sudah berisi satu bagian kosong.
 7. Atur teks setiap bagian.
-8. Terapkan pemformatan tingkat karakter melalui [IPortion::get_PortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/get_portionformat/).
+8. Terapkan pemformatan level karakter melalui [IPortion::get_PortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/get_portionformat/).
 9. Simpan presentasi yang telah dimodifikasi.
 
 Contoh C++ berikut mengimplementasikan langkah‑langkah tersebut:
@@ -131,26 +131,26 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Membuat Daftar Bertanda Peluru dan Bernomor**
+## **Membuat Daftar Berbentuk Bullet dan Bernomor**
 
-### **Membuat Daftar Bertanda Peluru atau Bernomor**
+### **Membuat Daftar Bullet atau Bernomor**
 
-Tanda peluru dan penomoran memudahkan pemindaian item terkait. Pada Aspose.Slides, pengaturan daftar didefinisikan melalui [IBulletFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/).
+Bullet dan penomoran memudahkan pemindaian item yang terkait. Di Aspose.Slides, pengaturan daftar didefinisikan melalui [IBulletFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/).
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide yang dipilih.
 4. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk tersebut.
 5. Hapus paragraf default dari bingkai teks.
-6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/paragraph/) untuk tanda peluru simbol.
-7. Atur [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) menjadi [BulletType::Symbol](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/) dan tentukan karakter peluru.
-8. Atur teks paragraf, indent, warna peluru, dan tinggi peluru.
+6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/paragraph/) untuk bullet simbol.
+7. Atur [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Symbol](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/) dan tentukan karakter bullet.
+8. Atur teks paragraf, indent, warna bullet, dan tinggi bullet.
 9. Tambahkan paragraf ke bingkai teks.
-10. Buat paragraf kedua dan atur [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) menjadi [BulletType::Numbered](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/).
-11. Konfigurasikan gaya peluru bernomor dan tambahkan paragraf ke bingkai teks.
+10. Buat paragraf kedua dan atur [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Numbered](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/).
+11. Konfigurasikan gaya bullet bernomor dan tambahkan paragraf ke bingkai teks.
 12. Simpan presentasi.
 
-Contoh C++ berikut membuat tanda peluru simbol dan tanda peluru bernomor:
+Contoh C++ berikut membuat bullet simbol dan bullet bernomor:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -203,22 +203,22 @@ presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Menggunakan Tanda Peluru Gambar**
+### **Menggunakan Bullet Gambar**
 
-Tanda peluru gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau angka.
+Bullet gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau nomor.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) dan akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/)‑nya.
 4. Hapus paragraf default dari bingkai teks.
-5. Muat gambar peluru dan tambahkan ke koleksi gambar presentasi sebagai [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/).
+5. Muat gambar bullet dan tambahkan ke koleksi gambar presentasi sebagai [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/).
 6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/paragraph/) dan atur teksnya.
-7. Atur [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) menjadi [BulletType::Picture](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/).
-8. Tetapkan gambar melalui [ISlidesPicture::set_Image](https://reference.aspose.com/slides/id/cpp/aspose.slides/islidespicture/set_image/) dan atur tinggi peluru.
+7. Atur [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Picture](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/).
+8. Tetapkan gambar melalui [ISlidesPicture::set_Image](https://reference.aspose.com/slides/id/cpp/aspose.slides/islidespicture/set_image/) dan atur tinggi bullet.
 9. Tambahkan paragraf ke bingkai teks.
 10. Simpan presentasi yang telah dimodifikasi.
 
-Contoh C++ berikut membuat tanda peluru gambar:
+Contoh C++ berikut membuat bullet gambar:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -261,15 +261,15 @@ presentation->Dispose();
 
 ### **Membuat Daftar Bertingkat**
 
-Atur [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_depth/) untuk menempatkan paragraf pada tingkat yang berbeda dalam sebuah daftar. Tingkat atas memiliki depth `0`.
+Atur [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_depth/) untuk menempatkan paragraf pada level yang berbeda dalam sebuah daftar. Level teratas memiliki depth `0`.
 
 1. Buat sebuah [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) dan akses sebuah slide.
 2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) serta bersihkan paragraf default dari bingkai teksnya.
-3. Buat empat paragraf dan konfigurasikan simbol peluru masing‑masing.
+3. Buat empat paragraf dan konfigurasikan simbol bullet masing‑masing.
 4. Atur nilai [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_depth/) mereka menjadi `0`, `1`, `2`, dan `3`.
-5. Tambahkan paragraf‑paragraf ke bingkai teks dan simpan presentasi.
+5. Tambahkan paragraf ke bingkai teks dan simpan presentasi.
 
-Contoh C++ berikut membuat daftar bertanda peluru empat tingkat:
+Contoh C++ berikut membuat daftar bullet empat level:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -335,17 +335,17 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Memulai Item Daftar Bernomor dengan Nilai Kustom**
+### **Memulai Item Daftar Bernomor dengan Nilai Khusus**
 
 Gunakan [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) untuk menentukan nomor awal yang ditampilkan pada paragraf bernomor.
 
 1. Buat sebuah [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
 2. Bersihkan paragraf default dari bingkai teks bentuk.
 3. Buat tiga paragraf bernomor.
-4. Atur [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) menjadi `2`, `3`, dan `7` untuk masing‑masing paragraf.
-5. Tambahkan paragraf‑paragraf ke bingkai teks dan simpan presentasi.
+4. Atur [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) ke `2`, `3`, dan `7` untuk paragraf yang bersangkutan.
+5. Tambahkan paragraf ke bingkai teks dan simpan presentasi.
 
-Contoh C++ berikut menetapkan nomor mulai kustom untuk setiap paragraf:
+Contoh C++ berikut memberi setiap paragraf nomor awal khusus:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -392,18 +392,18 @@ presentation->Dispose();
 
 ### **Mengatur Indent Baris Pertama**
 
-Gunakan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) untuk mengontrol indent baris pertama sebuah paragraf. Metode ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris berikutnya tetap rata dengan tubuh paragraf.
+Gunakan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) untuk mengontrol indent baris pertama paragraf. Metode ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sedangkan baris‑baris lainnya tetap sejajar dengan isi paragraf.
 
-Gunakan [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_marginleft/) bila Anda ingin memindahkan seluruh paragraf. Gunakan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) bila hanya baris pertama yang ingin dipindahkan.
+Gunakan [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_marginleft/) bila Anda perlu memindahkan seluruh paragraf. Gunakan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) bila hanya baris pertama yang ingin dipindahkan.
 
-Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) yang berbeda untuk mendemonstrasikan bagaimana indent baris pertama memengaruhi tata letak paragraf.
+Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) yang berbeda untuk menunjukkan bagaimana indent baris pertama memengaruhi tata letak paragraf.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 2. Akses slide target.
 3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) persegi panjang ke slide.
-4. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk tersebut dan hapus paragraf default.
+4. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk dan hapus paragraf default.
 5. Buat beberapa paragraf dan atur nilai [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) yang berbeda untuk masing‑masing.
-6. Tambahkan paragraf‑paragraf ke bingkai teks.
+6. Tambahkan paragraf ke bingkai teks.
 7. Simpan presentasi yang telah dimodifikasi.
 
 Kode ini menunjukkan cara mengatur indent paragraf:
@@ -466,26 +466,26 @@ presentation->Dispose();
 
 Hasilnya:
 
-![Indent baris pertama dari paragraf](first_line_indent.png)
+![Indent baris pertama paragraf](first_line_indent.png)
 
-### **Mengatur Indent Menggantung**
+### **Mengatur Indent Gantung**
 
-Indent menggantung adalah tata letak paragraf di mana baris pertama dimulai lebih ke kiri dibandingkan baris‑baris berikutnya. Pada Aspose.Slides, efek ini dibuat dengan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/). Atur indent ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap tubuh paragraf.
+Indent gantung adalah tata letak paragraf dimana baris pertama dimulai lebih ke kiri dibanding baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/). Atur indent ke nilai negatif untuk menggeser baris pertama ke kiri relatif terhadap tubuh paragraf.
 
-Secara praktis, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_marginleft/) menentukan posisi kiri tubuh paragraf, dan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, beri nilai margin‑left positif dan nilai indent negatif.
+Dalam praktiknya, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_marginleft/) menentukan posisi kiri tubuh paragraf, dan [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent gantung, atur nilai margin‑left positif dan nilai indent negatif.
 
-Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris‑baris yang dibungkus harus rata di bawah tubuh paragraf, bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain dimana baris terbungkus harus sejajar di bawah tubuh paragraf, bukan di bawah karakter pertama baris pertama.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 2. Akses slide target.
 3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) persegi panjang ke slide.
-4. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk tersebut dan hapus paragraf default.
-5. Buat paragraf‑paragraf dan atur nilai [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_marginleft/) positif untuk masing‑masing.
-6. Atur nilai [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) negatif untuk menciptakan efek indent menggantung.
-7. Tambahkan paragraf‑paragraf ke bingkai teks.
+4. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk dan hapus paragraf default.
+5. Buat paragraf‑paragraf dan atur nilai [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_marginleft/) positif untuk setiap paragraf.
+6. Atur nilai [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_indent/) negatif untuk menghasilkan efek indent gantung.
+7. Tambahkan paragraf ke bingkai teks.
 8. Simpan presentasi yang telah dimodifikasi.
 
-Kode ini menunjukkan cara mengatur indent menggantung untuk sebuah paragraf:
+Kode ini menunjukkan cara mengatur indent gantung untuk paragraf:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -531,24 +531,24 @@ secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
 
-presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
+presentation->Save(u"hhangning_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Hasilnya:
 
-![Indent menggantung dari paragraf](hanging_indent.png)
+![Indent gantung paragraf](hanging_indent.png)
 
 ### **Mengatur Properti Akhir Paragraf**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) mengontrol pemformatan tanda akhir paragraf. Contoh berikut menetapkan ukuran font dan font Latin pada tanda akhir paragraf kedua:
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) mengendalikan pemformatan tanda akhir paragraf. Contoh berikut menetapkan ukuran font dan font Latin pada tanda akhir paragraf kedua:
 
 1. Muat sebuah [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) dan akses sebuah slide.
 2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) serta bersihkan paragraf defaultnya.
 3. Buat dua paragraf dan tambahkan bagian‑bagian teks ke dalamnya.
 4. Buat sebuah [PortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/portionformat/) untuk tanda akhir paragraf kedua.
 5. Atur [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_fontheight/) dan [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_latinfont/).
-6. Terapkan format dengan [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) dan simpan presentasi.
+6. Tetapkan format dengan [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) dan simpan presentasi.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -590,15 +590,73 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Mengimpor dan Mengekspor Konten Paragraf**
+## **Menghitung Baris yang Dirender**
 
-### **Mengimpor Teks HTML ke dalam Paragraf**
+Gunakan [IParagraph::GetLinesCount](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getlinescount/) untuk menghitung jumlah baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
 
-Gunakan [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphcollection/addfromhtml/) untuk mengonversi markup HTML menjadi paragraf dan bagian‑bagian dalam sebuah bingkai teks.
+Sebuah paragraf adalah satu item dalam [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_paragraphs/), dan dapat menempati beberapa baris yang dirender. Break baris eksplisit di dalam paragraf memaksa baris baru tanpa membuat paragraf tambahan. Pembungkusan otomatis membuat baris berdasarkan lebar yang tersedia tanpa menyisipkan karakter break eksplisit ke dalam teks. Oleh karena itu menghitung paragraf atau karakter break tidak menghasilkan jumlah baris yang dirender.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+Contoh berikut membuat sebuah bentuk teks, menghitung barisnya, mempersempit bentuk, lalu mengganti teks dengan string yang lebih pendek. Pembungkusan diaktifkan dan autofit dinonaktifkan sehingga lebar bentuk mengontrol pembungkusan tanpa mengecilkan teks atau mengubah ukuran bentuk secara otomatis. Dimensi bentuk dalam poin. Akhirnya contoh menambahkan paragraf lain dan menjumlahkan hitungan baris di seluruh bingkai teks.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::True);
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+
+auto paragraph = textFrame->get_Paragraph(0);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20);
+paragraph->set_Text(u"This text demonstrates how automatic wrapping changes the number of rendered lines.");
+Console::WriteLine(u"Original width: {0}", paragraph->GetLinesCount());
+
+shape->set_Width(150);
+Console::WriteLine(u"Narrower shape: {0}", paragraph->GetLinesCount());
+
+paragraph->set_Text(u"Short text.");
+Console::WriteLine(u"Shorter text: {0}", paragraph->GetLinesCount());
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Another paragraph.");
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto totalLineCount = 0;
+for (auto currentParagraph : textFrame->get_Paragraphs())
+{
+    totalLineCount += currentParagraph->GetLinesCount();
+}
+Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
+presentation->Dispose();
+```
+
+Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Jumlah pasti dapat bervariasi tergantung pada ketersediaan font dan substitusi, ukuran font, margin, indentasi, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa templat.
+
+Jumlah baris saja tidak menentukan apakah teks melampaui kontainer. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga berpengaruh; bahkan satu baris dapat melampaui lebar tersedia bila pembungkusan dinonaktifkan.
+
+## **Impor dan Ekspor Konten Paragraf**
+
+### **Impor Teks HTML ke dalam Paragraf**
+
+Gunakan [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphcollection/addfromhtml/) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam sebuah bingkai teks.
+
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 2. Akses sebuah slide dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/).
-3. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk tersebut dan bersihkan paragraf defaultnya.
+3. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk dan bersihkan paragraf default.
 4. Baca file HTML sumber.
 5. Berikan string HTML ke [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
 6. Simpan presentasi yang telah dimodifikasi.
@@ -636,13 +694,13 @@ presentation->Save(u"html_text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Mengekspor Teks Paragraf ke HTML**
+### **Ekspor Teks Paragraf ke HTML**
 
-Gunakan [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphcollection/exporttohtml/) untuk mengekspor rentang paragraf yang dipilih sebagai HTML.
+Gunakan [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphcollection/exporttohtml/) untuk mengekspor rentang paragraf terpilih sebagai HTML.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) dan muat presentasi yang diinginkan.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) dan muat presentasi yang diinginkan.
 2. Akses slide dan temukan [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) yang berisi teks.
-3. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk tersebut.
+3. Akses [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) pada bentuk.
 4. Panggil [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphcollection/exporttohtml/) dengan indeks paragraf awal dan jumlah paragraf yang akan diekspor.
 5. Tulis string HTML yang dikembalikan ke sebuah file.
 
@@ -684,17 +742,17 @@ presentation->Dispose();
 
 ### **Merender Paragraf sebagai Gambar**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/) merender sebuah paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/save/). Anda tidak perlu merender bentuk yang berisi atau memotong bitmap secara manual.
+[IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/) merender sebuah paragraf individual secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/save/). Anda tidak perlu merender bentuk yang menampungnya atau memotong bitmap secara manual.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/) dapat mengembalikan `nullptr` bila paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpan dan buang gambar yang dikembalikan setelah selesai digunakan.
+[IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/) dapat mengembalikan `nullptr` bila paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batas rendering yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpan dan buang gambar yang dikembalikan setelah selesai digunakan.
 
-#### **Merender Paragraf pada Skala Bawaan**
+#### **Merender Paragraf dengan Skala Default**
 
-Misalkan kita memiliki file presentasi bernama *sample.pptx* dengan satu slide, di mana bentuk pertama adalah kotak teks yang memuat tiga paragraf.
+Misalkan kami memiliki file presentasi bernama sample.pptx dengan satu slide, di mana bentuk pertama adalah kotak teks yang berisi tiga paragraf.
 
 ![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
-Contoh berikut merender paragraf kedua dalam sebuah bentuk teks reguler pada skala bawaan dan menyimpan gambar yang dikembalikan dalam format PNG.
+Contoh berikut merender paragraf kedua dalam bentuk teks biasa pada skala default dan menyimpan gambar yang dikembalikan dalam format PNG.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -739,9 +797,9 @@ Hasilnya:
 
 ![Gambar paragraf](paragraph_to_image_output.png)
 
-#### **Merender Paragraf dalam Sel Tabel dengan Skala**
+#### **Merender Paragraf dalam Sel Tabel dengan Skalasi**
 
-Gunakan overload [IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/) yang menerima parameter `float scaleX` dan `float scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf dalam sel pertama dengan lebar dan tinggi dua kali skala bawaan, serta menyimpan hasilnya sebagai gambar PNG.
+Gunakan overload [IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/) yang menerima parameter `float scaleX` dan `float scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf di sel pertamanya dengan lebar dan tinggi dua kali skala default, dan menyimpan hasilnya sebagai gambar PNG.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -778,24 +836,24 @@ else
 presentation->Dispose();
 ```
 
-Faktor skala `1` menjaga sumbu tersebut pada ukuran piksel bawaan. Misalnya, `2` untuk kedua faktor menghasilkan gambar yang lebar dan tingginya kira‑kira dua kali dimensi bawaan, sehingga menghasilkan empat kali jumlah piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, tetapi juga meningkatkan penggunaan memori dan ukuran berkas. Faktor di bawah `1` menghasilkan gambar yang lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara independen.
+Faktor skala `1` mempertahankan ukuran piksel default pada sumbu tersebut. Misalnya, `2` untuk kedua faktor menghasilkan gambar dengan lebar dan tinggi kira‑kira dua kali dimensi default, menghasilkan empat kali lebih banyak piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, tetapi juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail berkurang. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara independen.
 
-Merender seluruh bentuk dengan [IShape::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/getimage/) tetap berguna ketika output harus mencakup isian, batas, atau konteks visual bentuk. Untuk gambar yang hanya berisi paragraf, gunakan [IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/).
+Merender seluruh bentuk dengan [IShape::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/getimage/) tetap berguna bila output harus mencakup isi, border, atau konteks visual lainnya. Untuk gambar hanya paragraf, gunakan [IParagraph::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Apakah saya dapat benar‑benar menonaktifkan pembungkus baris di dalam sebuah bingkai teks?**
+**Apakah saya dapat menonaktifkan pembungkusan baris sepenuhnya di dalam bingkai teks?**
 
-Ya. Gunakan [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_wraptext/) untuk menonaktifkan pembungkus sehingga baris tidak terputus di tepi bingkai teks.
+Ya. Gunakan [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_wraptext/) untuk menonaktifkan pembungkusan sehingga baris tidak terputus di tepi bingkai teks.
 
-**Bagaimana cara mendapatkan batas tepat pada slide untuk sebuah paragraf tertentu?**
+**Bagaimana cara mendapatkan batas tepat pada slide untuk paragraf tertentu?**
 
-Gunakan [IParagraph::GetRect](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getrect/) untuk mendapatkan persegi panjang pembatas paragraf. [IPortion::GetRect](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/getrect/) memberikan batas untuk sebuah bagian individu.
+Gunakan [IParagraph::GetRect](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/getrect/) untuk mengambil persegi panjang pembatas paragraf. [IPortion::GetRect](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportion/getrect/) memberikan batas bagian individual.
 
-**Di mana kontrol penyelarasan paragraf (kiri, kanan, tengah, atau justify) berada?**
+**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau justify) dikendalikan?**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_alignment/) adalah pengaturan tingkat paragraf dan berlaku untuk seluruh paragraf terlepas dari format bagian individual.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_alignment/) adalah pengaturan level paragraf dan berlaku pada seluruh paragraf terlepas dari pemformatan bagian individual.
 
-**Apakah saya dapat mengatur bahasa pemeriksaan ejaan untuk bagian tertentu dari paragraf?**
+**Apakah saya dapat mengatur bahasa pemeriksaan ejaan untuk sebagian paragraf?**
 
-Ya. Gunakan [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_languageid/) untuk bagian‑bagian individual, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.
+Ya. Gunakan [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_languageid/) untuk bagian individual, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.

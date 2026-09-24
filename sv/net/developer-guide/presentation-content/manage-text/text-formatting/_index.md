@@ -10,13 +10,13 @@ keywords:
 - textbakgrund
 - texttransparens
 - teckenavstånd
-- teckensnittsegenskaper
-- teckensnittsfamilj
+- typsnittsegenskaper
+- typsnittsfamilj
 - textrotation
 - rotationsvinkel
 - textram
 - radavstånd
-- autofit-egenskap
+- autofit‑egenskap
 - ankare för textram
 - texttabulering
 - standardspråk
@@ -26,23 +26,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Formatera och stilisera text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för .NET. Anpassa teckensnitt, färger, justering och mer."
+description: "Formatera och stilisera text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för .NET. Anpassa typsnitt, färger, justering och mer."
 ---
 ## **Översikt**
 
-Denna artikel visar hur du formaterar text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för .NET. Den täcker bakgrundsfärger, transparens, teckenavstånd, teckensnittsegenskaper, rotation, styckeavstånd, autofit‑beteende, textförankring, tabbstopp och språkinställningar.
+Den här artikeln visar hur du formaterar text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för .NET. Den täcker bakgrundsfärger, transparens, teckenavstånd, typegenskaper, rotation, styckeavstånd, autofit‑beteende, textankring, tabbstopp och språkinställningar.
 
-I exemplen nedan använder vi en fil som heter "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
+I exemplen nedan använder vi en fil med namnet "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
 
-![Exempeltext](sample_text.png)
+![Sample text](sample_text.png)
 
-För att hitta och markera bokstavlig text eller reguljära uttryck, se [Sök och ersätt text](/slides/sv/net/search-and-replace-text/).
+För att hitta och markera exakt text eller reguljära uttryck‑matchningar, se [Sök och ersätt text](/slides/sv/net/search-and-replace-text/).
 
-## **Ange bakgrundsfärg för text**
+## **Ställ in textbakgrundsfärg**
 
-Använd [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/defaultportionformat/) för att ange standardmarkeringsfärgen för ett stycke, eller använd [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseportionformat/highlightcolor/) för enskilda textdelar.
+Använd [IParagraphFormat.DefaultPortionFormat] för att ange standardmarkeringsfärgen för ett stycke, eller använd [IBasePortionFormat.HighlightColor] för individuella textdelar.
 
-Följande kodexempel visar hur du anger bakgrundsfärgen för **hela stycket**:
+Följande kodexempel visar hur du anger bakgrundsfärgen för **hela stycket**: 
 
 ```cs
 using System.Drawing;
@@ -54,12 +54,14 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Ställ in markeringsfärgen för hela stycket.
+    // Ange markeringsfärgen för hela stycket.
     paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
     presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
+
+Resultatet:
 
 ![Det gråa stycket](gray_paragraph.png)
 
@@ -79,7 +81,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Ställ in markeringsfärgen för textdelen.
+            // Ange markeringsfärgen för textdelen.
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -88,13 +90,15 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+Resultatet:
+
 ![De gråa textdelarna](gray_text_portions.png)
 
 ## **Justera textstycken**
 
-Använd [IParagraphFormat.Alignment](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/alignment/) för att ange styckejustering inom en textram. Värdet kan vara centrerat, vänsterjusterat, högerjusterat, marginaljusterat osv.
+Använd [IParagraphFormat.Alignment] för att ange styckejustering inom en textruta. Värdet kan vara centrerat, vänsterjusterat, högerjusterat, justerat, osv.
 
-Följande kodexempel visar hur du justerar stycket till **centrum**:
+Följande kodexempel visar hur du justerar stycket till **centrerat**:
 
 ```cs
 using Aspose.Slides;
@@ -105,18 +109,20 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Ställ in justeringen av stycket till mitten.
+    // Ställ in styckejusteringen till centrerat.
     paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
     presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
 
+Resultatet:
+
 ![Det justerade stycket](aligned_paragraph.png)
 
 ## **Ange transparens för text**
 
-Transparensen för text styrs via alfa-komponenten i färgen som tilldelas [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseportionformat/fillformat/). I exemplen nedan är `alpha = 50` ett ARGB-alfa‑kanalvärde på skalan 0‑255, inte en transparensprocent.
+Transparens för text styrs via alfakomponenten i färgen som tilldelas [IBasePortionFormat.FillFormat]. I exemplen nedan är `alpha = 50` ett ARGB‑alfa‑värde på skalan 0–255, inte en procentandel av transparensen.
 
 Kodexemplet nedan visar hur du applicerar transparens på **hela stycket**:
 
@@ -132,7 +138,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Ställ in fyllningsfärgen för texten till en transparent färg.
+    // Ställ in fyllningsfärgen för texten till transparent färg.
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -140,9 +146,11 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![Det genomskinliga stycket](transparent_paragraph.png)
+Resultatet:
 
-Nästa kodexempel visar hur du applicerar transparens på **textdelar med fet stil**:
+![Det transparenta stycket](transparent_paragraph.png)
+
+Följande kodexempel visar hur du applicerar transparens på **textdelar med fet stil**:
 
 ```cs
 using System.Drawing;
@@ -170,13 +178,15 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![De genomskinliga textdelarna](transparent_text_portions.png)
+Resultatet:
+
+![De transparenta textdelarna](transparent_text_portions.png)
 
 ## **Ange teckenavstånd för text**
 
-Använd [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseportionformat/spacing/) för att öka eller minska avståndet mellan tecken i en textruta.
+Använd [IBasePortionFormat.Spacing] för att öka eller minska avståndet mellan tecken i en textruta.
 
-Följande C#‑kod visar hur du ökar teckenavståndet i **hela stycket**:
+Följande C#-kod visar hur du ökar teckenavståndet i **hela stycket**:
 
 ```cs
 using Aspose.Slides;
@@ -193,6 +203,8 @@ using (var presentation = new Presentation("sample.pptx"))
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
+
+Resultatet:
 
 ![Teckenavståndet i stycket](character_spacing_in_paragraph.png)
 
@@ -220,13 +232,15 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+Resultatet:
+
 ![Teckenavståndet i textdelarna](character_spacing_in_text_portions.png)
 
 ### **Inaktivera kerning för specifika typsnitt**
 
-I vissa fall kan text som renderas av Aspose.Slides se något tajtare ut än samma text som visas i PowerPoint. Detta kan ske eftersom PowerPoint kan ignorera kerning‑data för vissa typsnitt, även när typsnittet innehåller giltig kerninginformation och kerning är aktiverat i PowerPoints inställningar.
+I vissa fall kan text som renderas av Aspose.Slides se något tätare ut än samma text som visas i PowerPoint. Detta kan ske eftersom PowerPoint kan ignorera kerningdata för vissa typsnitt, även när typsnittet innehåller giltig kerninginformation och kerning är aktiverat i PowerPoint‑inställningarna.
 
-För att få den renderade utdata att närmare matcha PowerPoint i sådana fall kan du inaktivera kerning för textdelar som använder det påverkade typsnittet. Ställ in [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseportionformat/kerningminimalsize/) på ett värde som är betydligt större än den faktiska teckenstorleken:
+För att få den renderade utskriften närmare PowerPoint i sådana fall kan du inaktivera kerning för textdelar som använder det påverkade typsnittet. Ställ in [IBasePortionFormat.KerningMinimalSize] på ett värde som är betydligt större än den faktiska typsnittsstorleken:
 
 ```cs
 using Aspose.Slides;
@@ -257,13 +271,13 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-Denna inställning förhindrar att kerning tillämpas på matchande textdelar och kan hjälpa till att justera Aspose.Slides‑rendering med PowerPoints visuella resultat för typsnitt som påverkas av detta PowerPoint‑specifika beteende.
+Denna inställning hindrar kerning från att tillämpas på matchande textdelar och kan hjälpa till att anpassa Aspose.Slides‑renderingen till PowerPoints visuella resultat för typsnitt som påverkas av detta PowerPoint‑specifika beteende.
 
-## **Hantera teckensnittsegenskaper för text**
+## **Hantera texttypsnittsegenskaper**
 
-Teckensnittsegenskaper kan ställas in på styckenivå via [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/defaultportionformat/) eller på enskilda delavsnitt via [IPortionFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/iportionformat/).
+Typsnittsegenskaper kan anges på styckelnivå via [IParagraphFormat.DefaultPortionFormat] eller på enskilda delar via [IPortionFormat].
 
-Följande kod anger teckensnitt och textstil för hela stycket: den tillämpar teckenstorlek, fet, kursiv, prickad understrykning och teckensnittet Times New Roman på alla delavsnitt i stycket.
+Följande kod anger typsnitt och textstil för hela stycket: den tillämpar teckenstorlek, fet, kursiv, prickad understrykning och typsnittet Times New Roman på alla delar i stycket.
 
 ```cs
 using Aspose.Slides;
@@ -274,7 +288,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Ange teckensnittsegenskaper för stycket.
+    // Ställ in typsnittsegenskaperna för stycket.
     paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
@@ -285,7 +299,9 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![Teckensnittsegenskaperna för stycket](font_properties_for_paragraph.png)
+Resultatet:
+
+![Typsnittsegenskaperna för stycket](font_properties_for_paragraph.png)
 
 Kodexemplet nedan tillämpar liknande egenskaper på **textdelar med fet stil**:
 
@@ -302,7 +318,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Ange teckensnittsegenskaper för textdelen.
+            // Ange typsnittsegenskaperna för textdelen.
             portion.PortionFormat.FontHeight = 13;
             portion.PortionFormat.FontItalic = NullableBool.True;
             portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -314,11 +330,13 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![Teckensnittsegenskaperna för textdelarna](font_properties_for_text_portions.png)
+Resultatet:
+
+![Typsnittsegenskaperna för textdelarna](font_properties_for_text_portions.png)
 
 ## **Ange textrotation**
 
-Använd [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/textverticaltype/) för att ange en fördefinierad textorientering inom en form.
+Använd [ITextFrameFormat.TextVerticalType] för att ange en fördefinierad textorientering inom en form.
 
 Följande kodexempel sätter textorienteringen i formen till `Vertical270`, vilket roterar texten **90 grader moturs**:
 
@@ -336,13 +354,15 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+Resultatet:
+
 ![Textrotationen](text_rotation.png)
 
 ## **Ange anpassad rotation för textramar**
 
-Använd [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/rotationangle/) för att ange en anpassad rotationsvinkel för en [ITextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/).
+Använd [ITextFrameFormat.RotationAngle] för att ange en anpassad rotationsvinkel för en [ITextFrame].
 
-Kodexemplet nedan roterar textramen med 3 grader medurs inom formen:
+Kodexemplet nedan roterar textramen med 3 grader medurs inom formen: 
 
 ```cs
 using Aspose.Slides;
@@ -358,16 +378,18 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+Resultatet:
+
 ![Den anpassade textrotationen](custom_text_rotation.png)
 
 ## **Ange radavstånd för stycken**
 
-Aspose.Slides tillhandahåller [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/spacebefore/), och [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/spacewithin/) för att kontrollera styckeavstånd. Dessa egenskaper används på följande sätt:
+Aspose.Slides tillhandahåller [IParagraphFormat.SpaceAfter], [IParagraphFormat.SpaceBefore] och [IParagraphFormat.SpaceWithin] för att styra styckeavstånd. Dessa egenskaper används på följande sätt:
 
 * Använd ett positivt värde för att ange radavstånd som en procentandel av radens höjd.
-* Använd ett negativt värde för att ange radavstånd i punkt.
+* Använd ett negativt värde för att ange radavstånd i punkter.
 
-Följande kodexempel visar hur du anger radavståndet i stycket:
+Följande kodexempel visar hur du specificerar radavståndet inom stycket:
 
 ```cs
 using Aspose.Slides;
@@ -384,11 +406,13 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![Radavståndet i stycket](line_spacing.png)
+Resultatet:
+
+![Radavståndet inom stycket](line_spacing.png)
 
 ## **Ange Autofit‑typ för textramar**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/autofittype/) bestämmer hur text beter sig när den överskrider behållarens gränser. Använd den för att styra om texten krymper, flödar över eller automatiskt ändrar formens storlek.
+[ITextFrameFormat.AutofitType] bestämmer hur text beter sig när den överskrider behållarens gränser. Använd den för att styra om texten krymper, rinner över eller anpassar formen automatiskt.
 
 ```cs
 using Aspose.Slides;
@@ -404,9 +428,11 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+För att räkna rader efter automatisk radbrytning och se hur text‑ eller formbredden förändras, se [Räkna renderade rader](/slides/sv/net/manage-paragraph/). Antalet rader ensam indikerar inte om texten överskrider sin behållare.
+
 ## **Ange ankare för textramar**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/anchoringtype/) definierar hur text positioneras vertikalt inne i en form, exempelvis högst upp, i mitten eller längst ner.
+[ITextFrameFormat.AnchoringType] definierar hur text positioneras vertikalt inuti en form, exempelvis högst upp, i mitten eller längst ner.
 
 ```cs
 using Aspose.Slides;
@@ -422,9 +448,9 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Ange tabbning för text**
+## **Ange texttabulering**
 
-Använd [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/defaulttabsize/) och [IParagraphFormat.Tabs](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/tabs/) för att konfigurera tabbstopp i ett stycke.
+Använd [IParagraphFormat.DefaultTabSize] och [IParagraphFormat.Tabs] för att konfigurera tabbstopp i ett stycke.
 
 ```cs
 using Aspose.Slides;
@@ -442,13 +468,15 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![Stycketabbarna](paragraph_tabs.png)
+Resultatet:
 
-## **Ange korrekturläsningsspråk**
+![Styckets tabbar](paragraph_tabs.png)
 
-Aspose.Slides tillhandahåller [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseportionformat/languageid/), vilket låter dig ange korrekturläsningsspråket för en textdel. Korrekturläsningsspråket bestämmer vilket språk som används för stavnings- och grammatikkontroller i PowerPoint.
+## **Ange språk för korrekturläsning**
 
-Följande kodexempel visar hur du anger korrekturläsningsspråket för en textdel:
+Aspose.Slides tillhandahåller [IBasePortionFormat.LanguageId], som låter dig ange språk för korrekturläsning för en textdel. Språket för korrekturläsning bestämmer vilket språk som används för stavnings‑ och grammatikontroller i PowerPoint.
+
+Följande kodexempel visar hur du anger språk för korrekturläsning för en textdel:
 
 ```cs
 using Aspose.Slides;
@@ -480,7 +508,7 @@ using (var presentation = new Presentation("presentation.pptx"))
 
 ## **Ange standardspråk**
 
-Använd [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/defaulttextlanguage/) för att definiera standardspråket för text som skapas vid inläsning eller skapande av en presentation.
+Använd [LoadOptions.DefaultTextLanguage] för att definiera standardspråket för text som skapas vid inläsning eller skapande av en presentation.
 
 ```cs
 using Aspose.Slides;
@@ -504,7 +532,7 @@ using (var presentation = new Presentation(loadOptions))
 
 ## **Ange standardtextstil**
 
-För att tillämpa standardtextformatering på presentationsnivå, använd [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/sv/net/aspose.slides/ipresentation/defaulttextstyle/).
+För att tillämpa standardtextformatering på presentationsnivå, använd [IPresentation.DefaultTextStyle].
 
 Följande kodexempel visar hur du anger ett standardtypsnitt i fet stil med storleken 14 pt för all text i alla bilder i en ny presentation.
 
@@ -514,7 +542,7 @@ using Aspose.Slides.Export;
 
 using (var presentation = new Presentation())
 {
-    // Hämta styckeformat på högsta nivå.
+    // Hämta styckeformat på högsta nivån.
     var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
@@ -527,13 +555,13 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Extrahera text med versalteffekt**
+## **Extrahera text med versalläge**
 
-I PowerPoint får användning av teckenseffekten **All Caps** texten att visas med stora bokstäver på bilden även om den ursprungligen skrevs med gemener. När du hämtar en sådan textdel med Aspose.Slides returnerar biblioteket texten exakt som den angavs. För att matcha den visade texten, kontrollera [TextCapType](https://reference.aspose.com/slides/sv/net/aspose.slides/textcaptype/) och konvertera den returnerade strängen till versaler när värdet är `All`.
+I PowerPoint gör applicering av **All Caps**‑teffekten att text visas med versaler på bilden även om den ursprungligen skrevs med gemener. När du hämtar en sådan textdel med Aspose.Slides returnerar biblioteket texten exakt som den angavs. För att matcha den visade texten, kontrollera [TextCapType] och konvertera den returnerade strängen till versaler när värdet är `All`.
 
 Låt oss säga att vi har följande textruta på den första bilden i filen sample2.pptx.
 
-![Versalteffekten](all_caps_effect.png)
+![All Caps‑effekten](all_caps_effect.png)
 
 Kodexemplet nedan visar hur du extraherar texten med **All Caps**‑effekten applicerad:
 
@@ -556,6 +584,8 @@ using (var presentation = new Presentation("sample2.pptx"))
 }
 ```
 
+Output:
+
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
@@ -565,8 +595,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Hur ändrar man text i en tabell på en bild?**
 
-För att ändra text i en tabell på en bild, använd [ITable](https://reference.aspose.com/slides/sv/net/aspose.slides/itable/). Iterera genom cellerna och uppdatera varje cell via [ICell.TextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/icell/textframe/) samt styckeformatering via [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraph/paragraphformat/).
+För att ändra text i en tabell på en bild, använd [ITable]. Iterera genom cellerna och uppdatera varje cell via [ICell.TextFrame] och styckeformatering via [IParagraph.ParagraphFormat].
 
 **Hur applicerar man gradientfärg på text i en PowerPoint‑bild?**
 
-För att applicera en gradientfärg på text, använd [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseportionformat/fillformat/). Ställ in [IFillFormat.FillType](https://reference.aspose.com/slides/sv/net/aspose.slides/ifillformat/filltype/) på [FillType.Gradient](https://reference.aspose.com/slides/sv/net/aspose.slides/filltype/) och konfigurera gradientstopp, riktning och transparens.
+För att applicera en gradientfärg på text, använd [IBasePortionFormat.FillFormat]. Ställ in [IFillFormat.FillType] till [FillType.Gradient] och konfigurera gradientstopp, riktning och transparens.

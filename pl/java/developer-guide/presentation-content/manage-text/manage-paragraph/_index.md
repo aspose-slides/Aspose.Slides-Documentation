@@ -14,7 +14,7 @@ keywords:
 - zarządzaj akapitem
 - zarządzaj wypunktowaniem
 - wcięcie akapitu
-- wcięcie wiszące
+- wcięcie zwisające
 - wypunktowanie akapitu
 - lista numerowana
 - lista wypunktowana
@@ -22,42 +22,42 @@ keywords:
 - importuj HTML
 - tekst do HTML
 - akapit do HTML
-- akapit do obrazu
-- tekst do obrazu
+- akapit na obraz
+- tekst na obraz
 - eksportuj akapit
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów za pomocą Aspose.Slides dla Javy."
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Javy."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Java przedstawia tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
+Aspose.Slides for Java reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
 * [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/) reprezentuje kontener tekstowy w kształcie i zapewnia dostęp do jego kolekcji akapitów.
 * [IParagraph](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
 * [IPortion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportion/) reprezentuje fragment tekstu w akapicie. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
 
-Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatowaniach, korzystając z wielu fragmentów.
+Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatowaniach, używając wielu fragmentów.
 
-## **Utworzenie i formatowanie akapitów**
+## **Tworzenie i formatowanie akapitów**
 
-### **Utworzenie akapitów z wieloma fragmentami**
+### **Tworzenie akapitów z wieloma fragmentami**
 
 Poniższe kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy fragmenty:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
 3. Dodaj prostokątny [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) do slajdu.
 4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/) kształtu.
 5. Użyj domyślnego akapitu i dodaj dwa kolejne obiekty [IParagraph](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/) do ramki tekstowej.
-6. Dodaj wystarczającą liczbę obiektów [IPortion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportion/) , aby każdy akapit zawierał trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
+6. Dodaj wystarczającą liczbę obiektów [IPortion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportion/) tak, aby każdy akapit zawierał trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
 7. Ustaw tekst każdego fragmentu.
 8. Zastosuj formatowanie na poziomie znaków za pomocą [IPortion.getPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportion/#getPortionFormat--).
 9. Zapisz zmodyfikowaną prezentację.
 
-Ten przykład w języku Java implementuje powyższe kroki:
+Ten przykład w języku Java implementuje kroki:
 
 ```java
 import com.aspose.slides.*;
@@ -115,24 +115,24 @@ try {
 
 ## **Tworzenie list wypunktowanych i numerowanych**
 
-### **Utworzenie listy wypunktowanej lub numerowanej**
+### **Tworzenie listy wypunktowanej lub numerowanej**
 
-Punkty i numerowanie ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy są definiowane za pomocą [IBulletFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/).
+Wypunktowanie i numeracja ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy definiuje się za pomocą [IBulletFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/).
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
 3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) do wybranego slajdu.
 4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/) kształtu.
 5. Usuń domyślny akapit z ramki tekstowej.
-6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraph/) dla symbolu wypunktowania.
+6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraph/) dla wypunktowania symbolicznego.
 7. Ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Symbol](https://reference.aspose.com/slides/pl/java/com.aspose.slides/bullettype/) i określ znak wypunktowania.
 8. Ustaw tekst akapitu, wcięcie, kolor wypunktowania i wysokość wypunktowania.
 9. Dodaj akapit do ramki tekstowej.
 10. Utwórz drugi akapit i ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/java/com.aspose.slides/bullettype/).
-11. Skonfiguruj styl numerowanego wypunktowania i dodaj akapit do ramki tekstowej.
+11. Skonfiguruj styl wypunktowania numerowanego i dodaj akapit do ramki tekstowej.
 12. Zapisz prezentację.
 
-Ten przykład w języku Java tworzy symbol wypunktowania oraz numerowane wypunktowanie:
+Ten przykład w języku Java tworzy wypunktowanie symboliczne i numerowane:
 
 ```java
 import com.aspose.slides.*;
@@ -173,12 +173,12 @@ try {
 }
 ```
 
-### **Użycie wypunktowania obrazkowego**
+### **Użycie wypunktowań obrazkowych**
 
-Wypunktowanie obrazkowe pozwala używać własnego obrazu zamiast symbolu lub liczby.
+Wypunktowania obrazkowe pozwalają użyć własnego obrazu zamiast symbolu lub liczby.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
 3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) i uzyskaj dostęp do jego [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/).
 4. Usuń domyślny akapit z ramki tekstowej.
 5. Załaduj obraz wypunktowania i dodaj go do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/).
@@ -223,9 +223,9 @@ try {
 }
 ```
 
-### **Utworzenie listy wielopoziomowej**
+### **Tworzenie listy wielopoziomowej**
 
-Ustaw [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setDepth-short-) , aby umieścić akapity na różnych poziomach listy. Poziom najwyższy ma głębokość `0`.
+Ustaw [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setDepth-short-) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
 1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
 2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) i usuń domyślny akapit z jego ramki tekstowej.
@@ -289,17 +289,17 @@ try {
 }
 ```
 
-### **Rozpoczęcie numerowanych elementów listy od niestandardowych wartości**
+### **Rozpoczynanie elementów listy numerowanej od niestandardowych wartości**
 
-Użyj [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) , aby ustawić początkową liczbę wyświetlaną dla numerowanego akapitu.
+Użyj [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) aby ustawić początkową liczbę wyświetlaną dla numerowanego akapitu.
 
 1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) do slajdu.
 2. Usuń domyślny akapit z ramki tekstowej kształtu.
 3. Utwórz trzy numerowane akapity.
-4. Ustaw [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) na `2`, `3` i `7` dla kolejnych akapitów.
+4. Ustaw [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) na `2`, `3` i `7` odpowiednio dla tych akapitów.
 5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
 
-Ten przykład w języku Java przypisuje niestandardowy numer początkowy do każdego akapitu:
+Ten przykład w języku Java przypisuje niestandardową liczbę początkową każdemu akapitowi:
 
 ```java
 import com.aspose.slides.*;
@@ -335,15 +335,15 @@ try {
 }
 ```
 
-## **Kontrola układu akapitu i właściwości końcowych**
+## **Kontrolowanie układu akapitu i właściwości końcowych**
 
 ### **Ustawienie wcięcia pierwszej linii**
 
-Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, natomiast pozostałe linie pozostają wyrównane do treści akapitu.
+Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) aby kontrolować wcięcie pierwszej linii akapitu. Ta metoda przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, natomiast pozostałe linie pozostają wyrównane do treści akapitu.
 
-Użyj [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) , gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , gdy potrzebujesz przesunąć tylko pierwszą linię.
+Użyj [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) gdy chcesz przesunąć cały akapit. Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) gdy chcesz przesunąć tylko pierwszą linię.
 
-Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
+Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
@@ -407,24 +407,24 @@ Wynik:
 
 ![Wcięcie pierwszej linii akapitów](first_line_indent.png)
 
-### **Ustawienie wcięcia wiszącego**
+### **Ustawienie wcięcia zwisającego**
 
-Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych wierszy. W Aspose.Slides efekt ten uzyskuje się za pomocą [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Przekaż ujemną wartość, aby przesunąć pierwszą linię w lewo względem treści akapitu.
+Wcięcie zwisające to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Przekaż ujemną wartość, aby przesunąć pierwszą linię w lewo względem treści akapitu.
 
-W praktyce [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) definiuje lewą pozycję treści akapitu, a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) pozycję pierwszej linii względem tego marginesu. Aby uzyskać wcięcie wiszące, przekaż dodatnią wartość do `setMarginLeft` i ujemną wartość do `setIndent`.
+W praktyce [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) definiuje lewą pozycję treści akapitu, a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) określa pozycję pierwszej linii względem tego marginesu. Aby uzyskać wcięcie zwisające, podaj dodatnią wartość do `setMarginLeft` i ujemną wartość do `setIndent`.
 
-To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których kolejne wiersze muszą być wyrównane pod treścią akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, gdzie zawijane linie muszą być wyrównane pod treścią akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
 3. Dodaj prostokątny [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) do slajdu.
 4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
-5. Utwórz akapity i przekaż dodatnią wartość do [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) dla każdego akapitu.
-6. Przekaż ujemną wartość do [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , aby uzyskać efekt wcięcia wiszącego.
+5. Utwórz akapity i podaj dodatnią wartość do [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) dla każdego akapitu.
+6. Podaj ujemną wartość do [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setIndent-float-) aby uzyskać efekt wcięcia zwisającego.
 7. Dodaj akapity do ramki tekstowej.
 8. Zapisz zmodyfikowaną prezentację.
 
-Ten kod pokazuje, jak ustawić wcięcie wiszące dla akapitu:
+Ten kod pokazuje, jak ustawić wcięcie zwisające dla akapitu:
 
 ```java
 import com.aspose.slides.*;
@@ -468,18 +468,18 @@ try {
 
 Wynik:
 
-![Wcięcie wiszące akapitów](hanging_indent.png)
+![Wcięcie zwisające akapitów](hanging_indent.png)
 
 ### **Ustawienie właściwości końcowego fragmentu akapitu**
 
 [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kontroluje formatowanie znaku końcowego akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
 
-1. Załaduj [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
+1. Wczytaj [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
 2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) i usuń jego domyślny akapit.
 3. Utwórz dwa akapity i dodaj do nich fragmenty tekstu.
 4. Utwórz [PortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portionformat/) dla znaku końcowego drugiego akapitu.
 5. Ustaw [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) i [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Przypisz format przy pomocy [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) i zapisz prezentację.
+6. Przypisz format za pomocą [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) i zapisz prezentację.
 
 ```java
 import com.aspose.slides.*;
@@ -511,17 +511,67 @@ try {
 }
 ```
 
+## **Liczenie renderowanych linii**
+
+Użyj [IParagraph.getLinesCount](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getLinesCount--) aby policzyć linie zajmowane przez akapit po rozmieszczeniu tekstu, włączając automatyczne zawijanie. To przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
+
+Akapit jest jednym elementem w [ITextFrame.getParagraphs](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/#getParagraphs--), i może zajmować kilka renderowanych linii. Jawny podział linii w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy linie na podstawie dostępnej szerokości, nie wstawiając jawnych znaków podziału do tekstu. Dlatego liczenie akapitów lub znaków podziału nie daje liczby renderowanych linii.
+
+Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zamienia tekst na krótszy ciąg. Zawijanie jest włączone, a autofit wyłączony, tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub rozmiaru kształtu. Wymiary kształtu podane są w punktach. Na koniec przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(NullableBool.True);
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    System.out.println("Original width: " + paragraph.getLinesCount());
+
+    shape.setWidth(150);
+    System.out.println("Narrower shape: " + paragraph.getLinesCount());
+
+    paragraph.setText("Short text.");
+    System.out.println("Shorter text: " + paragraph.getLinesCount());
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Another paragraph.");
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    int totalLineCount = 0;
+    for (IParagraph currentParagraph : textFrame.getParagraphs()) {
+        totalLineCount += currentParagraph.getLinesCount();
+    }
+    System.out.println("Total lines in the text frame: " + totalLineCount);
+} finally {
+    presentation.dispose();
+}
+```
+
+Przy podanym tekście i wymiarach zwężanie kształtu zwiększa liczbę linii, a zamiana tekstu na krótki ciąg ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności czcionek i ich substytucji, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień autofit. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy sprawdzaniu szablonu.
+
+Sama liczba linii nie określa, czy tekst wychodzi poza kontener. Ważna jest dostępna wysokość, wysokości linii, odstępy między akapitami i liniami oraz zachowanie autofitu; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
+
 ## **Import i eksport treści akapitu**
 
-### **Importowanie tekstu HTML do akapitów**
+### **Import tekstu HTML do akapitów**
 
-Użyj [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) , aby przekonwertować znacznik HTML na akapity i fragmenty w ramce tekstowej.
+Użyj [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) aby zamienić znacznik HTML na akapity i fragmenty w ramce tekstowej.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) .
-2. Uzyskaj dostęp do slajdu i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) .
-3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
-4. Odczytaj źródłowy plik HTML.
-5. Przekaż ciąg HTML do [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
+2. Uzyskaj dostęp do slajdu i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/).
+3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/) kształtu i usuń jego domyślny akapit.
+4. Odczytaj plik źródłowego HTML.
+5. Przekaż ciąg HTML do [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Zapisz zmodyfikowaną prezentację.
 
 Ten przykład w języku Java importuje HTML do ramki tekstowej:
@@ -555,14 +605,14 @@ try {
 }
 ```
 
-### **Eksportowanie tekstu akapitu do HTML**
+### **Eksport tekstu akapitu do HTML**
 
-Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) , aby wyeksportować wybrany zakres akapitów jako HTML.
+Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) aby wyeksportować wybrany zakres akapitów jako HTML.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) i wczytaj żądaną prezentację.
 2. Uzyskaj dostęp do slajdu i znajdź [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) zawierający tekst.
 3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/) kształtu.
-4. Wywołaj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) z indeksem początkowego akapitu i liczbą akapitów do eksportu.
+4. Wywołaj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) podając indeks początkowego akapitu i liczbę akapitów do eksportu.
 5. Zapisz zwrócony ciąg HTML do pliku.
 
 Ten przykład w języku Java eksportuje wszystkie akapity z pierwszego kształtu tekstowego:
@@ -602,13 +652,13 @@ try {
 
 ### **Renderowanie akapitu jako obrazu**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage--) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia przy użyciu [IImage.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Nie musisz renderować całego kształtu ani ręcznie przycinać bitmapy.
+[IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage--) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia przy pomocy [IImage.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Nie musisz renderować całego kształtu ani ręcznie przycinać bitmapy.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage--) może zwrócić `null`, jeśli akapit nie zostanie odnaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może zostać wyrenderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
+[IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage--) może zwrócić `null`, jeśli akapit nie zostanie znaleziony w kolekcji rodzica, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
 
 #### **Renderowanie akapitu w domyślnej skali**
 
-Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, w którym pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
+Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, gdzie pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
 
 ![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
@@ -654,7 +704,7 @@ Wynik:
 
 #### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-Użyj przeciążenia [IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage-float-float-) , które przyjmuje parametry `float scaleX` i `float scaleY`, aby ustawić współczynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce dwukrotnie zwiększając domyślną szerokość i wysokość, i zapisuje wynik jako obraz PNG.
+Użyj przeciążenia [IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage-float-float-) przyjmującego parametry `float scaleX` i `float scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy dwukrotnej szerokości i wysokości względem domyślnej i zapisuje wynik jako obraz PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -684,23 +734,23 @@ try {
 }
 ```
 
-Współczynnik skali `1` zachowuje dany wymiar w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników daje obraz, którego szerokość i wysokość są w przybliżeniu dwukrotnością domyślnych wymiarów, co skutkuje czterokrotną liczbą pikseli. Większe współczynniki zwykle dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` tworzą mniejsze obrazy o mniejszej szczegółowości. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wynik niezależnie.
+Czynnik skali `1` pozostawia oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu czynników daje obraz, którego szerokość i wysokość są w przybliżeniu dwukrotne względem domyślnych wymiarów, co skutkuje czterokrotną liczbą pikseli. Większe czynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Czynniki poniżej `1` dają mniejsze obrazy z mniejszą szczegółowością. Używaj równych czynników, aby zachować proporcje akapitu; różne czynniki poziome i pionowe rozciągają wynik niezależnie.
 
-Renderowanie całego kształtu przy użyciu [IShape.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getImage--) pozostaje przydatne, gdy wyjście ma obejmować wypełnienie, obramowanie lub inne elementy wizualne kształtu. Dla obrazu zawierającego wyłącznie akapit, użyj [IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage--) .
+Renderowanie całego kształtu przy użyciu [IShape.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getImage--) pozostaje przydatne, gdy wynik ma zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu zawierającego wyłącznie akapit, użyj [IParagraph.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getImage--).
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć zawijanie wierszy wewnątrz ramki tekstowej?**
+**Czy mogę całkowicie wyłączyć zawijanie linii wewnątrz ramki tekstowej?**
 
-Tak. Ustaw [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) , aby wyłączyć zawijanie, dzięki czemu wiersze nie będą łamane przy krawędziach ramki tekstowej.
+Tak. Ustaw [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane na krawędziach ramki tekstowej.
 
-**Jak mogę uzyskać dokładne granice na slajdzie konkretnego akapitu?**
+**Jak mogę uzyskać dokładne granice akapitu na slajdzie?**
 
-Użyj [IParagraph.getRect](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getRect--) , aby pobrać prostokąt otaczający akapit. [IPortion.getRect](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportion/#getRect--) dostarcza granice pojedynczego fragmentu.
+Użyj [IParagraph.getRect](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getRect--) aby pobrać prostokąt ograniczający akapit. [IPortion.getRect](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportion/#getRect--) zapewnia granice pojedynczego fragmentu.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (lewy, prawy, środek lub wyjustowanie)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub wyjustowane)?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) jest ustawieniem na poziomie akapitu i dotyczy całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
 
 **Czy mogę ustawić język korekty dla części akapitu?**
 

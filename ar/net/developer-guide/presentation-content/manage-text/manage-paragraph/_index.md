@@ -12,53 +12,53 @@ keywords:
 - إضافة فقرة
 - إدارة النص
 - إدارة الفقرة
-- إدارة العلامة النقطية
-- إزاحة الفقرة
-- إزاحة معلقة
+- إدارة العلامة
+- مسافة بادئة الفقرة
+- مسافة بادئة معلقة
 - علامة الفقرة
-- قائمة رقمية
-- قائمة نقطية
+- قائمة مرقمة
+- قائمة منقطة
 - خصائص الفقرة
 - استيراد HTML
-- نص إلى HTML
-- فقرة إلى HTML
-- فقرة إلى صورة
-- نص إلى صورة
+- تحويل النص إلى HTML
+- تحويل الفقرة إلى HTML
+- تحويل الفقرة إلى صورة
+- تحويل النص إلى صورة
 - تصدير الفقرة
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرف على كيفية إنشاء وتنسيق الفقرات، الأجزاء، العلامات النقطية، القوائم الرقمية، الإزاحات، محتوى HTML، وصور الفقرات باستخدام Aspose.Slides for .NET."
+description: "تعلم كيفية إنشاء وتنسيق الفقرات، الأجزاء، العلامات، القوائم المرقمة، المسافات البادئة، محتوى HTML، وصور الفقرات باستخدام Aspose.Slides لـ .NET."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for .NET تمثل النص كهرمية من إطارات النص، الفقرات، والأجزاء:
+Aspose.Slides for .NET يمثل النص كهرمية من إطارات النص، الفقرات، والأجزاء:
 
-* [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) يمثل حاوية النص داخل الشكل ويوفر وصولاً إلى مجموعة الفقرات الخاصة به.
-* [IParagraph](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/) يمثل فقرة واحدة في إطار النص ويوفر وصولاً إلى أجزائه وتنسيق الفقرة.
-* [IPortion](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/) يمثل تشغيل نص داخل فقرة. يمكن لكل جزء أن يحتوي على نصه الخاص وتنسيق الأحرف.
+* [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) يمثل حاوية النص داخل الشكل ويُتيح الوصول إلى مجموعة الفقرات الخاصة به.
+* [IParagraph](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/) يمثل فقرة واحدة في إطار النص ويُتيح الوصول إلى أجزائه وتنسيق مستوى الفقرة.
+* [IPortion](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/) يمثل تشغيل نص داخل الفقرة. يمكن لكل جزء أن يحتوي على نصه الخاص وتنسيق على مستوى الأحرف.
 
-بالتالي يمكن للفقرة أن تحتوي على نص بخطوط، ألوان، أحجام، وتنسيقات أخرى مختلفة باستخدام عدة أجزاء.
+يمكن للفقرة إذًا احتواء نص بخطوط، ألوان، أحجام، وتنسيقات أخرى مختلفة عبر استخدام عدة أجزاء.
 
 ## **إنشاء وتنسيق الفقرات**
 
-### **إنشاء فقرات مع عدة أجزاء**
+### **إنشاء فقرات بمقاطع متعددة**
 
-الخطوات التالية تنشئ إطار نص مع ثلاث فقرات، كل منها يحتوي على ثلاثة أجزاء:
+الخطوات التالية تنشئ إطار نص يحتوي على ثلاث فقرات، كل منها يحتوي على ثلاثة أجزاء:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
-2. الوصول إلى مرجع الشريحة المعنية عبر فهرسها.
-3. إضافة شكل [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) مستطيل إلى الشريحة.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
+3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) مستطيلة إلى الشريحة.
 4. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الخاص بالشكل.
-5. استخدام الفقرة الافتراضية وإضافة عنصرين آخرين من نوع [IParagraph](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/) إلى إطار النص.
-6. إضافة عدد كافٍ من كائنات [IPortion](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/) لكل فقرة لتحتوي على ثلاثة أجزاء. الفقرة الافتراضية تحتوي بالفعل على جزء فارغ واحد.
+5. استخدام الفقرة الافتراضية وإضافة كائنين آخرين من نوع [IParagraph](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/) إلى إطار النص.
+6. إضافة عدد كافٍ من كائنات [IPortion](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/) لكل فقرة لتحتوي على ثلاثة أجزاء. الفقرة الافتراضية تحتوي بالفعل على جزء واحد فارغ.
 7. تعيين نص كل جزء.
-8. تطبيق تنسيق على مستوى الأحرف عبر [IPortion.PortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/portionformat/) .
-9. حفظ العرض المعدل.
+8. تطبيق تنسيق على مستوى الأحرف عبر [IPortion.PortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/portionformat/).
+9. حفظ العرض التقديمي المعدل.
 
-هذا المثال بلغة C# ينفذ الخطوات:
+تنفيذ هذه الخطوات في مثال C# التالي:
 
 ```csharp
 using System.Drawing;
@@ -118,24 +118,24 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ## **إنشاء القوائم المنقطة والمرقمة**
 
-### **إنشاء قائمة منقطة أو مرتبة**
+### **إنشاء قائمة منقطة أو مرقمة**
 
-تجعل العلامات النقطية والترقيم العناصر ذات الصلة أسهل للقراءة. في Aspose.Slides، يتم تعريف إعدادات القوائم عبر [IBulletFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/) .
+النقاط والترقيم تجعل العناصر المرتبطة أسهل في المسح. في Aspose.Slides، يتم تعريف إعدادات القائمة عبر [IBulletFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/).
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
-2. الوصول إلى مرجع الشريحة المعنية عبر فهرسها.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
 3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) إلى الشريحة المحددة.
 4. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية من إطار النص.
-6. إنشاء [Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraph/) لعلامة نقطية رمزية.
-7. تعيين [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Symbol](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/) وتحديد حرف العلامة.
-8. تعيين نص الفقرة، والمسافة البادئة، ولون العلامة، وارتفاع العلامة.
+6. إنشاء كائن [Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraph/) لرمز نقطه.
+7. تعيين [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Symbol](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/) وتحديد حرف النقطة.
+8. تعيين نص الفقرة، المسافة البادئة، لون النقطة، وارتفاع النقطة.
 9. إضافة الفقرة إلى إطار النص.
-10. إنشاء فقرة ثانية وتعيين [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Numbered](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/) .
-11. تكوين نمط العلامة الرقمية وإضافة الفقرة إلى إطار النص.
-12. حفظ العرض.
+10. إنشاء فقرة ثانية وتعيين [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Numbered](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/).
+11. تكوين نمط النقطة المرقمة وإضافة الفقرة إلى إطار النص.
+12. حفظ العرض التقديمي.
 
-هذا المثال بلغة C# ينشئ علامة نقطية رمزية وعلامة رقمية:
+هذا المثال في C# ينشئ نقطه رمز ونقطة مرقمة:
 
 ```csharp
 using System;
@@ -172,22 +172,22 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **استخدام العلامات الصورية**
+### **استخدام نقاط صورة**
 
-تسمح لك العلامات الصورية باستخدام صورة مخصصة بدلاً من رمز أو رقم.
+نقاط الصورة تتيح لك استخدام صورة مخصصة بدلاً من رمز أو رقم.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
-2. الوصول إلى مرجع الشريحة المعنية عبر فهرسها.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرسها.
 3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) والوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الخاص به.
 4. إزالة الفقرة الافتراضية من إطار النص.
-5. تحميل صورة العلامة وإضافتها إلى مجموعة صور العرض كـ [IPPImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/) .
-6. إنشاء [Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraph/) وتعيين نصها.
-7. تعيين [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/) .
-8. تعيين الصورة عبر [IBulletFormat.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/picture/) وتحديد ارتفاع العلامة.
+5. تحميل صورة النقطة وإضافتها إلى مجموعة صور العرض التقديمي كـ [IPPImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/).
+6. إنشاء كائن [Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraph/) وتعيين نصه.
+7. تعيين [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/).
+8. تعيين الصورة عبر [IBulletFormat.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/picture/) وتحديد ارتفاع النقطة.
 9. إضافة الفقرة إلى إطار النص.
-10. حفظ العرض المعدل.
+10. حفظ العرض التقديمي المعدل.
 
-هذا المثال بلغة C# ينشئ علامة صورية:
+هذا المثال في C# ينشئ نقطة صورة:
 
 ```csharp
 using Aspose.Slides;
@@ -215,15 +215,15 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **إنشاء قائمة متعددة المستويات**
 
-تعيين [IParagraphFormat.Depth](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/depth/) لوضع الفقرات عند مستويات مختلفة من القائمة. المستوى العلوي له عمق `0`.
+تعيين [IParagraphFormat.Depth](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/depth/) لوضع الفقرات على مستويات مختلفة من القائمة. المستوى العلوي له عمق `0`.
 
-1. إنشاء [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) والوصول إلى شريحة.
-2. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) وإزالة الفقرة الافتراضية من إطار النص الخاص به.
-3. إنشاء أربع فقرات وتكوين رموز علاماتها النقطية.
-4. تعيين قيم [IParagraphFormat.Depth](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/depth/) إلى `0`، `1`، `2`، و `3` .
-5. إضافة الفقرات إلى إطار النص وحفظ العرض.
+1. إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) والوصول إلى شريحة.
+2. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) ومسح الفقرة الافتراضية من إطار النص الخاص به.
+3. إنشاء أربع فقرات وتكوين رموز النقاط الخاصة بها.
+4. تعيين قيم [IParagraphFormat.Depth](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/depth/) إلى `0`، `1`، `2`، و`3`.
+5. إضافة الفقرات إلى إطار النص وحفظ العرض التقديمي.
 
-هذا المثال بلغة C# ينشئ قائمة نقطية بأربع مستويات:
+هذا المثال في C# ينشئ قائمة منقطة بأربع مستويات:
 
 ```csharp
 using System;
@@ -275,15 +275,15 @@ presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 
 ### **بدء عناصر القائمة المرقمة بقيم مخصصة**
 
-استخدم [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstartwith/) لتعيين الرقم الأول المعروض لفقرة مرقمة.
+استخدام [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstartwith/) لتعيين الرقم الأولي المعروض لفقرة مرقمة.
 
-1. إنشاء [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) وإضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) إلى شريحة.
+1. إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) وإضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) إلى شريحة.
 2. مسح الفقرة الافتراضية من إطار النص الخاص بالشكل.
 3. إنشاء ثلاث فقرات مرقمة.
-4. تعيين [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstartwith/) إلى `2`، `3`، و `7` لكل فقرة على حدة.
-5. إضافة الفقرات إلى إطار النص وحفظ العرض.
+4. تعيين [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstartwith/) إلى `2`، `3`، و`7` للفقرة المقابلة.
+5. إضافة الفقرات إلى إطار النص وحفظ العرض التقديمي.
 
-هذا المثال بلغة C# يعيّن رقم بداية مخصص لكل فقرة:
+هذا المثال في C# يعيّن رقم بدء مخصص لكل فقرة:
 
 ```csharp
 using Aspose.Slides;
@@ -313,25 +313,25 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **التحكم في تخطيط الفقرة وخصائص النهاية**
+## **التحكم في تنسيق الفقرة وخصائص النهاية**
 
-### **تعيين إزاحة السطر الأول**
+### **تعيين مسافة بادئة للسطر الأول**
 
-استخدم خاصية [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) للتحكم في إزاحة السطر الأول للفقرة. هذه الخاصية تحرك فقط السطر الأول بالنسبة إلى الهامش الأيسر للفقرة. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذاة مع جسم الفقرة.
+استخدام خاصية [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) للتحكم في مسافة البادئة للسطر الأول من الفقرة. هذه الخاصية تحرك السطر الأول فقط نسبة إلى الهامش الأيسر للفقرة. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذاة إلى جسم الفقرة.
 
-استخدم [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/marginleft/) عندما تحتاج إلى تحريك الفقرة بأكملها. استخدم [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) عندما تحتاج إلى تحريك السطر الأول فقط.
+استخدام [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/marginleft/) عندما تحتاج إلى تحريك الفقرة بأكملها. استخدم [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) عندما تحتاج إلى تحريك السطر الأول فقط.
 
-يعرض المثال أدناه عدة فقرات ويطبق قيم مختلفة لـ [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) لتوضيح تأثير إزاحة السطر الأول على تخطيط الفقرة.
+المثال أدناه ينشئ عدة فقرات ويطبق قيم مختلفة لـ [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) لتوضيح كيف تؤثر مسافة البادئة للسطر الأول على تخطيط الفقرة.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) مستطيل إلى الشريحة.
+3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) مستطيلة إلى الشريحة.
 4. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الخاص بالشكل وإزالة الفقرة الافتراضية.
 5. إنشاء عدة فقرات وتعيين قيم مختلفة لـ [Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) لها.
 6. إضافة الفقرات إلى إطار النص.
-7. حفظ العرض المعدل.
+7. حفظ العرض التقديمي المعدل.
 
-هذا الشيفرة توضح كيفية تعيين إزاحة الفقرة:
+هذا الكود يوضح كيفية تعيين مسافة بادئة للفقرة:
 
 ```csharp
 using System.Drawing;
@@ -376,26 +376,26 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![إزاحة السطر الأول للفقرات](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **تعيين إزاحة معلقة**
+### **تعيين مسافة بادئة معلقة**
 
-الإزاحة المعلقة هي تخطيط فقرة يكون فيه السطر الأول يبدأ إلى اليسار من الأسطر المتبقية. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام خاصية [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) . عيّن `Indent` إلى قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
+مسافة البادئة المعلقة هي تخطيط للفقرة يكون فيه السطر الأول يبدأ إلى اليسار من باقي الأسطر. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام خاصية [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/). عيّن `Indent` إلى قيمة سالبة لتحريك السطر الأول إلى اليسار نسبة إلى جسم الفقرة.
 
-عملياً، تحدد خاصية [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/marginleft/) موقع الهامش الأيسر لجسم الفقرة، وتحدد خاصية [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) موضع السطر الأول بالنسبة لذلك الهامش. لإنشاء إزاحة معلقة، عيّن قيمة `MarginLeft` موجبة وقيمة `Indent` سالبة.
+عمليًا، يحدد [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/marginleft/) موضع الجسم اليساري للفقرة، وتحدد [IParagraphFormat.Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) موضع السطر الأول نسبة إلى ذلك الهامش. لإنشاء مسافة بادئة معلقة، عيّن قيمة `MarginLeft` موجبة وقيمة `Indent` سالبة.
 
-يكون هذا التنسيق مفيداً للببليوغرافيا، المراجع، مدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون الأسطر الملتفة محاذيةً مع جسم الفقرة بدلاً من الحرف الأول للسطر الأول.
+هذا التنسيق مفيد للببليوغرافيا، المراجع، مدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون الأسطر الملتفة محاذية تحت جسم الفقرة وليس تحت الحرف الأول للسطر الأول.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) مستطيل إلى الشريحة.
+3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) مستطيلة إلى الشريحة.
 4. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الخاص بالشكل وإزالة الفقرة الافتراضية.
 5. إنشاء فقرات وتعيين قيمة [MarginLeft](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/marginleft/) موجبة لكل فقرة.
-6. تعيين قيمة سالبـة لـ [Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) لإنشاء تأثير الإزاحة المعلقة.
+6. تعيين قيمة [Indent](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/indent/) سالبة لإنشاء تأثير المسافة البادئة المعلقة.
 7. إضافة الفقرات إلى إطار النص.
-8. حفظ العرض المعدل.
+8. حفظ العرض التقديمي المعدل.
 
-هذا الشيفرة توضح كيفية تعيين إزاحة معلقة لفقرة:
+هذا الكود يوضح كيفية تعيين مسافة بادئة معلقة للفقرة:
 
 ```csharp
 using System.Drawing;
@@ -433,18 +433,18 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![إزاحة معلقة للفقرات](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **تعيين خصائص تشغيل نهاية الفقرة**
+### **تعيين خصائص تشغيل الفقرة النهائية**
 
-خاصية [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/endparagraphportionformat/) تتحكم في تنسيق علامة نهاية الفقرة. المثال التالي يعيّن حجم الخط وخط اللاتينية لعلامة النهاية للفقرة الثانية:
+خاصية [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/endparagraphportionformat/) تتحكم في تنسيق علامة نهاية الفقرة. المثال التالي يعين حجم الخط وخط لاتيني لعلامة نهاية الفقرة الثانية:
 
-1. تحميل [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) والوصول إلى شريحة.
-2. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) ومسح الفقرة الافتراضية الخاصة به.
-3. إنشاء فقرتين وإضافة أجزاء نصية إليهما.
-4. إنشاء [PortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/portionformat/) لعلامة نهاية الفقرة الثانية.
-5. تعيين [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseportionformat/fontheight/) و [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseportionformat/latinfont/) .
-6. إسناد التنسيق إلى [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/endparagraphportionformat/) وحفظ العرض.
+1. تحميل كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) والوصول إلى شريحة.
+2. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) ومسح الفقرة الافتراضية.
+3. إنشاء فقرتين وإضافة أجزاء نصية لهما.
+4. إنشاء كائن [PortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/portionformat/) لعلامة نهاية الفقرة الثانية.
+5. تعيين [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseportionformat/fontheight/) و[IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseportionformat/latinfont/).
+6. إسناد التنسيق إلى [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/endparagraphportionformat/) وحفظ العرض التقديمي.
 
 ```csharp
 using Aspose.Slides;
@@ -473,20 +473,67 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
+## **عدد الأسطر المرسومة**
+
+استخدام [IParagraph.GetLinesCount](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getlinescount/) لحساب عدد الأسطر التي تشغلها فقرة بعد تخطيط النص، بما في ذلك الالتفاف التلقائي. هذا مفيد عند فحص طول النص وتخطيطه في قوالب العرض.
+
+الفقرة هي عنصر واحد في [ITextFrame.Paragraphs](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/paragraphs/)، ويمكن أن تشغل عدة أسطر مرسومة. كسرة سطر صريحة داخل الفقرة تفرض سطرًا جديدًا دون إنشاء فقرة أخرى. الالتفاف التلقائي ينشئ أسطرًا بناءً على العرض المتاح دون إدراج كسور سطر صريحة في النص. لذلك لا يعطي عدّ الفقرات أو أحرف كسر السطر عدد الأسطر المرسومة.
+
+المثال التالي ينشئ شكل نص، يحسب أسطره، يضيق الشكل، ثم يستبدل النص بسلسلة أقصر. تم تمكين الالتفاف وتعطيل الضبط التلقائي بحيث يتحكم عرض الشكل في الالتفاف دون تصغير النص أو تغيير أبعاد الشكل تلقائيًا. أبعاد الشكل بوحدات النقاط. أخيرًا، يضيف المثال فقرة أخرى ويجمع عدد الأسطر عبر إطار النص.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+paragraph.Text = "This text demonstrates how automatic wrapping changes the number of rendered lines.";
+Console.WriteLine($"Original width: {paragraph.GetLinesCount()}");
+
+shape.Width = 150;
+Console.WriteLine($"Narrower shape: {paragraph.GetLinesCount()}");
+
+paragraph.Text = "Short text.";
+Console.WriteLine($"Shorter text: {paragraph.GetLinesCount()}");
+
+var secondParagraph = new Paragraph { Text = "Another paragraph." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+textFrame.Paragraphs.Add(secondParagraph);
+
+var totalLineCount = 0;
+foreach (var currentParagraph in textFrame.Paragraphs)
+{
+    totalLineCount += currentParagraph.GetLinesCount();
+}
+Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
+```
+
+مع هذا النص وهذه الأبعاد، يؤدي تضييق الشكل إلى زيادة عدد الأسطر، بينما يؤدي استبدال النص بالسلسلة القصيرة إلى تقليله. قد تختلف الأعداد الدقيقة حسب توفر الخطوط والاستبدال، حجم الخط، الهوامش، المسافات البادئة، الالتفاف، وإعدادات الضبط التلقائي. استخدم الخطوط وإعدادات التخطيط المقصودة للبيئة المستهدفة عند فحص القالب.
+
+عدد الأسطر وحده لا يحدد ما إذا كان النص يتجاوز حاويته. الارتفاع المتاح، ارتفاع الأسطر، تباعد الفقرات والأسطر، وسلوك الضبط التلقائي كلها عوامل مهمة؛ حتى سطر واحد قد يتجاوز العرض المتاح عندما يكون الالتفاف معطلًا.
+
 ## **استيراد وتصدير محتوى الفقرة**
 
 ### **استيراد نص HTML إلى الفقرات**
 
-استخدم [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/addfromhtml/) لتحويل ترميز HTML إلى فقرات وأجزاء داخل إطار نص.
+استخدام [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/addfromhtml/) لتحويل ترميز HTML إلى فقرات وأجزاء في إطار نص.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
-2. الوصول إلى شريحة وإضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) .
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation).
+2. الوصول إلى شريحة وإضافة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/).
 3. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الخاص بالشكل ومسح الفقرة الافتراضية.
 4. قراءة ملف HTML المصدر.
-5. تمرير سلسلة HTML إلى [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/addfromhtml/) .
-6. حفظ العرض المعدل.
+5. تمرير سلسلة HTML إلى [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/addfromhtml/).
+6. حفظ العرض التقديمي المعدل.
 
-هذا المثال بلغة C# يستورد HTML إلى إطار نص:
+هذا المثال في C# يستورد HTML إلى إطار نص:
 
 ```csharp
 using System.IO;
@@ -510,15 +557,15 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **تصدير نص الفقرة إلى HTML**
 
-استخدم [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/exporttohtml/) لتصدير مجموعة مختارة من الفقرات كملف HTML.
+استخدام [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/exporttohtml/) لتصدير نطاق مختار من الفقرات كـ HTML.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) وتحميل العرض المطلوب.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) وتحميل العرض المطلوب.
 2. الوصول إلى الشريحة والعثور على [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) الذي يحتوي على النص.
 3. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الخاص بالشكل.
-4. استدعاء [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/exporttohtml/) مع فهرس الفقرة الابتدائية وعدد الفقرات المراد تصديرها.
-5. كتابة سلسلة HTML المسترجعة إلى ملف.
+4. استدعاء [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphcollection/exporttohtml/) مع فهرس الفقرة الابتدائي وعدد الفقرات المراد تصديرها.
+5. كتابة سلسلة HTML المُرجعة إلى ملف.
 
-هذا المثال بلغة C# يصدر جميع الفقرات من الشكل النصي الأول:
+هذا المثال في C# يصدر جميع الفقرات من أول شكل نص:
 
 ```csharp
 using System;
@@ -542,19 +589,19 @@ else
 }
 ```
 
-### **عرض الفقرة كصورة**
+### **رسم الفقرة كصورة**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/) يعرض فقرة فردية مباشرة ويعيد كائن [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/) . احفظ النتيجة إلى ملف أو تدفق باستخدام [IImage.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/save/) . لا تحتاج إلى عرض الشكل المحتوي أو قص صورة يدوياً.
+[IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/) يرسم فقرة فردية مباشرة ويُرجع كائن [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/). احفظ النتيجة إلى ملف أو تدفق باستخدام [IImage.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/save/). لا تحتاج إلى رسم الشكل الحاوي أو قص صورة يدويًا.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/) يمكن أن يعيد `null` إذا لم يتم العثور على الفقرة في مجموعة الأبواب الخاصة بها، أو لا تمتلك حدود عرض صالحة، أو لا يمكن عرضها. تحقق من النتيجة قبل حفظها وتأكد من تحرير الصورة المسترجعة بعد الاستخدام.
+[IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/) قد يُرجع `null` إذا تعذر العثور على الفقرة في المجموعة الأم، أو لا توجد حدود عرض صالحة، أو لا يمكن رسمها. تحقق من النتيجة قبل حفظها وتأكد من تحرير الذاكرة بعد الاستخدام.
 
-#### **عرض الفقرة بالمقياس الافتراضي**
+#### **رسم الفقرة بالمقياس الافتراضي**
 
-نفترض أن لدينا ملف عرض يسمى sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو مربع نص يحتوي على ثلاث فقرات.
+نفترض أن لدينا ملف عرض تقديمي يُدعى sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو صندوق نص يحتوي على ثلاث فقرات.
 
-![مربع النص مع ثلاث فقرات](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-المثال التالي يعرض الفقرة الثانية في شكل نص عادي بالمقياس الافتراضي ويحفظ الصورة المسترجعة بصيغة PNG. تعليمة `using` تضمن تحرير الصورة بشكل صحيح.
+المثال التالي يرسم الفقرة الثانية في شكل نص عادي بالمقياس الافتراضي ويحفظ الصورة المُرجعة بصيغة PNG. يضمن تصريح `using` تحرير الصورة بشكل صحيح.
 
 ```csharp
 using System;
@@ -587,11 +634,11 @@ else
 
 النتيجة:
 
-![صورة الفقرة](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **عرض الفقرة في خلية جدول مع التحجيم**
+#### **رسم الفقرة في خلية جدول مع التحجيم**
 
-استخدم نسخة [IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/) التي تقبل معلمات `float scaleX` و `float scaleY` لتحديد عوامل التحجيم الأفقي والرأسي. المثال التالي ينشئ جدولاً، يعرض الفقرة في خليةه الأولى بارتفاع وعرض يبلغ ضعف الحجم الافتراضي، ويحفظ النتيجة كصورة PNG.
+استخدام نسخة [IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/) التي تقبل معلمات `float scaleX` و `float scaleY` لضبط عوامل التحجيم الأفقي والرأسي. المثال التالي ينشئ جدولًا، يرسم الفقرة في خليةه الأولى بعرض وارتفاع مزدوجين عن الافتراضي، ويحفظ النتيجة كصورة PNG.
 
 ```csharp
 using System;
@@ -617,24 +664,24 @@ else
 }
 ```
 
-عامل التحجيم `1` يحافظ على البكسل الافتراضي للمحور. على سبيل المثال، `2` لكلا العاملين ينتج صورة عرضها وارتفاعها تقريباً ضعف الأبعاد الافتراضية، أي بأربعة أضعاف عدد البكسلات. العوامل الأكبر عادةً ما تنتج نصاً أكثر وضوحاً للتكبير أو للإخراج عالي الدقة، لكنها أيضاً تزيد من استهلاك الذاكرة وحجم الملف. القيم الأقل من `1` تنتج صوراً أصغر بأقل تفاصيل. استخدم عوامل متساوية للحفاظ على نسبة أبعاد الفقرة؛ العوامل الأفقية والرأسية المختلفة تمدد الناتج بشكل مستقل.
+عامل التحجيم `1` يبقي هذا المحور بحجمه الافتراضي بالبكسل. على سبيل المثال، `2` لكل العاملين ينتج صورة عرضها وارتفاعها تقريبًا ضعف الأبعاد الافتراضية، أي بأربعة أضعاف عدد البكسلات. القيم الأكبر عادةً ما تُنتج نصًا أكثر حدة للتكبير أو الإخراج عالي الدقة، لكنها تزيد أيضًا من استهلاك الذاكرة وحجم الملف. القيم الأقل من `1` تنتج صورًا أصغر مع تفاصيل أقل. استخدم عوامل متساوية للحفاظ على نسبة أبعاد الفقرة؛ العوامل الأفقية والرأسية المختلفة تُشِّق الناتج بشكل مستقل.
 
-عرض الشكل الكامل باستخدام [IShape.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/getimage/) يظل مفيداً عندما يجب أن يشمل الإخراج تعبئة الشكل، أو حدوده، أو سياقه البصري. للصور التي تحتوي على فقرة فقط، استخدم [IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/) .
+رسم الشكل بأكمله باستخدام [IShape.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/getimage/) يبقى مفيدًا عندما يجب تضمين تعبئة الشكل، حدوده، أو سياق بصري آخر. للحصول على صورة للفقرة فقط، استخدم [IParagraph.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getimage/).
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تعطيل التفاف السطر بالكامل داخل إطار النص؟**
+**هل يمكنني تعطيل التفاف السطر تمامًا داخل إطار النص؟**
 
-نعم. عيّن [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/wraptext/) لتعطيل التفاف السطر بحيث لا تنكسر السطور عند حدود إطار النص.
+نعم. عيّن [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/wraptext/) لتعطيل الالتفاف بحيث لا تنكسر الأسطر عند حواف إطار النص.
 
-**كيف يمكنني الحصول على الحدود الفعلية للفقرة على الشريحة؟**
+**كيف يمكنني الحصول على الحدود الدقيقة للفقرة المحددة على الشريحة؟**
 
-استخدم [IParagraph.GetRect](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getrect/) لاسترجاع المستطيل المحيط بالفقرة. يوفر [IPortion.GetRect](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/getrect/) حدود الجزء الفردي.
+استخدم [IParagraph.GetRect](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/getrect/) لاسترجاع مستطيل حدود الفقرة. توفر [IPortion.GetRect](https://reference.aspose.com/slides/ar/net/aspose.slides/iportion/getrect/) حدود الجزء الفردي.
 
-**أين يتم التحكم في محاذاة الفقرة (يسار، يمين، وسط أو ضبط)؟**
+**أين يتم التحكم في محاذاة الفقرة (يسار، يمين، مركز أو مبررة)؟**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/alignment/) هو إعداد على مستوى الفقرة ويطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/alignment/) هو إعداد على مستوى الفقرة ويُطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
 
 **هل يمكنني تعيين لغة التدقيق لجزء من الفقرة؟**
 
-نعم. عيّن [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseportionformat/languageid/) للأجزاء الفردية، بحيث يمكن لفقرة واحدة أن تحتوي على نصوص بعدة لغات.
+نعم. عيّن [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseportionformat/languageid/) للأجزاء الفردية، بحيث يمكن للفقرة الواحدة أن تحتوي نصًا بعدة لغات.

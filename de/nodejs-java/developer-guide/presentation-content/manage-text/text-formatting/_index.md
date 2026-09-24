@@ -10,15 +10,15 @@ keywords:
 - Texthintergrund
 - Texttransparenz
 - Zeichenabstand
-- Schrifteigenschaften
+- Schriftarteigenschaften
 - Schriftfamilie
 - Textrotation
-- Rotationswinkel
+- Drehwinkel
 - Textfeld
 - Zeilenabstand
 - Autofit-Eigenschaft
-- Textfeld Anker
-- Tabulatoren
+- Textfeldverankerung
+- Texttabulation
 - Standardsprache
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Node.js via Java formatieren und gestalten. Schriftarten, Farben, Ausrichtung und mehr anpassen."
+description: "Formatieren und Gestalten von Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Node.js via Java. Schriftarten, Farben, Ausrichtung und mehr anpassen."
 ---
 ## **Übersicht**
 
-Dieser Artikel zeigt, wie Text in PowerPoint- und OpenDocument‑Präsentationen mit Aspose.Slides für Node.js über Java formatiert wird. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schriftarteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textausrichtung, Tabulatoren und Spracheinstellungen.
+Dieser Artikel zeigt, wie man Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Node.js via Java formatiert. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schriftarteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabstopps und Spracheinstellungen.
 
-In den nachfolgenden Beispielen verwenden wir eine Datei namens "sample.pptx", die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
+In den nachfolgenden Beispielen verwenden wir eine Datei namens "sample.pptx", die auf der ersten Folie eine einzelne Textbox mit folgendem Text enthält:
 
 ![Beispieltext](sample_text.png)
 
-Um wörtlichen Text oder Übereinstimmungen mit regulären Ausdrücken zu finden und zu markieren, siehe [Suchen und Ersetzen von Text](/slides/de/nodejs-java/search-and-replace-text/).
+Um literal Text oder reguläre‑Ausdruck‑Übereinstimmungen zu finden und hervorzuheben, siehe [Suchen und Ersetzen von Text](/slides/de/nodejs-java/search-and-replace-text/).
 
-## **Hintergrundfarbe für Text festlegen**
+## **Text-Hintergrundfarbe festlegen**
 
 Verwenden Sie [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) , um die Standard‑Hervorhebungsfarbe für einen Absatz festzulegen, oder verwenden Sie [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) , um einzelne Textabschnitte zu formatieren.
 
-Das folgende Codebeispiel zeigt, wie die Hintergrundfarbe für den **gesamten Absatz** festgelegt wird:
+Das folgende Codebeispiel zeigt, wie man die Hintergrundfarbe für den **gesamten Absatz** festlegt:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -67,7 +67,7 @@ Das Ergebnis:
 
 ![Der graue Absatz](gray_paragraph.png)
 
-Das nachstehende Codebeispiel demonstriert, wie die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festgelegt wird:
+Das folgende Codebeispiel demonstriert, wie man die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festlegt:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,11 +99,11 @@ Das Ergebnis:
 
 ![Die grauen Textabschnitte](gray_text_portions.png)
 
-## **Textabsätze ausrichten**
+## **Absätze ausrichten**
 
-Verwenden Sie [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) , um die Absatzausrichtung innerhalb eines Textfelds festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, blockweise usw. sein.
+Verwenden Sie [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) , um die Absatzausrichtung in einem Textfeld festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, im Blocksatz usw. sein.
 
-Das folgende Codebeispiel zeigt, wie der Absatz **zentriert** ausgerichtet wird:
+Das folgende Codebeispiel zeigt, wie man den Absatz **zentriert** ausrichtet:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -129,9 +129,9 @@ Das Ergebnis:
 
 ## **Transparenz für Text festlegen**
 
-Die Texttransparenz wird über die Alpha‑Komponente der Farbe gesteuert, die [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) zugewiesen ist. In den nachstehenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Kanalwert im Bereich 0–255 und keine Transparenz‑Prozentsatz.
+Die Texttransparenz wird über die Alpha‑Komponente der Farbe gesteuert, die [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) zugewiesen wird. In den nachfolgenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Kanalwert im Bereich 0–255 und kein Transparenzprozentsatz.
 
-Das folgende Codebeispiel zeigt, wie Transparenz auf den **gesamten Absatz** angewendet wird:
+Das folgende Codebeispiel zeigt, wie man Transparenz für den **gesamten Absatz** anwendet:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -146,7 +146,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // Setzen Sie die Füllfarbe des Textes auf eine transparente Farbe.
+    // Setzen Sie die Füllfarbe des Textes auf die transparente Farbe.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -160,7 +160,7 @@ Das Ergebnis:
 
 ![Der transparente Absatz](transparent_paragraph.png)
 
-Das folgende Codebeispiel zeigt, wie Transparenz auf **Textabschnitte mit fetter Schrift** angewendet wird:
+Das folgende Codebeispiel zeigt, wie man Transparenz für **Textabschnitte mit fetter Schrift** anwendet:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -201,7 +201,7 @@ Das Ergebnis:
 
 Verwenden Sie [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) , um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verkleinern.
 
-Der folgende JavaScript‑Code zeigt, wie der Zeichenabstand im **gesamten Absatz** erweitert wird:
+Der folgende JavaScript‑Code zeigt, wie man den Zeichenabstand im **gesamten Absatz** vergrößert:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -225,7 +225,7 @@ Das Ergebnis:
 
 ![Der Zeichenabstand im Absatz](character_spacing_in_paragraph.png)
 
-Das nachstehende Codebeispiel zeigt, wie der Zeichenabstand in **Textabschnitten mit fetter Schrift** erweitert wird:
+Das folgende Codebeispiel zeigt, wie man den Zeichenabstand in **Textabschnitten mit fetter Schrift** vergrößert:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -258,9 +258,9 @@ Das Ergebnis:
 
 ### **Kerning für bestimmte Schriftarten deaktivieren**
 
-In einigen Fällen kann der von Aspose.Slides gerenderte Text leicht enger erscheinen als derselbe Text, der in PowerPoint angezeigt wird. Dies kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriftarten ignorieren kann, selbst wenn die Schriftart gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
+In einigen Fällen kann der von Aspose.Slides gerenderte Text etwas enger aussehen als derselbe Text in PowerPoint. Das kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriftarten ignorieren kann, selbst wenn die Schriftart gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
 
-Um die gerenderte Ausgabe in solchen Fällen PowerPoint anzunähern, können Sie das Kerning für Textabschnitte, die die betroffene Schriftart verwenden, deaktivieren. Setzen Sie [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) auf einen Wert, der deutlich größer ist als die tatsächliche Schriftgröße:
+Um die gerenderte Ausgabe in solchen Fällen PowerPoint anzunähern, können Sie Kerning für Textabschnitte, die die betroffene Schriftart verwenden, deaktivieren. Setzen Sie [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) auf einen Wert, der deutlich größer als die tatsächliche Schriftgröße ist:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -298,13 +298,13 @@ try {
 }
 ```
 
-Diese Einstellung verhindert, dass Kerning auf passende Textabschnitte angewendet wird, und kann dabei helfen, die Darstellung von Aspose.Slides an die visuelle Ausgabe von PowerPoint für von diesem PowerPoint‑spezifischen Verhalten betroffene Schriftarten anzupassen.
+Diese Einstellung verhindert, dass Kerning auf passende Textabschnitte angewendet wird, und kann helfen, die Darstellung von Aspose.Slides an die visuelle Ausgabe von PowerPoint für von diesem PowerPoint‑spezifischen Verhalten betroffene Schriftarten anzupassen.
 
-## **Schriftart‑Eigenschaften für Text verwalten**
+## **Schriftart‑Eigenschaften von Text verwalten**
 
 Schriftarteigenschaften können auf Absatzebene über [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) oder für einzelne Abschnitte über [PortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/) festgelegt werden.
 
-Der folgende Code legt die Schriftart und den Textstil für den gesamten Absatz fest: Er wendet Schriftgröße, Fett, Kursiv, gepunktete Unterstreichung und die Schriftart Times New Roman auf alle Abschnitte im Absatz an.
+Der folgende Code legt die Schriftart und den Textstil für den gesamten Absatz fest: Er wendet Schriftgröße, Fett, Kursiv, punktierte Unterstreichung und die Schriftart Times New Roman auf alle Abschnitte im Absatz an.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,7 +317,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // Legen Sie die Schriftarteigenschaften für den Absatz fest.
+    // Setzen Sie die Schriftarteigenschaften für den Absatz.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -334,7 +334,7 @@ Das Ergebnis:
 
 ![Die Schriftarteigenschaften für den Absatz](font_properties_for_paragraph.png)
 
-Das nachstehende Codebeispiel wendet ähnliche Eigenschaften auf **Textabschnitte mit fetter Schrift** an:
+Das folgende Codebeispiel wendet ähnliche Eigenschaften auf **Textabschnitte mit fetter Schrift** an:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -375,7 +375,7 @@ Das Ergebnis:
 
 Verwenden Sie [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) , um eine vordefinierte Textorientierung innerhalb einer Form festzulegen.
 
-Das folgende Codebeispiel setzt die Textorientierung in der Form auf `Vertical270`, wodurch der Text **90 Grad gegen den Uhrzeigersinn** rotiert wird:
+Das folgende Codebeispiel setzt die Textorientierung in der Form auf `Vertical270`, wodurch der Text **um 90 Grad gegen den Uhrzeigersinn** gedreht wird:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -400,9 +400,9 @@ Das Ergebnis:
 
 ## **Benutzerdefinierte Drehung für Textfelder festlegen**
 
-Verwenden Sie [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) , um einen benutzerdefinierten Drehwinkel für einen [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) festzulegen.
+Verwenden Sie [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) , um einen benutzerdefinierten Drehwinkel für ein [TextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/) festzulegen.
 
-Das nachstehende Codebeispiel dreht das Textfeld innerhalb der Form um 3 Grad im Uhrzeigersinn:
+Das folgende Codebeispiel dreht das Textfeld innerhalb der Form um 3 Grad im Uhrzeigersinn:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -424,14 +424,14 @@ Das Ergebnis:
 
 ![Die benutzerdefinierte Textrotation](custom_text_rotation.png)
 
-## **Zeilenabstand für Absätze festlegen**
+## **Zeilenabstand von Absätzen festlegen**
 
-Aspose.Slides bietet [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) und [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) zum Steuern des Absatzabstands. Diese Eigenschaften werden wie folgt verwendet:
+Aspose.Slides bietet [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-), und [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-), um den Abstand von Absätzen zu steuern. Diese Eigenschaften werden wie folgt verwendet:
 
 * Verwenden Sie einen positiven Wert, um den Zeilenabstand als Prozentsatz der Zeilenhöhe anzugeben.
 * Verwenden Sie einen negativen Wert, um den Zeilenabstand in Punkten anzugeben.
 
-Das folgende Codebeispiel zeigt, wie der Zeilenabstand innerhalb des Absatzes festgelegt wird:
+Das folgende Codebeispiel zeigt, wie man den Zeilenabstand innerhalb des Absatzes festlegt:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -456,7 +456,7 @@ Das Ergebnis:
 
 ## **Autofit‑Typ für Textfelder festlegen**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie es, um zu steuern, ob der Text schrumpft, überläuft oder die Form automatisch neu skaliert.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie es, um zu steuern, ob der Text verkleinert, überläuft oder die Form automatisch neu dimensioniert wird.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -475,7 +475,9 @@ try {
 }
 ```
 
-## **Anker von Textfeldern festlegen**
+Um Zeilen nach automatischem Zeilenumbruch zu zählen und zu sehen, wie sich Text- oder Formbreite auf das Ergebnis auswirkt, siehe [Anzahl gerenderter Zeilen](/slides/de/nodejs-java/manage-paragraph/). Die reine Zeilenzahl gibt nicht an, ob Text seinen Container überläuft.
+
+## **Verankerung von Textfeldern festlegen**
 
 [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) definiert, wie Text vertikal innerhalb einer Form positioniert wird, zum Beispiel oben, mittig oder unten.
 
@@ -498,7 +500,7 @@ try {
 
 ## **Texttabulation festlegen**
 
-Verwenden Sie [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) und [ParagraphFormat.getTabs](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#getTabs--) , um Tabulatoren in einem Absatz zu konfigurieren.
+Verwenden Sie [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) und [ParagraphFormat.getTabs](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#getTabs--) , um Tabstopps in einem Absatz zu konfigurieren.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -521,13 +523,13 @@ try {
 
 Das Ergebnis:
 
-![Die Absatz-Tabulatoren](paragraph_tabs.png)
+![Die Absatz‑Tabstopps](paragraph_tabs.png)
 
 ## **Korrektursprache festlegen**
 
-Aspose.Slides bietet [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) , mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
+Aspose.Slides bietet [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
 
-Das folgende Codebeispiel zeigt, wie die Korrektursprache für einen Textabschnitt festgelegt wird:
+Das folgende Codebeispiel zeigt, wie man die Korrektursprache für einen Textabschnitt festlegt:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -557,9 +559,9 @@ try {
 }
 ```
 
-## **Standard‑Sprache festlegen**
+## **Standardsprache festlegen**
 
-Verwenden Sie [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) , um die Standardsprache für beim Laden oder Erstellen einer Präsentation erzeugten Text festzulegen.
+Verwenden Sie [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) , um die Standardsprache für Text festzulegen, der beim Laden oder Erstellen einer Präsentation erzeugt wird.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -571,11 +573,11 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine neue Rechteckform mit Text hinzu.
+    // Fügt eine neue Rechteckform mit Text hinzu.
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Überprüfen Sie die Sprache des ersten Abschnitts.
+    // Prüft die Sprache der ersten Portion.
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -587,7 +589,7 @@ try {
 
 Um die Standard‑Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-Das folgende Codebeispiel zeigt, wie eine standardmäßige fette Schrift mit einer Größe von 14 pt für gesamten Text über alle Folien in einer neuen Präsentation festgelegt wird.
+Das folgende Codebeispiel zeigt, wie man eine standardmäßige fette Schriftart mit einer Größe von 14 pt für den gesamten Text in allen Folien einer neuen Präsentation festlegt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -595,7 +597,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie das Absatzformat der obersten Ebene.
+    // Abrufen des Absatzformats der obersten Ebene.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -609,15 +611,15 @@ try {
 }
 ```
 
-## **Text mit All‑Caps‑Effekt extrahieren**
+## **Text mit dem Alle‑Großbuchstaben‑Effekt extrahieren**
 
-In PowerPoint bewirkt das Anwenden des **All Caps**‑Schrifteffekts, dass Text auf der Folie in Großbuchstaben angezeigt wird, selbst wenn er ursprünglich in Kleinbuchstaben eingegeben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides abrufen, gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text abzugleichen, prüfen Sie [TextCapType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textcaptype/) und konvertieren Sie die zurückgegebene Zeichenkette in Großbuchstaben, wenn der Wert `All` ist.
+In PowerPoint bewirkt das Anwenden des **All Caps**‑Schrifteffekts, dass Text auf der Folie in Großbuchstaben angezeigt wird, selbst wenn er ursprünglich in Kleinbuchstaben eingegeben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides abrufen, gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textcaptype/) und konvertieren Sie die zurückgegebene Zeichenkette in Großbuchstaben, wenn der Wert `All` ist.
 
-Nehmen wir an, wir haben das folgende Textfeld auf der ersten Folie der Datei sample2.pptx.
+Angenommen, wir haben die folgende Textbox auf der ersten Folie der Datei sample2.pptx.
 
 ![Der All‑Caps‑Effekt](all_caps_effect.png)
 
-Das folgende Codebeispiel zeigt, wie der Text mit angewendetem **All Caps**‑Effekt extrahiert wird:
+Das folgende Codebeispiel zeigt, wie man den Text mit angewendetem **All Caps**‑Effekt extrahiert:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -653,6 +655,6 @@ All-Caps effect: HELLO, ASPOSE!
 
 Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie [Table](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/table/). Durchlaufen Sie die Zellen und aktualisieren Sie jede Zelle über [Cell.getTextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/cell/#getTextFrame--) sowie die Absatzformatierung über [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**Wie kann man einen Farbverlauf auf Text in einer PowerPoint‑Folie anwenden?**
+**Wie wendet man einen Farbverlauf auf Text in einer PowerPoint‑Folie an?**
 
-Um einen Farbverlauf auf Text anzuwenden, verwenden Sie [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Setzen Sie [FillFormat.setFillType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) auf [FillType.Gradient](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/filltype/) und konfigurieren Sie die Verlaufspunkte, Richtung und Transparenz.
+Um einen Farbverlauf auf Text anzuwenden, verwenden Sie [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Setzen Sie [FillFormat.setFillType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) auf [FillType.Gradient](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/filltype/) und konfigurieren Sie die Farbverlaufs‑Stops, die Richtung und die Transparenz.

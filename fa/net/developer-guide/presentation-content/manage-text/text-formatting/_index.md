@@ -16,9 +16,9 @@ keywords:
 - زاویه چرخش
 - قاب متن
 - فاصله خطوط
-- ویژگی خودسازگاری
+- ویژگی خودکاراندازه‌گیری
 - لنگر قاب متن
-- تب‌گذاری متن
+- تب‌بندی متن
 - زبان پیش‌فرض
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "قالب‌بندی و استایل‌دهی به متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET. سفارشی‌سازی قلم‌ها، رنگ‌ها، تراز و موارد دیگر."
+description: "قالب‌بندی و استایل‌بندی متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET. قلم‌ها، رنگ‌ها، ترازبندی و موارد دیگر را سفارشی کنید."
 ---
 ## **بررسی کلی**
 
-این مقاله نشان می‌دهد چگونه متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET قالب‌بندی کنید. این مقاله به رنگ پس‌زمینه، شفافیت، فاصله بین حروف، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار Autofit، قرارگیری متن، تب‌استاپ‌ها و تنظیمات زبان می‌پردازد.
+این مقاله نشان می‌دهد چگونه متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides for .NET قالب‌بندی کنیم. موضوعات شامل رنگ‌های پس‌زمینه، شفافیت، فاصله بین حروف، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار خودکاراندازه‌گیری، مکان‌یابی متن، تب‌ها و تنظیمات زبان می‌شود.
 
-در مثال‌های زیر، از فایلی به نام "sample.pptx" استفاده می‌کنیم که یک جعبهٔ متن واحد در اسلاید اول دارد و شامل متن زیر است:
+در مثال‌های زیر، فایلی به نام "sample.pptx" استفاده می‌کنیم که یک جعبه متن واحد در اولین اسلاید دارد و متن زیر را شامل می‌شود:
 
 ![متن نمونه](sample_text.png)
 
-برای پیدا کردن و برجسته‌کردن متن دقیق یا تطبیق‌های عبارت منظم، به [جستجو و جایگزینی متن](/slides/fa/net/search-and-replace-text/) مراجعه کنید.
+برای یافتن و برجسته‌سازی متن به صورت دقیق یا تطابق‌های عبارات منظم، به [جستجو و جایگزینی متن](/slides/fa/net/search-and-replace-text/) مراجعه کنید.
 
 ## **تنظیم رنگ پس‌زمینه متن**
 
-از [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/defaultportionformat/) برای تنظیم رنگ برجسته پیش‌فرض یک پاراگراف استفاده کنید، یا برای بخش‌های متنی فردی از [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/highlightcolor/) استفاده کنید.
+از [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/defaultportionformat/) برای تنظیم رنگ برجسته پیش‌فرض یک پاراگراف استفاده کنید یا از [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/highlightcolor/) برای بخش‌های متن منفرد.
 
-کد زیر نحوه تنظیم رنگ پس‌زمینه برای **کل پاراگراف** را نشان می‌دهد:
+مثال کد زیر نشان می‌دهد چگونه رنگ پس‌زمینه **تمام پاراگراف** تنظیم شود:
 
 ```cs
 using System.Drawing;
@@ -65,7 +65,7 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![پاراگراف خاکستری](gray_paragraph.png)
 
-کد زیر نشان می‌دهد چگونه رنگ پس‌زمینه برای **بخش‌های متنی با قلم بولد** تنظیم شود:
+مثال کد زیر نحوه تنظیم رنگ پس‌زمینه برای **بخش‌های متنی با قلم بولد** را نشان می‌دهد:
 
 ```cs
 using System.Drawing;
@@ -92,13 +92,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 نتیجه:
 
-![بخش‌های متنی خاکستری](gray_text_portions.png)
+![بخش‌های متن خاکستری](gray_text_portions.png)
 
-## **تراز کردن پاراگراف‌های متن**
+## **هم‌ترازی پاراگراف‌های متن**
 
-از [IParagraphFormat.Alignment](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/alignment/) برای تنظیم تراز پاراگراف داخل یک فریم متن استفاده کنید. مقدار می‌تواند centered، left‑aligned، right‑aligned، justified و غیره باشد.
+از [IParagraphFormat.Alignment](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/alignment/) برای تنظیم ترازبندی پاراگراف داخل قاب متن استفاده کنید. مقدار می‌تواند مرکز، چپ، راست، توجیه‌شده و ... باشد.
 
-کد زیر نشان می‌دهد چگونه پاراگراف را به **مرکز** تراز کنید:
+مثال کد زیر نشان می‌دهد چگونه پاراگراف به **مرکز** ترازبندی شود:
 
 ```cs
 using Aspose.Slides;
@@ -109,7 +109,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // تراز پاراگراف را به مرکز تنظیم کنید.
+    // ترازبندی پاراگراف را به مرکز تنظیم کنید.
     paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
     presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -118,13 +118,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 نتیجه:
 
-![پاراگراف تراز‌شده](aligned_paragraph.png)
+![پاراگراف هم‌تراز شده](aligned_paragraph.png)
 
 ## **تنظیم شفافیت برای متن**
 
-شفافیت متن از طریق مؤلفهٔ آلفای رنگ اختصاص داده شده به [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/fillformat/) کنترل می‌شود. در مثال‌های زیر، `alpha = 50` مقدار کانال آلفای ARGB در مقیاس 0–255 است، نه درصد شفافیت.
+شفافیت متن از طریق جزء آلفا رنگی که به [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/fillformat/) اختصاص داده می‌شود، کنترل می‌شود. در مثال‌های زیر، `alpha = 50` مقدار کانال آلفای ARGB در مقیاس 0–255 است، نه درصد شفافیت.
 
-کد زیر نشان می‌دهد چگونه شفافیت برای **کل پاراگراف** اعمال شود:
+مثال کد زیر نشان می‌دهد چگونه شفافیت به **تمام پاراگراف** اعمال شود:
 
 ```cs
 using System.Drawing;
@@ -138,7 +138,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // رنگ پر متن را به رنگ شفاف تنظیم کنید.
+    //    رنگ پر کردن متن را به رنگ شفاف تنظیم کنید.
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -150,7 +150,7 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![پاراگراف شفاف](transparent_paragraph.png)
 
-کد زیر نشان می‌دهد چگونه شفافیت برای **بخش‌های متنی با قلم بولد** اعمال شود:
+مثال کد زیر نشان می‌دهد چگونه شفافیت به **بخش‌های متنی با قلم بولد** اعمال شود:
 
 ```cs
 using System.Drawing;
@@ -168,7 +168,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // شفافیت بخش متنی را تنظیم کنید.
+            // شفافیت بخش متن را تنظیم کنید.
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
         }
@@ -180,13 +180,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 نتیجه:
 
-![بخش‌های متنی شفاف](transparent_text_portions.png)
+![بخش‌های متن شفاف](transparent_text_portions.png)
 
-## **تنظیم فاصلهٔ بین حروف برای متن**
+## **تنظیم فاصله بین حروف برای متن**
 
-از [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/spacing/) برای افزایش یا کاهش فاصله بین حروف در یک جعبهٔ متن استفاده کنید.
+از [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/spacing/) برای افزایش یا کاهش فاصله بین حروف در یک جعبه متن استفاده کنید.
 
-کد C# زیر نشان می‌دهد چگونه فاصلهٔ بین حروف در **کل پاراگراف** افزایش یابد:
+کد C# زیر نشان می‌دهد چگونه فاصله حروف در **تمام پاراگراف** گسترش یابد:
 
 ```cs
 using Aspose.Slides;
@@ -197,8 +197,8 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // توجه: برای فشرده‌کردن فاصله بین حروف از مقادیر منفی استفاده کنید.
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // فاصله بین حروف را گسترش دهید.
+    // توجه: برای فشرده‌سازی فاصله حروف از مقادیر منفی استفاده کنید.
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // فاصله حروف را گسترش دهید.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
@@ -206,9 +206,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 نتیجه:
 
-![فاصلهٔ بین حروف در پاراگراف](character_spacing_in_paragraph.png)
+![فاصله حروف در پاراگراف](character_spacing_in_paragraph.png)
 
-کد زیر نشان می‌دهد چگونه فاصلهٔ بین حروف در **بخش‌های متنی با قلم بولد** افزایش یابد:
+مثال کد زیر نشان می‌دهد چگونه فاصله حروف در **بخش‌های متنی با قلم بولد** گسترش یابد:
 
 ```cs
 using Aspose.Slides;
@@ -223,8 +223,8 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // توجه: برای فشرده‌کردن فاصله بین حروف از مقادیر منفی استفاده کنید.
-            portion.PortionFormat.Spacing = 3;  // فاصله بین حروف را گسترش دهید.
+            // توجه: برای فشرده‌سازی فاصله حروف از مقادیر منفی استفاده کنید.
+            portion.PortionFormat.Spacing = 3;  // فاصله حروف را گسترش دهید.
         }
     }
 
@@ -234,13 +234,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 نتیجه:
 
-![فاصلهٔ بین حروف در بخش‌های متنی](character_spacing_in_text_portions.png)
+![فاصله حروف در بخش‌های متن](character_spacing_in_text_portions.png)
 
-### **غیرفعال کردن Kerning برای قلم‌های خاص**
+### **غیرفعال کردن کرنینگ برای قلم‌های خاص**
 
-در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود، ممکن است نسبت به همان متن در PowerPoint کمی فشرده‌تر به نظر برسد. این می‌تواند به این دلیل باشد که PowerPoint داده‌های kerning را برای برخی قلم‌ها نادیده می‌گیرد، حتی اگر قلم دارای اطلاعات kerning معتبر باشد و kerning در تنظیمات PowerPoint فعال باشد.
+در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود، ممکن است اندکی فشرده‌تر از متن مشابه در PowerPoint به نظر برسد. این می‌تواند به این دلیل باشد که PowerPoint ممکن است داده‌های کرنینگ را برای برخی قلم‌ها نادیده بگیرد، حتی اگر قلم حاوی اطلاعات کرنینگ معتبر باشد و کرنینگ در تنظیمات PowerPoint فعال باشد.
 
-برای نزدیک‌تر شدن خروجی رندر شده به PowerPoint، می‌توانید kerning را برای بخش‌های متنی که از قلم موردنظر استفاده می‌کنند غیرفعال کنید. مقدار [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/kerningminimalsize/) را به مقداری بزرگتر از اندازهٔ واقعی قلم تنظیم کنید:
+برای نزدیک‌تر کردن خروجی رندر به PowerPoint در این موارد، می‌توانید کرنینگ را برای بخش‌های متنی که از قلم مورد نظر استفاده می‌کنند غیرفعال کنید. مقدار [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/kerningminimalsize/) را به مقدار قابل‌توجهی بزرگتر از اندازه واقعی قلم تنظیم کنید:
 
 ```cs
 using Aspose.Slides;
@@ -271,13 +271,13 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-این تنظیم از اعمال kerning بر روی بخش‌های متنی مطابقت‌دار جلوگیری می‌کند و می‌تواند به همسویی رندر Aspose.Slides با خروجی بصری PowerPoint برای قلم‌های تحت‌تاثیر این رفتار خاص PowerPoint کمک کند.
+این تنظیم مانع اعمال کرنینگ بر بخش‌های متن مطابق می‌شود و می‌تواند به هم‌راستایی رندر Aspose.Slides با خروجی بصری PowerPoint برای قلم‌هایی که تحت تأثیر این رفتار خاص PowerPoint هستند، کمک کند.
 
 ## **مدیریت ویژگی‌های قلم متن**
 
-ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/defaultportionformat/) یا در بخش‌های فردی از طریق [IPortionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformat/) تنظیم شوند.
+ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/defaultportionformat/) یا در بخش‌های منفرد از طریق [IPortionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformat/) تنظیم شوند.
 
-کد زیر قلم و سبک متن را برای **کل پاراگراف** تنظیم می‌کند: اندازه قلم، بولد، ایتالیک، زیرخط نقطه‌دار و قلم Times New Roman برای همهٔ بخش‌ها اعمال می‌شود.
+کد زیر قلم و سبک متن را برای **تمام پاراگراف** تنظیم می‌کند: اندازه قلم، بولد، ایتالیک، زیرخط نقطه‌ای و قلم Times New Roman را برای همه بخش‌های پاراگراف اعمال می‌کند.
 
 ```cs
 using Aspose.Slides;
@@ -303,7 +303,7 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![ویژگی‌های قلم برای پاراگراف](font_properties_for_paragraph.png)
 
-کد زیر ویژگی‌های مشابه را برای **بخش‌های متنی با قلم بولد** اعمال می‌کند:
+مثال کد زیر ویژگی‌های مشابهی را برای **بخش‌های متنی با قلم بولد** اعمال می‌کند:
 
 ```cs
 using Aspose.Slides;
@@ -318,7 +318,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // ویژگی‌های قلم را برای بخش متنی تنظیم کنید.
+            // ویژگی‌های قلم را برای بخش متن تنظیم کنید.
             portion.PortionFormat.FontHeight = 13;
             portion.PortionFormat.FontItalic = NullableBool.True;
             portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -332,13 +332,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 نتیجه:
 
-![ویژگی‌های قلم برای بخش‌های متنی](font_properties_for_text_portions.png)
+![ویژگی‌های قلم برای بخش‌های متن](font_properties_for_text_portions.png)
 
 ## **تنظیم چرخش متن**
 
-از [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/textverticaltype/) برای تنظیم جهت پیش‌فرض متن در داخل یک شکل استفاده کنید.
+از [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/textverticaltype/) برای تنظیم جهت پیش‌تعریف‌شده متن داخل یک شکل استفاده کنید.
 
-کد زیر جهت متن در شکل را به `Vertical270` تنظیم می‌کند که متن را **۹۰ درجه در جهت مخالف عقربه‌های ساعت** می‌چرخاند:
+مثال کد زیر جهت متن در شکل را به `Vertical270` تنظیم می‌کند که متن را **۹۰ درجه ضد ساعت‌گرد** می‌چرخاند:
 
 ```cs
 using Aspose.Slides;
@@ -360,9 +360,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ## **تنظیم چرخش سفارشی برای فریم‌های متن**
 
-از [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/rotationangle/) برای تنظیم زاویهٔ چرخش سفارشی یک [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) استفاده کنید.
+از [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/rotationangle/) برای تنظیم زاویه چرخش سفارشی یک [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) استفاده کنید.
 
-کد زیر فریم متن را به میزان ۳ درجه در جهت ساعت در داخل شکل می‌چرخاند:
+مثال کد زیر فریم متن را داخل شکل به میزان ۳ درجه به سمت ساعت‌گرد می‌چرخاند:
 
 ```cs
 using Aspose.Slides;
@@ -382,14 +382,14 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![چرخش سفارشی متن](custom_text_rotation.png)
 
-## **تنظیم فاصلهٔ خط پاراگراف‌ها**
+## **تنظیم فاصله خطوط پاراگراف‌ها**
 
-Aspose.Slides مجموعه‌ای از ویژگی‌های [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/spaceafter/)، [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/spacebefore/) و [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/spacewithin/) را برای کنترل فاصلهٔ پاراگراف فراهم می‌آورد. این ویژگی‌ها به شرح زیر استفاده می‌شوند:
+Aspose.Slides امکانات [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/spaceafter/)، [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/spacebefore/)، و [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/spacewithin/) را برای کنترل فاصله پاراگراف ارائه می‌دهد. این ویژگی‌ها به صورت زیر استفاده می‌شوند:
 
-* برای مشخص کردن فاصلهٔ خط به صورت درصدی از ارتفاع خط، مقدار مثبت استفاده کنید.
-* برای مشخص کردن فاصلهٔ خط به صورت نقاط، مقدار منفی استفاده کنید.
+* از مقدار مثبت برای تعیین فاصله خط به صورت درصدی از ارتفاع خط استفاده کنید.
+* از مقدار منفی برای تعیین فاصله خط به نقطه استفاده کنید.
 
-کد زیر نشان می‌دهد چگونه فاصلهٔ خط داخل پاراگراف را مشخص کنید:
+مثال کد زیر نشان می‌دهد چگونه فاصله خط را داخل پاراگراف مشخص کنید:
 
 ```cs
 using Aspose.Slides;
@@ -408,11 +408,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 نتیجه:
 
-![فاصلهٔ خط داخل پاراگراف](line_spacing.png)
+![فاصله خطوط در پاراگراف](line_spacing.png)
 
-## **تنظیم نوع Autofit برای فریم‌های متن**
+## **تنظیم نوع خودکاراندازه‌گیری برای فریم‌های متن**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/autofittype/) تعیین می‌کند هنگامیکه متن بیش از مرزهای کانتینر خود باشد، چه رفتار داشته باشد. از آن برای کنترل اینکه متن کوچک شود، سرریز شود یا به‌صورت خودکار اندازهٔ شکل را تغییر دهد استفاده کنید.
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/autofittype/) تعیین می‌کند که متن هنگام فراتر رفتن از مرزهای محفظه‌اش چگونه رفتار کند. از آن برای کنترل اینکه متن کوچک شود، بیش از حد جریان یابد یا به‌صورت خودکار شکل را تغییر اندازه دهد استفاده کنید.
 
 ```cs
 using Aspose.Slides;
@@ -428,9 +428,11 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **تنظیم نقطهٔ لنگر فریم‌های متن**
+برای شمارش خطوط پس از بسته‌بندی خودکار و مشاهده اینکه چگونه عرض متن یا شکل نتایج را تغییر می‌دهد، به [شمارش خطوط رندرشده](/slides/fa/net/manage-paragraph/) مراجعه کنید. تنها شمارش خطوط نشانگر این نیست که متن از محفظه‌اش سرریز می‌شود یا خیر.
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/anchoringtype/) تعریف می‌کند متن به صورت عمودی داخل شکل در کجا قرار گیرد، مثلا در بالا، وسط یا پایین.
+## **تنظیم نقطه مرجع فریم‌های متن**
+
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/anchoringtype/) تعیین می‌کند که متن به‌صورت عمودی داخل شکل چگونه موقعیت یابد، به‌عنوان مثال در بالا، وسط یا پایین.
 
 ```cs
 using Aspose.Slides;
@@ -446,9 +448,9 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **تنظیم تب‌گذاری متن**
+## **تنظیم تب‌بندی متن**
 
-از [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/defaulttabsize/) و [IParagraphFormat.Tabs](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/tabs/) برای پیکربندی توقف‌های تب در یک پاراگراف استفاده کنید.
+از [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/defaulttabsize/) و [IParagraphFormat.Tabs](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/tabs/) برای پیکربندی موقعیت‌های تب در یک پاراگراف استفاده کنید.
 
 ```cs
 using Aspose.Slides;
@@ -470,11 +472,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![تب‌های پاراگراف](paragraph_tabs.png)
 
-## **تنظیم زبان تصحیح املایی**
+## **تنظیم زبان بازبینی**
 
-Aspose.Slides ویژگی [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/languageid/) را فراهم می‌کند که به شما اجازه می‌دهد زبان تصحیح املایی برای یک بخش متنی را تنظیم کنید. این زبان تعیین می‌کند در PowerPoint برای چک املایی و دستوری از چه زبانی استفاده شود.
+Aspose.Slides ویژگی [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/languageid/) را فراهم می‌کند که به شما امکان می‌دهد زبان بازبینی برای یک بخش متن را تنظیم کنید. زبان بازبینی تعیین می‌کند که برای بررسی املا و دستور در PowerPoint از کدام زبان استفاده شود.
 
-کد زیر نشان می‌دهد چگونه زبان تصحیح املایی برای یک بخش متنی تنظیم شود:
+مثال کد زیر نشان می‌دهد چگونه زبان بازبینی را برای یک بخش متن تنظیم کنید:
 
 ```cs
 using Aspose.Slides;
@@ -494,7 +496,7 @@ using (var presentation = new Presentation("presentation.pptx"))
     textPortion.PortionFormat.EastAsianFont = font;
     textPortion.PortionFormat.LatinFont = font;
 
-    // شناسه زبان تصحیح املایی را تنظیم کنید.
+    // شناسه زبان بازبینی را تنظیم کنید.
     textPortion.PortionFormat.LanguageId = "zh-CN";
 
     textPortion.Text = "1。";
@@ -506,7 +508,7 @@ using (var presentation = new Presentation("presentation.pptx"))
 
 ## **تنظیم زبان پیش‌فرض**
 
-از [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/defaulttextlanguage/) برای تعریف زبان پیش‌فرض متنی که هنگام بارگذاری یا ایجاد یک ارائه تولید می‌شود، استفاده کنید.
+از [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/defaulttextlanguage/) برای تعریف زبان پیش‌فرض متنی که هنگام بارگذاری یا ایجاد یک ارائه ایجاد می‌شود، استفاده کنید.
 
 ```cs
 using Aspose.Slides;
@@ -528,11 +530,11 @@ using (var presentation = new Presentation(loadOptions))
 }
 ```
 
-## **تنظیم سبک پیش‌فرض متن**
+## **تنظیم سبک متن پیش‌فرض**
 
-برای اعمال قالب‌بندی پیش‌فرض متن در سطح ارائه، از [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentation/defaulttextstyle/) استفاده کنید.
+برای اعمال قالب‌بندی متن پیش‌فرض در سطح ارائه، از [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentation/defaulttextstyle/) استفاده کنید.
 
-کد زیر نشان می‌دهد چگونه قلم بولد پیش‌فرض با اندازهٔ ۱۴ pt برای تمام متن‌ها در اسلایدهای یک ارائهٔ جدید تنظیم شود.
+مثال کد زیر نشان می‌دهد چگونه یک قلم بولد پیش‌فرض با اندازه ۱۴ پوینت برای تمام متن‌ها در اسلایدهای یک ارائه جدید تنظیم شود.
 
 ```cs
 using Aspose.Slides;
@@ -540,7 +542,7 @@ using Aspose.Slides.Export;
 
 using (var presentation = new Presentation())
 {
-    // دریافت قالب پاراگراف سطح بالایی.
+    // دریافت قالب پاراگراف سطح بالا.
     var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
@@ -553,15 +555,15 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **استخراج متن با افکت تمام حروف بزرگ**
+## **استخراج متن با اثر تمام حروف بزرگ**
 
-در PowerPoint، اعمال افکت **All Caps** باعث می‌شود متن در اسلاید به صورت حروف بزرگ نمایش داده شود حتی اگر اصلاً به حروف کوچک وارد شده باشد. هنگام دریافت چنین بخشی از متن با Aspose.Slides، کتابخانه متن را دقیقاً همان‌طوری که وارد شده بر می‌گرداند. برای تطبیق با متنی که نمایش داده می‌شود، [TextCapType](https://reference.aspose.com/slides/fa/net/aspose.slides/textcaptype/) را بررسی کنید و زمانی که مقدار `All` باشد، رشتهٔ برگردانده شده را به حروف بزرگ تبدیل کنید.
+در PowerPoint، اعمال اثر **All Caps** به قلم باعث می‌شود متن روی اسلاید به صورت حروف بزرگ نشان داده شود حتی اگر ابتدا با حروف کوچک وارد شده باشد. وقتی چنین بخشی از متن را با Aspose.Slides بازیابی می‌کنید، کتابخانه متن را دقیقاً همان‌طور که وارد شده است برمی‌گرداند. برای تطبیق با متن نمایش داده‌شده، [TextCapType](https://reference.aspose.com/slides/fa/net/aspose.slides/textcaptype/) را بررسی کرده و رشتهٔ برگردانده‌شده را به حروف بزرگ تبدیل کنید وقتی مقدار آن `All` باشد.
 
-فرض کنید جعبهٔ متن زیر در اسلاید اول فایل sample2.pptx وجود دارد.
+فرض کنید جعبه متن زیر را در اولین اسلاید فایل sample2.pptx داریم.
 
-![افکت All Caps](all_caps_effect.png)
+![اثر تمام حروف بزرگ](all_caps_effect.png)
 
-کد زیر نشان می‌دهد چگونه متن با افکت **All Caps** استخراج شود:
+مثال کد زیر نشان می‌دهد چگونه متن با اثر **All Caps** استخراج شود:
 
 ```cs
 using Aspose.Slides;
@@ -589,12 +591,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**چگونه متن در جدول یک اسلاید را ویرایش کنیم؟**
+**چگونه متن در یک جدول در اسلاید را ویرایش کنیم؟**
 
-برای ویرایش متن در جدول یک اسلاید، از [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) استفاده کنید. سلول‌ها را پیمایش کنید و هر سلول را از طریق [ICell.TextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/textframe/) و قالب‌بندی پاراگراف از طریق [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/paragraphformat/) به‌روزرسانی کنید.
+برای ویرایش متن در یک جدول در اسلاید، از [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) استفاده کنید. سلول‌ها را مرور کنید و هر سلول را از طریق [ICell.TextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/textframe/) به‌روزرسانی کنید و قالب‌بندی پاراگراف را از طریق [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/paragraphformat/) تنظیم کنید.
 
-**چگونه رنگ گرادیان به متن در اسلاید PowerPoint اعمال کنیم؟**
+**چگونه رنگ گرادیان به متن در یک اسلاید پاورپوینت اعمال کنیم؟**
 
-برای اعمال رنگ گرادیان به متن، از [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/fillformat/) استفاده کنید. [IFillFormat.FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformat/filltype/) را به [FillType.Gradient](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) تنظیم کنید و نقاط توقف گرادیان، جهت و شفافیت را پیکربندی کنید.
+برای اعمال رنگ گرادیان به متن، از [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/fillformat/) استفاده کنید. [IFillFormat.FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformat/filltype/) را روی [FillType.Gradient](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) تنظیم کنید و نقاط توقف گرادیان، جهت و شفافیت را پیکربندی کنید.

@@ -1,5 +1,5 @@
 ---
-title: Tekst opmaken in presentaties met Java
+title: Presentatietekst opmaken in Java
 linktitle: Tekstopmaak
 type: docs
 weight: 50
@@ -10,38 +10,38 @@ keywords:
 - tekstachtergrond
 - teksttransparantie
 - tekenafstand
-- lettertype‑eigenschappen
-- lettertypefamilie
+- lettertype-eigenschappen
+- lettertype-familie
 - tekstrotatie
 - rotatiehoek
-- tekstframe
+- tekstkader
 - regelafstand
-- autofit‑eigenschap
-- tekstframe‑anker
-- tekst‑tabulatie
+- autofit-eigenschap
+- verankering tekstkader
+- teksttabulatie
 - standaardtaal
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Formateer en style tekst in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Java. Pas lettertypen, kleuren, uitlijning en meer aan."
+description: "Formatteer en style tekst in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Java. Pas lettertypen, kleuren, uitlijning en meer aan."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe je tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides for Java. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekst‑ankering, tab‑stops en taalinstellingen.
+Dit artikel laat zien hoe u tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Java. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alineaspatiëring, autofit‑gedrag, tekstverankering, tabstops en taalinstellingen.
 
-In de voorbeelden hieronder gebruiken we een bestand met de naam **sample.pptx**, dat een enkele tekstvak bevat op de eerste dia met de volgende tekst:
+In de onderstaande voorbeelden gebruiken we een bestand genaamd “sample.pptx”, dat een enkele tekstvak bevat op de eerste dia met de volgende tekst:
 
 ![Voorbeeldtekst](sample_text.png)
 
-Om letterlijke tekst of reguliere‑expressie‑overeenkomsten te zoeken en te markeren, zie [Zoeken en vervangen van tekst](/slides/nl/java/search-and-replace-text/).
+Om letterlijke tekst of reguliere‑expressie‑overeenkomsten te vinden en te markeren, zie [Zoeken en vervangen van tekst](/slides/nl/java/search-and-replace-text/).
 
 ## **Achtergrondkleur van tekst instellen**
 
 Gebruik [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) voor individuele tekstgedeelten.
 
-De volgende code‑voorbeeld laat zien hoe je de achtergrondkleur voor de **hele alinea** instelt:
+Het volgende code‑voorbeeld toont hoe u de achtergrondkleur voor de **hele alinea** instelt:
 
 ```java
 import com.aspose.slides.*;
@@ -62,11 +62,11 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De grijze alinea](gray_paragraph.png)
 
-De code‑voorbeeld hieronder toont hoe je de achtergrondkleur voor **tekstgedeelten met een vet lettertype** instelt:
+Het code‑voorbeeld hieronder demonstreert hoe u de achtergrondkleur voor **tekstgedeelten met een vet lettertype** instelt:
 
 ```java
 import com.aspose.slides.*;
@@ -91,15 +91,15 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De grijze tekstgedeelten](gray_text_portions.png)
 
-## **Alinea‑tekst uitlijnen**
+## **Tekst‑alinea’s uitlijnen**
 
-Gebruik [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) om de alineauitlijning binnen een tekstframe in te stellen. De waarde kan gecentreerd, links‑uitgelijnd, rechts‑uitgelijnd, uitgevuld, enzovoort zijn.
+Gebruik [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) om de alinea‑uitlijning binnen een tekstkader in te stellen. De waarde kan gecentreerd, links uitgelijnd, rechts uitgelijnd, uitgevuld, enzovoort zijn.
 
-De volgende code‑voorbeeld laat zien hoe je de alinea naar het **midden** uitlijnt:
+Het volgende code‑voorbeeld toont hoe u de alinea naar het **centrum** uitlijnt:
 
 ```java
 import com.aspose.slides.*;
@@ -110,7 +110,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Stel de uitlijning van de alinea in op midden.
+    // Stel de uitlijning van de alinea in op gecentreerd.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -119,15 +119,15 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De uitgelijnde alinea](aligned_paragraph.png)
 
-## **Transparantie voor tekst instellen**
+## **Transparantie van tekst instellen**
 
-Transparantie van tekst wordt geregeld via het alfa‑component van de kleur die is toegewezen aan [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). In de voorbeelden hieronder is `alpha = 50` een ARGB‑alfa‑waarde op de 0–255‑schaal, geen transparantie‑percentage.
+Transparantie van tekst wordt geregeld via de alfa‑component van de kleur die is toegewezen aan [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). In de voorbeelden hieronder is `alpha = 50` een ARGB‑alfa‑kanaalwaarde op de 0‑255‑schaal, geen transparantiepercentage.
 
-De code‑voorbeeld hieronder toont hoe je transparantie toepast op de **hele alinea**:
+Het code‑voorbeeld hieronder toont hoe u transparantie toepast op de **hele alinea**:
 
 ```java
 import com.aspose.slides.*;
@@ -141,7 +141,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Stel de vulkleur van de tekst in op een transparante kleur.
+    // Stelt de vulkleur van de tekst in op een transparante kleur.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -151,11 +151,11 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De transparante alinea](transparent_paragraph.png)
 
-De volgende code‑voorbeeld laat zien hoe je transparantie toepast op **tekstgedeelten met een vet lettertype**:
+Het volgende code‑voorbeeld toont hoe u transparantie toepast op **tekstgedeelten met een vet lettertype**:
 
 ```java
 import com.aspose.slides.*;
@@ -183,7 +183,7 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De transparante tekstgedeelten](transparent_text_portions.png)
 
@@ -191,7 +191,7 @@ Resultaat:
 
 Gebruik [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen.
 
-De volgende Java‑code laat zien hoe je de tekenafstand in de **hele alinea** vergroot:
+De volgende Java‑code toont hoe u de tekenafstand in de **hele alinea** vergroot:
 
 ```java
 import com.aspose.slides.*;
@@ -202,8 +202,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Vergroot tekenafstand.
+    // Opmerking: gebruik negatieve waarden om de tekenafstand te verkleinen.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Tekenafstand uitbreiden.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -211,11 +211,11 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De tekenafstand in de alinea](character_spacing_in_paragraph.png)
 
-De code‑voorbeeld hieronder laat zien hoe je de tekenafstand vergroot in **tekstgedeelten met een vet lettertype**:
+Het code‑voorbeeld hieronder toont hoe u de tekenafstand in **tekstgedeelten met een vet lettertype** vergroot:
 
 ```java
 import com.aspose.slides.*;
@@ -228,8 +228,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
-            portion.getPortionFormat().setSpacing(3); // Vergroot tekenafstand.
+            // Opmerking: gebruik negatieve waarden om de tekenafstand te verkleinen.
+            portion.getPortionFormat().setSpacing(3); // Tekenafstand uitbreiden.
         }
     }
 
@@ -239,15 +239,15 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De tekenafstand in de tekstgedeelten](character_spacing_in_text_portions.png)
 
-### **Kerning uitschakelen voor specifieke lettertypen**
+### **Kerning voor specifieke lettertypen uitschakelen**
 
-In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd er iets strakker uitzien dan dezelfde tekst in PowerPoint. Dat kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
+In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd er iets strakker uitzien dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerninginformatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
 
-Om de gerenderde uitvoer dichter bij PowerPoint te brengen, kun je kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) in op een waarde die aanzienlijk groter is dan de werkelijke lettergrootte:
+Om de gerenderde uitvoer in dergelijke gevallen dichter bij PowerPoint te krijgen, kunt u kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) in op een waarde die aanzienlijk groter is dan de werkelijke lettergrootte:
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +279,11 @@ try {
 }
 ```
 
-Deze instelling voorkomt dat kerning wordt toegepast op overeenkomende tekstgedeelten en kan helpen de weergave van Aspose.Slides te laten overeenkomen met die van PowerPoint voor de betrokken lettertypen.
+Deze instelling voorkomt dat kerning wordt toegepast op overeenkomende tekstgedeelten en kan helpen de weergave van Aspose.Slides beter op die van PowerPoint af te stemmen voor lettertypen die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
 
 ## **Lettertype‑eigenschappen van tekst beheren**
 
-Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) of per afzonderlijk gedeelte via [IPortionFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iportionformat/).
+Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) of op individuele gedeelten via [IPortionFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iportionformat/).
 
 De volgende code stelt het lettertype en de tekststijl in voor de hele alinea: het past lettergrootte, vet, cursief, gestippelde onderstreping en het lettertype Times New Roman toe op alle gedeelten in de alinea.
 
@@ -309,11 +309,11 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De lettertype‑eigenschappen voor de alinea](font_properties_for_paragraph.png)
 
-De code‑voorbeeld hieronder past soortgelijke eigenschappen toe op **tekstgedeelten met een vet lettertype**:
+Het code‑voorbeeld hieronder past soortgelijke eigenschappen toe op **tekstgedeelten met een vet lettertype**:
 
 ```java
 import com.aspose.slides.*;
@@ -326,7 +326,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Stel de lettertype‑eigenschappen in voor het tekstgedeelte.
+            // Stel de lettertype-eigenschappen in voor het tekstgedeelte.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -340,7 +340,7 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De lettertype‑eigenschappen voor tekstgedeelten](font_properties_for_text_portions.png)
 
@@ -348,7 +348,7 @@ Resultaat:
 
 Gebruik [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) om een vooraf gedefinieerde tekstoriëntatie binnen een vorm in te stellen.
 
-De volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op `Vertical270`, waardoor de tekst **90 graden tegen de klok in** wordt gedraaid:
+Het volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op `Vertical270`, wat de tekst **90 graden tegen de klok in** roteert:
 
 ```java
 import com.aspose.slides.*;
@@ -366,15 +366,15 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De tekstrotatie](text_rotation.png)
 
-## **Aangepaste rotatie voor tekstframes instellen**
+## **Aangepaste rotatie voor tekstkaders instellen**
 
 Gebruik [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) om een aangepaste rotatiehoek in te stellen voor een [ITextFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframe/).
 
-De code‑voorbeeld hieronder roteert het tekstframe met 3 graden met de klok mee binnen de vorm:
+Het code‑voorbeeld hieronder roteert het tekstkader met 3 graden met de klok mee binnen de vorm:
 
 ```java
 import com.aspose.slides.*;
@@ -392,18 +392,18 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De aangepaste tekstrotatie](custom_text_rotation.png)
 
 ## **Regelafstand van alinea’s instellen**
 
-Aspose.Slides biedt [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) en [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) om de afstand tussen alinea’s te regelen. Deze eigenschappen worden als volgt gebruikt:
+Aspose.Slides biedt [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) en [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) om de alinea‑spatiëring te regelen. Deze eigenschappen worden als volgt gebruikt:
 
-* Gebruik een positieve waarde om de regelafstand als percentage van de regelhoogte op te geven.
-* Gebruik een negatieve waarde om de regelafstand in punten op te geven.
+* Gebruik een positieve waarde om regelafstand als een percentage van de regelhoogte op te geven.
+* Gebruik een negatieve waarde om regelafstand in punten op te geven.
 
-De volgende code‑voorbeeld laat zien hoe je de regelafstand binnen de alinea specificeert:
+Het volgende code‑voorbeeld toont hoe u de regelafstand binnen de alinea specificeert:
 
 ```java
 import com.aspose.slides.*;
@@ -422,13 +422,13 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De regelafstand binnen de alinea](line_spacing.png)
 
-## **Autofit‑type voor tekstframes instellen**
+## **Autofit‑type voor tekstkaders instellen**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik het om te regelen of de tekst krimpt, overstroomt of de vorm automatisch herschaalt.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van zijn container overschrijdt. Gebruik het om te regelen of de tekst krimpt, overstroomt of de vorm automatisch van grootte verandert.
 
 ```java
 import com.aspose.slides.*;
@@ -446,9 +446,11 @@ try {
 }
 ```
 
-## **Anker van tekstframes instellen**
+Om het aantal regels te tellen na automatisch afbreken en te zien hoe de tekst‑ of vormbreedte het resultaat verandert, zie [Aantal gerenderde regels](/slides/nl/java/manage-paragraph/). Het aantal regels alleen geeft niet aan of de tekst buiten de container overloopt.
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definieert hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan.
+## **Verankering van tekstkaders instellen**
+
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) bepaalt hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan.
 
 ```java
 import com.aspose.slides.*;
@@ -466,9 +468,9 @@ try {
 }
 ```
 
-## **Tabulatie voor tekst instellen**
+## **Tabulatie van tekst instellen**
 
-Gebruik [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) en [IParagraphFormat.getTabs](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#getTabs--) om tab‑stops in een alinea te configureren.
+Gebruik [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) en [IParagraphFormat.getTabs](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraphformat/#getTabs--) om tabstops in een alinea te configureren.
 
 ```java
 import com.aspose.slides.*;
@@ -488,15 +490,15 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De alinea‑tabs](paragraph_tabs.png)
 
-## **Controleertaal instellen**
+## **Proefleestaal instellen**
 
-Aspose.Slides biedt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), waarmee je de controle‑taal voor een tekstgedeelte kunt instellen. De controle‑taal bepaalt welke taal wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
+Aspose.Slides biedt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), waarmee u de proefleestaal voor een tekstgedeelte kunt instellen. De proefleestaal bepaalt welke taal wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
 
-De volgende code‑voorbeeld laat zien hoe je de controle‑taal voor een tekstgedeelte instelt:
+Het volgende code‑voorbeeld toont hoe u de proefleestaal voor een tekstgedeelte instelt:
 
 ```java
 import com.aspose.slides.*;
@@ -516,7 +518,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Stel de Id in van een proefleestaal.
+    // Stel de Id van een proefleestaal in.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -530,7 +532,7 @@ try {
 
 ## **Standaardtaal instellen**
 
-Gebruik [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of maken van een presentatie.
+Gebruik [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of creëren van een presentatie.
 
 ```java
 import com.aspose.slides.*;
@@ -542,7 +544,7 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een nieuwe rechthoekvorm toe met tekst.
+    // Voeg een nieuw rechthoekvorm toe met tekst.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -554,18 +556,18 @@ try {
 }
 ```
 
-## **Standaardtekststijl instellen**
+## **Standaard‑tekststijl instellen**
 
-Om standaardtekstopmaak op presentatieniveau toe te passen, gebruik [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Om standaard‑tekstopmaak op presentatieniveau toe te passen, gebruik [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-De volgende code‑voorbeeld laat zien hoe je een standaard vet lettertype met een grootte van 14 pt instelt voor alle tekst op alle dia’s in een nieuwe presentatie.
+Het volgende code‑voorbeeld toont hoe u een standaard vet lettertype met een grootte van 14 pt instelt voor alle tekst in de dia’s van een nieuwe presentatie.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Haal het alineaformaat van het hoogste niveau op.
+    // Haal het alinea‑formaat van het hoogste niveau op.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -581,13 +583,13 @@ try {
 
 ## **Tekst extraheren met het All‑Caps‑effect**
 
-In PowerPoint zorgt het toepassen van het **All Caps**‑schrift­effect ervoor dat tekst op de dia in hoofdletters wordt weergegeven, zelfs als deze oorspronkelijk in kleine letters is getypt. Wanneer je een dergelijk tekstgedeelte ophaalt met Aspose.Slides, retourneert de bibliotheek de tekst exact zoals ingevoerd. Controleer [TextCapType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/textcaptype/) en zet de geretourneerde string om naar hoofdletters wanneer de waarde `All` is.
+In PowerPoint zorgt het toepassen van het **All Caps**‑lettertype‑effect ervoor dat tekst in hoofdletters op de dia verschijnt, zelfs wanneer deze oorspronkelijk in kleine letters is getypt. Wanneer u een dergelijk tekstgedeelte ophaalt met Aspose.Slides, retourneert de bibliotheek de tekst exact zoals ingevoerd. Om de weergegeven tekst overeen te laten komen, controleer [TextCapType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/textcaptype/) en zet de geretourneerde tekenreeks om naar hoofdletters wanneer de waarde `All` is.
 
-Stel dat we het volgende tekstvak hebben op de eerste dia van het bestand **sample2.pptx**.
+Stel dat we het volgende tekstvak hebben op de eerste dia van het bestand sample2.pptx.
 
 ![Het All Caps‑effect](all_caps_effect.png)
 
-De code‑voorbeeld hieronder toont hoe je de tekst met het **All Caps**‑effect kunt extraheren:
+Het code‑voorbeeld hieronder toont hoe u de tekst met het **All Caps**‑effect kunt extraheren:
 
 ```java
 import com.aspose.slides.*;
@@ -619,10 +621,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Hoe wijzig ik tekst in een tabel op een dia?**
+**Hoe tekst in een tabel op een dia aanpassen?**
 
-Gebruik [ITable](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itable/). Doorloop de cellen en werk elke cel bij via [ICell.getTextFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icell/#getTextFrame--) en de alinea‑opmaak via [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Om tekst in een tabel op een dia aan te passen, gebruik [ITable](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itable/). Doorloop de cellen en werk elke cel bij via [ICell.getTextFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icell/#getTextFrame--) en de alinea‑opmaak via [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Hoe pas ik een gradientkleur toe op tekst in een PowerPoint‑dia?**
+**Hoe een verloopkleur op tekst in een PowerPoint‑dia toepassen?**
 
-Gebruik [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Stel [IFillFormat.setFillType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifillformat/#setFillType-byte-) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/java/com.aspose.slides/filltype/) en configureer de gradient‑stops, richting en transparantie.
+Gebruik [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) om een verloopkleur op tekst toe te passen. Stel [IFillFormat.setFillType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifillformat/#setFillType-byte-) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/java/com.aspose.slides/filltype/) en configureer de verloopstops, richting en transparantie.

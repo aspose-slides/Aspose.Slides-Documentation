@@ -1,5 +1,5 @@
 ---
-title: C++ 中的簡報文字格式化
+title: 在 C++ 中格式化簡報文字
 linktitle: 文字格式化
 type: docs
 weight: 50
@@ -27,19 +27,19 @@ keywords:
 - Aspose.Slides
 description: "使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 簡報中格式化與樣式化文字。自訂字型、顏色、對齊方式等。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 簡報中設定文字格式。內容涵蓋背景顏色、透明度、字元間距、字型屬性、旋轉、段落間距、自動調整行為、文字錨點、定位點，以及語言設定。
+本文說明如何使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 簡報中格式化文字。它涵蓋背景顏色、透明度、字元間距、字型屬性、旋轉、段落間距、自動調整行為、文字錨點、定位點以及語言設定。
 
-在以下範例中，我們將使用名為「sample.pptx」的檔案，該檔案的第一張投影片上有一個文字方塊，內容如下：
+在下列範例中，我們將使用名為「sample.pptx」的檔案，該檔案的第一張投影片上包含一個文字方塊，文字內容如下：
 
 ![範例文字](sample_text.png)
 
-若要尋找並標示文字字面值或正規表達式匹配，請參閱 [搜尋與取代文字](/slides/zh-hant/cpp/search-and-replace-text/)。
+若要尋找並強調文字字面值或正規表達式匹配，請參閱[搜尋與取代文字](/slides/zh-hant/cpp/search-and-replace-text/)。
 
 ## **設定文字背景顏色**
 
-使用[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) 為段落設定預設的醒目顏色，或使用[IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) 為各個文字片段設定。
+使用 [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) 設定段落的預設突顯顏色，或使用 [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) 為單獨的文字片段設定。
 
 以下程式碼範例示範如何為 **整個段落** 設定背景顏色：
 
@@ -65,7 +65,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// 設定整個段落的醒目顏色。
+// 設定整個段落的突顯顏色。
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -76,7 +76,7 @@ presentation->Dispose();
 
 ![灰色段落](gray_paragraph.png)
 
-以下程式碼範例示範如何為 **使用粗體字型的文字片段** 設定背景顏色：
+以下程式碼範例示範如何為 **粗體字的文字片段** 設定背景顏色：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -109,7 +109,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // 設定文字片段的醒目顏色。
+        // 設定文字片段的突顯顏色。
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -124,7 +124,7 @@ presentation->Dispose();
 
 ## **對齊文字段落**
 
-使用[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_alignment/) 來設定文字框內段落的對齊方式。可設定為置中、左對齊、右對齊、兩端對齊等。
+使用 [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_alignment/) 設定文字框內段落的對齊方式。對齊值可以是置中、左對齊、右對齊、兩端對齊等。
 
 以下程式碼範例示範如何將段落對齊至 **置中**：
 
@@ -159,7 +159,7 @@ presentation->Dispose();
 
 ## **設定文字透明度**
 
-文字透明度透過在[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/get_fillformat/) 設定的顏色之 alpha 成分來控制。在下列範例中，`alpha = 50` 為 0-255 範圍的 ARGB alpha 通道值，並非透明度百分比。
+文字透明度透過使用 [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/get_fillformat/) 所指定顏色的 alpha 元件來控制。以下範例中，`alpha = 50` 為 0-255 之間的 ARGB alpha 通道值，而非透明度百分比。
 
 以下程式碼範例示範如何對 **整個段落** 套用透明度：
 
@@ -188,7 +188,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// 設定文字的填充顏色為透明顏色。
+// 設定文字的填充顏色為透明色。
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -202,7 +202,7 @@ presentation->Dispose();
 
 ![透明段落](transparent_paragraph.png)
 
-以下程式碼範例示範如何對 **使用粗體字型的文字片段** 套用透明度：
+以下程式碼範例示範如何對 **粗體字的文字片段** 套用透明度：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -256,9 +256,9 @@ presentation->Dispose();
 
 ## **設定文字字元間距**
 
-使用[IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_spacing/) 可以在文字方塊中擴大或縮小字元之間的間距。
+使用 [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_spacing/) 以擴大或縮小文字方塊中字元之間的間距。
 
-以下 C++ 程式碼示範如何在 **整個段落** 中擴大字元間距：
+以下 C++ 程式碼示範如何在 **整個段落** 中展開字元間距：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -289,7 +289,7 @@ presentation->Dispose();
 
 ![段落中的字元間距](character_spacing_in_paragraph.png)
 
-以下程式碼範例示範如何在 **使用粗體字型的文字片段** 中擴大字元間距：
+以下程式碼範例示範如何在 **粗體字的文字片段** 中展開字元間距：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -334,9 +334,9 @@ presentation->Dispose();
 
 ### **停用特定字型的字距微調**
 
-在某些情況下，Aspose.Slides 所渲染的文字可能比 PowerPoint 中顯示的相同文字略為緊密。這可能是因為 PowerPoint 會忽略某些字型的字距微調資料，即使字型本身包含有效的字距微調資訊且在 PowerPoint 設定中已啟用字距微調。
+在某些情況下，Aspose.Slides 所渲染的文字看起來可能比 PowerPoint 中顯示的相同文字稍微緊密。這可能是因為 PowerPoint 可能會忽略某些字型的字距微調資料，即使該字型包含有效的字距微調資訊且在 PowerPoint 設定中已啟用字距微調。
 
-為了使渲染結果更接近 PowerPoint，可對使用受影響字型的文字片段停用字距微調。使用[IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) 設定一個遠大於實際字型大小的值：
+為了在此類情況下使渲染輸出更接近 PowerPoint，您可以對使用受影響字型的文字片段停用字距微調。使用 [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) 設定一個遠大於實際字型大小的值：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -391,13 +391,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-此設定會阻止對符合條件的文字片段套用字距微調，並有助於使 Aspose.Slides 的渲染效果與受此 PowerPoint 特定行為影響的字型在 PowerPoint 中的視覺輸出保持一致。
+此設定可防止對符合條件的文字片段套用字距微調，並有助於使 Aspose.Slides 的渲染與 PowerPoint 針對受此 PowerPoint 特定行為影響的字型之視覺輸出保持一致。
 
 ## **管理文字字型屬性**
 
-字型屬性可以透過[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) 在段落層級設定，或透過[IPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportionformat/) 在個別文字片段上設定。
+字型屬性可以透過 [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) 在段落層級設定，或透過 [IPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportionformat/) 在單獨的文字片段上設定。
 
-以下程式碼為整個段落設定字型與文字樣式：它將字型大小、粗體、斜體、點狀底線以及 Times New Roman 字型套用至段落中的所有文字片段。
+以下程式碼為整個段落設定字型與文字樣式：它會將字型大小、粗體、斜體、點狀底線以及 Times New Roman 字型套用到段落中的所有文字片段。
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -437,7 +437,7 @@ presentation->Dispose();
 
 ![段落的字型屬性](font_properties_for_paragraph.png)
 
-以下程式碼範例將類似屬性套用至 **使用粗體字型的文字片段**：
+以下程式碼範例將類似屬性套用於 **粗體字的文字片段**：
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -489,7 +489,7 @@ presentation->Dispose();
 
 ## **設定文字旋轉**
 
-使用[ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_textverticaltype/) 以設定形狀內的預定義文字方向。
+使用 [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_textverticaltype/) 設定形狀內的預定義文字方向。
 
 以下程式碼範例將形狀內的文字方向設定為 [TextVerticalType::Vertical270](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textverticaltype/)，此設定會將文字 **逆時針旋轉 90 度**：
 
@@ -521,7 +521,7 @@ presentation->Dispose();
 
 ## **設定文字框的自訂旋轉**
 
-使用[ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_rotationangle/) 為[ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 設定自訂旋轉角度。
+使用 [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_rotationangle/) 為 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 設定自訂旋轉角度。
 
 以下程式碼範例在形狀內將文字框順時針旋轉 3 度：
 
@@ -550,12 +550,12 @@ presentation->Dispose();
 
 ![自訂文字旋轉](custom_text_rotation.png)
 
-## **設定段落行距**
+## **設定段落的行距**
 
-Aspose.Slides 提供[IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_spaceafter/)、[IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_spacebefore/) 與[IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_spacewithin/) 以控制段落間距。這些方法的使用方式如下：
+Aspose.Slides 提供 [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_spaceafter/)、[IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_spacebefore/) 以及 [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_spacewithin/) 以控制段落間距。這些方法的使用方式如下：
 
-* 使用正值以段落高度的百分比指定行距。
-* 使用負值以點數指定行距。
+* 使用正值指定行距為行高的百分比。
+* 使用負值指定行距的點數。
 
 以下程式碼範例示範如何在段落內指定行距：
 
@@ -588,7 +588,7 @@ presentation->Dispose();
 
 ## **設定文字框的自動調整類型**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_autofittype/) 決定文字超出容器邊界時的處理方式。可用以控制文字是否縮小、溢出或自動調整形狀大小。
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_autofittype/) 決定文字在超出容器邊界時的行為。使用它可控制文字是縮小、溢出，或自動調整形狀大小。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -612,9 +612,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+若要在自動換行後計算行數並查看文字或形狀寬度變化對結果的影響，請參閱[計算已渲染的行](/slides/zh-hant/cpp/manage-paragraph/)。僅靠行數無法判斷文字是否溢出其容器。
+
 ## **設定文字框的錨點**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_anchoringtype/) 定義文字在形狀內的垂直定位方式，例如置頂、置中或置底。
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_anchoringtype/) 定義文字在形狀內的垂直對齊位置，例如置於頂部、中央或底部。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -638,9 +640,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **設定文字定位點**
+## **設定文字定位**
 
-使用[IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) 與[IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/get_tabs/) 以設定段落的定位點。
+使用 [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) 和 [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/get_tabs/) 來設定段落中的定位點。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -674,7 +676,7 @@ presentation->Dispose();
 
 ## **設定校對語言**
 
-Aspose.Slides 提供[IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_languageid/)，可為文字片段設定校對語言。校對語言決定 PowerPoint 進行拼寫與文法檢查時使用的語言。
+Aspose.Slides 提供 [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_languageid/)，可為文字片段設定校對語言。校對語言決定 PowerPoint 在拼寫與文法檢查時使用的語言。
 
 以下程式碼範例示範如何為文字片段設定校對語言：
 
@@ -720,7 +722,7 @@ presentation->Dispose();
 
 ## **設定預設語言**
 
-使用[ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) 定義載入或建立簡報時所建立文字的預設語言。
+使用 [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) 定義載入或建立簡報時所建立文字的預設語言。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -756,9 +758,9 @@ presentation->Dispose();
 
 ## **設定預設文字樣式**
 
-若要在簡報層級套用預設文字格式，請使用[IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/get_defaulttextstyle/)。
+若要在簡報層級套用預設文字格式，請使用 [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/get_defaulttextstyle/)。
 
-以下程式碼範例示範如何在新簡報中將所有投影片的文字設定為預設的 14 點粗體字型。
+以下程式碼範例示範如何在新簡報中為所有投影片的所有文字設定預設的粗體字型，字型大小為 14 點。
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -772,7 +774,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// 取得最高層段落格式。
+// 取得最高層級的段落格式。
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -786,15 +788,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **提取全大寫效果的文字**
+## **擷取套用全大寫效果的文字**
 
-在 PowerPoint 中，套用 **All Caps** 字型效果會讓文字在投影片上顯示為大寫，即使原始輸入為小寫。使用 Aspose.Slides 取得此類文字片段時，函式庫會回傳原始輸入的文字。若要與顯示的文字相符，請檢查[TextCapType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textcaptype/)，當其值為[TextCapType::All](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textcaptype/) 時，將回傳的字串轉換為大寫。
+在 PowerPoint 中，套用 **全大寫**（All Caps）字型效果會使投影片上的文字以大寫顯示，即使原始輸入為小寫。當使用 Aspose.Slides 取得此類文字片段時，函式庫會回傳原始輸入的文字。若要匹配顯示的文字，請檢查 [TextCapType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textcaptype/)，當其值為 [TextCapType::All](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textcaptype/) 時，將回傳的字串轉為大寫。
 
 假設我們在 sample2.pptx 檔案的第一張投影片上有以下文字方塊。
 
 ![全大寫效果](all_caps_effect.png)
 
-以下程式碼範例示範如何提取套用 **All Caps** 效果的文字：
+以下程式碼範例示範如何擷取套用 **全大寫** 效果的文字：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -839,8 +841,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **如何在投影片的表格中修改文字？**
 
-若要在投影片的表格中修改文字，請使用[ITable](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itable/)。遍歷儲存格，並透過[ICell::get_TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icell/get_textframe/) 以及 [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/get_paragraphformat/) 更新每個儲存格的文字與段落格式。
+要在投影片的表格中修改文字，請使用 [ITable](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itable/)。遍歷儲存格，並透過 [ICell::get_TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icell/get_textframe/) 更新每個儲存格，並使用 [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/get_paragraphformat/) 進行段落格式設定。
 
 **如何在 PowerPoint 投影片的文字上套用漸層顏色？**
 
-若要為文字套用漸層顏色，請使用[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/get_fillformat/)。將[IFillFormat::set_FillType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifillformat/set_filltype/) 設為[FillType::Gradient](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/filltype/)，並設定漸層停靠點、方向與透明度。
+若要在文字上套用漸層顏色，請使用 [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/get_fillformat/)。將 [IFillFormat::set_FillType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifillformat/set_filltype/) 設為 [FillType::Gradient](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/filltype/)，並設定漸層停點、方向與透明度。

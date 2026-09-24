@@ -1,5 +1,5 @@
 ---
-title: Python üzerinden Java ile Sunum Metni Biçimlendirme
+title: Python üzerinden Java ile Sunum Metnini Biçimlendirme
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
@@ -8,7 +8,7 @@ keywords:
 - paragraf hizalama
 - metin stili
 - metin arka planı
-- metin saydamlığı
+- metin şeffaflığı
 - karakter aralığı
 - yazı tipi özellikleri
 - yazı tipi ailesi
@@ -26,23 +26,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni biçimlendirin ve stilize edin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
+description: "Aspose.Slides for Python via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni biçimlendirin ve stil verin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, saydamlık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sekme durakları ve dil ayarlarını kapsar.
+Bu makale, Aspose.Slides for Python via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, saydamlık, karakter aralığı, yazı tipi özellikleri, dönüş, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarları gibi konuları kapsar.
 
-Aşağıdaki örneklerde, ilk slaytta tek bir metin kutusu içeren ve aşağıdaki metni barındıran "sample.pptx" adlı dosyayı kullanacağız:
+Aşağıdaki örneklerde, ilk slaytta aşağıdaki metni içeren tek bir metin kutusu bulunan "sample.pptx" adlı dosyayı kullanacağız:
 
 ![Örnek metin](sample_text.png)
 
-Gerçek metinleri veya düzenli ifade eşleşmelerini bulup vurgulamak için, [Metin Arama ve Değiştirme](/slides/tr/python-java/search-and-replace-text/) sayfasına bakın.
+Literal metin veya düzenli ifade eşleşmelerini bulmak ve vurgulamak için [Metin Arama ve Değiştirme](/slides/tr/python-java/search-and-replace-text/) bölümüne bakın.
 
 ## **Metin Arka Plan Rengini Ayarla**
 
-Bir paragraf için varsayılan vurgulama rengini ayarlamak üzere [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) kullanın veya tek tek metin bölümleri için [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) kullanın.
+Bir paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) kullanın, bireysel metin bölümleri için ise [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) kullanın.
 
-Aşağıdaki kod örneği **tüm paragraf** için arka plan renginin nasıl ayarlanacağını gösterir:
+Aşağıdaki kod örneği, **tüm paragraf** için arka plan renginin nasıl ayarlanacağını gösterir:
 
 ```python
 import jpype
@@ -60,7 +60,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Paragrafın tamamı için vurgulama rengini ayarla.
+    # Tüm paragraf için vurgulama rengini ayarla.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx)
@@ -72,7 +72,7 @@ Sonuç:
 
 ![Gri paragraf](gray_paragraph.png)
 
-Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için arka plan renginin nasıl ayarlanacağını gösterir:
+Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için arka plan renginin nasıl ayarlanacağını gösterir:
 
 ```python
 import jpype
@@ -92,7 +92,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Metin bölümü için vurgulama rengini ayarla.
+            # Metin bölümünün vurgulama rengini ayarla.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_text_portions.pptx", SaveFormat.Pptx)
@@ -106,9 +106,9 @@ Sonuç:
 
 ## **Metin Paragraflarını Hizala**
 
-Bir metin çerçevesi içinde paragraf hizalamasını ayarlamak için [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setAlignment) kullanın. Değerler ortalanmış, sola hizalanmış, sağa hizalanmış, iki yana yaslanmış vb. olabilir.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setAlignment) kullanarak bir metin çerçevesi içinde paragraf hizalamasını ayarlayabilirsiniz. Değerler ortalanmış, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
 
-Aşağıdaki kod örneği paragrafı **ortaya** hizalamanın yolunu gösterir:
+Aşağıdaki kod örneği, paragrafı **ortaya** hizalamanın nasıl yapılacağını gösterir:
 
 ```python
 import jpype
@@ -137,17 +137,17 @@ Sonuç:
 
 ![Hizalanmış paragraf](aligned_paragraph.png)
 
-## **Metin İçin Saydamlık Ayarla**
+## **Metin Şeffaflığını Ayarla**
 
-Metin saydamlığı, [PortionFormat.getFillFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) üzerinden atanan rengin alfa bileşeniyle kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, 0–255 ölçeğinde bir ARGB alfa kanalı değeridir, yüzde olarak saydamlık değildir.
+Metin şeffaflığı, [PortionFormat.getFillFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/)'a atanan rengin alfa bileşeni aracılığıyla kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, % şeffaflık değeri değil, 0–255 ölçeğinde bir ARGB alfa kanalı değeridir.
 
-Aşağıdaki kod örneği **tüm paragraf** için saydamlık uygulamasını gösterir:
+Aşağıdaki kod örneği, **tüm paragraf** için şeffaflığın nasıl uygulanacağını gösterir:
 
 ```python
 import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import FillType, Presentation, SaveFormat
@@ -162,7 +162,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Metnin doldurma rengini saydam bir renge ayarla.
+    # Metnin doldurma rengini saydam renge ayarla.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -173,9 +173,9 @@ finally:
 
 Sonuç:
 
-![Saydam paragraf](transparent_paragraph.png)
+![Şeffaf paragraf](transparent_paragraph.png)
 
-Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için saydamlık uygulamasını gösterir:
+Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için şeffaflığın nasıl uygulanacağını gösterir:
 
 ```python
 import jpype
@@ -198,7 +198,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Metin bölümünün saydamlığını ayarla.
+            # Metin bölümünün şeffaflığını ayarla.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -209,13 +209,13 @@ finally:
 
 Sonuç:
 
-![Saydam metin bölümleri](transparent_text_portions.png)
+![Şeffaf metin bölümleri](transparent_text_portions.png)
 
-## **Metin İçin Karakter Aralığını Ayarla**
+## **Metin Karakter Aralığını Ayarla**
 
-Bir metin kutusundaki karakterler arasındaki aralığı genişletmek veya sıkıştırmak için [PortionFormat.setSpacing](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) kullanın.
+[PortionFormat.setSpacing](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) kullanarak bir metin kutusundaki karakterler arasındaki boşluğu genişletebilir veya sıkıştırabilirsiniz.
 
-Aşağıdaki Python kodu **tüm paragraf** için karakter aralığını genişletmeyi gösterir:
+Aşağıdaki Python kodu, **tüm paragrafta** karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```python
 import jpype
@@ -244,7 +244,7 @@ Sonuç:
 
 ![Paragraftaki karakter aralığı](character_spacing_in_paragraph.png)
 
-Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için karakter aralığını genişletir:
+Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümlerinde** karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```python
 import jpype
@@ -275,11 +275,11 @@ Sonuç:
 
 ![Metin bölümlerindeki karakter aralığı](character_spacing_in_text_portions.png)
 
-### **Belirli Yazı Tipleri İçin Kerning’i Devre Dışı Bırak**
+### **Belirli Yazı Tipleri için Kerning'i Devre Dışı Bırak**
 
-Bazı durumlarda Aspose.Slides tarafından işlenen metin, aynı metnin PowerPoint’te görüntülenmesinden biraz daha sıkı görünebilir. Bu, PowerPoint’in belirli yazı tipleri için kerning verilerini görmezden gelmesinden kaynaklanabilir; yazı tipi geçerli kerning bilgisine sahip olsa ve PowerPoint ayarlarında kerning etkin olsa bile.
+Bazı durumlarda, Aspose.Slides tarafından render edilen metin, PowerPoint'te görülen aynı metinden biraz daha sıkı görünebilir. Bu, PowerPoint'in belirli yazı tipleri için kerning verilerini göz ardı etmesinden kaynaklanabilir; hatta yazı tipinde geçerli kerning bilgileri mevcut olsa ve PowerPoint ayarlarında kerning etkin olsa bile.
 
-Bu durumlarda çıktıyı PowerPoint’e daha yakın hâle getirmek için, ilgili yazı tipini kullanan metin bölümleri için kerning’i devre dışı bırakabilirsiniz. [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) değerini gerçek yazı tipi boyutundan belirgin şekilde büyük bir değere ayarlayın:
+Bu gibi durumlarda render edilen çıktıyı PowerPoint'e daha yakın hale getirmek için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) değerini gerçek yazı tipi boyutundan belirgin şekilde daha büyük bir değere ayarlayın:
 
 ```python
 import jpype
@@ -308,13 +308,13 @@ finally:
     presentation.dispose()
 ```
 
-Bu ayar, eşleşen metin bölümlerine kerning uygulanmasını engeller ve bu PowerPoint’e özgü davranıştan etkilenen yazı tipleri için Aspose.Slides’ın render çıktısını PowerPoint’in görsel çıktısıyla hizalamaya yardımcı olabilir.
+Bu ayar, eşleşen metin bölümlerine kerning uygulanmasını önler ve bu PowerPoint'e özgü davranıştan etkilenen yazı tipleri için Aspose.Slides render'ının PowerPoint'in görsel çıktısıyla daha uyumlu olmasına yardımcı olur.
 
 ## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) aracılığıyla paragraf düzeyinde veya [PortionFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) aracılığıyla tek tek bölümlerde ayarlanabilir.
+Yazı tipi özellikleri, [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) aracılığıyla paragraf seviyesinde veya [PortionFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) aracılığıyla bireysel bölümlerde ayarlanabilir.
 
-Aşağıdaki kod, tüm paragraf için yazı tipini ve metin stilini ayarlar: yazı tipi boyutu, kalın, italik, noktalı alt çizgi ve Times New Roman tüm bölümlere uygulanır.
+Aşağıdaki kod, tüm paragraf için yazı tipini ve metin stilini ayarlar: yazı tipi boyutu, kalın, italik, noktalı alt çizgi ve Times New Roman yazı tipini paragraftaki tüm bölümlere uygular.
 
 ```python
 import jpype
@@ -346,9 +346,9 @@ finally:
 
 Sonuç:
 
-![Paragrafın yazı tipi özellikleri](font_properties_for_paragraph.png)
+![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
 
-Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için benzer özellikleri uygular:
+Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için benzer özellikler uygular:
 
 ```python
 import jpype
@@ -381,13 +381,13 @@ finally:
 
 Sonuç:
 
-![Metin bölümlerinin yazı tipi özellikleri](font_properties_for_text_portions.png)
+![Metin bölümleri için yazı tipi özellikleri](font_properties_for_text_portions.png)
 
 ## **Metin Döndürmeyi Ayarla**
 
-Bir şekil içinde önceden tanımlanmış bir metin yönünü ayarlamak için [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setTextVerticalType) kullanın.
+[TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setTextVerticalType) kullanarak bir şekil içinde önceden tanımlanmış bir metin yönelimini ayarlayabilirsiniz.
 
-Aşağıdaki kod örneği şekil içindeki metin yönünü `Vertical270` olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
+Aşağıdaki kod örneği, şekildeki metin yönelimini `Vertical270` olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
 
 ```python
 import jpype
@@ -412,13 +412,13 @@ finally:
 
 Sonuç:
 
-![Metin döndürme](text_rotation.png)
+![Metin dönüşümü](text_rotation.png)
 
-## **Metin Çerçeveleri İçin Özel Döndürme Ayarla**
+## **Metin Çerçeveleri İçin Özel Döndürmeyi Ayarla**
 
 [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setRotationAngle) kullanarak bir [TextFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframe/) için özel bir döndürme açısı ayarlayabilirsiniz.
 
-Aşağıdaki kod örneği şekil içinde metin çerçevesini 3 derece saat yönünde döndürür:
+Aşağıdaki kod örneği, şekil içinde metin çerçevesini 3 derece saat yönünde döndürür:
 
 ```python
 import jpype
@@ -447,12 +447,12 @@ Sonuç:
 
 ## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setSpaceWithin) sağlar. Bu özellikler şu şekilde kullanılır:
+Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setSpaceWithin) sağlar. Bu özellikler aşağıdaki gibi kullanılır:
 
-* Satır aralığını satır yüksekliğinin yüzdesi olarak belirtmek için pozitif bir değer kullanın.
-* Satır aralığını puan cinsinden belirtmek için negatif bir değer kullanın.
+* Pozitif bir değer kullanarak satır aralığını satır yüksekliğinin yüzdesi olarak belirtebilirsiniz.
+* Negatif bir değer kullanarak satır aralığını puan (point) cinsinden belirtebilirsiniz.
 
-Aşağıdaki kod örneği paragraf içindeki satır aralığını nasıl belirleyeceğinizi gösterir:
+Aşağıdaki kod örneği, paragraf içindeki satır aralığını nasıl belirteceğinizi gösterir:
 
 ```python
 import jpype
@@ -482,7 +482,7 @@ Sonuç:
 
 ## **Metin Çerçeveleri İçin Otomatik Sığdırma Türünü Ayarla**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setAutofitType), metin kapsayıcının sınırlarını aştığında nasıl davranacağını belirler. Metnin küçülüp küçülmeyeceğini, taşma yapıp yapmayacağını veya şeklin otomatik olarak yeniden boyutlandırılıp boyutlandırılmayacağını kontrol etmek için kullanın.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setAutofitType) metin, konteynerinin sınırlarını aştığında nasıl davranacağını belirler. Metnin küçülüp küçülmeyeceği, taşma yapıp yapmayacağı veya şeklin otomatik olarak yeniden boyutlandırılıp boyutlandırılmayacağını kontrol etmek için kullanın.
 
 ```python
 import jpype
@@ -505,9 +505,11 @@ finally:
     presentation.dispose()
 ```
 
+Otomatik satır kaydırmadan sonra satırları saymak ve metin ya da şekil genişliğinin sonucu nasıl etkilediğini görmek için [Render Edilen Satırları Say](/slides/tr/python-java/manage-paragraph/) bölümüne bakın. Sadece satır sayısı, metnin konteynerini aşmadığını göstermez.
+
 ## **Metin Çerçevelerinin Sabitlemesini Ayarla**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setAnchoringType), metnin bir şekil içinde dikey olarak nasıl konumlandırılacağını tanımlar; örneğin üstte, ortada veya altta.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setAnchoringType) bir şekil içinde metnin dikey konumunu tanımlar; örneğin üst, orta veya alt.
 
 ```python
 import jpype
@@ -532,7 +534,7 @@ finally:
 
 ## **Metin Sekme Ayarını Yap**
 
-Paragrafta sekme duraklarını yapılandırmak için [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) ve [ParagraphFormat.getTabs](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#getTabs) kullanın.
+Bir paragrafta sek duraklarını yapılandırmak için [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) ve [ParagraphFormat.getTabs](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraphformat/#getTabs) kullanın.
 
 ```python
 import jpype
@@ -561,11 +563,11 @@ Sonuç:
 
 ![Paragraf sekmeleri](paragraph_tabs.png)
 
-## **Düzeltme Dilini Ayarla**
+## **Denetleme Dilini Ayarla**
 
-Aspose.Slides, bir metin bölümü için düzeltme dilini ayarlamanızı sağlayan [PortionFormat.setLanguageId](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) sunar. Düzeltme dili, PowerPoint’te imla ve dilbilgisi denetimlerinde kullanılan dili belirler.
+Aspose.Slides, bir metin bölümü için denetleme dilini ayarlamanızı sağlayan [PortionFormat.setLanguageId](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) sunar. Denetleme dili, PowerPoint'te imla ve dilbilgisi denetimlerinde kullanılan dili belirler.
 
-Aşağıdaki kod örneği bir metin bölümü için düzeltme dilinin nasıl ayarlanacağını gösterir:
+Aşağıdaki kod örneği, bir metin bölümü için denetleme dilinin nasıl ayarlanacağını gösterir:
 
 ```python
 import jpype
@@ -591,7 +593,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # Düzeltme dilinin kimliğini ayarla.
+    # Denetleme dili kimliğini ayarla.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -604,7 +606,7 @@ finally:
 
 ## **Varsayılan Dili Ayarla**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) kullanarak bir sunum yüklenirken veya oluşturulurken üretilen metin için varsayılan dili tanımlayın.
+[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) kullanarak bir sunum yüklenirken veya oluşturulurken yaratılan metin için varsayılan dili tanımlayabilirsiniz.
 
 ```python
 import jpype
@@ -626,7 +628,7 @@ try:
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50)
     shape.getTextFrame().setText("Sample text")
 
-    # İlk bölümün dilini kontrol et.
+    # İlk bölüm dilini kontrol et.
     portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     print(portion.getPortionFormat().getLanguageId())
 finally:
@@ -635,9 +637,9 @@ finally:
 
 ## **Varsayılan Metin Stilini Ayarla**
 
-Sunum düzeyinde varsayılan metin biçimlendirmesini uygulamak için [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDefaultTextStyle) kullanın.
+Sunum seviyesinde varsayılan metin biçimlendirmesini uygulamak için [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDefaultTextStyle) kullanın.
 
-Aşağıdaki kod örneği yeni bir sunumda tüm slaytlardaki metinler için 14 pt boyutunda kalın bir yazı tipini varsayılan olarak ayarlar.
+Aşağıdaki kod örneği, yeni bir sunumdaki tüm slaytlarda tüm metin için 14 pt boyutunda varsayılan kalın bir yazı tipinin nasıl ayarlanacağını gösterir.
 
 ```python
 import jpype
@@ -662,15 +664,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Büyük Harf Etkisi ile Metin Çıkar**
+## **Tüm Büyük Harf Efektiyle Metni Çıkar**
 
-PowerPoint’te **All Caps** (Tüm Büyük Harf) yazı tipi etkisini uyguladığınızda, metin slaytta büyük harf olarak görünür, ancak aslında küçük harf olarak girilmiştir. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam girildiği gibi geri döndürür. Görüntülenen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textcaptype/) kontrol edin ve değer `All` olduğunda döndürülen dizeyi büyük harfe çevirin.
+PowerPoint'te **All Caps** (Tüm Büyük Harf) yazı tipi etkisi uygulandığında, metin slaytta büyük harf olarak gösterilir, hâlâ küçük harfle yazılmış olsa bile. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam olarak girildiği şekilde döndürür. Görüntülenen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textcaptype/) kontrol edin ve değer `All` olduğunda döndürülen dizeyi büyük harfe çevirin.
 
-Örnek olarak sample2.pptx dosyasının ilk slaydındaki aşağıdaki metin kutusunu ele alalım.
+sample2.pptx dosyasının ilk slaytında aşağıdaki metin kutusunun olduğunu varsayalım.
 
 ![All Caps etkisi](all_caps_effect.png)
 
-Aşağıdaki kod örneği **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
+Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış metnin nasıl çıkarılacağını gösterir:
 
 ```python
 import jpype
@@ -706,10 +708,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tablo içinde metni nasıl değiştiririm?**
+**Bir slayttaki tabloda metni nasıl değiştiririm?**
 
-Bir slayttaki tablo içinde metni değiştirmek için [Table](https://reference.aspose.com/slides/tr/python-java/aspose.slides/table/) kullanın. Hücreler arasında döngü kurarak her hücreyi [Cell.getTextFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/cell/#getTextFrame) ve paragraf biçimlendirmesini [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraph/#getParagraphFormat) aracılığıyla güncelleyin.
+Bir slayttaki tablo içinde metni değiştirmek için [Table](https://reference.aspose.com/slides/tr/python-java/aspose.slides/table/) kullanın. Hücreler üzerinde döngü kurarak her hücreyi [Cell.getTextFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/cell/#getTextFrame) ve paragraf biçimlendirmesini [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/paragraph/#getParagraphFormat) aracılığıyla güncelleyebilirsiniz.
 
-**PowerPoint slaytında metne geçişli (gradient) renk nasıl uygularım?**
+**PowerPoint slaytındaki metne nasıl bir degrade renk uygularım?**
 
-Metne geçişli renk uygulamak için [PortionFormat.getFillFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) kullanın. [FillFormat.setFillType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/fillformat/#setFillType) değerini [FillType.Gradient](https://reference.aspose.com/slides/tr/python-java/aspose.slides/filltype/#Gradient) olarak ayarlayın ve geçiş duraklarını, yönünü ve saydamlığını yapılandırın.
+Metne bir degrade renk uygulamak için [PortionFormat.getFillFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/) kullanın. [FillFormat.setFillType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/fillformat/#setFillType) değerini [FillType.Gradient](https://reference.aspose.com/slides/tr/python-java/aspose.slides/filltype/#Gradient) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.

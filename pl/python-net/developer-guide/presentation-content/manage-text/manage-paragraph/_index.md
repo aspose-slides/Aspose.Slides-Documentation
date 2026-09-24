@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie akapitami tekstu PowerPoint w Pythonie
-linktitle: Zarządzanie akapitem
+title: Z‍arządzaj akapitami tekstowymi PowerPoint w Pythonie
+linktitle: Zarządzaj akapitem
 type: docs
 weight: 40
 url: /pl/python-net/manage-paragraph/
@@ -8,56 +8,56 @@ aliases:
   - /python-net/paragraph/
   - /python-net/portion/
 keywords:
-- dodaj tekst
-- dodaj akapit
-- zarządzaj tekstem
-- zarządzaj akapitem
-- zarządzaj wypunktowaniem
-- wcięcie akapitu
-- wcięcie zwisające
-- wypunktowanie akapitu
-- lista numerowana
-- lista wypunktowana
-- właściwości akapitu
-- import HTML
-- tekst do HTML
-- akapit do HTML
-- akapit do obrazu
-- tekst do obrazu
-- eksport akapitu
-- PowerPoint
-- prezentacja
-- Python
-- Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Pythona via .NET."
+  - dodaj tekst
+  - dodaj akapit
+  - zarządzaj tekstem
+  - zarządzaj akapitem
+  - zarządzaj wypunktowaniem
+  - wcięcie akapitu
+  - wcięcie wiszące
+  - punkt akapitu
+  - lista numerowana
+  - lista punktowana
+  - właściwości akapitu
+  - importuj HTML
+  - tekst do HTML
+  - akapit do HTML
+  - akapit do obrazu
+  - tekst do obrazu
+  - eksportuj akapit
+  - PowerPoint
+  - prezentacja
+  - Python
+  - Aspose.Slides
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Pythona w .NET."
 ---
 ## **Przegląd**
 
 Aspose.Slides for Python via .NET reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
 * [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) reprezentuje kontener tekstowy w kształcie i zapewnia dostęp do jego kolekcji akapitów.
-* [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) reprezentuje pojedynczy akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
-* [Portion](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/) reprezentuje ciąg tekstowy w obrębie akapitu. Każdy fragment może mieć własny tekst oraz formatowanie znaków.
+* [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
+* [Portion](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/) reprezentuje ciąg tekstowy w akapicie. Każdy fragment może mieć własny tekst oraz formatowanie na poziomie znaków.
 
-Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych właściwościach formatowania, wykorzystując wiele fragmentów.
+Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatach, używając wielu fragmentów.
 
 ## **Tworzenie i formatowanie akapitów**
 
 ### **Tworzenie akapitów z wieloma fragmentami**
 
-Poniższe kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy fragmenty:
+Następujące kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy fragmenty:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
+2. Uzyskaj dostęp do odpowiedniego slajdu poprzez jego indeks.
 3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu.
-5. Skorzystaj z domyślnego akapitu i dodaj dwa kolejne obiekty [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) do ramki tekstowej.
-6. Dodaj wystarczającą liczbę obiektów [Portion](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/) do każdego akapitu, aby zawierały po trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
-7. Ustaw tekst każdego fragmentu.
-8. Zastosuj formatowanie na poziomie znaków poprzez [Portion.portion_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/portion_format/).
+5. Użyj domyślnego akapitu i dodaj dwa dodatkowe obiekty [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) do ramki tekstowej.
+6. Dodaj wystarczającą liczbę obiektów [Portion](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/) dla każdego akapitu, aby zawierał trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
+7. Ustaw tekst dla każdego fragmentu.
+8. Zastosuj formatowanie na poziomie znaków za pomocą [Portion.portion_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/portion_format/).
 9. Zapisz zmodyfikowaną prezentację.
 
-Ten przykład w języku Python implementuje powyższe kroki:
+Ten przykład w Pythonie realizuje kroki:
 
 ```python
 import aspose.pydrawing as draw
@@ -104,26 +104,26 @@ with slides.Presentation() as presentation:
     presentation.save("paragraphs_with_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tworzenie list wypunktowanych i numerowanych**
+## **Tworzenie list punktowanych i numerowanych**
 
-### **Tworzenie listy wypunktowanej lub numerowanej**
+### **Utworzenie listy punktowanej lub numerowanej**
 
-Punkty i numeracja ułatwiają skanowanie powiązanych elementów. W Aspose.Slides ustawienia listy definiuje się za pomocą [BulletFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/).
+Punkty i numeracja ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy są definiowane poprzez [BulletFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/).
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
+2. Uzyskaj dostęp do odpowiedniego slajdu poprzez jego indeks.
 3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do wybranego slajdu.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu.
 5. Usuń domyślny akapit z ramki tekstowej.
 6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) dla punktu symbolicznego.
-7. Ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.SYMBOL](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/) i określ znak wypunktowania.
-8. Ustaw tekst akapitu, wcięcie, kolor wypunktowania oraz wysokość wypunktowania.
+7. Ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.SYMBOL](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/) i określ znak punktu.
+8. Ustaw tekst akapitu, wcięcie, kolor punktu i wysokość punktu.
 9. Dodaj akapit do ramki tekstowej.
 10. Utwórz drugi akapit i ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.NUMBERED](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/).
-11. Skonfiguruj styl numerowanego wypunktowania i dodaj akapit do ramki tekstowej.
+11. Skonfiguruj styl numerowanego punktu i dodaj akapit do ramki tekstowej.
 12. Zapisz prezentację.
 
-Ten przykład w języku Python tworzy wypunktowanie symboliczne oraz numerowane:
+Ten przykład w Pythonie tworzy punkt symboliczny i punkt numerowany:
 
 ```python
 import aspose.pydrawing as draw
@@ -160,22 +160,22 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Użycie wypunktowania obrazkowego**
+### **Użycie punktów graficznych**
 
-Wypunktowanie obrazkowe pozwala użyć własnego obrazu zamiast symbolu lub liczby.
+Punkty graficzne pozwalają użyć własnego obrazu zamiast symbolu lub liczby.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
+2. Uzyskaj dostęp do odpowiedniego slajdu poprzez jego indeks.
 3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) i uzyskaj dostęp do jego [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/).
 4. Usuń domyślny akapit z ramki tekstowej.
-5. Załaduj obraz wypunktowania i dodaj go do kolekcji obrazów prezentacji jako [PPImage](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ppimage/).
+5. Załaduj obraz punktu i dodaj go do kolekcji obrazów prezentacji jako [PPImage](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ppimage/).
 6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) i ustaw jego tekst.
 7. Ustaw [BulletFormat.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/type/) na [BulletType.PICTURE](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bullettype/).
-8. Przypisz obraz poprzez [BulletFormat.picture](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/picture/) i ustaw wysokość wypunktowania.
+8. Przypisz obraz przez [BulletFormat.picture](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/picture/) i ustaw wysokość punktu.
 9. Dodaj akapit do ramki tekstowej.
 10. Zapisz zmodyfikowaną prezentację.
 
-Ten przykład w języku Python tworzy wypunktowanie obrazkowe:
+Ten przykład w Pythonie tworzy punkt graficzny:
 
 ```python
 import aspose.slides as slides
@@ -201,17 +201,17 @@ with slides.Presentation() as presentation:
     presentation.save("picture_bullet.ppt", slides.export.SaveFormat.PPT)
 ```
 
-### **Tworzenie listy wielopoziomowej**
+### **Utworzenie listy wielopoziomowej**
 
-Ustaw [ParagraphFormat.depth](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/depth/) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
+Ustaw [ParagraphFormat.depth](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/depth/) , aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
 1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
-2. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) oraz usuń domyślny akapit z jego ramki tekstowej.
-3. Utwórz cztery akapity i skonfiguruj ich symbole wypunktowania.
+2. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) i wyczyść domyślny akapit z jego ramki tekstowej.
+3. Utwórz cztery akapity i skonfiguruj ich symbole punktów.
 4. Ustaw ich wartości [ParagraphFormat.depth](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/depth/) na `0`, `1`, `2` i `3`.
 5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
 
-Ten przykład w języku Python tworzy czteropoziomową listę wypunktowaną:
+Ten przykład w Pythonie tworzy czteropoziomową listę punktowaną:
 
 ```python
 import aspose.pydrawing as draw
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Rozpoczynanie numerowanych elementów listy od własnych wartości**
+### **Rozpoczęcie elementów listy numerowanej od własnych wartości**
 
-Użyj [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
+Użyj [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) , aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
 
 1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) i dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-2. Usuń domyślny akapit z ramki tekstowej kształtu.
+2. Wyczyść domyślny akapit z ramki tekstowej kształtu.
 3. Utwórz trzy numerowane akapity.
-4. Ustaw [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) na `2`, `3` i `7` dla kolejnych akapitów.
+4. Ustaw [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) na `2`, `3` i `7` dla odpowiednich akapitów.
 5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
 
-Ten przykład w języku Python przypisuje własny początkowy numer każdemu akapitowi:
+Ten przykład w Pythonie przypisuje własny początkowy numer każdemu akapitowi:
 
 ```python
 import aspose.slides as slides
@@ -307,13 +307,13 @@ with slides.Presentation() as presentation:
 
 ## **Kontrola układu akapitu i właściwości końcowych**
 
-### **Ustawianie wcięcia pierwszej linii**
+### **Ustawienie wcięcia pierwszej linii**
 
-Użyj właściwości [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) aby kontrolować wcięcie pierwszej linii akapitu. Właściwość ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, natomiast pozostałe linie pozostają wyrównane do ciała akapitu.
+Użyj właściwości [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) , aby kontrolować wcięcie pierwszej linii akapitu. Właściwość ta przemieszcza tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
 
-Używaj [ParagraphFormat.margin_left](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/margin_left/) gdy musisz przesunąć cały akapit. Używaj [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) gdy potrzebne jest jedynie wcięcie pierwszej linii.
+Użyj [ParagraphFormat.margin_left](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/margin_left/) , gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) , gdy potrzebujesz przesunąć tylko pierwszą linię.
 
-Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
+Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) , aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
@@ -323,7 +323,7 @@ Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [Paragrap
 6. Dodaj akapity do ramki tekstowej.
 7. Zapisz zmodyfikowaną prezentację.
 
-Ten kod pokazuje, jak ustawić wcięcie akapitu:
+Kod pokazuje, jak ustawić wcięcie akapitu:
 
 ```python
 import aspose.pydrawing as draw
@@ -372,24 +372,24 @@ Wynik:
 
 ![Wcięcie pierwszej linii akapitów](first_line_indent.png)
 
-### **Ustawianie wcięcia zwisającego**
+### **Ustawienie wcięcia wiszącego**
 
-Wcięcie zwisające to układ akapitu, w którym pierwsza linia zaczyna się bardziej po lewej niż pozostałe linie. W Aspose.Slides efekt ten uzyskuje się przy pomocy właściwości [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/). Ustaw `indent` na wartość ujemną, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą właściwości [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) . Ustaw `indent` na wartość ujemną, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
 
-W praktyce [ParagraphFormat.margin_left](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/margin_left/) definiuje lewą pozycję ciała akapitu, a [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) określa pozycję pierwszej linii względem tego marginesu. Aby uzyskać wcięcie zwisające, ustaw dodatnią wartość `margin_left` oraz ujemną wartość `indent`.
+Praktycznie, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/margin_left/) definiuje lewą pozycję ciała akapitu, a [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) określa pozycję pierwszej linii względem tego marginesu. Aby utworzyć wcięcie wiszące, ustaw dodatnią wartość `margin_left` i ujemną wartość `indent`.
 
-To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których zwijane linie muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których zawinięte linie muszą wyrównywać się pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
 3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu i usuń domyślny akapit.
-5. Utwórz akapity i ustaw dodatnią wartość [ParagraphFormat.margin_left](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/margin_left/) dla każdego z nich.
-6. Ustaw ujemną wartość [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) aby uzyskać efekt wcięcia zwisającego.
+5. Utwórz akapity i ustaw dodatnią wartość [ParagraphFormat.margin_left](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/margin_left/) dla każdego akapitu.
+6. Ustaw ujemną wartość [ParagraphFormat.indent](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/indent/) aby uzyskać efekt wcięcia wiszącego.
 7. Dodaj akapity do ramki tekstowej.
 8. Zapisz zmodyfikowaną prezentację.
 
-Ten kod pokazuje, jak ustawić wcięcie zwisające dla akapitu:
+Kod pokazuje, jak ustawić wcięcie wiszące dla akapitu:
 
 ```python
 import aspose.pydrawing as draw
@@ -428,17 +428,17 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wcięcie zwisające akapitów](hanging_indent.png)
+![Wcięcie wiszące akapitów](hanging_indent.png)
 
-### **Ustawianie właściwości końcowych akapitu**
+### **Ustawienie właściwości końcowego fragmentu akapitu**
 
-Właściwość [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) kontroluje formatowanie znaku końca akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końca drugiego akapitu:
+Właściwość [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) kontroluje formatowanie znaku końca akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
 
 1. Załaduj [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
-2. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) i usuń jego domyślny akapit.
+2. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) i wyczyść jego domyślny akapit.
 3. Utwórz dwa akapity i dodaj do nich fragmenty tekstu.
-4. Utwórz [PortionFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/) dla znaku końca drugiego akapitu.
-5. Ustaw [PortionFormat.font_height](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/font_height/) oraz [PortionFormat.latin_font](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/latin_font/).
+4. Utwórz [PortionFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/) dla końcowego fragmentu drugiego akapitu.
+5. Ustaw [PortionFormat.font_height](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/font_height/) i [PortionFormat.latin_font](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/latin_font/).
 6. Przypisz format do [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) i zapisz prezentację.
 
 ```python
@@ -467,20 +467,65 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Import i eksport zawartości akapitu**
+## **Liczenie renderowanych linii**
+
+Użyj [Paragraph.get_lines_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/get_lines_count/) , aby policzyć linie zajmowane przez akapit po układzie tekstu, włącznie z automatycznym zawijaniem. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
+
+Akapit jest jednym elementem w [TextFrame.paragraphs](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/paragraphs/) , i może zajmować kilka renderowanych linii. Jawny podział wiersza w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy linie na podstawie dostępnej szerokości bez wstawiania jawnych podziałów wierszy do tekstu. Dlatego liczenie akapitów lub znaków podziału wiersza nie daje liczby renderowanych linii.
+
+Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zastępuje tekst krótszym ciągiem. Zawijanie jest włączone, a automatyczne dopasowanie wyłączone, tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Wymiary kształtu są podane w punktach. Na koniec przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.text_frame_format.wrap_text = slides.NullableBool.TRUE
+    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.NONE
+
+    paragraph = text_frame.paragraphs[0]
+    paragraph.paragraph_format.default_portion_format.font_height = 20
+    paragraph.text = "This text demonstrates how automatic wrapping changes the number of rendered lines."
+    print(f"Original width: {paragraph.get_lines_count()}")
+
+    shape.width = 150
+    print(f"Narrower shape: {paragraph.get_lines_count()}")
+
+    paragraph.text = "Short text."
+    print(f"Shorter text: {paragraph.get_lines_count()}")
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Another paragraph."
+    second_paragraph.paragraph_format.default_portion_format.font_height = 20
+    text_frame.paragraphs.add(second_paragraph)
+
+    total_line_count = 0
+    for current_paragraph in text_frame.paragraphs:
+        total_line_count += current_paragraph.get_lines_count()
+    print(f"Total lines in the text frame: {total_line_count}")
+```
+
+Przy tym tekście i wymiarach zwężanie kształtu zwiększa liczbę linii, podczas gdy zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności i substytucji czcionek, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień automatycznego dopasowania. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy sprawdzaniu szablonu.
+
+Sama liczba linii nie określa, czy tekst wykracza poza kontener. Ważna jest dostępna wysokość, wysokość linii, odstępy akapitów i linii oraz zachowanie automatycznego dopasowania; nawet pojedyncza linia może przekraczać dostępną szerokość, gdy zawijanie jest wyłączone.
+
+## **Import i eksport treści akapitu**
 
 ### **Import tekstu HTML do akapitów**
 
-Użyj [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/add_from_html/) aby przekształcić znacznik HTML w akapity i fragmenty w ramce tekstowej.
+Użyj [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/add_from_html/) , aby przekształcić znaczniki HTML na akapity i fragmenty w ramce tekstowej.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
 2. Uzyskaj dostęp do slajdu i dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/).
-3. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu i usuń domyślny akapit.
+3. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu i wyczyść jego domyślny akapit.
 4. Odczytaj źródłowy plik HTML.
-5. Przekaż ciąg HTML do [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/add_from_html/).
+5. Przekaż ciąg HTML do [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/add_from_html/) .
 6. Zapisz zmodyfikowaną prezentację.
 
-Ten przykład w języku Python importuje HTML do ramki tekstowej:
+Przykład w Pythonie importuje HTML do ramki tekstowej:
 
 ```python
 import aspose.slides as slides
@@ -502,15 +547,15 @@ with slides.Presentation() as presentation:
 
 ### **Eksport tekstu akapitu do HTML**
 
-Użyj [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/export_to_html/) aby wyeksportować wybrany zakres akapitów jako HTML.
+Użyj [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/export_to_html/) , aby wyeksportować wybrany zakres akapitów jako HTML.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) i wczytaj żądaną prezentację.
-2. Uzyskaj dostęp do slajdu i znajdź [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) zawierający tekst.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) i załaduj żądaną prezentację.
+2. Uzyskaj dostęp do slajdu i znajdź [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) , który zawiera tekst.
 3. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu.
-4. Wywołaj [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/export_to_html/) podając indeks początkowego akapitu i liczbę akapitów do wyeksportowania.
+4. Wywołaj [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphcollection/export_to_html/) podając indeks początkowego akapitu oraz liczbę akapitów do eksportu.
 5. Zapisz zwrócony ciąg HTML do pliku.
 
-Ten przykład w języku Python eksportuje wszystkie akapity z pierwszego kształtu tekstowego:
+Przykład w Pythonie eksportuje wszystkie akapity z pierwszego kształtu tekstowego:
 
 ```python
 import aspose.slides as slides
@@ -529,17 +574,17 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
 
 ### **Renderowanie akapitu jako obrazu**
 
-[Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) udostępnia metodę `get_image` umożliwiającą renderowanie pojedynczego akapitu bezpośrednio. Metoda zwraca obiekt [IImage](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iimage/), który można zapisać do pliku lub strumienia przy użyciu [IImage.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iimage/save/). Nie trzeba renderować całego kształtu ani ręcznie przycinać bitmapy.
+[Paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/) udostępnia metodę `get_image` do bezpośredniego renderowania pojedynczego akapitu. Metoda zwraca [IImage](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iimage/) , którą możesz zapisać do pliku lub strumienia za pomocą [IImage.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iimage/save/) . Nie musisz renderować zawierającego kształtu ani ręcznie przycinać bitmapy.
 
-Metoda `get_image` może zwrócić `None`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź rezultat przed zapisem i użyj zwróconego obrazu jako menedżera kontekstu, aby zwolnić zasoby.
+Metoda `get_image` może zwrócić `None`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i użyj zwróconego obrazu jako menedżera kontekstu, aby zwolnić zasoby.
 
-#### **Renderowanie akapitu w skali domyślnej**
+#### **Renderowanie akapitu w domyślnej skali**
 
-Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, a pierwszym kształtem jest pole tekstowe zawierające trzy akapity.
+Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, gdzie pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
 
 ![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-Poniższy przykład renderuje drugi akapit w zwykłym kształcie tekstowym w skali domyślnej i zapisuje zwrócony obraz w formacie PNG:
+Poniższy przykład renderuje drugi akapit w zwykłym kształcie tekstowym w domyślnej skali i zapisuje zwrócony obraz w formacie PNG:
 
 ```python
 import aspose.slides as slides
@@ -560,13 +605,13 @@ with slides.Presentation("sample.pptx") as presentation:
         print("The expected text shape or paragraph was not found.")
 ```
 
-Wynik:
+Obraz akapitu:
 
 ![Obraz akapitu](paragraph_to_image_output.png)
 
-#### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
+#### **Renderowanie akapitu w komórce tabeli z skalowaniem**
 
-Przekaż współczynniki skalowania poziomego i pionowego do `get_image`, aby kontrolować rozmiar renderowanego akapitu. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy dwukrotnym zwiększeniu zarówno szerokości, jak i wysokości, i zapisuje wynik jako obraz PNG:
+Przekaż czynniki skali poziomej i pionowej do `get_image`, aby kontrolować rozmiar renderowanego akapitu. Poniższy przykład tworzy tabelę, renderuje akapit w pierwszej komórce przy dwukrotnym domyślnym szerokości i wysokości, i zapisuje wynik jako obraz PNG:
 
 ```python
 import aspose.slides as slides
@@ -588,24 +633,24 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Współczynnik `1` pozostawia daną oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników daje obraz, którego szerokość i wysokość są w przybliżeniu dwa razy większe niż domyślne wymiary, co skutkuje czterokrotną liczbą pikseli. Wyższe współczynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` produkują mniejsze obrazy z mniejszą szczegółowością. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wynik niezależnie.
+Czynnik skali `1` utrzymuje dany oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu czynników tworzy obraz, którego szerokość i wysokość są w przybliżeniu dwukrotne względem domyślnych wymiarów, co daje czterokrotnie więcej pikseli. Większe czynniki zazwyczaj dają wyraźniejszy tekst przy powiększaniu lub wyjściu w wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Czynniki poniżej `1` tworzą mniejsze obrazy z mniejszą szczegółowością. Używaj równych czynników, aby zachować proporcje akapitu; różne czynniki poziome i pionowe rozciągają wynik niezależnie.
 
-Renderowanie całego kształtu przy użyciu [Shape.get_image](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/get_image/) jest przydatne, gdy wynik musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu wyłącznie akapitu użyj `Paragraph.get_image`.
+Renderowanie całego kształtu przy użyciu [Shape.get_image](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/get_image/) pozostaje przydatne, gdy wynik musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu zawierającego tylko akapit, użyj `Paragraph.get_image`.
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć łamanie linii w ramce tekstowej?**
+**Czy mogę całkowicie wyłączyć zawijanie linii wewnątrz ramki tekstowej?**
 
-Tak. Ustaw [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/wrap_text/) aby wyłączyć łamanie, dzięki czemu linie nie będą dzielone przy krawędziach ramki tekstowej.
+Tak. Ustaw [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/wrap_text/) , aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane przy krawędziach ramki tekstowej.
 
-**Jak mogę uzyskać dokładne granice akapitu na slajdzie?**
+**Jak mogę uzyskać dokładne granice konkretnego akapitu na slajdzie?**
 
-Użyj [Paragraph.get_rect](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/get_rect/) aby pobrać prostokąt otaczający akapit. [Portion.get_rect](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/get_rect/) dostarcza granice pojedynczego fragmentu.
+Użyj [Paragraph.get_rect](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraph/get_rect/) , aby pobrać prostokąt ograniczający akapit. [Portion.get_rect](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portion/get_rect/) udostępnia granice pojedynczego fragmentu.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub wyrównane)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub justowanie)?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/alignment/) jest ustawieniem na poziomie akapitu i obowiązuje cały akapit, niezależnie od formatowania poszczególnych fragmentów.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/pl/python-net/aspose.slides/paragraphformat/alignment/) jest ustawieniem poziomu akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
 
 **Czy mogę ustawić język korekty dla części akapitu?**
 
-Tak. Ustaw [PortionFormat.language_id](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/language_id/) dla poszczególnych fragmentów, dzięki czemu jeden akapit może zawierać tekst w kilku językach.
+Tak. Ustaw [PortionFormat.language_id](https://reference.aspose.com/slides/pl/python-net/aspose.slides/portionformat/language_id/) dla poszczególnych fragmentów, aby jeden akapit mógł zawierać tekst w wielu językach.

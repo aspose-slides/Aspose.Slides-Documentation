@@ -5,7 +5,7 @@ type: docs
 weight: 50
 url: /id/cpp/text-formatting/
 keywords:
-- penyelarasan paragraf
+- sejajarkan paragraf
 - gaya teks
 - latar belakang teks
 - transparansi teks
@@ -17,7 +17,7 @@ keywords:
 - bingkai teks
 - jarak baris
 - properti autofit
-- penambatan bingkai teks
+- jangkar bingkai teks
 - tabulasi teks
 - bahasa default
 - PowerPoint
@@ -25,21 +25,21 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Memformat dan memberi gaya pada teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++. Sesuaikan font, warna, perataan, dan lainnya."
+description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++. Sesuaikan font, warna, perataan, dan lainnya."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++. Artikel ini mencakup warna latar belakang, transparansi, jarak karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tabulasi, dan pengaturan bahasa.
+Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++. Artikel ini mencakup warna latar belakang, transparansi, jarak karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tab stop, dan pengaturan bahasa.
 
-Dalam contoh di bawah ini, kami akan menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
+Dalam contoh di bawah, kami akan menggunakan file bernama **"sample.pptx"**, yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
-![Teks contoh](sample_text.png)
+![Contoh teks](sample_text.png)
 
 Untuk menemukan dan menyorot teks literal atau kecocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/cpp/search-and-replace-text/).
 
-## **Atur Warna Latar Belakang Teks**
+## **Set Warna Latar Belakang Teks**
 
-Gunakan [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) untuk mengatur warna sorotan default untuk sebuah paragraf, atau gunakan [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) untuk bagian teks individual.
+Gunakan [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) untuk mengatur warna sorotan default untuk sebuah paragraf, atau gunakan [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) untuk potongan teks individu.
 
 Contoh kode berikut menunjukkan cara mengatur warna latar belakang untuk **seluruh paragraf**:
 
@@ -65,7 +65,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Atur warna sorotan untuk seluruh paragraf.
+// Setel warna sorotan untuk seluruh paragraf.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -76,7 +76,7 @@ Hasil:
 
 ![Paragraf abu-abu](gray_paragraph.png)
 
-Contoh kode di bawah ini menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
+Contoh kode di bawah ini mendemonstrasikan cara mengatur warna latar belakang untuk **potongan teks dengan font tebal**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -109,7 +109,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Atur warna sorotan untuk bagian teks.
+        // Setel warna sorotan untuk potongan teks.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -120,11 +120,11 @@ presentation->Dispose();
 
 Hasil:
 
-![Bagian teks abu-abu](gray_text_portions.png)
+![Potongan teks abu-abu](gray_text_portions.png)
 
-## **Rata Paragraf Teks**
+## **Align Text Paragraphs**
 
-Gunakan [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_alignment/) untuk mengatur perataan paragraf di dalam bingkai teks. Nilainya dapat berupa tengah, rata kiri, rata kanan, rata kanan-kiri, dan sebagainya.
+Gunakan [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_alignment/) untuk mengatur perataan paragraf dalam sebuah bingkai teks. Nilainya dapat berupa tengah, rata kiri, rata kanan, justify, dan sebagainya.
 
 Contoh kode berikut menunjukkan cara meratakan paragraf ke **tengah**:
 
@@ -145,7 +145,8 @@ auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-// Atur perataan paragraf ke tengah.
+
+// Setel perataan paragraf ke tengah.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -156,11 +157,11 @@ Hasil:
 
 ![Paragraf yang diratakan](aligned_paragraph.png)
 
-## **Atur Transparansi Teks**
+## **Set Transparency for Text**
 
-Keterbukaan (transparansi) teks dikendalikan melalui komponen alfa dari warna yang ditetapkan melalui [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Pada contoh di bawah ini, `alpha = 50` merupakan nilai saluran alfa ARGB pada skala 0-255, bukan persentase transparansi.
+Transparansi teks dikendalikan melalui komponen alpha dari warna yang ditetapkan melalui [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Dalam contoh di bawah, `alpha = 50` adalah nilai saluran alpha ARGB pada skala 0‑255, bukan persentase transparansi.
 
-Contoh kode di bawah ini menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -187,7 +188,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Atur warna isi teks menjadi warna transparan.
+// Setel warna isian teks menjadi warna transparan.
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -201,7 +202,7 @@ Hasil:
 
 ![Paragraf transparan](transparent_paragraph.png)
 
-Contoh kode berikut menunjukkan cara menerapkan transparansi pada **bagian teks dengan font tebal**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **potongan teks dengan font tebal**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -237,7 +238,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Atur transparansi bagian teks.
+        // Setel transparansi potongan teks.
         portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
         auto baseColor = System::Drawing::Color::get_Black();
         auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -251,13 +252,13 @@ presentation->Dispose();
 
 Hasil:
 
-![Bagian teks transparan](transparent_text_portions.png)
+![Potongan teks transparan](transparent_text_portions.png)
 
-## **Atur Jarak Karakter Teks**
+## **Set Character Spacing for Text**
 
-Gunakan [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_spacing/) untuk memperlebar atau mempersempit jarak antar karakter dalam kotak teks.
+Gunakan [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_spacing/) untuk memperlebar atau mempersempit jarak antar karakter dalam sebuah kotak teks.
 
-Kode C++ berikut menunjukkan cara memperluas jarak karakter pada **seluruh paragraf**:
+Kode C++ berikut menunjukkan cara memperlebar jarak karakter dalam **seluruh paragraf**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -288,7 +289,7 @@ Hasil:
 
 ![Jarak karakter dalam paragraf](character_spacing_in_paragraph.png)
 
-Contoh kode di bawah ini menunjukkan cara memperluas jarak karakter pada **bagian teks dengan font tebal**:
+Contoh kode di bawah ini menunjukkan cara memperlebar jarak karakter dalam **potongan teks dengan font tebal**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -329,13 +330,13 @@ presentation->Dispose();
 
 Hasil:
 
-![Jarak karakter dalam bagian teks](character_spacing_in_text_portions.png)
+![Jarak karakter dalam potongan teks](character_spacing_in_text_portions.png)
 
-### **Nonaktifkan Kerning untuk Font Tertentu**
+### **Disable Kerning for Specific Fonts**
 
-Pada beberapa kasus, teks yang dirender oleh Aspose.Slides dapat terlihat sedikit lebih rapat dibandingkan teks yang sama ditampilkan di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut berisi informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
+Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat terlihat sedikit lebih rapat dibandingkan teks yang sama yang ditampilkan di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
 
-Untuk membuat output yang dirender lebih mendekati PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terpengaruh. Gunakan [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) untuk menetapkan nilai yang secara signifikan lebih besar daripada ukuran font sebenarnya:
+Untuk membuat output yang dirender lebih mirip dengan PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk potongan teks yang menggunakan font yang terpengaruh. Gunakan [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) untuk menetapkan nilai yang jauh lebih besar daripada ukuran font sebenarnya:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -390,13 +391,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan render Aspose.Slides dengan output visual PowerPoint untuk font yang terpengaruh oleh perilaku khusus PowerPoint ini.
+Pengaturan ini mencegah kerning diterapkan pada potongan teks yang cocok dan dapat membantu menyamakan hasil render Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi oleh perilaku khusus PowerPoint ini.
 
-## **Kelola Properti Font Teks**
+## **Manage Text Font Properties**
 
-Properti font dapat diatur pada tingkat paragraf melalui [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) atau pada bagian individual melalui [IPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformat/).
+Properti font dapat diatur pada tingkat paragraf melalui [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) atau pada potongan individu melalui [IPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformat/).
 
-Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: kode ini menerapkan ukuran font, tebal, miring, garis bawah titik, dan font Times New Roman ke semua bagian dalam paragraf.
+Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: ia menerapkan ukuran font, tebal, miring, garis bawah putus-putus, serta font Times New Roman ke semua potongan dalam paragraf.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -420,7 +421,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Atur properti font untuk paragraf.
+// Setel properti font untuk paragraf.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -436,7 +437,7 @@ Hasil:
 
 ![Properti font untuk paragraf](font_properties_for_paragraph.png)
 
-Contoh kode di bawah ini menerapkan properti serupa pada **bagian teks dengan font tebal**:
+Contoh kode di bawah ini menerapkan properti serupa pada **potongan teks dengan font tebal**:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -470,7 +471,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Atur properti font untuk bagian teks.
+        // Setel properti font untuk potongan teks.
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -484,11 +485,11 @@ presentation->Dispose();
 
 Hasil:
 
-![Properti font untuk bagian teks](font_properties_for_text_portions.png)
+![Properti font untuk potongan teks](font_properties_for_text_portions.png)
 
-## **Atur Rotasi Teks**
+## **Set Text Rotation**
 
-Gunakan [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_textverticaltype/) untuk mengatur orientasi teks yang telah ditentukan dalam sebuah bentuk.
+Gunakan [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_textverticaltype/) untuk mengatur orientasi teks pra‑definisi dalam sebuah bentuk.
 
 Contoh kode berikut mengatur orientasi teks dalam bentuk ke [TextVerticalType::Vertical270](https://reference.aspose.com/slides/id/cpp/aspose.slides/textverticaltype/), yang memutar teks **90 derajat berlawanan arah jarum jam**:
 
@@ -518,9 +519,9 @@ Hasil:
 
 ![Rotasi teks](text_rotation.png)
 
-## **Atur Rotasi Kustom untuk Bingkai Teks**
+## **Set Custom Rotation for Text Frames**
 
-Gunakan [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_rotationangle/) untuk mengatur sudut rotasi kustom untuk sebuah [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/).
+Gunakan [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_rotationangle/) untuk menetapkan sudut rotasi khusus untuk sebuah [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/).
 
 Contoh kode di bawah ini memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
 
@@ -547,16 +548,16 @@ presentation->Dispose();
 
 Hasil:
 
-![Rotasi teks kustom](custom_text_rotation.png)
+![Rotasi teks khusus](custom_text_rotation.png)
 
-## **Atur Jarak Baris Paragraf**
+## **Set Line Spacing of Paragraphs**
 
-Aspose.Slides menyediakan [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_spacebefore/), dan [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_spacewithin/) untuk mengontrol jarak paragraf. Metode-metode ini digunakan sebagai berikut:
+Aspose.Slides menyediakan [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_spacebefore/), dan [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_spacewithin/) untuk mengontrol jarak paragraf. Metode‑metode ini digunakan sebagai berikut:
 
 * Gunakan nilai positif untuk menentukan jarak baris sebagai persentase dari tinggi baris.
 * Gunakan nilai negatif untuk menentukan jarak baris dalam poin.
 
-Contoh kode berikut menunjukkan cara menentukan jarak baris dalam paragraf:
+Contoh kode berikut menunjukkan cara menentukan jarak baris di dalam paragraf:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -585,9 +586,9 @@ Hasil:
 
 ![Jarak baris dalam paragraf](line_spacing.png)
 
-## **Atur Tipe Autofit untuk Bingkai Teks**
+## **Set Autofit Type for Text Frames**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_autofittype/) menentukan bagaimana teks berperilaku ketika melebihi batas wadahnya. Gunakan untuk mengontrol apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis.
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_autofittype/) menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengontrol apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -611,9 +612,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Atur Penambatan Bingkai Teks**
+Untuk menghitung baris setelah pembungkusan otomatis dan melihat bagaimana lebar teks atau bentuk berubah, lihat [Hitung Baris yang Dihasilkan](/slides/id/cpp/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluap dari kontainernya.
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_anchoringtype/) menentukan bagaimana teks diposisikan secara vertikal di dalam sebuah bentuk, misalnya di atas, tengah, atau bawah.
+## **Set Anchor of Text Frames**
+
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_anchoringtype/) mendefinisikan bagaimana teks diposisikan secara vertikal di dalam sebuah bentuk, misalnya di bagian atas, tengah, atau bawah.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -637,9 +640,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Atur Tabulasi Teks**
+## **Set Text Tabulation**
 
-Gunakan [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) dan [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_tabs/) untuk mengonfigurasi tabulasi dalam sebuah paragraf.
+Gunakan [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) dan [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_tabs/) untuk mengonfigurasi tab stop dalam sebuah paragraf.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -669,13 +672,13 @@ presentation->Dispose();
 
 Hasil:
 
-![Tabulasi paragraf](paragraph_tabs.png)
+![Tab paragraf](paragraph_tabs.png)
 
-## **Atur Bahasa Pemeriksaan**
+## **Set Proofing Language**
 
-Aspose.Slides menyediakan [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_languageid/), yang memungkinkan Anda mengatur bahasa pemeriksaan untuk sebuah bagian teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/set_languageid/), yang memungkinkan Anda menetapkan bahasa pemeriksaan ejaan untuk sebuah potongan teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pengecekan ejaan dan tata bahasa di PowerPoint.
 
-Contoh kode berikut menunjukkan cara mengatur bahasa pemeriksaan untuk sebuah bagian teks:
+Contoh kode berikut menunjukkan cara mengatur bahasa pemeriksaan untuk sebuah potongan teks:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -707,7 +710,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Atur Id bahasa pemeriksaan.
+// Set the Id of a proofing language.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
@@ -717,9 +720,9 @@ presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Atur Bahasa Default**
+## **Set Default Language**
 
-Gunakan [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) untuk mendefinisikan bahasa default untuk teks yang dibuat saat memuat atau membuat presentasi.
+Gunakan [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) untuk menentukan bahasa default untuk teks yang dibuat saat memuat atau membuat sebuah presentasi.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -753,11 +756,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **Atur Gaya Teks Default**
+## **Set Default Text Style**
 
 Untuk menerapkan pemformatan teks default pada tingkat presentasi, gunakan [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-Contoh kode berikut menunjukkan cara mengatur font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam presentasi baru.
+Contoh kode berikut menunjukkan cara menetapkan font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam sebuah presentasi baru.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -785,11 +788,11 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ekstrak Teks dengan Efek Semua Huruf Kapital**
+## **Extract Text with the All-Caps Effect**
 
-Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf kapital pada slide meskipun awalnya diketik dalam huruf kecil. Saat Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/cpp/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf kapital ketika nilainya adalah [TextCapType::All](https://reference.aspose.com/slides/id/cpp/aspose.slides/textcaptype/).
+Di PowerPoint, menerapkan efek font **All Caps** membuat teks tampil dalam huruf besar pada slide meskipun aslinya diketik dengan huruf kecil. Ketika Anda mengambil potongan teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk menyesuaikan dengan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/cpp/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf besar bila nilainya [TextCapType::All](https://reference.aspose.com/slides/id/cpp/aspose.slides/textcaptype/).
 
-Misalkan kita memiliki kotak teks berikut pada slide pertama file sample2.pptx.
+Misalkan kita memiliki kotak teks berikut pada slide pertama file **sample2.pptx**.
 
 ![Efek All Caps](all_caps_effect.png)
 
@@ -827,7 +830,7 @@ if (textFormat->get_TextCapType() == TextCapType::All)
 presentation->Dispose();
 ```
 
-Keluaran:
+Output:
 
 ```text
 Original text: Hello, Aspose!
@@ -838,8 +841,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Bagaimana cara memodifikasi teks dalam tabel pada slide?**
 
-Untuk memodifikasi teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/). Iterasi melalui sel-sel dan perbarui setiap sel melalui [ICell::get_TextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/get_textframe/) serta format paragraf melalui [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+Untuk memodifikasi teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/). Iterasi melalui sel‑sel dan perbarui setiap sel melalui [ICell::get_TextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/get_textframe/) serta pemformatan paragraf melalui [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
 **Bagaimana cara menerapkan warna gradien pada teks di slide PowerPoint?**
 
-Untuk menerapkan warna gradien pada teks, gunakan [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Atur [IFillFormat::set_FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifillformat/set_filltype/) ke [FillType::Gradient](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) dan konfigurasikan titik gradient, arah, serta transparansi.
+Untuk menerapkan warna gradien pada teks, gunakan [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Tetapkan [IFillFormat::set_FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifillformat/set_filltype/) menjadi [FillType::Gradient](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) dan konfigurasikan stop gradien, arah, serta transparansi.

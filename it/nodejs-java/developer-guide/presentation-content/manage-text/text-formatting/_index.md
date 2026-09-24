@@ -5,13 +5,13 @@ type: docs
 weight: 50
 url: /it/nodejs-java/text-formatting/
 keywords:
-- allineare paragrafo
+- allineamento del paragrafo
 - stile del testo
 - sfondo del testo
 - trasparenza del testo
 - spaziatura dei caratteri
 - proprietà del carattere
-- famiglia del carattere
+- famiglia di caratteri
 - rotazione del testo
 - angolo di rotazione
 - riquadro di testo
@@ -30,19 +30,19 @@ description: "Formatta e stile il testo nelle presentazioni PowerPoint e OpenDoc
 ---
 ## **Panoramica**
 
-Questo articolo mostra come formattare il testo nelle presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Node.js via Java. Copre i colori di sfondo, la trasparenza, la spaziatura dei caratteri, le proprietà del carattere, la rotazione, la spaziatura dei paragrafi, il comportamento di adattamento automatico, l'ancoraggio del testo, le tabulazioni e le impostazioni della lingua.
+Questo articolo mostra come formattare il testo nelle presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Node.js tramite Java. Copre i colori di sfondo, la trasparenza, la spaziatura dei caratteri, le proprietà dei caratteri, la rotazione, la spaziatura dei paragrafi, il comportamento di autofit, l'ancoraggio del testo, le tabulazioni e le impostazioni della lingua.
 
-Negli esempi seguenti, utilizzeremo un file chiamato "sample.pptx", che contiene una singola casella di testo nella prima diapositiva con il seguente testo:
+Negli esempi seguenti, useremo un file chiamato "sample.pptx", che contiene una singola casella di testo nella prima diapositiva con il seguente testo:
 
 ![Testo di esempio](sample_text.png)
 
-Per trovare e evidenziare testo letterale o corrispondenze di espressioni regolari, vedere [Cerca e sostituisci testo](/slides/it/nodejs-java/search-and-replace-text/).
+Per trovare e evidenziare testo letterale o corrispondenze di espressioni regolari, vedere [Cerca e Sostituisci Testo](/slides/it/nodejs-java/search-and-replace-text/).
 
 ## **Imposta colore di sfondo del testo**
 
-Utilizza [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) per impostare il colore di evidenziazione predefinito per un paragrafo, oppure utilizza [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) per singole porzioni di testo.
+Usa [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) per impostare il colore di evidenziazione predefinito per un paragrafo, o usa [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) per singole porzioni di testo.
 
-La seguente esempio di codice mostra come impostare il colore di sfondo per l'**intero paragrafo**:
+Il seguente esempio di codice mostra come impostare il colore di sfondo per l'**intero paragrafo**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -67,7 +67,7 @@ Il risultato:
 
 ![Il paragrafo grigio](gray_paragraph.png)
 
-Il seguente esempio di codice dimostra come impostare il colore di sfondo per le **porzioni di testo con un carattere grassetto**:
+L'esempio di codice seguente dimostra come impostare il colore di sfondo per **porzioni di testo con carattere grassetto**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -101,9 +101,9 @@ Il risultato:
 
 ## **Allinea paragrafi di testo**
 
-Utilizza [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) per impostare l'allineamento del paragrafo all'interno di un riquadro di testo. Il valore può essere centrato, allineato a sinistra, allineato a destra, giustificato, ecc.
+Usa [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) per impostare l'allineamento del paragrafo all'interno di un riquadro di testo. Il valore può essere centrato, allineato a sinistra, allineato a destra, giustificato, ecc.
 
-La seguente esempio di codice mostra come allineare il paragrafo al **centro**:
+Il seguente esempio di codice mostra come allineare il paragrafo al **centro**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -129,9 +129,9 @@ Il risultato:
 
 ## **Imposta trasparenza per il testo**
 
-La trasparenza del testo è controllata tramite il componente alfa del colore assegnato a [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Nei seguenti esempi, `alpha = 50` è un valore di canale alfa ARGB su scala 0–255, non una percentuale di trasparenza.
+La trasparenza del testo è controllata tramite il componente alfa del colore assegnato a [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Nei esempi seguenti, `alpha = 50` è un valore alfa ARGB su scala 0–255, non una percentuale di trasparenza.
 
-Il seguente esempio di codice mostra come applicare la trasparenza all'**intero paragrafo**:
+L'esempio di codice seguente mostra come applicare trasparenza all'**intero paragrafo**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -146,7 +146,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // Imposta il colore di riempimento del testo al colore trasparente.
+    // Imposta il colore di riempimento del testo a colore trasparente.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -160,7 +160,7 @@ Il risultato:
 
 ![Il paragrafo trasparente](transparent_paragraph.png)
 
-Il seguente esempio di codice mostra come applicare la trasparenza alle **porzioni di testo con un carattere grassetto**:
+Il seguente esempio di codice mostra come applicare trasparenza a **porzioni di testo con carattere grassetto**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -199,7 +199,7 @@ Il risultato:
 
 ## **Imposta spaziatura dei caratteri per il testo**
 
-Utilizza [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) per espandere o comprimere la spaziatura tra i caratteri in una casella di testo.
+Usa [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) per aumentare o ridurre la spaziatura tra i caratteri in una casella di testo.
 
 Il seguente codice JavaScript mostra come espandere la spaziatura dei caratteri nell'**intero paragrafo**:
 
@@ -225,7 +225,7 @@ Il risultato:
 
 ![La spaziatura dei caratteri nel paragrafo](character_spacing_in_paragraph.png)
 
-Il seguente esempio di codice mostra come espandere la spaziatura dei caratteri nelle **porzioni di testo con un carattere grassetto**:
+L'esempio di codice seguente mostra come espandere la spaziatura dei caratteri in **porzioni di testo con carattere grassetto**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -256,11 +256,11 @@ Il risultato:
 
 ![La spaziatura dei caratteri nelle porzioni di testo](character_spacing_in_text_portions.png)
 
-### **Disattiva il kerning per caratteri specifici**
+### **Disabilita il kerning per font specifici**
 
-In alcuni casi, il testo renderizzato da Aspose.Slides può apparire leggermente più stretto rispetto allo stesso testo visualizzato in PowerPoint. Ciò può accadere perché PowerPoint può ignorare i dati di kerning per alcuni caratteri, anche quando il carattere contiene informazioni di kerning valide e il kerning è abilitato nelle impostazioni di PowerPoint.
+In alcuni casi, il testo renderizzato da Aspose.Slides può apparire leggermente più stretto rispetto allo stesso testo visualizzato in PowerPoint. Questo può accadere perché PowerPoint può ignorare i dati di kerning per alcuni font, anche quando il font contiene informazioni di kerning valide e il kerning è abilitato nelle impostazioni di PowerPoint.
 
-Per rendere l'output renderizzato più simile a PowerPoint in tali casi, è possibile disattivare il kerning per le porzioni di testo che utilizzano il carattere interessato. Imposta [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) a un valore significativamente più grande della dimensione reale del carattere:
+Per rendere l'output renderizzato più simile a PowerPoint in tali casi, è possibile disabilitare il kerning per le porzioni di testo che usano il font interessato. Imposta [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) a un valore significativamente più grande della dimensione reale del font:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -298,13 +298,13 @@ try {
 }
 ```
 
-Questa impostazione impedisce l'applicazione del kerning alle corrispondenti porzioni di testo e può contribuire ad allineare il rendering di Aspose.Slides a quello visivo di PowerPoint per i caratteri interessati da questo comportamento specifico di PowerPoint.
+Questa impostazione impedisce l'applicazione del kerning alle porzioni di testo corrispondenti e può contribuire ad allineare il rendering di Aspose.Slides all'output visivo di PowerPoint per i font interessati da questo comportamento specifico di PowerPoint.
 
 ## **Gestisci le proprietà dei caratteri del testo**
 
 Le proprietà del carattere possono essere impostate a livello di paragrafo tramite [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) o su singole porzioni tramite [PortionFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/portionformat/).
 
-Il codice seguente imposta il carattere e lo stile del testo per l'intero paragrafo: applica la dimensione del carattere, grassetto, corsivo, sottolineatura punteggiata e il carattere Times New Roman a tutte le porzioni del paragrafo.
+Il codice seguente imposta il carattere e lo stile del testo per l'intero paragrafo: applica la dimensione del carattere, il grassetto, il corsivo, la sottolineatura puntinata e il font Times New Roman a tutte le porzioni del paragrafo.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -334,7 +334,7 @@ Il risultato:
 
 ![Le proprietà del carattere per il paragrafo](font_properties_for_paragraph.png)
 
-Il seguente esempio di codice applica proprietà simili alle **porzioni di testo con un carattere grassetto**:
+L'esempio di codice seguente applica proprietà simili a **porzioni di testo con carattere grassetto**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -373,7 +373,7 @@ Il risultato:
 
 ## **Imposta rotazione del testo**
 
-Utilizza [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) per impostare un orientamento del testo predefinito all'interno di una forma.
+Usa [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) per impostare un orientamento predefinito del testo all'interno di una forma.
 
 Il seguente esempio di codice imposta l'orientamento del testo nella forma su `Vertical270`, che ruota il testo di **90 gradi in senso antiorario**:
 
@@ -400,9 +400,9 @@ Il risultato:
 
 ## **Imposta rotazione personalizzata per i riquadri di testo**
 
-Utilizza [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) per impostare un angolo di rotazione personalizzato per un [TextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/).
+Usa [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) per impostare un angolo di rotazione personalizzato per un [TextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/).
 
-Il seguente esempio di codice ruota il riquadro di testo di 3 gradi in senso orario all'interno della forma:
+L'esempio di codice seguente ruota il riquadro di testo di 3 gradi in senso orario all'interno della forma:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -428,8 +428,8 @@ Il risultato:
 
 Aspose.Slides fornisce [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) e [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) per controllare la spaziatura dei paragrafi. Queste proprietà vengono utilizzate come segue:
 
-* Utilizzare un valore positivo per specificare l'interlinea come percentuale dell'altezza della linea.
-* Utilizzare un valore negativo per specificare l'interlinea in punti.
+* Usa un valore positivo per specificare l'interlinea come percentuale dell'altezza della linea.
+* Usa un valore negativo per specificare l'interlinea in punti.
 
 Il seguente esempio di codice mostra come specificare l'interlinea all'interno del paragrafo:
 
@@ -452,11 +452,11 @@ try {
 
 Il risultato:
 
-![L'interlinea nel paragrafo](line_spacing.png)
+![L'interlinea all'interno del paragrafo](line_spacing.png)
 
-## **Imposta tipo di adattamento automatico per i riquadri di testo**
+## **Imposta tipo di autofit per i riquadri di testo**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) determina come il testo si comporta quando supera i limiti del suo contenitore. Usalo per controllare se il testo si riduce, trabocca o ridimensiona automaticamente la forma.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) determina come il testo si comporta quando supera i confini del suo contenitore. Usalo per controllare se il testo si riduce, trabocca o ridimensiona automaticamente la forma.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -474,6 +474,8 @@ try {
     presentation.dispose();
 }
 ```
+
+Per contare le linee dopo l'adattamento automatico e vedere come il testo o la larghezza della forma modificano il risultato, vedere [Conta le linee renderizzate](/slides/it/nodejs-java/manage-paragraph/). Il conteggio delle linee da solo non indica se il testo trabocca dal contenitore.
 
 ## **Imposta ancoraggio dei riquadri di testo**
 
@@ -498,7 +500,7 @@ try {
 
 ## **Imposta tabulazione del testo**
 
-Utilizza [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) e [ParagraphFormat.getTabs](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#getTabs--) per configurare le tabulazioni in un paragrafo.
+Usa [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) e [ParagraphFormat.getTabs](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraphformat/#getTabs--) per configurare le tabulazioni in un paragrafo.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -523,11 +525,11 @@ Il risultato:
 
 ![Le tabulazioni del paragrafo](paragraph_tabs.png)
 
-## **Imposta lingua di correzione**
+## **Imposta lingua di verifica**
 
-Aspose.Slides fornisce [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), che consente di impostare la lingua di correzione per una porzione di testo. La lingua di correzione determina la lingua usata per il controllo ortografico e grammaticale in PowerPoint.
+Aspose.Slides fornisce [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), che consente di impostare la lingua di verifica per una porzione di testo. La lingua di verifica determina la lingua usata per i controlli ortografici e grammaticali in PowerPoint.
 
-Il seguente esempio di codice mostra come impostare la lingua di correzione per una porzione di testo:
+Il seguente esempio di codice mostra come impostare la lingua di verifica per una porzione di testo:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -545,7 +547,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Imposta l'Id di una lingua di correzione.
+    // Imposta l'Id di una lingua di verifica.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -559,7 +561,7 @@ try {
 
 ## **Imposta lingua predefinita**
 
-Utilizza [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) per definire la lingua predefinita per il testo creato durante il caricamento o la creazione di una presentazione.
+Usa [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) per definire la lingua predefinita per il testo creato durante il caricamento o la creazione di una presentazione.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -583,11 +585,11 @@ try {
 }
 ```
 
-## **Imposta stile di testo predefinito**
+## **Imposta stile predefinito del testo**
 
-Per applicare la formattazione di testo predefinita a livello di presentazione, utilizza [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
+Per applicare la formattazione predefinita del testo a livello di presentazione, usa [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-Il seguente esempio di codice mostra come impostare un carattere grassetto predefinito con dimensione 14 pt per tutto il testo su tutte le diapositive in una nuova presentazione.
+Il seguente esempio di codice mostra come impostare un carattere predefinito in grassetto con dimensione 14 pt per tutto il testo su tutte le diapositive in una nuova presentazione.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -611,13 +613,13 @@ try {
 
 ## **Estrai testo con l'effetto tutto maiuscolo**
 
-In PowerPoint, l'applicazione dell'effetto **All Caps** fa apparire il testo in maiuscolo nella diapositiva anche se originariamente è stato digitato in minuscolo. Quando si recupera una tale porzione di testo con Aspose.Slides, la libreria restituisce il testo esattamente come inserito. Per far corrispondere il testo visualizzato, verifica [TextCapType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textcaptype/) e converti la stringa restituita in maiuscolo quando il valore è `All`.
+In PowerPoint, l'applicazione dell'effetto **All Caps** al carattere fa apparire il testo in maiuscolo sulla diapositiva anche se è stato digitato originariamente in minuscolo. Quando si recupera una tale porzione di testo con Aspose.Slides, la libreria restituisce il testo esattamente come è stato inserito. Per far corrispondere il testo visualizzato, controlla [TextCapType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textcaptype/) e converti la stringa restituita in maiuscolo quando il valore è `All`.
 
 Supponiamo di avere la seguente casella di testo nella prima diapositiva del file sample2.pptx.
 
-![L'effetto tutto maiuscolo](all_caps_effect.png)
+![L'effetto All Caps](all_caps_effect.png)
 
-Il seguente esempio di codice mostra come estrarre il testo con l'effetto **All Caps** applicato:
+L'esempio di codice seguente mostra come estrarre il testo con l'effetto **All Caps** applicato:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -651,8 +653,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Come modificare il testo in una tabella su una diapositiva?**
 
-Per modificare il testo in una tabella su una diapositiva, utilizza [Table](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/table/). Itera attraverso le celle e aggiorna ogni cella tramite [Cell.getTextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cell/#getTextFrame--) e la formattazione del paragrafo tramite [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
+Per modificare il testo in una tabella su una diapositiva, usa [Table](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/table/). Itera attraverso le celle e aggiorna ogni cella tramite [Cell.getTextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cell/#getTextFrame--) e la formattazione dei paragrafi tramite [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**Come applicare un colore gradiente al testo in una diapositiva PowerPoint?**
+**Come applicare un colore sfumato al testo in una diapositiva PowerPoint?**
 
-Per applicare un colore gradiente al testo, utilizza [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Imposta [FillFormat.setFillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) su [FillType.Gradient](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) e configura le fermate del gradiente, la direzione e la trasparenza.
+Per applicare un colore sfumato al testo, usa [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Imposta [FillFormat.setFillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) su [FillType.Gradient](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) e configura le fermate del gradiente, la direzione e la trasparenza.

@@ -5,7 +5,7 @@ type: docs
 weight: 50
 url: /id/python-java/text-formatting/
 keywords:
-- penyelarasan paragraf
+- perataan paragraf
 - gaya teks
 - latar belakang teks
 - transparansi teks
@@ -17,7 +17,7 @@ keywords:
 - bingkai teks
 - jarak baris
 - properti autofit
-- jangkar bingkai teks
+- penambatan bingkai teks
 - tabulasi teks
 - bahasa default
 - PowerPoint
@@ -26,21 +26,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java. Sesuaikan font, warna, perataan, dan lainnya."
+description: "Format dan beri gaya pada teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java. Sesuaikan font, warna, perataan, dan lainnya."
 ---
 ## **Ikhtisar**
 
-Artikel ini menjelaskan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python melalui Java. Artikel ini mencakup warna latar belakang, transparansi, jarak antar karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tabulasi, dan pengaturan bahasa.
+Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java. Ini mencakup warna latar belakang, transparansi, jarak antar karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penambatan teks, tabulasi, dan pengaturan bahasa.
 
-Dalam contoh di bawah, kami akan menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
+Dalam contoh di bawah, kita akan menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
 ![Teks contoh](sample_text.png)
 
-Untuk menemukan dan menyorot teks literal atau kecocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/python-java/search-and-replace-text/).
+Untuk menemukan dan menandai teks literal atau kecocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/python-java/search-and-replace-text/).
 
-## **Atur Warna Latar Belakang Teks**
+## **Setel Warna Latar Belakang Teks**
 
-Gunakan [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) untuk mengatur warna sorotan default untuk sebuah paragraf, atau gunakan [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/) untuk bagian teks individu.
+Gunakan [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) untuk mengatur warna sorotan default bagi sebuah paragraf, atau gunakan [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/) untuk bagian teks individu.
 
 Contoh kode berikut menunjukkan cara mengatur warna latar belakang untuk **seluruh paragraf**:
 
@@ -70,7 +70,7 @@ finally:
 
 Hasilnya:
 
-![Paragraf abu‑abu](gray_paragraph.png)
+![Paragraf berwarna abu-abu](gray_paragraph.png)
 
 Contoh kode di bawah ini menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
 
@@ -102,20 +102,20 @@ finally:
 
 Hasilnya:
 
-![Bagian teks abu‑abu](gray_text_portions.png)
+![Bagian teks berwarna abu-abu](gray_text_portions.png)
 
-## **Ratakan Paragraf Teks**
+## **Luruskan Paragraf Teks**
 
-Gunakan [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setAlignment) untuk mengatur penjajaran paragraf dalam bingkai teks. Nilainya dapat berupa centered, left-aligned, right-aligned, justified, dan sebagainya.
+Gunakan [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setAlignment) untuk mengatur perataan paragraf dalam bingkai teks. Nilainya dapat berupa center, left-aligned, right-aligned, justified, dan sebagainya.
 
-Contoh kode berikut menunjukkan cara meratakan paragraf ke **tengah**:
+Contoh kode berikut menunjukkan cara meluruskan paragraf ke **tengah**:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpame.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, TextAlignment
 
@@ -135,11 +135,11 @@ finally:
 
 Hasilnya:
 
-![Paragraf yang diratakan](aligned_paragraph.png)
+![Paragraf yang diluruskan](aligned_paragraph.png)
 
-## **Atur Transparansi untuk Teks**
+## **Setel Transparansi untuk Teks**
 
-Transparansi teks dikendalikan melalui komponen alfa dari warna yang ditetapkan pada [PortionFormat.getFillFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/). Pada contoh di bawah, `alpha = 50` adalah nilai kanal alfa ARGB pada skala 0–255, bukan persentase transparansi.
+Transparansi teks dikendalikan melalui komponen alpha dari warna yang diberikan ke [PortionFormat.getFillFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/). Pada contoh di bawah, `alpha = 50` adalah nilai saluran alpha ARGB pada skala 0–255, bukan persentase transparansi.
 
 Contoh kode di bawah ini menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
 
@@ -162,7 +162,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Atur warna isi teks menjadi warna transparan.
+    # Atur warna isi teks ke warna transparan.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -211,11 +211,11 @@ Hasilnya:
 
 ![Bagian teks transparan](transparent_text_portions.png)
 
-## **Atur Jarak Karakter untuk Teks**
+## **Setel Jarak Antar Karakter untuk Teks**
 
-Gunakan [PortionFormat.setSpacing](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/) untuk memperluas atau mengecilkan jarak antar karakter dalam kotak teks.
+Gunakan [PortionFormat.setSpacing](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/) untuk memperlebar atau mempersempit jarak antar karakter dalam kotak teks.
 
-Kode Python berikut menunjukkan cara memperluas jarak karakter pada **seluruh paragraf**:
+Kode Python berikut menunjukkan cara memperlebar jarak karakter dalam **seluruh paragraf**:
 
 ```python
 import jpype
@@ -232,8 +232,8 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Memperluas jarak karakter.
+    # Catatan: Gunakan nilai negatif untuk mengompres jarak antar karakter.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Perluas jarak karakter.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
 finally:
@@ -244,7 +244,7 @@ Hasilnya:
 
 ![Jarak karakter dalam paragraf](character_spacing_in_paragraph.png)
 
-Contoh kode di bawah ini menunjukkan cara memperluas jarak karakter pada **bagian teks dengan font tebal**:
+Contoh kode di bawah ini menunjukkan cara memperlebar jarak karakter dalam **bagian teks dengan font tebal**:
 
 ```python
 import jpype
@@ -263,8 +263,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
-            portion.getPortionFormat().setSpacing(3) # Memperluas jarak karakter.
+            # Catatan: Gunakan nilai negatif untuk mengompres jarak antar karakter.
+            portion.getPortionFormat().setSpacing(3) # Perluas jarak karakter.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -277,9 +277,9 @@ Hasilnya:
 
 ### **Nonaktifkan Kerning untuk Font Tertentu**
 
-Dalam beberapa kasus, teks yang dihasilkan oleh Aspose.Slides mungkin tampak sedikit lebih rapat dibandingkan teks yang sama yang ditampilkan di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut berisi informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
+Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides mungkin terlihat sedikit lebih rapat dibandingkan teks yang sama ditampilkan di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut berisi informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
 
-Untuk membuat output yang dihasilkan lebih mirip dengan PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terpengaruh. Atur [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/) ke nilai yang jauh lebih besar daripada ukuran font sebenarnya:
+Untuk membuat output yang dirender lebih mendekati PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terdampak. Atur [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/) ke nilai yang secara signifikan lebih besar daripada ukuran font sebenarnya:
 
 ```python
 import jpype
@@ -308,13 +308,13 @@ finally:
     presentation.dispose()
 ```
 
-Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan render Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi oleh perilaku spesifik PowerPoint ini.
+Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan rendering Aspose.Slides dengan tampilan visual PowerPoint untuk font yang dipengaruhi oleh perilaku khusus PowerPoint ini.
 
 ## **Kelola Properti Font Teks**
 
 Properti font dapat diatur pada tingkat paragraf melalui [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) atau pada bagian individu melalui [PortionFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/).
 
-Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: ia menerapkan ukuran font, tebal, miring, underline titik, dan font Times New Roman ke semua bagian dalam paragraf.
+Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: menerapkan ukuran font, tebal, miring, underline titik, dan font Times New Roman ke semua bagian dalam paragraf.
 
 ```python
 import jpype
@@ -383,9 +383,9 @@ Hasilnya:
 
 ![Properti font untuk bagian teks](font_properties_for_text_portions.png)
 
-## **Atur Rotasi Teks**
+## **Setel Rotasi Teks**
 
-Gunakan [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setTextVerticalType) untuk mengatur orientasi teks yang telah ditentukan sebelumnya dalam sebuah bentuk.
+Gunakan [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setTextVerticalType) untuk mengatur orientasi teks yang telah ditentukan dalam sebuah bentuk.
 
 Contoh kode berikut mengatur orientasi teks dalam bentuk menjadi `Vertical270`, yang memutar teks **90 derajat berlawanan arah jarum jam**:
 
@@ -414,9 +414,9 @@ Hasilnya:
 
 ![Rotasi teks](text_rotation.png)
 
-## **Atur Rotasi Kustom untuk Bingkai Teks**
+## **Setel Rotasi Kustom untuk Bingkai Teks**
 
-Gunakan [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setRotationAngle) untuk mengatur sudut rotasi kustom untuk sebuah [TextFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframe/).
+Gunakan [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setRotationAngle) untuk mengatur sudut rotasi kustom bagi sebuah [TextFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframe/).
 
 Contoh kode di bawah ini memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
 
@@ -445,9 +445,9 @@ Hasilnya:
 
 ![Rotasi teks kustom](custom_text_rotation.png)
 
-## **Atur Jarak Baris pada Paragraf**
+## **Setel Jarak Baris Paragraf**
 
-Aspose.Slides menyediakan [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setSpaceBefore), dan [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setSpaceWithin) untuk mengontrol jarak paragraf. Properti ini digunakan sebagai berikut:
+Aspose.Slides menyediakan [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setSpaceBefore), dan [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setSpaceWithin) untuk mengendalikan jarak paragraf. Properti ini digunakan sebagai berikut:
 
 * Gunakan nilai positif untuk menentukan jarak baris sebagai persentase dari tinggi baris.
 * Gunakan nilai negatif untuk menentukan jarak baris dalam poin.
@@ -480,7 +480,7 @@ Hasilnya:
 
 ![Jarak baris dalam paragraf](line_spacing.png)
 
-## **Atur Tipe Autofit untuk Bingkai Teks**
+## **Setel Tipe Autofit untuk Bingkai Teks**
 
 [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setAutofitType) menentukan bagaimana teks berperilaku ketika melebihi batas wadahnya. Gunakan untuk mengontrol apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis.
 
@@ -505,7 +505,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Atur Pengait Bingkai Teks**
+Untuk menghitung baris setelah pembungkusan otomatis dan melihat bagaimana lebar teks atau bentuk mengubah hasil, lihat [Hitung Baris yang Dirender](/slides/id/python-java/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluap dari wadahnya.
+
+## **Setel Penambatan Bingkai Teks**
 
 [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setAnchoringType) menentukan bagaimana teks diposisikan secara vertikal di dalam sebuah bentuk, misalnya di atas, tengah, atau bawah.
 
@@ -530,9 +532,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Atur Tabulasi Teks**
+## **Setel Tabulasi Teks**
 
-Gunakan [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) dan [ParagraphFormat.getTabs](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#getTabs) untuk mengonfigurasi perhentian tab dalam sebuah paragraf.
+Gunakan [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) dan [ParagraphFormat.getTabs](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#getTabs) untuk mengonfigurasi titik tab dalam paragraf.
 
 ```python
 import jpype
@@ -559,11 +561,13 @@ finally:
 
 Hasilnya:
 
-![Tab paragraf](paragraph_tabs.png)
+![Tabulasi paragraf](paragraph_tabs.png)
 
-## **Atur Bahasa Pemeriksaan**
+## **Setel Bahasa Pemeriksaan**
 
-Aspose.Slides menyediakan [PortionFormat.setLanguageId](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/), yang memungkinkan Anda mengatur bahasa pemeriksaan untuk sebuah bagian teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan [PortionFormat.setLanguageId](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/), yang memungkinkan Anda mengatur bahasa pemeriksaan untuk sebuah bagian teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pengejaan dan pemeriksaan tata bahasa di PowerPoint.
+
+Contoh kode berikut menunjukkan cara mengatur bahasa pemeriksaan untuk sebuah bagian teks:
 
 ```python
 import jpype
@@ -600,9 +604,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Atur Bahasa Default**
+## **Setel Bahasa Default**
 
-Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/id/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) untuk mendefinisikan bahasa default untuk teks yang dibuat saat memuat atau membuat presentasi.
+Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/id/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) untuk menentukan bahasa default bagi teks yang dibuat saat memuat atau membuat presentasi.
 
 ```python
 import jpype
@@ -631,9 +635,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Atur Gaya Teks Default**
+## **Setel Gaya Teks Default**
 
-Untuk menerapkan pemformatan teks default pada tingkat presentasi, gunakan [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getDefaultTextStyle).
+Untuk menerapkan format teks default pada tingkat presentasi, gunakan [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getDefaultTextStyle).
 
 Contoh kode berikut menunjukkan cara mengatur font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam presentasi baru.
 
@@ -660,13 +664,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Ekstrak Teks dengan Efek Semua Huruf Kapital**
+## **Ekstrak Teks dengan Efek Semua Huruf Besar**
 
-Di PowerPoint, menerapkan efek **All Caps** membuat teks muncul dalam huruf besar pada slide meskipun awalnya diketik dengan huruf kecil. Ketika Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf besar ketika nilai adalah `All`.
+Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf besar di slide meskipun awalnya diketik dengan huruf kecil. Ketika Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf besar ketika nilainya `All`.
 
 Misalkan kita memiliki kotak teks berikut pada slide pertama file sample2.pptx.
 
-![Efek Semua Huruf Kapital](all_caps_effect.png)
+![Efek All Caps](all_caps_effect.png)
 
 Contoh kode di bawah ini menunjukkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
 
@@ -704,10 +708,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Bagaimana cara mengubah teks dalam tabel di slide?**
+**Bagaimana cara memodifikasi teks dalam tabel pada slide?**
 
-Untuk mengubah teks dalam tabel di slide, gunakan [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/). Iterasi melalui sel dan perbarui setiap sel melalui [Cell.getTextFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/cell/#getTextFrame) serta pemformatan paragraf melalui [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraph/#getParagraphFormat).
+Untuk memodifikasi teks dalam tabel pada slide, gunakan [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/). Iterasi melalui sel-sel dan perbarui setiap sel melalui [Cell.getTextFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/cell/#getTextFrame) serta format paragraf melalui [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraph/#getParagraphFormat).
 
 **Bagaimana cara menerapkan warna gradien pada teks di slide PowerPoint?**
 
-Untuk menerapkan warna gradien pada teks, gunakan [PortionFormat.getFillFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/). Atur [FillFormat.setFillType](https://reference.aspose.com/slides/id/python-java/aspose.slides/fillformat/#setFillType) ke [FillType.Gradient](https://reference.aspose.com/slides/id/python-java/aspose.slides/filltype/#Gradient) dan konfigurasikan titik gradien, arah, serta transparansi.
+Untuk menerapkan warna gradien pada teks, gunakan [PortionFormat.getFillFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/portionformat/). Atur [FillFormat.setFillType](https://reference.aspose.com/slides/id/python-java/aspose.slides/fillformat/#setFillType) ke [FillType.Gradient](https://reference.aspose.com/slides/id/python-java/aspose.slides/filltype/#Gradient) dan konfigurasikan titik-titik gradien, arah, serta transparansi.

@@ -1,47 +1,47 @@
 ---
-title: Διαμόρφωση κειμένου παρουσίασης σε Java
-linktitle: Μορφοποίηση κειμένου
+title: "Διαμόρφωση κειμένου παρουσίασης σε Java"
+linktitle: "Μορφοποίηση Κειμένου"
 type: docs
 weight: 50
 url: /el/java/text-formatting/
 keywords:
-- ευθυγράμμιση παραγράφου
-- στυλ κειμένου
-- φόντο κειμένου
-- διαφάνεια κειμένου
-- απόσταση χαρακτήρων
-- ιδιότητες γραμματοσειράς
-- οικογένεια γραμματοσειράς
-- περιστροφή κειμένου
-- γωνία περιστροφής
-- πλαίσιο κειμένου
-- απόσταση γραμμών
-- ιδιότητα autofit
-- αγκίστρωση πλαισίου κειμένου
-- καρτέλα κειμένου
-- προεπιλεγμένη γλώσσα
-- PowerPoint
-- OpenDocument
-- παρουσίαση
-- Java
-- Aspose.Slides
-description: "Διαμορφώστε και στυλιζάτε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides for Java. Προσαρμόστε γραμματοσειρές, χρώματα, ευθυγράμμιση και πολλά άλλα."
+- "στοίχιση παραγράφου"
+- "στυλ κειμένου"
+- "φόντο κειμένου"
+- "διαφάνεια κειμένου"
+- "απόσταση χαρακτήρων"
+- "ιδιότητες γραμματοσειράς"
+- "οικογένεια γραμματοσειράς"
+- "περιστροφή κειμένου"
+- "γωνία περιστροφής"
+- "πλαίσιο κειμένου"
+- "διάστημα γραμμών"
+- "ιδιότητα αυτόματης προσαρμογής"
+- "άγκυρα πλαισίου κειμένου"
+- "στηλοθέτηση κειμένου"
+- "προεπιλεγμένη γλώσσα"
+- "PowerPoint"
+- "OpenDocument"
+- "παρουσίαση"
+- "Java"
+- "Aspose.Slides"
+description: "Διαμορφώστε και μορφοποιήστε το κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Java. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides for Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση μεταξύ χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, απόσταση παραγράφων, συμπεριφορά προσαρμογής, αγκύρωση κειμένου, διακοπές tab, και ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να διαμορφώσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, απόσταση παραγράφων, συμπεριφορά αυτόματης προσαρμογής, αγκύρωση κειμένου, θέσεις στηλοθετών και ρυθμίσεις γλώσσας.
 
-Στα παρακάτω παραδείγματα, θα χρησιμοποιήσουμε ένα αρχείο με όνομα "sample.pptx", το οποίο περιέχει ένα μόνο πλαίσιο κειμένου στην πρώτη διαφάνεια με το παρακάτω κείμενο:
+Στα παρακάτω παραδείγματα, θα χρησιμοποιήσουμε ένα αρχείο με όνομα "sample.pptx", το οποίο περιέχει ένα μόνο πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
 
 ![Δείγμα κειμένου](sample_text.png)
 
-Για να εντοπίσετε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικών εκφράσεων, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/java/search-and-replace-text/).
+Για να βρείτε και να επισήμαντε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/java/search-and-replace-text/).
 
 ## **Ορισμός Χρώματος Φόντου Κειμένου**
 
-Χρησιμοποιήστε [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides.iparagraphformat/#getDefaultPortionFormat--) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο ή χρησιμοποιήστε [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) για μεμονωμένα τμήματα κειμένου.
+Χρησιμοποιήστε [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο, ή χρησιμοποιήστε [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) για μεμονωμένα τμήματα κειμένου.
 
-Το ακόλουθο παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **ολόκληρη την παράγραφο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **ολόκληρη την παράγραφο**:
 
 ```java
 import com.aspose.slides.*;
@@ -64,9 +64,9 @@ try {
 
 Το αποτέλεσμα:
 
-![Η γκρίζα παράγραφος](gray_paragraph.png)
+![Η γκρι παράγραφος](gray_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα επιδεικνύει πώς να ορίσετε το χρώμα φόντου για **τμήματα κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```java
 import com.aspose.slides.*;
@@ -93,13 +93,13 @@ try {
 
 Το αποτέλεσμα:
 
-![Τα γκριζά τμήματα κειμένου](gray_text_portions.png)
+![Τα γκρι τμήματα κειμένου](gray_text_portions.png)
 
 ## **Στοίχιση Παραγράφων Κειμένου**
 
-Χρησιμοποιήτε [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/el/java/com.aspose.slides.iparagraphformat/#setAlignment-int-) για να ορίσετε την στοίχιση της παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερά στοίχιση, δεξιά στοίχιση, πλήρης στοίχιση κ.λπ.
+Χρησιμοποιήστε [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) για να ορίσετε στοίχιση παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, πλήρης στοίχιση, κλπ.
 
-Το ακόλουθο παράδειγμα κώδικα δείχνει πώς να στοιχίσετε την παράγραφο στο **κέντρο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ευθυγραμμίσετε την παράγραφο στο **κέντρο**:
 
 ```java
 import com.aspose.slides.*;
@@ -110,7 +110,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Ορίστε την ευθυγράμμιση της παραγράφου στο κέντρο.
+    // Ορίστε τη στοίχιση της παραγράφου στο κέντρο.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -121,11 +121,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Η στοιχισμένη παράγραφος](aligned_paragraph.png)
+![Η ευθυγραμμισμένη παράγραφος](aligned_paragraph.png)
 
 ## **Ορισμός Διαφάνειας για Κείμενο**
 
-Η διαφάνεια κειμένου ελέγχεται μέσω του άλφα συστατικού του χρώματος που έχει εκχωρηθεί στο [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Στα παραδείγματα παρακάτω, `alpha = 50` είναι μια τιμή καναλιού ARGB αλφα στο κλίμακα 0–255, όχι ποσοστό διαφάνειας.
+Η διαφάνεια κειμένου ελέγχεται μέσω του αλφα-συστατικού του χρώματος που έχει εκχωρηθεί στο [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Στα παρακάτω παραδείγματα, `alpha = 50` είναι τιμή καναλιού αλφα ARGB στην κλίμακα 0–255, όχι ποσοστό διαφάνειας.
 
 Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια στην **ολόκληρη την παράγραφο**:
 
@@ -189,7 +189,7 @@ try {
 
 ## **Ορισμός Απόστασης Χαρακτήρων για Κείμενο**
 
-Χρησιμοποιήτε [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου.
+Χρησιμοποιήστε [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου.
 
 Ο παρακάτω κώδικας Java δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων στην **ολόκληρη την παράγραφο**:
 
@@ -203,7 +203,7 @@ try {
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Επέκταση απόστασης χαρακτήρων.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Αυξήστε την απόσταση χαρακτήρων.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -229,7 +229,7 @@ try {
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
-            portion.getPortionFormat().setSpacing(3); // Επέκταση απόστασης χαρακτήρων.
+            portion.getPortionFormat().setSpacing(3); // Αυξήστε την απόσταση χαρακτήρων.
         }
     }
 
@@ -243,11 +243,11 @@ try {
 
 ![Η απόσταση χαρακτήρων στα τμήματα κειμένου](character_spacing_in_text_portions.png)
 
-### **Απενεργοποίηση Kerning για Συγκεκριμένες Γραμματοσειρές**
+### **Απενεργοποίηση Κεράντισης για Συγκεκριμένες Γραμματοσειρές**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδεται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο συμπυκνωμένο από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβεί επειδή το PowerPoint ενδέχεται να αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
+Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδει το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο στενό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint μπορεί να αγνοήσει τα δεδομένα κεράντισης για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες κεράντισης και η κεράντιση είναι ενεργοποιημένη στις ρυθμίσεις του PowerPoint.
 
-Για να κάνει το αποτυπωμένο αποτέλεσμα πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τμήματα κειμένου που χρησιμοποιούν την επηρεασμένη γραμματοσειρά. Ορίστε το [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) σε μια τιμή σημαντικά μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς:
+Για να κάνετε την απόδοση πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε την κεράντιση για τμήματα κειμένου που χρησιμοποιούν τη συγκεκριμένη γραμματοσειρά. Ορίστε το [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) σε τιμή σημαντικά μεγαλύτερη από το πραγματικό μέγεθος της γραμματοσειράς:
 
 ```java
 import com.aspose.slides.*;
@@ -279,13 +279,13 @@ try {
 }
 ```
 
-Αυτή η ρύθμιση αποτρέπει την εφαρμογή του kerning σε ταιριαστά τμήματα κειμένου και μπορεί να βοηθήσει στην ευθυγράμμιση της απόδοσης του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτή τη συγκεκριμένη συμπεριφορά του PowerPoint.
+Αυτή η ρύθμιση εμποδίζει την εφαρμογή κεράντισης στα αντίστοιχα τμήματα κειμένου και μπορεί να βοηθήσει στην ευθυγράμμιση της απόδοσης του Aspose.Slides με την οπτική έξοδο του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά ειδική του PowerPoint.
 
 ## **Διαχείριση Ιδιοτήτων Γραμματοσειράς Κειμένου**
 
-Οι ιδιότητες της γραμματοσειράς μπορούν να οριστούν στο επίπεδο παραγράφου μέσω του [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides.iparagraphformat/#getDefaultPortionFormat--) ή σε μεμονωμένα τμήματα μέσω του [IPortionFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iportionformat/).
+Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν σε επίπεδο παραγράφου μέσω του [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) ή σε μεμονωμένα τμήματα μέσω του [IPortionFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iportionformat/).
 
-Ο παρακάτω κώδικας ορίζει τη γραμματοσειρά και το στυλ κειμένου για ολόκληρη την παράγραφο: εφαρμόζει το μέγεθος γραμματοσειράς, έντονο, πλάγιο, υπογράμμιση με τελείες και τη γραμματοσειρά Times New Roman σε όλα τα τμήματα της παραγράφου.
+Ο παρακάτω κώδικας ορίζει τη γραμματοσειρά και το στυλ κειμένου για ολόκληρη την παράγραφο: εφαρμόζει μέγεθος γραμματοσειράς, έντονη, πλάγια, υπογράμμιση με τελείες και τη γραμματοσειρά Times New Roman σε όλα τα τμήματα της παραγράφου.
 
 ```java
 import com.aspose.slides.*;
@@ -346,9 +346,9 @@ try {
 
 ## **Ορισμός Περιστροφής Κειμένου**
 
-Χρησιμοποιήστε το [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) για να ορίσετε μια προκαθορισμένη προσανατολισμό κειμένου μέσα σε ένα σχήμα.
+Χρησιμοποιήστε το [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) για να ορίσετε μια προορισμένη προσανατολισμό κειμένου μέσα σε σχήμα.
 
-Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε `Vertical270`, που περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
+Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε `Vertical270`, που περιστρέφει το κείμενο **90 μοίρες αριστερά**:
 
 ```java
 import com.aspose.slides.*;
@@ -368,11 +368,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Η περιστροφή κειμένου](text_rotation.png)
+![Η περιστροφή του κειμένου](text_rotation.png)
 
 ## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαίσια Κειμένου**
 
-Χρησιμοποιήστε το [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) για να ορίσετε μια προσαρμοσμένη γωνία περιστροφής για ένα [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/).
+Χρησιμοποιήστε το [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/).
 
 Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
 
@@ -396,12 +396,12 @@ try {
 
 ![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
 
-## **Ορισμός Απόστασης Γραμμών στις Παραγράφους**
+## **Ορισμός Απόστασης Γραμμών των Παραγράφων**
 
-Το Aspose.Slides παρέχει τα [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), και [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) για να ελέγχετε την απόσταση παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
+Το Aspose.Slides παρέχει τα [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), και [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) για να ελέγχουν την απόσταση παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
 
-* Χρησιμοποιήστε θετική τιμή για να ορίσετε την απόσταση γραμμών ως ποσοστό του ύψους της γραμμής.
-* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε την απόσταση γραμμών σε μονάδες σημείου.
+* Χρησιμοποιήστε θετική τιμή για να ορίσετε την απόσταση γραμμής ως ποσοστό του ύψους της γραμμής.
+* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε την απόσταση γραμμής σε μονάδες σημείου.
 
 Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε την απόσταση γραμμής μέσα στην παράγραφο:
 
@@ -424,11 +424,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Η απόσταση γραμμής μέσα στην παράγραφο](line_spacing.png)
+![Η απόσταση γραμμών μέσα στην παράγραφο](line_spacing.png)
 
-## **Ορισμός Τύπου Autofit για Πλαίσια Κειμένου**
+## **Ορισμός Τύπου Αυτόματης Προσαρμογής για Πλαίσια Κειμένου**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιεχομένου του. Χρησιμοποιήστε το για να ελέγξετε εάν το κείμενο μειώνεται, υπερχειλίζει ή αλλάζει αυτόματα το μέγεθος του σχήματος.
+Το [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) προσδιορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε εάν το κείμενο θα συρρικνώνεται, θα ξεχειλίζει ή θα προσαρμόζει αυτόματα το σχήμα.
 
 ```java
 import com.aspose.slides.*;
@@ -446,9 +446,11 @@ try {
 }
 ```
 
+Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς το πλάτος του κειμένου ή του σχήματος αλλάζει το αποτέλεσμα, δείτε [Καταμέτρηση Σχεδιασμένων Γραμμών](/slides/el/java/manage-paragraph/). Η απλή καταμέτρηση γραμμών δεν υποδεικνύει εάν το κείμενο ξεχειλίζει το περιέκτη του.
+
 ## **Ορισμός Άγκυρας Πλαισίων Κειμένου**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) ορίζει πώς το κείμενο τοποθετείται κατακόρυφα μέσα σε ένα σχήμα, π.χ. στην κορυφή, στη μέση ή στο κάτω μέρος.
+Το [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) καθορίζει πώς το κείμενο τοποθετείται κατακόρυφα μέσα σε σχήμα, π.χ. στην κορυφή, στο κέντρο ή στη βάση.
 
 ```java
 import com.aspose.slides.*;
@@ -466,9 +468,9 @@ try {
 }
 ```
 
-## **Ορισμός Καρτέλας Κειμένου**
+## **Ορισμός Ταμπερίσματος Κειμένου**
 
-Χρησιμοποιήτε τα [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) και [IParagraphFormat.getTabs](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getTabs--) για να διαμορφώσετε τα σημεία διακοπής tab σε μια παράγραφο.
+Χρησιμοποιήστε το [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) και το [IParagraphFormat.getTabs](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getTabs--) για να διαμορφώσετε τις θέσεις στηλοθετών σε μια παράγραφο.
 
 ```java
 import com.aspose.slides.*;
@@ -490,13 +492,13 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι καρτέλες της παραγράφου](paragraph_tabs.png)
+![Οι στηλοθέτες της παραγράφου](paragraph_tabs.png)
 
-## **Ορισμός Γλώσσας Διόρθωσης**
+## **Ορισμός Γλώσσας Ελέγχου**
 
-Το Aspose.Slides παρέχει το [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), το οποίο σας επιτρέπει να ορίσετε τη γλώσσα διόρθωσης για ένα τμήμα κειμένου. Η γλώσσα διόρθωσης καθορίζει τη γλώσσα που χρησιμοποιείται για τον ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
+Το Aspose.Slides παρέχει το [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), το οποίο σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου για ένα τμήμα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για τον ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε τη γλώσσα διόρθωσης για ένα τμήμα κειμένου:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε τη γλώσσα ελέγχου για ένα τμήμα κειμένου:
 
 ```java
 import com.aspose.slides.*;
@@ -530,7 +532,7 @@ try {
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Χρησιμοποιήστε το [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή δημιουργία μιας παρουσίασης.
+Χρησιμοποιήστε το [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης.
 
 ```java
 import com.aspose.slides.*;
@@ -565,7 +567,7 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Λάβετε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
+    // Λάβετε τη μορφοποίηση παραγράφου ανώτερου επιπέδου.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -579,9 +581,9 @@ try {
 }
 ```
 
-## **Ανάκτηση Κειμένου με το Εφέ Όλων Κεφαλαίων**
+## **Εξαγωγή Κειμένου με το Εφέ Όλων Σε Κεφαλαία**
 
-Στο PowerPoint, η εφαρμογή του εφέ **All Caps** κάνει το κείμενο να εμφανίζεται με κεφαλαία γράμματα στη διαφάνεια ακόμη και αν αρχικά είχε πληκτρολογηθεί με πεζά. Όταν ανακτάτε ένα τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάζει με το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/el/java/com.aspose.slides/textcaptype/) και μετατρέψτε τη επιστρεφόμενη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι `All`.
+Στο PowerPoint, η εφαρμογή του εφέ γραμματοσειράς **All Caps** κάνει το κείμενο να εμφανίζεται με κεφαλαία στην διαφάνεια, ακόμη και όταν αρχικά είχε πληκτρολογηθεί με πεζά. Όταν ανακτάτε ένα τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως είχε εισαχθεί. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/el/java/com.aspose.slides/textcaptype/) και μετατρέψτε το επιστρεφόμενο string σε κεφαλαία όταν η τιμή είναι `All`.
 
 Ας υποθέσουμε ότι έχουμε το ακόλουθο πλαίσιο κειμένου στην πρώτη διαφάνεια του αρχείου sample2.pptx.
 
@@ -610,8 +612,6 @@ try {
 }
 ```
 
-Αποτέλεσμα:
-
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
@@ -619,10 +619,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς να τροποποιήσετε κείμενο σε έναν πίνακα σε μια διαφάνεια;**
+**Πώς να τροποποιήσετε το κείμενο σε πίνακα σε μια διαφάνεια;**
 
-Για να τροποποιήσετε κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/itable/). Περιηγηθείτε στα κελιά και ενημερώστε κάθε κελί μέσω του [ICell.getTextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/#getTextFrame--) και τη μορφοποίηση παραγράφων μέσω του [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Για να τροποποιήσετε το κείμενο σε πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/itable/). Περιηγηθείτε στα κελιά και ενημερώστε κάθε κελί μέσω του [ICell.getTextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/#getTextFrame--) και τη μορφοποίηση παραγράφων μέσω του [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Πώς να εφαρμόσετε διαβαθμισμένο χρώμα σε κείμενο σε μια διαφάνεια PowerPoint;**
+**Πώς να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο σε μια διαφάνεια PowerPoint;**
 
-Για να εφαρμόσετε διαβαθμισμένο χρώμα στο κείμενο, χρησιμοποιήστε το [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ορίστε το [IFillFormat.setFillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ifillformat/#setFillType-byte-) σε [FillType.Gradient](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) και ρυθμίστε τις στάσεις του gradient, την κατεύθυνση και τη διαφάνεια.
+Για να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο, χρησιμοποιήστε το [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ορίστε το [IFillFormat.setFillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ifillformat/#setFillType-byte-) σε [FillType.Gradient](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) και διαμορφώστε τις στάσεις διαβάθμισης, την κατεύθυνση και τη διαφάνεια.

@@ -16,7 +16,7 @@ keywords:
 - زاوية الدوران
 - إطار النص
 - تباعد الأسطر
-- خاصية الملاءمة التلقائية
+- خاصية Autofit
 - مرساة إطار النص
 - جدولة النص
 - اللغة الافتراضية
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Node.js عبر Java. تخصيص الخطوط والألوان والمحاذاة والمزيد."
+description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java. تخصيص الخطوط، الألوان، المحاذاة، وأكثر."
 ---
 ## **نظرة عامة**
 
-تُظهر هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Node.js عبر Java. وتغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، إيقافات العلامات، وإعدادات اللغة.
+هذا المقال يوضح كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java. يغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك Autofit، تثبيت النص، علامات التبويب، وإعدادات اللغة.
 
 في الأمثلة أدناه، سنستخدم ملفًا اسمه "sample.pptx"، يحتوي على صندوق نص واحد في الشريحة الأولى بالنص التالي:
 
 ![نص العينة](sample_text.png)
 
-للعثور على نص حرفي أو مطابقة تعبيرٍ نمطي وتظليله، انظر [بحث واستبدال النص](/slides/ar/nodejs-java/search-and-replace-text/).
+للعثور على نص حرفي أو مطابقة تعبير منتظم وتظليلها، راجع [بحث واستبدال النص](/slides/ar/nodejs-java/search-and-replace-text/).
 
 ## **تعيين لون خلفية النص**
 
-استخدم [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) لتعيين لون التظليل الافتراضي لفقرة، أو استخدم [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) لأجزاء النص الفردية.
+استخدم [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) لتعيين لون التظليل الافتراضي للفقرة، أو استخدم [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) لأجزاء النص الفردية.
 
-يوضح مثال الشيفرة التالي كيفية تعيين لون الخلفية لل**فقرة كاملة**:
+الكود التالي يوضح كيفية تعيين لون الخلفية لـ **الفقرة بأكملها**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,7 +54,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // تعيين لون التظليل للفقرة بأكملها.
+    // حدد لون التظليل للفقرة بأكملها.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -67,7 +67,7 @@ try {
 
 ![الفقرة الرمادية](gray_paragraph.png)
 
-مثال الشيفرة أدناه يوضح كيفية تعيين لون الخلفية ل**أجزاء النص ذات الخط العريض**:
+الكود التالي يوضح كيفية تعيين لون الخلفية لـ **أجزاء النص ذات الخط الغامق**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -84,7 +84,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // تعيين لون التظليل لجزء النص.
+            // حدد لون التظليل لجزء النص.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -97,13 +97,13 @@ try {
 
 النتيجة:
 
-![الأجزاء النصية الرمادية](gray_text_portions.png)
+![أجزاء النص الرمادية](gray_text_portions.png)
 
 ## **محاذاة فقرات النص**
 
-استخدم [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيم مركزة، محاذاة لليسار، محاذاة لليمين، مبررة، وما إلى ذلك.
+استخدم [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) لتحديد محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة وسطًا، محاذاة إلى اليسار، محاذاة إلى اليمين، مبررة، وغيرها.
 
-يوضح مثال الشيفرة التالي كيفية محاذاة الفقرة إلى **المركز**:
+الكود التالي يوضح كيفية محاذاة الفقرة إلى **الوسط**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -114,7 +114,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // تعيين محاذاة الفقرة إلى الوسط.
+    // حدد محاذاة الفقرة إلى الوسط.
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -125,13 +125,13 @@ try {
 
 النتيجة:
 
-![الفقرة المحاذاة](aligned_paragraph.png)
+![الفقرة المحاذية](aligned_paragraph.png)
 
 ## **تعيين شفافية النص**
 
-يتم التحكم في شفافية النص من خلال المكوّن ألفا للون المعين إلى [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
+تتحكم شفافية النص عبر المكوّن ألفا للون المخصص لـ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
 
-يوضح مثال الشيفرة أدناه كيفية تطبيق الشفافية لل**فقرة كاملة**:
+الكود التالي يوضح كيفية تطبيق الشفافية على **الفقرة بأكملها**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -146,7 +146,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // تعيين لون تعبئة النص إلى لون شفاف.
+    // تعيين لون تعبئة النص إلى اللون الشفاف.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -160,7 +160,7 @@ try {
 
 ![الفقرة الشفافة](transparent_paragraph.png)
 
-يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية ل**أجزاء النص ذات الخط العريض**:
+الكود التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص ذات الخط الغامق**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -195,13 +195,13 @@ try {
 
 النتيجة:
 
-![الأجزاء النصية الشفافة](transparent_text_portions.png)
+![أجزاء النص الشفافة](transparent_text_portions.png)
 
 ## **تعيين تباعد الأحرف للنص**
 
-استخدم [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) لتوسيع أو تضييق التباعد بين الأحرف في صندوق نص.
+استخدم [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) لتوسيع أو تقليص التباعد بين الأحرف في صندوق النص.
 
-يُظهر كود JavaScript التالي كيفية توسيع تباعد الأحرف في **الفقرة كاملة**:
+الكود JavaScript التالي يوضح كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -212,7 +212,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ملاحظة: استخدم قيم سالبة لضغط تباعد الأحرف.
+    // ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // توسيع تباعد الأحرف.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -225,7 +225,7 @@ try {
 
 ![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
+الكود التالي يوضح توسيع تباعد الأحرف في **أجزاء النص ذات الخط الغامق**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -241,7 +241,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
+            // ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
             portion.getPortionFormat().setSpacing(3); // توسيع تباعد الأحرف.
         }
     }
@@ -254,13 +254,13 @@ try {
 
 النتيجة:
 
-![تباعد الأحرف في الأجزاء النصية](character_spacing_in_text_portions.png)
+![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
 
-### **تعطيل الكيرنينغ للخطوط المحددة**
+### **تعطيل Kerning للخطوط المحددة**
 
-في بعض الحالات، قد يظهر النص المُعالج بواسطة Aspose.Slides ضيقًا قليلًا مقارنةً بالنص نفسه في PowerPoint. يمكن أن يحدث هذا لأن PowerPoint قد يتجاهل بيانات الكيرنينغ لبعض الخطوط، حتى وإن كان الخط يحتوي على معلومات كيرنينغ صالحة وكان الكيرنينغ مُفعّلاً في إعدادات PowerPoint.
+في بعض الحالات، قد يبدو النص الذي تنتجه Aspose.Slides أكثر إحكامًا قليلاً من النص نفسه في PowerPoint. يمكن أن يحدث هذا لأن PowerPoint قد يتجاهل بيانات Kerning لبعض الخطوط، حتى عندما يحتوي الخط على معلومات Kerning صالحة وتكون Kerning مفعلة في إعدادات PowerPoint.
 
-لجعل الناتج المُعالج أقرب إلى PowerPoint في هذه الحالات، يمكنك تعطيل الكيرنينغ لأجزاء النص التي تستخدم الخط المتأثر. اضبط [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
+لتقريب النتيجة المتولدة من PowerPoint في مثل هذه الحالات، يمكنك تعطيل Kerning لأجزاء النص التي تستخدم الخط المتأثر. عيّن [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -298,13 +298,13 @@ try {
 }
 ```
 
-هذا الإعداد يمنع تطبيق الكيرنينغ على الأجزاء المتطابقة ويمكن أن يساعد في مواءمة عرض Aspose.Slides مع المخرجات البصرية لـ PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+هذه الإعدادات تمنع تطبيق Kerning على الأجزاء المطابقة وتساعد في مواءمة عرض Aspose.Slides مع مخرجات PowerPoint البصرية للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
 
 ## **إدارة خصائص خط النص**
 
 يمكن تعيين خصائص الخط على مستوى الفقرة عبر [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) أو على الأجزاء الفردية عبر [PortionFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/portionformat/).
 
-يقوم الكود التالي بتعيين الخط ونمط النص للفقرة كاملة: يطبق حجم الخط، العريض، المائل، الخط السفلي المنقط، وخط Times New Roman على جميع الأجزاء في الفقرة.
+الكود التالي يحدد الخط ونمط النص للفقرة بأكملها: يطبق حجم الخط، الغامق، المائل، تسطير منقط، وخط Times New Roman على جميع الأجزاء في الفقرة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -334,7 +334,7 @@ try {
 
 ![خصائص الخط للفقرة](font_properties_for_paragraph.png)
 
-مثال الشيفرة أدناه يطبق خصائص مماثلة ل**أجزاء النص ذات الخط العريض**:
+الكود التالي يطبق خصائص مماثلة على **أجزاء النص ذات الخط الغامق**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -369,13 +369,13 @@ try {
 
 النتيجة:
 
-![خصائص الخط للأجزاء النصية](font_properties_for_text_portions.png)
+![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
 
 ## **تعيين دوران النص**
 
-استخدم [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) لتعيين اتجاه نص مُعرّف مسبقًا داخل الشكل.
+استخدم [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) لتعيين اتجاه نص محدد مسبقًا داخل الشكل.
 
-يقوم مثال الشيفرة التالي بتعيين اتجاه النص في الشكل إلى `Vertical270`، وهو ما يدير النص **90 درجة عكس عقارب الساعة**:
+الكود التالي يعيّن اتجاه النص في الشكل إلى `Vertical270`، مما يدور النص **90 درجة عكس اتجاه عقارب الساعة**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -400,9 +400,9 @@ try {
 
 ## **تعيين دوران مخصص لإطارات النص**
 
-استخدم [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) لتحديد زاوية دوران مخصصة لـ [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
+استخدم [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) لتعيين زاوية دوران مخصصة لـ [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/).
 
-يدور مثال الشيفرة أدناه إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
+الكود التالي يدور إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -422,16 +422,16 @@ try {
 
 النتيجة:
 
-![دوران النص المخصص](custom_text_rotation.png)
+![الدوران المخصص للنص](custom_text_rotation.png)
 
 ## **تعيين تباعد الأسطر للفقرات**
 
-توفر Aspose.Slides [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-)، و[ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) للتحكم في تباعد الفقرات. تُستَخدم هذه الخصائص كما يلي:
+توفر Aspose.Slides الدوال [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-)، و[ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) للتحكم في تباعد الفقرة. تُستخدم هذه الخصائص كما يلي:
 
 * استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
 * استخدم قيمة سالبة لتحديد تباعد السطر بالنقاط.
 
-يوضح مثال الشيفرة التالي كيفية تحديد تباعد السطر داخل الفقرة:
+الكود التالي يوضح كيفية تحديد تباعد السطر داخل الفقرة:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -452,11 +452,11 @@ try {
 
 النتيجة:
 
-![تباعد الأسطر داخل الفقرة](line_spacing.png)
+![تباعد السطر داخل الفقرة](line_spacing.png)
 
-## **تعيين نوع الملاءمة التلقائية لإطارات النص**
+## **تعيين نوع Autofit لإطارات النص**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) يحدّد كيفية تصرف النص عندما يتجاوز حدود الحاوية. استخدمه للتحكم فيما إذا كان النص يتقلص، يتجاوز أو يعيد تحجيم الشكل تلقائيًا.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) يحدّد كيف يتصرف النص عندما يتجاوز حدود الحاوية. استخدمه للتحكم فيما إذا كان النص يتقلص، يتجاوز، أو يعيد حجم الشكل تلقائيًا.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -475,9 +475,11 @@ try {
 }
 ```
 
+لحساب عدد الأسطر بعد الالتفاف التلقائي ورؤية كيفية تغير عرض النص أو الشكل، راجع [عد الأسطر المرسومة](/slides/ar/nodejs-java/manage-paragraph/). عدد الأسطر وحده لا يدل على ما إذا كان النص يتجاوز حاويته.
+
 ## **تعيين مرساة إطارات النص**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) يعرّف كيفية تموضع النص عموديًا داخل الشكل، مثلًا في الأعلى، الوسط أو الأسفل.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) يحدد كيفية وضع النص عموديًا داخل الشكل، مثلًا في الأعلى أو الوسط أو الأسفل.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -498,7 +500,7 @@ try {
 
 ## **تعيين جدولة النص**
 
-استخدم [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) و[ParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getTabs--) لتكوين إيقافات العلامات في الفقرة.
+استخدم [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) و[ParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraphformat/#getTabs--) لتكوين علامات التبويب في الفقرة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -521,11 +523,13 @@ try {
 
 النتيجة:
 
-![تبويبات الفقرة](paragraph_tabs.png)
+![علامات تبويب الفقرة](paragraph_tabs.png)
 
 ## **تعيين لغة التدقيق**
 
-توفر Aspose.Slides [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)، التي تتيح لك تعيين لغة التدقيق لجزء نص. تحدد لغة التدقيق اللغة المستخدمة في تدقيق الإملاء والقواعد في PowerPoint.
+توفر Aspose.Slides الدالة [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) التي تسمح لك بتعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الإملاء والقواعد في PowerPoint.
+
+الكود التالي يوضح كيفية تعيين لغة التدقيق لجزء النص:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -543,7 +547,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // تعيين معرّف لغة التدقيق.
+    // تعيين معرف لغة التدقيق.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -557,7 +561,7 @@ try {
 
 ## **تعيين اللغة الافتراضية**
 
-استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) لتحديد اللغة الافتراضية للنصوص التي تُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
+استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) لتحديد اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -585,7 +589,7 @@ try {
 
 لتطبيق تنسيق نص افتراضي على مستوى العرض التقديمي، استخدم [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-يُظهر مثال الشيفرة التالي كيفية تعيين خط عريض افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
+الكود التالي يوضح كيفية تعيين خط غامق افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -593,7 +597,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // الحصول على تنسيق الفقرة المستوى الأعلى.
+    // احصل على تنسيق الفقرة المستوى الأعلى.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -609,13 +613,13 @@ try {
 
 ## **استخراج النص مع تأثير الحروف الكبيرة**
 
-في PowerPoint، يجعل تطبيق تأثير **All Caps** على الخط النص يظهر بأحرف كبيرة على الشريحة حتى لو كان مكتوبًا أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لتطابق النص المعروض، افحص [TextCapType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textcaptype/) وحوّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
+في PowerPoint، تطبيق تأثير **All Caps** يجعل النص يظهر بأحرف كبيرة على الشريحة حتى وإن كُتب أصلاً بأحرف صغيرة. عندما تسترجع مثل هذا الجزء من النص باستخدام Aspose.Slides، تعيد المكتبة النص كما أُدخل بالضبط. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textcaptype/) وحوّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
 
 لنفترض أن لدينا صندوق النص التالي في الشريحة الأولى من ملف sample2.pptx.
 
 ![تأثير الحروف الكبيرة](all_caps_effect.png)
 
-يوضح مثال الشيفرة التالي كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+الكود التالي يوضح كيفية استخراج النص مع تطبيق تأثير **الحروف الكبيرة**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -638,7 +642,7 @@ try {
 }
 ```
 
-المخرجات:
+الناتج:
 
 ```text
 Original text: Hello, Aspose!
@@ -649,8 +653,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **كيف يمكن تعديل النص في جدول على شريحة؟**
 
-لتعديل النص في جدول على شريحة، استخدم [Table](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/table/). تنقّب عبر الخلايا وقم بتحديث كل خلية عبر [Cell.getTextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/cell/#getTextFrame--) وتنسيق الفقرات عبر [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
+لتعديل النص في جدول على شريحة، استخدم [Table](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/table/). قم بالتكرار عبر الخلايا وحدّث كل خلية عبر [Cell.getTextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/cell/#getTextFrame--) وتنسيق الفقرة عبر [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**كيف يمكن تطبيق لون متدرج للنص في شريحة PowerPoint؟**
+**كيف يمكن تطبيق لون تدرج على النص في شريحة PowerPoint؟**
 
-لتطبيق لون متدرج على النص، استخدم [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). اضبط [FillFormat.setFillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) وقم بتكوين نقاط التدرج، الاتجاه، والشفافية.
+لتطبيق لون تدرج على النص، استخدم [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). عيّن [FillFormat.setFillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) وقم بتكوين نقاط التدرج، الاتجاه، والشفافية.

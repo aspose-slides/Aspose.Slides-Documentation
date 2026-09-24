@@ -1,47 +1,47 @@
 ---
-title: จัดรูปแบบข้อความการนำเสนอใน PHP
+title: จัดรูปแบบข้อความพรีเซนเทชันใน PHP
 linktitle: การจัดรูปแบบข้อความ
 type: docs
 weight: 50
 url: /th/php-java/text-formatting/
 keywords:
-- จัดตำแหน่งย่อหน้า
+- จัดย่อหน้า
 - สไตล์ข้อความ
 - พื้นหลังข้อความ
 - ความโปร่งใสของข้อความ
-- ระยะห่างระหว่างอักขระ
-- คุณสมบัติของแบบอักษร
-- ตระกูลแบบอักษร
+- ระยะห่างอักขระ
+- คุณสมบัติเชิงตัวอักษร
+- ตระกูลฟอนต์
 - การหมุนข้อความ
 - มุมการหมุน
 - กรอบข้อความ
 - ระยะห่างบรรทัด
 - คุณสมบัติ Autofit
 - จุดยึดกรอบข้อความ
-- การแท็บของข้อความ
+- การจัด Tab ของข้อความ
 - ภาษาตั้งต้น
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ปรับแบบอักษร สี การจัดตำแหน่งและอื่น ๆ"
+description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java ปรับแต่งฟอนต์, สี, การจัดแนว และอื่นๆ"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีการจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java ซึ่งครอบคลุมสีพื้นหลัง ความโปร่งใส ระยะห่างระหว่างอักขระ คุณสมบัติของแบบอักษร การหมุน ระยะห่างระหว่างย่อหน้า พฤติกรรม Autofit การยึดตำแหน่งข้อความ จุดหยุดแท็บ และการตั้งค่าภาษา
+บทความนี้แสดงวิธีจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides for PHP via Java ครอบคลุมสีพื้นหลัง, ความโปร่งแสง, ระยะห่างระหว่างอักขระ, คุณสมบัติตัวอักษร, การหมุน, ระยะห่างระหว่างย่อหน้า, พฤติกรรม Autofit, การยึดข้อความ, ตำแหน่ง Tab, และการตั้งค่าภาษา
 
-ในตัวอย่างด้านล่าง เราจะใช้ไฟล์ชื่อ "sample.pptx" ซึ่งมีกล่องข้อความเพียงหนึ่งกล่องบนสไลด์แรกที่มีข้อความต่อไปนี้:
+ในตัวอย่างต่อไปนี้ เราจะใช้ไฟล์ชื่อ “sample.pptx” ซึ่งมีกล่องข้อความเดียวบนสไลด์แรกที่มีข้อความดังต่อไปนี้:
 
-![ข้อความตัวอย่าง](sample_text.png)
+![Sample text](sample_text.png)
 
-เพื่อค้นหาและเน้นข้อความตามตัวอักษรหรือผลลัพธ์ของ regular-expression ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/php-java/search-and-replace-text/).
+เพื่อค้นหาและเน้นข้อความจริงหรือตรงตามนิพจน์ทั่วไป ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/php-java/search-and-replace-text/)
 
 ## **ตั้งค่าสีพื้นหลังของข้อความ**
 
-ใช้ [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) เพื่อกำหนดสีไฮไลท์เริ่มต้นสำหรับย่อหน้า หรือใช้ [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#getHighlightColor) สำหรับส่วนข้อความแต่ละส่วน
+ใช้ [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) เพื่อตั้งค่าสีไฮไลต์ค่าเริ่มต้นสำหรับย่อหน้า หรือใช้ [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#getHighlightColor) สำหรับส่วนข้อความแต่ละส่วน
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ย่อหน้าเต็ม**:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ย่อหน้าเต็ม**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -51,7 +51,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // ตั้งค่าสีไฮไลท์สำหรับย่อหน้าเต็ม
+    // ตั้งค่าสีไฮไลต์สำหรับย่อหน้าเต็ม.
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
@@ -62,9 +62,9 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าสีเทา](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่มีฟอนต์หนา**:
+โค้ดตัวอย่างด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -78,7 +78,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // ตั้งค่าสีไฮไลท์สำหรับส่วนข้อความ.
+            // ตั้งค่าสีไฮไลต์สำหรับส่วนข้อความ.
             $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
@@ -91,13 +91,13 @@ try {
 
 ผลลัพธ์:
 
-![ส่วนข้อความสีเทา](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
-## **จัดตำแหน่งย่อข้อความ**
+## **จัดแนวกย่อหน้าข้อความ**
 
-ใช้ [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setAlignment) เพื่อกำหนดการจัดตำแหน่งย่อหน้าในกรอบข้อความ ค่าอาจเป็นการจัดกึ่งกลาง จัดซ้าย จัดขวา จัดแนวเต็มบรรทัด ฯลฯ
+ใช้ [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setAlignment) เพื่อตั้งค่าการจัดแนวย่อหน้าภายในกรอบข้อความ ค่าอาจเป็นศูนย์กลาง, ชิดซ้าย, ชิดขวา, จัดเต็ม, เป็นต้น
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดตำแหน่งย่อหน้าให้ **กึ่งกลาง**:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีจัดแนวย่อหน้าให้อยู่ **กึ่งกลาง**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -106,7 +106,7 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // ตั้งค่าการจัดตำแหน่งของย่อหน้าเป็นกึ่งกลาง.
+    // ตั้งค่าการจัดแนวย่อหน้าให้อยู่กึ่งกลาง.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -117,13 +117,13 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าที่จัดตำแหน่ง](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
-## **ตั้งค่าความโปร่งใสของข้อความ**
+## **ตั้งค่าความโปร่งแสงของข้อความ**
 
-ความโปร่งใสของข้อความถูกควบคุมโดยส่วนประกอบอัลฟ่าของสีที่กำหนดให้กับ [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#getFillFormat) ในตัวอย่างด้านล่าง `alpha = 50` คือค่าอัลฟ่าในรูปแบบ ARGB บนสเกล 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งใส
+ความโปร่งแสงของข้อความถูกควบคุมผ่านส่วนประกอบอัลฟ่า ของสีที่กำหนดให้กับ [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#getFillFormat) ตัวอย่างด้านล่าง `alpha = 50` คือค่าช่องอัลฟ่า ARGB ที่มีช่วง 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งใส
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าเต็ม**:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีนำความโปร่งแสงไปใช้กับ **ย่อหน้าเต็ม**:
 
 ```php
 $alpha = 50;
@@ -148,9 +148,9 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าที่โปร่งใส](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่มีฟอนต์หนา**:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีนำความโปร่งแสงไปใช้กับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
 
 ```php
 $alpha = 50;
@@ -181,13 +181,13 @@ try {
 
 ผลลัพธ์:
 
-![ส่วนข้อความที่โปร่งใส](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
 ## **ตั้งค่าระยะห่างระหว่างอักขระของข้อความ**
 
-ใช้ [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setSpacing) เพื่อเพิ่มหรือหดระยะห่างระหว่างอักขระในกล่องข้อความ
+ใช้ [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setSpacing) เพื่อขยายหรือย่อระยะห่างระหว่างอักขระในกล่องข้อความ
 
-โค้ด PHP ต่อไปนี้แสดงวิธีเพิ่มระยะห่างระหว่างอักขระใน **ย่อหน้าเต็ม**:
+โค้ด PHP ด้านล่างแสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าเต็ม**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -196,8 +196,8 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // หมายเหตุ: ใช้ค่าลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // ขยายระยะห่างระหว่างอักขระ.
+    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างอักขระ.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // ขยายระยะห่างอักขระ.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -207,9 +207,9 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างระหว่างอักขระในย่อหน้า](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีเพิ่มระยะห่างระหว่างอักขระใน **ส่วนข้อความที่มีฟอนต์หนา**:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่ใช้ฟอนต์หนา**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -222,8 +222,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // หมายเหตุ: ใช้ค่าลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
-            $portion->getPortionFormat()->setSpacing(3); // ขยายระยะห่างระหว่างอักขระ.
+            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างอักขระ.
+            $portion->getPortionFormat()->setSpacing(3); // ขยายระยะห่างอักขระ.
         }
     }
 
@@ -235,13 +235,13 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างระหว่างอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
-### **ปิดการ Kerning สำหรับแบบอักษรเฉพาะ**
+### **ปิดการใช้งาน Kerning สำหรับฟอนต์เฉพาะ**
 
-ในบางกรณี ข้อความที่เรนเดอร์โดย Aspose.Slides อาจดูแคบเกินกว่าข้อความเดียวกันที่แสดงใน PowerPoint สิ่งนี้อาจเกิดขึ้นเนื่องจาก PowerPoint อาจละเว้นข้อมูล kerning ของแบบอักษรบางแบบ แม้ว่าแบบอักษรจะมีข้อมูล kerning ที่ถูกต้องและเปิดใช้งาน kerning ในการตั้งค่าของ PowerPoint
+ในบางกรณี ข้อความที่เรนเดอร์โดย Aspose.Slides อาจดูแน่นกว่าข้อความเดียวกันใน PowerPoint นี่อาจเกิดจาก PowerPoint เพิกเฉยต่อข้อมูล kerning ของฟอนต์บางตัว แม้ว่าฟอนต์จะมีข้อมูล kerning ที่ถูกต้องและการตั้งค่า Kerning ใน PowerPoint จะเปิดอยู่ก็ตาม
 
-เพื่อทำให้ผลลัพธ์ที่เรนเดอร์ใกล้เคียงกับ PowerPoint มากขึ้นในกรณีเช่นนี้ คุณสามารถปิดการทำ kerning สำหรับส่วนข้อความที่ใช้แบบอักษรที่ได้รับผลกระทบ ตั้งค่า [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) ให้เป็นค่าที่ใหญ่กว่าขนาดแบบอักษรจริงอย่างมีนัยสำคัญ:
+เพื่อให้ผลลัพธ์ที่เรนเดอร์ใกล้เคียงกับ PowerPoint มากขึ้น คุณสามารถปิดการใช้งาน kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบได้ ตั้งค่า [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) ให้มีค่ามากกว่าขนาดฟอนต์จริงอย่างชัดเจน:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -275,13 +275,13 @@ try {
 }
 ```
 
-การตั้งค่านี้จะป้องกันไม่ให้ kerning ถูกนำไปใช้กับส่วนข้อความที่ตรงกันและสามารถช่วยทำให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับผลลัพธ์ภาพของ PowerPoint สำหรับแบบอักษรที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้
+การตั้งค่านี้จะป้องกันไม่ให้ kerning ถูกนำไปใช้กับส่วนข้อความที่ตรงกันและช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับฟอนต์ที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้
 
-## **จัดการคุณสมบัติแบบอักษรของข้อความ**
+## **จัดการคุณสมบัติตัวอักษรของข้อความ**
 
-คุณสมบัติของแบบอักษรสามารถตั้งค่าได้ระดับย่อหน้าผ่าน [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) หรือบนส่วนย่อยแต่ละส่วนผ่าน [PortionFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/portionformat/)
+คุณสมบัติตัวอักษรสามารถตั้งค่าได้ระดับย่อหน้าโดยผ่าน [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) หรือบนส่วนเฉพาะโดยผ่าน [PortionFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/portionformat/)
 
-โค้ดต่อไปนี้ตั้งค่าแบบอักษรและสไตล์ข้อความสำหรับย่อหน้าเต็ม: มันกำหนดขนาดแบบอักษร, ตัวหนา, ตัวเอียง, ขีดเส้นใต้แบบจุด, และแบบอักษร Times New Roman ให้กับทุกส่วนในย่อหน้า
+โค้ดต่อไปนี้ตั้งค่าแบบอักษรและสไตล์ข้อความสำหรับย่อหน้าเต็ม: กำหนดขนาดฟอนต์, ตัวหนา, ตัวเอียง, เส้นใต้แบบจุด, และฟอนต์ Times New Roman ให้กับทุกส่วนในย่อหน้า
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -292,7 +292,7 @@ try {
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
     $font = new FontData("Times New Roman");
 
-    // ตั้งค่าคุณสมบัติแบบอักษรสำหรับย่อหน้า.
+    // ตั้งค่าคุณสมบัติตัวอักษรสำหรับย่อหน้า.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
@@ -307,9 +307,9 @@ try {
 
 ผลลัพธ์:
 
-![คุณสมบัติแบบอักษรของย่อหน้า](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างประยุกต์คุณสมบัติเช่นเดียวกันกับ **ส่วนข้อความที่มีฟอนต์หนา**:
+โค้ดตัวอย่างด้านล่างนำคุณสมบัติเดียวกันไปใช้กับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -323,7 +323,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // ตั้งค่าคุณสมบัติแบบอักษรสำหรับส่วนข้อความ.
+            // ตั้งค่าคุณสมบัติตัวอักษรสำหรับส่วนข้อความ.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
@@ -340,13 +340,13 @@ try {
 
 ผลลัพธ์:
 
-![คุณสมบัติแบบอักษรของส่วนข้อความ](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
-## **ตั้งค่าการหมุนข้อความ**
+## **ตั้งค่าการหมุนของข้อความ**
 
-ใช้ [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/#setTextVerticalType) เพื่อกำหนดการจัดตำแหน่งข้อความล่วงหน้าภายในรูปร่าง
+ใช้ [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/#setTextVerticalType) เพื่อตั้งค่าทิศทางข้อความที่กำหนดล่วงหน้าในรูปทรง
 
-ตัวอย่างโค้ดต่อไปนี้กำหนดการจัดตำแหน่งข้อความในรูปร่างเป็น `Vertical270` ซึ่งทำให้ข้อความ **90 องศาตรงข้ามเข็มนาฬิกา**:
+โค้ดต่อไปนี้ตั้งค่าทิศทางข้อความในรูปทรงเป็น `Vertical270` ซึ่งหมุนข้อความ **90 องศาตรงข้ามเข็มนาฬิกา**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -364,13 +364,13 @@ try {
 
 ผลลัพธ์:
 
-![การหมุนข้อความ](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับ Text Frame**
+## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
 
 ใช้ [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/#setRotationAngle) เพื่อตั้งค่ามุมการหมุนแบบกำหนดเองสำหรับ [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/)
 
-ตัวอย่างโค้ดด้านล่างหมุน Text Frame ไป 3 องศาตามเข็มนาฬิกาภายในรูปร่าง:
+โค้ดตัวอย่างด้านล่างหมุนกรอบข้อความ 3 องศาตามเข็มนาฬิกาภายในรูปทรง:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -388,16 +388,16 @@ try {
 
 ผลลัพธ์:
 
-![การหมุนข้อความแบบกำหนดเอง](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
 ## **ตั้งค่าระยะห่างบรรทัดของย่อหน้า**
 
-Aspose.Slides มี [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setSpaceBefore) และ [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setSpaceWithin) เพื่อควบคุมระยะห่างของย่อหน้า คุณสมบัติเหล่านี้ใช้ดังต่อไปนี้:
+Aspose.Slides มี [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setSpaceBefore) และ [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setSpaceWithin) เพื่อควบคุมระยะห่างระหว่างย่อหน้า คุณสมบัติเหล่านี้ใช้ดังนี้
 
-* ใช้ค่าเป็นบวกเพื่อระบุระยะห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด
-* ใช้ค่าเป็นลบเพื่อระบุระยะห่างบรรทัดเป็นหน่วยพ้อยท์
+* ใช้ค่าบวกเพื่อระบุระยะห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด
+* ใช้ค่าลบเพื่อระบุระยะห่างบรรทัดเป็นจุด
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีระบุระยะห่างบรรทัดภายในย่อหน้า:
+โค้ดต่อไปนี้แสดงวิธีระบุระยะห่างบรรทัดภายในย่อหน้า:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -416,11 +416,11 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างบรรทัดภายในย่อหน้า](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **ตั้งค่าชนิด Autofit สำหรับ Text Frame**
+## **ตั้งค่า Autofit Type สำหรับกรอบข้อความ**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/#setAutofitType) กำหนดว่าข้อความจะทำอย่างไรเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้มันเพื่อควบคุมว่าข้อความจะหดลง, ล้นออก, หรือปรับขนาดรูปร่างโดยอัตโนมัติ
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/#setAutofitType) กำหนดว่าข้อความจะทำอย่างไรเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะหด, แพร่กระจาย หรือปรับขนาดรูปทรงโดยอัตโนมัติ
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -436,9 +436,11 @@ try {
 }
 ```
 
-## **ตั้งค่าตำแหน่งยึดของ Text Frame**
+เพื่อดูจำนวนบรรทัดหลังจากการตัดบรรทัดอัตโนมัติและสังเกตว่าความกว้างของข้อความหรือรูปทรงเปลี่ยนแปลงอย่างไร ให้ดูที่ [Count Rendered Lines](/slides/th/php-java/manage-paragraph/) จำนวนบรรทัดเพียงอย่างเดียวไม่ได้บ่งบอกว่าข้อความล้นคอนเทนเนอร์หรือไม่
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/#setAnchoringType) กำหนดว่าข้อความจะถูกจัดตำแหน่งแนวตั้งภายในรูปร่างอย่างไร เช่น อยู่บนสุด กลาง หรือด้านล่าง
+## **ตั้งค่าตำแหน่งยึดของกรอบข้อความ**
+
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/#setAnchoringType) กำหนดว่าข้อความจะจัดตำแหน่งแนวตั้งอย่างไรภายในรูปทรง เช่น ที่ด้านบน, กลาง หรือด้านล่าง
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -454,9 +456,9 @@ try {
 }
 ```
 
-## **ตั้งค่าการแท็บของข้อความ**
+## **ตั้งค่าการ Tabulation ของข้อความ**
 
-ใช้ [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) และ [ParagraphFormat::getTabs](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#getTabs) เพื่อกำหนดจุดหยุดแท็บในย่อหน้า
+ใช้ [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) และ [ParagraphFormat::getTabs](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/#getTabs) เพื่อตั้งค่าตำแหน่ง Tab ในย่อหน้า
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -476,13 +478,13 @@ try {
 
 ผลลัพธ์:
 
-![แท็บของย่อหน้า](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
-## **ตั้งค่าภาษาตรวจสอบการพิมพ์**
+## **ตั้งค่าภาษา Proofing**
 
-Aspose.Slides มี [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setLanguageId) ซึ่งช่วยให้คุณตั้งค่าภาษา proofing สำหรับส่วนข้อความ ภาษ proofing จะกำหนดภาษาที่ใช้ในการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
+Aspose.Slides มี [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setLanguageId) ซึ่งให้คุณตั้งค่าภาษา proofing สำหรับส่วนข้อความ ภาษานี้กำหนดภาษาที่ใช้ตรวจการสะกดและไวยากรณ์ใน PowerPoint
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าภาษา proofing สำหรับส่วนข้อความ:
+โค้ดต่อไปนี้แสดงวิธีตั้งค่าภาษา proofing สำหรับส่วนข้อความ:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -514,7 +516,7 @@ try {
 
 ## **ตั้งค่าภาษาเริ่มต้น**
 
-ใช้ [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) เพื่อกำหนดภาษาตั้งต้นสำหรับข้อความที่สร้างในระหว่างการโหลดหรือสร้างงานนำเสนอ
+ใช้ [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) เพื่อกำหนดภาษาตั้งต้นสำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอใหม่
 
 ```php
 $loadOptions = new LoadOptions();
@@ -524,11 +526,11 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // เพิ่มรูปร่างสี่เหลี่ยมใหม่พร้อมข้อความ.
+    // เพิ่มรูปสี่เหลี่ยมผืนผ้าใหม่พร้อมข้อความ.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // ตรวจสอบภาษาของส่วนแรก.
+    // ตรวจสอบภาษาของส่วนข้อความแรก.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -538,14 +540,14 @@ try {
 
 ## **ตั้งค่าสไตล์ข้อความเริ่มต้น**
 
-เพื่อประยุกต์การจัดรูปแบบข้อความเริ่มต้นในระดับงานนำเสนอ ใช้ [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDefaultTextStyle)
+เพื่อใช้รูปแบบข้อความเริ่มต้นระดับงานนำเสนอ ใช้ [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDefaultTextStyle)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าแบบอักษรหนาเริ่มต้นขนาด 14 pt สำหรับข้อความทั้งหมดในทุกสไลด์ของงานนำเสนอใหม่
+โค้ดต่อไปนี้แสดงวิธีตั้งค่าฟอนต์หนาขนาด 14 pt เป็นค่าเริ่มต้นสำหรับข้อความทั้งหมดในสไลด์ของงานนำเสนอใหม่
 
 ```php
 $presentation = new Presentation();
 try {
-    // ดึงรูปแบบย่อหน้าระดับบนสุด.
+    // รับรูปแบบย่อหน้าระดับบนสุด.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -559,15 +561,15 @@ try {
 }
 ```
 
-## **ดึงข้อความพร้อมเอฟเฟกต์ All-Caps**
+## **สกัดข้อความพร้อมเอฟเฟกต์ All-Caps**
 
-ใน PowerPoint การใช้เอฟเฟกต์แบบ **All Caps** ทำให้ข้อความแสดงเป็นตัวพิมพ์ใหญ่บนสไลด์แม้ว่าต้นฉบับจะพิมพ์ด้วยตัวพิมพ์เล็ก เมื่อคุณดึงส่วนข้อความนั้นด้วย Aspose.Slides ไลบรารีจะคืนค่าข้อความตามที่ป้อนไว้ เพื่อให้ตรงกับข้อความที่แสดง ให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textcaptype/) และเปลี่ยนสตริงที่คืนค่าเป็นตัวพิมพ์ใหญ่เมื่อค่ามีค่า `All`
+ใน PowerPoint การใช้เอฟเฟกต์ฟอนต์ **All Caps** ทำให้ข้อความแสดงเป็นพิมพ์ใหญ่ทั้งหมดแม้พิมพ์ด้วยตัวพิมพ์เล็กเมื่อต้องดึงข้อความส่วนนี้ออกด้วย Aspose.Slides ไลบรารีจะคืนค่าข้อความตามที่พิมพ์ไว้ เพื่อให้ตรงกับที่แสดงบนสไลด์ ให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่าเป็นพิมพ์ใหญ่เมื่อค่าเป็น `All`
 
-สมมติว่าเรามีกล่องข้อความต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx
+สมมติว่าเรามีกล่องข้อความดังต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx
 
-![เอฟเฟกต์ All Caps](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีดึงข้อความพร้อมเอฟเฟกต์ **All Caps** ที่ใช้แล้ว:
+โค้ดตัวอย่างด้านล่างแสดงวิธีสกัดข้อความพร้อมเอฟเฟกต์ **All Caps** ที่ได้เปิดใช้:
 
 ```php
 $presentation = new Presentation("sample2.pptx");
@@ -598,10 +600,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**จะแก้ไขข้อความในตารางบนสไลด์อย่างไร?**
+**ทำอย่างไรจึงจะแก้ไขข้อความในตารางบนสไลด์?**
 
-เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/). วนรอบผ่านเซลล์และอัปเดตแต่ละเซลล์โดยใช้ [Cell::getTextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/#getTextFrame) และกำหนดรูปแบบย่อหน้าผ่าน [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraph/#getParagraphFormat).
+เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/) วนลูปผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [Cell::getTextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/#getTextFrame) และจัดรูปแบบย่อหน้าผ่าน [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraph/#getParagraphFormat)
 
-**จะใช้สีไล่ระดับกับข้อความในสไลด์ PowerPoint อย่างไร?**
+**ทำอย่างไรจึงจะใส่สีไล่โทนลงไปในข้อความบนสไลด์ PowerPoint?**
 
-เพื่อใช้สีไล่ระดับกับข้อความ ให้ใช้ [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#getFillFormat). ตั้งค่า [FillFormat::setFillType](https://reference.aspose.com/slides/th/php-java/aspose.slides/fillformat/#setFillType) เป็น [FillType::Gradient](https://reference.aspose.com/slides/th/php-java/aspose.slides/filltype/) แล้วกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งใส.
+เพื่อใส่สีไล่โทนลงในข้อความ ให้ใช้ [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#getFillFormat) ตั้งค่า [FillFormat::setFillType](https://reference.aspose.com/slides/th/php-java/aspose.slides/fillformat/#setFillType) เป็น [FillType::Gradient](https://reference.aspose.com/slides/th/php-java/aspose.slides/filltype/) และกำหนดจุดไล่สี, ทิศทาง, และความโปร่งแสง

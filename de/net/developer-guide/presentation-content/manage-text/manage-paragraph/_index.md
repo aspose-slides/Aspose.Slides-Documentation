@@ -1,5 +1,5 @@
 ---
-title: Verwalten von PowerPoint-Textabsätzen in .NET
+title: PowerPoint-Textabsätze in .NET verwalten
 linktitle: Absatz verwalten
 type: docs
 weight: 40
@@ -8,55 +8,55 @@ aliases:
   - /net/paragraph/
   - /net/portion/
 keywords:
-  - Text hinzufügen
-  - Absatz hinzufügen
-  - Text verwalten
-  - Absatz verwalten
-  - Aufzählungszeichen verwalten
-  - Absatz-Einzug
-  - hängender Einzug
-  - Absatz-Aufzählungszeichen
-  - nummerierte Liste
-  - Aufzählungsliste
-  - Absatz-Eigenschaften
-  - HTML importieren
-  - Text zu HTML
-  - Absatz zu HTML
-  - Absatz zu Bild
-  - Text zu Bild
-  - Absatz exportieren
-  - PowerPoint
-  - Präsentation
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für .NET Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML-Inhalte und Absatzbilder erstellen und formatieren."
+- Text hinzufügen
+- Absatz hinzufügen
+- Text verwalten
+- Absatz verwalten
+- Aufzählungszeichen verwalten
+- Absatzeinzug
+- hängender Einzug
+- Absatzaufzählungszeichen
+- nummerierte Liste
+- Aufzählungsliste
+- Absatzeigenschaften
+- HTML importieren
+- Text zu HTML
+- Absatz zu HTML
+- Absatz zu Bild
+- Text zu Bild
+- Absatz exportieren
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie mit Aspose.Slides für .NET Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML‑Inhalte und Absatz‑Bilder erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für .NET stellt Text als Hierarchie von Textrahmen, Absätzen und Portionen dar:
+Aspose.Slides für .NET stellt Text als Hierarchie von Textfeldern, Absätzen und Portionen dar:
 
-* [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) stellt den Textbehälter in einer Form dar und bietet Zugriff auf die Absatzsammlung.
-* [IParagraph](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/) stellt einen Absatz in einem Textrahmen dar und bietet Zugriff auf seine Portionen und die Absatzformatierung.
-* [IPortion](https://reference.aspose.com/slides/de/net/aspose.slides/iportion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann eigenen Text und Zeichenformatierung besitzen.
+* [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) stellt den Textbehälter in einer Form dar und bietet Zugriff auf ihre Absatzsammlung.
+* [IParagraph](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/) repräsentiert einen Absatz in einem Textfeld und bietet Zugriff auf seine Portionen sowie Absatz‑Formatierungen.
+* [IPortion](https://reference.aspose.com/slides/de/net/aspose.slides/iportion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann eigenen Text und Zeichen‑Formatierungen besitzen.
 
-Ein Absatz kann daher Text mit unterschiedlichen Schriftarten, Farben, Größen und weiterer Formatierung enthalten, indem mehrere Portionen verwendet werden.
+Ein Absatz kann daher Text mit unterschiedlichen Schriftarten, Farben, Größen und sonstigen Formatierungen enthalten, indem mehrere Portionen verwendet werden.
 
 ## **Absätze erstellen und formatieren**
 
 ### **Absätze mit mehreren Portionen erstellen**
 
-Die folgenden Schritte erstellen einen Textrahmen mit drei Absätzen, die jeweils drei Portionen enthalten:
+Die folgenden Schritte erzeugen ein Textfeld mit drei Absätzen, die jeweils drei Portionen enthalten:
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) zur Folie hinzu.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) der Form zu.
-5. Verwenden Sie den Standardabsatz und fügen Sie dem Textrahmen zwei weitere [IParagraph](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/)‑Objekte hinzu.
-6. Fügen Sie genügend [IPortion](https://reference.aspose.com/slides/de/net/aspose.slides/iportion/)‑Objekte hinzu, damit jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
+5. Verwenden Sie den Standardabsatz und fügen Sie dem Textfeld zwei weitere [IParagraph](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/)‑Objekte hinzu.
+6. Fügen Sie jedem Absatz genügend [IPortion](https://reference.aspose.com/slides/de/net/aspose.slides/iportion/)‑Objekte hinzu, sodass er drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
 7. Setzen Sie den Text jeder Portion.
-8. Wenden Sie Zeichenformatierung über [IPortion.PortionFormat](https://reference.aspose.com/slides/de/net/aspose.slides/iportion/portionformat/) an.
-9. Speichern Sie die modifizierte Präsentation.
+8. Wenden Sie Zeichen‑Formatierungen über [IPortion.PortionFormat](https://reference.aspose.com/slides/de/net/aspose.slides/iportion/portionformat/) an.
+9. Speichern Sie die geänderte Präsentation.
 
 Dieses C#‑Beispiel implementiert die Schritte:
 
@@ -116,23 +116,23 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **Aufzählungs‑ und Nummerierungslisten erstellen**
+## **Aufzählungs‑ und nummerierte Listen erstellen**
 
-### **Eine Aufzählungs‑ oder Nummerierungsliste erstellen**
+### **Eine Aufzählungs‑ oder nummerierte Liste erstellen**
 
-Aufzählungszeichen und Nummerierungen erleichtern das Scannen verwandter Elemente. In Aspose.Slides werden Listeneinstellungen über [IBulletFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/) definiert.
+Aufzählungszeichen und Nummerierung erleichtern das Scannen zusammengehöriger Elemente. In Aspose.Slides werden Listeneinstellungen über [IBulletFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/) definiert.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) zur ausgewählten Folie hinzu.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie der ausgewählten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) der Form zu.
-5. Entfernen Sie den Standardabsatz aus dem Textrahmen.
+5. Entfernen Sie den Standardabsatz aus dem Textfeld.
 6. Erstellen Sie ein [Paragraph](https://reference.aspose.com/slides/de/net/aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
-7. Setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen‑Zeichen an.
-8. Legen Sie den Absatztext, Einzug, Aufzählungsfarbe und Aufzählungsgröße fest.
-9. Fügen Sie den Absatz dem Textrahmen hinzu.
+7. Setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen an.
+8. Legen Sie den Absatztext, Einzug, Aufzählungszeichen‑Farbe und Aufzählungszeichen‑Höhe fest.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
 10. Erstellen Sie einen zweiten Absatz und setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/).
-11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem Textrahmen hinzu.
+11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem Textfeld hinzu.
 12. Speichern Sie die Präsentation.
 
 Dieses C#‑Beispiel erstellt ein Symbol‑Aufzählungszeichen und ein nummeriertes Aufzählungszeichen:
@@ -177,15 +177,15 @@ presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 Bild‑Aufzählungszeichen ermöglichen die Verwendung eines benutzerdefinierten Bildes anstelle eines Symbols oder einer Zahl.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu und greifen Sie auf sein [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) zu.
-4. Entfernen Sie den Standardabsatz aus dem Textrahmen.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu und greifen Sie auf dessen [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) zu.
+4. Entfernen Sie den Standardabsatz aus dem Textfeld.
 5. Laden Sie das Aufzählungszeichen‑Bild und fügen Sie es der Bildsammlung der Präsentation als [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage/) hinzu.
 6. Erstellen Sie ein [Paragraph](https://reference.aspose.com/slides/de/net/aspose.slides/paragraph/) und setzen Sie dessen Text.
 7. Setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Picture](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/).
-8. Weisen Sie das Bild über [IBulletFormat.Picture](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/picture/) zu und setzen Sie die Aufzählungsgröße.
-9. Fügen Sie den Absatz dem Textrahmen hinzu.
-10. Speichern Sie die modifizierte Präsentation.
+8. Ordnen Sie das Bild über [IBulletFormat.Picture](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/picture/) zu und setzen Sie die Aufzählungszeichen‑Höhe.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
+10. Speichern Sie die geänderte Präsentation.
 
 Dieses C#‑Beispiel erstellt ein Bild‑Aufzählungszeichen:
 
@@ -213,15 +213,15 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **Mehrstufige Liste erstellen**
+### **Eine mehrstufige Liste erstellen**
 
 Setzen Sie [IParagraphFormat.Depth](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/depth/) um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat die Tiefe `0`.
 
-1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu und löschen Sie den Standardabsatz aus dessen Textrahmen.
-3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungssymbole.
-4. Setzen Sie ihre [IParagraphFormat.Depth](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/depth/)‑Werte auf `0`, `1`, `2` und `3`.
-5. Fügen Sie die Absätze dem Textrahmen hinzu und speichern Sie die Präsentation.
+1. Erstellen Sie ein [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
+2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu und entfernen Sie den Standardabsatz aus dessen Textfeld.
+3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungszeichen‑Symbole.
+4. Setzen Sie deren [IParagraphFormat.Depth](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/depth/)‑Werte auf `0`, `1`, `2` und `3`.
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
 Dieses C#‑Beispiel erstellt eine vierstufige Aufzählungsliste:
 
@@ -273,17 +273,17 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Nummerierte Listeneinträge bei benutzerdefinierten Werten beginnen lassen**
+### **Nummerierte Listeneinträge mit benutzerdefinierten Startwerten beginnen**
 
-Verwenden Sie [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/numberedbulletstartwith/) um die anfängliche Nummer für einen nummerierten Absatz festzulegen.
+Verwenden Sie [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/numberedbulletstartwith/), um die Anfangsnummer eines nummerierten Absatzes festzulegen.
 
-1. Erstellen Sie eine [Presentation] und fügen Sie einer Folie ein [IAutoShape] hinzu.
-2. Entfernen Sie den Standardabsatz aus dem Textrahmen der Form.
+1. Erstellen Sie ein [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) und fügen Sie einer Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu.
+2. Entfernen Sie den Standardabsatz aus dem Textfeld der Form.
 3. Erstellen Sie drei nummerierte Absätze.
-4. Setzen Sie [IBulletFormat.NumberedBulletStartWith] für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
-5. Fügen Sie die Absätze dem Textrahmen hinzu und speichern Sie die Präsentation.
+4. Setzen Sie [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/numberedbulletstartwith/) für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
-Dieses C#‑Beispiel weist jedem Absatz eine benutzerdefinierte Startnummer zu:
+Dieses C#‑Beispiel weist jedem Absatz einen benutzerdefinierten Startwert zu:
 
 ```csharp
 using Aspose.Slides;
@@ -313,23 +313,23 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Absatzlayout und Endeigenschaften steuern**
+## **Absatzlayout und End‑Eigenschaften steuern**
 
-### **Erste‑Zeilen‑Einzug festlegen**
+### **Ersten Zeileneinzug festlegen**
 
-Verwenden Sie die Eigenschaft [IParagraphFormat.Indent], um den ersten Zeileneinzug eines Absatzes zu steuern. Diese Eigenschaft verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie die Eigenschaft [IParagraphFormat.Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/), um den Erstzeileneinzug eines Absatzes zu steuern. Diese Eigenschaft verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
 
-Verwenden Sie [IParagraphFormat.MarginLeft], wenn Sie den gesamten Absatz verschieben möchten. Verwenden Sie [IParagraphFormat.Indent], wenn Sie nur die erste Zeile verschieben wollen.
+Verwenden Sie [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/marginleft/), wenn Sie den gesamten Absatz verschieben möchten. Verwenden Sie [IParagraphFormat.Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/), wenn Sie nur die erste Zeile verschieben wollen.
 
-Das nachstehende Beispiel erstellt mehrere Absätze und wendet verschiedene [IParagraphFormat.Indent]-Werte an, um zu zeigen, wie der erste Zeileneinzug das Absatzlayout beeinflusst.
+Das nachstehende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [IParagraphFormat.Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/)‑Werte an, um zu demonstrieren, wie der Erstzeileneinzug das Layout beeinflusst.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) .
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/).
 2. Greifen Sie auf die Ziel‑Folie zu.
-3. Fügen Sie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) zur Folie hinzu.
+3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/)‑Werte für sie.
-6. Fügen Sie die Absätze dem Textrahmen hinzu.
-7. Speichern Sie die modifizierte Präsentation.
+5. Erstellen Sie mehrere Absätze und setzen Sie für sie unterschiedliche [Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/)‑Werte.
+6. Fügen Sie die Absätze dem Textfeld hinzu.
+7. Speichern Sie die geänderte Präsentation.
 
 Dieser Code zeigt, wie man einen Absatz‑Einzug festlegt:
 
@@ -376,26 +376,26 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Der Erstzeileneinzug der Absätze](first_line_indent.png)
 
 ### **Hängenden Einzug festlegen**
 
-Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit der Eigenschaft [IParagraphFormat.Indent]. Setzen Sie `Indent` auf einen negativen Wert, um die erste Zeile relativ zum Absatzkörper nach links zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit der Eigenschaft [IParagraphFormat.Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/). Setzen Sie `Indent` auf einen negativen Wert, um die erste Zeile nach links zu verschieben.
 
-In der Praxis definiert [IParagraphFormat.MarginLeft] die linke Position des Absatzkörpers und [IParagraphFormat.Indent] die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, setzen Sie einen positiven `MarginLeft`‑Wert und einen negativen `Indent`‑Wert.
+In der Praxis definiert [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/marginleft/) die linke Position des Absatzkörpers, und [IParagraphFormat.Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, setzen Sie einen positiven `MarginLeft`‑Wert und einen negativen `Indent`‑Wert.
 
-Diese Formatierung ist nützlich für Bibliographien, Referenzen, Glossareinträge und andere Absätze, bei denen umbrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
+Diese Formatierung ist nützlich für Bibliographien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper ausgerichtet sein müssen und nicht unter dem ersten Zeichen der ersten Zeile.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) .
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/).
 2. Greifen Sie auf die Ziel‑Folie zu.
-3. Fügen Sie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) zur Folie hinzu.
+3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
 5. Erstellen Sie Absätze und setzen Sie für jeden Absatz einen positiven [MarginLeft](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/marginleft/)‑Wert.
 6. Setzen Sie einen negativen [Indent](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/indent/)‑Wert, um den hängenden Einzug zu erzeugen.
-7. Fügen Sie die Absätze dem Textrahmen hinzu.
-8. Speichern Sie die modifizierte Präsentation.
+7. Fügen Sie die Absätze dem Textfeld hinzu.
+8. Speichern Sie die geänderte Präsentation.
 
-Dieser Code zeigt, wie man für einen Absatz einen hängenden Einzug festlegt:
+Dieser Code zeigt, wie man einen hängenden Einzug für einen Absatz festlegt:
 
 ```csharp
 using System.Drawing;
@@ -433,18 +433,18 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Der hängende Einzug der Absätze](hanging_indent.png)
 
 ### **End‑Absatz‑Lauf‑Eigenschaften festlegen**
 
-Die Eigenschaft [IParagraph.EndParagraphPortionFormat] steuert die Formatierung des Absatzendzeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schriftart zu:
+Die Eigenschaft [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/endparagraphportionformat/) steuert die Formatierung des Absatzendezeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schriftart zu:
 
-1. Laden Sie eine [Presentation] und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [IAutoShape] hinzu und entfernen Sie dessen Standardabsatz.
-3. Erstellen Sie zwei Absätze und fügen Sie ihnen Textportionen hinzu.
-4. Erstellen Sie ein [PortionFormat] für das Endzeichen des zweiten Absatzes.
-5. Setzen Sie [IBasePortionFormat.FontHeight] und [IBasePortionFormat.LatinFont].
-6. Weisen Sie das Format [IParagraph.EndParagraphPortionFormat] zu und speichern Sie die Präsentation.
+1. Laden Sie ein [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
+2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu und entfernen Sie den Standardabsatz.
+3. Erstellen Sie zwei Absätze und fügen Sie Textportionen hinzu.
+4. Erzeugen Sie ein [PortionFormat](https://reference.aspose.com/slides/de/net/aspose.slides/portionformat/) für das Endzeichen des zweiten Absatzes.
+5. Setzen Sie [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/de/net/aspose.slides/ibaseportionformat/fontheight/) und [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/de/net/aspose.slides/ibaseportionformat/latinfont/).
+6. Weisen Sie das Format [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/endparagraphportionformat/) zu und speichern Sie die Präsentation.
 
 ```csharp
 using Aspose.Slides;
@@ -473,20 +473,67 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
+## **Gerenderte Zeilen zählen**
+
+Verwenden Sie [IParagraph.GetLinesCount](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/getlinescount/), um die nach Layout des Textes belegten Zeilen eines Absatzes zu zählen, einschließlich automatischem Umbruch. Dies ist nützlich, wenn die Textlänge und das Layout in Präsentationsvorlagen geprüft werden sollen.
+
+Ein Absatz ist ein Element in [ITextFrame.Paragraphs](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/paragraphs/), und er kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatischer Umbruch erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbrüche in den Text einzufügen. Daher liefert das Zählen von Absätzen oder Zeilenumbruch‑Zeichen nicht die gerenderte Zeilenzahl.
+
+Das folgende Beispiel erstellt ein Text‑Shape, zählt dessen Zeilen, verengt das Shape und ersetzt anschließend den Text durch einen kürzeren String. Der Umbruch ist aktiviert und die automatische Passform ist deaktiviert, sodass die Shape‑Breite den Umbruch steuert, ohne den Text automatisch zu verkleinern oder das Shape zu skalieren. Die Shape‑Abmessungen werden in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzähler über das Textfeld hinweg.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+paragraph.Text = "This text demonstrates how automatic wrapping changes the number of rendered lines.";
+Console.WriteLine($"Original width: {paragraph.GetLinesCount()}");
+
+shape.Width = 150;
+Console.WriteLine($"Narrower shape: {paragraph.GetLinesCount()}");
+
+paragraph.Text = "Short text.";
+Console.WriteLine($"Shorter text: {paragraph.GetLinesCount()}");
+
+var secondParagraph = new Paragraph { Text = "Another paragraph." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+textFrame.Paragraphs.Add(secondParagraph);
+
+var totalLineCount = 0;
+foreach (var currentParagraph in textFrame.Paragraphs)
+{
+    totalLineCount += currentParagraph.GetLinesCount();
+}
+Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
+```
+
+Mit diesem Text und diesen Abmessungen erhöht das Verengen des Shapes die Zeilenzahl, während das Ersetzen des Textes durch den kurzen String sie reduziert. Exakte Werte können je nach Schriftartenverfügbarkeit, Ersatzschrift, Schriftgröße, Rand‑ und Einzugseinstellungen, Umbruch‑ und Auto‑Fit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriften und Layout‑Einstellungen, wenn Sie eine Vorlage prüfen.
+
+Die Zeilenzahl allein bestimmt nicht, ob Text über den Container hinausläuft. Die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstand sowie das Auto‑Fit‑Verhalten spielen ebenfalls eine Rolle; selbst eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn der Umbruch deaktiviert ist.
+
 ## **Absatzinhalt importieren und exportieren**
 
 ### **HTML‑Text in Absätze importieren**
 
-Verwenden Sie [ParagraphCollection.AddFromHtml], um HTML‑Markup in Absätze und Portionen eines Textrahmens zu konvertieren.
+Verwenden Sie [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/de/net/aspose.slides/paragraphcollection/addfromhtml/), um HTML‑Markup in Absätze und Portionen eines Textfeldes zu konvertieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) .
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation).
 2. Greifen Sie auf eine Folie zu und fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) hinzu.
 3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
 4. Lesen Sie die Quell‑HTML‑Datei.
-5. Übergeben Sie die HTML‑Zeichenkette an [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/de/net/aspose.slides/paragraphcollection/addfromhtml/) .
-6. Speichern Sie die modifizierte Präsentation.
+5. Übergeben Sie die HTML‑Zeichenfolge an [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/de/net/aspose.slides/paragraphcollection/addfromhtml/).
+6. Speichern Sie die geänderte Präsentation.
 
-Dieses C#‑Beispiel importiert HTML in einen Textrahmen:
+Dieses C#‑Beispiel importiert HTML in ein Textfeld:
 
 ```csharp
 using System.IO;
@@ -508,15 +555,15 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Absatz‑Text nach HTML exportieren**
+### **Absatztext nach HTML exportieren**
 
-Verwenden Sie [ParagraphCollection.ExportToHtml], um einen ausgewählten Bereich von Absätzen als HTML zu exportieren.
+Verwenden Sie [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/de/net/aspose.slides/paragraphcollection/exporttohtml/), um einen ausgewählten Absatzbereich als HTML zu exportieren.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) und laden Sie die gewünschte Präsentation.
-2. Greifen Sie auf die Folie zu und finden Sie das [IAutoShape], das den Text enthält.
-3. Greifen Sie auf das [ITextFrame] der Form zu.
-4. Rufen Sie [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/de/net/aspose.slides/paragraphcollection/exporttohtml/) mit dem Start‑Absatz‑Index und der Anzahl der zu exportierenden Absätze auf.
-5. Schreiben Sie die zurückgegebene HTML‑Zeichenkette in eine Datei.
+2. Greifen Sie auf die Folie zu und finden Sie das [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/), das den Text enthält.
+3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) der Form zu.
+4. Rufen Sie [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/de/net/aspose.slides/paragraphcollection/exporttohtml/) mit dem Start‑Absatz‑Index und der Anzahl zu exportierender Absätze auf.
+5. Schreiben Sie die zurückgegebene HTML‑Zeichenfolge in eine Datei.
 
 Dieses C#‑Beispiel exportiert alle Absätze aus dem ersten Text‑Shape:
 
@@ -544,17 +591,17 @@ else
 
 ### **Einen Absatz als Bild rendern**
 
-[IParagraph.GetImage] rendert einen einzelnen Absatz direkt und gibt ein [IImage] zurück. Speichern Sie das Ergebnis mit [IImage.Save] in eine Datei oder einen Stream. Sie müssen die enthaltende Form nicht rendern oder ein Bitmap manuell zuschneiden.
+[IParagraph.GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/getimage/) rendert einen einzelnen Absatz direkt und liefert ein [IImage](https://reference.aspose.com/slides/de/net/aspose.slides/iimage/). Speichern Sie das Ergebnis mit [IImage.Save](https://reference.aspose.com/slides/de/net/aspose.slides/iimage/save/) in einer Datei oder einem Stream. Sie müssen das übergeordnete Shape nicht rendern oder ein Bitmap manuell zuschneiden.
 
-[IParagraph.GetImage] kann `null` zurückgeben, wenn der Absatz in seiner übergeordneten Sammlung nicht gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis vor dem Speichern und geben Sie das zurückgegebene Bild nach der Verwendung frei.
+[IParagraph.GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/getimage/) kann `null` zurückgeben, wenn der Absatz nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Bounds hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis vor dem Speichern und entsorgen Sie das zurückgegebene Bild nach Gebrauch.
 
-#### **Einen Absatz mit Standardskala rendern**
+#### **Absatz mit Standardskala rendern**
 
-Nehmen wir an, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, auf der die erste Form ein Textfeld mit drei Absätzen ist.
+Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, wobei das erste Shape ein Textfeld mit drei Absätzen ist.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
 
-Das folgende Beispiel rendert den zweiten Absatz in einer normalen Textform bei der Standardskala und speichert das zurückgegebene Bild im PNG‑Format. Die `using`‑Deklaration sorgt dafür, dass das Bild korrekt freigegeben wird.
+Das nachstehende Beispiel rendert den zweiten Absatz in einem regulären Text‑Shape bei Standardskala und speichert das zurückgegebene Bild im PNG‑Format. Die `using`‑Anweisung sorgt dafür, dass das Bild korrekt entsorgt wird.
 
 ```csharp
 using System;
@@ -587,11 +634,11 @@ else
 
 Das Ergebnis:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Das Absatzbild](paragraph_to_image_output.png)
 
-#### **Einen Absatz in einer Tabellenzelle mit Skalierung rendern**
+#### **Absatz in einer Tabellenzelle mit Skalierung rendern**
 
-Verwenden Sie die Überladung von [IParagraph.GetImage], die die Parameter `float scaleX` und `float scaleY` akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in ihrer ersten Zelle mit dem Doppelten der Standardbreite und -höhe und speichert das Ergebnis als PNG‑Bild.
+Verwenden Sie die Überladung von [IParagraph.GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/getimage/), die die Parameter `float scaleX` und `float scaleY` akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in deren erster Zelle mit dem Doppelten der Standardsbreite und -höhe und speichert das Ergebnis als PNG‑Bild.
 
 ```csharp
 using System;
@@ -617,24 +664,24 @@ else
 }
 ```
 
-Ein Skalierungsfaktor von `1` hält diese Achse auf ihrer Standard‑Pixelgröße. Zum Beispiel erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa doppelt so groß wie die Standardmaße sind, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom oder hochauflösende Ausgaben, erhöhen jedoch auch den Speicherverbrauch und die Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes beizubehalten; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe jeweils separat.
+Ein Skalierungsfaktor von `1` behält die jeweilige Achse bei ihrer Standard‑Pixelgröße. Zum Beispiel erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa doppelt so groß sind wie die Standard‑Abmessungen, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom‑ oder Hochauflösungs‑Ausgaben, erhöhen jedoch den Speicherverbrauch und die Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes zu erhalten; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe unabhängig voneinander.
 
-Das Rendern einer gesamten Form mit [IShape.GetImage] bleibt nützlich, wenn die Ausgabe die Füllung, den Rand oder andere visuelle Kontexte der Form enthalten muss. Für ein Bild, das nur den Absatz enthält, verwenden Sie [IParagraph.GetImage].
+Das Rendern eines gesamten Shapes mit [IShape.GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/getimage/) bleibt nützlich, wenn die Ausgabe das Füll‑, Rand‑ oder sonstige visuelle Kontext‑Element des Shapes enthalten muss. Für ein reines Absatz‑Bild verwenden Sie [IParagraph.GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Kann ich das Zeilenumbruch‑Verhalten in einem Textrahmen vollständig deaktivieren?**
+**Kann ich das Zeilenumbruch‑Verhalten in einem Textfeld vollständig deaktivieren?**
 
-Ja. Setzen Sie [ITextFrameFormat.WrapText], um das Umbrechen zu deaktivieren, sodass Zeilen nicht an den Rändern des Textrahmens umgebrochen werden.
+Ja. Setzen Sie [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/wraptext/) auf, um den Umbruch zu deaktivieren, sodass Zeilen nicht an den Rändern des Textfeldes umgebrochen werden.
 
 **Wie kann ich die genauen Folien‑Grenzen eines bestimmten Absatzes erhalten?**
 
-Verwenden Sie [IParagraph.GetRect], um das begrenzende Rechteck des Absatzes abzurufen. [IPortion.GetRect] liefert die Grenzen einer einzelnen Portion.
+Verwenden Sie [IParagraph.GetRect](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/getrect/), um das Begrenzungsrechteck des Absatzes abzurufen. [IPortion.GetRect](https://reference.aspose.com/slides/de/net/aspose.slides/iportion/getrect/) liefert die Grenzen einer einzelnen Portion.
 
 **Wo wird die Absatzausrichtung (links, rechts, zentriert oder Blocksatz) gesteuert?**
 
-[IParagraphFormat.Alignment] ist eine Einstellung auf Absatzebene und gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/alignment/) ist eine Absatz‑Einstellung und gilt für den gesamten Absatz, unabhängig von den Formatierungen einzelner Portionen.
 
-**Kann ich die Rechtschreibsprache für einen Teil eines Absatzes festlegen?**
+**Kann ich die Rechtschreib‑Sprache für einen Teil eines Absatzes festlegen?**
 
-Ja. Setzen Sie [IBasePortionFormat.LanguageId] für einzelne Portionen, sodass ein Absatz Text in mehreren Sprachen enthalten kann.
+Ja. Setzen Sie [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/de/net/aspose.slides/ibaseportionformat/languageid/) für einzelne Portionen, sodass ein Absatz Text in mehreren Sprachen enthalten kann.

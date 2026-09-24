@@ -1,6 +1,6 @@
 ---
-title: "Форматирование текста презентации в .NET"
-linktitle: "Форматирование текста"
+title: Форматирование текста презентации в .NET
+linktitle: Форматирование текста
 type: docs
 weight: 50
 url: /ru/net/text-formatting/
@@ -9,15 +9,15 @@ keywords:
 - стиль текста
 - фон текста
 - прозрачность текста
-- интервал между символами
+- межсимвольный интервал
 - свойства шрифта
 - семейство шрифтов
 - вращение текста
 - угол вращения
-- текстовый кадр
+- текстовая рамка
 - межстрочный интервал
 - свойство автоподгонки
-- привязка текстового кадра
+- привязка текстовой рамки
 - табуляция текста
 - язык по умолчанию
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Форматирование и стилизация текста в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Настройте шрифты, цвета, выравнивание и многое другое."
+description: "Форматирование и стилизация текста в презентациях PowerPoint и OpenDocument с использованием Aspose.Slides для .NET. Настройте шрифты, цвета, выравнивание и многое другое."
 ---
 ## **Обзор**
 
-В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Рассматриваются фоновые цвета, прозрачность, интервал между символами, свойства шрифта, вращение, интервалы абзацев, поведение автоподгонки, привязка текста, табуляция и настройки языка.
+В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Описываются цвета фона, прозрачность, межсимвольный интервал, свойства шрифтов, вращение, интервалы абзацев, поведение автоподгонки, привязка текста, табуляция и языковые настройки.
 
-В приведённых ниже примерах мы будем использовать файл «sample.pptx», который содержит один текстовый блок на первом слайде со следующим текстом:
+В приведённых ниже примерах используется файл «sample.pptx», содержащий один текстовый блок на первом слайде со следующим текстом:
 
 ![Пример текста](sample_text.png)
 
-Чтобы найти и выделить буквальный текст или совпадения по регулярному выражению, см. [Поиск и замена текста](/slides/ru/net/search-and-replace-text/).
+Чтобы найти и выделить буквальный текст или совпадения регулярных выражений, см. [Поиск и замена текста](/slides/ru/net/search-and-replace-text/).
 
-## **Установка фонового цвета текста**
+## **Установить цвет фона текста**
 
-Используйте [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/defaultportionformat/) для установки цвета подсветки по умолчанию для абзаца или [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/highlightcolor/) для отдельных текстовых фрагментов.
+Используйте [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/defaultportionformat/) для установки цвета выделения по умолчанию для абзаца или [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/highlightcolor/) для отдельных текстовых участков.
 
-Следующий пример кода показывает, как задать фоновый цвет для **всего абзаца**:
+Следующий пример кода показывает, как задать цвет фона для **всего абзаца**:
 
 ```cs
 using System.Drawing;
@@ -54,7 +54,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Установите цвет подсветки для всего абзаца.
+    // Установить цвет выделения для всего абзаца.
     paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
     presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -65,7 +65,7 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![Серый абзац](gray_paragraph.png)
 
-Ниже показан пример кода, который задаёт фоновый цвет для **текстовых фрагментов полужирным шрифтом**:
+Ниже показан пример кода, который задаёт цвет фона для **текстовых участков с полужирным шрифтом**:
 
 ```cs
 using System.Drawing;
@@ -81,7 +81,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Установите цвет подсветки для текстового фрагмента.
+            // Установить цвет выделения для текстового участка.
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -92,11 +92,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Результат:
 
-![Серые текстовые фрагменты](gray_text_portions.png)
+![Серые текстовые участки](gray_text_portions.png)
 
 ## **Выравнивание абзацев текста**
 
-Используйте [IParagraphFormat.Alignment](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/alignment/) для установки выравнивания абзаца внутри текстового кадра. Значение может быть по центру, по левому краю, по правому краю, с выравниванием по ширине и т.д.
+Используйте [IParagraphFormat.Alignment](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/alignment/) для установки выравнивания абзаца внутри текстовой рамки. Значение может быть по центру, по левому краю, по правому краю, с выравниванием по ширине и т.д.
 
 Следующий пример кода показывает, как выровнять абзац **по центру**:
 
@@ -109,7 +109,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Установите выравнивание абзаца по центру.
+    // Установить выравнивание абзаца по центру.
     paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
     presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -120,11 +120,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![Выровненный абзац](aligned_paragraph.png)
 
-## **Установка прозрачности текста**
+## **Установить прозрачность текста**
 
-Прозрачность текста управляется альфа‑компонентой цвета, назначенного [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/fillformat/). В примерах ниже `alpha = 50` – это значение альфа‑канала ARGB в диапазоне 0–255, а не процент прозрачности.
+Прозрачность текста управляется альфа‑компонентой цвета, назначенного [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/fillformat/). В примерах ниже `alpha = 50` — значение альфа‑канала ARGB в диапазоне 0–255, а не процент прозрачности.
 
-Пример кода, показывающий, как применить прозрачность к **всему абзацу**:
+Пример кода, который применяет прозрачность к **всему абзацу**:
 
 ```cs
 using System.Drawing;
@@ -138,7 +138,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Установите цвет заливки текста в прозрачный цвет.
+    // Установить цвет заливки текста в прозрачный цвет.
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -150,7 +150,7 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![Прозрачный абзац](transparent_paragraph.png)
 
-Следующий пример кода демонстрирует, как применить прозрачность к **текстовым фрагментам полужирным шрифтом**:
+Следующий пример кода показывает, как применить прозрачность к **текстовым участкам с полужирным шрифтом**:
 
 ```cs
 using System.Drawing;
@@ -168,7 +168,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Установите прозрачность текстового фрагмента.
+            // Установить прозрачность текстового участка.
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
         }
@@ -180,13 +180,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Результат:
 
-![Прозрачные текстовые фрагменты](transparent_text_portions.png)
+![Прозрачные текстовые участки](transparent_text_portions.png)
 
-## **Установка интервала между символами текста**
+## **Установить межсимвольный интервал для текста**
 
-Используйте [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/spacing/) для расширения или сжатия интервала между символами в текстовом блоке.
+Используйте [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/spacing/) для увеличения или уменьшения интервала между символами в текстовом блоке.
 
-Следующий код C# показывает, как расширить интервал между символами в **всём абзаце**:
+Следующий код на C# показывает, как увеличить межсимвольный интервал в **всём абзаце**:
 
 ```cs
 using Aspose.Slides;
@@ -197,8 +197,8 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Примечание: используйте отрицательные значения для сжатия интервала между символами.
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Расширить интервал между символами.
+    // Примечание: используйте отрицательные значения, чтобы сжать межсимвольный интервал.
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Расширить межсимвольный интервал.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
@@ -206,9 +206,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Результат:
 
-![Интервал между символами в абзаце](character_spacing_in_paragraph.png)
+![Межсимвольный интервал в абзаце](character_spacing_in_paragraph.png)
 
-Ниже пример кода, который расширяет интервал между символами в **текстовых фрагментах полужирным шрифтом**:
+Пример кода, который расширяет межсимвольный интервал в **текстовых участках с полужирным шрифтом**:
 
 ```cs
 using Aspose.Slides;
@@ -223,8 +223,8 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Примечание: используйте отрицательные значения для сжатия интервала между символами.
-            portion.PortionFormat.Spacing = 3;  // Расширить интервал между символами.
+            // Примечание: используйте отрицательные значения, чтобы сжать межсимвольный интервал.
+            portion.PortionFormat.Spacing = 3;  // Расширить межсимвольный интервал.
         }
     }
 
@@ -234,13 +234,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Результат:
 
-![Интервал между символами в текстовых фрагментах](character_spacing_in_text_portions.png)
+![Межсимвольный интервал в текстовых участках](character_spacing_in_text_portions.png)
 
-### **Отключение кернинга для конкретных шрифтов**
+### **Отключить кернинг для конкретных шрифтов**
 
-В некоторых случаях текст, отрисованный Aspose.Slides, выглядит чуть плотнее, чем тот же текст в PowerPoint. Это может происходить потому, что PowerPoint игнорирует данные о кернинге для определённых шрифтов, даже если шрифт содержит корректную информацию о кернинге и кернинг включён в настройках PowerPoint.
+В некоторых случаях текст, отрисованный Aspose.Slides, выглядит слегка плотнее, чем тот же текст в PowerPoint. Это может происходить, потому что PowerPoint игнорирует данные кернинга для определённых шрифтов, даже если шрифт содержит корректную информацию о кернинге и кернинг включён в настройках PowerPoint.
 
-Чтобы сделать вывод более похожим на PowerPoint, в таких случаях можно отключить кернинг для текстовых фрагментов, использующих затронутый шрифт. Установите [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/kerningminimalsize/) в значение, значительно превышающее фактический размер шрифта:
+Чтобы вывести отрисованный результат ближе к PowerPoint, можно отключить кернинг для текстовых участков, использующих затронутый шрифт. Установите [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/kerningminimalsize/) в значение, значительно превышающее фактический размер шрифта:
 
 ```cs
 using Aspose.Slides;
@@ -271,13 +271,13 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-Эта настройка предотвращает применение кернинга к соответствующим текстовым фрагментам и помогает согласовать визуальный вывод Aspose.Slides с PowerPoint для шрифтов, на которые влияет данное специфическое поведение PowerPoint.
+Эта настройка предотвращает применение кернинга к соответствующим текстовым участкам и помогает согласовать визуальное отображение Aspose.Slides с PowerPoint для шрифтов, подпадающих под это специфическое поведение PowerPoint.
 
 ## **Управление свойствами шрифта текста**
 
-Свойства шрифта можно задать на уровне абзаца через [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/defaultportionformat/) или для отдельных фрагментов через [IPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iportionformat/).
+Свойства шрифта можно задать на уровне абзаца через [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/defaultportionformat/) или для отдельных участков через [IPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iportionformat/).
 
-Следующий код задаёт шрифт и стиль текста для всего абзаца: он применяет размер шрифта, полужирный, курсив, пунктирное подчёркивание и шрифт Times New Roman ко всем фрагментам абзаца.
+Следующий код задаёт шрифт и стиль текста для всего абзаца: применяется размер шрифта, полужирное начертание, курсив, пунктирное подчёркивание и шрифт Times New Roman для всех участков абзаца.
 
 ```cs
 using Aspose.Slides;
@@ -288,7 +288,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Установите свойства шрифта для абзаца.
+    // Установить свойства шрифта для абзаца.
     paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
@@ -301,9 +301,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Результат:
 
-![Свойства шрифта абзаца](font_properties_for_paragraph.png)
+![Свойства шрифта для абзаца](font_properties_for_paragraph.png)
 
-Ниже пример кода, который применяет аналогичные свойства к **текстовым фрагментам полужирным шрифтом**:
+Пример кода ниже применяет аналогичные свойства к **текстовым участкам с полужирным шрифтом**:
 
 ```cs
 using Aspose.Slides;
@@ -318,7 +318,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Установите свойства шрифта для текстового фрагмента.
+            // Установить свойства шрифта для текстового участка.
             portion.PortionFormat.FontHeight = 13;
             portion.PortionFormat.FontItalic = NullableBool.True;
             portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -332,13 +332,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Результат:
 
-![Свойства шрифта текстовых фрагментов](font_properties_for_text_portions.png)
+![Свойства шрифта для текстовых участков](font_properties_for_text_portions.png)
 
-## **Установка вращения текста**
+## **Установить вращение текста**
 
-Используйте [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/textverticaltype/) для задания предопределённой ориентации текста внутри фигуры.
+Используйте [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/textverticaltype/) для выбора предопределённой ориентации текста внутри фигуры.
 
-Следующий пример кода задаёт ориентацию текста в фигуре как `Vertical270`, что вращает текст **на 90 градусов против часовой стрелки**:
+Следующий пример кода устанавливает ориентацию текста в фигуре в значение `Vertical270`, что вращает текст **на 90 градусов против часовой стрелки**:
 
 ```cs
 using Aspose.Slides;
@@ -358,11 +358,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![Вращение текста](text_rotation.png)
 
-## **Установка пользовательского вращения для текстовых кадров**
+## **Установить пользовательское вращение для текстовых рамок**
 
-Используйте [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/rotationangle/) для задания собственного угла вращения [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/).
+Используйте [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/rotationangle/) для задания собственного угла поворота для [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/).
 
-Пример кода ниже вращает текстовый кадр на 3 градуса по часовой стрелке внутри фигуры:
+Пример кода ниже вращает текстовую рамку на 3 градуса по часовой стрелке внутри фигуры:
 
 ```cs
 using Aspose.Slides;
@@ -382,14 +382,14 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![Пользовательское вращение текста](custom_text_rotation.png)
 
-## **Установка межстрочного интервала абзацев**
+## **Установить межстрочный интервал абзацев**
 
-Aspose.Slides предоставляет [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/spacebefore/) и [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/spacewithin/) для управления интервалами абзацев. Эти свойства используются следующим образом:
+Aspose.Slides предоставляет [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/spacebefore/) и [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/spacewithin/) для управления интервалами абзацев. Они применяются следующим образом:
 
-* Положительное значение указывает межстрочный интервал в процентах от высоты строки.
-* Отрицательное значение указывает межстрочный интервал в пунктах.
+* Положительное значение задаёт межстрочный интервал в процентах от высоты строки.
+* Отрицательное значение задаёт межстрочный интервал в пунктах.
 
-Следующий пример кода показывает, как задать межстрочный интервал внутри абзаца:
+Следующий пример кода показывает, как указать межстрочный интервал внутри абзаца:
 
 ```cs
 using Aspose.Slides;
@@ -410,9 +410,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![Межстрочный интервал внутри абзаца](line_spacing.png)
 
-## **Установка типа автоподгонки для текстовых кадров**
+## **Установить тип автоподгонки для текстовых рамок**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/autofittype/) определяет, как текст будет вести себя, когда превышает границы своего контейнера. Используйте его, чтобы контролировать, будет ли текст сжиматься, выходить за пределы или автоматически менять размер фигуры.
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/autofittype/) определяет, как текст будет вести себя, когда превышает границы своего контейнера. Используйте его, чтобы управлять тем, будет ли текст сжиматься, выходить за пределы или автоматически изменять размер фигуры.
 
 ```cs
 using Aspose.Slides;
@@ -428,7 +428,9 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Установка привязки текстовых кадров**
+Чтобы подсчитать строки после автоматического переноса и увидеть, как меняется ширина текста или фигуры, см. [Подсчёт отрисованных строк](/slides/ru/net/manage-paragraph/). Само количество строк не указывает, выходит ли текст за пределы контейнера.
+
+## **Установить привязку текстовых рамок**
 
 [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/anchoringtype/) определяет, как текст позиционируется вертикально внутри фигуры, например вверху, по центру или внизу.
 
@@ -446,9 +448,9 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Установка табуляции текста**
+## **Установить табуляцию текста**
 
-Используйте [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/defaulttabsize/) и [IParagraphFormat.Tabs](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/tabs/) для настройки позиций табуляции в абзаце.
+Используйте [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/defaulttabsize/) и [IParagraphFormat.Tabs](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/tabs/) для настройки табуляций в абзаце.
 
 ```cs
 using Aspose.Slides;
@@ -468,13 +470,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Результат:
 
-![Табуляция абзаца](paragraph_tabs.png)
+![Табуляции в абзаце](paragraph_tabs.png)
 
-## **Установка языка проверки орфографии**
+## **Установить язык проверки орфографии**
 
-Aspose.Slides предоставляет [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/languageid/), который позволяет задать язык проверки орфографии для текстового фрагмента. Язык проверки определяет, какой язык будет использоваться для проверки правописания и грамматики в PowerPoint.
+Aspose.Slides предоставляет [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/languageid/), который позволяет задать язык проверки орфографии для текстового участка. Язык проверки определяет, какой язык будет использоваться для проверок орфографии и грамматики в PowerPoint.
 
-Следующий пример кода показывает, как установить язык проверки орфографии для текстового фрагмента:
+Следующий пример кода показывает, как установить язык проверки орфографии для текстового участка:
 
 ```cs
 using Aspose.Slides;
@@ -494,7 +496,7 @@ using (var presentation = new Presentation("presentation.pptx"))
     textPortion.PortionFormat.EastAsianFont = font;
     textPortion.PortionFormat.LatinFont = font;
 
-    // Установите идентификатор проверочного языка.
+    // Установить Id проверочного языка.
     textPortion.PortionFormat.LanguageId = "zh-CN";
 
     textPortion.Text = "1。";
@@ -504,7 +506,7 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-## **Установка языка по умолчанию**
+## **Установить язык по умолчанию**
 
 Используйте [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/defaulttextlanguage/) для определения языка по умолчанию для текста, создаваемого при загрузке или создании презентации.
 
@@ -518,21 +520,21 @@ using (var presentation = new Presentation(loadOptions))
 {
     var slide = presentation.Slides[0];
 
-    // Добавьте новую прямоугольную форму с текстом.
+    // Добавить новую прямоугольную форму с текстом.
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
-    // Проверьте язык первого фрагмента.
+    // Проверить язык первой части текста.
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     Console.WriteLine(portion.PortionFormat.LanguageId);
 }
 ```
 
-## **Установка стиля текста по умолчанию**
+## **Установить стиль текста по умолчанию**
 
-Чтобы применить форматирование текста по умолчанию на уровне презентации, используйте [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/defaulttextstyle/).
+Чтобы применить оформление текста по умолчанию на уровне презентации, используйте [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-Следующий пример кода показывает, как задать шрифт полужирный размером 14 pt для всего текста во всех слайдах новой презентации.
+Следующий пример кода показывает, как задать полужирный шрифт размером 14 pt для всего текста на всех слайдах новой презентации.
 
 ```cs
 using Aspose.Slides;
@@ -555,13 +557,13 @@ using (var presentation = new Presentation())
 
 ## **Извлечение текста с эффектом «Все заглавные»**
 
-В PowerPoint применение эффекта шрифта **All Caps** заставляет текст отображаться заглавными буквами на слайде, даже если он был введён строчными. При получении такого текстового фрагмента с помощью Aspose.Slides библиотека возвращает текст точно в том виде, в каком он был введён. Чтобы привести его к отображаемому виду, проверьте [TextCapType](https://reference.aspose.com/slides/ru/net/aspose.slides/textcaptype/) и при значении `All` преобразуйте возвращённую строку в верхний регистр.
+В PowerPoint применение эффекта шрифта **All Caps** заставляет текст отображаться заглавными буквами на слайде, даже если он был введён строчными. При получении такого текстового участка через Aspose.Slides библиотека возвращает текст именно в том виде, в каком он был введён. Чтобы получить отображаемый текст, проверьте [TextCapType](https://reference.aspose.com/slides/ru/net/aspose.slides/textcaptype/) и при значении `All` преобразуйте возвращённую строку в верхний регистр.
 
 Предположим, у нас есть следующий текстовый блок на первом слайде файла sample2.pptx.
 
-![Эффект All Caps](all_caps_effect.png)
+![Эффект «Все заглавные»](all_caps_effect.png)
 
-Ниже пример кода, показывающий, как извлечь текст с применённым эффектом **All Caps**:
+Пример кода ниже показывает, как извлечь текст с применённым эффектом **All Caps**:
 
 ```cs
 using Aspose.Slides;
@@ -593,7 +595,7 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Как изменить текст в таблице на слайде?**
 
-Для изменения текста в таблице на слайде используйте [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/). Пройдитесь по ячейкам и обновите каждую через [ICell.TextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/textframe/) и форматирование абзацев через [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/paragraphformat/).
+Для изменения текста в таблице используйте [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/). Пройдите по ячейкам и обновите каждую через [ICell.TextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/textframe/) и форматирование абзацев через [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/paragraphformat/).
 
 **Как применить градиентный цвет к тексту в слайде PowerPoint?**
 

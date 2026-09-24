@@ -1,6 +1,6 @@
 ---
 title: Formato del texto de la presentación en Android
-linktitle: Formateo de texto
+linktitle: Formato de texto
 type: docs
 weight: 50
 url: /es/androidjava/text-formatting/
@@ -8,11 +8,11 @@ keywords:
 - alinear párrafo
 - estilo de texto
 - fondo de texto
-- transparencia del texto
+- transparencia de texto
 - espaciado de caracteres
 - propiedades de fuente
 - familia de fuente
-- rotación del texto
+- rotación de texto
 - ángulo de rotación
 - marco de texto
 - interlineado
@@ -26,21 +26,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Formato y estilo del texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Android mediante Java. Personaliza fuentes, colores, alineación y más."
+description: "Formatea y da estilo al texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Android mediante Java. Personaliza fuentes, colores, alineación y más."
 ---
 ## **Descripción general**
 
-Este artículo muestra cómo dar formato al texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Android mediante Java. Cubre colores de fondo, transparencia, espaciado de caracteres, propiedades de fuente, rotación, espaciado de párrafos, comportamiento de ajuste automático, anclaje de texto, tabulaciones y configuración de idioma.
+Este artículo muestra cómo dar formato al texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Android a través de Java. Cubre colores de fondo, transparencia, espaciado de caracteres, propiedades de fuente, rotación, espaciado de párrafos, comportamiento de ajuste automático, anclaje de texto, tabuladores y configuración de idioma.
 
-En los ejemplos a continuación, utilizaremos un archivo llamado "sample.pptx", que contiene un único cuadro de texto en la primera diapositiva con el siguiente texto:
+En los ejemplos siguientes, utilizaremos un archivo llamado "sample.pptx", que contiene un único cuadro de texto en la primera diapositiva con el siguiente contenido:
 
 ![Texto de ejemplo](sample_text.png)
 
-Para buscar y resaltar texto literal o coincidencias de expresiones regulares, vea [Buscar y reemplazar texto](/slides/es/androidjava/search-and-replace-text/).
+Para encontrar y resaltar texto literal o coincidencias de expresiones regulares, consulte [Search and Replace Text](/slides/es/androidjava/search-and-replace-text/).
 
 ## **Establecer color de fondo del texto**
 
-Utilice [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) para establecer el color de resaltado predeterminado de un párrafo, o utilice [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) para porciones de texto individuales.
+Utilice [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) para establecer el color de resaltado predeterminado para un párrafo, o utilice [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) para porciones de texto individuales.
 
 El siguiente ejemplo de código muestra cómo establecer el color de fondo para el **párrafo completo**:
 
@@ -67,7 +67,7 @@ El resultado:
 
 ![El párrafo gris](gray_paragraph.png)
 
-El siguiente ejemplo de código muestra cómo establecer el color de fondo para **porciones de texto con fuente en negrita**:
+El ejemplo de código a continuación demuestra cómo establecer el color de fondo para **porciones de texto con fuente en negrita**:
 
 ```java
 import com.aspose.slides.*;
@@ -94,11 +94,11 @@ try {
 
 El resultado:
 
-![Las porciones de texto grises](gray_text_portions.png)
+![Las porciones de texto gris](gray_text_portions.png)
 
 ## **Alinear párrafos de texto**
 
-Utilice [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) para establecer la alineación del párrafo dentro de un marco de texto. El valor puede ser centrado, alineado a la izquierda, a la derecha, justificado, etc.
+Utilice [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) para establecer la alineación del párrafo dentro de un marco de texto. El valor puede ser centrado, alineado a la izquierda, alineado a la derecha, justificado, etc.
 
 El siguiente ejemplo de código muestra cómo alinear el párrafo al **centro**:
 
@@ -126,9 +126,9 @@ El resultado:
 
 ## **Establecer transparencia para el texto**
 
-La transparencia del texto se controla a través del componente alfa del color asignado a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). En los ejemplos siguientes, `alpha = 50` es un valor alfa ARGB en la escala 0–255, no un porcentaje de transparencia.
+La transparencia del texto se controla mediante el componente alfa del color asignado a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). En los ejemplos siguientes, `alpha = 50` es un valor alfa ARGB en la escala 0–255, no un porcentaje de transparencia.
 
-El siguiente ejemplo de código muestra cómo aplicar transparencia al **párrafo completo**:
+El ejemplo de código a continuación muestra cómo aplicar transparencia al **párrafo completo**:
 
 ```java
 import com.aspose.slides.*;
@@ -142,7 +142,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Establecer el color de relleno del texto como color transparente.
+    // Establecer el color de relleno del texto a color transparente.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
 
@@ -188,11 +188,11 @@ El resultado:
 
 ![Las porciones de texto transparentes](transparent_text_portions.png)
 
-## **Establecer espaciado de caracteres para el texto**
+## **Establecer espaciado entre caracteres para el texto**
 
-Utilice [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) para expandir o condensar el espaciado entre caracteres en un cuadro de texto.
+Utilice [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) para ampliar o condensar el espaciado entre caracteres en un cuadro de texto.
 
-El siguiente código Java muestra cómo ampliar el espaciado de caracteres en el **párrafo completo**:
+El siguiente código Java muestra cómo ampliar el espaciado entre caracteres en el **párrafo completo**:
 
 ```java
 import com.aspose.slides.*;
@@ -203,7 +203,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Nota: Use valores negativos para comprimir el espaciado entre caracteres.
+    // Nota: Use valores negativos para comprimir el espaciado de caracteres.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Ampliar el espaciado de caracteres.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -216,7 +216,7 @@ El resultado:
 
 ![El espaciado de caracteres en el párrafo](character_spacing_in_paragraph.png)
 
-El siguiente ejemplo de código muestra cómo ampliar el espaciado de caracteres en **porciones de texto con fuente en negrita**:
+El ejemplo de código a continuación muestra cómo ampliar el espaciado entre caracteres en **porciones de texto con fuente en negrita**:
 
 ```java
 import com.aspose.slides.*;
@@ -229,7 +229,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Nota: Use valores negativos para comprimir el espaciado entre caracteres.
+            // Nota: Use valores negativos para comprimir el espaciado de caracteres.
             portion.getPortionFormat().setSpacing(3); // Ampliar el espaciado de caracteres.
         }
     }
@@ -246,9 +246,9 @@ El resultado:
 
 ### **Desactivar kerning para fuentes específicas**
 
-En algunos casos, el texto renderizado por Aspose.Slides puede aparecer ligeramente más ajustado que el mismo texto mostrado en PowerPoint. Esto puede ocurrir porque PowerPoint ignora los datos de kerning para ciertas fuentes, aunque la fuente contenga información válida y el kerning esté habilitado en la configuración de PowerPoint.
+En algunos casos, el texto renderizado por Aspose.Slides puede aparecer ligeramente más ajustado que el mismo texto mostrado en PowerPoint. Esto puede ocurrir porque PowerPoint puede ignorar los datos de kerning para ciertas fuentes, incluso cuando la fuente contiene información de kerning válida y el kerning está habilitado en la configuración de PowerPoint.
 
-Para que la salida renderizada se acerque más a PowerPoint en esos casos, puede desactivar el kerning para las porciones de texto que usan la fuente afectada. Establezca [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) a un valor significativamente mayor que el tamaño real de la fuente:
+Para que la salida renderizada se acerque más a PowerPoint en esos casos, puede desactivar el kerning para las porciones de texto que utilizan la fuente afectada. Establezca [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) a un valor significativamente mayor que el tamaño real de la fuente:
 
 ```java
 import com.aspose.slides.*;
@@ -284,9 +284,9 @@ Esta configuración evita que se aplique kerning a las porciones de texto coinci
 
 ## **Gestionar propiedades de fuente del texto**
 
-Las propiedades de fuente pueden establecerse a nivel de párrafo mediante [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) o en porciones individuales a través de [IPortionFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iportionformat/).
+Las propiedades de fuente pueden establecerse a nivel de párrafo mediante [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) o en porciones individuales mediante [IPortionFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iportionformat/).
 
-El siguiente código establece la fuente y el estilo de texto para el párrafo completo: aplica tamaño de fuente, negrita, cursiva, subrayado punteado y la fuente Times New Roman a todas las porciones del párrafo.
+El siguiente código establece la fuente y el estilo de texto para todo el párrafo: aplica tamaño de fuente, negrita, cursiva, subrayado punteado y la fuente Times New Roman a todas las porciones del párrafo.
 
 ```java
 import com.aspose.slides.*;
@@ -314,7 +314,7 @@ El resultado:
 
 ![Las propiedades de fuente del párrafo](font_properties_for_paragraph.png)
 
-El siguiente ejemplo de código aplica propiedades similares a **porciones de texto con fuente en negrita**:
+El ejemplo de código a continuación aplica propiedades similares a **porciones de texto con fuente en negrita**:
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +349,7 @@ El resultado:
 
 Utilice [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) para establecer una orientación de texto predefinida dentro de una forma.
 
-El siguiente ejemplo de código establece la orientación del texto en la forma a [TextVerticalType.Vertical270](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textverticaltype/), lo que rota el texto **90 grados en sentido antihorario**:
+El siguiente ejemplo de código establece la orientación del texto en la forma a [TextVerticalType.Vertical270](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textverticaltype/), que rota el texto **90 grados en sentido antihorario**:
 
 ```java
 import com.aspose.slides.*;
@@ -375,7 +375,7 @@ El resultado:
 
 Utilice [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) para establecer un ángulo de rotación personalizado para un [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/).
 
-El siguiente ejemplo de código rota el marco de texto 3 grados en sentido horario dentro de la forma:
+El ejemplo de código a continuación rota el marco de texto 3 grados en sentido horario dentro de la forma:
 
 ```java
 import com.aspose.slides.*;
@@ -395,14 +395,14 @@ try {
 
 El resultado:
 
-![La rotación de texto personalizada](custom_text_rotation.png)
+![La rotación personalizada del texto](custom_text_rotation.png)
 
-## **Establecer interlineado de párrafos**
+## **Establecer interlineado de los párrafos**
 
-Aspose.Slides proporciona [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) y [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) para controlar el espaciado de los párrafos. Estas propiedades se utilizan de la siguiente manera:
+Aspose.Slides proporciona [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) y [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) para controlar el espaciado de los párrafos. Estas propiedades se usan de la siguiente manera:
 
-* Utilice un valor positivo para especificar el interlineado como un porcentaje de la altura de la línea.
-* Utilice un valor negativo para especificar el interlineado en puntos.
+* Use un valor positivo para especificar el interlineado como porcentaje de la altura de la línea.
+* Use un valor negativo para especificar el interlineado en puntos.
 
 El siguiente ejemplo de código muestra cómo especificar el interlineado dentro del párrafo:
 
@@ -429,7 +429,7 @@ El resultado:
 
 ## **Establecer tipo de ajuste automático para marcos de texto**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determina cómo se comporta el texto cuando supera los límites de su contenedor. Úselo para controlar si el texto se reduce, se desborda o redimensiona la forma automáticamente.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determina cómo se comporta el texto cuando supera los límites de su contenedor. Úselo para controlar si el texto se reduce, desborda o redimensiona automáticamente la forma.
 
 ```java
 import com.aspose.slides.*;
@@ -447,9 +447,11 @@ try {
 }
 ```
 
+Para contar líneas después del ajuste automático y ver cómo cambia el ancho del texto o de la forma, consulte [Count Rendered Lines](/slides/es/androidjava/manage-paragraph/). El recuento de líneas por sí solo no indica si el texto desborda su contenedor.
+
 ## **Establecer anclaje de los marcos de texto**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) define cómo se posiciona verticalmente el texto dentro de una forma, por ejemplo en la parte superior, media o inferior.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) define cómo se posiciona verticalmente el texto dentro de una forma, por ejemplo en la parte superior, central o inferior.
 
 ```java
 import com.aspose.slides.*;
@@ -469,7 +471,7 @@ try {
 
 ## **Establecer tabulación del texto**
 
-Utilice [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) y [IParagraphFormat.getTabs](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) para configurar las tabulaciones en un párrafo.
+Utilice [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) y [IParagraphFormat.getTabs](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) para configurar los tabuladores en un párrafo.
 
 ```java
 import com.aspose.slides.*;
@@ -491,11 +493,11 @@ try {
 
 El resultado:
 
-![Las tabulaciones del párrafo](paragraph_tabs.png)
+![Los tabuladores del párrafo](paragraph_tabs.png)
 
 ## **Establecer idioma de revisión**
 
-Aspose.Slides proporciona [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), que permite establecer el idioma de revisión para una porción de texto. El idioma de revisión determina el idioma utilizado para la corrección ortográfica y gramatical en PowerPoint.
+Aspose.Slides proporciona [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), que permite establecer el idioma de revisión para una porción de texto. El idioma de revisión determina el idioma usado para la corrección ortográfica y gramatical en PowerPoint.
 
 El siguiente ejemplo de código muestra cómo establecer el idioma de revisión para una porción de texto:
 
@@ -517,7 +519,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Establecer el Id de un idioma de revisión.
+    // Establecer el ID de un idioma de revisión.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -531,7 +533,7 @@ try {
 
 ## **Establecer idioma predeterminado**
 
-Utilice [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) para definir el idioma predeterminado del texto creado mientras se carga o crea una presentación.
+Utilice [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) para definir el idioma predeterminado para el texto creado al cargar o crear una presentación.
 
 ```java
 import com.aspose.slides.*;
@@ -559,7 +561,7 @@ try {
 
 Para aplicar formato de texto predeterminado a nivel de presentación, utilice [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-El siguiente ejemplo de código muestra cómo establecer una fuente predeterminada en negrita con un tamaño de 14 pt para todo el texto de todas las diapositivas en una nueva presentación.
+El siguiente ejemplo de código muestra cómo establecer una fuente en negrita predeterminada con tamaño de 14 pt para todo el texto de las diapositivas en una nueva presentación.
 
 ```java
 import com.aspose.slides.*;
@@ -582,13 +584,13 @@ try {
 
 ## **Extraer texto con el efecto de mayúsculas**
 
-En PowerPoint, aplicar el efecto de fuente **All Caps** hace que el texto aparezca en mayúsculas en la diapositiva aunque se haya escrito originalmente en minúsculas. Cuando recupera esa porción de texto con Aspose.Slides, la biblioteca devuelve el texto tal como se introdujo. Para que coincida con el texto mostrado, convierta la cadena devuelta a mayúsculas cuando el valor sea [TextCapType.All](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textcaptype/).
+En PowerPoint, aplicar el efecto de fuente **All Caps** hace que el texto aparezca en mayúsculas en la diapositiva aunque se haya escrito originalmente en minúsculas. Cuando se recupera dicha porción de texto con Aspose.Slides, la biblioteca devuelve el texto tal como se ingresó. Para que coincida con el texto mostrado, convierta la cadena devuelta a mayúsculas cuando el valor sea [TextCapType.All](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textcaptype/).
 
 Supongamos que tenemos el siguiente cuadro de texto en la primera diapositiva del archivo sample2.pptx.
 
-![El efecto de mayúsculas](all_caps_effect.png)
+![El efecto All Caps](all_caps_effect.png)
 
-El siguiente ejemplo de código muestra cómo extraer el texto con el efecto **All Caps** aplicado:
+El ejemplo de código a continuación muestra cómo extraer el texto con el efecto **All Caps** aplicado:
 
 ```java
 import com.aspose.slides.*;
@@ -618,12 +620,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Cómo modificar el texto en una tabla de una diapositiva?**
+**¿Cómo modificar texto en una tabla de una diapositiva?**
 
-Para modificar el texto en una tabla de una diapositiva, use [ITable](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itable/). Itere a través de las celdas y actualice cada celda mediante [ICell.getTextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icell/#getTextFrame--) y el formato de párrafo mediante [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Para modificar texto en una tabla de una diapositiva, utilice [ITable](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itable/). Recorra las celdas y actualice cada celda mediante [ICell.getTextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icell/#getTextFrame--) y el formato de párrafo mediante [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**¿Cómo aplicar un color degradado al texto en una diapositiva de PowerPoint?**
+**¿Cómo aplicar color degradado al texto en una diapositiva de PowerPoint?**
 
-Para aplicar un color degradado al texto, use [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Establezca [IFillFormat.setFillType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) a [FillType.Gradient](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/filltype/) y configure las paradas del degradado, la dirección y la transparencia.
+Para aplicar un color degradado al texto, utilice [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Establezca [IFillFormat.setFillType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) a [FillType.Gradient](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/filltype/) y configure las paradas del degradado, la dirección y la transparencia.

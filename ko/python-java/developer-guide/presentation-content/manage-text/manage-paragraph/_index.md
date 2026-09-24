@@ -1,5 +1,5 @@
 ---
-title: Python via Java에서 PowerPoint 텍스트 단락 관리
+title: Python via Java로 PowerPoint 텍스트 단락 관리
 linktitle: 단락 관리
 type: docs
 weight: 40
@@ -12,12 +12,12 @@ keywords:
 - 단락 추가
 - 텍스트 관리
 - 단락 관리
-- 글머리 기호 관리
+- 글머리표 관리
 - 단락 들여쓰기
-- 행걸이 들여쓰기
-- 단락 글머리 기호
+- 매달린 들여쓰기
+- 단락 글머리표
 - 번호 매기기 목록
-- 글머리 기호 목록
+- 글머리표 목록
 - 단락 속성
 - HTML 가져오기
 - 텍스트를 HTML로
@@ -30,33 +30,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java를 사용하여 단락, 구역, 글머리 기호, 번호 매기기 목록, 들여쓰기, HTML 콘텐츠 및 단락 이미지를 생성하고 서식 지정하는 방법을 배웁니다."
+description: "Aspose.Slides for Python via Java를 사용하여 단락, 구절, 글머리표, 번호 매기기 목록, 들여쓰기, HTML 콘텐츠 및 단락 이미지를 생성하고 서식 지정하는 방법을 배웁니다."
 ---
 ## **개요**
 
-Aspose.Slides for Python via Java는 텍스트를 텍스트 프레임, 단락 및 구역의 계층 구조로 나타냅니다:
+Aspose.Slides for Python via Java은 텍스트를 텍스트 프레임, 단락, 그리고 구절의 계층 구조로 나타냅니다:
 
-* [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)은 도형 내 텍스트 컨테이너이며, 해당 단락 컬렉션에 대한 액세스를 제공합니다.
-* [Paragraph](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/)은 텍스트 프레임 내의 하나의 단락을 나타내며, 구역 및 단락 수준 서식에 대한 액세스를 제공합니다.
-* [Portion](https://reference.aspose.com/slides/ko/python-java/aspose.slides/portion/)은 단락 내 텍스트 실행을 나타냅니다. 각 구역은 자체 텍스트와 문자 수준 서식을 가질 수 있습니다.
+* [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)은 도형 내의 텍스트 컨테이너를 나타내며 단락 컬렉션에 대한 액세스를 제공합니다.
+* [Paragraph](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/)은 텍스트 프레임의 하나의 단락을 나타내며 그 구절 및 단락 수준 서식에 대한 액세스를 제공합니다.
+* [Portion](https://reference.aspose.com/slides/ko/python-java/aspose.slides/portion/)은 단락 내의 텍스트 실행을 나타냅니다. 각 구절은 고유한 텍스트와 문자 수준 서식을 가질 수 있습니다.
 
-따라서 단락은 여러 구역을 사용하여 서로 다른 글꼴, 색상, 크기 및 기타 서식의 텍스트를 포함할 수 있습니다.
+따라서 단락은 여러 구절을 사용하여 서로 다른 글꼴, 색상, 크기 및 기타 서식이 적용된 텍스트를 포함할 수 있습니다.
 
 ## **단락 만들기 및 서식 지정**
 
-### **여러 구역을 사용한 단락 만들기**
+### **여러 구절이 포함된 단락 만들기**
 
-다음 단계는 각각 세 개의 구역을 포함하는 세 개의 단락을 가진 텍스트 프레임을 생성합니다:
+다음 단계는 각기 세 개의 구절을 포함하는 세 개의 단락을 가진 텍스트 프레임을 생성합니다:
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 사용하여 해당 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 AutoShape을 추가합니다.
-4. 도형의 TextFrame에 접근합니다.
-5. 기본 단락을 사용하고 텍스트 프레임에 두 개의 Paragraph 객체를 추가합니다.
-6. 각 단락에 세 개의 구역을 포함하도록 충분한 Portion 객체를 추가합니다. 기본 단락에는 이미 하나의 빈 구역이 들어 있습니다.
-7. 각 구역의 텍스트를 설정합니다.
-8. Portion.getPortionFormat을 통해 문자 수준 서식을 적용합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스를 사용하여 해당 슬라이드에 액세스합니다.
+3. 슬라이드에 직사각형 [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 추가합니다.
+4. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)에 액세스합니다.
+5. 기본 단락을 사용하고 텍스트 프레임에 두 개의 추가 [Paragraph](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/) 객체를 추가합니다.
+6. 각 단락이 세 개의 구절을 포함하도록 충분한 [Portion](https://reference.aspose.com/slides/ko/python-java/aspose.slides/portion/) 객체를 추가합니다. 기본 단락에는 이미 빈 구절 하나가 포함되어 있습니다.
+7. 각 구절의 텍스트를 설정합니다.
+8. [Portion.getPortionFormat](https://reference.aspose.com/slides/ko/python-java/aspose.slides/portion/#getPortionFormat)을 통해 문자 수준 서식을 적용합니다.
 9. 수정된 프레젠테이션을 저장합니다.
+
+이 Python 예제가 단계를 구현합니다:
 
 ```python
 import jpype
@@ -108,24 +110,26 @@ finally:
     presentation.dispose()
 ```
 
-## **글머리 기호 및 번호 매기기 목록 만들기**
+## **글머리표 및 번호 매기기 목록 만들기**
 
-### **글머리 기호 또는 번호 매기기 목록 만들기**
+### **글머리표 또는 번호 매기기 목록 만들기**
 
-글머리 기호와 번호 매기기는 관련 항목을 더 쉽게 스캔할 수 있게 합니다. Aspose.Slides에서는 목록 설정을 BulletFormat을 통해 정의합니다.
+글머리표와 번호 매기기는 관련 항목을 더 쉽게 스캔할 수 있게 합니다. Aspose.Slides에서는 목록 설정을 [BulletFormat](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bulletformat/)을 통해 정의합니다.
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 사용하여 해당 슬라이드에 접근합니다.
-3. 선택된 슬라이드에 AutoShape을 추가합니다.
-4. 도형의 TextFrame에 접근합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스를 사용하여 해당 슬라이드에 액세스합니다.
+3. 선택한 슬라이드에 [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 추가합니다.
+4. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)에 액세스합니다.
 5. 텍스트 프레임에서 기본 단락을 제거합니다.
-6. 기호 글머리 기호용 Paragraph를 생성합니다.
-7. BulletFormat.setType을 BulletType.Symbol으로 설정하고 글머리 기호 문자를 지정합니다.
-8. 단락 텍스트, 들여쓰기, 글머리 기호 색상 및 글머리 기호 높이를 설정합니다.
+6. 기호 글머리표용 [Paragraph](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/)를 생성합니다.
+7. [BulletFormat.setType](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bulletformat/#setType)를 [BulletType.Symbol](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bullettype/#Symbol)으로 설정하고 글머리 기호 문자를 지정합니다.
+8. 단락 텍스트, 들여쓰기, 글머리 색상 및 글머리 높이를 설정합니다.
 9. 단락을 텍스트 프레임에 추가합니다.
-10. 두 번째 단락을 생성하고 BulletFormat.setType을 BulletType.Numbered로 설정합니다.
-11. 번호 매기기 글머리 기호 스타일을 구성하고 단락을 텍스트 프레임에 추가합니다.
+10. 두 번째 단락을 생성하고 [BulletFormat.setType](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bulletformat/#setType)를 [BulletType.Numbered](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bullettype/#Numbered)으로 설정합니다.
+11. 번호 매기기 글머리 스타일을 구성하고 단락을 텍스트 프레임에 추가합니다.
 12. 프레젠테이션을 저장합니다.
+
+이 Python 예제가 기호 글머리표와 번호 매기기 글머리표를 생성합니다:
 
 ```python
 import jpype
@@ -168,20 +172,22 @@ finally:
     presentation.dispose()
 ```
 
-### **그림 글머리 기호 사용**
+### **그림 글머리표 사용**
 
-그림 글머리 기호를 사용하면 기호나 숫자 대신 사용자 정의 이미지를 사용할 수 있습니다.
+그림 글머리표는 기호나 숫자 대신 사용자 정의 이미지를 사용할 수 있게 합니다.
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 사용하여 해당 슬라이드에 접근합니다.
-3. AutoShape을 추가하고 해당 TextFrame에 접근합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스를 사용하여 해당 슬라이드에 액세스합니다.
+3. [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 추가하고 해당 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)에 액세스합니다.
 4. 텍스트 프레임에서 기본 단락을 제거합니다.
-5. 글머리 기호 이미지를 로드하고 프레젠테이션의 이미지 컬렉션에 PPImage로 추가합니다.
-6. Paragraph를 생성하고 텍스트를 설정합니다.
-7. BulletFormat.setType을 BulletType.Picture으로 설정합니다.
-8. BulletFormat.getPicture를 통해 이미지를 할당하고 글머리 기호 높이를 설정합니다.
+5. 글머리 이미지 를 로드하고 프레젠테이션의 이미지 컬렉션에 [PPImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/ppimage/)으로 추가합니다.
+6. [Paragraph](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/)를 생성하고 텍스트를 설정합니다.
+7. [BulletFormat.setType](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bulletformat/#setType)를 [BulletType.Picture](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bullettype/#Picture)로 설정합니다.
+8. [BulletFormat.getPicture](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bulletformat/#getPicture)를 통해 이미지를 지정하고 글머리 높이를 설정합니다.
 9. 단락을 텍스트 프레임에 추가합니다.
 10. 수정된 프레젠테이션을 저장합니다.
+
+이 Python 예제가 그림 글머리표를 생성합니다:
 
 ```python
 import jpype
@@ -217,13 +223,15 @@ finally:
 
 ### **다단계 목록 만들기**
 
-ParagraphFormat.setDepth를 설정하여 목록의 서로 다른 수준에 단락을 배치합니다. 최상위 수준은 깊이가 `0`입니다.
+목록의 서로 다른 수준에 단락을 배치하려면 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setDepth)을 설정합니다. 최상위 수준은 `0` 깊이를 가집니다.
 
-1. Presentation을 생성하고 슬라이드에 접근합니다.
-2. AutoShape을 추가하고 해당 텍스트 프레임에서 기본 단락을 제거합니다.
-3. 네 개의 단락을 만들고 글머리 기호 기호를 구성합니다.
-4. 각각의 ParagraphFormat.setDepth 값을 `0`, `1`, `2`, `3`으로 설정합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/)을 생성하고 슬라이드에 액세스합니다.
+2. [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 추가하고 기본 단락을 텍스트 프레임에서 제거합니다.
+3. 네 개의 단락을 생성하고 글머리 기호를 구성합니다.
+4. 각 단락의 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setDepth) 값을 `0`, `1`, `2`, `3`으로 설정합니다.
 5. 단락을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
+
+이 Python 예제가 네 수준의 글머리 리스트를 생성합니다:
 
 ```python
 import jpype
@@ -278,15 +286,17 @@ finally:
     presentation.dispose()
 ```
 
-### **번호 매기기 목록 항목을 사용자 정의 값으로 시작하기**
+### **번호 매기기 항목을 사용자 지정 값으로 시작하기**
 
-BulletFormat.setNumberedBulletStartWith을 사용하여 번호 매기기 단락의 초기 번호를 지정합니다.
+[BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith)를 사용하여 번호 매기기 단락에 표시될 초기 번호를 설정합니다.
 
-1. Presentation을 생성하고 슬라이드에 AutoShape을 추가합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/)을 생성하고 슬라이드에 [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)를 추가합니다.
 2. 도형의 텍스트 프레임에서 기본 단락을 제거합니다.
 3. 세 개의 번호 매기기 단락을 생성합니다.
-4. 각각의 단락에 대해 BulletFormat.setNumberedBulletStartWith을 `2`, `3`, `7`로 설정합니다.
+4. 해당 단락에 대해 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ko/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith)를 각각 `2`, `3`, `7`로 설정합니다.
 5. 단락을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
+
+이 Python 예제가 각 단락에 사용자 지정 시작 번호를 할당합니다:
 
 ```python
 import jpype
@@ -327,19 +337,21 @@ finally:
 
 ### **첫 줄 들여쓰기 설정**
 
-ParagraphFormat.setIndent를 사용하여 단락의 첫 줄 들여쓰기를 제어합니다. 이 메서드는 첫 줄만 단락 왼쪽 여백에 대해 이동시킵니다. 양수 값은 첫 줄을 오른쪽으로 이동시키고, 나머지 줄은 단락 본문에 맞춥니다.
+[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent)를 사용하여 단락의 첫 줄 들여쓰기를 제어합니다. 이 메서드는 단락 왼쪽 여백에 상대적으로 첫 줄만 이동시킵니다. 양수 값은 첫 줄을 오른쪽으로 이동시키고, 나머지 줄은 단락 본문에 맞춰 정렬됩니다.
 
-전체 단락을 이동하려면 ParagraphFormat.setMarginLeft를 사용하고, 첫 줄만 이동하려면 ParagraphFormat.setIndent를 사용합니다.
+전체 단락을 이동해야 할 때는 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setMarginLeft)를 사용합니다. 첫 줄만 이동해야 할 때는 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent)를 사용합니다.
 
-아래 예제는 여러 단락을 만들고 서로 다른 ParagraphFormat.setIndent 값을 적용하여 첫 줄 들여쓰기가 단락 레이아웃에 미치는 영향을 보여줍니다.
+아래 예제는 여러 단락을 생성하고 다양한 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent) 값을 적용하여 첫 줄 들여쓰기가 단락 레이아웃에 미치는 영향을 보여줍니다.
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-2. 대상 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 AutoShape을 추가합니다.
-4. 도형의 TextFrame에 접근하고 기본 단락을 제거합니다.
-5. 여러 단락을 만들고 각각 다른 ParagraphFormat.setIndent 값을 설정합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 대상 슬라이드에 액세스합니다.
+3. 슬라이드에 직사각형 [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 추가합니다.
+4. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)에 액세스하고 기본 단락을 제거합니다.
+5. 여러 단락을 생성하고 각각에 다른 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent) 값을 설정합니다.
 6. 단락을 텍스트 프레임에 추가합니다.
 7. 수정된 프레젠테이션을 저장합니다.
+
+이 코드는 단락 들여쓰기를 설정하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -369,7 +381,6 @@ try:
     first_paragraph.getParagraphFormat().setIndent(0.0)
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
@@ -390,24 +401,26 @@ finally:
 
 결과:
 
-![단락들의 첫 줄 들여쓰기](first_line_indent.png)
+![단락의 첫 줄 들여쓰기](first_line_indent.png)
 
-### **행걸이 들여쓰기 설정**
+### **매달린 들여쓰기 설정**
 
-행걸이 들여쓰기는 첫 줄이 나머지 줄보다 왼쪽에 시작되는 레이아웃입니다. Aspose.Slides에서는 ParagraphFormat.setIndent에 음수 값을 전달하여 이 효과를 구현합니다.
+매달린 들여쓰기는 첫 줄이 나머지 줄보다 왼쪽에 시작되는 단락 레이아웃입니다. Aspose.Slides에서는 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent)에 음수 값을 전달하여 첫 줄을 왼쪽으로 이동시킵니다.
 
-실제로 ParagraphFormat.setMarginLeft는 단락 본문의 왼쪽 위치를 정의하고, ParagraphFormat.setIndent는 그 여백에 대한 첫 줄 위치를 정의합니다. 행걸이 들여쓰기를 만들려면 ParagraphFormat.setMarginLeft에 양수 값을, ParagraphFormat.setIndent에 음수 값을 전달합니다.
+실제로 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setMarginLeft)는 단락 본문의 왼쪽 위치를 정의하고, [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent)는 그 여백에 상대적인 첫 줄 위치를 정의합니다. 매달린 들여쓰기를 만들려면 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setMarginLeft)에 양수 값을, [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent)에 음수 값을 전달합니다.
 
-이 서식은 참고문헌, 인용, 용어 설명 등 줄이 단락 본문 아래에 맞추어야 할 경우에 유용합니다.
+이 서식은 참고문헌, 인용, 용어 사전 항목 등 줄바꿈이 단락 본문 아래에 정렬돼야 하는 경우에 유용합니다.
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-2. 대상 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 AutoShape을 추가합니다.
-4. 도형의 TextFrame에 접근하고 기본 단락을 제거합니다.
-5. 각 단락에 대해 ParagraphFormat.setMarginLeft에 양수 값을 설정합니다.
-6. ParagraphFormat.setIndent에 음수 값을 전달하여 행걸이 들여쓰기 효과를 만듭니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 대상 슬라이드에 액세스합니다.
+3. 슬라이드에 직사각형 [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 추가합니다.
+4. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)에 액세스하고 기본 단락을 제거합니다.
+5. 각 단락에 대해 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setMarginLeft)에 양수 값을 전달합니다.
+6. 매달린 들여쓰기 효과를 만들기 위해 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setIndent)에 음수 값을 전달합니다.
 7. 단락을 텍스트 프레임에 추가합니다.
 8. 수정된 프레젠테이션을 저장합니다.
+
+이 코드는 단락에 매달린 들여쓰기를 설정하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -450,18 +463,18 @@ finally:
 
 결과:
 
-![단락들의 행걸이 들여쓰기](hanging_indent.png)
+![단락의 매달린 들여쓰기](hanging_indent.png)
 
-### **끝 단락 실행 속성 설정**
+### **단락 끝 실행 속성 설정**
 
-Paragraph.setEndParagraphPortionFormat은 단락 끝 표시의 서식을 제어합니다. 다음 예제는 두 번째 단락 끝 표시에 폰트 크기와 라틴 폰트를 지정합니다:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat)은 단락 끝 표시의 서식을 제어합니다. 다음 예제는 두 번째 단락의 끝 표시에게 글꼴 크기와 라틴 글꼴을 할당합니다:
 
-1. Presentation을 로드하고 슬라이드에 접근합니다.
-2. AutoShape을 추가하고 기본 단락을 제거합니다.
-3. 두 개의 단락을 만들고 텍스트 구역을 추가합니다.
-4. 두 번째 단락 끝 표시용 PortionFormat을 생성합니다.
-5. BasePortionFormat.setFontHeight와 BasePortionFormat.setLatinFont를 설정합니다.
-6. Paragraph.setEndParagraphPortionFormat으로 서식을 지정하고 프레젠테이션을 저장합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/)을 로드하고 슬라이드에 액세스합니다.
+2. [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 추가하고 기본 단락을 지웁니다.
+3. 두 개의 단락을 만들고 텍스트 구절을 추가합니다.
+4. 두 번째 단락의 끝 표시에 대한 [PortionFormat](https://reference.aspose.com/slides/ko/python-java/aspose.slides/portionformat/)을 생성합니다.
+5. [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/ko/python-java/aspose.slides/baseportionformat/#setFontHeight)와 [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/ko/python-java/aspose.slides/baseportionformat/#setLatinFont)를 설정합니다.
+6. [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat)을 사용하여 서식을 할당하고 프레젠테이션을 저장합니다.
 
 ```python
 import jpype
@@ -496,18 +509,74 @@ finally:
     presentation.dispose()
 ```
 
+## **렌더링된 줄 수 계산**
+
+[Paragraph.getLinesCount](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/#getLinesCount)를 사용하여 텍스트 레이아웃 후 단락이 차지하는 줄 수를 계산합니다. 자동 줄 바꿈을 포함합니다. 이는 템플릿에서 텍스트 길이와 레이아웃을 확인할 때 유용합니다.
+
+단락은 [TextFrame.getParagraphs](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/#getParagraphs)에서 하나의 항목이며 여러 개의 렌더링된 줄을 차지할 수 있습니다. 단락 내에서 명시적 줄 바꿈을 삽입하면 새로운 줄이 생성되지만 새로운 단락은 만들지 않습니다. 자동 줄 바꿈은 텍스트에 명시적 줄 바꿈을 삽입하지 않고 가용 너비에 따라 줄을 생성합니다. 따라서 단락 수나 줄 바꿈 문자만으로는 실제 렌더링된 줄 수를 알 수 없습니다.
+
+다음 예제는 텍스트 도형을 만들고 줄 수를 세며, 도형을 좁힌 뒤 짧은 문자열로 텍스트를 교체합니다. 줄 바꿈은 활성화되고 자동 맞춤은 비활성화되어 도형 너비가 줄 바꿈을 제어합니다. 도형 크기는 포인트 단위입니다. 마지막으로 또 다른 단락을 추가하고 텍스트 프레임 전체의 줄 수를 합산합니다.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import NullableBool, Paragraph, Presentation, ShapeType, TextAutofitType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 200)
+    text_frame = shape.getTextFrame()
+    text_frame.getTextFrameFormat().setWrapText(NullableBool.True_)
+    text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+
+    paragraph = text_frame.getParagraphs().get_Item(0)
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.")
+    print("Original width:", paragraph.getLinesCount())
+
+    shape.setWidth(150)
+    print("Narrower shape:", paragraph.getLinesCount())
+
+    paragraph.setText("Short text.")
+    print("Shorter text:", paragraph.getLinesCount())
+
+    second_paragraph = Paragraph()
+    second_paragraph.setText("Another paragraph.")
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    text_frame.getParagraphs().add(second_paragraph)
+
+    total_line_count = 0
+    for current_paragraph in text_frame.getParagraphs():
+        total_line_count += current_paragraph.getLinesCount()
+    print("Total lines in the text frame:", total_line_count)
+finally:
+    presentation.dispose()
+```
+
+이 텍스트와 이러한 크기에서는 도형을 좁히면 줄 수가 증가하고, 짧은 문자열로 교체하면 줄 수가 감소합니다. 정확한 개수는 글꼴 가용성 및 대체, 글꼴 크기, 여백, 들여쓰기, 줄 바꿈 및 자동 맞춤 설정에 따라 달라질 수 있습니다. 템플릿을 확인할 때 대상 환경에 맞는 글꼴 및 레이아웃 설정을 사용하십시오.
+
+줄 수만으로 텍스트가 컨테이너를 초과하는지 여부를 판단할 수 없습니다. 사용 가능한 높이, 줄 높이, 단락 및 줄 간격, 자동 맞춤 동작도 중요합니다; 자동 맞춤이 비활성화된 상태에서도 단일 줄이 가용 너비를 초과할 수 있습니다.
+
 ## **단락 내용 가져오기 및 내보내기**
 
 ### **HTML 텍스트를 단락으로 가져오기**
 
-ParagraphCollection.addFromHtml을 사용하면 HTML 마크업을 텍스트 프레임의 단락 및 구역으로 변환할 수 있습니다.
+[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphcollection/#addFromHtml)를 사용하여 HTML 마크업을 텍스트 프레임의 단락 및 구절로 변환합니다.
 
-1. Presentation 클래스의 인스턴스를 생성합니다.
-2. 슬라이드에 AutoShape을 추가합니다.
-3. 도형의 TextFrame에 접근하고 기본 단락을 제거합니다.
-4. 소스 HTML 파일을 읽습니다.
-5. HTML 문자열을 ParagraphCollection.addFromHtml에 전달합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 슬라이드에 [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)를 추가합니다.
+3. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)에 액세스하고 기본 단락을 제거합니다.
+4. 원본 HTML 파일을 읽습니다.
+5. HTML 문자열을 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphcollection/#addFromHtml)에 전달합니다.
 6. 수정된 프레젠테이션을 저장합니다.
+
+이 Python 예제가 HTML을 텍스트 프레임에 가져옵니다:
 
 ```python
 import jpype
@@ -539,13 +608,15 @@ finally:
 
 ### **단락 텍스트를 HTML로 내보내기**
 
-ParagraphCollection.exportToHtml을 사용하면 선택한 단락 범위를 HTML로 내보낼 수 있습니다.
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphcollection/#exportToHtml)를 사용하여 선택된 단락 범위를 HTML로 내보냅니다.
 
-1. Presentation을 인스턴스화하고 원하는 프레젠테이션을 로드합니다.
-2. 슬라이드에 접근하고 텍스트를 포함하는 AutoShape을 찾습니다.
-3. 도형의 TextFrame에 접근합니다.
-4. 시작 단락 인덱스와 내보낼 단락 수를 지정하여 ParagraphCollection.exportToHtml을 호출합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 인스턴스를 생성하고 원하는 프레젠테이션을 로드합니다.
+2. 슬라이드에 접근하고 텍스트가 포함된 [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)를 찾습니다.
+3. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)에 액세스합니다.
+4. 시작 단락 인덱스와 내보낼 단락 수를 지정하여 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphcollection/#exportToHtml)를 호출합니다.
 5. 반환된 HTML 문자열을 파일에 씁니다.
+
+이 Python 예제가 첫 번째 텍스트 도형의 모든 단락을 내보냅니다:
 
 ```python
 import jpype
@@ -580,17 +651,17 @@ finally:
 
 ### **단락을 이미지로 렌더링**
 
-Paragraph.getImage는 개별 단락을 직접 렌더링하고 이미지 객체를 반환합니다. 반환된 이미지의 `save` 메서드로 파일이나 스트림에 저장할 수 있습니다. 포함된 도형을 렌더링하거나 비트맵을 수동으로 자를 필요가 없습니다.
+[Paragraph.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/)은 개별 단락을 직접 렌더링하고 이미지 객체를 반환합니다. `save` 메서드로 파일이나 스트림에 저장할 수 있습니다. 포함된 도형을 렌더링하거나 비트를 수동으로 자를 필요가 없습니다.
 
-Paragraph.getImage는 단락을 찾을 수 없거나 유효한 렌더링 경계가 없을 경우 `None`을 반환할 수 있습니다. 저장하기 전에 결과를 확인하고 사용 후에 반환된 이미지를 해제하십시오.
+[Paragraph.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/)는 단락을 상위 컬렉션에서 찾을 수 없거나 유효한 렌더링 경계가 없거나 렌더링할 수 없는 경우 `None`을 반환할 수 있습니다. 저장하기 전에 결과를 확인하고 사용 후 반환된 이미지를 해제하십시오.
 
-#### **기본 축척으로 단락 렌더링**
+#### **기본 스케일로 단락 렌더링**
 
-sample.pptx 파일에 슬라이드가 하나 있고, 첫 번째 도형은 세 개의 단락을 포함하는 텍스트 상자라고 가정합니다.
+예제에서는 sample.pptx라는 프레젠테이션 파일에 슬라이드가 하나 있고, 첫 번째 도형이 세 개의 단락을 포함하는 텍스트 상자라고 가정합니다.
 
 ![세 개의 단락이 있는 텍스트 상자](paragraph_to_image_input.png)
 
-다음 예제는 두 번째 단락을 기본 축척으로 렌더링하고 PNG 형식으로 저장합니다. `finally` 블록은 이미지가 올바르게 해제되도록 합니다.
+다음 예제는 기본 스케일로 일반 텍스트 도형의 두 번째 단락을 렌더링하고 PNG 형식으로 반환된 이미지를 저장합니다. `finally` 블록은 이미지를 올바르게 해제합니다.
 
 ```python
 import jpype
@@ -631,7 +702,7 @@ finally:
 
 #### **테이블 셀에서 스케일링으로 단락 렌더링**
 
-`scale_x`와 `scale_y` 매개변수를 받아 가로·세로 배율을 설정하는 Paragraph.getImage 오버로드를 사용합니다. 다음 예제는 테이블을 만든 뒤 첫 번째 셀에서 단락을 기본 너비·높이의 두 배로 렌더링하고 PNG 이미지로 저장합니다.
+`scale_x`와 `scale_y` 매개변수를 받아 가로·세로 스케일을 지정하는 [Paragraph.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/) 오버로드를 사용합니다. 다음 예제는 표를 만든 뒤 첫 번째 셀의 단락을 기본 너비와 높이의 두 배로 렌더링하고 PNG 이미지로 저장합니다.
 
 ```python
 import jpype
@@ -662,24 +733,24 @@ finally:
     presentation.dispose()
 ```
 
-배율 `1`은 해당 축을 기본 픽셀 크기로 유지합니다. 예를 들어 두 축에 `2`를 지정하면 너비와 높이가 대략 두 배가 되어 픽셀 수는 네 배가 됩니다. 큰 배율은 확대하거나 고해상도 출력 시 텍스트를 더 선명하게 만들지만 메모리 사용량과 파일 크기도 증가합니다. `1`보다 작은 배율은 세부 정보가 적은 작은 이미지를 생성합니다. 비율을 동일하게 유지하면 단락의 종횡비가 보존되고, 서로 다른 가로·세로 배율은 출력을 독립적으로 늘립니다.
+스케일 팩터 `1`은 해당 축을 기본 픽셀 크기로 유지합니다. 예를 들어 두 축 모두 `2`이면 이미지의 너비와 높이가 대략 두 배가 되어 픽셀 수는 네 배가 됩니다. 큰 팩터는 확대하거나 고해상도 출력 시 텍스트가 더 선명해지지만 메모리 사용량과 파일 크기가 증가합니다. `1`보다 작은 팩터는 세부 정보가 적은 작은 이미지를 생성합니다. 비율을 유지하려면 동일한 팩터를 사용하고, 가로와 세로가 다르면 이미지가 각각 독립적으로 늘어납니다.
 
-전체 도형을 렌더링하려면 Shape.getImage를 사용합니다. 단락만 이미지로 만들 경우 Paragraph.getImage를 사용하십시오.
+전체 도형을 [Shape.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shape/#getImage)로 렌더링하는 것이 도형의 채우기, 테두리 또는 다른 시각적 컨텍스트가 포함되어야 할 때 유용합니다. 단락만 이미지로 만들 경우 [Paragraph.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/)를 사용하십시오.
 
 ## **FAQ**
 
-**텍스트 프레임 내에서 줄 바꿈을 완전히 비활성화할 수 있나요?**
+**텍스트 프레임 내부에서 줄 바꿈을 완전히 비활성화할 수 있나요?**
 
-네. TextFrameFormat.setWrapText를 설정하여 텍스트 프레임 가장자리에서 줄이 끊기지 않도록 래핑을 비활성화합니다.
+예. [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframeformat/#setWrapText)를 설정하면 줄 바꿈이 비활성화되어 텍스트 프레임 가장자리에서 줄이 끊기지 않습니다.
 
-**특정 단락의 슬라이드 상 정확한 경계 값을 어떻게 얻나요?**
+**특정 단락의 슬라이드 상 정확한 경계값을 어떻게 얻을 수 있나요?**
 
-Paragraph.getRect를 사용하면 단락의 경계 사각형을 가져올 수 있습니다. Portion.getRect는 개별 구역의 경계를 제공합니다.
+[Paragraph.getRect](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraph/#getRect)를 사용하면 단락의 경계 사각형을 반환합니다. [Portion.getRect](https://reference.aspose.com/slides/ko/python-java/aspose.slides/portion/#getRect)은 개별 구절의 경계를 제공합니다.
 
-**단락 정렬(왼쪽, 오른쪽, 가운데, 양쪽 정렬)은 어디에서 제어되나요?**
+**단락 정렬(왼쪽, 오른쪽, 가운데, 양쪽 맞춤)은 어디에서 제어되나요?**
 
-ParagraphFormat.setAlignment는 단락 수준 설정이며, 개별 구역 서식과 무관하게 전체 단락에 적용됩니다.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ko/python-java/aspose.slides/paragraphformat/#setAlignment)은 단락 수준 설정으로, 개별 구절 서식과 무관하게 전체 단락에 적용됩니다.
 
 **단락의 일부에 교정 언어를 설정할 수 있나요?**
 
-네. 개별 구역에 BasePortionFormat.setLanguageId를 설정하면 하나의 단락에 여러 언어 텍스트를 포함할 수 있습니다.
+예. 개별 구절에 대해 [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ko/python-java/aspose.slides/baseportionformat/#setLanguageId)를 설정하면 하나의 단락에 여러 언어의 텍스트를 포함시킬 수 있습니다.

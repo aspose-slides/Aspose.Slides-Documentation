@@ -14,10 +14,10 @@ keywords:
 - teckensnittsfamilj
 - textrotation
 - rotationsvinkel
-- textruta
+- textram
 - radavstånd
-- autofit-egenskap
-- ankare för textruta
+- autofit egenskap
+- förankring av textram
 - texttabulering
 - standardspråk
 - PowerPoint
@@ -29,19 +29,19 @@ description: "Formatera och stilisera text i PowerPoint- och OpenDocument-presen
 ---
 ## **Översikt**
 
-Den här artikeln visar hur du formaterar text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för PHP via Java. Den täcker bakgrundsfärger, transparens, teckenavstånd, teckensegenskaper, rotation, styckeavstånd, autofit‑beteende, textankring, tabbstopp och språkinställningar.
+Den här artikeln visar hur du formaterar text i PowerPoint‑ och OpenDocument‑presentationer med Aspose.Slides för PHP via Java. Den täcker bakgrundsfärger, transparens, teckenavstånd, teckensnittsegenskaper, rotation, styckeavstånd, autofit‑beteende, förankring av text, tabbstopp och språkinställningar.
 
-I exemplen nedan använder vi en fil som heter "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
+I exemplen nedan använder vi filen **"sample.pptx"**, som innehåller en enda textruta på den första bilden med följande text:
 
 ![Exempeltext](sample_text.png)
 
-För att hitta och markera exakt text eller matchningar med reguljära uttryck, se [Sök och ersätt text](/slides/sv/php-java/search-and-replace-text/).
+För att hitta och markera bokstavlig text eller reguljära uttryck, se [Sök och ersätt text](/slides/sv/php-java/search-and-replace-text/).
 
-## **Ange textbakgrundsfärg**
+## **Ange bakgrundsfärg för text**
 
-Använd [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) för att ange standardmarkeringsfärgen för ett stycke, eller använd [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#getHighlightColor) för enskilda textdelar.
+Använd [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) för att ange standardmarkeringsfärg för ett stycke, eller använd [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#getHighlightColor) för enskilda textdelar.
 
-Följande kodexempel visar hur du anger bakgrundsfärgen för hela **stycket**:
+Följande kodexempel visar hur du anger bakgrundsfärg för **hela stycket**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -51,7 +51,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // Sätt markeringsfärgen för hela stycket.
+    // Ange markeringsfärgen för hela stycket.
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
@@ -62,9 +62,9 @@ try {
 
 Resultatet:
 
-![Det grå stycket](gray_paragraph.png)
+![Det gråa stycket](gray_paragraph.png)
 
-Kodexemplet nedan visar hur du anger bakgrundsfärgen för **textdelar med fet stil**:
+Kodexemplet nedan demonstrerar hur du anger bakgrundsfärg för **textdelar med fet stil**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -78,7 +78,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Sätt markeringsfärgen för textdelen.
+            // Ange markeringsfärgen för textdelen.
             $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
@@ -91,13 +91,13 @@ try {
 
 Resultatet:
 
-![De grå textdelarna](gray_text_portions.png)
+![De gråa textdelarna](gray_text_portions.png)
 
 ## **Justera textstycken**
 
-Använd [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setAlignment) för att ange styckejustering inom en textruta. Värdet kan vara centrerat, vänsterjusterat, högerjusterat, justerat, osv.
+Använd [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setAlignment) för att ange styckejustering inom en textruta. Värdet kan vara centrerat, vänsterjusterat, högerjusterat, blockjusterat med mera.
 
-Följande kodexempel visar hur du justerar stycket till **mitten**:
+Följande kodexempel visar hur du justerar stycket till **centrum**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -106,7 +106,7 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Sätt styckejusteringen till centrerad.
+    // An­ge justeringen av stycket till centrum.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -121,9 +121,9 @@ Resultatet:
 
 ## **Ange transparens för text**
 
-Texttransparens styrs via alfakomponenten i färgen som tilldelas [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#getFillFormat). I exemplen nedan är `alpha = 50` ett ARGB-alphakanalvärde på skalan 0–255, inte en transparensprocent.
+Transparens för text styrs via alfakomponenten i färgen som tilldelas [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#getFillFormat). I exemplen nedan är `alpha = 50` ett ARGB‑alfavärde på 0–255‑skalan, inte en procentandel.
 
-Kodexemplet nedan visar hur du tillämpar transparens på hela **stycket**:
+Kodexemplet nedan visar hur du applicerar transparens på **hela stycket**:
 
 ```php
 $alpha = 50;
@@ -135,7 +135,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Sätt fyllningsfärgen för texten till en transparent färg.
+    // Ange fyllningsfärgen för texten till en transparent färg.
     $fillFormat->setFillType(FillType::Solid);
     $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
     $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -150,7 +150,7 @@ Resultatet:
 
 ![Det transparenta stycket](transparent_paragraph.png)
 
-Följande kodexempel visar hur du tillämpar transparens på **textdelar med fet stil**:
+Följande kodexempel visar hur du applicerar transparens på **textdelar med fet stil**:
 
 ```php
 $alpha = 50;
@@ -166,7 +166,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Sätt transparensen för textdelen.
+            // Ange transparensen för textdelen.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
             $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -187,7 +187,7 @@ Resultatet:
 
 Använd [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setSpacing) för att öka eller minska avståndet mellan tecken i en textruta.
 
-Följande PHP-kod visar hur du ökar teckenavståndet i hela **stycket**:
+Följande PHP‑kod visar hur du ökar teckenavståndet i **hela stycket**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -197,7 +197,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     // Obs: Använd negativa värden för att komprimera teckenavståndet.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Expandera teckenavståndet.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Utöka teckenavståndet.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -222,8 +222,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Observera: Använd negativa värden för att komprimera teckenavståndet.
-            $portion->getPortionFormat()->setSpacing(3); // Expandera teckenavståndet.
+            // Obs: Använd negativa värden för att komprimera teckenavståndet.
+            $portion->getPortionFormat()->setSpacing(3); // Utöka teckenavståndet.
         }
     }
 
@@ -239,9 +239,9 @@ Resultatet:
 
 ### **Inaktivera kerning för specifika teckensnitt**
 
-I vissa fall kan text som renderas av Aspose.Slides se något tajtare ut än samma text som visas i PowerPoint. Detta kan ske eftersom PowerPoint kan ignorera kerningdata för vissa teckensnitt, även om teckensnittet innehåller giltig kerninginformation och kerning är aktiverad i PowerPoints inställningar.
+I vissa fall kan text som renderas av Aspose.Slides se något tätare ut än samma text i PowerPoint. Detta kan hända eftersom PowerPoint ibland ignorerar kerning‑data för vissa teckensnitt, även när teckensnittet innehåller giltig kerninginformation och kerning är aktiverat i PowerPoint‑inställningarna.
 
-För att få den renderade utdata att närma sig PowerPoint i sådana fall kan du inaktivera kerning för textdelar som använder det berörda teckensnittet. Ställ in [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) på ett värde som är betydligt större än den faktiska teckensnittsstorleken:
+För att få renderingen närmare PowerPoint i sådana fall kan du inaktivera kerning för textdelar som använder det påverkade teckensnittet. Ange [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) till ett värde som är betydligt större än den faktiska teckensnittsstorleken:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -275,13 +275,13 @@ try {
 }
 ```
 
-Denna inställning förhindrar att kerning tillämpas på matchande textdelar och kan hjälpa till att anpassa Aspose.Slides-rendering till PowerPoints visuella utslag för teckensnitt som påverkas av detta PowerPoint‑specifika beteende.
+Denna inställning förhindrar att kerning tillämpas på matchande textdelar och kan hjälpa till att anpassa Aspose.Slides‑renderingen till PowerPoints visuella resultat för de teckensnitt som påverkas av detta PowerPoint‑specifika beteende.
 
-## **Hantera textteckensnittsegenskaper**
+## **Hantera teckensnittsegenskaper för text**
 
-Teckensnittsegenskaper kan sättas på styckenivå via [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) eller på enskilda delar via [PortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portionformat/).
+Teckensnittsegenskaper kan anges på styckenivå via [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) eller på enskilda delar via [PortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portionformat/).
 
-Följande kod sätter teckensnitt och textstil för hela stycket: den tillämpar teckenstorlek, fet, kursiv, prickad understrykning och teckensnittet Times New Roman på alla delar i stycket.
+Följande kod anger teckensnitt och textstil för hela stycket: den tillämpar teckenstorlek, fet, kursiv, prickad understrykning och teckensnittet Times New Roman på alla delar i stycket.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -307,7 +307,7 @@ try {
 
 Resultatet:
 
-![Teckensnittsegenskaperna för stycket](font_properties_for_paragraph.png)
+![Teckensnittsegenskaper för stycket](font_properties_for_paragraph.png)
 
 Kodexemplet nedan tillämpar liknande egenskaper på **textdelar med fet stil**:
 
@@ -340,13 +340,13 @@ try {
 
 Resultatet:
 
-![Teckensnittsegenskaperna för textdelarna](font_properties_for_text_portions.png)
+![Teckensnittsegenskaper för textdelarna](font_properties_for_text_portions.png)
 
 ## **Ange textrotation**
 
 Använd [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/#setTextVerticalType) för att ange en fördefinierad textorientering inom en form.
 
-Följande kodexempel sätter textorienteringen i formen till `Vertical270`, vilket roterar texten **90 grader moturs**:
+Följande kodexempel ställer in textorienteringen i formen till `Vertical270`, vilket roterar texten **90 grader moturs**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -364,13 +364,13 @@ try {
 
 Resultatet:
 
-![Textrotation](text_rotation.png)
+![Textrotationen](text_rotation.png)
 
-## **Ange anpassad rotation för textrutor**
+## **Ange anpassad rotation för textramar**
 
 Använd [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/#setRotationAngle) för att ange en anpassad rotationsvinkel för en [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
 
-Kodexemplet nedan roterar textrutan med 3 grader medurs inom formen:
+Kodexemplet nedan roterar textramen med 3 grader medurs inom formen:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -388,16 +388,16 @@ try {
 
 Resultatet:
 
-![Den anpassade textrotation](custom_text_rotation.png)
+![Anpassad textrotation](custom_text_rotation.png)
 
 ## **Ange radavstånd för stycken**
 
 Aspose.Slides tillhandahåller [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setSpaceBefore) och [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setSpaceWithin) för att kontrollera styckeavstånd. Dessa egenskaper används på följande sätt:
 
-* Använd ett positivt värde för att ange radavstånd som en procentandel av radens höjd.
+* Använd ett positivt värde för att ange radavstånd som en procentandel av radhöjden.
 * Använd ett negativt värde för att ange radavstånd i punkter.
 
-Följande kodexempel visar hur du anger radavståndet inom stycket:
+Följande kodexempel visar hur du specificerar radavståndet inom stycket:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -418,9 +418,9 @@ Resultatet:
 
 ![Radavståndet inom stycket](line_spacing.png)
 
-## **Ange Autofit‑typ för textrutor**
+## **Ange autofit‑typ för textramar**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/#setAutofitType) bestämmer hur text beter sig när den överskrider behållarens gränser. Använd den för att kontrollera om texten krymper, flyter över, eller ändrar formens storlek automatiskt.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/#setAutofitType) bestämmer hur text beter sig när den överskrider ramarna för sin behållare. Använd den för att styra om text ska krympas, flöda över eller automatiskt anpassa formen.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -436,9 +436,11 @@ try {
 }
 ```
 
-## **Ange ankare för textrutor**
+För att räkna rader efter automatisk radbrytning och se hur text‑ eller formbredd ändrar resultatet, se [Räkna renderade rader](/slides/sv/php-java/manage-paragraph/). Antalet rader visar inte i sig om text flödar över sin behållare.
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/#setAnchoringType) definierar hur text positioneras vertikalt i en form, exempelvis högst upp, i mitten eller längst ner.
+## **Ange ankarpunkt för textramar**
+
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/#setAnchoringType) definierar hur text placeras vertikalt inne i en form, t.ex. högst upp, i mitten eller längst ner.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -454,7 +456,7 @@ try {
 }
 ```
 
-## **Ange texttabbning**
+## **Ange tabbstopp för text**
 
 Använd [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) och [ParagraphFormat::getTabs](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#getTabs) för att konfigurera tabbstopp i ett stycke.
 
@@ -476,13 +478,13 @@ try {
 
 Resultatet:
 
-![Stycketabbar](paragraph_tabs.png)
+![Stycke‑tabbar](paragraph_tabs.png)
 
-## **Ange korrekturläsningsspråk**
+## **Ange språk för korrekturläsning**
 
-Aspose.Slides tillhandahåller [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setLanguageId), vilket låter dig ange korrekturläsningsspråket för en textdel. Korrekturläsningsspråket avgör vilket språk som används för stavnings‑ och grammatikkontroller i PowerPoint.
+Aspose.Slides tillhandahåller [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setLanguageId), vilket låter dig ange språk för korrekturläsning för en textdel. Språket bestämmer vilka språk som används för stavnings‑ och grammatikgranskning i PowerPoint.
 
-Följande kodexempel visar hur du anger korrekturläsningsspråket för en textdel:
+Följande kodexempel visar hur du anger språk för korrekturläsning för en textdel:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -500,7 +502,7 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Ange ID för ett korrekturläsningsspråk.
+    // Ange ID för ett språk för korrekturläsning.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
     $textPortion->setText("1。");
@@ -514,7 +516,7 @@ try {
 
 ## **Ange standardspråk**
 
-Använd [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) för att definiera standardspråket för text som skapas under inläsning eller skapande av en presentation.
+Använd [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) för att definiera standardspråk för text som skapas vid inläsning eller skapande av en presentation.
 
 ```php
 $loadOptions = new LoadOptions();
@@ -538,9 +540,9 @@ try {
 
 ## **Ange standardtextstil**
 
-För att använda standardtextformatering på presentationsnivå, använd [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getDefaultTextStyle).
+För att tillämpa standardtextformatering på presentationsnivå, använd [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Följande kodexempel visar hur du anger ett standardteckensnitt i fet stil med storlek 14 pt för all text på alla bilder i en ny presentation.
+Följande kodexempel visar hur du anger ett standardfett teckensnitt med storleken 14 pt för all text i en ny presentation.
 
 ```php
 $presentation = new Presentation();
@@ -559,13 +561,13 @@ try {
 }
 ```
 
-## **Extrahera text med All-Caps‑effekt**
+## **Extrahera text med versaler‑effekt**
 
-I PowerPoint gör **All Caps**‑effekten att text visas med versaler på bilden även om den ursprungligen skrivits med gemener. När du hämtar en sådan textdel med Aspose.Slides returnerar biblioteket texten exakt som den matades in. För att matcha den visade texten, kontrollera [TextCapType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textcaptype/) och konvertera den returnerade strängen till versaler när värdet är `All`.
+I PowerPoint gör **All Caps**‑effekten så att text visas i versaler på bilden även om den ursprungligen skrevs med gemener. När du hämtar en sådan textdel med Aspose.Slides returnerar biblioteket texten exakt som den angavs. För att matcha den visade texten, kontrollera [TextCapType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textcaptype/) och konvertera den returnerade strängen till versaler när värdet är `All`.
 
-Låt oss säga att vi har följande textruta på den första bilden i filen sample2.pptx.
+Låt oss anta att vi har följande textruta på den första bilden i filen **sample2.pptx**.
 
-![All Caps‑effekten](all_caps_effect.png)
+![Versaler‑effekten](all_caps_effect.png)
 
 Kodexemplet nedan visar hur du extraherar texten med **All Caps**‑effekten tillämpad:
 
@@ -589,7 +591,7 @@ try {
 }
 ```
 
-Utdata:
+Utdat
 
 ```text
 Original text: Hello, Aspose!
@@ -600,8 +602,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Hur ändrar man text i en tabell på en bild?**
 
-För att ändra text i en tabell på en bild, använd [Table](https://reference.aspose.com/slides/sv/php-java/aspose.slides/table/). Iterera genom cellerna och uppdatera varje cell via [Cell::getTextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/cell/#getTextFrame) och styckeformatering via [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#getParagraphFormat).
+För att ändra text i en tabell på en bild, använd [Table](https://reference.aspose.com/slides/sv/php-java/aspose.slides/table/). Iterera genom cellerna och uppdatera varje cell via [Cell::getTextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/cell/#getTextFrame) samt styckeformatering via [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Hur applicerar man gradientfärg på text i en PowerPoint-bild?**
+**Hur tillämpar man en gradientfärg på text i en PowerPoint‑bild?**
 
-För att applicera en gradientfärg på text, använd [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#getFillFormat). Ställ in [FillFormat::setFillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fillformat/#setFillType) på [FillType::Gradient](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) och konfigurera gradientstopp, riktning och transparens.
+För att applicera en gradientfärg på text, använd [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#getFillFormat). Ange [FillFormat::setFillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fillformat/#setFillType) till [FillType::Gradient](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) och konfigurera gradientstopp, riktning och transparens.

@@ -14,11 +14,11 @@ keywords:
 - Absatz verwalten
 - Aufzählungszeichen verwalten
 - Absatzeinzug
-- hängender Einzug
+- Hängender Einzug
 - Absatzaufzählungszeichen
-- nummerierte Liste
+- Nummerierte Liste
 - Aufzählungsliste
-- Absatz‑Eigenschaften
+- Absatzeigenschaften
 - HTML importieren
 - Text zu HTML
 - Absatz zu HTML
@@ -29,33 +29,33 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für Java Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML‑Inhalte und Absatz‑Bilder erstellen und formatieren."
+description: "Erfahren Sie, wie Sie mit Aspose.Slides für Java Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML‑Inhalte und Absatzbilder erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für Java stellt Text als eine Hierarchie von Textrahmen, Absätzen und Portionen dar:
+Aspose.Slides for Java stellt Text als Hierarchie von Textfeldern, Absätzen und Portionen dar:
 
-* [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) stellt den Textcontainer in einer Form dar und bietet Zugriff auf ihre Absatzsammlung.
-* [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/) stellt einen Absatz in einem Textrahmen dar und bietet Zugriff auf seine Portionen sowie auf Absatz‑bezogene Formatierungen.
-* [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann eigenen Text und Zeichen‑bezogene Formatierungen besitzen.
+* [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) repräsentiert den Textcontainer in einer Form und bietet Zugriff auf die zugehörige Absatzsammlung.
+* [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/) repräsentiert einen Absatz in einem Textfeld und bietet Zugriff auf seine Portionen sowie Formatierungen auf Absatzebene.
+* [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann eigenen Text und Zeichenformatierungen besitzen.
 
-Ein Absatz kann daher Text mit unterschiedlichen Schriften, Farben, Größen und anderen Formatierungen enthalten, indem mehrere Portionen verwendet werden.
+Ein Absatz kann daher Text mit unterschiedlichen Schriftarten, Farben, Größen und weiteren Formatierungen enthalten, indem mehrere Portionen verwendet werden.
 
 ## **Absätze erstellen und formatieren**
 
 ### **Absätze mit mehreren Portionen erstellen**
 
-Die folgenden Schritte erstellen ein Textfeld mit drei Absätzen, die jeweils drei Portionen enthalten:
+Die folgenden Schritte erzeugen ein Textfeld mit drei Absätzen, die jeweils drei Portionen enthalten:
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die gewünschte Folie zu.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) der Form zu.
-5. Verwenden Sie den Standardabsatz und fügen Sie dem Textrahmen zwei weitere [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/)‑Objekte hinzu.
-6. Fügen Sie ausreichend [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/)‑Objekte hinzu, sodass jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
+5. Verwenden Sie den Standardabsatz und fügen Sie dem Textfeld zwei weitere [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/)‑Objekte hinzu.
+6. Fügen Sie genügend [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/)‑Objekte hinzu, sodass jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
 7. Setzen Sie den Text jeder Portion.
-8. Wenden Sie Zeichen‑bezogene Formatierungen über [IPortion.getPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/#getPortionFormat--) an.
-9. Speichern Sie die modifizierte Präsentation.
+8. Wenden Sie Zeichenformatierungen über [IPortion.getPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/#getPortionFormat--) an.
+9. Speichern Sie die geänderte Präsentation.
 
 Dieses Java‑Beispiel implementiert die Schritte:
 
@@ -117,19 +117,19 @@ try {
 
 ### **Eine Aufzählungs‑ oder Nummerierungsliste erstellen**
 
-Aufzählungszeichen und Nummerierungen erleichtern das Scannen zusammengehöriger Elemente. In Aspose.Slides werden Listeneinstellungen über [IBulletFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/) definiert.
+Aufzählungszeichen und Nummerierungen erleichtern das Durchsuchen zusammengehöriger Elemente. In Aspose.Slides werden Listeneinstellungen über [IBulletFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/) definiert.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die gewünschte Folie zu.
-3. Fügen Sie der ausgewählten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) der Form zu.
-5. Entfernen Sie den Standardabsatz aus dem Textrahmen.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
+3. Fügen Sie dem ausgewählten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
+4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) zu.
+5. Entfernen Sie den Standardabsatz aus dem Textfeld.
 6. Erstellen Sie ein [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
-7. Setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setType-int-) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/java/com.aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen‑Symbol an.
-8. Setzen Sie den Absatztext, den Einzug, die Aufzählungsfarbe und die Aufzählungs­größe.
-9. Fügen Sie den Absatz dem Textrahmen hinzu.
+7. Setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setType-int-) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/java/com.aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen‑Zeichen an.
+8. Legen Sie den Absatztext, Einzug, Aufzählungszeichenfarbe und Aufzählungszeichenhöhe fest.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
 10. Erstellen Sie einen zweiten Absatz und setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setType-int-) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/java/com.aspose.slides/bullettype/).
-11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem Textrahmen hinzu.
+11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem Textfeld hinzu.
 12. Speichern Sie die Präsentation.
 
 Dieses Java‑Beispiel erstellt ein Symbol‑Aufzählungszeichen und ein nummeriertes Aufzählungszeichen:
@@ -178,17 +178,15 @@ try {
 Bild‑Aufzählungszeichen ermöglichen die Verwendung eines benutzerdefinierten Bildes anstelle eines Symbols oder einer Zahl.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die gewünschte Folie zu.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu und greifen Sie auf dessen [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) zu.
-4. Entfernen Sie den Standardabsatz aus dem Textrahmen.
-5. Laden Sie das Aufzählungs‑Bild und fügen Sie es der Bildsammlung der Präsentation als [IPPImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/) hinzu.
+4. Entfernen Sie den Standardabsatz aus dem Textfeld.
+5. Laden Sie das Aufzählungszeichen‑Bild und fügen Sie es der Bildsammlung der Präsentation als [IPPImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/) hinzu.
 6. Erstellen Sie ein [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/) und setzen Sie dessen Text.
 7. Setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setType-int-) auf [BulletType.Picture](https://reference.aspose.com/slides/de/java/com.aspose.slides/bullettype/).
-8. Weisen Sie das Bild über [IBulletFormat.getPicture](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#getPicture--) zu und setzen Sie die Aufzählungs‑höhe.
-9. Fügen Sie den Absatz dem Textrahmen hinzu.
-10. Speichern Sie die modifizierte Präsentation.
-
-Dieses Java‑Beispiel erstellt ein Bild‑Aufzählungszeichen:
+8. Weisen Sie das Bild über [IBulletFormat.getPicture](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#getPicture--) zu und setzen Sie die Aufzählungszeichenhöhe.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
+10. Speichern Sie die geänderte Präsentation.
 
 ```java
 import com.aspose.slides.*;
@@ -223,17 +221,15 @@ try {
 }
 ```
 
-### **Mehrstufige Liste erstellen**
+### **Eine mehrstufige Liste erstellen**
 
-Setzen Sie [IParagraphFormat.setDepth](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setDepth-short-), um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat die Tiefe `0`.
+Setzen Sie [IParagraphFormat.setDepth](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setDepth-short-), um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat eine Tiefe von `0`.
 
 1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu und entfernen Sie den Standardabsatz aus dessen Textrahmen.
-3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungs‑Symbole.
-4. Setzen Sie deren [IParagraphFormat.setDepth](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setDepth-short-) Werte auf `0`, `1`, `2` bzw. `3`.
-5. Fügen Sie die Absätze dem Textrahmen hinzu und speichern Sie die Präsentation.
-
-Dieses Java‑Beispiel erstellt eine vierstufige Aufzählungsliste:
+2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu und entfernen Sie den Standardabsatz aus dessen Textfeld.
+3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungszeichen‑Symbole.
+4. Setzen Sie deren [IParagraphFormat.setDepth](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setDepth-short-)‑Werte auf `0`, `1`, `2` und `3`.
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
 ```java
 import com.aspose.slides.*;
@@ -289,17 +285,15 @@ try {
 }
 ```
 
-### **Nummerierte Listenelemente mit benutzerdefinierten Startwerten beginnen**
+### **Nummerierte Listenelemente mit benutzerdefinierten Werten beginnen**
 
-Verwenden Sie [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), um die Anfangszahl eines nummerierten Absatzes festzulegen.
+Verwenden Sie [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), um die anfängliche Zahl für einen nummerierten Absatz festzulegen.
 
 1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) und fügen Sie einer Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-2. Entfernen Sie den Standardabsatz aus dem Textrahmen der Form.
+2. Entfernen Sie den Standardabsatz aus dem Textfeld der Form.
 3. Erstellen Sie drei nummerierte Absätze.
-4. Setzen Sie [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
-5. Fügen Sie die Absätze dem Textrahmen hinzu und speichern Sie die Präsentation.
-
-Dieses Java‑Beispiel weist jedem Absatz einen eigenen Startwert zu:
+4. Setzen Sie [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) für die jeweiligen Absätze auf `2`, `3` und `7`.
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
 ```java
 import com.aspose.slides.*;
@@ -335,25 +329,23 @@ try {
 }
 ```
 
-## **Absatz‑Layout und End‑Eigenschaften steuern**
+## **Absatzlayout und End‑Eigenschaften steuern**
 
-### **Ersten Zeileneinzug festlegen**
+### **Erste‑Zeilen‑Einzug festlegen**
 
-Verwenden Sie [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), um den Erstzeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Absatzrand. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), um den Erstzeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
 
-Verwenden Sie [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-), wenn Sie den gesamten Absatz verschieben wollen. Verwenden Sie [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), wenn Sie nur die erste Zeile verschieben möchten.
+Verwenden Sie [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-), wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), wenn Sie nur die erste Zeile verschieben wollen.
 
-Das nachstehende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) Werte an, um zu zeigen, wie der Erstzeileneinzug das Absatzlayout beeinflusst.
+Das nachstehende Beispiel erstellt mehrere Absätze und wendet verschiedene [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-)‑Werte an, um zu demonstrieren, wie sich der Erstzeileneinzug auf das Absatzlayout auswirkt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie für sie unterschiedliche [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) Werte.
-6. Fügen Sie die Absätze dem Textrahmen hinzu.
-7. Speichern Sie die modifizierte Präsentation.
-
-Dieser Code zeigt, wie ein Absatz‑Einzug gesetzt wird:
+5. Erstellen Sie mehrere Absätze und setzen Sie für sie unterschiedliche [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-)‑Werte.
+6. Fügen Sie die Absätze dem Textfeld hinzu.
+7. Speichern Sie die geänderte Präsentation.
 
 ```java
 import com.aspose.slides.*;
@@ -403,28 +395,26 @@ try {
 }
 ```
 
-Das Ergebnis:
+Der Ergebnis:
 
 ![Der Erstzeileneinzug der Absätze](first_line_indent.png)
 
 ### **Hängenden Einzug festlegen**
 
-Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Übergeben Sie einen negativen Wert, um die erste Zeile nach links zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Geben Sie einen negativen Wert an, um die erste Zeile nach links relativ zum Absatzkörper zu verschieben.
 
-In der Praxis definiert [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) die linke Position des Absatzkörpers, während [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) die Position der ersten Zeile relativ zu diesem Rand festlegt. Um einen hängenden Einzug zu erzeugen, übergeben Sie einen positiven Wert an `setMarginLeft` und einen negativen Wert an `setIndent`.
+In der Praxis legt [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) die linke Position des Absatzkörpers fest, und [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, übergeben Sie einen positiven Wert an `setMarginLeft` und einen negativen Wert an `setIndent`.
 
-Diese Formatierung ist nützlich für Bibliografien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
+Diese Formatierung ist nützlich für Bibliographien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
 5. Erstellen Sie Absätze und übergeben Sie für jeden Absatz einen positiven Wert an [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-).
 6. Übergeben Sie einen negativen Wert an [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), um den hängenden Einzug zu erzeugen.
-7. Fügen Sie die Absätze dem Textrahmen hinzu.
-8. Speichern Sie die modifizierte Präsentation.
-
-Dieser Code zeigt, wie ein hängender Einzug für einen Absatz gesetzt wird:
+7. Fügen Sie die Absätze dem Textfeld hinzu.
+8. Speichern Sie die geänderte Präsentation.
 
 ```java
 import com.aspose.slides.*;
@@ -466,11 +456,11 @@ try {
 }
 ```
 
-Das Ergebnis:
+Der Ergebnis:
 
 ![Der hängende Einzug der Absätze](hanging_indent.png)
 
-### **End‑Paragraph‑Run‑Eigenschaften festlegen**
+### **End‑Absatz‑Lauf‑Eigenschaften festlegen**
 
 [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) steuert die Formatierung des Absatzendzeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schriftart zu:
 
@@ -511,20 +501,68 @@ try {
 }
 ```
 
+## **Gerenderte Zeilen zählen**
+
+Verwenden Sie [IParagraph.getLinesCount](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getLinesCount--) , um die nach der Textanordnung von einem Absatz belegten Zeilen zu zählen, einschließlich automatischer Zeilenumbrüche. Dies ist nützlich beim Überprüfen von Textlänge und Layout in Präsentationsvorlagen.
+
+Ein Absatz ist ein Eintrag in [ITextFrame.getParagraphs](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/#getParagraphs--), und er kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatisches Umbrechen erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbruchzeichen in den Text einzufügen. Das Zählen von Absätzen oder Zeilenumbruchzeichen liefert daher nicht die gerenderte Zeilenzahl.
+
+Das folgende Beispiel erstellt eine Textform, zählt deren Zeilen, verengt die Form und ersetzt anschließend den Text durch eine kürzere Zeichenfolge. Zeilenumbruch ist aktiviert und Autofit deaktiviert, sodass die Formbreite den Umbruch steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Die Formabmessungen sind in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen über das gesamte Textfeld.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(NullableBool.True);
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    System.out.println("Original width: " + paragraph.getLinesCount());
+
+    shape.setWidth(150);
+    System.out.println("Narrower shape: " + paragraph.getLinesCount());
+
+    paragraph.setText("Short text.");
+    System.out.println("Shorter text: " + paragraph.getLinesCount());
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Another paragraph.");
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    int totalLineCount = 0;
+    for (IParagraph currentParagraph : textFrame.getParagraphs()) {
+        totalLineCount += currentParagraph.getLinesCount();
+    }
+    System.out.println("Total lines in the text frame: " + totalLineCount);
+} finally {
+    presentation.dispose();
+}
+```
+
+Mit diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch die kurze Zeichenfolge sie reduziert. Exakte Zahlen können je nach Schriftartenverfügbarkeit und -ersetzung, Schriftgröße, Rändern, Einzügen, Umbruch und Autofit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriftarten und Layout‑Einstellungen, wenn Sie eine Vorlage prüfen.
+
+Die Zeilenzahl allein bestimmt nicht, ob der Text seinen Container überläuft. Die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das Autofit‑Verhalten sind ebenfalls wichtig; sogar eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn der Umbruch deaktiviert ist.
+
 ## **Absatzinhalt importieren und exportieren**
 
 ### **HTML‑Text in Absätze importieren**
 
-Verwenden Sie [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-), um HTML‑Markup in Absätze und Portionen eines Textrahmens zu konvertieren.
+Verwenden Sie [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) , um HTML‑Markup in Absätze und Portionen in einem Textfeld zu konvertieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie auf eine Folie zu und fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
-4. Lesen Sie die Quell‑HTML‑Datei ein.
-5. Übergeben Sie die HTML‑Zeichenkette an [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Speichern Sie die modifizierte Präsentation.
-
-Dieses Java‑Beispiel importiert HTML in ein Textfeld:
+3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) der Form zu und entfernen Sie dessen Standardabsatz.
+4. Lesen Sie die Quell‑HTML‑Datei.
+5. Übergeben Sie die HTML‑Zeichenfolge an [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Speichern Sie die geänderte Präsentation.
 
 ```java
 import com.aspose.slides.*;
@@ -557,15 +595,13 @@ try {
 
 ### **Absatztext nach HTML exportieren**
 
-Verwenden Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-), um einen ausgewählten Absatzbereich als HTML zu exportieren.
+Verwenden Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) , um einen ausgewählten Bereich von Absätzen als HTML zu exportieren.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) und laden Sie die gewünschte Präsentation.
 2. Greifen Sie auf die Folie zu und finden Sie das [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/), das den Text enthält.
 3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) der Form zu.
-4. Rufen Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) mit dem Start‑Absatzindex und der Anzahl der zu exportierenden Absätze auf.
-5. Schreiben Sie die zurückgegebene HTML‑Zeichenkette in eine Datei.
-
-Dieses Java‑Beispiel exportiert alle Absätze aus der ersten Textform:
+4. Rufen Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) mit dem Start‑Absatz‑Index und der Anzahl der zu exportierenden Absätze auf.
+5. Schreiben Sie die zurückgegebene HTML‑Zeichenfolge in eine Datei.
 
 ```java
 import com.aspose.slides.*;
@@ -602,17 +638,17 @@ try {
 
 ### **Einen Absatz als Bild rendern**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage--) rendert einen einzelnen Absatz direkt und gibt ein [IImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimage/) zurück. Speichern Sie das Ergebnis mit [IImage.save](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimage/#save-java.lang.String-int-) in einer Datei oder einem Stream. Sie müssen nicht die gesamte Form rendern oder ein Bitmap manuell zuschneiden.
+[IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage--) rendert einen einzelnen Absatz direkt und gibt ein [IImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimage/) zurück. Speichern Sie das Ergebnis mit [IImage.save](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimage/#save-java.lang.String-int-) in einer Datei oder einem Stream. Sie müssen die enthaltende Form nicht rendern oder ein Bitmap manuell zuschneiden.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage--) kann `null` zurückgeben, wenn der Absatz nicht in der übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Überprüfen Sie das Ergebnis, bevor Sie es speichern, und geben Sie das zurückgegebene Bild nach der Verwendung frei.
+[IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage--) kann `null` zurückgeben, wenn der Absatz nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis vor dem Speichern und geben Sie das zurückgegebene Bild nach der Verwendung frei.
 
-#### **Ein Absatz mit Standardskala rendern**
+#### **Einen Absatz in Standardskala rendern**
 
-Angenommen, wir haben eine Präsentationsdatei namens `sample.pptx` mit einer Folie, auf der die erste Form ein Textfeld mit drei Absätzen ist.
+Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, bei der die erste Form ein Textfeld mit drei Absätzen ist.
 
 ![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
 
-Das nachfolgende Beispiel rendert den zweiten Absatz in einer regulären Textform mit Standardskala und speichert das zurückgegebene Bild im PNG‑Format. Der `finally`‑Block sorgt dafür, dass das Bild korrekt freigegeben wird.
+Das folgende Beispiel rendert den zweiten Absatz in einer normalen Textform in der Standardskala und speichert das zurückgegebene Bild im PNG‑Format. Der `finally`‑Block stellt sicher, dass das Bild korrekt freigegeben wird.
 
 ```java
 import com.aspose.slides.*;
@@ -650,11 +686,11 @@ try {
 
 Das Ergebnis:
 
-![Das Absatz‑Bild](paragraph_to_image_output.png)
+![Das Absatzbild](paragraph_to_image_output.png)
 
 #### **Einen Absatz in einer Tabellenzelle mit Skalierung rendern**
 
-Verwenden Sie die Überladung von [IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage-float-float-), die die Parameter `float scaleX` und `float scaleY` akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in der ersten Zelle mit dem doppelten Standard‑Breiten‑ und Höhenfaktor und speichert das Ergebnis als PNG‑Bild.
+Verwenden Sie die Überladung von [IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage-float-float-), die die Parameter `float scaleX` und `float scaleY` akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in ihrer ersten Zelle mit der doppelten Standardbreite und -höhe und speichert das Ergebnis als PNG‑Bild.
 
 ```java
 import com.aspose.slides.*;
@@ -684,24 +720,24 @@ try {
 }
 ```
 
-Ein Skalierungsfaktor von `1` behält die Standard‑Pixelgröße der jeweiligen Achse bei. Zum Beispiel erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa doppelt so groß sind wie die Standard‑Abmessungen, wodurch die Pixelzahl um das Vierfache steigt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom‑ oder Hochauflösungsausgaben, erhöhen jedoch Speicherverbrauch und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes beizubehalten; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe unabhängig voneinander.
+Ein Skalierungsfaktor von `1` behält die Standardpixelgröße dieser Achse bei. Zum Beispiel erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa doppelt so groß sind wie die Standardmaße, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom oder hochauflösende Ausgaben, erhöhen jedoch Speicherverbrauch und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes zu erhalten; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe unabhängig voneinander.
 
-Das Rendering einer ganzen Form mit [IShape.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getImage--) bleibt nützlich, wenn das Ergebnis die Füllung, den Rand oder andere visuelle Kontextinformationen der Form enthalten muss. Für ein Bild, das nur den Absatz enthält, verwenden Sie [IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage--).
+Das Rendern einer gesamten Form mit [IShape.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getImage--) bleibt nützlich, wenn die Ausgabe die Füllung, den Rand oder andere visuelle Kontextinformationen der Form enthalten muss. Für ein Bild, das ausschließlich den Absatz enthält, verwenden Sie [IParagraph.getImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getImage--).
 
 ## **FAQ**
 
-**Kann ich das Zeilenumbruchverhalten innerhalb eines Textrahmens vollständig deaktivieren?**
+**Kann ich das Zeilenumbruch innerhalb eines Textfeldes vollständig deaktivieren?**
 
-Ja. Setzen Sie [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), um das Umbrechen zu deaktivieren, sodass Zeilen nicht an den Rändern des Textrahmens umgebrochen werden.
+Ja. Setzen Sie [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), um den Umbruch zu deaktivieren, sodass Zeilen nicht an den Rändern des Textfeldes umbrochen werden.
 
-**Wie kann ich die genauen on‑slide‑Grenzen eines bestimmten Absatzes ermitteln?**
+**Wie kann ich die genauen Bounds eines bestimmten Absatzes auf der Folie erhalten?**
 
-Verwenden Sie [IParagraph.getRect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getRect--), um das Begrenzungs‑Rechteck des Absatzes zu erhalten. [IPortion.getRect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/#getRect--) liefert die Grenzen einer einzelnen Portion.
+Verwenden Sie [IParagraph.getRect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getRect--) , um das Begrenzungsrechteck des Absatzes abzurufen. [IPortion.getRect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/#getRect--) liefert die Grenzen einer einzelnen Portion.
 
-**Wo wird die Absatz‑Ausrichtung (links, rechts, zentriert oder Blocksatz) gesteuert?**
+**Wo wird die Absatzausrichtung (links, rechts, zentriert oder Blocksatz) gesteuert?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) ist eine Absatz‑Ebene‑Einstellung und gilt für den gesamten Absatz, unabhängig von einzelnen Portion‑Formatierungen.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) ist eine Einstellung auf Absatzebene und gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
 
-**Kann ich die Korrektursprache für einen Teil eines Absatzes festlegen?**
+**Kann ich die Rechtschreibprüfungssprache für einen Teil eines Absatzes festlegen?**
 
 Ja. Setzen Sie [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) für einzelne Portionen, sodass ein Absatz Text in mehreren Sprachen enthalten kann.

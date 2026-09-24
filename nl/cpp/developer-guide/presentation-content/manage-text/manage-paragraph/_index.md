@@ -17,7 +17,7 @@ keywords:
 - hangende insprong
 - alinea-opsommingsteken
 - genummerde lijst
-- opsommingslijst
+- opsomminglijst
 - alinea-eigenschappen
 - HTML importeren
 - tekst naar HTML
@@ -29,35 +29,35 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe u alinea's, gedeelten, opsommingstekens, genummerde lijsten, insprongen, HTML-inhoud en alinea-afbeeldingen kunt maken en opmaken met Aspose.Slides voor C++."
+description: "Leer hoe u alinea's, fragmenten, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen kunt maken en opmaken met Aspose.Slides voor C++."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor C++ stelt tekst voor als een hiërarchie van tekstframes, alinea's en gedeelten:
+Aspose.Slides for C++ stelt tekst voor als een hiërarchie van tekstframes, alinea’s en fragmenten:
 
-* [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) stelt de tekstcontainer in een vorm voor en biedt toegang tot de alinea‑verzameling.
-* [IParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/) stelt één alinea in een tekstframe voor en biedt toegang tot de gedeelten en alinea‑opmaak.
-* [IPortion](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/) stelt een tekstrun binnen een alinea voor. Elk gedeelte kan zijn eigen tekst en teken‑niveau opmaak hebben.
+* [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) stelt de tekstcontainer in een shape voor en biedt toegang tot de alinea‑collectie.
+* [IParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/) stelt één alinea in een tekstframe voor en biedt toegang tot de fragmenten en alinea‑opmaak.
+* [IPortion](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/) stelt een tekstreeks binnen een alinea voor. Elke fragment kan eigen tekst en teken‑opmaak hebben.
 
-Een alinea kan daarom tekst bevatten met verschillende lettertypes, kleuren, groottes en andere opmaak door meerdere gedeelten te gebruiken.
+Een alinea kan dus tekst met verschillende lettertypes, kleuren, groottes en andere opmaak bevatten door meerdere fragmenten te gebruiken.
 
-## **Alinea's maken en opmaken**
+## **Alinea’s maken en opmaken**
 
-### **Alinea's maken met meerdere gedeelten**
+### **Alinea’s maken met meerdere fragmenten**
 
-De volgende stappen maken een tekstframe met drie alinea's, elk met drie gedeelten:
+De volgende stappen maken een tekstframe met drie alinea’s, elk met drie fragmenten:
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) aan.
-2. Open de referentie naar de betreffende slide via de index.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
+2. Verkrijg de referentie naar de gewenste slide via de index.
 3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe aan de slide.
-4. Open de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de vorm.
-5. Gebruik de standaardalinea en voeg twee extra [IParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/) objecten toe aan het tekstframe.
-6. Voeg voldoende [IPortion](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/) objecten toe zodat elke alinea drie gedeelten bevat. De standaardalinea bevat al één leeg gedeelte.
-7. Stel de tekst van elk gedeelte in.
-8. Pas teken‑niveau opmaak toe via [IPortion::get_PortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/get_portionformat/) .
+4. Verkrijg de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de shape.
+5. Gebruik de standaardalinea en voeg twee extra [IParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/)‑objecten toe aan het tekstframe.
+6. Voeg voldoende [IPortion](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/)‑objecten toe zodat elke alinea drie fragmenten bevat. De standaardalinea bevat al één leeg fragment.
+7. Stel de tekst van elk fragment in.
+8. Pas teken‑opmaak toe via [IPortion::get_PortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/get_portionformat/).
 9. Sla de gewijzigde presentatie op.
 
-Dit C++‑voorbeeld implementeert de stappen:
+Deze C++‑voorbeeld implementeert de stappen:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -135,22 +135,22 @@ presentation->Dispose();
 
 ### **Een opsomming of genummerde lijst maken**
 
-Opsommingstekens en nummering maken gerelateerde items makkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [IBulletFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/) .
+Opsommingstekens en nummering maken gerelateerde items beter scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [IBulletFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/).
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) aan.
-2. Open de referentie naar de betreffende slide via de index.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
+2. Verkrijg de referentie naar de gewenste slide via de index.
 3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe aan de geselecteerde slide.
-4. Open de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de vorm.
+4. Verkrijg de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de shape.
 5. Verwijder de standaardalinea uit het tekstframe.
-6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
-7. Stel [IBulletFormat::set_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_type/) in op [BulletType::Symbol](https://reference.aspose.com/slides/nl/cpp/aspose.slides/bullettype/) en specificeer het opsommingsteken‑karakter.
-8. Stel de alinea‑tekst, insprong, opsommingstekenkleur en opsommingsteekengrootte in.
+6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/paragraph/) voor een symbool‑opsomming.
+7. Stel [IBulletFormat::set_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_type/) in op [BulletType::Symbol](https://reference.aspose.com/slides/nl/cpp/aspose.slides/bullettype/) en geef het opsommingsteken op.
+8. Stel de alinea‑tekst, inspringing, kleur en hoogte van het opsommingsteken in.
 9. Voeg de alinea toe aan het tekstframe.
-10. Maak een tweede alinea en stel [IBulletFormat::set_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_type/) in op [BulletType::Numbered](https://reference.aspose.com/slides/nl/cpp/aspose.slides/bullettype/) .
-11. Configureer de genummerde opsommingsteken‑stijl en voeg de alinea toe aan het tekstframe.
+10. Maak een tweede alinea en stel [IBulletFormat::set_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_type/) in op [BulletType::Numbered](https://reference.aspose.com/slides/nl/cpp/aspose.slides/bullettype/).
+11. Configureer de stijl van de genummerde opsomming en voeg de alinea toe aan het tekstframe.
 12. Sla de presentatie op.
 
-Dit C++‑voorbeeld maakt een symbool‑opsommingsteken en een genummerd opsommingsteken:
+Dit C++‑voorbeeld maakt een symbool‑opsomming en een genummerde opsomming:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -205,16 +205,16 @@ presentation->Dispose();
 
 ### **Afbeeldings‑opsommingstekens gebruiken**
 
-Afbeeldings‑opsommingstekens laten je een aangepast beeld gebruiken in plaats van een symbool of cijfer.
+Afbeeldings‑opsommingstekens laten je een eigen afbeelding gebruiken in plaats van een symbool of cijfer.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) aan.
-2. Open de referentie naar de betreffende slide via de index.
-3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe en open de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) .
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
+2. Verkrijg de referentie naar de gewenste slide via de index.
+3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe en verkrijg de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/).
 4. Verwijder de standaardalinea uit het tekstframe.
-5. Laad de opsommingsteken‑afbeelding en voeg deze toe aan de afbeeldingscollectie van de presentatie als een [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/) .
+5. Laad de opsomming‑afbeelding en voeg deze toe aan de afbeeldingcollectie van de presentatie als een [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/).
 6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/paragraph/) en stel de tekst in.
-7. Stel [IBulletFormat::set_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_type/) in op [BulletType::Picture](https://reference.aspose.com/slides/nl/cpp/aspose.slides/bullettype/) .
-8. Wijs de afbeelding toe via [ISlidesPicture::set_Image](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidespicture/set_image/) en stel de opsommingsteken‑grootte in.
+7. Stel [IBulletFormat::set_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_type/) in op [BulletType::Picture](https://reference.aspose.com/slides/nl/cpp/aspose.slides/bullettype/).
+8. Wijs de afbeelding toe via [ISlidesPicture::set_Image](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidespicture/set_image/) en stel de hoogte van het opsommingsteken in.
 9. Voeg de alinea toe aan het tekstframe.
 10. Sla de gewijzigde presentatie op.
 
@@ -259,17 +259,17 @@ presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
 presentation->Dispose();
 ```
 
-### **Een meerniveaulijst maken**
+### **Een meerlagige lijst maken**
 
-Stel [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_depth/) in om alinea's op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
+Stel [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_depth/) in om alinea’s op verschillende lijstniveaus te plaatsen. Het bovenste niveau heeft een diepte van `0`.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) en open een slide.
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) en verkrijg een slide.
 2. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe en verwijder de standaardalinea uit het tekstframe.
-3. Maak vier alinea's en configureer hun opsommingsteken‑symbolen.
-4. Stel hun [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_depth/) waarden in op `0`, `1`, `2` en `3`.
-5. Voeg de alinea's toe aan het tekstframe en sla de presentatie op.
+3. Maak vier alinea’s en configureer hun opsomming‑symbolen.
+4. Stel hun [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_depth/)‑waarden in op `0`, `1`, `2` en `3`.
+5. Voeg de alinea’s toe aan het tekstframe en sla de presentatie op.
 
-Dit C++‑voorbeeld maakt een vier‑niveau opsommingslijst:
+Dit C++‑voorbeeld maakt een vierlagige opsomming:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -335,17 +335,17 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Genummerde lijstitems starten met aangepaste waarden**
+### **Genummerde lijstitems starten bij aangepaste waarden**
 
-Gebruik [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) om het initiële cijfer voor een genummerde alinea in te stellen.
+Gebruik [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) om het beginnummer van een genummerde alinea in te stellen.
 
 1. Maak een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) en voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe aan een slide.
-2. Verwijder de standaardalinea uit het tekstframe van de vorm.
-3. Maak drie genummerde alinea's.
-4. Stel [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) in op `2`, `3` respectievelijk `7` voor de alinea's.
-5. Voeg de alinea's toe aan het tekstframe en sla de presentatie op.
+2. Verwijder de standaardalinea uit het tekstframe van de shape.
+3. Maak drie genummerde alinea’s.
+4. Stel [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) in op `2`, `3` en `7` voor de respectieve alinea’s.
+5. Voeg de alinea’s toe aan het tekstframe en sla de presentatie op.
 
-Dit C++‑voorbeeld kent een aangepaste startwaarde toe aan elke alinea:
+Dit C++‑voorbeeld kent een aangepast startnummer toe aan elke alinea:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -388,22 +388,22 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Alinea‑lay‑out en eind‑eigenschappen beheren**
+## **Alinea‑layout en eind­eigenschappen beheren**
 
-### **Een eerste‑regelinsprong instellen**
+### **Eerste‑regel‑insprong instellen**
 
-Gebruik [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) om de insprong van de eerste regel van een alinea te bepalen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels op de alinea‑lichaam uitgelijnd blijven.
+Gebruik [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) om de eerste‑regel‑insprong van een alinea te bepalen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
 
 Gebruik [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_marginleft/) wanneer je de hele alinea wilt verplaatsen. Gebruik [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) wanneer je alleen de eerste regel wilt verplaatsen.
 
-Het onderstaande voorbeeld maakt meerdere alinea's en past verschillende [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) waarden toe om te laten zien hoe de eerste‑regelinsprong de lay‑out beïnvloedt.
+Het voorbeeld hieronder maakt verschillende alinea’s en past uiteenlopende [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/)‑waarden toe om te laten zien hoe de eerste‑regel‑insprong de lay‑out beïnvloedt.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) aan.
-2. Open de doel‑slide.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
+2. Verkrijg de doel‑slide.
 3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe aan de slide.
-4. Open de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de vorm en verwijder de standaardalinea.
-5. Maak meerdere alinea's en stel verschillende [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) waarden in.
-6. Voeg de alinea's toe aan het tekstframe.
+4. Verkrijg de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de shape en verwijder de standaardalinea.
+5. Maak verschillende alinea’s en stel voor elk een andere [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) in.
+6. Voeg de alinea’s toe aan het tekstframe.
 7. Sla de gewijzigde presentatie op.
 
 Deze code laat zien hoe je een alinea‑insprong instelt:
@@ -464,28 +464,28 @@ presentation->Save(u"paragraph_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Het resultaat:
+Resultaat:
 
-![De eerste‑regelinsprong van de alinea's](first_line_indent.png)
+![De eerste‑regel‑insprong van de alinea’s](first_line_indent.png)
 
-### **Een hangende insprong instellen**
+### **Hangende insprong instellen**
 
-Een hangende insprong is een alinea‑lay‑out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides maak je dit effect met [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/). Stel de insprong in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van het alinea‑lichaam.
+Een hangende insprong is een lay‑out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides creëer je dit effect met [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/). Stel een negatieve waarde in om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
 
-In de praktijk definieert [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_marginleft/) de linkermarge van het alinea‑lichaam, en [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) de positie van de eerste regel ten opzichte van die marge. Om een hangende insprong te maken, stel je een positieve margin‑left waarde in en een negatieve insprongwaarde.
+In de praktijk bepaalt [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_marginleft/) de linkermarge van de alinea‑inhoud, en [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) de positie van de eerste regel ten opzichte van die marge. Voor een hangende insprong stel je een positieve margin‑left‑waarde en een negatieve indent‑waarde in.
 
-Deze opmaak is nuttig voor bibliografieën, referenties, woordenboekvermeldingen en andere alinea's waarbij de omslagen onder het alinea‑lichaam moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
+Deze opmaak is nuttig voor bibliografieën, referenties, woordenlijstvermeldingen en andere alinea’s waarbij de ingesprongen regels onder de alinea‑inhoud moeten uitlijnen i.p.v. onder het eerste teken van de eerste regel.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) aan.
-2. Open de doel‑slide.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
+2. Verkrijg de doel‑slide.
 3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe aan de slide.
-4. Open de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de vorm en verwijder de standaardalinea.
-5. Maak alinea's en stel voor elke alinea een positieve [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_marginleft/) waarde in.
-6. Stel een negatieve [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) waarde in om het hangende‑insprong‑effect te krijgen.
-7. Voeg de alinea's toe aan het tekstframe.
+4. Verkrijg de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de shape en verwijder de standaardalinea.
+5. Maak alinea’s en stel voor elke alinea een positieve [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_marginleft/) in.
+6. Stel een negatieve [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_indent/) in om het hangende‑insprong‑effect te verkrijgen.
+7. Voeg de alinea’s toe aan het tekstframe.
 8. Sla de gewijzigde presentatie op.
 
-Deze code toont hoe je een hangende insprong voor een alinea instelt:
+Deze code laat zien hoe je een hangende insprong voor een alinea instelt:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -535,20 +535,20 @@ presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Het resultaat:
+Resultaat:
 
-![De hangende insprong van de alinea's](hanging_indent.png)
+![De hangende insprong van de alinea’s](hanging_indent.png)
 
-### **Einde‑alinea‑eigenschappen instellen**
+### **Eind‑alinea‑run‑eigenschappen instellen**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) bepaalt de opmaak van het einde‑teken van een alinea. Het volgende voorbeeld kent een lettergrootte en een Latijnse lettertype toe aan het einde‑teken van de tweede alinea:
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) bepaalt de opmaak van het alinea‑eindteken. Het volgende voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eindteken van de tweede alinea:
 
-1. Laad een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) en open een slide.
-2. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe en verwijder de standaardalinea.
-3. Maak twee alinea's en voeg tekstgedeelten toe.
-4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/portionformat/) voor het einde‑teken van de tweede alinea.
+1. Laad een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) en verkrijg een slide.
+2. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe en maak de standaardalinea leeg.
+3. Maak twee alinea’s en voeg tekstfragmenten toe.
+4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/portionformat/) voor het eindteken van de tweede alinea.
 5. Stel [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibaseportionformat/set_fontheight/) en [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibaseportionformat/set_latinfont/) in.
-6. Wijs de opmaak toe met [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) en sla de presentatie op.
+6. Koppel de opmaak met [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) en sla de presentatie op.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -590,17 +590,75 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Inhoud van alinea's importeren en exporteren**
+## **Aantal gerenderde regels tellen**
 
-### **HTML‑tekst importeren in alinea's**
+Gebruik [IParagraph::GetLinesCount](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getlinescount/) om het aantal regels te tellen dat een alinea inneemt na tekstopmaak, inclusief automatisch afbreken. Dit is handig bij het controleren van tekengrootte en lay‑out in presentatiesjablonen.
 
-Gebruik [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/addfromhtml/) om HTML‑opmaak om te zetten naar alinea's en gedeelten in een tekstframe.
+Een alinea is één item in [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_paragraphs/), en kan meerdere gerenderde regels beslaan. Een expliciete regeleinde‑invoeging in een alinea dwingt een nieuwe regel af zonder een extra alinea te creëren. Automatisch afbreken maakt regels op basis van de beschikbare breedte zonder expliciete regeleinden in de tekst toe te voegen. Het tellen van alinea’s of regeleinde‑tekens geeft daarom niet het gerenderde regel‑aantal.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) aan.
-2. Open een slide en voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe.
-3. Open de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de vorm en verwijder de standaardalinea.
+Het volgende voorbeeld maakt een tekst‑shape, telt de regels, vernauwt de shape en vervangt daarna de tekst door een kortere string. Afbreken is ingeschakeld en autofit is uitgeschakeld zodat de breedte van de shape het afbreken bepaalt zonder de tekst of de shape automatisch te verkleinen. Shape‑afmetingen zijn in points. Ten slotte voegt het voorbeeld nog een alinea toe en somt de regel‑aantallen op over het tekstframe.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::True);
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+
+auto paragraph = textFrame->get_Paragraph(0);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20);
+paragraph->set_Text(u"This text demonstrates how automatic wrapping changes the number of rendered lines.");
+Console::WriteLine(u"Original width: {0}", paragraph->GetLinesCount());
+
+shape->set_Width(150);
+Console::WriteLine(u"Narrower shape: {0}", paragraph->GetLinesCount());
+
+paragraph->set_Text(u"Short text.");
+Console::WriteLine(u"Shorter text: {0}", paragraph->GetLinesCount());
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Another paragraph.");
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto totalLineCount = 0;
+for (auto currentParagraph : textFrame->get_Paragraphs())
+{
+    totalLineCount += currentParagraph->GetLinesCount();
+}
+Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
+presentation->Dispose();
+```
+
+Met deze tekst en afmetingen verhoogt het vernauwen van de shape het aantal regels, terwijl het vervangen van de tekst door de korte string het aantal verlaagt. Exacte aantallen kunnen variëren afhankelijk van beschikbare lettertypes en substitutie, lettergrootte, marges, insprong, afbreken en autofit‑instellingen. Gebruik de lettertypes en lay‑out‑instellingen die voor de doelomgeving bedoeld zijn bij het controleren van een sjabloon.
+
+Het aantal regels alleen bepaalt niet of tekst buiten de container treedt. De beschikbare hoogte, regel‑hoogtes, alinea‑ en regel‑spatiëring en autofit‑gedrag zijn ook van belang; zelfs een enkele regel kan de beschikbare breedte overschrijden wanneer afbreken is uitgeschakeld.
+
+## **Alinea‑inhoud importeren en exporteren**
+
+### **HTML‑tekst importeren in alinea’s**
+
+Gebruik [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/addfromhtml/) om HTML‑markup te converteren naar alinea’s en fragmenten in een tekstframe.
+
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
+2. Verkrijg een slide en voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) toe.
+3. Verkrijg de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de shape en verwijder de standaardalinea.
 4. Lees het bron‑HTML‑bestand.
-5. Geef de HTML‑string door aan [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/addfromhtml/) .
+5. Geef de HTML‑string door aan [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
 6. Sla de gewijzigde presentatie op.
 
 Dit C++‑voorbeeld importeert HTML in een tekstframe:
@@ -638,15 +696,15 @@ presentation->Dispose();
 
 ### **Alinea‑tekst exporteren naar HTML**
 
-Gebruik [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/exporttohtml/) om een geselecteerd bereik van alinea's als HTML te exporteren.
+Gebruik [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/exporttohtml/) om een geselecteerd bereik van alinea’s als HTML te exporteren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) en laad de gewenste presentatie.
-2. Open de slide en vind de [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) die de tekst bevat.
-3. Open de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de vorm.
-4. Roep [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/exporttohtml/) aan met de start‑alinea‑index en het aantal alinea's dat geëxporteerd moet worden.
-5. Schrijf de geretourneerde HTML‑string naar een bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse en laad de gewenste presentatie.
+2. Verkrijg de slide en zoek de [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) die de tekst bevat.
+3. Verkrijg de [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) van de shape.
+4. Roep [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphcollection/exporttohtml/) aan met de index van de start‑alinea en het aantal alinea’s dat je wilt exporteren.
+5. Schrijf de teruggegeven HTML‑string naar een bestand.
 
-Dit C++‑voorbeeld exporteert alle alinea's uit de eerste tekstvorm:
+Dit C++‑voorbeeld exporteert alle alinea’s van de eerste tekst‑shape:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -684,17 +742,17 @@ presentation->Dispose();
 
 ### **Een alinea renderen als afbeelding**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/) rendert een individuele alinea direct en geeft een [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/) terug. Sla het resultaat op in een bestand of stream met [IImage::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/save/) . Je hoeft de omsluitende vorm niet te renderen of een bitmap handmatig bij te snijden.
+[IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/) rendert een individuele alinea direct en geeft een [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/) terug. Sla het resultaat op in een bestand of stream met [IImage::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/save/). Het is niet nodig om de omvattende shape te renderen of handmatig een bitmap bij te snijden.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/) kan `nullptr` retourneren als de alinea niet in de bovenliggende verzameling gevonden wordt, geen geldige render‑afmetingen heeft, of niet gerenderd kan worden. Controleer het resultaat vóór het opslaan en maak de geretourneerde afbeelding vrij na gebruik.
+[IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/) kan `nullptr` retourneren als de alinea niet wordt gevonden in de bovenliggende collectie, geen geldige render‑grenzen heeft, of niet kan worden gerenderd. Controleer het resultaat vóór het opslaan en ruim de geretourneerde afbeelding op na gebruik.
 
-#### **Een alinea renderen op de standaardschaal**
+#### **Een alinea renderen op standaardschaal**
 
-Stel dat we een presentatie‑bestand genaamd sample.pptx hebben met één slide, waarbij de eerste vorm een tekstvak is met drie alinea's.
+Stel dat we een presentatie‑bestand hebben genaamd **sample.pptx** met één slide, waarbij de eerste shape een tekstvak is met drie alinea’s.
 
-![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
+![Het tekstvak met drie alinea’s](paragraph_to_image_input.png)
 
-Het volgende voorbeeld rendert de tweede alinea in een gewone tekstvorm op de standaardschaal en slaat de geretourneerde afbeelding op in PNG‑formaat.
+Het volgende voorbeeld rendert de tweede alinea in een regulier tekstvak op de standaardschaal en slaat de afbeelding op als PNG.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -735,13 +793,13 @@ else
 presentation->Dispose();
 ```
 
-Het resultaat:
+Resultaat:
 
 ![De alinea‑afbeelding](paragraph_to_image_output.png)
 
-#### **Een alinea renderen in een tabelcel met schaalvergroting**
+#### **Een alinea renderen in een tabelcel met schaal**
 
-Gebruik de overload van [IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/) die de parameters `float scaleX` en `float scaleY` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op het dubbele van de standaardbreedte en -hoogte, en slaat het resultaat op als PNG‑afbeelding.
+Gebruik de overload van [IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/) die de parameters `float scaleX` en `float scaleY` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op tweemaal de standaardbreedte en -hoogte, en slaat het resultaat op als PNG‑afbeelding.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -778,24 +836,24 @@ else
 presentation->Dispose();
 ```
 
-Een schaalfactor van `1` behoudt die as op de standaardpixelgrootte. Bijvoorbeeld, `2` voor beide factoren produceert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn van de standaardafmetingen, wat resulteert in vier keer zoveel pixels. Grotere factoren leveren over het algemeen scherpere tekst voor inzoomen of hoge‑resolutie‑output, maar verhogen ook het geheugenverbruik en de bestandsgrootte. Factoren onder `1` geven kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken de uitvoer onafhankelijk uit.
+Een schaalfactor van `1` behoudt die as op de standaard pixelgrootte. Bijvoorbeeld `2` voor beide factoren levert een afbeelding op waarvan breedte en hoogte ongeveer tweemaal de standaardafmetingen zijn, wat vier keer zoveel pixels oplevert. Hogere factoren geven doorgaans scherpere tekst voor inzoomen of hoge‑resolutie‑output, maar verhogen ook het geheugen‑ en bestandsgroottegebruik. Factoren onder `1` produceren kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken de output onafhankelijk uit.
 
-Het renderen van een volledige vorm met [IShape::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/getimage/) blijft nuttig wanneer de uitvoer de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding die alleen de alinea bevat, gebruik je [IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/) .
+Het renderen van een volledige shape met [IShape::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/getimage/) blijft nuttig wanneer de output de vulling, rand of andere visuele context van de shape moet bevatten. Voor een afbeelding die alleen de alinea bevat, gebruik je [IParagraph::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Kan ik het automatisch afbreken van tekst in een tekstframe volledig uitschakelen?**
+**Kan ik het afbreken van tekst in een tekstframe volledig uitschakelen?**
 
-Ja. Gebruik [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/set_wraptext/) om afbreken uit te schakelen zodat regels niet worden gesplitst bij de randen van het tekstframe.
+Ja. Gebruik [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/set_wraptext/) om afbreken uit te schakelen zodat regels niet bij de randen van het tekstframe worden afgebroken.
 
-**Hoe kan ik de exacte in‑slide‑grenzen van een specifieke alinea verkrijgen?**
+**Hoe krijg ik de exacte on‑slide‑grenzen van een specifieke alinea?**
 
-Gebruik [IParagraph::GetRect](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getrect/) om de omhullende rechthoek van de alinea op te halen. [IPortion::GetRect](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/getrect/) geeft de grenzen van een individueel gedeelte.
+Gebruik [IParagraph::GetRect](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/getrect/) om de begrenzende rechthoek van de alinea op te halen. [IPortion::GetRect](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportion/getrect/) geeft de grenzen van een individueel fragment.
 
 **Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of uitgevuld) geregeld?**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_alignment/) is een alinea‑niveau instelling en wordt toegepast op de volledige alinea ongeacht de opmaak van individuele gedeelten.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_alignment/) is een instelling op alinea‑niveau en wordt toegepast op de hele alinea, ongeacht de opmaak van afzonderlijke fragmenten.
 
-**Kan ik de taalcontrole instellen voor een deel van een alinea?**
+**Kan ik de proefleestaal voor een deel van een alinea instellen?**
 
-Ja. Gebruik [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibaseportionformat/set_languageid/) voor individuele gedeelten, zodat één alinea tekst in meerdere talen kan bevatten.
+Ja. Gebruik [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibaseportionformat/set_languageid/) voor individuele fragmenten, zodat één alinea tekst in meerdere talen kan bevatten.

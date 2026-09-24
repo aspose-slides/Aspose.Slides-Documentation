@@ -11,12 +11,12 @@ keywords:
 - 文字透明度
 - 字元間距
 - 字型屬性
-- 字型家族
+- 字型族
 - 文字旋轉
 - 旋轉角度
 - 文字框
 - 行距
-- 自動適合屬性
+- 自動適應屬性
 - 文字框錨點
 - 文字定位點
 - 預設語言
@@ -25,23 +25,23 @@ keywords:
 - 簡報
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 在 PowerPoint 與 OpenDocument 簡報中格式化與樣式化文字。自訂字型、顏色、對齊方式等。"
+description: "使用 Aspose.Slides for Java 在 PowerPoint 與 OpenDocument 簡報中格式化與樣式化文字。自訂字型、顏色、對齊方式等多項設定。"
 ---
 ## **概述**
 
-本文說明如何使用 Aspose.Slides for Java 於 PowerPoint 與 OpenDocument 簡報中格式化文字。內容涵蓋背景色、透明度、字元間距、字型屬性、旋轉、段落間距、自動適合行為、文字錨點、定位點以及語言設定。
+本文說明如何使用 Aspose.Slides for Java 在 PowerPoint 和 OpenDocument 簡報中格式化文字。內容涵蓋背景色、透明度、字元間距、字型屬性、旋轉、段落間距、自動適應行為、文字錨點、定位點以及語言設定。
 
-在下方範例中，我們將使用名為 **sample.pptx** 的檔案，該檔案的第一張投影片上有一個包含以下文字的文字方塊：
+在以下範例中，我們將使用名為「sample.pptx」的檔案，該檔案的第一張投影片上有一個文字方塊，內容如下：
 
-![範例文字](sample_text.png)
+![示例文字](sample_text.png)
 
-如需尋找並標示純文字或正規表示式匹配項目，請參閱[Search and Replace Text](/slides/zh-hant/java/search-and-replace-text/)。
+若要搜尋並標示文字或正規表達式符合項目，請參閱[搜尋與取代文字](/slides/zh-hant/java/search-and-replace-text/)。
 
-## **設定文字背景色彩**
+## **設定文字背景顏色**
 
-使用[IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) 設定段落的預設強調顏色，或使用[IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) 為單一文字段落設定。
+使用[IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) 來設定段落的預設醒目顏色，或使用[IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) 為單一文字區段設定。
 
-以下程式碼示範如何設定 **整個段落** 的背景色彩：
+以下程式碼示範如何設定**整個段落**的背景顏色：
 
 ```java
 import com.aspose.slides.*;
@@ -53,7 +53,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // 設定整段落的強調顏色。
+    // 設定整個段落的醒目顏色。
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -66,7 +66,7 @@ try {
 
 ![灰色段落](gray_paragraph.png)
 
-下方程式碼示範如何為 **粗體字型的文字段落** 設定背景色彩：
+以下程式碼示範如何為**粗體字**的文字區段設定背景顏色：
 
 ```java
 import com.aspose.slides.*;
@@ -80,7 +80,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // 設定文字片段的高亮顏色。
+            // 設定文字區段的醒目顏色。
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -93,13 +93,13 @@ try {
 
 結果：
 
-![灰色文字段落](gray_text_portions.png)
+![灰色文字區段](gray_text_portions.png)
 
 ## **對齊文字段落**
 
-使用[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 於文字框內設定段落對齊方式。可設定為置中、左對齊、右對齊、兩端對齊等。
+使用[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 來設定文字框內段落的對齊方式。可設定為置中、左對齊、右對齊、兩端對齊等。
 
-以下程式碼示範如何將段落 **置中**：
+以下程式碼示範如何將段落**置中**：
 
 ```java
 import com.aspose.slides.*;
@@ -121,13 +121,13 @@ try {
 
 結果：
 
-![已對齊的段落](aligned_paragraph.png)
+![已置中段落](aligned_paragraph.png)
 
 ## **設定文字透明度**
 
-文字透明度透過指派給[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) 的顏色之 alpha 成分來控制。以下範例中的 `alpha = 50` 為 0–255 範圍的 ARGB 透明通道值，而非百分比。
+文字透明度透過指派給[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) 的顏色的 alpha 分量來控制。以下範例中的 `alpha = 50` 為 ARGB alpha 通道值，範圍 0–255，並非透明度百分比。
 
-以下程式碼示範如何對 **整個段落** 套用透明度：
+以下程式碼示範如何為**整個段落**套用透明度：
 
 ```java
 import com.aspose.slides.*;
@@ -141,7 +141,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // 設定文字的填色為透明顏色。
+    // 設定文字的填充顏色為透明色。
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -155,7 +155,7 @@ try {
 
 ![透明段落](transparent_paragraph.png)
 
-以下程式碼示範如何對 **粗體字型的文字段落** 套用透明度：
+以下程式碼示範如何為**粗體字**的文字區段套用透明度：
 
 ```java
 import com.aspose.slides.*;
@@ -171,7 +171,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // 設定文字片段的透明度。
+            // 設定文字區段的透明度。
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -185,13 +185,13 @@ try {
 
 結果：
 
-![透明文字段落](transparent_text_portions.png)
+![透明文字區段](transparent_text_portions.png)
 
 ## **設定文字字元間距**
 
-使用[IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) 以擴大或縮小文字方塊中字元之間的間距。
+使用[IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) 來在文字方塊中擴大或縮小字元間距。
 
-以下 Java 程式碼示範如何在 **整個段落** 中擴大字元間距：
+以下 Java 程式碼示範如何在**整個段落**中擴大字元間距：
 
 ```java
 import com.aspose.slides.*;
@@ -202,8 +202,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // 註：使用負值壓縮字元間距。
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // 擴展字元間距。
+    // 注意: 使用負值來壓縮字元間距。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // 展開字元間距。
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -215,7 +215,7 @@ try {
 
 ![段落中的字元間距](character_spacing_in_paragraph.png)
 
-以下程式碼示範如何在 **粗體字型的文字段落** 中擴大字元間距：
+以下程式碼示範如何在**粗體字**的文字區段中擴大字元間距：
 
 ```java
 import com.aspose.slides.*;
@@ -228,8 +228,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // 註：使用負值壓縮字元間距。
-            portion.getPortionFormat().setSpacing(3); // 擴展字元間距。
+            // 注意: 使用負值來壓縮字元間距。
+            portion.getPortionFormat().setSpacing(3); // 展開字元間距。
         }
     }
 
@@ -241,13 +241,13 @@ try {
 
 結果：
 
-![文字段落中的字元間距](character_spacing_in_text_portions.png)
+![文字區段中的字元間距](character_spacing_in_text_portions.png)
 
-### **停用特定字型的字距微調 (Kerning)**
+### **為特定字型關閉字距調整 (Kerning)**
 
-在某些情況下，Aspose.Slides 所渲染的文字看起來可能比 PowerPoint 中的相同文字稍微緊密。這可能是因為 PowerPoint 會忽略某些字型的字距微調資料，即使該字型包含有效的字距微調資訊且在 PowerPoint 設定中已啟用。
+在某些情況下，Aspose.Slides 產生的文字渲染可能較 PowerPoint 顯示的文字略為緊密。這可能是因為 PowerPoint 會忽略某些字型的字距調整資料，即使該字型內含有效的字距資訊且已在 PowerPoint 設定中啟用。
 
-若要使渲染結果更貼近 PowerPoint，可對使用受影響字型的文字段落停用字距微調。將[IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) 設為遠大於實際字型大小的值：
+若要讓渲染結果更接近 PowerPoint，可為使用受影響字型的文字區段停用字距調整。將[IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) 設為遠大於實際字型大小的值：
 
 ```java
 import com.aspose.slides.*;
@@ -279,13 +279,13 @@ try {
 }
 ```
 
-此設定可防止對符合條件的文字段落套用字距微調，協助 Aspose.Slides 的渲染與 PowerPoint 針對特定字型的視覺輸出保持一致。
+此設定會阻止對符合條件的文字區段套用字距調整，從而使 Aspose.Slides 的渲染與 PowerPoint 的視覺輸出更為一致。
 
 ## **管理文字字型屬性**
 
-字型屬性可透過[IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) 在段落層級設定，或透過[IPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportionformat/) 在個別段落設定。
+字型屬性可透過[IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) 在段落層級設定，或透過[IPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportionformat/) 在單一區段設定。
 
-以下程式碼為整個段落設定字型與文字樣式：套用字型大小、粗體、斜體、點狀底線，以及 Times New Roman 字型至段落中的所有段落。
+以下程式碼為整個段落設定字型與文字樣式：包括字型大小、粗體、斜體、點線底線，以及 Times New Roman 字型，套用至段落內所有區段。
 
 ```java
 import com.aspose.slides.*;
@@ -313,7 +313,7 @@ try {
 
 ![段落的字型屬性](font_properties_for_paragraph.png)
 
-以下程式碼將相同屬性套用於 **粗體字型的文字段落**：
+以下程式碼為**粗體字**的文字區段套用相同屬性：
 
 ```java
 import com.aspose.slides.*;
@@ -326,7 +326,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // 設定文字片段的字型屬性。
+            // 設定文字區段的字型屬性。
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -342,13 +342,13 @@ try {
 
 結果：
 
-![文字段落的字型屬性](font_properties_for_text_portions.png)
+![文字區段的字型屬性](font_properties_for_text_portions.png)
 
 ## **設定文字旋轉**
 
-使用[ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) 設定形狀內的預先定義文字方向。
+使用[ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) 來設定形狀內的預設文字方向。
 
-以下程式碼將文字方向設為 `Vertical270`，即將文字 **逆時針旋轉 90 度**：
+以下程式碼將形狀內的文字方向設定為 `Vertical270`，即文字**逆時針旋轉 90 度**：
 
 ```java
 import com.aspose.slides.*;
@@ -370,11 +370,11 @@ try {
 
 ![文字旋轉](text_rotation.png)
 
-## **設定文字方塊的自訂旋轉**
+## **為文字框設定自訂旋轉角度**
 
 使用[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) 為[ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/) 設定自訂旋轉角度。
 
-以下程式碼將文字方塊在形狀內順時針旋轉 3 度：
+以下程式碼將文字框在形狀內順時針旋轉 3 度：
 
 ```java
 import com.aspose.slides.*;
@@ -398,12 +398,12 @@ try {
 
 ## **設定段落的行距**
 
-Aspose.Slides 提供[IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)、[IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) 與[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) 以控制段落間距。這些屬性的使用方式如下：
+Aspose.Slides 提供[IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)、[IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) 以及[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) 來控制段落間距。使用方式如下：
 
-* 使用正值以百分比表示行高的行距。
-* 使用負值以點 (pt) 表示行距。
+* 正值表示以行高的百分比來指定行距。
+* 負值表示以點 (pt) 為單位指定行距。
 
-以下程式碼示範如何在段落內設定行距：
+以下程式碼示範如何在段落內指定行距：
 
 ```java
 import com.aspose.slides.*;
@@ -426,9 +426,9 @@ try {
 
 ![段落內的行距](line_spacing.png)
 
-## **設定文字方塊的自動適合類型**
+## **設定文字框的自動適應類型**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) 決定文字超出容器範圍時的行為。可用來控制文字是否縮小、溢出或自動調整形狀大小。
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) 決定當文字超出容器邊界時的行為。可用來控制文字是縮小、溢出或自動調整形狀大小。
 
 ```java
 import com.aspose.slides.*;
@@ -446,9 +446,11 @@ try {
 }
 ```
 
-## **設定文字方塊的錨點**
+若要在自動換行後計算行數並觀察文字或形狀寬度的變化，請參閱[計算已渲染的行數](/slides/zh-hant/java/manage-paragraph/)。單純的行數並無法指示文字是否溢出容器。
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) 定義文字在形狀內的垂直對齊方式，例如頂部、中央或底部。
+## **設定文字框的錨點**
+
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) 定義文字在形狀內的垂直對齊方式，例如置頂、置中或置底。
 
 ```java
 import com.aspose.slides.*;
@@ -466,9 +468,9 @@ try {
 }
 ```
 
-## **設定文字定位點**
+## **設定文字定位點 (Tab)**
 
-使用[IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) 與[IParagraphFormat.getTabs](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getTabs--) 來設定段落的定位點。
+使用[IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) 以及[IParagraphFormat.getTabs](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getTabs--) 來設定段落的定位點。
 
 ```java
 import com.aspose.slides.*;
@@ -494,9 +496,9 @@ try {
 
 ## **設定校對語言**
 
-Aspose.Slides 提供[IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)，可為文字段落設定校對語言。校對語言決定 PowerPoint 在拼寫與文法檢查時使用的語言。
+Aspose.Slides 提供[IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)，可為文字區段設定校對語言。校對語言決定 PowerPoint 在拼寫與文法檢查時所使用的語言。
 
-以下程式碼示範如何為文字段落設定校對語言：
+以下程式碼示範如何為文字區段設定校對語言：
 
 ```java
 import com.aspose.slides.*;
@@ -530,7 +532,7 @@ try {
 
 ## **設定預設語言**
 
-使用[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) 定義載入或建立簡報時所產生文字的預設語言。
+使用[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) 來定義載入或建立簡報時產生文字的預設語言。
 
 ```java
 import com.aspose.slides.*;
@@ -542,11 +544,11 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增一個帶文字的矩形形狀。
+    // 新增一個含文字的矩形形狀。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // 檢查第一個文字段落的語言。
+    // 檢查第一個文字區段的語言。
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -556,9 +558,9 @@ try {
 
 ## **設定預設文字樣式**
 
-若要在簡報層級套用預設文字格式，可使用[IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--)。
+若要在簡報層級套用預設文字格式，請使用[IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--)。
 
-以下程式碼示範如何在新簡報的所有投影片中設定預設的 **粗體 14 點** 字型。
+以下程式碼示範如何在新簡報中為所有投影片的文字設定 14 點粗體字型作為預設。
 
 ```java
 import com.aspose.slides.*;
@@ -579,15 +581,15 @@ try {
 }
 ```
 
-## **擷取帶有全大寫效果的文字**
+## **擷取具有全大寫效果的文字**
 
-在 PowerPoint 中，套用 **全大寫** 字型效果會使投影片上的文字即使原本輸入為小寫也以大寫顯示。使用 Aspose.Slides 取得此類文字段落時，函式庫會回傳原始輸入的文字。若要與顯示的文字一致，請檢查[TextCapType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/textcaptype/) 並在值為 `All` 時將回傳字串轉換為大寫。
+在 PowerPoint 中，套用 **All Caps** 字型效果會使文字在投影片上以大寫顯示，即使原始輸入為小寫。當使用 Aspose.Slides 取得此類文字區段時，函式庫會回傳原始輸入的文字。若要符合顯示結果，可檢查[TextCapType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/textcaptype/) 並在值為 `All` 時將回傳的字串轉為大寫。
 
-假設在 sample2.pptx 的第一張投影片上有下列文字方塊。
+假設我們在 sample2.pptx 的第一張投影片上有下列文字方塊。
 
 ![全大寫效果](all_caps_effect.png)
 
-以下程式碼示範如何擷取套用 **全大寫** 效果的文字：
+以下程式碼示範如何擷取套用 **All Caps** 效果的文字：
 
 ```java
 import com.aspose.slides.*;
@@ -617,12 +619,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **常見問答**
+## **常見問題**
 
 **如何修改投影片上表格中的文字？**
 
-要修改投影片上表格中的文字，請使用[ITable](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itable/)。遍歷儲存格，並透過[ICell.getTextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icell/#getTextFrame--) 取得文字方塊，使用[IParagraph.getParagraphFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getParagraphFormat--) 變更段落格式。
+要修改投影片上表格的文字，請使用[ITable](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itable/)。遍歷儲存格，並透過[ICell.getTextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icell/#getTextFrame--) 取得文字框，使用[IParagraph.getParagraphFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getParagraphFormat--) 調整段落格式。
 
 **如何在 PowerPoint 投影片的文字上套用漸層色彩？**
 
-要為文字套用漸層色彩，請使用[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#getFillFormat--)。將[IFillFormat.setFillType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifillformat/#setFillType-byte-) 設為[FillType.Gradient](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/filltype/)，並設定漸層停止點、方向與透明度。
+要為文字套用漸層色彩，請使用[IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#getFillFormat--)。將[IFillFormat.setFillType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifillformat/#setFillType-byte-) 設為[FillType.Gradient](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/filltype/)，並配置漸層停止點、方向與透明度。

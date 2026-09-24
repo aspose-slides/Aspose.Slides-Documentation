@@ -9,15 +9,15 @@ keywords:
 - szövegstílus
 - szöveg háttér
 - szöveg átlátszóság
-- karakterköz
+- karakter távolság
 - betűtulajdonságok
-- betűtípuscsalád
-- szöveg forgatása
+- betűtípus család
+- szöveg forgatás
 - forgatási szög
 - szövegdoboz
 - sortávolság
 - automatikus illesztés tulajdonság
-- szövegdoboz rögzítése
+- szövegdoboz rögzítés
 - szöveg tabuláció
 - alapértelmezett nyelv
 - PowerPoint
@@ -30,19 +30,19 @@ description: "Formázza és stílusozza a szöveget PowerPoint és OpenDocument 
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet szöveget formázni PowerPoint és OpenDocument bemutatókban az Aspose.Slides for .NET használatával. Tárgyalja a háttérszíneket, átlátszóságot, karakterek közti távolságot, betűtulajdonságokat, forgatást, bekezdés távolságot, autofit viselkedést, szöveg rögzítését, tabulátorpozíciókat és nyelvi beállításokat.
+Ez a cikk bemutatja, hogyan lehet formázni a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for .NET segítségével. Kitér a háttérszínekre, átlátszóságra, karaktertávolságra, betűtulajdonságokra, forgatásra, bekezdés távolságokra, automatikus illesztés viselkedésére, szöveg rögzítésére, tabulátorokra és nyelvi beállításokra.
 
-Az alábbi példákban a "sample.pptx" nevű fájlt használjuk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
+Az alábbi példákban a „sample.pptx” nevű fájlt használjuk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
 
-![Minta szöveg](sample_text.png)
+![Példa szöveg](sample_text.png)
 
-A szöveg keresése és cseréje gyakorlati módjairól lásd a [Szöveg keresése és cseréje](/slides/hu/net/search-and-replace-text/).
+A szó szerinti szöveg vagy reguláris kifejezés egyezések megtalálásához és kiemeléséhez lásd a [Szöveg keresése és cseréje](/slides/hu/net/search-and-replace-text/) oldalt.
 
 ## **Szöveg háttérszín beállítása**
 
-Használja az [IParagraphFormat.DefaultPortionFormat]... a bekezdés alapértelmezett kiemelési színének beállításához, vagy használja az [IBasePortionFormat.HighlightColor]... egyedi szövegrészekhez.
+Használja a [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/defaultportionformat/) metódust a bekezdés alapértelmezett kiemelési színének beállításához, vagy az [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/highlightcolor/) metódust az egyes szövegrészekhez.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet beállítani a háttérszínt a **teljes bekezdés** számára: 
+Az alábbi kódrészlet bemutatja, hogyan állítható be a **teljes bekezdés** háttérszíne:
 
 ```cs
 using System.Drawing;
@@ -54,7 +54,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Állítsa be a kiemelés színét a teljes bekezdéshez.
+    // Állítsa be a teljes bekezdés kiemelési színét.
     paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
     presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -65,7 +65,7 @@ Az eredmény:
 
 ![A szürke bekezdés](gray_paragraph.png)
 
-Az alábbi kódrészlet bemutatja, hogyan lehet beállítani a háttérszínt **félkövér betűtípussal rendelkező szövegrészek** számára:
+Az alábbi kódrészlet bemutatja, hogyan állítható be a **félkövér betűkkel rendelkező szövegrészek** háttérszíne:
 
 ```cs
 using System.Drawing;
@@ -81,7 +81,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Állítsa be a kiemelés színét a szövegrészhez.
+            // Állítsa be a szövegrész kiemelési színét.
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -96,9 +96,9 @@ Az eredmény:
 
 ## **Szöveg bekezdések igazítása**
 
-Használja az [IParagraphFormat.Alignment]... a bekezdésigazítás beállításához egy szövegdobozon belül. Az érték lehet középre igazított, balra igazított, jobbra igazított, sorkizárt stb.
+Használja a [IParagraphFormat.Alignment](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/alignment/) metódust a bekezdés igazításának beállításához egy szövegdobozon belül. Az érték lehet középre, balra, jobbra, sorkizárt stb.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet a bekezdést **középre** igazítani:
+Az alábbi kódrészlet bemutatja, hogyan igazítható a bekezdés **középre**:
 
 ```cs
 using Aspose.Slides;
@@ -122,9 +122,9 @@ Az eredmény:
 
 ## **Szöveg átlátszóságának beállítása**
 
-A szöveg átlátszóságát az [IBasePortionFormat.FillFormat]... által hozzárendelt szín alfa komponense szabályozza. Az alábbi példákban az `alpha = 50` egy ARGB alfa-csatorna érték a 0–255 skálán, nem átlátszósági százalék.
+A szöveg átlátszóságát az [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/fillformat/) színének alfa komponensével szabályozhatja. Az alábbi példákban az `alpha = 50` egy ARGB alfa csatorna érték a 0–255 skálán, nem átlátszósági százalék.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet átlátszóságot alkalmazni a **teljes bekezdés**re:
+Az alábbi kódrészlet bemutatja, hogyan alkalmazható átlátszóság a **teljes bekezdés** esetén:
 
 ```cs
 using System.Drawing;
@@ -150,7 +150,7 @@ Az eredmény:
 
 ![Az átlátszó bekezdés](transparent_paragraph.png)
 
-Az alábbi kódrészlet bemutatja, hogyan lehet átlátszóságot alkalmazni **félkövér betűtípussal rendelkező szövegrészek** esetén:
+Az alábbi kódrészlet bemutatja, hogyan alkalmazható átlátszóság a **félkövér betűkkel rendelkező szövegrészek** esetén:
 
 ```cs
 using System.Drawing;
@@ -182,11 +182,11 @@ Az eredmény:
 
 ![Az átlátszó szövegrészek](transparent_text_portions.png)
 
-## **Karakterköz beállítása szövegnél**
+## **Karakter távolság beállítása a szövegben**
 
-Használja az [IBasePortionFormat.Spacing]... a karakterek közti távolság növeléséhez vagy szűkítéséhez egy szövegdobozban.
+Használja az [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/spacing/) metódust a karakterek közötti távolság növelésére vagy csökkentésére egy szövegdobozban.
 
-Az alábbi C# kód bemutatja, hogyan lehet növelni a karakterközt a **teljes bekezdés**ben:
+Az alábbi C# kód bemutatja, hogyan növelhető a karakter távolság a **teljes bekezdés** esetén:
 
 ```cs
 using Aspose.Slides;
@@ -197,8 +197,8 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Megjegyzés: Negatív értékekkel lehet összenyomni a karakterközt.
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Kiterjeszti a karakterközt.
+    // Megjegyzés: Negatív értékek használata a karaktertávolság csökkentéséhez.
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Karaktertávolság növelése.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
@@ -206,9 +206,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![A karakterköz a bekezdésben](character_spacing_in_paragraph.png)
+![A karaktertávolság a bekezdésben](character_spacing_in_paragraph.png)
 
-Az alábbi kódrészlet bemutatja, hogyan lehet növelni a karakterközt **félkövér betűtípussal rendelkező szövegrészek** esetén:
+Az alábbi kódrészlet bemutatja, hogyan növelhető a karaktertávolság a **félkövér betűkkel rendelkező szövegrészek** esetén:
 
 ```cs
 using Aspose.Slides;
@@ -223,8 +223,8 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Megjegyzés: Negatív értékekkel lehet összenyomni a karakterközt.
-            portion.PortionFormat.Spacing = 3;  // Kiterjeszti a karakterközt.
+            // Megjegyzés: Negatív értékek használata a karaktertávolság csökkentéséhez.
+            portion.PortionFormat.Spacing = 3;  // Karaktertávolság növelése.
         }
     }
 
@@ -234,13 +234,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![A karakterköz a szövegrészekben](character_spacing_in_text_portions.png)
+![A karaktertávolság a szövegrészekben](character_spacing_in_text_portions.png)
 
-### **Körírás letiltása bizonyos betűtípusoknál**
+### **Kerning letiltása bizonyos betűtípusoknál**
 
-Bizonyos esetekben az Aspose.Slides által renderelt szöveg kissé szorúbb lehet, mint a PowerPointban megjelenő ugyanaz a szöveg. Ez akkor fordulhat elő, ha a PowerPoint figyelmen kívül hagyja a körírásadatokat bizonyos betűtípusoknál, még akkor is, ha a betűtípusban érvényes körírási információk vannak, és a körírás be van kapcsolva a PowerPoint beállításaiban.
+Bizonyos esetekben az Aspose.Slides által renderelt szöveg kissé szorosabb lehet, mint a PowerPointban megjelenő szöveg. Ennek oka lehet, hogy a PowerPoint egyes betűtípusoknál figyelmen kívül hagyja a kerning adatokat, még akkor is, ha a betűtípus tartalmaz érvényes kerning információt és a kerning engedélyezve van a PowerPoint beállításaiban.
 
-Az ilyen esetekben, hogy a renderelt kimenet közelebb legyen a PowerPoint-hoz, letilthatja a körírást azoknál a szövegrészeknél, amelyek az érintett betűtípust használják. Állítsa be az [IBasePortionFormat.KerningMinimalSize]... értékét jóval nagyobbra, mint a tényleges betűméret:
+Az ilyen esetekben a renderelt kimenet PowerPoint közelítéséhez letilthatja a kerninget a **érintett betűtípust** használó szövegrészeknél. Állítsa be az [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/kerningminimalsize/) értékét a tényleges betűméretnél jelentősen nagyobbra:
 
 ```cs
 using Aspose.Slides;
@@ -271,13 +271,13 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-Ez a beállítás megakadályozza a körírás alkalmazását a megfelelő szövegrészekre, és segíthet az Aspose.Slides renderelését a PowerPoint vizuális kimenetéhez igazítani az ilyen PowerPoint-specifikus viselkedés által érintett betűtípusok esetén.
+Ez a beállítás megakadályozza a kerning alkalmazását a megfelelő szövegrészekre, és segíthet az Aspose.Slides renderelésének a PowerPoint vizuális kimenetéhez igazításában az érintett betűtípusok esetén.
 
-## **Szöveg betűtulajdonságok kezelése**
+## **Szöveg betűtulajdonságainak kezelése**
 
-A betűtulajdonságok beállíthatók bekezdés szinten az [IParagraphFormat.DefaultPortionFormat]... vagy egyedi részeknél az [IPortionFormat]... segítségével.
+A betűtulajdonságok beállíthatók a bekezdés szintjén a [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/defaultportionformat/) segítségével, vagy egyes részekre az [IPortionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iportionformat/) segítségével.
 
-Az alábbi kód beállítja a betűtípust és a szövegstílust a teljes bekezdésre: alkalmazza a betűméretet, félkövér, dőlt, pontozott aláhúzást, és a Times New Roman betűtípust a bekezdés minden részére.
+Az alábbi kód beállítja a betűt és a szövegstílust a teljes bekezdéshez: betűméret, félkövér, dőlt, pontozott aláhúzás, valamint a Times New Roman betűt minden részhez a bekezdésben.
 
 ```cs
 using Aspose.Slides;
@@ -288,7 +288,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Állítsa be a betűtulajdonságokat a bekezdéshez.
+    // Állítsa be a bekezdés betűtulajdonságait.
     paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
@@ -301,9 +301,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![A betűtulajdonságok a bekezdéshez](font_properties_for_paragraph.png)
+![A betűtulajdonságok a bekezdésben](font_properties_for_paragraph.png)
 
-Az alábbi kódrészlet hasonló tulajdonságokat alkalmaz **félkövér betűtípussal rendelkező szövegrészek** esetén:
+Az alábbi kódrészlet hasonló tulajdonságokat alkalmaz a **félkövér betűkkel rendelkező szövegrészek** esetén:
 
 ```cs
 using Aspose.Slides;
@@ -332,13 +332,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![A betűtulajdonságok a szövegrészekhez](font_properties_for_text_portions.png)
+![A betűtulajdonságok a szövegrészekben](font_properties_for_text_portions.png)
 
-## **Szöveg forgatása**
+## **Szöveg forgatás beállítása**
 
-Használja az [ITextFrameFormat.TextVerticalType]... egy előre meghatározott szövegorientáció beállításához egy alakzaton belül.
+Használja a [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/textverticaltype/) metódust egy előre definiált szövegorientáció beállításához egy alakzaton belül.
 
-Az alábbi kódrészlet a szövegorientációt az alakzatban `Vertical270`-re állítja, amely **90 fokkal óramutató járásával ellentétesen** forgatja a szöveget:
+Az alábbi kódrészlet a szöveg orientációt `Vertical270`-re állítja, ami **90 fokkal balra forgatja** a szöveget:
 
 ```cs
 using Aspose.Slides;
@@ -360,9 +360,9 @@ Az eredmény:
 
 ## **Egyéni forgatás beállítása szövegdobozokhoz**
 
-Használja az [ITextFrameFormat.RotationAngle]... egy egyéni forgatási szög beállításához egy [ITextFrame]... esetén.
+Használja a [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/rotationangle/) metódust egy egyéni forgatási szög beállításához egy [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) számára.
 
-Az alábbi kódrészlet 3 fokkal óramutató járásával megegyező irányban forgatja a szövegdobozt az alakzatban: 
+Az alábbi kódrészlet a szövegdobozt 3 fokkal óramutató járásával megegyező irányba forgatja az alakzaton belül:
 
 ```cs
 using Aspose.Slides;
@@ -380,16 +380,16 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![Az egyéni szövegforgatás](custom_text_rotation.png)
+![Az egyéni szövegfordítás](custom_text_rotation.png)
 
-## **Bekezdés sortávolság beállítása**
+## **Bekezdés sortávolságának beállítása**
 
-Az Aspose.Slides biztosítja az [IParagraphFormat.SpaceAfter]..., az [IParagraphFormat.SpaceBefore]... és az [IParagraphFormat.SpaceWithin]... tulajdonságokat a bekezdés távolságának szabályozásához. Ezeket a tulajdonságokat a következőképpen használják:
+Az Aspose.Slides a [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/spacebefore/) és [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/spacewithin/) segítségével szabályozza a bekezdés távolságait. Ezeket a tulajdonságokat a következőképpen használják:
 
-* Pozitív értéket használjon a sortávolság a sormagasság százalékában való megadásához.
-* Negatív értéket használjon a sortávolság pontokban való megadásához.
+* Pozitív értékkel a sortávolság a sormagasság százalékában adható meg.
+* Negatív értékkel a sortávolság pontban adható meg.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet megadni a sortávolságot a bekezdésen belül:
+Az alábbi kódrészlet bemutatja, hogyan adható meg a sortávolság a bekezdésen belül:
 
 ```cs
 using Aspose.Slides;
@@ -408,11 +408,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![A sortávolság a bekezdésben](line_spacing.png)
+![A sortávolság a bekezdésen belül](line_spacing.png)
 
 ## **Automatikus illesztés típusának beállítása szövegdobozokhoz**
 
-Az [ITextFrameFormat.AutofitType]... meghatározza, hogy a szöveg hogyan viselkedik, ha meghaladja a tároló határait. Ennek segítségével szabályozható, hogy a szöveg zsugorodjon, kifolyjon, vagy a forma mérete automatikusan változzon.
+Az [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/autofittype/) meghatározza, hogyan viselkedik a szöveg, ha meghaladja a tárolója határait. Ezzel szabályozható, hogy a szöveg zsugorodik, túlfut vagy automatikusan átméretezi az alakzatot.
 
 ```cs
 using Aspose.Slides;
@@ -428,9 +428,11 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Szövegdoboz rögzítésének beállítása**
+A sorok számolásához automatikus sortördelés után és a szöveg vagy alakzat szélességének változásának megtekintéséhez lásd a [Renderelt sorok számlálása](/slides/hu/net/manage-paragraph/) oldalt. A sorok száma önmagában nem mutatja, hogy a szöveg túlfut-e a tárolójából.
 
-Az [ITextFrameFormat.AnchoringType]... meghatározza, hogy a szöveget hogyan helyezi el függőlegesen egy alakzatban, például felül, középen vagy alul.
+## **Szövegdobozok rögzítésének beállítása**
+
+Az [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/anchoringtype/) meghatározza, hogyan helyezkedik el függőlegesen a szöveg egy alakzaton belül, például a tetején, közepén vagy alján.
 
 ```cs
 using Aspose.Slides;
@@ -446,9 +448,9 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Szöveg tabuláció beállítása**
+## **Szöveg tabulációjának beállítása**
 
-Használja az [IParagraphFormat.DefaultTabSize]... és az [IParagraphFormat.Tabs]... a bekezdés tabulátorpozícióinak beállításához.
+Használja az [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/defaulttabsize/) és az [IParagraphFormat.Tabs](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/tabs/) metódusokat a bekezdés tabulátorainak konfigurálásához.
 
 ```cs
 using Aspose.Slides;
@@ -468,13 +470,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![A bekezdés tabulátorjai](paragraph_tabs.png)
+![A bekezdés tabulátorai](paragraph_tabs.png)
 
-## **Helyesírási nyelv beállítása**
+## **Javítási nyelv beállítása**
 
-Az Aspose.Slides biztosítja a [IBasePortionFormat.LanguageId]... lehetőséget, amely lehetővé teszi a helyesírási nyelv beállítását egy szövegrészhez. A helyesírási nyelv határozza meg a PowerPointban a helyesírás- és nyelvtan-ellenőrzéshez használt nyelvet.
+Az Aspose.Slides biztosítja az [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/languageid/) lehetőségét, amely lehetővé teszi a javítási nyelv beállítását egy szövegrészhez. A javítási nyelv határozza meg, melyik nyelvet használja a helyesírás- és nyelvtan-ellenőrzés a PowerPointban.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet beállítani a helyesírási nyelvet egy szövegrészhez:
+Az alábbi kódrészlet bemutatja, hogyan állítható be a javítási nyelv egy szövegrészhez:
 
 ```cs
 using Aspose.Slides;
@@ -494,7 +496,7 @@ using (var presentation = new Presentation("presentation.pptx"))
     textPortion.PortionFormat.EastAsianFont = font;
     textPortion.PortionFormat.LatinFont = font;
 
-    // Állítsa be a helyesírási nyelv azonosítóját.
+    // Állítsa be a javítási nyelv azonosítóját.
     textPortion.PortionFormat.LanguageId = "zh-CN";
 
     textPortion.Text = "1。";
@@ -506,7 +508,7 @@ using (var presentation = new Presentation("presentation.pptx"))
 
 ## **Alapértelmezett nyelv beállítása**
 
-Használja a [LoadOptions.DefaultTextLanguage]... a prezentáció betöltése vagy létrehozása során létrehozott szöveg alapértelmezett nyelvének meghatározásához.
+Használja a [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/defaulttextlanguage/) metódust az alapértelmezett nyelv meghatározásához a betöltés vagy létrehozás során létrehozott szövegekhez.
 
 ```cs
 using Aspose.Slides;
@@ -518,7 +520,7 @@ using (var presentation = new Presentation(loadOptions))
 {
     var slide = presentation.Slides[0];
 
-    // Új téglalap alakzat szöveggel.
+    // Új téglalap alakzat hozzáadása szöveggel.
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
@@ -530,9 +532,9 @@ using (var presentation = new Presentation(loadOptions))
 
 ## **Alapértelmezett szövegstílus beállítása**
 
-Az alapértelmezett szövegformázás prezentáció szintű alkalmazásához használja az [IPresentation.DefaultTextStyle]... .
+Az alapértelmezett szövegformázás alkalmazásához a prezentáció szintjén használja az [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentation/defaulttextstyle/) metódust.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet beállítani egy alapértelmezett félkövér betűtípust 14 pt mérettel minden szöveghez a diákon egy új prezentációban.
+Az alábbi kódrészlet bemutatja, hogyan állítható be egy alapértelmezett félkövér betű, 14 pt mérettel az összes dián lévő szöveghez egy új prezentációban.
 
 ```cs
 using Aspose.Slides;
@@ -540,7 +542,7 @@ using Aspose.Slides.Export;
 
 using (var presentation = new Presentation())
 {
-    // A felső szintű bekezdésformátum lekérése.
+    // Lekéri a legfelső szintű bekezdésformátumot.
     var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
@@ -553,15 +555,15 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Szöveg kinyerése nagybetűs hatással**
+## **Szöveg kinyerése a nagybetűs hatással**
 
-PowerPointban az **All Caps** betűhatás alkalmazása a szöveget nagybetűvel jeleníti meg a dián, még akkor is, ha eredetileg kisbetűvel írták. Amikor az Aspose.Slides-szel egy ilyen szövegrészt lekér, a könyvtár a szöveget pontosan úgy adja vissza, ahogy be lett gépelve. A megjelenített szöveghez való illesztéshez ellenőrizze a [TextCapType]... értékét, és konvertálja a visszakapott karakterláncot nagybetűssé, ha az érték `All`.
+A PowerPointban a **All Caps** betűhatás alkalmazása azt eredményezi, hogy a szöveg nagybetűvel jelenik meg a dián, még ha eredetileg kisbetűvel lett beíró. Amikor ilyen szövegrészt kér le az Aspose.Slides, a könyvtár pontosan úgy adja vissza a szöveget, ahogy be lett gépelve. A megjelenített szöveghez való illesztéshez ellenőrizze a [TextCapType](https://reference.aspose.com/slides/hu/net/aspose.slides/textcaptype/) értékét, és nagybetűssé alakítsa a visszaadott karakterláncot, ha az érték `All`.
 
-Tegyük fel, hogy a sample2.pptx fájl első diáján a következő szövegdoboz van.
+Tegyük fel, hogy a sample2.pptx fájl első diáján a következő szövegdoboz található.
 
 ![A nagybetűs hatás](all_caps_effect.png)
 
-Az alábbi kódrészlet bemutatja, hogyan lehet kinyerni a szöveget, amikor a **All Caps** hatás alkalmazva van:
+Az alábbi kódrészlet bemutatja, hogyan nyerhető ki a szöveg a **All Caps** hatás alkalmazásával:
 
 ```cs
 using Aspose.Slides;
@@ -591,10 +593,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **GYIK**
 
-**Hogyan lehet módosítani a szöveget egy táblában egy dián?**
+**Hogyan módosítható a szöveg egy táblázatban a dián?**
 
-A szöveg módosításához egy táblában egy dián használja az [ITable]... iteráljon a cellákon, és frissítse minden cellát az [ICell.TextFrame]... és a bekezdésformázást az [IParagraph.ParagraphFormat]... segítségével.
+A szöveg táblázatban történő módosításához használja a [ITable](https://reference.aspose.com/slides/hu/net/aspose.slides/itable/) interfészt. Iteráljon a cellákon, és frissítse mindegyik cellát a [ICell.TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/icell/textframe/) és a bekezdés formázását az [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/paragraphformat/) segítségével.
 
-**Hogyan lehet színátmenetes színt alkalmazni szövegre egy PowerPoint dián?**
+**Hogyan alkalmazhatók színátmenetek a szövegre egy PowerPoint diában?**
 
-A színátmenet alkalmazásához szövegre használja a [IBasePortionFormat.FillFormat]... Állítsa be az [IFillFormat.FillType]... értékét [FillType.Gradient]... és konfigurálja a színátmenet állomásait, irányát és átlátszóságát.
+A színátmenetes szöveghez használja az [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/fillformat/) metódust. Állítsa be az [IFillFormat.FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/ifillformat/filltype/) értékét a [FillType.Gradient](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) opcióra, és konfigurálja a színátmenet állomásait, irányát és átlátszóságát.

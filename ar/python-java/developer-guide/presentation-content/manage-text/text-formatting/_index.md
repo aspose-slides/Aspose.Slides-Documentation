@@ -15,10 +15,10 @@ keywords:
 - دوران النص
 - زاوية الدوران
 - إطار النص
-- تباعد الأسطر
+- تباعد السطر
 - خاصية الملاءمة التلقائية
-- تثبيت إطار النص
-- جدولة النص
+- مرساة إطار النص
+- علامات تبويب النص
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر Java. تخصيص الخطوط، الألوان، المحاذاة، وأكثر."
+description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر Java. خصّص الخطوط، الألوان، المحاذاة، وأكثر."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر Java. تغطي الألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، مسافات التبويب، وإعدادات اللغة.
+توضح هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر Java. وتغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، التدوير، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، مواضع علامات التبويب، وإعدادات اللغة.
 
-في الأمثلة أدناه، سنستخدم ملفًا يُدعى "sample.pptx"، يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
+في الأمثلة أدناه، سنستخدم ملفًا باسم "sample.pptx" يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
 
-![نص مثال](sample_text.png)
+![نص العينة](sample_text.png)
 
-للعثور على نص حرفي أو مطابقة تعبيرات منتظمة وتظليلها، راجع [Search and Replace Text](/slides/ar/python-java/search-and-replace-text/).
+للعثور على نص حرفي أو مطابقة تعبيرات منتظمة وتظليلهما، راجع [بحث واستبدال النص](/slides/ar/python-java/search-and-replace-text/).
 
-## **تعيين لون خلفية النص**
+## **ضبط لون خلفية النص**
 
-استخدم [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) لتحديد لون التظليل الافتراضي لفقرة، أو استخدم [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) لأجزاء النص الفردية.
+استخدم [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) لتعيين لون التظليل الافتراضي لفقرة، أو استخدم [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) لأجزاء النص الفردية.
 
-يظهر مثال الشيفرة التالي كيفية تعيين لون الخلفية **للفقرة كاملة**:
+يوضح المثال البرمجي التالي كيفية تعيين لون الخلفية **للفقرة بأكملها**:
 
 ```python
 import jpype
@@ -60,7 +60,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # تعيين لون التحديد للفقرة بأكملها.
+    # ضبط لون التظليل للفقرة بأكملها.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx)
@@ -72,7 +72,7 @@ finally:
 
 ![الفقرة الرمادية](gray_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية تعيين لون الخلفية **لأجزاء النص ذات الخط العريض**:
+يوضح المثال البرمجي أدناه كيفية تعيين لون الخلفية **لأجزاء النص ذات الخط العريض**:
 
 ```python
 import jpype
@@ -92,7 +92,9 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # تعيين لون التحديد لجزء النص.
+            # ضبط لون التظليل لجزء النص.
+            portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
+
     presentation.save("gray_text_portions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -104,9 +106,9 @@ finally:
 
 ## **محاذاة فقرات النص**
 
-استخدم [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setAlignment) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيم متمركزة، محاذاة إلى اليسار، محاذاة إلى اليمين، مبررة، وما إلى ذلك.
+استخدم [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setAlignment) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة متمركزة، أو محاذاة إلى اليسار، أو إلى اليمين، أو مبررة، وما إلى ذلك.
 
-يظهر مثال الشيفرة التالي كيفية محاذاة الفقرة إلى **الوسط**:
+يوضح المثال البرمجي التالي كيفية محاذاة الفقرة إلى **المركز**:
 
 ```python
 import jpype
@@ -123,7 +125,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # تعيين محاذاة الفقرة إلى المركز.
+    # ضبط محاذاة الفقرة إلى المركز.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center)
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx)
@@ -135,11 +137,11 @@ finally:
 
 ![الفقرة المحاذاة](aligned_paragraph.png)
 
-## **تعيين شفافية النص**
+## **ضبط الشفافية للنص**
 
-تُتحكم شفافية النص عبر مكوّن ألفا للون المعين إلى [PortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
+يتم التحكم في شفافية النص من خلال المكوّن alpha للون المعيّن إلى [PortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة alpha بنظام ARGB على مقياس 0–255، وليس نسبة شفافية.
 
-يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **الفقرة كاملة**:
+يوضح المثال البرمجي أدناه كيفية تطبيق الشفافية على **الفقرة بأكملها**:
 
 ```python
 import jpype
@@ -160,7 +162,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # تعيين لون ملء النص إلى لون شفاف.
+    # ضبط لون تعبئة النص إلى اللون الشفاف.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -173,7 +175,7 @@ finally:
 
 ![الفقرة الشفافة](transparent_paragraph.png)
 
-يظهر مثال الشيفرة التالي كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
+يوضح المثال البرمجي التالي كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
 
 ```python
 import jpype
@@ -196,7 +198,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # تعيين شفافية جزء النص.
+            # ضبط شفافية جزء النص.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -209,14 +211,14 @@ finally:
 
 ![أجزاء النص الشفافة](transparent_text_portions.png)
 
-## **تعيين تباعد الأحرف للنص**
+## **ضبط تباعد الأحرف للنص**
 
-استخدم [PortionFormat.setSpacing](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) لتوسيع أو تضييق التباعد بين الأحرف في مربع النص.
+استخدم [PortionFormat.setSpacing](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) لتوسيع أو تقليص التباعد بين الأحرف داخل مربع نص.
 
-يظهر الكود التالي في Python كيفية توسيع تباعد الأحرف في **الفقرة كاملة**:
+يعرض الكود التالي بلغة Python كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -230,7 +232,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
+    # ملاحظة: استخدم القيم السالبة لتقليل تباعد الأحرف.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # توسيع تباعد الأحرف.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
@@ -242,7 +244,7 @@ finally:
 
 ![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
+يوضح المثال البرمجي أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
 
 ```python
 import jpype
@@ -261,7 +263,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
+            # ملاحظة: استخدم القيم السالبة لتقليل تباعد الأحرف.
             portion.getPortionFormat().setSpacing(3) # توسيع تباعد الأحرف.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
@@ -273,11 +275,11 @@ finally:
 
 ![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
 
-### **إلغاء تشغيل Kerning لخطوط معينة**
+### **تعطيل التتالي (Kerning) لخطوط معينة**
 
-في بعض الحالات، قد يبدو النص الذي تُعيد Aspose.Slides تقديمه أكثر ضغطًا قليلاً مقارنةً بنفس النص المعروض في PowerPoint. يمكن أن يحدث هذا لأن PowerPoint قد يتجاهل بيانات kerning لبعض الخطوط، حتى عندما يحتوي الخط على معلومات kerning صالحة ويتم تمكين kerning في إعدادات PowerPoint.
+في بعض الحالات، قد يظهر النص الذي تم إنشاؤه بواسطة Aspose.Slides أقرب قليلاً من النص نفسه المعروض في PowerPoint. يمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات الـKerning لبعض الخطوط، حتى عندما يحتوي الخط على معلومات Kerning صالحة ويكون الـKerning مفعلاً في إعدادات PowerPoint.
 
-لجعل الإخراج المُعاد إنتاجه أقرب إلى PowerPoint في هذه الحالات، يمكنك إلغاء تشغيل kerning لأجزاء النص التي تستخدم الخط المتأثر. اضبط [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
+لجعل الناتج المرسوم أقرب إلى PowerPoint في مثل هذه الحالات، يمكنك تعطيل الـKerning لأجزاء النص التي تستخدم الخط المتأثر. اضبط [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
 
 ```python
 import jpype
@@ -306,13 +308,13 @@ finally:
     presentation.dispose()
 ```
 
-يمنع هذا الإعداد تطبيق kerning على أجزاء النص المطابقة ويمكن أن يساعد في محاذاة عرض Aspose.Slides مع الإخراج البصري لـ PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+هذا الإعداد يمنع تطبيق الـKerning على أجزاء النص المطابقة ويمكن أن يساعد في تحسين توافق عرض Aspose.Slides مع إخراج PowerPoint البصري للخطوط المتأثرة بهذا السلوك الخاص بـPowerPoint.
 
 ## **إدارة خصائص خط النص**
 
-يمكن تعيين خصائص الخط على مستوى الفقرة من خلال [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) أو على أجزاء فردية عبر [PortionFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/).
+يمكن تعيين خصائص الخط على مستوى الفقرة عبر [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) أو على أجزاء فردية عبر [PortionFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/).
 
-يحدد الكود التالي الخط ونمط النص للفقرة كاملة: يطبق حجم الخط، العريض، المائل، خط سفلي منقط، وخط Times New Roman على جميع الأجزاء في الفقرة.
+يحدد الكود التالي خط النص ونمط النص للفقرة بأكملها: يطبق حجم الخط، العريض، المائل، التسطير المنقط، وخط Times New Roman على جميع الأجزاء في الفقرة.
 
 ```python
 import jpype
@@ -329,7 +331,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # تعيين خصائص الخط للفقرة.
+    # ضبط خصائص الخط للفقرة.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12)
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True_)
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True_)
@@ -346,14 +348,14 @@ finally:
 
 ![خصائص الخط للفقرة](font_properties_for_paragraph.png)
 
-يوضح مثال الشيفرة أدناه تطبيق خصائص مشابهة على **أجزاء النص ذات الخط العريض**:
+يوضح المثال البرمجي أدناه تطبيق خصائص مماثلة على **أجزاء النص ذات الخط العريض**:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import FontData, NullableBool, Presentation, SaveFormat, TextUnderlineType
 
@@ -365,7 +367,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # تعيين خصائص الخط لجزء النص.
+            # ضبط خصائص الخط لجزء النص.
             portion.getPortionFormat().setFontHeight(13)
             portion.getPortionFormat().setFontItalic(NullableBool.True_)
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted)
@@ -381,11 +383,11 @@ finally:
 
 ![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
 
-## **تعيين دوران النص**
+## **ضبط تدوير النص**
 
-استخدم [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setTextVerticalType) لتعيين توجيه نص مسبق التعريف داخل الشكل.
+استخدم [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setTextVerticalType) لتعيين اتجاه نص مسبق داخل شكل.
 
-يحدد مثال الشيفرة التالي توجيه النص في الشكل إلى `Vertical270`، مما يدور النص **90 درجة عكس اتجاه عقارب الساعة**:
+يحدد المثال البرمجي التالي اتجاه النص في الشكل إلى `Vertical270`، مما يدور النص **90 درجة عكس عقارب الساعة**:
 
 ```python
 import jpype
@@ -410,13 +412,13 @@ finally:
 
 النتيجة:
 
-![دوران النص](text_rotation.png)
+![تدوير النص](text_rotation.png)
 
-## **تعيين دوران مخصص لإطارات النص**
+## **ضبط تدوير مخصص لإطارات النص**
 
-استخدم [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setRotationAngle) لتعيين زاوية دوران مخصصة لـ [TextFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframe/).
+استخدم [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setRotationAngle) لتعيين زاوية تدوير مخصصة لإطار النص [TextFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframe/).
 
-يدور مثال الشيفرة أدناه إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
+يقوم المثال البرمجي أدناه بتدوير إطار النص بزاوية 3 درجات باتجاه عقارب الساعة داخل الشكل:
 
 ```python
 import jpype
@@ -441,16 +443,16 @@ finally:
 
 النتيجة:
 
-![الدوران المخصص للنص](custom_text_rotation.png)
+![تدوير النص المخصص](custom_text_rotation.png)
 
-## **تعيين تباعد السطر للفقرات**
+## **ضبط تباعد الأسطر للفقرات**
 
-توفر Aspose.Slides [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setSpaceAfter)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setSpaceBefore)، و[ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setSpaceWithin) للتحكم في تباعد الفقرة. تُستخدم هذه الخصائص كما يلي:
+توفر Aspose.Slides الدوال [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setSpaceAfter)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setSpaceBefore) و[ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setSpaceWithin) للتحكم في تباعد الفقرات. تُستخدم هذه الخصائص كما يلي:
 
 * استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
 * استخدم قيمة سالبة لتحديد تباعد السطر بالنقاط.
 
-يُظهر مثال الشيفرة التالي كيفية تحديد تباعد السطر داخل الفقرة:
+يوضح المثال البرمجي التالي كيفية تحديد تباعد السطر داخل الفقرة:
 
 ```python
 import jpype
@@ -478,9 +480,9 @@ finally:
 
 ![تباعد السطر داخل الفقرة](line_spacing.png)
 
-## **تعيين نوع الملاءمة التلقائية لإطارات النص**
+## **ضبط نوع الملاءمة التلقائية لإطارات النص**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setAutofitType) يحدد كيفية تصرف النص عندما يتجاوز حدود حاويته. استخدمه للتحكم فيما إذا كان النص سيصغر، سيتجاوز، أو سيعيد تحجيم الشكل تلقائيًا.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setAutofitType) يحدد كيفية تصرف النص عندما يتجاوز حدود الحاوية. استخدمه للتحكم فيما إذا كان النص سيصغر، أو سيتجاوز، أو سيعيد تحجيم الشكل تلقائيًا.
 
 ```python
 import jpype
@@ -503,9 +505,11 @@ finally:
     presentation.dispose()
 ```
 
-## **تعيين تثبيت إطارات النص**
+لحساب عدد الأسطر بعد الالتفاف التلقائي ومعرفة كيف يتغير عرض النص أو الشكل، راجع [عد الأسطر المعروضة](/slides/ar/python-java/manage-paragraph/). عدد الأسطر وحده لا يدل على ما إذا كان النص يتجاوز حاويته.
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setAnchoringType) يحدد كيفية تموضع النص عموديًا داخل الشكل، مثل أعلى، وسط، أو أسفل.
+## **ضبط مرساة إطارات النص**
+
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#setAnchoringType) يحدد كيفية تموضع النص عموديًا داخل الشكل، على سبيل المثال في الأعلى، أو الوسط، أو الأسفل.
 
 ```python
 import jpype
@@ -528,9 +532,9 @@ finally:
     presentation.dispose()
 ```
 
-## **تعيين جدولة تبويب النص**
+## **ضبط علامات التبويب للنص**
 
-استخدم [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) و[ParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getTabs) لتكوين نقاط التبويب في الفقرة.
+استخدم [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) و[ParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getTabs) لتكوين مواضع علامات التبويب في الفقرة.
 
 ```python
 import jpype
@@ -557,16 +561,16 @@ finally:
 
 النتيجة:
 
-![تبويبات الفقرة](paragraph_tabs.png)
+![علامات تبويب الفقرة](paragraph_tabs.png)
 
-## **تعيين لغة التدقيق**
+## **ضبط لغة التدقيق**
 
-توفر Aspose.Slides [PortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) التي تسمح لك بتعيين لغة التدقيق لجزء نصي. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الإملاء والقواعد في PowerPoint.
+توفر Aspose.Slides الدالة [PortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/) التي تتيح لك ضبط لغة التدقيق لجزء نص. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الإملاء والقواعد في PowerPoint.
 
-يُظهر مثال الشيفرة التالي كيفية تعيين لغة التدقيق لجزء نصي:
+يوضح المثال البرمجي التالي كيفية ضبط لغة التدقيق لجزء نص:
 
 ```python
-import jpide
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -600,9 +604,9 @@ finally:
     presentation.dispose()
 ```
 
-## **تعيين اللغة الافتراضية**
+## **ضبط اللغة الافتراضية**
 
-استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) لتحديد اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
+استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) لتحديد اللغة الافتراضية للنص الذي يتم إنشاؤه أثناء تحميل أو إنشاء عرض تقديمي.
 
 ```python
 import jpype
@@ -624,18 +628,18 @@ try:
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50)
     shape.getTextFrame().setText("Sample text")
 
-    # تحقق من لغة الجزء الأول.
+    # التحقق من لغة الجزء الأول.
     portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     print(portion.getPortionFormat().getLanguageId())
 finally:
     presentation.dispose()
 ```
 
-## **تعيين نمط النص الافتراضي**
+## **ضبط نمط النص الافتراضي**
 
-لتطبيق تنسيق نص افتراضي على مستوى العرض التقديمي، استخدم [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getDefaultTextStyle).
+لتطبيق تنسيق النص الافتراضي على مستوى العرض التقديمي، استخدم [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-يُظهر مثال الشيفرة التالي كيفية تعيين خط عريض بحجم 14 نقطة كنص افتراضي لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
+يوضح المثال البرمجي التالي كيفية تعيين خط عريض افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
 
 ```python
 import jpype
@@ -648,7 +652,7 @@ from asposeslides.api import NullableBool, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # الحصول على تنسيق الفقرة المستوى الأعلى.
+    # الحصول على تنسيق الفقرة في المستوى الأعلى.
     paragraph_format = presentation.getDefaultTextStyle().getLevel(0)
 
     if paragraph_format is not None:
@@ -660,15 +664,15 @@ finally:
     presentation.dispose()
 ```
 
-## **استخراج النص بتأثير الحروف الكبيرة كلها**
+## **استخراج النص مع تأثير الأحرف الكبيرة (All Caps)**
 
-في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textcaptype/) وحوّل السلسلة المرجعية إلى أحرف كبيرة عندما تكون القيمة `All`.
+في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى وإن كان مكتوبًا أصلاً بأحرف صغيرة. عند استرداد مثل هذا الجزء من النص باستخدام Aspose.Slides، تُعيد المكتبة النص تمامًا كما تم إدخاله. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textcaptype/) وحوّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
 
 لنفترض أن لدينا مربع النص التالي في الشريحة الأولى من ملف sample2.pptx.
 
-![تأثير الحروف الكبيرة كلها](all_caps_effect.png)
+![تأثير All Caps](all_caps_effect.png)
 
-يوضح مثال الشيفرة التالي كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+يوضح المثال البرمجي التالي كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
 ```python
 import jpype
@@ -695,19 +699,19 @@ finally:
     presentation.dispose()
 ```
 
-الإخراج:
+المخرجات:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **كيف يمكنني تعديل النص في جدول على شريحة؟**
 
-لتعديل النص في جدول على شريحة، استخدم [Table](https://reference.aspose.com/slides/ar/python-java/aspose.slides/table/). قم بالتكرار عبر الخلايا وحدث كل خلية عبر [Cell.getTextFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/cell/#getTextFrame) وتنسيق الفقرة عبر [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraph/#getParagraphFormat).
+لتعديل النص في جدول على شريحة، استخدم [Table](https://reference.aspose.com/slides/ar/python-java/aspose.slides/table/). قم بالتكرار عبر الخلايا وحدث كل خلية عبر [Cell.getTextFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/cell/#getTextFrame) وتنسيق الفقرات عبر [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraph/#getParagraphFormat).
 
 **كيف يمكنني تطبيق لون تدرج على النص في شريحة PowerPoint؟**
 
-لتطبيق لون تدرج على النص، استخدم [PortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/). اضبط [FillFormat.setFillType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/fillformat/#setFillType) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/python-java/aspose.slides/filltype/#Gradient) و تكوين نقاط التدرج، الاتجاه، والشفافية.
+لتطبيق لون تدرج على النص، استخدم [PortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/portionformat/). اضبط [FillFormat.setFillType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/fillformat/#setFillType) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/python-java/aspose.slides/filltype/#Gradient) وقم بتكوين نقاط التدرج، الاتجاه، والشفافية.

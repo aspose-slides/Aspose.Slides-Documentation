@@ -1,5 +1,5 @@
 ---
-title: Formatear texto de presentación en Python mediante Java
+title: Formatear texto de la presentación en Python mediante Java
 linktitle: Formato de texto
 type: docs
 weight: 50
@@ -8,7 +8,7 @@ keywords:
 - alinear párrafo
 - estilo de texto
 - fondo de texto
-- transparencia del texto
+- transparencia de texto
 - espaciado de caracteres
 - propiedades de fuente
 - familia de fuente
@@ -26,21 +26,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Da formato y estilo al texto en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para Python mediante Java. Personaliza fuentes, colores, alineación y más."
+description: "Formatear y dar estilo al texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python mediante Java. Personaliza fuentes, colores, alineación y más."
 ---
 ## **Visión general**
 
-Este artículo muestra cómo dar formato al texto en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para Python mediante Java. Cubre colores de fondo, transparencia, espaciado de caracteres, propiedades de fuente, rotación, espaciado de párrafos, comportamiento de ajuste automático, anclaje de texto, tabulaciones y configuración de idioma.
+Este artículo muestra cómo dar formato al texto en presentaciones de PowerPoint y OpenDocument utilizando Aspose.Slides para Python a través de Java. Cubre colores de fondo, transparencia, espaciado entre caracteres, propiedades de fuente, rotación, espaciado de párrafos, comportamiento de ajuste automático, anclaje de texto, tabuladores y configuraciones de idioma.
 
 En los ejemplos a continuación, utilizaremos un archivo llamado "sample.pptx", que contiene un único cuadro de texto en la primera diapositiva con el siguiente contenido:
 
 ![Texto de muestra](sample_text.png)
 
-Para encontrar y resaltar texto literal o coincidencias de expresiones regulares, consulte [Buscar y reemplazar texto](/slides/es/python-java/search-and-replace-text/).
+Para encontrar y resaltar texto literal o coincidencias de expresiones regulares, vea [Buscar y reemplazar texto](/slides/es/python-java/search-and-replace-text/).
 
 ## **Establecer color de fondo del texto**
 
-Utilice [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) para establecer el color de resaltado predeterminado de un párrafo, o [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/) para porciones de texto individuales.
+Use [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) para establecer el color de resaltado predeterminado de un párrafo, o use [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/) para porciones de texto individuales.
 
 El siguiente ejemplo de código muestra cómo establecer el color de fondo para el **párrafo completo**:
 
@@ -79,7 +79,7 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpile.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 from java.awt import Color
@@ -106,7 +106,7 @@ El resultado:
 
 ## **Alinear párrafos de texto**
 
-Utilice [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setAlignment) para definir la alineación del párrafo dentro de un marco de texto. El valor puede ser centrado, alineado a la izquierda, a la derecha, justificado, etc.
+Use [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setAlignment) para establecer la alineación del párrafo dentro de un marco de texto. El valor puede ser centrado, alineado a la izquierda, alineado a la derecha, justificado, etc.
 
 El siguiente ejemplo de código muestra cómo alinear el párrafo al **centro**:
 
@@ -137,11 +137,11 @@ El resultado:
 
 ![El párrafo alineado](aligned_paragraph.png)
 
-## **Establecer transparencia para el texto**
+## **Establecer transparencia del texto**
 
-La transparencia del texto se controla mediante el componente alfa del color asignado a [PortionFormat.getFillFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/). En los ejemplos siguientes, `alpha = 50` es un valor de canal alfa ARGB en la escala 0‑255, no un porcentaje de transparencia.
+La transparencia del texto se controla a través del componente alfa del color asignado a [PortionFormat.getFillFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/). En los ejemplos siguientes, `alpha = 50` es un valor alfa ARGB en la escala 0–255, no un porcentaje de transparencia.
 
-El ejemplo de código a continuación muestra cómo aplicar transparencia al **párrafo completo**:
+El siguiente ejemplo de código muestra cómo aplicar transparencia al **párrafo completo**:
 
 ```python
 import jpype
@@ -162,7 +162,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Establecer el color de relleno del texto a un color transparente.
+    # Establecer el color de relleno del texto a color transparente.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -211,9 +211,9 @@ El resultado:
 
 ![Las porciones de texto transparentes](transparent_text_portions.png)
 
-## **Establecer espaciado de caracteres para el texto**
+## **Establecer espaciado entre caracteres del texto**
 
-Utilice [PortionFormat.setSpacing](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/) para ampliar o condensar el espacio entre caracteres en un cuadro de texto.
+Use [PortionFormat.setSpacing](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/) para ampliar o condensar el espaciado entre caracteres en un cuadro de texto.
 
 El siguiente código Python muestra cómo ampliar el espaciado de caracteres en el **párrafo completo**:
 
@@ -232,8 +232,8 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Nota: Use valores negativos para comprimir el espaciado de caracteres.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Expandir el espaciado de caracteres.
+    # Nota: Use valores negativos para comprimir el espaciado entre caracteres.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Expandir espaciado entre caracteres.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
 finally:
@@ -263,8 +263,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Nota: Use valores negativos para comprimir el espaciado de caracteres.
-            portion.getPortionFormat().setSpacing(3) # Expandir el espaciado de caracteres.
+            # Nota: Use valores negativos para comprimir el espaciado entre caracteres.
+            portion.getPortionFormat().setSpacing(3) # Expandir espaciado entre caracteres.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -275,11 +275,11 @@ El resultado:
 
 ![El espaciado de caracteres en las porciones de texto](character_spacing_in_text_portions.png)
 
-### **Desactivar el kerning para fuentes específicas**
+### **Desactivar kerning para fuentes específicas**
 
-En algunos casos, el texto renderizado por Aspose.Slides puede parecer ligeramente más ajustado que el mismo texto mostrado en PowerPoint. Esto puede ocurrir porque PowerPoint puede ignorar los datos de kerning para ciertas fuentes, incluso cuando la fuente contiene información válida de kerning y el kerning está activado en la configuración de PowerPoint.
+En algunos casos, el texto renderizado por Aspose.Slides puede aparecer ligeramente más ajustado que el mismo texto mostrado en PowerPoint. Esto puede ocurrir porque PowerPoint puede ignorar los datos de kerning para ciertas fuentes, incluso cuando la fuente contiene información de kerning válida y el kerning está habilitado en la configuración de PowerPoint.
 
-Para que la salida renderizada se aproxime a PowerPoint en dichos casos, puede desactivar el kerning para las porciones de texto que utilizan la fuente afectada. Establezca [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/) a un valor significativamente mayor que el tamaño real de la fuente:
+Para acercar la salida renderizada a la de PowerPoint en dichos casos, puede desactivar el kerning para las porciones de texto que usan la fuente afectada. Establezca [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/) a un valor significativamente mayor que el tamaño real de la fuente:
 
 ```python
 import jpype
@@ -308,13 +308,13 @@ finally:
     presentation.dispose()
 ```
 
-Esta configuración impide que se aplique kerning a las porciones de texto coincidentes y puede ayudar a alinear la renderización de Aspose.Slides con la salida visual de PowerPoint para fuentes afectadas por este comportamiento específico de PowerPoint.
+Esta configuración impide que se aplique kerning a las porciones de texto coincidentes y puede ayudar a alinear la representación de Aspose.Slides con la salida visual de PowerPoint para las fuentes afectadas por este comportamiento específico de PowerPoint.
 
-## **Administrar propiedades de fuente del texto**
+## **Gestionar propiedades de fuente del texto**
 
 Las propiedades de fuente pueden establecerse a nivel de párrafo mediante [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) o en porciones individuales mediante [PortionFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/).
 
-El siguiente código establece la fuente y el estilo de texto para todo el párrafo: aplica tamaño de fuente, negrita, cursiva, subrayado punteado y la fuente Times New Roman a todas las porciones del párrafo.
+El siguiente código establece la fuente y el estilo del texto para el párrafo completo: aplica tamaño de fuente, negrita, cursiva, subrayado punteado y la fuente Times New Roman a todas las porciones del párrafo.
 
 ```python
 import jpype
@@ -331,7 +331,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Establecer las propiedades de fuente del párrafo.
+    # Establecer las propiedades de fuente para el párrafo.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12)
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True_)
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True_)
@@ -385,9 +385,9 @@ El resultado:
 
 ## **Establecer rotación del texto**
 
-Utilice [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setTextVerticalType) para establecer una orientación de texto predefinida dentro de una forma.
+Use [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setTextVerticalType) para establecer una orientación de texto predefinida dentro de una forma.
 
-El siguiente ejemplo de código establece la orientación del texto en la forma a `Vertical270`, que rota el texto **90 grados en sentido antihorario**:
+El siguiente ejemplo de código establece la orientación del texto en la forma a `Vertical270`, lo que rota el texto **90 grados en sentido antihorario**:
 
 ```python
 import jpype
@@ -416,7 +416,7 @@ El resultado:
 
 ## **Establecer rotación personalizada para marcos de texto**
 
-Utilice [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setRotationAngle) para definir un ángulo de rotación personalizado para un [TextFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframe/).
+Use [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setRotationAngle) para establecer un ángulo de rotación personalizado para un [TextFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframe/).
 
 El ejemplo de código a continuación rota el marco de texto 3 grados en sentido horario dentro de la forma:
 
@@ -443,16 +443,16 @@ finally:
 
 El resultado:
 
-![Rotación personalizada del texto](custom_text_rotation.png)
+![La rotación personalizada del texto](custom_text_rotation.png)
 
-## **Establecer espaciado entre líneas de los párrafos**
+## **Establecer interlineado de los párrafos**
 
-Aspose.Slides ofrece [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setSpaceBefore) y [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setSpaceWithin) para controlar el espaciado de los párrafos. Estas propiedades se utilizan de la siguiente manera:
+Aspose.Slides proporciona [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setSpaceBefore) y [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setSpaceWithin) para controlar el espaciado de los párrafos. Estas propiedades se usan de la siguiente manera:
 
-* Use un valor positivo para especificar el espaciado como porcentaje de la altura de línea.
-* Use un valor negativo para especificar el espaciado en puntos.
+* Use un valor positivo para especificar el interlineado como porcentaje de la altura de la línea.
+* Use un valor negativo para especificar el interlineado en puntos.
 
-El siguiente ejemplo de código muestra cómo especificar el espaciado entre líneas dentro del párrafo:
+El siguiente ejemplo de código muestra cómo especificar el interlineado dentro del párrafo:
 
 ```python
 import jpype
@@ -478,11 +478,11 @@ finally:
 
 El resultado:
 
-![El espaciado entre líneas dentro del párrafo](line_spacing.png)
+![El interlineado dentro del párrafo](line_spacing.png)
 
 ## **Establecer tipo de ajuste automático para marcos de texto**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setAutofitType) determina cómo se comporta el texto cuando supera los límites de su contenedor. Úselo para controlar si el texto se reduce, se desborda o redimensiona automáticamente la forma.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setAutofitType) determina cómo se comporta el texto cuando supera los límites de su contenedor. Úselo para controlar si el texto se reduce, desborda o redimensiona la forma automáticamente.
 
 ```python
 import jpype
@@ -505,9 +505,11 @@ finally:
     presentation.dispose()
 ```
 
+Para contar líneas después del ajuste automático y ver cómo cambia el ancho del texto o de la forma, vea [Contar líneas renderizadas](/slides/es/python-java/manage-paragraph/). El recuento de líneas por sí solo no indica si el texto desborda su contenedor.
+
 ## **Establecer anclaje de los marcos de texto**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setAnchoringType) define cómo se posiciona verticalmente el texto dentro de una forma, por ejemplo en la parte superior, central o inferior.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframeformat/#setAnchoringType) define cómo se posiciona verticalmente el texto dentro de una forma, por ejemplo en la parte superior, media o inferior.
 
 ```python
 import jpype
@@ -532,14 +534,14 @@ finally:
 
 ## **Establecer tabulación del texto**
 
-Utilice [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) y [ParagraphFormat.getTabs](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#getTabs) para configurar las tabulaciones en un párrafo.
+Use [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) y [ParagraphFormat.getTabs](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraphformat/#getTabs) para configurar los tabuladores en un párrafo.
 
 ```python
-import jpype
+import jpade
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpade.isJVMStarted():
+    jpade.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, TabAlignment
 
@@ -561,11 +563,11 @@ El resultado:
 
 ![Las tabulaciones del párrafo](paragraph_tabs.png)
 
-## **Establecer idioma de revisión**
+## **Establecer idioma de corrección**
 
-Aspose.Slides proporciona [PortionFormat.setLanguageId](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/), que permite establecer el idioma de revisión para una porción de texto. El idioma de revisión determina el idioma utilizado para la corrección ortográfica y gramatical en PowerPoint.
+Aspose.Slides proporciona [PortionFormat.setLanguageId](https://reference.aspose.com/slides/es/python-java/aspose.slides/portionformat/), que permite establecer el idioma de corrección para una porción de texto. El idioma de corrección determina el idioma utilizado para la revisión ortográfica y gramatical en PowerPoint.
 
-El siguiente ejemplo de código muestra cómo establecer el idioma de revisión para una porción de texto:
+El siguiente ejemplo de código muestra cómo establecer el idioma de corrección para una porción de texto:
 
 ```python
 import jpype
@@ -591,7 +593,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # Establecer el Id de un idioma de revisión.
+    # Establecer el Id de un idioma de corrección.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -604,14 +606,14 @@ finally:
 
 ## **Establecer idioma predeterminado**
 
-Utilice [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/es/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) para definir el idioma predeterminado del texto creado al cargar o crear una presentación.
+Use [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/es/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) para definir el idioma predeterminado para el texto creado al cargar o crear una presentación.
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpade.isJVMStarted():
+    jpade.startJVM()
 
 from asposeslides.api import LoadOptions, Presentation, ShapeType
 
@@ -637,7 +639,7 @@ finally:
 
 Para aplicar formato de texto predeterminado a nivel de presentación, use [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-El siguiente ejemplo de código muestra cómo establecer una fuente en negrita de 14 pt como predeterminada para todo el texto en todas las diapositivas de una nueva presentación.
+El siguiente ejemplo de código muestra cómo establecer una fuente predeterminada en negrita con un tamaño de 14 pt para todo el texto de las diapositivas en una nueva presentación.
 
 ```python
 import jpype
@@ -650,7 +652,7 @@ from asposeslides.api import NullableBool, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Obtener el formato del párrafo de nivel superior.
+    # Obtener el formato de párrafo de nivel superior.
     paragraph_format = presentation.getDefaultTextStyle().getLevel(0)
 
     if paragraph_format is not None:
@@ -662,15 +664,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Extraer texto con el efecto de mayúsculas**
+## **Extraer texto con el efecto de Todo en mayúsculas**
 
-En PowerPoint, aplicar el efecto de fuente **Todas en mayúsculas** hace que el texto aparezca en mayúsculas en la diapositiva aunque originalmente se haya escrito en minúsculas. Cuando se recupera dicha porción de texto con Aspose.Slides, la biblioteca devuelve el texto tal como se introdujo. Para que coincida con el texto mostrado, consulte [TextCapType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textcaptype/) y convierta la cadena devuelta a mayúsculas cuando el valor sea `All`.
+En PowerPoint, aplicar el efecto de **Todo en mayúsculas** hace que el texto aparezca en mayúsculas en la diapositiva incluso cuando se escribió originalmente en minúsculas. Cuando recupera una porción de texto con Aspose.Slides, la biblioteca devuelve el texto tal como se ingresó. Para que coincida con el texto mostrado, consulte [TextCapType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textcaptype/) y convierta la cadena devuelta a mayúsculas cuando el valor sea `All`.
 
 Supongamos que tenemos el siguiente cuadro de texto en la primera diapositiva del archivo sample2.pptx.
 
-![El efecto Todas en mayúsculas](all_caps_effect.png)
+![El efecto Todo en mayúsculas](all_caps_effect.png)
 
-El siguiente ejemplo de código muestra cómo extraer el texto con el efecto **Todas en mayúsculas** aplicado:
+El ejemplo de código a continuación muestra cómo extraer el texto con el efecto **Todo en mayúsculas** aplicado:
 
 ```python
 import jpype
@@ -704,11 +706,11 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Preguntas más frecuentes**
+## **Preguntas frecuentes**
 
-**¿Cómo modifico el texto en una tabla de una diapositiva?**
+**¿Cómo puedo modificar texto en una tabla de una diapositiva?**
 
-Para modificar el texto en una tabla de una diapositiva, use [Table](https://reference.aspose.com/slides/es/python-java/aspose.slides/table/). Recorra las celdas y actualice cada celda mediante [Cell.getTextFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/cell/#getTextFrame) y el formato del párrafo mediante [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraph/#getParagraphFormat).
+Para modificar texto en una tabla de una diapositiva, use [Table](https://reference.aspose.com/slides/es/python-java/aspose.slides/table/). Recorra las celdas y actualice cada celda mediante [Cell.getTextFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/cell/#getTextFrame) y el formato de párrafo mediante [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraph/#getParagraphFormat).
 
 **¿Cómo aplico un color degradado al texto en una diapositiva de PowerPoint?**
 

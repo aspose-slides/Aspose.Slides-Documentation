@@ -1,5 +1,5 @@
 ---
-title: Formatieren von Präsentationstext in Java
+title: Präsentationstext in Java formatieren
 linktitle: Textformatierung
 type: docs
 weight: 50
@@ -7,39 +7,39 @@ url: /de/java/text-formatting/
 keywords:
 - Absatz ausrichten
 - Textstil
-- Text-Hintergrund
+- Texthintergrund
 - Texttransparenz
 - Zeichenabstand
 - Schrifteigenschaften
 - Schriftfamilie
 - Textrotation
-- Drehwinkel
-- Textrahmen
+- Rotationswinkel
+- Textfeld
 - Zeilenabstand
-- Autofit-Eigenschaft
-- Textrahmen-Anker
-- Tabulatoren
+- Autofit‑Eigenschaft
+- Textfeldverankerung
+- Texttabulation
 - Standardsprache
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Java formatieren und gestalten. Schriftarten, Farben, Ausrichtung und mehr anpassen."
+description: "Formatieren und gestalten Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Java. Passen Sie Schriftarten, Farben, Ausrichtung und mehr an."
 ---
 ## **Übersicht**
 
-Dieser Artikel zeigt, wie man Text in PowerPoint- und OpenDocument-Präsentationen mithilfe von Aspose.Slides für Java formatiert. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schriftarteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabulatoren und Spracheinstellungen.
+Dieser Artikel zeigt, wie man Text in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Java formatiert. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schriftarteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabstopps und Spracheinstellungen.
 
-In den nachfolgenden Beispielen verwenden wir eine Datei namens "sample.pptx", die auf der ersten Folie eine einzelne Textbox mit folgendem Text enthält:
+In den nachfolgenden Beispielen verwenden wir die Datei „sample.pptx“, die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
 
 ![Beispieltext](sample_text.png)
 
-Um literal Text oder Übereinstimmungen mit regulären Ausdrücken zu finden und zu markieren, siehe [Suchen und Ersetzen von Text](/slides/de/java/search-and-replace-text/).
+Um literal Text oder reguläre Ausdruck‑Übereinstimmungen zu finden und zu markieren, siehe [Suchen und Ersetzen von Text](/slides/de/java/search-and-replace-text/).
 
-## **Text‑Hintergrundfarbe festlegen**
+## **Texthintergrundfarbe festlegen**
 
-Verwenden Sie [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) , um die Standard‑Hervorhebungsfarbe für einen Absatz festzulegen, oder verwenden Sie [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) , um einzelne Textabschnitte zu formatieren.
+Verwenden Sie [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--), um die standardmäßige Hervorhebungsfarbe für einen Absatz festzulegen, oder verwenden Sie [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--), um einzelne Textabschnitte zu formatieren.
 
 Das folgende Codebeispiel zeigt, wie man die Hintergrundfarbe für den **gesamten Absatz** festlegt:
 
@@ -53,7 +53,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Setzen Sie die Hervorhebungsfarbe für den gesamten Absatz.
+    // Setze die Hervorhebungsfarbe für den gesamten Absatz.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -62,11 +62,11 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Der graue Absatz](gray_paragraph.png)
 
-Das nachstehende Codebeispiel demonstriert, wie man die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festlegt:
+Das folgende Codebeispiel demonstriert, wie man die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festlegt:
 
 ```java
 import com.aspose.slides.*;
@@ -80,7 +80,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Setzen Sie die Hervorhebungsfarbe für den Textabschnitt.
+            // Setze die Hervorhebungsfarbe für den Textabschnitt.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -91,15 +91,15 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Die grauen Textabschnitte](gray_text_portions.png)
 
 ## **Textabsätze ausrichten**
 
-Verwenden Sie [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) , um die Absatzausrichtung innerhalb eines Textbereichs festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, Blocksatz usw. sein.
+Verwenden Sie [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setAlignment-int-), um die Absatzausrichtung innerhalb eines Textfelds festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, Blocksatz usw. sein.
 
-Das folgende Codebeispiel zeigt, wie man den Absatz **zentriert** ausrichtet:
+Das folgende Codebeispiel zeigt, wie man den Absatz **mittig** ausrichtet:
 
 ```java
 import com.aspose.slides.*;
@@ -110,7 +110,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Setzen Sie die Ausrichtung des Absatzes auf zentriert.
+    // Setze die Ausrichtung des Absatzes auf zentriert.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -119,15 +119,15 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Der ausgerichtete Absatz](aligned_paragraph.png)
 
 ## **Transparenz für Text festlegen**
 
-Die Texttransparenz wird über die Alpha‑Komponente der Farbe gesteuert, die [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) zugewiesen ist. In den nachfolgenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Kanalwert im Bereich 0–255 und keine Transparenz‑Prozentzahl.
+Die Texttransparenz wird über die Alpha‑Komponente der Farbe gesteuert, die [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) zugewiesen wird. In den nachstehenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Wert im Bereich 0–255 und kein Transparenz‑Prozentsatz.
 
-Das nachstehende Codebeispiel zeigt, wie man Transparenz auf den **gesamten Absatz** anwendet:
+Das folgende Codebeispiel zeigt, wie man Transparenz auf den **gesamten Absatz** anwendet:
 
 ```java
 import com.aspose.slides.*;
@@ -141,7 +141,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Setzen Sie die Füllfarbe des Textes auf eine transparente Farbe.
+    // Setze die Füllfarbe des Textes auf eine transparente Farbe.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -151,7 +151,7 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Der transparente Absatz](transparent_paragraph.png)
 
@@ -171,7 +171,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Setzen Sie die Transparenz des Textabschnitts.
+            // Setze die Transparenz des Textabschnitts.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -183,13 +183,13 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Die transparenten Textabschnitte](transparent_text_portions.png)
 
 ## **Zeichenabstand für Text festlegen**
 
-Verwenden Sie [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) , um den Abstand zwischen Zeichen in einer Textbox zu vergrößern oder zu verkleinern.
+Verwenden Sie [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-), um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verkleinern.
 
 Der folgende Java‑Code zeigt, wie man den Zeichenabstand im **gesamten Absatz** erweitert:
 
@@ -202,8 +202,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu verringern.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Zeichenabstand erweitern.
+    // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu verkleinern.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Zeichenabstand vergrößern.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -211,11 +211,11 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Der Zeichenabstand im Absatz](character_spacing_in_paragraph.png)
 
-Das nachstehende Codebeispiel zeigt, wie man den Zeichenabstand in **Textabschnitten mit fetter Schrift** erweitert:
+Das folgende Codebeispiel zeigt, wie man den Zeichenabstand in **Textabschnitten mit fetter Schrift** erweitert:
 
 ```java
 import com.aspose.slides.*;
@@ -228,8 +228,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu verringern.
-            portion.getPortionFormat().setSpacing(3); // Zeichenabstand erweitern.
+            // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu verkleinern.
+            portion.getPortionFormat().setSpacing(3); // Zeichenabstand vergrößern.
         }
     }
 
@@ -239,15 +239,15 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Der Zeichenabstand in den Textabschnitten](character_spacing_in_text_portions.png)
 
-### **Kerning für bestimmte Schriften deaktivieren**
+### **Kerning für bestimmte Schriftarten deaktivieren**
 
-In manchen Fällen kann vom Aspose.Slides gerenderter Text leicht enger erscheinen als derselbe Text, der in PowerPoint angezeigt wird. Das kann vorkommen, weil PowerPoint Kerning‑Daten für bestimmte Schriften ignorieren kann, selbst wenn die Schrift gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
+In einigen Fällen kann der von Aspose.Slides gerenderte Text etwas enger wirken als derselbe Text, der in PowerPoint angezeigt wird. Das kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriftarten ignoriert, selbst wenn die Schriftart gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
 
-Um die gerenderte Ausgabe in solchen Fällen PowerPoint anzunähern, können Sie Kerning für Textabschnitte deaktivieren, die die betroffene Schrift verwenden. Setzen Sie [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) , auf einen Wert, der deutlich größer ist als die tatsächliche Schriftgröße:
+Um die gerenderte Ausgabe in solchen Fällen PowerPoint anzunähern, können Sie Kerning für Textabschnitte deaktivieren, die die betroffene Schriftart verwenden. Setzen Sie [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) auf einen Wert, der deutlich größer ist als die tatsächliche Schriftgröße:
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +279,13 @@ try {
 }
 ```
 
-## **Schriftart‑Eigenschaften für Text verwalten**
+Diese Einstellung verhindert, dass Kerning auf passende Textabschnitte angewendet wird, und kann helfen, die Darstellung von Aspose.Slides an die visuelle Ausgabe von PowerPoint für von diesem PowerPoint‑spezifischen Verhalten betroffene Schriftarten anzupassen.
 
-Schrifteigenschaften können auf Absatzebene über [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) oder auf einzelne Abschnitte über [IPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportionformat/) festgelegt werden.
+## **Text-Schrifteigenschaften verwalten**
 
-Der folgende Code legt die Schrift und den Textstil für den gesamten Absatz fest: Er wendet Schriftgröße, Fett, Kursiv, punktierte Unterstreichung und die Schrift Times New Roman auf alle Abschnitte im Absatz an.
+Schrifteigenschaften können auf Absatzebene über [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) oder für einzelne Abschnitte über [IPortionFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportionformat/) festgelegt werden.
+
+Der folgende Code legt die Schriftart und den Textstil für den gesamten Absatz fest: Er wendet Schriftgröße, Fett, Kursiv, gepunktete Unterstreichung und die Schriftart Times New Roman auf alle Abschnitte im Absatz an.
 
 ```java
 import com.aspose.slides.*;
@@ -294,7 +296,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Setzen Sie die Schriftarteigenschaften für den Absatz.
+    // Setze die Schriftarteigenschaften für den Absatz.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
@@ -307,11 +309,11 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
-![Die Schriftart‑Eigenschaften für den Absatz](font_properties_for_paragraph.png)
+![Die Schrifteigenschaften für den Absatz](font_properties_for_paragraph.png)
 
-Das nachstehende Codebeispiel wendet ähnliche Eigenschaften auf **Textabschnitte mit fetter Schrift** an:
+Das folgende Codebeispiel wendet ähnliche Eigenschaften auf **Textabschnitte mit fetter Schrift** an:
 
 ```java
 import com.aspose.slides.*;
@@ -324,7 +326,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Setzen Sie die Schriftarteigenschaften für den Textabschnitt.
+            // Setze die Schriftarteigenschaften für den Textabschnitt.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -338,15 +340,15 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
-![Die Schriftart‑Eigenschaften für Textabschnitte](font_properties_for_text_portions.png)
+![Die Schrifteigenschaften für Textabschnitte](font_properties_for_text_portions.png)
 
 ## **Textrotation festlegen**
 
-Verwenden Sie [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) , um eine vordefinierte Textausrichtung innerhalb einer Form festzulegen.
+Verwenden Sie [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-), um eine vordefinierte Textorientierung innerhalb einer Form festzulegen.
 
-Das folgende Codebeispiel setzt die Textausrichtung in der Form auf `Vertical270`, wodurch der Text **um 90 Grad gegen den Uhrzeigersinn** gedreht wird:
+Das folgende Codebeispiel setzt die Textorientierung in der Form auf `Vertical270`, wodurch der Text **90 Grad gegen den Uhrzeigersinn** rotiert wird:
 
 ```java
 import com.aspose.slides.*;
@@ -364,15 +366,15 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
 ![Die Textrotation](text_rotation.png)
 
-## **Benutzerdefinierte Drehung für Textfelder festlegen**
+## **Benutzerdefinierte Rotation für Textfelder festlegen**
 
-Verwenden Sie [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) , um einen benutzerdefinierten Drehwinkel für ein [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) festzulegen.
+Verwenden Sie [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-), um einen benutzerdefinierten Rotationswinkel für ein [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) festzulegen.
 
-Das nachstehende Codebeispiel dreht das Textfeld um 3 Grad im Uhrzeigersinn innerhalb der Form:
+Das folgende Codebeispiel dreht das Textfeld innerhalb der Form um 3 Grad im Uhrzeigersinn:
 
 ```java
 import com.aspose.slides.*;
@@ -390,9 +392,9 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
-![Die benutzerdefinierte Textdrehung](custom_text_rotation.png)
+![Die benutzerdefinierte Textrotation](custom_text_rotation.png)
 
 ## **Zeilenabstand von Absätzen festlegen**
 
@@ -420,13 +422,13 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
-![Der Zeilenabstand innerhalb des Absatzes](line_spacing.png)
+![Der Zeilenabstand im Absatz](line_spacing.png)
 
 ## **Autofit‑Typ für Textfelder festlegen**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie es, um zu steuern, ob der Text verkleinert, überläuft oder die Form automatisch in der Größe anpasst.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie diese Einstellung, um zu steuern, ob der Text verkleinert, überläuft oder die Form automatisch skaliert wird.
 
 ```java
 import com.aspose.slides.*;
@@ -444,9 +446,11 @@ try {
 }
 ```
 
+Um die Zeilen nach automatischem Zeilenumbruch zu zählen und zu sehen, wie sich die Text‑ oder Formbreite auf das Ergebnis auswirkt, siehe [Gerenderte Zeilen zählen](/slides/de/java/manage-paragraph/). Die bloße Zeilenzahl zeigt nicht an, ob Text seinen Container überläuft.
+
 ## **Verankerung von Textfeldern festlegen**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definiert, wie Text vertikal innerhalb einer Form positioniert wird, z. B. oben, mittig oder unten.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definiert, wie Text vertikal innerhalb einer Form positioniert wird, z. B. oben, in der Mitte oder unten.
 
 ```java
 import com.aspose.slides.*;
@@ -464,9 +468,9 @@ try {
 }
 ```
 
-## **Tabulatoren für Text festlegen**
+## **Text‑Tabulation festlegen**
 
-Verwenden Sie [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) und [IParagraphFormat.getTabs](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getTabs--) , um Tabulatoren in einem Absatz zu konfigurieren.
+Verwenden Sie [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) und [IParagraphFormat.getTabs](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getTabs--), um Tabstopps in einem Absatz zu konfigurieren.
 
 ```java
 import com.aspose.slides.*;
@@ -486,13 +490,13 @@ try {
 }
 ```
 
-Die resultierende Abbildung:
+Das Ergebnis:
 
-![Die Absatz‑Tabulatoren](paragraph_tabs.png)
+![Die Absatz‑Tabstopps](paragraph_tabs.png)
 
 ## **Korrektursprache festlegen**
 
-Aspose.Slides bietet [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) , mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
+Aspose.Slides bietet [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
 
 Das folgende Codebeispiel zeigt, wie man die Korrektursprache für einen Textabschnitt festlegt:
 
@@ -514,7 +518,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Setzen Sie die Id einer Korrektursprache.
+    // Setze die Id einer Korrektursprache.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -528,7 +532,7 @@ try {
 
 ## **Standard‑Sprache festlegen**
 
-Verwenden Sie [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/de/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) , um die Standardsprache für beim Laden oder Erstellen einer Präsentation erzeugten Text festzulegen.
+Verwenden Sie [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/de/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-), um die Standardsprache für Text festzulegen, der beim Laden oder Erstellen einer Präsentation erzeugt wird.
 
 ```java
 import com.aspose.slides.*;
@@ -540,11 +544,11 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügt ein neues Rechteck-Shape mit Text hinzu.
+    // Füge eine neue Rechteckform mit Text hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Überprüft die Sprache des ersten Textabschnitts.
+    // Überprüfe die Sprache des ersten Abschnitts.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -554,16 +558,16 @@ try {
 
 ## **Standard‑Textstil festlegen**
 
-Um standardmäßige Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Um die Standard‑Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Das folgende Codebeispiel zeigt, wie man eine standardmäßige fette Schrift mit Größe 14 pt für den gesamten Text auf allen Folien in einer neuen Präsentation festlegt.
+Das folgende Codebeispiel zeigt, wie man für alle Texte in einer neuen Präsentation eine standardmäßige fette Schrift mit einer Größe von 14 pt festlegt.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Abrufen des Absatzformats der obersten Ebene.
+    // Hole das Absatzformat der obersten Ebene.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -577,15 +581,15 @@ try {
 }
 ```
 
-## **Text mit dem Großbuchstaben‑Effekt extrahieren**
+## **Text mit dem Alles‑Großbuchstaben‑Effekt extrahieren**
 
-In PowerPoint bewirkt das Anwenden des **Alle‑Großbuchstaben**‑Schrifteffekts, dass Text auf der Folie in Großbuchstaben angezeigt wird, selbst wenn er ursprünglich in Kleinbuchstaben eingegeben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides abrufen, gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/de/java/com.aspose.slides/textcaptype/) und konvertieren Sie die zurückgegebene Zeichenkette in Großbuchstaben, wenn der Wert `All` ist.
+In PowerPoint führt das Anwenden des **Alle‑Großbuchstaben**‑Schrifteffekts dazu, dass Text auf der Folie in Großbuchstaben angezeigt wird, selbst wenn er ursprünglich in Kleinbuchstaben eingegeben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides abrufen, gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/de/java/com.aspose.slides/textcaptype/) und konvertieren Sie den zurückgegebenen String in Großbuchstaben, wenn der Wert `All` ist.
 
-Nehmen wir an, wir haben die folgende Textbox auf der ersten Folie der Datei sample2.pptx.
+Nehmen wir an, wir haben das folgende Textfeld auf der ersten Folie der Datei sample2.pptx.
 
-![Der Alle‑Großbuchstaben‑Effekt](all_caps_effect.png)
+![Der Alles‑Großbuchstaben‑Effekt](all_caps_effect.png)
 
-Das nachstehende Codebeispiel zeigt, wie man den Text mit angewendetem **Alle‑Großbuchstaben**‑Effekt extrahiert:
+Das folgende Codebeispiel zeigt, wie man den Text mit angewendetem **Alle‑Großbuchstaben**‑Effekt extrahiert:
 
 ```java
 import com.aspose.slides.*;
@@ -608,7 +612,7 @@ try {
 }
 ```
 
-Output:
+Ausgabe:
 
 ```text
 Original text: Hello, Aspose!
@@ -619,8 +623,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Wie kann man Text in einer Tabelle auf einer Folie ändern?**
 
-Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie [ITable](https://reference.aspose.com/slides/de/java/com.aspose.slides/itable/). Durchlaufen Sie die Zellen und aktualisieren Sie jede Zelle über [ICell.getTextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/icell/#getTextFrame--) sowie die Absatzformatierung über [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie [ITable](https://reference.aspose.com/slides/de/java/com.aspose.slides/itable/). Durchlaufen Sie die Zellen und aktualisieren Sie jede Zelle über [ICell.getTextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/icell/#getTextFrame--) und die Absatzformatierung über [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Wie kann man Farbverlauf auf Text in einer PowerPoint‑Folien anwenden?**
+**Wie kann man einem Text in einer PowerPoint‑Folien einen Farbverlauf hinzufügen?**
 
-Um einen Farbverlauf auf Text anzuwenden, verwenden Sie [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Setzen Sie [IFillFormat.setFillType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ifillformat/#setFillType-byte-) auf [FillType.Gradient](https://reference.aspose.com/slides/de/java/com.aspose.slides/filltype/) und konfigurieren Sie die Verlaufshaltpunkte, Richtung und Transparenz.
+Um einem Text einen Farbverlauf zu geben, verwenden Sie [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Setzen Sie [IFillFormat.setFillType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ifillformat/#setFillType-byte-) auf [FillType.Gradient](https://reference.aspose.com/slides/de/java/com.aspose.slides/filltype/) und konfigurieren Sie die Gradienten‑Stops, Richtung und Transparenz.

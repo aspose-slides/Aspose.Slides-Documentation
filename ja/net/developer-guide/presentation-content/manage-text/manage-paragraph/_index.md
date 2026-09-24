@@ -5,16 +5,16 @@ type: docs
 weight: 40
 url: /ja/net/manage-paragraph/
 aliases:
-  - /net/段落/
-  - /net/ポーション/
+  - /net/paragraph/
+  - /net/portion/
 keywords:
-- テキストの追加
-- 段落の追加
-- テキストの管理
-- 段落の管理
-- 箇条書きの管理
+- テキストを追加
+- 段落を追加
+- テキストを管理
+- 段落を管理
+- 箇条書きを管理
 - 段落インデント
-- ぶら下げインデント
+- ハンギングインデント
 - 段落箇条書き
 - 番号付きリスト
 - 箇条書きリスト
@@ -30,35 +30,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、段落、ポーション、箇条書き、番号付きリスト、インデント、HTML コンテンツ、段落画像の作成と書式設定方法を学びます。"
+description: "Aspose.Slides for .NET を使用して、段落、パーツ、箇条書き、番号付きリスト、インデント、HTML コンテンツ、段落画像の作成と書式設定方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for .NET はテキストをテキストフレーム、段落、ポーションの階層で表現します。
+Aspose.Slides for .NET はテキストをテキストフレーム、段落、パーツの階層として表現します。
 
-* [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) はシェイプ内のテキストコンテナを表し、段落コレクションへのアクセスを提供します。
-* [IParagraph](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/) はテキストフレーム内の 1 つの段落を表し、ポーションと段落レベルの書式設定へのアクセスを提供します。
-* [IPortion](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/) は段落内のテキストランを表します。各ポーションは独自のテキストと文字レベルの書式設定を持つことができます。
+* [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) はシェイプ内のテキスト コンテナを表し、段落コレクションへのアクセスを提供します。
+* [IParagraph](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/) はテキストフレーム内の 1 つの段落を表し、パーツおよび段落レベルの書式設定へのアクセスを提供します。
+* [IPortion](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/) は段落内のテキスト ランを表します。各パーツは独自のテキストと文字レベルの書式設定を持つことができます。
 
-このように、段落は複数のポーションを使用することで、フォント、色、サイズ、その他の書式が異なるテキストを含むことができます。
+このように、段落は複数のパーツを使用することで、フォント、色、サイズ、その他の書式が異なるテキストを含めることができます。
 
 ## **段落の作成と書式設定**
 
-### **複数のポーションを持つ段落の作成**
+### **複数パーツを持つ段落の作成**
 
-以下の手順で、3 つの段落を持ち、各段落に 3 つのポーションを含むテキストフレームを作成します。
+以下の手順で、3 つの段落それぞれに 3 つのパーツを持つテキスト フレームを作成します。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドへの参照にアクセスします。
-3. スライドに矩形の[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
-4. シェイプの[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
-5. デフォルトの段落を使用し、テキストフレームにさらに 2 つの[IParagraph](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/) オブジェクトを追加します。
-6. 各段落が 3 つのポーションを含むように、十分な数の[IPortion](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/) オブジェクトを追加します。デフォルトの段落にはすでに空のポーションが 1 つ含まれています。
-7. 各ポーションのテキストを設定します。
-8. [IPortion.PortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/portionformat/) を使用して文字レベルの書式設定を適用します。
+2. インデックスを使って対象スライドへの参照にアクセスします。
+3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
+5. デフォルトの段落を使用し、テキスト フレームにさらに 2 つの [IParagraph](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/) オブジェクトを追加します。
+6. 各段落が 3 つのパーツを含むように、十分な数の [IPortion](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/) オブジェクトを追加します。デフォルトの段落にはすでに空のパーツが 1 つ含まれています。
+7. 各パーツのテキストを設定します。
+8. [IPortion.PortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/portionformat/) を介して文字レベルの書式設定を適用します。
 9. 変更したプレゼンテーションを保存します。
 
-この C# の例が手順を実装しています。
+この C# の例が手順を実装しています：
 
 ```csharp
 using System.Drawing;
@@ -120,22 +120,22 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ### **箇条書きまたは番号付きリストの作成**
 
-箇条書きと番号付けは、関連項目を見やすくします。Aspose.Slides では、リスト設定は[IBulletFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/) を介して定義します。
+箇条書きと番号付けは、関連項目を見やすくします。Aspose.Slides では、リスト設定は [IBulletFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/) を通じて定義します。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドへの参照にアクセスします。
-3. 選択したスライドに[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
-4. シェイプの[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
-5. テキストフレームからデフォルトの段落を削除します。
-6. 記号箇条書き用に[Paragraph](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraph/) を作成します。
-7. [IBulletFormat.Type](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/type/) を[BulletType.Symbol](https://reference.aspose.com/slides/ja/net/aspose.slides/bullettype/) に設定し、箇条書き文字を指定します。
+2. インデックスを使って対象スライドへの参照にアクセスします。
+3. 選択したスライドに [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
+5. テキスト フレームからデフォルトの段落を削除します。
+6. 記号箇条書き用に [Paragraph](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraph/) を作成します。
+7. [IBulletFormat.Type](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/type/) を [BulletType.Symbol](https://reference.aspose.com/slides/ja/net/aspose.slides/bullettype/) に設定し、箇条書き文字を指定します。
 8. 段落のテキスト、インデント、箇条書きの色、箇条書きの高さを設定します。
-9. 段落をテキストフレームに追加します。
-10. 2 番目の段落を作成し、[IBulletFormat.Type](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/type/) を[BulletType.Numbered](https://reference.aspose.com/slides/ja/net/aspose.slides/bullettype/) に設定します。
-11. 番号付き箇条書きのスタイルを構成し、段落をテキストフレームに追加します。
+9. 段落をテキスト フレームに追加します。
+10. 2 番目の段落を作成し、[IBulletFormat.Type](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/type/) を [BulletType.Numbered](https://reference.aspose.com/slides/ja/net/aspose.slides/bullettype/) に設定します。
+11. 番号付き箇条書きスタイルを構成し、段落をテキスト フレームに追加します。
 12. プレゼンテーションを保存します。
 
-この C# の例は記号箇条書きと番号付き箇条書きを作成します。
+この C# の例は記号箇条書きと番号付き箇条書きを作成します：
 
 ```csharp
 using System;
@@ -174,20 +174,20 @@ presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 
 ### **画像箇条書きの使用**
 
-画像箇条書きでは、記号や数字の代わりにカスタム画像を使用できます。
+画像箇条書きを使用すると、記号や番号の代わりにカスタム画像を使用できます。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドへの参照にアクセスします。
-3. [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加し、その[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
-4. テキストフレームからデフォルトの段落を削除します。
-5. 箇条書き画像を読み込み、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) としてプレゼンテーションの画像コレクションに追加します。
+2. インデックスを使って対象スライドへの参照にアクセスします。
+3. [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加し、その [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
+4. テキスト フレームからデフォルトの段落を削除します。
+5. 箇条書き画像をロードし、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) としてプレゼンテーションの画像コレクションに追加します。
 6. [Paragraph](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraph/) を作成し、テキストを設定します。
-7. [IBulletFormat.Type](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/type/) を[BulletType.Picture](https://reference.aspose.com/slides/ja/net/aspose.slides/bullettype/) に設定します。
+7. [IBulletFormat.Type](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/type/) を [BulletType.Picture](https://reference.aspose.com/slides/ja/net/aspose.slides/bullettype/) に設定します。
 8. [IBulletFormat.Picture](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/picture/) で画像を指定し、箇条書きの高さを設定します。
-9. 段落をテキストフレームに追加します。
+9. 段落をテキスト フレームに追加します。
 10. 変更したプレゼンテーションを保存します。
 
-この C# の例は画像箇条書きを作成します。
+この C# の例は画像箇条書きを作成します：
 
 ```csharp
 using Aspose.Slides;
@@ -215,15 +215,15 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **多層リストの作成**
 
-[IParagraphFormat.Depth](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/depth/) を設定して、リストの異なるレベルに段落を配置します。最上位レベルの深さは `0` です。
+[IParagraphFormat.Depth](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/depth/) を設定して、リスト内の段落を異なるレベルに配置します。最上位レベルの深さは `0` です。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) を作成し、スライドにアクセスします。
-2. [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加し、そのテキストフレームからデフォルトの段落をクリアします。
+2. [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加し、テキスト フレームからデフォルトの段落をクリアします。
 3. 4 つの段落を作成し、箇条書き記号を設定します。
-4. それらの[IParagraphFormat.Depth](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/depth/) 値を `0`、`1`、`2`、`3` に設定します。
-5. 段落をテキストフレームに追加し、プレゼンテーションを保存します。
+4. それぞれの [IParagraphFormat.Depth](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/depth/) 値を `0`、`1`、`2`、`3` に設定します。
+5. 段落をテキスト フレームに追加し、プレゼンテーションを保存します。
 
-この C# の例は 4 レベルの箇条書きリストを作成します。
+この C# の例は 4 段階の箇条書きリストを作成します：
 
 ```csharp
 using System;
@@ -275,15 +275,15 @@ presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 
 ### **番号付きリスト項目の開始番号をカスタム値に設定**
 
-[IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/numberedbulletstartwith/) を使用して、番号付き段落の最初に表示される番号を設定します。
+[IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/numberedbulletstartwith/) を使用して、番号付き段落の開始番号を設定します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) を作成し、スライドに[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
-2. シェイプのテキストフレームからデフォルトの段落をクリアします。
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) を作成し、[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) をスライドに追加します。
+2. シェイプのテキスト フレームからデフォルトの段落をクリアします。
 3. 3 つの番号付き段落を作成します。
-4. 各段落に対して[IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/numberedbulletstartwith/) をそれぞれ `2`、`3`、`7` に設定します。
-5. 段落をテキストフレームに追加し、プレゼンテーションを保存します。
+4. 各段落に対して [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ja/net/aspose.slides/ibulletformat/numberedbulletstartwith/) をそれぞれ `2`、`3`、`7` に設定します。
+5. 段落をテキスト フレームに追加し、プレゼンテーションを保存します。
 
-この C# の例は各段落にカスタム開始番号を割り当てます。
+この C# の例は各段落にカスタム開始番号を割り当てます：
 
 ```csharp
 using Aspose.Slides;
@@ -313,25 +313,25 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **段落のレイアウトと終端プロパティの制御**
+## **段落のレイアウトと End プロパティの制御**
 
-### **最初の行インデントの設定**
+### **ファーストラインインデントの設定**
 
-[IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) プロパティを使用して段落の最初の行インデントを制御します。このプロパティは段落の左余白に対して最初の行だけを移動させます。正の値は最初の行を右にシフトし、残りの行は段落本体に揃ったままです。
+[IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) プロパティを使用して、段落の最初の行のインデントを制御します。このプロパティは段落の左余白に対して最初の行だけを移動させます。正の値は最初の行を右にシフトし、残りの行は段落本体に揃ったままです。
 
-全体の段落を移動したい場合は[IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/marginleft/) を使用し、最初の行だけを移動したい場合は[IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) を使用します。
+全体の段落を移動したい場合は [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/marginleft/) を使用し、最初の行だけを移動したい場合は [IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) を使用します。
 
-以下の例では複数の段落を作成し、異なる[IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) 値を適用して、最初の行インデントが段落レイアウトに与える影響を示しています。
+以下の例は複数の段落を作成し、異なる [IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) 値を適用して、ファーストラインインデントが段落レイアウトに与える影響を示しています。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. 対象スライドにアクセスします。
-3. スライドに矩形の[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
-4. シェイプの[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
-5. 複数の段落を作成し、各段落に異なる[Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) 値を設定します。
-6. 段落をテキストフレームに追加します。
+3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
+5. 複数の段落を作成し、各段落に異なる [Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) 値を設定します。
+6. 段落をテキスト フレームに追加します。
 7. 変更したプレゼンテーションを保存します。
 
-このコードは段落インデントの設定方法を示します。
+このコードは段落インデントの設定方法を示しています：
 
 ```csharp
 using System.Drawing;
@@ -374,28 +374,28 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 ```
 
-結果:
+結果：
 
 ![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **ぶら下げインデントの設定**
+### **ハンギングインデントの設定**
 
-ぶら下げインデントは、最初の行が残りの行より左側に開始する段落レイアウトです。Aspose.Slides では、[IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) プロパティでこの効果を作成します。`Indent` に負の値を設定すると、段落本体に対して最初の行が左に移動します。
+ハンギングインデントは、最初の行が残りの行より左に開始する段落レイアウトです。Aspose.Slides では [IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) プロパティに負の値を設定して実現します。
 
-実際には、[IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/marginleft/) が段落本体の左位置を定義し、[IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) がその余白に対する最初の行の位置を定義します。ぶら下げインデントを作成するには、正の `MarginLeft` 値と負の `Indent` 値を設定します。
+実際には、[IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/marginleft/) が段落本体の左位置を定義し、[IParagraphFormat.Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) がその余白に対する最初の行の位置を定義します。ハンギングインデントを作成するには、正の `MarginLeft` 値と負の `Indent` 値を組み合わせます。
 
-この書式設定は、参考文献、文献目録、用語集エントリなど、折り返し行が段落本体の下に揃える必要がある場合に便利です。
+この書式は文献目録、参照、用語集エントリなど、折り返し行が段落本体の下に揃う必要がある段落で便利です。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. 対象スライドにアクセスします。
-3. スライドに矩形の[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
-4. シェイプの[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
-5. 各段落に対して正の[MarginLeft](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/marginleft/) 値を設定して段落を作成します。
-6. ぶら下げインデント効果を作成するために負の[Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) 値を設定します。
-7. 段落をテキストフレームに追加します。
+3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
+5. 各段落に対して正の [MarginLeft](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/marginleft/) 値を設定します。
+6. 負の [Indent](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/indent/) 値を設定してハンギングインデント効果を作ります。
+7. 段落をテキスト フレームに追加します。
 8. 変更したプレゼンテーションを保存します。
 
-このコードは段落のぶら下げインデントの設定方法を示します。
+このコードは段落のハンギングインデント設定方法を示しています：
 
 ```csharp
 using System.Drawing;
@@ -431,20 +431,20 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 ```
 
-結果:
+結果：
 
 ![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **段落末端の実行プロパティの設定**
+### **段落の End プロパティの設定**
 
-[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/endparagraphportionformat/) プロパティは段落末端マークの書式設定を制御します。以下の例では、2 番目の段落の末端マークにフォントサイズとラテン文字フォントを割り当てます。
+[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/endparagraphportionformat/) プロパティは段落末尾記号の書式を制御します。以下の例は第 2 段落の末尾記号にフォントサイズとラテンフォントを割り当てます。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) をロードし、スライドにアクセスします。
 2. [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加し、デフォルトの段落をクリアします。
-3. 2 つの段落を作成し、テキストポーションを追加します。
-4. 2 番目の段落の末端マーク用に[PortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/portionformat/) を作成します。
-5. [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/fontheight/) と[IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/latinfont/) を設定します。
-6. フォーマットを[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/endparagraphportionformat/) に割り当て、プレゼンテーションを保存します。
+3. 2 つの段落を作成し、テキスト パーツを追加します。
+4. 第 2 段落の末尾記号用に [PortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/portionformat/) を作成します。
+5. [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/fontheight/) と [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/latinfont/) を設定します。
+6. その書式を [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/endparagraphportionformat/) に割り当て、プレゼンテーションを保存します。
 
 ```csharp
 using Aspose.Slides;
@@ -473,20 +473,67 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-## **段落コンテンツのインポートとエクスポート**
+## **描画された行数の取得**
+
+[IParagraph.GetLinesCount](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getlinescount/) を使用すると、テキスト レイアウト後に段落が占める描画行数（自動折り返しを含む）を取得できます。これはプレゼンテーション テンプレートでテキスト長やレイアウトを確認する際に便利です。
+
+段落は [ITextFrame.Paragraphs](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/paragraphs/) の 1 アイテムであり、複数の描画行を占めることがあります。段落内の明示的な改行は新しい行を強制しますが、別の段落は作成しません。自動折り返しは利用可能な幅に基づいて行を生成し、テキストに明示的な改行文字を挿入しません。そのため、段落数や改行文字の数を数えても描画行数は得られません。
+
+以下の例はテキスト シェイプを作成し、行数をカウントし、シェイプを狭め、テキストを短い文字列に置き換えます。折り返しは有効にし、オートフィットは無効にして、シェイプ幅が折り返しを制御し、テキストやシェイプの自動縮小は行わないようにしています。シェイプのサイズはポイント単位です。最後に、別の段落を追加し、テキスト フレーム全体の行数を合計します。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+paragraph.Text = "This text demonstrates how automatic wrapping changes the number of rendered lines.";
+Console.WriteLine($"Original width: {paragraph.GetLinesCount()}");
+
+shape.Width = 150;
+Console.WriteLine($"Narrower shape: {paragraph.GetLinesCount()}");
+
+paragraph.Text = "Short text.";
+Console.WriteLine($"Shorter text: {paragraph.GetLinesCount()}");
+
+var secondParagraph = new Paragraph { Text = "Another paragraph." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+textFrame.Paragraphs.Add(secondParagraph);
+
+var totalLineCount = 0;
+foreach (var currentParagraph in textFrame.Paragraphs)
+{
+    totalLineCount += currentParagraph.GetLinesCount();
+}
+Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
+```
+
+このテキストと寸法では、シェイプを狭めると行数が増え、短い文字列に置き換えると減ります。正確なカウントはフォントの利用可能性と代替、フォントサイズ、余白、インデント、折り返し、オートフィット設定により変わります。テンプレートを確認する際は、対象環境で使用するフォントとレイアウト設定を使用してください。
+
+行数だけではテキストがコンテナを超えているかは判断できません。利用可能な高さ、行の高さ、段落および行間、オートフィットの動作も影響します。折り返しが無効の場合、1 行でも幅を超えることがあります。
+
+## **段落内容のインポートとエクスポート**
 
 ### **HTML テキストを段落にインポート**
 
-[ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraphcollection/addfromhtml/) を使用して、HTML マークアップをテキストフレーム内の段落およびポーションに変換します。
+[ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraphcollection/addfromhtml/) を使用して、HTML マークアップをテキスト フレーム内の段落とパーツに変換できます。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。
 2. スライドにアクセスし、[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を追加します。
-3. シェイプの[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスし、デフォルトの段落をクリアします。
+3. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスし、デフォルトの段落をクリアします。
 4. ソース HTML ファイルを読み取ります。
-5. HTML 文字列を[ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraphcollection/addfromhtml/) に渡します。
+5. HTML 文字列を [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraphcollection/addfromhtml/) に渡します。
 6. 変更したプレゼンテーションを保存します。
 
-この C# の例は HTML をテキストフレームにインポートします。
+この C# の例は HTML をテキスト フレームにインポートします：
 
 ```csharp
 using System.IO;
@@ -510,15 +557,15 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **段落テキストを HTML にエクスポート**
 
-[ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraphcollection/exporttohtml/) を使用して、選択した段落範囲を HTML としてエクスポートします。
+[ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraphcollection/exporttohtml/) を使用して、選択した範囲の段落を HTML としてエクスポートできます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成し、目的のプレゼンテーションをロードします。
-2. スライドにアクセスし、テキストを含む[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を見つけます。
-3. シェイプの[ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) のインスタンスを作成し、目的のプレゼンテーションをロードします。
+2. スライドにアクセスし、テキストを含む [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) を見つけます。
+3. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframe/) にアクセスします。
 4. 開始段落インデックスとエクスポートする段落数を指定して、[ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraphcollection/exporttohtml/) を呼び出します。
 5. 返された HTML 文字列をファイルに書き込みます。
 
-この C# の例は最初のテキストシェイプからすべての段落をエクスポートします。
+この C# の例は最初のテキスト シェイプからすべての段落をエクスポートします：
 
 ```csharp
 using System;
@@ -544,17 +591,17 @@ else
 
 ### **段落を画像としてレンダリング**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) は個々の段落を直接レンダリングし、[IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) を返します。結果は[IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/save/) でファイルまたはストリームに保存できます。シェイプ全体をレンダリングしたり、ビットマップを手動で切り取る必要はありません。
+[IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) は個々の段落を直接レンダリングし、[IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) を返します。結果は [IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/save/) でファイルまたはストリームに保存できます。シェイプ全体をレンダリングしたり、ビットマップを手動で切り取る必要はありません。
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) は、段落が親コレクションに存在しない、レンダリング境界が有効でない、またはレンダリングできない場合に `null` を返すことがあります。保存前に結果を確認し、使用後は返された画像を必ず破棄してください。
+[IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) は、段落が親コレクションに存在しない、レンダリング境界が有効でない、またはレンダリングできない場合に `null` を返すことがあります。保存前に結果を確認し、使用後は返された画像を破棄してください。
 
 #### **デフォルトスケールで段落をレンダリング**
 
-サンプルとして sample.pptx というプレゼンテーション ファイルがあり、1 枚のスライドに最初のシェイプが 3 段落を含むテキストボックスであるとします。
+1 枚のスライドと、最初のシェイプが 3 段落を含むテキスト ボックスである sample.pptx というプレゼンテーション ファイルがあるとします。
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-以下の例は、通常のテキストシェイプ内の第2段落をデフォルトスケールでレンダリングし、PNG 形式で返された画像を保存します。`using` 宣言により画像が適切に破棄されます。
+以下の例は、通常のテキスト シェイプ内の第 2 段落をデフォルト スケールでレンダリングし、PNG 形式で画像を保存します。`using` 宣言により画像は適切に破棄されます。
 
 ```csharp
 using System;
@@ -585,13 +632,13 @@ else
 }
 ```
 
-結果:
+結果：
 
 ![The paragraph image](paragraph_to_image_output.png)
 
 #### **テーブルセル内の段落をスケーリングしてレンダリング**
 
-`float scaleX` と `float scaleY` パラメータを受け取る[IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) のオーバーロードを使用して、水平・垂直のスケール係数を設定します。以下の例はテーブルを作成し、最初のセルの段落をデフォルト幅と高さの 2 倍でレンダリングし、PNG 画像として保存します。
+`float scaleX` と `float scaleY` パラメータを受け取る [IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) のオーバーロードを使用して、水平・垂直スケール係数を設定します。以下の例はテーブルを作成し、最初のセル内の段落を幅と高さを 2 倍に拡大してレンダリングし、PNG 画像として保存します。
 
 ```csharp
 using System;
@@ -617,24 +664,24 @@ else
 }
 ```
 
-`1` のスケール係数はその軸のデフォルトピクセルサイズを維持します。例えば `2` は両方の係数で幅と高さが約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストをより鮮明にしますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が減少した小さい画像を生成します。等しい係数を使用すると段落のアスペクト比が保たれ、異なる水平・垂直係数を使用すると出力が個別に伸縮します。
+スケール係数 `1` はその軸をデフォルトのピクセルサイズのままにします。たとえば、両方の係数に `2` を指定すると、幅と高さが約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストを鮮明にしますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が減った小さな画像を生成します。段落のアスペクト比を保つには等しい係数を使用し、水平と垂直で異なる係数を設定すると出力が個別に伸びます。
 
-[IShape.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getimage/) を使用してシェイプ全体をレンダリングすることは、シェイプの塗りつぶしや枠線、その他のビジュアルコンテキストを含める必要がある場合に有用です。段落のみの画像が必要な場合は[IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) を使用してください。
+シェイプ全体を画像化したい場合は、[IShape.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getimage/) が有用です。段落だけの画像が必要なときは、[IParagraph.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getimage/) を使用してください。
 
 ## **FAQ**
 
-**テキストフレーム内で改行を完全に無効にできますか？**
+**テキスト フレーム内で行折り返しを完全に無効にできますか？**
 
-はい。[ITextFrameFormat.WrapText](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/wraptext/) を `false` に設定すると、テキストフレームの端で改行が発生しなくなります。
+はい。`[ITextFrameFormat.WrapText](https://reference.aspose.com/slides/ja/net/aspose.slides/itextframeformat/wraptext/)` を設定して折り返しを無効にすると、行はテキスト フレームの端で改行しなくなります。
 
-**特定の段落のスライド上での正確な境界を取得する方法は？**
+**特定の段落のスライド上での正確な境界を取得するには？**
 
-[IParagraph.GetRect](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getrect/) を使用して段落のバウンディング矩形を取得できます。[IPortion.GetRect](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/getrect/) は個々のポーションの境界を提供します。
+`[IParagraph.GetRect](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/getrect/)` を使用して段落のバウンディング矩形を取得できます。`[IPortion.GetRect](https://reference.aspose.com/slides/ja/net/aspose.slides/iportion/getrect/)` は個々のパーツの境界を提供します。
 
 **段落の配置（左揃え、右揃え、中央揃え、両端揃え）はどこで制御しますか？**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/alignment/) は段落レベルの設定であり、個々のポーションの書式設定に関係なく段落全体に適用されます。
+`[IParagraphFormat.Alignment](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraphformat/alignment/)` は段落レベルの設定であり、個々のパーツの書式設定に関係なく段落全体に適用されます。
 
-**段落の一部に校正言語を設定できますか？**
+**段落の一部だけに校正言語を設定できますか？**
 
-はい。個々のポーションに対して[IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/languageid/) を設定すれば、同じ段落内で複数の言語を使用できます。
+はい。個々のパーツに対して `[IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseportionformat/languageid/)` を設定すれば、1 段落内で複数の言語を使用できます。
