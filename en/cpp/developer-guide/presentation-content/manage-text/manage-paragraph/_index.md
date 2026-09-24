@@ -591,6 +591,64 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Count Rendered Lines**
+
+Use [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) to count the lines occupied by a paragraph after text layout, including automatic wrapping. This is useful when checking text length and layout in presentation templates.
+
+A paragraph is one item in [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
+
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::True);
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+
+auto paragraph = textFrame->get_Paragraph(0);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20);
+paragraph->set_Text(u"This text demonstrates how automatic wrapping changes the number of rendered lines.");
+Console::WriteLine(u"Original width: {0}", paragraph->GetLinesCount());
+
+shape->set_Width(150);
+Console::WriteLine(u"Narrower shape: {0}", paragraph->GetLinesCount());
+
+paragraph->set_Text(u"Short text.");
+Console::WriteLine(u"Shorter text: {0}", paragraph->GetLinesCount());
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Another paragraph.");
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto totalLineCount = 0;
+for (auto currentParagraph : textFrame->get_Paragraphs())
+{
+    totalLineCount += currentParagraph->GetLinesCount();
+}
+Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
+presentation->Dispose();
+```
+
+With this text and these dimensions, narrowing the shape increases the line count, while replacing the text with the short string reduces it. Exact counts can vary with font availability and substitution, font size, margins, indentation, wrapping, and autofit settings. Use the fonts and layout settings intended for the target environment when checking a template.
+
+The line count alone does not determine whether text overflows its container. The available height, line heights, paragraph and line spacing, and autofit behavior also matter; even a single line can exceed the available width when wrapping is disabled.
+
 ## **Import and Export Paragraph Content**
 
 ### **Import HTML Text into Paragraphs**

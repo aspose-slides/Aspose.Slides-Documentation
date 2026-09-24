@@ -468,6 +468,51 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Count Rendered Lines**
+
+Use [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) to count the lines occupied by a paragraph after text layout, including automatic wrapping. This is useful when checking text length and layout in presentation templates.
+
+A paragraph is one item in [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
+
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.text_frame_format.wrap_text = slides.NullableBool.TRUE
+    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.NONE
+
+    paragraph = text_frame.paragraphs[0]
+    paragraph.paragraph_format.default_portion_format.font_height = 20
+    paragraph.text = "This text demonstrates how automatic wrapping changes the number of rendered lines."
+    print(f"Original width: {paragraph.get_lines_count()}")
+
+    shape.width = 150
+    print(f"Narrower shape: {paragraph.get_lines_count()}")
+
+    paragraph.text = "Short text."
+    print(f"Shorter text: {paragraph.get_lines_count()}")
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Another paragraph."
+    second_paragraph.paragraph_format.default_portion_format.font_height = 20
+    text_frame.paragraphs.add(second_paragraph)
+
+    total_line_count = 0
+    for current_paragraph in text_frame.paragraphs:
+        total_line_count += current_paragraph.get_lines_count()
+    print(f"Total lines in the text frame: {total_line_count}")
+```
+
+With this text and these dimensions, narrowing the shape increases the line count, while replacing the text with the short string reduces it. Exact counts can vary with font availability and substitution, font size, margins, indentation, wrapping, and autofit settings. Use the fonts and layout settings intended for the target environment when checking a template.
+
+The line count alone does not determine whether text overflows its container. The available height, line heights, paragraph and line spacing, and autofit behavior also matter; even a single line can exceed the available width when wrapping is disabled.
+
 ## **Import and Export Paragraph Content**
 
 ### **Import HTML Text into Paragraphs**

@@ -365,6 +365,8 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+To count lines after automatic wrapping and see how text or shape width changes the result, see [Count Rendered Lines](/slides/python-net/manage-paragraph/). Line count alone does not indicate whether text overflows its container.
+
 ## **Set Anchor of Text Frames**
 
 [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) defines how text is positioned vertically inside a shape, for example at the top, middle, or bottom.

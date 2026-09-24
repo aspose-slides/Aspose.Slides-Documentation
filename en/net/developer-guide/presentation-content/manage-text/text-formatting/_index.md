@@ -429,6 +429,8 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+To count lines after automatic wrapping and see how text or shape width changes the result, see [Count Rendered Lines](/slides/net/manage-paragraph/). Line count alone does not indicate whether text overflows its container.
+
 ## **Set Anchor of Text Frames**
 
 [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) defines how text is positioned vertically inside a shape, for example at the top, middle, or bottom.

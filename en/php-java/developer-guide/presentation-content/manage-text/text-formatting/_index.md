@@ -437,6 +437,8 @@ try {
 }
 ```
 
+To count lines after automatic wrapping and see how text or shape width changes the result, see [Count Rendered Lines](/slides/php-java/manage-paragraph/). Line count alone does not indicate whether text overflows its container.
+
 ## **Set Anchor of Text Frames**
 
 [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) defines how text is positioned vertically inside a shape, for example at the top, middle, or bottom.
