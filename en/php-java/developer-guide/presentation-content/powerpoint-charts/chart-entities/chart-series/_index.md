@@ -328,6 +328,64 @@ try {
 
 Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) when you want to keep the other points, because that method removes every data point from the collection.
 
+## **Control the Display of Empty Cells**
+
+An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Call [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) with `null` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
+
+Use [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
+
+The following self-contained example creates a line chart with one series, clears the value for Day 3, and saves the same chart with each mode. No input file is required. The [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) uses worksheet 0, column 0 for category labels, and column 1 for values; row 0 holds the series name. The final data is `10, 20, empty, 30, 40`.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\DisplayBlanksAsType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 40, 40, 640, 400);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Measurements");
+    $series = $chartData->getSeries()->add($seriesNameCell, $chart->getType());
+    $values = [10, 20, 25, 30, 40];
+
+    for ($i = 0; $i < count($values); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Day " . ($i + 1));
+        $chartData->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
+    // Leave Day 3 genuinely empty, while retaining its category and data point.
+    $workbook->getCell(0, 3, 1)->setValue(null);
+
+    $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
+    $modeNames = ["Gap", "Zero", "Span"];
+    for ($i = 0; $i < count($modes); $i++) {
+        $chart->setDisplayBlanksAs($modes[$i]);
+        $presentation->save("empty_cells_" . $modeNames[$i] . ".pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Each output file stores the mode assigned before saving: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, and `empty_cells_Span.pptx`. To save only one version, assign the desired mode and save the presentation once instead of iterating over the modes.
+
+The comparison below shows the same data in all three files. Day 3 is empty in the workbook in every case:
+
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+
+The visible effect depends on the chart type. A line chart makes all three modes easy to compare. Bar and column charts have no line to connect across a missing category, so `Span` cannot produce the connecting segment shown above; a missing column and a zero-height column can also look alike. Similarly, a scatter chart with markers only has no connecting line. Do not expect three distinct results for every chart type; check the output for the type you use.
+
 ## **Set the Series Gap Width**
 
 Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Call [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
@@ -384,7 +442,7 @@ Set the relevant value cell to `null` to retain the point's category position as
 
 **How are empty points displayed?**
 
-The result depends on the chart type and the value configured through [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation.
+The result depends on the chart type and the value configured through [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
 
 **How are negative values formatted?**
 

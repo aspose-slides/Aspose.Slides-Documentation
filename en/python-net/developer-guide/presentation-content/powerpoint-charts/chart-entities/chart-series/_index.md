@@ -297,6 +297,55 @@ with slides.Presentation() as presentation:
 
 Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) when you want to keep the other points, because that method removes every data point from the collection.
 
+## **Control the Display of Empty Cells**
+
+An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Set [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) to `None` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
+
+Use [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
+
+The following self-contained example creates a line chart with one series, clears the value for Day 3, and saves the same chart with each mode. No input file is required. The [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) uses worksheet 0, column 0 for category labels, and column 1 for values; row 0 holds the series name. The final data is `10, 20, empty, 30, 40`.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 40, 40, 640, 400)
+    chart_data = chart.chart_data
+    workbook = chart_data.chart_data_workbook
+
+    chart_data.series.clear()
+    chart_data.categories.clear()
+
+    series_name_cell = workbook.get_cell(0, 0, 1, "Measurements")
+    series = chart_data.series.add(series_name_cell, chart.type)
+    values = [10, 20, 25, 30, 40]
+
+    for i, value in enumerate(values):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Day {i + 1}")
+        chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        series.data_points.add_data_point_for_line_series(value_cell)
+
+    # Leave Day 3 genuinely empty, while retaining its category and data point.
+    workbook.get_cell(0, 3, 1).value = None
+
+    modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
+    for mode_name, mode in modes:
+        chart.display_blanks_as = mode
+        presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Each output file stores the mode assigned before saving: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, and `empty_cells_Span.pptx`. To save only one version, assign the desired mode and save the presentation once instead of iterating over the modes.
+
+The comparison below shows the same data in all three files. Day 3 is empty in the workbook in every case:
+
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+
+The visible effect depends on the chart type. A line chart makes all three modes easy to compare. Bar and column charts have no line to connect across a missing category, so `SPAN` cannot produce the connecting segment shown above; a missing column and a zero-height column can also look alike. Similarly, a scatter chart with markers only has no connecting line. Do not expect three distinct results for every chart type; check the output for the type you use.
+
 ## **Set the Series Gap Width**
 
 Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Set [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
@@ -350,7 +399,7 @@ Set the relevant value cell to `None` to retain the point's category position as
 
 **How are empty points displayed?**
 
-The result depends on the chart type and [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation.
+The result depends on the chart type and [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
 
 **How are negative values formatted?**
 
