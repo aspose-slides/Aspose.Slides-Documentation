@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda JavaScript Kullanarak Grafik Veri Tablolarını Özelleştirme
+title: JavaScript Kullanarak Sunumlarda Grafik Veri Tablolarını Özelleştirme
 linktitle: Veri Tablosu
 type: docs
 url: /tr/nodejs-java/chart-data-table/
@@ -12,56 +12,126 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile PPT ve PPTX için JavaScript kullanarak grafik veri tablolarını özelleştirerek sunumlarda verimliliği ve çekiciliği artırın."
+description: "Aspose.Slides for Node.js via Java kullanarak PowerPoint sunumlarında grafik veri tablo yazı tiplerini, kenarlıkları ve efsane anahtarlarını özelleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde grafik veri tablolarıyla nasıl çalışılacağını açıklar. Bir grafik için veri tablosunun nasıl görüntüleneceğini ve kalın stil ve yazı yüksekliği gibi yazı tipi özelliklerini ayarlayarak metin biçimlendirmesinin nasıl özelleştirileceğini gösterir. Örnek, bir sunumu yüklemeyi, bir grafik eklemeyi, grafik veri tablosunu etkinleştirmeyi, yazı tipi ayarlarını uygulamayı ve güncellenen sunumu kaydetmeyi gösterir.
+Aspose.Slides for Node.js via Java, bir grafiğin veri tablosunu görüntülemenizi ve metin biçimlendirmesini, kenarlıkları ve efsane anahtarlarını özelleştirmenizi sağlar. Bu makale, tabloyu nasıl etkinleştireceğinizi, metnini nasıl biçimlendireceğinizi, her kenarlık tipini nasıl kontrol edeceğinizi ve efsane anahtarlarını nasıl göstereceğinizi veya gizleyeceğinizi açıklar. Örnekler, yapılandırılmış grafikleri PPTX dosyalarına kaydeder.
 
-Ayrıca, grafik veri tablosunda gösterge anahtarlarını gösterme, dışa aktarım sırasında veri tablosunu koruma, mevcut sunumlardan veya şablonlardan yüklenen grafiklerle çalışma ve veri tablosunun etkin olduğu grafikleri belirleme gibi yaygın sorulara kısa yanıtlar içerir.
+## **Yazı Tipi Özelliklerini Ayarla**
 
-## **Grafik Veri Tablosu için Yazı Tipi Özelliklerini Ayarlama**
+Bir grafiğin veri tablosunu görüntülemek için `true` değerini [setDataTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/setdatatable/) metoduna iletin. Tabloya erişmek ve metin biçimlendirmesini yapılandırmak için [getChartDataTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/getchartdatatable/) metodunu kullanın.
 
-Aspose.Slides for Node.js via Java, bir seri rengindeki kategorilerin rengini değiştirme desteği sağlar.
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfı nesnesi oluşturun.
-1. Slayta bir grafik ekleyin.
-1. Grafik tablosunu ayarlayın.
-1. Yazı tipi yüksekliğini ayarlayın.
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfını kullanarak yükleyin.
+1. İlk slayta bir clustered column grafiği ekleyin.
+1. Grafiğin veri tablosunu etkinleştirin.
+1. [setFontBold](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseportionformat/#setfontbold) ile kalın metni etkinleştirin ve 20 puanlık metin için `20` değerini [setFontHeight](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseportionformat/#setfontheight) metoduna iletin.
 1. Değiştirilmiş sunumu kaydedin.
 
-Aşağıda örnek bir örnek verilmiştir.
+Aşağıdaki örnek, çalışma dizininde en az bir slayt içeren `input.pptx` dosyasını gerektirir. (50, 50) konumunda, 600 puan genişliğinde ve 400 puan yüksekliğinde, varsayılan verilerle bir grafik ekler. Kaydedilen `output.pptx`, veri tablosu etkinleştirilmiş grafik ve belirtilen yazı tipi ayarlarını içerir.
 
 ```javascript
-// Boş sunum oluşturma
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    portionFormat.setFontHeight(20);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Veri Tablosu Kenarlıklarını Özelleştir**
+
+Tabloyu [Chart.setDataTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/setdatatable/) ile etkinleştirin ve [Chart.getChartDataTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/getchartdatatable/) ile erişin. Üç kenarlık türünü bağımsız olarak kontrol edebilirsiniz:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datatable/setborderhorizontal/) yatay hücre kenarlıklarını kontrol eder.
+- [setBorderVertical](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datatable/setbordervertical/) dikey hücre kenarlıklarını kontrol eder.
+- [setBorderOutline](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datatable/setborderoutline/) tablonun dış kenarlığını kontrol eder.
+
+`true` değerini her metoda ileterek kenarlıkları görüntüleyebilir veya `false` ile gizleyebilirsiniz. Aşağıdaki örnek, varsayılan verilerle bir clustered column grafiği oluşturur, yatay kenarlıkları ve dış kenarlığı gösterir ve dikey kenarlıkları gizler. Herhangi bir giriş dosyası gerekmez. Grafiğin konumu ve boyutu puan cinsinden belirtilir.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, dört durumda da aynı grafik verilerini ve efsane anahtarı ayarını kullanır. Tüm kenarlıklar etkinleştirilmiş olarak başlanır, kalan her varyant sadece bir kenarlık ayarını devre dışı bırakır. Sol alt varyant, örnekteki kenarlık ayarlarıyla eşleşir.
+
+![Tüm kenarlıkları etkin, yatay kenarlık yok, dikey kenarlık yok ve dış kenarlık yok olan grafik veri tabloları](data-table-borders.png)
+
+## **Efsane Anahtarlarını Göster veya Gizle**
+
+Efsane anahtarları, veri tablosundaki seri adlarının yanındaki küçük renkli işaretçilerdir. Okuyucuların her tablo satırını bir grafik serisine eşleştirmesine yardımcı olur. Bu işaretçileri göstermek için [setShowLegendKey](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datatable/setshowlegendkey/) metoduna `true` değerini, gizlemek için `false` değerini iletin.
+
+Grafiğin ayrı efsanesi, [Chart.setLegend](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/setlegend/) ile kontrol edilir. Bu ayarlar bağımsızdır: ayrı efsaneyi gizlemek, veri tablosundaki anahtarları gizlemez ve tablodaki anahtarları gizlemek, ayrı efsaneyi gizlemez.
+
+Aşağıdaki örnek, varsayılan verilerle bir grafik oluşturur, veri tablosunu etkinleştirir ve ayrı efsaneyi gizlerken içinde efsane anahtarlarını gösterir. Tüm tablo kenarlıkları açıkça etkinleştirilir. Giriş sunumu gerekmez. Sadece tablonun anahtarlarını gizlemek için [setShowLegendKey](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datatable/setshowlegendkey/) metoduna `false` değerini iletin.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, aynı tabloyu efsane anahtarları etkin ve devre dışı olarak gösterir. Tüm kenarlıklar etkin kalır ve ayrı grafik efsanesi her iki durumda da gizlidir.
+
+![Sol tarafta efsane anahtarları gösterilen ve sağ tarafta gizlenen grafik veri tabloları](data-table-legend-keys.png)
+
 ## **SSS**
 
-**Grafiğin veri tablosundaki değerlerin yanında küçük gösterge anahtarlarını gösterebilir miyim?**
+**Grafiğin veri tablosunda efsane anahtarlarını gösterebilir miyim?**  
+Evet. Efsane anahtarlarını görüntülemek için [setShowLegendKey](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datatable/setshowlegendkey/) metoduna `true`, gizlemek için `false` değerini iletin.
 
-Evet. Veri tablosu [gösterge anahtarlarını](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datatable/setshowlegendkey/) destekler ve bunları açıp kapatabilirsiniz.
+**Sunumu PDF, HTML veya görüntülere dışa aktarırken veri tablosu korunur mu?**  
+Evet. Aspose.Slides, grafiği ve görüntülenen veri tablosunu slaytın bir parçası olarak [PDF](/slides/tr/nodejs-java/convert-powerpoint-to-pdf/), [HTML](/slides/tr/nodejs-java/convert-powerpoint-to-html/) veya [images](/slides/tr/nodejs-java/convert-powerpoint-to-png/) dışa aktarırken işler.
 
-**Sunumu PDF, HTML veya görüntülere dışa aktarırken veri tablosu korunur mu?**
+**Şablondan yüklenen grafiklerde veri tablolarıyla çalışabilir miyim?**  
+Evet. Mevcut bir sunumdan veya şablondan yüklenen bir grafik için, veri tablosunun görüntülenip görüntülenmediğini kontrol etmek veya değiştirmek amacıyla [hasDataTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/hasdatatable/) ve [setDataTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/setdatatable/) metodlarını kullanın.
 
-Evet. Aspose.Slides, grafiği slaytın bir parçası olarak işler, bu nedenle dışa aktarılan [PDF](/slides/tr/nodejs-java/convert-powerpoint-to-pdf/)/[HTML](/slides/tr/nodejs-java/convert-powerpoint-to-html/)/[image](/slides/tr/nodejs-java/convert-powerpoint-to-png/) grafiği veri tablosuyla birlikte içerir.
-
-**Şablon dosyasından gelen grafikler için veri tabloları destekleniyor mu?**
-
-Evet. Mevcut bir sunumdan veya şablondan yüklenen herhangi bir grafik için, grafik özelliklerini kullanarak bir veri tablosunun [gösterilip gösterilmediğini](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/hasdatatable/) kontrol edebilir ve değiştirebilirsiniz.
-
-**Bir dosyada hangi grafiklerin veri tablosunun etkin olduğunu hızlıca nasıl bulabilirim?**
-
-Veri tablosunun [gösterilip gösterilmediğini](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/hasdatatable/) gösteren her bir grafik özelliğini inceleyin ve slaytlar arasında gezerek etkin olan grafikleri belirleyin.
+**Veri tablosu etkin olan grafikleri nasıl bulabilirim?**  
+Her slayttaki şekilleri döngüyle gezerek, grafikleri belirleyin ve onların [hasDataTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/hasdatatable/) metodunu çağırın. `true` değeri, veri tablosunun etkin olduğunu gösterir.

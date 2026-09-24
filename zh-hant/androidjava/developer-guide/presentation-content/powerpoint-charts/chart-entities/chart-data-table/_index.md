@@ -1,65 +1,139 @@
 ---
-title: 在 Android 上自訂簡報中的圖表資料表
-linktitle: 資料表
+title: 在 Android 上的簡報中自訂圖表資料表格
+linktitle: 資料表格
 type: docs
 url: /zh-hant/androidjava/chart-data-table/
 keywords:
 - 圖表資料
-- 資料表
+- 資料表格
 - 字型屬性
 - PowerPoint
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 在 Java 中自訂 PPT 與 PPTX 的圖表資料表，以提升簡報的效率與吸引力。"
+description: "使用 Aspose.Slides for Android via Java 在 PowerPoint 簡報中自訂圖表資料表格的字型、邊框與圖例鍵。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何在 Aspose.Slides 中使用圖表資料表。它展示了如何為圖表顯示資料表，並透過設定字型屬性（例如粗體樣式和字型高度）來自訂文字格式。範例示範了載入簡報、加入圖表、啟用圖表資料表、套用字型設定，並儲存更新後的簡報。
+Aspose.Slides for Android via Java 讓您顯示圖表的資料表格，並自訂文字格式、邊框與圖例鍵。本文章說明如何啟用資料表格、設定文字格式、控制各類邊框，以及顯示或隱藏圖例鍵。範例會將設定好的圖表儲存為 PPTX 檔案。
 
-## **設定圖表資料表的字型屬性**
-Aspose.Slides for Android via Java 提供了在系列色彩中變更類別顏色的支援。
+## **設定字型屬性**
 
-1. 實例化 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別物件。
-1. 在投影片上新增圖表。
-1. 設定圖表資料表。
-1. 設定字型高度。
-1. 儲存已修改的簡報。
+要顯示圖表的資料表格，請將 `true` 傳遞給[setDataTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/chart/#setDataTable-boolean-)。使用[getChartDataTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/chart/#getChartDataTable--) 取得表格並設定文字格式。
 
-以下提供範例。
+1. 使用[Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別載入簡報。
+2. 在第一張投影片加入叢集柱狀圖。
+3. 啟用圖表的資料表格。
+4. 透過[setFontBold](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseportionformat/#setFontBold-byte-) 設定粗體，並將`20` 傳遞給[setFontHeight](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) 以使用 20 點字型。
+5. 儲存已修改的簡報。
+
+以下範例需要工作目錄中有 `test.pptx`（至少一張投影片）。它會在位置 (50, 50) 新增一個寬 600 點、高 400 點、使用預設資料的圖表。儲存的 `output.pptx` 內含已啟用資料表格且套用指定字型設定的圖表。
 
 ```java
-// 建立空白簡報
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
 
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+    IChartPortionFormat portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(NullableBool.True);
+    portionFormat.setFontHeight(20);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **自訂資料表格邊框**
+
+使用[IChart.setDataTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ichart/#setDataTable-boolean-) 啟用表格，並透過[IChart.getChartDataTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ichart/#getChartDataTable--) 取得。您可以獨立控制三種邊框：
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/idatatable/#setBorderHorizontal-boolean-) 控制水平儲存格邊框。
+- [setBorderVertical](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/idatatable/#setBorderVertical-boolean-) 控制垂直儲存格邊框。
+- [setBorderOutline](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/idatatable/#setBorderOutline-boolean-) 控制表格的外框。
+
+將 `true` 傳遞給各方法即可顯示相應邊框，傳遞 `false` 則隱藏。以下範例建立一個使用預設資料的叢集柱狀圖，顯示水平邊框與外框，隱藏垂直邊框。此範例不需要任何輸入檔案，圖表位置與大小以點為單位指定。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+以下比較使用相同的圖表資料與圖例鍵設定，分別呈現四種情況。從全部邊框啟用開始，每個變體僅關閉一種邊框設定。左下角的變體與範例中的邊框設定相同。
+
+![所有邊框啟用、無水平邊框、無垂直邊框、且無外框的圖表資料表格](data-table-borders.png)
+
+## **顯示或隱藏圖例鍵**
+
+圖例鍵是資料表格中系列名稱旁的彩色標記，可協助讀者將每一列對應到圖表系列。將 `true` 傳遞給[setShowLegendKey](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) 以顯示這些標記，傳遞 `false` 則隱藏。
+
+圖表的獨立圖例由[IChart.setLegend](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) 控制。這兩項設定互相獨立：隱藏獨立圖例不會影響資料表格內的圖例鍵，隱藏資料表格的鍵也不會隱藏獨立圖例。
+
+以下範例建立一個使用預設資料的圖表，啟用資料表格，並在表格內顯示圖例鍵，同時隱藏獨立圖例。所有表格邊框皆明確啟用。此範例不需要輸入簡報。若僅想隱藏表格的鍵，請將 `false` 傳遞給[setShowLegendKey](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-)。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+以下比較展示相同的表格，左側顯示圖例鍵，右側隱藏圖例鍵。所有邊框仍保持啟用，兩種情況下獨立圖例皆被隱藏。
+
+![左側顯示圖例鍵、右側隱藏圖例鍵的圖表資料表格](data-table-legend-keys.png)
+
 ## **常見問題**
 
-**我可以在圖表資料表的數值旁顯示小圖例鍵嗎？**
+**我可以在圖表的資料表格中顯示圖例鍵嗎？**
 
-是的。資料表支援 [legend keys](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-)，您可以開啟或關閉它們。
+可以。將 `true` 傳遞給[setShowLegendKey](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-) 以顯示圖例鍵，傳遞 `false` 則隱藏。
 
-**將簡報匯出為 PDF、HTML 或圖片時，資料表會保留嗎？**
+**將簡報匯出為 PDF、HTML 或影像時，資料表格會被保留嗎？**
 
-是的。Aspose.Slides 會將圖表渲染為投影片的一部分，因此匯出的 [PDF](/slides/zh-hant/androidjava/convert-powerpoint-to-pdf/)/[HTML](/slides/zh-hant/androidjava/convert-powerpoint-to-html/)/[image](/slides/zh-hant/androidjava/convert-powerpoint-to-png/) 會包含帶有資料表的圖表。
+會。Aspose.Slides 會在匯出至[PDF](/slides/zh-hant/androidjava/convert-powerpoint-to-pdf/)、[HTML](/slides/zh-hant/androidjava/convert-powerpoint-to-html/)或[images](/slides/zh-hant/androidjava/convert-powerpoint-to-png/) 時，將圖表及其顯示的資料表格作為投影片的一部份渲染。
 
-**從範本檔案建立的圖表是否支援資料表？**
+**我能在從範本載入的圖表上使用資料表格嗎？**
 
-是的。對於任何從現有簡報或範本載入的圖表，您都可以使用圖表的屬性檢查並變更資料表是否 [is shown](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/chart/#hasDataTable--)。
+可以。對於從現有簡報或範本載入的圖表，使用[hasDataTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/chart/#hasDataTable--) 與[setDataTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/chart/#setDataTable-boolean-) 來檢查或變更其資料表格的顯示狀態。
 
-**我該如何快速找到檔案中哪些圖表已啟用資料表？**
+**我要如何找出哪些圖表已啟用資料表格？**
 
-檢查每個圖表的屬性，以判斷資料表是否 [is shown](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/chart/#hasDataTable--)，然後遍歷投影片以找出已啟用資料表的圖表。
+遍歷每張投影片上的形狀，辨識出圖表後呼叫其[hasDataTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/chart/#hasDataTable--) 方法。回傳 `true` 表示該圖表已啟用資料表格。

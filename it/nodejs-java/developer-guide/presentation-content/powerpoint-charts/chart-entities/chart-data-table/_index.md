@@ -12,56 +12,130 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Personalizza le tabelle dei dati dei grafici in JavaScript per PPT e PPTX con Aspose.Slides per Node.js via Java per aumentare efficienza e attrattiva nelle presentazioni."
+description: "Personalizza i caratteri, i bordi e le chiavi della legenda della tabella dei dati del grafico nelle presentazioni PowerPoint usando Aspose.Slides per Node.js tramite Java."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con le tabelle dei dati dei grafici in Aspose.Slides. Mostra come visualizzare una tabella dei dati per un grafico e personalizzare la formattazione del testo impostando le proprietà del font, come lo stile grassetto e l'altezza del carattere. L'esempio dimostra come caricare una presentazione, aggiungere un grafico, abilitare la tabella dei dati del grafico, applicare le impostazioni del font e salvare la presentazione aggiornata.
+Aspose.Slides per Node.js tramite Java consente di visualizzare la tabella dei dati di un grafico e personalizzare la formattazione del testo, i bordi e le chiavi della legenda. Questo articolo spiega come abilitare la tabella, formattare il suo testo, controllare ciascun tipo di bordo e mostrare o nascondere le chiavi della legenda. Gli esempi salvano i grafici configurati in file PPTX.
 
-Include anche brevi risposte a domande comuni su come mostrare le chiavi della legenda in una tabella dei dati del grafico, preservare la tabella dei dati durante l'esportazione, lavorare con grafici caricati da presentazioni o modelli esistenti e identificare i grafici in cui la tabella dei dati è abilitata.
+## **Imposta proprietà del carattere**
 
-## **Imposta le proprietà del font per la tabella dei dati del grafico**
+Per visualizzare la tabella dei dati di un grafico, passare `true` a [setDataTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/setdatatable/). Utilizzare [getChartDataTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/getchartdatatable/) per accedere alla tabella e configurarne la formattazione del testo.
 
-Aspose.Slides per Node.js via Java fornisce il supporto per cambiare il colore delle categorie in una serie di colori. 
+1. Carica la presentazione usando la classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Aggiungi un grafico a colonne raggruppate alla prima diapositiva.
+1. Abilita la tabella dei dati del grafico.
+1. Abilita il testo in grassetto con [setFontBold](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setfontbold) e passa `20` a [setFontHeight](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseportionformat/#setfontheight) per un testo di 20 punti.
+1. Salva la presentazione modificata.
 
-1. Istanziare l'oggetto della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-1. Aggiungere un grafico nella diapositiva.
-1. Impostare la tabella del grafico.
-1. Impostare l'altezza del font.
-1. Salvare la presentazione modificata.
-
-Di seguito è fornito un esempio. 
+L'esempio seguente richiede `input.pptx` nella directory di lavoro con almeno una diapositiva. Aggiunge un grafico con dati predefiniti nella posizione (50, 50), con una larghezza di 600 punti e un'altezza di 400 punti. Il file `output.pptx` salvato contiene il grafico con la tabella dei dati abilitata e le impostazioni del carattere specificate applicate.
 
 ```javascript
-// Creazione di una presentazione vuota
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    portionFormat.setFontHeight(20);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Personalizza i bordi della tabella dei dati**
+
+Abilita la tabella con [Chart.setDataTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/setdatatable/) e accedila tramite [Chart.getChartDataTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/getchartdatatable/). È possibile controllare tre tipi di bordi in modo indipendente:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datatable/setborderhorizontal/) controlla i bordi orizzontali delle celle.
+- [setBorderVertical](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datatable/setbordervertical/) controlla i bordi verticali delle celle.
+- [setBorderOutline](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datatable/setborderoutline/) controlla il bordo esterno della tabella.
+
+Passare `true` a ciascun metodo per visualizzare i relativi bordi o `false` per nasconderli. L'esempio seguente crea un grafico a colonne raggruppate con dati predefiniti, visualizza i bordi orizzontali e il bordo esterno, e nasconde i bordi verticali. Non richiede alcun file di input. La posizione e le dimensioni del grafico sono specificate in punti.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il confronto riportato di seguito utilizza gli stessi dati del grafico e le stesse impostazioni delle chiavi della legenda in tutti e quattro i casi. Partendo da tutti i bordi abilitati, ciascuna variante rimanente disabilita solo un'impostazione del bordo. La variante in basso a sinistra corrisponde alle impostazioni dei bordi dell'esempio.
+
+![Tabelle dei dati del grafico con tutti i bordi abilitati, senza bordi orizzontali, senza bordi verticali e senza bordo esterno](data-table-borders.png)
+
+## **Mostra o nascondi le chiavi della legenda**
+
+Le chiavi della legenda sono piccoli marcatori colorati accanto ai nomi delle serie nella tabella dei dati. Aiutano i lettori a collegare ogni riga della tabella a una serie del grafico. Passare `true` a [setShowLegendKey](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datatable/setshowlegendkey/) per mostrare questi marcatori o `false` per nasconderli.
+
+La legenda separata del grafico è controllata da [Chart.setLegend](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/setlegend/). Queste impostazioni sono indipendenti: nascondere la legenda separata non nasconde le chiavi all'interno della tabella dei dati, e nascondere le chiavi della tabella non nasconde la legenda separata.
+
+L'esempio seguente crea un grafico con dati predefiniti, abilita la sua tabella dei dati e mostra le chiavi della legenda al suo interno nascondendo la legenda separata. Tutti i bordi della tabella sono esplicitamente abilitati. Non è necessaria alcuna presentazione di input. Per nascondere solo le chiavi della tabella, passare `false` a [setShowLegendKey](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datatable/setshowlegendkey/).
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il confronto riportato di seguito mostra la stessa tabella con le chiavi della legenda abilitate e disabilitate. Tutti i bordi rimangono abilitati e la legenda separata del grafico è nascosta in entrambi i casi.
+
+![Tabelle dei dati del grafico con le chiavi della legenda mostrate a sinistra e nascoste a destra](data-table-legend-keys.png)
+
 ## **FAQ**
 
-**Posso mostrare piccole chiavi della legenda accanto ai valori nella tabella dei dati del grafico?**
+**Posso mostrare le chiavi della legenda nella tabella dei dati di un grafico?**
 
-Sì. La tabella dei dati supporta le [chiavi della legenda](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datatable/setshowlegendkey/) e puoi attivarle o disattivarle.
+Sì. Passare `true` a [setShowLegendKey](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datatable/setshowlegendkey/) per visualizzare le chiavi della legenda o `false` per nasconderle.
 
 **La tabella dei dati verrà preservata durante l'esportazione della presentazione in PDF, HTML o immagini?**
 
-Sì. Aspose.Slides rende il grafico come parte della diapositiva, quindi il [PDF](/slides/it/nodejs-java/convert-powerpoint-to-pdf/)/[HTML](/slides/it/nodejs-java/convert-powerpoint-to-html/)/[immagine](/slides/it/nodejs-java/convert-powerpoint-to-png/) esportato include il grafico con la sua tabella dei dati.
+Sì. Aspose.Slides rende il grafico e la sua tabella dei dati visualizzata come parte della diapositiva durante l'esportazione in [PDF](/slides/it/nodejs-java/convert-powerpoint-to-pdf/), [HTML](/slides/it/nodejs-java/convert-powerpoint-to-html/) o [images](/slides/it/nodejs-java/convert-powerpoint-to-png/).
 
-**Le tabelle dei dati sono supportate per i grafici provenienti da un file modello?**
+**Posso lavorare con le tabelle dei dati nei grafici caricati da un modello?**
 
-Sì. Per qualsiasi grafico caricato da una presentazione o modello esistente, è possibile verificare e modificare se una tabella dei dati [è visualizzata](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/hasdatatable/) utilizzando le proprietà del grafico.
+Sì. Per un grafico caricato da una presentazione o modello esistente, utilizzare [hasDataTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/hasdatatable/) e [setDataTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/setdatatable/) per verificare o modificare se la sua tabella dei dati è visualizzata.
 
-**Come posso trovare rapidamente quali grafici in un file hanno la tabella dei dati abilitata?**
+**Come posso trovare i grafici che hanno la tabella dei dati abilitata?**
 
-Esaminare la proprietà di ciascun grafico che indica se la tabella dei dati [è visualizzata](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/hasdatatable/) e scorrere le diapositive per identificare i grafici in cui è abilitata.
+Iterare attraverso le forme di ogni diapositiva, identificare i grafici e chiamare il loro metodo [hasDataTable](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/hasdatatable/). Un valore `true` indica che la tabella dei dati è abilitata.

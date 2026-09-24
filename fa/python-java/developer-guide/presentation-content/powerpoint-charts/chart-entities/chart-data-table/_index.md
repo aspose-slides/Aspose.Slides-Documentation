@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی جداول داده نمودار در ارائه‌ها با استفاده از پایتون
+title: سفارشی‌سازی جداول دادهٔ نمودار در ارائه‌ها با استفاده از پایتون
 linktitle: جدول داده
 type: docs
 url: /fa/python-java/chart-data-table/
@@ -7,30 +7,28 @@ keywords:
 - داده‌های نمودار
 - جدول داده
 - ویژگی‌های قلم
-- PowerPoint
+- پاورپوینت
 - ارائه
-- Python
-- Java
+- پایتون
+- جاوا
 - Aspose.Slides
-description: "جداول داده نمودار را در پایتون برای PPT و PPTX با Aspose.Slides برای پایتون از طریق جاوا سفارشی کنید تا کارایی و جذابیت ارائه‌ها را افزایش دهید."
+description: "سفارشی‌سازی قلم‌های جدول دادهٔ نمودار، حاشیه‌ها و کلیدهای راهنما در ارائه‌های پاورپوینت با استفاده از Aspose.Slides برای پایتون از طریق جاوا."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه با جداول داده‌های نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه یک جدول داده برای یک نمودار نمایش داده شود و قالب‌بندی متن آن را با تنظیم ویژگی‌های قلم مانند حالت بولد و ارتفاع قلم سفارشی کنید. مثال ایجاد یک ارائه، افزودن یک نمودار، فعال‌سازی جدول داده‌های نمودار، اعمال تنظیمات قلم و ذخیره‌سازی ارائه بروز شده را نشان می‌دهد.
+Aspose.Slides for Python via Java به شما امکان می‌دهد جدول داده‌های یک نمودار را نمایش داده و قالب‌بندی متن، حاشیه‌ها و کلیدهای راهنما را سفارشی کنید. این مقاله نحوه فعال‌سازی جدول، قالب‌بندی متن آن، کنترل هر نوع حاشیه و نمایش یا مخفی‌سازی کلیدهای راهنما را توضیح می‌دهد. مثال‌ها نمودارهای پیکربندی‌شده را در فایل‌های PPTX ذخیره می‌کنند.
 
-همچنین شامل پاسخ‌های مختصری به سؤالات رایج درباره نمایش کلیدهای افسانه در جدول داده نمودار، حفظ جدول داده هنگام خروجی گرفتن، کار با نمودارهای بارگذاری‌شده از ارائه‌ها یا قالب‌های موجود، و شناسایی نمودارهایی که جدول داده در آن فعال است، می‌باشد.
+## **تنظیم خصوصیات قلم**
 
-## **تنظیم ویژگی‌های قلم برای جدول داده‌های نمودار**
+برای نمایش جدول داده‌های یک نمودار، مقدار `True` را به [setDataTable](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#setDataTable) بدهید. برای دسترسی به جدول و پیکربندی قالب‌بندی متن از [getChartDataTable](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#getChartDataTable) استفاده کنید.
 
-Aspose.Slides for Python via Java به شما اجازه می‌دهد جدول داده یک نمودار را نشان دهید و ویژگی‌های قلم متن آن را تغییر دهید.
-
-1. یک شی از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.  
-1. یک نمودار به اسلاید اضافه کنید.  
-1. جدول داده‌های نمودار را نمایش دهید.  
-1. سبک بولد و ارتفاع قلم متن جدول داده را تنظیم کنید.  
+1. ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) بارگذاری کنید.
+1. یک نمودار ستونی خوشه‌ای به اسلاید اول اضافه کنید.
+1. جدول داده‌های نمودار را فعال کنید.
+1. متن بولد را با [setFontBold](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseportionformat/#setFontBold) فعال کنید و برای متن ۲۰‑نقطه‌ای مقدار `20` را به [setFontHeight](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseportionformat/#setFontHeight) بدهید.
 1. ارائهٔ اصلاح‌شده را ذخیره کنید.
 
-مثال زیر این مراحل را نشان می‌دهد.
+مثال زیر به فایل `test.pptx` در پوشهٔ کاری که حداقل یک اسلاید دارد، نیاز دارد. این مثال نموداری با داده‌های پیش‌فرض در موقعیت (50, 50) اضافه می‌کند، با عرض 600 نقطه و ارتفاع 400 نقطه. فایل `output.pptx` ذخیره‌شده شامل نمودار با جدول داده فعال و تنظیمات قلم مشخص‌شده است.
 
 ```python
 import jpype
@@ -41,11 +39,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
 
-# یک ارائه خالی ایجاد کنید.
-presentation = Presentation()
+presentation = Presentation("test.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
     chart.setDataTable(True)
 
     portion_format = chart.getChartDataTable().getTextFormat().getPortionFormat()
@@ -57,20 +55,100 @@ finally:
     presentation.dispose()
 ```
 
-## **سؤالات متداول**
+## **سفارشی‌سازی حاشیه‌های جدول داده‌ها**
 
-**آیا می‌توانم کلیدهای افسانه کوچک را در کنار مقادیر در جدول داده نمودار نمایش دهم؟**
+جدول را با [Chart.setDataTable](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#setDataTable) فعال کنید و از طریق [Chart.getChartDataTable](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#getChartDataTable) به آن دسترسی پیدا کنید. می‌توانید سه نوع حاشیه را به‌صورت مستقل کنترل کنید:
 
-بله. جدول داده از [کلیدهای افسانه](https://reference.aspose.com/slides/fa/python-java/aspose.slides/datatable/#setShowLegendKey) پشتیبانی می‌کند و می‌توانید آنها را روشن یا خاموش کنید.
+- [setBorderHorizontal](https://reference.aspose.com/slides/fa/python-java/aspose.slides/datatable/#setBorderHorizontal) حاشیه‌های افقی سلول‌ها را کنترل می‌کند.
+- [setBorderVertical](https://reference.aspose.com/slides/fa/python-java/aspose.slides/datatable/#setBorderVertical) حاشیه‌های عمودی سلول‌ها را کنترل می‌کند.
+- [setBorderOutline](https://reference.aspose.com/slides/fa/python-java/aspose.slides/datatable/#setBorderOutline) حاشیهٔ خارجی جدول را کنترل می‌کند.
 
-**آیا جدول داده هنگام خروجی گرفتن ارائه به PDF، HTML یا تصاویر حفظ می‌شود؟**
+برای نمایش حاشیه‌ها مقدار `True` و برای مخفی‌سازی مقدار `False` را به هر متد بدهید. مثال زیر یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض ایجاد می‌کند، حاشیه‌های افقی و حاشیهٔ خارجی را نمایش می‌دهد و حاشیه‌های عمودی را مخفی می‌کند. نیازی به فایل ورودی نیست. موقعیت و اندازهٔ نمودار بر حسب نقطه مشخص شده است.
 
-بله. Aspose.Slides نمودار را به عنوان بخشی از اسلاید رندر می‌کند، بنابراین [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/)/[HTML](/slides/fa/python-java/convert-powerpoint-to-html/)/[image](/slides/fa/python-java/convert-powerpoint-to-png/) خروجی شامل نمودار با جدول داده آن می‌شود.
+```python
+import jpype
+import asposeslides
 
-**آیا جداول داده برای نمودارهایی که از یک فایل قالب بارگذاری می‌شوند، پشتیبانی می‌شوند؟**
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-بله. برای هر نموداری که از یک ارائه یا قالب موجود بارگذاری می‌شود، می‌توانید با استفاده از ویژگی‌های نمودار بررسی و تغییر دهید که آیا جدول داده [نمایش داده می‌شود](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#hasDataTable) یا خیر.
+from asposeslides.api import ChartType, Presentation, SaveFormat
 
-**چگونه می‌توانم به‌سرعت تشخیص دهم کدام نمودارها در یک فایل جدول داده فعال دارند؟**
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
 
-ویژگی هر نمودار که نشان می‌دهد جدول داده [نمایش داده می‌شود](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#hasDataTable) را بررسی کنید و در اسلایدها مرور کنید تا نمودارهایی که این ویژگی فعال است شناسایی شوند.
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setDataTable(True)
+
+    data_table = chart.getChartDataTable()
+    data_table.setBorderHorizontal(True)
+    data_table.setBorderVertical(False)
+    data_table.setBorderOutline(True)
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+مقایسهٔ زیر از همان داده‌های نمودار و تنظیمات کلید راهنما در چهار حالت استفاده می‌کند. با فعال‌سازی تمام حاشیه‌ها آغاز می‌شود و هر واریانت باقی‌مانده یک تنظیم حاشیه را غیرفعال می‌کند. واریانت پایین‑چپ با تنظیمات حاشیهٔ مثال مطابقت دارد.
+
+![جدول‌های دادهٔ نمودار با تمام حاشیه‌ها فعال، بدون حاشیهٔ افقی، بدون حاشیهٔ عمودی و بدون حاشیهٔ خارجی](data-table-borders.png)
+
+## **نمایش یا مخفی کردن کلیدهای راهنما**
+
+کلیدهای راهنما نشانگرهای رنگی کوچک در کنار نام سری‌ها در جدول داده هستند. این نشانگرها به خوانندگان کمک می‌کنند تا هر ردیف جدول را به یک سری نمودار مرتبط کنند. مقدار `True` را به [setShowLegendKey](https://reference.aspose.com/slides/fa/python-java/aspose.slides/datatable/#setShowLegendKey) بدهید تا این نشانگرها نمایش داده شوند یا مقدار `False` بدهید تا مخفی شوند.
+
+راهنمای جداگانهٔ نمودار با [Chart.setLegend](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#setLegend) کنترل می‌شود. این تنظیمات مستقل‌اند: مخفی‌سازی راهنمای جداگانه، کلیدهای داخل جدول داده را مخفی نمی‌کند و مخفی‌سازی کلیدهای جدول، راهنمای جداگانه را مخفی نمی‌کند.
+
+مثال زیر یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند، جدول دادهٔ آن را فعال می‌کند و کلیدهای راهنما را در داخل آن نشان می‌دهد در حالی که راهنمای جداگانه مخفی است. تمام حاشیه‌های جدول به‌صورت صریح فعال هستند. نیازی به ارائهٔ ورودی نیست. برای مخفی کردن فقط کلیدهای جدول مقدار `False` را به [setShowLegendKey](https://reference.aspose.com/slides/fa/python-java/aspose.slides/datatable/#setShowLegendKey) بدهید.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setDataTable(True)
+    chart.setLegend(False)
+
+    data_table = chart.getChartDataTable()
+    data_table.setBorderHorizontal(True)
+    data_table.setBorderVertical(True)
+    data_table.setBorderOutline(True)
+    data_table.setShowLegendKey(True)
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+مقایسهٔ زیر همان جدول را با کلیدهای راهنما فعال و غیرفعال نشان می‌دهد. تمام حاشیه‌ها فعال می‌مانند و راهنمای جداگانهٔ نمودار در هر دو حالت مخفی است.
+
+![جدول‌های دادهٔ نمودار با کلیدهای راهنما در سمت چپ نمایش داده شده و در سمت راست مخفی](data-table-legend-keys.png)
+
+## **سوالات متداول**
+
+**آیا می‌توانم کلیدهای راهنما را در جدول داده‌های چارت نمایش دهم؟**
+
+بله. مقدار `True` را به [setShowLegendKey](https://reference.aspose.com/slides/fa/python-java/aspose.slides/datatable/#setShowLegendKey) بدهید تا کلیدهای راهنما نمایش داده شوند یا مقدار `False` بدهید تا مخفی شوند.
+
+**آیا جدول داده‌ها هنگام خروجی گرفتن ارائه به PDF، HTML یا تصاویر حفظ می‌شود؟**
+
+بله. Aspose.Slides هنگام خروجی به [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/)، [HTML](/slides/fa/python-java/convert-powerpoint-to-html/) یا [images](/slides/fa/python-java/convert-powerpoint-to-png/)، نمودار و جدول دادهٔ نمایش داده‌شده را به‌عنوان بخشی از اسلاید رندر می‌کند.
+
+**آیا می‌توانم با جدول‌های داده در نمودارهای بارگذاری‌شده از یک قالب کار کنم؟**
+
+بله. برای یک نمودار بارگذاری‌شده از ارائه یا قالب موجود، از [hasDataTable](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#hasDataTable) و [setDataTable](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#setDataTable) برای بررسی یا تغییر وضعیت نمایش جدول داده استفاده کنید.
+
+**چگونه می‌توانم نمودارهایی را پیدا کنم که جدول داده آن‌ها فعال است؟**
+
+در هر اسلاید به‌دمای شکل‌ها مرور کنید، نمودارها را شناسایی کنید و متد [hasDataTable](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#hasDataTable) آن‌ها را فراخوانی کنید. مقدار `True` نشان می‌دهد که جدول داده فعال است.

@@ -12,51 +12,128 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して、Java で PPT と PPTX のチャート データテーブルをカスタマイズし、プレゼンテーションの効率と魅力を向上させます。"
+description: "Aspose.Slides for Android via Java を使用して、PowerPoint プレゼンテーションのチャート データテーブルのフォント、罫線、凡例キーをカスタマイズします。"
 ---
+## **概要**
 
-## **チャート データテーブルのフォント プロパティを設定する**
-Aspose.Slides for Android via Java は、シリーズ内のカテゴリの色変更をサポートします。
+Aspose.Slides for Android via Java を使用すると、チャートのデータテーブルを表示し、テキストの書式設定、罫線、凡例キーをカスタマイズできます。本記事では、テーブルの有効化、テキストの書式設定、各種罫線の制御、および凡例キーの表示/非表示方法について説明します。サンプルでは、設定したチャートを PPTX ファイルに保存します。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのオブジェクトをインスタンス化します。
-1. スライドにチャートを追加します。
-1. チャートテーブルを設定します。
-1. フォントの高さを設定します。
-1. 変更したプレゼンテーションを保存します。
+## **フォントプロパティの設定**
 
-以下にサンプル例を示します。
+チャートのデータテーブルを表示するには、`true` を [setDataTable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/chart/#setDataTable-boolean-) に渡します。[getChartDataTable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/chart/#getChartDataTable--) を使用してテーブルにアクセスし、テキストの書式設定を構成します。
+
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスを使用してプレゼンテーションをロードします。
+2. 最初のスライドにクラスター化された縦棒グラフを追加します。
+3. チャートのデータテーブルを有効にします。
+4. [setFontBold](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/baseportionformat/#setFontBold-byte-) で太字テキストを有効にし、20 ポイントのテキストにするために [setFontHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) に `20` を渡します。
+5. 変更したプレゼンテーションを保存します。
+
+以下の例は、作業ディレクトリに少なくとも 1 枚のスライドが含まれる `test.pptx` が必要です。位置 (50, 50) に幅 600 ポイント、高さ 400 ポイントのデフォルト データのチャートを追加します。保存された `output.pptx` には、データテーブルが有効化され、指定したフォント設定が適用されたチャートが含まれます。
+
 ```java
-// 空のプレゼンテーションを作成
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
 
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+    IChartPortionFormat portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(NullableBool.True);
+    portionFormat.setFontHeight(20);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **データテーブル罫線のカスタマイズ**
+
+[IChart.setDataTable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/#setDataTable-boolean-) でテーブルを有効にし、[IChart.getChartDataTable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/#getChartDataTable--) でアクセスします。3 種類の罫線を個別に制御できます。
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idatatable/#setBorderHorizontal-boolean-) は水平セル罫線を制御します。
+- [setBorderVertical](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idatatable/#setBorderVertical-boolean-) は垂直セル罫線を制御します。
+- [setBorderOutline](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idatatable/#setBorderOutline-boolean-) はテーブルの外枠罫線を制御します。
+
+各メソッドに `true` を渡すと罫線が表示され、`false` を渡すと非表示になります。以下の例は、デフォルト データのクラスター化縦棒グラフを作成し、水平罫線と外枠罫線を表示し、垂直罫線を非表示にします。入力ファイルは不要です。チャートの位置とサイズはポイント単位で指定されます。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+以下の比較では、4 つのケースすべてで同じチャートデータと凡例キー設定を使用しています。すべての罫線が有効な状態から始め、残りの各バリエーションは 1 つの罫線設定だけを無効にしています。左下のバリエーションが例の罫線設定と一致します。
+
+![すべての罫線が有効、水平罫線なし、垂直罫線なし、外枠罫線なしのチャートデータテーブル](data-table-borders.png)
+
+## **凡例キーの表示/非表示**
+
+凡例キーは、データテーブルの系列名の横に表示される小さな色付きマーカーです。各テーブル行とチャート系列を対応させるのに役立ちます。[setShowLegendKey](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) に `true` を渡すとこれらのマーカーが表示され、`false` を渡すと非表示になります。
+
+チャートの別個の凡例は [IChart.setLegend](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) で制御します。これらの設定は独立しています。別個の凡例を非表示にしてもデータテーブル内のキーは非表示にならず、テーブルのキーを非表示にしても別個の凡例は非表示になりません。
+
+以下の例は、デフォルト データのチャートを作成し、データテーブルを有効にし、別個の凡例を非表示にしたままテーブル内に凡例キーを表示します。すべてのテーブル罫線は明示的に有効化されています。入力プレゼンテーションは不要です。テーブルのキーだけを非表示にするには、[setShowLegendKey](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) に `false` を渡します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+以下の比較では、凡例キーを有効にした状態と無効にした状態の同じテーブルを示しています。すべての罫線は有効なままで、別個のチャート凡例は両方のケースで非表示です。
+
+![左側に凡例キーが表示され、右側に非表示のチャートデータテーブル](data-table-legend-keys.png)
 
 ## **FAQ**
 
-**チャートのデータテーブルの値の横に小さな凡例キーを表示できますか？**
+**チャートのデータテーブルに凡例キーを表示できますか？**
 
-はい。データテーブルは[凡例キー](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-)をサポートしており、オンまたはオフにできます。
+はい。凡例キーを表示するには [setShowLegendKey](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-) に `true` を、非表示にするには `false` を渡します。
 
-**プレゼンテーションを PDF、HTML、または画像にエクスポートするとき、データテーブルは保持されますか？**
+**プレゼンテーションを PDF、HTML、または画像にエクスポートするときにデータテーブルは保持されますか？**
 
-はい。Aspose.Slides はチャートをスライドの一部としてレンダリングするため、エクスポートされた[PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/)/[HTML](/slides/ja/androidjava/convert-powerpoint-to-html/)/[image](/slides/ja/androidjava/convert-powerpoint-to-png/)にはデータテーブルを含むチャートが含まれます。
+はい。Aspose.Slides は、エクスポート時にチャートと表示されたデータテーブルをスライドの一部としてレンダリングします。PDF は [PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/)、HTML は [HTML](/slides/ja/androidjava/convert-powerpoint-to-html/)、画像は [images](/slides/ja/androidjava/convert-powerpoint-to-png/) にエクスポートできます。
 
-**テンプレート ファイルから取得したチャートでもデータテーブルはサポートされていますか？**
+**テンプレートからロードしたチャートでデータテーブルを操作できますか？**
 
-はい。既存のプレゼンテーションまたはテンプレートから読み込まれたすべてのチャートについて、チャートのプロパティを使用してデータテーブルが[表示されているか](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#hasDataTable--)を確認および変更できます。
+はい。既存のプレゼンテーションまたはテンプレートからロードしたチャートについては、[hasDataTable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/chart/#hasDataTable--) と [setDataTable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/chart/#setDataTable-boolean-) を使用して、データテーブルが表示されているかどうかを確認または変更できます。
 
-**ファイル内でデータテーブルが有効になっているチャートをすばやく見つけるにはどうすればよいですか？**
+**データテーブルが有効なチャートをどうやって見つけますか？**
 
-データテーブルが[表示されているか](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#hasDataTable--)を示す各チャートのプロパティを確認し、スライドを走査して有効になっているチャートを特定します。
+各スライドのシェイプを走査し、チャートを特定してその [hasDataTable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/chart/#hasDataTable--) メソッドを呼び出します。`true` が返されれば、データテーブルが有効です。

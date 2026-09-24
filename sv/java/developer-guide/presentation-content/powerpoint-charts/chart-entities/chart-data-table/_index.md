@@ -11,56 +11,128 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Anpassa diagramdatatabeller i Java för PPT och PPTX med Aspose.Slides för att öka effektiviteten och attraktiviteten i presentationer."
+description: "Anpassa diagramdatatabellens teckensnitt, kanter och förklaringsnycklar i PowerPoint-presentationer med Aspose.Slides för Java."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med diagramdatatabeller i Aspose.Slides. Den visar hur man visar en datatabell för ett diagram och anpassar dess textformatering genom att ställa in teckensnittsegenskaper såsom fet stil och teckenhöjd. Exemplet demonstrerar hur man laddar en presentation, lägger till ett diagram, aktiverar diagrammets datatabell, tillämpar teckensnittinställningar och sparar den uppdaterade presentationen.
+Aspose.Slides för Java låter dig visa ett diagram‑datatabell och anpassa dess textformatering, kanter och förklaringsnycklar. Denna artikel förklarar hur du aktiverar tabellen, formaterar dess text, styr varje typ av kant och visar eller döljer förklaringsnycklar. Exemplen sparar de konfigurerade diagrammen i PPTX‑filer.
 
-Den innehåller också korta svar på vanliga frågor om att visa förklaringsnycklar i en diagramdatatabell, bevara datatabellen vid export, arbeta med diagram som laddats från befintliga presentationer eller mallar samt identifiera diagram där datatabellen är aktiverad.
+## **Ställ in teckensnittsegenskaper**
 
-## **Ställ in teckensnittsegenskaper för en diagramdatatabell**
-Aspose.Slides for Java erbjuder stöd för att ändra färg på kategorier i en seriefärg.  
+För att visa ett diagram‑datatabell, skicka `true` till [setDataTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/#setDataTable-boolean-). Använd [getChartDataTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/#getChartDataTable--) för att komma åt tabellen och konfigurera dess textformatering.
 
-1. Instansiera [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation) klassobjekt.  
-1. Lägg till ett diagram på bilden.  
-1. Ställ in diagrammets tabell.  
-1. Ange teckenhöjd.  
-1. Spara den modifierade presentationen.  
+1. Ladda presentationen med klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Lägg till ett grupperat stapeldiagram på den första bilden.
+1. Aktivera diagrammets datatabell.
+1. Aktivera fet text med [setFontBold](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseportionformat/#setFontBold-byte-) och skicka `20` till [setFontHeight](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) för 20‑punkts text.
+1. Spara den ändrade presentationen.
 
-Nedan ges ett exempel.  
+Följande exempel kräver `test.pptx` i arbetskatalogen med minst en bild. Det lägger till ett diagram med standarddata på positionen (50, 50), med en bredd på 600 punkter och en höjd på 400 punkter. Den sparade `output.pptx` innehåller diagrammet med dess datatabell aktiverad och de angivna teckensnittsinställningarna tillämpade.
 
 ```java
-// Skapar tom presentation
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
 
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+    IChartPortionFormat portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(NullableBool.True);
+    portionFormat.setFontHeight(20);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Anpassa datatabellens kanter**
+
+Aktivera tabellen med [IChart.setDataTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichart/#setDataTable-boolean-) och få åtkomst till den via [IChart.getChartDataTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichart/#getChartDataTable--). Du kan styra tre typer av kanter oberoende:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/sv/java/com.aspose.slides/idatatable/#setBorderHorizontal-boolean-) styr horisontella cellkanter.
+- [setBorderVertical](https://reference.aspose.com/slides/sv/java/com.aspose.slides/idatatable/#setBorderVertical-boolean-) styr vertikala cellkanter.
+- [setBorderOutline](https://reference.aspose.com/slides/sv/java/com.aspose.slides/idatatable/#setBorderOutline-boolean-) styr tabellens yttre kant.
+
+Skicka `true` till varje metod för att visa dess kanter eller `false` för att dölja dem. Följande exempel skapar ett grupperat stapeldiagram med standarddata, visar horisontella kanter och den yttre kanten samt döljer vertikala kanter. Det kräver ingen indatafil. Diagrammets position och storlek anges i punkter.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Jämförelsen nedan använder samma diagramdata och förklaringsnyckelinställning i alla fyra fallen. Med alla kanter aktiverade i början, inaktiverar varje återstående variant bara en kantinställning. Varianten nedre vänstra matchar kantinställningarna i exemplet.
+
+![Diagramdatatabeller med alla kanter aktiverade, inga horisontella kanter, inga vertikala kanter och ingen yttre kant](data-table-borders.png)
+
+## **Visa eller dölja förklaringsnycklar**
+
+Förklaringsnycklar är små färgade markörer bredvid seriernas namn i datatabellen. De hjälper läsaren att matcha varje tabellrad med ett diagramserie. Skicka `true` till [setShowLegendKey](https://reference.aspose.com/slides/sv/java/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) för att visa dessa markörer eller `false` för att dölja dem.
+
+Diagrammets separata förklaring styrs av [IChart.setLegend](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichart/#setLegend-boolean-). Dessa inställningar är oberoende: att dölja den separata förklaringen döljer inte nycklarna i datatabellen, och att dölja tabellens nycklar döljer inte den separata förklaringen.
+
+Följande exempel skapar ett diagram med standarddata, aktiverar dess datatabell och visar förklaringsnycklar i den samtidigt som den separata förklaringen döljs. Alla tabellkanter är uttryckligen aktiverade. Ingen indata‑presentation krävs. För att bara dölja tabellens nycklar, skicka `false` till [setShowLegendKey](https://reference.aspose.com/slides/sv/java/com.aspose.slides/idatatable/#setShowLegendKey-boolean-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Jämförelsen nedan visar samma tabell med förklaringsnycklar aktiverade och inaktiverade. Alla kanter förblir aktiverade och den separata diagramförklaringen är dold i båda fallen.
+
+![Diagramdatatabeller med förklaringsnycklar visas till vänster och dolda till höger](data-table-legend-keys.png)
+
 ## **FAQ**
 
-**Kan jag visa små förklaringsnycklar bredvid värdena i diagrammets datatabell?**
+**Kan jag visa förklaringsnycklar i ett diagramdatas tabell?**
 
-Ja. Datatabellen stöder [förklaringsnycklar](https://reference.aspose.com/slides/sv/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-), och du kan slå på eller av dem.
+Ja. Skicka `true` till [setShowLegendKey](https://reference.aspose.com/slides/sv/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-) för att visa förklaringsnycklar eller `false` för att dölja dem.
 
-**Kommer datatabellen att bevaras när presentationen exporteras till PDF, HTML eller bilder?**
+**Kommer datatabellen att bevaras vid export av presentationen till PDF, HTML eller bilder?**
 
-Ja. Aspose.Slides renderar diagrammet som en del av bilden, så den exporterade [PDF](/slides/sv/java/convert-powerpoint-to-pdf/)/[HTML](/slides/sv/java/convert-powerpoint-to-html/)/[image](/slides/sv/java/convert-powerpoint-to-png/) innehåller diagrammet med dess datatabell.
+Ja. Aspose.Slides renderar diagrammet och dess visade datatabell som en del av bilden vid export till [PDF](/slides/sv/java/convert-powerpoint-to-pdf/), [HTML](/slides/sv/java/convert-powerpoint-to-html/) eller [bilder](/slides/sv/java/convert-powerpoint-to-png/).
 
-**Stöds datatabeller för diagram som kommer från en mallfil?**
+**Kan jag arbeta med datatabeller i diagram som laddas från en mall?**
 
-Ja. För alla diagram som laddas från en befintlig presentation eller mall kan du kontrollera och ändra om en datatabell [visas](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/#hasDataTable--) med diagrammets egenskaper.
+Ja. För ett diagram som laddas från en befintlig presentation eller mall, använd [hasDataTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/#hasDataTable--) och [setDataTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/#setDataTable-boolean-) för att kontrollera eller ändra om dess datatabell visas.
 
-**Hur kan jag snabbt hitta vilka diagram i en fil som har datatabellen aktiverad?**
+**Hur kan jag hitta diagram som har en datatabell aktiverad?**
 
-Inspektera varje diagram egenskap som indikerar om datatabellen [visas](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/#hasDataTable--) och iterera genom bilderna för att identifiera de diagram där den är aktiverad.
+Iterera genom formerna på varje bild, identifiera diagrammen och anropa deras [hasDataTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/#hasDataTable--)‑metod. Ett värde på `true` indikerar att datatabellen är aktiverad.

@@ -1,5 +1,5 @@
 ---
-title: Dostosuj tabele danych wykresów w Pythonie
+title: Dostosuj tabele danych wykresów w prezentacjach w Pythonie
 linktitle: Tabela danych
 type: docs
 url: /pl/python-net/chart-data-table/
@@ -8,58 +8,122 @@ keywords:
 - tabela danych
 - właściwości czcionki
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dostosuj tabele danych wykresów w Pythonie dla formatów PPT, PPTX i ODP przy użyciu Aspose.Slides, aby zwiększyć wydajność i atrakcyjność prezentacji."
+description: "Dostosuj czcionki, obramowania i klucze legendy tabeli danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona via .NET."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z tabelami danych wykresów w Aspose.Slides. Pokazuje, jak wyświetlić tabelę danych dla wykresu i dostosować formatowanie tekstu, ustawiając właściwości czcionki, takie jak pogrubienie i wysokość czcionki. Przykład demonstruje ładowanie prezentacji, dodawanie wykresu, włączanie tabeli danych wykresu, zastosowanie ustawień czcionki i zapisywanie zaktualizowanej prezentacji.
+Aspose.Slides for Python via .NET umożliwia wyświetlanie tabeli danych wykresu oraz dostosowywanie formatowania tekstu, obramowań i kluczy legendy. W tym artykule wyjaśniono, jak włączyć tabelę, sformatować jej tekst, kontrolować każdy rodzaj obramowania oraz pokazać lub ukryć klucze legendy. Przykłady zapisują skonfigurowane wykresy w plikach PPTX.
 
-Zawiera także krótkie odpowiedzi na typowe pytania dotyczące wyświetlania kluczy legendy w tabeli danych wykresu, zachowywania tabeli danych podczas eksportu, pracy z wykresami załadowanymi z istniejących prezentacji lub szablonów oraz identyfikowania wykresów, w których tabela danych jest włączona.
+## **Ustaw właściwości czcionki**
 
-## **Ustaw właściwości czcionki dla tabeli danych wykresu**
-Aspose.Slides for Python via .NET zapewnia obsługę zmiany koloru kategorii w kolorze serii. 
+Aby wyświetlić tabelę danych wykresu, ustaw [has_data_table](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/has_data_table/) na `True`. Użyj [chart_data_table](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/chart_data_table/), aby uzyskać dostęp do tabeli i skonfigurować formatowanie tekstu.
 
-1. Utwórz obiekt klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Dodaj wykres na slajdzie.
-1. ustaw tabelę wykresu.
-1. Ustaw wysokość czcionki.
+1. Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
+1. Dodaj wykres kolumnowy skumulowany do pierwszego slajdu.
+1. Włącz tabelę danych wykresu.
+1. Włącz pogrubiony tekst za pomocą [font_bold](https://reference.aspose.com/slides/pl/python-net/aspose.slides/baseportionformat/font_bold/) i ustaw [font_height](https://reference.aspose.com/slides/pl/python-net/aspose.slides/baseportionformat/font_height/) na `20`, aby uzyskać tekst o rozmiarze 20 punktów.
 1. Zapisz zmodyfikowaną prezentację.
 
-Poniżej podany jest przykładowy kod. 
+Poniższy przykład wymaga pliku `test.pptx` w bieżącym katalogu, zawierającego przynajmniej jeden slajd. Dodaje wykres z domyślnymi danymi w pozycji (50, 50), o szerokości 600 punktów i wysokości 400 punktów. Zapisany plik `output.pptx` zawiera wykres z włączoną tabelą danych oraz zastosowanymi określonymi ustawieniami czcionki.
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+with slides.Presentation("test.pptx") as presentation:
+    slide = presentation.slides[0]
 
-	chart.has_data_table = True
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_data_table = True
 
-	chart.chart_data_table.text_format.portion_format.font_bold = 1
-	chart.chart_data_table.text_format.portion_format.font_height = 20
+    portion_format = chart.chart_data_table.text_format.portion_format
+    portion_format.font_bold = slides.NullableBool.TRUE
+    portion_format.font_height = 20
 
-	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Dostosuj obramowania tabeli danych**
+
+Włącz tabelę przy użyciu [Chart.has_data_table](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/has_data_table/) i uzyskaj do niej dostęp przez [Chart.chart_data_table](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/chart_data_table/). Możesz niezależnie kontrolować trzy rodzaje obramowań:
+
+- [has_border_horizontal](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/datatable/has_border_horizontal/) kontroluje poziome obramowania komórek.
+- [has_border_vertical](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/datatable/has_border_vertical/) kontroluje pionowe obramowania komórek.
+- [has_border_outline](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/datatable/has_border_outline/) kontroluje zewnętrzne obramowanie tabeli.
+
+Ustaw każdą właściwość na `True`, aby wyświetlić jej obramowanie, lub na `False`, aby je ukryć. Poniższy przykład tworzy wykres kolumnowy skumulowany z domyślnymi danymi, wyświetla poziome obramowania oraz obramowanie zewnętrzne, a ukrywa pionowe obramowania. Nie wymaga pliku wejściowego. Pozycja i rozmiar wykresu są określone w punktach.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_data_table = True
+
+    data_table = chart.chart_data_table
+    data_table.has_border_horizontal = True
+    data_table.has_border_vertical = False
+    data_table.has_border_outline = True
+
+    presentation.save("data-table-borders.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Poniższe porównanie używa tych samych danych wykresu i ustawienia klucza legendy we wszystkich czterech przypadkach. Zaczynając od włączonych wszystkich obramowań, każda kolejna wariacja wyłącza tylko jedną właściwość obramowania. Wariant w lewym dolnym rogu odpowiada ustawieniom obramowań w przykładzie.
+
+![Tabele danych wykresu z włączonymi wszystkimi obramowaniami, bez poziomych obramowań, bez pionowych obramowań i bez obramowania zewnętrznego](data-table-borders.png)
+
+## **Pokaż lub ukryj klucze legendy**
+
+Klucze legendy to małe, kolorowe znaczniki obok nazw serii w tabeli danych. Pomagają czytelnikom dopasować każdy wiersz tabeli do serii wykresu. Ustaw [show_legend_key](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/datatable/show_legend_key/) na `True`, aby wyświetlić te znaczniki, lub na `False`, aby je ukryć.
+
+Oddzielna legenda wykresu jest kontrolowana przez [Chart.has_legend](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/has_legend/). Te ustawienia są niezależne: ukrycie oddzielnej legendy nie ukrywa kluczy w tabeli danych, a ukrycie kluczy tabeli nie ukrywa oddzielnej legendy.
+
+Poniższy przykład tworzy wykres z domyślnymi danymi, włącza jego tabelę danych i wyświetla klucze legendy wewnątrz niej, ukrywając jednocześnie oddzielną legendę. Wszystkie obramowania tabeli są wyraźnie włączone. Nie wymaga pliku prezentacji wejściowej. Aby ukryć tylko klucze tabeli, zmień `data_table.show_legend_key` na `False`.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_data_table = True
+    chart.has_legend = False
+
+    data_table = chart.chart_data_table
+    data_table.has_border_horizontal = True
+    data_table.has_border_vertical = True
+    data_table.has_border_outline = True
+    data_table.show_legend_key = True
+
+    presentation.save("data-table-legend-keys.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Poniższe porównanie pokazuje tę samą tabelę z włączonymi i wyłączonymi kluczami legendy. Wszystkie obramowania pozostają włączone, a oddzielna legenda wykresu jest ukryta w obu przypadkach.
+
+![Tabele danych wykresu z kluczami legendy pokazanymi po lewej i ukrytymi po prawej](data-table-legend-keys.png)
 
 ## **FAQ**
 
-**Czy mogę wyświetlać małe klucze legendy obok wartości w tabeli danych wykresu?**
+**Czy mogę wyświetlić klucze legendy w tabeli danych wykresu?**
 
-Tak. Tabela danych obsługuje [klucze legendy](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/datatable/show_legend_key/), i możesz je włączać lub wyłączać.
+Tak. Ustaw [show_legend_key](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/datatable/show_legend_key/) na `True`, aby wyświetlić klucze legendy, lub na `False`, aby je ukryć.
 
-**Czy tabela danych zostanie zachowana podczas eksportu prezentacji do PDF, HTML lub obrazów?**
+**Czy tabela danych zostanie zachowana przy eksportowaniu prezentacji do PDF, HTML lub obrazów?**
 
-Tak. Aspose.Slides renderuje wykres jako część slajdu, więc wyeksportowany [PDF](/slides/pl/python-net/convert-powerpoint-to-pdf/)[HTML](/slides/pl/python-net/convert-powerpoint-to-html/)[image](/slides/pl/python-net/convert-powerpoint-to-png/) zawiera wykres wraz z jego tabelą danych.
+Tak. Aspose.Slides renderuje wykres i wyświetlaną tabelę danych jako część slajdu przy eksporcie do [PDF](/slides/pl/python-net/convert-powerpoint-to-pdf/), [HTML](/slides/pl/python-net/convert-powerpoint-to-html/), lub [images](/slides/pl/python-net/convert-powerpoint-to-png/).
 
-**Czy tabele danych są obsługiwane dla wykresów pochodzących z pliku szablonu?**
+**Czy mogę pracować z tabelami danych w wykresach załadowanych z szablonu?**
 
-Tak. Dla każdego wykresu załadowanego z istniejącej prezentacji lub szablonu możesz sprawdzić i zmienić, czy tabela danych [is shown](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/has_data_table/) przy użyciu właściwości wykresu.
+Tak. Dla wykresu załadowanego z istniejącej prezentacji lub szablonu, użyj [has_data_table](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/has_data_table/), aby sprawdzić lub zmienić, czy jego tabela danych jest wyświetlana.
 
-**Jak szybko znaleźć, które wykresy w pliku mają włączoną tabelę danych?**
+**Jak mogę znaleźć wykresy z włączoną tabelą danych?**
 
-Sprawdź właściwość każdego wykresu wskazującą, czy tabela danych [is shown](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/has_data_table/) i przeiteruj slajdy, aby zidentyfikować wykresy, w których jest włączona.
+Iteruj po kształtach na każdym slajdzie, zidentyfikuj wykresy i sprawdź ich właściwość [has_data_table](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/has_data_table/). Wartość `True` oznacza, że tabela danych jest włączona.

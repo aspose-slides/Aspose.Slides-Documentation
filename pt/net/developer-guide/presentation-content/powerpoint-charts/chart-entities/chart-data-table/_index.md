@@ -12,53 +12,118 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Personalize tabelas de dados de gráficos em .NET para PPT e PPTX com Aspose.Slides para aumentar a eficiência e o apelo nas apresentações."
+description: "Personalize as fontes, bordas e chaves de legenda da tabela de dados de gráficos em apresentações do PowerPoint usando Aspose.Slides para .NET e C#."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com tabelas de dados de gráfico no Aspose.Slides. Ele mostra como exibir uma tabela de dados para um gráfico e personalizar sua formatação de texto definindo propriedades de fonte, como estilo em negrito e altura da fonte. O exemplo demonstra como carregar uma apresentação, adicionar um gráfico, habilitar a tabela de dados do gráfico, aplicar configurações de fonte e salvar a apresentação atualizada.
+Aspose.Slides for .NET permite exibir a tabela de dados de um gráfico e personalizar sua formatação de texto, bordas e chaves de legenda. Este artigo explica como habilitar a tabela, formatar seu texto, controlar cada tipo de borda e mostrar ou ocultar as chaves de legenda. Os exemplos salvam os gráficos configurados em arquivos PPTX.
 
-Também inclui respostas breves a perguntas comuns sobre exibir chaves de legenda em uma tabela de dados de gráfico, preservar a tabela de dados durante a exportação, trabalhar com gráficos carregados de apresentações ou modelos existentes e identificar gráficos onde a tabela de dados está habilitada.
+## **Definir propriedades da fonte**
 
-## **Definir propriedades de fonte para uma tabela de dados de gráfico**
-Aspose.Slides for .NET oferece suporte para alterar a cor das categorias em uma cor de série. 
+Para exibir a tabela de dados de um gráfico, defina [HasDataTable](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/hasdatatable/) como `true`. Use [ChartDataTable](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/chartdatatable/) para acessar a tabela e configurar sua formatação de texto.
 
-1. Instanciar objeto da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
-2. Adicionar um gráfico no slide.
-3. Definir a tabela do gráfico.
-4. Definir a altura da fonte.
-5. Salvar a apresentação modificada.
+1. Carregue a apresentação usando a classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
+1. Adicione um gráfico de colunas agrupadas ao primeiro slide.
+1. Habilite a tabela de dados do gráfico.
+1. Ative o texto em negrito com [FontBold](https://reference.aspose.com/slides/pt/net/aspose.slides/baseportionformat/fontbold/) e defina [FontHeight](https://reference.aspose.com/slides/pt/net/aspose.slides/baseportionformat/fontheight/) como `20` para texto de 20 pontos.
+1. Salve a apresentação modificada.
 
-Abaixo está um exemplo de amostra. 
+O exemplo a seguir requer `test.pptx` no diretório de trabalho com pelo menos um slide. Ele adiciona um gráfico com dados padrão na posição (50, 50), com largura de 600 pontos e altura de 400 pontos. O `output.pptx` salvo contém o gráfico com a tabela de dados habilitada e as configurações de fonte especificadas aplicadas.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	chart.HasDataTable = true;
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
 
-	chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
-	chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+var portionFormat = chart.ChartDataTable.TextFormat.PortionFormat;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontHeight = 20;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+## **Personalizar bordas da tabela de dados**
+
+Habilite a tabela com [IChart.HasDataTable](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ichart/hasdatatable/) e acesse-a através de [IChart.ChartDataTable](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ichart/chartdatatable/). Você pode controlar três tipos de bordas independentemente:
+
+- [HasBorderHorizontal](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatatable/hasborderhorizontal/) controla as bordas horizontais das células.
+- [HasBorderVertical](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatatable/hasbordervertical/) controla as bordas verticais das células.
+- [HasBorderOutline](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatatable/hasborderoutline/) controla a borda externa da tabela.
+
+Defina cada propriedade como `true` para exibir suas bordas ou como `false` para ocultá‑las. O exemplo a seguir cria um gráfico de colunas agrupadas com dados padrão, exibe as bordas horizontais e a borda externa, e oculta as bordas verticais. Não requer nenhum arquivo de entrada. A posição e o tamanho do gráfico são especificados em pontos.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = false;
+dataTable.HasBorderOutline = true;
+
+presentation.Save("data-table-borders.pptx", SaveFormat.Pptx);
+```
+
+A comparação abaixo usa os mesmos dados do gráfico e a mesma configuração de chave de legenda em todos os quatro casos. Começando com todas as bordas habilitadas, cada variante restante desabilita apenas uma propriedade de borda. A variante inferior esquerda corresponde às configurações de borda do exemplo.
+
+![Tabelas de dados do gráfico com todas as bordas habilitadas, sem bordas horizontais, sem bordas verticais e sem borda externa](data-table-borders.png)
+
+## **Mostrar ou ocultar chaves de legenda**
+
+As chaves de legenda são pequenos marcadores coloridos ao lado dos nomes das séries na tabela de dados. Elas ajudam os leitores a associar cada linha da tabela a uma série do gráfico. Defina [ShowLegendKey](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatatable/showlegendkey/) como `true` para mostrar esses marcadores ou como `false` para ocultá‑los.
+
+A legenda separada do gráfico é controlada por [IChart.HasLegend](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ichart/haslegend/). Essas configurações são independentes: ocultar a legenda separada não oculta as chaves dentro da tabela de dados, e ocultar as chaves da tabela não oculta a legenda separada.
+
+O exemplo a seguir cria um gráfico com dados padrão, habilita sua tabela de dados e mostra as chaves de legenda dentro dela enquanto oculta a legenda separada. Todas as bordas da tabela são explicitamente habilitadas. Nenhuma apresentação de entrada é necessária. Para ocultar apenas as chaves da tabela, altere `dataTable.ShowLegendKey` para `false`.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+chart.HasLegend = false;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = true;
+dataTable.HasBorderOutline = true;
+dataTable.ShowLegendKey = true;
+
+presentation.Save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+```
+
+A comparação abaixo mostra a mesma tabela com as chaves de legenda habilitadas e desabilitadas. Todas as bordas permanecem habilitadas, e a legenda separada do gráfico está oculta em ambos os casos.
+
+![Tabelas de dados do gráfico com chaves de legenda mostradas à esquerda e ocultas à direita](data-table-legend-keys.png)
 
 ## **FAQ**
 
-**Posso exibir pequenas chaves de legenda ao lado dos valores na tabela de dados do gráfico?**
+**Posso mostrar chaves de legenda na tabela de dados de um gráfico?**  
+Sim. Defina [ShowLegendKey](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/datatable/showlegendkey/) como `true` para exibir as chaves de legenda ou como `false` para ocultá‑las.
 
-Sim. A tabela de dados suporta [legend keys](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/datatable/showlegendkey/), e você pode habilitá‑las ou desabilitá‑las.
+**A tabela de dados será preservada ao exportar a apresentação para PDF, HTML ou imagens?**  
+Sim. Aspose.Slides renderiza o gráfico e sua tabela de dados exibida como parte do slide ao exportar para [PDF](/slides/pt/net/convert-powerpoint-to-pdf/), [HTML](/slides/pt/net/convert-powerpoint-to-html/), ou [images](/slides/pt/net/convert-powerpoint-to-png/).
 
-**A tabela de dados será preservada ao exportar a apresentação para PDF, HTML ou imagens?**
+**Posso trabalhar com tabelas de dados em gráficos carregados de um modelo?**  
+Sim. Para um gráfico carregado de uma apresentação ou modelo existente, use [HasDataTable](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/hasdatatable/) para verificar ou alterar se sua tabela de dados está exibida.
 
-Sim. O Aspose.Slides renderiza o gráfico como parte do slide, portanto o [PDF](/slides/pt/net/convert-powerpoint-to-pdf/)/[HTML](/slides/pt/net/convert-powerpoint-to-html/)/[image](/slides/pt/net/convert-powerpoint-to-png/) exportado inclui o gráfico com sua tabela de dados.
-
-**As tabelas de dados são suportadas para gráficos provenientes de um arquivo de modelo?**
-
-Sim. Para qualquer gráfico carregado de uma apresentação ou modelo existente, você pode verificar e alterar se uma tabela de dados [is shown](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/hasdatatable/) usando as propriedades do gráfico.
-
-**Como posso encontrar rapidamente quais gráficos em um arquivo têm a tabela de dados habilitada?**
-
-Inspecione a propriedade de cada gráfico que indica se a tabela de dados [is shown](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/hasdatatable/) e percorra os slides para identificar os gráficos onde está habilitada.
+**Como posso encontrar gráficos que têm a tabela de dados habilitada?**  
+Itere pelas formas em cada slide, identifique os gráficos e verifique a propriedade [HasDataTable](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/hasdatatable/). Um valor `true` indica que a tabela de dados está habilitada.

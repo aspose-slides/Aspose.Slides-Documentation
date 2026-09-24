@@ -12,54 +12,128 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dostosuj tabele danych wykresów w Javie dla PPT i PPTX za pomocą Aspose.Slides dla Androida, aby zwiększyć wydajność i atrakcyjność prezentacji."
+description: "Dostosuj czcionki, obramowania i klucze legendy w tabelach danych wykresów w prezentacjach PowerPoint przy użyciu Aspose.Slides for Android via Java."
 ---
-## **Overview**
+## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z tabelami danych wykresów w Aspose.Slides. Pokazuje, jak wyświetlić tabelę danych dla wykresu i dostosować formatowanie tekstu, ustawiając właściwości czcionki, takie jak pogrubienie i wysokość czcionki. Przykład demonstruje ładowanie prezentacji, dodawanie wykresu, włączenie tabeli danych wykresu, zastosowanie ustawień czcionki oraz zapis zaktualizowanej prezentacji.
+Aspose.Slides for Android via Java umożliwia wyświetlanie tabeli danych wykresu oraz dostosowywanie formatowania tekstu, obramowań i kluczy legendy. Ten artykuł wyjaśnia, jak włączyć tabelę, sformatować jej tekst, kontrolować każdy rodzaj obramowania oraz pokazać lub ukryć klucze legendy. Przykłady zapisują skonfigurowane wykresy w plikach PPTX.
 
-## **Set Font Properties for a Chart Data Table**
-Aspose.Slides dla Androidu za pośrednictwem Java zapewnia wsparcie dla zmiany koloru kategorii w serii.
+## **Ustaw właściwości czcionki**
 
-1. Utwórz obiekt klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
-1. Dodaj wykres na slajdzie.
-1. Ustaw tabelę wykresu.
-1. Ustaw wysokość czcionki.
-1. Zapisz zmodyfikowaną prezentację.
+Aby wyświetlić tabelę danych wykresu, przekaż `true` do [setDataTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/chart/#setDataTable-boolean-). Użyj [getChartDataTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/chart/#getChartDataTable--) , aby uzyskać dostęp do tabeli i skonfigurować formatowanie tekstu.
 
-Poniżej podany jest przykładowy kod.
+1. Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
+2. Dodaj skumulowany wykres kolumnowy do pierwszego slajdu.
+3. Włącz tabelę danych wykresu.
+4. Włącz pogrubiony tekst przy pomocy [setFontBold](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/baseportionformat/#setFontBold-byte-) i przekaż `20` do [setFontHeight](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) , aby uzyskać tekst o rozmiarze 20 punktów.
+5. Zapisz zmodyfikowaną prezentację.
+
+Poniższy przykład wymaga pliku `test.pptx` w katalogu roboczym zawierającego co najmniej jeden slajd. Dodaje wykres z domyślnymi danymi w pozycji (50, 50), o szerokości 600 punktów i wysokości 400 punktów. Zapisany plik `output.pptx` zawiera wykres z włączoną tabelą danych oraz zastosowanymi ustawieniami czcionki.
 
 ```java
-// Tworzenie pustej prezentacji
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
 
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+    IChartPortionFormat portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(NullableBool.True);
+    portionFormat.setFontHeight(20);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Dostosuj obramowania tabeli danych**
+
+Włącz tabelę za pomocą [IChart.setDataTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichart/#setDataTable-boolean-) i uzyskaj do niej dostęp poprzez [IChart.getChartDataTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichart/#getChartDataTable--). Możesz niezależnie kontrolować trzy rodzaje obramowań:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatatable/#setBorderHorizontal-boolean-) kontroluje poziome obramowania komórek.
+- [setBorderVertical](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatatable/#setBorderVertical-boolean-) kontroluje pionowe obramowania komórek.
+- [setBorderOutline](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatatable/#setBorderOutline-boolean-) kontroluje zewnętrzne obramowanie tabeli.
+
+Przekaż `true` do każdej metody, aby wyświetlić jej obramowania, lub `false`, aby je ukryć. Poniższy przykład tworzy skumulowany wykres kolumnowy z domyślnymi danymi, wyświetla poziome obramowania i obramowanie zewnętrzne, a ukrywa pionowe obramowania. Nie wymaga pliku wejściowego. Pozycja i rozmiar wykresu podane są w punktach.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Poniższe porównanie wykorzystuje te same dane wykresu i ustawienie kluczy legendy we wszystkich czterech przypadkach. Zaczynając od włączonych wszystkich obramowań, każda kolejna wariacja wyłącza tylko jedno ustawienie obramowania. Wariant w lewym dolnym rogu odpowiada ustawieniom obramowań w przykładzie.
+
+![Tabele danych wykresu z włączonymi wszystkimi obramowaniami, bez poziomych obramowań, bez pionowych obramowań i bez obramowania zewnętrznego](data-table-borders.png)
+
+## **Pokaż lub ukryj klucze legendy**
+
+Klucze legendy to małe kolorowe znaczniki obok nazw serii w tabeli danych. Pomagają czytelnikom dopasować każdy wiersz tabeli do serii wykresu. Przekaż `true` do [setShowLegendKey](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) , aby wyświetlić te znaczniki, lub `false` , aby je ukryć.
+
+Oddzielna legenda wykresu jest sterowana przez [IChart.setLegend](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichart/#setLegend-boolean-). Te ustawienia są niezależne: ukrycie oddzielnej legendy nie ukrywa kluczy wewnątrz tabeli danych, a ukrycie kluczy tabeli nie ukrywa oddzielnej legendy.
+
+Poniższy przykład tworzy wykres z domyślnymi danymi, włącza jego tabelę danych i wyświetla klucze legendy wewnątrz niej, jednocześnie ukrywając oddzielną legendę. Wszystkie obramowania tabeli są wyraźnie włączone. Nie jest wymagana żadna prezentacja wejściowa. Aby ukryć jedynie klucze tabeli, przekaż `false` do [setShowLegendKey](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Poniższe porównanie pokazuje tę samą tabelę z włączonymi i wyłączonymi kluczami legendy. Wszystkie obramowania pozostają włączone, a oddzielna legenda wykresu jest ukryta w obu przypadkach.
+
+![Tabele danych wykresu z kluczami legendy wyświetlonymi po lewej i ukrytymi po prawej](data-table-legend-keys.png)
+
 ## **FAQ**
 
-**Can I show small legend keys next to the values in the chart’s data table?**
+**Czy mogę wyświetlać klucze legendy w tabeli danych wykresu?**
 
-Tak. Tabela danych obsługuje [legend keys](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-), i możesz je włączać lub wyłączać.
+Tak. Przekaż `true` do [setShowLegendKey](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-) , aby wyświetlić klucze legendy, lub `false` , aby je ukryć.
 
-**Will the data table be preserved when exporting the presentation to PDF, HTML, or images?**
+**Czy tabela danych zostanie zachowana przy eksportowaniu prezentacji do PDF, HTML lub obrazów?**
 
-Tak. Aspose.Slides renderuje wykres jako część slajdu, więc wyeksportowany [PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/)/[HTML](/slides/pl/androidjava/convert-powerpoint-to-html/)/[image](/slides/pl/androidjava/convert-powerpoint-to-png/) zawiera wykres z jego tabelą danych.
+Tak. Aspose.Slides renderuje wykres i wyświetlaną tabelę danych jako część slajdu przy eksporcie do [PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/), [HTML](/slides/pl/androidjava/convert-powerpoint-to-html/), lub [images](/slides/pl/androidjava/convert-powerpoint-to-png/).
 
-**Are data tables supported for charts that come from a template file?**
+**Czy mogę pracować z tabelami danych w wykresach załadowanych z szablonu?**
 
-Tak. Dla każdego wykresu załadowanego z istniejącej prezentacji lub szablonu możesz sprawdzić i zmienić, czy tabela danych [is shown](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/chart/#hasDataTable--) używając właściwości wykresu.
+Tak. Dla wykresu załadowanego z istniejącej prezentacji lub szablonu użyj [hasDataTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/chart/#hasDataTable--) i [setDataTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/chart/#setDataTable-boolean-) , aby sprawdzić lub zmienić, czy jego tabela danych jest wyświetlana.
 
-**How can I quickly find which charts in a file have the data table enabled?**
+**Jak mogę znaleźć wykresy z włączoną tabelą danych?**
 
-Sprawdź właściwość każdego wykresu wskazującą, czy tabela danych [is shown](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/chart/#hasDataTable--) i przeiteruj slajdy, aby zidentyfikować wykresy, w których jest włączona.
+Iteruj przez kształty na każdym slajdzie, zidentyfikuj wykresy i wywołaj ich metodę [hasDataTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/chart/#hasDataTable--) . Wartość `true` oznacza, że tabela danych jest włączona.

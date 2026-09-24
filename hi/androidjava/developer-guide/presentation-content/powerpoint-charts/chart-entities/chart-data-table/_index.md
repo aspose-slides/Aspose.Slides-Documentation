@@ -7,59 +7,133 @@ keywords:
 - चार्ट डेटा
 - डेटा टेबल
 - फ़ॉन्ट गुण
-- PowerPoint
+- पावरपॉइंट
 - प्रस्तुति
-- Android
-- Java
+- एंड्रॉइड
+- जावा
 - Aspose.Slides
-description: "Android के लिए Aspose.Slides के साथ Java में PPT और PPTX के लिए चार्ट डेटा टेबल को अनुकूलित करके प्रस्तुतियों में दक्षता और आकर्षण बढ़ाएँ।"
+description: "PowerPoint प्रस्तुतियों में Aspose.Slides for Android via Java का उपयोग करके चार्ट डेटा टेबल फ़ॉन्ट, बॉर्डर और लेजेंड कुंजियों को अनुकूलित करें।"
 ---
 ## **परिचय**
 
-यह लेख Aspose.Slides में चार्ट डेटा टेबल के साथ काम करने का तरीका बताता है। यह दर्शाता है कि चार्ट के लिए डेटा टेबल कैसे प्रदर्शित करें और फ़ॉन्ट गुण जैसे बोल्ड शैली और फ़ॉन्ट की ऊँचाई सेट करके टेक्स्ट फ़ॉर्मेटिंग को कैसे अनुकूलित करें। उदाहरण में एक प्रस्तुति लोड करना, एक चार्ट जोड़ना, चार्ट डेटा टेबल को सक्षम करना, फ़ॉन्ट सेटिंग्स लागू करना, और अपडेटेड प्रस्तुति को सेव करना दिखाया गया है।
+Aspose.Slides for Android via Java आपको चार्ट की डेटा टेबल दिखाने और उसके टेक्स्ट फॉर्मेटिंग, बॉर्डर और लेजेंड कुंजियों को अनुकूलित करने की सुविधा देता है। यह लेख टेबल को सक्षम करने, टेक्स्ट को फॉर्मेट करने, प्रत्येक प्रकार के बॉर्डर को नियंत्रित करने, और लेजेंड कुंजियों को दिखाने या छिपाने के तरीके को समझाता है। उदाहरण कॉन्फ़िगर किए गए चार्ट को PPTX फ़ाइलों में सहेजते हैं।
 
-## **चार्ट डेटा टेबल के लिए फ़ॉन्ट गुण सेट करें**
-Aspose.Slides for Android via Java, श्रृंखला के रंग में श्रेणियों के रंग को बदलने के लिए समर्थन प्रदान करता है।
+## **फ़ॉन्ट गुण सेट करें**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास ऑब्जेक्ट का उदाहरण बनाएं।
-1. स्लाइड पर चार्ट जोड़ें।
-1. चार्ट टेबल सेट करें।
-1. फ़ॉन्ट की ऊँचाई सेट करें।
-1. संशोधित प्रस्तुति को सहेजें।
+चार्ट की डेटा टेबल दिखाने के लिए, `true` को [setDataTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chart/#setDataTable-boolean-) में पास करें। टेबल तक पहुंचने और उसके टेक्स्ट फॉर्मेटिंग को कॉन्फ़िगर करने के लिए [getChartDataTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chart/#getChartDataTable--) का उपयोग करें।
 
-नीचे उदाहरण दिया गया है।
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का उपयोग करके प्रस्तुति लोड करें।
+1. पहले स्लाइड में एक क्लस्टर्ड कॉलम चार्ट जोड़ें।
+1. चार्ट की डेटा टेबल सक्षम करें।
+1. [setFontBold](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseportionformat/#setFontBold-byte-) से बोल्ड टेक्स्ट सक्षम करें और `20` को [setFontHeight](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) में पास करें ताकि 20‑पॉइंट टेक्स्ट हो।
+1. संशोधित प्रस्तुति सहेजें।
+
+निम्न उदाहरण को कार्य करने के लिए कार्य निर्देशिका में न्यूनतम एक स्लाइड वाली `test.pptx` फ़ाइल आवश्यक है। यह स्थिति (50, 50) पर, चौड़ाई 600 पॉइंट और ऊँचाई 400 पॉइंट के साथ डिफ़ॉल्ट डेटा वाला चार्ट जोड़ता है। सहेजी गई `output.pptx` में चार्ट के साथ उसकी डेटा टेबल सक्षम और निर्दिष्ट फ़ॉन्ट सेटिंग्स लागू होती हैं।
 
 ```java
-// खाली प्रस्तुति बना रहा है
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
 
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+    IChartPortionFormat portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(NullableBool.True);
+    portionFormat.setFontHeight(20);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **डेटा टेबल बॉर्डर को अनुकूलित करें**
 
-**क्या मैं चार्ट की डेटा टेबल में मानों के बगल में छोटे लेजेंड कुंजियां दिखा सकता हूँ?**
+टेबल को [IChart.setDataTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichart/#setDataTable-boolean-) के साथ सक्षम करें और इसे [IChart.getChartDataTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichart/#getChartDataTable--) के माध्यम से प्राप्त करें। आप तीन प्रकार के बॉर्डर को स्वतंत्र रूप से नियंत्रित कर सकते हैं:
 
-हां। डेटा टेबल [legend keys](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-) का समर्थन करता है, और आप उन्हें चालू या बंद कर सकते हैं।
+- [setBorderHorizontal](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatatable/#setBorderHorizontal-boolean-) क्षैतिज सेल बॉर्डर नियंत्रित करता है।
+- [setBorderVertical](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatatable/#setBorderVertical-boolean-) लंबवत सेल बॉर्डर नियंत्रित करता है।
+- [setBorderOutline](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatatable/#setBorderOutline-boolean-) टेबल के बाहरी बॉर्डर को नियंत्रित करता है।
 
-**क्या प्रस्तुति को PDF, HTML, या छवियों में निर्यात करने पर डेटा टेबल बरकरार रहेगा?**
+प्रत्येक मेथड को `true` पास करके उसके बॉर्डर दिखाएँ या `false` पास करके उन्हें छिपाएँ। निम्न उदाहरण डिफ़ॉल्ट डेटा वाला क्लस्टर्ड कॉलम चार्ट बनाता है, क्षैतिज बॉर्डर और बाहरी बॉर्डर दिखाता है, और लंबवत बॉर्डर को छिपाता है। इसे किसी इनपुट फ़ाइल की आवश्यकता नहीं है। चार्ट का स्थान और आकार पॉइंट में निर्दिष्ट है।
 
-हां। Aspose.Slides चार्ट को स्लाइड के हिस्से के रूप में रेंडर करता है, इसलिए निर्यातित [PDF](/slides/hi/androidjava/convert-powerpoint-to-pdf/)/[HTML](/slides/hi/androidjava/convert-powerpoint-to-html/)/[image](/slides/hi/androidjava/convert-powerpoint-to-png/) में चार्ट उसके डेटा टेबल के साथ शामिल होता है।
+```java
+import com.aspose.slides.*;
 
-**क्या टेम्पलेट फ़ाइल से आए चार्ट के लिए डेटा टेबल का समर्थन किया जाता है?**
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-हां। किसी भी चार्ट के लिए जो मौजूदा प्रस्तुति या टेम्पलेट से लोड किया गया हो, आप चार्ट की प्रॉपर्टीज़ का उपयोग करके यह जांच और बदल सकते हैं कि डेटा टेबल [is shown](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chart/#hasDataTable--) है या नहीं।
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
 
-**मैं फाइल में कौन से चार्ट डेटा टेबल सक्षम हैं, इसे जल्दी कैसे खोजूं?**
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
 
-फ़ाइल में प्रत्येक चार्ट की उस प्रॉपर्टी को जांचें जो यह दर्शाती है कि डेटा टेबल [is shown](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chart/#hasDataTable--) है, और स्लाइड्स के माध्यम से इटररेट करके उन चार्ट्स की पहचान करें जहाँ यह सक्षम है।
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+नीचे का तुलनात्मक दृश्य सभी चार मामलों में समान चार्ट डेटा और लेजेंड कुंजी सेटिंग का उपयोग करता है। सभी बॉर्डर सक्षम होने से शुरू करके, प्रत्येक शेष वैरिएंट केवल एक बॉर्डर सेटिंग को निष्क्रिय करता है। निचले‑बाएँ वैरिएंट उदाहरण के बॉर्डर सेटिंग से मेल खाता है।
+
+![सभी बॉर्डर सक्षम, कोई क्षैतिज बॉर्डर नहीं, कोई लंबवत बॉर्डर नहीं, और कोई बाहरी बॉर्डर नहीं के साथ चार्ट डेटा टेबल्स](data-table-borders.png)
+
+## **लेजेंड कुंजियों को दिखाएँ या छुपाएँ**
+
+लेजेंड कुंजियाँ डेटा टेबल में सीरीज़ नामों के बगल में छोटे रंगीन मार्कर होते हैं। वे पाठकों को प्रत्येक टेबल पंक्ति को चार्ट सीरीज़ से मिलाने में मदद करती हैं। इन मार्करों को दिखाने के लिए [setShowLegendKey](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) में `true` पास करें या छिपाने के लिए `false` पास करें।
+
+चार्ट का अलग लेजेंड [IChart.setLegend](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) द्वारा नियंत्रित होता है। ये सेटिंग्स स्वतंत्र हैं: अलग लेजेंड को छिपाने से टेबल के भीतर की कुंजियाँ नहीं छिपतीं, और टेबल की कुंजियों को छिपाने से अलग लेजेंड नहीं छिपता।
+
+निम्न उदाहरण डिफ़ॉल्ट डेटा वाला चार्ट बनाता है, उसकी डेटा टेबल सक्षम करता है, और टेबल के भीतर लेजेंड कुंजियाँ दिखाता है जबकि अलग लेजेंड को छिपाता है। सभी टेबल बॉर्डर स्पष्ट रूप से सक्षम हैं। कोई इनपुट प्रस्तुति आवश्यक नहीं है। केवल टेबल की कुंजियों को छिपाने के लिए, [setShowLegendKey](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) में `false` पास करें।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+नीचे का तुलनात्मक दृश्य वही टेबल लेजेंड कुंजियों को सक्षम और निष्क्रिय करके दिखाता है। सभी बॉर्डर सक्षम रहते हैं, और अलग चार्ट लेजेंड दोनों मामलों में छिपा रहता है।
+
+![बाएँ दिखाए गए लेजेंड कुंजियाँ और दाएँ छिपाए गए लेजेंड कुंजियाँ](data-table-legend-keys.png)
+
+## **FAQ**
+
+**क्या मैं चार्ट की डेटा टेबल में लेजेंड कुंजियाँ दिखा सकता हूँ?**
+
+हाँ। लेजेंड कुंजियों को दिखाने के लिए [setShowLegendKey](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-) में `true` पास करें या छिपाने के लिए `false` पास करें।
+
+**क्या प्रस्तुति को PDF, HTML या इमेजेस में निर्यात करते समय डेटा टेबल बरकरार रहेगी?**
+
+हाँ। Aspose.Slides स्लाइड के भाग के रूप में चार्ट और उसकी प्रदर्शित डेटा टेबल को निर्यात करते समय [PDF](/slides/hi/androidjava/convert-powerpoint-to-pdf/), [HTML](/slides/hi/androidjava/convert-powerpoint-to-html/), या [images](/slides/hi/androidjava/convert-powerpoint-to-png/) में रेंडर करता है।
+
+**क्या मैं टेम्प्लेट से लोड किए गए चार्ट में डेटा टेबल के साथ काम कर सकता हूँ?**
+
+हाँ। मौजूदा प्रस्तुति या टेम्प्लेट से लोड किए गए चार्ट के लिए, उसकी डेटा टेबल दिख रही है या नहीं, इसे जांचने या बदलने के लिए [hasDataTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chart/#hasDataTable--) और [setDataTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chart/#setDataTable-boolean-) का उपयोग करें।
+
+**मैं कैसे उन चार्ट्स को खोजूँ जिनमें डेटा टेबल सक्षम है?**
+
+प्रत्येक स्लाइड पर मौजूद शैप्स के माध्यम से इटररेट करें, चार्ट्स की पहचान करें, और उनके [hasDataTable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chart/#hasDataTable--) मेथड को कॉल करें। यदि वैल्यू `true` है तो डेटा टेबल सक्षम है।

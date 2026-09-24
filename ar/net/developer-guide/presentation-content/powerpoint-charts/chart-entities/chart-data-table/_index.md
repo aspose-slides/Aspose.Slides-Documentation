@@ -1,5 +1,5 @@
 ---
-title: تخصيص جداول بيانات المخطط في العروض التقديمية في .NET
+title: تخصيص جداول بيانات المخططات في العروض التقديمية في .NET
 linktitle: جدول البيانات
 type: docs
 url: /ar/net/chart-data-table/
@@ -12,48 +12,122 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تخصيص جداول بيانات المخطط في .NET لملفات PPT و PPTX باستخدام Aspose.Slides لتعزيز الكفاءة والجاذبية في العروض التقديمية."
+description: "تخصيص خطوط جدول بيانات المخطط، والحدود، ومفاتيح الوسيلة الإعلامية في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ .NET و C#."
 ---
+## **نظرة عامة**
 
-## **تعيين خصائص الخط لجدول بيانات المخطط**
-توفر Aspose.Slides لـ .NET دعمًا لتغيير لون الفئات في لون السلسلة.  
+Aspose.Slides for .NET يتيح لك عرض جدول بيانات المخطط وتخصيص تنسيق نصه، الحدود، ومفاتيح الوسيلة الإعلامية. تشرح هذه المقالة كيفية تمكين الجدول، تنسيق النص، التحكم في كل نوع من الحدود، وإظهار أو إخفاء مفاتيح الوسيلة الإعلامية. تقوم الأمثلة بحفظ المخططات المكوّنة في ملفات PPTX.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.  
-1. إضافة مخطط إلى الشريحة.  
-1. تعيين جدول المخطط.  
-1. تعيين ارتفاع الخط.  
-1. حفظ العرض التقديمي المعدل.  
+## **تعيين خصائص الخط**
 
-فيما يلي مثال توضيحي.  
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+لعرض جدول بيانات المخطط، اضبط [HasDataTable](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/hasdatatable/) إلى `true`. استخدم [ChartDataTable](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/chartdatatable/) للوصول إلى الجدول وتكوين تنسيق نصه.
 
-    chart.HasDataTable = true;
+1. حمّل العرض التقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/).
+1. أضف مخطط عمودي مجمع إلى الشريحة الأولى.
+1. فعّل جدول بيانات المخطط.
+1. فعّل النص الغامق باستخدام [FontBold](https://reference.aspose.com/slides/ar/net/aspose.slides/baseportionformat/fontbold/) واضبط [FontHeight](https://reference.aspose.com/slides/ar/net/aspose.slides/baseportionformat/fontheight/) إلى `20` للنص بحجم 20 نقطة.
+1. احفظ العرض التقديمي المعدل.
 
-    chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
-    chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
+المثال التالي يتطلب وجود `test.pptx` في الدليل العامل مع وجود شريحة واحدة على الأقل. يضيف مخططًا ببيانات افتراضية في الموقع (50, 50)، بعرض 600 نقطة وارتفاع 400 نقطة. يحتوي ملف `output.pptx` المحفوظ على المخطط مع تمكين جدول البيانات وتطبيق إعدادات الخط المحددة.
 
-    pres.Save("output.pptx", SaveFormat.Pptx);
-}
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+
+var portionFormat = chart.ChartDataTable.TextFormat.PortionFormat;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontHeight = 20;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+## **تخصيص حدود جدول البيانات**
 
-## **الأسئلة الشائعة**
+فعّل الجدول باستخدام [IChart.HasDataTable](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/hasdatatable/) وكن على اتصال به عبر [IChart.ChartDataTable](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/chartdatatable/). يمكنك التحكم في ثلاثة أنواع من الحدود بشكل مستقل:
 
-**هل يمكنني عرض مفاتيح وسيلة إيضاح صغيرة بجوار القيم في جدول بيانات المخطط؟**
+- [HasBorderHorizontal](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatatable/hasborderhorizontal/) يتحكم في حدود الخلايا الأفقية.
+- [HasBorderVertical](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatatable/hasbordervertical/) يتحكم في حدود الخلايا العمودية.
+- [HasBorderOutline](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatatable/hasborderoutline/) يتحكم في الحد الخارجي للجدول.
 
-نعم. يدعم جدول البيانات [مفاتيح وسيلة الإيضاح](https://reference.aspose.com/slides/net/aspose.slides.charts/datatable/showlegendkey/)، ويمكنك تشغيلها أو إيقافها.
+اضبط كل خاصية إلى `true` لعرض حدودها أو إلى `false` لإخفائها. المثال التالي ينشئ مخطط عمودي مجمع ببيانات افتراضية، يعرض الحدود الأفقية والحد الخارجي، ويخفي الحدود العمودية. لا يتطلب ملف إدخال. يتم تحديد موقع وحجم المخطط بالنقاط.
 
-**هل سيُحافظ على جدول البيانات عند تصدير العرض التقديمي إلى PDF أو HTML أو صور؟**
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-نعم. تقوم Aspose.Slides برسم المخطط كجزء من الشريحة، لذا فإن الـ[PDF](/slides/ar/net/convert-powerpoint-to-pdf/)/[HTML](/slides/ar/net/convert-powerpoint-to-html/)/[image](/slides/ar/net/convert-powerpoint-to-png/) المُصدَّر يتضمن المخطط مع جدول بياناته.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-**هل يتم دعم جداول البيانات للمخططات التي تأتي من ملف قالب؟**
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-نعم. بالنسبة لأي مخطط تم تحميله من عرض تقديمي أو قالب موجود، يمكنك التحقق وتغيير ما إذا كان جدول البيانات [معروضًا](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/hasdatatable/) باستخدام خصائص المخطط.
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = false;
+dataTable.HasBorderOutline = true;
 
-**كيفية العثور بسرعة على المخططات في ملف ما التي لديها جدول البيانات مفعَّل؟**
+presentation.Save("data-table-borders.pptx", SaveFormat.Pptx);
+```
 
-تحقق من خاصية كل مخطط التي تشير إلى ما إذا كان جدول البيانات [معروضًا](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/hasdatatable/) وتكرار المرور على الشرائح لتحديد المخططات التي تم تمكينه فيها.
+المقارنة أدناه تستخدم نفس بيانات المخطط وإعداد مفتاح الوسيلة الإعلامية في جميع الحالات الأربعة. تبدأ بجميع الحدود مفعلة، ويعطل كل متغير متبقي خاصية حد واحدة فقط. المتغير الموجود أسفل اليسار يطابق إعدادات الحدود في المثال.
+
+![جداول بيانات المخطط مع تمكين جميع الحدود، بدون حدود أفقية، بدون حدود عمودية، وبدون الحد الخارجي](data-table-borders.png)
+
+## **إظهار أو إخفاء مفاتيح الوسيلة الإعلامية**
+
+مفاتيح الوسيلة الإعلامية هي علامات ملونة صغيرة بجانب أسماء السلاسل في جدول البيانات. تساعد القراء على مطابقة كل صف في الجدول مع سلسلة المخطط. اضبط [ShowLegendKey](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatatable/showlegendkey/) إلى `true` لعرض هذه العلامات أو إلى `false` لإخفائها.
+
+الوسيلة الإعلامية المنفصلة للمخطط تُتحكم فيها عبر [IChart.HasLegend](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichart/haslegend/). هذه الإعدادات مستقلة: إخفاء الوسيلة الإعلامية المنفصلة لا يخفي المفاتيح داخل جدول البيانات، وإخفاء مفاتيح الجدول لا يخفي الوسيلة الإعلامية المنفصلة.
+
+المثال التالي ينشئ مخططًا ببيانات افتراضية، يفعّل جدول بياناته، ويظهر مفاتيح الوسيلة الإعلامية داخله مع إخفاء الوسيلة الإعلامية المنفصلة. جميع حدود الجدول مفعلة صراحة. لا يلزم وجود عرض تقديمي مدخل. لإخفاء مفاتيح الجدول فقط، غيّر `dataTable.ShowLegendKey` إلى `false`.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+chart.HasLegend = false;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = true;
+dataTable.HasBorderOutline = true;
+dataTable.ShowLegendKey = true;
+
+presentation.Save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+```
+
+المقارنة أدناه تُظهر نفس الجدول مع مفاتيح الوسيلة الإعلامية مفعلة ومُعطلة. تظل جميع الحدود مفعلة، وتُخفى الوسيلة الإعلامية المنفصلة للمخطط في الحالتين.
+
+![جداول بيانات المخطط مع إظهار مفاتيح الوسيلة الإعلامية على اليسار وإخفاؤها على اليمين](data-table-legend-keys.png)
+
+## **التعليمات المتداولة**
+
+**هل يمكنني إظهار مفاتيح الوسيلة الإعلامية في جدول بيانات المخطط؟**
+
+نعم. اضبط [ShowLegendKey](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/datatable/showlegendkey/) إلى `true` لعرض مفاتيح الوسيلة الإعلامية أو إلى `false` لإخفائها.
+
+**هل سيتم الحفاظ على جدول البيانات عند تصدير العرض التقديمي إلى PDF أو HTML أو صور؟**
+
+نعم. Aspose.Slides يقوم برندرة المخطط وجدول البيانات الظاهر كجزء من الشريحة عند تصديره إلى [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، [HTML](/slides/ar/net/convert-powerpoint-to-html/)، أو [صور](/slides/ar/net/convert-powerpoint-to-png/).
+
+**هل يمكنني العمل مع جداول البيانات في المخططات التي تم تحميلها من قالب؟**
+
+نعم. للمخطط المحمل من عرض تقديمي أو قالب موجود، استخدم [HasDataTable](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/hasdatatable/) للتحقق أو تعديل ما إذا كان جدول البيانات يظهر.
+
+**كيف يمكن العثور على المخططات التي تم تمكين جدول بيانات لها؟**
+
+قم بالتكرار عبر الأشكال في كل شريحة، حدد المخططات، وتحقق من خاصية [HasDataTable](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/hasdatatable/). القيمة `true` تشير إلى أن جدول البيانات مُمَكّن.

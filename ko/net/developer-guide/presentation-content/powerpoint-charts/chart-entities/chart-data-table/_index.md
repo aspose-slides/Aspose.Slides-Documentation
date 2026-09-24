@@ -7,58 +7,127 @@ keywords:
 - 차트 데이터
 - 데이터 테이블
 - 글꼴 속성
-- 파워포인트
+- PowerPoint
 - 프레젠테이션
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET에서 Aspose.Slides를 사용하여 PPT 및 PPTX용 차트 데이터 테이블을 사용자 지정하여 프레젠테이션의 효율성과 매력을 높이세요."
+description: "Aspose.Slides for .NET 및 C#를 사용하여 PowerPoint 프레젠테이션에서 차트 데이터 테이블의 글꼴, 테두리 및 범례 키를 사용자 지정합니다."
 ---
 ## **개요**
 
-이 문서에서는 Aspose.Slides에서 차트 데이터 테이블을 사용하는 방법을 설명합니다. 차트에 대한 데이터 테이블을 표시하고, 굵은 스타일 및 글꼴 높이와 같은 폰트 속성을 설정하여 텍스트 형식을 사용자 정의하는 방법을 보여줍니다. 예제에서는 프레젠테이션을 로드하고, 차트를 추가하고, 차트 데이터 테이블을 사용하도록 설정하고, 폰트 설정을 적용한 다음, 업데이트된 프레젠테이션을 저장하는 과정을 시연합니다.
+Aspose.Slides for .NET을 사용하면 차트의 데이터 표를 표시하고 텍스트 서식, 테두리 및 범례 키를 사용자 지정할 수 있습니다. 이 문서에서는 표를 활성화하고, 텍스트를 서식 지정하며, 각 종류의 테두리를 제어하고, 범례 키를 표시하거나 숨기는 방법을 설명합니다. 예제에서는 구성된 차트를 PPTX 파일로 저장합니다.
 
-또한 차트 데이터 테이블에 범례 키를 표시하는 방법, 내보내기 시 데이터 테이블을 보존하는 방법, 기존 프레젠테이션이나 템플릿에서 로드한 차트를 작업하는 방법, 데이터 테이블이 활성화된 차트를 식별하는 방법 등에 대한 일반적인 질문에 대한 간략한 답변도 포함합니다.
+## **글꼴 속성 설정**
 
-## **차트 데이터 테이블에 대한 폰트 속성 설정**
-Aspose.Slides for .NET은 시리즈 색상의 카테고리 색상을 변경하는 기능을 제공합니다.
+차트의 데이터 표를 표시하려면 [HasDataTable](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chart/hasdatatable/) 를 `true` 로 설정합니다. [ChartDataTable](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chart/chartdatatable/) 을 사용하여 표에 접근하고 텍스트 서식을 구성합니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation) 클래스 객체를 인스턴스화합니다.
-1. 슬라이드에 차트를 추가합니다.
-1. 차트 테이블을 설정합니다.
-1. 글꼴 높이를 설정합니다.
+1. 프레젠테이션을 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스를 사용하여 로드합니다.
+1. 첫 번째 슬라이드에 클러스터형 열 차트를 추가합니다.
+1. 차트의 데이터 표를 활성화합니다.
+1. [FontBold](https://reference.aspose.com/slides/ko/net/aspose.slides/baseportionformat/fontbold/) 로 굵은 텍스트를 활성화하고, [FontHeight](https://reference.aspose.com/slides/ko/net/aspose.slides/baseportionformat/fontheight/) 를 `20` 으로 설정하여 20포인트 텍스트를 지정합니다.
 1. 수정된 프레젠테이션을 저장합니다.
 
-아래에 샘플 예제가 제공됩니다.
+다음 예제는 작업 디렉터리에 최소 한 개 슬라이드가 포함된 `test.pptx` 파일이 필요합니다. 위치 (50, 50)에 기본 데이터가 있는 차트를 추가하고 너비 600 포인트, 높이 400 포인트로 설정합니다. 저장된 `output.pptx` 에는 데이터 표가 활성화되고 지정된 글꼴 설정이 적용된 차트가 포함됩니다.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	chart.HasDataTable = true;
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
 
-	chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
-	chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+var portionFormat = chart.ChartDataTable.TextFormat.PortionFormat;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontHeight = 20;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+## **데이터 표 테두리 사용자 지정**
+
+[IChart.HasDataTable](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichart/hasdatatable/) 로 표를 활성화하고 [IChart.ChartDataTable](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichart/chartdatatable/) 을 통해 접근합니다. 세 가지 유형의 테두리를 독립적으로 제어할 수 있습니다:
+
+- [HasBorderHorizontal](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/idatatable/hasborderhorizontal/) 은 가로 셀 테두리를 제어합니다.
+- [HasBorderVertical](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/idatatable/hasbordervertical/) 은 세로 셀 테두리를 제어합니다.
+- [HasBorderOutline](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/idatatable/hasborderoutline/) 은 표의 외곽 테두리를 제어합니다.
+
+각 속성을 `true` 로 설정하면 해당 테두리가 표시되고 `false` 로 설정하면 숨깁니다. 다음 예제는 기본 데이터가 있는 클러스터형 열 차트를 생성하고 가로 테두리와 외곽 테두리를 표시하며 세로 테두리를 숨깁니다. 입력 파일이 필요하지 않으며 차트의 위치와 크기는 포인트 단위로 지정됩니다.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = false;
+dataTable.HasBorderOutline = true;
+
+presentation.Save("data-table-borders.pptx", SaveFormat.Pptx);
+```
+
+아래 비교는 네 경우 모두 동일한 차트 데이터와 범례 키 설정을 사용합니다. 모든 테두리를 활성화한 상태에서 각 변형은 하나의 테두리 속성만 비활성화합니다. 왼쪽 아래 변형이 예제와 동일한 테두리 설정을 갖습니다.
+
+![모든 테두리가 활성화된 차트 데이터 테이블, 가로 테두리 없음, 세로 테두리 없음, 외곽 테두리 없음](data-table-borders.png)
+
+## **범례 키 표시 또는 숨기기**
+
+범례 키는 데이터 표의 시리즈 이름 옆에 표시되는 작은 색 표시입니다. 독자는 이를 통해 각 표 행을 차트 시리즈와 일치시킬 수 있습니다. [ShowLegendKey](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/idatatable/showlegendkey/) 를 `true` 로 설정하면 이 표시가 나타나고 `false` 로 설정하면 숨깁니다.
+
+차트의 별도 범례는 [IChart.HasLegend](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichart/haslegend/) 로 제어됩니다. 이 설정은 독립적이며, 별도 범례를 숨겨도 데이터 표 내부의 키가 숨겨지지 않으며, 표의 키를 숨겨도 별도 범례가 숨겨지지 않습니다.
+
+다음 예제는 기본 데이터가 있는 차트를 생성하고 데이터 표를 활성화한 뒤 별도 범례를 숨기면서 내부에 범례 키를 표시합니다. 모든 표 테두리는 명시적으로 활성화됩니다. 입력 프레젠테이션이 필요하지 않으며, 표의 키만 숨기려면 `dataTable.ShowLegendKey` 를 `false` 로 변경합니다.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+chart.HasLegend = false;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = true;
+dataTable.HasBorderOutline = true;
+dataTable.ShowLegendKey = true;
+
+presentation.Save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+```
+
+아래 비교는 같은 표를 범례 키가 활성화된 경우와 비활성화된 경우로 보여줍니다. 모든 테두리는 계속 활성화되고, 별도 차트 범례는 두 경우 모두 숨겨집니다.
+
+![왼쪽에 범례 키가 표시되고 오른쪽에 숨겨진 차트 데이터 테이블](data-table-legend-keys.png)
 
 ## **FAQ**
 
-**차트 데이터 테이블의 값 옆에 작은 범례 키를 표시할 수 있나요?**
+**차트 데이터 표에 범례 키를 표시할 수 있나요?**
 
-예. 데이터 테이블은 [legend keys](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/datatable/showlegendkey/)를 지원하며, 이를 켜거나 끌 수 있습니다.
+예. [ShowLegendKey](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/datatable/showlegendkey/) 를 `true` 로 설정하면 범례 키가 표시되고 `false` 로 설정하면 숨겨집니다.
 
-**프레젠테이션을 PDF, HTML 또는 이미지로 내보낼 때 데이터 테이블이 보존되나요?**
+**프레젠테이션을 PDF, HTML 또는 이미지로 내보낼 때 데이터 표가 유지되나요?**
 
-예. Aspose.Slides는 차트를 슬라이드의 일부로 렌더링하므로, 내보낸 [PDF](/slides/ko/net/convert-powerpoint-to-pdf/)/[HTML](/slides/ko/net/convert-powerpoint-to-html/)/[image](/slides/ko/net/convert-powerpoint-to-png/)에 차트와 데이터 테이블이 포함됩니다.
+예. Aspose.Slides는 차트와 표시된 데이터 표를 슬라이드의 일부로 렌더링하여 [PDF](/slides/ko/net/convert-powerpoint-to-pdf/), [HTML](/slides/ko/net/convert-powerpoint-to-html/), [images](/slides/ko/net/convert-powerpoint-to-png/) 로 내보냅니다.
 
-**템플릿 파일에서 가져온 차트에 데이터 테이블이 지원되나요?**
+**템플릿에서 로드한 차트의 데이터 표를 작업할 수 있나요?**
 
-예. 기존 프레젠테이션이나 템플릿에서 로드한 차트라면, 차트의 속성을 사용하여 데이터 테이블이 [is shown](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chart/hasdatatable/)인지 확인하고 변경할 수 있습니다.
+예. 기존 프레젠테이션이나 템플릿에서 로드한 차트의 경우, [HasDataTable](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chart/hasdatatable/) 을 사용하여 데이터 표가 표시되는지 확인하거나 변경할 수 있습니다.
 
-**파일 내에서 데이터 테이블이 활성화된 차트를 빠르게 찾으려면 어떻게 해야 하나요?**
+**데이터 표가 활성화된 차트를 어떻게 찾을 수 있나요?**
 
-각 차트의 데이터 테이블이 [is shown](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chart/hasdatatable/)인지 나타내는 속성을 확인하고, 슬라이드를 순회하여 데이터 테이블이 활성화된 차트를 식별합니다.
+각 슬라이드의 도형을 순회하면서 차트를 식별하고, 해당 차트의 [HasDataTable](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chart/hasdatatable/) 속성을 확인합니다. 값이 `true` 이면 데이터 표가 활성화된 것입니다.
