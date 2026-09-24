@@ -28,6 +28,8 @@ This article explains how to work with chart workbooks in Aspose.Slides. It show
 
 It also covers working with external workbooks as chart data sources. The examples demonstrate how to create and assign an external workbook, retrieve the path of an external workbook linked to a chart, and edit chart data when the workbook is available.
 
+For workbook cells that represent missing data, see [Control the Display of Empty Cells](/slides/cpp/chart-series/) for the difference between an empty cell and zero, and a line-chart comparison of the available display modes.
+
 ## **Read and Write Chart Data from a Workbook**
 
 Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) and [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
@@ -248,9 +250,7 @@ for (auto&& shape : System::IterateOver(slide->get_Shapes()))
 
 ## **External Workbook**
 
-{{% alert color="info" %}} 
-In [Aspose.Slides](https://releases.aspose.com/slides/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, we implemented support for external workbooks as a data source for charts.
-{{% /alert %}} 
+Aspose.Slides supports using external workbooks as a data source for charts.
 
 ### **Create an External Workbook**
 
