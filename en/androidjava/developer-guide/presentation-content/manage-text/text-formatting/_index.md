@@ -448,6 +448,8 @@ try {
 }
 ```
 
+To count lines after automatic wrapping and see how text or shape width changes the result, see [Count Rendered Lines](/slides/androidjava/manage-paragraph/). Line count alone does not indicate whether text overflows its container.
+
 ## **Set Anchor of Text Frames**
 
 [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) defines how text is positioned vertically inside a shape, for example at the top, middle, or bottom.

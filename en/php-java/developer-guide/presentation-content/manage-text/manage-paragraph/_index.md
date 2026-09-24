@@ -548,6 +548,61 @@ try {
 }
 ```
 
+## **Count Rendered Lines**
+
+Use [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount--) to count the lines occupied by a paragraph after text layout, including automatic wrapping. This is useful when checking text length and layout in presentation templates.
+
+A paragraph is one item in [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs--), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
+
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getTextFrameFormat()->setWrapText(NullableBool::True);
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    echo "Original width: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $shape->setWidth(150);
+    echo "Narrower shape: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $paragraph->setText("Short text.");
+    echo "Shorter text: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Another paragraph.");
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $totalLineCount = 0;
+    for ($i = 0; $i < java_values($textFrame->getParagraphs()->getCount()); $i++) {
+        $currentParagraph = $textFrame->getParagraphs()->get_Item($i);
+        $totalLineCount += java_values($currentParagraph->getLinesCount());
+    }
+    echo "Total lines in the text frame: " . $totalLineCount . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+With this text and these dimensions, narrowing the shape increases the line count, while replacing the text with the short string reduces it. Exact counts can vary with font availability and substitution, font size, margins, indentation, wrapping, and autofit settings. Use the fonts and layout settings intended for the target environment when checking a template.
+
+The line count alone does not determine whether text overflows its container. The available height, line heights, paragraph and line spacing, and autofit behavior also matter; even a single line can exceed the available width when wrapping is disabled.
+
 ## **Import and Export Paragraph Content**
 
 ### **Import HTML Text into Paragraphs**

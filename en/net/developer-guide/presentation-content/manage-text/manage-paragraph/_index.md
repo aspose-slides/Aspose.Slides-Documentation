@@ -475,6 +475,53 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
 
+## **Count Rendered Lines**
+
+Use [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) to count the lines occupied by a paragraph after text layout, including automatic wrapping. This is useful when checking text length and layout in presentation templates.
+
+A paragraph is one item in [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
+
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+paragraph.Text = "This text demonstrates how automatic wrapping changes the number of rendered lines.";
+Console.WriteLine($"Original width: {paragraph.GetLinesCount()}");
+
+shape.Width = 150;
+Console.WriteLine($"Narrower shape: {paragraph.GetLinesCount()}");
+
+paragraph.Text = "Short text.";
+Console.WriteLine($"Shorter text: {paragraph.GetLinesCount()}");
+
+var secondParagraph = new Paragraph { Text = "Another paragraph." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+textFrame.Paragraphs.Add(secondParagraph);
+
+var totalLineCount = 0;
+foreach (var currentParagraph in textFrame.Paragraphs)
+{
+    totalLineCount += currentParagraph.GetLinesCount();
+}
+Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
+```
+
+With this text and these dimensions, narrowing the shape increases the line count, while replacing the text with the short string reduces it. Exact counts can vary with font availability and substitution, font size, margins, indentation, wrapping, and autofit settings. Use the fonts and layout settings intended for the target environment when checking a template.
+
+The line count alone does not determine whether text overflows its container. The available height, line heights, paragraph and line spacing, and autofit behavior also matter; even a single line can exceed the available width when wrapping is disabled.
+
 ## **Import and Export Paragraph Content**
 
 ### **Import HTML Text into Paragraphs**
