@@ -1,6 +1,6 @@
 ---
 title: Hantera presentationsformer på Android
-linktitle: Formmanipulation
+linktitle: Formmanipulering
 type: docs
 weight: 40
 url: /sv/androidjava/shape-manipulations/
@@ -14,8 +14,8 @@ keywords:
 - dölj form
 - ändra formordning
 - hämta interop-form-ID
-- formens alternativa text
-- formjusteringspunkt
+- alternativ text för form
+- justeringspunkt för form
 - förinställd formjustering
 - formgeometri
 - formlayoutformat
@@ -32,21 +32,23 @@ description: "Lär dig hur du identifierar, justerar, klonar, tar bort, döljer,
 ---
 ## **Översikt**
 
-Aspose.Slides för Android via Java representerar formerna på en bild som en ordnad [IShapeCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/). Samlingen är både platsen där du hittar och ändrar former samt källan till deras staplingsordning: index `0` är den längst bakvarande formen, medan det sista indexet är den främst placerade formen.
+Aspose.Slides for Android via Java representerar formerna på en bild som en ordnad [IShapeCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/). Samlingen är både platsen där du hittar och ändrar former samt källan till deras staplingsordning: index `0` är den längst bak, medan det sista indexet är den längst fram.
 
-Den här artikeln följer den modellen. Den förklarar först hur man på ett tillförlitligt sätt identifierar en form och ändrar förinställda justeringspunkter, och visar sedan hur man klonar, tar bort, döljer och ändrar ordningen på former. De sista sektionerna täcker layoutnivåformatering, SVG‑export, justering och vändningsinställningar. Varje exempel är självständigt, så du kan använda bara de operationer ditt arbetsflöde kräver.
+Den här artikeln följer den modellen. Den förklarar först hur man på ett pålitligt sätt identifierar en form och ändrar förinställda justeringspunkter, och visar sedan hur man klonar, tar bort, döljer och ändrar ordning på former. De sista avsnitten täcker formatering på layoutnivå, SVG-export, justering och vändningsinställningar. Varje exempel är oberoende, så du kan bara använda de operationer som ditt arbetsflöde kräver.
 
 ## **Identifiera och hitta former**
 
-Samlingens index är praktiska när man behandlar en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller ändra ordningen på en form kan ändra dess index. Välj en identifierare utifrån hur presentationen skapas och underhålls:
+Samlingsindex är praktiska när man bearbetar en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller ändra ordning på en form kan förändra dess index. Välj en identifierare baserat på hur presentationen skapas och underhålls:
 
-- [Name](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getName--) är användbart för mallar som styrs av utvecklare och är lätt att inspektera i PowerPoints urvalspanel. Namn kan redigeras och är inte garanterade att vara unika, så etablera en namngivningskonvention om kod beror på dem.
-- [AlternativeText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getAlternativeText--) är användbart när en tillgänglighetsbeskrivning eller en författarskissad tagg redan identifierar formen. Den är synlig för användare, kan lokalanpassas eller skrivas om för tillgänglighet, och är inte garanterad att vara unik. Översätt inte tyst meningsfull tillgänglighetstext till en databass nyckel.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) är en skrivskyddad identifierare som är unik inom en bild och motsvarar den form‑ID som används av PowerPoint‑interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under en forms livstid. En klonad eller återställd form är en annan form och får ett eget ID.
+- [Name](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getName--) är användbart för utvecklarkontrollerade mallar och är enkelt att inspektera i PowerPoints urvalslist. Namn kan redigeras och är inte garanterade att vara unika, så etablera en namngivningskonvention om koden är beroende av dem.
+- [AlternativeText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getAlternativeText--) är användbart när en tillgänglighetsbeskrivning eller en författargiven tagg redan identifierar formen. Den är synlig för användare, kan lokalanpassas eller skrivas om för tillgänglighet, och är inte garanterad att vara unik. Omvandla inte tyst meningsfull tillgänglighetstext till en databaskey.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) är en skrivskyddad identifierare som är unik inom en bild och motsvarar den shape-ID som används av PowerPoint interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under en formes livstid. En klonad eller återskapad form är en annan form och får sitt eget ID.
 
-Den relaterade metoden [getUniqueId](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getUniqueId--) returnerar en identifierare med presentationsomfång, men den identifieraren är avsedd för tillägg och kan återtilldelas. Den bör inte behandlas som en permanent extern nyckel. Om långsiktig identitet är viktig, håll mappningen i programdata och validera att den förväntade formen fortfarande finns.
+Den relaterade [getUniqueId](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getUniqueId--) metoden returnerar en identifierare med presentationsomfattning, men den identifieraren är avsedd för tillägg och kan omfördelas. Den bör inte behandlas som en permanent extern nyckel. Om långsiktig identitet är avgörande, håll mappningen i programdata och validera att den förväntade formen fortfarande finns.
 
-Följande exempel söker efter namn med en exakt jämförelse och rapporterar den bild‑omspännande interop‑ID:n. När mallen inte innehåller den förväntade formen rapporterar koden det resultatet i stället för att fortsätta med fel objekt.
+För ett praktiskt exempel på att läsa och uppdatera både alternativ texttitel och beskrivning, se [Manage Alternative Text Titles and Descriptions](/slides/sv/androidjava/presentation-accessibility/). Använd alternativ text för att förklara bildens innebörd för läsare, och håll den separat från formenamn som kod använder för att hitta former.
+
+Följande exempel söker efter namn med en exakt jämförelse och rapporterar bildens interop-ID. När mallen inte innehåller den förväntade formen, rapporterar koden det resultatet istället för att fortsätta med fel objekt.
 
 ```java
 import com.aspose.slides.*;
@@ -105,26 +107,26 @@ try {
 
 ## **Identifiera och ändra förinställda formjusteringar**
 
-Formgeometrier med förinställning kan exponera justeringspunkter som styr funktioner som hörn‑storlek, pil‑proportioner eller båg‑vinklar. Åtkomst sker via den skrivskyddade samlingen [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) . Samlingen levereras av formen, men varje [IAdjustValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/) innehåller ett värde som kan ändras.
+Förinställda geometriformer kan exponera justeringspunkter som styr egenskaper som hörnstorlek, pilförhållanden eller båg‑ och vinkelvärden. Åtkomst sker via den skrivskyddade [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) samlingen. Själva samlingen levereras av formen, men varje [IAdjustValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/) innehåller ett värde som kan ändras.
 
-Lita inte enbart på ett fast samlings‑index. Iterera genom justeringarna och inspektera den skrivskyddade metoden [getType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#getType--) , vars [ShapeAdjustmentType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shapeadjustmenttype/)‑värde beskriver vad justeringen styr. Den skrivskyddade metoden [getName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#getName--) ger ytterligare identifieringsinformation och är särskilt användbar när en förinställning innehåller mer än en justering med samma semantiska typ.
+Förlita dig inte endast på ett fast samlingsindex. Iterera genom justeringarna och inspektera den skrivskyddade [getType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#getType--) metoden, vars [ShapeAdjustmentType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shapeadjustmenttype/) värde beskriver vad justeringen styr. Den skrivskyddade [getName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#getName--) metoden ger ytterligare identifieringsinformation och är särskilt användbar när en förinställning innehåller mer än en justering med samma semantiska typ.
 
-Använd den värdemetod som matchar justeringens innebörd:
+Use the value method that matches the adjustment's meaning:
 
 | Justeringstyp | Syfte | Värde att ändra |
 |---|---|---|
-| `CornerSize` | Storlek på avrundade hörn | [setRawValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `CornerSize` | Storlek på rundade hörn | [setRawValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
 | `ArrowTailThickness` | Tjocklek på en pilspets | `setRawValue` |
 | `ArrowheadLength` | Längd på en pilspets | `setRawValue` |
 | `ArrowheadWidth` | Bredd på en pilspets | `setRawValue` |
-| `StartAngle` | Startvinkel för en paj eller båge | [setAngleValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
-| `EndAngle` | Slutvinkel för en paj eller båge | `setAngleValue` |
+| `StartAngle` | Startvinkel för en paj eller båg | [setAngleValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Slutvinkel för en paj eller båg | `setAngleValue` |
 
-`getType` och `getName` returnerar skrivskyddad information. `getRawValue` och `setRawValue` arbetar med ett heltal i förinställningens inhemska geometrienheter, medan `getAngleValue` och `setAngleValue` arbetar med en vinkel i grader. Antalet, ordningen, innebörden och giltigt intervall för justeringar beror på den förinställda [ShapeType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igeometryshape/#getShapeType--) . Ett värde som är giltigt för en förinställning kan vara ogiltigt eller ha en annan effekt för en annan.
+`getType` och `getName` returnerar skrivskyddad information. `getRawValue` och `setRawValue` arbetar med ett heltal i förinställningens inhemska geometrienheter, medan `getAngleValue` och `setAngleValue` arbetar med en vinkel i grader. Antalet, ordningen, betydelsen och det giltiga intervallet för justeringar beror på den förinställda [ShapeType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igeometryshape/#getShapeType--). Ett värde som är giltigt för en förinställning kan vara ogiltigt eller ha en annan effekt för en annan.
 
-När `getType` returnerar `ShapeAdjustmentType.Custom` känner API:n inte igen en standard semantisk betydelse. Inspektera `getName`, förinställningstypen och det befintliga värdet, och låt justeringen vara oförändrad såvida inte den förväntade betydelsen och intervallet är känt. Även för igenkända typer, kontrollera om samma typ förekommer flera gånger innan du väljer ett värde. Artikeln [Connector](/slides/sv/androidjava/connector/) visar detta scenario med böjningsjusteringar för anslutare.
+När `getType` returnerar `ShapeAdjustmentType.Custom` känner API:n inte igen en standardsemantisk betydelse. Inspektera `getName`, förinställningstypen och det befintliga värdet, och lämna justeringen oförändrad om inte den förväntade betydelsen och intervallet är känt. Även för igenkända typer, kontrollera om samma typ förekommer mer än en gång innan du väljer ett värde. Artikeln [Connector](/slides/sv/androidjava/connector/) visar denna situation med böjningsjusteringar för kopplingar.
 
-Följande kompletta exempel skapar standard‑ och modifierade versioner av tre förinställda former. Det itererar genom varje justering, rapporterar dess namn och typ, ändrar storleksrelaterade värden via `setRawValue`, ändrar vinklar via `setAngleValue` och sparar resultatet. Den vänstra kolumnen behåller standardgeometrin; den högra visar den justerade avrundade rektangeln, fyrvägs‑pilen och pajen.
+Följande kompletta exempel skapar standard- och modifierade versioner av tre förinställda former. Det itererar genom varje justering, rapporterar dess namn och typ, ändrar storleksrelaterade värden via `setRawValue`, ändrar vinklar via `setAngleValue`, och sparar resultatet. Den vänstra kolumnen behåller standardgeometrin; den högra kolumnen visar den justerade rundade rektangeln, fyrvägspilen och pajen.
 
 ```java
 import com.aspose.slides.*;
@@ -133,7 +135,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägger till rubriker för de standard- och justerade formkolumnerna.
+    // Lägger till rubriker för standard- och justerade formkolumner.
     IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
     defaultColumnLabel.getTextFrame().setText("Default preset geometry");
     IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -194,17 +196,17 @@ try {
 }
 ```
 
-Att kontrollera den semantiska typen innan ett värde ändras gör koden explicit om sitt syfte och undviker antagandet att ett särskilt samlings‑index har samma betydelse över olika förinställda former.
+Att kontrollera den semantiska typen innan ett värde ändras gör koden tydlig i sin avsikt och undviker att anta att ett specifikt samlingsindex har samma betydelse över olika förinställda former.
 
-## **Ändra form‑samlingen**
+## **Modifiera formsamlingen**
 
-Metoderna för att lägga till, klona, ta bort och ändra ordning verkar omedelbart på samlingen. Om en operation förändrar antalet eller ordningen på former, fortsätt inte att förlita dig på index som fångats innan den operationen.
+Metoderna add, clone, remove och reorder verkar på samlingen omedelbart. Om en operation förändrar antalet eller ordningen av former, fortsätt inte förlita dig på index som fångats innan den operationen.
 
 ### **Klona en form**
 
-[addClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) skapar en oberoende kopia och lägger till den i mål‑samlingen. [insertClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) skapar också en kopia men placerar den på ett specificerat z‑order‑index. Överlagringarna som accepterar koordinater flyttar klonen utan att ändra dess storlek; överlagringar med bredd och höjd kan även ändra storlek.
+[addClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) skapar en oberoende kopia och lägger till den i målkollektionen. [insertClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) skapar också en kopia men placerar den på ett angivet z‑ordningsindex. Överlagringarna som tar emot koordinater flyttar klonen utan att ändra dess storlek; överlagringar med bredd och höjd kan också ändra storlek.
 
-Exemplet skapar en målbild, klonar en märkt rektangel till framsidan och infogar en andra klon längst bak. Ändringar i någon av klonerna påverkar inte källformen.
+Exemplet skapar en målbild, klonar en märkt rektangel till fronten, och infogar en andra klon längst bak. Ändringar i någon av klonerna ändrar inte källformen.
 
 ```java
 import com.aspose.slides.*;
@@ -243,13 +245,13 @@ try {
 }
 ```
 
-Klonning kopierar formens innehåll och formatering, inklusive namn och alternativ text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon förblir ett nytt samlingsobjekt med en ny formidentitet.
+Klonning kopierar formens innehåll och formatering, inklusive dess namn och alternativ text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon förblir ett nytt samlingsobjekt med en ny formidentitet.
 
 ### **Ta bort former**
 
-[remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) tar bort ett specifikt form‑objekt från dess samling. När du tar bort flera matchningar under indexerad iteration, gå igenom från slutet så att varje kvarvarande index förblir giltigt.
+[remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) tar bort ett specifikt formobjekt från dess samling. När du tar bort flera matchningar under indexerad iteration, gå från slutet så att varje återstående index förblir giltigt.
 
-Detta exempel tar bort varje form med ett bestämt namn. Det läser formen vid det aktuella indexet, inte ett fast samlingsobjekt, och kastar inte formen onödigt.
+Detta exempel tar bort varje form med ett angivet namn. Det läser formen vid det aktuella indexet, inte ett fast samlingsobjekt, och det kastar inte formen onödigt.
 
 ```java
 import com.aspose.slides.*;
@@ -280,11 +282,11 @@ try {
 }
 ```
 
-Efter borttagning förändras antalet former och indexen för senare former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk också på anslutare, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan ändra mer än bara bildens utseende.
+Efter borttagning förändras antalet former och indexen för senare former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk också på kopplingar, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan förändra mer än bildens utseende.
 
-### **Dölja en form**
+### **Dölj en form**
 
-Att sätta [Hidden](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) till `true` behåller formen i samlingen men förhindrar att den visas i den normala bildvisningen. Dess index, formatering och innehåll förblir tillgängliga för kod, så dold är lämplig för valfria element som senare kan återställas.
+Att sätta [Hidden](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) till `true` behåller formen i samlingen men hindrar den från att visas i det vanliga bildspelet. Dess index, formatering och innehåll förblir tillgängliga för kod, så dölja är lämpligt för valfria element som kan återställas senare.
 
 ```java
 import com.aspose.slides.*;
@@ -311,11 +313,11 @@ try {
 }
 ```
 
-Att dölja är ingen borttagning eller säkerhet. Objektet kan fortfarande upptäckas och göras synligt igen av en användare eller av kod, och det förblir en del av presentationsfilen.
+Att dölja är inte en borttagning eller säkerhet. Objektet kan fortfarande upptäckas och avdöljas av en användare eller av kod, och det förblir en del av presentationsfilen.
 
 ### **Ändra Z‑ordning**
 
-Överlappande former målas i samlingsordning. [reorder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) flyttar en befintlig form till ett mål‑index utan att klona den. Index `0` är längst bak; `size() - 1` är längst fram.
+Överlappande former målas i samlingsordning. [reorder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) flyttar en befintlig form till ett målindex utan att klona den. Index `0` är bakre; `size() - 1` är främre.
 
 ```java
 import com.aspose.slides.*;
@@ -342,13 +344,13 @@ try {
 }
 ```
 
-Rektangeln skapas först och ligger initialt bakom ellipsen. Att flytta den till sista indexet placerar den längst fram. Slutför z‑ordning efter att alla relaterade former har lagts till eller klonats, eftersom dessa operationer lägger till eller infogar nya samlingsobjekt och kan ändra den avsedda stapeln.
+Rektangeln skapas först och sitter initialt bakom ellipsen. Att flytta den till det sista indexet placerar den framför. Slutför z‑ordning efter att ha lagt till eller klonat alla relaterade former, eftersom dessa operationer lägger till eller infogar nya samlingsobjekt och kan ändra den avsedda stapeln.
 
-## **Inspektera former på layout‑bilder**
+## **Inspektera former på layoutbilder**
 
-Normala bilder, layout‑bilder och huvudbilder har separata form‑samlingar. En form i en layout‑samling är inte samma objekt som en liknande placerad form på en normal bild. Inspektera layout‑former när du behöver förstå eller ändra formatering som levereras av en layout.
+Vanliga bilder, layoutbilder och masterbilder har separata formsamlingar. En form i en layoutsamling är inte samma objekt som en liknande placerad form på en normal bild. Inspektera layoutformer när du behöver förstå eller ändra formatering som levereras av en layout.
 
-Följande exempel läser varje layout‑forms [FillFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getFillFormat--) och [LineFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getLineFormat--) utan att anta att varje form är en `AutoShape`.
+Följande exempel läser varje layoutforms [FillFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getFillFormat--) och [LineFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getLineFormat--) utan att anta att varje form är en `AutoShape`.
 
 ```java
 import com.aspose.slides.*;
@@ -367,11 +369,11 @@ try {
 }
 ```
 
-Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layout‑form, avgör om en normal bild ärver objektet eller har ett lokalt överskugg, och testa varje bild som använder den layouten.
+Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layoutform, avgör om en normal bild ärver objektet eller innehåller en lokal överskrivning, och testa varje bild som använder den layouten.
 
 ## **Exportera en form till SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) skriver en enskild forms renderade innehåll till en stream. Resultatet innehåller bara formen, inte hela bildbakgrunden eller grannformer.
+[writeAsSvg](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) skriver en forms renderade innehåll till en ström. Resultatet innehåller formen, inte hela bildbakgrunden eller närliggande former.
 
 ```java
 import com.aspose.slides.*;
@@ -397,13 +399,13 @@ try {
 }
 ```
 
-Behåll presentationen öppen under rendering. Utdata beror på formens formatering och på resurser som fonter och bilder. Om du behöver hela kompositionen, exportera bilden i stället för en enskild form. Anroparen äger streamen och måste stänga den.
+Behåll presentationen öppen under rendering. Utdata beror på formens formatering och på resurser som teckensnitt och bilder. Om du behöver hela sammansättningen, exportera bilden istället för en enskild form. Anroparen äger strömmen och måste stänga den.
 
 ## **Justera former**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) har överlagringar som antingen justerar alla former eller valda samlings‑index. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shapesalignmenttype/) specificerar kant, mittlinje eller fördelningsläge. Sätt `alignToSlide` till `true` för att använda bildkanten; sätt den till `false` för att justera de valda formerna relativt varandra.
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) overloads justerar antingen alla former eller valda samlingsindex. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shapesalignmenttype/) specificerar kanten, mittlinjen eller distributionsläge. Sätt `alignToSlide` till `true` för att använda bildens kanter; sätt den till `false` för att justera de valda formerna relativt varandra.
 
-Detta exempel justerar tre former till bildens överkant. De returnerade formreferenserna omvandlas till sina aktuella index omedelbart före justering.
+Detta exempel justerar tre former till bildens övre kant. De återgivna formreferenserna konverteras till sina aktuella index omedelbart före justering.
 
 ```java
 import com.aspose.slides.*;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-Justering ändrar positioner, inte z‑ordning. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning kräver tillräckligt många former för att definiera avståndet. Räkna om index om du ändrar samlingen innan du anropar metoden.
+Justering ändrar positioner, inte z‑ordning. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning behöver tillräckligt många former för att definiera avstånd. Räkna om index om du ändrar samlingen innan du anropar metoden.
 
-## **Vända en form**
+## **Vänd en form**
 
-Klassen [ShapeFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shapeframe/) lagrar position, storlek, horisontell och vertikal vändningsinställning samt rotation. Dess `getFlipH`‑ och `getFlipV`‑värden använder [NullableBool](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/nullablebool/) : `True` aktiverar vändningen, `False` inaktiverar den, och `NotDefined` bevarar det odefinierade/default‑tillståndet.
+[ShapeFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shapeframe/) klassen lagrar position, storlek, horisontella och vertikala vändningsinställningar samt rotation. Dess `getFlipH` och `getFlipV` värden använder [NullableBool](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/nullablebool/): `True` aktiverar vändning, `False` inaktiverar den, och `NotDefined` bevarar det ospecificerade/standardtillståndet.
 
-Den inmatade presentationen nedan innehåller en icke‑vänd form.
+Den ingående presentationen nedan innehåller en ovänd form.
 
-![The shape before flipping](shape_to_be_flipped.png)
+![Formen innan vändning](shape_to_be_flipped.png)
 
-Exemplet bevarar alla andra ram‑värden och ersätter bara de två vändningsinställningarna. Detta är viktigt eftersom en ny [Frame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) ersätter hela ramen.
+Exemplet bevarar alla andra ramvärden och ersätter bara de två vändinställningarna. Detta är viktigt eftersom tilldelning av en ny [Frame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) ersätter hela ramen.
 
 ```java
 import com.aspose.slides.*;
@@ -459,15 +461,15 @@ try {
 }
 ```
 
-Den sparade formen är speglad horisontellt och vertikalt samtidigt som position, storlek och rotation behålls.
+Den sparade formen är speglad horisontellt och vertikalt samtidigt som dess position, storlek och rotation behålls.
 
-![The shape after flipping](flipped_shape.png)
+![Formen efter vändning](flipped_shape.png)
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Ska jag använda ett samlings‑index som form‑identifierare?**
+**Ska jag använda ett samlingsindex som en formidentifierare?**
 
-Endast för kortlivad bearbetning när samlingen inte kommer att förändras innan indexet används. Föredra en validerad `Name`‑ eller `AlternativeText`‑konvention för skapade mallar, eller `OfficeInteropShapeId` för interop‑arbete med bildomfång.
+Endast för kortlivad bearbetning när samlingen inte kommer att förändras innan indexet används. Föredra en validerad `Name`‑ eller `AlternativeText`‑konvention för skapade mallar, eller `OfficeInteropShapeId` för bildspecifikt interop‑arbete.
 
 **Tar dölja en form bort den från z‑ordningen?**
 
@@ -475,8 +477,8 @@ Nej. En dold form förblir i samlingen på samma index. Den kan hittas, omordnas
 
 **Varför hamnade en klonad form framför en annan form?**
 
-`addClone` lägger till klonen i slutet av samlingen, vilket är framfronten i z‑ordningen. Använd `insertClone` för att välja ett initialt index eller `reorder` efter att alla former har lagts till.
+`addClone` lägger till klonen i slutet av samlingen, vilket är fronten av z‑ordningen. Använd `insertClone` för att välja startindex eller `reorder` efter att alla former har lagts till.
 
 **Kan jag använda ett fast index för att identifiera en förinställd formjustering?**
 
-Endast efter att du har validerat den exakta förinställningen och samlingslayouten. Föredra att iterera genom `IGeometryShape.getAdjustments` och kontrollera `IAdjustValue.getType`; använd `IAdjustValue.getName` som extra information när samma semantiska typ förekommer mer än en gång.
+Endast efter att ha validerat den exakta förinställningen och samlingslayouten. Föredra att iterera genom `IGeometryShape.getAdjustments` och kontrollera `IAdjustValue.getType`; använd `IAdjustValue.getName` som ytterligare information när samma semantiska typ förekommer mer än en gång.

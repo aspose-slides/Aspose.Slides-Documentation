@@ -8,18 +8,18 @@ keywords:
 - forme PowerPoint
 - forme de présentation
 - forme sur diapositive
-- rechercher une forme
-- cloner une forme
+- trouver forme
+- dupliquer forme
 - supprimer forme
 - masquer forme
-- modifier l'ordre des formes
-- obtenir l'ID de forme interop
-- texte alternatif de forme
-- point d'ajustement de forme
-- ajustement de forme prédéfini
-- géométrie de forme
-- formats de mise en page de forme
-- forme au format SVG
+- changer ordre forme
+- obtenir ID forme interop
+- texte alternatif forme
+- point d’ajustement forme
+- ajustement forme prédéfini
+- géométrie forme
+- formats de mise en page forme
+- forme en SVG
 - forme vers SVG
 - aligner forme
 - retourner forme
@@ -28,25 +28,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Apprenez à identifier, ajuster, cloner, supprimer, masquer, réorganiser, exporter, aligner et retourner les formes de présentation avec Aspose.Slides pour .NET.
+description: "Apprenez à identifier, ajuster, dupliquer, supprimer, masquer, réorganiser, exporter, aligner et retourner les formes de présentation avec Aspose.Slides pour .NET."
 ---
-## **Aperçu**
+## **Vue d'ensemble**
 
-Aspose.Slides for .NET représente les formes d’une diapositive sous forme d’une [IShapeCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/) ordonnée. La collection est à la fois l’endroit où vous trouvez et modifiez les formes et la source de leur ordre d’empilement : l’index `0` correspond à la forme la plus en arrière, tandis que le dernier index correspond à la forme la plus en avant.
+Aspose.Slides for .NET représente les formes d’une diapositive comme une [IShapeCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/). La collection est à la fois le lieu où vous trouvez et modifiez les formes et la source de leur ordre d’empilement : l’index `0` correspond à la forme la plus en arrière, tandis que le dernier index correspond à la forme la plus en avant.
 
-Cet article suit ce modèle. Il explique d’abord comment identifier de façon fiable une forme et modifier les points d’ajustement prédéfinis, puis montre comment cloner, supprimer, masquer et ré‑ordonner des formes. Les dernières sections portent sur le formatage au niveau de la disposition, l’export SVG, l’alignement et les paramètres de retournement. Chaque exemple est indépendant, vous pouvez donc n’utiliser que les opérations requises par votre flux de travail.
+Cet article suit ce modèle. Il explique d’abord comment identifier une forme de façon fiable et modifier les points d’ajustement prédéfinis, puis montre comment cloner, supprimer, masquer et réorganiser les formes. Les sections finales couvrent le formatage au niveau de la disposition, l’exportation SVG, l’alignement et les paramètres de retournement. Chaque exemple est indépendant, de sorte que vous pouvez n’utiliser que les opérations requises par votre flux de travail.
 
 ## **Identifier et trouver des formes**
 
-Les index de collection sont pratiques lors du traitement d’un fichier connu, mais ils ne sont pas des identifiants stables. Ajouter, supprimer ou ré‑ordonner une forme peut modifier son index. Choisissez un identifiant en fonction de la façon dont la présentation est créée et maintenue :
+Les index de collection sont pratiques lors du traitement d’un fichier connu, mais ils ne constituent pas des identifiants stables. Ajouter, supprimer ou réorganiser une forme peut modifier son index. Choisissez un identifiant en fonction de la façon dont la présentation est créée et maintenue :
 
-- [Name](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/name/) est utile pour les modèles contrôlés par les développeurs et il est facile à inspecter dans le volet de sélection de PowerPoint. Les noms peuvent être modifiés et ne sont pas garantis uniques, il faut donc établir une convention de nommage si le code en dépend.
-- [AlternativeText](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/alternativetext/) est utile lorsqu’une description d’accessibilité ou une étiquette fournie par l’auteur identifie déjà la forme. Il est visible des utilisateurs, peut être localisé ou réécrit pour l’accessibilité, et n’est pas garanti unique. Ne réutilisez pas silencieusement un texte d’accessibilité significatif comme clé de base de données.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/officeinteropshapeid/) est un identifiant en lecture seule qui est unique à l’intérieur d’une diapositive et correspond à l’ID de forme utilisé par l’interopérabilité PowerPoint. Utilisez‑le lors de l’intégration avec PowerPoint ou quand vous avez besoin d’une référence sans ambiguïté pendant la durée de vie d’une forme. Une forme clonée ou recréée est une forme différente et reçoit son propre ID.
+- [Name](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/name/) est utile pour les modèles contrôlés par les développeurs et est facile à inspecter dans le volet de sélection de PowerPoint. Les noms peuvent être modifiés et ne sont pas garantis uniques, il convient donc d’établir une convention de nommage si le code en dépend.
+- [AlternativeText](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/alternativetext/) est utile lorsqu’une description d’accessibilité ou une étiquette fournie par l’auteur identifie déjà la forme. Elle est visible par les utilisateurs, peut être localisée ou réécrite pour l’accessibilité, et n’est pas garantie unique. Ne réutilisez pas silencieusement un texte d’accessibilité significatif comme clé de base de données.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/officeinteropshapeid/) est un identifiant en lecture seule unique au sein d’une diapositive et correspond à l’ID de forme utilisé par l’interop PowerPoint. Utilisez‑le lors de l’intégration avec PowerPoint ou quand vous avez besoin d’une référence non ambiguë pendant la durée de vie d’une forme. Une forme clonée ou recréée est une forme différente et reçoit son propre ID.
 
-La propriété [UniqueId](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/uniqueid/) associée a une portée présentation, mais elle est destinée aux compléments et peut être réaffectée. Elle ne doit pas être traitée comme une clé externe permanente. Si une identité à long terme est essentielle, conservez la correspondance dans les données d’application et validez que la forme attendue existe toujours.
+La propriété [UniqueId](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/uniqueid/) associée a une portée de présentation, mais elle est destinée aux compléments et peut être réaffectée. Elle ne doit pas être considérée comme une clé externe permanente. Si une identité à long terme est essentielle, conservez la correspondance dans les données de l’application et validez que la forme attendue existe toujours.
 
-L’exemple suivant recherche par `Name` avec une comparaison ordinale et indique l’ID d’interopérabilité au niveau de la diapositive. Lorsque le modèle ne contient pas la forme attendue, le code signale ce résultat au lieu de poursuivre avec le mauvais objet.
+Pour un exemple pratique de lecture et de mise à jour à la fois du titre de texte alternatif et de sa description, voir [Manage Alternative Text Titles and Descriptions](/slides/fr/net/presentation-accessibility/). Utilisez le texte alternatif pour expliquer la signification visuelle aux lecteurs, et gardez‑le séparé des noms de forme utilisés par le code pour les rechercher.
+
+L’exemple suivant recherche par `Name` avec une comparaison ordinale et rapporte l’ID d’interop au niveau de la diapositive. Lorsque le modèle ne contient pas la forme attendue, le code indique ce résultat au lieu de continuer avec le mauvais objet.
 
 ```csharp
 using System;
@@ -75,7 +77,7 @@ else
 }
 ```
 
-Lorsqu’une opération est spécifique à un type de forme, vérifiez l’interface avant d’utiliser des membres spécifiques au type. Cet exemple met à jour le texte et le texte alternatif uniquement si l’objet nommé est un [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/).
+Lorsqu’une opération est spécifique à un type de forme, vérifiez l’interface avant d’utiliser les membres spécifiques au type. Cet exemple met à jour le texte et le texte alternatif uniquement si l’objet nommé est une [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/).
 
 ```csharp
 using System;
@@ -109,26 +111,26 @@ else
 
 ## **Identifier et modifier les ajustements de forme prédéfinis**
 
-Les formes de géométrie prédéfinie peuvent exposer des points d’ajustement qui contrôlent des caractéristiques telles que la taille des coins, les proportions des flèches ou les angles d’arcs. Accédez‑y via la collection en lecture seule [IGeometryShape.Adjustments](https://reference.aspose.com/slides/fr/net/aspose.slides/igeometryshape/adjustments/). La collection elle‑même est fournie par la forme, mais chaque [IAdjustValue](https://reference.aspose.com/slides/fr/net/aspose.slides/iadjustvalue/) contient une valeur pouvant être modifiée.
+Les formes de géométrie prédéfinie peuvent exposer des points d’ajustement qui contrôlent des caractéristiques telles que la taille des coins, les proportions des flèches ou les angles des arcs. Accédez‑y via la collection en lecture seule [IGeometryShape.Adjustments](https://reference.aspose.com/slides/fr/net/aspose.slides/igeometryshape/adjustments/). La collection elle‑même est fournie par la forme, mais chaque [IAdjustValue](https://reference.aspose.com/slides/fr/net/aspose.slides/iadjustvalue/) contient une valeur pouvant être modifiée.
 
-Ne vous fiez pas uniquement à un index de collection fixe. Parcourez les ajustements et inspectez la propriété en lecture seule [Type](https://reference.aspose.com/slides/fr/net/aspose.slides/adjustvalue/type/), dont la valeur [ShapeAdjustmentType](https://reference.aspose.com/slides/fr/net/aspose.slides/shapeadjustmenttype/) décrit ce que l’ajustement contrôle. La propriété en lecture seule [Name](https://reference.aspose.com/slides/fr/net/aspose.slides/adjustvalue/name/) fournit des informations d’identification supplémentaires et est particulièrement utile lorsqu’un préréglage contient plusieurs ajustements du même type sémantique.
+Ne vous fiez pas uniquement à un index de collection fixe. Parcourez les ajustements et inspectez la propriété en lecture seule [Type](https://reference.aspose.com/slides/fr/net/aspose.slides/adjustvalue/type/), dont la valeur [ShapeAdjustmentType](https://reference.aspose.com/slides/fr/net/aspose.slides/shapeadjustmenttype/) décrit ce que l’ajustement contrôle. La propriété en lecture seule [Name](https://reference.aspose.com/slides/fr/net/aspose.slides/adjustvalue/name/) fournit des informations d’identification supplémentaires et est particulièrement utile lorsqu’un prédéfini contient plusieurs ajustements du même type sémantique.
 
-Utilisez la propriété de valeur qui correspond à la signification de l’ajustement :
+Utilisez la propriété de valeur correspondant à la signification de l’ajustement :
 
-| Type d'ajustement | Objectif | Valeur à modifier |
+| Type d’ajustement | Objectif | Valeur à modifier |
 |---|---|---|
 | `CornerSize` | Taille des coins arrondis | [RawValue](https://reference.aspose.com/slides/fr/net/aspose.slides/adjustvalue/rawvalue/) |
-| `ArrowTailThickness` | Épaisseur de la queue d’une flèche | `RawValue` |
-| `ArrowheadLength` | Longueur de la pointe de flèche | `RawValue` |
-| `ArrowheadWidth` | Largeur de la pointe de flèche | `RawValue` |
+| `ArrowTailThickness` | Épaisseur d’une queue de flèche | `RawValue` |
+| `ArrowheadLength` | Longueur d’une pointe de flèche | `RawValue` |
+| `ArrowheadWidth` | Largeur d’une pointe de flèche | `RawValue` |
 | `StartAngle` | Angle de départ d’une part ou d’un arc | [AngleValue](https://reference.aspose.com/slides/fr/net/aspose.slides/adjustvalue/anglevalue/) |
-| `EndAngle` | Angle final d’une part ou d’un arc | `AngleValue` |
+| `EndAngle` | Angle de fin d’une part ou d’un arc | `AngleValue` |
 
-`Type` et `Name` ne peuvent pas être assignés. `RawValue` est un entier en lecture/écriture dans les unités de géométrie natives du préréglage, tandis que `AngleValue` est un angle en lecture/écriture exprimé en degrés. Le nombre, l’ordre, la signification et la plage valide des ajustements dépendent du préréglage [ShapeType](https://reference.aspose.com/slides/fr/net/aspose.slides/igeometryshape/shapetype/). Une valeur valide pour un préréglage peut être invalide ou avoir un effet différent pour un autre.
+`Type` et `Name` ne peuvent pas être assignés. `RawValue` est un entier en lecture/écriture exprimé dans les unités natives de la géométrie du prédéfini, tandis que `AngleValue` est un angle en lecture/écriture en degrés. Le nombre, l’ordre, la signification et la plage valide des ajustements dépendent du [ShapeType](https://reference.aspose.com/slides/fr/net/aspose.slides/igeometryshape/shapetype/) du prédéfini. Une valeur valide pour un prédéfini peut être invalide ou avoir un effet différent pour un autre.
 
-Lorsque `Type` est `ShapeAdjustmentType.Custom`, l’API ne reconnaît pas de signification sémantique standard. Inspectez `Name`, le type de préréglage et la valeur existante, et laissez l’ajustement inchangé sauf si la signification et la plage attendues sont connues. Même pour les types reconnus, vérifiez si le même type apparaît plusieurs fois avant de sélectionner une valeur. L’article [Connector](/slides/fr/net/connector/) montre cette situation avec les ajustements de courbure des connecteurs.
+Lorsque `Type` vaut `ShapeAdjustmentType.Custom`, l’API ne reconnaît pas de signification sémantique standard. Inspectez `Name`, le type du prédéfini et la valeur existante, et laissez l’ajustement inchangé à moins que la signification et la plage attendues soient connues. Même pour les types reconnus, vérifiez si le même type apparaît plusieurs fois avant de choisir une valeur. L’article [Connector](/slides/fr/net/connector/) montre ce cas avec les ajustements de courbure des connecteurs.
 
-L’exemple complet suivant crée des versions par défaut et modifiées de trois formes prédéfinies. Il parcourt chaque ajustement, rapporte son `Name` et son `Type`, modifie les valeurs liées à la taille via `RawValue`, modifie les angles via `AngleValue`, puis enregistre le résultat. La colonne de gauche conserve la géométrie par défaut ; la colonne de droite montre le rectangle arrondi, la flèche à quatre pointes et la part ajustés.
+L’exemple complet suivant crée des versions par défaut et modifiées de trois formes prédéfinies. Il parcourt chaque ajustement, indique son `Name` et son `Type`, modifie les valeurs liées à la taille via `RawValue`, modifie les angles via `AngleValue`, puis enregistre le résultat. La colonne de gauche conserve la géométrie par défaut ; la colonne de droite montre le rectangle arrondi, la flèche à quatre branches et la part ajustés.
 
 ```csharp
 using System;
@@ -138,7 +140,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-// Ajoute des en-têtes pour les colonnes de forme par défaut et ajustée.
+// Ajoute les en-têtes pour les colonnes de forme par défaut et ajustées.
 var defaultColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
 defaultColumnLabel.TextFrame.Text = "Default preset geometry";
 var adjustedColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -200,17 +202,17 @@ foreach (var shape in shapesToAdjust)
 presentation.Save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
 ```
 
-Vérifier le type sémantique avant de modifier une valeur rend le code explicite quant à son intention et évite de supposer qu’un index de collection particulier a la même signification à travers différents préréglages de forme.
+Vérifier le type sémantique avant de changer une valeur rend le code explicite quant à son intention et évite de supposer qu’un index de collection particulier a la même signification sur des formes prédéfinies différentes.
 
 ## **Modifier la collection de formes**
 
-Les méthodes d’ajout, de clonage, de suppression et de ré‑ordonnancement agissent immédiatement sur la collection. Si une opération change le nombre ou l’ordre des formes, ne continuez pas à vous fier aux index capturés avant cette opération.
+Les méthodes d’ajout, de clonage, de suppression et de réorganisation agissent immédiatement sur la collection. Si une opération modifie le nombre ou l’ordre des formes, ne continuez pas à vous fier aux index capturés avant cette opération.
 
 ### **Cloner une forme**
 
-[AddClone](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/addclone/) crée une copie indépendante et l’ajoute à la collection cible. [InsertClone](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/insertclone/) crée également une copie mais la place à un index d’ordre z spécifié. Les surcharges qui acceptent des coordonnées déplacent le clone sans en changer la taille ; les surcharges avec largeur et hauteur peuvent le redimensionner également.
+[AddClone](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/addclone/) crée une copie indépendante et l’ajoute à la fin de la collection cible. [InsertClone](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/insertclone/) crée également une copie mais la place à un index d’ordre Z spécifié. Les surcharges qui acceptent des coordonnées déplacent le clone sans changer sa taille ; les surcharges avec largeur et hauteur peuvent également le redimensionner.
 
-L’exemple crée une diapositive de destination, clone un rectangle nommé vers l’avant, et insère un deuxième clone à l’arrière. Les modifications apportées à l’un ou l’autre clone n’altèrent pas la forme source.
+L’exemple crée une diapositive de destination, clone un rectangle étiqueté vers l’avant, et insère un second clone à l’arrière. Les modifications apportées à l’un ou l’autre clone n’affectent pas la forme source.
 
 ```csharp
 using System;
@@ -251,13 +253,13 @@ else
 presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Le clonage copie le contenu et le formatage de la forme, y compris son nom et son texte alternatif. Attribuez de nouveaux identifiants logiques au clone lorsque ces valeurs doivent être uniques. Les ressources utilisées par les formes complexes sont gérées par la présentation, mais un clone reste un nouvel élément de collection avec une nouvelle identité de forme.
+Le clonage copie le contenu et le formatage de la forme, y compris son nom et son texte alternatif. Attribuez de nouveaux identifiants logiques au clone lorsque ces valeurs doivent être uniques. Les ressources utilisées par des formes complexes sont gérées par la présentation, mais un clone reste un nouvel élément de collection avec une nouvelle identité de forme.
 
 ### **Supprimer des formes**
 
 [Remove](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/remove/) supprime un objet forme spécifique de sa collection. Lors de la suppression de plusieurs correspondances pendant une itération indexée, parcourez la collection à l’envers afin que chaque index restant reste valide.
 
-Cet exemple supprime chaque forme portant un nom désigné. Il lit `slide.Shapes[i]`, pas un élément de collection fixe, et il ne convertit pas la forme de manière superflue.
+Cet exemple supprime chaque forme portant un nom désigné. Il lit `slide.Shapes[i]`, pas un élément de collection fixe, et il ne cast pas la forme inutilement.
 
 ```csharp
 using System;
@@ -288,11 +290,11 @@ for (var i = slide.Shapes.Count - 1; i >= 0; i--)
 presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Après la suppression, le nombre de formes et les index des formes suivantes changent. Les références aux formes non affectées restent plus fiables que des index enregistrés. Pensez également aux connecteurs, aux animations et aux autres fonctionnalités de la présentation qui peuvent référencer l’objet supprimé ; supprimer une forme visible peut affecter plus que l’apparence de la diapositive.
+Après la suppression, le nombre de formes et les index des formes suivantes changent. Les références aux formes non affectées restent plus fiables que des index enregistrés. Pensez également aux connecteurs, aux animations et à d’autres fonctionnalités de la présentation qui peuvent référencer l’objet supprimé ; la suppression d’une forme visible peut modifier plus que l’apparence de la diapositive.
 
 ### **Masquer une forme**
 
-Définir [Hidden](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/hidden/) à `true` conserve la forme dans la collection mais l’empêche d’apparaître lors du diaporama normal. Son index, son formatage et son contenu restent accessibles au code, ainsi masquer est approprié pour des éléments optionnels qui peuvent être restaurés plus tard.
+Définir [Hidden](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/hidden/) sur `true` conserve la forme dans la collection mais l’empêche d’apparaître dans le diaporama normal. Son index, son formatage et son contenu restent accessibles au code, ainsi masquer est approprié pour des éléments optionnels pouvant être restaurés ultérieurement.
 
 ```csharp
 using System;
@@ -319,11 +321,11 @@ foreach (var shape in slide.Shapes)
 presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
 ```
 
-Masquer n’est ni une suppression ni une mesure de sécurité. L’objet peut toujours être découvert et rendu visible à nouveau par un utilisateur ou par du code, et il reste partie du fichier de présentation.
+Masquer n’est pas une suppression ni une mesure de sécurité. L’objet peut toujours être découvert et rendu visible à nouveau par un utilisateur ou par du code, et il reste intégré au fichier de présentation.
 
 ### **Modifier l’ordre Z**
 
-Les formes qui se chevauchent sont peintes suivant l’ordre de la collection. [Reorder](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/reorder/) déplace une forme existante vers un index cible sans la cloner. L’index `0` est l’arrière ; `Count - 1` est l’avant.
+Les formes qui se chevauchent sont peintes selon l’ordre de la collection. [Reorder](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/reorder/) déplace une forme existante vers un index cible sans la cloner. L’index `0` correspond à l’arrière ; `Count - 1` correspond à l’avant.
 
 ```csharp
 using System.Drawing;
@@ -347,13 +349,13 @@ slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
 presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Le rectangle est créé en premier et se situe initialement derrière l’ellipse. Le déplacer vers l’index final le place à l’avant. Finalisez l’ordre Z après avoir ajouté ou cloné toutes les formes liées, car ces opérations ajoutent ou insèrent de nouveaux éléments de collection et peuvent modifier la pile prévue.
+Le rectangle est créé en premier et se situe initialement derrière l’ellipse. Le déplacer vers l’index final le place devant. Finalisez l’ordre Z après avoir ajouté ou cloné toutes les formes liées, car ces opérations ajoutent ou insèrent de nouveaux éléments de collection et peuvent modifier la pile prévue.
 
-## **Inspecter les formes des diapositives de mise en page**
+## **Inspecter les formes sur les diapositives de disposition**
 
-Les diapositives normales, les diapositives de mise en page et les diapositives maîtres possèdent des collections de formes séparées. Une forme dans une collection de mise en page n’est pas le même objet qu’une forme positionnée de façon similaire sur une diapositive normale. Inspectez les formes de mise en page lorsque vous devez comprendre ou modifier le formatage fourni par une mise en page.
+Les diapositives normales, les diapositives de disposition et les diapositives maîtres possèdent des collections de formes distinctes. Une forme dans une collection de disposition n’est pas le même objet qu’une forme positionnée de façon similaire sur une diapositive normale. Inspectez les formes de disposition lorsque vous devez comprendre ou modifier le formatage fourni par une disposition.
 
-L’exemple suivant lit le [FillFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/fillformat/) et le [LineFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/lineformat/) de chaque forme de mise en page sans supposer que chaque forme est une `AutoShape`.
+L’exemple suivant lit chaque [FillFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/fillformat/) et [LineFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/lineformat/) des formes de disposition sans supposer que chaque forme est une `AutoShape`.
 
 ```csharp
 using System;
@@ -372,11 +374,11 @@ foreach (var layoutSlide in presentation.LayoutSlides)
 }
 ```
 
-Modifier une mise en page peut affecter plusieurs diapositives qui l’utilisent. Avant de changer une forme de mise en page, déterminez si une diapositive normale hérite de l’objet ou contient une surcharge locale, et testez chaque diapositive qui utilise cette mise en page.
+Modifier une disposition peut affecter plusieurs diapositives qui l’utilisent. Avant de changer une forme de disposition, déterminez si une diapositive normale hérite de l’objet ou contient une surcharge locale, et testez chaque diapositive qui utilise cette disposition.
 
 ## **Exporter une forme au format SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/writeassvg/) écrit le contenu rendu d’une forme dans un flux. Le résultat contient uniquement la forme, pas l’arrière‑plan complet de la diapositive ni les formes voisines.
+[WriteAsSvg](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/writeassvg/) écrit le contenu rendu d’une forme dans un flux. Le résultat contient la forme, pas l’arrière‑plan complet de la diapositive ni les formes voisines.
 
 ```csharp
 using System;
@@ -398,11 +400,11 @@ else
 }
 ```
 
-Gardez la présentation ouverte pendant le rendu. Le rendu dépend du formatage de la forme ainsi que des ressources telles que les polices et les images. Si vous avez besoin de toute la composition, exportez la diapositive plutôt qu’une forme individuelle. L’appelant possède le flux et doit le libérer.
+Gardez la présentation ouverte pendant le rendu. La sortie dépend du formatage de la forme et des ressources telles que les polices et les images. Si vous avez besoin de la composition entière, exportez la diapositive plutôt qu’une forme individuelle. L’appelant possède le flux et doit le libérer.
 
 ## **Aligner les formes**
 
-Les surcharge de [SlideUtil.AlignShapes](https://reference.aspose.com/slides/fr/net/aspose.slides.util/slideutil/alignshapes/) alignent soit toutes les formes, soit les index de collection sélectionnés. [ShapesAlignmentType](https://reference.aspose.com/slides/fr/net/aspose.slides/shapesalignmenttype/) spécifie le bord, la ligne centrale ou le mode de distribution. Définissez `alignToSlide` à `true` pour utiliser les bords de la diapositive ; définissez‑le à `false` pour aligner les formes sélectionnées les unes par rapport aux autres.
+Les surcharges de [SlideUtil.AlignShapes](https://reference.aspose.com/slides/fr/net/aspose.slides.util/slideutil/alignshapes/) alignent soit toutes les formes, soit les index de collection sélectionnés. [ShapesAlignmentType](https://reference.aspose.com/slides/fr/net/aspose.slides/shapesalignmenttype/) spécifie le bord, la ligne centrale ou le mode de distribution. Définissez `alignToSlide` sur `true` pour utiliser les bords de la diapositive ; définissez‑le sur `false` pour aligner les formes sélectionnées les unes par rapport aux autres.
 
 Cet exemple aligne trois formes sur le bord supérieur de la diapositive. Les références de forme renvoyées sont converties en leurs index actuels immédiatement avant l’alignement.
 
@@ -432,17 +434,17 @@ SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
 presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-L’alignement modifie les positions, pas l’ordre Z. Un alignement relatif nécessite généralement au moins deux formes, tandis qu’une distribution horizontale ou verticale requiert suffisamment de formes pour définir l’espacement. Recalculez les index si vous modifiez la collection avant d’appeler la méthode.
+L’alignement modifie les positions, pas l’ordre Z. L’alignement relatif nécessite généralement au moins deux formes, tandis que la distribution horizontale ou verticale requiert suffisamment de formes pour définir l’espacement. Recalculez les index si vous modifiez la collection avant d’appeler la méthode.
 
-## **Retournement d’une forme**
+## **Retourner une forme**
 
-La classe [ShapeFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/shapeframe/) stocke la position, la taille, les paramètres de retournement horizontal et vertical, et la rotation. Ses valeurs `FlipH` et `FlipV` utilisent [NullableBool](https://reference.aspose.com/slides/fr/net/aspose.slides/nullablebool/) : `True` active le retournement, `False` le désactive, et `NotDefined` préserve l’état non spécifié/par défaut.
+La classe [ShapeFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/shapeframe/) stocke la position, la taille, les paramètres de retournement horizontal et vertical, ainsi que la rotation. Ses valeurs `FlipH` et `FlipV` utilisent [NullableBool](https://reference.aspose.com/slides/fr/net/aspose.slides/nullablebool/) : `True` active le retournement, `False` le désactive, et `NotDefined` préserve l’état non spécifié/par défaut.
 
 La présentation d’entrée ci‑dessous contient une forme non retournée.
 
-![La forme avant le retournement](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-L’exemple conserve toutes les autres valeurs du cadre et ne remplace que les deux paramètres de retournement. C’est important car l’attribution d’un nouveau [Frame](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/frame/) remplace le cadre complet.
+L’exemple conserve toutes les autres valeurs du cadre et ne remplace que les deux paramètres de retournement. Cela est important car attribuer un nouveau [Frame](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/frame/) remplace le cadre complet.
 
 ```csharp
 using System;
@@ -465,17 +467,17 @@ presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 
 La forme enregistrée est reflétée horizontalement et verticalement tout en conservant sa position, sa taille et sa rotation.
 
-![La forme après le retournement](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
 **Dois‑je utiliser un index de collection comme identifiant de forme ?**
 
-Uniquement pour un traitement de courte durée lorsque la collection ne changera pas avant l’utilisation de l’index. Privilégiez une convention validée `Name` ou `AlternativeText` pour les modèles créés, ou `OfficeInteropShapeId` pour le travail d’interopérabilité au niveau de la diapositive.
+Seulement pour un traitement de courte durée lorsque la collection ne changera pas avant l’utilisation de l’index. Privilégiez une convention validée `Name` ou `AlternativeText` pour les modèles créés, ou `OfficeInteropShapeId` pour les travaux d’interopérabilité au niveau de la diapositive.
 
-**Masquer une forme la retire‑t‑elle de l’ordre Z ?**
+**Masquer une forme la supprime‑t‑elle de l’ordre Z ?**
 
-Non. Une forme masquée reste dans la collection au même index. Elle peut être trouvée, ré‑ordonnée, modifiée ou rendue à nouveau visible.
+Non. Une forme masquée reste dans la collection au même index. Elle peut être trouvée, réordonnée, éditée ou rendue visible à nouveau.
 
 **Pourquoi une forme clonée apparaît‑elle devant une autre forme ?**
 
@@ -483,4 +485,4 @@ Non. Une forme masquée reste dans la collection au même index. Elle peut être
 
 **Puis‑je utiliser un index fixe pour identifier un ajustement de forme prédéfini ?**
 
-Seulement après avoir validé le préréglage exact et la disposition de la collection. Privilégiez l’itération sur `IGeometryShape.Adjustments` et la vérification de `IAdjustValue.Type` ; utilisez `IAdjustValue.Name` comme information supplémentaire lorsque le même type sémantique apparaît plusieurs fois.
+Seulement après avoir validé le prédéfini exact et la disposition de la collection. Privilégiez l’itération via `IGeometryShape.Adjustments` et la vérification de `IAdjustValue.Type` ; utilisez `IAdjustValue.Name` comme information supplémentaire lorsque le même type sémantique apparaît plusieurs fois.

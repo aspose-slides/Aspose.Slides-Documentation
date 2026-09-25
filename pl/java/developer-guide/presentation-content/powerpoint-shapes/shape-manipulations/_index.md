@@ -9,43 +9,45 @@ keywords:
 - Kształt prezentacji
 - Kształt na slajdzie
 - Znajdź kształt
-- Klonuj kształt
+- Sklonuj kształt
 - Usuń kształt
 - Ukryj kształt
-- Zmień kolejność kształtów
+- Zmień kolejność kształtu
 - Pobierz ID kształtu interop
 - Alternatywny tekst kształtu
 - Punkt regulacji kształtu
-- Regulacja predefiniowanego kształtu
+- Regulacja wstępnego kształtu
 - Geometria kształtu
-- Formaty układu kształtu
+- Formatowanie układu kształtu
 - Kształt jako SVG
 - Kształt do SVG
 - Wyrównaj kształt
-- Odbij kształt
+- Odwróć kształt
 - PowerPoint
-- prezentacja
+- Prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak identyfikować, regulować, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odbijać kształty prezentacji przy użyciu Aspose.Slides dla Javy."
+description: "Dowiedz się, jak identyfikować, dostosowywać, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odwracać kształty w prezentacji przy użyciu Aspose.Slides for Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Java reprezentuje kształty na slajdzie jako uporządkowaną [IShapeCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/). Kolekcja jest jednocześnie miejscem, w którym znajdujesz i modyfikujesz kształty oraz źródłem ich kolejności nakładania: indeks `0` to najgłębszy kształt, a ostatni indeks to kształt najbardziej wysunięty na przód.
+Aspose.Slides for Java reprezentuje kształty na slajdzie jako uporządkowaną [IShapeCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/). Kolekcja jest jednocześnie miejscem, w którym znajdujesz i modyfikujesz kształty oraz źródłem ich kolejności nakładania: indeks `0` to najbardziej z tyłu, natomiast ostatni indeks to najbardziej z przodu.
 
-Ten artykuł podąża za tym modelem. Najpierw wyjaśnia, jak wiarygodnie zidentyfikować kształt i zmodyfikować jego domyślne punkty regulacji, a potem pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje dotyczą formatowania na poziomie układu, eksportu SVG, wyrównywania i ustawień odbicia. Każdy przykład jest niezależny, więc możesz używać tylko tych operacji, które są potrzebne w Twoim przepływie pracy.
+Ten artykuł podąża za tym modelem. Najpierw wyjaśnia, jak niezawodnie zidentyfikować kształt i zmodyfikować wstępnie ustawione punkty regulacji, a potem pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport do SVG, wyrównywanie i ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać tylko operacji wymaganych w Twoim przepływie pracy.
 
-## **Identyfikacja i znajdowanie kształtów**
+## **Identyfikowanie i znajdowanie kształtów**
 
-Indeksy w kolekcji są wygodne przy przetwarzaniu znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator w zależności od tego, jak prezentacja jest tworzona i utrzymywana:
+Indeksy w kolekcji są wygodne przy przetwarzaniu znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator zgodnie z tym, jak prezentacja jest tworzona i utrzymywana:
 
-- [Name](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getName--) jest przydatny w szablonach kontrolowanych przez programistów i łatwo go sprawdzić w panelu wyboru PowerPointa. Nazwy można edytować i nie są gwarantowane jako unikalne, więc wprowadź konwencję nazewnictwa, jeśli kod od nich zależy.
-- [AlternativeText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getAlternativeText--) jest przydatny, gdy opis dostępności lub tag dostarczony przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisany w celu zapewnienia dostępności i nie jest gwarantowany jako unikalny. Nie wykorzystuj cichej, znaczącej treści dostępności jako klucza bazy danych.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) jest identyfikatorem tylko do odczytu, który jest unikalny w obrębie slajdu i odpowiada identyfikatorowi kształtu używanemu przez interfejs PowerPoint. Użyj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w trakcie życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
+- [Name](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getName--) jest przydatny w szablonach kontrolowanych przez programistów i łatwo go sprawdzić w panelu wyboru PowerPointa. Nazwy można edytować i nie są gwarantowane jako unikalne, więc ustanów konwencję nazewnictwa, jeśli kod na nich polega.
+- [AlternativeText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getAlternativeText--) jest przydatny, gdy opis dostępności lub tag dostarczony przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisany dla dostępności i nie jest gwarantowany jako unikalny. Nie przekształcaj cichego, znaczącego tekstu dostępności w klucz bazy danych.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) jest identyfikatorem tylko do odczytu, unikalnym w obrębie slajdu i odpowiada identyfikatorowi kształtu używanemu przez interfejs PowerPoint. Użyj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w czasie życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
 
-Powiązana metoda [getUniqueId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getUniqueId--) zwraca identyfikator w zakresie prezentacji, ale ten identyfikator jest przeznaczony dla dodatków i może być ponownie przypisany. Nie należy traktować go jako stałego klucza zewnętrznego. Jeśli długoterminowa tożsamość jest istotna, przechowuj mapowanie w danych aplikacji i weryfikuj, czy oczekiwany kształt nadal istnieje.
+Powiązana metoda [getUniqueId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getUniqueId--) zwraca identyfikator o zakresie prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie należy jej traktować jako trwały klucz zewnętrzny. Jeśli długoterminowa tożsamość jest istotna, przechowuj mapowanie w danych aplikacji i weryfikuj, czy oczekiwany kształt nadal istnieje.
 
-Poniższy przykład wyszukuje po nazwie z dokładnym porównaniem i zgłasza interopowy identyfikator w kontekście slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
+Praktyczny przykład odczytu i aktualizacji zarówno tytułu, jak i opisu tekstu alternatywnego, zobacz w [Manage Alternative Text Titles and Descriptions](/slides/pl/java/presentation-accessibility/). Używaj tekstu alternatywnego, aby wyjaśnić znaczenie wizualizacji czytelnikom i trzymaj go oddzielnie od nazw kształtów używanych przez kod do ich znajdowania.
+
+Poniższy przykład wyszukuje po nazwie przy użyciu dokładnego porównania i zgłasza identyfikator interop scoped do slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
 
 ```java
 import com.aspose.slides.*;
@@ -102,28 +104,28 @@ try {
 }
 ```
 
-## **Identyfikacja i modyfikacja domyślnych regulacji kształtu**
+## **Identyfikowanie i modyfikowanie wstępnie ustawionych regulacji kształtu**
 
-Kształty o predefiniowanej geometrii mogą udostępniać punkty regulacji kontrolujące takie cechy jak rozmiar narożnika, proporcje strzałki lub kąty łuku. Dostęp do nich uzyskuje się przez kolekcję tylko do odczytu [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/pl/java/com.aspose.slides/igeometryshape/#getAdjustments--) . Sama kolekcja jest dostarczana przez kształt, ale każdy [IAdjustValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/) zawiera wartość, którą można zmienić.
+Kształty o wstępnie zdefiniowanej geometrii mogą udostępniać punkty regulacji kontrolujące takie cechy jak rozmiar rogów, proporcje strzałek lub kąty łuków. Dostęp do nich uzyskuje się przez tylko do odczytu kolekcję [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/pl/java/com.aspose.slides/igeometryshape/#getAdjustments--) . Sama kolekcja jest dostarczana przez kształt, ale każdy [IAdjustValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/) zawiera wartość, którą można zmienić.
 
-Nie polegaj wyłącznie na stałym indeksie kolekcji. Przeglądaj regulacje i sprawdzaj metodę tylko do odczytu [getType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#getType--) , której wartość [ShapeAdjustmentType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapeadjustmenttype/) opisuje, co dana regulacja kontroluje. Metoda tylko do odczytu [getName](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#getName--) dostarcza dodatkowych informacji identyfikacyjnych i jest szczególnie przydatna, gdy predefinicja zawiera więcej niż jedną regulację tego samego typu semantycznego.
+Nie polegaj wyłącznie na stałym indeksie kolekcji. Iteruj przez regulacje i sprawdzaj tylko do odczytu metodę [getType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#getType--) , której wartość [ShapeAdjustmentType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapeadjustmenttype/) opisuje, co dana regulacja kontroluje. Metoda tylko do odczytu [getName](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#getName--) dostarcza dodatkowych informacji identyfikacyjnych i jest szczególnie przydatna, gdy wstępny zestaw zawiera więcej niż jedną regulację o tym samym typie semantycznym.
 
 Użyj metody wartości odpowiadającej znaczeniu regulacji:
 
 | Typ regulacji | Cel | Wartość do zmiany |
 |---|---|---|
-| `CornerSize` | Rozmiar zaokrąglonych narożników | [setRawValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `CornerSize` | Rozmiar zaokrąglonych rogów | [setRawValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
 | `ArrowTailThickness` | Grubość ogona strzałki | `setRawValue` |
 | `ArrowheadLength` | Długość grotu strzałki | `setRawValue` |
 | `ArrowheadWidth` | Szerokość grotu strzałki | `setRawValue` |
-| `StartAngle` | Kąt początkowy wycinka koła lub łuku | [setAngleValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
-| `EndAngle` | Kąt końcowy wycinka koła lub łuku | `setAngleValue` |
+| `StartAngle` | Kąt początkowy koła lub łuku | [setAngleValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Kąt końcowy koła lub łuku | `setAngleValue` |
 
-`getType` i `getName` zwracają informacje tylko do odczytu. `getRawValue` i `setRawValue` pracują z liczbą całkowitą w natywnych jednostkach geometrii predefinicji, natomiast `getAngleValue` i `setAngleValue` pracują z kątem w stopniach. Liczba, kolejność, znaczenie i dopuszczalny zakres regulacji zależą od predefiniowanego [ShapeType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/igeometryshape/#getShapeType--). Wartość ważna dla jednej predefinicji może być nieważna lub mieć inny efekt w innej.
+`getType` i `getName` zwracają informacje tylko do odczytu. `getRawValue` i `setRawValue` działają na liczbie całkowitej w natywnych jednostkach geometrii wstępnego zestawu, podczas gdy `getAngleValue` i `setAngleValue` pracują z kątem w stopniach. Liczba, kolejność, znaczenie i zakres dopuszczalnych regulacji zależą od wstępnego [ShapeType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/igeometryshape/#getShapeType--). Wartość ważna dla jednego zestawu może być nieważna lub mieć inny efekt dla innego.
 
-Gdy `getType` zwraca `ShapeAdjustmentType.Custom`, API nie rozpoznaje standardowego znaczenia semantycznego. Przeanalizuj `getName`, typ predefinicji oraz istniejącą wartość i pozostaw regulację niezmienioną, chyba że znane są jej znaczenie i zakres. Nawet dla rozpoznanych typów sprawdź, czy ten sam typ występuje więcej niż raz, zanim wybierzesz wartość. Artykuł [Connector](/slides/pl/java/connector/) pokazuje tę sytuację w kontekście regulacji zgięcia łącznika.
+Gdy `getType` zwraca `ShapeAdjustmentType.Custom`, API nie rozpoznaje standardowego znaczenia semantycznego. Sprawdź `getName`, typ wstępny i istniejącą wartość, i pozostaw regulację niezmienioną, chyba że znane jest oczekiwane znaczenie i zakres. Nawet dla rozpoznanych typów, sprawdź, czy ten sam typ występuje więcej niż raz przed wybraniem wartości. Artykuł [Connector](/slides/pl/java/connector/) pokazuje tę sytuację przy regulacjach zgięć łącznika.
 
-Poniższy kompletny przykład tworzy domyślne i zmodyfikowane wersje trzech predefiniowanych kształtów. Przegląda każdą regulację, zgłasza jej nazwę i typ, zmienia wartości związane z rozmiarem przez `setRawValue`, zmienia kąty przez `setAngleValue` i zapisuje wynik. Lewa kolumna zachowuje domyślną geometrię; prawa kolumna przedstawia zmodyfikowany prostokąt zaokrąglony, czterodrogą strzałkę i wycinek koła.
+Poniższy kompletny przykład tworzy domyślne i zmodyfikowane wersje trzech wstępnych kształtów. Iteruje przez każdą regulację, zgłasza jej nazwę i typ, zmienia wartości zależne od rozmiaru przez `setRawValue`, zmienia kąty przez `setAngleValue` i zapisuje wynik. Lewa kolumna zachowuje domyślną geometrię; prawa kolumna pokazuje dostosowany prostokąt zaokrąglony, czterokierunkową strzałkę i koło.
 
 ```java
 import com.aspose.slides.*;
@@ -132,7 +134,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaje nagłówki dla kolumn z domyślną i zmodyfikowaną geometrią kształtu.
+    // Dodaje nagłówki dla kolumny domyślnego i zmodyfikowanego kształtu.
     IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
     defaultColumnLabel.getTextFrame().setText("Default preset geometry");
     IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -193,15 +195,15 @@ try {
 }
 ```
 
-Sprawdzanie typu semantycznego przed zmianą wartości powoduje, że kod jasno wyraża zamiar i unika założenia, że konkretny indeks kolekcji ma to samo znaczenie w różnych predefinicjach kształtów.
+Sprawdzanie typu semantycznego przed zmianą wartości sprawia, że kod jest wyraźny co do zamiaru i unika założenia, że konkretny indeks kolekcji ma to samo znaczenie w różnych wstępnych kształtach.
 
-## **Modyfikacja kolekcji kształtów**
+## **Modyfikowanie kolekcji kształtów**
 
-Metody dodawania, klonowania, usuwania i zmiany kolejności działają natychmiast na kolekcji. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie bazuj dalej na indeksach pobranych przed tą operacją.
+Metody dodawania, klonowania, usuwania i zmiany kolejności działają od razu na kolekcji. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie polegaj dalej na indeksach zebranych przed tą operacją.
 
 ### **Klonowanie kształtu**
 
-[addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) tworzy niezależną kopię i dopisuje ją do docelowej kolekcji. [insertClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) również tworzy kopię, ale umieszcza ją pod określonym indeksem z‑order. Przeciążenia przyjmujące współrzędne przenoszą klon bez zmiany jego rozmiaru; przeciążenia z szerokością i wysokością mogą także zmienić rozmiar.
+[addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) tworzy niezależną kopię i dołącza ją do docelowej kolekcji. [insertClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) także tworzy kopię, ale umieszcza ją podanym indeksie kolejności Z. Przeciążenia przyjmujące współrzędne przenoszą klon bez zmiany rozmiaru; przeciążenia z szerokością i wysokością mogą go także skalować.
 
 Przykład tworzy docelowy slajd, klonuje opisany prostokąt na przód i wstawia drugi klon na tył. Zmiany w którymkolwiek klonie nie modyfikują kształtu źródłowego.
 
@@ -242,13 +244,13 @@ try {
 }
 ```
 
-Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę i tekst alternatywny. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są obsługiwane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
+Klonowanie kopiuje zawartość i formatowanie kształtu, włącznie z jego nazwą i tekstem alternatywnym. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty obsługuje prezentacja, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
 
 ### **Usuwanie kształtów**
 
-[remove](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w trakcie iteracji według indeksu, przeglądaj od końca, aby każdy pozostały indeks pozostał ważny.
+[remove](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w iteracji po indeksach, przeglądaj od końca, aby każdy pozostały indeks pozostał ważny.
 
-Ten przykład usuwa każdy kształt o określonej nazwie. Odczytuje kształt pod bieżącym indeksem, a nie stały element kolekcji, i nie rzutuje go niepotrzebnie.
+Ten przykład usuwa każdy kształt o określonej nazwie. Odczytuje kształt pod bieżącym indeksem, a nie stały element kolekcji, i nie rzutuje kształtu niepotrzebnie.
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +281,11 @@ try {
 }
 ```
 
-Po usunięciu liczba kształtów i indeksy kolejnych kształtów ulegają zmianie. Odniesienia do niezmienionych kształtów pozostają bardziej wiarygodne niż zapisane indeksy. Pamiętaj też o łącznikach, animacjach i innych elementach prezentacji, które mogą odwoływać się do usuniętego obiektu; usunięcie widocznego kształtu może wpłynąć na więcej niż tylko wygląd slajdu.
+Po usunięciu liczba kształtów i indeksy późniejszych kształtów ulegają zmianie. Odwołania do niezmienionych kształtów pozostają bardziej wiarygodne niż zapisane indeksy. Weź także pod uwagę łączniki, animacje i inne elementy prezentacji, które mogą odnosić się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż wygląd slajdu.
 
 ### **Ukrywanie kształtu**
 
-Ustawienie [Hidden](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#setHidden-boolean-) na `true` pozostawia kształt w kolekcji, ale zapobiega jego wyświetlaniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne dla kodu, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą zostać przywrócone później.
+Ustawienie [Hidden](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#setHidden-boolean-) na `true` pozostawia kształt w kolekcji, ale zapobiega jego wyświetleniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne dla kodu, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą zostać przywrócone później.
 
 ```java
 import com.aspose.slides.*;
@@ -310,11 +312,11 @@ try {
 }
 ```
 
-Ukrycie nie jest usunięciem ani zabezpieczeniem. Obiekt nadal może zostać odnaleziony i odsłonięty przez użytkownika lub kod i pozostaje częścią pliku prezentacji.
+Ukrywanie to nie usunięcie ani nie zabezpieczenie. Obiekt nadal może być odnaleziony i odkryty przez użytkownika lub kod i pozostaje częścią pliku prezentacji.
 
-### **Zmiana kolejności Z‑order**
+### **Zmiana kolejności Z**
 
-Kształty nakładające się są rysowane w kolejności kolekcji. [reorder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) przenosi istniejący kształt do docelowego indeksu bez jego klonowania. Indeks `0` to tył; `size() - 1` to przód.
+Kształty zachodzące na siebie są rysowane w kolejności kolekcji. [reorder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) przenosi istniejący kształt do docelowego indeksu bez jego klonowania. Indeks `0` to tył; `size() - 1` to przód.
 
 ```java
 import com.aspose.slides.*;
@@ -341,11 +343,11 @@ try {
 }
 ```
 
-Prostokąt jest tworzony najpierw i początkowo znajduje się za elipsą. Przeniesienie go do ostatniego indeksu ustawia go na przodzie. Sfinalizuj kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dopisują lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną kolejność.
+Prostokąt jest tworzony jako pierwszy i początkowo znajduje się za elipsą. Przeniesienie go do ostatniego indeksu umieszcza go z przodu. Sfinalizuj kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dołączają lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną kolejkę.
 
 ## **Inspekcja kształtów na slajdach układu**
 
-Zwykłe slajdy, slajdy układu i slajdy nadrzędne mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem co podobnie pozycjonowany kształt na zwykłym slajdzie. Analizuj kształty układu, gdy potrzebujesz zrozumieć lub zmienić formatowanie dostarczane przez układ.
+Zwykłe slajdy, slajdy układu i slajdy nadrzędne mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem co podobnie pozycjonowany kształt na zwykłym slajdzie. Sprawdzaj kształty układu, gdy potrzebujesz zrozumieć lub zmienić formatowanie dostarczane przez układ.
 
 Poniższy przykład odczytuje [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getFillFormat--) i [LineFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getLineFormat--) każdego kształtu układu, nie zakładając, że każdy kształt jest `AutoShape`.
 
@@ -366,11 +368,11 @@ try {
 }
 ```
 
-Edycja układu może wpływać na wiele slajdów, które go używają. Przed zmianą kształtu układu sprawdź, czy zwykły slajd dziedziczy obiekt lub zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
+Edycja układu może wpłynąć na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy zwykły slajd dziedziczy obiekt lub zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
 
 ## **Eksport kształtu do SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) zapisuje renderowaną zawartość jednego kształtu do strumienia. Wynik zawiera sam kształt, a nie tło całego slajdu ani sąsiadujące kształty.
+[writeAsSvg](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) zapisuje wyrenderowaną zawartość jednego kształtu do strumienia. Wynik zawiera tylko kształt, nie całe tło slajdu ani sąsiednie kształty.
 
 ```java
 import com.aspose.slides.*;
@@ -396,13 +398,13 @@ try {
 }
 ```
 
-Utrzymuj otwartą prezentację podczas renderowania. Wynik zależy od formatowania kształtu oraz zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd, a nie pojedynczy kształt. Wywołujący jest właścicielem strumienia i musi go zamknąć.
+Utrzymuj prezentację otwartą podczas renderowania. Wyjście zależy od formatowania kształtu oraz zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd, a nie pojedynczy kształt. Wywołujący jest właścicielem strumienia i musi go zamknąć.
 
 ## **Wyrównywanie kształtów**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/pl/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) posiada przeciążenia umożliwiające wyrównanie wszystkich kształtów lub wybranych indeksów kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównać wybrane kształty względem siebie.
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/pl/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) ma przeciążenia wyrównujące wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównać wybrane kształty względem siebie.
 
-Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwrócone referencje do kształtów są konwertowane na ich bieżące indeksy tuż przed wyrównaniem.
+Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwracane referencje do kształtów są konwertowane na ich bieżące indeksy tuż przed wyrównaniem.
 
 ```java
 import com.aspose.slides.*;
@@ -427,17 +429,17 @@ try {
 }
 ```
 
-Wyrównanie zmienia pozycje, a nie kolejność Z. Wyrównanie względne zwykle wymaga co najmniej dwóch kształtów, podczas gdy rozkład poziomy lub pionowy wymaga wystarczającej liczby kształtów do określenia odstępów. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
+Wyrównywanie zmienia pozycje, nie kolejność Z. Wyrównanie względne zwykle wymaga co najmniej dwóch kształtów, podczas gdy dystrybucja pozioma lub pionowa wymaga wystarczającej liczby kształtów do określenia odstępów. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
 
 ## **Odbicie kształtu**
 
-Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia w poziomie i pionie oraz rotację. Jej wartości `getFlipH` i `getFlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/java/com.aspose.slides/nullablebool/): `True` włącza odbicie, `False` wyłącza, a `NotDefined` zachowuje stan nieokreślony/domyslny.
+Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz obrót. Jej wartości `getFlipH` i `getFlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/java/com.aspose.slides/nullablebool/): `True` włącza odbicie, `False` wyłącza, a `NotDefined` zachowuje stan nieokreślony/domyślny.
 
 Poniższa prezentacja wejściowa zawiera jeden nieodbijany kształt.
 
-![The shape before flipping](shape_to_be_flipped.png)
+![Kształt przed odwróceniem](shape_to_be_flipped.png)
 
-Przykład zachowuje wszystkie pozostałe wartości ramki i zastępuje jedynie dwa ustawienia odbicia. Jest to ważne, ponieważ przypisanie nowego [Frame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) zastępuje całą ramkę.
+Przykład zachowuje wszystkie inne wartości ramki i zastępuje tylko dwa ustawienia odbicia. To ważne, ponieważ przypisanie nowego [Frame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) zastępuje całą ramkę.
 
 ```java
 import com.aspose.slides.*;
@@ -458,24 +460,24 @@ try {
 }
 ```
 
-Zapisany kształt jest odbity w poziomie i pionie, przy zachowaniu pozycji, rozmiaru i rotacji.
+Zapisany kształt jest odbity poziomo i pionowo, przy zachowaniu pozycji, rozmiaru i obrotu.
 
-![The shape after flipping](flipped_shape.png)
+![Kształt po odwróceniu](flipped_shape.png)
 
 ## **FAQ**
 
 **Czy powinienem używać indeksu kolekcji jako identyfikatora kształtu?**
 
-Tylko w krótkotrwałym przetwarzaniu, kiedy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `Name` lub `AlternativeText` dla szablonów tworzonych ręcznie, lub `OfficeInteropShapeId` dla prac w kontekście interop slajdu.
+Tylko przy krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zwalidowaną konwencję `Name` lub `AlternativeText` dla szablonów tworzonych, lub `OfficeInteropShapeId` dla pracy interop scoped do slajdu.
 
 **Czy ukrycie kształtu usuwa go z kolejności Z?**
 
-Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być odnaleziony, przestawiony, edytowany lub ponownie widoczny.
+Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być znaleziony, przestawiony, edytowany lub ponownie ujawniony.
 
 **Dlaczego sklonowany kształt pojawił się przed innym kształtem?**
 
-`addClone` dopisuje klon na koniec kolekcji, co jest przednią częścią kolejności Z. Użyj `insertClone`, aby wybrać początkowy indeks, lub `reorder` po dodaniu wszystkich kształtów.
+`addClone` dołącza klon na koniec kolekcji, co jest przodem kolejności Z. Użyj `insertClone`, aby wybrać początkowy indeks, lub `reorder` po dodaniu wszystkich kształtów.
 
-**Czy mogę używać stałego indeksu do identyfikacji regulacji predefiniowanego kształtu?**
+**Czy mogę używać stałego indeksu do identyfikacji regulacji wstępnego kształtu?**
 
-Tylko po zweryfikowaniu dokładnej predefinicji i układu kolekcji. Preferuj iterację przez `IGeometryShape.getAdjustments` i sprawdzanie `IAdjustValue.getType`; użyj `IAdjustValue.getName` jako dodatkowej informacji, gdy ten sam typ semantyczny występuje więcej niż raz.
+Tylko po zweryfikowaniu dokładnego wstępu i układu kolekcji. Preferuj iterację przez `IGeometryShape.getAdjustments` i sprawdzanie `IAdjustValue.getType`; użyj `IAdjustValue.getName` jako dodatkowej informacji, gdy ten sam typ semantyczny pojawia się więcej niż raz.

@@ -1,6 +1,6 @@
 ---
-title: Beheer presentatie‑vormen in Java
-linktitle: Vormbewerkingen
+title: Beheer presentatievormen in Java
+linktitle: Vormmanipulatie
 type: docs
 weight: 40
 url: /nl/java/shape-manipulations/
@@ -16,9 +16,9 @@ keywords:
 - interop‑vorm‑ID ophalen
 - alternatieve tekst van vorm
 - aanpassingspunt van vorm
-- preset‑vormaanpassing
-- vorm‑geometrie
-- vorm‑lay‑out‑formaten
+- voorgedefinieerde vormaanpassing
+- vormgeometrie
+- vorm‑lay-outformaten
 - vorm als SVG
 - vorm naar SVG
 - vorm uitlijnen
@@ -27,25 +27,27 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer hoe u presentatie‑vormen kunt identificeren, aanpassen, klonen, verwijderen, verbergen, opnieuw ordenen, exporteren, uitlijnen en spiegelen met Aspose.Slides voor Java."
+description: "Leer hoe u presentatievormen kunt identificeren, aanpassen, klonen, verwijderen, verbergen, herschikken, exporteren, uitlijnen en spiegelen met Aspose.Slides voor Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor Java vertegenwoordigt de vormen op een dia als een geordende [IShapeCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/). De collectie is zowel de plek waar je vormen vindt en wijzigt als de bron van hun stapelvolgorde: index `0` is de meest achterste vorm, terwijl de laatste index de voorste vorm is.
+Aspose.Slides for Java vertegenwoordigt de vormen op een dia als een geordende [IShapeCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/). De collectie is zowel de plek waar u vormen vindt en wijzigt als de bron van hun stapelvolgorde: index `0` is de achterste vorm, terwijl de laatste index de voorste vorm is.
 
-Dit artikel volgt dat model. Het legt eerst uit hoe je een vorm betrouwbaar kunt identificeren en vooraf ingestelde aanpassingspunten kunt wijzigen, en toont vervolgens hoe je vormen kunt klonen, verwijderen, verbergen en herschikken. De laatste secties behandelen opmaak op lay-outniveau, SVG-export, uitlijning en spiegelinstellingen. Elk voorbeeld is onafhankelijk, zodat je alleen de bewerkingen kunt gebruiken die jouw workflow vereist.
+Dit artikel volgt dat model. Het legt eerst uit hoe u een vorm betrouwbaar kunt identificeren en vooraf ingestelde aanpassingspunten van een vorm kunt wijzigen, en laat vervolgens zien hoe u vormen kunt klonen, verwijderen, verbergen en herschikken. De laatste secties behandelen op lay-outniveau formatteren, SVG-export, uitlijning en spiegelinstellingen. Elk voorbeeld staat op zichzelf, zodat u alleen de bewerkingen kunt gebruiken die uw workflow nodig heeft.
 
 ## **Identificeren en vinden van vormen**
 
-Collectie‑indexen zijn handig bij het verwerken van een bekend bestand, maar ze zijn geen stabiele identifiers. Het toevoegen, verwijderen of herschikken van een vorm kan de index wijzigen. Kies een identifier op basis van hoe de presentatie is gemaakt en onderhouden:
+Collectie‑indexen zijn handig bij het verwerken van een bekend bestand, maar ze zijn geen stabiele identificatoren. Het toevoegen, verwijderen of herschikken van een vorm kan de index wijzigen. Kies een identificator op basis van hoe de presentatie wordt gemaakt en onderhouden:
 
-- [Name](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getName--) is nuttig voor door ontwikkelaars beheerde sjablonen en is makkelijk te bekijken in het selectie‑paneel van PowerPoint. Namen kunnen worden bewerkt en zijn niet gegarandeerd uniek, dus stel een naamgevingsconventie op als code ervan afhankelijk is.
-- [AlternativeText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getAlternativeText--) is nuttig wanneer een toegankelijkheidsbeschrijving of een door de auteur toegevoegde tag de vorm al identificeert. Het is zichtbaar voor gebruikers, kan worden gelokaliseerd of herschreven voor toegankelijkheid, en is niet gegarandeerd uniek. Gebruik betekenisvolle toegankelijkheidstekst niet stilzwijgend als databasesleutel.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) is een alleen‑lezen identifier die uniek is binnen een dia en overeenkomt met de vorm‑ID die PowerPoint‑interop gebruikt. Gebruik deze wanneer je integreert met PowerPoint of wanneer je een ondubbelzinnige referentie nodig hebt gedurende de levensduur van een vorm. Een gekloonde of opnieuw aangemaakte vorm is een andere vorm en krijgt een eigen ID.
+- [Name](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getName--) is nuttig voor door ontwikkelaars beheerde sjablonen en is gemakkelijk te inspecteren in het selectiepaneel van PowerPoint. Namen kunnen worden bewerkt en zijn niet gegarandeerd uniek, dus stel een naamgevingsconventie vast als code ervan afhankelijk is.
+- [AlternativeText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getAlternativeText--) is handig wanneer een toegankelijkheidsbeschrijving of een door de auteur toegevoegde tag de vorm al identificeert. Het is zichtbaar voor gebruikers, kan worden gelokaliseerd of herschreven voor toegankelijkheid, en is niet gegarandeerd uniek. Gebruik betekenisvolle toegankelijkheidstekst niet stilletjes als een databasesleutel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) is een alleen‑lezen‑identificator die uniek is binnen een dia en overeenkomt met de vorm‑ID die PowerPoint‑interop gebruikt. Gebruik deze wanneer u integreert met PowerPoint of wanneer u een ondubbelzinnige referentie nodig hebt gedurende de levensduur van een vorm. Een gekloonde of opnieuw gemaakte vorm is een andere vorm en krijgt een eigen ID.
 
-De gerelateerde [getUniqueId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getUniqueId--) methode retourneert een identifier met presentatiescope, maar die identifier is bedoeld voor add‑ins en kan worden hergebruikt. Hij mag niet worden behandeld als een permanente externe sleutel. Als langdurige identiteit essentieel is, bewaar de mapping in applicatiedata en valideer dat de verwachte vorm nog bestaat.
+De gerelateerde [getUniqueId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getUniqueId--)‑methode retourneert een identificator met presentatiescope, maar die identificator is bedoeld voor add‑ins en kan worden herkend. Hij moet niet worden beschouwd als een permanente externe sleutel. Als langdurige identiteit essentieel is, bewaar dan de mapping in toepassingsdata en controleer of de verwachte vorm nog bestaat.
 
-Het volgende voorbeeld zoekt op naam met een exacte vergelijking en rapporteert de dia‑gescope‑interop‑ID. Wanneer de sjabloon de verwachte vorm niet bevat, rapporteert de code dat resultaat in plaats van door te gaan met het verkeerde object.
+Voor een praktisch voorbeeld van het lezen en bijwerken van zowel de alternatieve‑tekstitel als de beschrijving, zie [Manage Alternative Text Titles and Descriptions](/slides/nl/java/presentation-accessibility/). Gebruik alternatieve tekst om de betekenis van het visuele element uit te leggen aan lezers, en houd deze gescheiden van vorm‑namen die door code worden gebruikt om vormen te vinden.
+
+Het volgende voorbeeld zoekt op naam met een exacte vergelijking en rapporteert de interop‑ID met diascop. Wanneer de sjabloon de verwachte vorm niet bevat, meldt de code dat resultaat in plaats van door te gaan met het verkeerde object.
 
 ```java
 import com.aspose.slides.*;
@@ -72,7 +74,7 @@ try {
 }
 ```
 
-Wanneer een bewerking specifiek is voor een bepaald vormtype, controleer dan de interface voordat je type‑specifieke leden gebruikt. Dit voorbeeld werkt tekst en alternatieve tekst bij alleen als het benoemde object een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshape/) is.
+Wanneer een bewerking specifiek is voor een vormtype, controleer dan de interface voordat u type‑specifieke leden gebruikt. Dit voorbeeld werkt tekst en alternatieve tekst alleen bij als het benoemde object een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshape/) is.
 
 ```java
 import com.aspose.slides.*;
@@ -102,28 +104,28 @@ try {
 }
 ```
 
-## **Identificeren en aanpassen van preset‑vormaanpassingen**
+## **Identificeren en wijzigen van vooraf ingestelde vorm‑aanpassingen**
 
-Preset‑geometrievormen kunnen aanpassingspunten blootleggen die aspecten zoals hoekgrootte, pijlverhoudingen of booghoeken besturen. Toegang krijgen tot die punten gebeurt via de alleen‑lezen collectie [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igeometryshape/#getAdjustments--) . De collectie zelf wordt door de vorm geleverd, maar elk [IAdjustValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/) bevat een waarde die kan worden gewijzigd.
+Vooraf ingestelde geometrievormen kunnen aanpassingspunten blootgeven die kenmerken regelen, zoals hoekgrootte, pijlenverhoudingen of booghoeken. Benader ze via de alleen‑lezen [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igeometryshape/#getAdjustments--)‑collectie. De collectie zelf wordt geleverd door de vorm, maar elke [IAdjustValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/) bevat een waarde die kan worden gewijzigd.
 
-Vertrouw niet alleen op een vaste collectie‑index. Doorloop de aanpassingen en inspecteer de alleen‑lezen [getType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#getType--) methode, waarvan de [ShapeAdjustmentType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapeadjustmenttype/) waarde beschrijft wat de aanpassing bestuurt. De alleen‑lezen [getName](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#getName--) methode geeft extra identificatie‑informatie en is vooral nuttig wanneer een preset meer dan één aanpassing met hetzelfde semantische type bevat.
+Vertrouw niet uitsluitend op een vaste collectie‑index. Loop door de aanpassingen en inspecteer de alleen‑lezen‑methode [getType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#getType--) waarvan de waarde van het [ShapeAdjustmentType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapeadjustmenttype/) beschrijft wat de aanpassing regelt. De alleen‑lezen‑methode [getName](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#getName--) geeft extra identificatie‑informatie en is vooral nuttig wanneer een preset meer dan één aanpassing met hetzelfde semantische type bevat.
 
 Gebruik de waardemethode die overeenkomt met de betekenis van de aanpassing:
 
-| Adjustment type | Purpose | Value to change |
+| Aanpassingstype | Doel | Waarde om te wijzigen |
 |---|---|---|
-| `CornerSize` | Size of rounded corners | [setRawValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
-| `ArrowTailThickness` | Thickness of an arrow tail | `setRawValue` |
-| `ArrowheadLength` | Length of an arrowhead | `setRawValue` |
-| `ArrowheadWidth` | Width of an arrowhead | `setRawValue` |
-| `StartAngle` | Start angle of a pie or arc | [setAngleValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
-| `EndAngle` | End angle of a pie or arc | `setAngleValue` |
+| `CornerSize` | Grootte van afgeronde hoeken | [setRawValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | Dikte van een pijpstaart | `setRawValue` |
+| `ArrowheadLength` | Lengte van een pijpkop | `setRawValue` |
+| `ArrowheadWidth` | Breedte van een pijpkop | `setRawValue` |
+| `StartAngle` | Beginhoek van een taart- of boogvorm | [setAngleValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Eindhoek van een taart- of boogvorm | `setAngleValue` |
 
-`getType` en `getName` geven alleen‑lezen informatie terug. `getRawValue` en `setRawValue` werken met een geheel getal in de native geometrie‑eenheden van de preset, terwijl `getAngleValue` en `setAngleValue` werken met een hoek in graden. Het aantal, de volgorde, de betekenis en het geldige bereik van aanpassingen hangen af van het preset‑[ShapeType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igeometryshape/#getShapeType--). Een waarde die geldig is voor de ene preset kan ongeldig zijn of een ander effect hebben voor een andere.
+`getType` en `getName` retourneren alleen‑lezen‑informatie. `getRawValue` en `setRawValue` werken met een geheel getal in de native‑eenheden van de preset‑geometrie, terwijl `getAngleValue` en `setAngleValue` werken met een hoek in graden. Het aantal, de volgorde, de betekenis en het geldige bereik van de aanpassingen hangen af van de preset‑[ShapeType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igeometryshape/#getShapeType--). Een waarde die geldig is voor de ene preset kan ongeldige of een ander effect hebben voor een andere.
 
-Wanneer `getType` `ShapeAdjustmentType.Custom` retourneert, herkent de API geen standaard semantische betekenis. Inspecteer `getName`, het preset‑type en de bestaande waarde, en laat de aanpassing ongewijzigd tenzij de verwachte betekenis en het bereik bekend zijn. Zelfs voor erkende types, controleer of hetzelfde type meer dan eens voorkomt voordat je een waarde selecteert. Het artikel [Connector](/slides/nl/java/connector/) toont deze situatie met buig‑aanpassingen van connectoren.
+Wanneer `getType` `ShapeAdjustmentType.Custom` retourneert, herkent de API geen standaard semantische betekenis. Inspecteer `getName`, het preset‑type en de bestaande waarde, en laat de aanpassing ongewijzigd tenzij de verwachte betekenis en het bereik bekend zijn. Zelfs voor herkende types, controleer of hetzelfde type meer dan eens voorkomt voordat u een waarde kiest. Het artikel over [Connector](/slides/nl/java/connector/) toont deze situatie met bocht‑aanpassingen van connectoren.
 
-Het volgende volledige voorbeeld maakt standaard‑ en aangepaste versies van drie preset‑vormen. Het doorloopt elke aanpassing, rapporteert de naam en het type, wijzigt grootte‑gerelateerde waarden via `setRawValue`, wijzigt hoeken via `setAngleValue` en slaat het resultaat op. De linkerkolom behoudt de standaardgeometrie; de rechterkolom toont het aangepaste afgeronde rechthoek, de vier‑weg‑pijl en de taart.
+Het volgende volledige voorbeeld maakt standaard‑ en gewijzigde versies van drie preset‑vormen. Het loopt door elke aanpassing, rapporteert de naam en het type, wijzigt grootte‑gerelateerde waarden via `setRawValue`, wijzigt hoeken via `setAngleValue`, en slaat het resultaat op. De linkerkolom behoudt de standaardgeometrie; de rechterkolom toont de aangepaste afgeronde rechthoek, vier‑richting‑pijl en taart.
 
 ```java
 import com.aspose.slides.*;
@@ -132,7 +134,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Voegt kopteksten toe voor de kolommen met standaard en aangepaste vorm.
+    // Voegt kopteksten toe voor de kolommen met standaard- en aangepaste vormen.
     IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
     defaultColumnLabel.getTextFrame().setText("Default preset geometry");
     IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -193,17 +195,17 @@ try {
 }
 ```
 
-Het controleren van het semantische type vóór het wijzigen van een waarde maakt de code expliciet over de intentie en voorkomt de veronderstelling dat een bepaalde collectie‑index dezelfde betekenis heeft bij verschillende preset‑vormen.
+Het controleren van het semantische type vóór het wijzigen van een waarde maakt de code expliciet over de bedoeling en voorkomt aannames dat een bepaalde collectie‑index dezelfde betekenis heeft bij verschillende preset‑vormen.
 
-## **Aanpassen van de vormcollectie**
+## **De vormcollectie wijzigen**
 
-De methoden voor toevoegen, klonen, verwijderen en herschikken werken direct op de collectie. Als een bewerking het aantal of de volgorde van vormen wijzigt, vertrouw dan niet langer op indexen die vóór die bewerking zijn vastgelegd.
+De methoden add, clone, remove en reorder werken direct op de collectie. Als een bewerking het aantal of de volgorde van vormen verandert, baseer u zich daarna niet meer op indexen die vóór die bewerking zijn vastgelegd.
 
-### **Kloon een vorm**
+### **Een vorm klonen**
 
-[addClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) maakt een onafhankelijke kopie en voegt deze toe aan de doelcollectie. [insertClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) maakt ook een kopie, maar plaatst deze op een opgegeven z‑order‑index. De overloads die coördinaten accepteren verplaatsen de kloon zonder de grootte te wijzigen; overloads met breedte en hoogte kunnen hem ook aanpassen.
+[addClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) maakt een onafhankelijk exemplaar en voegt het toe aan de doel‑collectie. [insertClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) maakt eveneens een kopie, maar plaatst deze op een opgegeven z‑order‑index. De overloads die coördinaten accepteren verplaatsen de kloon zonder de grootte te veranderen; overloads met breedte en hoogte kunnen deze ook aanpassen.
 
-Het voorbeeld maakt een bestemmingsdia, kloont een gelabelde rechthoek naar de voorgrond en voegt een tweede kloon toe aan de achtergrond. Wijzigingen aan een van de klonen wijzigen de brondvorm niet.
+Het voorbeeld maakt een doel‑dia, kloont een gelabelde rechthoek naar de voorkant, en voegt een tweede kloon toe aan de achterkant. Wijzigingen aan een van beide klonen wijzigen de bronvorm niet.
 
 ```java
 import com.aspose.slides.*;
@@ -242,13 +244,13 @@ try {
 }
 ```
 
-Klonen kopieert de inhoud en opmaak van de vorm, inclusief naam en alternatieve tekst. Ken nieuwe logische identifiers toe aan de kloon wanneer die waarden uniek moeten zijn. Hulpbronnen die door complexe vormen worden gebruikt, worden beheerd door de presentatie, maar een kloon blijft een nieuw collectie‑item met een nieuwe vorm‑identiteit.
+Klonen kopieert de inhoud en opmaak van de vorm, inclusief naam en alternatieve tekst. Ken nieuwe logische identificatoren toe aan de kloon wanneer die waarden uniek moeten zijn. Bronnen die door complexe vormen worden gebruikt, worden beheerd door de presentatie, maar een kloon blijft een nieuw collectie‑item met een nieuwe vorm‑identiteit.
 
-### **Verwijder vormen**
+### **Vormen verwijderen**
 
-[remove](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) verwijdert een specifiek vormobject uit zijn collectie. Wanneer je meerdere overeenkomsten verwijdert tijdens een geïndexeerde iteratie, doorloop dan van achteren zodat elke resterende index geldig blijft.
+[remove](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) verwijdert een specifiek vormobject uit zijn collectie. Wanneer u meerdere overeenkomsten tijdens een geïndexeerde iteratie wilt verwijderen, loop dan van achteren naar voren zodat elke overgebleven index geldig blijft.
 
-Dit voorbeeld verwijdert elke vorm met een opgegeven naam. Het leest de vorm op de huidige index, niet een vast collectie‑item, en cast de vorm niet onnodig.
+Dit voorbeeld verwijdert elke vorm met een bepaalde naam. Het leest de vorm op de huidige index, niet een vaste collectie‑item, en cast de vorm niet onnodig.
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +281,11 @@ try {
 }
 ```
 
-Na verwijdering veranderen het aantal vormen en de indexen van latere vormen. Referenties naar ongewijzigde vormen blijven betrouwbaarder dan opgeslagen indexen. Houd ook rekening met connectoren, animaties en andere presentatiefuncties die naar het verwijderde object kunnen verwijzen; het verwijderen van een zichtbare vorm kan meer veranderen dan alleen het uiterlijk van de dia.
+Na verwijdering veranderen het aantal vormen en de indexen van de latere vormen. Verwijzingen naar onbewerkte vormen blijven betrouwbaarder dan opgeslagen indexen. Houd ook rekening met connectoren, animaties en andere presentatiefuncties die naar het verwijderde object kunnen verwijzen; het verwijderen van een zichtbare vorm kan meer veranderen dan alleen het uiterlijk van de dia.
 
-### **Verberg een vorm**
+### **Een vorm verbergen**
 
-Het instellen van [Hidden](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#setHidden-boolean-) op `true` houdt de vorm in de collectie, maar voorkomt dat deze verschijnt in de normale diavoorstelling. De index, opmaak en inhoud blijven beschikbaar voor code, zodat verbergen geschikt is voor optionele elementen die later kunnen worden hersteld.
+Het instellen van [Hidden](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#setHidden-boolean-) op `true` houdt de vorm in de collectie, maar voorkomt dat deze verschijnt in de normale diavoorstelling. De index, opmaak en inhoud blijven beschikbaar voor code, dus verbergen is geschikt voor optionele elementen die later eventueel hersteld kunnen worden.
 
 ```java
 import com.aspose.slides.*;
@@ -310,11 +312,11 @@ try {
 }
 ```
 
-Verbergen is geen verwijdering of beveiliging. Het object kan nog steeds worden gevonden en onzichtbaar gemaakt door een gebruiker of door code, en het blijft deel uitmaken van het presentatie‑bestand.
+Verbergen is geen verwijderen of beveiliging. Het object kan nog steeds worden gevonden en zichtbaar worden gemaakt door een gebruiker of door code, en blijft onderdeel van het presentatie‑bestand.
 
-### **Verander de Z‑volgorde**
+### **De Z‑order wijzigen**
 
-Overlappende vormen worden getekend in de volgorde van de collectie. [reorder](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) verplaatst een bestaande vorm naar een doel‑index zonder deze te klonen. Index `0` is de achtergrond; `size() - 1` is de voorgrond.
+Opeenvolgende vormen worden getekend in de volgorde van de collectie. [reorder](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) verplaatst een bestaande vorm naar een doel‑index zonder deze te klonen. Index `0` is de achterkant; `size() - 1` is de voorkant.
 
 ```java
 import com.aspose.slides.*;
@@ -341,13 +343,13 @@ try {
 }
 ```
 
-De rechthoek wordt eerst gemaakt en zit initieel achter de ellips. Het verplaatsen naar de laatste index brengt hem naar voren. Finaliseer de z‑volgorde nadat je alle gerelateerde vormen hebt toegevoegd of gekloond, want die bewerkingen voegen nieuwe collectie‑items toe of voegen ze in en kunnen de gewenste stapel wijzigen.
+De rechthoek wordt eerst gemaakt en staat aanvankelijk achter de ellips. Het verplaatsen naar de laatste index brengt deze naar voren. Voltooi de z‑order pas nadat u alle gerelateerde vormen hebt toegevoegd of gekloond, want die bewerkingen voegen nieuwe collectie‑items toe of voegen ze in en kunnen de beoogde stapel wijzigen.
 
-## **Inspecteer vormen op lay-outdia's**
+## **Vormen op lay‑outdia’s inspecteren**
 
-Normale dia's, lay-outdia's en masters hebben afzonderlijke vormcollecties. Een vorm in een lay-outcollectie is niet hetzelfde object als een soortgelijke vorm op een normale dia. Inspecteer lay‑out‑vormen wanneer je de opmaak die door een lay-out wordt geleverd moet begrijpen of wijzigen.
+Normale dia’s, layout‑dia’s en master‑dia’s hebben afzonderlijke vormcollecties. Een vorm in een layout‑collectie is niet hetzelfde object als een vergelijkbaar gepositioneerde vorm op een normale dia. Inspecteer layout‑vormen wanneer u de door een layout geleverde opmaak moet begrijpen of wijzigen.
 
-Het volgende voorbeeld leest voor elke lay‑outvorm de [FillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getFillFormat--) en [LineFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getLineFormat--) zonder ervan uit te gaan dat elke vorm een `AutoShape` is.
+Het volgende voorbeeld leest voor elke layout‑vorm de [FillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getFillFormat--) en [LineFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getLineFormat--) zonder ervan uit te gaan dat elke vorm een `AutoShape` is.
 
 ```java
 import com.aspose.slides.*;
@@ -366,11 +368,11 @@ try {
 }
 ```
 
-Het bewerken van een lay-out kan meerdere dia's die de lay-out gebruiken beïnvloeden. Bepaal vóór het wijzigen van een lay‑out‑vorm of een normale dia het object erft of een lokale overschrijving bevat, en test elke dia die die lay-out gebruikt.
+Het bewerken van een layout kan meerdere dia’s beïnvloeden die deze gebruiken. Controleer vóór het wijzigen van een layout‑vorm of een normale dia het object erft of een lokale overschrijving bevat, en test elke dia die die layout gebruikt.
 
-## **Exporteer een vorm naar SVG**
+## **Een vorm exporteren naar SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) schrijft de gerenderde inhoud van één vorm naar een stroom. Het resultaat bevat alleen de vorm, niet de volledige dia‑achtergrond of naburige vormen.
+[writeAsSvg](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) schrijft de gerenderde inhoud van één vorm naar een stream. Het resultaat bevat alleen de vorm, niet de volledige dia‑achtergrond of naburige vormen.
 
 ```java
 import com.aspose.slides.*;
@@ -396,13 +398,13 @@ try {
 }
 ```
 
-Houd de presentatie open tijdens het renderen. De output hangt af van de opmaak van de vorm en van hulpbronnen zoals lettertypen en afbeeldingen. Als je de volledige compositie nodig hebt, exporteer dan de dia in plaats van één afzonderlijke vorm. De aanroeper bezit de stroom en moet deze sluiten.
+Houd de presentatie open tijdens het renderen. De output hangt af van de opmaak van de vorm en van bronnen zoals lettertypen en afbeeldingen. Als u de volledige compositie nodig heeft, exporteer dan de dia in plaats van een individuele vorm. De aanroeper bezit de stream en moet deze sluiten.
 
-## **Lijn vormen uit**
+## **Vormen uitlijnen**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) overloads lijnen ofwel alle vormen of geselecteerde collectie‑indexen uit. [ShapesAlignmentType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapesalignmenttype/) specificeert de rand, middenlijn of distributiemodus. Stel `alignToSlide` in op `true` om de randen van de dia te gebruiken; stel in op `false` om de geselecteerde vormen ten opzichte van elkaar uit te lijnen.
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) heeft overloads die ofwel alle vormen of geselecteerde collectie‑indexen uitlijnen. [ShapesAlignmentType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapesalignmenttype/) specificeert de rand, het midden of de verdelingsmodus. Stel `alignToSlide` in op `true` om de dia‑randen te gebruiken; stel in op `false` om de geselecteerde vormen relatief ten opzichte van elkaar uit te lijnen.
 
-Dit voorbeeld lijn drie vormen uit naar de bovenrand van de dia. De geretourneerde vormreferenties worden direct vóór het uitlijnen omgezet naar hun huidige indexen.
+Dit voorbeeld lineert drie vormen uit op de bovenrand van de dia. De geretourneerde vormreferenties worden direct voor uitlijning omgezet naar hun huidige indexen.
 
 ```java
 import com.aspose.slides.*;
@@ -427,17 +429,17 @@ try {
 }
 ```
 
-Uitlijning wijzigt posities, niet de z‑volgorde. Relatieve uitlijning vereist normaal gezien minstens twee vormen, terwijl horizontale of verticale distributie genoeg vormen nodig heeft om de afstand te definiëren. Herbereken indexen als je de collectie wijzigingen vóór het aanroepen van de methode.
+Uitlijnen verandert posities, niet de z‑order. Relatieve uitlijning vereist normaal gezien minstens twee vormen, terwijl horizontale of verticale verdeling voldoende vormen nodig heeft om de afstand te bepalen. Herbereken indexen als u de collectie wijzigt vóór het aanroepen van de methode.
 
-## **Spiegel een vorm**
+## **Een vorm spiegelen**
 
-De klasse [ShapeFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapeframe/) slaat positie, grootte, horizontale en verticale spiegelinstellingen en rotatie op. Zijn `getFlipH` en `getFlipV` waarden gebruiken [NullableBool](https://reference.aspose.com/slides/nl/java/com.aspose.slides/nullablebool/): `True` activeert de spiegel, `False` schakelt deze uit, en `NotDefined` behoudt de ongespecificeerde/standaard status.
+De [ShapeFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapeframe/)‑klasse bewaart positie, grootte, horizontale en verticale spiegelinstellingen en rotatie. De waarden `getFlipH` en `getFlipV` gebruiken [NullableBool](https://reference.aspose.com/slides/nl/java/com.aspose.slides/nullablebool/): `True` schakelt de spiegel in, `False` schakelt hem uit, en `NotDefined` behoudt de ongespecificeerde/standaardstatus.
 
 De invoerpresentatie hieronder bevat één niet‑gespiegelde vorm.
 
-![De vorm vóór het spiegelen](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Het voorbeeld behoudt alle andere frame‑waarden en vervangt alleen de twee spiegelinstellingen. Dit is belangrijk omdat het toewijzen van een nieuw [Frame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) het volledige frame vervangt.
+Het voorbeeld behoudt elke andere frame‑waarde en vervangt alleen de twee spiegelinstellingen. Dit is belangrijk omdat het toewijzen van een nieuw [Frame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) het volledige frame vervangt.
 
 ```java
 import com.aspose.slides.*;
@@ -458,24 +460,24 @@ try {
 }
 ```
 
-De opgeslagen vorm is horizontaal en verticaal gespiegeld terwijl positie, grootte en rotatie behouden blijven.
+De opgeslagen vorm is horizontaal en verticaal gespiegeld, terwijl positie, grootte en rotatie behouden blijven.
 
-![De vorm na het spiegelen](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Moet ik een collectie‑index gebruiken als vormidentifier?**
+**Moet ik een collectie‑index gebruiken als vorm‑identificator?**
 
-Alleen voor kortstondige verwerking wanneer de collectie niet verandert vóórdat de index wordt gebruikt. Geef de voorkeur aan een gevalideerde `Name`‑ of `AlternativeText`‑conventie voor opgestelde sjablonen, of `OfficeInteropShapeId` voor interop‑werk op diavolume.
+Alleen voor kortstondige verwerking wanneer de collectie niet verandert vóórdat de index wordt gebruikt. Geef de voorkeur aan een gevalideerde `Name`‑ of `AlternativeText`‑conventie voor aangemaakte sjablonen, of `OfficeInteropShapeId` voor interop‑werk met diascop.
 
-**Verwijdert verbergen van een vorm deze uit de Z‑volgorde?**
+**Verwijdert verbergen van een vorm hem uit de z‑order?**
 
 Nee. Een verborgen vorm blijft in de collectie op dezelfde index. Hij kan worden gevonden, herschikt, bewerkt of opnieuw zichtbaar gemaakt.
 
 **Waarom verscheen een gekloonde vorm voor een andere vorm?**
 
-`addClone` voegt de kloon toe aan het einde van de collectie, wat de voorgrond van de Z‑volgorde is. Gebruik `insertClone` om de initiële index te kiezen of `reorder` nadat alle vormen zijn toegevoegd.
+`addClone` voegt de kloon toe aan het einde van de collectie, wat de voorkant van de z‑order is. Gebruik `insertClone` om de initiële index te kiezen of `reorder` nadat alle vormen zijn toegevoegd.
 
 **Kan ik een vaste index gebruiken om een preset‑vormaanpassing te identificeren?**
 
-Alleen na het valideren van de exacte preset en collectie‑lay‑out. Geef de voorkeur aan itereren door `IGeometryShape.getAdjustments` en controleren van `IAdjustValue.getType`; gebruik `IAdjustValue.getName` als extra informatie wanneer hetzelfde semantische type meer dan eenmaal voorkomt.
+Alleen na het valideren van de exacte preset en collectie‑indeling. Geef de voorkeur aan itereren door `IGeometryShape.getAdjustments` en controleer `IAdjustValue.getType`; gebruik `IAdjustValue.getName` als extra informatie wanneer hetzelfde semantische type meer dan één keer voorkomt.

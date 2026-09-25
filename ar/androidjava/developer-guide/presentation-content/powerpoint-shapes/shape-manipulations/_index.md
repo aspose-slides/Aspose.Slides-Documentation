@@ -8,45 +8,47 @@ keywords:
 - شكل PowerPoint
 - شكل العرض التقديمي
 - شكل على الشريحة
-- البحث عن شكل
-- استنساخ شكل
-- إزالة شكل
-- إخفاء شكل
+- العثور على شكل
+- استنساخ الشكل
+- إزالة الشكل
+- إخفاء الشكل
 - تغيير ترتيب الشكل
-- الحصول على معرف الشكل interop
+- الحصول على معرف الشكل التفاعلي
 - نص بديل للشكل
 - نقطة ضبط الشكل
 - ضبط الشكل المسبق
 - هندسة الشكل
 - تنسيقات تخطيط الشكل
-- الشكل كـ SVG
+- الشكل كملف SVG
 - تحويل الشكل إلى SVG
 - محاذاة الشكل
-- عكس الشكل
+- قلب الشكل
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية التعرف على أشكال العرض التقديمي وتعديلها واستنساخها وإزالتها وإخفائها وإعادة ترتيبها وتصديرها ومحاذاتها وعكسها باستخدام Aspose.Slides for Android عبر Java."
+description: "تعلم كيفية تحديد وتعديل واستنساخ وإزالة وإخفاء وإعادة ترتيب وتصدير ومحاذاة وقلب أشكال العرض التقديمي باستخدام Aspose.Slides for Android عبر Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Android via Java يمثل الأشكال على الشريحة كمجموعة مرتبة من [IShapeCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/). تُعد المجموعة هي المكان الذي تجد فيه وتعدل الأشكال ومصدر ترتيب تكدسها: الفهرس `0` هو الشكل الأبعد إلى الخلف، بينما الفهرس الأخير هو الشكل الأقرب إلى الأمام.
+يمثل Aspose.Slides for Android عبر Java الأشكال في الشريحة كـ[IShapeCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/). المجموعة هي المكان الذي تجد فيه الأشكال وتعدلها وكذلك مصدر ترتيب تكدسها: الفهرس `0` هو الشكل الأبعد إلى الخلف، بينما الفهرس الأخير هو الشكل الأقرب إلى المقدمة.
 
-يتبع هذا المقال هذا النموذج. يشرح أولاً كيفية التعرف على الشكل موثوقًا وتعديل نقاط ضبط الشكل المسبقة، ثم يُظهر كيفية استنساخ، إزالة، إخفاء، وإعادة ترتيب الأشكال. تغطي الأقسام النهائية تنسيق مستوى التخطيط، تصدير SVG، المحاذاة، وإعدادات الانعكاس. كل مثال مستقل، بحيث يمكنك استخدام العمليات التي يتطلبها سير عملك فقط.
+يتبع هذا المقال ذلك النموذج. يشرح أولاً كيفية تحديد الشكل بشكل موثوق وتعديل نقاط ضبط الشكل المسبقة، ثم يوضح كيفية استنساخ الشكل، إزالته، إخفائه، وإعادة ترتيبه. تغطي الأقسام النهائية تنسيق مستوى التخطيط، تصدير SVG، المحاذاة، وإعدادات القلب. كل مثال مستقل، لذلك يمكنك استخدام العمليات التي يتطلبها سير عملك فقط.
 
-## **التعرف على الأشكال وإيجادها**
+## **تحديد وإيجاد الأشكال**
 
-تعد فهارس المجموعة مريحة أثناء معالجة ملف معروف، لكنها ليست معرفات ثابتة. يمكن أن يغيّر إضافة أو إزالة أو إعادة ترتيب شكل فهرسه. اختر معرفًا وفقًا لطريقة إنشاء العرض التقديمي وصيانته:
+تكون فهارس المجموعة مريحة عند معالجة ملف معروف، لكنها ليست معرفات ثابتة. يمكن أن يغيّر إضافة أو إزالة أو إعادة ترتيب شكل فهرسه. اختر معرفًا وفقًا لكيفية إنشاء العرض التقديمي وصيانته:
 
-- [Name](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getName--) مفيد للقوالب التي يتحكم فيها المطور ويسهل فحصه في لوحة الاختيار في PowerPoint. يمكن تعديل الأسماء ولا يُضمن أنها فريدة، لذا ضع convention تسمية إذا كان الكود يعتمد عليها.
-- [AlternativeText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getAlternativeText--) مفيد عندما يكون وصف إمكانية الوصول أو علامة يضيفها المؤلف تحدد الشكل بالفعل. هو مرئي للمستخدمين، قد يُترجم أو يُعاد صياغته لإمكانية الوصول، ولا يُضمن أنه فريد. لا تُعيد استخدام نص إمكانية الوصول ذو المعنى كمفتاح قاعدة بيانات بصمت.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) معرف للقراءة فقط فريد داخل الشريحة ويتطابق مع معرف الشكل المستخدم في تفاعل PowerPoint. استخدمه عند التكامل مع PowerPoint أو عندما تحتاج إلى مرجع لا لبس فيه طوال عمر الشكل. الشكل المستنسخ أو المعاد إنشاؤه يكون شكلًا مختلفًا ويحصل على معرف خاص به.
+- [Name](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getName--) مفيد للقوالب التي يتحكم فيها المطور ويسهل فحصه في لوحة التحديد في PowerPoint. يمكن تعديل الأسماء ولا يُضمن أنها فريدة، لذا ضع اتفاقية تسمية إذا كان الكود يعتمد عليها.
+- [AlternativeText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getAlternativeText--) مفيد عندما يحدد وصف إمكانية الوصول أو الوسم المقدم من المؤلف الشكل بالفعل. هو مرئي للمستخدمين، يمكن ترجمته أو إعادة صياغته للتسهيل، ولا يُضمن أنه فريد. لا تعيد توظيف نص إمكانية وصول ذي معنى كمفتاح قاعدة بيانات بصمت.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) هو معرف للقراءة فقط فريد داخل الشريحة ويتطابق مع معرف الشكل المستخدم في تفاعل PowerPoint. استخدمه عند التكامل مع PowerPoint أو عندما تحتاج إلى مرجع لا لبس فيه طوال عمر الشكل. الشكل المستنسخ أو المعاد إنشاؤه يكون شكلًا مختلفًا ويتلقى معرفه الخاص.
 
-الطريقة المرتبطة [getUniqueId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getUniqueId--) تُعيد معرفًا بنطاق العرض التقديمي، لكن هذا المعرف مخصص للإضافات ويمكن إعادة تعيينه. لا ينبغي اعتباره مفتاحًا خارجيًا دائمًا. إذا كان الهوية طويلة الأمد ضرورية، احتفظ بربطها في بيانات التطبيق وتحقق من أن الشكل المتوقع لا يزال موجودًا.
+طريقة [getUniqueId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getUniqueId--) المرتبطة تُعيد معرفًا بنطاق العرض التقديمي، لكن ذلك المعرف موجه للإضافات ويمكن إعادة تعيينه. لا ينبغي معالجته كمفتاح خارجي دائم. إذا كانت هوية طويلة الأمد ضرورية، احتفظ بالتحويل في بيانات التطبيق وتحقق من أن الشكل المتوقع لا يزال موجودًا.
 
-المثال التالي يبحث عن طريق الاسم بمقارنة دقيقة ويُبلغ عن معرف interop للنطاق الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُبلغ الكود عن ذلك بدلاً من المتابعة مع الكائن الخطأ.
+لمثال عملي حول قراءة وتحديث عنوان النص البديل ووصفه، راجع [Manage Alternative Text Titles and Descriptions](/slides/ar/androidjava/presentation-accessibility/). استخدم النص البديل لشرح معنى العنصر البصري للقارئين، واحتفظ به منفصلًا عن أسماء الأشكال التي يستخدمها الكود للعثور على الأشكال.
+
+يبحث المثال التالي عن الاسم بمقارنة دقيقة ويبلغ عن معرف التفاعل على مستوى الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُبلغ الكود عن تلك النتيجة بدلاً من المتابعة مع الكائن الخاطئ.
 
 ```java
 import com.aspose.slides.*;
@@ -73,7 +75,7 @@ try {
 }
 ```
 
-عندما تكون عملية معينة لنوع شكل معين، افحص الواجهة قبل استخدام الأعضاء الخاصة بالنوع. هذا المثال يُحدّث النص والنص البديل فقط إذا كان الكائن المُسمّى من نوع [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/).
+عند كون العملية خاصة بنوع شكل معين، تحقق من الواجهة قبل استخدام الأعضاء الخاصة بالنوع. يُحدّث هذا المثال النص والنص البديل فقط إذا كان الكائن المسمى من نوع [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/).
 
 ```java
 import com.aspose.slides.*;
@@ -103,28 +105,28 @@ try {
 }
 ```
 
-## **التعرف على وضبط تعديلات الشكل المسبق**
+## **تحديد وتعديل ضبط الأشكال المسبق**
 
-يمكن للأشكال الهندسية المسبقة الإعداد أن تعرض نقاط ضبط تتحكم في خصائص مثل حجم الزاوية، نسب السهم، أو زوايا القوس. وصول إليها عبر مجموعة القراءة فقط [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) . تُزوّد المجموعة نفسها الشكل، لكن كل [IAdjustValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/) يحتوي على قيمة يمكن تغييرها.
+يمكن للأشكال الهندسية المسبقة أن تُظهر نقاط ضبط تتحكم في خصائص مثل حجم الزاوية، نسب السهم، أو زوايا القوس. يمكن الوصول إليها عبر مجموعة القراءة فقط [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) . تُزوَّد المجموعة نفسها من الشكل، لكن كل [IAdjustValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/) يحتوي على قيمة يمكن تغييرها.
 
-لا تعتمد فقط على فهرس ثابت للمجموعة. كرّر عبر التعديلات وتفقد طريقة القراءة فقط [getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/#getType--)، حيث تُصف قيمة [ShapeAdjustmentType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shapeadjustmenttype/) ما يتحكم به الضبط. تُوفر طريقة القراءة فقط [getName](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/#getName--) معلومات تعريفية إضافية وتكون مفيدة خاصةً عندما يحتوي الإعداد المسبق على أكثر من تعديل بنوع دلالي واحد.
+لا تعتمد فقط على فهرس ثابت للمجموعة. كرّر عبر الضبط وتفحص طريقة القراءة فقط [getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/#getType--)، التي تُعيد قيمة [ShapeAdjustmentType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shapeadjustmenttype/) التي توصف ما يتحكم فيه الضبط. طريقة القراءة فقط [getName](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/#getName--) تُقدم معلومات تعريف إضافية وتكون مفيدة خصوصًا عندما يحتوي مسبق على أكثر من ضبط له نفس النوع الدلالي.
 
 استخدم طريقة القيمة التي تتطابق مع معنى الضبط:
 
-| نوع الضبط | الغرض | القيمة التي تُغيّر |
+| نوع التعديل | الغرض | القيمة التي يجب تغييرها |
 |---|---|---|
 | `CornerSize` | حجم الزوايا المستديرة | [setRawValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
 | `ArrowTailThickness` | سمك ذيل السهم | `setRawValue` |
 | `ArrowheadLength` | طول رأس السهم | `setRawValue` |
 | `ArrowheadWidth` | عرض رأس السهم | `setRawValue` |
-| `StartAngle` | زاوية البداية لفطيرة أو قوس | [setAngleValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
-| `EndAngle` | زاوية النهاية لفطيرة أو قوس | `setAngleValue` |
+| `StartAngle` | الزاوية البداية لفطيرة أو قوس | [setAngleValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | الزاوية النهاية لفطيرة أو قوس | `setAngleValue` |
 
-`getType` و `getName` تُعيد معلومات للقراءة فقط. `getRawValue` و `setRawValue` تعمل مع عدد صحيح بوحدات الهندسة الأصلية للإعداد المسبق، بينما `getAngleValue` و `setAngleValue` تعمل مع زاوية بالدرجة. عدد وترتيب ومعنى ونطاق التعديلات يعتمد على [ShapeType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igeometryshape/#getShapeType--) المسبق. قد تكون قيمة صالحة لإعداد مسبق غير صالحة أو تُحدث تأثيرًا مختلفًا لإعداد آخر.
+تُعيد `getType` و`getName` معلومات قراءة فقط. تعمل `getRawValue` و`setRawValue` مع عدد صحيح بوحدات الهندسة الأصلية للمسبق، بينما تعمل `getAngleValue` و`setAngleValue` مع زاوية بالدرجات. يعتمد عدد، وترتيب، ومعنى، والنطاق الصالح للضبط على [ShapeType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igeometryshape/#getShapeType--) للمسبق. قد تكون قيمة صالحة لمسبق ما غير صالحة أو لها تأثير مختلف لمسبق آخر.
 
-عندما تُعيد `getType` القيمة `ShapeAdjustmentType.Custom`، لا تتعرف الـ API على معنى دلالي قياسي. افحص `getName`، نوع الإعداد المسبق، والقيمة الحالية، واترك الضبط دون تغيير ما لم تُعرف المعنى والنطاق المتوقعين. حتى للأنواع المعروفة، تحقق مما إذا كان نفس النوع يظهر أكثر من مرة قبل اختيار قيمة. تُظهر مقالة [Connector](/slides/ar/androidjava/connector/) هذا الوضع مع تعديلات انحناء الموصل.
+عندما تُعيد `getType` القيمة `ShapeAdjustmentType.Custom`، لا يتعرف API على معنى دلالي قياسي. تفقد `getName`، نوع المسبق، والقيمة الحالية، واترك الضبط دون تغيير إلا إذا كان المعنى والنطاق معروفين. حتى للأنواع المعروفة، تحقق مما إذا كان النوع نفسه يظهر أكثر من مرة قبل اختيار قيمة. تُظهر مقالة [Connector](/slides/ar/androidjava/connector/) هذا الوضع مع ضبط انحناء الموصل.
 
-المثال الكامل التالي يُنشئ إصدارات افتراضية ومُعدلة لثلاثة أشكال مسبقة. يكرّر عبر كل تعديل، يُبلغ عن اسمه ونوعه، يغيّر القيم المرتبطة بالحجم عبر `setRawValue`، ويغيّر الزوايا عبر `setAngleValue`، ثم يحفظ النتيجة. العمود الأيسر يحتفظ بالهندسة الافتراضية؛ العمود الأيمن يُظهر المستطيل المستدير المعدل، السهم رباعي الاتجاهات، والفطيرة.
+المثال الكامل التالي يُنشئ نسخًا افتراضية ومُعدلة من ثلاثة أشكال مسبقة. يكرر عبر كل ضبط، يُبلغ عن اسمه ونوعه، يغيّر القيم المتعلقة بالحجم عبر `setRawValue`، ويغيّر الزوايا عبر `setAngleValue`، ويحفظ النتيجة. العمود الأيسر يحتفظ بالهندسة الافتراضية؛ العمود الأيمن يُظهر المستطيل المستدير المُعدَّل، السهم رباعي الاتجاهات، والفطيرة.
 
 ```java
 import com.aspose.slides.*;
@@ -133,7 +135,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // يضيف رؤوسًا لأعمدة الشكل الافتراضي والعمود المعدل.
+    // يضيف عناوين لأعمدة الشكل الافتراضي والمعدل.
     IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
     defaultColumnLabel.getTextFrame().setText("Default preset geometry");
     IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -194,17 +196,17 @@ try {
 }
 ```
 
-التحقق من النوع الدلالي قبل تغيير القيمة يجعل الكود واضحًا بشأن نيته ويتجنّب الافتراض بأن فهرس مجموعة معين له نفس المعنى عبر أشكال مسبقة مختلفة.
+التحقق من النوع الدلالي قبل تغيير القيمة يجعل الكود صريحًا بشأن نيته ويتجنب الافتراض بأن فهرس مجموعة معين له نفس المعنى عبر أشكال مسبقة مختلفة.
 
 ## **تعديل مجموعة الأشكال**
 
-تعمل طرق الإضافة، الاستنساخ، الإزالة، وإعادة الترتيب على المجموعة مباشرة. إذا غيّرت عملية ما عدد أو ترتيب الأشكال، لا تستمر في الاعتماد على الفهارس التي تم الحصول عليها قبل تلك العملية.
+تعمل طرق الإضافة، الاستنساخ، الإزالة، وإعادة الترتيب على المجموعة فورًا. إذا غيرت عملية ما عدد أو ترتيب الأشكال، لا تستمر بالاعتماد على الفهارس التي تم التقاطها قبل تلك العملية.
 
 ### **استنساخ شكل**
 
-[addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) يُنشئ نسخة مستقلة ويضيفها إلى مجموعة الهدف. [insertClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) يُنشئ نسخة أيضًا لكنه يضعها عند فهرس z-order محدد. التحميلات التي تقبل إحداثيات تنقل النسخة دون تغيير حجمها؛ التحميلات التي تشمل العرض والارتفاع يمكنها تغيير حجمه أيضًا.
+[addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) يُنشئ نسخة مستقلة ويضيفها إلى مجموعة الهدف. [insertClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) يُنشئ نسخة أيضًا لكنه يضعها عند فهرس ترتيب Z محدد. التحميل الزائد الذي يقبل إحداثيات ينقل النسخة دون تغيير حجمها؛ التحميل الزائد الذي يحدد العرض والارتفاع يمكنه تغيير حجمها كذلك.
 
-المثال يُنشئ شريحة هدف، يستنسخ مستطيلً مُسمّى إلى الأمام، ويُدخل نسخة ثانية إلى الخلف. لا تُغيّر التغييرات على أي نسخة الأصل.
+ينشئ المثال شريحة هدف، يستنسخ مستطيلًا مُعنونًا إلى المقدمة، ويُدرج نسخة ثانية إلى الخلف. لا تُعدّل أي من النسختين المصدر.
 
 ```java
 import com.aspose.slides.*;
@@ -243,13 +245,13 @@ try {
 }
 ```
 
-الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرّفات منطقية جديدة للنسخة عندما يجب أن تكون تلك القيم فريدة. الموارد المستخدمة بواسطة الأشكال المعقّدة تُدار بواسطة العرض التقديمي، لكن النسخة تظل عنصرًا جديدًا في المجموعة له هوية شكل جديدة.
+الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرفات منطقية جديدة للنسخة عندما يجب أن تكون تلك القيم فريدة. تُدار الموارد المستخدمة بواسطة الأشكال المعقدة عبر العرض التقديمي، لكن النسخة تبقى عنصرًا جديدًا في المجموعة بمعرف شكل جديد.
 
 ### **إزالة الأشكال**
 
-[remove](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) يحذف كائن شكل محدد من مجموعته. عند إزالة مطابقة متعددة أثناء تكرار فهرسي، تنقّب من النهاية بحيث يظل كل فهرس متبقٍ صالحًا.
+[remove](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) يحذف كائن شكل محدد من مجموعته. عند إزالة عدة تطابقات أثناء تكرار فهارس، انتقل من النهاية بحيث يظل كل فهرس متبقٍ صالحًا.
 
-هذا المثال يزيل كل شكل يحمل اسمًا معينًا. يقرأ الشكل عند الفهرس الحالي، ليس عنصر مجموعة ثابت، ولا يقوم بتحويل النوع دون حاجة.
+يزيل هذا المثال كل شكل يحمل اسمًا معينًا. يقرأ الشكل عند الفهرس الحالي، ليس عنصرًا ثابتًا في المجموعة، ولا يُجري تحويلًا غير ضروري للنوع.
 
 ```java
 import com.aspose.slides.*;
@@ -280,11 +282,11 @@ try {
 }
 ```
 
-بعد الإزالة، يتغيّر عدد الأشكال وفهارس الأشكال اللاحقة. تبقى المراجع إلى الأشكال غير المتأثرة أكثر موثوقية من الفهارس المحفوظة. كما يجب مراعاة الموصلات، الرسوم المتحركة، وميزات العرض التقديمي الأخرى التي قد تشير إلى الكائن المُزال؛ قد يغيّر إزالة شكل مرئي أكثر من مظهر الشريحة.
+بعد الإزالة، يتغير عدد الأشكال وفهارس الأشكال اللاحقة. تبقى المراجع إلى الأشكال غير المتأثرة أكثر موثوقية من الفهارس المحفوظة. ضع في اعتبارك الموصلات، الرسوم المتحركة، وميزات العرض التقديمي الأخرى التي قد تشير إلى الكائن المُزال؛ قد يغيّر إزالة شكل مرئي أكثر من مظهر الشريحة.
 
 ### **إخفاء شكل**
 
-تعيين [Hidden](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) إلى `true` يبقى الشكل في المجموعة لكنه يمنعه من الظهور في عرض الشرائح العادي. يظل فهرسه وتنسيقه ومحتواه متاحًا للكود، لذا فإن الإخفاء مناسب للعناصر الاختيارية التي قد تُستعاد لاحقًا.
+تعيين [Hidden](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) إلى `true` يبقي الشكل في المجموعة لكنه يمنعه من الظهور في عرض الشرائح العادي. يبقى فهرسه وتنسيقه ومحتواه متاحًا للكود، لذا يُعد الإخفاء مناسبًا للعناصر الاختيارية التي قد تُستعاد لاحقًا.
 
 ```java
 import com.aspose.slides.*;
@@ -315,7 +317,7 @@ try {
 
 ### **تغيير ترتيب Z**
 
-الأشكال المتراكبة تُرسم بترتيب المجموعة. [reorder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) ينقل شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `size() - 1` هو الأمام.
+تُرسم الأشكال المتداخلة بترتيب المجموعة. [reorder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) ينقل شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `size() - 1` هو المقدمة.
 
 ```java
 import com.aspose.slides.*;
@@ -342,11 +344,11 @@ try {
 }
 ```
 
-يُنشأ المستطيل أولًا ويجلس في البداية خلف القطعة البيضاوية. نقله إلى الفهرس النهائي يضعه في الأمام. احرص على تثبيت ترتيب Z بعد إضافة أو استنساخ كل الأشكال ذات الصلة، لأن تلك العمليات تُضيف أو تُدخل عناصر مجموعة جديدة ويمكن أن تغير التكدس المقصود.
+يُنشأ المستطيل أولًا ويقع في البداية خلف الإهليلج. نقله إلى الفهرس النهائي يجعله في المقدمة. أكّد ترتيب Z بعد إضافة أو استنساخ جميع الأشكال ذات الصلة، لأن هذه العمليات تُضيف أو تُدرج عناصر مجموعة جديدة ويمكن أن تغير التكدس المقصود.
 
 ## **فحص الأشكال على شرائح التخطيط**
 
-لشرائح عادية، شرائح تخطيط، وشرائح رئيسية مجموعات أشكال منفصلة. الشكل في مجموعة التخطيط ليس نفس الكائن مثل الشكل المماثل في شريحة عادية. افحص أشكال التخطيط عندما تحتاج إلى فهم أو تغيير التنسيق المزوّد بواسطة تخطيط.
+للشرائح العادية، وشرائح التخطيط، والشرائح الرئيسة مجموعات أشكال منفصلة. الشكل في مجموعة تخطيط ليس هو نفسه كائن الشكل المماثل في شريحة عادية. افحص أشكال التخطيط عندما تحتاج إلى فهم أو تعديل التنسيق المزوَّد من قبل التخطيط.
 
 المثال التالي يقرأ كل [FillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getFillFormat--) و[LineFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#getLineFormat--) للشكل في التخطيط دون افتراض أن كل شكل هو `AutoShape`.
 
@@ -367,11 +369,11 @@ try {
 }
 ```
 
-تحرير تخطيط قد يؤثر على عدة شرائح تستخدمه. قبل تغيير شكل تخطيط، حدّد ما إذا كانت الشريحة العادية ترث الكائن أو تحتوي على تجاوز محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
+تحرير تخطيط يمكن أن يؤثر على عدة شرائح تستخدمه. قبل تغيير شكل تخطيط، حدِّد ما إذا كانت شريحة عادية تورث الكائن أو تحتوي على تجاوز محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
 
 ## **تصدير شكل إلى SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) يكتب محتوى شكل مُصاغ إلى تدفق. النتيجة تحتوي على الشكل فقط، لا الخلفية الكاملة للشريحة أو الأشكال المجاورة.
+[writeAsSvg](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) يكتب محتوى شكل مُرَسَم إلى تيار. النتيجة تحتوي على الشكل فقط، لا خلفية الشريحة بأكملها أو الأشكال المجاورة.
 
 ```java
 import com.aspose.slides.*;
@@ -397,13 +399,13 @@ try {
 }
 ```
 
-احفظ العرض التقديمي مفتوحًا أثناء التصدير. يعتمد الإخراج على تنسيق الشكل وعلى موارد مثل الخطوط والصور. إذا كنت تحتاج إلى التركيب كاملًا، صدّر الشريحة بدلاً من شكل فردي. المتصل يمتلك التدفق ويجب أن يغلقه.
+احتفظ بالعرض التقديمي مفتوحًا أثناء التصدير. يعتمد الإخراج على تنسيق الشكل وعلى الموارد مثل الخطوط والصور. إذا كنت بحاجة إلى التكوين الكامل، صدّر الشريحة بدلًا من الشكل الفردي. المتصل يملك التيار ويجب أن يغلقه.
 
 ## **محاذاة الأشكال**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) يحتوي على عدة تحميلات تُحاذى إما كل الأشكال أو فهارس مجموعة مختارة. [ShapesAlignmentType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shapesalignmenttype/) يحدد الحافة، الخط الأوسط، أو وضع التوزيع. عيّن `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ عيّنها إلى `false` لمحاذاة الأشكال المحددة بالنسبة لبعضها البعض.
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) يوفّر إما محاذاة جميع الأشكال أو فهارس مجموعة مختارة. تحدد [ShapesAlignmentType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shapesalignmenttype/) الحافة، أو الخط المركزي، أو وضع التوزيع. عيّن `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ عيّنه إلى `false` لمحاذاة الأشكال المحددة بالنسبة إلى بعضها البعض.
 
-هذا المثال يُحاذى ثلاثة أشكال إلى الحافة العليا للشريحة. تُحوّل مراجع الأشكال المرجعة إلى فهارسها الحالية مباشرةً قبل المحاذاة.
+المثال التالي يُحاذِى ثلاثة أشكال إلى الحافة العلوية للشريحة. تُحوَّل مراجع الأشكال المرجعة إلى فهارسها الحالية مباشرةً قبل المحاذاة.
 
 ```java
 import com.aspose.slides.*;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-المحاذاة تغيّر المواقع، لا ترتيب Z. المحاذاة النسبية عادةً تتطلب شكلين على الأقل، بينما توزيع أفقي أو عمودي يحتاج إلى عدد كافٍ من الأشكال لتحديد الفواصل. أعد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
+تغيّر المحاذاة المواقع، لا ترتيب Z. عادةً ما تحتاج المحاذاة النسبية إلى شكلين على الأقل، بينما تتطلب التوزيعات الأفقية أو العمودية عددًا كافيًا من الأشكال لتحديد الفواصل. أعد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
 
-## **انعكاس شكل**
+## **قلب الشكل**
 
-فئة [ShapeFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shapeframe/) تخزن الموقع، الحجم، إعدادات الانعكاس الأفقي والعمودي، والدوران. قيمتي `getFlipH` و `getFlipV` تستخدم [NullableBool](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/nullablebool/): `True` يُفعّل الانعكاس، `False` يُعطّله، و `NotDefined` يحافظ على الحالة غير المحددة/الافتراضية.
+تخزّن فئة [ShapeFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shapeframe/) الموقع، والحجم، وإعدادات القلب الأفقي والعمودي، والدوران. قيمتي `getFlipH` و`getFlipV` تستخدمان [NullableBool](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/nullablebool/): `True` يُفعِّل القلب، `False` يُعطِّله، و`NotDefined` يحافظ على الحالة غير المحددة/الافتراضية.
 
-العرض التقديمي المدخل أدناه يحتوي على شكل غير معكوس.
+العرض التقديمي المدخل أدناه يحتوي على شكل غير مقلوب.
 
-![الشكل قبل الانعكاس](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-المثال يحافظ على كل قيم الإطار الأخرى ويستبدل فقط إعدادات الانعكاس الثانية. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) جديد يُستبدل الإطار بالكامل.
+يحافظ المثال على كل قيمة إطار أخرى ويستبدل فقط إعدادات القلب الاثنين. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) جديد يستبدل الإطار بالكامل.
 
 ```java
 import com.aspose.slides.*;
@@ -459,24 +461,24 @@ try {
 }
 ```
 
-الشكل المحفوظ مُعكس أفقيًا وعموديًا مع الحفاظ على موقعه وحجمه ودورانه.
+يُحفظ الشكل معكوسًا أفقيًا وعموديًا مع الحفاظ على موقعه وحجمه ودورانه.
 
-![الشكل بعد الانعكاس](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يجب استخدام فهرس المجموعة كمعرّف للشكل؟**
+**هل يجب عليّ استخدام فهرس المجموعة كمعرف للشكل؟**
 
-فقط للمعالجة قصيرة الأمد عندما لا تتغير المجموعة قبل استخدام الفهرس. يُفضَّل اعتماد معيار `Name` أو `AlternativeText` للقوالب التي يصنعها المطور، أو `OfficeInteropShapeId` لأعمال التفاعل على مستوى الشريحة.
+فقط للمعالجة قصيرة الأمد عندما لن تتغير المجموعة قبل استخدام الفهرس. يُفضَّل اعتماد اتفاقية `Name` أو `AlternativeText` للقوالب المُنشأة، أو `OfficeInteropShapeId` للعمل التفاعلي على مستوى الشريحة.
 
 **هل إخفاء الشكل يزيله من ترتيب Z؟**
 
-لا. يبقى الشكل المخفي في المجموعة عند نفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره، أو إظهاره مرة أخرى.
+لا. يظل الشكل المخفي في المجموعة عند نفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره، أو إظهاره مرة أخرى.
 
-**لماذا ظهر الشكل المستنسخ أمام شكل آخر؟**
+**لماذا ظهر شكل مستنسخ أمام شكل آخر؟**
 
-`addClone` يضيف النسخة إلى نهاية المجموعة، وهي أمام ترتيب Z. استخدم `insertClone` لتحديد الفهرس الأولي أو `reorder` بعد إضافة جميع الأشكال.
+`addClone` يضيف النسخة إلى نهاية المجموعة، وهي مقدمة ترتيب Z. استخدم `insertClone` لاختيار الفهرس الأولي أو `reorder` بعد إضافة جميع الأشكال.
 
-**هل يمكنني استخدام فهرس ثابت لتحديد تعديل شكل مسبق؟**
+**هل يمكنني استخدام فهرس ثابت لتحديد ضبط شكل مسبق؟**
 
-فقط بعد التحقق من الإعداد المسبق الدقيق وتخطيط المجموعة. يُفضَّل التكرار عبر `IGeometryShape.getAdjustments` والتحقق من `IAdjustValue.getType`؛ استخدم `IAdjustValue.getName` كمعلومات إضافية عندما يظهر نفس النوع الدلالي أكثر من مرة.
+فقط بعد التحقق من المسبق المحدد وتخطيط المجموعة بدقة. يُفضَّل التكرار عبر `IGeometryShape.getAdjustments` وفحص `IAdjustValue.getType`؛ استخدم `IAdjustValue.getName` كمعلومات إضافية عندما يظهر النوع الدلالي نفسه أكثر من مرة.
