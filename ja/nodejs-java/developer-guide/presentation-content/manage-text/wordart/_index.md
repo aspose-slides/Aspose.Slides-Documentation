@@ -1,5 +1,5 @@
 ---
-title: JavaScript で WordArt 効果を作成および適用する
+title: Node.js で WordArt エフェクトを作成および適用する
 linktitle: WordArt
 type: docs
 weight: 110
@@ -8,372 +8,371 @@ keywords:
 - WordArt
 - WordArt の作成
 - WordArt テンプレート
-- WordArt 効果
-- 影効果
-- 表示効果
-- グロー効果
+- WordArt エフェクト
+- 影エフェクト
+- 反射エフェクト
+- グローエフェクト
 - WordArt 変形
-- 3D 効果
-- 外部影効果
-- 内部影効果
-- PowerPoint
-- プレゼンテーション
+- 3D エフェクト
+- 外側影エフェクト
+- 内側影エフェクト
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js で WordArt 効果を作成およびカスタマイズします。このステップバイステップガイドは、開発者がプロフェッショナルなテキストでプレゼンテーションを向上させるのに役立ちます。"
+description: "Aspose.Slides for Node.js via Java で WordArt エフェクトを作成およびカスタマイズします。このステップバイステップ ガイドは、開発者が Node.js でプロフェッショナルなテキストを使用してプレゼンテーションを強化するのに役立ちます。"
 ---
+## **概要**
 
-## **WordArt について**
+WordArt エフェクトを使用すると、塗りつぶし、アウトライン、影、反射、グロー、変形、3D 書式設定でテキストを装飾できます。本記事では、Microsoft Office をインストールせずに、Aspose.Slides for Node.js via Java を使用して PowerPoint プレゼンテーションでこれらのエフェクトを作成およびカスタマイズする方法を説明します。
 
-WordArt（または Word Art）は、テキストに効果を適用して目立たせる機能です。WordArt を使用すると、テキストに輪郭を付けたり、色（またはグラデーション）で塗りつぶしたり、3D 効果を追加したりできます。また、テキストの形状を歪めたり、曲げたり、伸縮させることもできます。 
+## **シンプルな WordArt テンプレートを作成し、テキストに適用する**
 
-{{% alert color="primary" %}} 
-WordArt は、テキストをグラフィックオブジェクトのように扱うことができます。一般的に、WordArt はテキストをより魅力的または目立たせるために加える効果や特別な変更で構成されています。 
-{{% /alert %}} 
+以下の例では、テキスト、フォント、パターン塗りつぶし、アウトラインを設定してシンプルな WordArt スタイルを構築します。
 
-**Microsoft PowerPoint の WordArt**
-
-Microsoft PowerPoint で WordArt を使用するには、事前定義された WordArt テンプレートのいずれかを選択する必要があります。WordArt テンプレートは、テキストまたはその形状に適用される効果のセットです。 
-
-**Aspose.Slides の WordArt**
-
-In Aspose.Slides for Node.js via Java 20.10 we implemented support for WordArt and made improvements to the feature in subsequent Aspose.Slides for Node.js via Java releases.
-
-Aspose.Slides for Node.js via Java を使用すると、JavaScript で簡単に独自の WordArt テンプレート（単一の効果または効果の組み合わせ）を作成し、テキストに適用できます。
-
-## **シンプルな WordArt テンプレートの作成とテキストへの適用**
-
-**Aspose.Slides の使用** 
-
-まず、この JavaScript コードを使用してシンプルなテキストを作成します：
+各例は新しいプレゼンテーションを作成し、最初のスライドに長方形を追加します。入力ファイルは必要ありません。最初の例ではテキストを "Aspose.Slides" に設定します。シェイプの位置とサイズはポイント単位で測定されます:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    var textFrame = autoShape.getTextFrame();
-    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+
+    const portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-次に、効果がより目立つようにテキストのフォント高さを大きく設定します。以下のコードを使用します：
+フォーマットを目立たせるために、フォントを Arial Black の 36 ポイントに設定します:
 ```javascript
-var fontData = new aspose.slides.FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
-```
+const aspose = { slides: require("aspose.slides.via.java") };
 
-
-**Microsoft PowerPoint の使用**
-
-Microsoft PowerPoint の WordArt 効果メニューに移動します：
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-右側のメニューから事前定義された WordArt 効果を選択できます。左側のメニューから新しい WordArt の設定を指定できます。 
-
-以下は利用可能なパラメータまたはオプションの一部です：
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Aspose.Slides の使用**
-
-ここでは、テキストに [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) パターンカラーを適用し、以下のコードで幅 1 の黒いテキスト枠線を追加します：
-```javascript
-portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-```
-
-
-結果のテキスト：
-
-![todo:image_alt_text](image-20200930114108-4.png)
-
-## **その他の WordArt 効果の適用**
-
-**Microsoft PowerPoint の使用**
-
-プログラムのクラスから、テキスト、テキストブロック、シェイプ、または類似の要素にこれらの効果を適用できます：
-
-![todo:image_alt_text](image-20200930114129-5.png)
-
-例えば、Shadow、Reflection、Glow の効果はテキストに適用でき、3D Format と 3D Rotation の効果はテキストブロックに適用でき、Soft Edges プロパティは Shape オブジェクトに適用できます（3D Format プロパティが設定されていなくても効果があります）。
-
-### **影効果の適用**
-
-ここでは、テキストに関連するプロパティのみを設定することを意図しています。以下の JavaScript コードでテキストに影効果を適用します：
-```javascript
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.32);
-```
-
-
-Aspose.Slides API は、OuterShadow、InnerShadow、PresetShadow の 3 種類の影をサポートしています。  
-PresetShadow を使用すると、プリセット値でテキストに影を適用できます。
-
-**Microsoft PowerPoint の使用**
-
-PowerPoint では、1 種類の影を使用できます。例を示します：
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Aspose.Slides の使用**
-
-Aspose.Slides は、実際に InnerShadow と PresetShadow の 2 種類の影を同時に適用できます。
-
-- OuterShadow と PresetShadow を同時に使用すると、OuterShadow の効果のみが適用されます。  
-- OuterShadow と InnerShadow を同時に使用した場合、結果として適用される効果は PowerPoint のバージョンに依存します。たとえば、PowerPoint 2013 では効果が二重になりますが、PowerPoint 2007 では OuterShadow の効果が適用されます。
-
-### **テキストへのディスプレイ効果の適用**
-
-以下の JavaScript コードサンプルでテキストにディスプレイ効果を追加します：
-```javascript
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(aspose.slides.RectangleAlignment.BottomLeft);
-```
-
-
-### **テキストへのグロー効果の適用**
-
-以下のコードでテキストにグロー効果を適用し、光らせたり目立たせたりします：
-```javascript
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-
-操作の結果：
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-影、ディスプレイ、グローのパラメータは変更可能です。効果のプロパティはテキストの各部分に個別に設定されます。 
-{{% /alert %}} 
-
-### **WordArt の変形の使用**
-
-以下のコードで、テキスト全体に備わっている Transform プロパティを使用します：
-```javascript
-textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
-```
-
-
-結果：
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-Microsoft PowerPoint と Aspose.Slides for Node.js via Java の両方が、いくつかの事前定義された変形タイプを提供しています。 
-{{% /alert %}} 
-
-**PowerPoint の使用**  
-事前定義された変形タイプにアクセスするには、**Format** -> **TextEffect** -> **Transform** の順に進みます。  
-
-**Aspose.Slides の使用**  
-変形タイプを選択するには、TextShapeType 列挙体を使用します。  
-
-### **テキストとシェイプへの 3D 効果の適用**
-
-以下のサンプルコードでテキストシェイプに 3D 効果を設定します：
-```javascript
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-autoShape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-autoShape.getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-autoShape.getThreeDFormat().setContourWidth(1.5);
-autoShape.getThreeDFormat().setDepth(3);
-autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-結果のテキストとそのシェイプ：
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-以下の JavaScript コードでテキストに 3D 効果を適用します：
-```javascript
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-操作の結果：
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-テキストやそのシェイプへの 3D 効果の適用および効果間の相互作用は、特定のルールに基づいています。
-
-テキストとそれを含むシェイプのシーンを考慮します。3D 効果は 3D オブジェクトの表現と、オブジェクトが配置されたシーンを含みます。
-
-- 図形とテキストの両方にシーンが設定されている場合、図形のシーンが優先され、テキストのシーンは無視されます。  
-- 図形に独自のシーンがなく 3D 表現がある場合、テキストのシーンが使用されます。  
-- それ以外の場合、元々シェイプに 3D 効果がない場合、シェイプは平面で、3D 効果はテキストのみに適用されます。
-
-これらの説明は ThreeDFormat.getLightRig() および ThreeDFormat.getCamera() メソッドに関連しています。 
-{{% /alert %}} 
-
-## **テキストへの外部影効果の適用**
-
-Aspose.Slides for Node.js via Java は、[**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/) および [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/innershadow/) クラスを提供し、[TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) に含まれるテキストに影効果を適用できます。以下の手順に従ってください：
-
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. スライドに矩形タイプの AutoShape を追加します。  
-4. AutoShape に関連付けられた TextFrame にアクセスします。  
-5. AutoShape の FillType を NoFill に設定します。  
-6. OuterShadow クラスのインスタンスを作成します。  
-7. 影の BlurRadius を設定します。  
-8. 影の Direction を設定します。  
-9. 影の Distance を設定します。  
-10. RectanglelAlign を TopLeft に設定します。  
-11. 影の PresetColor を Black に設定します。  
-12. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き出します。  
-
-上記の手順を実装した Java のサンプルコードは、テキストに外部影効果を適用する方法を示しています：
-```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // スライドの参照を取得する
-    var sld = pres.getSlides().get_Item(0);
-    // 矩形タイプの AutoShape を追加する
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // 矩形に TextFrame を追加する
-    ashp.addTextFrame("Aspose TextBox");
-    // テキストの影を取得できるように、シェイプの塗りつぶしを無効にする
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 外部影を追加し、すべての必要なパラメータを設定する
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    var shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
-    // プレゼンテーションをディスクに書き込む
-    pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-
-## **シェイプへの内部影効果の適用**
-
-以下の手順に従ってください：
-
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. スライドの参照を取得します。  
-3. 矩形タイプの AutoShape を追加します。  
-4. InnerShadowEffect を有効にします。  
-5. 必要なすべてのパラメータを設定します。  
-6. ColorType を Scheme に設定します。  
-7. Scheme Color を設定します。  
-
-上記の手順に基づくこのサンプルコードは、JavaScript で 2 つのシェイプ間にコネクタを追加する方法を示しています：
+[SmallGrid](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/patternstyle/#SmallGrid) パターンを、暗橙色の前景と白い背景で適用し、幅 1 ポイントの黒いテキストアウトラインを追加します:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // スライドの参照を取得する
-    var slide = pres.getSlides().get_Item(0);
-    // 矩形タイプの AutoShape を追加する
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 矩形に TextFrame を追加する
-    ashp.addTextFrame("Aspense TextBox");
-    var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    var pf = port.getPortionFormat();
-    pf.setFontHeight(50);
-    // InnerShadowEffect を有効にする
-    var ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-    // 必要なすべてのパラメータを設定する
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB(189);
-    // ColorType を Scheme に設定する
-    ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // Scheme カラーを設定する
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
-    // プレゼンテーションを保存する
-    pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
+    const darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
+
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+結果のテキスト:
+![The simple WordArt template](WordArt_template.png)
+
+## **その他の WordArt エフェクトを適用する**
+
+以下の例では、テキストに影、反射、グロー、変形、3D エフェクトを適用する方法を示します。
+
+### **外側の影エフェクトを適用する**
+
+外側の影は、テキストの背後に影を配置して奥行きを追加します。その色、方向、距離、ぼかし半径、スケール、歪みをカスタマイズできます。
+
+この例では [enableOuterShadowEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effectformat/#enableOuterShadowEffect) を呼び出し、ぼかし半径 4 ポイント、方向 230 度、距離 30 ポイントの黒い影を設定します。スケール値 100 は影のサイズを維持し、水平歪みで 20 度傾けます。アルファ変換で不透明度を 32% に設定します:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.32));
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト:
+![The Outer Shadow effect](outer_shadow_effect.png)
+
+{{% alert color="info" title="Note" %}}
+- 外側の影とプリセットの影を同時に使用すると、外側の影のみが適用されます。
+- 外側の影と内側の影を同時に使用した場合、効果は PowerPoint のバージョンに依存します。たとえば、PowerPoint 2013 では効果が2倍になり、PowerPoint 2007 では外側の影のみが適用されます。
+{{% /alert %}}
+
+### **反射エフェクトを適用する**
+
+反射はテキストの鏡像コピーを作成します。位置、スケール、ぼかし、透明度を調整して見た目を制御します。
+
+この例では [enableReflectionEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effectformat/#enableReflectionEffect) を呼び出し、スケール -100% で反射を垂直に反転させます。ぼかし半径 0.5 ポイント、距離 4.72 ポイントを使用します。透明度は、反射の位置 0% から 60% の間で 60% から 0.9% へと減少します:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(java.newFloat(0));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(java.newFloat(0.9));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.BottomLeft));
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト:
+![The Reflection effect](reflection_effect.png)
+
+### **グローエフェクトを適用する**
+
+グローはテキストの周囲に柔らかい色のアウトラインを付加します。色、透明度、半径を調整して効果を制御します。
+
+この例では [enableGlowEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effectformat/#enableGlowEffect) を呼び出し、透明度 54%、半径 7 ポイントの赤いグローを適用します:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.54));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト:
+![The Glow effect](glow_effect.png)
+
+### **WordArt 変形を適用する**
+
+WordArt の変形は、テキストブロックを曲げ、伸ばし、またはゆがめます。
+
+[setTransform](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/#setTransform) を [ArchUpPour](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textshapetype/#ArchUpPour) に設定して、テキストフレーム全体を上向きに曲げます:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト:
+![The WordArt transformation](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Node.js via Java は、事前定義された [transformation types](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textshapetype/) のセットを提供します。
+{{% /alert %}}
+
+### **シェイプとテキストに 3D エフェクトを適用する**
+
+シェイプまたはそのテキストに 3D エフェクトを適用できます。ベベル、押し出し、照明、カメラ設定が最終的な外観を制御します。
+
+以下の例では [ThreeDFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/threedformat/) を使用して、長方形に円形ベベル、オレンジ色の押し出し、暗赤色の輪郭を追加します。ベベルの寸法、押し出し高さ、輪郭幅、奥行きはポイント単位で測定されます。プラスチック素材、Z 軸周りに 40 度回転したバランスの取れた照明、透視カメラが外観を定義します:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のシェイプ:
+![The shape 3D effect](shape_3D_effect.png)
+
+この例では [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) を使用してテキストにも同様の 3D 書式設定を適用します。小さなベベルが文字のエッジを形作り、押し出しと照明がテキストに奥行きを与えます:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト:
+![The text 3D effect](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+テキストまたはシェイプへの 3D エフェクトの適用と、これらのエフェクト間の相互作用は、特定のルールによって管理されます。テキストとそれを含むシェイプの両方が関与するシーンを考えてみましょう。3D エフェクトはオブジェクトの 3D 表現と、配置されるシーンを含みます。
+
+- シェイプとテキストの両方にシーンが設定されている場合、シェイプのシーンが優先され、テキストのシーンは無視されます。
+- シェイプに独自のシーンがなく、3D 表現だけがある場合、テキストのシーンが使用されます。
+- シェイプに 3D エフェクトが全くない場合、フラットとして扱われ、3D エフェクトはテキストにのみ適用されます。
+
+これらの動作は [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/threedformat/#getLightRig) および [ThreeDFormat.getCamera](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/threedformat/#getCamera) メソッドに関連しています。
+{{% /alert %}}
+
+テキストをフラットかつ読みやすく保ちつつ、シェイプの 3D 書式設定を維持するには、[Keep Text Flat on a 3D Shape](/slides/ja/nodejs-java/3d-presentation/) を参照して、両方の設定の比較と完全な JavaScript サンプルをご覧ください。
 
 ## **FAQ**
 
-**異なるフォントやスクリプト（例：アラビア語、中国語）で WordArt 効果を使用できますか？**
+**異なるフォントやスクリプト（例：アラビア語、中国語）で WordArt エフェクトを使用できますか？**
 
-はい、Aspose.Slides は Unicode をサポートし、主要なフォントやスクリプトすべてで動作します。影、塗り、輪郭などの WordArt 効果は言語に関係なく適用できますが、フォントの可用性やレンダリングはシステムフォントに依存する場合があります。
+はい、Aspose.Slides for Node.js via Java は Unicode をサポートしており、すべての主要なフォントとスクリプトで動作します。影、塗りつぶし、アウトラインなどの WordArt エフェクトは言語に関係なく適用できますが、フォントの可用性やレンダリングはシステムフォントに依存する場合があります。
 
-**スライドマスタ要素に WordArt 効果を適用できますか？**
+**スライドマスターの要素に WordArt エフェクトを適用できますか？**
 
-はい、タイトルプレースホルダー、フッター、背景テキストなど、マスタースライド上のシェイプに WordArt 効果を適用できます。マスターのレイアウトに加えた変更は、関連するすべてのスライドに反映されます。
+はい、マスタースライド上のシェイプ（タイトルプレースホルダー、フッター、背景テキストなど）に WordArt エフェクトを適用できます。マスターのレイアウトを変更すると、関連付けられたすべてのスライドに反映されます。
 
-**WordArt 効果はプレゼンテーションのファイルサイズに影響しますか？**
+**WordArt エフェクトはプレゼンテーションのファイルサイズに影響しますか？**
 
-わずかに。影、グロー、グラデーション塗りなどの WordArt 効果は、追加の書式メタデータによりファイルサイズが若干増加する可能性がありますが、差は通常ほとんど無視できる程度です。
+やや影響します。影、グロー、グラデーション塗りつぶしなどの WordArt エフェクトは、追加の書式設定メタデータを伴うためファイルサイズが若干増加することがありますが、差は通常は無視できる程度です。
 
-**プレゼンテーションを保存せずに WordArt 効果の結果をプレビューできますか？**
+**プレゼンテーションを保存せずに WordArt エフェクトの結果をプレビューできますか？**
 
-はい、[Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) または [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) クラスの `getImage` メソッドを使用して、WordArt を含むスライドを画像（PNG、JPEG など）にレンダリングできます。これにより、プレゼンテーション全体を保存またはエクスポートする前に、メモリ上または画面上で結果をプレビューできます。
+はい、[Slide.getImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/#getImage) を使用して WordArt を含むスライドを画像（例：PNG、JPEG）としてレンダリングしたり、[Shape.getImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/#getImage) で個々のシェイプを画像としてレンダリングしたりできます。これにより、プレゼンテーション全体を保存またはエクスポートする前に、メモリ上または画面上で結果をプレビューできます。

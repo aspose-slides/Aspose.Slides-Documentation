@@ -1,5 +1,5 @@
 ---
-title: Tworzenie i zastosowanie efektów WordArt w PHP
+title: Tworzenie i stosowanie efektów WordArt w PHP
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,366 +10,407 @@ keywords:
 - szablon WordArt
 - efekt WordArt
 - efekt cienia
-- efekt wyświetlania
+- efekt odbicia
 - efekt poświaty
-- transformacja WordArt
+- przekształcenie WordArt
 - efekt 3D
 - efekt zewnętrznego cienia
 - efekt wewnętrznego cienia
-- PowerPoint
-- prezentacja
 - PHP
 - Aspose.Slides
-description: "Tworzenie i dostosowywanie efektów WordArt w Aspose.Slides dla PHP via Java. Ten przewodnik krok po kroku pomaga programistom wzbogacić prezentacje profesjonalnym tekstem."
+description: "Tworzenie i dostosowywanie efektów WordArt w Aspose.Slides for PHP via Java. Ten przewodnik krok po kroku pomaga programistom ulepszyć prezentacje profesjonalnym tekstem w PHP."
 ---
 ## **Przegląd**
 
-Efekty WordArt pozwalają dodawać wizualnie atrakcyjny, stylizowany tekst do prezentacji PowerPoint. Dzięki Aspose.Slides programiści mogą programowo tworzyć, dostosowywać i zarządzać WordArt tak jak w Microsoft PowerPoint — bez konieczności instalowania Office. W tym artykule przedstawiono omówienie pracy z WordArt, w tym jak stosować transformacje tekstu, style wypełnień, obrysów, cieni i inne opcje formatowania, aby treść prezentacji była bardziej ekspresyjna i angażująca. WordArt umożliwia traktowanie tekstu jako obiektu graficznego. Składa się z efektów lub specjalnych modyfikacji stosowanych do tekstu, aby był on bardziej atrakcyjny lub zauważalny.
+Efekty WordArt umożliwiają stylizowanie tekstu przy użyciu wypełnień, konturów, cieni, odbić, poświaty, przekształceń i formatowania 3D. Ten artykuł wyjaśnia, jak tworzyć i dostosowywać te efekty w prezentacjach PowerPoint przy użyciu Aspose.Slides for PHP via Java, bez zainstalowanego Microsoft Office.
 
-## **Utwórz prosty szablon WordArt i zastosuj go do tekstu**
+## **Utworzenie prostego szablonu WordArt i zastosowanie go do tekstu**
 
-**Korzystanie z Aspose.Slides** 
+Poniższe przykłady tworzą prosty styl WordArt poprzez ustawienie tekstu, czcionki, wypełnienia wzorem i konturu.
 
-Najpierw tworzymy prosty tekst przy użyciu tego kodu PHP:
+Każdy przykład tworzy nową prezentację i dodaje prostokąt do pierwszego slajdu; nie jest wymaga pliku wejściowego. Pierwszy przykład ustawia tekst na "Aspose.Slides". Pozycja i wymiary kształtu są mierzone w punktach:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
     $textFrame = $autoShape->getTextFrame();
+
     $portion = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->setText("Aspose.Slides");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-Teraz ustawiamy wysokość czcionki tekstu na większą wartość, aby efekt był bardziej widoczny, za pomocą tego kodu:
-
-```php
-  $fontData = new FontData("Arial Black");
-  $portion->getPortionFormat()->setLatinFont($fontData);
-  $portion->getPortionFormat()->setFontHeight(36);
-
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Korzystanie z Microsoft PowerPoint**
-
-Przejdź do menu efektów WordArt w Microsoft PowerPoint:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-Z menu po prawej możesz wybrać wstępnie zdefiniowany efekt WordArt. Z menu po lewej możesz określić ustawienia nowego WordArt. 
-
-Oto niektóre dostępne parametry lub opcje:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Korzystanie z Aspose.Slides**
-
-Tutaj stosujemy kolor wzoru [SmallGrid](https://reference.aspose.com/slides/pl/php-java/aspose.slides/patternstyle/#SmallGrid) do tekstu i dodajemy czarną obwódkę o szerokości 1 za pomocą tego kodu:
+Ustaw czcionkę na Arial Black o rozmiarze 36 punktów, aby formatowanie było bardziej widoczne:
 
 ```php
-  $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle->SmallGrid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Zastosuj wzór [SmallGrid](https://reference.aspose.com/slides/pl/php-java/aspose.slides/patternstyle/#SmallGrid) z ciemnopomarańczowym pierwszym planem i białym tłem, a następnie dodaj czarny kontur tekstu o szerokości 1 punktu:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor($darkOrange);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::SmallGrid);
+
+    $portion->getPortionFormat()->getLineFormat()->setWidth(1);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 Wynikowy tekst:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Prosty szablon WordArt](WordArt_template.png)
 
-## **Zastosuj inne efekty WordArt**
+## **Zastosowanie innych efektów WordArt**
 
-**Korzystanie z Microsoft PowerPoint**
+Poniższe przykłady pokazują, jak zastosować cienie, odbicia, poświatę, przekształcenia i efekty 3D do tekstu.
 
-Z interfejsu programu możesz zastosować te efekty do tekstu, bloku tekstowego, kształtu lub podobnego elementu:
+### **Zastosowanie efektu zewnętrznego cienia**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Zewnętrzny cień dodaje głębi, umieszczając cień za tekstem. Możesz dostosować jego kolor, kierunek, odległość, promień rozmycia, skalę i pochylenie.
 
-Na przykład efekty Cień, Refleksja i Poświata mogą być zastosowane do tekstu; efekty Format 3D i Obrót 3D mogą być zastosowane do bloku tekstowego; właściwość Miękkie krawędzie może być zastosowana do obiektu Shape (działa ona również, gdy nie jest ustawiona właściwość Format 3D). 
-
-### **Zastosuj efekty cienia**
-
-Tutaj zamierzamy ustawić właściwości dotyczące wyłącznie tekstu. Stosujemy efekt cienia do tekstu przy użyciu tego kodu:
+Ten przykład wywołuje [enableOuterShadowEffect](https://reference.aspose.com/slides/pl/php-java/aspose.slides/effectformat/#enableOuterShadowEffect--) i ustawia czarny cień z promieniem rozmycia 4 punkty, kierunkiem 230 stopni oraz odległością 30 punktów. Wartość skali 100 zachowuje rozmiar cienia, a pochylenie poziome przechyla go o 20 stopni. Transformacja alfa ustawia jego nieprzezroczystość na 32%:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(65);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4.73);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(2);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(30);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.32);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(30);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(20);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.32);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-API Aspose.Slides obsługuje trzy typy cieni: OuterShadow, InnerShadow i PresetShadow. 
+Wynikowy tekst:
 
-Przy użyciu PresetShadow możesz zastosować cień do tekstu (korzystając z wartości presetowanych). 
+![Efekt zewnętrznego cienia](outer_shadow_effect.png)
 
-**Korzystanie z Microsoft PowerPoint**
+{{% alert color="info" title="Uwaga" %}}
+- Gdy jednocześnie używane są zewnętrzne i wstępnie ustawione cienie, stosowany jest tylko zewnętrzny cień.
+- Jeśli jednocześnie używane są cienie zewnętrzne i wewnętrzne, ostateczny efekt zależy od wersji PowerPointa. Na przykład w PowerPoint 2013 efekt jest podwojony, natomiast w PowerPoint 2007 stosowany jest tylko zewnętrzny cień.
+{{% /alert %}}
 
-W PowerPoint możesz używać jednego typu cienia. Oto przykład:
+### **Zastosowanie efektu odbicia**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+Odbicie tworzy lustrzane odbicie tekstu. Dostosuj jego pozycję, skalę, rozmycie i nieprzezroczystość, aby kontrolować wygląd.
 
-**Korzystanie z Aspose.Slides**
-
-Aspose.Slides faktycznie pozwala zastosować dwa typy cieni jednocześnie: InnerShadow i PresetShadow.
-
-**Uwaga:**
-
-- Gdy OuterShadow i PresetShadow są używane razem, stosowany jest tylko efekt OuterShadow. 
-- Jeśli OuterShadow i InnerShadow są używane jednocześnie, zastosowany efekt zależy od wersji PowerPoint. Na przykład w PowerPoint 2013 efekt jest podwajany. Natomiast w PowerPoint 2007 stosowany jest efekt OuterShadow. 
-
-### **Zastosuj efekty refleksji do tekstu**
-
-Dodajemy refleksję do tekstu za pomocą tego przykładu kodu:
+Ten przykład wywołuje [enableReflectionEffect](https://reference.aspose.com/slides/pl/php-java/aspose.slides/effectformat/#enableReflectionEffect--) i odwraca odbicie pionowo ze skalą -100%. Używa promienia rozmycia 0,5 punktu oraz odległości 4,72 punktu. Nieprzezroczystość zmniejsza się z 60% do 0,9% między pozycjami 0% i 60% wzdłuż odbicia:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->BottomLeft);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\RectangleAlignment;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment::BottomLeft);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Zastosuj efekty poświaty do tekstu**
+Wynikowy tekst:
 
-Stosujemy efekt poświaty do tekstu, aby błyszczał lub wyróżniał się, używając tego kodu:
+![Efekt odbicia](reflection_effect.png)
+
+### **Zastosowanie efektu poświaty**
+
+Poświata dodaje miękki, kolorowy kontur wokół tekstu. Dostosuj jej kolor, nieprzezroczystość i promień, aby kontrolować efekt.
+
+Ten przykład wywołuje [enableGlowEffect](https://reference.aspose.com/slides/pl/php-java/aspose.slides/effectformat/#enableGlowEffect--) i stosuje czerwoną poświatę z 54% nieprzezroczystością oraz promieniem 7 punktów:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.54);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setColor(java("java.awt.Color")->RED);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.54);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Wynik operacji:
+Wynikowy tekst:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![Efekt poświaty](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **Zastosowanie przekształceń WordArt**
 
-Możesz zmienić parametry cienia, refleksji i poświaty. Właściwości efektów są ustawiane osobno dla każdej części tekstu. 
+Przekształcenia WordArt wyginają, rozciągają lub deformują blok tekstu.
 
-{{% /alert %}} 
-
-### **Użyj transformacji w WordArt**
-
-Używamy właściwości Transform (obowiązującej dla całego bloku tekstu) przy pomocy tego kodu:
-```php
-  $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
-```
-
-Wynik:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Zarówno Microsoft PowerPoint, jak i Aspose.Slides for PHP via Java udostępniają pewną liczbę wstępnie zdefiniowanych typów transformacji.
-
-{{% /alert %}} 
-
-**Korzystanie z PowerPoint**
-
-Aby uzyskać dostęp do wstępnie zdefiniowanych typów transformacji, przejdź do: **Format** -> **TextEffect** -> **Transform**
-
-**Korzystanie z Aspose.Slides**
-
-Aby wybrać typ transformacji, użyj wyliczenia TextShapeType. 
-
-### **Zastosuj efekty 3D do tekstu i kształtów**
-
-Ustawiamy efekt 3D dla kształtu tekstowego przy użyciu tego przykładowego kodu:
+Ustaw [setTransform](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/#setTransform-int-) na [ArchUpPour](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textshapetype/#ArchUpPour), aby wygiąć cały ramkę tekstową w górę:
 
 ```php
-  $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
-  $autoShape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $autoShape->getThreeDFormat()->setExtrusionHeight(6);
-  $autoShape->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $autoShape->getThreeDFormat()->setContourWidth(1.5);
-  $autoShape->getThreeDFormat()->setDepth(3);
-  $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+    $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Wynikowy tekst i jego kształt:
+Wynikowy tekst:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![Przekształcenie WordArt](transform_effect.png)
 
-Stosujemy efekt 3D do tekstu za pomocą tego kodu PHP:
+{{% alert color="info" title="Uwaga" %}}
+Aspose.Slides for PHP via Java udostępnia zestaw wstępnie zdefiniowanych [typów przekształceń](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textshapetype/).
+{{% /alert %}}
+
+### **Zastosowanie efektów 3D do kształtów i tekstu**
+
+Możesz zastosować efekty 3D do kształtu lub jego tekstu. Krawędzie, ekstruzja, oświetlenie i ustawienia kamery kontrolują końcowy wygląd.
+
+Poniższy przykład używa [ThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/), aby dodać okrągłe krawędzie, pomarańczową ekstruzję i ciemnoczerwony kontur do prostokąta. Wymiary krawędzi, wysokość ekstruzji, szerokość konturu i głębokość są mierzone w punktach. Materiał plastikowy, zrównoważone oświetlenie obrócone o 40 stopni wokół osi Z oraz kamera perspektywiczna definiują jego wygląd:
 
 ```php
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $autoShape->getTextFrame()->setText("Aspose.Slides");
+
+    $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
+
+    $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
+    $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $autoShape->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $autoShape->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $autoShape->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $autoShape->getThreeDFormat()->setContourWidth(1.5);
+
+    $autoShape->getThreeDFormat()->setDepth(3);
+
+    $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Wynik operacji:
+Wynikowy kształt:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![Efekt 3D kształtu](shape_3D_effect.png)
 
-{{% alert color="primary" %}} 
-
-Stosowanie efektów 3D do tekstów lub ich kształtów oraz interakcje między efektami opierają się na określonych regułach. 
-
-Rozważ scenę dla tekstu i kształtu zawierającego ten tekst. Efekt 3D obejmuje reprezentację obiektu 3D oraz scenę, na której obiekt został umieszczony. 
-
-- Gdy scena jest ustawiona zarówno dla figury, jak i tekstu, scena figury ma wyższy priorytet – scena tekstu jest ignorowana. 
-- Gdy figura nie ma własnej sceny, ale posiada reprezentację 3D, używana jest scena tekstu. 
-- W przeciwnym razie – gdy kształt pierwotnie nie ma efektu 3D – kształt jest płaski i efekt 3D jest stosowany tylko do tekstu. 
-
-Te opisy są powiązane z metodami ThreeDFormat.getLightRig() i ThreeDFormat.getCamera(). 
-
-{{% /alert %}} 
-
-## **Zastosuj efekty zewnętrznego cienia do tekstu**
-Aspose.Slides for PHP via Java udostępnia klasy [OuterShadow](https://reference.aspose.com/slides/pl/php-java/aspose.slides/outershadow/) i [InnerShadow](https://reference.aspose.com/slides/pl/php-java/aspose.slides/innershadow/), które pozwalają stosować efekty cienia do tekstu zawartego w [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/). Postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/). 
-2. Uzyskaj odniesienie do slajdu, używając jego indeksu. 
-3. Dodaj AutoShape typu Rectangle do slajdu. 
-4. Uzyskaj dostęp do TextFrame skojarzonego z AutoShape. 
-5. Ustaw FillType AutoShape na NoFill. 
-6. Utwórz instancję klasy OuterShadow. 
-7. Ustaw BlurRadius cienia. 
-8. Ustaw Direction cienia. 
-9. Ustaw Distance cienia. 
-10. Ustaw RectanglelAlign na TopLeft. 
-11. Ustaw PresetColor cienia na Black. 
-12. Zapisz prezentację jako plik [PPTX](https://docs.fileformat.com/presentation/pptx/). 
-
-Ten przykładowy kod — implementacja powyższych kroków — pokazuje, jak zastosować efekt zewnętrznego cienia do tekstu:
+Ten przykład stosuje podobne formatowanie 3D do tekstu przy użyciu [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/#getThreeDFormat--). Mniejsze krawędzie kształtują krawędzie liter, a ekstruzja i oświetlenie nadają tekstowi głębię:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Pobierz referencję do slajdu
-    $sld = $pres->getSlides()->get_Item(0);
-    # Dodaj AutoShape typu Rectangle
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Dodaj TextFrame do Rectangle
-    $ashp->addTextFrame("Aspose TextBox");
-    # Wyłącz wypełnienie kształtu, jeśli chcemy uzyskać cień tekstu
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Dodaj zewnętrzny cień i ustaw wszystkie niezbędne parametry
-    $ashp->getEffectFormat()->enableOuterShadowEffect();
-    $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
-    $shadow->setBlurRadius(4.0);
-    $shadow->setDirection(45);
-    $shadow->setDistance(3);
-    $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
-    $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    # Zapisz prezentację na dysku
-    $pres->save("pres_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Zastosuj efekty wewnętrznego cienia do kształtów**
-Postępuj według następujących kroków:
+Wynikowy tekst:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/). 
-2. Pobierz odniesienie do slajdu. 
-3. Dodaj AutoShape typu Rectangle. 
-4. Włącz InnerShadowEffect. 
-5. Ustaw wszystkie niezbędne parametry. 
-6. Ustaw ColorType jako Scheme. 
-7. Ustaw Scheme Color. 
-8. Zapisz prezentację jako plik [PPTX](https://docs.fileformat.com/presentation/pptx/). 
+![Efekt 3D tekstu](text_3D_effect.png)
 
-Ten przykładowy kod (oparty na powyższych krokach) pokazuje, jak dodać łącznik pomiędzy dwoma kształtami:
+{{% alert color="info" title="Uwaga" %}}
+Zastosowanie efektów 3D do tekstu lub ich kształtów — oraz interakcja między tymi efektami — jest regulowana określonymi zasadami. Rozważ scenę obejmującą zarówno tekst, jak i kształt go zawierający. Efekt 3D obejmuje trójwymiarową reprezentację obiektu oraz scenę, w której jest umieszczony.
 
-```php
-  $pres = new Presentation();
-  try {
-    # Pobierz referencję do slajdu
-    $slide = $pres->getSlides()->get_Item(0);
-    # Dodaj AutoShape typu Rectangle
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Dodaj TextFrame do Rectangle
-    $ashp->addTextFrame("Aspose TextBox");
-    $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $pf = $port->getPortionFormat();
-    $pf->setFontHeight(50);
-    # Włącz InnerShadowEffect
-    $ef = $pf->getEffectFormat();
-    $ef->enableInnerShadowEffect();
-    # Ustaw wszystkie niezbędne parametry
-    $ef->getInnerShadowEffect()->setBlurRadius(8.0);
-    $ef->getInnerShadowEffect()->setDirection(90.0);
-    $ef->getInnerShadowEffect()->setDistance(6.0);
-    $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # Ustaw ColorType jako Scheme
-    $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # Ustaw Scheme Color
-    $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    # Zapisz prezentację
-    $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+- Jeśli scena jest ustawiona zarówno dla kształtu, jak i tekstu, scenę kształtu ma pierwszeństwo, a scena tekstu jest ignorowana.
+- Jeśli kształt nie ma własnej sceny, ale posiada reprezentację 3D, używana jest scena tekstu.
+- Jeśli kształt nie ma wcale efektu 3D, traktowany jest jako płaski, a efekt 3D jest stosowany wyłącznie do tekstu.
+
+Te zachowania odnoszą się do metod [ThreeDFormat::getLightRig](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/#getLightRig--) i [ThreeDFormat::getCamera](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/#getCamera--).
+{{% /alert %}}
+
+Więcej przykładów formatowania 3D znajdziesz w [Tworzenie efektów 3D w prezentacjach przy użyciu PHP](/slides/pl/php-java/3d-presentation/).
 
 ## **FAQ**
 
-**Czy mogę używać efektów WordArt z różnymi czcionkami lub skryptami (np. arabski, chiński)?**  
+**Czy mogę używać efektów WordArt z różnymi czcionkami lub skryptami (np. arabski, chiński)?**
 
-Tak, Aspose.Slides obsługuje Unicode i działa ze wszystkimi głównymi czcionkami oraz skryptami. Efekty WordArt, takie jak cień, wypełnienie i obrys, mogą być stosowane niezależnie od języka, choć dostępność czcionek i renderowanie mogą zależeć od czcionek systemowych.
+Tak, Aspose.Slides for PHP via Java obsługuje Unicode i działa ze wszystkimi popularnymi czcionkami i skryptami. Efekty WordArt, takie jak cień, wypełnienie i kontur, można stosować niezależnie od języka, choć dostępność czcionek i ich renderowanie mogą zależeć od czcionek systemowych.
 
-**Czy mogę stosować efekty WordArt do elementów master slajdu?**  
+**Czy mogę zastosować efekty WordArt do elementów mastera slajdu?**
 
-Tak, możesz stosować efekty WordArt do kształtów na slajdach master, w tym do pól placeholderów tytułu, stopek lub tekstu w tle. Zmiany w układzie master będą odzwierciedlone we wszystkich powiązanych slajdach.
+Tak, możesz zastosować efekty WordArt do kształtów na slajdach master, w tym do pól tytułu, stopki lub tekstu tła. Zmiany wprowadzone w układzie master zostaną odzwierciedlone we wszystkich powiązanych slajdach.
 
-**Czy efekty WordArt wpływają na rozmiar pliku prezentacji?**  
+**Czy efekty WordArt wpływają na rozmiar pliku prezentacji?**
 
-Nieznacznie. Efekty WordArt, takie jak cienie, poświaty i wypełnienia gradientowe, mogą nieco zwiększyć rozmiar pliku ze względu na dodatkowe metadane formatowania, ale różnica jest zwykle pomijalna.
+Nieznacznie. Efekty WordArt, takie jak cienie, poświaty i wypełnienia gradientowe, mogą nieco zwiększyć rozmiar pliku ze względu na dodatkowe metadane formatowania, ale różnica zazwyczaj jest pomijalna.
 
-**Czy mogę podejrzeć wynik efektów WordArt bez zapisywania prezentacji?**  
+**Czy mogę podglądać wynik efektów WordArt bez zapisywania prezentacji?**
 
-Tak, możesz renderować slajdy zawierające WordArt do obrazów (np. PNG, JPEG) przy użyciu metody `getImage` z klasy [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) lub [Slide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/). Dzięki temu możesz podejrzeć wynik w pamięci lub na ekranie przed zapisaniem lub wyeksportowaniem pełnej prezentacji.
+Tak, możesz renderować slajdy zawierające WordArt do obrazów (np. PNG, JPEG) przy użyciu [Slide::getImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/#getImage--), lub renderować poszczególne kształty przy użyciu [Shape::getImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/#getImage--). Dzięki temu możesz podglądać wynik w pamięci lub na ekranie przed zapisaniem lub wyeksportowaniem pełnej prezentacji.

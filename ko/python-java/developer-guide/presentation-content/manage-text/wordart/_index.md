@@ -5,33 +5,33 @@ type: docs
 weight: 110
 url: /ko/python-java/wordart/
 keywords:
-- 워드아트
-- 워드아트 만들기
-- 워드아트 템플릿
-- 워드아트 효과
+- WordArt
+- WordArt 만들기
+- WordArt 템플릿
+- WordArt 효과
 - 그림자 효과
 - 반사 효과
-- 발광 효과
-- 워드아트 변환
+- 글로우 효과
+- WordArt 변환
 - 3D 효과
-- 외곽 그림자 효과
+- 외부 그림자 효과
 - 내부 그림자 효과
-- 파워포인트
+- PowerPoint
 - 프레젠테이션
-- 파이썬
-- 자바
+- Python
+- Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java에서 WordArt 효과를 만들고 맞춤화합니다. 이 단계별 가이드는 개발자가 Python via Java로 전문적인 텍스트를 사용해 프레젠테이션을 향상시킬 수 있도록 도와줍니다."
+description: "Aspose.Slides for Python via Java에서 WordArt 효과를 만들고 사용자 지정합니다. 이 단계별 가이드는 개발자가 Python via Java를 사용하여 전문적인 텍스트로 프레젠테이션을 향상시키도록 도와줍니다."
 ---
 ## **개요**
 
-WordArt 효과를 사용하면 PowerPoint 프레젠테이션에 시각적으로 매력적이고 스타일리시한 텍스트를 추가할 수 있습니다. Aspose.Slides를 사용하면 개발자가 Microsoft PowerPoint와 마찬가지로 Office 없이도 프로그래밍 방식으로 WordArt를 생성, 사용자 지정 및 관리할 수 있습니다. 이 문서에서는 텍스트 변환, 채우기 스타일, 외곽선, 그림자 및 기타 서식 옵션을 적용하여 프레젠테이션 내용을 보다 표현력 있고 매력적으로 만드는 방법을 포함해 WordArt 작업에 대한 개요를 제공합니다. WordArt는 텍스트를 그래픽 개체처럼 다룰 수 있게 해줍니다. 텍스트를 보다 매력적이거나 눈에 띄게 만들기 위해 적용되는 효과 또는 특수 수정으로 구성됩니다.
+WordArt 효과를 사용하면 채우기, 윤곽선, 그림자, 반사, 글로우, 변환 및 3D 서식을 통해 텍스트를 스타일링할 수 있습니다. 이 문서에서는 Microsoft Office 없이 Aspose.Slides for Python via Java를 사용하여 PowerPoint 프레젠테이션에서 이러한 효과를 만들고 사용자 지정하는 방법을 설명합니다.
 
-## **간단한 WordArt 템플릿 만들고 텍스트에 적용하기**
+## **간단한 WordArt 템플릿 만들기 및 텍스트에 적용**
 
-**Aspose.Slides 사용**
+다음 예제들은 텍스트, 글꼴, 패턴 채우기 및 윤곽선을 설정하여 간단한 WordArt 스타일을 구축합니다.
 
-먼저 다음 Python 코드를 사용해 간단한 텍스트를 생성합니다:
+각 예제는 새 프레젠테이션을 만들고 첫 번째 슬라이드에 사각형을 추가합니다; 입력 파일이 필요하지 않습니다. 첫 번째 예제는 텍스트를 “Aspose.Slides”로 설정합니다. 도형의 위치와 크기는 포인트 단위로 측정됩니다:
 
 ```python
 import jpype
@@ -45,7 +45,8 @@ from asposeslides.api import Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
 
     portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -53,7 +54,8 @@ try:
 finally:
     presentation.dispose()
 ```
-다음으로 폰트 크기를 늘려 효과를 더 눈에 띄게 합니다:
+
+글꼴을 36포인트 Arial Black으로 설정하여 서식을 더 눈에 띄게 합니다:
 
 ```python
 import jpype
@@ -67,34 +69,19 @@ from asposeslides.api import FontData, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    font_data = FontData("Arial Black")
-    portion_format = portion.getPortionFormat()
-    portion_format.setLatinFont(font_data)
-    portion_format.setFontHeight(36)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 finally:
     presentation.dispose()
 ```
 
-**Microsoft PowerPoint 사용**
-
-Microsoft PowerPoint에서 WordArt 효과 메뉴로 이동합니다:
-
-![PowerPoint의 WordArt 효과 메뉴](image-20200930113926-1.png)
-
-오른쪽 메뉴에서 미리 정의된 WordArt 효과를 선택할 수 있고, 왼쪽 메뉴에서 새 WordArt에 대한 설정을 지정할 수 있습니다.
-
-다음은 사용할 수 있는 일부 매개변수 또는 옵션입니다:
-
-![WordArt 서식 옵션](image-20200930114015-3.png)
-
-**Aspose.Slides 사용**
-
-다음 코드를 사용해 텍스트에 [PatternStyle.SmallGrid](https://reference.aspose.com/slides/ko/python-java/aspose.slides/patternstyle/#SmallGrid) 패턴 채우기를 적용하고 검은색 텍스트 테두리를 추가합니다:
+다크 오렌지 전경색과 흰색 배경을 사용한 [SmallGrid](https://reference.aspose.com/slides/ko/python-java/aspose.slides/patternstyle/#SmallGrid) 패턴을 적용하고, 너비 1포인트의 검은색 텍스트 윤곽선을 추가합니다:
 
 ```python
 import jpype
@@ -103,48 +90,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, PatternStyle, Presentation, ShapeType
+from asposeslides.api import FillType, FontData, PatternStyle, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getFillFormat().setFillType(FillType.Pattern)
-    pattern_format = portion_format.getFillFormat().getPatternFormat()
-    pattern_format.getForeColor().setColor(Color.ORANGE)
-    pattern_format.getBackColor().setColor(Color.WHITE)
-    pattern_format.setPatternStyle(PatternStyle.SmallGrid)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern)
+    dark_orange = Color(255, 140, 0)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(dark_orange)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid)
 
-    line_format = portion_format.getLineFormat()
-    line_format.getFillFormat().setFillType(FillType.Solid)
-    line_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getLineFormat().setWidth(1)
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 finally:
     presentation.dispose()
 ```
 
 결과 텍스트:
 
-![패턴 채우기와 검은 외곽선이 적용된 텍스트](image-20200930114108-4.png)
+![간단한 WordArt 템플릿](WordArt_template.png)
 
-## **다른 WordArt 효과 적용하기**
+## **다른 WordArt 효과 적용**
 
-**Microsoft PowerPoint 사용**
+다음 예제는 그림자, 반사, 글로우, 변환 및 3D 효과를 텍스트에 적용하는 방법을 보여줍니다.
 
-프로그램 인터페이스에서 텍스트, 텍스트 블록, 도형 또는 유사 요소에 다음 효과를 적용할 수 있습니다:
+### **외부 그림자 효과 적용**
 
-![PowerPoint의 텍스트 및 도형 효과](image-20200930114129-5.png)
+외부 그림자는 텍스트 뒤에 그림자를 배치하여 깊이를 추가합니다. 색상, 방향, 거리, 흐림 반경, 스케일 및 기울기를 사용자 지정할 수 있습니다.
 
-예를 들어 그림자, 반사 및 발광 효과는 텍스트에 적용할 수 있고, 3D 서식 및 3D 회전 효과는 텍스트 블록에 적용할 수 있으며, 부드러운 가장자리 효과는 도형에 적용할 수 있습니다(3D 서식 효과가 설정되지 않아도 적용됩니다).
-
-### **그림자 효과 적용**
-
-다음 Python 코드는 텍스트에만 그림자 효과를 적용합니다:
+이 예제는 [enableOuterShadowEffect](https://reference.aspose.com/slides/ko/python-java/aspose.slides/effectformat/#enableOuterShadowEffect)를 호출하고 흐림 반경 4포인트, 방향 230도, 거리 30포인트인 검은색 그림자를 설정합니다. 스케일 값 100은 그림자 크기를 유지하고, 수평 기울기는 20도로 기울입니다. 알파 변환은 불투명도를 32%로 설정합니다:
 
 ```python
 import jpype
@@ -153,132 +139,135 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableOuterShadowEffect()
-    outer_shadow = portion_format.getEffectFormat().getOuterShadowEffect()
-    outer_shadow.getShadowColor().setColor(Color.BLACK)
-    outer_shadow.setScaleHorizontal(100)
-    outer_shadow.setScaleVertical(65)
-    outer_shadow.setBlurRadius(4.73)
-    outer_shadow.setDirection(230)
-    outer_shadow.setDistance(2)
-    outer_shadow.setSkewHorizontal(30)
-    outer_shadow.setSkewVertical(0)
-    outer_shadow.getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect()
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
 finally:
     presentation.dispose()
 ```
 
-Aspose.Slides API는 [OuterShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/outershadow/), [InnerShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/innershadow/) 및 [PresetShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presetshadow/)의 세 가지 그림자 유형을 지원합니다.
+결과 텍스트:
 
-[PresetShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presetshadow/)를 사용하면 미리 정의된 값을 통해 텍스트에 그림자를 적용할 수 있습니다.
-
-**Microsoft PowerPoint 사용**
-
-PowerPoint에서는 하나의 그림자 유형만 사용할 수 있습니다. 예시는 다음과 같습니다:
-
-![PowerPoint의 그림자 설정](image-20200930114225-6.png)
-
-**Aspose.Slides 사용**
-
-Aspose.Slides는 실제로 두 가지 그림자 유형을 동시에 적용할 수 있습니다: [InnerShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/innershadow/) 및 [PresetShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presetshadow/)입니다.
-
-**주의 사항:**
-
-- [OuterShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/outershadow/)와 [PresetShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presetshadow/)을 동시에 사용할 경우, [OuterShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/outershadow/) 효과만 적용됩니다.
-- [OuterShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/outershadow/)와 [InnerShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/innershadow/)을 동시에 사용할 경우, 적용되는 효과는 PowerPoint 버전에 따라 다릅니다. 예를 들어 PowerPoint 2013에서는 효과가 두 배가 되지만, PowerPoint 2007에서는 [OuterShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/outershadow/) 효과만 적용됩니다.
-
-### **텍스트에 반사 적용**
-
-다음 Python(Java) 코드 샘플을 통해 텍스트에 반사를 추가합니다:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, RectangleAlignment, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableReflectionEffect()
-    reflection = portion_format.getEffectFormat().getReflectionEffect()
-    reflection.setBlurRadius(0.5)
-    reflection.setDistance(4.72)
-    reflection.setStartPosAlpha(0)
-    reflection.setEndPosAlpha(60)
-    reflection.setDirection(90)
-    reflection.setScaleHorizontal(100)
-    reflection.setScaleVertical(-100)
-    reflection.setStartReflectionOpacity(60)
-    reflection.setEndReflectionOpacity(0.9)
-    reflection.setRectangleAlign(RectangleAlignment.BottomLeft)
-finally:
-    presentation.dispose()
-```
-
-### **텍스트에 발광 효과 적용**
-
-다음 코드를 사용해 텍스트에 발광 효과를 적용하여 빛나거나 돋보이게 합니다:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableGlowEffect()
-    glow = portion_format.getEffectFormat().getGlowEffect()
-    glow.getColor().setR(jpype.JByte(-1))
-    glow.getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
-    glow.setRadius(7)
-finally:
-    presentation.dispose()
-```
-
-작업 결과:
-
-![발광 효과가 적용된 텍스트](image-20200930114621-7.png)
+![외부 그림자 효과](outer_shadow_effect.png)
 
 {{% alert color="info" title="Note" %}}
-그림자, 반사 및 발광의 매개변수를 변경할 수 있습니다. 효과 속성은 텍스트의 각 부분에 별도로 설정됩니다.
+- 외부 그림자와 사전 설정 그림자를 함께 사용할 경우 외부 그림자만 적용됩니다.
+- 외부 그림자와 내부 그림자를 동시에 사용할 경우 결과 효과는 PowerPoint 버전에 따라 다릅니다. 예를 들어 PowerPoint 2013에서는 효과가 두 배가 되지만 PowerPoint 2007에서는 외부 그림자만 적용됩니다.
 {{% /alert %}}
 
-### **WordArt에서 변환 사용**
+### **반사 효과 적용**
 
-전체 텍스트 블록을 변환하려면 [TextFrameFormat.setTransform](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframeformat/#setTransform)를 사용합니다:
+반사는 텍스트의 거울 복사본을 생성합니다. 위치, 스케일, 흐림 및 불투명도를 조정하여 모양을 제어합니다.
+
+이 예제는 [enableReflectionEffect](https://reference.aspose.com/slides/ko/python-java/aspose.slides/effectformat/#enableReflectionEffect)를 호출하고 스케일 -100%로 반사를 수직으로 뒤집습니다. 흐림 반경은 0.5포인트, 거리 4.72포인트를 사용합니다. 불투명도는 반사 위치 0%에서 60% 사이에 60%에서 0.9%로 감소합니다:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, RectangleAlignment, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect()
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft)
+finally:
+    presentation.dispose()
+```
+
+결과 텍스트:
+
+![반사 효과](reflection_effect.png)
+
+### **글로우 효과 적용**
+
+글로우는 텍스트 주변에 부드러운 색상 윤곽선을 추가합니다. 색상, 불투명도 및 반경을 조정하여 효과를 제어합니다.
+
+이 예제는 [enableGlowEffect](https://reference.aspose.com/slides/ko/python-java/aspose.slides/effectformat/#enableGlowEffect)를 호출하고 불투명도 54%와 반경 7포인트인 빨간색 글로우를 적용합니다:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect()
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7)
+finally:
+    presentation.dispose()
+```
+
+결과 텍스트:
+
+![글로우 효과](glow_effect.png)
+
+### **WordArt 변환 적용**
+
+WordArt 변환은 텍스트 블록을 굽히거나 늘리거나 왜곡합니다.
+
+[setTransform](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframeformat/#setTransform)을 [ArchUpPour](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textshapetype/#ArchUpPour)으로 설정하여 전체 텍스트 프레임을 위로 굽습니다:
 
 ```python
 import jpype
@@ -292,34 +281,29 @@ from asposeslides.api import Presentation, ShapeType, TextShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
-
     text_frame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour)
 finally:
     presentation.dispose()
 ```
 
-결과:
+결과 텍스트:
 
-![아치 변환이 적용된 텍스트](image-20200930114712-8.png)
+![WordArt 변환](transform_effect.png)
 
 {{% alert color="info" title="Note" %}}
-Microsoft PowerPoint와 Aspose.Slides for Python via Java 모두 미리 정의된 여러 변환 유형을 제공합니다.
+Aspose.Slides for Python via Java는 미리 정의된 [transformation types](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textshapetype/)을 제공합니다.
 {{% /alert %}}
 
-**PowerPoint 사용**
+### **모양 및 텍스트에 3D 효과 적용**
 
-미리 정의된 변환 유형에 접근하려면 **서식** → **텍스트 효과** → **변환**으로 이동합니다.
+도형이나 텍스트에 3D 효과를 적용할 수 있습니다. 베벨, 압출, 조명 및 카메라 설정이 최종 모양을 제어합니다.
 
-**Aspose.Slides 사용**
-
-변환 유형을 선택하려면 [TextShapeType](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textshapetype/) 열거형을 사용합니다.
-
-### **텍스트 및 도형에 3D 효과 적용**
-
-다음 샘플 코드를 사용해 텍스트 도형에 3D 효과를 적용합니다:
+다음 예제는 [ThreeDFormat](https://reference.aspose.com/slides/ko/python-java/aspose.slides/threedformat/)을 사용하여 사각형에 원형 베벨, 오렌지 색 압출 및 짙은 빨간색 외곽선을 추가합니다. 베벨 치수, 압출 높이, 외곽선 너비 및 깊이는 포인트 단위로 측정됩니다. 플라스틱 재질, Z축을 기준으로 40도 회전된 균형 조명 및 원근 카메라가 외관을 정의합니다:
 
 ```python
 import jpype
@@ -334,42 +318,44 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     auto_shape.getTextFrame().setText("Aspose.Slides")
 
-    three_d_format = auto_shape.getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(10.5)
-    three_d_format.getBevelBottom().setWidth(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelBottom().setHeight(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setWidth(10.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(12.5)
-    three_d_format.getBevelTop().setWidth(11)
+    auto_shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelTop().setHeight(12.5)
+    auto_shape.getThreeDFormat().getBevelTop().setWidth(11)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    auto_shape.getThreeDFormat().getExtrusionColor().setColor(orange)
+    auto_shape.getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    auto_shape.getThreeDFormat().getContourColor().setColor(dark_red)
+    auto_shape.getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    auto_shape.getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    auto_shape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    auto_shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    auto_shape.getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-결과 텍스트 및 도형:
+결과 도형:
 
-![3D 효과가 적용된 텍스트 도형](image-20200930114816-9.png)
+![모양 3D 효과](shape_3D_effect.png)
 
-다음 Python 코드를 사용해 텍스트에 3D 효과를 적용합니다:
+이 예제는 [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframeformat/#getThreeDFormat)를 통해 텍스트에도 유사한 3D 서식을 적용합니다. 작은 베벨이 문자 가장자리를 형성하고, 압출과 조명이 텍스트에 깊이를 제공합니다:
 
 ```python
 import jpype
@@ -384,187 +370,70 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
 
-    three_d_format = text_frame.getTextFrameFormat().getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(3.5)
-    three_d_format.getBevelBottom().setWidth(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(4)
-    three_d_format.getBevelTop().setWidth(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange)
+    text_frame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(dark_red)
+    text_frame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    text_frame.getTextFrameFormat().getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    text_frame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    text_frame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-작업 결과:
+결과 텍스트:
 
-![3D 효과가 적용된 텍스트](image-20200930114905-10.png)
+![텍스트 3D 효과](text_3D_effect.png)
 
 {{% alert color="info" title="Note" %}}
-텍스트 또는 도형에 3D 효과를 적용하고 효과 간 상호 작용은 특정 규칙에 따라 결정됩니다.
+텍스트 또는 도형에 3D 효과를 적용하고 이들 효과 간의 상호 작용은 특정 규칙에 따라 관리됩니다. 텍스트와 해당 텍스트를 포함하는 도형이 모두 존재하는 장면을 고려하십시오. 3D 효과에는 객체의 3D 표현과 그 객체가 배치되는 장면이 포함됩니다.
 
-텍스트와 해당 텍스트를 포함하는 도형에 대한 장면을 고려하십시오. 3D 효과는 3D 객체 표현과 객체가 배치되는 장면을 포함합니다.
+- 도형과 텍스트 모두에 장면이 지정된 경우, 도형의 장면이 우선하고 텍스트의 장면은 무시됩니다.
+- 도형에 자체 장면은 없지만 3D 표현이 있는 경우 텍스트의 장면이 사용됩니다.
+- 도형에 3D 효과가 전혀 없는 경우, 도형은 평면으로 처리되며 3D 효과는 텍스트에만 적용됩니다.
 
-- 도형과 텍스트 모두에 장면이 설정된 경우, 도형 장면이 우선하며 텍스트 장면은 무시됩니다.
-- 도형에 자체 장면이 없고 3D 표현만 있는 경우 텍스트 장면이 사용됩니다.
-- 도형에 원래 3D 효과가 전혀 없을 경우, 도형은 평면이며 3D 효과는 텍스트에만 적용됩니다.
-
-이 규칙은 [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/ko/python-java/aspose.slides/threedformat/#getLightRig) 및 [ThreeDFormat.getCamera](https://reference.aspose.com/slides/ko/python-java/aspose.slides/threedformat/#getCamera) 메서드와 관련이 있습니다.
+이 동작은 [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/ko/python-java/aspose.slides/threedformat/#getLightRig) 및 [ThreeDFormat.getCamera](https://reference.aspose.com/slides/ko/python-java/aspose.slides/threedformat/#getCamera) 메서드와 관련됩니다.
 {{% /alert %}}
 
-## **텍스트에 외곽 그림자 효과 적용**
-
-Aspose.Slides for Python via Java는 [OuterShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/outershadow/) 및 [InnerShadow](https://reference.aspose.com/slides/ko/python-java/aspose.slides/innershadow/) 클래스를 제공하여 [TextFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/)의 텍스트에 그림자 효과를 적용할 수 있습니다. 단계별로 진행하십시오:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 사용해 슬라이드에 대한 참조를 가져옵니다.
-3. 슬라이드에 사각형 도형을 추가합니다.
-4. 도형에 연결된 텍스트 프레임에 접근합니다.
-5. 도형 채우기를 비활성화합니다.
-6. 외곽 그림자 효과를 활성화합니다.
-7. 그림자 흐림 반경을 설정합니다.
-8. 그림자 방향을 설정합니다.
-9. 그림자 거리를 설정합니다.
-10. 그림자를 왼쪽 위에 정렬합니다.
-11. 그림자 색상을 검은색으로 설정합니다.
-12. 프레젠테이션을 [PPTX](https://docs.fileformat.com/presentation/pptx/) 파일로 저장합니다.
-
-위 단계의 구현 예시인 Python(Java) 샘플 코드는 텍스트에 외곽 그림자 효과를 적용하는 방법을 보여줍니다:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import FillType, Presentation, PresetColor, RectangleAlignment, SaveFormat, ShapeType
-
-presentation = Presentation()
-try:
-    # 슬라이드에 대한 참조 가져오기
-    slide = presentation.getSlides().get_Item(0)
-
-    # 사각형 유형의 AutoShape 추가
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50)
-
-    # 사각형에 TextFrame 추가
-    auto_shape.addTextFrame("Aspose TextBox")
-
-    # 텍스트 그림자를 얻기 위해 도형 채우기 비활성화
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # 외곽 그림자를 추가하고 모든 필요한 매개변수 설정
-    auto_shape.getEffectFormat().enableOuterShadowEffect()
-    shadow = auto_shape.getEffectFormat().getOuterShadowEffect()
-    shadow.setBlurRadius(4.0)
-    shadow.setDirection(45)
-    shadow.setDistance(3)
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft)
-    shadow.getShadowColor().setPresetColor(PresetColor.Black)
-
-    # 프레젠테이션을 디스크에 저장
-    presentation.save("pres_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **도형에 내부 그림자 효과 적용**
-
-다음 단계대로 진행하십시오:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 슬라이드에 대한 참조를 가져옵니다.
-3. 사각형 도형을 추가합니다.
-4. 내부 그림자 효과를 활성화합니다.
-5. 모든 필요한 매개변수를 설정합니다.
-6. 그림자 색상 유형을 테마 색상으로 설정합니다.
-7. 테마 색상을 지정합니다.
-8. 프레젠테이션을 [PPTX](https://docs.fileformat.com/presentation/pptx/) 파일로 저장합니다.
-
-위 단계에 기반한 샘플 코드는 Python(Java)에서 도형 안의 텍스트에 내부 그림자 효과를 적용하는 방법을 보여줍니다:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorType, FillType, Presentation, SaveFormat, SchemeColor, ShapeType
-
-presentation = Presentation()
-try:
-    # 슬라이드에 대한 참조 가져오기
-    slide = presentation.getSlides().get_Item(0)
-
-    # 사각형 유형의 AutoShape 추가
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300)
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # 사각형에 TextFrame 추가
-    auto_shape.addTextFrame("Aspose TextBox")
-    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion_format = portion.getPortionFormat()
-    portion_format.setFontHeight(50)
-
-    # InnerShadowEffect 활성화
-    effect_format = portion_format.getEffectFormat()
-    effect_format.enableInnerShadowEffect()
-
-    # 필요한 모든 매개변수 설정
-    inner_shadow = effect_format.getInnerShadowEffect()
-    inner_shadow.setBlurRadius(8.0)
-    inner_shadow.setDirection(90.0)
-    inner_shadow.setDistance(6.0)
-    inner_shadow.getShadowColor().setB(jpype.JByte(-67))
-
-    # ColorType을 Scheme으로 설정
-    inner_shadow.getShadowColor().setColorType(ColorType.Scheme)
-
-    # Scheme 색상 설정
-    inner_shadow.getShadowColor().setSchemeColor(SchemeColor.Accent1)
-
-    # 프레젠테이션 저장
-    presentation.save("WordArt_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+텍스트를 평면으로 유지하면서 도형의 3D 서식을 유지하려면 [Keep Text Flat on a 3D Shape](/slides/ko/python-java/3d-presentation/)를 참조하여 두 설정을 비교하고 전체 Python 예제를 확인하십시오.
 
 ## **FAQ**
 
-**다양한 글꼴이나 스크립트(예: 아랍어, 중국어)에서도 WordArt 효과를 사용할 수 있나요?**
+**다른 글꼴이나 스크립트(예: 아라비아어, 중국어)에서 WordArt 효과를 사용할 수 있나요?**
 
-예, Aspose.Slides는 유니코드를 지원하며 모든 주요 글꼴 및 스크립트와 함께 작동합니다. 언어에 관계없이 그림자, 채우기 및 외곽선과 같은 WordArt 효과를 적용할 수 있지만, 글꼴 가용성 및 렌더링은 시스템에 설치된 글꼴에 따라 달라질 수 있습니다.
+예, Aspose.Slides for Python via Java는 유니코드를 지원하며 모든 주요 글꼴 및 스크립트와 함께 작동합니다. 그림자, 채우기, 윤곽선 등의 WordArt 효과는 언어와 관계없이 적용할 수 있지만, 글꼴 가용성 및 렌더링은 시스템에 설치된 글꼴에 따라 달라질 수 있습니다.
 
-**슬라이드 마스터 요소에도 WordArt 효과를 적용할 수 있나요?**
+**슬라이드 마스터 요소에 WordArt 효과를 적용할 수 있나요?**
 
-예, 마스터 슬라이드의 도형(제목 자리 표시자, 바닥글 또는 배경 텍스트 포함)에 WordArt 효과를 적용할 수 있습니다. 마스터 레이아웃에 대한 변경 사항은 해당 슬라이드에 연결된 모든 슬라이드에 반영됩니다.
+예, 마스터 슬라이드의 도형(제목 자리표시자, 바닥글, 배경 텍스트 등)에 WordArt 효과를 적용할 수 있습니다. 마스터 레이아웃에 변경을 하면 해당 레이아웃을 사용하는 모든 슬라이드에 자동으로 반영됩니다.
 
-**WordArt 효과가 프레젠테이션 파일 크기에 영향을 줍니까?**
+**WordArt 효과가 프레젠테이션 파일 크기에 영향을 미치나요?**
 
-조금 영향을 줍니다. 그림자, 발광 및 그라디언트 채우기와 같은 WordArt 효과는 추가 서식 메타데이터로 인해 파일 크기를 약간 늘릴 수 있지만, 차이는 일반적으로 무시할 수준입니다.
+약간 영향을 미칩니다. 그림자, 글로우 및 그라디언트 채우기와 같은 WordArt 효과는 추가 서식 메타데이터를 포함하므로 파일 크기가 약간 증가할 수 있지만, 차이는 일반적으로 무시할 수준입니다.
 
 **프레젠테이션을 저장하지 않고 WordArt 효과 결과를 미리 볼 수 있나요?**
 
-예, [Shape.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shape/#getImage) 또는 [Slide.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/slide/#getImage)를 사용해 WordArt가 포함된 슬라이드를 이미지(PNG, JPEG 등)로 렌더링할 수 있습니다. 이를 통해 전체 프레젠테이션을 저장하거나 내보내기 전 메모리 내 또는 화면에서 결과를 미리 볼 수 있습니다.
+예, [Slide.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/slide/#getImage) 또는 [Shape.getImage](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shape/#getImage)를 사용하여 WordArt가 포함된 슬라이드 또는 개별 도형을 이미지(PNG, JPEG 등)로 렌더링하면 메모리 또는 화면에서 저장 없이 결과를 미리 확인할 수 있습니다.

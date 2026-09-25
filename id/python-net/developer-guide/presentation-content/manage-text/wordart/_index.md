@@ -1,395 +1,345 @@
 ---
-title: Buat dan Terapkan Efek WordArt di Python
-linktitle: WordArt
+title: "Buat dan Terapkan Efek WordArt di Python"
+linktitle: "WordArt"
 type: docs
 weight: 110
 url: /id/python-net/wordart/
 keywords:
 - WordArt
-- buat WordArt
-- templat WordArt
-- efek WordArt
-- efek bayangan
-- efek tampilan
-- efek cahaya
-- transformasi WordArt
-- efek 3D
-- efek bayangan luar
-- efek bayangan dalam
+- "buat WordArt"
+- "template WordArt"
+- "efek WordArt"
+- "efek bayangan"
+- "efek refleksi"
+- "efek cahaya"
+- "transformasi WordArt"
+- "efek 3D"
+- "efek bayangan luar"
+- "efek bayangan dalam"
 - Python
 - Aspose.Slides
-description: "Pelajari cara membuat dan menyesuaikan efek WordArt di Aspose.Slides untuk Python via .NET. Panduan langkah demi langkah ini membantu pengembang meningkatkan presentasi dengan teks yang bergaya dan profesional dalam Python."
+description: "Buat dan sesuaikan efek WordArt dalam Aspose.Slides untuk Python via .NET. Panduan langkah demi langkah ini membantu pengembang meningkatkan presentasi dengan teks profesional di Python."
 ---
 ## **Gambaran Umum**
 
-Efek WordArt memungkinkan Anda menambahkan teks yang menarik secara visual dan bergaya ke presentasi PowerPoint Anda. Dengan Aspose.Slides, pengembang dapat secara programatis membuat, menyesuaikan, dan mengelola WordArt seperti di Microsoft PowerPoint—tanpa harus menginstal Office. Artikel ini memberikan gambaran tentang cara bekerja dengan WordArt, termasuk cara menerapkan transformasi teks, gaya isi, garis tepi, bayangan, dan opsi pemformatan lainnya untuk membuat konten presentasi Anda lebih ekspresif dan menarik. WordArt memungkinkan Anda memperlakukan teks sebagai objek grafis. Ini terdiri dari efek atau modifikasi khusus yang diterapkan pada teks agar lebih menarik atau mencolok.
+Efek WordArt memungkinkan Anda memberi gaya pada teks dengan isi, garis tepi, bayangan, refleksi, cahaya, transformasi, dan pemformatan 3D. Artikel ini menjelaskan cara membuat dan menyesuaikan efek-efek tersebut dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via .NET, tanpa perlu menginstal Microsoft Office.
 
-**WordArt di Microsoft PowerPoint**
+## **Buat Template WordArt Sederhana dan Terapkan ke Teks**
 
-Untuk menggunakan WordArt di Microsoft PowerPoint, Anda harus memilih salah satu templat WordArt yang telah dipra‑definisikan. Sebuah templat WordArt adalah sekumpulan efek yang diterapkan pada teks atau bentuknya. 
+Contoh‑contoh berikut membuat gaya WordArt sederhana dengan mengatur teks, font, pola isi, dan garis tepi.
 
-**WordArt di Aspose.Slides**
+Setiap contoh membuat presentasi baru dan menambahkan sebuah persegi panjang pada slide pertama; tidak diperlukan file masukan. Contoh pertama mengatur teks menjadi "Aspose.Slides". Posisi dan dimensi bentuk diukur dalam poin:
 
-Pada Aspose.Slides for Python via .NET 20.10, kami menambahkan dukungan untuk WordArt dan melakukan perbaikan pada fitur tersebut dalam rilis Aspose.Slides for Python via .NET selanjutnya. 
-
-Dengan Aspose.Slides for Python via .NET, Anda dapat dengan mudah membuat templat WordArt Anda sendiri (satu efek atau kombinasi efek) dalam Python dan menerapkannya pada teks. 
-
-## Membuat Templat WordArt Sederhana dan Menerapkannya pada Teks
-
-**Menggunakan Aspose.Slides** 
-
-Pertama, kami membuat teks sederhana menggunakan kode Python ini: 
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-    textFrame = autoShape.text_frame
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    portion = textFrame.paragraphs[0].portions[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    text_frame = auto_shape.text_frame
+
+    portion = text_frame.paragraphs[0].portions[0]
     portion.text = "Aspose.Slides"
-
-    pres.save("wordart-1.pptx", slides.export.SaveFormat.PPTX)
 ```
-Sekarang, kami mengatur tinggi font teks menjadi nilai yang lebih besar agar efeknya lebih terlihat melalui kode berikut:
 
-```py 
-    fontData = slides.FontData("Arial Black")
-    portion.portion_format.latin_font = fontData
+Atur font menjadi Arial Black dengan ukuran 36 poin agar pemformatan lebih jelas:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
     portion.portion_format.font_height = 36
 ```
 
-**Menggunakan Microsoft PowerPoint**
+Terapkan pola [SMALL_GRID](https://reference.aspose.com/slides/id/python-net/aspose.slides/patternstyle/) dengan latar depan oranye tua dan latar belakang putih, lalu tambahkan garis tepi teks berwarna hitam dengan lebar 1 poin:
 
-Masuk ke menu efek WordArt di Microsoft PowerPoint:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-Dari menu di sebelah kanan, Anda dapat memilih efek WordArt yang telah dipra‑definisikan. Dari menu di sebelah kiri, Anda dapat menentukan pengaturan untuk WordArt baru. 
-
-Berikut beberapa parameter atau opsi yang tersedia:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Menggunakan Aspose.Slides**
-
-Di sini, kami menerapkan warna pola SmallGrid pada teks dan menambahkan batas teks hitam dengan lebar 1 menggunakan kode berikut:
-
-```py 
-    portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
-    portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
-    portion.portion_format.fill_format.pattern_format.back_color.color = draw.Color.white
-    portion.portion_format.fill_format.pattern_format.pattern_style = slides.PatternStyle.SMALL_GRID
-                
-    portion.portion_format.line_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
-```
-
-Teks hasil:
-
-![todo:image_alt_text](image-20200930114108-4.png)
-
-## Menerapkan Efek WordArt Lainnya
-
-**Menggunakan Microsoft PowerPoint**
-
-Dari antarmuka program, Anda dapat menerapkan efek‑efek ini pada teks, blok teks, bentuk, atau elemen serupa:
-
-![todo:image_alt_text](image-20200930114129-5.png)
-
-Misalnya, efek Shadow, Reflection, dan Glow dapat diterapkan pada teks; efek 3D Format dan 3D Rotation dapat diterapkan pada blok teks; properti Soft Edges dapat diterapkan pada objek Shape (efeknya tetap ada meskipun properti 3D Format tidak diatur). 
-
-### Menerapkan Efek Bayangan
-
-Di sini, kami berniat mengatur properti yang berhubungan hanya dengan teks. Kami menerapkan efek bayangan pada teks menggunakan kode Python berikut:
-
-```py 
-    portion.portion_format.effect_format.enable_outer_shadow_effect()
-    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
-    portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
-    portion.portion_format.effect_format.outer_shadow_effect.scale_vertical = 65
-    portion.portion_format.effect_format.outer_shadow_effect.blur_radius = 4.73
-    portion.portion_format.effect_format.outer_shadow_effect.direction = 230
-    portion.portion_format.effect_format.outer_shadow_effect.distance = 2
-    portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 30
-    portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
-    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
-```
-
-API Aspose.Slides mendukung tiga jenis bayangan: OuterShadow, InnerShadow, dan PresetShadow. 
-
-Dengan PresetShadow, Anda dapat menerapkan bayangan pada teks (menggunakan nilai preset). 
-
-**Menggunakan Microsoft PowerPoint**
-
-Di PowerPoint, Anda dapat menggunakan satu jenis bayangan. Berikut contohnya:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Menggunakan Aspose.Slides**
-
-Pada Aspose.Slides sebenarnya Anda dapat menerapkan dua jenis bayangan secara bersamaan: InnerShadow dan PresetShadow.
-
-**Catatan:**
-
-- Ketika OuterShadow dan PresetShadow digunakan bersama, hanya efek OuterShadow yang diterapkan. 
-- Jika OuterShadow dan InnerShadow digunakan secara bersamaan, efek yang dihasilkan atau diterapkan tergantung pada versi PowerPoint. Misalnya, di PowerPoint 2013, efeknya menjadi ganda. Namun di PowerPoint 2007, efek OuterShadow yang diterapkan. 
-
-### Menerapkan Display pada Teks
-
-Kami menambahkan display ke teks melalui contoh kode Python berikut:
-
-```py 
-    portion.portion_format.effect_format.enable_reflection_effect()
-    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5 
-    portion.portion_format.effect_format.reflection_effect.distance = 4.72 
-    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0 
-    portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
-    portion.portion_format.effect_format.reflection_effect.direction = 90 
-    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100 
-    portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
-    portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
-    portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
-    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT  
-```
-
-### Menerapkan Efek Glow pada Teks
-
-Kami menerapkan efek glow pada teks agar bersinar atau menonjol menggunakan kode berikut:
-
-```py 
-    portion.portion_format.effect_format.enable_glow_effect()
-    portion.portion_format.effect_format.glow_effect.color.r = 255
-    portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
-    portion.portion_format.effect_format.glow_effect.radius = 7
-```
-
-Hasil operasi:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-Anda dapat mengubah parameter untuk shadow, display, dan glow. Properti efek diatur pada setiap bagian teks secara terpisah. 
-{{% /alert %}} 
-
-### Menggunakan Transformasi di WordArt
-
-Kami menggunakan properti Transform (yang melekat pada seluruh blok teks) melalui kode berikut:
-```py 
-textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
-```
-
-Hasil:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-Kedua Microsoft PowerPoint dan Aspose.Slides for Python via .NET menyediakan sejumlah tipe transformasi yang telah dipra‑definisikan. 
-{{% /alert %}} 
-
-**Menggunakan PowerPoint**
-
-Untuk mengakses tipe transformasi yang dipra‑definisikan, pergi ke: **Format** -> **TextEffect** -> **Transform**
-
-**Menggunakan Aspose.Slides**
-
-Untuk memilih tipe transformasi, gunakan enum TextShapeType. 
-
-### Menerapkan Efek 3D pada Teks dan Bentuk
-
-Kami menetapkan efek 3D pada bentuk teks menggunakan contoh kode berikut:
-
-```py 
-    autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_d_format.bevel_bottom.height = 10.5
-    autoShape.three_d_format.bevel_bottom.width = 10.5
-
-    autoShape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_d_format.bevel_top.height = 12.5
-    autoShape.three_d_format.bevel_top.width = 11
-
-    autoShape.three_d_format.extrusion_color.color = draw.Color.orange
-    autoShape.three_d_format.extrusion_height = 6
-
-    autoShape.three_d_format.contour_color.color = draw.Color.dark_red
-    autoShape.three_d_format.contour_width = 1.5
-
-    autoShape.three_d_format.depth = 3
-
-    autoShape.three_d_format.material = slides.MaterialPresetType.PLASTIC
-
-    autoShape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
-    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    autoShape.three_d_format.light_rig.set_rotation(0, 0, 40)
-
-    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
-```
-
-Teks hasil dan bentuknya:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-Kami menerapkan efek 3D pada teks dengan kode Python berikut:
-
-```py 
-    textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
-    textFrame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
-
-    textFrame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_d_format.bevel_top.height = 4
-    textFrame.text_frame_format.three_d_format.bevel_top.width = 4
-
-    textFrame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
-    textFrame.text_frame_format.three_d_format.extrusion_height= 6
-
-    textFrame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
-    textFrame.text_frame_format.three_d_format.contour_width = 1.5
-
-    textFrame.text_frame_format.three_d_format.depth= 3
-
-    textFrame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
-
-    textFrame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
-    textFrame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    textFrame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
-
-    textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
-```
-
-Hasil operasi:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-Penerapan efek 3D pada teks atau bentuknya serta interaksi antar efek didasarkan pada aturan tertentu.
-
-Pertimbangkan sebuah scene untuk teks dan bentuk yang berisi teks tersebut. Efek 3D mencakup representasi objek 3D dan scene tempat objek tersebut ditempatkan.
-
-- Ketika scene diatur untuk baik gambar maupun teks, scene gambar memiliki prioritas lebih tinggi—scene teks diabaikan.
-- Ketika gambar tidak memiliki scene sendiri tetapi memiliki representasi 3D, scene teks yang digunakan.
-- Jika tidak—ketika bentuk awalnya tidak memiliki efek 3D—bentuk tetap datar dan efek 3D hanya diterapkan pada teks.
-
-Deskripsi tersebut terkait dengan properti [ThreeDFormat.LightRig](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/) dan [ThreeDFormat.Camera](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/). 
-{{% /alert %}} 
-
-## **Menerapkan Efek Outer Shadow pada Teks**
-Aspose.Slides for Python via .NET menyediakan kelas [**IOuterShadow**](https://reference.aspose.com/slides/id/python-net/aspose.slides.effects/ioutershadow/) dan [**IInnerShadow**](https://reference.aspose.com/slides/id/python-net/aspose.slides.effects/iinnershadow/) yang memungkinkan Anda menerapkan efek bayangan pada teks yang berada dalam TextFrame. Ikuti langkah‑langkah berikut:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/). 
-2. Dapatkan referensi slide dengan menggunakan indeksnya. 
-3. Tambahkan AutoShape berjenis Rectangle ke slide. 
-4. Akses TextFrame yang terkait dengan AutoShape. 
-5. Set FillType AutoShape menjadi NoFill. 
-6. Instansiasi kelas OuterShadow 
-7. Set BlurRadius bayangan. 
-8. Set Direction bayangan 
-9. Set Distance bayangan. 
-10. Set RectanglelAlign ke TopLeft. 
-11. Set PresetColor bayangan menjadi Black. 
-12. Simpan presentasi sebagai file PPTX. 
-
-Contoh kode Python ini—implementasi dari langkah‑langkah di atas—menunjukkan cara menerapkan efek outer shadow pada teks:
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-
-    # Dapatkan referensi slide
-    sld = pres.slides[0]
-
-    # Tambahkan AutoShape tipe Rectangle
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    # Tambahkan TextFrame ke Rectangle
-    ashp.add_text_frame("Aspose TextBox")
-
-    # Nonaktifkan isi bentuk jika ingin mendapatkan bayangan teks
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # Tambahkan outer shadow dan set semua parameter yang diperlukan
-    ashp.effect_format.enable_outer_shadow_effect()
-    shadow = ashp.effect_format.outer_shadow_effect
-    shadow.blur_radius = 4.0
-    shadow.direction = 45
-    shadow.distance = 3
-    shadow.rectangle_align = slides.RectangleAlignment.TOP_LEFT
-    shadow.shadow_color.preset_color = slides.PresetColor.BLACK
-
-    #Tulis presentasi ke disk
-    pres.save("pres_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Menerapkan Efek Inner Shadow pada Bentuk**
-Ikuti langkah‑langkah berikut:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/). 
-2. Dapatkan referensi slide. 
-3. Tambahkan AutoShape berjenis Rectangle. 
-4. Aktifkan InnerShadowEffect. 
-5. Set semua parameter yang diperlukan. 
-6. Set ColorType menjadi Scheme. 
-7. Set Scheme Color. 
-8. Simpan presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/). 
-
-Contoh kode ini (berdasarkan langkah‑langkah di atas) menunjukkan cara menambahkan konektor di antara dua bentuk dalam Python:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
-    # Dapatkan referensi slide
     slide = presentation.slides[0]
 
-    # Tambahkan AutoShape tipe Rectangle
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 400, 300)
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
 
-    # Tambahkan TextFrame ke Rectangle
-    ashp.add_text_frame("Aspose TextBox")
-    port = ashp.text_frame.paragraphs[0].portions[0]
-    pf = port.portion_format
-    pf.font_height = 50
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
 
-    # Aktifkan inner_shadow_effect    
-    ef = pf.effect_format
-    ef.enable_inner_shadow_effect()
+    portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
+    portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
+    portion.portion_format.fill_format.pattern_format.back_color.color = draw.Color.white
+    portion.portion_format.fill_format.pattern_format.pattern_style = slides.PatternStyle.SMALL_GRID
 
-    # Atur semua parameter yang diperlukan
-    ef.inner_shadow_effect.blur_radius = 8.0
-    ef.inner_shadow_effect.direction = 90.0
-    ef.inner_shadow_effect.distance = 6.0
-    ef.inner_shadow_effect.shadow_color.b = 189
-
-    # Set ColorType menjadi Scheme
-    ef.inner_shadow_effect.shadow_color.color_type = slides.ColorType.SCHEME
-
-    # Set Warna Skema
-    ef.inner_shadow_effect.shadow_color.scheme_color = slides.SchemeColor.ACCENT1
-
-    # Simpan Presentasi
-    presentation.save("WordArt_out.pptx", slides.export.SaveFormat.PPTX)
+    portion.portion_format.line_format.width = 1
+    portion.portion_format.line_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
 ```
+
+Teks yang dihasilkan:
+
+![Template WordArt sederhana](WordArt_template.png)
+
+## **Terapkan Efek WordArt Lainnya**
+
+Contoh‑contoh berikut menunjukkan cara menerapkan bayangan, refleksi, cahaya, transformasi, dan efek 3D pada teks.
+
+### **Terapkan Efek Bayangan Luar**
+
+Bayangan luar menambahkan kedalaman dengan menempatkan bayangan di belakang teks. Anda dapat menyesuaikan warna, arah, jarak, radius blur, skala, dan skew.
+
+Contoh ini memanggil [enable_outer_shadow_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides/effectformat/enable_outer_shadow_effect/) dan mengatur bayangan hitam dengan radius blur 4 poin, arah 230 derajat, serta jarak 30 poin. Nilai skala 100 mempertahankan ukuran bayangan, sementara skew horizontal memiringkannya 20 derajat. Transformasi alfa mengatur opasitas menjadi 32%:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    portion.portion_format.effect_format.enable_outer_shadow_effect()
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
+    portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
+    portion.portion_format.effect_format.outer_shadow_effect.scale_vertical = 100
+    portion.portion_format.effect_format.outer_shadow_effect.blur_radius = 4
+    portion.portion_format.effect_format.outer_shadow_effect.direction = 230
+    portion.portion_format.effect_format.outer_shadow_effect.distance = 30
+    portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 20
+    portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
+```
+
+Teks yang dihasilkan:
+
+![Efek Bayangan Luar](outer_shadow_effect.png)
+
+{{% alert color="info" title="Note" %}}
+- When outer and preset shadows are used together, only the outer shadow is applied.
+- If outer and inner shadows are used simultaneously, the resulting effect depends on the PowerPoint version. For example, in PowerPoint 2013, the effect is doubled, whereas in PowerPoint 2007, only the outer shadow is applied.
+{{% /alert %}}
+
+### **Terapkan Efek Refleksi**
+
+Refleksi menciptakan salinan yang terpantul dari teks. Sesuaikan posisi, skala, blur, dan opasitas untuk mengendalikan penampilannya.
+
+Contoh ini memanggil [enable_reflection_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides/effectformat/enable_reflection_effect/) dan membalik refleksi secara vertikal dengan skala -100%. Ia menggunakan radius blur 0,5 poin dan jarak 4,72 poin. Opasitas menurun dari 60% menjadi 0,9% antara posisi 0% dan 60% sepanjang refleksi:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    portion.portion_format.effect_format.enable_reflection_effect()
+    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5
+    portion.portion_format.effect_format.reflection_effect.distance = 4.72
+    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0
+    portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
+    portion.portion_format.effect_format.reflection_effect.direction = 90
+    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100
+    portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
+    portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
+    portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
+    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT
+```
+
+Teks yang dihasilkan:
+
+![Efek Refleksi](reflection_effect.png)
+
+### **Terapkan Efek Sinar**
+
+Sinar menambahkan garis tepi berwarna lembut di sekitar teks. Sesuaikan warna, opasitas, dan radius untuk mengendalikan efek.
+
+Contoh ini memanggil [enable_glow_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides/effectformat/enable_glow_effect/) dan menerapkan sinar merah dengan opasitas 54% serta radius 7 poin:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    portion.portion_format.effect_format.enable_glow_effect()
+    portion.portion_format.effect_format.glow_effect.color.color = draw.Color.red
+    portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
+    portion.portion_format.effect_format.glow_effect.radius = 7
+```
+
+Teks yang dihasilkan:
+
+![Efek Sinar](glow_effect.png)
+
+### **Terapkan Transformasi WordArt**
+
+Transformasi WordArt membengkokkan, meregangkan, atau memutar blok teks.
+
+Atur [transform](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/transform/) ke [ARCH_UP_POUR](https://reference.aspose.com/slides/id/python-net/aspose.slides/textshapetype/) untuk melengkungkan seluruh frame teks ke atas:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    text_frame = auto_shape.text_frame
+    text_frame.text = "Aspose.Slides"
+    text_frame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
+```
+
+Teks yang dihasilkan:
+
+![Transformasi WordArt](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Python via .NET provides a set of predefined [transformation types](https://reference.aspose.com/slides/id/python-net/aspose.slides/textshapetype/).
+{{% /alert %}}
+
+### **Terapkan Efek 3D pada Bentuk dan Teks**
+
+Anda dapat menerapkan efek 3D pada sebuah bentuk atau pada teksnya. Bevel, ekstrusi, pencahayaan, dan pengaturan kamera mengontrol tampilan akhir.
+
+Contoh berikut menggunakan [ThreeDFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/) untuk menambahkan bevel melingkar, ekstrusi oranye, dan kontur merah tua pada persegi panjang. Dimensi bevel, tinggi ekstrusi, lebar kontur, dan kedalaman diukur dalam poin. Bahan plastik, pencahayaan seimbang berputar 40 derajat sekitar sumbu Z, serta kamera perspektif menentukan tampilannya:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    auto_shape.text_frame.text = "Aspose.Slides"
+
+    auto_shape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    auto_shape.three_d_format.bevel_bottom.height = 10.5
+    auto_shape.three_d_format.bevel_bottom.width = 10.5
+
+    auto_shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    auto_shape.three_d_format.bevel_top.height = 12.5
+    auto_shape.three_d_format.bevel_top.width = 11
+
+    auto_shape.three_d_format.extrusion_color.color = draw.Color.orange
+    auto_shape.three_d_format.extrusion_height = 6
+
+    auto_shape.three_d_format.contour_color.color = draw.Color.dark_red
+    auto_shape.three_d_format.contour_width = 1.5
+
+    auto_shape.three_d_format.depth = 3
+
+    auto_shape.three_d_format.material = slides.MaterialPresetType.PLASTIC
+
+    auto_shape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    auto_shape.three_d_format.light_rig.set_rotation(0, 0, 40)
+
+    auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+```
+
+Bentuk yang dihasilkan:
+
+![Efek 3D pada bentuk](shape_3D_effect.png)
+
+Contoh ini menerapkan pemformatan 3D serupa pada teks melalui [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/three_d_format/). Bevel yang lebih kecil membentuk tepi huruf, sementara ekstrusi dan pencahayaan memberikan kedalaman pada teks:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    text_frame = auto_shape.text_frame
+    text_frame.text = "Aspose.Slides"
+
+    text_frame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    text_frame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
+    text_frame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
+
+    text_frame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    text_frame.text_frame_format.three_d_format.bevel_top.height = 4
+    text_frame.text_frame_format.three_d_format.bevel_top.width = 4
+
+    text_frame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
+    text_frame.text_frame_format.three_d_format.extrusion_height = 6
+
+    text_frame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
+    text_frame.text_frame_format.three_d_format.contour_width = 1.5
+
+    text_frame.text_frame_format.three_d_format.depth = 3
+
+    text_frame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
+
+    text_frame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    text_frame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    text_frame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
+
+    text_frame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+```
+
+Teks yang dihasilkan:
+
+![Efek 3D pada teks](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+The application of 3D effects to text or their shapes—and the interaction between these effects—is governed by specific rules. Consider a scene involving both text and the shape containing it. A 3D effect includes the object's 3D representation and the scene in which it is placed.
+
+- If a scene is set for both the shape and the text, the shape’s scene takes priority and the text’s scene is ignored.
+- If the shape lacks its own scene but has a 3D representation, the text’s scene is used.
+- If the shape has no 3D effect at all, it is treated as flat, and the 3D effect is applied only to the text.
+
+These behaviors relate to the [ThreeDFormat.light_rig](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/light_rig/) and [ThreeDFormat.camera](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/camera/) properties.
+{{% /alert %}}
+
+Untuk menjaga teks tetap datar dan dapat dibaca sambil mempertahankan pemformatan 3D bentuknya, lihat [Keep Text Flat on a 3D Shape](/slides/id/python-net/3d-presentation/) untuk perbandingan kedua pengaturan serta contoh lengkap Python.
 
 ## **FAQ**
 
-**Apakah saya dapat menggunakan efek WordArt dengan berbagai font atau skrip (misalnya Arab, Cina)?**
+**Apakah saya dapat menggunakan efek WordArt dengan berbagai font atau skrip (mis., Arab, Cina)?**
 
-Ya, Aspose.Slides mendukung Unicode dan bekerja dengan semua font serta skrip utama. Efek WordArt seperti shadow, fill, dan outline dapat diterapkan terlepas dari bahasa, namun ketersediaan font dan rendering dapat bergantung pada font sistem.
+Ya, Aspose.Slides untuk Python via .NET mendukung Unicode dan dapat bekerja dengan semua font dan skrip utama. Efek WordArt seperti bayangan, isi, dan garis tepi dapat diterapkan terlepas dari bahasa, meskipun ketersediaan font dan proses rendering dapat bergantung pada font sistem.
 
 **Apakah saya dapat menerapkan efek WordArt pada elemen master slide?**
 
-Ya, Anda dapat menerapkan efek WordArt pada bentuk di master slide, termasuk placeholder judul, footer, atau teks latar belakang. Perubahan yang dilakukan pada tata letak master akan tercermin pada semua slide yang terkait.
+Ya, Anda dapat menerapkan efek WordArt pada bentuk di master slide, termasuk placeholder judul, footer, atau teks latar belakang. Perubahan pada tata letak master akan tercermin di semua slide terkait.
 
 **Apakah efek WordArt memengaruhi ukuran file presentasi?**
 
-Sedikit. Efek WordArt seperti shadow, glow, dan isian gradien dapat sedikit meningkatkan ukuran file karena penambahan metadata pemformatan, namun perbedaannya biasanya dapat diabaikan.
+Sedikit. Efek WordArt seperti bayangan, cahaya, dan isian gradien dapat sedikit meningkatkan ukuran file karena penambahan metadata format, tetapi perbedaannya biasanya dapat diabaikan.
 
 **Apakah saya dapat melihat pratinjau hasil efek WordArt tanpa menyimpan presentasi?**
 
-Ya, Anda dapat merender slide yang berisi WordArt menjadi gambar (mis., PNG, JPEG) menggunakan metode `get_image` dari kelas [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/) atau [Slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/). Hal ini memungkinkan Anda melihat pratinjau hasil di memori atau di layar sebelum menyimpan atau mengekspor seluruh presentasi.
+Ya, Anda dapat merender slide yang berisi WordArt menjadi gambar (mis., PNG, JPEG) menggunakan [Slide.get_image](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/get_image/), atau merender bentuk individual menggunakan [Shape.get_image](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/get_image/). Ini memungkinkan Anda melihat pratinjau hasil di memori atau layar sebelum menyimpan atau mengekspor presentasi lengkap.

@@ -1,5 +1,5 @@
 ---
-title: Android でプレゼンテーションの 3D 効果を作成する
+title: Android でプレゼンテーションに 3D 効果を作成する
 linktitle: 3D プレゼンテーション
 type: docs
 weight: 232
@@ -17,53 +17,56 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して Android 上の PowerPoint 図形とテキストに 3D 効果を適用およびレンダリングします。カメラ、照明、マテリアル、押し出し、塗りつぶし、そして 3D テキストを設定します。"
+description: "Aspose.Slides を使用して Android 上の PowerPoint の図形とテキストに 3D 効果を適用およびレンダリングします。カメラ、照明、素材、押し出し、塗りつぶし、そして 3D テキストを構成します。"
 ---
 ## **概要**
 
-Aspose.Slides for Android via Java は、図形やテキストに対して PowerPoint スタイルの 3D 書式設定を作成、編集、保持、レンダリングできます。本稿では、回転、押し出し、ベベル、照明、マテリアル、グラデーションまたは画像塗りつぶし、3D テキストなどの 3D 効果について説明します。
+Aspose.Slides for Android via Java は、図形やテキストに対して PowerPoint スタイルの 3D 書式設定を作成、編集、保持、レンダリングできます。この記事では、回転、押し出し、ベベル、照明、素材、グラデーションまたは画像塗りつぶし、そして 3D テキストなどの 3D 効果について説明します。
 
-{{% alert color="primary" %}}
-この記事は、PowerPoint の図形とテキストに対する 3D 書式設定効果についてです。単独の 3D モデルファイルの挿入や編集については取り扱いません。スライドを画像、PDF、または HTML にエクスポートすると、Aspose.Slides はそれらの 3D 効果をエクスポートされた 2D 出力にレンダリングします。
+{{% alert color="info" title="Note" %}}
+この記事は PowerPoint の図形とテキストに対する 3D 書式設定効果についてです。単体の 3D モデル ファイルの挿入や編集については扱いません。スライドを画像、PDF、または HTML にエクスポートすると、Aspose.Slides はそれらの 3D 効果をエクスポートされた 2D 出力にレンダリングします。
 {{% /alert %}}
 
 ## **3D 書式設定の概念**
 
-図形に 3D 書式設定を適用するには、[IShape.getThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) メソッドを使用します。このメソッドは [IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) を返し、その図形の 3D シーンを制御します。
+図形に 3D 書式設定を適用するには、[IShape.getThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) メソッドを使用します。このメソッドは、その図形の 3D シーンを制御する [IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) を返します。
 
-テキストの場合は、[ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) メソッドを使用します。これにより、図形本体ではなくテキストフレームに 3D 書式設定が適用されます。
+テキストの場合は、[ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) メソッドを使用します。これにより、図形本体ではなくテキスト フレームに 3D 書式設定が適用されます。
 
-最も重要な API メンバーは次のとおりです：
+最も重要な API メンバーは次のとおりです。
 
-| API メンバー | 制御対象 | 使用タイミング |
+| API メンバー | 制御対象 | 使用するタイミング |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | 視点、プリセットカメラタイプ、回転、ズーム、遠近感。 | 3D 空間でオブジェクトを回転させるか、PowerPoint の 3D 回転プリセットと一致させるとき。 |
-| [getLightRig](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | ライトのプリセット、方向、回転。 | 3D 表面のハイライトと影の表示方法を変更するとき。 |
-| [getMaterial](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) と [setMaterial](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | フラット、マット、プラスチック、金属などの表面素材。 | 同じ形状をより平坦、柔らか、光沢、金属的に見せるとき。 |
-| [getExtrusionHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) と [setExtrusionHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | 形状が前面からどれだけ後方に伸びるか。 | 平面の形状を目に見える厚みのある 3D オブジェクトに変えるとき。 |
-| [getExtrusionColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | 押し出された側面の色。 | 奥行きを可視化したり、側面の色を前面の塗りつぶしと合わせるとき。 |
-| [getDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getDepth--) と [setDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | PowerPoint の 3D 書式設定で使用される追加の奥行き。 | ベベルやマテリアル設定と組み合わせて、図形やテキストの奥行きを微調整するとき。 |
-| [getBevelTop](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) と [getBevelBottom](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | 前面と背面のエッジが上がったり丸められた形状。 | 尖った平坦な面ではなく、柔らかいまたは成形されたエッジを追加するとき。 |
-| [getContourColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getContourColor--)、[getContourWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--)、[setContourWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | 3D オブジェクトの輪郭。 | レンダリング出力でオブジェクトの境界を強調するとき。 |
+| [getCamera](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | 視点、プリセット カメラタイプ、回転、ズーム、遠近感。 | オブジェクトを 3D 空間で回転させるか、PowerPoint の 3D 回転プリセットに合わせます。 |
+| [getLightRig](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | 光のプリセット、方向、および光の回転。 | 3D 表面のハイライトと影の表示方法を変更します。 |
+| [getMaterial](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) と [setMaterial](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | 平坦、マット、プラスチック、金属などの表面素材。 | 同じ形状をより平らに、柔らかく、光沢のある、または金属のように見せます。 |
+| [getExtrusionHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) と [setExtrusionHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | 形状が正面からどれだけ後方に伸びるか。 | 平坦な形状を目に見える厚みのある 3D オブジェクトに変えます。 |
+| [getExtrusionColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | 押し出された側面の色。 | 奥行きを可視化するか、側面の色を正面の塗りつぶしと合わせます。 |
+| [getDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getDepth--) と [setDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | PowerPoint の 3D 書式設定で使用される追加の 3D 奥行き。 | 形状やテキストの奥行きを微調整します。特にベベルや素材設定と組み合わせる場合に有効です。 |
+| [getBevelTop](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) と [getBevelBottom](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | 正面と背面のエッジを突出または丸めたもの。 | 鋭利な平面の代わりに、柔らかいまたは成形されたエッジを追加します。 |
+| [getContourColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getContourColor--) と [getContourWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--) と [setContourWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | 3D オブジェクトの輪郭。 | レンダリングされた出力でオブジェクトの境界を強調します。 |
 
 ## **3D 図形の作成**
 
-図形が説得力のある 3D に見えるように、通常は 4 種類の設定が必要です：
+- カメラ設定：デフォルトの正面ビューでは押し出しが隠れる可能性があるため。
+- 光設定：照明により面と側面が見やすくなるため。
+- 素材設定：表面が光の描画に影響するため。
+- 押し出しまたは奥行き設定：平坦な形状に厚みが必要なため。
 
-- カメラ設定：デフォルトの正面ビューでは押し出しが隠れる可能性があるため。  
-- ライト設定：照明により面と側面が読み取れるようになるため。  
-- マテリアル設定：表面が光の描写に影響するため。  
-- 押し出しまたは奥行き設定：平面の形状に厚みが必要なため。
-
-次の例は、長方形を作成し、前面にテキストを追加し、3D 書式設定を適用し、プレゼンテーションを PPTX として保存し、スライドを PNG 画像にレンダリングします。
+以下の例は長方形を作成し、正面にテキストを追加し、3D 書式設定を適用します。カメラ回転値は度単位で、押し出し高さは 100 ポイントです。この例はスライドを PNG 画像に 2 倍のサイズでレンダリングし、プレゼンテーションを PPTX として保存します。
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
     shape.getTextFrame().setText("3D");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
@@ -91,54 +94,88 @@ try {
 }
 ```
 
-レンダリングされたスライド画像は、長方形が厚みのある 3D ブロックとして表示されます：
+レンダリングされたスライド画像は、長方形が厚い 3D ブロックとして表示されます：
 
-![前面に白い 3D テキストがある青い 3D 長方形のレンダリング画像](img_01_01.png)
+![正面に白い 3D テキストがある、青い 3D 長方形のレンダリング画像](img_01_01.png)
 
 ## **カメラで図形を回転する**
 
-PowerPoint では、3D 回転は「3-D 回転」ペインで設定します。X、Y、Z の回転値は、カメラ API を通じて設定する回転に対応しています。
+PowerPoint では、3-D Rotation ペインから 3D 回転を設定します。X、Y、Z の回転値はカメラ API で設定する回転に対応します。
 
-![X、Y、Z 回転値が強調表示された PowerPoint の 3-D 回転ペイン](img_02_01.png)
+![PowerPoint 3-D Rotation ペインで X、Y、Z の回転値がハイライトされている画像](img_02_01.png)
 
-Aspose.Slides では、[IThreeDFormat.getCamera](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getCamera--) を使用してカメラの種類と回転を設定します：
+Aspose.Slides では、[IThreeDFormat.getCamera](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getCamera--) を介してカメラにアクセスします。この例は長方形を作成し、正投影の正面ビューを選択し、X、Y、Z の回転をそれぞれ 20、30、40 度に設定します。ファイルを保存せずにメモリ上で図形を構成します：
 
 ```java
-shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
-ビューアがオブジェクトを見る視点を変更する必要がある場合にカメラを使用します。これによりスライド上の 2D 図形のジオメトリは変更されません。PowerPoint と Aspose.Slides がレンダリング時に使用する 3D 視点が変更されます。
+ビューアがオブジェクトを見る視点を変更したいときにカメラを使用します。スライド上の 2D 図形ジオメトリは変更されず、PowerPoint と Aspose.Slides がレンダリング時に使用する 3D 視点が変更されます。
 
-## **押し出しと奥行きの追加**
+## **押し出しと奥行きを追加する**
 
-押し出しは、形状を前面の背後に拡張することで厚みを持たせます。PowerPoint では、奥行きコントロールがこの可視的な厚さを設定し、カラーコントロールが側面の色を設定します。
+押し出しは、形状を正面から後方に伸ばすことで厚みを持たせます。PowerPoint では、奥行きコントロールがこの可視的な厚さを設定し、色コントロールが側面の色を設定します。
 
-![押し出しカラーと押し出し高さプロパティに対応する PowerPoint の奥行きコントロール](img_02_02.png)
+![PowerPoint の奥行きコントロールが押し出し色と押し出し高さプロパティに対応している画像](img_02_02.png)
 
-厚さには [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) を、側面の色には [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) を使用します：
+厚さを設定するには [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) を使用し、側面の色を取得するには [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) を使用します。この例は長方形に 100 ポイントの押し出しと紫色の側面を設定し、カメラを回転させて厚みを見せます。ファイルを保存せずにメモリ上で図形を構成します：
 
 ```java
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(128, 0, 128));
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    int extrusionColor = Color.rgb(128, 0, 128);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-PowerPoint の奥行き値を直接操作する必要がある場合や、奥行きをベベル、マテリアル、テキスト効果と組み合わせる場合は、[IThreeDFormat.setDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) を使用します。多くの図形シナリオでは、可視的な押し出しを直接示すため、`setExtrusionHeight` の方が分かりやすい設定です。
+[IThreeDFormat.setDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) メソッドは 3D 図形の奥行きを設定します。[setExtrusionHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) メソッドは押し出し効果の高さを制御します。この例でも示されています。
 
-## **3D 効果と一緒にグラデーションまたは画像塗りつぶしを使用する**
+## **3D 効果とともにグラデーションまたは画像塗りつぶしを使用する**
 
-3D 書式設定は図形の塗りつぶしとは独立しています。前面に単色、グラデーション、パターン、または画像塗りつぶしを適用しながら、同じカメラ、ライト、マテリアル、押し出し設定を使用できます。
+3D 書式設定は図形の塗りつぶしとは独立しています。正面に単色、グラデーション、パターン、または画像塗りつぶしを適用しつつ、同じカメラ、光、素材、押し出し設定を使用できます。
 
-この例は、図形にグラデーション塗りつぶしを適用し、側面に暗めの押し出し色を設定します：
+この例は正面に青からオレンジへのグラデーションを、150 ポイントの押し出しには濃いオレンジ色を適用します。グラデーションの停止位置は 0 と 100 が開始と終了を示します。カメラ回転値は度単位です。スライドは PNG 画像に 2 倍のサイズでレンダリングされます：
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getTextFrame().setText("3D Gradient");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
@@ -151,8 +188,9 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
     shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    int extrusionColor = Color.rgb(255, 140, 0);
     shape.getThreeDFormat().setExtrusionHeight(150);
-    shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(255, 140, 0));
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
 
     IImage thumbnail = slide.getImage(imageScale, imageScale);
     try {
@@ -165,51 +203,75 @@ try {
 }
 ```
 
-レンダリングされた出力は、前面のグラデーションを保持し、押し出しを別々にレンダリングします：
+レンダリングされた出力は正面のグラデーションを保持し、押し出しは別に描画されます：
 
 ![青からオレンジへのグラデーション塗りつぶしとオレンジの押し出しを持つ 3D 長方形のレンダリング画像](img_02_03.png)
 
-代わりに画像塗りつぶしを使用するには、画像をプレゼンテーションに追加し、図形の塗りつぶしに割り当てます：
+画像塗りつぶしを使用する場合は、プレゼンテーションに画像を追加し、図形の塗りつぶしに割り当てます。この例では作業ディレクトリに "image.jpg" というファイルが存在することが前提です。画像を長方形全体に伸ばし、150 ポイントの押し出しを適用し、カメラ回転を度単位で設定します。ファイルを保存またはレンダリングせずにメモリ上で構成します：
 
 ```java
-IPPImage image;
-try (FileInputStream imageStream = new FileInputStream("image.png")) {
-    image = presentation.getImages().addImage(imageStream);
+import com.aspose.slides.*;
+import android.graphics.Color;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
+    IPPImage image;
+    try (FileInputStream imageStream = new FileInputStream("image.jpg")) {
+        image = presentation.getImages().addImage(imageStream);
+    }
+
+    shape.getFillFormat().setFillType(FillType.Picture);
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+    int extrusionColor = Color.rgb(255, 140, 0);
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
 }
-
-shape.getFillFormat().setFillType(FillType.Picture);
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(255, 140, 0));
 ```
 
-前面に写真塗りつぶし、側面にオレンジの押し出しを持つ 3D 長方形のレンダリング画像：
+画像は正面に描画され、押し出しは 3D 側面として描画されます：
 
-![前面に写真塗りつぶし、側面にオレンジの押し出しを持つ 3D 長方形のレンダリング画像](img_02_04.png)
+![正面に写真塗りつぶし、オレンジの押し出しを持つ 3D 長方形のレンダリング画像](img_02_04.png)
 
-## **テキストへの 3D 書式設定の適用**
+## **テキストに 3D 書式設定を適用する**
 
-図形の 3D 書式設定は図形本体に影響し、テキストの 3D 書式設定はテキストフレームに影響します。文字自体に押し出し、マテリアル、照明、カメラ設定が必要な WordArt のような効果に便利です。
+図形の 3D 書式設定は図形本体に影響し、テキストの 3D 書式設定はテキスト フレームに影響します。文字そのものに押し出し、素材、照明、カメラ設定が必要な WordArt のような効果に便利です。
 
-次の例は、パターン塗りつぶしのテキストを作成し、WordArt 変換を適用し、[ITextFrameFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformat/) に 3D 設定を構成します：
+以下の例はオレンジと白の格子パターンのテキストを作成し、上向きのアーチを適用し、[ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) を通じて 3D 設定を構成します。押し出し高さと奥行きはポイント、光の回転は度単位です。図形の塗りと輪郭は非表示にし、テキストだけが見えるようにします。例は PNG 画像をデフォルトスライドサイズの 2 倍でレンダリングし、プレゼンテーションを PPTX として保存します：
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getFillFormat().setFillType(FillType.NoFill);
     shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
     shape.getTextFrame().setText("3D Text");
 
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.rgb(255, 140, 0));
+    int patternColor = Color.rgb(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(patternColor);
     portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
     portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.LargeGrid);
 
@@ -217,8 +279,7 @@ try {
 
     ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
     textFrameFormat.setTransform(TextShapeType.ArchUp);
-
-    textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5);
+    textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5f);
     textFrameFormat.getThreeDFormat().setDepth(3);
     textFrameFormat.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
     textFrameFormat.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
@@ -239,32 +300,87 @@ try {
 }
 ```
 
-![アーチ状の WordArt 変換、オレンジのパターン塗りつぶし、暗い押し出しを持つ 3D テキストのレンダリング画像](img_02_05.png)
+テキストは曲線状に押し出された 3D 文字としてレンダリングされます：
+
+![アーチ状の WordArt 変形、オレンジのパターン塗りつぶし、暗い押し出しを持つ 3D テキストのレンダリング画像](img_02_05.png)
+
+## **3D 図形上でテキストを平坦に保つ**
+
+テキストを読みやすく保ちつつ図形の 3D 外観を維持するには、[ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/#getTextFrameFormat--) を介して [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) を呼び出します。値が `true` の場合、テキストは 3D シーンから除外されます。`false` の場合、テキストはシーンに参加し 3D 向きに従います。
+
+この設定は図形の 3D 書式設定（カメラ、照明、素材、押し出し）を削除しません。また、通常の回転とは異なります。[IShape.setRotation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#setRotation-float-) はスライド平面で図形を回転させ、[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) はテキストのバウンディング ボックス内でのカスタム回転を制御します。テキストを 3D シーンから除外してもこれらの角度はリセットされません。
+
+以下の自己完結型例は、テキスト付きの青い長方形を作成し、元の横にクローンします。両方の図形は同じ 3D 書式設定を持ち、テキスト設定だけが異なります：左側は `false`、右側は `true`。カメラ角度は度単位、押し出し高さは 40 ポイントです。例はプレゼンテーションを PPTX として保存し、比較スライドをデフォルトサイズの 2 倍で PNG にレンダリングします。
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 70, 160, 240, 140);
+
+    shape.getTextFrame().setText("Readable text");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().setAlignment(TextAlignment.Center);
+    shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Center);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(100, 149, 237));
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(30, 30, 0);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(40);
+    shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(65, 105, 225));
+    shape.getTextFrame().getTextFrameFormat().setKeepTextFlat(false);
+
+    IAutoShape flatTextShape = (IAutoShape) slide.getShapes().addClone(shape, 400, 160);
+    flatTextShape.getTextFrame().getTextFrameFormat().setKeepTextFlat(true);
+
+    presentation.save("keep_text_flat.pptx", SaveFormat.Pptx);
+    IImage image = slide.getImage(2, 2);
+    try {
+        image.save("keep_text_flat.png", ImageFormat.Png);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+左側はテキストが 3D 向きに従い、右側は平坦で読みやすくなっています。両方の長方形は同じ可視押し出しと 3D 向きを保持しています。
+
+![左側が 3D 向きに従い、右側が平坦に保たれた 3D 長方形の比較画像](keep_text_flat.png)
 
 ## **エクスポートとレンダリングの動作**
 
-Aspose.Slides は PPTX などの PowerPoint 形式で保存する際に 3D 書式設定を保持します。固定レイアウト形式へレンダリングまたはエクスポートする場合、3D シーンはラスタライズされ、2D 結果として出力に描画されます。これは、スライドを [PNG](/slides/ja/androidjava/convert-powerpoint-to-png/) にレンダリングする、[PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/) にエクスポートする、[HTML](/slides/ja/androidjava/convert-powerpoint-to-html/) にエクスポートする、または [動画変換](/slides/ja/androidjava/convert-powerpoint-to-video/) 用のフレームを生成するときにも適用されます。
+Aspose.Slides は PPTX などの PowerPoint 形式で保存する際に 3D 書式設定を保持します。固定レイアウト形式へレンダリングまたはエクスポートする場合、3D シーンはラスター化または 2D 結果として出力に描画されます。これはスライドを [PNG](/slides/ja/androidjava/convert-powerpoint-to-png/) にレンダリングする場合、[PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/) にエクスポートする場合、[HTML](/slides/ja/androidjava/convert-powerpoint-to-html/) にエクスポートする場合、または [video conversion](/slides/ja/androidjava/convert-powerpoint-to-video/) 用のフレームを生成する場合に適用されます。
 
 以下の点に留意してください：
 
-- エクスポートされた画像や PDF はインタラクティブではありません。エクスポート後にビューアがオブジェクトを回転させることはできません。  
-- 最終的な外観は、カメラ、ライトリグ、マテリアル、押し出し、塗りつぶし、スライドのスケーリングの組み合わせに依存します。  
-- 継承された、またはテーマベースの書式設定値を確認する必要がある場合は、[形状の有効プロパティ](/slides/ja/androidjava/shape-effective-properties/) を参照してください。  
-- 一部の出力形式は、編集可能な PowerPoint 3D 書式設定を保存できません。そのような形式では、視覚的な結果がレンダリングされ、編集可能な 3D 設定として保持されません。
+- エクスポートされた画像や PDF はインタラクティブではありません。エクスポート後にビューアがオブジェクトを回転させることはできません。
+- 最終的な外観はカメラ、光源、素材、押し出し、塗りつぶし、スライドのスケーリングの組み合わせに依存します。
+- 継承されたまたはテーマベースの書式設定値を確認する必要がある場合は、[有効な図形プロパティ](/slides/ja/androidjava/shape-effective-properties/) を参照してください。
+- 一部の出力形式は編集可能な PowerPoint 3D 書式設定を保存できません。そのような形式では、視覚結果がレンダリングされ、編集可能な 3D 設定としては保持されません。
 
 ## **FAQ**
 
 **Aspose.Slides はインタラクティブな 3D プレゼンテーションを作成できますか？**
 
-Aspose.Slides は図形とテキストに対する PowerPoint の 3D 効果を作成およびレンダリングします。エクスポートされた画像、PDF、HTML ページをビューアが回転できるインタラクティブな 3D シーンにすることはありません。PPTX では、形式がサポートしている限り、3D 書式設定は PowerPoint で編集可能なままです。
+Aspose.Slides は図形とテキストの PowerPoint 3D 効果を作成およびレンダリングします。エクスポートされた画像、PDF、HTML ページをビューアが回転できるインタラクティブな 3D シーンにすることはできません。PPTX では、フォーマットがサポートしている場合に 3D 書式設定は PowerPoint で編集可能なまま残ります。
 
 **3D モデルと 3D 効果の違いは何ですか？**
 
-3D モデルはプレゼンテーションに挿入される別個の 3D オブジェクトです。3D 効果は、回転、押し出し、ベベル、照明、マテリアルなど、通常の PowerPoint 図形やテキストに適用される書式設定です。本稿は 3D 効果について説明しています。
+3D モデルはプレゼンテーションに挿入される別個の 3D オブジェクトです。3D 効果は、回転、押し出し、ベベル、照明、素材など、通常の PowerPoint 図形やテキストに適用される書式設定です。本記事は 3D 効果について取り上げています。
 
-**見える 3D 図形に必要な設定はどれですか？**
+**目に見える 3D 図形に必要な設定は何ですか？**
 
-最低でもカメラの回転と押し出しまたは奥行きを設定します。実際には、レンダリングされた面に明確なハイライトと影を持たせるために、ライトリグとマテリアルも設定します。
+最低限、カメラの回転と押し出しまたは奥行きを設定します。実際には、光源と素材も設定して、レンダリングされた面に明確なハイライトと影が出るようにします。
 
 **図形とテキストの両方に 3D 効果を適用できますか？**
 
@@ -272,8 +388,8 @@ Aspose.Slides は図形とテキストに対する PowerPoint の 3D 効果を�
 
 **画像、PDF、HTML、またはビデオフレームにエクスポートするときに 3D 効果は表示されますか？**
 
-はい。Aspose.Slides はスライド画像、PDF 出力、HTML 出力、ビデオ変換に使用されるフレームを生成する際に 3D 効果をレンダリングします。エクスポートされた出力はレンダリングされた外観を含み、編集可能な 3D オブジェクトは含まれません。
+はい。Aspose.Slides はスライド画像、PDF 出力、HTML 出力、ビデオ変換用フレームを生成するときに 3D 効果をレンダリングします。エクスポートされた出力にはレンダリングされた外観が含まれ、編集可能な 3D オブジェクトは含まれません。
 
-**継承やテーマ設定が適用された後の最終的な 3D 値を取得できますか？**
+**継承とテーマ設定が適用された後の最終的な 3D 値を読み取れますか？**
 
-はい。[形状の有効プロパティ](/slides/ja/androidjava/shape-effective-properties/) で説明されている有効書式設定 API を使用して、最終的なカメラ、ライトリグ、ベベル、および関連する 3D 値を取得できます。
+はい。[有効な図形プロパティ](/slides/ja/androidjava/shape-effective-properties/) に記載された実効書式設定 API を使用して、最終的なカメラ、光源、ベベル、関連する 3D 値を取得できます。

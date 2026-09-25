@@ -10,7 +10,7 @@ keywords:
 - قالب WordArt
 - تأثير WordArt
 - تأثير الظل
-- تأثير العرض
+- تأثير الانعكاس
 - تأثير التوهج
 - تحويل WordArt
 - تأثير ثلاثي الأبعاد
@@ -19,106 +19,153 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides لـ .NET. يوضح هذا الدليل خطوة بخطوة كيفية مساعدة المطورين على تحسين العروض التقديمية بنص احترافي باستخدام C#."
+description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides لـ .NET. هذا الدليل خطوة بخطوة يساعد المطورين على تحسين العروض التقديمية بنص احترافي باستخدام C#."
 ---
-
 ## **نظرة عامة**
 
-تسمح تأثيرات WordArt لك بإضافة نص مصمم بصريًا وجذاب إلى عروض PowerPoint الخاصة بك. باستخدام Aspose.Slides for .NET، يمكن للمطورين إنشاء WordArt وتخصيصه وإدارته برمجيًا كما في Microsoft PowerPoint—دون الحاجة إلى تثبيت Office. تُقدم هذه المقالة نظرة عامة على العمل مع WordArt في .NET، بما في ذلك كيفية تطبيق تحولات النص، أنماط التعبئة، الحدود، الظلال، وغيرها من خيارات التنسيق لجعل محتوى العرض أكثر تعبيرًا وجاذبية. يتيح WordArtTreat النص ككائن رسومي. ويتكون من تأثيرات أو تعديلات خاصة تُطبق على النص لجعله أكثر جاذبية أو بروزًا.
+تتيح لك تأثيرات WordArt تنسيق النص باستخدام التعبئات، والحدود، والظلال، والإنعكاسات، والتوهج، والتحويلات، وتنسيق ثلاثي الأبعاد. توضح هذه المقالة كيفية إنشاء هذه التأثيرات وتخصيصها في عروض PowerPoint باستخدام Aspose.Slides for .NET دون الحاجة إلى تثبيت Microsoft Office.
 
 ## **إنشاء قالب WordArt بسيط وتطبيقه على النص**
 
-في هذا القسم، سنستكشف كيفية إنشاء قالب WordArt بسيط وتطبيقه على النص باستخدام Aspose.Slides for .NET. يوفر WordArt طريقة سهلة لتعزيز مظهر النص بتأثيرات بصرية وأنماط ملفتة. من خلال تعلم الخطوات الأساسية لإنشاء واستخدام WordArt، يمكنك تكييف هذه التقنيات بسهولة لأي مشروع، مما يجعل عروضك أكثر حيوية ولا تُنسى.
+تُنشئ الأمثلة التالية نمط WordArt بسيط عن طريق ضبط النص، الخط، تعبئة النمط، والحد.
 
-أولاً، نُنشئ نصًا بسيطًا باستخدام شفرة C# التالية:
+كل مثال ينشئ عرضًا تقديميًا جديدًا ويضيف مستطيلًا إلى الشريحة الأولى؛ لا يلزم أي ملف إدخال. يضبط المثال الأول النص إلى "Aspose.Slides". يُقاس موضع الشكل وأبعاده بالنقاط:
+
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
 
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IPortion portion = textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+
+var portion = textFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
 ```
 
+اضبط الخط إلى Arial Black بحجم 36 نقطة لجعل التنسيق أكثر وضوحًا:
 
-الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا باستخدام الشفرة التالية:
 ```cs
-    portion.PortionFormat.LatinFont = new FontData("Arial Black");
-    portion.PortionFormat.FontHeight = 36;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
 ```
 
+طبق نمط [SmallGrid](https://reference.aspose.com/slides/ar/net/aspose.slides/patternstyle/) بلون أمامي برتقالي داكن وخلفية بيضاء، ثم أضف حدًا نصيًا أسود بعرض نقطة واحدة:
 
-هنا، نُطبق تعبئة نمط SmallGrid على النص ونضيف حدًا نصيًا أسود بعرض 1 باستخدام الشفرة التالية:
 ```cs
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
-    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
-```
+using System.Drawing;
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+
+portion.PortionFormat.LineFormat.Width = 1;
+portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+```
 
 النص الناتج:
 
-![القالب البسيط لـ WordArt](WordArt_template.png)
+![قالب WordArt البسيط](WordArt_template.png)
 
-## **تطبيق تأثيرات WordArt أخرى**
+## **تطبيق تأثيرات WordArt الأخرى**
 
-بالإضافة إلى التحولات الأساسية، يتيح لك Aspose.Slides for .NET تطبيق مجموعة متنوعة من تأثيرات WordArt المتقدمة لتعزيز مظهر النص. تشمل هذه الحدود، التعبئات، الظلال، الانعكاسات، وتأثيرات التوهج. من خلال دمج هذه الميزات، يمكنك إنشاء أنماط نصية جذابة تبرز في عروضك. يوضح هذا القسم كيفية تطبيق هذه التأثيرات برمجيًا باستخدام أمثلة شفرة بسيطة ونظيفة.
+تُظهر الأمثلة التالية كيفية تطبيق الظلال، والإنعكاسات، والتوهج، والتحويلات، وتأثيرات ثلاثية الأبعاد على النص.
 
 ### **تطبيق تأثيرات الظل الخارجي**
 
-تساعد تأثيرات الظل الخارجي النص على البروز عن طريق إضافة ظل خلف حدوده، مما يخلق إحساسًا بالعمق والانعزال عن الخلفية. يتيح لك Aspose.Slides for .NET تطبيق وضبط الظلال الخارجية على نص WordArt بسهولة. في هذا القسم، ستتعلم كيفية ضبط لون الظل، الاتجاه، المسافة، نصف قطر الضبابية، وغير ذلك لتحقيق التأثير البصري المطلوب.
+الظل الخارجي يضيف عمقًا عن طريق وضع ظل خلف النص. يمكنك تخصيص لونه، واتجاهه، والمسافة، ونصف قطر الضباب، والقياس، والانحراف.
 
-المقتطف التالي من شفرة C# يطبق تأثير ظل على النص الذي تم إنشاؤه أعلاه.
+هذا المثال يستدعي [EnableOuterShadowEffect](https://reference.aspose.com/slides/ar/net/aspose.slides/effectformat/enableoutershadoweffect/) ويضبط ظلًا أسود بنصف قطر ضباب 4 نقاط، واتجاه 230 درجة، ومسافة 30 نقطة. القيم 100 للقياس تحافظ على حجم الظل، بينما يميل الانحراف الأفقي بزاوية 20 درجة. يُحدد التحويل ألفا شفافيته إلى 32%:
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
-```
+using System.Drawing;
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+```
 
 النص الناتج:
 
 ![تأثير الظل الخارجي](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
-- عندما يُستخدم OuterShadow و PresetShadow معًا، يُطبق فقط تأثير OuterShadow.
-- إذا استُخدم OuterShadow و InnerShadow في آنٍ واحد، يعتمد التأثير الناتج على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013 يتضاعف التأثير، بينما في PowerPoint 2007 يُطبق فقط تأثير OuterShadow.
+{{% alert color="info" title="ملاحظة" %}}
+- عند استخدام الظلال الخارجية والظلال المسبقة معًا، يُطبق الظل الخارجي فقط.
+- إذا استُخدمت الظلال الخارجية والداخلية في الوقت نفسه، فإن التأثير الناتج يعتمد على إصدار PowerPoint. على سبيل المثال، في PowerPoint 2013 يتضاعف التأثير، بينما في PowerPoint 2007 يُطبق الظل الخارجي فقط.
 {{% /alert %}}
 
 ### **تطبيق تأثيرات الانعكاس**
 
-في هذا القسم، سنستكشف كيفية تطبيق تأثيرات الانعكاس في الشرائح باستخدام Aspose.Slides for .NET. يمكن أن تكون تأثيرات الانعكاس وسيلة فعّالة لمنح النص أو الأشكال مظهرًا أنيقًا وعصريًا، مما يساعد العناصر الرئيسية على البروز وإضافة عمق إلى العرض. من خلال فهم عملية تطبيق وتخصيص هذه التأثيرات، يمكنك تعديلها بسهولة لتتناسب مع احتياجات التصميم والعلامة التجارية.
+الانعكاس يخلق نسخةً مرآيةً من النص. عدّل موضعه، وحجمه، وضبابه، وشفافيته للتحكم في مظهره.
 
-أضف تأثير انعكاس إلى النص باستخدام مثال شفرة C# التالي:
+هذا المثال يستدعي [EnableReflectionEffect](https://reference.aspose.com/slides/ar/net/aspose.slides/effectformat/enablereflectioneffect/) ويقلب الانعكاس عموديًا بمقياس -100٪. يستخدم نصف قطر ضباب 0.5 نقطة ومسافة 4.72 نقطة. تنخفض الشفافية من 60٪ إلى 0.9٪ بين الموضعين 0٪ و60٪ على طول الانعكاس:
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
-```
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
+```
 
 النص الناتج:
 
@@ -126,16 +173,28 @@ using (Presentation presentation = new Presentation())
 
 ### **تطبيق تأثيرات التوهج**
 
-في هذا القسم، سنستكشف كيفية تطبيق تأثير توهج على النص باستخدام Aspose.Slides for .NET. يمكن لتأثير التوهج أن يجعل نصك يبرز بخط خارجي لامع، مما يعزز الجاذبية البصرية للشرائح. من خلال ضبط إعدادات مثل اللون والشدة، يمكنك تعديل التوهج ليناسب تصميمك واحتياجات علامتك التجارية، ensuring that key points in your presentation capture the audience’s attention.
+التوهج يضيف حدًا ملونًا ناعمًا حول النص. عدّل لونه، وشفافيته، ونصف قطره للتحكم في التأثير.
 
-طبق تأثير توهج على النص لجعله يلمع أو يبرز باستخدام الشفرة التالية:
+هذا المثال يستدعي [EnableGlowEffect](https://reference.aspose.com/slides/ar/net/aspose.slides/effectformat/enablegloweffect/) ويطبق توهجًا أحمر بشفافية 54٪ ونصف قطر 7 نقاط:
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableGlowEffect();
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
-```
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableGlowEffect();
+portion.PortionFormat.EffectFormat.GlowEffect.Color.Color = System.Drawing.Color.Red;
+portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+```
 
 النص الناتج:
 
@@ -143,114 +202,144 @@ using (Presentation presentation = new Presentation())
 
 ### **تطبيق تحولات WordArt**
 
-في هذا القسم، سنستكشف كيفية استخدام التحولات في WordArt مع Aspose.Slides for .NET. تسمح التحولات بإنحناء أو تمدد أو تشويه النص، ما يخلق تأثيرات فريدة وجذابة بصريًا. من خلال إتقان هذه التقنيات، يمكنك تعديل أشكال النص وأنماطه لتلائم علامتك التجارية أو رؤيتك الإبداعية، مما يضمن عرضًا مقنعًا ومصقولًا.
+تحولات WordArt تنحني أو تمدد أو تشوه كتلة النص.
 
-استخدم خاصية `Transform` (التي تُطبق على كتلة النص بالكامل) باستخدام الشفرة التالية:
+اضبط [Transform](https://reference.aspose.com/slides/ar/net/aspose.slides/textframeformat/transform/) إلى [ArchUpPour](https://reference.aspose.com/slides/ar/net/aspose.slides/textshapetype/) لتقوس إطار النص بالكامل للأعلى:
+
 ```cs
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
-```
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+```
 
 النص الناتج:
 
 ![تحول WordArt](transform_effect.png)
 
-{{% alert color="primary" %}} 
-يوفر Aspose.Slides for .NET مجموعة من [أنواع التحول المحددة مسبقًا](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/).
-{{% /alert %}} 
+{{% alert color="info" title="ملاحظة" %}}
+توفر Aspose.Slides for .NET مجموعة من [أنواع التحول المسبقة التعريف](https://reference.aspose.com/slides/ar/net/aspose.slides/textshapetype/).
+{{% /alert %}}
 
 ### **تطبيق تأثيرات ثلاثية الأبعاد على الأشكال والنص**
 
-إنشاء مرئيات واقعية وجذابة يمكن أن يعزز بشكل كبير من تأثير عروضك. في هذا القسم، سنستكشف كيفية تطبيق تأثيرات ثلاثية الأبعاد (3D) على الأشكال باستخدام Aspose.Slides for .NET. من خلال تعديل معلمات مثل العمق، الزاوية، والإضاءة، يمكنك إنتاج تحولات ثلاثية الأبعاد مذهلة تجذب انتباه جمهورك فورًا. سواء كنت تستهدف تظليلًا خفيفًا أو أوهامًا دراماتيكية، توفر هذه الميزات طرقًا مرنة لرفع مستوى التصميم وإيصال الأفكار بطريقة أكثر تشويقًا.
+يمكنك تطبيق تأثيرات ثلاثية الأبعاد على الشكل أو على نصه. تتحكم الحواف، والإنبثاق، والإضاءة، وإعدادات الكاميرا في المظهر النهائي.
 
-استخدم الشفرة النموذجية التالية لتعيين تأثير ثلاثي الأبعاد على الشكل:
+يستخدم المثال التالي [ThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/threedformat/) لإضافة حواف دائرية، وإنبثاق برتقالي، وتحديد أحمر داكن للمستطيل. تُقاس أبعاد الحواف، وارتفاع الإنבثاق، وعرض التحديد، والعمق بالنقاط. يُعرّف مادة بلاستيكية، وإضاءة متوازنة مدارة بزاوية 40 درجة حول المحور Z، وكاميرا منظور مظهره:
+
 ```cs
-    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-    autoShape.ThreeDFormat.BevelTop.Width = 11;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    autoShape.ThreeDFormat.ExtrusionHeight = 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+autoShape.TextFrame.Text = "Aspose.Slides";
 
-    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    autoShape.ThreeDFormat.ContourWidth = 1.5;
+autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-    autoShape.ThreeDFormat.Depth = 3;
+autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+autoShape.ThreeDFormat.Depth = 3;
+
+autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
-
 
 الشكل الناتج:
 
 ![تأثير الشكل ثلاثي الأبعاد](shape_3D_effect.png)
 
-استخدم الشفرة النموذجية التالية لتعيين تأثير ثلاثي الأبعاد على النص:
+يطبق هذا المثال تنسيقًا ثلاثي الأبعاد مشابهًا على النص عبر [TextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/textframeformat/threedformat/). تُشكل الحواف الصغيرة حواف الحروف، بينما يمنح الإنبثاق والإضاءة النص عمقًا:
+
 ```cs
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
 
-    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
 
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
+
+textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
-
 
 النص الناتج:
 
 ![تأثير النص ثلاثي الأبعاد](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
-يخضع تطبيق تأثيرات 3D على النص أو أشكاله—والتفاعل بين هذه التأثيرات—لعدة قواعد محددة. ضع في اعتبارك سيناريوً يشمل كلًا من النص والشكل الذي يحتوي على ذلك النص. يتضمن تأثير 3D تمثيل الكائن ثلاثي الأبعاد والمشهد الذي يُوضع فيه.
+{{% alert color="info" title="ملاحظة" %}}
+تطبيق تأثيرات ثلاثية الأبعاد على النص أو أشكاله—والتفاعل بين هذه التأثيرات—محكوم بقواعد محددة. خذ بعين الاعتبار مشهدًا يحتوي على كل من النص والشكل الذي يضمّه. يشمل التأثير ثلاثي الأبعاد تمثيل الكائن الثلاثي الأبعاد والمشهد الذي يُوضَع فيه.
 
-- إذا تم تعيين مشهد لكلٍ من الشكل والنص، يُعطى أولوية لمشهد الشكل ويُتجاهل مشهد النص.
-- إذا كان الشكل يفتقر إلى مشهد خاص به ولكن له تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص.
-- إذا كان الشكل لا يحتوي على أي تأثير ثلاثي الأبعاد، يُعامل كمسطح، ويُطبق تأثير 3D فقط على النص.
+- إذا تم تعيين مشهد لكل من الشكل والنص، فإن مشهد الشكل يحصل على الأولوية وتُهمل مشهد النص.
+- إذا لم يكن لدى الشكل مشهد خاص به لكنه يمتلك تمثيلًا ثلاثيًا الأبعاد، يُستخدم مشهد النص.
+- إذا لم يكن لدى الشكل أي تأثير ثلاثي الأبعاد، يُعامل كمسطح، ويُطبق التأثير الثلاثي الأبعاد فقط على النص.
 
-هذه السلوكيات تتعلق بخصائص [ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/lightrig/) و[ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/camera/).
-{{% /alert %}} 
+هذه السلوكيات تتعلق بخواص [ThreeDFormat.LightRig](https://reference.aspose.com/slides/ar/net/aspose.slides/threedformat/lightrig/) و[ThreeDFormat.Camera](https://reference.aspose.com/slides/ar/net/aspose.slides/threedformat/camera/).
+{{% /alert %}}
 
-## **FAQ**
+للحفاظ على النص مسطحًا ومقروءًا مع الاحتفاظ بتنسيق الشكل ثلاثي الأبعاد، راجع [Keep Text Flat on a 3D Shape](/slides/ar/net/3d-presentation/) للمقارنة بين الإعدادين ومثال كامل بلغة C#.
+
+## **الأسئلة المتكررة**
 
 **هل يمكنني استخدام تأثيرات WordArt مع خطوط أو نصوص مختلفة (مثل العربية أو الصينية)؟**
 
-نعم، يدعم Aspose.Slides for .NET Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
+نعم، يدعم Aspose.Slides for .NET Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، والتعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخط وعرضه قد يعتمد على خطوط النظام.
 
-**هل يمكنني تطبيق تأثيرات WordArt على عناصر ماستر الشريحة؟**
+**هل يمكنني تطبيق تأثيرات WordArt على عناصر الشريحة الرئيسية (master)؟**
 
-نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في ماستر الشرائح، بما في ذلك عناصر النائب للعنوان، التذييلات، أو النص الخلفي. ستنعكس التغييرات التي تُجرى على تخطيط الماستر على جميع الشرائح المرتبطة.
+نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في الشرائح الرئيسية، بما في ذلك نُسخ العناوين، وتذييلات الصفحات، أو النص الخلفي. ستنعكس التغييرات التي تُجرى على تخطيط الـ master على جميع الشرائح المرتبطة.
 
-**هل تؤثر تأثيرات WordArt على حجم ملف العرض؟**
+**هل تؤثر تأثيرات WordArt على حجم ملف العرض التقديمي؟**
 
-تأثيرًا طفيفًا. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئات التدرج من حجم الملف قليلًا بسبب إضافة بيانات تنسيق، لكن الفارق عادةً ما يكون ضئيلًا.
+قليلًا. قد تزيد تأثيرات WordArt مثل الظلال، والتوهج، وتعبئات التدرج حجم الملف قليلاً بسبب إضافة بيانات التنسيق، لكن الفرق عادةً ما يكون ضئيلًا.
 
 **هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض؟**
 
-نعم، يمكنك تحويل الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `GetImage` من واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) أو [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض بالكامل.
+نعم، يمكنك تصيير الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام [ISlide.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/getimage/)، أو تصيير الأشكال الفردية باستخدام [IShape.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/getimage/). يتيح ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض بالكامل.

@@ -1,78 +1,138 @@
 ---
-title: Buat dan Terapkan Efek WordArt di C++
+title: Membuat dan Menerapkan Efek WordArt dalam C++
 linktitle: WordArt
 type: docs
 weight: 110
 url: /id/cpp/wordart/
 keywords:
 - WordArt
-- buat WordArt
-- templat WordArt
+- membuat WordArt
+- template WordArt
 - efek WordArt
 - efek bayangan
-- efek tampilan
-- efek cahaya
+- efek refleksi
+- efek cahaya bersinar
 - transformasi WordArt
 - efek 3D
 - efek bayangan luar
 - efek bayangan dalam
-- PowerPoint
-- presentasi
 - C++
 - Aspose.Slides
-description: "Buat dan sesuaikan efek WordArt di Aspose.Slides untuk C++. Panduan langkah demi langkah ini membantu pengembang meningkatkan presentasi dengan teks profesional di C++."
+description: "Buat dan sesuaikan efek WordArt dalam Aspose.Slides untuk C++. Panduan langkah demi langkah ini membantu pengembang meningkatkan presentasi dengan teks profesional dalam C++."
 ---
 ## **Gambaran Umum**
 
-Efek WordArt memungkinkan Anda menambahkan teks bergaya yang menarik secara visual ke presentasi PowerPoint Anda. Dengan Aspose.Slides, pengembang dapat secara programatis membuat, menyesuaikan, dan mengelola WordArt seperti di Microsoft PowerPoint—tanpa perlu menginstal Office. Artikel ini memberikan gambaran tentang cara bekerja dengan WordArt, termasuk cara menerapkan transformasi teks, gaya isi, garis tepi, bayangan, dan opsi pemformatan lainnya untuk membuat konten presentasi Anda lebih ekspresif dan menarik. WordArt memperlakukan teks sebagai objek grafik. Ia terdiri dari efek atau modifikasi khusus yang diterapkan pada teks agar lebih menarik atau terlihat.
+Efek WordArt memungkinkan Anda memberi gaya pada teks dengan isian, garis luar, bayangan, refleksi, cahaya bersinar, transformasi, dan format 3D. Artikel ini menjelaskan cara membuat dan menyesuaikan efek-efek tersebut dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++, tanpa perlu menginstal Microsoft Office.
 
-## **Membuat Template WordArt Sederhana dan Menerapkannya ke Teks**
+## **Buat Template WordArt Sederhana dan Terapkan ke Teks**
 
-**Menggunakan Aspose.Slides** 
+Contoh-contoh berikut membuat gaya WordArt sederhana dengan mengatur teks, font, isian pola, dan garis luar.
 
-Pertama, kami membuat teks sederhana menggunakan kode C++ ini: 
+Setiap contoh membuat presentasi baru dan menambahkan sebuah persegi panjang ke slide pertama; tidak diperlukan file input. Contoh pertama mengatur teks menjadi "Aspose.Slides". Posisi dan dimensi shape diukur dalam poin:
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-Sekarang, kami mengatur tinggi font teks ke nilai yang lebih besar agar efeknya lebih terlihat melalui kode berikut:
+Atur font menjadi Arial Black dengan ukuran 36 poin agar formatnya lebih terlihat:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Menggunakan Microsoft PowerPoint**
+Terapkan pola [SmallGrid](https://reference.aspose.com/slides/id/cpp/aspose.slides/patternstyle/) dengan latar depan oranye tua dan latar belakang putih, lalu tambahkan garis luar teks berwarna hitam dengan lebar 1 poin:
 
-Buka menu efek WordArt di Microsoft PowerPoint:
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Dari menu di kanan, Anda dapat memilih efek WordArt yang telah ditentukan. Dari menu di kiri, Anda dapat menentukan pengaturan untuk WordArt baru. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Berikut beberapa parameter atau opsi yang tersedia:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**Menggunakan Aspose.Slides**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-Di sini, kami menerapkan warna pola SmallGrid ke teks dan menambahkan batas teks hitam dengan lebar 1 menggunakan kode ini:
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
@@ -80,62 +140,116 @@ lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 
 Teks yang dihasilkan:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Template WordArt sederhana](WordArt_template.png)
 
-## **Menerapkan Efek WordArt Lainnya**
+## **Terapkan Efek WordArt Lainnya**
 
-**Menggunakan Microsoft PowerPoint**
+Contoh-contoh berikut menunjukkan cara menerapkan bayangan, refleksi, cahaya bersinar, transformasi, dan efek 3D ke teks.
 
-Dari antarmuka program, Anda dapat menerapkan efek-efek ini ke teks, blok teks, bentuk, atau elemen serupa:
+### **Terapkan Efek Bayangan Luar**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Bayangan luar menambah kedalaman dengan menempatkan bayangan di belakang teks. Anda dapat menyesuaikan warna, arah, jarak, radius blur, skala, dan kemiringan bayangan.
 
-Sebagai contoh, efek Shadow, Reflection, dan Glow dapat diterapkan ke teks; efek 3D Format dan 3D Rotation dapat diterapkan ke blok teks; properti Soft Edges dapat diterapkan ke Objek Bentuk (efeknya tetap ada meskipun properti 3D Format tidak diatur). 
+Contoh ini memanggil [EnableOuterShadowEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) dan mengatur bayangan hitam dengan radius blur 4 poin, arah 230 derajat, dan jarak 30 poin. Nilai skala 100 mempertahankan ukuran bayangan, sementara skew horizontal memiringkannya 20 derajat. Transformasi alfa mengatur opasitas menjadi 32%:
 
-### **Menerapkan Efek Bayangan ke Teks**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-Di sini, kami hanya mengatur properti yang berhubungan dengan teks. Kami menerapkan efek bayangan ke teks menggunakan kode C++ berikut:
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-API Aspose.Slides mendukung tiga jenis bayangan: OuterShadow, InnerShadow, dan PresetShadow. 
+Teks yang dihasilkan:
 
-Dengan PresetShadow, Anda dapat menerapkan bayangan ke teks (menggunakan nilai preset). 
+![Efek Bayangan Luar](outer_shadow_effect.png)
 
-**Menggunakan Microsoft PowerPoint**
+{{% alert color="info" title="Note" %}}
+- Ketika bayangan luar dan bayangan preset digunakan bersamaan, hanya bayangan luar yang diterapkan.
+- Jika bayangan luar dan dalam digunakan secara bersamaan, efek yang dihasilkan bergantung pada versi PowerPoint. Misalnya, di PowerPoint 2013, efeknya menjadi dua kali lipat, sementara di PowerPoint 2007, hanya bayangan luar yang diterapkan.
+{{% /alert %}}
 
-Di PowerPoint, Anda dapat memakai satu jenis bayangan. Berikut contohnya:
+### **Terapkan Efek Refleksi**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+Refleksi membuat salinan teks yang terbayang. Sesuaikan posisinya, skala, blur, dan opasitas untuk mengontrol tampilannya.
 
-**Menggunakan Aspose.Slides**
+Contoh ini memanggil [EnableReflectionEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) dan membalik refleksi secara vertikal dengan skala -100%. Menggunakan radius blur 0,5 poin dan jarak 4,72 poin. Opasitas menurun dari 60% menjadi 0,9% antara posisi 0% dan 60% sepanjang refleksi:
 
-Aspose.Slides sebenarnya memungkinkan Anda menerapkan dua jenis bayangan sekaligus: InnerShadow dan PresetShadow.
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
 
-**Catatan:**
+using namespace Aspose::Slides;
 
-- Ketika OuterShadow dan PresetShadow digunakan bersama, hanya efek OuterShadow yang diterapkan. 
-- Jika OuterShadow dan InnerShadow digunakan secara bersamaan, efek yang dihasilkan atau diterapkan tergantung pada versi PowerPoint. Misalnya, di PowerPoint 2013, efeknya menjadi ganda. Tetapi di PowerPoint 2007, efek OuterShadow yang diterapkan. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **Menerapkan Efek Refleksi**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-Kami menambahkan refleksi ke teks melalui contoh kode C++ ini:
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-``` cpp 
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,61 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **Menerapkan Efek Glow**
+Teks yang dihasilkan:
 
-Kami menerapkan efek glow ke teks agar tampak bersinar atau menonjol menggunakan kode berikut:
+![Efek Refleksi](reflection_effect.png)
 
-``` cpp 
+### **Terapkan Efek Cahaya Bersinar**
+
+Cahaya bersinar menambahkan garis luar berwarna lembut di sekitar teks. Sesuaikan warna, opasitas, dan radius untuk mengontrol efeknya.
+
+Contoh ini memanggil [EnableGlowEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides/ieffectformat/enablegloweffect/) dan menerapkan cahaya bersinar merah dengan opasitas 54% dan radius 7 poin:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-Hasil operasi:
+Teks yang dihasilkan:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![Efek Cahaya Bersinar](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **Terapkan Transformasi WordArt**
 
-Anda dapat mengubah parameter untuk bayangan, tampilan, dan glow. Properti efek diatur secara terpisah pada setiap bagian teks. 
+Transformasi WordArt membengkokkan, meregangkan, atau melengkungkan blok teks.
 
-{{% /alert %}} 
+Atur [ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_transform/) ke [ArchUpPour](https://reference.aspose.com/slides/id/cpp/aspose.slides/textshapetype/) untuk melengkungkan seluruh frame teks ke atas:
 
-### **Menggunakan Transformasi di WordArt**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
 
-Kami menggunakan metode set_Transform (menerapkan pada seluruh blok teks) melalui kode ini:
+using namespace Aspose::Slides;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-Hasilnya:
+Teks yang dihasilkan:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![Transformasi WordArt](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides untuk C++ menyediakan sekumpulan [transformation types](https://reference.aspose.com/slides/id/cpp/aspose.slides/textshapetype/) yang telah ditentukan sebelumnya.
+{{% /alert %}}
 
-Baik Microsoft PowerPoint maupun Aspose.Slides untuk C++ menyediakan sejumlah tipe transformasi yang telah ditentukan. 
+### **Terapkan Efek 3D ke Bentuk dan Teks**
 
-{{% /alert %}} 
+Anda dapat menerapkan efek 3D ke bentuk atau ke teksnya. Bevel, ekstrusi, pencahayaan, dan pengaturan kamera mengontrol tampilan yang dihasilkan.
 
-**Menggunakan PowerPoint**
+Contoh berikut menggunakan [IThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/) untuk menambahkan bevel melingkar, ekstrusi oranye, dan kontur merah tua ke persegi panjang. Dimensi bevel, tinggi ekstrusi, lebar kontur, dan kedalaman diukur dalam poin. Bahan plastik, pencahayaan seimbang yang diputar 40 derajat sekitar sumbu Z, serta kamera perspektif menentukan tampilannya:
 
-Untuk mengakses tipe transformasi yang telah ditentukan, buka: **Format** -> **TextEffect** -> **Transform**
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-**Menggunakan Aspose.Slides**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Untuk memilih tipe transformasi, gunakan enum TextShapeType. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **Menerapkan Efek 3D ke Teks dan Bentuk**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
 
-Kami menetapkan efek 3D ke bentuk teks menggunakan contoh kode berikut:
-
-``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -234,13 +422,43 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Teks dan bentuk yang dihasilkan:
+Bentuk yang dihasilkan:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![Efek 3D Bentuk](shape_3D_effect.png)
 
-Kami menerapkan efek 3D ke teks dengan kode C++ ini:
+Contoh ini menerapkan pemformatan 3D serupa ke teks melalui [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/get_threedformat/). Bevel yang lebih kecil membentuk tepi huruf, sementara ekstrusi dan pencahayaan memberi kedalaman pada teks:
 
-``` cpp 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -268,133 +486,36 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Hasil operasi:
+Teks yang dihasilkan:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![Efek 3D Teks](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Penerapan efek 3D pada teks atau bentuknya—dan interaksi antara efek-efek tersebut—diatur oleh aturan khusus. Pertimbangkan sebuah adegan yang melibatkan baik teks maupun bentuk yang menampungnya. Efek 3D mencakup representasi 3D objek dan adegan tempat objek tersebut ditempatkan.
 
-Penerapan efek 3D ke teks atau bentuknya serta interaksi antar efek didasarkan pada aturan tertentu. 
+- Jika adegan diatur untuk bentuk dan teks, adegan bentuk mengambil prioritas dan adegan teks diabaikan.
+- Jika bentuk tidak memiliki adegan sendiri tetapi memiliki representasi 3D, adegan teks yang digunakan.
+- Jika bentuk tidak memiliki efek 3D sama sekali, bentuk tersebut diperlakukan datar, dan efek 3D diterapkan hanya pada teks.
 
-Pertimbangkan sebuah adegan untuk teks dan bentuk yang berisi teks tersebut. Efek 3D mencakup representasi objek 3D dan adegan tempat objek ditempatkan. 
+Perilaku ini terkait dengan metode [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_lightrig/) dan [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_camera/).
+{{% /alert %}}
 
-- Ketika adegan diatur untuk baik gambar maupun teks, adegan gambar mendapatkan prioritas lebih tinggi—adegan teks diabaikan. 
-- Ketika gambar tidak memiliki adegan sendiri tetapi memiliki representasi 3D, adegan teks yang digunakan. 
-- Jika tidak—ketika bentuk awalnya tidak memiliki efek 3D—bentuk tetap datar dan efek 3D hanya diterapkan ke teks. 
-
-Deskripsi ini terkait dengan metode ThreeDFormat.getLightRig() dan ThreeDFormat.getCamera(). 
-
-{{% /alert %}} 
-
-## **Menerapkan Efek Bayangan Luar ke Bentuk**
-Aspose.Slides untuk C++ menyediakan kelas [**IOuterShadow**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.effects.i_outer_shadow) dan [**IInnerShadow**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.effects.i_inner_shadow) yang memungkinkan Anda menerapkan efek bayangan ke teks yang berada dalam TextFrame. Ikuti langkah-langkah berikut:
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-2. Dapatkan referensi slide dengan menggunakan indeksnya.  
-3. Tambahkan sebuah AutoShape tipe Rectangle ke slide.  
-4. Akses TextFrame yang terkait dengan AutoShape.  
-5. Atur FillType AutoShape menjadi NoFill.  
-6. Instansiasi kelas OuterShadow.  
-7. Atur BlurRadius bayangan.  
-8. Atur Direction bayangan.  
-9. Atur Distance bayangan.  
-10. Atur RectanglelAlign ke TopLeft.  
-11. Atur PresetColor bayangan ke Black.  
-12. Simpan presentasi sebagai file PPTX.  
-
-Kode contoh dalam C++—implementasi dari langkah-langkah di atas—menunjukkan cara menerapkan efek bayangan luar ke teks:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// Dapatkan referensi slide
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Tambahkan AutoShape tipe Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Tambahkan TextFrame ke Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
-
-// Nonaktifkan isian bentuk jika ingin mendapatkan bayangan teks
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Tambahkan bayangan luar dan atur semua parameter yang diperlukan
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// Simpan presentasi ke disk
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-## **Menerapkan Efek Bayangan Dalam ke Bentuk**
-Ikuti langkah-langkah berikut:
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-2. Dapatkan referensi slide.  
-3. Tambahkan sebuah AutoShape tipe Rectangle.  
-4. Aktifkan InnerShadowEffect.  
-5. Atur semua parameter yang diperlukan.  
-6. Atur ColorType menjadi Scheme.  
-7. Atur Scheme Color.  
-8. Simpan presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-
-Kode contoh (berdasarkan langkah-langkah di atas) menunjukkan cara menambahkan konektor antara dua bentuk dalam C++:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// Dapatkan referensi slide
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// Tambahkan AutoShape tipe Rectangle
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Tambahkan TextFrame ke Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// Aktifkan InnerShadowEffect
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// Atur semua parameter yang diperlukan
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// Atur ColorType menjadi Scheme
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// Atur Warna Skema
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// Simpan Presentasi
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
+Untuk menjaga teks tetap datar dan dapat dibaca sambil mempertahankan pemformatan 3D bentuknya, lihat [Keep Text Flat on a 3D Shape](/slides/id/cpp/3d-presentation/) untuk perbandingan kedua pengaturan dan contoh lengkap C++.
 
 ## **FAQ**
 
-**Apakah saya dapat menggunakan efek WordArt dengan font atau skrip yang berbeda (misalnya Arab, Cina)?**
+**Apakah saya dapat menggunakan efek WordArt dengan font atau skrip berbeda (misalnya Arab, Mandarin)?**
 
-Ya, Aspose.Slides mendukung Unicode dan bekerja dengan semua font serta skrip utama. Efek WordArt seperti bayangan, isi, dan garis tepi dapat diterapkan terlepas dari bahasa, meskipun ketersediaan font dan render dapat bergantung pada font sistem.
+Ya, Aspose.Slides untuk C++ mendukung Unicode dan bekerja dengan semua font serta skrip utama. Efek WordArt seperti bayangan, isian, dan garis luar dapat diterapkan terlepas dari bahasa, meskipun ketersediaan font dan rendering dapat bergantung pada font sistem.
 
-**Apakah saya dapat menerapkan efek WordArt ke elemen master slide?**
+**Apakah saya dapat menerapkan efek WordArt pada elemen master slide?**
 
-Ya, Anda dapat menerapkan efek WordArt ke bentuk pada master slide, termasuk placeholder judul, footer, atau teks latar belakang. Perubahan pada tata letak master akan tercermin pada semua slide terkait.
+Ya, Anda dapat menerapkan efek WordArt pada shape di master slide, termasuk placeholder judul, footer, atau teks latar belakang. Perubahan pada tata letak master akan tercermin pada semua slide terkait.
 
 **Apakah efek WordArt memengaruhi ukuran file presentasi?**
 
-Sedikit. Efek WordArt seperti bayangan, glow, dan isi gradien dapat sedikit menambah ukuran file karena metadata pemformatan tambahan, namun perbedaannya biasanya tidak signifikan.
+Sedikit. Efek WordArt seperti bayangan, cahaya bersinar, dan isian gradasi dapat sedikit menambah ukuran file karena metadata format tambahan, tetapi perbedaannya biasanya tidak signifikan.
 
 **Apakah saya dapat melihat pratinjau hasil efek WordArt tanpa menyimpan presentasi?**
 
-Ya, Anda dapat merender slide yang berisi WordArt ke gambar (misalnya PNG, JPEG) menggunakan metode `GetImage` dari antarmuka [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) atau [ISlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/). Ini memungkinkan Anda meninjau hasil secara in‑memory atau di layar sebelum menyimpan atau mengekspor presentasi lengkap.
+Ya, Anda dapat merender slide yang berisi WordArt menjadi gambar (misalnya PNG, JPEG) menggunakan [ISlide::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/getimage/), atau merender shape individual menggunakan [IShape::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/getimage/). Ini memungkinkan Anda melihat pratinjau hasil di memori atau layar sebelum menyimpan atau mengekspor presentasi secara lengkap.

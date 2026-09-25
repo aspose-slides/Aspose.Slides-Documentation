@@ -10,7 +10,7 @@ keywords:
 - шаблон WordArt
 - эффект WordArt
 - эффект тени
-- эффект отображения
+- эффект отражения
 - эффект свечения
 - трансформация WordArt
 - 3D-эффект
@@ -19,244 +19,327 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Создайте и настройте эффекты WordArt в Aspose.Slides для .NET. Это пошаговое руководство поможет разработчикам улучшить презентации профессиональным текстом на C#."
+description: "Создавайте и настраивайте эффекты WordArt в Aspose.Slides для .NET. Это пошаговое руководство помогает разработчикам улучшать презентации профессиональным текстом на C#."
 ---
-
 ## **Обзор**
 
-Эффекты WordArt позволяют добавлять визуально привлекательный, стилизованный текст в ваши презентации PowerPoint. С помощью Aspose.Slides for .NET разработчики могут программно создавать, настраивать и управлять WordArt так же, как в Microsoft PowerPoint — без необходимости установки Office. Эта статья предоставляет обзор работы с WordArt в .NET, включая применение трансформаций текста, стилей заливки, контуров, теней и других параметров форматирования, чтобы сделать содержание презентации более выразительным и увлекательным. WordArt позволяет рассматривать текст как графический объект. Он состоит из эффектов или специальных модификаций, применяемых к тексту, чтобы сделать его более привлекательным или заметным.
+Эффекты WordArt позволяют оформлять текст с помощью заливок, контуров, теней, отражений, свечения, трансформаций и 3D‑форматирования. В этой статье объясняется, как создавать и настраивать эти эффекты в презентациях PowerPoint с использованием Aspose.Slides for .NET без установки Microsoft Office.
 
-## **Создание простого шаблона WordArt и применение его к тексту**
+## **Создать простой шаблон WordArt и применить его к тексту**
 
-В этом разделе мы рассмотрим, как создать простой шаблон WordArt и применить его к тексту с помощью Aspose.Slides for .NET. WordArt предлагает простой способ улучшить внешний вид текста с помощью ярких визуальных эффектов и стилей. Изучив основные шаги создания и использования WordArt, вы сможете быстро адаптировать эти техники к любому проекту, делая презентации более живыми и запоминающимися.
+Следующие примеры создают простой стиль WordArt, задавая текст, шрифт, заливку узором и контур.
 
-First, we create simple text using the following C# code:
+Каждый пример создает новую презентацию и добавляет прямоугольник на первый слайд; входной файл не требуется. Первый пример задаёт текст «Aspose.Slides». Позиция и размеры фигуры измеряются в пунктах:
+
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
 
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IPortion portion = textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+
+var portion = textFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
 ```
 
+Задайте шрифт Arial Black размером 36 пунктов, чтобы форматирование было более заметным:
 
-Now, we set the text’s font height to a larger value to make the effect more noticeable using the following code:
 ```cs
-    portion.PortionFormat.LatinFont = new FontData("Arial Black");
-    portion.PortionFormat.FontHeight = 36;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
 ```
 
+Примените узор [SmallGrid](https://reference.aspose.com/slides/ru/net/aspose.slides/patternstyle/) с тёмно‑оранжевым передним планом и белым фоном, затем добавьте чёрный контур текста шириной 1 пункт:
 
-Here, we apply the SmallGrid pattern fill to the text and add a black text border with a width of 1 using the following code:
 ```cs
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
-    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
-```
+using System.Drawing;
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+
+portion.PortionFormat.LineFormat.Width = 1;
+portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+```
 
 Полученный текст:
 
 ![Простой шаблон WordArt](WordArt_template.png)
 
-## **Применение других эффектов WordArt**
+## **Применить другие эффекты WordArt**
 
-Помимо базовых трансформаций, Aspose.Slides for .NET позволяет применять разнообразные продвинутые эффекты WordArt для улучшения внешнего вида вашего текста. Это включает контуры, заливки, тени, отражения и свечения. Комбинируя эти возможности, вы можете создавать привлекающие внимание стили текста, которые выделяются в ваших презентациях. В этом разделе демонстрируется программное применение этих эффектов с помощью простых, лаконичных примеров кода.
+Следующие примеры демонстрируют, как применять тени, отражения, свечение, трансформации и 3D‑эффекты к тексту.
 
-### **Применение внешних теней**
+### **Применить внешние теневые эффекты**
 
-Эффекты внешних теней помогают тексту выделяться, добавляя тень за контуром, создавая ощущение глубины и отделения от фона. Aspose.Slides for .NET позволяет легко применять и настраивать внешние тени на тексте WordArt. В этом разделе вы узнаете, как задать цвет тени, направление, расстояние, радиус размытия и другие параметры для достижения желаемого визуального эффекта.
+Внешняя тень добавляет глубину, размещая тень за текстом. Вы можете настроить её цвет, направление, расстояние, радиус размытия, масштаб и наклон.
 
-The following C# code snippet applies a shadow effect to the text created above.
+Этот пример вызывает [EnableOuterShadowEffect](https://reference.aspose.com/slides/ru/net/aspose.slides/effectformat/enableoutershadoweffect/) и задаёт чёрную тень с радиусом размытия 4 пункта, направлением 230 градусов и расстоянием 30 пунктов. Значения масштаба 100 сохраняют размер тени, а горизонтальный наклон наклоняет её на 20 градусов. Альфа‑преобразование задаёт непрозрачность 32%:
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
-```
+using System.Drawing;
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+```
 
 Полученный текст:
 
 ![Эффект внешней тени](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
-
-- Когда одновременно используются OuterShadow и PresetShadow, применяется только эффект OuterShadow.
-- Если одновременно используются OuterShadow и InnerShadow, итоговый эффект зависит от версии PowerPoint. Например, в PowerPoint 2013 эффект удваивается, а в PowerPoint 2007 применяется только эффект OuterShadow.
-
+{{% alert color="info" title="Note" %}}
+- При одновременном использовании внешних и предустановленных теней применяется только внешняя тень.  
+- Если одновременно использовать внешние и внутренние тени, результирующий эффект зависит от версии PowerPoint. Например, в PowerPoint 2013 эффект удваивается, а в PowerPoint 2007 применяется только внешняя тень.  
 {{% /alert %}}
 
-### **Применение эффектов отражения**
+### **Применить эффекты отражения**
 
-В этом разделе мы рассмотрим, как применять эффекты отражения в ваших слайдах с помощью Aspose.Slides for .NET. Эффекты отражения могут эффективно придать вашему тексту или фигурам стильный и современный вид, помогая ключевым элементам выделяться и добавляя глубину презентации. Понимая процесс применения и настройки этих эффектов, вы сможете легко адаптировать их под дизайн и требования бренда.
+Отражение создаёт зеркальную копию текста. Регулируйте позицию, масштаб, размытие и непрозрачность, чтобы управлять его видом.
 
-Add a reflection effect to the text using this C# code example:
+Этот пример вызывает [EnableReflectionEffect](https://reference.aspose.com/slides/ru/net/aspose.slides/effectformat/enablereflectioneffect/) и переворачивает отражение вертикально с масштабом –100 %. Он использует радиус размытия 0,5 пункта и расстояние 4,72 пункта. Непрозрачность уменьшается с 60 % до 0,9 % между позициями 0 % и 60 % вдоль отражения:
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
-```
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
+```
 
 Полученный текст:
 
 ![Эффект отражения](reflection_effect.png)
 
-### **Применение эффектов свечения**
+### **Применить эффекты свечения**
 
-В этом разделе мы рассмотрим, как применить эффект свечения к тексту с помощью Aspose.Slides for .NET. Эффект свечения может сделать ваш текст более заметным за счёт светящегося контура, повышая визуальную привлекательность слайдов. Регулируя такие параметры, как цвет и интенсивность, вы сможете легко настроить свечение под дизайн и требования бренда, обеспечивая привлечение внимания к ключевым моментам вашей презентации.
+Свечение добавляет мягкий цветной контур вокруг текста. Регулируйте цвет, непрозрачность и радиус, чтобы управлять эффектом.
 
-Apply a glow effect to the text to make it shine or stand out using the following code:
+Этот пример вызывает [EnableGlowEffect](https://reference.aspose.com/slides/ru/net/aspose.slides/effectformat/enablegloweffect/) и применяет красное свечение с непрозрачностью 54 % и радиусом 7 пунктов:
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableGlowEffect();
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
-```
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableGlowEffect();
+portion.PortionFormat.EffectFormat.GlowEffect.Color.Color = System.Drawing.Color.Red;
+portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+```
 
 Полученный текст:
 
 ![Эффект свечения](glow_effect.png)
 
-### **Применение трансформаций WordArt**
+### **Применить трансформации WordArt**
 
-В этом разделе мы рассмотрим, как использовать трансформации в WordArt с помощью Aspose.Slides for .NET. Трансформации позволяют изгибать, растягивать или искажать текст, создавая уникальные и визуально впечатляющие эффекты. Овладев этими техниками, вы сможете легко адаптировать формы и стили текста под ваш бренд или креативное видение, обеспечивая убедительную и профессиональную презентацию.
+Трансформации WordArt изгибают, растягивают или искажают блок текста.
 
-Use the `Transform` property (which applies to the entire block of text) using the following code:
+Установите [Transform](https://reference.aspose.com/slides/ru/net/aspose.slides/textframeformat/transform/) в значение [ArchUpPour](https://reference.aspose.com/slides/ru/net/aspose.slides/textshapetype/), чтобы выгнуть весь текстовый фрейм вверх:
+
 ```cs
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
-```
+using Aspose.Slides;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+```
 
 Полученный текст:
 
 ![Трансформация WordArt](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for .NET предоставляет набор предопределённых [видов трансформаций](https://reference.aspose.com/slides/ru/net/aspose.slides/textshapetype/).  
+{{% /alert %}}
 
-Aspose.Slides for .NET provides a set of predefined [типы трансформаций](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/).
+### **Применить 3D‑эффекты к фигурам и тексту**
 
-{{% /alert %}} 
+Вы можете применять 3D‑эффекты к фигуре или к её тексту. Скосы, экструдирование, освещение и настройки камеры управляют конечным видом.
 
-### **Применение 3D‑эффектов к фигурам и тексту**
+Следующий пример использует [ThreeDFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/threedformat/) для добавления круглых скосов, оранжевого экструдирования и тёмно‑красного контура к прямоугольнику. Размеры скосов, высота экструдирования, ширина контура и глубина измеряются в пунктах. Пластиковый материал, сбалансированное освещение, повёрнутое на 40° вокруг оси Z, и перспективная камера определяют его внешний вид:
 
-Создание реалистичных, привлекающих внимание визуальных эффектов может существенно повысить влияние ваших презентаций. В этом разделе мы исследуем, как применять трёхмерные (3D) эффекты к фигурам с помощью Aspose.Slides for .NET. Манипулируя параметрами, такими как глубина, угол и освещение, вы можете создавать впечатляющие 3D‑трансформации, которые сразу же привлекают внимание аудитории. Независимо от того, стремитесь ли вы к тонким акцентам или драматическим иллюзиям, эти возможности предлагают гибкие способы улучшить дизайн и передать идеи более захватывающим образом.
-
-Use the following sample code to set a 3D effect to the shape:
 ```cs
-    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-    autoShape.ThreeDFormat.BevelTop.Width = 11;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    autoShape.ThreeDFormat.ExtrusionHeight = 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+autoShape.TextFrame.Text = "Aspose.Slides";
 
-    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    autoShape.ThreeDFormat.ContourWidth = 1.5;
+autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-    autoShape.ThreeDFormat.Depth = 3;
+autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+autoShape.ThreeDFormat.Depth = 3;
+
+autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
-
 
 Полученная фигура:
 
 ![3D‑эффект фигуры](shape_3D_effect.png)
 
-Use the following sample code to set a 3D effect to the text:
+Этот пример применяет аналогичное 3D‑форматирование к тексту через [TextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/textframeformat/threedformat/). Меньшие скосы формируют края букв, а экструдирование и освещение придают тексту глубину:
+
 ```cs
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
 
-    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
 
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
+
+textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
-
 
 Полученный текст:
 
 ![3D‑эффект текста](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Применение 3D‑эффектов к тексту или к их фигурам — и взаимодействие между этими эффектами — регулируются определёнными правилами. Рассмотрим сцену, включающую как текст, так и содержащую его фигуру. 3D‑эффект включает 3D‑представление объекта и сцену, в которой он размещён.
 
-Применение 3D‑эффектов к тексту или их фигурам — а также взаимодействие между этими эффектами — регулируется определёнными правилами. Рассмотрим сцену, включающую и текст, и форму, содержащую этот текст. 3D‑эффект включает 3D‑представление объекта и сцену, на которой он размещён.
+- Если сцена задана как для фигуры, так и для текста, приоритет отдаётся сцене фигуры, а сцена текста игнорируется.  
+- Если у фигуры нет собственной сцены, но есть 3D‑представление, используется сцена текста.  
+- Если у фигуры полностью отсутствует 3D‑эффект, она рассматривается как плоская, и 3D‑эффект применяется только к тексту.  
 
-- Если сцена задаётся как для формы, так и для текста, приоритет имеет сцена формы, а сцена текста игнорируется.
-- Если у формы нет собственной сцены, но есть 3D‑представление, используется сцена текста.
-- Если у формы полностью отсутствует 3D‑эффект, она рассматривается как плоская, и 3D‑эффект применяется только к тексту.
+Эти поведения связаны со свойствами [ThreeDFormat.LightRig](https://reference.aspose.com/slides/ru/net/aspose.slides/threedformat/lightrig/) и [ThreeDFormat.Camera](https://reference.aspose.com/slides/ru/net/aspose.slides/threedformat/camera/).  
+{{% /alert %}}
 
-Эти поведения относятся к свойствам [ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/lightrig/) и [ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/camera/).
+Чтобы сохранить текст плоским и читаемым, одновременно сохраняя 3D‑форматирование его фигуры, см. [Keep Text Flat on a 3D Shape](/slides/ru/net/3d-presentation/) для сравнения обоих настроек и полного примера на C#.
 
-{{% /alert %}} 
+## **Вопросы и ответы**
 
-## **Часто задаваемые вопросы**
+**Можно ли использовать эффекты WordArt с различными шрифтами или сценариями (например, арабским, китайским)?**
 
-**Могу ли я использовать эффекты WordArt с различными шрифтами или скриптами (например, арабским, китайским)?**
+Да, Aspose.Slides for .NET поддерживает Unicode и работает со всеми основными шрифтами и сценариями. Эффекты WordArt, такие как тень, заливка и контур, могут быть применены независимо от языка, хотя доступность шрифтов и их рендеринг могут зависеть от системных шрифтов.
 
-Да, Aspose.Slides for .NET поддерживает Unicode и работает со всеми основными шрифтами и сценариями. Эффекты WordArt, такие как тень, заливка и контур, могут быть применены независимо от языка, хотя доступность шрифтов и их отображение могут зависеть от системных шрифтов.
+**Можно ли применять эффекты WordArt к элементам шаблона слайдов?**
 
-**Можно ли применять эффекты WordArt к элементам шаблона слайда?**
-
-Да, вы можете применять эффекты WordArt к объектам на мастер‑слайдах, включая заполнитель заголовка, нижний колонтитул или фоновый текст. Изменения, внесённые в мастер‑разметку, будут отражены во всех соответствующих слайдах.
+Да, эффекты WordArt можно применять к фигурам на мастер‑слайдах, включая заполнители заголовков, колонтитулы или фоновый текст. Изменения, внесённые в макет мастера, отразятся на всех связанных слайдах.
 
 **Влияют ли эффекты WordArt на размер файла презентации?**
 
-Незначительно. Эффекты WordArt, такие как тени, свечения и градиентные заливки, могут слегка увеличить размер файла из‑за добавления метаданных форматирования, но разница обычно незначительна.
+Незначительно. Эффекты WordArt, такие как тени, свечения и градиентные заливки, могут немного увеличить размер файла из‑за добавленных метаданных форматирования, но разница обычно несущественная.
 
-**Можно ли предварительно просмотреть результат эффектов WordArt без сохранения презентации?**
+**Можно ли просмотреть результат эффектов WordArt без сохранения презентации?**
 
-Да, вы можете визуализировать слайды с WordArt в изображения (например, PNG, JPEG) с помощью метода `GetImage` из интерфейсов [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) или [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/). Это позволяет предварительно просмотреть результат в памяти или на экране перед сохранением или экспортом полной презентации.
+Да, вы можете отрисовать слайды с WordArt в изображения (например, PNG, JPEG), используя [ISlide.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/getimage/), или отрисовать отдельные фигуры через [IShape.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getimage/). Это позволяет предварительно увидеть результат в памяти или на экране до сохранения или экспорта полной презентации.

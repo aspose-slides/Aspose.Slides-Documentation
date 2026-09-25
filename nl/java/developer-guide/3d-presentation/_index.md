@@ -5,69 +5,74 @@ type: docs
 weight: 232
 url: /nl/java/3d-presentation/
 keywords:
-  - 3D PowerPoint
-  - 3D‑presentatie
-  - 3D‑rotatie
-  - 3D‑diepte
-  - 3D‑extrusie
-  - 3D‑verloop
-  - 3D‑tekst
-  - PowerPoint
-  - presentatie
-  - Java
-  - Aspose.Slides
+- 3D PowerPoint
+- 3D‑presentatie
+- 3D‑rotatie
+- 3D‑diepte
+- 3D‑extrusie
+- 3D‑verloop
+- 3D‑tekst
+- PowerPoint
+- presentatie
+- Java
+- Aspose.Slides
 description: "Pas 3D‑effecten toe en render ze voor PowerPoint‑vormen en -tekst in Java met Aspose.Slides. Configureer camera, verlichting, materiaal, extrusie, vullingen en 3D‑tekst."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Java kan vormen en tekst maken, bewerken, behouden en weergeven met PowerPoint‑achtige 3D‑opmaak. Dit artikel behandelt 3D‑effecten zoals rotatie, extrusie, schuine randen, verlichting, materiaal, verloop of afbeeldingvullingen, en 3D‑tekst.
+Aspose.Slides for Java kan vormen en tekst maken, bewerken, behouden en weergeven met PowerPoint-achtige 3D-opmaak. Dit artikel behandelt 3D‑effecten zoals rotatie, extrusie, schuine randen, verlichting, materiaal, verloop‑ of afbeeldingsvullingen en 3D‑tekst.
 
-{{% alert color="primary" %}}
-Dit artikel gaat over 3D‑opmaak­effecten op PowerPoint‑vormen en -tekst. Het gaat niet over het invoegen of bewerken van zelfstandige 3D‑modelfiles. Wanneer u een dia exporteert naar een afbeelding, PDF of HTML, rendert Aspose.Slides die 3D‑effecten in de geëxporteerde 2D‑output.
+{{% alert color="info" title="Note" %}}
+Dit artikel gaat over 3D‑opmaakeffecten op PowerPoint‑vormen en -tekst. Het gaat niet over het invoegen of bewerken van afzonderlijke 3D‑modelbestanden. Wanneer u een dia exporteert naar een afbeelding, PDF of HTML, rendert Aspose.Slides die 3D‑effecten in de geëxporteerde 2D‑output.
 {{% /alert %}}
 
-## **3D‑opmaakconcepten**
+## **Concepten van 3D‑opmaak**
 
-Gebruik [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/).`getThreeDFormat()` om 3D‑opmaak toe te passen op een vorm. Het geretourneerde opmaakobject regelt de 3D‑scene voor die vorm.
+Gebruik de [IShape.getThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getThreeDFormat--) methode om 3D‑opmaak toe te passen op een vorm. De methode retourneert [IThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/), die de 3D‑scene voor die vorm beheert.
 
-Voor tekst gebruikt u [ITextFrameFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()`. Hiermee wordt 3D‑opmaak toegepast op het tekstframe in plaats van op de vorminhoud.
+Voor tekst gebruikt u de [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) methode. Deze past 3D‑opmaak toe op het tekstframe in plaats van op het vormlichaam.
 
 De belangrijkste API‑leden zijn:
 
-| API‑lid | Waar het controleert | Wanneer te gebruiken |
+| API‑lid | Wat het regelt | Wanneer te gebruiken |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getCamera--) | Bekijkpunt, vooraf ingestelde cameratype, rotatie, zoom en perspectief. | Draai het object in de 3D‑ruimte of stem overeen met een PowerPoint‑3D‑rotatie‑preset. |
-| [getLightRig](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getLightRig--) | Verlichtingspreset, richting en lichtrotatie. | Wijzig hoe highlights en schaduwen verschijnen op het 3D‑oppervlak. |
-| [getMaterial](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getMaterial--) en [setMaterial](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Oppervlaktemateriaal, zoals vlak, mat, plastic of metaal. | Laat dezelfde geometrie er vlakker, zachter, glanzender of metalen uitzien. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) en [setExtrusionHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Hoe ver de vorm naar achteren uitsteekt vanaf de voorzijde. | Zet een vlakke vorm om in een duidelijk dikke 3D‑object. |
-| [getExtrusionColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Kleur van de geëxtrudeerde zijkanten. | Maak diepte zichtbaar of stem de zijkleur af op de voorvulling. |
-| [getDepth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getDepth--) en [setDepth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Extra 3D‑diepte die door PowerPoint‑3D‑opmaak wordt gebruikt. | Fijnstem de diepte voor vormen of tekst, vooral in combinatie met bevel‑ en materiaalinstellingen. |
-| [getBevelTop](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getBevelTop--) en [getBevelBottom](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Verhoogde of afgeronde randen op de voor- en achterkant. | Voeg een verzachte of gevormde rand toe in plaats van een scherpe platte rand. |
-| [getContourColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getContourWidth--), en [setContourWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Omtrek rond het 3D‑object. | Benadruk de objectgrens in de gerenderde uitvoer. |
+| [getCamera](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getCamera--) | Gezichtsstandpunt, vooraf ingestelde cameratypen, rotatie, zoom en perspectief. | Roteer het object in 3D‑ruimte of pas een vooraf ingestelde PowerPoint‑rotatie toe. |
+| [getLightRig](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getLightRig--) | Lichtvoorinstelling, richting en lichtrotatie. | Wijzig hoe hoogtepunten en schaduwen verschijnen op het 3D‑oppervlak. |
+| [getMaterial](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getMaterial--) en [setMaterial](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Oppervlaktemateriaal, zoals vlak, mat, plastic of metaal. | Laat dezelfde geometrie er vlakker, zachter, glanzender of metallischer uitzien. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) en [setExtrusionHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Hoe ver de vorm zich naar achteren uitstrekt vanaf de voorzijde. | Verander een vlakke vorm in een duidelijk dik 3D‑object. |
+| [getExtrusionColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Kleur van de geëxtrudeerde zijkanten. | Maak diepte zichtbaar of stem de kleur van de zijkant af op de voorvulling. |
+| [getDepth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getDepth--) en [setDepth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Extra 3D‑diepte gebruikt door PowerPoint‑3D‑opmaak. | Fijn afstellen van diepte voor vormen of tekst, vooral in combinatie met schuine randen en materiaalinstellingen. |
+| [getBevelTop](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getBevelTop--) en [getBevelBottom](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Verhoogde of afgeronde randen op de voor- en achterkant. | Voeg een verzachte of gevormde rand toe in plaats van een scherp vlakke zijde. |
+| [getContourColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getContourColor--) en [getContourWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getContourWidth--) en [setContourWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Omtreklijn rond het 3D‑object. | Benadruk de objectgrens in de gerenderde uitvoer. |
 
-## **Maak een 3D‑vorm**
+## **Een 3D‑vorm maken**
 
 Een vorm heeft meestal vier soorten instellingen nodig voordat hij overtuigend 3D oogt:
 
-- Camerainstellingen, omdat de standaard vooraanzicht de extrusie kan verbergen.
-- Verlichtingsinstellingen, omdat verlichting de gezichten en zijden leesbaar maakt.
-- Materiaalinstellingen, omdat het oppervlak beïnvloedt hoe licht wordt weergegeven.
+- Camera‑instellingen, omdat de standaard vooraanzicht de extrusie kan verbergen.
+- Verlichtingsinstellingen, omdat verlichting de gezichten en zijkanten leesbaar maakt.
+- Materiaalinstellingen, omdat het oppervlak invloed heeft op hoe licht wordt weergegeven.
 - Extrusie‑ of diepte‑instellingen, omdat een vlakke vorm dikte nodig heeft.
 
-Het volgende voorbeeld maakt een rechthoek, voegt tekst toe aan de voorzijde, past 3D‑opmaak toe, slaat de presentatie op als PPTX en rendert de dia naar een PNG‑afbeelding.
+Het volgende voorbeeld maakt een rechthoek, voegt tekst toe aan de voorzijde en past 3D‑opmaak toe. De cameraro­tatie‑waarden staan in graden en de extrusiehoogte is 100 punten. Het voorbeeld rendert de dia naar een PNG‑afbeelding op het dubbele van de standaardafmetingen en slaat de presentatie op als PPTX.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
     shape.getTextFrame().setText("3D");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(100, 149, 237));
 
     shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
@@ -90,62 +95,90 @@ try {
 }
 ```
 
-De gerenderde dia‑afbeelding toont de rechthoek als een dikke 3D‑blok:
-
 ![Gerenderde blauwe 3D‑rechthoek met witte 3D‑tekst op de voorzijde](img_01_01.png)
 
-## **Draai een vorm met de camera**
+## **Een vorm roteren met de camera**
 
-In PowerPoint wordt 3D‑rotatie ingesteld via het 3-D‑Rotatie‑venster. De X‑, Y‑ en Z‑rotatiewaarden komen overeen met de rotatie die u via de camera‑API instelt.
+In PowerPoint wordt 3D‑rotatie geconfigureerd via het venster 3‑D Rotatie. De X-, Y‑ en Z‑rotatiewaarden komen overeen met de rotatie die u via de camera‑API instelt.
 
-![PowerPoint‑3‑D‑rotatie‑venster met gemarkeerde X‑, Y‑ en Z‑rotatiewaarden](img_02_01.png)
-
-In Aspose.Slides stelt u het kamertype en de rotatie in via de 3D‑opmaak die wordt geretourneerd door `shape.getThreeDFormat()`:
+In Aspose.Slides krijgt u toegang tot de camera via [IThreeDFormat.getCamera](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getCamera--). Dit voorbeeld maakt een rechthoek, selecteert een orthografisch frontaanzicht en stelt de X-, Y‑ en Z‑rotaties in op respectievelijk 20, 30 en 40 graden. Het configureert de vorm in het geheugen zonder een bestand op te slaan:
 
 ```java
-shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Gebruik de camera wanneer u wilt wijzigen hoe de kijker het object ziet. Het wijzigt niet de 2D‑vormgeometrie op de dia. Het wijzigt het 3D‑kijkpunt dat PowerPoint en Aspose.Slides gebruiken bij het renderen.
+Gebruik de camera wanneer u de manier wilt wijzigen waarop de kijker het object ziet. Het verandert niet de 2D‑vormgeometrie op de dia. Het wijzigt het 3D‑viewpoint dat PowerPoint en Aspose.Slides gebruiken bij het renderen.
 
-## **Voeg extrusie en diepte toe**
+## **Extrusie en diepte toevoegen**
 
-Extrusie laat een vorm dikker lijken door deze achter de voorzijde uit te breiden. In PowerPoint bepaalt de diepte‑instelling deze zichtbare dikte, en de kleur‑instelling bepaalt de kleur van de zijvlakken.
+Extrusie maakt een vorm dikker door deze achter de voorzijde uit te breiden. In PowerPoint bepaalt de diepte‑instelling deze zichtbare dikte, en de kleuroptie bepaalt de kleur van de zijvlakken.
 
-![PowerPoint‑diepte‑instellingen gekoppeld aan extrusiekleur‑ en extrusiehoogte‑eigenschappen](img_02_02.png)
+![PowerPoint-diepteregelingen gekoppeld aan extrusiekleur‑ en extrusiehoogte‑eigenschappen](img_02_02.png)
 
-Stel de extrusiehoogte in voor de dikte en de extrusiekleur voor de zijkleur:
+Gebruik [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) om de dikte in te stellen en [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) om de kleur van de zijkant te benaderen. Dit voorbeeld geeft een rechthoek een extrusie van 100 punten met paarse zijkanten en roteert de camera om de dikte te onthullen. Het configureert de vorm in het geheugen zonder een bestand op te slaan:
 
 ```java
-Color extrusionColor = new Color(128, 0, 128);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    Color extrusionColor = new Color(128, 0, 128);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Gebruik de diepte‑instelling wanneer u direct met de dieptewaarde van PowerPoint wilt werken of diepte wilt combineren met bevel, materiaal en texteffecten. In veel vormscenario’s is extrusiehoogte de duidelijkere instelling omdat het de zichtbare extrusie rechtstreeks uitdrukt.
+De [IThreeDFormat.setDepth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setDepth-double-) methode stelt de diepte van een 3D‑vorm in. De [setExtrusionHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) methode bepaalt de hoogte van het extrusie‑effect, zoals getoond in dit voorbeeld.
 
-## **Gebruik verloop‑ of afbeeldingvullingen met 3D‑effecten**
+## **Verloop‑ of afbeeldingvullingen gebruiken met 3D‑effecten**
 
-3D‑opmaak staat los van de vormvulling. U kunt een effen kleur, verloop, patroon of afbeeldingvulling op de voorzijde toepassen en toch dezelfde camera‑, licht‑, materiaal‑ en extrusie‑instellingen gebruiken.
+3D‑opmaak is onafhankelijk van de vormvulling. U kunt een effen kleur, verloop, patroon of afbeeldingvulling toepassen op de voorzijde en toch dezelfde camera, verlichting, materiaal en extrusie‑instellingen gebruiken.
 
-Dit voorbeeld past een verloopvulling toe op de vorm en een donkerdere extrusiekleur op de zijkanten:
+Dit voorbeeld past een blauw‑naar‑oranje verloop toe op de voorzijde en een donkeroranje kleur op de extrusie van 150 punten. De verloopstops bij 0 en 100 markeren het begin en einde van het verloop. De cameraro­tatie‑waarden staan in graden. De dia wordt gerenderd naar een PNG‑afbeelding op het dubbele van de standaardafmetingen:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getTextFrame().setText("3D Gradient");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.BLUE);
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.ORANGE);
+    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, new Color(255, 165, 0));
 
     shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
@@ -167,44 +200,64 @@ try {
 }
 ```
 
-De gerenderde output behoudt het verloop op de voorzijde en rendert de extrusie afzonderlijk:
-
 ![Gerenderde 3D‑rechthoek met een blauw‑naar‑oranje verloopvulling en oranje extrusie](img_02_03.png)
 
-Om een afbeeldingvulling te gebruiken, voegt u de afbeelding toe aan de presentatie en wijst u deze toe aan de vormvulling:
+Om in plaats daarvan een afbeeldingvulling te gebruiken, voegt u de afbeelding toe aan de presentatie en kent u deze toe aan de vormvulling. Dit voorbeeld vereist een bestaand bestand met de naam "image.jpg" in de werkmap. Het strekt de afbeelding uit tot de rechthoek, past een extrusie van 150 punten toe en stelt de cameraro­tatie in graden in. Het configureert de vorm in het geheugen zonder op te slaan of te renderen:
 
 ```java
-java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
-byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
-IPPImage image = presentation.getImages().addImage(imageData);
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-shape.getFillFormat().setFillType(FillType.Picture);
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-Color extrusionColor = new Color(255, 140, 0);
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
+    Path imagePath = Paths.get("image.jpg");
+    byte[] imageData = Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageData);
+
+    shape.getFillFormat().setFillType(FillType.Picture);
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+    Color extrusionColor = new Color(255, 140, 0);
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-De foto wordt gerenderd op de voorzijde, terwijl de extrusie wordt gerenderd als het 3D‑zijoppervlak:
+![Gerenderde 3D‑rechthoek met een foto‑vulling op de voorzijde en oranje extrusie](img_02_04.png)
 
-![Gerenderde 3D‑rechthoek met een foto­vulling op de voorzijde en oranje extrusie](img_02_04.png)
+## **3D‑opmaak toepassen op tekst**
 
-## **Pas 3D‑opmaak toe op tekst**
+3D‑opmaak van een vorm beïnvloedt het vormlichaam. 3D‑opmaak van tekst beïnvloedt het tekstframe. Dit is handig voor WordArt‑achtige effecten waarbij de letters zelf extrusie, materiaal, verlichting en camera‑instellingen nodig hebben.
 
-3D‑opmaak van een vorm beïnvloedt het lichaam van de vorm. 3D‑opmaak van tekst beïnvloedt het tekstframe. Dit is nuttig voor WordArt‑achtige effecten waarbij de letters zelf extrusie, materiaal, verlichting en camera‑instellingen nodig hebben.
-
-Het volgende voorbeeld maakt tekst met een patroonvulling, past een WordArt‑transformatie toe en configureert 3D‑instellingen op [ITextFrameFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/):
+Het volgende voorbeeld maakt tekst met een oranje‑en‑witte rasterpatroon, past een opwaartse boog toe en configureert 3D‑instellingen via [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#getThreeDFormat--). De extrusiehoogte en diepte zijn in punten, en de lichtrotatie is in graden. De vormvulling en omtreklijn worden verborgen zodat alleen de tekst zichtbaar is. Het voorbeeld rendert een PNG‑afbeelding op het dubbele van de standaarddiadimensies en slaat de presentatie op als PPTX:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getFillFormat().setFillType(FillType.NoFill);
     shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
     shape.getTextFrame().setText("3D Text");
@@ -241,43 +294,92 @@ try {
 }
 ```
 
-De tekst wordt gerenderd als gebogen, geëxtrudeerde 3D‑letters:
-
 ![Gerenderde 3D‑tekst met een gebogen WordArt‑transformatie, oranje patroonvulling en donkere extrusie](img_02_05.png)
+
+## **Tekst plat houden op een 3D‑vorm**
+
+Om tekst leesbaar te houden terwijl de 3D‑uitstraling van een vorm behouden blijft, roept u [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) aan via [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframe/#getTextFrameFormat--). Wanneer de waarde `true` is, blijft de tekst buiten de 3D‑scene. Wanneer `false`, neemt de tekst deel aan de scene en volgt hij de 3D‑oriëntatie.
+
+Deze instelling verwijdert niet de 3D‑opmaak van de vorm: de camera, verlichting, materiaal en extrusie blijven geconfigureerd via [IShape.getThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getThreeDFormat--). Het verschilt ook van gewone rotatie. [IShape.setRotation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#setRotation-float-) roteert de vorm in het diavlak, terwijl [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) de aangepaste rotatie van de tekst binnen de omhullende bepaalt. Het buiten de 3D‑scene houden van tekst reset geen van deze hoeken.
+
+Het volgende zelfstandige voorbeeld maakt een blauwe rechthoek met tekst en kloont deze naast het origineel. Beide vormen hebben dezelfde 3D‑opmaak; alleen de tekstinstelling verschilt: `false` links en `true` rechts. De camerahoeken staan in graden en de extrusiehoogte is 40 punten. Het voorbeeld slaat de presentatie op als PPTX en rendert de vergelijkingsdia naar PNG op het dubbele van de standaardafmetingen.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 70, 160, 240, 140);
+
+    shape.getTextFrame().setText("Readable text");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().setAlignment(TextAlignment.Center);
+    shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Center);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(100, 149, 237));
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(30, 30, 0);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(40);
+    shape.getThreeDFormat().getExtrusionColor().setColor(new Color(65, 105, 225));
+    shape.getTextFrame().getTextFrameFormat().setKeepTextFlat(false);
+
+    IAutoShape flatTextShape = (IAutoShape) slide.getShapes().addClone(shape, 400, 160);
+    flatTextShape.getTextFrame().getTextFrameFormat().setKeepTextFlat(true);
+
+    presentation.save("keep_text_flat.pptx", SaveFormat.Pptx);
+    IImage image = slide.getImage(2, 2);
+    try {
+        image.save("keep_text_flat.png", ImageFormat.Png);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+![Zij‑aan‑zij 3D‑rechthoeken: tekst volgt de 3D‑oriëntatie links en blijft vlak rechts](keep_text_flat.png)
 
 ## **Export‑ en rendergedrag**
 
-Aspose.Slides behoudt 3D‑opmaak bij het opslaan naar PowerPoint‑formaten zoals PPTX. Bij het renderen of exporteren naar vaste‑layoutformaten wordt de 3D‑scene gerasterd of in de uitvoer getekend als een 2D‑resultaat. Dit geldt wanneer u dia’s rendert naar [PNG](/slides/nl/java/convert-powerpoint-to-png/), exporteert naar [PDF](/slides/nl/java/convert-powerpoint-to-pdf/), exporteert naar [HTML](/slides/nl/java/convert-powerpoint-to-html/), of frames genereert voor [video conversion](/slides/nl/java/convert-powerpoint-to-video/).
+Aspose.Slides behoudt 3D‑opmaak bij het opslaan in PowerPoint‑formaten zoals PPTX. Bij het renderen of exporteren naar vaste‑layoutformaten wordt de 3D‑scene gerasterd of in de output getekend als een 2D‑resultaat. Dit geldt wanneer u dia's rendert naar [PNG](/slides/nl/java/convert-powerpoint-to-png/), exporteert naar [PDF](/slides/nl/java/convert-powerpoint-to-pdf/), exporteert naar [HTML](/slides/nl/java/convert-powerpoint-to-html/), of frames genereert voor [video conversion](/slides/nl/java/convert-powerpoint-to-video/).
 
 Houd de volgende punten in gedachten:
 
-- Geëxporteerde afbeeldingen en PDF’s zijn niet interactief. Het object kan na export niet door de kijker worden gedraaid.
-- Het uiteindelijke uiterlijk hangt af van de combinatie van camera, verlichting, materiaal, extrusie, vulling en schaal van de dia.
-- Als u geërfde of themagebaseerde opmaakwaarden wilt inspecteren, lees dan de [effectieve vormeigenschappen](/slides/nl/java/shape-effective-properties/).
-- Sommige uitvoerformaten kunnen de bewerkbare PowerPoint 3D‑opmaak niet opslaan. In die formaten wordt het visuele resultaat gerenderd in plaats van bewaard als bewerkbare 3D‑instellingen.
+- Geëxporteerde afbeeldingen en PDF‑bestanden zijn niet interactief. Het object kan na export niet door de kijker worden geroteerd.
+- Het uiteindelijke uiterlijk hangt af van de combinatie van camera, lichtrig, materiaal, extrusie, vulling en diavergroting.
+- Als u geërfde of themagerichte opmaakwaarden wilt inspecteren, lees dan de [effective shape properties](/slides/nl/java/shape-effective-properties/).
+- Sommige outputformaten kunnen de bewerkbare PowerPoint‑3D‑opmaak niet opslaan. In die formaten wordt het visuele resultaat gerenderd in plaats van bewaard als bewerkbare 3D‑instellingen.
 
 ## **FAQ**
 
 **Kan Aspose.Slides interactieve 3D‑presentaties maken?**
 
-Aspose.Slides maakt en rendert PowerPoint‑3D‑effecten voor vormen en tekst. Het maakt geen geëxporteerde afbeeldingen, PDF‑s of HTML‑pagina’s tot interactieve 3D‑scènes die een kijker kan roteren. In PPTX blijft de 3D‑opmaak bewerkbaar in PowerPoint wanneer het formaat dat ondersteunt.
+Aspose.Slides maakt en rendert PowerPoint‑3D‑effecten voor vormen en tekst. Het maakt geëxporteerde afbeeldingen, PDF‑bestanden of HTML‑pagina's niet tot interactieve 3D‑scènes die een kijker kan roteren. In PPTX blijft de 3D‑opmaak bewerkbaar in PowerPoint waar het formaat dit ondersteunt.
 
 **Wat is het verschil tussen een 3D‑model en een 3D‑effect?**
 
-Een 3D‑model is een apart 3D‑object dat in een presentatie wordt ingevoegd. Een 3D‑effect is opmaak die wordt toegepast op een gewone PowerPoint‑vorm of -tekst, zoals rotatie, extrusie, bevel, verlichting en materiaal. Dit artikel behandelt 3D‑effecten.
+Een 3D‑model is een afzonderlijk 3D‑object dat in een presentatie wordt ingevoegd. Een 3D‑effect is opmaak die wordt toegepast op een reguliere PowerPoint‑vorm of -tekst, zoals rotatie, extrusie, schuine rand, verlichting en materiaal. Dit artikel behandelt 3D‑effecten.
 
 **Welke instellingen zijn vereist voor een zichtbare 3D‑vorm?**
 
-Minimaal moet u een camerarotatie en ofwel extrusie of diepte instellen. In de praktijk stelt u bovendien een verlichting en materiaal in zodat de gerenderde vlakken duidelijke highlights en schaduwen hebben.
+Minstens moet een cameraro­tatie en ofwel extrusie of diepte worden ingesteld. In de praktijk stelt men ook een lichtrig en materiaal in zodat de gerenderde gezichten duidelijke hoogtepunten en schaduwen hebben.
 
 **Kan ik 3D‑effecten toepassen op zowel vormen als tekst?**
 
-Ja. Gebruik [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/).`getThreeDFormat()` voor het vormlichaam en [ITextFrameFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()` voor tekst.
+Ja. Gebruik [IShape.getThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getThreeDFormat--) voor het vormlichaam en [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) voor tekst.
 
-**Zullen 3D‑effecten verschijnen bij het exporteren naar afbeeldingen, PDF, HTML of videoframes?**
+**Zullen 3D‑effecten verschijnen bij het exporteren naar afbeeldingen, PDF, HTML of video‑frames?**
 
-Ja. Aspose.Slides rendert 3D‑effecten bij het produceren van dia‑afbeeldingen, PDF‑output, HTML‑output en frames die worden gebruikt voor video‑conversie. De geëxporteerde output bevat het gerenderde uiterlijk, niet een bewerkbaar 3D‑object.
+Ja. Aspose.Slides rendert 3D‑effecten wanneer dia‑afbeeldingen, PDF‑output, HTML‑output en frames voor video‑conversie worden geproduceerd. De geëxporteerde output bevat het gerenderde uiterlijk, niet een bewerkbaar 3D‑object.
 
 **Kan ik de uiteindelijke 3D‑waarden lezen nadat overerving en themainstellingen zijn toegepast?**
 
-Ja. Gebruik de effectieve opmaak‑API’s beschreven in [Shape Effective Properties](/slides/nl/java/shape-effective-properties/) om de uiteindelijke camera‑, verlichting‑, bevel‑ en gerelateerde 3D‑waarden te lezen.
+Ja. Gebruik de effectieve opmaak‑API’s beschreven in [Shape Effective Properties](/slides/nl/java/shape-effective-properties/) om de definitieve camera‑, lichtrig‑, schuine‑rand‑ en gerelateerde 3D‑waarden te lezen.

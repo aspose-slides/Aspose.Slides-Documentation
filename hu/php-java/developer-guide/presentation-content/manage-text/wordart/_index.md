@@ -1,5 +1,5 @@
 ---
-title: WordArt hatások létrehozása és alkalmazása PHP-ben
+title: WordArt effektusok létrehozása és alkalmazása PHP-ben
 linktitle: WordArt
 type: docs
 weight: 110
@@ -8,373 +8,409 @@ keywords:
 - WordArt
 - WordArt létrehozása
 - WordArt sablon
-- WordArt hatás
-- árnyék hatás
-- megjelenítési hatás
-- ragyogás hatás
-- WordArt transzformáció
-- 3D hatás
-- külső árnyék hatás
-- belső árnyék hatás
-- PowerPoint
-- prezentáció
+- WordArt effektus
+- árnyék effektus
+- tükröződés effektus
+- ragyogás effektus
+- WordArt átalakítás
+- 3D effektus
+- külső árnyék effektus
+- belső árnyék effektus
 - PHP
 - Aspose.Slides
-description: "WordArt hatások létrehozása és testreszabása az Aspose.Slides for PHP via Java segítségével. Ez a lépésről-lépésre útmutató segít a fejlesztőknek professzionális szöveggel gazdagítani a prezentációkat."
+description: "Hozzon létre és testreszabjon WordArt effektusokat az Aspose.Slides for PHP via Java-ban. Ez a lépésről lépésre útmutató segít a fejlesztőknek professzionális szöveggel gazdagítani a prezentációkat PHP-ben."
 ---
 ## **Áttekintés**
 
-A WordArt‑effektek lehetővé teszik, hogy vizuálisan vonzó, stilizált szöveget adjunk PowerPoint‑prezentációinkhoz. Az Aspose.Slides‑el a fejlesztők programozottan hozhatnak létre, testreszabhatnak és kezelhetnek WordArt‑ot, pont úgy, mint a Microsoft PowerPoint‑ben – anélkül, hogy az Office‑ot telepíteni kellene. Ez a cikk áttekintést nyújt a WordArt használatáról, beleértve a szövegátalakítások, kitöltési stílusok, vonalrajzok, árnyékok és egyéb formázási lehetőségek alkalmazását, hogy a prezentáció tartalma kifejezőbb és figyelemfelkeltőbb legyen. A WordArt lehetővé teszi, hogy a szöveget grafikus objektumként kezeljük. Olyan effektusokból vagy speciális módosításokból áll, amelyeket a szövegre alkalmaznak, hogy az vonzóbb vagy feltűnőbb legyen.
+A WordArt effektusok lehetővé teszik a szöveg stílusozását kitöltésekkel, körvonalakkal, árnyékokkal, tükröződésekkel, ragyogással, átalakításokkal és 3D formázással. Ez a cikk bemutatja, hogyan hozhatja létre és testre szabhatja ezeket az effektusokat PowerPoint‑prezentációkban az Aspose.Slides for PHP via Java segítségével, Microsoft Office telepítése nélkül.
 
-## **Egyszerű WordArt sablon létrehozása és alkalmazása szövegre**
+## **Egyszerű WordArt sablon létrehozása és szövegre alkalmazása**
 
-**Az Aspose.Slides használatával** 
+A következő példák egy egyszerű WordArt stílust építenek fel a szöveg, a betűtípus, a mintás kitöltés és a körvonal beállításával.
 
-Először egy egyszerű szöveget hozunk létre a következő PHP‑kóddal:
+Minden példa egy új prezentációt hoz létre, és egy téglalapot ad az első diahoz; bemeneti fájlra nincs szükség. Az első példa a szöveget "Aspose.Slides"-re állítja. Az alakzat pozíciója és méretei pontban vannak megadva:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
     $textFrame = $autoShape->getTextFrame();
+
     $portion = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->setText("Aspose.Slides");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-Ezután a szöveg betűméretét nagyobbra állítjuk, hogy az effektus jobban észrevehető legyen, a következő kóddal:
-
-```php
-  $fontData = new FontData("Arial Black");
-  $portion->getPortionFormat()->setLatinFont($fontData);
-  $portion->getPortionFormat()->setFontHeight(36);
-
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**A Microsoft PowerPoint használatával**
-
-Nyissa meg a WordArt‑effektek menüt a Microsoft PowerPoint‑ben:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-A jobb oldali menüből választhat előre definiált WordArt‑effektust. A bal oldali menüből adhatja meg az újszerű WordArt beállításait.
-
-Az elérhető paraméterek vagy lehetőségek néhány példája:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Az Aspose.Slides használatával**
-
-Itt a [SmallGrid](https://reference.aspose.com/slides/hu/php-java/aspose.slides/patternstyle/#SmallGrid) minta színét alkalmazzuk a szövegre, és egy 1‑pixeles fekete szövegszegélyt adunk hozzá a következő kóddal:
+Állítsa a betűtípust Arial Black-re, 36 pont méretben, hogy a formázás jobban kiemelkedjen:
 
 ```php
-  $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle->SmallGrid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Alkalmazzon egy SmallGrid mintát sötét narancssárga előtérrel és fehér háttérrel, majd adjon hozzá egy 1 pont széles fekete szöveg körvonalat:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor($darkOrange);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::SmallGrid);
+
+    $portion->getPortionFormat()->getLineFormat()->setWidth(1);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 Az eredményül kapott szöveg:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![The simple WordArt template](WordArt_template.png)
 
-## **Egyéb WordArt‑effektek alkalmazása**
+## **Más WordArt effektusok alkalmazása**
 
-**A Microsoft PowerPoint használatával**
+A következő példák bemutatják, hogyan alkalmazhat árnyékokat, tükröződéseket, ragyogást, átalakításokat és 3D effektusokat a szövegre.
 
-A program felületéről ezeket az effektusokat alkalmazhatja egy szövegre, szövegtömbre, alakzatra vagy hasonló elemre:
+### **Külső árnyék effektusok alkalmazása**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+A külső árnyék mélységet ad, ha a szöveg mögé helyezi az árnyékot. Testreszabhatja a színét, irányát, távolságát, elmosódási sugarát, méretarányát és ferdeségét.
 
-Például az Árnyék, Tükörképezés és Ragyogás effektusok szövegre, a 3D Formátum és 3D Rotáció effektusok szövegtömbre, a Lágy szegély tulajdonság alakzatobjektumra (akár akkor is hat, ha nincs 3D Formátum beállítva) alkalmazható.
-
-### **Árnyék‑effektusok alkalmazása**
-
-Itt csak a szövegre vonatkozó tulajdonságokat állítjuk be. Az árnyék‑effektust a szövegre a következő kóddal alkalmazzuk:
+Ez a példa meghívja az enableOuterShadowEffect metódust, és egy fekete árnyékot állít be 4 pont elmosódási sugárral, 230 fokos iránnyal és 30 pont távolsággal. A 100-as méretarány megőrzi az árnyék méretét, míg a vízszintes ferdeség 20 fokkal dönti el. Az alfa transzformáció 32 %-os átlátszatlanságot állít be:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(65);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4.73);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(2);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(30);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.32);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(30);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(20);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.32);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az Aspose.Slides API három típusú árnyékot támogat: OuterShadow, InnerShadow és PresetShadow.
+Az eredményül kapott szöveg:
 
-A PresetShadow‑dal előre definiált értékekkel alkalmazhat árnyékot a szövegre.
+![The Outer Shadow effect](outer_shadow_effect.png)
 
-**A Microsoft PowerPoint használatával**
+{{% alert color="info" title="Note" %}}
+- Ha a külső és előre beállított árnyékok együttesen vannak használva, csak a külső árnyék kerül alkalmazásra.
+- Ha a külső és belső árnyékok egyszerre vannak használva, az eredményül kapott effektus a PowerPoint verziójától függ. Például a PowerPoint 2013-ban az effektus duplázódik, míg a PowerPoint 2007-ben csak a külső árnyék kerül alkalmazásra.
+{{% /alert %}}
 
-A PowerPointben egyetlen árnyék típus áll rendelkezésre. Íme egy példa:
+### **Tükröződés effektusok alkalmazása**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+A tükröződés egy tükrözött másolatot hoz létre a szövegről. Állítsa be a pozícióját, méretarányát, elmosódását és átlátszatlanságát a megjelenés szabályozásához.
 
-**Az Aspose.Slides használatával**
-
-Az Aspose.Slides valójában egyszerre két árnyék típus alkalmazását teszi lehetővé: InnerShadow és PresetShadow.
-
-**Megjegyzések:**
-
-- Ha OuterShadow és PresetShadow együtt van használva, csak az OuterShadow‑effektus lesz alkalmazva.  
-- Ha OuterShadow és InnerShadow egyszerre van használva, a ténylegesen alkalmazott effektus a PowerPoint verziójától függ. Például a PowerPoint 2013‑ban az effektus duplázódik, míg a PowerPoint 2007‑ben csak az OuterShadow‑t alkalmazzák.
-
-### **Tükrözési effektusok alkalmazása szövegre**
-
-A következő kódrészlettel adunk megjelenést a szövegnek:
+Ez a példa meghívja az enableReflectionEffect metódust, és függőlegesen tükrözi a tükröződést -100 % méretarányban. 0,5 pont elmosódási sugarat és 4,72 pont távolságot használ. Az átlátszatlanság 60 %-ról 0,9 %-ra csökken a tükröződés 0 % és 60 % közötti pozíciói között:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->BottomLeft);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\RectangleAlignment;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment::BottomLeft);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Ragyogás‑effektusok alkalmazása szövegre**
+Az eredményül kapott szöveg:
 
-A szöveget a következő kóddal ragyogóvá vagy kiemelkedővé tesszük:
+![The Reflection effect](reflection_effect.png)
+
+### **Ragyogás effektusok alkalmazása**
+
+A ragyogás egy lágy színes körvonallal veszi körül a szöveget. Állítsa a színét, átlátszatlanságát és sugarát az effektus szabályozásához.
+
+Ez a példa meghívja az enableGlowEffect metódust, és egy vörös ragyogást alkalmaz 54 % átlátszatlansággal és 7 pont sugarral:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.54);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setColor(java("java.awt.Color")->RED);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.54);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az eredmény:
+Az eredményül kapott szöveg:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![The Glow effect](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **WordArt átalakítások alkalmazása**
 
-Az árnyék, megjelenés és ragyogás paramétereit egyenként állíthatja be a szöveg minden részére külön-külön. 
+A WordArt átalakítások hajlítják, nyújtják vagy torzítják a szövegréteget.
 
-{{% /alert %}} 
-
-### **Transformációk használata a WordArt‑ban**
-
-A Transform tulajdonságot (amely az egész szövegtömbre vonatkozik) a következő kóddal alkalmazzuk:
-```php
-  $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
-
-```
-
-Az eredmény:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Mind a Microsoft PowerPoint, mind az Aspose.Slides for PHP via Java biztosít egy sor előre definiált transformációtípust.
-
-{{% /alert %}} 
-
-**PowerPoint használatával**
-
-Az előre definiált transformációkhoz a következő úton juthat el: **Formátum** → **Szövegeffektus** → **Transformálás**
-
-**Az Aspose.Slides használatával**
-
-A transformáció típusának kiválasztásához használja a TextShapeType enumerációt. 
-
-### **3D‑effektusok alkalmazása szövegre és alakzatokra**
-
-A szövegalakzatra a következő mintakóddal állítunk be 3D‑effektust:
+Állítsa a setTransform‑t ArchUpPour‑ra, hogy a teljes szövegdobozt felfelé ívvel hajtja:
 
 ```php
-  $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
-  $autoShape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $autoShape->getThreeDFormat()->setExtrusionHeight(6);
-  $autoShape->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $autoShape->getThreeDFormat()->setContourWidth(1.5);
-  $autoShape->getThreeDFormat()->setDepth(3);
-  $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+    $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az eredményül kapott szöveg és alakzat:
+Az eredményül kapott szöveg:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![The WordArt transformation](transform_effect.png)
 
-A szövegre 3D‑effektust a következő PHP‑kóddal alkalmazunk:
+{{% alert color="info" title="Note" %}}
+Az Aspose.Slides for PHP via Java előre definiált átalakítási típusok egy készletét biztosítja.
+{{% /alert %}}
+
+### **3D effektusok alkalmazása alakzatokra és szövegre**
+
+Alkalmazhat 3D effektusokat egy alakzatra vagy annak szövegére. A csonkítások, extrudálás, világítás és kamera beállítások szabályozzák a megjelenést.
+
+A következő példa a ThreeDFormat‑ot használja kör alakú csonkítások, narancssárga extrudálás és sötétvörös kontúr hozzáadásához a téglalaphoz. A csonkítás méretei, az extrudálás magassága, a kontúr szélessége és mélysége pontban van megadva. Egy műanyag anyag, 40 fokkal Z‑tengely körül elfordított kiegyensúlyozott világítás és egy perspektíva kamera határozza meg a megjelenést:
 
 ```php
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $autoShape->getTextFrame()->setText("Aspose.Slides");
+
+    $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
+
+    $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
+    $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $autoShape->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $autoShape->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $autoShape->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $autoShape->getThreeDFormat()->setContourWidth(1.5);
+
+    $autoShape->getThreeDFormat()->setDepth(3);
+
+    $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az eredmény:
+Az eredményül kapott alakzat:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![The shape 3D effect](shape_3D_effect.png)
 
-{{% alert color="primary" %}} 
-
-A 3D‑effektusok szövegre vagy azok alakzataira történő alkalmazása, valamint az effektusok közötti kölcsönhatások meghatározott szabályokon alapulnak. 
-
-Képzeljen el egy jelenetet a szöveghez és a szöveget tartalmazó alakzathoz. A 3D‑effektus tartalmazza a 3D‑objektum ábrázolását és a jelenetet, amelyre az objektum helyeződik. 
-
-- Ha a jelenet mind a alakzatra, mind a szövegre be van állítva, akkor az alakzat jelenetére nagyobb prioritás jut – a szöveg jelenete figyelmen kívül marad.  
-- Ha az alakzatnak nincs saját jelenete, de van 3D‑ábrázolása, akkor a szöveg jelenete kerül felhasználásra.  
-- Ellenkező esetben – ha az alakzat eredetileg nincs 3D‑effektussal – az alakzat sík, és a 3D‑effektus csak a szövegre lesz alkalmazva.  
-
-Ezek a leírások kapcsolódnak a ThreeDFormat.getLightRig() és a ThreeDFormat.getCamera() metódusokhoz.
-
-{{% /alert %}} 
-
-## **Külső árnyék‑effektusok alkalmazása szövegre**
-Az Aspose.Slides for PHP via Java a [OuterShadow](https://reference.aspose.com/slides/hu/php-java/aspose.slides/outershadow/) és [InnerShadow](https://reference.aspose.com/slides/hu/php-java/aspose.slides/innershadow/) osztályokat biztosítja, amelyek lehetővé teszik árnyék‑effektusok alkalmazását a [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/)-hez tartozó szövegre. Kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezze be a diára mutató referenciát az index alapján.  
-3. Adjon hozzá egy Rectangle típusú AutoShape‑t a diára.  
-4. Hozzáférés a AutoShape‑hez tartozó TextFrame‑hez.  
-5. Állítsa be az AutoShape FillType‑ját NoFill‑ra.  
-6. Hozzon létre egy OuterShadow példányt.  
-7. Állítsa be az árnyék BlurRadius‑át.  
-8. Állítsa be az árnyék Direction‑ját.  
-9. Állítsa be az árnyék Distance‑át.  
-10. Állítsa be a RectanglelAlign‑t TopLeft‑ra.  
-11. Állítsa be a PresetColor‑t Black‑re.  
-12. Írja ki a prezentációt [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként.
-
-Ez a mintakód – a fenti lépések megvalósítása – megmutatja, hogyan alkalmazza a külső árnyék‑effektust egy szövegre:
+Ez a példa hasonló 3D formázást alkalmaz a szövegre a TextFrameFormat::getThreeDFormat segítségével. A kisebb csonkítások alakítják a betűk szélét, míg az extrudálás és a világítás mélységet ad a szövegnek:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # A dia referenciájának lekérése
-    $sld = $pres->getSlides()->get_Item(0);
-    # Rectangle típusú AutoShape hozzáadása
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # TextFrame hozzáadása a Rectangle-hez
-    $ashp->addTextFrame("Aspose TextBox");
-    # Alap alakzat kitöltésének letiltása, ha a szöveg árnyékát szeretnénk
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Külső árnyék hozzáadása és minden szükséges paraméter beállítása
-    $ashp->getEffectFormat()->enableOuterShadowEffect();
-    $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
-    $shadow->setBlurRadius(4.0);
-    $shadow->setDirection(45);
-    $shadow->setDistance(3);
-    $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
-    $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    # Prezentáció mentése a lemezen
-    $pres->save("pres_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Belső árnyék‑effektusok alkalmazása alakzatokra**
-Kövesse az alábbi lépéseket:
+Az eredményül kapott szöveg:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezze be a diára mutató referenciát.  
-3. Adjon hozzá egy Rectangle típusú AutoShape‑t.  
-4. Engedélyezze az InnerShadowEffect‑et.  
-5. Állítsa be az összes szükséges paramétert.  
-6. Állítsa be a ColorType‑ot Scheme‑re.  
-7. Állítsa be a Scheme Color‑t.  
-8. Írja ki a prezentációt egy [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként.
+![The text 3D effect](text_3D_effect.png)
 
-Ez a mintakód (a fenti lépések alapján) megmutatja, hogyan adjon hozzá egy csatlakozót két alakzat között:
+{{% alert color="info" title="Note" %}}
+A 3D effektusok szövegre vagy azok alakzataira való alkalmazását – valamint az ezek közötti kölcsönhatást – meghatározott szabályok szabályozzák. Tekintsen meg egy jelenetet, amely mind a szöveget, mind a tartalmazó alakzatot magában foglalja. Egy 3D effektus magában foglalja az objektum 3D ábrázolását és a benne elhelyezkedő jelenetet.
 
-```php
-  $pres = new Presentation();
-  try {
-    # A dia referenciájának lekérése
-    $slide = $pres->getSlides()->get_Item(0);
-    # Rectangle típusú AutoShape hozzáadása
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # TextFrame hozzáadása a Rectangle-hez
-    $ashp->addTextFrame("Aspose TextBox");
-    $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $pf = $port->getPortionFormat();
-    $pf->setFontHeight(50);
-    # Belső árnyék hatás engedélyezése
-    $ef = $pf->getEffectFormat();
-    $ef->enableInnerShadowEffect();
-    # Az összes szükséges paraméter beállítása
-    $ef->getInnerShadowEffect()->setBlurRadius(8.0);
-    $ef->getInnerShadowEffect()->setDirection(90.0);
-    $ef->getInnerShadowEffect()->setDistance(6.0);
-    $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # Szín típusa beállítása Scheme-re
-    $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # Sémaszín beállítása
-    $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    # Prezentáció mentése
-    $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+- Ha a jelenet mind az alakzatra, mind a szövegre be van állítva, az alakzat jelenete lesz elsődleges, a szöveg jelenete figyelmen kívül marad.
+- Ha az alakzatnak nincs saját jelenete, de van 3D ábrázolása, akkor a szöveg jelenete kerül felhasználásra.
+- Ha az alakzatnak egyáltalán nincs 3D effektusa, laposként kezelik, és a 3D effektus csak a szövegre lesz alkalmazva.
+
+Ezek a viselkedések a ThreeDFormat::getLightRig és a ThreeDFormat::getCamera metódusokra vonatkoznak.
+{{% /alert %}}
+
+További 3D formázási példákért lásd a PHP használatával készült prezentációk 3D effektusainak létrehozását.
 
 ## **GYIK**
 
-**Használhatok‑e WordArt‑effektusokat különböző betűtípusokkal vagy írásrendszerekkel (például arab, kínai)?**
+**Használhatok WordArt effektusokat különböző betűtípusokkal vagy írásrendszerekkel (pl. arab, kínai)?**
 
-Igen, az Aspose.Slides támogatja a Unicode‑ot és minden főbb betűtípussal és írásrendszerrel működik. A WordArt‑effektusok, mint például árnyék, kitöltés és körvonal, nyelvtől függetlenül alkalmazhatók, bár a betűtípus elérhetősége és a renderelés a rendszer betűtípusaitól függhet.
+Igen, az Aspose.Slides for PHP via Java támogatja az Unicode‑ot, és működik minden főbb betűtípussal és írásrendszerrel. A WordArt effektusok, például az árnyék, a kitöltés és a körvonal, a nyelvtől függetlenül alkalmazhatók, bár a betűtípusok elérhetősége és megjelenítése a rendszer betűtípusaitól függhet.
 
-**Alkalmazhatok‑e WordArt‑effektusokat a dia master elemeire?**
+**Alkalmazhatok WordArt effektusokat a diamester elemeire?**
 
-Igen, a WordArt‑effektusokat alkalmazhatja a master diákon lévő alakzatokra, ideértve a cím helyőrzőket, lábléceket vagy háttér‑szöveget. A master elrendezésén végzett módosítások minden kapcsolódó diára kihatnak.
+Igen, alkalmazhat WordArt effektusokat a master diák alakzataira, beleértve a címhelyőrzőket, lábléceket vagy háttérszöveget. A master elrendezésben végzett módosítások minden kapcsolódó diára kihatnak.
 
-**A WordArt‑effektusok befolyásolják a prezentáció fájlméretét?**
+**A WordArt effektusok befolyásolják a prezentáció fájlméretét?**
 
-Enyhén. Az olyan effektek, mint árnyék, ragyogás és színátmenetes kitöltés, kissé növelhetik a fájlméretet a formázási metaadatok hozzáadása miatt, de a különbség általában elhanyagolható.
+Enyhén. A WordArt effektusok, mint például az árnyékok, ragyogások és a színátmenetes kitöltések, kismértékben megnövelhetik a fájlméretet a hozzáadott formázási metaadatok miatt, de a különbség általában elhanyagolható.
 
-**Előnézhetem a WordArt‑effektusok eredményét anélkül, hogy a prezentációt menteném?**
+**Előnézhetem a WordArt effektusok eredményét a prezentáció mentése nélkül?**
 
-Igen, a WordArt‑ot tartalmazó diákat képekké (például PNG, JPEG) renderelheti a [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) vagy [Slide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/) osztály `getImage` metódusával. Így a teljes prezentáció mentése vagy exportálása előtt memóriában vagy képernyőn előnézheti az eredményt.
+Igen, a WordArt‑ot tartalmazó diák képekké (pl. PNG, JPEG) renderelhetők a Slide::getImage segítségével, vagy az egyes alakzatok a Shape::getImage‑vel. Ez lehetővé teszi az eredmény előnézetét a memóriában vagy a képernyőn a teljes prezentáció mentése vagy exportálása előtt.

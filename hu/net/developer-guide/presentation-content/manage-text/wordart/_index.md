@@ -1,5 +1,5 @@
 ---
-title: WordArt effektusok létrehozása és alkalmazása .NET‑ben
+title: WordArt hatások létrehozása és alkalmazása .NET-ben
 linktitle: WordArt
 type: docs
 weight: 110
@@ -9,253 +9,335 @@ keywords:
 - WordArt létrehozása
 - WordArt sablon
 - WordArt effektus
-- árnyék effektus
-- megjelenítési effektus
-- ragyogás effektus
+- árnyékhatás
+- tükrözési hatás
+- ragyogás hatás
 - WordArt transzformáció
-- 3D effektus
-- külső árnyék effektus
-- belső árnyék effektus
+- 3D hatás
+- külső árnyékhatás
+- belső árnyékhatás
 - .NET
 - C#
 - Aspose.Slides
-description: "WordArt effektusok létrehozása és testreszabása az Aspose.Slides for .NET‑ben. Ez a lépésről‑lépésre útmutató segít a fejlesztőknek professzionális szöveggel gazdagítani a prezentációkat C#‑ban."
+description: "WordArt hatások létrehozása és testreszabása az Aspose.Slides for .NET-ben. Ez a lépésről-lépésre útmutató segít a fejlesztőknek professzionális szöveggel kibővíteni a prezentációkat C#-ban."
 ---
 ## **Áttekintés**
 
-A WordArt effektusok lehetővé teszik, hogy látványos, stilizált szöveget adjunk a PowerPoint‑prezentációkhoz. Az Aspose.Slides for .NET segítségével a fejlesztők programozott módon hozhatnak létre, testreszabhatnak és kezelhetnek WordArt‑ot, akárcsak a Microsoft PowerPoint‑ban — Office telepítése nélkül. Ez a cikk áttekintést nyújt a WordArt .NET‑beli használatáról, többek között arról, hogyan alkalmazhatók szövegtranszformációk, kitöltési stílusok, körvonalak, árnyékok és egyéb formázási lehetőségek, hogy a prezentáció tartalma kifejezőbb és figyelemfelkeltőbb legyen. A WordArt lehetővé teszi, hogy a szöveget grafikus objektumként kezeljük. Olyan hatásokat vagy speciális módosításokat jelent, amelyekkel a szöveget vonzóbbá vagy feltűnőbbé tehetjük.
+WordArt hatások lehetővé teszik, hogy szöveget töltséggel, körvonallal, árnyékkal, tükrözéssel, ragyogással, transzformációkkal és 3D formázással stilizálj. Ez a cikk bemutatja, hogyan hozhatók létre és testreszabhatók ezek a hatások PowerPoint prezentációkban az Aspose.Slides for .NET használatával, Microsoft Office telepítése nélkül.
 
 ## **Egyszerű WordArt sablon létrehozása és alkalmazása szövegre**
 
-Ebben a szakaszban megvizsgáljuk, hogyan hozhatunk létre egy egyszerű WordArt sablont, és alkalmazhatjuk azt szövegre az Aspose.Slides for .NET használatával. A WordArt egyszerű módot kínál a szöveg megjelenésének javítására lenyűgöző vizuális hatásokkal és stílusokkal. A WordArt létrehozásának és használatának alapvető lépéseinek elsajátításával ezeket a technikákat könnyedén alkalmazhatja bármely projektnél, élénkebbé és emlékezetesebbé téve a prezentációkat.
+Következő példák egyszerű WordArt stílust építenek a szöveg, betűtípus, minta kitöltés és körvonal beállításával.
 
-Először egyszerű szöveget hozunk létre a következő C# kóddal:
-
-```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
-
-    IPortion portion = textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
-```
-
-Ezután a szöveg betűméretét nagyobb értékre állítjuk, hogy a hatás jobban látható legyen, a következő kóddal:
+Minden példa egy új prezentációt hoz létre, és egy téglalapot ad hozzá az első diájához; bemeneti fájl nem szükséges. Az első példa a szöveget "Aspose.Slides"-re állítja. A alakzat pozícióját és méreteit pontban mérik:
 
 ```cs
-    portion.PortionFormat.LatinFont = new FontData("Arial Black");
-    portion.PortionFormat.FontHeight = 36;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+
+var portion = textFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
 ```
 
-Itt a SmallGrid minta kitöltést alkalmazzuk a szövegre, és egy 1‑es vastagságú fekete szövegkeretet adunk hozzá a következő kóddal:
+Állítsa a betűtípust Arial Black-ra 36 pontban, hogy a formázás jobban észrevehető legyen:
 
 ```cs
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
-    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
 ```
 
-Az eredményül kapott szöveg:
+Alkalmazzon egy [SmallGrid](https://reference.aspose.com/slides/hu/net/aspose.slides/patternstyle/) mintát sötét narancssárga előtérrel és fehér háttérrel, majd adjon hozzá egy 1 pont széles fekete szöveg körvonalat:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+
+portion.PortionFormat.LineFormat.Width = 1;
+portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+```
+
+Az eredményes szöveg:
 
 ![Az egyszerű WordArt sablon](WordArt_template.png)
 
-## **Egyéb WordArt effektusok alkalmazása**
+## **Egyéb WordArt hatások alkalmazása**
 
-A basic transzformációkon túl az Aspose.Slides for .NET lehetővé teszi, hogy különféle fejlett WordArt effektusokkal gazdagítsa a szöveg megjelenését. Ide tartoznak a körvonalak, kitöltések, árnyékok, tükröződések és ragyogás. Ezeket a funkciókat kombinálva olyan figyelemfelkeltő szövegstílusokat hozhat létre, amelyek kiemelkednek a prezentációkban. Ez a rész bemutatja, hogyan alkalmazhatók ezek az effektusok programozottan egyszerű, tiszta kódpéldákkal.
+Következő példák bemutatják, hogyan alkalmazhatók árnyékok, tükrözések, ragyogás, transzformációk és 3D hatások a szövegre.
 
-### **Külső árnyék effektusok alkalmazása**
+### **Külső árnyék hatások alkalmazása**
 
-A külső árnyék effektusok segítenek a szöveget kiemelni, azáltal, hogy az outline mögé árnyékot tesznek, mélységérzetet és háttértől való elválasztást teremtve. Az Aspose.Slides for .NET egyszerűen lehetővé teszi a külső árnyékok alkalmazását és testreszabását WordArt szövegen. Ebben a szakaszban megtanulja, hogyan állíthatja be az árnyék színét, irányát, távolságát, elmosódási sugarát és egyebeket a kívánt vizuális hatás eléréséhez.
+Az külső árnyék mélységet ad a szöveg mögé helyezett árnyékkal. A szín, irány, távolság, elmosódási sugár, méretezés és torzítás testreszabható.
 
-A következő C# kódrészlet alkalmaz egy árnyék effektust a fent létrehozott szövegre.
+Ez a példa meghívja a [EnableOuterShadowEffect](https://reference.aspose.com/slides/hu/net/aspose.slides/effectformat/enableoutershadoweffect/) metódust, és egy fekete árnyékot állít be 4 pont elmosódási sugárral, 230 fokos iránnyal és 30 pont távolsággal. A 100-as méretezési érték megtartja az árnyék méretét, míg a 20 fokos vízszintes torzítás megbillenti azt. Az alfa transzformáció 32%-os áttetszőséget állít be:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
-Az eredményül kapott szöveg:
+Az eredményes szöveg:
 
-![A külső árnyék effektus](outer_shadow_effect.png)
+![A külső árnyék hatás](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
-
-- Amikor az OuterShadow és a PresetShadow együtt van használva, csak az OuterShadow effektus kerül alkalmazásra.
-- Ha az OuterShadow és az InnerShadow egyszerre van alkalmazva, a hatás a PowerPoint verziójától függ. Például PowerPoint 2013‑ban a hatás duplázódik, míg PowerPoint 2007‑ben csak az OuterShadow effektus jelenik meg.
-
+{{% alert color="info" title="Megjegyzés" %}}
+- Ha a külső és előre beállított árnyékok együtt vannak használva, csak a külső árnyék kerül alkalmazásra.
+- Ha a külső és belső árnyékok egyszerre vannak használva, az eredmény hatása a PowerPoint verziójától függ. Például a PowerPoint 2013-ban a hatás duplázódik, míg a PowerPoint 2007-ben csak a külső árnyék kerül alkalmazásra.
 {{% /alert %}}
 
-### **Tükröződés effektusok alkalmazása**
+### **Tükrözés hatások alkalmazása**
 
-Ebben a szakaszban megvizsgáljuk, hogyan alkalmazhatók tükröződés effektusok a diákban az Aspose.Slides for .NET használatával. A tükröződés effektusok hatékony módot nyújtanak arra, hogy szövegnek vagy alakzatoknak modern, stílusos megjelenést adjanak, kiemelve a kulcselemeket és mélységet kölcsönözve a prezentációnak. A hatások alkalmazásának és testreszabásának folyamatának megértésével könnyen a tervezési igényekhez és a márkaazonosításhoz igazíthatja őket.
+Egy tükrözés tükrözött másolatot hoz létre a szövegből. Állítsa be a pozíciót, méretezést, elmosódást és áttetszőséget a megjelenés szabályozásához.
 
-Adjunk tükröződés effektust a szöveghez a következő C# példakóddal:
-
-```cs
-    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
-```
-
-Az eredményül kapott szöveg:
-
-![A tükröződés effektus](reflection_effect.png)
-
-### **Ragyogás effektusok alkalmazása**
-
-Ebben a szakaszban megvizsgáljuk, hogyan alkalmazhatunk ragyogás effektust a szövegre az Aspose.Slides for .NET segítségével. A ragyogás effektus egy fénylő körvonalat ad a szövegnek, növelve a dia vizuális vonzerejét. A szín és intenzitás beállításával könnyedén testre szabhatja a ragyogást a tervezési és márkaigényeknek megfelelően, biztosítva, hogy a prezentáció kulcspontjai felkeltsék a közönség figyelmét.
-
-Alkalmazzon ragyogás effektust a szövegre, hogy ragyogjon vagy kitűnjön, a következő kóddal:
+Ez a példa meghívja a [EnableReflectionEffect](https://reference.aspose.com/slides/hu/net/aspose.slides/effectformat/enablereflectioneffect/) metódust, és függőlegesen tükrözi a reflexiót -100%-os méretezéssel. 0,5 pont elmosódási sugárral és 4,72 pont távolsággal dolgozik. Az áttetszőség 60%-ról 0,9%-ra csökken a 0% és 60% közötti pozíciók között a reflexión:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableGlowEffect();
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
 ```
 
-Az eredményül kapott szöveg:
+Az eredményes szöveg:
 
-![A ragyogás effektus](glow_effect.png)
+![A tükrözés hatás](reflection_effect.png)
+
+### **Ragyogás hatások alkalmazása**
+
+A ragyogás lágy színes körvonalat ad a szöveg köré. Állítsa be a színét, áttetszőségét és sugárát a hatás szabályozásához.
+
+Ez a példa meghívja a [EnableGlowEffect](https://reference.aspose.com/slides/hu/net/aspose.slides/effectformat/enablegloweffect/) metódust, és piros ragyogást alkalmaz 54%-os áttetszőséggel és 7 pont sugárral:
+
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableGlowEffect();
+portion.PortionFormat.EffectFormat.GlowEffect.Color.Color = System.Drawing.Color.Red;
+portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+```
+
+Az eredményes szöveg:
+
+![A ragyogás hatás](glow_effect.png)
 
 ### **WordArt transzformációk alkalmazása**
 
-Ebben a szakaszban megvizsgáljuk, hogyan használhatók a transzformációk a WordArt‑ban az Aspose.Slides for .NET‑el. A transzformációk lehetővé teszik a szöveg meghajlítását, nyújtását vagy torzítását, egyedi és vizuálisan lenyűgöző hatásokat teremtve. Ennek a technikának a elsajátításával könnyedén alakíthatja a szöveg formáit és stílusait a márkájának vagy kreatív elképzelésének megfelelően, így professzionális és hatásos prezentációt biztosítva.
+WordArt transzformációk hajlítják, nyújtják vagy torzítják a szövegtömböt.
 
-Használja a `Transform` tulajdonságot (amely az egész szövegrészt érinti) a következő kóddal:
+A [Transform](https://reference.aspose.com/slides/hu/net/aspose.slides/textframeformat/transform/) beállítása [ArchUpPour](https://reference.aspose.com/slides/hu/net/aspose.slides/textshapetype/) értékre azt eredményezi, hogy az egész szövegkeret felfelé ível:
 
 ```cs
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
 ```
 
-Az eredményül kapott szöveg:
+Az eredményes szöveg:
 
 ![A WordArt transzformáció](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
+Az Aspose.Slides for .NET előre definiált [transzformáció típusok](https://reference.aspose.com/slides/hu/net/aspose.slides/textshapetype/) készletet biztosít.
+{{% /alert %}}
 
-Az Aspose.Slides for .NET egy előre definiált [transzformáció típusok](https://reference.aspose.com/slides/hu/net/aspose.slides/textshapetype/) halmazát biztosítja.
+### **3D hatások alkalmazása alakzatokra és szövegre**
 
-{{% /alert %}} 
+3D hatásokat alkalmazhat egy alakzatra vagy annak szövegére. A lekerekítések, kitüremkedés, világítás és kamera beállítások határozzák meg a végeredményt.
 
-### **3D effektusok alkalmazása alakzatokra és szövegre**
-
-Realista, figyelemfelkeltő vizuálok létrehozása jelentősen növelheti a prezentációk hatását. Ebben a szakaszban bemutatjuk, hogyan alkalmazhat háromdimenziós (3D) effektusokat alakzatokra az Aspose.Slides for .NET‑el. A mélység, szög és fényviszonyok paramétereinek manipulálásával lenyűgöző 3D transzformációkat hozhat létre, amelyek azonnal megragadják a közönség figyelmét. Legyen szó finom kiemelésekről vagy drámai illúziókról, ezek a funkciók rugalmas módot kínálnak a tervezés fokozására és az ötletek hatásos közvetítésére.
-
-A következő példakóddal állítsa be a 3D effektust az alakzatra:
+A következő példa a [ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/) használatával körkörös lekerekítéseket, narancssárga kitüremkedést és sötétvörös körvonalat ad a téglalaphoz. A lekerekítések méretei, a kitüremkedés magassága, a körvonal szélessége és mélysége pontban mérve. Egy műanyag anyag, 40 fokban Z tengely körül elforgatott kiegyensúlyozott világítás és perspektív kamera határozza meg a megjelenést:
 
 ```cs
-    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-    autoShape.ThreeDFormat.BevelTop.Width = 11;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    autoShape.ThreeDFormat.ExtrusionHeight = 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+autoShape.TextFrame.Text = "Aspose.Slides";
 
-    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    autoShape.ThreeDFormat.ContourWidth = 1.5;
+autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-    autoShape.ThreeDFormat.Depth = 3;
+autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+autoShape.ThreeDFormat.Depth = 3;
+
+autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-Az eredményül kapott alakzat:
+Az alakzat 3D hatása:
 
-![Az alakzat 3D effektusa](shape_3D_effect.png)
+![Az alakzat 3D hatása](shape_3D_effect.png)
 
-A következő példakóddal állítsa be a 3D effektust a szövegre:
+Ez a példa hasonló 3D formázást alkalmaz a szövegre a [TextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/textframeformat/threedformat/) segítségével. A kisebb lekerekítések az betűk széleit formálják, míg a kitüremkedés és a világítás mélységet adnak a szövegnek:
 
 ```cs
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
 
-    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
 
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
+
+textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-Az eredményül kapott szöveg:
+A szöveg 3D hatása:
 
-![A szöveg 3D effektusa](text_3D_effect.png)
+![A szöveg 3D hatása](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
-
-A 3D effektusok alkalmazása a szövegre vagy azok alakzataira — és az effektek közötti kölcsönhatás — speciális szabályok szerint történik. Tekintse meg a következő példát, amely egy szöveget és a szöveget tartalmazó alakzatot is érinti. A 3D effektus magában foglalja az objektum 3D reprezentációját és a rá helyezett jelenetet.
-
-- Ha egy jelenet mind a alakzatra, mind a szövegre be van állítva, az alakzat jelenete kap elsőbbséget, a szöveg jelenete pedig figyelmen kívül marad.
-- Ha az alakzatnak nincs saját jelenete, de van 3D reprezentációja, a szöveg jelenete kerül felhasználásra.
-- Ha az alakzatnak egyáltalán nincs 3D effektusa, akkor laposként kezelik, és a 3D effektus csak a szövegre kerül alkalmazásra.
-
+{{% alert color="info" title="Megjegyzés" %}}
+A 3D hatások szövegre vagy azok alakzataira való alkalmazását – valamint a hatások közötti kölcsönhatást – specifikus szabályok irányítják. Tekintsünk egy jelenetet, amely magában foglalja a szöveget és a azt tartalmazó alakzatot. Egy 3D hatás magában foglalja az objektum 3D ábrázolását és a benne elhelyezkedő jelenetet.
+- Ha a jelenet mind az alakzatra, mind a szövegre be van állítva, az alakzat jelenete kap elsőbbséget, a szöveg jelenete figyelmen kívül marad.
+- Ha az alakzatnak nincs saját jelenete, de van 3D ábrázolása, a szöveg jelenete kerül felhasználásra.
+- Ha az alakzatnak egyáltalán nincs 3D hatása, laposként kezelik, és a 3D hatás csak a szövegre kerül alkalmazásra.
 Ezek a viselkedések a [ThreeDFormat.LightRig](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/lightrig/) és a [ThreeDFormat.Camera](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/camera/) tulajdonságokra vonatkoznak.
+{{% /alert %}}
 
-{{% /alert %}} 
+A szöveg lapos és olvasható állapotának megtartása, miközben az alakzat 3D formázása megmarad, lásd a [Keep Text Flat on a 3D Shape](/slides/hu/net/3d-presentation/) oldalon, ahol összehasonlítást láthat a két beállításról és egy teljes C# példát.
 
 ## **GYIK**
 
-**Használhatok WordArt effektusokat különböző betűtípusokkal vagy írásrendszerekkel (például arab, kínai)?**
+**Használhatok WordArt hatásokat különböző betűtípusokkal vagy írásrendszerekkel (pl. arab, kínai)?**
 
-Igen, az Aspose.Slides for .NET támogatja az Unicode‑ot, és működik minden főbb betűtípussal és írásrendszerrel. A WordArt effektusok, például az árnyék, kitöltés és körvonal, nyelvtől függetlenül alkalmazhatók, bár a betűtípus rendelkezésre állása és megjelenítése a rendszer betűtípusaival függhet.
+Igen, az Aspose.Slides for .NET támogatja az Unicode-ot, és működik minden főbb betűtípussal és írásrendszerrel. A WordArt hatásokat, mint az árnyék, kitöltés és körvonal, a nyelvtől függetlenül alkalmazhatók, bár a betűtípusok elérhetősége és megjelenítése a rendszer betűtípusaitól függhet.
 
-**Alkalmazhatok WordArt effektusokat a diamester elemekre?**
+**Alkalmazhatok WordArt hatásokat a dia mester elemeire?**
 
-Igen, WordArt effektusokat alkalmazhat a mesterdiák alakzataira, beleértve a címhelyőrzőket, lábléceket vagy háttérszöveget. A mesterelrendezésben végzett módosítások minden kapcsolódó diára kihatnak.
+Igen, WordArt hatásokat alkalmazhat a mester diák alakzataira, beleértve a címhelyettesítőket, láblécet vagy háttérszöveget. A mester elrendezésén végzett módosítások minden kapcsolódó diába átkerülnek.
 
-**A WordArt effektusok befolyásolják a prezentáció fájlméretét?**
+**Növelik a WordArt hatások a prezentáció fájlméretét?**
 
-Kissé igen. Az olyan WordArt effektusok, mint az árnyékok, ragyogás és színátmenetes kitöltések, enyhén növelhetik a fájlméretet a hozzáadott formázási metaadatok miatt, de a különbség általában elhanyagolható.
+Enyhén. A WordArt hatások, mint az árnyékok, ragyogás és színátmenetes kitöltések, kismértékben növelhetik a fájlméretet a hozzáadott formázási metaadatok miatt, de a különbség általában elhanyagolható.
 
-**Megtekinthetem a WordArt effektusok eredményét a prezentáció mentése nélkül?**
+**Megnézhetem a WordArt hatások eredményét mentés nélkül?**
 
-Igen, a WordArt‑ot tartalmazó diák képek (például PNG, JPEG) formájában renderelhetők a `GetImage` metódussal a [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) vagy [ISlide](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/) interfészekről. Ez lehetővé teszi az eredmény előnézetét memóriában vagy képernyőn a teljes prezentáció mentése vagy exportálása előtt.
+Igen, a WordArt-ot tartalmazó diák képekké (pl. PNG, JPEG) renderelhetők a [ISlide.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) segítségével, vagy különálló alakzatok renderelhetők a [IShape.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/getimage/) metódussal. Ez lehetővé teszi az eredmény előnézetét memóriában vagy a képernyőn, mielőtt mentené vagy exportálná a teljes prezentációt.

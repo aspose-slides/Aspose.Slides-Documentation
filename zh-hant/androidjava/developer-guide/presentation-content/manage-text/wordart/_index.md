@@ -5,384 +5,388 @@ type: docs
 weight: 110
 url: /zh-hant/androidjava/wordart/
 keywords:
-- 文字藝術
-- 建立文字藝術
-- 文字藝術範本
-- 文字藝術效果
+- WordArt
+- 建立 WordArt
+- WordArt 範本
+- WordArt 效果
 - 陰影效果
-- 顯示效果
+- 反射效果
 - 發光效果
-- 文字藝術變形
+- WordArt 變形
 - 3D 效果
 - 外部陰影效果
 - 內部陰影效果
-- PowerPoint
-- 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Android 中建立與自訂 WordArt 效果。此一步步指南協助開發人員使用 Java 以專業的文字提升簡報品質。"
+description: "在 Aspose.Slides for Android via Java 中建立與自訂 WordArt 效果。此逐步指南協助開發人員在 Android 上以專業文字提升簡報。"
 ---
-## **概觀**
+## **概述**
 
-WordArt 效果允許您在 PowerPoint 簡報中加入視覺上吸引且具風格的文字。使用 Aspose.Slides，開發人員可以以程式方式建立、客製化與管理 WordArt，就像在 Microsoft PowerPoint 中操作一樣——無需安裝 Office。本篇文章概述了 WordArt 的使用方式，包含如何套用文字變形、填滿樣式、輪廓、陰影以及其他格式設定，讓簡報內容更具表現力與吸引力。WordArt 允許您將文字視為圖形物件。它由套用於文字的效果或特殊變更組成，使文字更具吸引力或顯眼。
+WordArt 效果讓您能以填色、輪廓、陰影、反射、發光、變形和 3D 格式化來裝飾文字。本文說明如何在未安裝 Microsoft Office 的情況下，使用 Aspose.Slides for Android via Java 在 PowerPoint 簡報中建立與自訂這些效果。
 
-## **建立簡單的 WordArt 範本並套用至文字**
+## **建立簡易 WordArt 範本並套用至文字**
 
-**使用 Aspose.Slides** 
+以下範例透過設定文字、字型、圖樣填色與輪廓，建立一個簡單的 WordArt 風格。
 
-首先，我們使用以下 Java 程式碼建立簡單的文字：
+每個範例都會建立新的簡報，並在第一張投影片上加入一個矩形；不需要任何輸入檔案。第一個範例將文字設定為「Aspose.Slides」。圖形的位置與尺寸以點 (pt) 為單位：
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-現在，我們透過此程式碼將文字的字型高度設定為較大值，以使效果更明顯：
 
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+將字型設定為 36 點的 Arial Black，以便更明顯地看到格式化效果：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
-**使用 Microsoft PowerPoint**
+使用前景為深橙色、背景為白色的 [SmallGrid](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/patternstyle/#SmallGrid) 圖樣，然後加入寬度為 1 點的黑色文字輪廓：
 
-請前往 Microsoft PowerPoint 中的 WordArt 效果功能表：
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-![todo:image_alt_text](image-20200930113926-1.png)
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-在右側功能表中，您可以選擇預先定義的 WordArt 效果。 在左側功能表中，您可以為新 WordArt 指定設定。
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-這些是可用的一些參數或選項：
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-![todo:image_alt_text](image-20200930114015-3.png)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    int darkOrange = Color.rgb(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-**使用 Aspose.Slides**
-
-在此，我們使用此程式碼將 [SmallGrid](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/PatternStyle#SmallGrid) 圖案色彩套用至文字，並新增寬度為 1 的黑色文字框線：
-
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+} finally {
+    presentation.dispose();
+}
 ```
 
-產生的文字如下：
+產生的文字：
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![The simple WordArt template](WordArt_template.png)
 
 ## **套用其他 WordArt 效果**
 
-**使用 Microsoft PowerPoint**
+以下範例示範如何對文字套用陰影、反射、發光、變形與 3D 效果。
 
-在程式介面中，您可以將這些效果套用至文字、文字區塊、圖形或類似的元素：
+### **套用外部陰影效果**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+外部陰影透過在文字背後放置陰影來增添深度。您可以自訂其顏色、方向、距離、模糊半徑、比例與斜切。
 
-例如，陰影、反射與發光效果可套用於文字；3D 格式與 3D 旋轉效果可套用於文字區塊；柔化邊緣屬性可套用於圖形物件（即使未設定 3D 格式屬性仍會產生效果）。
-
-### **套用陰影效果**
-
-此處我們僅針對文字設定相關屬性，使用以下 Java 程式碼將陰影效果套用於文字：
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-
-Aspose.Slides API 支援三種陰影類型：OuterShadow、InnerShadow 與 PresetShadow。
-
-使用 PresetShadow，您可以 (使用預設值) 為文字套用陰影。
-
-**使用 Microsoft PowerPoint**
-
-在 PowerPoint 中，您只能使用一種陰影類型。以下為範例：
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**使用 Aspose.Slides**
-
-Aspose.Slides 實際上允許同時套用兩種陰影：InnerShadow 與 PresetShadow。
-
-**注意：**
-
-- 當同時使用 OuterShadow 與 PresetShadow 時，僅套用 OuterShadow 效果。
-- 若同時使用 OuterShadow 與 InnerShadow，最終套用的效果取決於 PowerPoint 版本。例如在 PowerPoint 2013 中，效果會加倍；但在 PowerPoint 2007 中，僅套用 OuterShadow 效果。
-
-### **套用反射效果至文字**
-
-我們使用以下 Java 程式碼為文字加入反射效果：
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-
-### **套用發光效果至文字**
-
-我們使用以下程式碼將發光效果套用於文字，使其發光或突顯：
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-操作結果：
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-您可以變更陰影、反射與發光的參數。這些效果的屬性會分別套用於文字的各個部分。 
-{{% /alert %}} 
-
-### **在 WordArt 中使用變形**
-
-我們使用以下程式碼套用 Transform 屬性（適用於整個文字區塊）：
-
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-
-結果：
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-兩者皆提供多種預先定義的變形類型。 
-{{% /alert %}} 
-
-**使用 PowerPoint**
-
-若要存取預先定義的變形類型，請依序點選：**Format** -> **TextEffect** -> **Transform**
-
-**使用 Aspose.Slides**
-
-若要選取變形類型，請使用 TextShapeType 列舉。
-
-### **套用 3D 效果至文字與圖形**
-
-我們使用以下範例程式碼為文字圖形設定 3D 效果：
-
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-產生的文字及其圖形如下：
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-我們使用此 Java 程式碼為文字套用 3D 效果：
-
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-操作結果：
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-套用於文字或其圖形的 3D 效果以及效果之間的交互遵循特定規則。
-
-考慮文字與包含該文字之圖形的場景。3D 效果包含 3D 物件的表示以及放置該物件的場景。
-
-- 當圖形與文字皆設定場景時，圖形的場景具有較高優先權—文字的場景會被忽略。
-- 當圖形本身沒有場景但具有 3D 表示時，會使用文字的場景。
-- 否則——當圖形原本沒有 3D 效果時，圖形保持平面，3D 效果僅套用於文字。
-
-這些描述與 ThreeDFormat.getLightRig() 以及 ThreeDFormat.getCamera() 方法相關。 
-{{% /alert %}} 
-
-## **套用外部陰影效果至文字**
-Aspose.Slides for Android via Java 提供 [**IOuterShadow**](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ioutershadow/) 和 [**IInnerShadow**](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iinnershadow/) 類別，讓您能對由 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 所承載的文字套用陰影效果。請依照以下步驟執行：
-
-1. 建立 [Presentation] 類別的實例。
-2. 使用索引取得投影片參考。
-3. 向投影片新增矩形類型的 AutoShape。
-4. 取得與 AutoShape 相關聯的 TextFrame。
-5. 設定 AutoShape 的 FillType 為 NoFill。
-6. 實例化 OuterShadow 類別
-7. 設定陰影的 BlurRadius。
-8. 設定陰影的 Direction
-9. 設定陰影的 Distance。
-10. 設定 RectanglelAlign 為 TopLeft。
-11. 設定陰影的 PresetColor 為 Black。
-12. 將簡報寫入為 [PPTX](https://docs.fileformat.com/presentation/pptx/) 檔案。
+此範例呼叫 [enableOuterShadowEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effectformat/#enableOuterShadowEffect--)，並將陰影設定為黑色、模糊半徑 4 點、方向 230 度、距離 30 點。比例值 100 保持陰影大小，水平斜切則將其傾斜 20 度。Alpha 變換將不透明度設定為 32%：
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // 取得投影片的參考
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形類型的 AutoShape
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // 為矩形新增 TextFrame
-    ashp.addTextFrame("Aspose TextBox");
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // 停用形狀填充，以免影響文字陰影
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // 新增外部陰影並設定所有必要參數
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    // 將簡報寫入磁碟
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **套用內部陰影效果至圖形**
-請依照以下步驟執行：
+產生的文字：
 
-1. 建立 [Presentation] 類別的實例。
-2. 取得投影片的參考。
-3. 新增矩形類型的 AutoShape。
-4. 啟用 InnerShadowEffect。
-5. 設定所有必要的參數。
-6. 將 ColorType 設定為 Scheme。
-7. 設定 Scheme Color。
-8. 將簡報寫入為 [PPTX] 檔案。
+![The Outer Shadow effect](outer_shadow_effect.png)
 
-這段（根據上述步驟）的範例程式碼示範如何在 Java 中於兩個圖形之間加入連接線：
+{{% alert color="info" title="注意" %}}
+- 同時使用外部陰影與預設陰影時，僅套用外部陰影。
+- 若同時使用外部陰影與內部陰影，最終效果取決於 PowerPoint 版本。例如，在 PowerPoint 2013 中效果會加倍，而在 PowerPoint 2007 中僅套用外部陰影。
+{{% /alert %}}
+
+### **套用反射效果**
+
+反射會產生文字的鏡像副本。您可調整其位置、比例、模糊與不透明度，以控制外觀。
+
+此範例呼叫 [enableReflectionEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effectformat/#enableReflectionEffect--)，將反射垂直翻轉，比例為 -100%。使用 0.5 點的模糊半徑與 4.72 點的距離。不透明度在 0% 到 60% 的反射位置之間由 60% 下降至 0.9%：
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 取得投影片的參考
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形類型的 AutoShape
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // 為矩形新增 TextFrame
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // 啟用 InnerShadowEffect
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-
-    // 設定所有必要參數
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // 將 ColorType 設定為 Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // 設定 Scheme 色彩
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // 儲存簡報
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+產生的文字：
+
+![The Reflection effect](reflection_effect.png)
+
+### **套用發光效果**
+
+發光會在文字周圍添加柔和的彩色輪廓。您可調整顏色、不透明度與半徑，以控制效果。
+
+此範例呼叫 [enableGlowEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effectformat/#enableGlowEffect--)，套用 54% 不透明度、半徑 7 點的紅色發光：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+產生的文字：
+
+![The Glow effect](glow_effect.png)
+
+### **套用 WordArt 變形**
+
+WordArt 變形會彎曲、拉伸或扭曲文字區塊。
+
+將 [setTransform](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframeformat/#setTransform-int-) 設為 [ArchUpPour](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textshapetype/#ArchUpPour) 即可將整個文字框向上拱形：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+產生的文字：
+
+![The WordArt transformation](transform_effect.png)
+
+{{% alert color="info" title="注意" %}}
+Aspose.Slides for Android via Java 提供一組預定義的 [transformation types](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textshapetype/)。
+{{% /alert %}}
+
+### **套用 3D 效果於圖形與文字**
+
+您可以將 3D 效果套用於圖形或其文字。倒角、拉伸、光源與相機設定共同決定最終外觀。
+
+以下範例使用 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/) 為矩形添加圓形倒角、橙色拉伸與深紅色輪廓。倒角尺寸、拉伸高度、輪廓寬度與深度皆以點為單位。塑膠材質、以 Z 軸旋轉 40 度的平衡光源，以及透視相機共同定義其外觀：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    int orange = Color.rgb(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+產生的圖形：
+
+![The shape 3D effect](shape_3D_effect.png)
+
+此範例透過 [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframeformat/#getThreeDFormat--) 以類似方式為文字套用 3D 格式。較小的倒角塑造字母邊緣，拉伸與光源則賦予文字深度：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    int orange = Color.rgb(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+產生的文字：
+
+![The text 3D effect](text_3D_effect.png)
+
+{{% alert color="info" title="注意" %}}
+對文字或其圖形套用 3D 效果，以及這些效果之間的相互作用，受特定規則規範。考慮同時包含文字與其容納圖形的場景。3D 效果包括物件的 3D 表示以及其所處的場景。
+
+- 若圖形與文字皆設定了場景，圖形的場景優先，文字的場景將被忽略。
+- 若圖形未設定場景但具有 3D 表示，則使用文字的場景。
+- 若圖形完全沒有 3D 效果，則視為平面，3D 效果僅套用於文字。
+
+這些行為與 [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/#getLightRig--) 與 [ThreeDFormat.getCamera](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/#getCamera--) 方法相關。
+{{% /alert %}}
+
+若要在保留圖形 3D 格式的同時保持文字平面且易讀，請參閱 [Keep Text Flat on a 3D Shape](/slides/zh-hant/androidjava/3d-presentation/) 了解兩種設定的比較與完整 Java 範例。
 
 ## **常見問題**
 
-**我可以在不同字型或文字系統（例如阿拉伯文、中文）中使用 WordArt 效果嗎？**
+**是否可以在不同字型或文字系統（例如阿拉伯語、中文）中使用 WordArt 效果？**
 
-是的，Aspose.Slides 支援 Unicode，並可使用所有主要字型與文字系統。WordArt 效果（如陰影、填滿與輪廓）可套用於任何語言的文字，儘管字型可用性與呈現可能取決於系統字型。
+可以，Aspose.Slides for Android via Java 支援 Unicode，且可與所有主要字型與文字系統一起使用。無論語言為何，都能套用陰影、填色與輪廓等 WordArt 效果，儘管字型的可用性與渲染可能受系統字型影響。
 
-**我可以將 WordArt 效果套用至投影片母片元素嗎？**
+**是否可以將 WordArt 效果套用於投影片母片元素？**
 
-可以，您可以將 WordArt 效果套用於母片投影片上的圖形，包括標題佔位符、頁腳或背景文字。對母版佈局所做的變更會反映在所有相關投影片上。
+可以，您可以將 WordArt 效果套用於母片投影片上的形狀，包括標題佔位符、頁腳或背景文字。對母版版面的變更會在所有關聯投影片中反映出來。
 
 **WordArt 效果會影響簡報檔案大小嗎？**
 
-會略有影響。陰影、發光與漸層填滿等 WordArt 效果會因加入格式化中繼資料而稍微增加檔案大小，但差異通常可以忽略不計。
+會有輕微影響。陰影、發光與漸層填色等 WordArt 效果會因加入格式化資訊而略微增加檔案大小，但差異通常可以忽略不計。
 
-**我可以在未儲存簡報的情況下預覽 WordArt 效果的結果嗎？**
+**是否可以在未儲存簡報的情況下預覽 WordArt 效果的結果？**
 
-可以，您可以使用 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 或 [ISlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islide/) 介面的 `getImage` 方法將含有 WordArt 的投影片轉換為圖像（如 PNG、JPEG），從而在記憶體或螢幕上預覽結果，無需先儲存或匯出完整簡報。
+可以，您可以使用 [ISlide.getImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islide/#getImage--) 將包含 WordArt 的投影片渲染為圖像（例如 PNG、JPEG），或使用 [IShape.getImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getImage--) 渲染單一形狀。如此即可在記憶體或螢幕上即時預覽結果，而無需儲存或匯出完整簡報。

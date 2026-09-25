@@ -7,362 +7,406 @@ url: /hi/php-java/wordart/
 keywords:
 - WordArt
 - WordArt बनाएं
-- WordArt टेम्पलेट
+- WordArt टेम्प्लेट
 - WordArt प्रभाव
-- छाया प्रभाव
-- प्रदर्शन प्रभाव
-- चमक प्रभाव
+- शैडो प्रभाव
+- रेफ़्लेक्शन प्रभाव
+- ग्लो प्रभाव
 - WordArt रूपांतरण
 - 3D प्रभाव
-- बाहरी छाया प्रभाव
-- आंतरिक छाया प्रभाव
-- PowerPoint
-- प्रस्तुति
+- बाहरी शैडो प्रभाव
+- आंतरिक शैडो प्रभाव
 - PHP
 - Aspose.Slides
-description: Aspose.Slides for PHP via Java में WordArt प्रभाव बनाएं और अनुकूलित करें। यह चरण-दर-चरण मार्गदर्शिका डेवलपर्स को पेशेवर पाठ के साथ प्रस्तुतियों को सुधारने में मदद करती है।
+description: "Aspose.Slides for PHP via Java में WordArt प्रभाव बनाएं और अनुकूलित करें। यह क्रमवार गाइड डेवलपर्स को PHP में पेशेवर टेक्स्ट के साथ प्रेजेंटेशन को बेहतर बनाने में मदद करता है।"
 ---
 ## **अवलोकन**
 
-WordArt प्रभाव आपको आपकी PowerPoint प्रस्तुतियों में दृश्यात्मक रूप से आकर्षक, शैलीबद्ध पाठ जोड़ने की अनुमति देते हैं। Aspose.Slides के साथ, डेवलपर्स Microsoft PowerPoint की तरह ही WordArt को प्रोग्रामmatically बनाते, अनुकूलित करते और प्रबंधित करते हैं—बिना Office स्थापित किए। यह लेख WordArt के साथ काम करने का एक अवलोकन प्रदान करता है, जिसमें पाठ रूपांतरण, भराव शैलियों, रूपरेखा, छाया और अन्य स्वरूपण विकल्पों को लागू करने के तरीके शामिल हैं, ताकि आपकी प्रस्तुति की सामग्री अधिक अभिव्यक्तिपूर्ण और आकर्षक बन सके। WordArt आपको पाठ को एक ग्राफिकल वस्तु के रूप में मानने की सुविधा देता है। यह प्रभावों या विशेष संशोधनों का समुच्चय है जो पाठ को अधिक आकर्षक या उल्लेखनीय बनाता है।
+WordArt प्रभाव आपको टेक्स्ट को फ़िल, आउटलाइन, शैडो, रेफ़्लेक्शन, ग्लो, ट्रांसफ़ॉर्मेशन, और 3D फ़ॉर्मेटिंग के साथ स्टाइल करने की अनुमति देते हैं। यह लेख PowerPoint प्रज़ेंटेशन में Aspose.Slides for PHP via Java का उपयोग करके, बिना Microsoft Office स्थापित किए, इन प्रभावों को बनाने और अनुकूलित करने का तरीका बताता है।
 
-## **एक सरल WordArt टेम्पलेट बनाएं और उसे पाठ पर लागू करें**
+## **एक साधारण WordArt टेम्प्लेट बनائیں और इसे टेक्स्ट पर लागू करें**
 
-**Aspose.Slides का उपयोग करके** 
+निम्नलिखित उदाहरण टेक्स्ट, फ़ॉन्ट, पैटर्न फ़िल, और आउटलाइन सेट करके एक साधारण WordArt शैली बनाते हैं।
 
-सबसे पहले, इस PHP कोड के साथ एक सरल पाठ बनाते हैं:
+प्रत्येक उदाहरण एक नई प्रज़ेंटेशन बनाता है और उसकी पहली स्लाइड में एक आयत जोड़ता है; कोई इनपुट फ़ाइल आवश्यक नहीं है। पहला उदाहरण टेक्स्ट को "Aspose.Slides" पर सेट करता है। आकार की स्थिति और आयाम पॉइंट में मापे जाते हैं:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
     $textFrame = $autoShape->getTextFrame();
+
     $portion = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->setText("Aspose.Slides");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
-अब, हम इस कोड के माध्यम से प्रभाव को अधिक स्पष्ट बनाने के लिए पाठ के फ़ॉन्ट की ऊँचाई को बड़ा सेट करते हैं:
+
+फ़ॉर्मेटिंग को अधिक स्पष्ट बनाने के लिए फ़ॉन्ट को Arial Black, 36 पॉइंट पर सेट करें:
 
 ```php
-  $fontData = new FontData("Arial Black");
-  $portion->getPortionFormat()->setLatinFont($fontData);
-  $portion->getPortionFormat()->setFontHeight(36);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Microsoft PowerPoint का उपयोग करके**
-
-Microsoft PowerPoint में WordArt प्रभाव मेन्यू पर जाएँ:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-दाएँ मेन्यू से आप एक पूर्वनिर्धारित WordArt प्रभाव चुन सकते हैं। बाएँ मेन्यू से आप नए WordArt की सेटिंग्स निर्दिष्ट कर सकते हैं।
-
-उपलब्ध पैरामीटर या विकल्पों में से कुछ इस प्रकार हैं:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Aspose.Slides का उपयोग करके**
-
-यहाँ, हम पाठ पर [SmallGrid](https://reference.aspose.com/slides/hi/php-java/aspose.slides/patternstyle/#SmallGrid) पैटर्न रंग लागू करते हैं और इस कोड के साथ 1‑चौड़ाई की काली पाठ सीमा जोड़ते हैं:
+डार्क ऑरेंज फ़ोरग्राउंड और सफ़ेद बैकग्राउंड के साथ एक [SmallGrid](https://reference.aspose.com/slides/hi/php-java/aspose.slides/patternstyle/#SmallGrid) पैटर्न लागू करें, फिर 1 पॉइंट की चौड़ाई वाले काले टेक्स्ट आउटलाइन जोड़ें:
 
 ```php
-  $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle->SmallGrid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor($darkOrange);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::SmallGrid);
+
+    $portion->getPortionFormat()->getLineFormat()->setWidth(1);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-परिणामी पाठ:
+परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![सरल WordArt टेम्प्लेट](WordArt_template.png)
 
 ## **अन्य WordArt प्रभाव लागू करें**
 
-**Microsoft PowerPoint का उपयोग करके**
+निम्नलिखित उदाहरण दिखाते हैं कि टेक्स्ट पर शैडो, रेफ़्लेक्शन, ग्लो, ट्रांसफ़ॉर्मेशन और 3D प्रभाव कैसे लागू किए जाते हैं।
 
-प्रोग्राम के इंटरफ़ेस से आप इन प्रभावों को पाठ, पाठ ब्लॉक, आकार या समान तत्व पर लागू कर सकते हैं:
+### **बाहरी शैडो प्रभाव लागू करें**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+एक बाहरी शैडो टेक्स्ट के पीछे शैडो रखकर गहराई बनाता है। आप इसका रंग, दिशा, दूरी, ब्लर रेडियस, स्केल और स्क्यू कस्टमाइज़ कर सकते हैं।
 
-उदाहरण के लिए, Shadow, Reflection और Glow प्रभाव को पाठ पर, 3D Format और 3D Rotation प्रभाव को पाठ ब्लॉक पर, Soft Edges गुण को Shape वस्तु पर लागू किया जा सकता है (भले ही 3D Format गुण सेट न हो)।
-
-### **छाया प्रभाव लागू करें**
-
-यहाँ, हम केवल पाठ से संबंधित गुण सेट करने का इरादा रखते हैं। हम इस कोड के साथ पाठ पर छाया प्रभाव लागू करते हैं:
+यह उदाहरण [enableOuterShadowEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effectformat/#enableOuterShadowEffect--) को कॉल करता है और एक काले शैडो को 4‑पॉइंट ब्लर रेडियस, 230‑डिग्री दिशा, और 30‑पॉइंट दूरी के साथ सेट करता है। स्केल मान 100 शैडो का आकार बनाए रखता है, जबकि क्षैतिज स्क्यू इसे 20 डिग्री झुकाता है। अल्फ़ा ट्रांसफ़ॉर्म इसकी अपारदर्शिता को 32 % पर सेट करता है:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(65);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4.73);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(2);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(30);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.32);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(30);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(20);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.32);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Aspose.Slides API तीन प्रकार की छायाओं का समर्थन करता है: OuterShadow, InnerShadow और PresetShadow।
+परिणामी टेक्स्ट:
 
-PresetShadow के साथ, आप (पूर्वनिर्धारित मानों का उपयोग करके) पाठ के लिए छाया लागू कर सकते हैं।
+![बाहरी शैडो प्रभाव](outer_shadow_effect.png)
 
-**Microsoft PowerPoint का उपयोग करके**
+{{% alert color="info" title="Note" %}}
+- जब बाहरी और प्रीसेट शैडो एक साथ उपयोग किए जाते हैं, तो केवल बाहरी शैडो लागू होता है।
+- यदि बाहरी और आंतरिक शैडो एक साथ उपयोग किए जाते हैं, तो परिणामी प्रभाव PowerPoint संस्करण पर निर्भर करता है। उदाहरण के लिए, PowerPoint 2013 में प्रभाव दुगुना हो जाता है, जबकि PowerPoint 2007 में केवल बाहरी शैडो लागू होता है।
+{{% /alert %}}
 
-PowerPoint में आप एक प्रकार की छाया का उपयोग कर सकते हैं। यहाँ एक उदाहरण है:
+### **रेफ़्लेक्शन प्रभाव लागू करें**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+रेफ़्लेक्शन टेक्स्ट की एक प्रतिबिंबित कॉपी बनाता है। इसकी स्थिति, स्केल, ब्लर, और अपारदर्शिता को समायोजित करके आप दिखावट नियंत्रित कर सकते हैं।
 
-**Aspose.Slides का उपयोग करके**
-
-Aspose.Slides वास्तव में एक साथ दो प्रकार की छायाएँ लागू करने की अनुमति देता है: InnerShadow और PresetShadow।
-
-**ध्यान दें:**
-
-- जब OuterShadow और PresetShadow को साथ में उपयोग किया जाता है, तो केवल OuterShadow प्रभाव लागू होता है।
-- यदि OuterShadow और InnerShadow एक साथ उपयोग किए जाते हैं, तो लागू प्रभाव PowerPoint संस्करण पर निर्भर करता है। उदाहरण के लिए, PowerPoint 2013 में प्रभाव दोहरा हो जाता है, जबकि PowerPoint 2007 में OuterShadow प्रभाव लागू होता है।
-
-### **पाठ पर प्रतिबिंब प्रभाव लागू करें**
-
-हम इस कोड नमूने के साथ पाठ में प्रतिबिंब जोड़ते हैं:
+यह उदाहरण [enableReflectionEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effectformat/#enableReflectionEffect--) को कॉल करता है और स्केल को -100 % सेट करके रेफ़्लेक्शन को लंबवत उलटा करता है। यह 0.5‑पॉइंट ब्लर रेडियस और 4.72‑पॉइंट दूरी का उपयोग करता है। अपारदर्शिता 60 % से 0.9 % तक घटती है जब रेफ़्लेक्शन की स्थिति 0 % से 60 % तक बदलती है:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->BottomLeft);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\RectangleAlignment;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment::BottomLeft);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **पाठ पर चमक (Glow) प्रभाव लागू करें**
+परिणामी टेक्स्ट:
 
-हम इस कोड के साथ पाठ पर चमक प्रभाव लागू करते हैं ताकि वह चमके या अलग दिखे:
+![रेफ़्लेक्शन प्रभाव](reflection_effect.png)
+
+### **ग्लो प्रभाव लागू करें**
+
+ग्लो टेक्स्ट के चारों ओर एक मुलायम रंगीन आउटलाइन जोड़ता है। आप इसके रंग, अपारदर्शिता और रेडियस को समायोजित करके प्रभाव नियंत्रित कर सकते हैं।
+
+यह उदाहरण [enableGlowEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effectformat/#enableGlowEffect--) को कॉल करता है और 54 % अपारदर्शिता तथा 7 पॉइंट रेडियस के साथ लाल ग्लो लागू करता है:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.54);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setColor(java("java.awt.Color")->RED);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.54);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-ऑपरेशन का परिणाम:
+परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![ग्लो प्रभाव](glow_effect.png)
 
-{{% alert color="primary" %}} 
-आप छाया, प्रतिबिंब और चमक के पैरामीटर बदल सकते हैं। प्रभावों की गुणधर्म प्रत्येक पाठ भाग पर अलग‑अलग सेट होते हैं। 
-{{% /alert %}} 
+### **WordArt ट्रांसफ़ॉर्मेशन लागू करें**
 
-### **WordArt में रूपांतरण (Transformations) का उपयोग करें**
+WordArt ट्रांसफ़ॉर्मेशन टेक्स्ट के ब्लॉक को मोड़ते, खींचते या विकृत करते हैं।
 
-हम इस कोड के माध्यम से Transform गुण (पूरे पाठ ब्लॉक में निहित) लागू करते हैं:
-```php
-  $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
-```
-
-परिणाम:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-Microsoft PowerPoint और Aspose.Slides for PHP via Java दोनों कुछ पूर्वनिर्धारित रूपांतरण प्रकार प्रदान करते हैं। 
-{{% /alert %}} 
-
-**PowerPoint का उपयोग करके**
-
-पूर्वनिर्धारित रूपांतरण प्रकारों तक पहुंचने के लिए, **Format** → **TextEffect** → **Transform** पर जाएँ।
-
-**Aspose.Slides का उपयोग करके**
-
-रूपांतरण प्रकार चुनने के लिए TextShapeType enum का उपयोग करें।
-
-### **पाठ और आकार पर 3D प्रभाव लागू करें**
-
-हम इस नमूना कोड के साथ पाठ आकार पर 3D प्रभाव सेट करते हैं:
+[setTransform](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframeformat/#setTransform-int-) को [ArchUpPour](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textshapetype/#ArchUpPour) पर सेट करके पूरे टेक्स्ट फ़्रेम को ऊपर की ओर झुका सकते हैं:
 
 ```php
-  $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
-  $autoShape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $autoShape->getThreeDFormat()->setExtrusionHeight(6);
-  $autoShape->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $autoShape->getThreeDFormat()->setContourWidth(1.5);
-  $autoShape->getThreeDFormat()->setDepth(3);
-  $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+    $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-परिणामी पाठ और उसका आकार:
+परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![WordArt ट्रांसफ़ॉर्मेशन](transform_effect.png)
 
-हम इस PHP कोड के साथ पाठ पर 3D प्रभाव लागू करते हैं:
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for PHP via Java पूर्वनिर्धारित [रूपांतरण प्रकार](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textshapetype/) का एक सेट प्रदान करता है।
+{{% /alert %}}
+
+### **आकार और टेक्स्ट पर 3D प्रभाव लागू करें**
+
+आप आकार या उसके टेक्स्ट पर 3D प्रभाव लगा सकते हैं। बीवल, एक्सट्रूज़न, लाइटिंग, और कैमरा सेटिंग्स परिणामी दिखावट को नियंत्रित करती हैं।
+
+निम्न उदाहरण [ThreeDFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/threedformat/) का उपयोग करके आयत में सर्कुलर बीवेल, नारंगी एक्सट्रूज़न, और डार्क रेड कंटूर जोड़ता है। बीवल आयाम, एक्सट्रूज़न ऊँचाई, कंटूर चौड़ाई, और गहराई पॉइंट में मापी जाती हैं। प्लास्टिक सामग्री, Z‑एक्सिस के चारों ओर 40 डिग्री घुमाया गया बैलेंस्ड लाइटिंग, और परिप्रेक्ष्य कैमरा इसकी दिखावट को परिभाषित करते हैं:
 
 ```php
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $autoShape->getTextFrame()->setText("Aspose.Slides");
+
+    $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
+
+    $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
+    $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $autoShape->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $autoShape->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $autoShape->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $autoShape->getThreeDFormat()->setContourWidth(1.5);
+
+    $autoShape->getThreeDFormat()->setDepth(3);
+
+    $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-ऑपरेशन का परिणाम:
+परिणामी आकार:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![आकार 3D प्रभाव](shape_3D_effect.png)
 
-{{% alert color="primary" %}} 
-पाठ या उनके आकार पर 3D प्रभावों का अनुप्रयोग तथा प्रभावों के बीच अन्तःक्रिया कुछ नियमों पर आधारित होती है। 
-
-एक दृश्य को उस पाठ और उसके आकार के लिये विचार करें। 3D प्रभाव में 3D वस्तु का प्रतिनिधित्व और वह दृश्य शामिल होता है जिस पर वस्तु रखी गई है। 
-
-- जब दृश्य दोनों ही आकृति और पाठ दोनों के लिये सेट हो, तो आकृति का दृश्य उच्च प्राथमिकता लेता है—पाठ का दृश्य अनदेखा हो जाता है। 
-- जब आकृति का अपना दृश्य नहीं होता लेकिन उसका 3D प्रतिनिधित्व है, तो पाठ का दृश्य उपयोग होता है। 
-- अन्यथा—जब मूल रूप से आकार में कोई 3D प्रभाव नहीं होता—तो आकार समतल रहता है और 3D प्रभाव केवल पाठ पर लागू होता है। 
-
-ये विवरण ThreeDFormat.getLightRig() और ThreeDFormat.getCamera() तरीकों से जुड़े हैं। 
-{{% /alert %}} 
-
-## **पाठ पर बाहरी छाया (Outer Shadow) प्रभाव लागू करें**
-Aspose.Slides for PHP via Java [OuterShadow](https://reference.aspose.com/slides/hi/php-java/aspose.slides/outershadow/) और [InnerShadow](https://reference.aspose.com/slides/hi/php-java/aspose.slides/innershadow/) क्लास प्रदान करता है जो आपको [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) द्वारा ले जाया गया पाठ पर छाया प्रभाव लागू करने की सुविधा देता है। इन चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।  
-2. उसके सूचकांक का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।  
-3. स्लाइड में Rectangle प्रकार की एक AutoShape जोड़ें।  
-4. AutoShape से जुड़े TextFrame तक पहुँचें।  
-5. AutoShape की FillType को NoFill सेट करें।  
-6. OuterShadow क्लास का एक उदाहरण बनाएँ।  
-7. छाया का BlurRadius सेट करें।  
-8. छाया की Direction सेट करें।  
-9. छाया की Distance सेट करें।  
-10. RectanglelAlign को TopLeft सेट करें।  
-11. छाया का PresetColor काला सेट करें।  
-12. प्रेजेंटेशन को एक [PPTX](https://docs.fileformat.com/presentation/pptx/) फ़ाइल के रूप में लिखें।
-
-यह नमूना कोड—ऊपर दिए गए चरणों का कार्यान्वयन—आपको दिखाता है कि कैसे पाठ पर बाहरी छाया प्रभाव लागू किया जाता है:
+यह उदाहरण [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframeformat/#getThreeDFormat--) के माध्यम से टेक्स्ट पर समान 3D फ़ॉर्मेटिंग लागू करता है। छोटे बीवेल अक्षर किनारों को आकार देते हैं, जबकि एक्सट्रूज़न और लाइटिंग टेक्स्ट को गहराई प्रदान करती हैं:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # स्लाइड का संदर्भ प्राप्त करें
-    $sld = $pres->getSlides()->get_Item(0);
-    # Rectangle प्रकार का AutoShape जोड़ें
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Rectangle में TextFrame जोड़ें
-    $ashp->addTextFrame("Aspose TextBox");
-    # यदि हम टेक्स्ट की छाया चाहते हैं तो आकार की भराई अक्षम करें
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # बाहरी छाया जोड़ें और सभी आवश्यक पैरामीटर सेट करें
-    $ashp->getEffectFormat()->enableOuterShadowEffect();
-    $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
-    $shadow->setBlurRadius(4.0);
-    $shadow->setDirection(45);
-    $shadow->setDistance(3);
-    $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
-    $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    # प्रस्तुति को डिस्क पर सहेजें
-    $pres->save("pres_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **आकार पर आंतरिक छाया (Inner Shadow) प्रभाव लागू करें**
-इन चरणों का पालन करें:
+परिणामी टेक्स्ट:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।  
-2. स्लाइड का संदर्भ प्राप्त करें।  
-3. Rectangle प्रकार की एक AutoShape जोड़ें।  
-4. InnerShadowEffect सक्रिय करें।  
-5. सभी आवश्यक पैरामीटर सेट करें।  
-6. ColorType को Scheme सेट करें।  
-7. Scheme Color सेट करें।  
-8. प्रेजेंटेशन को एक [PPTX](https://docs.fileformat.com/presentation/pptx/) फ़ाइल के रूप में लिखें।
+![टेक्स्ट 3D प्रभाव](text_3D_effect.png)
 
-यह नमूना कोड (ऊपर दिखाए गए चरणों के आधार पर) आपको दो आकारों के बीच कनेक्टर जोड़ना दिखाता है:
+{{% alert color="info" title="Note" %}}
+टेक्स्ट या उसके आकार पर 3D प्रभावों का अनुप्रयोग—और इन प्रभावों के बीच अंतःक्रिया—विशिष्ट नियमों द्वारा नियंत्रित होती है। विचार करें कि दोनों टेक्स्ट और उसके कंटेनर आकार के साथ एक दृश्य परिदृश्य है। 3D प्रभाव वस्तु की 3D प्रस्तुति और उस परिदृश्य दोनों को शामिल करता है।
 
-```php
-  $pres = new Presentation();
-  try {
-    # स्लाइड का संदर्भ प्राप्त करें
-    $slide = $pres->getSlides()->get_Item(0);
-    # Rectangle प्रकार का AutoShape जोड़ें
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Rectangle में TextFrame जोड़ें
-    $ashp->addTextFrame("Aspose TextBox");
-    $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $pf = $port->getPortionFormat();
-    $pf->setFontHeight(50);
-    # InnerShadowEffect सक्षम करें
-    $ef = $pf->getEffectFormat();
-    $ef->enableInnerShadowEffect();
-    # सभी आवश्यक पैरामीटर सेट करें
-    $ef->getInnerShadowEffect()->setBlurRadius(8.0);
-    $ef->getInnerShadowEffect()->setDirection(90.0);
-    $ef->getInnerShadowEffect()->setDistance(6.0);
-    $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # ColorType को Scheme के रूप में सेट करें
-    $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # Scheme Color सेट करें
-    $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    # प्रस्तुति सहेजें
-    $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+- यदि एक ही परिदृश्य आकार और टेक्स्ट दोनों के लिए सेट किया गया है, तो आकार का परिदृश्य प्राथमिकता लेता है और टेक्स्ट का परिदृश्य अनदेखा किया जाता है।
+- यदि आकार का अपना परिदृश्य नहीं है लेकिन उसकी 3D प्रस्तुति है, तो टेक्स्ट का परिदृश्य उपयोग किया जाता है।
+- यदि आकार में कोई 3D प्रभाव नहीं है, तो इसे सपाट माना जाता है, और 3D प्रभाव केवल टेक्स्ट पर लागू होता है।
 
-## **FAQ**
+ये व्यवहार [ThreeDFormat::getLightRig](https://reference.aspose.com/slides/hi/php-java/aspose.slides/threedformat/#getLightRig--) और [ThreeDFormat::getCamera](https://reference.aspose.com/slides/hi/php-java/aspose.slides/threedformat/#getCamera--) विधियों से संबंधित हैं।
+{{% /alert %}}
 
-**क्या मैं WordArt प्रभाव विभिन्न फोंट या लिपियों (जैसे अरबी, चीनी) के साथ उपयोग कर सकता हूँ?**
+अधिक 3D फ़ॉर्मेटिंग उदाहरणों के लिए देखें [PHP का उपयोग करके प्रज़ेंटेशन में 3D प्रभाव बनाएं](/slides/hi/php-java/3d-presentation/)।
 
-हाँ, Aspose.Slides यूनिकोड का समर्थन करता है और सभी प्रमुख फोंट व लिपियों के साथ काम करता है। छाया, भराव और रूपरेखा जैसे WordArt प्रभाव भाषा की परवाह किए बिना लागू किए जा सकते हैं, हालांकि फोंट की उपलब्धता और रेंडरिंग सिस्टम फ़ॉन्ट्स पर निर्भर हो सकती है।
+## **आम प्रश्न (FAQ)**
 
-**क्या मैं स्लाइड मास्टर तत्वों पर WordArt प्रभाव लागू कर सकता हूँ?**
+**क्या मैं विभिन्न फॉन्ट या स्क्रिप्ट (जैसे अरबी, चीनी) के साथ WordArt प्रभाव उपयोग कर सकता हूँ?**  
+हाँ, Aspose.Slides for PHP via Java यूनिकोड का समर्थन करता है और सभी प्रमुख फॉन्ट और स्क्रिप्ट के साथ कार्य करता है। WordArt प्रभाव जैसे शैडो, फ़िल, और आउटलाइन भाषा की परवाह किए बिना लागू किए जा सकते हैं, हालांकि फॉन्ट उपलब्धता और रेंडरिंग सिस्टम फॉन्ट पर निर्भर हो सकती है।
 
-हाँ, आप मास्टर स्लाइड्स पर आकारों, शीर्षक प्लेसहोल्डर, फ़ूटर या पृष्ठभूमि पाठ सहित WordArt प्रभाव लागू कर सकते हैं। मास्टर लेआउट में किए गए परिवर्तन सभी सम्बद्ध स्लाइड्स में परिलक्षित होते हैं।
+**क्या मैं स्लाइड मास्टर तत्वों पर WordArt प्रभाव लागू कर सकता हूँ?**  
+हाँ, आप मास्टर स्लाइड पर स्थित आकारों, जैसे शीर्षक प्लेसहोल्डर, फुटर, या बैकग्राउंड टेक्स्ट पर WordArt प्रभाव लगा सकते हैं। मास्टर लेआउट में किए गए परिवर्तन सभी संबंधित स्लाइडों में प्रतिबिंबित होंगे।
 
-**क्या WordArt प्रभाव प्रेजेंटेशन फ़ाइल आकार को प्रभावित करते हैं?**
+**क्या WordArt प्रभाव प्रज़ेंटेशन फ़ाइल आकार को प्रभावित करते हैं?**  
+थोड़ा बहुत। शैडो, ग्लो, और ग्रेडिएंट फ़िल जैसे WordArt प्रभाव फ़ॉर्मेटिंग मेटा डेटा जोड़ने के कारण फ़ाइल आकार में हल्का बढ़ाव कर सकते हैं, लेकिन यह अंतर आमतौर पर नगण्य होता है।
 
-थोड़ा। छाया, चमक और ग्रेडिएंट भराव जैसे WordArt प्रभाव अतिरिक्त फ़ॉर्मेटिंग मेटाडाटा जोड़ते हैं, जिससे फ़ाइल आकार में हल्का वृद्धि हो सकती है, लेकिन आमतौर पर यह नगण्य रहती है।
-
-**क्या मैं प्रेजेंटेशन सहेजे बिना WordArt प्रभाव का परिणाम पूर्वावलोकन कर सकता हूँ?**
-
-हाँ, आप [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) या [Slide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slide/) क्लास के `getImage` मेथड का उपयोग करके WordArt वाली स्लाइड्स को PNG, JPEG आदि इमेज में रेंडर कर सकते हैं। यह आपको पूर्ण प्रेजेंटेशन सहेजने या निर्यात करने से पहले मेमोरी या स्क्रीन पर परिणाम का पूर्वावलोकन करने देता है।
+**क्या मैं प्रज़ेंटेशन को सहेजे बिना WordArt प्रभाव का परिणाम पूर्वावलोकन कर सकता हूँ?**  
+हाँ, आप [Slide::getImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slide/#getImage--) का उपयोग करके WordArt वाली स्लाइडों को इमेज (जैसे PNG, JPEG) में रेंडर कर सकते हैं, या [Shape::getImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/#getImage--) से व्यक्तिगत आकारों को इमेज में बदल सकते हैं। यह आपको पूरी प्रज़ेंटेशन को सहेजने या निर्यात करने से पहले मेमोरी या स्क्रीन पर परिणाम का पूर्वावलोकन करने देता है।

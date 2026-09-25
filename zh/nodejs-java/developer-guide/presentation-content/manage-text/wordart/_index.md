@@ -1,393 +1,394 @@
 ---
-title: 在 JavaScript 中创建和应用 WordArt 效果
+title: 在 Node.js 中创建和应用 WordArt 效果
 linktitle: WordArt
 type: docs
 weight: 110
 url: /zh/nodejs-java/wordart/
 keywords:
-- WordArt
+- 文字艺术
 - 创建 WordArt
 - WordArt 模板
 - WordArt 效果
 - 阴影效果
-- 显示效果
-- 辉光效果
-- WordArt 变换
+- 反射效果
+- 发光效果
+- WordArt 变形
 - 3D 效果
 - 外部阴影效果
 - 内部阴影效果
-- PowerPoint
-- 演示文稿
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "在 Aspose.Slides for Node.js 中创建和自定义 WordArt 效果。本分步指南帮助开发者使用专业文本增强演示文稿。"
+description: "在 Aspose.Slides for Node.js via Java 中创建和自定义 WordArt 效果。此分步指南帮助开发人员在 Node.js 中使用专业文本提升演示文稿。"
 ---
+## **概述**
 
-## **关于 WordArt？**
-
-WordArt 或 Word Art 是一种功能，允许您对文本应用效果，使其脱颖而出。使用 WordArt，例如，您可以为文本添加轮廓或填充颜色（或渐变），为其添加 3D 效果等。您还可以倾斜、弯曲和拉伸文本的形状。
-
-{{% alert color="primary" %}} 
-
-WordArt 允许您像对待图形对象一样对待文本。一般而言，WordArt 由对文本进行的效果或特殊修改组成，使其更具吸引力或更显眼。 
-
-{{% /alert %}} 
-
-**Microsoft PowerPoint 中的 WordArt**
-
-要在 Microsoft PowerPoint 中使用 WordArt，您必须选择一个预定义的 WordArt 模板。WordArt 模板是一组会应用于文本或其形状的效果。
-
-**Aspose.Slides 中的 WordArt**
-
-在 Aspose.Slides for Node.js via Java 20.10 中，我们实现了对 WordArt 的支持，并在后续的 Aspose.Slides for Node.js via Java 发行版中对该功能进行了改进。
-
-使用 Aspose.Slides for Node.js via Java，您可以轻松地在 JavaScript 中创建自己的 WordArt 模板（单个效果或效果组合），并将其应用于文本。
+WordArt 效果让您可以为文本添加填充、轮廓、阴影、反射、发光、变形和 3D 格式。本篇文章说明如何在未安装 Microsoft Office 的情况下，使用 Aspose.Slides for Node.js via Java 在 PowerPoint 演示文稿中创建和自定义这些效果。
 
 ## **创建简单的 WordArt 模板并将其应用于文本**
 
-**使用 Aspose.Slides** 
+以下示例通过设置文本、字体、图案填充和轮廓来构建一个简单的 WordArt 样式。
 
-首先，我们使用以下 JavaScript 代码创建一个简单的文本：
+每个示例都会创建一个新演示文稿，并在其第一张幻灯片上添加一个矩形；不需要输入文件。第一个示例将文本设置为 “Aspose.Slides”。形状的位置和尺寸以点为单位：
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    var textFrame = autoShape.getTextFrame();
-    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+
+    const portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-接下来，我们通过以下代码将文本的字体高度设置为更大的值，以便更明显地呈现效果：
+将字体设置为 Arial Black，大小 36 点，以使格式更明显：
+
 ```javascript
-var fontData = new aspose.slides.FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
+应用一个前景为深橙色、背景为白色的 [SmallGrid](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/patternstyle/#SmallGrid) 图案，然后添加宽度为 1 点的黑色文字轮廓：
 
-**使用 Microsoft PowerPoint**
-
-在 Microsoft PowerPoint 中转到 WordArt 效果菜单：
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-在右侧菜单中，您可以选择预定义的 WordArt 效果；在左侧菜单中，您可以为新的 WordArt 指定设置。
-
-以下是一些可用的参数或选项：
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**使用 Aspose.Slides**
-
-在此示例中，我们使用以下代码将 [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) 图案颜色应用于文本，并添加 1 宽度的黑色文本边框：
 ```javascript
-portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
+    const darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
+
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+} finally {
+    presentation.dispose();
+}
 ```
 
+生成的文本：
 
-得到的文本：
-
-![todo:image_alt_text](image-20200930114108-4.png)
+![简单的 WordArt 模板](WordArt_template.png)
 
 ## **应用其他 WordArt 效果**
 
-**使用 Microsoft PowerPoint**
+以下示例演示如何对文本应用阴影、反射、发光、变形和 3D 效果。
 
-在程序的类别中，您可以将这些效果应用于文本、文本块、形状或类似元素：
+### **应用外部阴影效果**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+外部阴影通过在文本后方放置阴影来增加深度。您可以自定义其颜色、方向、距离、模糊半径、比例和倾斜。
 
-例如，可将 Shadow、Reflection 和 Glow 效果应用于文本；可将 3D Format 和 3D Rotation 效果应用于文本块；可将 Soft Edges 属性应用于 Shape 对象（即使未设置 3D Format 属性，它仍然有效）。
+此示例调用 [enableOuterShadowEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effectformat/#enableOuterShadowEffect)，并设置一个黑色阴影，模糊半径为 4 点，方向为 230 度，距离为 30 点。比例值 100 保持阴影大小，水平倾斜 20 度。alpha 变换将不透明度设为 32%：
 
-### **应用阴影效果**
-
-在此，我们仅打算设置与文本相关的属性。我们使用以下 JavaScript 代码将阴影效果应用于文本：
 ```javascript
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.32);
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-
-Aspose.Slides API 支持三种阴影类型：OuterShadow、InnerShadow 和 PresetShadow。
-
-使用 PresetShadow，您可以对文本应用预设值的阴影。
-
-**使用 Microsoft PowerPoint**
-
-在 PowerPoint 中，您只能使用一种阴影类型。示例：
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**使用 Aspose.Slides**
-
-Aspose.Slides 实际上允许同时应用两种阴影：InnerShadow 和 PresetShadow。
-
-**注意：**
-
-- 当 OuterShadow 和 PresetShadow 同时使用时，仅会应用 OuterShadow 效果。 
-- 当 OuterShadow 和 InnerShadow 同时使用时，产生或应用的效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会加倍；但在 PowerPoint 2007 中，仅会应用 OuterShadow 效果。
-
-### **应用显示效果到文本**
-
-我们通过以下 JavaScript 示例代码为文本添加显示效果：
-```javascript
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(aspose.slides.RectangleAlignment.BottomLeft);
-```
-
-
-### **为文本应用辉光效果**
-
-我们使用以下代码将辉光效果应用于文本，使其发光或突出：
-```javascript
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-
-操作结果：
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-您可以更改阴影、显示和辉光的参数。这些效果的属性会分别设置在文本的每个部分上。 
-
-{{% /alert %}} 
-
-### **在 WordArt 中使用变换**
-
-我们通过以下代码使用 Transform 属性（适用于整个文本块）：
-```javascript
-textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
-```
-
-
-结果：
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Microsoft PowerPoint 和 Aspose.Slides for Node.js via Java 均提供若干预定义的变换类型。 
-
-{{% /alert %}} 
-
-**使用 PowerPoint**
-
-要访问预定义的变换类型，请依次选择：**格式** -> **文字效果** -> **变换**
-
-**使用 Aspose.Slides**
-
-要选择变换类型，请使用 TextShapeType 枚举。
-
-### **为文本和形状应用 3D 效果**
-
-我们使用以下示例代码为文本形状设置 3D 效果：
-```javascript
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-autoShape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-autoShape.getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-autoShape.getThreeDFormat().setContourWidth(1.5);
-autoShape.getThreeDFormat().setDepth(3);
-autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-生成的文本及其形状：
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-我们使用以下 JavaScript 代码为文本应用 3D 效果：
-```javascript
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-操作结果：
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-对文本或其形状应用 3D 效果以及效果之间的交互遵循特定规则。
-
-考虑文本及其所在形状的场景。3D 效果包括 3D 对象的表示以及对象所在的场景。
-
-- 当场景同时为图形和文本设置时，以图形的场景为最高优先级——文本的场景被忽略。 
-- 当图形没有自己的场景但具有 3D 表示时，使用文本的场景。 
-- 否则——当形状原本没有 3D 效果时，形状保持平面，仅对文本应用 3D 效果。
-
-这些说明与 ThreeDFormat.getLightRig() 和 ThreeDFormat.getCamera() 方法相关。 
-
-{{% /alert %}} 
-
-## **对文本应用外部阴影效果**
-
-Aspose.Slides for Node.js via Java 提供了 [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/) 和 [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/innershadow/) 类，允许您对由 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 承载的文本应用阴影效果。请按照以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。  
-2. 使用索引获取幻灯片的引用。  
-3. 向幻灯片添加矩形类型的 AutoShape。  
-4. 访问与该 AutoShape 关联的 TextFrame。  
-5. 将 AutoShape 的 FillType 设置为 NoFill。  
-6. 实例化 OuterShadow 类。  
-7. 设置阴影的 BlurRadius。  
-8. 设置阴影的 Direction。  
-9. 设置阴影的 Distance。  
-10. 将 RectanglelAlign 设置为 TopLeft。  
-11. 将阴影的 PresetColor 设置为 Black。  
-12. 将演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。  
-
-下面的 Java 示例代码实现了上述步骤，演示了如何对文本应用外部阴影效果：
-```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 获取幻灯片的引用
-    var sld = pres.getSlides().get_Item(0);
-    // 添加矩形类型的 AutoShape
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame("Aspose TextBox");
-    // 禁用形状填充，以便获取文本的阴影
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 添加外部阴影并设置所有必要参数
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    var shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
-    // 将演示文稿写入磁盘
-    pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.32));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+生成的文本：
 
-## **对形状应用内部阴影效果**
+![外部阴影效果](outer_shadow_effect.png)
 
-请按照以下步骤操作：
+{{% alert color="info" title="Note" %}}
+- 当同时使用外部阴影和预设阴影时，仅应用外部阴影。
+- 如果同时使用外部阴影和内部阴影，最终效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会加倍，而在 PowerPoint 2007 中，仅应用外部阴影。
+{{% /alert %}}
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。  
-2. 获取幻灯片的引用。  
-3. 添加矩形类型的 AutoShape。  
-4. 启用 InnerShadowEffect。  
-5. 设置所有必要的参数。  
-6. 将 ColorType 设置为 Scheme。  
-7. 设置 Scheme Color。  
-8. 将演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。  
+### **应用反射效果**
 
-下面的示例代码（基于上述步骤）演示了如何在 JavaScript 中为两个形状之间添加连接器：
+反射创建文本的镜像副本。调整其位置、比例、模糊和不透明度以控制外观。
+
+此示例调用 [enableReflectionEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effectformat/#enableReflectionEffect)，并将反射垂直翻转，比例为 -100%。使用 0.5 点的模糊半径和 4.72 点的距离。不透明度在 0% 到 60% 的位置间从 60% 下降到 0.9%：
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 获取幻灯片的引用
-    var slide = pres.getSlides().get_Item(0);
-    // 添加矩形类型的 AutoShape
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame("Aspose TextBox");
-    var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    var pf = port.getPortionFormat();
-    pf.setFontHeight(50);
-    // 启用 InnerShadowEffect
-    var ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-    // 设置所有必要的参数
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB(189);
-    // 将 ColorType 设置为 Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // 设置 Scheme 颜色
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
-    // 保存演示文稿
-    pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(java.newFloat(0));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(java.newFloat(0.9));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.BottomLeft));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+生成的文本：
+
+![反射效果](reflection_effect.png)
+
+### **应用发光效果**
+
+发光在文本周围添加柔和的彩色轮廓。调整其颜色、不透明度和半径以控制效果。
+
+此示例调用 [enableGlowEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effectformat/#enableGlowEffect)，并应用红色发光，透明度为 54%，半径为 7 点：
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.54));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+生成的文本：
+
+![发光效果](glow_effect.png)
+
+### **应用 WordArt 变形**
+
+WordArt 变形可以弯曲、拉伸或扭曲一块文本。
+
+将 [setTransform](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setTransform) 设置为 [ArchUpPour](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textshapetype/#ArchUpPour)，使整个文本框向上弯曲：
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
+} finally {
+    presentation.dispose();
+}
+```
+
+生成的文本：
+
+![WordArt 变形](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Node.js via Java 提供了一组预定义的 [transformation types](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textshapetype/)。
+{{% /alert %}}
+
+### **对形状和文本应用 3D 效果**
+
+您可以对形状或其文本应用 3D 效果。倒角、拉伸、照明和摄像机设置控制最终外观。
+
+以下示例使用 [ThreeDFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/) 为矩形添加圆形倒角、橙色拉伸和深红色轮廓。倒角尺寸、拉伸高度、轮廓宽度和深度均以点为单位。塑料材质、绕 Z 轴旋转 40 度的平衡照明以及透视摄像机定义其外观：
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+生成的形状：
+
+![形状 3D 效果](shape_3D_effect.png)
+
+此示例通过 [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) 对文本应用类似的 3D 格式。较小的倒角塑造字母边缘，而拉伸和照明为文本提供深度：
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+生成的文本：
+
+![文本 3D 效果](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+将 3D 效果应用于文本或其形状以及这些效果之间的交互受特定规则约束。考虑同时涉及文本及其所在形状的场景。3D 效果包括对象的 3D 表现以及其所在的场景。
+
+- 如果形状和文本都设置了场景，则形状的场景优先，文本的场景被忽略。
+- 如果形状没有自己的场景但具有 3D 表现，则使用文本的场景。
+- 如果形状根本没有 3D 效果，则视为平面，仅对文本应用 3D 效果。
+
+这些行为涉及 [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/#getLightRig) 和 [ThreeDFormat.getCamera](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/#getCamera) 方法。
+{{% /alert %}}
+
+要在保留形状 3D 格式的同时保持文本平面且可读，请参阅 [Keep Text Flat on a 3D Shape](/slides/zh/nodejs-java/3d-presentation/) 了解两种设置的比较及完整的 JavaScript 示例。
 
 ## **常见问题**
 
-**我可以在不同的字体或文字（例如阿拉伯文、中文）上使用 WordArt 效果吗？**
+**我可以在不同字体或脚本（例如阿拉伯文、中文）中使用 WordArt 效果吗？**
 
-是的，Aspose.Slides 支持 Unicode 并可与所有主流字体和文字系统一起使用。无论语言如何，都可以应用诸如阴影、填充和轮廓等 WordArt 效果，但字体的可用性和渲染可能取决于系统字体。
+可以，Aspose.Slides for Node.js via Java 支持 Unicode，兼容所有主流字体和脚本。无论语言如何，都可以应用阴影、填充和轮廓等 WordArt 效果，但字体可用性和渲染可能取决于系统字体。
 
-**我可以将 WordArt 效果应用于幻灯片母版元素吗？**
+**我可以对母版幻灯片元素应用 WordArt 效果吗？**
 
-是的，您可以对母版幻灯片上的形状（包括标题占位符、页脚或背景文字）应用 WordArt 效果。对母版布局所做的更改会影响所有使用该母版的幻灯片。
+可以，您可以对母版幻灯片上的形状（包括标题占位符、页脚或背景文本）应用 WordArt 效果。对母版布局的更改会反映在所有相关幻灯片上。
 
 **WordArt 效果会影响演示文稿文件大小吗？**
 
-会有轻微影响。阴影、辉光和渐变填充等 WordArt 效果可能会因添加的格式元数据而略微增加文件大小，但差异通常可以忽略不计。
+会有轻微影响。阴影、发光和渐变填充等 WordArt 效果可能会因增加的格式元数据略微增大文件大小，但通常差异可以忽略不计。
 
 **我可以在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
 
-是的，您可以使用 [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 或 [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) 类的 `getImage` 方法，将包含 WordArt 的幻灯片渲染为图像（例如 PNG、JPEG）。这样可以在内存中或屏幕上预览结果，而无需保存或导出完整的演示文稿。
+可以，您可以使用 [Slide.getImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slide/#getImage) 将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），或使用 [Shape.getImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/#getImage) 渲染单个形状。这使您能够在内存或屏幕上预览结果，而无需保存或导出完整的演示文稿。

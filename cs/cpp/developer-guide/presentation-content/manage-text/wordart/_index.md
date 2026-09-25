@@ -1,78 +1,138 @@
 ---
-title: Vytvořit a použít efekty WordArt v C++
+title: Vytvoření a použití WordArt efektů v C++
 linktitle: WordArt
 type: docs
 weight: 110
 url: /cs/cpp/wordart/
 keywords:
 - WordArt
-- vytvořit WordArt
+- vytváření WordArt
 - šablona WordArt
 - efekt WordArt
 - efekt stínu
-- efekt zobrazení
+- efekt odrazu
 - efekt záře
 - transformace WordArt
 - 3D efekt
 - efekt vnějšího stínu
 - efekt vnitřního stínu
-- PowerPoint
-- prezentace
 - C++
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte efekty WordArt v Aspose.Slides pro C++. Tento krok za krokem průvodce pomáhá vývojářům vylepšit prezentace profesionálním textem v C++."
+description: "Vytvořte a přizpůsobte WordArt efekty v Aspose.Slides pro C++. Tento krok-za-krokem průvodce pomáhá vývojářům vylepšit prezentace profesionálním textem v C++."
 ---
 ## **Přehled**
 
-Efekty WordArt vám umožňují přidávat vizuálně atraktivní, stylizovaný text do vašich prezentací PowerPoint. S Aspose.Slides mohou vývojáři programově vytvářet, přizpůsobovat a spravovat WordArt stejně jako v Microsoft PowerPoint — aniž by bylo nutné mít nainstalovaný Office. Tento článek poskytuje přehled práce s WordArt, včetně toho, jak použít textové transformace, výplňové styly, obrysy, stíny a další možnosti formátování, aby byl obsah vaší prezentace výražnější a poutavější. WordArt vám umožňuje zacházet s textem jako s grafickým objektem. Skládá se z efektů nebo speciálních úprav aplikovaných na text, aby byl atraktivnější nebo výraznější.
+Efekty WordArt vám umožňují stylovat text pomocí výplní, obrysů, stínů, odrazů, záře, transformací a 3D formátování. Tento článek vysvětluje, jak vytvářet a přizpůsobovat tyto efekty v prezentacích PowerPoint pomocí Aspose.Slides pro C++, aniž by byl nainstalován Microsoft Office.
 
-## **Vytvořte jednoduchou šablonu WordArt a aplikujte ji na text**
+## **Vytvoření jednoduché šablony WordArt a její použití na text**
 
-**Použití Aspose.Slides** 
+Následující příklady vytvoří jednoduchý styl WordArt nastavením textu, písma, vzorové výplně a obrysu.
 
-Nejprve vytvoříme jednoduchý text pomocí tohoto C++ kódu: 
+Každý příklad vytvoří novou prezentaci a přidá obdélník na první snímek; není vyžadován žádný vstupní soubor. První příklad nastaví text na „Aspose.Slides“. Pozice a rozměry tvaru jsou měřeny v bodech:
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-Nyní nastavíme výšku písma textu na větší hodnotu, aby byl efekt výraznější, pomocí tohoto kódu:
+Nastavte písmo na Arial Black o velikosti 36 bodů, aby bylo formátování výraznější:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Použití Microsoft PowerPoint**
+Použijte vzor [SmallGrid](https://reference.aspose.com/slides/cs/cpp/aspose.slides/patternstyle/) s tmavě oranžovým popředím a bílým pozadím, poté přidejte černý obrys textu šířky 1 bod:
 
-Jděte do nabídky efektů WordArt v Microsoft PowerPoint:
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-V pravém menu můžete vybrat předdefinovaný efekt WordArt. V levém menu můžete zadat nastavení pro nový WordArt. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Zde jsou některé z dostupných parametrů nebo možností:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**Použití Aspose.Slides**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-Zde aplikujeme barvu vzoru SmallGrid na text a přidáme černý ohraničení textu šířky 1 pomocí tohoto kódu:
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
@@ -80,61 +140,116 @@ lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 
 Výsledný text:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Jednoduchá šablona WordArt](WordArt_template.png)
 
-## **Použít další efekty WordArt**
+## **Použití dalších efektů WordArt**
 
-**Použití Microsoft PowerPoint**
+Následující příklady ukazují, jak aplikovat stíny, odrazy, záři, transformace a 3D efekty na text.
 
-Z rozhraní programu můžete tyto efekty aplikovat na text, blok textu, tvar nebo podobný prvek:
+### **Použití vnějších stínových efektů**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Vnější stín přidává hloubku tím, že umístí stín za text. Můžete přizpůsobit jeho barvu, směr, vzdálenost, poloměr rozostření, měřítko a zkosení.
 
-Příklad: efekty Stín, Odraz a Záře lze aplikovat na text; efekty 3D Formát a 3D Rotace lze aplikovat na blok textu; vlastnost Měkké hrany lze aplikovat na objekt Tvar (má efekt i když není nastavena vlastnost 3D Formát).
+Tento příklad volá [EnableOuterShadowEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) a nastaví černý stín s poloměrem rozostření 4 body, směrem 230 stupňů a vzdáleností 30 bodů. Hodnoty měřítka 100 zachovají velikost stínu, zatímco horizontální zkosení ji nakloní o 20 stupňů. Alfa transformace nastaví jeho neprůhlednost na 32%:
 
-### **Použít stínové efekty na text**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-Zde chceme nastavit pouze vlastnosti týkající se textu. Použijeme stínový efekt na text pomocí tohoto C++ kódu:
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides API podporuje tři typy stínů: OuterShadow, InnerShadow a PresetShadow.  
-S PresetShadow můžete aplikovat stín na text (použitím přednastavených hodnot).  
+Výsledný text:
 
-**Použití Microsoft PowerPoint**
+![Efekt vnějšího stínu](outer_shadow_effect.png)
 
-V PowerPoint můžete použít jeden typ stínu. Zde je příklad:
+{{% alert color="info" title="Note" %}}
+- Když jsou použity vnější a přednastavené stíny současně, použije se pouze vnější stín.
+- Pokud jsou použity vnější a vnitřní stíny najednou, výsledek závisí na verzi PowerPointu. Například v PowerPointu 2013 se efekt zdvojí, zatímco v PowerPointu 2007 se použije pouze vnější stín.
+{{% /alert %}}
 
-![todo:image_alt_text](image-20200930114225-6.png)
+### **Použití odrazových efektů**
 
-**Použití Aspose.Slides**
+Odraz vytvoří zrcadlovou kopii textu. Upravte jeho pozici, měřítko, rozostření a neprůhlednost, abyste řídili jeho vzhled.
 
-Aspose.Slides ve skutečnosti umožňuje aplikovat dva typy stínů najednou: InnerShadow a PresetShadow.
+Tento příklad volá [EnableReflectionEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) a převrátí odraz vertikálně se měřítkem -100%. Používá poloměr rozostření 0.5 bodu a vzdálenost 4.72 bodu. Neprůhlednost klesá z 60% na 0.9% mezi pozicemi 0% a 60% podél odrazu:
 
-**Poznámky:**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
 
-- Když jsou použity OuterShadow a PresetShadow dohromady, aplikuje se pouze efekt OuterShadow.  
-- Pokud jsou OuterShadow a InnerShadow použity současně, výsledný nebo aplikovaný efekt závisí na verzi PowerPointu. Například v PowerPoint 2013 se efekt zdvojnásobí. V PowerPoint 2007 se aplikuje efekt OuterShadow.  
+using namespace Aspose::Slides;
 
-### **Použít odrazové efekty**
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Přidáme odraz do textu pomocí tohoto ukázkového C++ kódu:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-``` cpp 
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -151,61 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **Použít zářivé efekty**
+Výsledný text:
 
-Aplikujeme efekt záře na text, aby zářil nebo vynikl, pomocí tohoto kódu:
+![Efekt odrazu](reflection_effect.png)
 
-``` cpp 
+### **Použití zářivých efektů**
+
+Záře přidává měkký barevný obrys kolem textu. Upravte její barvu, neprůhlednost a poloměr, abyste řídili efekt.
+
+Tento příklad volá [EnableGlowEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ieffectformat/enablegloweffect/) a použije červenou záři s neprůhledností 54% a poloměrem 7 bodů:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-Výsledek operace:
+Výsledný text:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![Efekt záře](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **Použití WordArt transformací**
 
-Můžete změnit parametry pro stín, zobrazení a záři. Vlastnosti efektů jsou nastaveny na každou část textu zvlášť. 
+WordArt transformace ohýbají, roztahují nebo deformují blok textu.
 
-{{% /alert %}} 
+Nastavte [ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/set_transform/) na [ArchUpPour](https://reference.aspose.com/slides/cs/cpp/aspose.slides/textshapetype/), aby se celý textový rámec zakřivil vzhůru:
 
-### **Použít transformace ve WordArt**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
 
-Použijeme metodu set_Transform (vlastní pro celý blok textu) pomocí tohoto kódu:
+using namespace Aspose::Slides;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-Výsledek:
+Výsledný text:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![WordArt transformace](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides pro C++ poskytuje sadu předdefinovaných [typů transformací](https://reference.aspose.com/slides/cs/cpp/aspose.slides/textshapetype/).
+{{% /alert %}}
 
-Jak Microsoft PowerPoint, tak Aspose.Slides pro C++ poskytují určité množství předdefinovaných typů transformací. 
+### **Použití 3D efektů na tvary a text**
 
-{{% /alert %}} 
+Můžete aplikovat 3D efekty na tvar nebo na jeho text. Šikmé řezání, extruze, osvětlení a nastavení kamery řídí výsledný vzhled.
 
-**Použití PowerPoint**
+Následující příklad používá [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/) k přidání kulatých šikmých řezů, oranžové extruze a tmavě červeného obrysu k obdélníku. Rozměry šikmých řezů, výška extruze, šířka obrysu a hloubka jsou měřeny v bodech. Plastový materiál, vyvážené osvětlení otočené o 40 stupňů kolem osy Z a perspektivní kamera definují jeho vzhled:
 
-Pro přístup k předdefinovaným typům transformací přejděte na: **Formát** -> **TextEffect** -> **Transform**
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-**Použití Aspose.Slides**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Pro výběr typu transformace použijte výčtový typ TextShapeType. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **Použít 3D efekty na text a tvary**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
 
-Nastavíme 3D efekt na tvar textu pomocí tohoto ukázkového kódu:
-
-``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -233,13 +422,41 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Výsledný text a jeho tvar:
+![3D efekt tvaru](shape_3D_effect.png)
 
-![todo:image_alt_text](image-20200930114816-9.png)
+Tento příklad aplikuje podobné 3D formátování na text pomocí [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/get_threedformat/). Menší šikmé řezání tvarují hrany písmen, zatímco extruze a osvětlení dodávají textu hloubku:
 
-Aplikujeme 3D efekt na text tímto C++ kódem:
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-``` cpp 
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -267,133 +484,34 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Výsledek operace:
+![3D efekt textu](text_3D_effect.png)
 
-![todo:image_alt_text](image-20200930114905-10.png)
+{{% alert color="info" title="Note" %}}
+Aplikace 3D efektů na text nebo jejich tvary — a interakce mezi těmito efekty — je řízena specifickými pravidly. Zvažte scénu zahrnující jak text, tak tvar, který jej obsahuje. 3D efekt zahrnuje 3D reprezentaci objektu a scénu, ve které je umístěn.
 
-{{% alert color="primary" %}} 
+- Pokud je scéna nastavena jak pro tvar, tak pro text, scéna tvaru má přednost a scéna textu je ignorována.
+- Pokud tvar nemá vlastní scénu, ale má 3D reprezentaci, použije se scéna textu.
+- Pokud tvar nemá žádný 3D efekt, je považován za plochý a 3D efekt se aplikuje pouze na text.
 
-Aplikace 3D efektů na texty nebo jejich tvary a interakce mezi efekty jsou založeny na určitých pravidlech. 
+Tyto chování souvisejí s metodami [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_lightrig/) a [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_camera/).
+{{% /alert %}}
 
-Zvažte scénu pro text a tvar, který text obsahuje. 3D efekt obsahuje reprezentaci 3D objektu a scénu, na kterou je objekt umístěn. 
+Chcete‑li udržet text plochý a čitelný při zachování 3D formátování tvaru, podívejte se na [Keep Text Flat on a 3D Shape](/slides/cs/cpp/3d-presentation/) pro srovnání obou nastavení a kompletní C++ příklad.
 
-- Když je scéna nastavena jak pro tvar, tak pro text, má scéna tvaru vyšší prioritu — scéna textu je ignorována.  
-- Když tvar nemá vlastní scénu, ale má 3D reprezentaci, použije se scéna textu.  
-- Jinak — když tvar původně nemá 3D efekt — je tvar plochý a 3D efekt se aplikuje pouze na text.  
+## **Často kladené otázky**
 
-Tyto popisy jsou spojeny s metodami ThreeDFormat.getLightRig() a ThreeDFormat.getCamera(). 
+**Mohu používat WordArt efekty s různými fonty nebo skripty (např. arabština, čínština)?**
 
-{{% /alert %}} 
+Ano, Aspose.Slides pro C++ podporuje Unicode a funguje se všemi hlavními fonty a skripty. Efekty WordArt, jako stín, výplň a obrys, lze použít bez ohledu na jazyk, ačkoli dostupnost fontů a jejich vykreslení mohou záviset na systémových fontech.
 
-## **Aplikovat vnější stínové efekty na tvary**
-Aspose.Slides pro C++ poskytuje třídy [**IOuterShadow**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.effects.i_outer_shadow) a [**IInnerShadow**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.effects.i_inner_shadow), které umožňují aplikovat stínové efekty na text obsažený v TextFrame. Proveďte tyto kroky:
+**Mohu aplikovat WordArt efekty na prvky master slide?**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte k snímku AutoShape typu Obdélník.
-4. Získejte přístup k TextFrame přiřazenému k AutoShape.
-5. Nastavte FillType AutoShape na NoFill.
-6. Instancujte třídu OuterShadow
-7. Nastavte BlurRadius stínu.
-8. Nastavte Direction (směr) stínu.
-9. Nastavte Distance (vzdálenost) stínu.
-10. Nastavte RectanglelAlign na TopLeft.
-11. Nastavte PresetColor stínu na Black.
-12. Uložte prezentaci jako soubor PPTX.
+Ano, můžete aplikovat WordArt efekty na tvary na master slide, včetně zástupných symbolů pro titul, zápatí nebo text na pozadí. Změny provedené v rozložení masteru se projeví na všech přidružených slidech.
 
-Tento ukázkový kód v C++ — implementace výše uvedených kroků — ukazuje, jak aplikovat vnější stínový efekt na text:
+**Ovlivňují WordArt efekty velikost souboru prezentace?**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// Získat odkaz na snímek
-auto sld = pres->get_Slides()->idx_get(0);
+Mírně. WordArt efekty, jako stíny, záře a gradientové výplně, mohou o něco zvýšit velikost souboru kvůli přidaným metadatům formátování, ale rozdíl je obvykle zanedbatelný.
 
-// Přidat AutoShape typu Obdélník
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
+**Mohu si prohlédnout výsledek WordArt efektů bez ukládání prezentace?**
 
-// Přidat TextFrame k obdélníku
-ashp->AddTextFrame(u"Aspose TextBox");
-
-// Zakázat výplň tvaru pro případ, že chceme získat stín textu
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Přidat vnější stín a nastavit všechny potřebné parametry
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// Uložit prezentaci na disk
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-## **Aplikovat vnitřní stínové efekty na tvary**
-Proveďte tyto kroky:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte odkaz na snímek.
-3. Přidejte AutoShape typu Obdélník.
-4. Povolte InnerShadowEffect.
-5. Nastavte všechny potřebné parametry.
-6. Nastavte ColorType na Scheme.
-7. Nastavte Scheme Color.
-8. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-Tento ukázkový kód (na základě výše uvedených kroků) ukazuje, jak přidat spojku mezi dvěma tvary v C++:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// Získat odkaz na snímek
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// Přidat AutoShape typu Obdélník
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Přidat TextFrame k obdélníku
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// Povolit InnerShadowEffect    
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// Nastavit všechny potřebné parametry
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// Nastavit ColorType na Scheme
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// Nastavit barvu schématu
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// Uložit prezentaci
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
-
-## **FAQ**
-
-**Mohu použít efekty WordArt s různými fonty nebo písmy (např. arabština, čínština)?**
-
-Ano, Aspose.Slides podporuje Unicode a funguje se všemi hlavními fonty a písmy. Efekty WordArt jako stín, výplň a obrys lze aplikovat bez ohledu na jazyk, i když dostupnost fontu a vykreslování mohou záviset na systémových fontech.
-
-**Mohu aplikovat efekty WordArt na prvky master snímku?**
-
-Ano, můžete aplikovat efekty WordArt na tvary v master snímcích, včetně zástupců titulků, zápatí nebo textu na pozadí. Změny provedené v rozložení masteru se projeví ve všech souvisejících snímcích.
-
-**Ovlivňují efekty WordArt velikost souboru prezentace?**
-
-Mírně. Efekty WordArt, jako jsou stíny, záře a gradientové výplně, mohou mírně zvýšit velikost souboru kvůli přidaným metadatům formátování, ale rozdíl je obvykle zanedbatelný.
-
-**Mohu si prohlédnout výsledek efektů WordArt bez uložení prezentace?**
-
-Ano, můžete vykreslovat snímky obsahující WordArt do obrázků (např. PNG, JPEG) pomocí metody `GetImage` z rozhraní [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides.ishape/) nebo [ISlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides.islide/). To vám umožní náhled výsledku v paměti nebo na obrazovce před uložením nebo exportem celé prezentace.
+Ano, můžete vykreslit snímky obsahující WordArt do obrázků (např. PNG, JPEG) pomocí [ISlide::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/), nebo vykreslit jednotlivé tvary pomocí [IShape::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getimage/). To vám umožní náhled výsledku v paměti nebo na obrazovce před uložením či exportem celé prezentace.

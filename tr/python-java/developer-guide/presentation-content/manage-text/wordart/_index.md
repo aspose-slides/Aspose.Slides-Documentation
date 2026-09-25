@@ -1,19 +1,19 @@
 ---
-title: Python üzerinden Java ile WordArt Efektleri Oluşturma ve Uygulama
+title: Python üzerinden Java ile WordArt Efektlerini Oluşturma ve Uygulama
 linktitle: WordArt
 type: docs
 weight: 110
 url: /tr/python-java/wordart/
 keywords:
 - WordArt
-- WordArt Oluşturma
+- WordArt Oluştur
 - WordArt Şablonu
 - WordArt Efekti
 - Gölge Efekti
 - Yansıma Efekti
 - Parıltı Efekti
 - WordArt Dönüşümü
-- 3D Efekti
+- 3B Efekti
 - Dış Gölge Efekti
 - İç Gölge Efekti
 - PowerPoint
@@ -21,17 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java'da WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım kılavuz, geliştiricilerin Python üzerinden Java ile sunumlarını profesyonel metinle geliştirmelerine yardımcı olur."
+description: "Aspose.Slides for Python via Java içinde WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım rehber, geliştiricilerin Python üzerinden Java ile sunumları profesyonel metinle zenginleştirmesine yardımcı olur."
 ---
 ## **Genel Bakış**
 
-WordArt efektleri, PowerPoint sunumlarınıza görsel açıdan çekici, stilize metin eklemenizi sağlar. Aspose.Slides ile geliştiriciler, Microsoft PowerPoint’te olduğu gibi WordArt’ı programlı olarak oluşturabilir, özelleştirebilir ve yönetebilir—Office yüklü olmasına gerek kalmadan. Bu makale, WordArt ile çalışmanın genel bir özetini sunar; metin dönüşümleri, dolgu stilleri, kenarlıklar, gölgeler ve diğer biçimlendirme seçeneklerini uygulayarak sunum içeriğinizi daha ifade edici ve çekici hale getirmeyi açıklar. WordArt, metni bir grafik nesnesi gibi ele almanızı sağlar. Metni daha çekici veya dikkat çekici kılmak için uygulanan efektler veya özel değişiklikler bütünüdür.
+WordArt efektleri, metni dolgu, kontur, gölge, yansıma, parıltı, dönüşüm ve 3D biçimlendirme ile stillendirmenizi sağlar. Bu makale, Microsoft Office yüklü olmadan Aspose.Slides for Python via Java kullanarak PowerPoint sunumlarında bu efektleri nasıl oluşturup özelleştireceğinizi açıklar.
 
-## **Basit Bir WordArt Şablonu Oluşturun ve Metne Uygulayın**
+## **Basit bir WordArt Şablonu Oluşturun ve Metne Uygulayın**
 
-**Aspose.Slides Kullanarak**
+Şu aşağıdaki örnekler, metin, yazı tipi, desen dolgusu ve konturu ayarlayarak basit bir WordArt stili oluşturur.
 
-İlk olarak, bu Python kodu ile basit bir metin oluşturuyoruz:
+Her örnek yeni bir sunum oluşturur ve ilk slaytına bir dikdörtgen ekler; giriş dosyasına gerek yoktur. İlk örnek metni "Aspose.Slides" olarak ayarlar. Şekil konumu ve boyutları puan cinsindendir:
 
 ```python
 import jpype
@@ -45,7 +45,8 @@ from asposeslides.api import Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
 
     portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -53,7 +54,8 @@ try:
 finally:
     presentation.dispose()
 ```
-Ardından, efekti daha belirgin hâle getirmek için yazı tipinin boyutunu artırın:
+
+Biçimlendirmeyi daha belirgin hale getirmek için yazı tipini 36 puan Arial Black olarak ayarlayın:
 
 ```python
 import jpype
@@ -67,34 +69,19 @@ from asposeslides.api import FontData, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    font_data = FontData("Arial Black")
-    portion_format = portion.getPortionFormat()
-    portion_format.setLatinFont(font_data)
-    portion_format.setFontHeight(36)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 finally:
     presentation.dispose()
 ```
 
-**Microsoft PowerPoint Kullanarak**
-
-Microsoft PowerPoint’te WordArt efektleri menüsüne gidin:
-
-![PowerPoint’te WordArt efektleri menüsü](image-20200930113926-1.png)
-
-Sağdaki menüden önceden tanımlanmış bir WordArt efekti seçebilirsiniz. Soldaki menüden yeni WordArt için ayarları belirleyebilirsiniz.
-
-Kullanılabilir bazı parametreler veya seçenekler şunlardır:
-
-![WordArt biçimlendirme seçenekleri](image-20200930114015-3.png)
-
-**Aspose.Slides Kullanarak**
-
-Burada, metne [PatternStyle.SmallGrid](https://reference.aspose.com/slides/tr/python-java/aspose.slides/patternstyle/#SmallGrid) desen dolgusunu uygular ve bu kodla siyah bir metin kenarlığı ekleriz:
+Arka planı beyaz ve ön planı koyu turuncu bir [SmallGrid](https://reference.aspose.com/slides/tr/python-java/aspose.slides/patternstyle/#SmallGrid) deseni uygulayın, ardından 1 puan genişliğinde siyah bir metin konturu ekleyin:
 
 ```python
 import jpype
@@ -103,48 +90,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, PatternStyle, Presentation, ShapeType
+from asposeslides.api import FillType, FontData, PatternStyle, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getFillFormat().setFillType(FillType.Pattern)
-    pattern_format = portion_format.getFillFormat().getPatternFormat()
-    pattern_format.getForeColor().setColor(Color.ORANGE)
-    pattern_format.getBackColor().setColor(Color.WHITE)
-    pattern_format.setPatternStyle(PatternStyle.SmallGrid)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern)
+    dark_orange = Color(255, 140, 0)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(dark_orange)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid)
 
-    line_format = portion_format.getLineFormat()
-    line_format.getFillFormat().setFillType(FillType.Solid)
-    line_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getLineFormat().setWidth(1)
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 finally:
     presentation.dispose()
 ```
 
-Oluşan metin:
+Elde edilen metin:
 
-![Desen dolgu ve siyah kenarlıklı metin](image-20200930114108-4.png)
+![Basit WordArt şablonu](WordArt_template.png)
 
-## **Diğer WordArt Efektlerini Uygulama**
+## **Diğer WordArt Efektlerini Uygulayın**
 
-**Microsoft PowerPoint Kullanarak**
+Aşağıdaki örnekler, gölgeler, yansımalar, parıltılar, dönüşümler ve 3B efektlerin metne nasıl uygulanacağını gösterir.
 
-Program arayüzünden bu efektleri metne, metin bloğuna, şekle veya benzer bir öğeye uygulayabilirsiniz:
+### **Dış Gölge Efektlerini Uygula**
 
-![PowerPoint’te metin ve şekil efektleri](image-20200930114129-5.png)
+Bir dış gölge, metnin arkasına gölge ekleyerek derinlik kazandırır. Rengini, yönünü, mesafesini, bulanıklık yarıçapını, ölçeğini ve eğimini özelleştirebilirsiniz.
 
-Örneğin, Gölge, Yansıma ve Parıltı efektleri metne; 3D Biçim ve 3D Döndürme efektleri bir metin bloğuna; Yumuşak Kenarlar efekti ise bir şekle (3D Biçim efekti ayarlanmamışsa da etkili olur) uygulanabilir.
-
-### **Gölge Efektleri Uygulama**
-
-Aşağıdaki Python kodu yalnızca metne gölge efekti uygular:
+Bu örnek [enableOuterShadowEffect](https://reference.aspose.com/slides/tr/python-java/aspose.slides/effectformat/#enableOuterShadowEffect) metodunu çağırır ve 4 puan bulanıklık yarıçapına, 230 derece yöne ve 30 puan mesafeye sahip siyah bir gölge ayarlar. 100 ölçek değeri gölgenin boyutunu korur, yatay eğim ise 20 dereceyle eğilir. Alfa dönüşümü opaklığını %32 olarak belirler:
 
 ```python
 import jpype
@@ -153,132 +139,135 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableOuterShadowEffect()
-    outer_shadow = portion_format.getEffectFormat().getOuterShadowEffect()
-    outer_shadow.getShadowColor().setColor(Color.BLACK)
-    outer_shadow.setScaleHorizontal(100)
-    outer_shadow.setScaleVertical(65)
-    outer_shadow.setBlurRadius(4.73)
-    outer_shadow.setDirection(230)
-    outer_shadow.setDistance(2)
-    outer_shadow.setSkewHorizontal(30)
-    outer_shadow.setSkewVertical(0)
-    outer_shadow.getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect()
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
 finally:
     presentation.dispose()
 ```
 
-Aspose.Slides API, üç tür gölgeyi destekler: [OuterShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/outershadow/), [InnerShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/innershadow/) ve [PresetShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presetshadow/).
+Elde edilen metin:
 
-[PresetShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presetshadow/) ile önceden tanımlı değerleri kullanarak metne gölge ekleyebilirsiniz.
+![Dış Gölge efekti](outer_shadow_effect.png)
 
-**Microsoft PowerPoint Kullanarak**
-
-PowerPoint’te yalnızca bir tür gölge kullanılabilir. İşte bir örnek:
-
-![PowerPoint’te gölge ayarları](image-20200930114225-6.png)
-
-**Aspose.Slides Kullanarak**
-
-Aspose.Slides, aynı anda iki tür gölge uygulamanıza izin verir: [InnerShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/innershadow/) ve [PresetShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presetshadow/).
-
-**Notlar:**
-
-- [OuterShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/outershadow/) ve [PresetShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presetshadow/) birlikte kullanıldığında yalnızca [OuterShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/outershadow/) efekti uygulanır.
-- [OuterShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/outershadow/) ve [InnerShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/innershadow/) aynı anda kullanıldığında, uygulanacak efekt PowerPoint sürümüne bağlıdır. Örneğin PowerPoint 2013’te efekt iki kat olur. PowerPoint 2007’de ise yalnızca [OuterShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/outershadow/) efekti uygulanır.
-
-### **Metne Yansıma Uygulama**
-
-Bu Python (Java üzerinden) kod örneği ile metne yansıma ekliyoruz:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, RectangleAlignment, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableReflectionEffect()
-    reflection = portion_format.getEffectFormat().getReflectionEffect()
-    reflection.setBlurRadius(0.5)
-    reflection.setDistance(4.72)
-    reflection.setStartPosAlpha(0)
-    reflection.setEndPosAlpha(60)
-    reflection.setDirection(90)
-    reflection.setScaleHorizontal(100)
-    reflection.setScaleVertical(-100)
-    reflection.setStartReflectionOpacity(60)
-    reflection.setEndReflectionOpacity(0.9)
-    reflection.setRectangleAlign(RectangleAlignment.BottomLeft)
-finally:
-    presentation.dispose()
-```
-
-### **Metne Parıltı Efekti Uygulama**
-
-Metni parlak veya öne çıkarmak için aşağıdaki kodla parıltı efektini uyguluyoruz:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableGlowEffect()
-    glow = portion_format.getEffectFormat().getGlowEffect()
-    glow.getColor().setR(jpype.JByte(-1))
-    glow.getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
-    glow.setRadius(7)
-finally:
-    presentation.dispose()
-```
-
-İşlemin sonucu:
-
-![Parıltı efekti eklenmiş metin](image-20200930114621-7.png)
-
-{{% alert color="info" title="Not" %}}
-Gölge, yansıma ve parıltı parametrelerini değiştirebilirsiniz. Efekt özellikleri, metnin her bölümü için ayrı ayrı ayarlanır.
+{{% alert color="info" title="Note" %}}
+- Dış ve ön tanımlı gölgeler birlikte kullanıldığında yalnızca dış gölge uygulanır.
+- Dış ve iç gölgeler aynı anda kullanılırsa, oluşan etki PowerPoint sürümüne bağlıdır. Örneğin PowerPoint 2013'te efekt iki katına çıkar, PowerPoint 2007'de ise yalnızca dış gölge uygulanır.
 {{% /alert %}}
 
-### **WordArt’ta Dönüşümler Kullanma**
+### **Yansıma Efektlerini Uygula**
 
-Tüm metin bloğunu dönüştürmek için [TextFrameFormat.setTransform](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setTransform) yöntemini kullanın:
+Yansıma, metnin ayna gibi bir kopyasını oluşturur. Konumunu, ölçeğini, bulanıklığını ve opaklığını ayarlayarak görünümünü kontrol edebilirsiniz.
+
+Bu örnek [enableReflectionEffect](https://reference.aspose.com/slides/tr/python-java/aspose.slides/effectformat/#enableReflectionEffect) metodunu çağırır ve yansımayı -100% ölçekle dikey olarak ters çevirir. 0,5 puan bulanıklık yarıçapı ve 4,72 puan mesafe kullanır. Opaklık, yansıma boyunca %60 ile %0,9 arasında konum 0% ile 60% arasında azalır:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, RectangleAlignment, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect()
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft)
+finally:
+    presentation.dispose()
+```
+
+Elde edilen metin:
+
+![Yansıma efekti](reflection_effect.png)
+
+### **Parıltı Efektlerini Uygula**
+
+Parıltı, metnin etrafına yumuşak renkli bir kontur ekler. Rengini, opaklığını ve yarıçapını ayarlayarak efekti kontrol edebilirsiniz.
+
+Bu örnek [enableGlowEffect](https://reference.aspose.com/slides/tr/python-java/aspose.slides/effectformat/#enableGlowEffect) metodunu çağırır ve %54 opaklıkla 7 puan yarıçapına sahip kırmızı bir parıltı uygular:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect()
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7)
+finally:
+    presentation.dispose()
+```
+
+Elde edilen metin:
+
+![Parıltı etkisi](glow_effect.png)
+
+### **WordArt Dönüşümlerini Uygula**
+
+WordArt dönüşümleri, bir metin bloğunu bükebilir, uzatabilir veya eğebilir.
+
+Metin çerçevesini tamamen yukarı doğru eğmek için [setTransform](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#setTransform) metodunu [ArchUpPour](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textshapetype/#ArchUpPour) ile ayarlayın:
 
 ```python
 import jpype
@@ -292,40 +281,35 @@ from asposeslides.api import Presentation, ShapeType, TextShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
-
     text_frame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour)
 finally:
     presentation.dispose()
 ```
 
-Sonuç:
+Elde edilen metin:
 
-![Yay şeklinde dönüşüm uygulanmış metin](image-20200930114712-8.png)
+![WordArt dönüşümü](transform_effect.png)
 
-{{% alert color="info" title="Not" %}}
-Microsoft PowerPoint ve Aspose.Slides for Python via Java, belirli sayıda ön tanımlı dönüşüm tipini sunar.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Python via Java, önceden tanımlı bir dizi [dönüşüm türü](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textshapetype/) sunar.
 {{% /alert %}}
 
-**PowerPoint Kullanarak**
+### **Şekillere ve Metne 3B Efektler Uygula**
 
-Ön tanımlı dönüşüm tiplerine ulaşmak için: **Format** → **TextEffect** → **Transform** menüsüne gidin.
+Bir şekle veya metnine 3B efektler uygulayabilirsiniz. Kavisler, ekstrüzyon, aydınlatma ve kamera ayarları, ortaya çıkan görünümü kontrol eder.
 
-**Aspose.Slides Kullanarak**
-
-Bir dönüşüm tipi seçmek için [TextShapeType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textshapetype/) enum’ını kullanın.
-
-### **Metin ve Şekillere 3D Efektleri Uygulama**
-
-Bu örnek kodla bir metin şekline 3D efekti uyguluyoruz:
+Aşağıdaki örnek, dikdörtgene dairesel köşeler, turuncu ekstrüzyon ve koyu kırmızı kontur eklemek için [ThreeDFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/threedformat/) kullanır. Köşe ölçüleri, ekstrüzyon yüksekliği, kontur genişliği ve derinlik puan cinsindedir. Plastik bir malzeme, Z ekseni etrafında 40 derece döndürülmüş dengeli aydınlatma ve perspektif kamera görünümünü tanımlar:
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpame.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import BevelPresetType, CameraPresetType, LightRigPresetType, LightingDirection, MaterialPresetType, Presentation, ShapeType
@@ -334,42 +318,44 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     auto_shape.getTextFrame().setText("Aspose.Slides")
 
-    three_d_format = auto_shape.getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(10.5)
-    three_d_format.getBevelBottom().setWidth(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelBottom().setHeight(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setWidth(10.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(12.5)
-    three_d_format.getBevelTop().setWidth(11)
+    auto_shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelTop().setHeight(12.5)
+    auto_shape.getThreeDFormat().getBevelTop().setWidth(11)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    auto_shape.getThreeDFormat().getExtrusionColor().setColor(orange)
+    auto_shape.getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    auto_shape.getThreeDFormat().getContourColor().setColor(dark_red)
+    auto_shape.getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    auto_shape.getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    auto_shape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    auto_shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    auto_shape.getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-Oluşan metin ve şekli:
+Elde edilen şekil:
 
-![3D efektli metin şekli](image-20200930114816-9.png)
+![Şekil 3B efekti](shape_3D_effect.png)
 
-Bu Python kodu ile metne 3D efekti ekliyoruz:
+Bu örnek, [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframeformat/#getThreeDFormat) aracılığıyla metne benzer 3B biçimlendirme uygular. Daha küçük köşeler harf kenarlarını şekillendirirken, ekstrüzyon ve aydınlatma metne derinlik kazandırır:
 
 ```python
 import jpype
@@ -384,183 +370,70 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
 
-    three_d_format = text_frame.getTextFrameFormat().getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(3.5)
-    three_d_format.getBevelBottom().setWidth(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(4)
-    three_d_format.getBevelTop().setWidth(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange)
+    text_frame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(dark_red)
+    text_frame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    text_frame.getTextFrameFormat().getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    text_frame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    text_frame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-İşlemin sonucu:
+Elde edilen metin:
 
-![3D efektli metin](image-20200930114905-10.png)
+![Metin 3B efekti](text_3D_effect.png)
 
-{{% alert color="info" title="Not" %}}
-Metne veya şekline 3D efektlerinin uygulanması ve efektler arasındaki etkileşimler belirli kurallara dayanır.
+{{% alert color="info" title="Note" %}}
+Metne veya şekline 3B efektlerin uygulanması—ve bu efektler arasındaki etkileşim—belirli kurallara göre düzenlenir. Metin ve onu içeren şekli içeren bir sahneyi düşünün. Bir 3B efekt, nesnenin 3B temsilini ve içinde bulunduğu sahneyi içerir.
 
-Metin ve metni içeren şekil için bir sahne düşünün. 3D efekt, bir 3D nesne temsili ve nesnenin yerleştirildiği sahneyi içerir.
+- Eğer sahne hem şekil hem de metin için ayarlanmışsa, şeklin sahnesi öncelik kazanır ve metnin sahnesi yok sayılır.
+- Şeklin kendi sahnesi yoksa ancak bir 3B temsili varsa, metnin sahnesi kullanılır.
+- Şeklin hiç 3B efekti yoksa, düz kabul edilir ve 3B efekt yalnızca metne uygulanır.
 
-- Sahne hem şekil hem de metin için ayarlandıysa, şekil sahnesi önceliklidir; metin sahnesi yoksayılır.
-- Şeklin kendi sahnesi yoksa ancak bir 3D temsili varsa, metin sahnesi kullanılır.
-- Aksi takdirde—şeklin baştan bir 3D efekti yoksa—şekil düz kalır ve 3D efekt yalnızca metne uygulanır.
-
-Bu kurallar, [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/tr/python-java/aspose.slides/threedformat/#getLightRig) ve [ThreeDFormat.getCamera](https://reference.aspose.com/slides/tr/python-java/aspose.slides/threedformat/#getCamera) yöntemleriyle ilgilidir.
+Bu davranışlar, [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/tr/python-java/aspose.slides/threedformat/#getLightRig) ve [ThreeDFormat.getCamera](https://reference.aspose.com/slides/tr/python-java/aspose.slides/threedformat/#getCamera) metodlarıyla ilgilidir.
 {{% /alert %}}
 
-## **Metne Dış Gölge Efektleri Uygulama**
-
-Aspose.Slides for Python via Java, [TextFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframe/) içinde metne gölge efektleri uygulamanızı sağlayan [OuterShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/outershadow/) ve [InnerShadow](https://reference.aspose.com/slides/tr/python-java/aspose.slides/innershadow/) sınıflarını sunar. Aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. İndeksini kullanarak bir slayta referans alın.  
-3. Slayta dikdörtgen bir şekil ekleyin.  
-4. Şekille ilişkili metin çerçevesine erişin.  
-5. Şekil dolgusunu devre dışı bırakın.  
-6. Dış gölge efektini etkinleştirin.  
-7. Gölgenin bulanık yarıçapını ayarlayın.  
-8. Gölgenin yönünü belirleyin.  
-9. Gölgenin mesafesini ayarlayın.  
-10. Gölgeyi sol üst köşeye hizalayın.  
-11. Gölge rengini siyah olarak belirleyin.  
-12. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.
-
-Bu adımları Python (Java üzerinden) ile gerçekleştiren örnek kod, dış gölge efektini metne nasıl uygulayacağınızı gösterir:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import FillType, Presentation, PresetColor, RectangleAlignment, SaveFormat, ShapeType
-
-presentation = Presentation()
-try:
-    # Slayt referansını al
-    slide = presentation.getSlides().get_Item(0)
-
-    # Dikdörtgen tipinde bir AutoShape ekle
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50)
-
-    # Dikdörtgene TextFrame ekle
-    auto_shape.addTextFrame("Aspose TextBox")
-
-    # Metnin gölgesini alabilmek için şekil dolgusunu devre dışı bırak
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Dış gölge ekle ve tüm gerekli parametreleri ayarla
-    auto_shape.getEffectFormat().enableOuterShadowEffect()
-    shadow = auto_shape.getEffectFormat().getOuterShadowEffect()
-    shadow.setBlurRadius(4.0)
-    shadow.setDirection(45)
-    shadow.setDistance(3)
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft)
-    shadow.getShadowColor().setPresetColor(PresetColor.Black)
-
-    # Sunumu diske kaydet
-    presentation.save("pres_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **Şekillere İç Gölge Efekti Uygulama**
-
-Aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Slayta referans alın.  
-3. Dikdörtgen bir şekil ekleyin.  
-4. İç gölge efektini etkinleştirin.  
-5. Gerekli tüm parametreleri ayarlayın.  
-6. Gölge renk tipini bir tema rengi olarak belirtin.  
-7. Tema rengini seçin.  
-8. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.
-
-Bu adımlara dayalı örnek kod, bir şeklin içindeki metne iç gölge efektini Python (Java üzerinden) nasıl uygulayacağınızı gösterir:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorType, FillType, Presentation, SaveFormat, SchemeColor, ShapeType
-
-presentation = Presentation()
-try:
-    # Slayt referansını al
-    slide = presentation.getSlides().get_Item(0)
-
-    # Dikdörtgen tipinde bir AutoShape ekle
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300)
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Dikdörtgene TextFrame ekle
-    auto_shape.addTextFrame("Aspose TextBox")
-    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion_format = portion.getPortionFormat()
-    portion_format.setFontHeight(50)
-
-    # InnerShadowEffect'i etkinleştir
-    effect_format = portion_format.getEffectFormat()
-    effect_format.enableInnerShadowEffect()
-
-    # Tüm gerekli parametreleri ayarla
-    inner_shadow = effect_format.getInnerShadowEffect()
-    inner_shadow.setBlurRadius(8.0)
-    inner_shadow.setDirection(90.0)
-    inner_shadow.setDistance(6.0)
-    inner_shadow.getShadowColor().setB(jpype.JByte(-67))
-
-    # ColorType'ı Scheme olarak ayarla
-    inner_shadow.getShadowColor().setColorType(ColorType.Scheme)
-
-    # Scheme rengini ayarla
-    inner_shadow.getShadowColor().setSchemeColor(SchemeColor.Accent1)
-
-    # Sunumu kaydet
-    presentation.save("WordArt_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+Metni düz ve okunabilir tutarken şeklin 3B biçimlendirmesini korumak için, her iki ayarın karşılaştırması ve tam bir Python örneği için [Keep Text Flat on a 3D Shape](/slides/tr/python-java/3d-presentation/) sayfasına bakın.
 
 ## **SSS**
 
-**WordArt efektlerini farklı yazı tipleri veya betikler (ör. Arapça, Çince) ile kullanabilir miyim?**  
-Evet, Aspose.Slides Unicode desteği sunar ve tüm büyük yazı tipleri ve betiklerle çalışır. Gölge, dolgu ve kenarlık gibi WordArt efektleri dili ne olursa olsun uygulanabilir; ancak yazı tipi kullanılabilirliği ve render’lama sistem yazı tiplerine bağlıdır.
+**Farklı yazı tipleri veya betikler (örn. Arapça, Çince) ile WordArt efektleri kullanabilir miyim?**
 
-**WordArt efektlerini slayt ana tasarım öğelerine uygulayabilir miyim?**  
-Evet, ana slaytlardaki şekillere, başlık yer tutucularına, altbilgilere veya arka plan metnine WordArt efektleri ekleyebilirsiniz. Ana tasarımda yapılan değişiklikler, ilişkili tüm slaytlara yansır.
+Evet, Aspose.Slides for Python via Java Unicode destekler ve tüm büyük yazı tipleri ve betiklerle çalışır. WordArt efektleri gölge, dolgu ve kontur gibi dilden bağımsız olarak uygulanabilir, ancak yazı tipi bulunabilirliği ve işleme sistemi yüklü yazı tiplerine bağlı olabilir.
 
-**WordArt efektleri sunum dosya boyutunu etkiler mi?**  
-Bir miktar etkiler. Gölge, parıltı ve degrade dolgu gibi efektler, ek biçimlendirme meta verisi oluşturduğu için dosya boyutunu hafifçe artırabilir; ancak fark genellikle önemsizdir.
+**WordArt efektlerini slayt ana tasarım öğelerine uygulayabilir miyim?**
 
-**Sunumu kaydetmeden WordArt efektlerinin sonucunu ön izleyebilir miyim?**  
-Evet, WordArt içeren slaytları [Shape.getImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/#getImage) veya [Slide.getImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#getImage) metodlarıyla görüntülere (PNG, JPEG vb.) dönüştürebilir ve tamamını kaydetmeden ya da dışa aktarım yapmadan ekranda ön izleyebilirsiniz.
+Evet, WordArt efektlerini ana slaytlardaki şekillere, başlık yer tutucularına, altbilgilere veya arka plan metnine uygulayabilirsiniz. Ana tasarımda yapılan değişiklikler, ilişkili tüm slaytlara yansıtılır.
+
+**WordArt efektleri sunum dosya boyutunu etkiler mi?**
+
+Biraz. Gölge, parıltı ve degrade dolgu gibi WordArt efektleri, ek biçimlendirme metadatası nedeniyle dosya boyutunu hafifçe artırabilir, fakat fark genellikle ihmal edilebilir düzeydedir.
+
+**WordArt efektlerinin sonucunu sunumu kaydetmeden önizleyebilir miyim?**
+
+Evet, WordArt içeren slaytları [Slide.getImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#getImage) ile görüntülere (ör. PNG, JPEG) renderleyebilir veya bireysel şekilleri [Shape.getImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/#getImage) ile renderleyebilirsiniz. Böylece sunumu kaydetmeden veya dışa aktarmadan önce sonucu hafızada veya ekranda önizleyebilirsiniz.

@@ -6,136 +6,250 @@ weight: 110
 url: /el/cpp/wordart/
 keywords:
 - WordArt
-- Δημιουργία WordArt
+- δημιουργία WordArt
 - πρότυπο WordArt
 - εφέ WordArt
 - εφέ σκιάς
-- εφέ προβολής
+- εφέ ανάκλασης
 - εφέ λάμψης
 - μετασχηματισμός WordArt
-- εφέ 3Δ
+- 3Δ εφέ
 - εφέ εξωτερικής σκιάς
 - εφέ εσωτερικής σκιάς
-- PowerPoint
-- παρουσίαση
 - C++
 - Aspose.Slides
-description: "Δημιουργήστε και προσαρμόστε εφέ WordArt στο Aspose.Slides για C++. Αυτός ο οδηγός βήμα προς βήμα βοηθά τους προγραμματιστές να βελτιώσουν τις παρουσιάσεις με επαγγελματικό κείμενο σε C++."
+description: "Δημιουργήστε και προσαρμόστε εφέ WordArt στο Aspose.Slides for C++. Αυτός ο βήμα-προς-βήμα οδηγός βοηθά τους προγραμματιστές να βελτιώσουν τις παρουσιάσεις με επαγγελματικό κείμενο σε C++."
 ---
 ## **Επισκόπηση**
 
-Οι εφέ WordArt σάς επιτρέπουν να προσθέτετε οπτικά ελκυστικό, μορφοποιημένο κείμενο στις παρουσιάσεις PowerPoint. Με το Aspose.Slides, οι προγραμματιστές μπορούν προγραμματιστικά να δημιουργούν, να προσαρμόζουν και να διαχειρίζονται WordArt όπως στο Microsoft PowerPoint—χωρίς να απαιτείται εγκατάσταση του Office. Αυτό το άρθρο παρέχει μια επισκόπηση της εργασίας με το WordArt, συμπεριλαμβανομένου του πώς να εφαρμόζετε μετασχηματισμούς κειμένου, στυλ γεμίσματος, περιγράμματα, σκιές και άλλες επιλογές μορφοποίησης για να κάνετε το περιεχόμενο της παρουσίασής σας πιο εκφραστικό και ελκυστικό. Το WordArt σας επιτρέπει να αντιμετωπίζετε το κείμενο ως γραφικό αντικείμενο. Αποτελείται από εφέ ή ειδικές τροποποιήσεις που εφαρμόζονται στο κείμενο ώστε να γίνει πιο ελκυστικό ή εμφανές.
+Τα εφέ WordArt σάς επιτρέπουν να μορφοποιήσετε το κείμενο με γεμίσματα, περιγράμματα, σκιές, αντανακλάσεις, λάμψη, μετασχηματισμούς και 3D μορφοποίηση. Αυτό το άρθρο εξηγεί πώς να δημιουργήσετε και να προσαρμόσετε αυτά τα εφέ σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides for C++, χωρίς εγκατεστημένο το Microsoft Office.
 
-## **Δημιουργία ενός Απλού Πρότυπου WordArt και Εφαρμογή του σε Κείμενο**
+## **Δημιουργήστε ένα Απλό Πρότυπο WordArt και Εφαρμόστε Το σε Κείμενο**
 
-**Χρήση Aspose.Slides** 
+Τα παρακάτω παραδείγματα δημιουργούν ένα απλό στυλ WordArt ορίζοντας το κείμενο, τη γραμματοσειρά, το γεμίσιμο μοτίβου και το περίγραμμα.
 
-Πρώτα, δημιουργούμε ένα απλό κείμενο χρησιμοποιώντας αυτόν τον κώδικα C++: 
+Κάθε παράδειγμα δημιουργεί μια νέα παρουσίαση και προσθέτει ένα ορθογώνιο στην πρώτη της διαφάνεια· δεν απαιτείται αρχείο εισόδου. Το πρώτο παράδειγμα ορίζει το κείμενο σε "Aspose.Slides". Η θέση και οι διαστάσεις του σχήματος μετρώνται σε μονάδες (points):
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-Τώρα, ορίζουμε το ύψος γραμματοσειράς του κειμένου σε μεγαλύτερη τιμή ώστε το εφέ να είναι πιο εμφανές μέσω αυτού του κώδικα:
+Ορίστε τη γραμματοσειρά σε Arial Black με μέγεθος 36 points για να γίνει η μορφοποίηση πιο εμφανής:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Χρήση Microsoft PowerPoint**
+Εφαρμόστε ένα μοτίβο [SmallGrid](https://reference.aspose.com/slides/el/cpp/aspose.slides/patternstyle/) με σκούρο πορτοκαλί πρώτο σχέδιο και λευκό φόντο, έπειτα προσθέστε μαύρο περίγραμμα κειμένου με πλάτος 1 point:
 
-Μεταβείτε στο μενού εφέ WordArt στο Microsoft PowerPoint:
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Από το μενού στα δεξιά, μπορείτε να επιλέξετε ένα προκαθορισμένο εφέ WordArt. Από το μενού στα αριστερά, μπορείτε να ορίσετε τις ρυθμίσεις για ένα νέο WordArt. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Αυτά είναι κάποια από τα διαθέσιμα παραμέτρους ή επιλογές:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**Χρήση Aspose.Slides**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-Εδώ, εφαρμόζουμε το χρώμα μοτίβου SmallGrid στο κείμενο και προσθέτουμε ένα μαύρο περιθώριο κειμένου πλάτους 1 χρησιμοποιώντας αυτόν τον κώδικα:
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
-Το αποτέλεσμα κειμένου:
+Το παραγόμενο κείμενο:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![The simple WordArt template](WordArt_template.png)
 
 ## **Εφαρμογή Άλλων Εφέ WordArt**
 
-**Χρήση Microsoft PowerPoint**
+Τα παρακάτω παραδείγματα δείχνουν πώς να εφαρμόσετε σκιές, αντανακλάσεις, λάμψη, μετασχηματισμούς και 3D εφέ στο κείμενο.
 
-Από τη διεπαφή του προγράμματος, μπορείτε να εφαρμόσετε αυτά τα εφέ σε κείμενο, μπλοκ κειμένου, σχήμα ή παρόμοιο στοιχείο:
+### **Εφαρμογή Εξωτερικών Σκιών**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Μια εξωτερική σκιά προσθέτει βάθος τοποθετώντας μια σκιά πίσω από το κείμενο. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση, την ακτίνα θολώματος, την κλίμακα και την κλίση της.
 
-Για παράδειγμα, τα εφέ Σκιά, Ανάκλαση και Λάμψη μπορούν να εφαρμοστούν σε κείμενο· τα εφέ 3D Format και 3D Rotation μπορούν να εφαρμοστούν σε μπλοκ κειμένου· η ιδιότητα Soft Edges μπορεί να εφαρμοστεί σε αντικείμενο Σχήματος (έχει ακόμη αποτέλεσμα όταν δεν έχει οριστεί ιδιότητα 3D Format).
+Αυτό το παράδειγμα καλεί [EnableOuterShadowEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) και ορίζει μια μαύρη σκιά με ακτίνα θολώματος 4 point, κατεύθυνση 230 μοίρες και απόσταση 30 point. Τιμές κλίμακας 100 διατηρούν το μέγεθος της σκιάς, ενώ η οριζόντια κλίση την κλίνει κατά 20 μοίρες. Η μεταστροφή άλφα ορίζει τη διαφάνεια στο 32%:
 
-### **Εφαρμογή Σκιών σε Κείμενο**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-Εδώ, προτιθέμενοι να ορίσουμε ιδιότητες που αφορούν μόνο κείμενο. Εφαρμόζουμε το εφέ σκίασης σε κείμενο χρησιμοποιώντας αυτόν τον κώδικα C++:
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Το API του Aspose.Slides υποστηρίζει τρεις τύπους σκιών: OuterShadow, InnerShadow και PresetShadow. 
+Το παραγόμενο κείμενο:
 
-Με το PresetShadow, μπορείτε να εφαρμόσετε σκιά σε κείμενο (χρησιμοποιώντας προκαθορισμένες τιμές). 
+![The Outer Shadow effect](outer_shadow_effect.png)
 
-**Χρήση Microsoft PowerPoint**
+{{% alert color="info" title="Note" %}}
+- Όταν χρησιμοποιούνται μαζί εξωτερικές και προκαθορισμένες σκιές, εφαρμόζεται μόνο η εξωτερική σκιά.
+- Αν χρησιμοποιούνται ταυτόχρονα εξωτερικές και εσωτερικές σκιές, το τελικό αποτέλεσμα εξαρτάται από την έκδοση του PowerPoint. Για παράδειγμα, στο PowerPoint 2013 το εφέ διπλασιάζεται, ενώ στο PowerPoint 2007 εφαρμόζεται μόνο η εξωτερική σκιά.
+{{% /alert %}}
 
-Στο PowerPoint, μπορείτε να χρησιμοποιήσετε έναν τύπο σκιάς. Να ένα παράδειγμα:
+### **Εφαρμογή Εφέ Αντανάκλασης**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+Μια αντανάκλαση δημιουργεί ένα καθρεπτικό αντίγραφο του κειμένου. Ρυθμίστε τη θέση, την κλίμακα, το θολώσιμο και τη διαφάνεια για να ελέγξετε την εμφάνισή του.
 
-**Χρήση Aspose.Slides**
+Αυτό το παράδειγμα καλεί [EnableReflectionEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) και κυλίει την αντανάκλαση κατακόρυφα με κλίμακα -100%. Χρησιμοποιεί ακτίνα θολώματος 0,5 point και απόσταση 4,72 point. Η διαφάνεια μειώνεται από 60% σε 0,9% μεταξύ των θέσεων 0% και 60% κατά μήκος της αντανάκλασης:
 
-Το Aspose.Slides επιτρέπει στην πραγματικότητα την ταυτόχρονη εφαρμογή δύο τύπων σκιών: InnerShadow και PresetShadow.
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
 
-**Σημειώσεις:**
+using namespace Aspose::Slides;
 
-- Όταν χρησιμοποιούνται μαζί OuterShadow και PresetShadow, εφαρμόζεται μόνο το εφέ OuterShadow. 
-- Αν χρησιμοποιηθούν ταυτόχρονα OuterShadow και InnerShadow, το αποτέλεσμα ή το εφαρμοσμένο εφέ εξαρτάται από την έκδοση του PowerPoint. Για παράδειγμα, στο PowerPoint 2013, το εφέ διπλασιάζεται. Στο PowerPoint 2007, εφαρμόζεται το εφέ OuterShadow. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **Εφαρμογή Εφέ Ανάκλασης**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-Προσθέτουμε ανάκλαση στο κείμενο μέσω αυτού του δείγματος κώδικα C++:
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-``` cpp 
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,61 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
+Το παραγόμενο κείμενο:
+
+![The Reflection effect](reflection_effect.png)
+
 ### **Εφαρμογή Εφέ Λάμψης**
 
-Εφαρμόζουμε το εφέ λάμψης στο κείμενο ώστε να λάμψει ή να ξεχωρίσει χρησιμοποιώντας αυτόν τον κώδικα:
+Μια λάμψη προσθέτει ένα απαλό χρωματιστό περίγραμμα γύρω από το κείμενο. Ρυθμίστε το χρώμα, τη διαφάνεια και την ακτίνα για να ελέγξετε το εφέ.
 
-``` cpp 
+Αυτό το παράδειγμα καλεί [EnableGlowEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides/ieffectformat/enablegloweffect/) και εφαρμόζει κόκκινη λάμψη με διαφάνεια 54% και ακτίνα 7 points:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-Το αποτέλεσμα της λειτουργίας:
+Το παραγόμενο κείμενο:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![The Glow effect](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **Εφαρμογή Μετασχηματισμών WordArt**
 
-Μπορείτε να αλλάξετε τις παραμέτρους για σκιά, προβολή και λάμψη. Οι ιδιότητες των εφέ ορίζονται ξεχωριστά για κάθε τμήμα του κειμένου. 
+Οι μετασχηματισμοί WordArt λυγώνουν, τεντώνονται ή παραμορφώνουν ένα μπλοκ κειμένου.
 
-{{% /alert %}} 
+Ορίστε [ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframeformat/set_transform/) σε [ArchUpPour](https://reference.aspose.com/slides/el/cpp/aspose.slides/textshapetype/) για να καμπυλώσετε όλο το πλαίσιο κειμένου προς τα πάνω:
 
-### **Χρήση Μετασχηματισμών στο WordArt**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
 
-Χρησιμοποιούμε τη μέθοδο set_Transform (εφαρμοζόμενη σε όλο το μπλοκ κειμένου) μέσω αυτού του κώδικα:
+using namespace Aspose::Slides;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-Το αποτέλεσμα:
+Το παραγόμενο κείμενο:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![The WordArt transformation](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Το Aspose.Slides for C++ παρέχει ένα σύνολο προ‑ορισμένων [transformation types](https://reference.aspose.com/slides/el/cpp/aspose.slides/textshapetype/).
+{{% /alert %}}
 
-Τanto το Microsoft PowerPoint όσο και το Aspose.Slides για C++ παρέχουν έναν αριθμό προρυθμιζόμενων τύπων μετασχηματισμού. 
+### **Εφαρμογή 3D Εφέ σε Σχήματα και Κείμενο**
 
-{{% /alert %}} 
+Μπορείτε να εφαρμόσετε 3D εφέ σε ένα σχήμα ή στο κείμενό του. Οι ακμές, η εξώθηση, ο φωτισμός και οι ρυθμίσεις κάμερας ελέγχουν την τελική εμφάνιση.
 
-**Χρήση PowerPoint**
+Το παρακάτω παράδειγμα χρησιμοποιεί [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/) για να προσθέσει κυκλικές ακμές, πορτοκαλί εξώθηση και σκούρο κόκκινο περίγραμμα στο ορθογώνιο. Οι διαστάσεις των ακμών, το ύψος εξώθησης, το πλάτος περιγράμματος και το βάθος μετρώνται σε points. Ένα πλαστικό υλικό, ισορροπημένο φωτισμό περιστραμμένο 40 μοίρες γύρω από τον άξονα Z και μια προοπτική κάμερα ορίζουν την εμφάνιση:
 
-Για να αποκτήσετε πρόσβαση σε προρυθμιζόμενους τύπους μετασχηματισμού, πηγαίνετε στο: **Format** -> **TextEffect** -> **Transform**
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-**Χρήση Aspose.Slides**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Για να επιλέξετε τύπο μετασχηματισμού, χρησιμοποιήστε το enum TextShapeType. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **Εφαρμογή 3D Εφέ σε Κείμενο και Σχήματα**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
 
-Ορίζουμε ένα 3D εφέ σε σχήμα κειμένου χρησιμοποιώντας αυτό το δείγμα κώδικα:
-
-``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -234,13 +422,43 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Το αποτέλεσμα κειμένου και του σχήματος:
+Το παραγόμενο σχήμα:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![The shape 3D effect](shape_3D_effect.png)
 
-Εφαρμόζουμε 3D εφέ στο κείμενο με αυτόν τον κώδικα C++:
+Αυτό το παράδειγμα εφαρμόζει παρόμοια 3D μορφοποίηση στο κείμενο μέσω [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframeformat/get_threedformat/). Μικρότερες ακμές διαμορφώνουν τις άκρες των γραμμάτων, ενώ η εξώθηση και ο φωτισμός δίνουν βάθος στο κείμενο:
 
-``` cpp 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -268,134 +486,36 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Το αποτέλεσμα της λειτουργίας:
+Το παραγόμενο κείμενο:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![The text 3D effect](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Η εφαρμογή 3D εφέ σε κείμενο ή σε σχήμα—και η αλληλεπίδραση μεταξύ αυτών—ρυθμίζεται από συγκεκριμένους κανόνες. Σκεφτείτε μια σκηνή που περιλαμβάνει τόσο το κείμενο όσο και το σχήμα που το περιέχει. Ένα 3D εφέ περιλαμβάνει την τρισδιάστατη αναπαράσταση του αντικειμένου και τη σκηνή στην οποία τοποθετείται.
 
-Η εφαρμογή 3D εφέ σε κείμενα ή στα σχήματά τους και οι αλληλοεπιδράσεις μεταξύ των εφέ βασίζονται σε ορισμένους κανόνες.
+- Εάν έχει οριστεί σκηνή τόσο για το σχήμα όσο και για το κείμενο, η σκηνή του σχήματος έχει προτεραιότητα και η σκηνή του κειμένου αγνοείται.
+- Εάν το σχήμα δεν έχει δική του σκηνή αλλά διαθέτει τρισδιάστατη αναπαράσταση, χρησιμοποιείται η σκηνή του κειμένου.
+- Εάν το σχήμα δεν έχει καθόλου 3D εφέ, θεωρείται επίπεδο και το 3D εφέ εφαρμόζεται μόνο στο κείμενο.
 
-Σκεφτείτε μια σκηνή για ένα κείμενο και το σχήμα που το περιέχει. Το 3D εφέ περιλαμβάνει την αναπαράσταση αντικειμένου 3D και τη σκηνή πάνω στην οποία τοποθετήθηκε το αντικείμενο.
+Αυτές οι συμπεριφορές σχετίζονται με τις μεθόδους [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/get_lightrig/) και [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/get_camera/).
+{{% /alert %}}
 
-- Όταν η σκηνή ορίζεται και για το σχήμα και για το κείμενο, η σκηνή του σχήματος έχει προτεραιότητα — η σκηνή του κειμένου αγνοείται. 
-- Όταν το σχήμα δεν έχει δική του σκηνή αλλά έχει 3D αναπαράσταση, χρησιμοποιείται η σκηνή του κειμένου. 
-- Αλλιώς — όταν το σχήμα αρχικά δεν έχει 3D εφέ — το σχήμα είναι επίπεδο και το 3D εφέ εφαρμόζεται μόνο στο κείμενο. 
+Για να διατηρήσετε το κείμενο επίπεδο και ευανάγνωστο ενώ διατηρείτε τη 3D μορφοποίηση του σχήματος, δείτε το [Keep Text Flat on a 3D Shape](/slides/el/cpp/3d-presentation/) για σύγκριση των ρυθμίσεων και ένα πλήρες παράδειγμα C++.
 
-Αυτές οι περιγραφές συνδέονται με τις μεθόδους ThreeDFormat.getLightRig() και ThreeDFormat.getCamera(). 
+## **FAQ**
 
-{{% /alert %}} 
+**Μπορώ να χρησιμοποιήσω εφέ WordArt με διαφορετικές γραμματοσειρές ή γραφές (π.χ., Αραβική, Κινική);**
 
-## **Εφαρμογή Εξωτερικής Σκιάς σε Σχήματα**
-Το Aspose.Slides για C++ παρέχει τις κλάσεις [**IOuterShadow**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.effects.i_outer_shadow) και [**IInnerShadow**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.effects.i_inner_shadow) που επιτρέπουν την εφαρμογή εφέ σκιάς σε κείμενο που βρίσκεται σε TextFrame. Ακολουθήστε τα παρακάτω βήματα:
+Ναι, το Aspose.Slides for C++ υποστηρίζει Unicode και λειτουργεί με όλες τις κύριες γραμματοσειρές και γραφές. Τα εφέ WordArt όπως σκιά, γεμίσμα και περίγραμμα μπορούν να εφαρμοστούν ανεξάρτητα από τη γλώσσα, αν και η διαθεσιμότητα της γραμματοσειράς και η απόδοση μπορεί να εξαρτώνται από τις γραμματοσειρές του συστήματος.
 
-1. Δημιουργήστε ένα αντίγραφο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation). 
-2. Αποκτήστε την αναφορά μιας διαφάνειας χρησιμοποιώντας το δείκτη της. 
-3. Προσθέστε ένα AutoShape τύπου Rectangle στη διαφάνεια. 
-4. Προσπελάστε το TextFrame που συνδέεται με το AutoShape. 
-5. Ορίστε το FillType του AutoShape σε NoFill. 
-6. Δημιουργήστε μια παρουσία της κλάσης OuterShadow. 
-7. Ορίστε το BlurRadius της σκιάς. 
-8. Ορίστε την Direction της σκιάς. 
-9. Ορίστε το Distance της σκιάς. 
-10. Ορίστε το RectanglelAlign σε TopLeft. 
-11. Ορίστε το PresetColor της σκιάς σε Black. 
-12. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX. 
+**Μπορώ να εφαρμόσω εφέ WordArt σε στοιχεία του master slide;**
 
-Αυτός ο δείγματος κώδικας σε C++ — μια υλοποίηση των παραπάνω βημάτων — δείχνει πώς να εφαρμόσετε το εξωτερικό εφέ σκιάς σε κείμενο:
+Ναι, μπορείτε να εφαρμόσετε εφέ WordArt σε σχήματα στις κύριες διαφάνειες, συμπεριλαμβανομένων των σημειώσεων τίτλου, υποσέλιδων ή κειμένου φόντου. Οι αλλαγές που γίνονται στη διάταξη του master επηρεάζουν όλες τις σχετικές διαφάνειες.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// Λάβετε την αναφορά της διαφάνειας
-auto sld = pres->get_Slides()->idx_get(0);
+**Επηρεάζουν τα εφέ WordArt το μέγεθος του αρχείου παρουσίασης;**
 
-// Προσθέστε ένα AutoShape τύπου Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Προσθέστε TextFrame στο Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
-
-// Απενεργοποιήστε το γέμισμα του σχήματος σε περίπτωση που θέλουμε τη σκιά του κειμένου
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Προσθέστε εξωτερική σκιά και ορίστε όλες τις απαραίτητες παραμέτρους
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// Αποθηκεύστε την παρουσίαση στο δίσκο
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-
-## **Εφαρμογή Εσωτερικής Σκιάς σε Σχήματα**
-Ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε ένα αντίγραφο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation). 
-2. Αποκτήστε μια αναφορά της διαφάνειας. 
-3. Προσθέστε ένα AutoShape τύπου Rectangle. 
-4. Ενεργοποιήστε το InnerShadowEffect. 
-5. Ορίστε όλες τις απαραίτητες παραμέτρους. 
-6. Ορίστε το ColorType ως Scheme. 
-7. Ορίστε το Scheme Color. 
-8. Αποθηκεύστε την παρουσίαση ως αρχείο [PPTX](https://docs.fileformat.com/presentation/pptx/). 
-
-Αυτός ο δείγμα κώδικα (βάσει των παραπάνω βημάτων) δείχνει πώς να προσθέσετε ένα σύνδεσμο μεταξύ δύο σχημάτων σε C++:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// Λάβετε την αναφορά μιας διαφάνειας
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// Προσθέστε ένα AutoShape τύπου Rectangle
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Προσθέστε TextFrame στο Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// Ενεργοποίηση InnerShadowEffect
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// Ορίστε όλες τις απαραίτητες παραμέτρους
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// Ορίστε ColorType ως Scheme
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// Ορίστε Scheme Color
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// Αποθηκεύστε την παρουσίαση
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
-
-## **Συχνές ερωτήσεις**
-
-**Μπορώ να χρησιμοποιήσω εφέ WordArt με διαφορετικές γραμματοσειρές ή αλφάβητα (π.χ. αραβικά, κινέζικα);**
-
-Ναι, το Aspose.Slides υποστηρίζει Unicode και λειτουργεί με όλες τις κύριες γραμματοσειρές και αλφάβητα. Τα εφέ WordArt όπως σκιά, γέμισμα και περιγράμματα μπορούν να εφαρμοστούν ανεξάρτητα από τη γλώσσα, αν και η διαθεσιμότητα της γραμματοσειράς και η απόδοση μπορεί να εξαρτώνται από τις γραμματοσειρές του συστήματος.
-
-**Μπορώ να εφαρμόσω εφέ WordArt σε στοιχεία του master των διαφανειών;**
-
-Ναι, μπορείτε να εφαρμόσετε εφέ WordArt σε σχήματα στις διαφάνειες master, συμπεριλαμβανομένων των placeholders τίτλου, υποσέλιδων ή κειμένου φόντου. Οι αλλαγές που γίνονται στη διάταξη του master θα αντικατοπτρίζονται σε όλες τις συνδεδεμένες διαφάνειες.
-
-**Επηρεάζουν τα εφέ WordArt το μέγεθος του αρχείου της παρουσίασης;**
-
-Λίγο. Εφέ WordArt όπως σκιές, λάμψεις και διαβαθμίσεις γεμίσματος μπορεί να αυξήσουν ελαφρά το μέγεθος του αρχείου λόγω πρόσθετων μεταδεδομένων μορφοποίησης, αλλά η διαφορά είναι συνήθως αμελητέα.
+Κάπως. Εφέ όπως σκιές, λάμψεις και διαβαθμισμένα γεμίσματα μπορεί να αυξήσουν ελαφρώς το μέγεθος του αρχείου λόγω πρόσθετων μεταδεδομένων μορφοποίησης, αλλά η διαφορά είναι συνήθως αμελητέα.
 
 **Μπορώ να προεπισκοπήσω το αποτέλεσμα των εφέ WordArt χωρίς να αποθηκεύσω την παρουσίαση;**
 
-Ναι, μπορείτε να αποδώσετε διαφάνειες που περιέχουν WordArt σε εικόνες (π.χ. PNG, JPEG) χρησιμοποιώντας τη μέθοδο `GetImage` από τις διεπαφές [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/) ή [ISlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/). Αυτό σας επιτρέπει να προεπισκοπήσετε το αποτέλεσμα στη μνήμη ή στην οθόνη πριν αποθηκεύσετε ή εξάγετε ολόκληρη την παρουσίαση.
+Ναι, μπορείτε να αποδώσετε διαφάνειες που περιέχουν WordArt σε εικόνες (π.χ., PNG, JPEG) χρησιμοποιώντας [ISlide::GetImage](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/getimage/), ή να αποδώσετε μεμονωμένα σχήματα μέσω [IShape::GetImage](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/getimage/). Αυτό σας επιτρέπει να δείτε το αποτέλεσμα στη μνήμη ή στην οθόνη πριν αποθηκεύσετε ή εξάγετε ολόκληρη την παρουσίαση.

@@ -1,5 +1,5 @@
 ---
-title: إنشاء وتطبيق تأثيرات WordArt في JavaScript
+title: إنشاء وتطبيق تأثيرات WordArt في Node.js
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,384 +10,385 @@ keywords:
 - قالب WordArt
 - تأثير WordArt
 - تأثير الظل
-- تأثير العرض
+- تأثير الانعكاس
 - تأثير التوهج
 - تحويل WordArt
 - تأثير ثلاثي الأبعاد
 - تأثير الظل الخارجي
 - تأثير الظل الداخلي
-- PowerPoint
-- عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides لـ Node.js. يوجهك هذا الدليل خطوة بخطوة لمساعدة المطورين على تحسين العروض التقديمية بنص احترافي."
+description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides لـ Node.js عبر Java. يقدّم هذا الدليل خطوة بخطوة للمطورين كيفية تحسين العروض التقديمية بالنص الاحترافي في Node.js."
 ---
+## **نظرة عامة**
 
-## **حول WordArt؟**
+تتيح لك تأثيرات WordArt تنسيق النص باستخدام التعبئة، والحدود، والظلال، والإنعكاسات، والتوهج، والتحولات، وتنسيق ثلاثي الأبعاد. تشرح هذه المقالة كيفية إنشاء وتخصيص هذه التأثيرات في عروض PowerPoint باستخدام Aspose.Slides لـ Node.js عبر Java، دون الحاجة إلى تثبيت Microsoft Office.
 
-WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك تحديد حدود للنص أو ملئه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد إليه، إلخ. يمكنك أيضًا إمالة النص، انحنائه، وتمديد شكل النص. 
+## **إنشاء قالب WordArt بسيط وتطبيقه على النص**
 
-{{% alert color="primary" %}} 
+الأمثلة التالية تبني نمط WordArt بسيط عن طريق ضبط النص، الخط، تعبئة النمط، والحد.
 
-WordArt يسمح لك بمعاملة النص كما تفعل مع كائن رسومي. بشكل عام، يتكون WordArt من تأثيرات أو تعديلات خاصة تُجرى على النصوص لجعلها أكثر جاذبية أو وضوحًا. 
+كل مثال ينشئ عرضًا تقديميًا جديدًا ويضيف مستطيلًا إلى شريحته الأولى؛ لا يلزم ملف إدخال. يضبط المثال الأول النص إلى "Aspose.Slides". يتم قياس موضع الشكل وأبعاده بالنقاط:
 
-{{% /alert %}} 
-
-**WordArt في Microsoft PowerPoint**
-
-لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد قوالب WordArt المعرفة مسبقًا. قالب WordArt هو مجموعة من التأثيرات التي تُطبق على نص أو على شكله. 
-
-**WordArt في Aspose.Slides**
-
-في Aspose.Slides for Node.js via Java 20.10، نفّذنا دعمًا لـ WordArt وأجرينا تحسينات على الميزة في الإصدارات اللاحقة من Aspose.Slides for Node.js via Java.
-
-مع Aspose.Slides for Node.js via Java، يمكنك بسهولة إنشاء قالب WordArt الخاص بك (تأثير واحد أو مجموعة من التأثيرات) في JavaScript وتطبيقه على النصوص.
-
-## **إنشاء نموذج WordArt بسيط وتطبيقه على نص**
-
-**استخدام Aspose.Slides** 
-
-أولاً، ننشئ نصًا بسيطًا باستخدام هذا الكود JavaScript:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    var textFrame = autoShape.getTextFrame();
-    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+
+    const portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الكود:
+ضبط الخط إلى Arial Black بحجم 36 نقطة لجعل التنسيق أكثر وضوحًا:
+
 ```javascript
-var fontData = new aspose.slides.FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
+تطبيق نمط [SmallGrid](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/patternstyle/#SmallGrid) مع لون أمامي برتقالي داكن وخلفية بيضاء، ثم إضافة حد نص أسود بسمك نقطة واحدة:
 
-**استخدام Microsoft PowerPoint**
-
-انتقل إلى قائمة تأثيرات WordArt في Microsoft PowerPoint:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-من القائمة على اليمين، يمكنك اختيار تأثير WordArt معرف مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات WordArt جديد. 
-
-هذه بعض المعلمات أو الخيارات المتاحة:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**استخدام Aspose.Slides**
-
-هنا، نطبق نمط اللون [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) على النص ونضيف حدًا نصيًا أسود بعرض 1 باستخدام هذا الكود:
 ```javascript
-portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
+    const darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
+
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+} finally {
+    presentation.dispose();
+}
+```
 
 النص الناتج:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![قالب WordArt البسيط](WordArt_template.png)
 
-## **تطبيق تأثيرات WordArt أخرى**
+## **تطبيق تأثيرات WordArt الأخرى**
 
-**استخدام Microsoft PowerPoint**
+الأمثلة التالية توضح كيفية تطبيق الظلال، الانعكاسات، التوهج، التحولات، وتأثيرات ثلاثية الأبعاد على النص.
 
-من فئة البرنامج، يمكنك تطبيق هذه التأثيرات على نص أو كتلة نص أو شكل أو عنصر مشابه:
+### **تطبيق تأثيرات الظل الخارجي**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+يضيف الظل الخارجي عمقًا عن طريق وضع ظل خلف النص. يمكنك تخصيص لونه، اتجاهه، مسافته، نصف قطر الضبابية، مقياسه، وزاوية الميل.
 
-على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ وتأثيرات تنسيق ثلاثي الأبعاد وتدوير ثلاثي الأبعاد على كتلة النص؛ ويمكن تطبيق خاصية الحواف الناعمة على كائن الشكل (لا يزال لها تأثير عندما لا يتم تعيين خاصية تنسيق ثلاثي الأبعاد). 
+هذا المثال يستدعي [enableOuterShadowEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effectformat/#enableOuterShadowEffect) ويضبط ظلًا أسود بنصف قطر ضبابية 4 نقاط، باتجاه 230 درجة، ومسافة 30 نقطة. قيم المقياس 100 تحافظ على حجم الظل، بينما يميل الميل الأفقي بزاوية 20 درجة. تحويل ألفا يحدد التعتيم إلى 32٪:
 
-### **تطبيق تأثيرات الظل**
-
-هنا، نهدف إلى ضبط الخصائص المتعلقة بالنص فقط. نطبق تأثير الظل على النص باستخدام هذا الكود في JavaScript:
 ```javascript
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.32);
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-
-يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow و InnerShadow و PresetShadow. 
-
-باستخدام PresetShadow، يمكنك تطبيق ظل للنص (باستخدام قيم مسبقة). 
-
-**استخدام Microsoft PowerPoint**
-
-في PowerPoint، يمكنك استخدام نوع واحد من الظل. إليك مثالًا:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**استخدام Aspose.Slides**
-
-في الواقع، يسمح Aspose.Slides لك بتطبيق نوعين من الظلال في آن واحد: InnerShadow و PresetShadow.
-
-**ملاحظات:**
-
-- عند استخدام OuterShadow و PresetShadow معًا، يتم تطبيق تأثير OuterShadow فقط. 
-- إذا تم استخدام OuterShadow و InnerShadow معًا، يعتمد التأثير الناتج أو المطبق على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير. ولكن في PowerPoint 2007، يُطبق تأثير OuterShadow. 
-
-### **تطبيق العرض على النصوص**
-
-نضيف عرضًا إلى النص من خلال هذا المثال في JavaScript:
-```javascript
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(aspose.slides.RectangleAlignment.BottomLeft);
-```
-
-
-### **تطبيق تأثير التوهج على النصوص**
-
-نطبق تأثير التوهج على النص لجعله يلمع أو يبرز باستخدام هذا الكود:
-```javascript
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-
-نتيجة العملية:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-يمكنك تغيير المعلمات للظل، العرض، والتوهج. تُضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
-
-{{% /alert %}} 
-
-### **استخدام التحويلات في WordArt**
-
-نستخدم خاصية Transform (الموجودة في الكتلة النصية بأكملها) من خلال هذا الكود:
-```javascript
-textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
-```
-
-
-النتيجة:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-توفر كل من Microsoft PowerPoint و Aspose.Slides for Node.js via Java عددًا محددًا من أنواع التحويلات المعرفة مسبقًا.
-
-{{% /alert %}} 
-
-**استخدام PowerPoint**
-
-للوصول إلى أنواع التحويلات المعرفة مسبقًا، انتقل عبر: **Format** -> **TextEffect** -> **Transform**
-
-**استخدام Aspose.Slides**
-
-لتحديد نوع التحويل، استخدم تعداد TextShapeType. 
-
-### **تطبيق تأثيرات ثلاثية الأبعاد على النصوص والأشكال**
-
-نضبط تأثيرًا ثلاثيًا الأبعاد على شكل نص باستخدام هذا الكود النموذجي:
-```javascript
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-autoShape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-autoShape.getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-autoShape.getThreeDFormat().setContourWidth(1.5);
-autoShape.getThreeDFormat().setDepth(3);
-autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-النص والشكل الناتجين:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-نطبق تأثيرًا ثلاثيًا الأبعاد على النص باستخدام هذا الكود JavaScript:
-```javascript
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-نتيجة العملية:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-تطبيق التأثيرات ثلاثية الأبعاد على النصوص أو أشكالها وتفاعل التأثيرات معًا يعتمد على قواعد معينة. 
-
-اعتبر مشهدًا للنص والشكل الذي يحتوي على ذلك النص. يحتوي تأثير ثلاثي الأبعاد على تمثيل كائن ثلاثي الأبعاد والمشهد الذي وضع فيه الكائن. 
-
-- عندما يتم تعيين المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى—يُتجاهل مشهد النص. 
-- عندما يفتقر الشكل إلى مشهد خاص به ولكن لديه تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص. 
-- وإلا—عندما لا يحتوي الشكل أصلاً على تأثير ثلاثي الأبعاد—يظل الشكل مسطحًا ويتم تطبيق التأثير ثلاثي الأبعاد فقط على النص. 
-
-هذه الأوصاف مرتبطة بالطرق ThreeDFormat.getLightRig() و ThreeDFormat.getCamera().
-
-{{% /alert %}} 
-
-## **تطبيق تأثير الظل الخارجي على النصوص**
-
-توفر Aspose.Slides for Node.js via Java فصول [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/) و [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/innershadow/) التي تسمح لك بتطبيق تأثيرات الظل على نص محمول بواسطة [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/). اتبع الخطوات التالية:
-
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation). 
-2. الحصول على مرجع الشريحة باستخدام فهرسها. 
-3. إضافة AutoShape من النوع Rectangle إلى الشريحة. 
-4. الوصول إلى TextFrame المرتبط بـ AutoShape. 
-5. ضبط FillType للـ AutoShape على NoFill. 
-6. إنشاء فئة OuterShadow. 
-7. تعيين BlurRadius للظل. 
-8. تعيين Direction للظل. 
-9. تعيين Distance للظل. 
-10. تعيين RectanglelAlign إلى TopLeft. 
-11. تعيين PresetColor للظل إلى Black. 
-12. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/). 
-
-هذا الكود النموذجي في Java—تنفيذ للخطوات أعلاه—يوضح كيفية تطبيق تأثير الظل الخارجي على نص:
-```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // احصل على مرجع الشريحة
-    var sld = pres.getSlides().get_Item(0);
-    // أضف AutoShape من نوع المستطيل
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // أضف TextFrame إلى المستطيل
-    ashp.addTextFrame("Aspose TextBox");
-    // عطّل تعبئة الشكل في حال أردنا الحصول على ظل النص
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // أضف ظلًا خارجيًا واضبط جميع المعلمات الضرورية
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    var shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
-    // اكتب العرض التقديمي إلى القرص
-    pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.32));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النص الناتج:
 
-## **تطبيق تأثير الظل الداخلي على الأشكال**
+![تأثير الظل الخارجي](outer_shadow_effect.png)
 
-اتبع الخطوات التالية:
+{{% alert color="info" title="Note" %}}
+- عند استخدام الظل الخارجي والظلال المسبقة معًا، يتم تطبيق الظل الخارجي فقط.
+- إذا تم استخدام الظل الخارجي والداخلي في آن واحد، يعتمد التأثير الناتج على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير، بينما في PowerPoint 2007 يتم تطبيق الظل الخارجي فقط.
+{{% /alert %}}
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation). 
-2. الحصول على مرجع الشريحة. 
-3. إضافة AutoShape من نوع Rectangle. 
-4. تمكين InnerShadowEffect. 
-5. ضبط جميع المعلمات اللازمة. 
-6. تعيين ColorType إلى Scheme. 
-7. تعيين Scheme Color. 
-8. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/). 
+### **تطبيق تأثيرات الانعكاس**
 
-هذا الكود (المستند إلى الخطوات أعلاه) يوضح كيفية إضافة موصل بين شكلين في JavaScript:
+ينشئ الانعكاس نسخة مرآة من النص. عدّل موضعه، مقياسه، ضبابيته، وتعتيمه للتحكم في مظهره.
+
+هذا المثال يستدعي [enableReflectionEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effectformat/#enableReflectionEffect) ويقلب الانعكاس عموديًا بمقياس -100٪. يستخدم نصف قطر ضبابية 0.5 نقطة ومسافة 4.72 نقطة. يتناقص التعتيم من 60٪ إلى 0.9٪ بين الموضعين 0٪ و60٪ على طول الانعكاس:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // احصل على مرجع الشريحة
-    var slide = pres.getSlides().get_Item(0);
-    // أضف AutoShape من نوع مستطيل
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // أضف TextFrame إلى المستطيل
-    ashp.addTextFrame("Aspose TextBox");
-    var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    var pf = port.getPortionFormat();
-    pf.setFontHeight(50);
-    // فعّل تأثير الظل الداخلي
-    var ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-    // عيّن جميع المعلمات الضرورية
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB(189);
-    // عيّن ColorType كـ Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // عيّن لون المخطط
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
-    // احفظ العرض التقديمي
-    pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(java.newFloat(0));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(java.newFloat(0.9));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.BottomLeft));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+النص الناتج:
+
+![تأثير الانعكاس](reflection_effect.png)
+
+### **تطبيق تأثيرات التوهج**
+
+يضيف التوهج حدًا ملونًا ناعمًا حول النص. عدّل لونه، تعتميه، ونصف قطره للتحكم في التأثير.
+
+هذا المثال يستدعي [enableGlowEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effectformat/#enableGlowEffect) ويطبق توهجًا أحمر بتعتيم 54٪ ونصف قطر 7 نقاط:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.54));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+النص الناتج:
+
+![تأثير التوهج](glow_effect.png)
+
+### **تطبيق تحولات WordArt**
+
+تحولات WordArt تُعَوج، تمدد أو تشوّه كتلة النص.
+
+اضبط [setTransform](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setTransform) إلى [ArchUpPour](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textshapetype/#ArchUpPour) لإقوس إطار النص بأكمله إلى الأعلى:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
+} finally {
+    presentation.dispose();
+}
+```
+
+النص الناتج:
+
+![تحويل WordArt](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides لـ Node.js عبر Java يوفر مجموعة من [أنواع التحويل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textshapetype/) المحددة مسبقًا.
+{{% /alert %}}
+
+### **تطبيق تأثيرات 3D على الأشكال والنص**
+
+يمكنك تطبيق تأثيرات 3D على شكل أو على نصه. تتحكم الحواف، البروز، الإضاءة، وإعدادات الكاميرا في المظهر النهائي.
+
+المثال التالي يستخدم [ThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/) لإضافة حواف دائرية، بروز برتقالي، وحدود حمراء داكنة إلى المستطيل. تُقاس أبعاد الحافة، ارتفاع البروز، عرض الحد، والعمق بالنقاط. مادة بلاستيكية، إضاءة متوازنة تدور 40 درجة حول المحور Z، وكاميرا منظور تحدد مظهره:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+الشكل الناتج:
+
+![تأثير الشكل ثلاثي الأبعاد](shape_3D_effect.png)
+
+هذا المثال يطبق تنسيق 3D مشابه للنص عبر [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). الحواف الصغيرة تُشكل حواف الأحرف، بينما يمنح البروز والإضاءة النص عمقًا:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+النص الناتج:
+
+![تأثير النص ثلاثي الأبعاد](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+تطبيق تأثيرات 3D على النص أو أشكاله—والتفاعل بين هذه التأثيرات—يحكمه قواعد محددة. اعتبر مشهدًا يضم النص والشكل الذي يحتويه. يتضمن تأثير 3D تمثيلًا ثلاثيًا للجسم والمشهد الذي يُوضع فيه.
+
+- إذا تم تعيين مشهد لكل من الشكل والنص، يُعطى أولوية لمشهد الشكل وتُهمل مشهد النص.
+- إذا كان الشكل لا يملك مشهدًا خاصًا لكنه يحتوي تمثيلًا ثلاثيًا، يُستخدم مشهد النص.
+- إذا لم يكن لدى الشكل أي تأثير 3D، يُعامل كمسطح، ويُطبق تأثير 3D فقط على النص.
+
+هذه السلوكيات تتعلق بطريقتي [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/#getLightRig) و[ThreeDFormat.getCamera](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/#getCamera).
+{{% /alert %}}
+
+للحفاظ على النص مسطحًا وقابلًا للقراءة مع الحفاظ على تنسيق 3D للشكل، راجع [Keep Text Flat on a 3D Shape](/slides/ar/nodejs-java/3d-presentation/) للمقارنة بين الإعدادين ومثال JavaScript كامل.
 
 ## **FAQ**
 
-**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو نصوص مختلفة (مثل العربية أو الصينية)؟**
+**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو أنظمة كتابة مختلفة (مثل العربية أو الصينية)؟**
 
-نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخط وعرضه قد يعتمد على خطوط النظام.
+نعم، Aspose.Slides لـ Node.js عبر Java يدعم Unicode ويعمل مع جميع الخطوط والأنظمة الكتابية الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، على الرغم من أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
 
-**هل يمكنني تطبيق تأثيرات WordArt على عناصر شريحة القالب (master)؟**
+**هل يمكنني تطبيق تأثيرات WordArt على عناصر شريحة القالب الرئيسي؟**
 
-نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في شرائح القالب، بما في ذلك نُسخ العناوين، التذييلات، أو النص الخلفي. ستنعكس التغييرات التي تُجرى على تخطيط القالب على جميع الشرائح المرتبطة.
+نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في شرائح القالب الرئيسي، بما في ذلك عناصر العنوان، التذييل، أو النص الخلفي. سيُعكس أي تعديل تُجريّه على تخطيط القالب على جميع الشرائح المرتبطة.
 
-**هل تؤثر تأثيرات WordArt على حجم ملف العرض التقديمي؟**
+**هل تؤثر تأثيرات WordArt على حجم ملف العرض؟**
 
-قليلًا. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئة التدرجات من حجم الملف قليلًا بسبب إضافة بيانات تنسيق، إلا أن الفارق عادةً ما يكون ضئيلًا.
+تؤثر بشكل طفيف. قد تزيد تأثيرات WordArt مثل الظلال، التوهجات، وتعبئات التدرج حجم الملف قليلًا بسبب إضافة بيانات التنسيق، لكن الفارق عادة ما يكون ضئيلًا.
 
-**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض التقديمي؟**
+**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض؟**
 
-نعم، يمكنك تصيير الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `getImage` من فئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) أو [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض التقديمي بالكامل.
+نعم، يمكنك تصيير الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام [Slide.getImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/#getImage)، أو تصيير الأشكال الفردية باستخدام [Shape.getImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getImage). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض كاملاً.

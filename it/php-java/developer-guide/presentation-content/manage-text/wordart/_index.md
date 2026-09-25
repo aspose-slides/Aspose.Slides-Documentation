@@ -1,5 +1,5 @@
 ---
-title: Crea e applica effetti WordArt in PHP
+title: Crea e Applica Effetti WordArt in PHP
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,365 +10,407 @@ keywords:
 - modello WordArt
 - effetto WordArt
 - effetto ombra
-- effetto visualizzazione
+- effetto riflesso
 - effetto bagliore
 - trasformazione WordArt
 - effetto 3D
 - effetto ombra esterna
 - effetto ombra interna
-- PowerPoint
-- presentazione
 - PHP
 - Aspose.Slides
-description: "Crea e personalizza gli effetti WordArt in Aspose.Slides per PHP tramite Java. Questa guida passo passo aiuta gli sviluppatori a migliorare le presentazioni con testo professionale."
+description: "Crea e personalizza gli effetti WordArt in Aspose.Slides per PHP via Java. Questa guida passo passo aiuta gli sviluppatori a migliorare le presentazioni con testo professionale in PHP."
 ---
 ## **Panoramica**
 
-Gli effetti WordArt consentono di aggiungere testo stilizzato e visivamente attraente alle presentazioni PowerPoint. Con Aspose.Slides, gli sviluppatori possono creare, personalizzare e gestire programmaticamente WordArt proprio come in Microsoft PowerPoint, senza necessità di installare Office. Questo articolo fornisce una panoramica sul lavoro con WordArt, includendo come applicare trasformazioni del testo, stili di riempimento, contorni, ombre e altre opzioni di formattazione per rendere il contenuto della presentazione più espressivo e coinvolgente. WordArt permette di trattare il testo come un oggetto grafico. Consiste in effetti o modifiche speciali applicate al testo per renderlo più attraente o evidente.
+Le effetti WordArt ti consentono di formattare il testo con riempimenti, contorni, ombre, riflessi, bagliore, trasformazioni e formattazione 3D. Questo articolo spiega come creare e personalizzare questi effetti nelle presentazioni PowerPoint utilizzando Aspose.Slides per PHP via Java, senza l'installazione di Microsoft Office.
 
-## **Crea un modello WordArt semplice e applicalo al testo**
+## **Crea un semplice modello WordArt e applicalo al testo**
 
-**Utilizzando Aspose.Slides** 
+Gli esempi seguenti creano uno stile WordArt semplice impostando il testo, il carattere, il riempimento a trama e il contorno.
 
-Prima, creiamo un testo semplice usando questo codice PHP:
+Ogni esempio crea una nuova presentazione e aggiunge un rettangolo alla sua prima diapositiva; non è richiesto alcun file di input. Il primo esempio imposta il testo su "Aspose.Slides". La posizione e le dimensioni della forma sono misurate in punti:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
     $textFrame = $autoShape->getTextFrame();
+
     $portion = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->setText("Aspose.Slides");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-Ora, impostiamo l’altezza del carattere del testo a un valore più grande per rendere l’effetto più evidente tramite questo codice:
-
-```php
-  $fontData = new FontData("Arial Black");
-  $portion->getPortionFormat()->setLatinFont($fontData);
-  $portion->getPortionFormat()->setFontHeight(36);
-
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Utilizzando Microsoft PowerPoint**
-
-Vai al menu degli effetti WordArt in Microsoft PowerPoint:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-Dal menu a destra, è possibile scegliere un effetto WordArt predefinito. Dal menu a sinistra, è possibile specificare le impostazioni per un nuovo WordArt. 
-
-Questi sono alcuni dei parametri o opzioni disponibili:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Utilizzando Aspose.Slides**
-
-Qui, applichiamo il colore di pattern [SmallGrid](https://reference.aspose.com/slides/it/php-java/aspose.slides/patternstyle/#SmallGrid) al testo e aggiungiamo un bordo nero di larghezza 1 al testo usando questo codice:
+Imposta il carattere su Arial Black a 36 punti per rendere la formattazione più evidente:
 
 ```php
-  $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle->SmallGrid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Applica un modello [SmallGrid](https://reference.aspose.com/slides/it/php-java/aspose.slides/patternstyle/#SmallGrid) con un primo piano arancione scuro e uno sfondo bianco, poi aggiungi un contorno nero al testo con una larghezza di 1 punto:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor($darkOrange);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::SmallGrid);
+
+    $portion->getPortionFormat()->getLineFormat()->setWidth(1);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 Il testo risultante:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Il semplice modello WordArt](WordArt_template.png)
 
 ## **Applica altri effetti WordArt**
 
-**Utilizzando Microsoft PowerPoint**
+Gli esempi seguenti dimostrano come applicare ombre, riflessi, bagliore, trasformazioni e effetti 3D al testo.
 
-Dall’interfaccia del programma, è possibile applicare questi effetti a un testo, blocco di testo, forma o elemento simile:
+### **Applica effetti di ombra esterna**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Un'ombra esterna aggiunge profondità posizionando un'ombra dietro il testo. Puoi personalizzare il suo colore, direzione, distanza, raggio di sfocatura, scala e inclinazione.
 
-Ad esempio, gli effetti Ombra, Riflesso e Bagliore possono essere applicati a un testo; gli effetti Formato 3D e Rotazione 3D possono essere applicati a un blocco di testo; la proprietà Bordi morbidi può essere applicata a un oggetto Forma (ha ancora effetto quando non è impostata la proprietà Formato 3D). 
-
-### **Applica effetti Ombra**
-
-Qui, intendiamo impostare le proprietà relative solo a un testo. Applichiamo l’effetto ombra a un testo usando questo codice :
+Questo esempio chiama [enableOuterShadowEffect](https://reference.aspose.com/slides/it/php-java/aspose.slides/effectformat/#enableOuterShadowEffect--) e imposta un'ombra nera con un raggio di sfocatura di 4 punti, una direzione di 230 gradi e una distanza di 30 punti. I valori di scala 100 mantengono le dimensioni dell'ombra, mentre l'inclinazione orizzontale la ruota di 20 gradi. La trasformazione alfa imposta l'opacità al 32%:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(65);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4.73);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(2);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(30);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.32);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(30);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(20);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.32);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-L’API Aspose.Slides supporta tre tipi di ombre: OuterShadow, InnerShadow e PresetShadow. 
+Il testo risultante:
 
-Con PresetShadow, è possibile applicare un’ombra a un testo (usando valori predefiniti). 
+![L'effetto Ombra Esterna](outer_shadow_effect.png)
 
-**Utilizzando Microsoft PowerPoint**
+{{% alert color="info" title="Note" %}}
+- Quando vengono usate insieme ombre esterne e preset, viene applicata solo l'ombra esterna.
+- Se ombre esterne e interne vengono utilizzate simultaneamente, l'effetto risultante dipende dalla versione di PowerPoint. Per esempio, in PowerPoint 2013 l'effetto è raddoppiato, mentre in PowerPoint 2007 viene applicata solo l'ombra esterna.
+{{% /alert %}}
 
-In PowerPoint, è possibile utilizzare un solo tipo di ombra. Ecco un esempio:
+### **Applica effetti di riflessione**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+Una riflessione crea una copia specchiata del testo. Regola la sua posizione, scala, sfocatura e opacità per controllarne l'aspetto.
 
-**Utilizzando Aspose.Slides**
-
-Aspose.Slides consente effettivamente di applicare due tipi di ombre contemporaneamente: InnerShadow e PresetShadow.
-
-**Note:**
-
-- Quando OuterShadow e PresetShadow vengono usati insieme, viene applicato solo l’effetto OuterShadow. 
-- Se OuterShadow e InnerShadow vengono usati simultaneamente, l’effetto risultante o applicato dipende dalla versione di PowerPoint. Ad esempio, in PowerPoint 2013, l’effetto viene raddoppiato. Ma in PowerPoint 2007, viene applicato l’effetto OuterShadow. 
-
-### **Applica effetti Riflesso al testo**
-
-Aggiungiamo il riflesso al testo con questo esempio di codice :
+Questo esempio chiama [enableReflectionEffect](https://reference.aspose.com/slides/it/php-java/aspose.slides/effectformat/#enableReflectionEffect--) e capovolge verticalmente la riflessione con una scala del -100%. Usa un raggio di sfocatura di 0,5 punti e una distanza di 4,72 punti. L'opacità diminuisce dal 60% allo 0,9% tra le posizioni 0% e 60% lungo la riflessione:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->BottomLeft);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\RectangleAlignment;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment::BottomLeft);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Applica effetti Bagliore al testo**
+Il testo risultante:
 
-Applichiamo l’effetto bagliore al testo per farlo brillare o risaltare usando questo codice:
+![L'effetto Riflesso](reflection_effect.png)
+
+### **Applica effetti di bagliore**
+
+Un bagliore aggiunge un delicato contorno colorato attorno al testo. Regola il suo colore, opacità e raggio per controllare l'effetto.
+
+Questo esempio chiama [enableGlowEffect](https://reference.aspose.com/slides/it/php-java/aspose.slides/effectformat/#enableGlowEffect--) e applica un bagliore rosso con opacità del 54% e un raggio di 7 punti:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.54);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setColor(java("java.awt.Color")->RED);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.54);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Il risultato dell'operazione:
+Il testo risultante:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![L'effetto Bagliore](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **Applica trasformazioni WordArt**
 
-È possibile modificare i parametri per ombra, riflesso e bagliore. Le proprietà degli effetti vengono impostate separatamente per ogni porzione del testo. 
+Le trasformazioni WordArt piegano, stirano o deformano un blocco di testo.
 
-{{% /alert %}} 
-
-### **Usa trasformazioni in WordArt**
-
-Utilizziamo la proprietà Transform (presente nell’intero blocco di testo) con questo codice:
-```php
-  $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
-
-```
-
-Il risultato:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Sia Microsoft PowerPoint sia Aspose.Slides per PHP via Java offrono un certo numero di tipi di trasformazione predefiniti.
-
-{{% /alert %}} 
-
-**Utilizzando PowerPoint**
-
-Per accedere ai tipi di trasformazione predefiniti, vai su: **Formato** -> **Effetto testo** -> **Trasforma**
-
-**Utilizzando Aspose.Slides**
-
-Per selezionare un tipo di trasformazione, usa l’enumerazione TextShapeType. 
-
-### **Applica effetti 3D a testo e forme**
-
-Impostiamo un effetto 3D a una forma di testo usando questo codice di esempio:
+Imposta [setTransform](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#setTransform-int-) su [ArchUpPour](https://reference.aspose.com/slides/it/php-java/aspose.slides/textshapetype/#ArchUpPour) per curvare il riquadro di testo verso l'alto:
 
 ```php
-  $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
-  $autoShape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $autoShape->getThreeDFormat()->setExtrusionHeight(6);
-  $autoShape->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $autoShape->getThreeDFormat()->setContourWidth(1.5);
-  $autoShape->getThreeDFormat()->setDepth(3);
-  $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+    $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Il testo risultante e la sua forma:
+Il testo risultante:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![La trasformazione WordArt](transform_effect.png)
 
-Applichiamo un effetto 3D al testo con questo codice PHP:
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for PHP via Java fornisce un insieme di [tipi di trasformazione](https://reference.aspose.com/slides/it/php-java/aspose.slides/textshapetype/) predefiniti.
+{{% /alert %}}
+
+### **Applica effetti 3D a forme e testo**
+
+Puoi applicare effetti 3D a una forma o al suo testo. Smussature, estrusione, illuminazione e impostazioni della fotocamera controllano l'aspetto risultante.
+
+L'esempio seguente utilizza [ThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/) per aggiungere smussature circolari, estrusione arancione e un contorno rosso scuro al rettangolo. Le dimensioni della smussatura, l'altezza dell'estrusione, la larghezza del contorno e la profondità sono misurate in punti. Un materiale plastico, illuminazione bilanciata ruotata di 40 gradi attorno all'asse Z, e una fotocamera prospettica ne definiscono l'aspetto:
 
 ```php
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $autoShape->getTextFrame()->setText("Aspose.Slides");
+
+    $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
+
+    $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
+    $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $autoShape->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $autoShape->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $autoShape->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $autoShape->getThreeDFormat()->setContourWidth(1.5);
+
+    $autoShape->getThreeDFormat()->setDepth(3);
+
+    $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Il risultato dell'operazione:
+La forma risultante:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![L'effetto 3D della forma](shape_3D_effect.png)
 
-{{% alert color="primary" %}} 
-
-L’applicazione di effetti 3D a testi o alle loro forme e le interazioni tra gli effetti si basano su alcune regole. 
-
-Considera una scena per un testo e la forma che contiene quel testo. L’effetto 3D contiene la rappresentazione dell’oggetto 3D e la scena su cui l’oggetto è stato posizionato. 
-
-- Quando la scena è impostata sia per la figura che per il testo, la scena della figura ha priorità più alta—la scena del testo viene ignorata. 
-- Quando la figura non ha una propria scena ma ha rappresentazione 3D, viene usata la scena del testo. 
-- Altrimenti—quando la forma originariamente non ha effetto 3D—la forma è piatta e l’effetto 3D viene applicato solo al testo. 
-
-Queste descrizioni sono collegate ai metodi ThreeDFormat.getLightRig() e ThreeDFormat.getCamera(). 
-
-{{% /alert %}} 
-
-## **Applica effetti Ombra Esterna al testo**
-Aspose.Slides per PHP via Java fornisce le classi [OuterShadow](https://reference.aspose.com/slides/it/php-java/aspose.slides/outershadow/) e [InnerShadow](https://reference.aspose.com/slides/it/php-java/aspose.slides/innershadow/) che consentono di applicare effetti ombra a un testo contenuto in [TextFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/). Segui questi passaggi:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Ottieni il riferimento di una diapositiva usando il suo indice.
-3. Aggiungi un AutoShape di tipo Rettangolo alla diapositiva.
-4. Accedi al TextFrame associato all'AutoShape.
-5. Imposta il FillType dell'AutoShape su NoFill.
-6. Istanzia la classe OuterShadow
-7. Imposta il BlurRadius dell’ombra.
-8. Imposta la Direction dell’ombra
-9. Imposta la Distance dell’ombra.
-10. Imposta il RectanglelAlign su TopLeft.
-11. Imposta il PresetColor dell’ombra su Black.
-12. Salva la presentazione come file [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-
-Questo codice di esempio —un'implementazione dei passaggi sopra—mostra come applicare l’effetto ombra esterna a un testo:
+Questo esempio applica una formattazione 3D simile al testo tramite [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#getThreeDFormat--). Smussature più piccole modellano i bordi delle lettere, mentre l'estrusione e l'illuminazione conferiscono profondità al testo:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Ottieni il riferimento della diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Aggiungi un AutoShape di tipo Rettangolo
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Aggiungi TextFrame al Rettangolo
-    $ashp->addTextFrame("Aspose TextBox");
-    # Disabilita il riempimento della forma nel caso volessi ottenere l'ombra del testo
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Aggiungi ombra esterna e imposta tutti i parametri necessari
-    $ashp->getEffectFormat()->enableOuterShadowEffect();
-    $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
-    $shadow->setBlurRadius(4.0);
-    $shadow->setDirection(45);
-    $shadow->setDistance(3);
-    $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
-    $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    # Scrivi la presentazione su disco
-    $pres->save("pres_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Applica effetti Ombra Interna alle forme**
-Segui questi passaggi:
+Il testo risultante:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
-2. Ottieni un riferimento della diapositiva.
-3. Aggiungi un AutoShape di tipo Rettangolo.
-4. Abilita InnerShadowEffect.
-5. Imposta tutti i parametri necessari.
-6. Imposta il ColorType su Scheme.
-7. Imposta il colore Scheme.
-8. Salva la presentazione come file [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+![L'effetto 3D del testo](text_3D_effect.png)
 
-Questo codice di esempio (basato sui passaggi sopra) mostra come aggiungere un connettore tra due forme :
+{{% alert color="info" title="Note" %}}
+L'applicazione di effetti 3D al testo o alle loro forme — e l'interazione tra questi effetti — è regolata da regole specifiche. Considera una scena che coinvolge sia il testo sia la forma che lo contiene. Un effetto 3D include la rappresentazione 3D dell'oggetto e la scena in cui è collocato.
 
-```php
-  $pres = new Presentation();
-  try {
-    # Ottieni il riferimento della diapositiva
-    $slide = $pres->getSlides()->get_Item(0);
-    # Aggiungi un AutoShape di tipo Rettangolo
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Aggiungi TextFrame al Rettangolo
-    $ashp->addTextFrame("Aspose TextBox");
-    $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $pf = $port->getPortionFormat();
-    $pf->setFontHeight(50);
-    # Abilita InnerShadowEffect
-    $ef = $pf->getEffectFormat();
-    $ef->enableInnerShadowEffect();
-    # Imposta tutti i parametri necessari
-    $ef->getInnerShadowEffect()->setBlurRadius(8.0);
-    $ef->getInnerShadowEffect()->setDirection(90.0);
-    $ef->getInnerShadowEffect()->setDistance(6.0);
-    $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # Imposta ColorType come Scheme
-    $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # Imposta il colore Scheme
-    $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    # Salva la presentazione
-    $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+- Se una scena è impostata sia per la forma sia per il testo, la scena della forma ha la precedenza e quella del testo viene ignorata.
+- Se la forma non ha una propria scena ma possiede una rappresentazione 3D, viene utilizzata la scena del testo.
+- Se la forma non ha alcun effetto 3D, viene trattata come piatta e l'effetto 3D viene applicato solo al testo.
 
-## **FAQ**
+Questi comportamenti si riferiscono ai metodi [ThreeDFormat::getLightRig](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getLightRig--) e [ThreeDFormat::getCamera](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getCamera--).
+{{% /alert %}}
 
-**Posso utilizzare gli effetti WordArt con caratteri o script diversi (es. arabo, cinese)?**
+Per ulteriori esempi di formattazione 3D, vedi [Crea effetti 3D nelle presentazioni usando PHP](/slides/it/php-java/3d-presentation/).
 
-Sì, Aspose.Slides supporta Unicode e funziona con tutti i principali caratteri e script. Gli effetti WordArt come ombra, riempimento e contorno possono essere applicati indipendentemente dalla lingua, sebbene la disponibilità dei caratteri e il rendering possano dipendere dai caratteri di sistema.
+## **Domande frequenti**
 
-**Posso applicare gli effetti WordArt agli elementi del master delle diapositive?**
+**Posso utilizzare gli effetti WordArt con diversi caratteri o script (ad esempio, arabo, cinese)?**
 
-Sì, è possibile applicare gli effetti WordArt alle forme nei master delle diapositive, inclusi i segnaposto del titolo, i piè di pagina o il testo di sfondo. Le modifiche apportate al layout master verranno riflesse su tutte le diapositive associate.
+Sì, Aspose.Slides per PHP via Java supporta Unicode e funziona con tutti i principali caratteri e script. Gli effetti WordArt come ombra, riempimento e contorno possono essere applicati indipendentemente dalla lingua, anche se la disponibilità dei caratteri e il rendering possono dipendere dai caratteri di sistema.
+
+**Posso applicare gli effetti WordArt agli elementi del master della diapositiva?**
+
+Sì, è possibile applicare gli effetti WordArt alle forme nelle diapositive master, inclusi segnaposti del titolo, piè di pagina o testo di sfondo. Le modifiche apportate al layout master verranno riflesse su tutte le diapositive associate.
 
 **Gli effetti WordArt influiscono sulla dimensione del file della presentazione?**
 
-Un po'. Gli effetti WordArt come ombre, bagliori e riempimenti sfumati possono aumentare leggermente la dimensione del file a causa dei metadati di formattazione aggiunti, ma la differenza è di solito trascurabile.
+Lieve. Gli effetti WordArt come ombre, bagliori e riempimenti sfumati possono aumentare leggermente la dimensione del file a causa dei metadati di formattazione aggiunti, ma la differenza è solitamente trascurabile.
 
 **Posso visualizzare in anteprima il risultato degli effetti WordArt senza salvare la presentazione?**
 
-Sì, è possibile renderizzare le diapositive contenenti WordArt in immagini (es. PNG, JPEG) usando il metodo `getImage` delle classi [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/) o [Slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/). Questo consente di visualizzare l’anteprima del risultato in memoria o sullo schermo prima di salvare o esportare l’intera presentazione.
+Sì, puoi renderizzare le diapositive contenenti WordArt in immagini (ad esempio PNG, JPEG) usando [Slide::getImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/#getImage--), oppure renderizzare singole forme usando [Shape::getImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#getImage--). Questo ti consente di visualizzare in anteprima il risultato in memoria o sullo schermo prima di salvare o esportare l'intera presentazione.

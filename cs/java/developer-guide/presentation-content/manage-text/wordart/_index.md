@@ -1,5 +1,5 @@
 ---
-title: Vytvořte a aplikujte WordArt efekty v Javě
+title: Vytvoření a aplikace WordArt efektů v Javě
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,385 +10,382 @@ keywords:
 - šablona WordArt
 - efekt WordArt
 - efekt stínu
-- efekt zobrazení
+- efekt odrazu
 - efekt záře
 - transformace WordArt
 - 3D efekt
 - efekt vnějšího stínu
 - efekt vnitřního stínu
-- PowerPoint
-- prezentace
 - Java
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte WordArt efekty v Aspose.Slides pro Javu. Tento podrobný návod pomáhá vývojářům vylepšit prezentace profesionálním textem v Javě."
+description: "Vytvořte a přizpůsobte WordArt efekty v Aspose.Slides pro Java. Tento krok za krokem průvodce pomáhá vývojářům vylepšit prezentace profesionálním textem v Javě."
 ---
 ## **Přehled**
 
-Efekty WordArt vám umožňují přidávat vizuálně atraktivní, stylizovaný text do vašich prezentací PowerPoint. S Aspose.Slides mohou vývojáři programově vytvářet, přizpůsobovat a spravovat WordArt stejně jako v Microsoft PowerPoint – aniž by bylo potřeba mít nainstalovaný Office. Tento článek poskytuje přehled práce s WordArt, včetně toho, jak aplikovat textové transformace, výplně, obrysy, stíny a další možnosti formátování, aby byl obsah vaší prezentace výražnější a poutavější. WordArt vám umožňuje zacházet s textem jako s grafickým objektem. Skládá se z efektů nebo speciálních úprav aplikovaných na text, aby byl atraktivnější nebo výraznější.
+Efekty WordArt vám umožňují stylizovat text pomocí výplní, obrysů, stínů, odrazů, záře, transformací a 3D formátování. Tento článek vysvětluje, jak vytvářet a přizpůsobovat tyto efekty v prezentacích PowerPoint pomocí Aspose.Slides pro Java, bez nainstalovaného Microsoft Office.
 
-## **Vytvoření jednoduché šablony WordArt a její použití na text**
+## **Vytvořte jednoduchou šablonu WordArt a použijte ji na text**
 
-**Použití Aspose.Slides** 
+Následující příklady vytvoří jednoduchý styl WordArt nastavením textu, písma, výplně vzorem a obrysu.
 
-Nejprve vytvoříme jednoduchý text pomocí tohoto Java kódu: 
+Každý příklad vytvoří novou prezentaci a přidá obdélník na její první snímek; není vyžadován žádný vstupní soubor. První příklad nastaví text na "Aspose.Slides". Pozice a rozměry tvaru jsou měřeny v bodech:
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-Nyní nastavíme výšku fontu textu na větší hodnotu, aby byl efekt viditelnější, pomocí tohoto kódu:
 
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+Nastavte písmo na Arial Black o velikosti 36 bodů, aby bylo formátování výraznější:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
-**Použití Microsoft PowerPoint**
+Použijte vzor [SmallGrid](https://reference.aspose.com/slides/cs/java/com.aspose.slides/patternstyle/#SmallGrid) s tmavě oranžovou popředím a bílým pozadím a poté přidejte černý obrys textu šířky 1 bod:
 
-Přejděte do nabídky efektů WordArt v Microsoft PowerPoint:
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
 
-![todo:image_alt_text](image-20200930113926-1.png)
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-V pravém menu můžete vybrat předdefinovaný efekt WordArt. V levém menu můžete specifikovat nastavení nového WordArt. 
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-Toto jsou některé z dostupných parametrů nebo možností:
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-![todo:image_alt_text](image-20200930114015-3.png)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    Color darkOrange = new Color(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-**Použití Aspose.Slides**
-
-Zde použijeme barvu vzoru [SmallGrid](https://reference.aspose.com/slides/cs/java/com.aspose.slides/PatternStyle#SmallGrid) na text a přidáme černý ohraničení textu o šířce 1 pomocí tohoto kódu:
-
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Výsledný text:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![The simple WordArt template](WordArt_template.png)
 
-## **Použití dalších efektů WordArt**
+## **Použijte další efekty WordArt**
 
-**Použití Microsoft PowerPoint**
+Následující příklady ukazují, jak použít stíny, odrazy, záři, transformace a 3D efekty na text.
 
-V rozhraní programu můžete tyto efekty aplikovat na text, textový blok, tvar nebo podobný prvek:
+### **Použijte efekty vnějšího stínu**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Vnější stín přidává hloubku umístěním stínu za text. Můžete přizpůsobit jeho barvu, směr, vzdálenost, poloměr rozostření, měřítko a zkosení.
 
-Například efekty Stín, Odraz a Záření lze aplikovat na text; efekty 3D Formát a 3D Rotace lze aplikovat na textový blok; vlastnost Měkké hrany lze aplikovat na objekt tvaru (stále má efekt, když není nastavena vlastnost 3D Formát).
-
-### **Aplikace stínových efektů**
-
-Zde zamýšlíme nastavit vlastnosti vztahující se pouze na text. Stínový efekt na text aplikujeme pomocí tohoto Java kódu:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-
-API Aspose.Slides podporuje tři typy stínů: OuterShadow, InnerShadow a PresetShadow. 
-
-S PresetShadow můžete na text aplikovat stín (použitím předdefinovaných hodnot). 
-
-**Použití Microsoft PowerPoint**
-
-V PowerPointu můžete použít jeden typ stínu. Zde je příklad:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Použití Aspose.Slides**
-
-Aspose.Slides ve skutečnosti umožňuje aplikovat dva typy stínů najednou: InnerShadow a PresetShadow.
-
-**Poznámky:**
-
-- Když jsou použity OuterShadow a PresetShadow společně, aplikuje se pouze efekt OuterShadow. 
-- Pokud jsou OuterShadow a InnerShadow použity současně, výsledný nebo aplikovaný efekt závisí na verzi PowerPointu. Například v PowerPointu 2013 se efekt zdvojnásobí. V PowerPointu 2007 se aplikuje efekt OuterShadow. 
-
-### **Aplikace zobrazení na texty**
-
-Přidáme zobrazení k textu pomocí tohoto ukázkového kódu v Javě:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-
-### **Aplikace efektu záře na texty**
-
-Použijeme efekt záře na text, aby vynikl nebo se leskl, pomocí tohoto kódu:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-Výsledek operace:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-Můžete změnit parametry pro stín, zobrazení a záři. Vlastnosti efektů se nastavují na každou část textu zvlášť. 
-
-{{% /alert %}} 
-
-### **Použití transformací ve WordArt**
-
-Použijeme vlastnost Transform (obsaženou v celém bloku textu) pomocí tohoto kódu:
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-
-Výsledek:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Jak Microsoft PowerPoint, tak Aspose.Slides pro Java poskytují určitý počet předdefinovaných typů transformací. 
-
-{{% /alert %}} 
-
-**Použití PowerPoint**
-
-Pro přístup k předdefinovaným typům transformací přejděte: **Formát** -> **TextEffect** -> **Transform**
-
-**Použití Aspose.Slides**
-
-Pro výběr typu transformace použijte výčet TextShapeType. 
-
-### **Aplikace 3D efektů na texty a tvary**
-
-Nastavíme 3D efekt na textový tvar pomocí tohoto ukázkového kódu:
-
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-Výsledný text a jeho tvar:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-Aplikujeme 3D efekt na text pomocí tohoto Java kódu:
-
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-Výsledek operace:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-Použití 3D efektů na texty nebo jejich tvary a interakce mezi efekty jsou založeny na určitých pravidlech.
-
-Zvažte scénu pro text a tvar, který text obsahuje. 3D efekt zahrnuje 3D reprezentaci objektu a scénu, na kterou je objekt umístěn.
-
-- Když je scéna nastavena jak pro tvar, tak pro text, má scéna tvaru vyšší prioritu – scéna textu je ignorována.
-- Když tvar nemá vlastní scénu, ale má 3D reprezentaci, použije se scéna textu.
-- Jinak – pokud tvar původně nemá 3D efekt – je tvar plochý a 3D efekt se aplikuje jen na text.
-
-Tyto popisy souvisejí s metodami ThreeDFormat.getLightRig() a ThreeDFormat.getCamera().
-
-{{% /alert %}} 
-
-## **Použití vnějšího stínu na texty**
-Aspose.Slides pro Java poskytuje třídy [**IOuterShadow**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ioutershadow/) a [**IInnerShadow**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iinnershadow/), které umožňují aplikovat stínové efekty na text obsažený v [TextFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textframe/). Proveďte následující kroky:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-2. Získejte referenci na snímek pomocí jeho indexu.
-3. Přidejte k snímku AutoShape typu Obdélník.
-4. Získejte přístup k TextFrame spojenému s AutoShape.
-5. Nastavte vlastnost FillType AutoShape na NoFill.
-6. Vytvořte instanci třídy OuterShadow.
-7. Nastavte BlurRadius stínu.
-8. Nastavte Direction (směr) stínu.
-9. Nastavte Distance (vzdálenost) stínu.
-10. Nastavte RectanglelAlign na TopLeft.
-11. Nastavte PresetColor stínu na Black.
-12. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
-
-Tento ukázkový kód v Javě — implementace výše uvedených kroků — ukazuje, jak aplikovat vnější stínový efekt na text:
+Tento příklad volá [enableOuterShadowEffect](https://reference.aspose.com/slides/cs/java/com.aspose.slides/effectformat/#enableOuterShadowEffect--) a nastaví černý stín s poloměrem rozostření 4 body, směrem 230 stupňů a vzdáleností 30 bodů. Hodnoty měřítka 100 zachovávají velikost stínu, zatímco horizontální zkosení jej naklání o 20 stupňů. Alfa transformace nastaví průhlednost na 32 %:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Získat referenci na snímek
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Přidat AutoShape typu Obdélník
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Přidat TextFrame k obdélníku
-    ashp.addTextFrame("Aspose TextBox");
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Zakázat výplň tvaru pro případ, že chceme získat stín textu
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // Přidat vnější stín a nastavit všechny potřebné parametry
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    //Uložit prezentaci na disk
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Použití vnitřního stínu na tvary**
-Proveďte následující kroky:
+Výsledný text:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-2. Získejte referenci na snímek.
-3. Přidejte AutoShape typu Obdélník.
-4. Povolte InnerShadowEffect.
-5. Nastavte všechny potřebné parametry.
-6. Nastavte ColorType na Scheme.
-7. Nastavte Scheme Color.
-8. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
+![The Outer Shadow effect](outer_shadow_effect.png)
 
-Tento ukázkový kód (na základě výše uvedených kroků) ukazuje, jak v Javě přidat spojku mezi dva tvary:
+{{% alert color="info" title="Note" %}}
+- Když jsou použity současně vnější a předdefinované stíny, použije se pouze vnější stín.
+- Pokud jsou současně použity vnější a vnitřní stíny, výsledek závisí na verzi PowerPointu. Například ve PowerPoint 2013 se efekt zdvojnásobí, zatímco ve PowerPoint 2007 se použije jen vnější stín.
+{{% /alert %}}
+
+### **Použijte efekty odrazu**
+
+Odraz vytvoří zrcadlovou kopii textu. Upravením jeho polohy, měřítka, rozostření a průhlednosti můžete ovládat jeho vzhled.
+
+Tento příklad volá [enableReflectionEffect](https://reference.aspose.com/slides/cs/java/com.aspose.slides/effectformat/#enableReflectionEffect--) a převrátí odraz vertikálně se škálou -100 %. Používá poloměr rozostření 0,5 bodu a vzdálenost 4,72 bodu. Průhlednost klesá z 60 % na 0,9 % mezi pozicemi 0 % a 60 % podél odrazu:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Získat referenci na snímek
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Přidat AutoShape typu Obdélník
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Přidat TextFrame k obdélníku
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Povolit InnerShadowEffect
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-
-    // Nastavit všechny potřebné parametry
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // Nastavit ColorType jako Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // Nastavit Scheme Color
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // Uložit prezentaci
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Často kladené dotazy**
+Výsledný text:
 
-**Mohu použít efekty WordArt s různými písmy nebo skripty (např. arabština, čínština)?**
+![The Reflection effect](reflection_effect.png)
 
-Ano, Aspose.Slides podporuje Unicode a funguje se všemi hlavními písmy a skripty. Efekty WordArt, jako jsou stín, výplň a obrys, lze aplikovat bez ohledu na jazyk, i když dostupnost fontů a jejich vykreslování může záviset na systémových fontech.
+### **Použijte efekty záře**
+
+Záře přidává kolem textu měkký barevný obrys. Přizpůsobením barvy, průhlednosti a poloměru můžete efekt řídit.
+
+Tento příklad volá [enableGlowEffect](https://reference.aspose.com/slides/cs/java/com.aspose.slides/effectformat/#enableGlowEffect--) a použije červenou záři s průhledností 54 % a poloměrem 7 bodů:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledný text:
+
+![The Glow effect](glow_effect.png)
+
+### **Použijte transformace WordArt**
+
+Transformace WordArt ohýbají, natahují nebo deformují blok textu.
+
+Nastavte [setTransform](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textframeformat/#setTransform-int-) na [ArchUpPour](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textshapetype/#ArchUpPour) pro zakřivení celého textového rámce směrem nahoru:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledný text:
+
+![The WordArt transformation](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides pro Java poskytuje sadu předdefinovaných [typů transformací](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textshapetype/).
+{{% /alert %}}
+
+### **Použijte 3D efekty na tvary a text**
+
+Můžete použít 3D efekty na tvar nebo na jeho text. Šikmé řezy, extruze, osvětlení a nastavení kamery řídí výsledný vzhled.
+
+Následující příklad používá [ThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/threedformat/) k přidání kulatých šikmých řezů, oranžové extruze a tmavě červeného obrysu k obdélníku. Rozměry šikmých řezů, výška extruze, šířka kontury a hloubka jsou měřeny v bodech. Plastický materiál, vyvážené osvětlení otočené o 40 ° kolem osy Z a perspektivní kamera definují jeho vzhled:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    Color orange = new Color(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledný tvar:
+
+![The shape 3D effect](shape_3D_effect.png)
+
+Tento příklad aplikuje podobné 3D formátování na text pomocí [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textframeformat/#getThreeDFormat--). Menší šikmé řezy tvarují okraje písmen, zatímco extruze a osvětlení dodávají textu hloubku:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    Color orange = new Color(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledný text:
+
+![The text 3D effect](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aplikace 3D efektů na text nebo jejich tvary — a interakce mezi těmito efekty — je řízena specifickými pravidly. Uvažujte scénu, která zahrnuje jak text, tak tvar, který jej obsahuje. 3D efekt zahrnuje 3D reprezentaci objektu a scénu, ve které je umístěn.
+
+- Pokud je scéna nastavena jak pro tvar, tak pro text, má prioritu scéna tvaru a scéna textu je ignorována.
+- Pokud tvar nemá vlastní scénu, ale má 3D reprezentaci, použije se scéna textu.
+- Pokud tvar vůbec nemá 3D efekt, je považován za plochý a 3D efekt se použije pouze na text.
+
+Tyto chování souvisejí s metodami [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/cs/java/com.aspose.slides/threedformat/#getLightRig--) a [ThreeDFormat.getCamera](https://reference.aspose.com/slides/cs/java/com.aspose.slides/threedformat/#getCamera--).
+{{% /alert %}}
+
+Chcete-li zachovat text plochý a čitelný při zachování 3D formátování svého tvaru, podívejte se na [Keep Text Flat on a 3D Shape](/slides/cs/java/3d-presentation/) pro srovnání obou nastavení a kompletní Java příklad.
+
+## **Často kladené otázky**
+
+**Mohu používat efekty WordArt s různými písmy nebo skripty (např. arabština, čínština)?**
+
+Ano, Aspose.Slides pro Java podporuje Unicode a funguje se všemi hlavními písmy a skripty. Efekty WordArt, jako jsou stín, výplň a obrys, lze použít bez ohledu na jazyk, i když dostupnost písma a vykreslování mohou záviset na systémových fontech.
 
 **Mohu aplikovat efekty WordArt na prvky master snímku?**
 
-Ano, můžete aplikovat efekty WordArt na tvary v master snímcích, včetně zástupců titulů, zápatí nebo textu na pozadí. Změny provedené v rozložení masteru se projeví ve všech přidružených snímcích.
+Ano, můžete aplikovat efekty WordArt na tvary v master snímcích, včetně zástupců titulků, zápatí nebo textu na pozadí. Změny provedené v rozložení masteru se projeví ve všech souvisejících snímcích.
 
 **Ovlivňují efekty WordArt velikost souboru prezentace?**
 
-Mírně. Efekty WordArt, jako jsou stíny, záře a gradientové výplně, mohou mírně zvětšit velikost souboru kvůli přidaným metadatům formátování, ale rozdíl je obvykle zanedbatelný.
+Mírně. Efekty WordArt, jako jsou stíny, záře a gradientové výplně, mohou mírně zvýšit velikost souboru kvůli přidaným metadatům formátování, ale rozdíl je obvykle zanedbatelný.
 
-**Mohu si prohlédnout výsledek efektů WordArt bez uložení prezentace?**
+**Mohu zobrazit náhled výsledku efektů WordArt bez uložení prezentace?**
 
-Ano, můžete vykreslit snímky obsahující WordArt do obrázků (např. PNG, JPEG) pomocí metody `getImage` z rozhraní [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/) nebo [ISlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islide/). To vám umožní náhled výsledku v paměti nebo na obrazovce před uložením či exportem celé prezentace.
+Ano, můžete vykreslovat snímky obsahující WordArt do obrázků (např. PNG, JPEG) pomocí [ISlide.getImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islide/#getImage--), nebo vykreslovat jednotlivé tvary pomocí [IShape.getImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getImage--). To vám umožní zobrazit náhled výsledku v paměti nebo na obrazovce před uložením nebo exportem celé prezentace.

@@ -1,382 +1,392 @@
 ---
-title: Android で WordArt 効果を作成および適用する
+title: AndroidでWordArtエフェクトを作成および適用する
 linktitle: WordArt
 type: docs
 weight: 110
 url: /ja/androidjava/wordart/
 keywords:
 - WordArt
-- WordArt の作成
-- WordArt テンプレート
-- WordArt 効果
-- 影効果
-- 表示効果
-- 発光効果
-- WordArt 変形
-- 3D 効果
-- 外部影効果
-- 内部影効果
-- PowerPoint
-- プレゼンテーション
+- WordArtの作成
+- WordArtテンプレート
+- WordArtエフェクト
+- 影エフェクト
+- 反射エフェクト
+- グローエフェクト
+- WordArt変形
+- 3Dエフェクト
+- 外部影エフェクト
+- 内部影エフェクト
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android で WordArt 効果を作成およびカスタマイズします。このステップバイステップガイドは、開発者が Java でプロフェッショナルなテキストを使用してプレゼンテーションを強化するのに役立ちます。"
+description: "Aspose.Slides for Android via Java で WordArt エフェクトを作成およびカスタマイズします。このステップバイステップガイドは、開発者が Android 上でプロフェッショナルなテキストを使用してプレゼンテーションを強化するのに役立ちます。"
 ---
+## **概要**
 
-## **WordArt とは？**
-WordArtまたはWord Artは、テキストに効果を適用して目立たせる機能です。WordArtを使えば、テキストの輪郭を付けたり、色（またはグラデーション）で塗りつぶしたり、3D効果を付与したりできます。また、テキストの形状を傾け、曲げ、伸ばすこともできます。 
+WordArt エフェクトを使用すると、テキストに塗り、アウトライン、影、反射、グロー、変形、3D 形式を適用して装飾できます。本記事では、Microsoft Office をインストールせずに、Aspose.Slides for Android via Java を使用して PowerPoint プレゼンテーションでこれらのエフェクトを作成およびカスタマイズする方法を説明します。
 
-{{% alert color="primary" %}} 
-WordArtはテキストをグラフィックオブジェクトのように扱うことができます。一般的に、WordArtはテキストをより魅力的または目立たせるために加える効果や特別な修飾の集合です。 
-{{% /alert %}} 
+## **シンプルな WordArt テンプレートを作成し、テキストに適用する**
 
-**Microsoft PowerPoint の WordArt**  
-Microsoft PowerPoint で WordArt を使用するには、あらかじめ定義された WordArt テンプレートのいずれかを選択する必要があります。WordArt テンプレートとは、テキストまたはその形状に適用される効果のセットです。 
+以下の例では、テキスト、フォント、パターン塗り、アウトラインを設定してシンプルな WordArt スタイルを構築します。
 
-**Aspose.Slides の WordArt**  
-Aspose.Slides for Android via Java 20.10 で WordArt のサポートを実装し、以降の Aspose.Slides for Android via Java リリースで機能を改善しました。  
-Aspose.Slides for Android via Java を使用すれば、Java で独自の WordArt テンプレート（単一の効果または複数効果の組み合わせ）を簡単に作成し、テキストに適用できます。
+各例は新しいプレゼンテーションを作成し、最初のスライドに長方形を追加します。入力ファイルは必要ありません。最初の例ではテキストを "Aspose.Slides" に設定します。形状の位置とサイズはポイント単位で測定されます。
 
-## **シンプルな WordArt テンプレートを作成しテキストに適用する**
+```java
+import com.aspose.slides.*;
 
-**Aspose.Slides の使用**  
-まず、以下の Java コードでシンプルなテキストを作成します。  
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-  
-次に、以下のコードでテキストのフォント高さを大きく設定し、効果を目立たせます。  
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
-```
 
+フォーマットをより目立たせるために、フォントを 36 ポイントの Arial Black に設定します：
 
-**Microsoft PowerPoint の使用**  
-Microsoft PowerPoint の WordArt 効果メニューを開きます：  
-
-![todo:image_alt_text](image-20200930113926-1.png)  
-
-右側のメニューから事前定義された WordArt 効果を選択できます。左側のメニューで新しい WordArt の設定を指定できます。  
-
-以下は利用可能なパラメータまたはオプションの一部です：  
-
-![todo:image_alt_text](image-20200930114015-3.png)  
-
-**Aspose.Slides の使用**  
-ここでは、テキストに [SmallGrid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternStyle#SmallGrid) パターン色を適用し、以下のコードで幅 1 の黒いテキスト枠線を追加します。  
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-```
-  
-
-結果のテキストは次のとおりです。  
-
-![todo:image_alt_text](image-20200930114108-4.png)  
-
-## **他の WordArt 効果の適用**
-
-**Microsoft PowerPoint の使用**  
-プログラムのインターフェイスから、テキスト、テキストブロック、図形、または同様の要素にこれらの効果を適用できます。  
-
-![todo:image_alt_text](image-20200930114129-5.png)  
-
-例えば、影、反射、発光効果はテキストに適用でき、3D 書式や 3D 回転効果はテキストブロックに適用できます。ソフトエッジ プロパティは図形オブジェクトに適用でき（3D 書式プロパティが設定されていなくても効果があります）。  
-
-### **影効果の適用**  
-ここではテキストのみのプロパティを設定することを目的とします。以下の Java コードでテキストに影効果を適用します。  
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-  
-
-Aspose.Slides API は、OuterShadow、InnerShadow、PresetShadow の 3 種類の影をサポートしています。  
-PresetShadow を使用すると、事前設定された値でテキストに影を適用できます。  
-
-**Microsoft PowerPoint の使用**  
-PowerPoint では影の種類は 1 つだけ使用できます。例を示します。  
-
-![todo:image_alt_text](image-20200930114225-6.png)  
-
-**Aspose.Slides の使用**  
-Aspose.Slides では実際に InnerShadow と PresetShadow の 2 種類の影を同時に適用できます。  
-
-※  
-- OuterShadow と PresetShadow を同時に使用すると、OuterShadow の効果だけが適用されます。  
-- OuterShadow と InnerShadow を同時に使用した場合、適用される効果は PowerPoint のバージョンに依存します。例えば、PowerPoint 2013 では効果が二重になり、PowerPoint 2007 では OuterShadow の効果が適用されます。  
-
-### **テキストへの反射効果の適用**  
-以下の Java サンプルコードでテキストに反射効果を追加します。  
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-  
-
-### **テキストへの発光効果の適用**  
-以下のコードでテキストに発光効果を適用し、光らせます。  
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-  
-
-操作の結果は次のとおりです。  
-
-![todo:image_alt_text](image-20200930114621-7.png)  
-
-{{% alert color="primary" %}} 
-影、反射、発光のパラメータは個別に変更できます。効果のプロパティはテキストの各部分に別々に設定されます。 
-{{% /alert %}} 
-
-### **WordArt の変形の使用**  
-以下のコードで Transform プロパティ（テキスト全体に適用）を使用します。  
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-  
-
-結果は次のとおりです。  
-
-![todo:image_alt_text](image-20200930114712-8.png)  
-
-{{% alert color="primary" %}} 
-Microsoft PowerPoint と Aspose.Slides for Android via Java の両方が、いくつかの事前定義された変形タイプを提供しています。 
-{{% /alert %}} 
-
-**PowerPoint の使用**  
-事前定義された変形タイプにアクセスするには、**Format** → **TextEffect** → **Transform** の順に進みます。  
-
-**Aspose.Slides の使用**  
-変形タイプを選択するには、TextShapeType 列挙体を使用します。  
-
-### **テキストと図形への 3D 効果の適用**  
-以下のサンプルコードでテキスト形状に 3D 効果を設定します。  
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-  
-
-結果のテキストと形状は次のとおりです。  
-
-![todo:image_alt_text](image-20200930114816-9.png)  
-
-以下の Java コードでテキストに 3D 効果を適用します。  
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-  
-
-操作の結果は次のとおりです。  
-
-![todo:image_alt_text](image-20200930114905-10.png)  
-
-{{% alert color="primary" %}} 
-3D 効果のテキストまたはその形状への適用と、効果間の相互作用は特定の規則に基づきます。
-
-テキストとそれを含む形状のシーンを考慮します。3D 効果は 3D オブジェクト表現とオブジェクトが配置されたシーンを含みます。
-
-- 図形とテキストの両方にシーンが設定されている場合、図形のシーンが優先され、テキストのシーンは無視されます。  
-- 図形に独自のシーンがなく 3D 表現がある場合、テキストのシーンが使用されます。  
-- それ以外で、元々図形に 3D 効果がない場合は図形は平面となり、3D 効果はテキストのみに適用されます。
-
-これらの説明は ThreeDFormat.getLightRig() と ThreeDFormat.getCamera() メソッドに関連しています。 
-{{% /alert %}} 
-
-## **テキストへの外部影効果の適用**
-Aspose.Slides for Android via Java は、テキストフレーム内のテキストに影効果を適用できる [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/) と [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iinnershadow/) クラスを提供します。以下の手順を実行します：
-
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. スライドに Rectangle タイプの AutoShape を追加します。  
-4. AutoShape に関連付けられた TextFrame にアクセスします。  
-5. AutoShape の FillType を NoFill に設定します。  
-6. OuterShadow クラスのインスタンスを作成します。  
-7. 影の BlurRadius を設定します。  
-8. 影の Direction を設定します。  
-9. 影の Distance を設定します。  
-10. RectanglelAlign を TopLeft に設定します。  
-11. 影の PresetColor を Black に設定します。  
-12. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。  
-
-このコードサンプルは、外部影効果をテキストに適用する方法を示しています：  
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // スライドの参照を取得
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプの AutoShape を追加
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Rectangle に TextFrame を追加
-    ashp.addTextFrame("Aspose TextBox");
-
-    // テキストの影を取得できるように形状の塗りつぶしを無効化
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // 外部影を追加し、必要なパラメータをすべて設定
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    // プレゼンテーションをディスクに保存
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-  
 
-## **図形への内部影効果の適用**
-以下の手順を実行します：
+ダークオレンジの前景色と白の背景色の [SmallGrid](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/patternstyle/#SmallGrid) パターンを適用し、幅 1 ポイントの黒いテキストアウトラインを追加します：
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. スライドの参照を取得します。  
-3. Rectangle タイプの AutoShape を追加します。  
-4. InnerShadowEffect を有効にします。  
-5. 必要なパラメータをすべて設定します。  
-6. ColorType を Scheme に設定します。  
-7. Scheme Color を設定します。  
-8. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。  
-
-このコードサンプルは、Java で 2 つの図形間にコネクタを追加する方法を示しています：  
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // スライドの参照を取得
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプの AutoShape を追加
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Rectangle に TextFrame を追加
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // InnerShadowEffect を有効化
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    int darkOrange = Color.rgb(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-    // 必要なパラメータをすべて設定
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // ColorType を Scheme に設定
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // Scheme カラーを設定
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // プレゼンテーションを保存
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-  
+
+結果のテキスト：
+
+![シンプルな WordArt テンプレート](WordArt_template.png)
+
+## **その他の WordArt エフェクトを適用する**
+
+以下の例では、テキストに影、反射、グロー、変形、3D エフェクトを適用する方法を示します。
+
+### **外部影エフェクトを適用する**
+
+外部影はテキストの背後に影を配置することで奥行きを加えます。その色、方向、距離、ぼかし半径、スケール、歪みをカスタマイズできます。
+
+この例では [enableOuterShadowEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effectformat/#enableOuterShadowEffect--) を呼び出し、ぼかし半径 4 ポイント、方向 230 度、距離 30 ポイントの黒い影を設定します。スケール値を 100 にすると影のサイズが維持され、水平歪みで 20 度傾けます。アルファ変換により不透明度は 32% に設定されます：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト：
+
+![外部影エフェクト](outer_shadow_effect.png)
+
+{{% alert color="info" title="Note" %}}
+- 外部影とプリセット影を同時に使用すると、外部影のみが適用されます。
+- 外部影と内部影を同時に使用した場合、結果のエフェクトは PowerPoint のバージョンに依存します。例えば、PowerPoint 2013 ではエフェクトが 2 倍になり、PowerPoint 2007 では外部影のみが適用されます。
+{{% /alert %}}
+
+### **反射エフェクトを適用する**
+
+反射はテキストの鏡像コピーを作成します。その位置、スケール、ぼかし、透明度を調整して外観を制御します。
+
+この例では [enableReflectionEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effectformat/#enableReflectionEffect--) を呼び出し、スケール -100% で垂直方向に反射を反転させます。ぼかし半径 0.5 ポイント、距離 4.72 ポイントを使用します。透明度は反射の位置 0% から 60% の間で 60% から 0.9% に減少します：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト：
+
+![反射エフェクト](reflection_effect.png)
+
+### **グローエフェクトを適用する**
+
+グローはテキストの周囲に柔らかい色のアウトラインを追加します。その色、透明度、半径を調整してエフェクトを制御します。
+
+この例では [enableGlowEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effectformat/#enableGlowEffect--) を呼び出し、54% の不透明度と半径 7 ポイントの赤いグローを適用します：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト：
+
+![グローエフェクト](glow_effect.png)
+
+### **WordArt 変形を適用する**
+
+WordArt の変形はテキストブロックを曲げたり、伸ばしたり、ねじったりします。
+
+[setTransform](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textframeformat/#setTransform-int-) を [ArchUpPour](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textshapetype/#ArchUpPour) に設定すると、テキストフレーム全体が上向きに曲がります：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト：
+
+![WordArt 変形](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Android via Java は、事前定義された [transformation types](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textshapetype/) のセットを提供します。
+{{% /alert %}}
+
+### **シェイプとテキストに 3D エフェクトを適用する**
+
+シェイプまたはそのテキストに 3D エフェクトを適用できます。ベベル、押し出し、照明、カメラ設定が結果の外観を制御します。
+
+以下の例では [ThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/threedformat/) を使用して、長方形に円形ベベル、オレンジの押し出し、濃い赤の輪郭を追加します。ベベルの寸法、押し出しの高さ、輪郭幅、深さはポイント単位で測定されます。プラスチック素材、Z 軸周りに 40 度回転したバランス照明、透視カメラが外観を定義します：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    int orange = Color.rgb(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のシェイプ：
+
+![シェイプ 3D エフェクト](shape_3D_effect.png)
+
+この例では [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textframeformat/#getThreeDFormat--) を使用してテキストにも同様の 3D 形式を適用します。小さなベベルが文字のエッジを形作り、押し出しと照明がテキストに奥行きを与えます：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    int orange = Color.rgb(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+結果のテキスト：
+
+![テキスト 3D エフェクト](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+テキストまたはシェイプに対する 3D エフェクトの適用と、これらエフェクト間の相互作用は、特定のルールに従います。テキストとそれを含むシェイプの両方が関与するシーンを考えてみてください。3D エフェクトはオブジェクトの 3D 表現と、そのオブジェクトが配置されるシーンを含みます。
+
+- シェイプとテキストの両方にシーンが設定されている場合、シェイプのシーンが優先され、テキストのシーンは無視されます。
+- シェイプに独自のシーンがなく 3D 表現だけがある場合、テキストのシーンが使用されます。
+- シェイプに 3D エフェクトが全くない場合、フラットとみなされ、3D エフェクトはテキストのみに適用されます。
+
+これらの動作は [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/threedformat/#getLightRig--) および [ThreeDFormat.getCamera](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/threedformat/#getCamera--) メソッドに関係しています。
+{{% /alert %}}
+
+テキストをフラットで読みやすく保ちつつシェイプの 3D 書式設定を保持するには、[Keep Text Flat on a 3D Shape](/slides/ja/androidjava/3d-presentation/) を参照して、両方の設定の比較と完全な Java サンプルをご覧ください。
 
 ## **FAQ**
 
-**異なるフォントやスクリプト（例: アラビア語、中文）でも WordArt 効果を使用できますか？**  
-はい、Aspose.Slides は Unicode をサポートしており、すべての主要なフォントとスクリプトで動作します。影、塗りつぶし、輪郭などの WordArt 効果は言語に関係なく適用できますが、フォントの可用性や描画はシステムフォントに依存する場合があります。
+**異なるフォントやスクリプト（例: アラビア語、中文）でも WordArt エフェクトを使用できますか？**
 
-**スライドマスターの要素にも WordArt 効果を適用できますか？**  
-はい、マスタースライド上の図形（タイトルプレースホルダー、フッター、背景テキストなど）に WordArt 効果を適用できます。マスターのレイアウトを変更すると、関連付けられたすべてのスライドに反映されます。
+はい、Aspose.Slides for Android via Java は Unicode をサポートしており、すべての主要なフォントとスクリプトで動作します。影、塗り、アウトラインなどの WordArt エフェクトは言語に関係なく適用できますが、フォントの利用可能性やレンダリングはシステムフォントに依存する場合があります。
 
-**WordArt 効果はプレゼンテーションのファイルサイズに影響しますか？**  
-やや影響します。影、発光、グラデーション塗りつぶしなどの効果は、追加の書式情報がメタデータとして保存されるため、ファイルサイズがわずかに増加しますが、通常は無視できる程度です。
+**スライドマスターの要素に WordArt エフェクトを適用できますか？**
 
-**プレゼンテーションを保存せずに WordArt 効果の結果をプレビューできますか？**  
-はい、[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) または [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) インターフェイスの `getImage` メソッドを使用して、WordArt を含むスライドを画像（PNG、JPEG など）にレンダリングできます。これにより、プレゼンテーション全体を保存またはエクスポートする前に、メモリ上または画面上で結果をプレビューできます。
+はい、マスタースライド上のシェイプ（タイトルプレースホルダー、フッター、背景テキストなど）に WordArt エフェクトを適用できます。マスターのレイアウトを変更すると、関連するすべてのスライドに反映されます。
+
+**WordArt エフェクトはプレゼンテーションのファイルサイズに影響しますか？**
+
+やや影響します。影、グロー、グラデーション塗りなどの WordArt エフェクトは、追加の書式設定メタデータによりファイルサイズをわずかに増加させる可能性がありますが、差は通常無視できる程度です。
+
+**プレゼンテーションを保存せずに WordArt エフェクトの結果をプレビューできますか？**
+
+はい、[ISlide.getImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/islide/#getImage--) を使用して WordArt を含むスライドを画像（例: PNG、JPEG）としてレンダリングしたり、[IShape.getImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getImage--) で個々のシェイプをレンダリングしたりできます。これにより、プレゼンテーション全体を保存またはエクスポートする前に、メモリ上または画面上で結果をプレビューできます。

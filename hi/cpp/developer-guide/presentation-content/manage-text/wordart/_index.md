@@ -1,141 +1,255 @@
 ---
-title: C++ में WordArt प्रभाव बनाएं और लागू करें
-linktitle: WordArt
+title: C++ में WordArt प्रभाव बनाना और लागू करना
+linktitle: वर्डआर्ट
 type: docs
 weight: 110
 url: /hi/cpp/wordart/
 keywords:
-- WordArt
-- WordArt बनाना
-- WordArt टेम्पलेट
-- WordArt प्रभाव
-- छाया प्रभाव
-- प्रदर्शन प्रभाव
+- वर्डआर्ट
+- वर्डआर्ट बनाएं
+- वर्डआर्ट टेम्पलेट
+- वर्डआर्ट प्रभाव
+- शैडो प्रभाव
+- रिफ्लेक्शन प्रभाव
 - ग्लो प्रभाव
-- WordArt ट्रांसफ़ॉर्मेशन
+- वर्डआर्ट ट्रांसफ़ॉर्मेशन
 - 3D प्रभाव
-- आउटर शैडो प्रभाव
-- इनर शैडो प्रभाव
-- PowerPoint
-- प्रस्तुति
+- बाहरी शैडो प्रभाव
+- आंतरिक शैडो प्रभाव
 - C++
 - Aspose.Slides
-description: "Aspose.Slides के लिए C++ में WordArt प्रभाव बनाएं और अनुकूलित करें। यह चरण-दर-चरण गाइड डेवलटर्स को C++ में पेशेवर टेक्स्ट के साथ प्रस्तुतियों को बेहतर बनाने में मदद करता है।"
+description: "Aspose.Slides for C++ में WordArt प्रभाव बनाएं और अनुकूलित करें। यह चरण-दर-चरण मार्गदर्शिका डेवलपर्स को C++ में पेशेवर टेक्स्ट के साथ प्रस्तुतियों को सुधारने में मदद करती है।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-WordArt प्रभाव आपको अपने PowerPoint प्रस्तुतियों में दृश्यात्मक रूप से आकर्षक, शैलीबद्ध टेक्स्ट जोड़ने की सुविधा देते हैं। Aspose.Slides के साथ, डेवलपर्स प्रोग्रामैटिक रूप से WordArt को बनाने, अनुकूलित करने और प्रबंधित करने में सक्षम होते हैं, बिलकुल Microsoft PowerPoint की तरह—बिना Office स्थापित किए। यह लेख WordArt के साथ काम करने का अवलोकन प्रदान करता है, जिसमें टेक्स्ट ट्रांसफ़ॉर्मेशन, फ़िल स्टाइल, आउटलाइन, शैडो और अन्य फ़ॉर्मेटिंग विकल्पों को लागू करना शामिल है, ताकि आपकी प्रस्तुति सामग्री अधिक अभिव्यक्तिपूर्ण और आकर्षक बन सके। WordArt आपको टेक्स्ट को एक ग्राफिकल ऑब्जेक्ट की तरह मानने देता है। यह टेक्स्ट पर लागू किए गए प्रभावों या विशेष संशोधनों से बनता है ताकि वह अधिक आकर्षक या ध्यान आकर्षित करने वाला बन सके।
+WordArt प्रभाव आपको टेक्स्ट को फ़िल, आउटलाइन्स, शैडो, रिफ्लेक्शन, ग्लो, ट्रांसफ़ॉर्मेशन और 3D फ़ॉर्मेटिंग के साथ स्टाइल करने देते हैं। यह लेख PowerPoint प्रेज़ेंटेशन में Aspose.Slides for C++ का उपयोग करके इन प्रभावों को बनाने और अनुकूलित करने का तरीका बताता है, बिना Microsoft Office स्थापित किए।
 
-## **एक सरल WordArt टेम्पलेट बनाएं और इसे टेक्स्ट पर लागू करें**
+## **एक साधारण WordArt टेम्पलेट बनाएं और इसे टेक्स्ट पर लागू करें**
 
-**Aspose.Slides का उपयोग करके** 
+निम्न उदाहरण टेक्स्ट, फ़ॉन्ट, पैटर्न फ़िल और आउटलाइन सेट करके एक साधारण WordArt शैली बनाते हैं।
 
-पहले, हम इस C++ कोड का उपयोग करके एक सरल टेक्स्ट बनाते हैं: 
+प्रत्येक उदाहरण एक नई प्रेज़ेंटेशन बनाता है और उसकी पहली स्लाइड पर एक आयत जोड़ता है; कोई इनपुट फ़ाइल आवश्यक नहीं है। पहला उदाहरण टेक्स्ट को "Aspose.Slides" सेट करता है। आकृति की स्थिति और आयाम पॉइंट्स में मापे जाते हैं:
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-अब, हम इस कोड के माध्यम से टेक्स्ट का फ़ॉन्ट आकार बड़ा रखते हैं ताकि प्रभाव अधिक स्पष्ट दिखे: 
+फ़ॉन्ट को Arial Black 36 पॉइंट पर सेट करें ताकि फ़ॉर्मेटिंग अधिक स्पष्ट दिखे:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Microsoft PowerPoint का उपयोग करके**
+एक [SmallGrid](https://reference.aspose.com/slides/hi/cpp/aspose.slides/patternstyle/) पैटर्न को डार्क ऑरेंज फ़ोरग्राउंड और सफेद बैकग्राउंड के साथ लागू करें, फिर 1 पॉइंट चौड़ाई वाला काला टेक्स्ट आउटलाइन जोड़ें:
 
-Microsoft PowerPoint में WordArt प्रभाव मेनू पर जाएं: 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-दाएँ मेनू से आप पूर्वनिर्धारित WordArt प्रभाव चुन सकते हैं। बाएँ मेनू से आप नए WordArt के लिए सेटिंग्स निर्धारित कर सकते हैं। 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-उपलब्ध पैरामीटर या विकल्पों में से कुछ यह हैं: 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**Aspose.Slides का उपयोग करके**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-यहाँ, हम SmallGrid पैटर्न रंग को टेक्स्ट पर लागू करते हैं और इस कोड के जरिए 1‑चौड़ाई का काला टेक्स्ट बॉर्डर जोड़ते हैं: 
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
-परिणामी टेक्स्ट: 
+परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![सरल WordArt टेम्पलेट](WordArt_template.png)
 
 ## **अन्य WordArt प्रभाव लागू करें**
 
-**Microsoft PowerPoint का उपयोग करके**
+निम्न उदाहरण शैडो, रिफ्लेक्शन, ग्लो, ट्रांसफ़ॉर्मेशन और 3D प्रभावों को टेक्स्ट पर लागू करने का प्रदर्शन करते हैं।
 
-प्रोग्राम के इंटरफ़ेस से आप इन प्रभावों को टेक्स्ट, टेक्स्ट ब्लॉक, आकार या समान तत्व पर लागू कर सकते हैं: 
+### **बाहरी शैडो प्रभाव लागू करें**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+एक बाहरी शैडो टेक्स्ट के पीछे शैडो रखकर गहराई जोड़ता है। आप इसका रंग, दिशा, दूरी, ब्लर रेडियस, स्केल और स्क्यू कस्टमाइज़ कर सकते हैं।
 
-उदाहरण के लिए, Shadow, Reflection और Glow प्रभाव टेक्स्ट पर लागू किए जा सकते हैं; 3D Format और 3D Rotation प्रभाव टेक्स्ट ब्लॉक पर लागू होते हैं; Soft Edges प्रॉपर्टी Shape ऑब्जेक्ट पर लागू हो सकती है (भले ही 3D Format प्रॉपर्टी सेट न हो)। 
+यह उदाहरण [EnableOuterShadowEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) को कॉल करता है और 4‑पॉइंट ब्लर रेडियस, 230‑डिग्री दिशा और 30‑पॉइंट दूरी वाला काला शैडो सेट करता है। स्केल मान 100 शैडो आकार को बरकरार रखते हैं, जबकि हॉरिज़ॉन्टल स्क्यू इसे 20 डिग्री झुकाता है। अल्फा ट्रांसफ़ॉर्म शैडो की अपारदर्शिता को 32 % सेट करता है:
 
-### **छाया प्रभाव टेक्स्ट पर लागू करें**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-यहाँ, हम केवल टेक्स्ट से संबंधित प्रॉपर्टी सेट करने का इरादा रखते हैं। हम इस C++ कोड के जरिए टेक्स्ट पर शैडो प्रभाव लागू करते हैं: 
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides API तीन प्रकार की शैडो का समर्थन करता है: OuterShadow, InnerShadow और PresetShadow। 
+परिणामी टेक्स्ट:
 
-PresetShadow के साथ, आप प्रीसेट मानों का उपयोग करके टेक्स्ट पर शैडो लागू कर सकते हैं। 
+![बाहरी शैडो प्रभाव](outer_shadow_effect.png)
 
-**Microsoft PowerPoint का उपयोग करके**
+{{% alert color="info" title="Note" %}}
+- जब बाहरी और प्रीसेट शैडो एक साथ उपयोग किए जाते हैं, तो केवल बाहरी शैडो लागू होता है।
+- यदि बाहरी और आंतरिक शैडो एक साथ उपयोग किए जाते हैं, तो परिणामशील प्रभाव PowerPoint संस्करण पर निर्भर करता है। उदाहरण के लिए, PowerPoint 2013 में प्रभाव दो गुना होता है, जबकि PowerPoint 2007 में केवल बाहरी शैडो लागू होता है।
+{{% /alert %}}
 
-PowerPoint में, आप केवल एक प्रकार की शैडो का उपयोग कर सकते हैं। यहाँ एक उदाहरण है: 
+### **रिफ्लेक्शन प्रभाव लागू करें**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+रिफ्लेक्शन टेक्स्ट की एक मिरर कॉपी बनाता है। उसकी स्थिति, स्केल, ब्लर और अपारदर्शिता को समायोजित करके दिखावट को नियंत्रित करें।
 
-**Aspose.Slides का उपयोग करके**
+यह उदाहरण [EnableReflectionEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) को कॉल करता है और रिफ्लेक्शन को वर्टिकली उल्टा करता है, स्केल -100 % सेट करता है। यह 0.5‑पॉइंट ब्लर रेडियस और 4.72‑पॉइंट दूरी का उपयोग करता है। अपारदर्शिता 0 % से 60 % तक स्थितियों 0 % से 60 % के बीच घटती है:
 
-Aspose.Slides वास्तव में एक साथ दो प्रकार की शैडो लागू करने की अनुमति देता है: InnerShadow और PresetShadow। 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
 
-**नोट्स:** 
+using namespace Aspose::Slides;
 
-- जब OuterShadow और PresetShadow एक साथ इस्तेमाल किए जाते हैं, तो केवल OuterShadow प्रभाव लागू होता है। 
-- यदि OuterShadow और InnerShadow एक साथ उपयोग किए जाते हैं, तो लागू होने वाला प्रभाव PowerPoint संस्करण पर निर्भर करता है। उदाहरण के लिए, PowerPoint 2013 में प्रभाव दुगना हो जाता है, जबकि PowerPoint 2007 में OuterShadow प्रभाव लागू होता है। 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **परावर्तन प्रभाव लागू करें**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-हम इस C++ कोड नमूने के माध्यम से टेक्स्ट में परावर्तन जोड़ते हैं: 
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-``` cpp 
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,57 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
+परिणामी टेक्स्ट:
+
+![रिफ्लेक्शन प्रभाव](reflection_effect.png)
+
 ### **ग्लो प्रभाव लागू करें**
 
-हम इस कोड का उपयोग करके टेक्स्ट पर ग्लो प्रभाव लगाते हैं ताकि वह चमके या प्रमुख दिखे: 
+ग्लो टेक्स्ट के चारों ओर एक नरम रंगीन आउटलाइन जोड़ता है। रंग, अपारदर्शिता और रेडियस को समायोजित करके प्रभाव को नियंत्रित करें।
 
-``` cpp 
+यह उदाहरण [EnableGlowEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ieffectformat/enablegloweffect/) को कॉल करता है और लाल ग्लो को 54 % अपारदर्शिता और 7 पॉइंट रेडियस के साथ लागू करता है:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-ऑपरेशन का परिणाम: 
+परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![ग्लो प्रभाव](glow_effect.png)
 
-{{% alert color="primary" %}} 
-आप शैडो, डिस्प्ले और ग्लो के पैरामीटर बदल सकते हैं। प्रभावों की प्रॉपर्टीज़ टेक्स्ट के प्रत्येक हिस्से पर अलग‑अलग सेट होती हैं। 
-{{% /alert %}} 
+### **WordArt ट्रांसफ़ॉर्मेशन लागू करें**
 
-### **WordArt में ट्रांसफ़ॉर्मेशन का उपयोग करें**
+WordArt ट्रांसफ़ॉर्मेशन टेक्स्ट के ब्लॉक को मोड़ते, खींचते या वॉर्प करते हैं।
 
-हम इस कोड के माध्यम से set_Transform मेथड (पूरे टेक्स्ट ब्लॉक पर लागू) का उपयोग करते हैं: 
+[ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_transform/) को [ArchUpPour](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textshapetype/) पर सेट करके पूरे टेक्स्ट फ़्रेम को ऊपर की ओर वक्रित करें:
 
-``` cpp 
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-परिणाम: 
+परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![WordArt ट्रांसफ़ॉर्मेशन](transform_effect.png)
 
-{{% alert color="primary" %}} 
-Microsoft PowerPoint और Aspose.Slides for C++ दोनों कुछ पूर्वनिर्धारित ट्रांसफ़ॉर्मेशन प्रकार प्रदान करते हैं। 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for C++ पूर्वनिर्धारित [ट्रांसफ़ॉर्मेशन प्रकार](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textshapetype/) का एक सेट प्रदान करता है।
+{{% /alert %}}
 
-**PowerPoint का उपयोग करके**
+### **आकारों और टेक्स्ट पर 3D प्रभाव लागू करें**
 
-प्रीडिफाइंड ट्रांसफ़ॉर्मेशन प्रकारों तक पहुंचने के लिए जाएँ: **Format** -> **TextEffect** -> **Transform** 
+आप आकार या उसके टेक्स्ट पर 3D प्रभाव लागू कर सकते हैं। बीवेल, एक्सट्रूज़न, लाइटिंग और कैमरा सेटिंग्स परिणामशील दिखावट को नियंत्रित करते हैं।
 
-**Aspose.Slides का उपयोग करके**
+निम्न उदाहरण [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) का उपयोग करके आयत में सर्कुलर बीवेल, नारंगी एक्सट्रूज़न और डार्क रेड कंटूर जोड़ता है। बीवेल आयाम, एक्सट्रूज़न ऊँचाई, कंटूर चौड़ाई और गहराई पॉइंट्स में मापी जाती हैं। प्लास्टिक मटेरियल, Z-अक्ष के चारों ओर 40 डिग्री घुमाई गई बैलेंस्ड लाइटिंग, और पर्सपेक्टिव कैमरा इसकी दिखावट को परिभाषित करते हैं:
 
-ट्रांसफ़ॉर्मेशन प्रकार चुनने के लिए TextShapeType एनाॅम का उपयोग करें। 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-### **टेक्स्ट और आकारों पर 3D प्रभाव लागू करें**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-हम इस नमूना कोड के साथ टेक्स्ट आकार पर 3D प्रभाव सेट करते हैं: 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -230,13 +422,43 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-परिणामी टेक्स्ट और उसका आकार: 
+परिणामी आकार:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![आकार 3D प्रभाव](shape_3D_effect.png)
 
-हम इस C++ कोड के साथ टेक्स्ट पर 3D प्रभाव लागू करते हैं: 
+यह उदाहरण [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/get_threedformat/) के माध्यम से टेक्स्ट पर समान 3D फ़ॉर्मेटिंग लागू करता है। छोटे बीवेल अक्षर किनारों को आकार देते हैं, जबकि एक्सट्रूज़न और लाइटिंग टेक्स्ट को गहराई प्रदान करते हैं:
 
-``` cpp 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -264,131 +486,36 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-ऑपरेशन का परिणाम: 
+परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![टेक्स्ट 3D प्रभाव](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
-टेक्स्ट या उनके आकारों पर 3D प्रभावों का प्रयोग और उनके बीच की इंटरैक्शन कुछ नियमों पर आधारित हैं। 
+{{% alert color="info" title="Note" %}}
+टेक्स्ट या उनके आकारों पर 3D प्रभावों का उपयोग—और इन प्रभावों के बीच की इंटरैक्शन—विशिष्ट नियमों द्वारा नियंत्रित होता है। दोनों टेक्स्ट और उसे समेटने वाले आकार को शामिल करने वाले एक सीन को विचार करें। एक 3D प्रभाव में ऑब्जेक्ट का 3D प्रतिनिधित्व और वह सीन शामिल होता है जिसमें वह रखा गया है।
 
-एक दृश्य (scene) को टेक्स्ट और उस टेक्स्ट को शामिल करने वाले आकार दोनों के लिए माना जाता है। 3D प्रभाव में 3D ऑब्जेक्ट प्रतिनिधित्व और वह दृश्य शामिल होता है जिस पर ऑब्जेक्ट रखा गया है। 
+- यदि सीन दोनों आकार और टेक्स्ट दोनों के लिए सेट किया गया है, तो आकार का सीन प्राथमिकता लेता है और टेक्स्ट का सीन अनदेखा किया जाता है।
+- यदि आकार का अपना सीन नहीं है लेकिन उसके पास 3D प्रतिनिधित्व है, तो टेक्स्ट का सीन उपयोग किया जाता है।
+- यदि आकार के पास बिल्कुल ही 3D प्रभाव नहीं है, तो इसे फ्लैट माना जाता है, और 3D प्रभाव केवल टेक्स्ट पर लागू किया जाता है।
 
-- जब दोनों आकार और टेक्स्ट के लिए दृश्य सेट किया जाता है, तो आकार का दृश्य उच्च प्राथमिकता लेता है—टेक्स्ट का दृश्य अनदेखा किया जाता है। 
-- जब आकार के पास अपना स्वयं का दृश्य नहीं होता लेकिन 3D प्रतिनिधित्व है, तो टेक्स्ट का दृश्य प्रयोग किया जाता है। 
-- अन्यथा—जब आकार में मूल रूप से कोई 3D प्रभाव नहीं होता—तो आकार समतल रहता है और 3D प्रभाव केवल टेक्स्ट पर लागू होता है। 
+ये व्यवहार [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_lightrig/) और [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_camera/) मेथड्स से संबंधित हैं।
+{{% /alert %}}
 
-ये विवरण ThreeDFormat.getLightRig() और ThreeDFormat.getCamera() मेथड्स से जुड़े हैं। 
-{{% /alert %}} 
+टेक्स्ट को सपाट और पठनीय रखने के साथ-साथ उसके आकार की 3D फ़ॉर्मेटिंग को बनाए रखने के लिए, दोनों सेटिंग्स की तुलना और एक पूर्ण C++ उदाहरण के लिए देखें [Keep Text Flat on a 3D Shape](/slides/hi/cpp/3d-presentation/)।
 
-## **आकारों पर आउटर शैडो प्रभाव लागू करें**
-Aspose.Slides for C++ [**IOuterShadow**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.effects.i_outer_shadow) और [**IInnerShadow**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.effects.i_inner_shadow) क्लास प्रदान करता है जो आपको TextFrame द्वारा धारण किए गए टेक्स्ट पर शैडो प्रभाव लागू करने देती हैं। इन चरणों का पालन करें: 
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का इंस्टेंस बनाएं। 
-2. उसके इंडेक्स का उपयोग करके स्लाइड का रेफरेंस प्राप्त करें। 
-3. स्लाइड में Rectangle प्रकार का AutoShape जोड़ें। 
-4. AutoShape से जुड़ा TextFrame एक्सेस करें। 
-5. AutoShape का FillType NoFill सेट करें। 
-6. OuterShadow क्लास का इंस्टेंस बनाएं। 
-7. शैडो का BlurRadius सेट करें। 
-8. शैडो की Direction सेट करें। 
-9. शैडो की Distance सेट करें। 
-10. RectanglelAlign को TopLeft सेट करें। 
-11. शैडो का PresetColor Black सेट करें। 
-12. प्रस्तुति को PPTX फ़ाइल के रूप में लिखें। 
+**क्या मैं WordArt प्रभावों को विभिन्न फॉन्ट्स या स्क्रिप्ट्स (जैसे अरबी, चीनी) के साथ उपयोग कर सकता हूँ?**
 
-यह C++ नमूना कोड—ऊपर दिए गए चरणों का कार्यान्वयन—दिखाता है कि कैसे टेक्स्ट पर आउटर शैडो प्रभाव लागू करें: 
+हाँ, Aspose.Slides for C++ यूनिकॉड का समर्थन करता है और सभी प्रमुख फॉन्ट्स एवं स्क्रिप्ट्स के साथ काम करता है। शैडो, फ़िल और आउटलाइन जैसी WordArt प्रभावें भाषा की परवाह किए बिना लागू की जा सकती हैं, हालांकि फॉन्ट उपलब्धता और रेंडरिंग सिस्टम फ़ॉन्ट्स पर निर्भर हो सकती है।
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// स्लाइड का रेफ़रेंस प्राप्त करें
-auto sld = pres->get_Slides()->idx_get(0);
+**क्या मैं स्लाइड मास्टर तत्वों पर WordArt प्रभाव लागू कर सकता हूँ?**
 
-// Rectangle प्रकार का AutoShape जोड़ें
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
+हाँ, आप मास्टर स्लाइड पर मौजूद आकारों, जैसे टाइटल प्लेसहोल्डर्स, फुटर या बैकग्राउंड टेक्स्ट पर WordArt प्रभाव लागू कर सकते हैं। मास्टर लेआउट में किए गए बदलाव सभी सम्बद्ध स्लाइड्स में परिलक्षित होंगे।
 
-// Rectangle में TextFrame जोड़ें
-ashp->AddTextFrame(u"Aspose TextBox");
+**क्या WordArt प्रभाव प्रस्तुति फ़ाइल आकार को प्रभावित करते हैं?**
 
-// टेक्स्ट की छाया प्राप्त करने के लिए शेप फ़िल को अक्षम करें
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
+हैं, लेकिन बहुत कम। शैडो, ग्लो और ग्रेडिएंट फ़िल जैसी WordArt प्रभावें कुछ अतिरिक्त फ़ॉर्मेटिंग मेटा डेटा जोड़ते हैं, जिससे फ़ाइल आकार थोड़ा बढ़ सकता है, परंतु अंतर सामान्यतः नगण्य रहता है।
 
-// आउटर शैडो जोड़ें और सभी आवश्यक पैरामीटर सेट करें
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
+**क्या मैं प्रस्तुति को सहेजे बिना WordArt प्रभावों का परिणाम प्रीव्यू कर सकता हूँ?**
 
-// प्रस्तुति को डिस्क पर सहेजें
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-## **आउटर शैडो प्रभाव को आकारों पर लागू करें**
-इन चरणों का पालन करें: 
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का इंस्टेंस बनाएं। 
-2. स्लाइड का रेफ़रेंस प्राप्त करें। 
-3. Rectangle प्रकार का AutoShape जोड़ें। 
-4. InnerShadowEffect को सक्षम करें। 
-5. सभी आवश्यक पैरामीटर सेट करें। 
-6. ColorType को Scheme सेट करें। 
-7. Scheme Color सेट करें। 
-8. प्रस्तुति को एक [PPTX](https://docs.fileformat.com/presentation/pptx/) फ़ाइल के रूप में लिखें। 
-
-यह C++ नमूना कोड (ऊपर दिए गए चरणों पर आधारित) दिखाता है कि कैसे दो आकारों के बीच एक कनेक्टर जोड़ें: 
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// स्लाइड का रेफ़रेंस प्राप्त करें
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// Rectangle प्रकार का AutoShape जोड़ें
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Rectangle में TextFrame जोड़ें
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// InnerShadowEffect सक्षम करें    
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// सभी आवश्यक पैरामीटर सेट करें
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// ColorType को Scheme के रूप में सेट करें
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// Scheme Color सेट करें
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// प्रेजेंटेशन सहेजें
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
-
-## **सामान्य प्रश्न**
-
-**क्या मैं WordArt प्रभाव विभिन्न फ़ॉन्ट या स्क्रिप्ट (जैसे Arabic, Chinese) के साथ उपयोग कर सकता हूँ?**  
-
-हाँ, Aspose.Slides Unicode का समर्थन करता है और सभी प्रमुख फ़ॉन्ट एवं स्क्रिप्ट के साथ काम करता है। Shadow, Fill, Outline आदि WordArt प्रभाव भाषा की परवाह किए बिना लागू किए जा सकते हैं, हालांकि फ़ॉन्ट की उपलब्धता और रेंडरिंग सिस्टम फ़ॉन्ट पर निर्भर हो सकती है।  
-
-**क्या मैं स्लाइड मास्टर तत्वों पर WordArt प्रभाव लागू कर सकता हूँ?**  
-
-हाँ, आप मास्टर स्लाइड पर स्थित आकारों, टाइटल प्लेसहोल्डर, फुटर या बैकग्राउंड टेक्स्ट पर WordArt प्रभाव लगा सकते हैं। मास्टर लेआउट में किए गए परिवर्तन सभी सम्बंधित स्लाइडों में प्रतिबिंबित होते हैं।  
-
-**क्या WordArt प्रभाव प्रस्तुति फ़ाइल के आकार को प्रभावित करते हैं?**  
-
-थोड़ा। Shadow, Glow, Gradient Fill जैसे प्रभाव फ़ॉर्मेटिंग मेटाडाटा जोड़ने के कारण फ़ाइल आकार में हल्का वृद्धि कर सकते हैं, लेकिन अंतर आमतौर पर नगण्य रहता है।  
-
-**क्या मैं WordArt प्रभाव का परिणाम सहेजे बिना पूर्वावलोकन कर सकता हूँ?**  
-
-हाँ, आप [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) या [ISlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/) इंटरफ़ेस की `GetImage` मेथड का उपयोग करके WordArt वाली स्लाइड को PNG, JPEG आदि छवियों में रेंडर कर सकते हैं। इससे आप पूर्ण प्रस्तुति को सहेजे या एक्सपोर्ट करने से पहले मेमोरी या स्क्रीन में परिणाम देख सकते हैं।
+हाँ, आप [ISlide::GetImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/getimage/) का उपयोग करके WordArt वाले स्लाइड को इमेज (जैसे PNG, JPEG) में रेंडर कर सकते हैं, या [IShape::GetImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/getimage/) से व्यक्तिगत आकार को इमेज में बदल सकते हैं। यह आपको पूरी प्रस्तुति को सेव या एक्सपोर्ट करने से पहले मेमोरी या स्क्रीन पर परिणाम का प्रीव्यू देखने की सुविधा देता है।

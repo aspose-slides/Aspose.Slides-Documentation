@@ -1,5 +1,5 @@
 ---
-title: สร้างและใช้เอฟเฟ็กต์ WordArt ใน C++
+title: สร้างและใช้เอฟเฟกต์ WordArt ใน C++
 linktitle: WordArt
 type: docs
 weight: 110
@@ -8,71 +8,131 @@ keywords:
 - WordArt
 - สร้าง WordArt
 - แม่แบบ WordArt
-- เอฟเฟ็กต์ WordArt
-- เอฟเฟ็กต์เงา
-- เอฟเฟ็กต์การแสดงผล
-- เอฟเฟ็กต์แสงเรืองแสง
+- เอฟเฟกต์ WordArt
+- เอฟเฟกต์เงา
+- เอฟเฟกต์การสะท้อน
+- เอฟเฟกต์แสงเรืองแสง
 - การแปลง WordArt
-- เอฟเฟ็กต์ 3 มิติ
-- เอฟเฟ็กต์เงานอก
-- เอฟเฟ็กต์เงาภายใน
-- PowerPoint
-- การนำเสนอ
+- เอฟเฟกต์ 3 มิติ
+- เอฟเฟกต์เงานอก
+- เอฟเฟกต์เงาภายใน
 - C++
 - Aspose.Slides
-description: "สร้างและปรับแต่งเอฟเฟ็กต์ WordArt ใน Aspose.Slides สำหรับ C++. คู่มือขั้นตอนต่อขั้นตอนนี้ช่วยนักพัฒนาเพิ่มประสิทธิภาพการนำเสนอด้วยข้อความมืออาชีพใน C++."
+description: "สร้างและปรับแต่งเอฟเฟกต์ WordArt ใน Aspose.Slides สำหรับ C++. คู่มือขั้นตอนนี้ช่วยให้นักพัฒนาปรับปรุงงานนำเสนอด้วยข้อความระดับมืออาชีพใน C++."
 ---
 ## **ภาพรวม**
 
-เอฟเฟ็กต์ WordArt ช่วยให้คุณเพิ่มข้อความที่มีรูปแบบสวยงามและน่ามองเข้าไปในงานนำเสนอ PowerPoint ของคุณ. ด้วย Aspose.Slides นักพัฒนาสามารถสร้าง ปรับแต่ง และจัดการ WordArt อย่างอัตโนมัติได้เช่นเดียวกับใน Microsoft PowerPoint — โดยไม่ต้องติดตั้ง Office. บทความนี้ให้ภาพรวมของการทำงานกับ WordArt รวมถึงวิธีการใช้การแปลงข้อความ, สไตล์การเติม, เส้นขอบ, เงา, และตัวเลือกการจัดรูปแบบอื่น ๆ เพื่อทำให้เนื้อหาการนำเสนอของคุณมีความแสดงออกและดึงดูดมากขึ้น. WordArt ทำให้คุณสามารถจัดการข้อความเป็นวัตถุกราฟิก. มันประกอบด้วยเอฟเฟ็กต์หรือการแก้ไขพิเศษที่นำไปใช้กับข้อความเพื่อทำให้ดูน่าสนใจหรือเด่นขึ้น.
+WordArt effects ช่วยให้คุณจัดรูปแบบข้อความด้วยการเติมสี, เส้นขอบ, เงา, การสะท้อน, แสงเรืองแสง, การแปลงรูปแบบ, และการจัดรูปแบบ 3 มิติ บทความนี้อธิบายวิธีสร้างและปรับแต่งเอฟเฟกต์เหล่านี้ในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for C++ โดยไม่ต้องติดตั้ง Microsoft Office
 
-## **สร้างเทมเพลต WordArt ง่ายและนำไปใช้กับข้อความ**
+## **สร้างแม่แบบ WordArt อย่างง่ายและนำไปใช้กับข้อความ**
 
-**การใช้ Aspose.Slides** 
+ตัวอย่างต่อไปนี้สร้างสไตล์ WordArt อย่างง่ายโดยกำหนดข้อความ, แบบอักษร, การเติมลวดลาย, และเส้นขอบ
 
-แรก, เราสร้างข้อความง่าย ๆ ด้วยโค้ด C++ นี้: 
+แต่ละตัวอย่างสร้างการนำเสนอใหม่และเพิ่มสี่เหลี่ยมผืนผ้าลงในสไลด์แรก; ไม่ต้องใช้ไฟล์อินพุต ตัวอย่างแรกกำหนดข้อความเป็น "Aspose.Slides" ตำแหน่งและขนาดของรูปร่างจะวัดเป็นหน่วยจุด:
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-ตอนนี้, เราตั้งค่าความสูงของฟอนต์ของข้อความให้ใหญ่ขึ้นเพื่อทำให้เอฟเฟ็กต์เด่นชัดขึ้นโดยใช้โค้ดนี้:
+ตั้งแบบอักษรเป็น Arial Black ขนาด 36 จุดเพื่อให้รูปแบบเด่นชัดขึ้น:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**การใช้ Microsoft PowerPoint**
+ใช้ลายแบบ [SmallGrid](https://reference.aspose.com/slides/th/cpp/aspose.slides/patternstyle/) ที่มีสีพื้นหน้าเป็นสีส้มเข้มและพื้นหลังสีขาว จากนั้นเพิ่มเส้นขอบข้อความสีดำที่ความกว้าง 1 จุด:
 
-ไปที่เมนูเอฟเฟ็กต์ WordArt ใน Microsoft PowerPoint:
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-จากเมนูทางขวา, คุณสามารถเลือกเอฟเฟ็กต์ WordArt ที่กำหนดล่วงหน้า. จากเมนูทางซ้าย, คุณสามารถระบุการตั้งค่าสำหรับ WordArt ใหม่.
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-นี่คือบางส่วนของพารามิเตอร์หรือ ตัวเลือกที่มีให้:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**การใช้ Aspose.Slides**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-ที่นี่, เราใช้สีแบบ SmallGrid pattern กับข้อความและเพิ่มขอบข้อความสีดำความกว้าง 1 โดยใช้โค้ดนี้:
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
@@ -80,62 +140,116 @@ lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 
 ข้อความที่ได้:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![The simple WordArt template](WordArt_template.png)
 
-## **ใช้เอฟเฟ็กต์ WordArt อื่น ๆ**
+## **ใช้เอฟเฟกต์ WordArt อื่นๆ**
 
-**การใช้ Microsoft PowerPoint**
+ตัวอย่างต่อไปนี้แสดงวิธีนำเอาเงา, การสะท้อน, แสงเรืองแสง, การแปลงรูปแบบ, และเอฟเฟกต์ 3 มิติ ไปใช้กับข้อความ
 
-จากอินเทอร์เฟซของโปรแกรม, คุณสามารถใช้เอฟเฟ็กต์เหล่านี้กับข้อความ, บล็อกข้อความ, รูปร่าง, หรือองค์ประกอบที่คล้ายกัน:
+### **ใช้เอฟเฟกต์เงานอก**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+เงานอกเพิ่มความลึกโดยวางเงาที่ด้านหลังข้อความ คุณสามารถปรับแต่งสี, ทิศทาง, ระยะทาง, รัศมีเบลอ, สเกล, และการเอียงของเงาได้
 
-ตัวอย่างเช่น, เอฟเฟ็กต์ Shadow, Reflection, และ Glow สามารถใช้กับข้อความ; เอฟเฟ็กต์ 3D Format และ 3D Rotation สามารถใช้กับบล็อกข้อความ; คุณสมบัติ Soft Edges สามารถใช้กับวัตถุ Shape (ยังคงทำงานแม้ไม่มีการตั้งค่า 3D Format).
+ตัวอย่างนี้เรียกใช้ [EnableOuterShadowEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) และตั้งค่าเงาสีดำที่มีรัศมีเบลอ 4 จุด, ทิศทาง 230 องศา, ระยะ 30 จุด ค่าสเกล 100 จะรักษาขนาดเงาไว้, ขณะที่การเอียงแนวนอนทำให้เงาเอียง 20 องศา การแปลงอัลฟ่า ตั้งค่าความทึบที่ 32%:
 
-### **ใช้เอฟเฟ็กต์เงากับข้อความ**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-ที่นี่, เราตั้งค่าคุณสมบัติเกี่ยวกับข้อความเท่านั้น. เราใช้เอฟเฟ็กต์เงากับข้อความโดยใช้โค้ด C++ นี้:
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides API รองรับประเภทเงา 3 ประเภท: OuterShadow, InnerShadow, และ PresetShadow.
+ข้อความที่ได้:
 
-ด้วย PresetShadow, คุณสามารถใช้เงาสำหรับข้อความ (โดยใช้ค่าที่กำหนดไว้แล้ว).
+![The Outer Shadow effect](outer_shadow_effect.png)
 
-**การใช้ Microsoft PowerPoint**
+{{% alert color="info" title="Note" %}}
+- เมื่อใช้เงานอกและเงาตั้งล่วงหน้าร่วมกัน จะใช้เฉพาะเงานอกเท่านั้น
+- หากใช้เงานอกและเงาภายในพร้อมกัน ผลลัพธ์จะขึ้นกับเวอร์ชันของ PowerPoint ตัวอย่างเช่น ใน PowerPoint 2013 เอฟเฟกต์จะถูกเพิ่มเป็นสองเท่า ในขณะที่ใน PowerPoint 2007 จะใช้เฉพาะเงานอกเท่านั้น
+{{% /alert %}}
 
-ใน PowerPoint, คุณสามารถใช้เงาแบบหนึ่งประเภทเท่านั้น. ตัวอย่างเช่น:
+### **ใช้เอฟเฟกต์การสะท้อน**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+การสะท้อนสร้างสำเนาแบบประทับของข้อความ ปรับตำแหน่ง, สเกล, เบลอ, และความทึบเพื่อควบคุมลักษณะการแสดงผล
 
-**การใช้ Aspose.Slides**
+ตัวอย่างนี้เรียกใช้ [EnableReflectionEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) และพลิกการสะท้อนในแนวตั้งโดยสเกล -100% ใช้รัศมีเบลอ 0.5 จุดและระยะ 4.72 จุด ความทึบลดลงจาก 60% ถึง 0.9% ระหว่างตำแหน่ง 0% ถึง 60% ของการสะท้อน:
 
-Aspose.Slides จริง ๆ แล้วอนุญาตให้คุณใช้เงาสองประเภทพร้อมกัน: InnerShadow และ PresetShadow.
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
 
-**หมายเหตุ:**
+using namespace Aspose::Slides;
 
-- เมื่อใช้ OuterShadow และ PresetShadow ร่วมกัน, จะใช้เฉพาะเอฟเฟ็กต์ OuterShadow เท่านั้น.
-- หากใช้ OuterShadow และ InnerShadow พร้อมกัน, ผลลัพธ์หรือเอฟเฟ็กต์ที่ใช้ขึ้นอยู่กับเวอร์ชันของ PowerPoint. ตัวอย่างเช่น, ใน PowerPoint 2013, เอฟเฟ็กต์จะเพิ่มเป็นสองเท่า. แต่ใน PowerPoint 2007, จะใช้เอฟเฟ็กต์ OuterShadow.
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **ใช้เอฟเฟ็กต์การสะท้อน**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-เราเพิ่มการสะท้อนให้กับข้อความผ่านตัวอย่างโค้ด C++ นี้:
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-``` cpp 
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,61 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **ใช้เอฟเฟ็กต์แสงเรืองแสง**
+ข้อความที่ได้:
 
-เรานำเอฟเฟ็กต์ Glow ไปใช้กับข้อความเพื่อทำให้ข้อความสว่างหรือโดดเด่นโดยใช้โค้ดนี้:
+![The Reflection effect](reflection_effect.png)
 
-``` cpp 
+### **ใช้เอฟเฟกต์แสงเรืองแสง**
+
+แสงเรืองแสงเพิ่มเส้นขอบสีอ่อนรอบข้อความ ปรับสี, ความทึบ, และรัศมีเพื่อควบคุมเอฟเฟกต์
+
+ตัวอย่างนี้เรียกใช้ [EnableGlowEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides/ieffectformat/enablegloweffect/) และใช้แสงเรืองแสงสีแดงที่ความทึบ 54% และรัศมี 7 จุด:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-ผลลัพธ์ของการดำเนินการ:
+ข้อความที่ได้:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![The Glow effect](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **ใช้การแปลง WordArt**
 
-คุณสามารถเปลี่ยนพารามิเตอร์สำหรับเงา, การแสดงผล, และ Glow. คุณสมบัติของเอฟเฟ็กต์จะถูกตั้งค่าที่แต่ละส่วนของข้อความแยกกัน. 
+การแปลง WordArt จะดัด, ยืด, หรือบิดบล็อกข้อความ
 
-{{% /alert %}} 
+ตั้งค่า [ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_transform/) เป็น [ArchUpPour](https://reference.aspose.com/slides/th/cpp/aspose.slides/textshapetype/) เพื่อโค้งกรอบข้อความทั้งหมดขึ้นด้านบน:
 
-### **ใช้การแปลงใน WordArt**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
 
-เราใช้เมธอด set_Transform (ทำงานทั่วบล็อกข้อความทั้งหมด) ผ่านโค้ดนี้:
+using namespace Aspose::Slides;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-ผลลัพธ์:
+ข้อความที่ได้:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![The WordArt transformation](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for C++ มีชุดของ [ประเภทการแปลง](https://reference.aspose.com/slides/th/cpp/aspose.slides/textshapetype/) ที่กำหนดล่วงหน้า
+{{% /alert %}}
 
-ทั้ง Microsoft PowerPoint และ Aspose.Slides สำหรับ C++ มีประเภทการแปลงที่กำหนดล่วงหน้าจำนวนหนึ่ง. 
+### **ใช้เอฟเฟกต์ 3 มิติกับรูปร่างและข้อความ**
 
-{{% /alert %}} 
+คุณสามารถนำเอฟเฟกต์ 3 มิติไปใช้กับรูปร่างหรือข้อความของมันได้ การทำบีเวิล, การดันออก, แสงสว่าง, และการตั้งค่ากล้องจะควบคุมลักษณะที่ได้
 
-**การใช้ PowerPoint**
+ตัวอย่างต่อไปนี้ใช้ [IThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/) เพื่อเพิ่มบีเวลแบบวงกลม, การดันออกสีส้ม, และเส้นขอบสีแดงเข้มให้กับสี่เหลี่ยมมิติ การวัดขนาดบีเวล, ความสูงการดันออก, ความกว้างเส้นขอบ, และความลึกทั้งหมดเป็นหน่วยจุด วัสดุพลาสติก, แสงสมดุลที่หมุน 40 องศารอบแกน Z, และกล้องแบบมุมมองทำให้รูปร่างมีลักษณะดังกล่าว:
 
-เพื่อเข้าถึงประเภทการแปลงที่กำหนดไว้ล่วงหน้า, ไปที่: **Format** -> **TextEffect** -> **Transform**
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-**การใช้ Aspose.Slides**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-เพื่อเลือกประเภทการแปลง, ใช้ enum TextShapeType. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **ใช้เอฟเฟ็กต์ 3 มิติกับข้อความและรูปทรง**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
 
-เราตั้งค่าเอฟเฟ็กต์ 3D ให้กับรูปทรงข้อความโดยใช้ตัวอย่างโค้ดนี้:
-
-``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -234,13 +422,43 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-ข้อความและรูปทรงที่ได้:
+รูปร่างที่ได้:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![The shape 3D effect](shape_3D_effect.png)
 
-เรานำเอฟเฟ็กต์ 3D ไปใช้กับข้อความด้วยโค้ด C++ นี้:
+ตัวอย่างนี้ใช้การจัดรูปแบบ 3 มิติที่คล้ายกันกับข้อความผ่าน [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/get_threedformat/). บีเวลขนาดเล็กทำให้ขอบตัวอักษรมีรูปร่าง, ส่วนการดันออกและแสงสว่างให้ข้อความมีความลึก:
 
-``` cpp 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -268,133 +486,36 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-ผลลัพธ์ของการดำเนินการ:
+ข้อความที่ได้:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![The text 3D effect](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+การใช้เอฟเฟกต์ 3 มิติกับข้อความหรือรูปร่างของมัน—และการโต้ตอบระหว่างเอฟเฟกต์เหล่านี้—ถูกกำหนดโดยกฎเฉพาะ พิจารณาฉากที่เกี่ยวข้องกับข้อความและรูปร่างที่บรรจุข้อความนั้น เอฟเฟกต์ 3 มิติรวมถึงการแสดงผล 3 มิติของวัตถุและฉากที่วัตถุตั้งอยู่
 
-การใช้เอฟเฟ็กต์ 3D กับข้อความหรือรูปทรงของข้อความและการโต้ตอบระหว่างเอฟเฟ็กต์นั้นอิงตามกฎบางประการ.
+- หากมีการกำหนดฉากทั้งสำหรับรูปร่างและข้อความ ฉากของรูปร่างจะมีลำดับความสำคัญก่อนและฉากของข้อความจะถูกละเลย
+- หากรูปร่างไม่มีฉากของตนเองแต่มีการแสดงผล 3 มิติ จะใช้ฉากของข้อความ
+- หากรูปร่างไม่มีเอฟเฟกต์ 3 มิติเลย จะถือว่าเป็นแบนและเอฟเฟกต์ 3 มิติจะใช้กับข้อความเท่านั้น
 
-พิจารณาซีนสำหรับข้อความและรูปทรงที่บรรจุข้อความนั้น. เอฟเฟ็กต์ 3D มีส่วนประกอบการแสดงวัตถุ 3D และซีนที่วัตถุถูกวางไว้.
+พฤติกรรมเหล่านี้สัมพันธ์กับเมธอด [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_lightrig/) และ [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_camera/) 
+{{% /alert %}}
 
-- เมื่อซีนถูกตั้งค่าสำหรับทั้งรูปร่างและข้อความ, ซีนของรูปร่างจะได้ลำดับความสำคัญสูงกว่า — ซีนของข้อความจะถูกละเว้น.
-- เมื่อรูปร่างไม่มีซีนของตนเองแต่มีการแสดงผล 3D, จะใช้ซีนของข้อความ.
-- มิฉะนั้น — เมื่อรูปทรงเดิมไม่มีเอฟเฟ็กต์ 3D — รูปทรงจะอยู่ในรูปแบบแบนและเอฟเฟ็กต์ 3D จะถูกนำไปใช้เฉพาะกับข้อความ.
+เพื่อให้ข้อความคงอยู่ในลักษณะแบนและอ่านง่ายพร้อมกับคงการจัดรูปแบบ 3 มิติของรูปร่าง ดูที่ [Keep Text Flat on a 3D Shape](/slides/th/cpp/3d-presentation/) เพื่อเปรียบเทียบการตั้งค่าทั้งสองและตัวอย่าง C++ ครบถ้วน
 
-คำอธิบายเหล่านี้เชื่อมโยงกับเมธอด ThreeDFormat.getLightRig() และ ThreeDFormat.getCamera(). 
+## **คำถามที่พบบ่อย**
 
-{{% /alert %}} 
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับฟอนต์หรือสคริปต์ที่ต่างกัน (เช่น อาหรับ, จีน) ได้หรือไม่?**
 
-## **ใช้เอฟเฟ็กต์เงานอกกับรูปทรง**
-Aspose.Slides สำหรับ C++ มีคลาส [**IOuterShadow**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.effects.i_outer_shadow) และ [**IInnerShadow**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.effects.i_inner_shadow) ที่อนุญาตให้คุณใช้เอฟเฟ็กต์เงากับข้อความที่อยู่ใน TextFrame. ทำตามขั้นตอนต่อไปนี้:
+ใช่, Aspose.Slides for C++ รองรับ Unicode และทำงานกับฟอนต์และสคริปต์หลักทั้งหมด เอฟเฟกต์ WordArt เช่น เงา, เติมสี, และเส้นขอบสามารถใช้ได้โดยไม่คำนึงถึงภาษา แม้ว่าการมีฟอนต์และการเรนเดอร์อาจพึ่งพาฟอนต์ระบบ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation) .
-2. ดึงอ้างอิงของสไลด์โดยใช้ดัชนีของมัน.
-3. เพิ่ม AutoShape ประเภท Rectangle ลงในสไลด์.
-4. เข้าถึง TextFrame ที่เชื่อมโยงกับ AutoShape.
-5. ตั้งค่า FillType ของ AutoShape เป็น NoFill.
-6. สร้างอินสแตนซ์ของคลาส OuterShadow.
-7. ตั้งค่า BlurRadius ของเงา.
-8. ตั้งค่า Direction ของเงา.
-9. ตั้งค่า Distance ของเงา.
-10. ตั้งค่า RectanglelAlign เป็น TopLeft.
-11. ตั้งค่า PresetColor ของเงาเป็น Black.
-12. บันทึกการนำเสนอเป็นไฟล์ PPTX.
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับองค์ประกอบในมาสเตอร์สไลด์ได้หรือไม่?**
 
-โค้ดตัวอย่างใน C++ — การดำเนินการตามขั้นตอนข้างต้น — แสดงวิธีใช้เอฟเฟ็กต์เงานอกกับข้อความ:
+ได้, คุณสามารถใช้เอฟเฟกต์ WordArt กับรูปร่างในมาสเตอร์สไลด์ รวมถึงตัวยาวหัวข้อ, พื้นล่าง, หรือข้อความพื้นหลัง การเปลี่ยนแปลงที่ทำในเค้าโครงมาสเตอร์จะสะท้อนไปยังสไลด์ที่เกี่ยวข้องทั้งหมด
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// รับอ้างอิงของสไลด์
-auto sld = pres->get_Slides()->idx_get(0);
+**เอฟเฟกต์ WordArt มีผลต่อขนาดไฟล์งานนำเสนอหรือไม่?**
 
-// เพิ่ม AutoShape ประเภท Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
+มีเล็กน้อย. เอฟเฟกต์ WordArt เช่น เงา, แสงเรืองแสง, และการเติมแบบไล่สีอาจทำให้ขนาดไฟล์เพิ่มขึ้นเล็กน้อยเนื่องจากเมตาดาต้าการจัดรูปแบบที่เพิ่มเข้ามา แต่ความแตกต่างมักไม่มีนัยสำคัญ
 
-// เพิ่ม TextFrame ลงใน Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
+**ฉันสามารถดูตัวอย่างผลของเอฟเฟกต์ WordArt ได้โดยไม่ต้องบันทึกงานนำเสนอหรือไม่?**
 
-// ปิดการเติมรูปทรงในกรณีที่เราต้องการเงาของข้อความ
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// เพิ่มเงานอกและตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// บันทึกการนำเสนอลงดิสก์
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-## **ใช้เอฟเฟ็กต์เงาภายในกับรูปทรง**
-ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation) .
-2. ดึงอ้างอิงของสไลด์.
-3. เพิ่ม AutoShape ประเภท Rectangle.
-4. เปิดใช้งาน InnerShadowEffect.
-5. ตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น.
-6. ตั้งค่า ColorType เป็น Scheme.
-7. ตั้งค่าสี Scheme.
-8. บันทึกการนำเสนอเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-
-โค้ดตัวอย่าง (อิงตามขั้นตอนข้างต้น) แสดงวิธีเพิ่มคอนเนคเตอร์ระหว่างสองรูปทรงใน C++:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// รับอ้างอิงของสไลด์
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// เพิ่ม AutoShape ประเภท Rectangle
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// เพิ่ม TextFrame ลงใน Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// เปิดใช้งาน InnerShadowEffect    
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// ตั้งค่าพารามิเตอร์ที่จำเป็นทั้งหมด
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// ตั้งค่า ColorType เป็น Scheme
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// ตั้งค่าสี Scheme
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// บันทึกการนำเสนอ
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
-
-## **FAQ**
-
-**สามารถใช้เอฟเฟ็กต์ WordArt กับฟอนต์หรือสคริปต์ที่แตกต่าง (เช่น Arabic, Chinese) ได้หรือไม่?**
-
-ได้, Aspose.Slides รองรับ Unicode และทำงานกับฟอนต์และสคริปต์หลักทั้งหมด. เอฟเฟ็กต์ WordArt เช่น เงา, การเติม, และเส้นขอบสามารถใช้ได้ไม่ว่าจะเป็นภาษาใด, แม้ว่า Availability ของฟอนต์และการแสดงผลอาจขึ้นอยู่กับฟอนต์ในระบบ.
-
-**สามารถใช้เอฟเฟ็กต์ WordArt กับองค์ประกอบของ Slide Master ได้หรือไม่?**
-
-ได้, คุณสามารถใช้เอฟเฟ็กต์ WordArt กับรูปร่างบนมาสเตอร์สไลด์, รวมถึง placeholder ของหัวเรื่อง, ส่วนล่าง, หรือข้อความพื้นหลัง. การเปลี่ยนแปลงในมาสเตอร์จะสะท้อนไปยังสไลด์ที่ใช้มาสเตอร์นั้นทั้งหมด.
-
-**เอฟเฟ็กต์ WordArt มีผลต่อขนาดไฟล์ของงานนำเสนอหรือไม่?**
-
-มีผลเล็กน้อย. เอฟเฟ็กต์ WordArt เช่น เงา, แสงเรืองแสง, และการเติมแบบไล่สีอาจเพิ่มขนาดไฟล์เล็กน้อยเนื่องจากเมตาดาต้าเพิ่มขึ้น, แต่ความแตกต่างมักไม่สำคัญ.
-
-**สามารถดูตัวอย่างผลของเอฟเฟ็กต์ WordArt โดยไม่บันทึกงานนำเสนอได้หรือไม่?**
-
-ได้, คุณสามารถเรนเดอร์สไลด์ที่มี WordArt เป็นภาพ (เช่น PNG, JPEG) โดยใช้เมธอด `GetImage` จากอินเตอร์เฟซ [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/) หรือ [ISlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/islide/) นี้ช่วยให้คุณดูผลลัพธ์ในหน่วยความจำหรือบนหน้าจอก่อนบันทึกหรือส่งออกงานนำเสนอเต็มรูปแบบ.
+ได้, คุณสามารถเรนเดอร์สไลด์ที่มี WordArt เป็นภาพ (เช่น PNG, JPEG) โดยใช้ [ISlide::GetImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/islide/getimage/), หรือเรนเดอร์รูปร่างเดี่ยวโดยใช้ [IShape::GetImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/getimage/). วิธีนี้ทำให้คุณดูตัวอย่างผลในหน่วยความจำหรือบนหน้าจอก่อนบันทึกหรือส่งออกงานนำเสนอเต็มรูปแบบ

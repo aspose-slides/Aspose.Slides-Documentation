@@ -1,394 +1,392 @@
 ---
-title: "สร้างและใช้เอฟเฟกต์ WordArt บน Android"
-linktitle: "WordArt"
+title: สร้างและใช้เอฟเฟกต์ WordArt บน Android
+linktitle: WordArt
 type: docs
 weight: 110
 url: /th/androidjava/wordart/
 keywords:
 - WordArt
 - สร้าง WordArt
-- แม่แบบ WordArt
+- เทมเพลต WordArt
 - เอฟเฟกต์ WordArt
 - เอฟเฟกต์เงา
-- เอฟเฟกต์การแสดงผล
-- เอฟเฟกต์แสงเรือง
+- เอฟเฟกต์การสะท้อน
+- เอฟเฟกต์แสงเรืองแสง
 - การแปลง WordArt
 - เอฟเฟกต์ 3D
-- เอฟเฟกต์เงาเด่นนอก
-- เอฟเฟกต์เงาใน
-- PowerPoint
-- การนำเสนอ
+- เอฟเฟกต์เงานอก
+- เอฟเฟกต์เงาภายใน
 - Android
 - Java
 - Aspose.Slides
-description: "สร้างและปรับแต่งเอฟเฟกต์ WordArt ใน Aspose.Slides สำหรับ Android คู่มือขั้นตอนนี้ช่วยให้นักพัฒนาปรับปรุงการนำเสนอด้วยข้อความระดับมืออาชีพใน Java."
+description: "สร้างและปรับแต่งเอฟเฟกต์ WordArt ใน Aspose.Slides สำหรับ Android ผ่าน Java คู่มือแบบทีละขั้นตอนนี้ช่วยนักพัฒนาเพิ่มคุณภาพการนำเสนอด้วยข้อความระดับมืออาชีพบน Android."
 ---
 ## **ภาพรวม**
 
-เอฟเฟกต์ WordArt ช่วยให้คุณเพิ่มข้อความที่มีสไตล์และดึงดูดสายตาในงานนำเสนอ PowerPoint ของคุณได้อย่างสวยงาม ด้วย Aspose.Slides นักพัฒนาสามารถสร้าง ปรับแต่ง และจัดการ WordArt ได้โดยอัตโนมัติ เหมือนกับใน Microsoft PowerPoint—โดยไม่ต้องติดตั้ง Office บทความนี้ให้ภาพรวมของการทำงานกับ WordArt รวมถึงวิธีการใช้การแปลงข้อความ สไตล์การเติม สีขอบ เงา และตัวเลือกการจัดรูปแบบอื่น ๆ เพื่อทำให้เนื้อหาในงานนำเสนอของคุณมีความแสดงออกและน่าสนใจมากขึ้น WordArt ทำให้คุณสามารถถือข้อความเป็นวัตถุกราฟิก มันประกอบด้วยเอฟเฟกต์หรือการปรับเปลี่ยนพิเศษที่ใช้กับข้อความเพื่อทำให้ดูน่าสนใจหรือโดดเด่นยิ่งขึ้น
+เอฟเฟกต์ WordArt ช่วยให้คุณสามารถจัดรูปแบบข้อความด้วยการเติมสี, ตัวขอบ, เงา, การสะท้อน, แสงเรืองแสง, การแปลงรูป, และการจัดรูปแบบ 3D บทความนี้อธิบายวิธีสร้างและปรับแต่งเอฟเฟกต์เหล่านี้ในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides for Android via Java โดยไม่ต้องติดตั้ง Microsoft Office.
 
-## **สร้างแม่แบบ WordArt ง่าย ๆ และนำไปใช้กับข้อความ**
+## **สร้างเทมเพลต WordArt แบบง่ายและนำไปใช้กับข้อความ**
 
-**Using Aspose.Slides** 
+ตัวอย่างต่อไปนี้สร้างสไตล์ WordArt แบบง่ายโดยการกำหนดข้อความ, ฟอนต์, การเติมรูปแบบลาย, และตัวขอบ.
 
-ก่อนอื่นเราจะสร้างข้อความง่าย ๆ ด้วยโค้ด Java นี้:
+แต่ละตัวอย่างจะสร้างงานนำเสนอใหม่และเพิ่มสี่เหลี่ยมผืนผ้าลงในสไลด์แรก; ไม่จำเป็นต้องมีไฟล์อินพุต ตัวอย่างแรกกำหนดข้อความเป็น "Aspose.Slides" ตำแหน่งและขนาดของรูปร่างถูกวัดเป็นหน่วย points:
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-ต่อมาเราตั้งค่าความสูงของฟอนต์ให้ใหญ่ขึ้นเพื่อให้เอฟเฟกต์เด่นชัดยิ่งขึ้นด้วยโค้ดนี้:
 
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+ตั้งค่าฟอนต์เป็น Arial Black ที่ 36 points เพื่อทำให้การจัดรูปแบบเด่นชัดยิ่งขึ้น:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
-**Using Microsoft PowerPoint**
+ใช้รูปแบบ [SmallGrid](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/patternstyle/#SmallGrid) ที่มีสีส้มเข้มเป็นสีพื้นหน้าและสีขาวเป็นพื้นหลัง จากนั้นเพิ่มตัวขอบข้อความสีดำที่ความกว้าง 1 point:
 
-ไปที่เมนูเอฟเฟกต์ WordArt ใน Microsoft PowerPoint:
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-![todo:image_alt_text](image-20200930113926-1.png)
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-จากเมนูด้านขวา คุณสามารถเลือกเอฟเฟกต์ WordArt ที่กำหนดล่วงหน้าได้ จากเมนูด้านซ้าย คุณสามารถระบุการตั้งค่าสำหรับ WordArt ใหม่ได้
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-นี่คือตัวอย่างของพารามิเตอร์หรือทางเลือกที่มี:
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-![todo:image_alt_text](image-20200930114015-3.png)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    int darkOrange = Color.rgb(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-**Using Aspose.Slides**
-
-ที่นี้เรานำรูปแบบสี [SmallGrid](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PatternStyle#SmallGrid) ไปใช้กับข้อความและเพิ่มเส้นขอบสีดำความกว้าง 1 ด้วยโค้ดนี้:
-
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ข้อความที่ได้:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![เทมเพลต WordArt แบบง่าย](WordArt_template.png)
 
 ## **ใช้เอฟเฟกต์ WordArt อื่น ๆ**
 
-**Using Microsoft PowerPoint**
+ตัวอย่างต่อไปนี้แสดงวิธีการใช้เงา, การสะท้อน, แสงเรืองแสง, การแปลงรูป, และเอฟเฟกต์ 3D กับข้อความ.
 
-จากส่วนติดต่อของโปรแกรม คุณสามารถใช้เอฟเฟกต์เหล่านี้กับข้อความ บล็อกข้อความ รูปร่าง หรือองค์ประกอบที่คล้ายกัน:
+### **ใช้เอฟเฟกต์เงานอก**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+เงานอกเพิ่มความลึกโดยวางเงาไว้ด้านหลังข้อความ คุณสามารถปรับแต่งสี, ทิศทาง, ระยะทาง, รัศมีเบลอ, สเกล, และการบิดของเงาได้.
 
-เช่น เงา (Shadow), การสะท้อน (Reflection) และแสงเรือง (Glow) สามารถใช้กับข้อความได้; ฟอร์แมต 3 มิติ (3D Format) และการหมุน 3 มิติ (3D Rotation) สามารถใช้กับบล็อกข้อความ; คุณสมบัติขอบอ่อน (Soft Edges) สามารถใช้กับวัตถุ Shape (ยังคงทำงานเมื่อไม่ได้ตั้งค่า 3D Format)
-
-### **ใช้เอฟเฟกต์เงา**
-
-ที่นี้เราตั้งค่าคุณสมบัติที่เกี่ยวข้องกับข้อความเท่านั้น โดยใช้โค้ด Java นี้เพื่อใส่เงาให้กับข้อความ:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-
-Aspose.Slides API รองรับเงาสามประเภท: OuterShadow, InnerShadow, และ PresetShadow
-
-ด้วย PresetShadow คุณสามารถใส่เงาให้กับข้อความโดยใช้ค่าที่กำหนดไว้ล่วงหน้า
-
-**Using Microsoft PowerPoint**
-
-ใน PowerPoint คุณสามารถใช้เงาประเภทเดียวเท่านั้น ตัวอย่างเช่น:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Using Aspose.Slides**
-
-Aspose.Slides จริง ๆ แล้วอนุญาตให้ใช้เงาสองประเภทพร้อมกัน: InnerShadow และ PresetShadow
-
-**Notes:**
-- เมื่อใช้ OuterShadow กับ PresetShadow พร้อมกัน จะได้เฉพาะเอฟเฟกต์ OuterShadow เท่านั้น
-- หากใช้ OuterShadow และ InnerShadow ร่วมกัน ผลลัพธ์หรือเอฟเฟกต์ที่ใช้จะขึ้นอยู่กับเวอร์ชัน PowerPoint ตัวอย่างเช่น ใน PowerPoint 2013 เอฟเฟกต์จะซ้ำสองเท่า แต่ใน PowerPoint 2007 จะใช้เอฟเฟกต์ OuterShadow เท่านั้น
-
-### **ใช้เอฟเฟกต์การสะท้อนกับข้อความ**
-
-เราจะเพิ่มการสะท้อนให้กับข้อความด้วยโค้ด Java นี้:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-
-### **ใช้เอฟเฟกต์แสงเรืองกับข้อความ**
-
-เราจะใส่เอฟเฟกต์แสงเรืองให้กับข้อความเพื่อให้มันส่องสว่างหรือโดดเด่นด้วยโค้ดนี้:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-ผลลัพธ์ของการดำเนินการ:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-คุณสามารถเปลี่ยนพารามิเตอร์สำหรับเงา การสะท้อน และแสงเรืองได้ คุณสมบัติของเอฟเฟกต์จะถูกตั้งค่าต่อแต่ละส่วนของข้อความแยกกัน 
-
-{{% /alert %}} 
-
-### **ใช้การแปลงใน WordArt**
-
-เราใช้คุณสมบัติ Transform (ซึ่งมีผลกับบล็อกข้อความทั้งหมด) ด้วยโค้ดนี้:
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-
-ผลลัพธ์:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-ทั้ง Microsoft PowerPoint และ Aspose.Slides for Android via Java มีประเภทการแปลงที่กำหนดล่วงหน้าจำนวนหนึ่ง
-
-{{% /alert %}} 
-
-**Using PowerPoint**
-
-เพื่อเข้าถึงประเภทการแปลงที่กำหนดล่วงหน้า ไปที่: **Format** -> **TextEffect** -> **Transform**
-
-**Using Aspose.Slides**
-
-เพื่อเลือกประเภทการแปลง ใช้ enum `TextShapeType`
-
-### **ใช้เอฟเฟกต์ 3D กับข้อความและรูปร่าง**
-
-เราตั้งค่าเอฟเฟกต์ 3D ให้กับรูปร่างข้อความด้วยโค้ดตัวอย่างนี้:
-
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-ข้อความและรูปร่างที่ได้:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-เรานำเอฟเฟกต์ 3D ไปใช้กับข้อความด้วยโค้ด Java นี้:
-
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-ผลลัพธ์ของการดำเนินการ:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-การใช้เอฟเฟกต์ 3D กับข้อความหรือรูปร่างของมันและการโต้ตอบระหว่างเอฟเฟกต์ต่าง ๆ มีเงื่อนไขตามกฎบางประการ
-
-พิจารณาฉากสำหรับข้อความและรูปร่างที่บรรจุข้อความนั้น เอฟเฟกต์ 3D ประกอบด้วยการแสดงวัตถุ 3D และฉากที่วัตถุถูกวาง
-
-- เมื่อฉากถูกกำหนดไว้ทั้งสำหรับรูปร่างและข้อความ ฉากของรูปร่างจะได้รับความสำคัญสูงกว่า—ฉากของข้อความจะถูกละเว้น
-- เมื่อรูปร่างไม่มีฉากของตนเองแต่มีการแสดงผล 3D จะใช้ฉากของข้อความ
-- หากไม่มีเอฟเฟกต์ 3D กับรูปร่างเดิม รูปร่างจะเป็นแบนและเอฟเฟกต์ 3D จะถูกใช้เฉพาะกับข้อความเท่านั้น
-
-คำอธิบายเหล่านี้เชื่อมโยงกับเมธอด `ThreeDFormat.getLightRig()` และ `ThreeDFormat.getCamera()`
-
-{{% /alert %}} 
-
-## **ใช้เอฟเฟกต์ Outer Shadow กับข้อความ**
-Aspose.Slides for Android via Java มีคลาส [**IOuterShadow**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ioutershadow/) และ [**IInnerShadow**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iinnershadow/) ที่ให้คุณใส่เงาให้กับข้อความที่อยู่ใน [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textframe/) ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)
-2. รับอ้างอิงของสไลด์โดยใช้ดัชนีของมัน
-3. เพิ่ม AutoShape ชนิด Rectangle ลงในสไลด์
-4. เข้าถึง TextFrame ที่เชื่อมโยงกับ AutoShape
-5. ตั้งค่า FillType ของ AutoShape เป็น NoFill
-6. สร้างอินสแทนซ์ของคลาส OuterShadow
-7. ตั้งค่า BlurRadius ของเงา
-8. ตั้งค่า Direction ของเงา
-9. ตั้งค่า Distance ของเงา
-10. ตั้งค่า RectanglelAlign เป็น TopLeft
-11. ตั้งค่า PresetColor ของเงาเป็น Black
-12. เขียนพรีเซนเทชันเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/)
-
-โค้ดตัวอย่างใน Java—การทำตามขั้นตอนข้างต้น—แสดงวิธีใส่เอฟเฟกต์ Outer Shadow ให้กับข้อความ:
+ตัวอย่างนี้เรียกใช้ [enableOuterShadowEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effectformat/#enableOuterShadowEffect--) และตั้งค่าเงาสีดำด้วยรัศมีเบลอ 4 point, ทิศทาง 230 องศา, ระยะทาง 30 point. ค่า Scale 100 จะคงขนาดเงาไว้, ส่วนการบิดแนวนอนทำให้เงาเอียง 20 องศา. การแปลง alpha ตั้งค่าความทึบเป็น 32%:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // รับอ้างอิงของสไลด์
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่ม AutoShape ชนิด Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // เพิ่ม TextFrame ให้กับ Rectangle
-    ashp.addTextFrame("Aspose TextBox");
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // ปิดการเติมสีรูปร่างในกรณีที่ต้องการเงาของข้อความ
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // เพิ่มเงานอกและตั้งค่าพารามิเตอร์ที่จำเป็นทั้งหมด
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    //บันทึกพรีเซนเทชันลงดิสก์
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ใช้เอฟเฟกต์ Inner Shadow กับรูปร่าง**
-ทำตามขั้นตอนต่อไปนี้:
+ข้อความที่ได้:
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)
-2. รับอ้างอิงของสไลด์
-3. เพิ่ม AutoShape ชนิด Rectangle
-4. เปิดใช้งาน InnerShadowEffect
-5. ตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-6. ตั้งค่า ColorType เป็น Scheme
-7. ตั้งค่าสี Scheme
-8. เขียนพรีเซนเทชันเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/)
+![เอฟเฟ็กต์เงานอก](outer_shadow_effect.png)
 
-โค้ดตัวอย่าง (ตามขั้นตอนข้างต้น) แสดงวิธีเพิ่มคอนเน็กเตอร์ระหว่างสองรูปร่างใน Java:
+{{% alert color="info" title="Note" %}}
+- เมื่อใช้เงานอกและเงาที่กำหนดไว้พร้อมกัน จะมีเพียงเงานอกเท่านั้นที่ถูกนำไปใช้.
+- หากใช้เงานอกและเงาภายในพร้อมกัน ผลลัพธ์จะขึ้นกับเวอร์ชันของ PowerPoint ตัวอย่างเช่น ใน PowerPoint 2013 เอฟเฟกต์จะเพิ่มเป็นสองเท่า ในขณะที่ใน PowerPoint 2007 จะใช้เพียงเงานอกเท่านั้น.
+{{% /alert %}}
+
+### **ใช้เอฟเฟกต์การสะท้อน**
+
+การสะท้อนสร้างสำเนาตรงข้ามของข้อความ ปรับตำแหน่ง, สเกล, การเบลอ, และความทึบเพื่อควบคุมลักษณะของมัน.
+
+ตัวอย่างนี้เรียกใช้ [enableReflectionEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effectformat/#enableReflectionEffect--) และพลิกการสะท้อนทางแนวตั้งด้วยสเกล -100%. ใช้รัศมีเบลอ 0.5 point และระยะ 4.72 point. ความทึบลดลงจาก 60% ไปยัง 0.9% ระหว่างตำแหน่ง 0% ถึง 60% ตามการสะท้อน:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // รับอ้างอิงของสไลด์
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่ม AutoShape ชนิด Rectangle
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // เพิ่ม TextFrame ให้กับ Rectangle
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // เปิดใช้งาน InnerShadowEffect
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-
-    // ตั้งค่าพารามิเตอร์ที่จำเป็นทั้งหมด
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // ตั้งค่า ColorType เป็น Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // ตั้งค่าสี Scheme
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // บันทึกพรีเซนเทชัน
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+ข้อความที่ได้:
 
-**Can I use WordArt effects with different fonts or scripts (e.g., Arabic, Chinese)?**
+![เอฟเฟ็กต์การสะท้อน](reflection_effect.png)
 
-ใช่, Aspose.Slides รองรับ Unicode และทำงานกับฟอนต์และสคริปต์หลักทั้งหมด เอฟเฟกต์ WordArt เช่น เงา, การเติมสี, และขอบสามารถใช้ได้โดยไม่คำนึงถึงภาษา แม้ว่าความพร้อมใช้ของฟอนต์และการเรนเดอร์อาจขึ้นกับฟอนต์ในระบบ
+### **ใช้เอฟเฟกต์แสงเรืองแสง**
 
-**Can I apply WordArt effects to slide master elements?**
+แสงเรืองแสงเพิ่มรอบข้อความด้วยสีอ่อนที่นุ่มนวล ปรับสี, ความทึบ, และรัศมีเพื่อควบคุมเอฟเฟกต์.
 
-ใช่, คุณสามารถใส่เอฟเฟกต์ WordArt ให้กับรูปร่างบนสไลด์มาสเตอร์ได้รวมถึงตัวยึดหัวเรื่อง, ส่วนท้าย หรือข้อความพื้นหลัง การเปลี่ยนแปลงบนแม่แบบจะส่งผลกับสไลด์ที่เชื่อมโยงทั้งหมด
+ตัวอย่างนี้เรียกใช้ [enableGlowEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effectformat/#enableGlowEffect--) และใช้แสงเรืองแสงสีแดงที่ความทึบ 54% และรัศมี 7 points:
 
-**Do WordArt effects affect presentation file size?**
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-ส่งผลเล็กน้อย เอฟเฟกต์ WordArt เช่น เงา, แสงเรือง, และการเติมแบบไล่สีอาจเพิ่มขนาดไฟล์เล็กน้อยเนื่องจากข้อมูลเมตาเพิ่มเติม แต่ส่วนต่างมักไม่สำคัญ
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**Can I preview the result of WordArt effects without saving the presentation?**
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-ได้, คุณสามารถเรนเดอร์สไลด์ที่มี WordArt เป็นภาพ (เช่น PNG, JPEG) ด้วยเมธอด `getImage` จากอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) หรือ [ISlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islide/) ทำให้สามารถดูตัวอย่างผลลัพธ์ในหน่วยความจำหรือบนหน้าจอก่อนบันทึกหรือส่งออกพรีเซนเทชันเต็มรูปแบบ
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+ข้อความที่ได้:
+
+![เอฟเฟ็กต์แสงเรืองแสง](glow_effect.png)
+
+### **ใช้การแปลง WordArt**
+
+การแปลง WordArt ทำให้ข้อความบิด, ยืด, หรือบิดโค้งเป็นบล็อกของข้อความ.
+
+ตั้งค่า [setTransform](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textframeformat/#setTransform-int-) เป็น [ArchUpPour](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textshapetype/#ArchUpPour) เพื่อโค้งกรอบข้อความทั้งหมดขึ้นด้านบน:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+ข้อความที่ได้:
+
+![การแปลง WordArt](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Android via Java มีชุดของ [ประเภทการแปลง](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textshapetype/) ที่กำหนดล่วงหน้า.
+{{% /alert %}}
+
+### **ใช้เอฟเฟกต์ 3D กับรูปทรงและข้อความ**
+
+คุณสามารถใช้เอฟเฟกต์ 3D กับรูปทรงหรือกับข้อความของมันได้ การขอบ, การดันออก, แสง, และการตั้งค่ากล้องควบคุมลักษณะที่ได้.
+
+ตัวอย่างต่อไปนี้ใช้ [ThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/threedformat/) เพื่อเพิ่มขอบโค้งวงกลม, การดันสีส้ม, และโค้งสีแดงเข้มให้กับสี่เหลี่ยม ผมิติของขอบ, ความสูงการดัน, ความกว้างโค้ง, และความลึกวัดเป็น points. วัสดุพลาสติก, แสงสมดุลที่หมุน 40 องศารอบแกน Z, และกล้องมุมมองกำหนดลักษณะของมัน:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    int orange = Color.rgb(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+รูปร่างที่ได้:
+
+![เอฟเฟ็กต์ 3D ของรูปทรง](shape_3D_effect.png)
+
+ตัวอย่างนี้ใช้การจัดรูปแบบ 3D คล้ายกันกับข้อความผ่าน [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textframeformat/#getThreeDFormat--). ขอบเล็กทำให้ขอบตัวอักษรชัดเจน, ส่วนการดันและแสงให้ความลึกกับข้อความ:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    int orange = Color.rgb(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+ข้อความที่ได้:
+
+![เอฟเฟ็กต์ 3D ของข้อความ](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+การใช้เอฟเฟกต์ 3D กับข้อความหรือรูปทรงของมัน—และปฏิสัมพันธ์ระหว่างเอฟเฟกต์เหล่านี้—ถูกกำหนดโดยกฎเฉพาะ พิจารณาฉากที่เกี่ยวข้องกับทั้งข้อความและรูปทรงที่บรรจุข้อความนั้น เอฟเฟกต์ 3D รวมถึงการแสดงผล 3D ของอ็อบเจกต์และฉากที่วางไว้
+
+- หากฉากถูกกำหนดทั้งสำหรับรูปทรงและข้อความ ฉากของรูปทรงจะมีลำดับความสำคัญและฉากของข้อความจะถูกละเลย
+- หากรูปทรงไม่มีฉากของตนเองแต่มีการแสดงผล 3D จะใช้ฉากของข้อความ
+- หากรูปทรงไม่มีเอฟเฟกต์ 3D ใด ๆ จะถือว่าเป็นแบนและเอฟเฟกต์ 3D จะถูกประยุกต์เพียงกับข้อความเท่านั้น
+
+พฤติกรรมเหล่านี้เกี่ยวข้องกับเมธอด [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/threedformat/#getLightRig--) และ [ThreeDFormat.getCamera](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/threedformat/#getCamera--) .
+{{% /alert %}}
+
+เพื่อให้ข้อความคงอยู่ในรูปแบบแบนและอ่านง่ายในขณะที่รักษาการจัดรูปแบบ 3D ของรูปทรงไว้ ดูที่ [Keep Text Flat on a 3D Shape](/slides/th/androidjava/3d-presentation/) สำหรับการเปรียบเทียบของการตั้งค่าทั้งสองและตัวอย่าง Java ฉบับเต็ม.
+
+## **คำถามที่พบบ่อย**
+
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับฟอนต์หรือสคริปต์ที่แตกต่างกัน (เช่น อาหรับ, จีน) ได้หรือไม่?**
+
+ใช่, Aspose.Slides for Android via Java รองรับ Unicode และทำงานกับฟอนต์และสคริปต์หลักทั้งหมด เอฟเฟกต์ WordArt เช่น เงา, การเติมสี, และตัวขอบสามารถนำไปใช้ได้โดยไม่คำนึงถึงภาษา แม้ว่าความพร้อมใช้งานของฟอนต์และการเรนเดอร์อาจขึ้นกับฟอนต์ระบบ
+
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับองค์ประกอบของสไลด์มาสเตอร์ได้หรือไม่?**
+
+ได้, คุณสามารถใช้เอฟเฟกต์ WordArt กับรูปร่างบนสไลด์มาสเตอร์รวมถึงตัวเก็บตำแหน่งหัวเรื่อง, ส่วนท้าย, หรือข้อความพื้นหลัง การเปลี่ยนแปลงบนเลเอาต์มาสเตอร์จะสะท้อนไปยังสไลด์ทั้งหมดที่เชื่อมโยง
+
+**เอฟเฟกต์ WordArt มีผลต่อขนาดไฟล์งานนำเสนอหรือไม่?**
+
+มีผลเล็กน้อย. เอฟเฟกต์ WordArt เช่น เงา, แสงเรืองแสง, และการเติมสีไล่ระดับอาจเพิ่มขนาดไฟล์เล็กน้อยเนื่องจากเมตาดาต้าการจัดรูปแบบที่เพิ่มขึ้น แต่ความแตกต่างโดยทั่วไปถือว่ารายละเอียดสำคัญไม่มี
+
+**ฉันสามารถดูตัวอย่างผลลัพธ์ของเอฟเฟกต์ WordArt โดยไม่ต้องบันทึกงานนำเสนอได้หรือไม่?**
+
+ได้, คุณสามารถเรนเดอร์สไลด์ที่มี WordArt เป็นภาพ (เช่น PNG, JPEG) ด้วย [ISlide.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islide/#getImage--) หรือเรนเดอร์รูปร่างแต่ละอันด้วย [IShape.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getImage--) สิ่งนี้ทำให้คุณสามารถดูผลลัพธ์ในหน่วยความจำหรือบนหน้าจอก่อนการบันทึกหรือส่งออกงานนำเสนอเต็มรูปแบบ.
