@@ -10,57 +10,80 @@ keywords:
 - قالب WordArt
 - افکت WordArt
 - افکت سایه
-- افکت نمایش
-- افکت درخشش
-- تبدیل WordArt
+- افکت انعکاس
+- افکت نوردهی
+- تغییر شکل WordArt
 - افکت 3بعدی
-- افکت سایه خارجی
+- افکت سایه بیرونی
 - افکت سایه داخلی
 - .NET
 - C#
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی افکت‌های WordArt در Aspose.Slides برای .NET. این راهنمای گام به گام به توسعه‌دهندگان کمک می‌کند تا ارائه‌ها را با متن حرفه‌ای در C# ارتقا دهند."
+description: "ایجاد و سفارشی‌سازی افکت‌های WordArt در Aspose.Slides برای .NET. این راهنمای گام‌به‌گام به توسعه‌دهندگان کمک می‌کند تا ارائه‌ها را با متن حرفه‌ای در C# بهبود دهند."
 ---
 ## **بررسی کلی**
 
-افکت‌های WordArt به شما امکان می‌دهند متن‌های بصری جذاب و سبک‌دار را به ارائه‌های PowerPoint خود اضافه کنید. با Aspose.Slides برای .NET، توسعه‌دهندگان می‌توانند به‌صورت برنامه‌نویسی WordArt را همانند Microsoft PowerPoint ایجاد، سفارشی‌سازی و مدیریت کنند—بدون نیاز به نصب Office. این مقاله یک مرور کلی از کار با WordArt در .NET ارائه می‌دهد، از جمله نحوه اعمال تبدیل‌های متنی، سبک‌های پرکردن، خطوط کانتور، سایه‌ها و سایر گزینه‌های قالب‌بندی برای بیان‌دهی و جذاب‌تر کردن محتوای ارائه شما. WordArt به شما این امکان را می‌دهد که متن را به عنوان یک شیء گرافیکی در نظر بگیرید. این شامل افکت‌ها یا تغییرات ویژه‌ای است که بر متن اعمال می‌شوند تا آن را جذاب‌تر یا قابل‌توجه‌تر کنند.
+WordArt effects به شما امکان می‌دهند متن را با پرکننده‌ها، خطوط دور، سایه‌ها، انعکاس‌ها، نوردهی، تغییر شکل‌ها و قالب‌بندی سه‌بعدی استایل کنید. این مقاله توضیح می‌دهد چگونه این افکت‌ها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای .NET ایجاد و سفارشی کنید، بدون نصب Microsoft Office.
 
-## **ایجاد یک قالب WordArt ساده و اعمال آن بر متن**
+## **ایجاد یک قالب ساده WordArt و اعمال آن بر متن**
 
-در این بخش، نحوه ایجاد یک قالب WordArt ساده و اعمال آن بر متن را با استفاده از Aspose.Slides برای .NET بررسی می‌کنیم. WordArt روشی آسان برای ارتقای ظاهر متن با افکت‌ها و سبک‌های بصری چشم‌گیر ارائه می‌دهد. با یادگیری گام‌های پایه‌ای ایجاد و استفاده از WordArt، می‌توانید این تکنیک‌ها را به سادگی برای هر پروژه‌ای به‌کار ببرید و ارائه‌های خود را پویا و به‌یادماندنی کنید.
+مثال‌های زیر یک سبک ساده WordArt را با تنظیم متن، قلم، پرکردن الگو و خطوط دور ایجاد می‌کنند.
 
-ابتدا، متن ساده را با کد C# زیر می‌سازیم:
+هر مثال یک ارائه جدید ایجاد می‌کند و یک مستطیل به اسلاید اول آن اضافه می‌نماید؛ نیازی به فایل ورودی نیست. مثال اول متن را به "Aspose.Slides" تنظیم می‌کند. موقعیت و ابعاد شکل بر حسب پوینت اندازه‌گیری می‌شوند:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
 
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IPortion portion = textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+
+var portion = textFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
 ```
 
-سپس، ارتفاع فونت متن را به مقدار بزرگتری تنظیم می‌کنیم تا افکت بیشتر به چشم بیاید:
+قلم را به Arial Black با اندازه 36 پوینت تنظیم کنید تا قالب‌بندی واضح‌تر شود:
 
 ```cs
-    portion.PortionFormat.LatinFont = new FontData("Arial Black");
-    portion.PortionFormat.FontHeight = 36;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
 ```
 
-در اینجا، پرکنش الگوی SmallGrid را به متن اعمال می‌کنیم و یک کادر متن سیاه با ضخامت ۱ اضافه می‌کنیم:
+یک الگوی [SmallGrid](https://reference.aspose.com/slides/fa/net/aspose.slides/patternstyle/) با پیش‌زمینه نارنجی تیره و زمینه سفید اعمال کنید، سپس یک خطوط دور متنی سیاه با عرض 1 پوینت اضافه کنید:
 
 ```cs
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
-    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+
+portion.PortionFormat.LineFormat.Width = 1;
+portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
 ```
 
 متن حاصل:
@@ -69,187 +92,254 @@ using (Presentation presentation = new Presentation())
 
 ## **اعمال افکت‌های دیگر WordArt**
 
-علاوه بر تبدیل‌های پایه، Aspose.Slides برای .NET به شما اجازه می‌دهد تا انواع افکت‌های پیشرفته WordArt را برای بهبود ظاهر متن به کار ببرید. این افکت‌ها شامل خطوط کانتور، پرکنش‌ها، سایه‌ها، انعکاس‌ها و افکت‌های درخشش هستند. با ترکیب این ویژگی‌ها، می‌توانید سبک‌های متنی چشم‌نوازی ایجاد کنید که در ارائه‌های شما برجسته شوند. این بخش نشان می‌دهد چگونه این افکت‌ها را به‌صورت برنامه‌نویسی با مثال‌های کد ساده و تمیز اعمال کنید.
+مثال‌های زیر نحوه اعمال سایه‌ها، انعکاس‌ها، نوردهی، تغییر شکل‌ها و افکت‌های سه‌بعدی بر متن را نشان می‌دهند.
 
-### **اعمال افکت سایه خارجی**
+### **اعمال افکت سایه بیرونی**
 
-افکت‌های سایه خارجی به متن کمک می‌کنند تا با اضافه کردن سایه‌ای پشت خطوط کانتور، عمق و جدایی از پس‌زمینه ایجاد شود. Aspose.Slides برای .NET امکان اعمال و سفارشی‌سازی آسان سایه‌های خارجی بر متن WordArt را فراهم می‌کند. در این بخش، نحوه تنظیم رنگ سایه، جهت، فاصله، شعاع محو شدن و موارد دیگر برای دستیابی به تأثیر بصری مطلوب را یاد خواهید گرفت.
+سایه بیرونی با قرار دادن سایه‌ای پشت متن عمق می‌بخشد. می‌توانید رنگ، جهت، فاصله، شعاع تاری، مقیاس و کج‌شدگی آن را سفارشی کنید.
 
-قطعه کد C# زیر افکت سایه را بر متن ایجاد شده در بالا اعمال می‌کند.
+این مثال [EnableOuterShadowEffect](https://reference.aspose.com/slides/fa/net/aspose.slides/effectformat/enableoutershadoweffect/) را فراخوانی می‌کند و یک سایهٔ سیاه با شعاع تاری 4 پوینت، جهت 230 درجه و فاصله 30 پوینت تنظیم می‌نماید. مقادیر مقیاس 100 اندازهٔ سایه را حفظ می‌کند، در حالی که کج‑شدگی افقی آن را 20 درجه می‌چرخاند. تبدیل آلفا شفافیت آن را به 32% تنظیم می‌کند:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
 متن حاصل:
 
-![افکت سایه خارجی](outer_shadow_effect.png)
+![افکت سایه بیرونی](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
-- وقتی OuterShadow و PresetShadow همزمان استفاده شوند، تنها افکت OuterShadow اعمال می‌شود.
-- اگر OuterShadow و InnerShadow به‌صورت همزمان اعمال شوند، اثر نهایی بسته به نسخه PowerPoint متفاوت است. برای مثال، در PowerPoint 2013 افکت دو برابر می‌شود، در حالی که در PowerPoint 2007 فقط افکت OuterShadow اعمال می‌شود.
+{{% alert color="info" title="Note" %}}
+- وقتی سایه‌های بیرونی و از پیش تعیین‌شده با هم استفاده شوند، فقط سایهٔ بیرونی اعمال می‌شود.
+- اگر سایه‌های بیرونی و داخلی به‌طور همزمان استفاده شوند، اثر نهایی به نسخهٔ PowerPoint بستگی دارد. به‌عنوان مثال، در PowerPoint 2013 اثر دو برابر می‌شود، در حالی که در PowerPoint 2007 فقط سایهٔ بیرونی اعمال می‌شود.
 {{% /alert %}}
 
 ### **اعمال افکت انعکاس**
 
-در این بخش، نحوه اعمال افکت‌های انعکاس در اسلایدها با استفاده از Aspose.Slides برای .NET را بررسی می‌کنیم. افکت‌های انعکاس می‌توانند به متن یا اشکال شما ظاهری شیک و مدرن بدهند، عناصر کلیدی را برجسته کنند و عمق به ارائه‌تان اضافه کنند. با درک فرآیند اعمال و سفارشی‌سازی این افکت‌ها، می‌توانید به‌راحتی آنها را با نیازهای طراحی و برندینگ خود هماهنگ کنید.
+انعکاس یک نسخهٔ آینه‌ای از متن ایجاد می‌کند. می‌توانید موقعیت، مقیاس، تاری و شفافیت آن را تنظیم کنید تا ظاهر آن را کنترل کنید.
 
-افکت انعکاس را به متن با استفاده از مثال کد C# زیر اضافه کنید:
+این مثال [EnableReflectionEffect](https://reference.aspose.com/slides/fa/net/aspose.slides/effectformat/enablereflectioneffect/) را فراخوانی می‌کند و انعکاس را به صورت عمودی با مقیاس -100٪ می‌چرخاند. از شعاع تاری 0.5 پوینت و فاصله 4.72 پوینت استفاده می‌کند. شفافیت بین موقعیت‌های 0٪ و 60٪ در طول انعکاس از 60٪ به 0.9٪ کاهش می‌یابد:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
 ```
 
 متن حاصل:
 
 ![افکت انعکاس](reflection_effect.png)
 
-### **اعمال افکت درخشش**
+### **اعمال افکت نوردهی**
 
-در این بخش، نحوه اعمال افکت درخشش به متن با استفاده از Aspose.Slides برای .NET را بررسی می‌کنیم. افکت درخشش می‌تواند متن شما را با یک حاشیه روشن برجسته کند و جذابیت بصری اسلایدها را افزایش دهد. با تنظیم تنظیماتی مانند رنگ و شدت، می‌توانید درخشش را متناسب با طراحی و نیازهای برند خود تنظیم کنید تا نکات کلیدی ارائه‌تان توجه مخاطب را جلب کند.
+نوردهی یک خط دور نرم و رنگی در اطراف متن اضافه می‌کند. می‌توانید رنگ، شفافیت و شعاع آن را تنظیم کنید تا افکت را کنترل نمایید.
 
-با استفاده از کد زیر، افکت درخشش را به متن اعمال کنید تا براق یا برجسته شود:
+این مثال [EnableGlowEffect](https://reference.aspose.com/slides/fa/net/aspose.slides/effectformat/enablegloweffect/) را فراخوانی می‌کند و یک نوردهی قرمز با شفافیت 54% و شعاع 7 پوینت اعمال می‌نماید:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableGlowEffect();
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableGlowEffect();
+portion.PortionFormat.EffectFormat.GlowEffect.Color.Color = System.Drawing.Color.Red;
+portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
 ```
 
 متن حاصل:
 
-![افکت درخشش](glow_effect.png)
+![افکت نوردهی](glow_effect.png)
 
-### **اعمال تبدیل‌های WordArt**
+### **اعمال تغییر شکل‌های WordArt**
 
-در این بخش، نحوه استفاده از تبدیل‌ها در WordArt با Aspose.Slides برای .NET را بررسی می‌کنیم. تبدیل‌ها به شما اجازه می‌دهند متن را خم، کشیده یا تغییر شکل دهید و افکت‌های منحصر به‌فرد و بصری خیره‌کننده‌ای ایجاد کنید. با تسلط بر این تکنیک‌ها، می‌توانید شکل‌ها و سبک‌های متنی را مطابق با برند یا چشم‌انداز خلاقانه خود تنظیم کنید و ارائه‌ای قانع‌کننده و صیقلی بسازید.
+تغییر شکل‌های WordArt یک بلوک متن را خم، کشیده یا پیچیده می‌کنند.
 
-از ویژگی `Transform` (که بر کل بلوک متن اعمال می‌شود) با کد زیر استفاده کنید:
+تغییر [Transform](https://reference.aspose.com/slides/fa/net/aspose.slides/textframeformat/transform/) را به [ArchUpPour](https://reference.aspose.com/slides/fa/net/aspose.slides/textshapetype/) تنظیم کنید تا فریم متنی تماماً به سمت بالا منحنی شود:
 
 ```cs
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
 ```
 
 متن حاصل:
 
-![تبدیل WordArt](transform_effect.png)
+![تغییر شکل WordArt](transform_effect.png)
 
-{{% alert color="primary" %}} 
-Aspose.Slides برای .NET مجموعه‌ای از [انواع تبدیل]‌(https://reference.aspose.com/slides/fa/net/aspose.slides/textshapetype/) پیش‌تعریف شده را فراهم می‌کند.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides برای .NET مجموعه‌ای از [انواع تغییر شکل](https://reference.aspose.com/slides/fa/net/aspose.slides/textshapetype/) از پیش تعریف‌شده را فراهم می‌کند.
+{{% /alert %}}
 
-### **اعمال افکت‌های سه‌بعدی بر اشکال و متن**
+### **اعمال افکت‌های 3D بر اشکال و متن**
 
-ایجاد جلوه‌های واقعی و جذاب می‌تواند تاثیر ارائه‌های شما را به‌طرز چشمگیری افزایش دهد. در این بخش، نحوه اعمال افکت‌های سه‌بعدی (3D) بر اشکال با Aspose.Slides برای .NET را بررسی می‌کنیم. با تنظیم پارامترهایی مانند عمق، زاویه و نورپردازی، می‌توانید تبدیل‌های سه‌بعدی شگفت‌انگیزی تولید کنید که بلافاصله توجه مخاطب را جلب کنند. چه به‌دنبال برجسته‌سازی‌های جزئی باشید یا توهمات دراماتیک، این ویژگی‌ها راه‌های انعطافی برای ارتقاء طراحی و انتقال ایده‌ها به‌صورت جذاب‌تر ارائه می‌دهند.
+می‌توانید افکت‌های 3D را بر یک شکل یا متن آن اعمال کنید. برش‌ها (Bevels)، برون‌سپاری (extrusion)، روشنایی و تنظیمات دوربین ظاهر نهایی را کنترل می‌کنند.
 
-از کد نمونه زیر برای تنظیم افکت سه‌بعدی بر شکل استفاده کنید:
+مثال زیر از [ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/) برای افزودن برش‌های دایره‌ای، برون‌سپاری نارنجی و حاشیهٔ قرمز تیره به مستطیل استفاده می‌کند. ابعاد برش، ارتفاع برون‌سپاری، عرض حاشیه و عمق بر حسب پوینت محاسبه می‌شوند. یک مادهٔ پلاستیک، روشنایی متعادل که 40 درجه حول محور Z چرخانده شده و دوربینی پرسپکتیو ظاهر آن را تعریف می‌کنند:
 
 ```cs
-    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-    autoShape.ThreeDFormat.BevelTop.Width = 11;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    autoShape.ThreeDFormat.ExtrusionHeight = 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+autoShape.TextFrame.Text = "Aspose.Slides";
 
-    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    autoShape.ThreeDFormat.ContourWidth = 1.5;
+autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-    autoShape.ThreeDFormat.Depth = 3;
+autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+autoShape.ThreeDFormat.Depth = 3;
+
+autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
 شکل حاصل:
 
-![افکت سه‌بعدی شکل](shape_3D_effect.png)
+![افکت 3D شکل](shape_3D_effect.png)
 
-از کد نمونه زیر برای تنظیم افکت سه‌بعدی بر متن استفاده کنید:
+این مثال قالب‌بندی 3D مشابهی را بر متن از طریق [TextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/textframeformat/threedformat/) اعمال می‌کند. برش‌های کوچکتر لبه‌های حروف را شکل می‌دهند، در حالی که برون‌سپاری و روشنایی به متن عمق می‌بخشند:
 
 ```cs
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
 
-    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
 
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
+
+textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
 متن حاصل:
 
-![افکت سه‌بعدی متن](text_3D_effect.png)
+![افکت 3D متن](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
-اعمال افکت‌های سه‌بعدی بر متن یا اشکال آن‌ها—و تعامل بین این افکت‌ها—بر اساس قوانین خاصی انجام می‌شود. یک صحنه شامل هر دو متن و شکل حاوی آن متن در نظر بگیرید. یک افکت سه‌بعدی شامل نمایش سه‌بعدی شیء و صحنه‌ای است که در آن قرار دارد.
+{{% alert color="info" title="Note" %}}
+اعمال افکت‌های 3D بر متن یا شکل‌های آن—و تعامل بین این افکت‌ها—بر پایه قوانین خاصی تنظیم می‌شود. صحنه‌ای که هم متن و هم شکل حاوی آن را در بر می‌گیرد در نظر بگیرید. یک افکت 3D شامل نمایش 3D شیء و صحنه‌ای است که در آن قرار دارد.
 
-- اگر صحنه‌ای برای هر دو shape و text تنظیم شده باشد، صحنه shape اولویت دارد و صحنه text نادیده گرفته می‌شود.
-- اگر shape صحنه خود را نداشته باشد اما نمای سه‌بعدی داشته باشد، صحنه text استفاده می‌شود.
-- اگر shape هیچ افکت سه‌بعدی نداشته باشد، به‌عنوان صاف در نظر گرفته می‌شود و افکت سه‌بعدی فقط بر متن اعمال می‌شود.
+- اگر صحنه‌ای برای هر دو شکل و متن تنظیم شده باشد، صحنهٔ شکل اولویت دارد و صحنهٔ متن نادیده گرفته می‌شود.
+- اگر شکل صحنهٔ خود را نداشته باشد اما نمایش 3D داشته باشد، صحنهٔ متن استفاده می‌شود.
+- اگر شکل هیچ افکت 3D نداشته باشد، به صورت صاف در نظر گرفته می‌شود و افکت 3D فقط بر متن اعمال می‌شود.
 
-این رفتارها مربوط به ویژگی‌های [ThreeDFormat.LightRig]‌(https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/lightrig/) و [ThreeDFormat.Camera]‌(https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/camera/) هستند.
-{{% /alert %}} 
+این رفتارها به ویژگی‌های [ThreeDFormat.LightRig](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/lightrig/) و [ThreeDFormat.Camera](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/camera/) مربوط می‌شوند.
+{{% /alert %}}
+
+برای نگه داشتن متن صاف و قابل خواندن در حالی که قالب‌بندی 3D شکل آن حفظ می‌شود، به [Keep Text Flat on a 3D Shape](/slides/fa/net/3d-presentation/) برای مقایسهٔ هر دو تنظیم و یک مثال کامل C# مراجعه کنید.
 
 ## **پرسش‌های متداول**
 
-**آیا می‌توانم افکت‌های WordArt را با فونت‌ها یا اسکریپت‌های مختلف (مانند عربی، چینی) استفاده کنم؟**
+**آیا می‌توانم از افکت‌های WordArt با فونت‌ها یا اسکریپت‌های مختلف (مانند عربی، چینی) استفاده کنم؟**
 
-بله، Aspose.Slides برای .NET از یونیکد پشتیبانی می‌کند و با تمام فونت‌ها و اسکریپت‌های اصلی کار می‌کند. افکت‌های WordArt مانند سایه، پرکنش و خط‌کانتور می‌توانند بدون در نظر گرفتن زبان اعمال شوند، هرچند در دسترس بودن فونت و رندر ممکن است به فونت‌های سیستم وابسته باشد.
+بله، Aspose.Slides برای .NET از یونیکد پشتیبانی می‌کند و با تمام فونت‌ها و اسکریپت‌های اصلی کار می‌کند. افکت‌های WordArt مانند سایه، پرکننده و خطوط دور می‌توانند صرف‌نظر از زبان اعمال شوند، اگرچه در دسترس بودن و رندر شدن فونت ممکن است به فونت‌های سیستم بستگی داشته باشد.
 
 **آیا می‌توانم افکت‌های WordArt را بر عناصر مستر اسلاید اعمال کنم؟**
 
-بله، می‌توانید افکت‌های WordArt را بر اشکال در مستر اسلایدها، از جمله جای‌دارهای عنوان، فوترها یا متن پس‌زمینه اعمال کنید. تغییرات اعمال‌شده بر طرح مستر در تمام اسلایدهای مرتبط بازتاب خواهد یافت.
+بله، می‌توانید افکت‌های WordArt را بر اشکال موجود در اسلایدهای مستر، از جمله نگهدارنده‌های عنوان، فوترها یا متن پس‌زمینه اعمال کنید. تغییرات اعمال‌شده به طرح مستر در تمام اسلایدهای مرتبط بازتاب خواهد یافت.
 
-**آیا افکت‌های WordArt بر حجم فایل ارائه تأثیر می‌گذارند؟**
+**آیا افکت‌های WordArt بر اندازهٔ فایل ارائه تأثیر می‌گذارند؟**
 
-به‌صورت کمی. افکت‌های WordArt مانند سایه‌ها، درخشندگی‌ها و پرکنش‌های گرادیان ممکن است به‌دلیل افزودن متادیتای قالب‌بندی، حجم فایل را اندکی افزایش دهند، اما معمولاً این تفاوت غیرقابل‌توجه است.
+به‌صورت جزئی. افکت‌های WordArt مانند سایه‌ها، نوردهی و پرکننده‌های گرادیان ممکن است به‌دلیل اضافه شدن متادیتای قالب‌بندی، اندازهٔ فایل را کمی افزایش دهند، اما تفاوت معمولاً ناچیز است.
 
-**آیا می‌توانم نتایج افکت‌های WordArt را بدون ذخیره ارائه پیش‌نمایش کنم؟**
+**آیا می‌توانم نتیجهٔ افکت‌های WordArt را بدون ذخیرهٔ ارائه پیش‌نمایش کنم؟**
 
-بله، می‌توانید اسلایدهای حاوی WordArt را به تصاویر (مانند PNG یا JPEG) رندر کنید با استفاده از متد `GetImage` از اینترفیس‌های [IShape]‌(https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) یا [ISlide]‌(https://reference.aspose.com/slides/fa/net/aspose.slides/islide/). این کار به شما امکان می‌دهد نتایج را به‌صورت در‑حافظه یا روی صفحه نمایش پیش‌نمایش کنید قبل از ذخیره یا صدور کامل ارائه.
+بله، می‌توانید اسلایدهای حاوی WordArt را به تصویر (مثلاً PNG، JPEG) با استفاده از [ISlide.GetImage](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/getimage/) تبدیل کنید یا اشکال جداگانه را با استفاده از [IShape.GetImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/getimage/) رندر کنید. این امکان را می‌دهد که نتیجه را در حافظه یا روی صفحه نمایش پیش‌نمایش کنید قبل از اینکه ارائه را ذخیره یا صادر کنید.

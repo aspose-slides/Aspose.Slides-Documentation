@@ -1,5 +1,5 @@
 ---
-title: C++에서 WordArt 효과 만들기 및 적용
+title: C++에서 WordArt 효과 만들고 적용하기
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,132 +10,246 @@ keywords:
 - WordArt 템플릿
 - WordArt 효과
 - 그림자 효과
-- 디스플레이 효과
-- 글로우 효과
-- WordArt 변환
+- 반사 효과
+- 발광 효과
+- WordArt 변형
 - 3D 효과
 - 외부 그림자 효과
 - 내부 그림자 효과
-- PowerPoint
-- 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++에서 WordArt 효과를 만들고 사용자 지정합니다. 이 단계별 가이드는 개발자가 C++에서 전문적인 텍스트로 프레젠테이션을 향상시키는 데 도움이 됩니다."
+description: "Aspose.Slides for C++에서 WordArt 효과를 만들고 사용자 지정합니다. 이 단계별 가이드는 개발자가 C++에서 전문적인 텍스트로 프레젠테이션을 향상시키는 데 도움을 줍니다."
 ---
 ## **개요**
 
-WordArt 효과를 사용하면 PowerPoint 프레젠테이션에 시각적으로 매력적이고 스타일화된 텍스트를 추가할 수 있습니다. Aspose.Slides를 이용하면 개발자가 Microsoft PowerPoint와 동일하게 WordArt를 프로그래밍 방식으로 생성, 사용자 지정 및 관리할 수 있으며 Office가 설치되어 있을 필요가 없습니다. 이 문서는 WordArt 작업에 대한 개요를 제공하며, 텍스트 변환, 채우기 스타일, 윤곽선, 그림자 및 기타 서식 옵션을 적용하여 프레젠테이션 내용이 보다 풍부하고 매력적으로 만드는 방법을 다룹니다. WordArt는 텍스트를 그래픽 객체처럼 취급할 수 있게 해 줍니다. 텍스트에 적용되는 효과 또는 특수 수정으로 텍스트를 더 매력적이거나 눈에 띄게 만들 수 있습니다.
+WordArt 효과를 사용하면 채우기, 외곽선, 그림자, 반사, 발광, 변형 및 3D 서식으로 텍스트를 스타일링할 수 있습니다. 이 문서는 Microsoft Office 없이 Aspose.Slides for C++를 사용하여 PowerPoint 프레젠테이션에서 이러한 효과를 만들고 사용자 지정하는 방법을 설명합니다.
 
 ## **간단한 WordArt 템플릿 만들기 및 텍스트에 적용하기**
 
-**Aspose.Slides 사용** 
+다음 예제는 텍스트, 폰트, 패턴 채우기 및 외곽선을 설정하여 간단한 WordArt 스타일을 만듭니다.
 
-먼저, 다음 C++ 코드를 사용하여 간단한 텍스트를 만듭니다. 
+각 예제는 새 프레젠테이션을 만들고 첫 번째 슬라이드에 사각형을 추가합니다; 입력 파일이 필요하지 않습니다. 첫 번째 예제는 텍스트를 "Aspose.Slides" 로 설정합니다. 도형의 위치와 크기는 포인트 단위로 측정됩니다:
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-이제 다음 코드를 통해 텍스트의 폰트 높이를 더 크게 설정하여 효과를 눈에 띄게 합니다. 
+서식을 더 눈에 띄게 하려면 폰트를 Arial Black, 36포인트로 설정합니다:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Microsoft PowerPoint 사용**
+어두운 주황색 전경색과 흰색 배경을 가진 [SmallGrid](https://reference.aspose.com/slides/ko/cpp/aspose.slides/patternstyle/) 패턴을 적용하고, 너비가 1포인트인 검은색 텍스트 외곽선을 추가합니다:
 
-Microsoft PowerPoint에서 WordArt 효과 메뉴로 이동합니다: 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-오른쪽 메뉴에서 미리 정의된 WordArt 효과를 선택할 수 있습니다. 왼쪽 메뉴에서는 새 WordArt에 대한 설정을 지정할 수 있습니다. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-다음은 사용 가능한 일부 매개변수 또는 옵션입니다: 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**Aspose.Slides 사용**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-여기서는 SmallGrid 패턴 색상을 텍스트에 적용하고 이 코드를 사용하여 1 너비의 검은색 텍스트 테두리를 추가합니다: 
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
-결과 텍스트: 
+결과 텍스트:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![The simple WordArt template](WordArt_template.png)
 
-## **다른 WordArt 효과 적용**
+## **다른 WordArt 효과 적용하기**
 
-**Microsoft PowerPoint 사용**
+다음 예제는 텍스트에 그림자, 반사, 발광, 변형 및 3D 효과를 적용하는 방법을 보여줍니다.
 
-프로그램 인터페이스에서 텍스트, 텍스트 블록, 도형 또는 유사 요소에 이러한 효과를 적용할 수 있습니다: 
+### **외부 그림자 효과 적용**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+외부 그림자는 텍스트 뒤에 그림자를 배치하여 깊이를 추가합니다. 색상, 방향, 거리, 흐림 반경, 스케일 및 기울기를 사용자 지정할 수 있습니다.
 
-예를 들어, 그림자, 반사 및 글로우 효과는 텍스트에 적용할 수 있고, 3D 형식 및 3D 회전 효과는 텍스트 블록에 적용할 수 있으며, 소프트 엣지 속성은 도형 객체에 적용할 수 있습니다(3D 형식 속성이 설정되지 않은 경우에도 효과가 있습니다). 
+이 예제는 [EnableOuterShadowEffect](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/)을 호출하고 흐림 반경 4포인트, 방향 230도, 거리 30포인트인 검은색 그림자를 설정합니다. 스케일 값 100은 그림자 크기를 유지하고, 수평 기울기는 20도로 기울입니다. 알파 변환은 불투명도를 32%로 설정합니다:
 
-### **텍스트에 그림자 효과 적용**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-여기서는 텍스트에만 해당하는 속성을 설정하려고 합니다. 다음 C++ 코드를 사용하여 텍스트에 그림자 효과를 적용합니다: 
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides API는 OuterShadow, InnerShadow 및 PresetShadow의 세 가지 유형의 그림자를 지원합니다. 
+결과 텍스트:
 
- PresetShadow를 사용하면 사전 정의된 값을 이용해 텍스트에 그림자를 적용할 수 있습니다. 
+![The Outer Shadow effect](outer_shadow_effect.png)
 
-**Microsoft PowerPoint 사용**
-
-PowerPoint에서는 한 종류의 그림자만 사용할 수 있습니다. 예시는 다음과 같습니다: 
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Aspose.Slides 사용**
-
-Aspose.Slides는 실제로 두 종류의 그림자(InnerShadow 및 PresetShadow)를 동시에 적용할 수 있습니다. 
-
-**참고:**
-
-- OuterShadow와 PresetShadow를 함께 사용할 경우, OuterShadow 효과만 적용됩니다. 
-- OuterShadow와 InnerShadow를 동시에 사용하면 적용되는 효과는 PowerPoint 버전에 따라 달라집니다. 예를 들어 PowerPoint 2013에서는 효과가 두 배가 되지만, PowerPoint 2007에서는 OuterShadow 효과만 적용됩니다. 
+{{% alert color="info" title="Note" %}}
+- 외부 그림자와 사전 설정 그림자를 함께 사용할 경우, 외부 그림자만 적용됩니다.
+- 외부 그림자와 내부 그림자를 동시에 사용할 경우, 결과 효과는 PowerPoint 버전에 따라 다릅니다. 예를 들어 PowerPoint 2013에서는 효과가 두 배가 되지만 PowerPoint 2007에서는 외부 그림자만 적용됩니다.
+{{% /alert %}}
 
 ### **반사 효과 적용**
 
-다음 C++ 코드 샘플을 통해 텍스트에 반사 효과를 추가합니다: 
+반사는 텍스트의 거울 복사본을 생성합니다. 위치, 스케일, 흐림 및 불투명도를 조정하여 모습을 제어합니다.
 
-``` cpp 
+이 예제는 [EnableReflectionEffect](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ieffectformat/enablereflectioneffect/)을 호출하고 스케일 -100%로 반사를 수직으로 뒤집습니다. 흐림 반경 0.5포인트와 거리 4.72포인트를 사용합니다. 불투명도는 반사 위치 0%에서 60% 사이에서 60%에서 0.9%로 감소합니다:
+
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,61 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **글로우 효과 적용**
+결과 텍스트:
 
-다음 코드를 사용하여 텍스트에 글로우 효과를 적용해 빛나거나 돋보이게 합니다: 
+![The Reflection effect](reflection_effect.png)
 
-``` cpp 
+### **발광 효과 적용**
+
+발광은 텍스트 주변에 부드러운 색상 외곽선을 추가합니다. 색상, 불투명도 및 반경을 조정하여 효과를 제어합니다.
+
+이 예제는 [EnableGlowEffect](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ieffectformat/enablegloweffect/)을 호출하고 불투명도 54%와 반경 7포인트인 빨간색 발광을 적용합니다:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-작업 결과: 
+결과 텍스트:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![The Glow effect](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **WordArt 변형 적용**
 
-그림자, 디스플레이 및 글로우의 매개변수를 변경할 수 있습니다. 효과 속성은 텍스트의 각 부분에 별도로 설정됩니다. 
+WordArt 변형은 텍스트 블록을 구부리거나 늘리거나 뒤틀 수 있습니다.
 
-{{% /alert %}} 
+[ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframeformat/set_transform/)을 [ArchUpPour](https://reference.aspose.com/slides/ko/cpp/aspose.slides/textshapetype/)으로 설정하여 전체 텍스트 프레임을 위쪽으로 곡선 형태로 만듭니다:
 
-### **WordArt에서 변환 사용**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
 
-다음 코드를 통해 전체 텍스트 블록에 내재된 set_Transform 메서드를 사용합니다: 
+using namespace Aspose::Slides;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-결과: 
+결과 텍스트:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![The WordArt transformation](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for C++는 미리 정의된 [transformation types](https://reference.aspose.com/slides/ko/cpp/aspose.slides/textshapetype/) 집합을 제공합니다.
+{{% /alert %}}
 
-Microsoft PowerPoint와 Aspose.Slides for C++ 모두 일정 수의 미리 정의된 변환 유형을 제공합니다. 
+### **도형 및 텍스트에 3D 효과 적용**
 
-{{% /alert %}} 
+도형이나 해당 텍스트에 3D 효과를 적용할 수 있습니다. 베벨, 압출, 조명 및 카메라 설정이 결과 모습을 제어합니다.
 
-**PowerPoint 사용**
+다음 예제는 [IThreeDFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ithreedformat/)을 사용하여 사각형에 원형 베벨, 주황색 압출 및 짙은 빨간색 윤곽을 추가합니다. 베벨 치수, 압출 높이, 윤곽 너비 및 깊이는 포인트 단위로 측정됩니다. 플라스틱 재질, Z축을 기준으로 40도 회전된 균형 조명 및 원근 카메라가 외관을 정의합니다:
 
-미리 정의된 변환 유형에 접근하려면 **Format** -> **TextEffect** -> **Transform** 순으로 이동합니다. 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-**Aspose.Slides 사용**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-변환 유형을 선택하려면 TextShapeType 열거형을 사용합니다. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **텍스트 및 도형에 3D 효과 적용**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
 
-다음 샘플 코드를 사용하여 텍스트 도형에 3D 효과를 설정합니다: 
-
-``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -234,13 +422,43 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-결과 텍스트와 도형: 
+결과 도형:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![The shape 3D effect](shape_3D_effect.png)
 
-다음 C++ 코드를 사용하여 텍스트에 3D 효과를 적용합니다: 
+이 예제는 [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframeformat/get_threedformat/)을 통해 텍스트에 유사한 3D 서식을 적용합니다. 작은 베벨이 문자 가장자리를 형성하고, 압출 및 조명이 텍스트에 깊이를 제공합니다:
 
-``` cpp 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -268,133 +486,36 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-작업 결과: 
+결과 텍스트:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![The text 3D effect](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+텍스트 또는 도형에 3D 효과를 적용하고 이러한 효과 간의 상호 작용은 특정 규칙에 의해 제어됩니다. 텍스트와 이를 포함하는 도형을 모두 포함하는 장면을 고려하십시오. 3D 효과는 객체의 3D 표현과 그것이 배치된 장면을 포함합니다.
 
-텍스트 또는 해당 도형에 3D 효과를 적용하고 효과 간 상호 작용은 특정 규칙에 따라 이루어집니다. 
+- 도형과 텍스트 모두에 장면이 설정된 경우, 도형의 장면이 우선하고 텍스트의 장면은 무시됩니다.
+- 도형에 자체 장면이 없고 3D 표현이 있는 경우, 텍스트의 장면이 사용됩니다.
+- 도형에 3D 효과가 전혀 없으면 평면으로 처리되고 3D 효과는 텍스트에만 적용됩니다.
 
-텍스트와 해당 텍스트를 포함하는 도형에 대한 씬을 고려하십시오. 3D 효과는 3D 객체 표현과 객체가 배치된 씬을 포함합니다. 
+이러한 동작은 [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ithreedformat/get_lightrig/) 및 [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ithreedformat/get_camera/) 메서드와 관련이 있습니다.
+{{% /alert %}}
 
-- 도형과 텍스트 모두에 씬이 설정된 경우, 도형 씬이 더 높은 우선 순위를 갖고 텍스트 씬은 무시됩니다. 
-- 도형에 자체 씬이 없지만 3D 표현이 있는 경우 텍스트 씬이 사용됩니다. 
-- 그 외의 경우—도형에 원래 3D 효과가 없을 때—도형은 평면이며 3D 효과는 텍스트에만 적용됩니다. 
-
-이러한 설명은 `ThreeDFormat.getLightRig()` 및 `ThreeDFormat.getCamera()` 메서드와 연결됩니다. 
-
-{{% /alert %}} 
-
-## **도형에 외부 그림자 효과 적용**
-Aspose.Slides for C++는 텍스트가 포함된 TextFrame에 그림자 효과를 적용할 수 있도록 하는 [**IOuterShadow**](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.effects.i_outer_shadow) 및 [**IInnerShadow**](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.effects.i_inner_shadow) 클래스를 제공합니다. 다음 단계를 수행하십시오:
-
-1. Presentation 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 사용하여 슬라이드 참조를 가져옵니다.  
-3. 슬라이드에 사각형 형태의 AutoShape를 추가합니다.  
-4. AutoShape와 연결된 TextFrame에 접근합니다.  
-5. AutoShape의 FillType을 NoFill로 설정합니다.  
-6. OuterShadow 클래스를 인스턴스화합니다.  
-7. 그림자의 BlurRadius를 설정합니다.  
-8. 그림자의 Direction을 설정합니다.  
-9. 그림자의 Distance를 설정합니다.  
-10. RectanglelAlign을 TopLeft로 설정합니다.  
-11. 그림자의 PresetColor를 Black으로 설정합니다.  
-12. 프레젠테이션을 PPTX 파일로 저장합니다.  
-
-위 단계의 구현 예시인 C++ 샘플 코드는 텍스트에 외부 그림자 효과를 적용하는 방법을 보여줍니다: 
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// 슬라이드에 대한 참조 가져오기
-auto sld = pres->get_Slides()->idx_get(0);
-
-// 사각형 유형의 AutoShape 추가
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// 사각형에 TextFrame 추가
-ashp->AddTextFrame(u"Aspose TextBox");
-
-// 텍스트 그림자를 얻기 위해 도형 채우기를 비활성화
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// 외부 그림자를 추가하고 모든 필요한 매개변수를 설정
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// 프레젠테이션을 디스크에 저장
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-## **도형에 내부 그림자 효과 적용**
-다음 단계를 수행하십시오:
-
-1. Presentation 클래스의 인스턴스를 생성합니다.  
-2. 슬라이드의 참조를 가져옵니다.  
-3. 사각형 형태의 AutoShape를 추가합니다.  
-4. InnerShadowEffect를 활성화합니다.  
-5. 필요한 모든 매개변수를 설정합니다.  
-6. ColorType을 Scheme으로 설정합니다.  
-7. Scheme Color를 설정합니다.  
-8. 프레젠테이션을 PPTX 파일로 저장합니다.  
-
-위 단계에 기반한 샘플 코드는 C++에서 두 도형 사이에 커넥터를 추가하는 방법을 보여줍니다: 
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// 슬라이드에 대한 참조 가져오기
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// 사각형 유형의 AutoShape 추가
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// 사각형에 TextFrame 추가
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// 내부 그림자 효과 활성화    
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// 필요한 모든 매개변수 설정
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// ColorType을 Scheme으로 설정
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// Scheme 색상 설정
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// 프레젠테이션 저장
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
+텍스트를 평평하고 읽기 쉽게 유지하면서 도형의 3D 서식을 유지하려면, 두 설정을 비교하고 전체 C++ 예제를 확인하려면 [Keep Text Flat on a 3D Shape](/slides/ko/cpp/3d-presentation/)를 참조하십시오.
 
 ## **FAQ**
 
-**WordArt 효과를 다양한 글꼴이나 스크립트(예: 아랍어, 중국어)와 함께 사용할 수 있나요?**
+**다른 글꼴이나 스크립트(예: 아랍어, 중국어)에서도 WordArt 효과를 사용할 수 있나요?**
 
-네, Aspose.Slides는 Unicode를 지원하며 모든 주요 글꼴 및 스크립트와 함께 작동합니다. 언어에 관계없이 그림자, 채우기 및 윤곽선과 같은 WordArt 효과를 적용할 수 있지만, 글꼴 가용성 및 렌더링은 시스템에 설치된 글꼴에 따라 달라질 수 있습니다.
+예, Aspose.Slides for C++는 유니코드를 지원하며 모든 주요 글꼴 및 스크립트와 함께 작동합니다. 그림자, 채우기 및 외곽선과 같은 WordArt 효과는 언어와 무관하게 적용할 수 있지만, 글꼴 가용성 및 렌더링은 시스템 글꼴에 따라 달라질 수 있습니다.
 
-**WordArt 효과를 슬라이드 마스터 요소에 적용할 수 있나요?**
+**슬라이드 마스터 요소에도 WordArt 효과를 적용할 수 있나요?**
 
-네, 마스터 슬라이드의 도형(제목 플레이스홀더, 바닥글, 배경 텍스트 등)에 WordArt 효과를 적용할 수 있습니다. 마스터 레이아웃에 적용한 변경 사항은 해당 슬라이드에 자동으로 반영됩니다.
+예, 제목 플레이스홀더, 바닥글 또는 배경 텍스트를 포함한 마스터 슬라이드의 도형에 WordArt 효과를 적용할 수 있습니다. 마스터 레이아웃에 대한 변경 사항은 모든 관련 슬라이드에 반영됩니다.
 
-**WordArt 효과가 프레젠테이션 파일 크기에 영향을 미치나요?**
+**WordArt 효과가 프레젠테이션 파일 크기에 영향을 줍니까?**
 
-약간 영향을 미칩니다. 그림자, 글로우 및 그라데이션 채우기와 같은 WordArt 효과는 추가 서식 메타데이터를 포함하므로 파일 크기가 약간 증가할 수 있지만 차이는 대부분 무시할 수 있는 수준입니다.
+조금씩. 그림자, 발광 및 그라디언트 채우기와 같은 WordArt 효과는 추가 서식 메타데이터로 인해 파일 크기를 약간 증가시킬 수 있지만, 차이는 보통 무시할 수준입니다.
 
-**프레젠테이션을 저장하지 않고 WordArt 효과 결과를 미리 볼 수 있나요?**
+**프레젠테이션을 저장하지 않고 WordArt 효과 결과를 미리볼 수 있나요?**
 
-네, `IShape`[https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/] 또는 `ISlide`[https://reference.aspose.com/slides/ko/cpp/aspose.slides/islide/] 인터페이스의 `GetImage` 메서드를 사용하여 WordArt가 적용된 슬라이드를 이미지(PNG, JPEG 등)로 렌더링할 수 있습니다. 이를 통해 전체 프레젠테이션을 저장하거나 내보내기 전에 메모리 내 또는 화면에서 결과를 미리 확인할 수 있습니다.
+예, [ISlide::GetImage](https://reference.aspose.com/slides/ko/cpp/aspose.slides/islide/getimage/)을 사용하여 WordArt가 포함된 슬라이드를 이미지(PNG, JPEG 등)로 렌더링하거나, [IShape::GetImage](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/getimage/)을 사용하여 개별 도형을 렌더링할 수 있습니다. 이를 통해 전체 프레젠테이션을 저장하거나 내보내기 전에 메모리나 화면에서 결과를 미리 볼 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: Skapa och tillämpa WordArt‑effekter i C++
+title: Skapa och tillämpa WordArt-effekter i C++
 linktitle: WordArt
 type: docs
 weight: 110
@@ -7,72 +7,132 @@ url: /sv/cpp/wordart/
 keywords:
 - WordArt
 - skapa WordArt
-- WordArt‑mall
-- WordArt‑effekt
+- WordArt-mall
+- WordArt-effekt
 - skuggeffekt
-- visningseffekt
+- reflektionseffekt
 - glödeffekt
-- WordArt‑transformation
-- 3D‑effekt
+- WordArt-transformation
+- 3D-effekt
 - yttre skuggeffekt
 - inre skuggeffekt
-- PowerPoint
-- presentation
 - C++
 - Aspose.Slides
-description: "Skapa och anpassa WordArt‑effekter i Aspose.Slides för C++. Denna steg‑för‑steg‑guide hjälper utvecklare att förbättra presentationer med professionell text i C++."
+description: "Skapa och anpassa WordArt-effekter i Aspose.Slides för C++. Denna steg-för-steg-guide hjälper utvecklare att förbättra presentationer med professionell text i C++."
 ---
 ## **Översikt**
 
-WordArt‑effekter låter dig lägga till visuellt tilltalande, styliserad text i dina PowerPoint‑presentationer. Med Aspose.Slides kan utvecklare programatiskt skapa, anpassa och hantera WordArt precis som i Microsoft PowerPoint—utan att behöva ha Office installerat. Den här artikeln ger en översikt över hur du arbetar med WordArt, inklusive hur du tillämpar texttransformeringar, fyllningsstilar, konturer, skuggor och andra formateringsalternativ för att göra ditt presentationsinnehåll mer uttrycksfullt och engagerande. WordArt låter dig behandla text som ett grafiskt objekt. Det består av effekter eller speciella modifieringar som appliceras på text för att göra den mer attraktiv eller märkbar.
+WordArt‑effekter låter dig formatera text med fyllningar, konturer, skuggor, reflektioner, glöd, transformationer och 3D‑formatering. Denna artikel förklarar hur du skapar och anpassar dessa effekter i PowerPoint‑presentationer med Aspose.Slides för C++, utan att Microsoft Office är installerat.
 
 ## **Skapa en enkel WordArt‑mall och tillämpa den på text**
 
-**Använda Aspose.Slides** 
+Följande exempel bygger en enkel WordArt‑stil genom att ange text, teckensnitt, mönsterfyllning och kontur.
 
-Först skapar vi en enkel text med den här C++‑koden: 
+Varje exempel skapar en ny presentation och lägger till en rektangel på dess första bild; ingen indatafil krävs. Det första exemplet sätter texten till "Aspose.Slides". Formens position och dimensioner mäts i punkter:
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-Nu sätter vi textens teckenhöjd till ett större värde för att göra effekten mer märkbar med den här koden:
+Ställ in teckensnittet till Arial Black med 36 punkter för att göra formateringen tydligare:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Använda Microsoft PowerPoint**
+Applicera ett [SmallGrid](https://reference.aspose.com/slides/sv/cpp/aspose.slides/patternstyle/)‑mönster med en mörkorange förgrund och en vit bakgrund, lägg sedan till en svart textkontur med en bredd på 1 punkt:
 
-Gå till WordArt‑effektmenyn i Microsoft PowerPoint:
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Från menyn till höger kan du välja en fördefinierad WordArt‑effekt. Från menyn till vänster kan du specificera inställningarna för en ny WordArt. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Det här är några av de tillgängliga parametrarna eller alternativen:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**Använda Aspose.Slides**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-Här applicerar vi SmallGrid‑mönsterfärgen på texten och lägger till en svart textram med bredden 1 med den här koden:
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
@@ -80,61 +140,116 @@ lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 
 Den resulterande texten:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Den enkla WordArt‑mallen](WordArt_template.png)
 
 ## **Tillämpa andra WordArt‑effekter**
 
-**Använda Microsoft PowerPoint**
+Följande exempel visar hur man tillämpar skuggor, reflektioner, glöd, transformationer och 3D‑effekter på text.
 
-Från programmets gränssnitt kan du applicera dessa effekter på en text, textblock, form eller liknande element:
+### **Tillämpa yttre skuggeffekter**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+En yttre skugga ger djup genom att placera en skugga bakom texten. Du kan anpassa dess färg, riktning, avstånd, oskärpe‑radie, skala och skevning.
 
-Till exempel kan skugga-, reflektion- och glödeffekter appliceras på en text; 3D‑format- och 3D‑roterings‑effekter kan appliceras på ett textblock; egenskapen Mjuka kanter kan appliceras på ett formobjekt (den har fortfarande en effekt när ingen 3D‑format‑egenskap är inställd). 
+Detta exempel anropar [EnableOuterShadowEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) och ställer in en svart skugga med en oskärpe‑radie på 4 punkter, en riktning på 230 grader och ett avstånd på 30 punkter. Skala‑värden på 100 behåller skuggans storlek, medan horisontell skevning lutar den 20 grader. Alfa‑transformen sätter dess opacitet till 32 %:
 
-### **Applicera skuggeffekter på text**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-Här avser vi att bara sätta egenskaper som gäller för en text. Vi applicerar skuggeffekten på en text med den här koden i C++:
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides‑API stöder tre typer av skuggor: OuterShadow, InnerShadow och PresetShadow. 
-Med PresetShadow kan du applicera en skugga på en text (med förinställda värden). 
+Den yttre skuggeffekten:
 
-**Använda Microsoft PowerPoint**
+![Den yttre skuggeffekten](outer_shadow_effect.png)
 
-I PowerPoint kan du använda en typ av skugga. Här är ett exempel:
+{{% alert color="info" title="Obs" %}}
+- När yttre och förinställda skuggor används tillsammans appliceras endast den yttre skuggan.
+- Om yttre och inre skuggor används samtidigt beror den resulterande effekten på PowerPoint‑versionen. Till exempel, i PowerPoint 2013 fördubblas effekten, medan i PowerPoint 2007 appliceras bara den yttre skuggan.
+{{% /alert %}}
 
-![todo:image_alt_text](image-20200930114225-6.png)
+### **Tillämpa reflektionseffekter**
 
-**Använda Aspose.Slides**
+En reflektion skapar en spegelvänd kopia av texten. Justera dess position, skala, oskärpa och opacitet för att styra dess utseende.
 
-Aspose.Slides låter dig faktiskt applicera två typer av skuggor samtidigt: InnerShadow och PresetShadow.
+Detta exempel anropar [EnableReflectionEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) och vänder reflektionen vertikalt med en skala på -100 %. Det använder en oskärpe‑radie på 0,5 punkt och ett avstånd på 4,72 punkt. Opaciteten minskar från 60 % till 0,9 % mellan positionerna 0 % och 60 % längs reflektionen:
 
-**Obs:** 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
 
-- När OuterShadow och PresetShadow används tillsammans, appliceras endast OuterShadow‑effekten. 
-- Om OuterShadow och InnerShadow används samtidigt beror den resulterande eller applicerade effekten på vilken PowerPoint‑version som används. Till exempel, i PowerPoint 2013 fördubblas effekten. Men i PowerPoint 2007 appliceras OuterShadow‑effekten. 
+using namespace Aspose::Slides;
 
-### **Applicera reflektionseffekter**
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Vi lägger till en reflektion på texten med detta kodexempel i C++:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-``` cpp 
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -151,57 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **Applicera glödeffekter**
+Reflektionseffekten:
 
-Vi applicerar glödeffekten på texten för att få den att skina eller sticka ut med den här koden:
+![Reflektionseffekten](reflection_effect.png)
 
-``` cpp 
+### **Tillämpa glödeffekter**
+
+En glöd ger en mjuk färgad kontur runt texten. Justera dess färg, opacitet och radie för att kontrollera effekten.
+
+Detta exempel anropar [EnableGlowEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ieffectformat/enablegloweffect/) och applicerar en röd glöd med 54 % opacitet och en radie på 7 punkter:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-Resultatet av operationen:
+Glödeffekten:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![Glödeffekten](glow_effect.png)
 
-{{% alert color="primary" %}} 
-Du kan ändra parametrarna för skugga, reflektion och glow. Effekternas egenskaper sätts på varje del av texten separat. 
-{{% /alert %}} 
+### **Tillämpa WordArt‑transformationer**
 
-### **Använd transformationer i WordArt**
+WordArt‑transformationer böjer, sträcker eller förvränger ett textblock.
 
-Vi använder set_Transform‑metoden (gäller hela textblocket) med den här koden:
+Ställ in [ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_transform/) till [ArchUpPour](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textshapetype/) för att böja hela text‑ramen uppåt:
 
-``` cpp 
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-Resultatet:
+WordArt‑transformationen:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![WordArt‑transformationen](transform_effect.png)
 
-{{% alert color="primary" %}} 
-Både Microsoft PowerPoint och Aspose.Slides för C++ erbjuder ett antal fördefinierade transformationstyper. 
-{{% /alert %}} 
+{{% alert color="info" title="Obs" %}}
+Aspose.Slides för C++ tillhandahåller en uppsättning fördefinierade [transformations‑typer](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textshapetype/).
+{{% /alert %}}
 
-**Använda PowerPoint**
+### **Tillämpa 3D‑effekter på former och text**
 
-För att komma åt fördefinierade transformationstyper, gå till: **Format** -> **TextEffect** -> **Transform**
+Du kan tillämpa 3D‑effekter på en form eller på dess text. Fällningar, extrudering, belysning och kamera‑inställningar styr det resulterande utseendet.
 
-**Använda Aspose.Slides**
+Följande exempel använder [IThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/) för att lägga till cirkulära fällningar, orange extrudering och en mörkröd kontur till rektangeln. Fällnings‑dimensioner, extruderings‑höjd, kontur‑bredd och djup mäts i punkter. Ett plastmaterial, balanserad belysning roterad 40 grader kring Z‑axeln, och en perspektivkamera definierar dess utseende:
 
-För att välja en transformationstyp, använd TextShapeType‑enum.
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-### **Applicera 3D‑effekter på text och former**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Vi sätter en 3D‑effekt på en textform med detta exempel på kod:
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -229,13 +422,43 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Den resulterande texten och dess form:
+Formens 3D‑effekt:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![Formens 3D‑effekt](shape_3D_effect.png)
 
-Vi applicerar en 3D‑effekt på texten med den här C++‑koden:
+Detta exempel applicerar liknande 3D‑formatering på texten via [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/get_threedformat/). Småare fällningar formar bokstavskanten, medan extrudering och belysning ger texten djup:
 
-``` cpp 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -263,128 +486,36 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Resultatet av operationen:
+Textens 3D‑effekt:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![Textens 3D‑effekt](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
-Appliceringen av 3D‑effekter på texter eller deras former och interaktioner mellan effekter baseras på vissa regler. 
-Tänk på en scen för en text och den form som innehåller texten. 3D‑effekten innehåller en 3D‑objektrepresentation och scenen där objektet placerades. 
-- När scenen är inställd för både figuren och texten får figurscenen högre prioritet—textscenen ignoreras. 
-- När figuren saknar egen scen men har 3D‑representation, används textscenen. 
-- Annars—när formen ursprungligen saknar 3D‑effekt—är formen platt och 3D‑effekten appliceras endast på texten. 
-Dessa beskrivningar är kopplade till metoderna ThreeDFormat.getLightRig() och ThreeDFormat.getCamera(). 
-{{% /alert %}} 
+{{% alert color="info" title="Obs" %}}
+Tillämpningen av 3D‑effekter på text eller deras former – och interaktionen mellan dessa effekter – styrs av specifika regler. Tänk på en scen som involverar både text och den form som innehåller den. En 3D‑effekt inkluderar objektets 3D‑representation och scenen där den placeras.
 
-## **Applicera yttre skuggeffekter på former**
-Aspose.Slides för C++ tillhandahåller klasserna [**IOuterShadow**](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.effects.i_outer_shadow) och [**IInnerShadow**](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.effects.i_inner_shadow) som låter dig applicera skuggeffekter på text som finns i en TextFrame. Följ dessa steg:
+- Om en scen är angiven för både formen och texten har formen företräde och textens scen ignoreras.
+- Om formen saknar egen scen men har en 3D‑representation används textens scen.
+- Om formen inte har någon 3D‑effekt alls behandlas den som platt, och 3D‑effekten appliceras endast på texten.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
-2. Hämta referensen till en bild genom att använda dess index.
-3. Lägg till en AutoShape av typen Rectangle på bilden.
-4. Få åtkomst till TextFrame som är associerad med AutoShape.
-5. Ställ in FillType för AutoShape till NoFill.
-6. Instansiera OuterShadow‑klassen
-7. Ställ in BlurRadius för skuggan.
-8. Ställ in Direction för skuggan
-9. Ställ in Distance för skuggan.
-10. Ställ in RectanglelAlign till TopLeft.
-11. Ställ in PresetColor för skuggan till Black.
-12. Skriv presentationen som en PPTX‑fil.
+Dessa beteenden relaterar till metoderna [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_lightrig/) och [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_camera/).
+{{% /alert %}}
 
-Detta exempel på C++‑kod—en implementering av stegen ovan—visar hur du applicerar den yttre skuggeffekten på en text:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// Hämta referens till bilden
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Lägg till en AutoShape av typen Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Lägg till TextFrame till rektangeln
-ashp->AddTextFrame(u"Aspose TextBox");
-
-// Inaktivera fyllning av formen ifall vi vill ha skugga på texten
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Lägg till yttre skugga och sätt alla nödvändiga parametrar
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// Spara presentationen till disk
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-## **Applicera inre skuggeffekter på former**
-Följ dessa steg:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
-2. Hämta en referens till bilden.
-3. Lägg till en AutoShape av typen Rectangle.
-4. Aktivera InnerShadowEffect.
-5. Ställ in alla nödvändiga parametrar.
-6. Ställ in ColorType till Scheme.
-7. Ställ in Scheme Color.
-8. Skriv presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/)‑fil.
-
-Detta exempel på kod (baserat på stegen ovan) visar hur du lägger till en anslutning mellan två former i C++:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// Hämta referens till en bild
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// Lägg till en AutoShape av typen Rectangle
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Lägg till TextFrame till rektangeln
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// Aktivera InnerShadowEffect    
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// Ställ in alla nödvändiga parametrar
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// Ställ in ColorType till Scheme
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// Ställ in Scheme Color
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// Spara presentation
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
+För att hålla texten platt och läsbar samtidigt som dess formes 3D‑formatering behålls, se [Keep Text Flat on a 3D Shape](/slides/sv/cpp/3d-presentation/) för en jämförelse av båda inställningarna och ett komplett C++‑exempel.
 
 ## **Vanliga frågor**
 
 **Kan jag använda WordArt‑effekter med olika teckensnitt eller skript (t.ex. arabiska, kinesiska)?**
 
-Ja, Aspose.Slides stöder Unicode och fungerar med alla större teckensnitt och skript. WordArt‑effekter som skugga, fyllning och kontur kan appliceras oavsett språk, även om teckensnittens tillgänglighet och rendering kan bero på systemets teckensnitt.
+Ja, Aspose.Slides för C++ stöder Unicode och fungerar med alla vanliga teckensnitt och skript. WordArt‑effekter som skugga, fyllning och kontur kan appliceras oavsett språk, även om tillgänglighet av teckensnitt och renderingen kan bero på systemets teckensnitt.
 
-**Kan jag applicera WordArt‑effekter på element i bildens master?**
+**Kan jag tillämpa WordArt‑effekter på master‑bildens element?**
 
-Ja, du kan applicera WordArt‑effekter på former i masterbilder, inklusive platshållare för titel, sidfot eller bakgrundstext. Ändringar som görs i masterlayouten kommer att reflekteras på alla associerade bilder.
+Ja, du kan tillämpa WordArt‑effekter på former på mastern, inklusive titel‑platshållare, sidfötter eller bakgrundstext. Ändringar som görs i master‑layouten återspeglas på alla associerade bilder.
 
-**Påverkar WordArt‑effekter filstorleken på presentationen?**
+**Påverkar WordArt‑effekter presentationsfilens storlek?**
 
-Lite grann. WordArt‑effekter som skuggor, glöd och gradientfyllningar kan något öka filstorleken på grund av extra formateringsmetadata, men skillnaden är vanligtvis försumbar.
+Lite grann. WordArt‑effekter såsom skuggor, glöd och gradientfyllningar kan öka filstorleken något på grund av extra formateringsmetadata, men skillnaden är vanligtvis försumbar.
 
 **Kan jag förhandsgranska resultatet av WordArt‑effekter utan att spara presentationen?**
 
-Ja, du kan rendera bilder som innehåller WordArt till bilder (t.ex. PNG, JPEG) med hjälp av `GetImage`‑metoden från gränssnitten [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides.ishape/) eller [ISlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides.islide/). Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.
+Ja, du kan rendera bilder som innehåller WordArt till bildformat (t.ex. PNG, JPEG) med [ISlide::GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/), eller rendera enskilda former med [IShape::GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/getimage/). Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.

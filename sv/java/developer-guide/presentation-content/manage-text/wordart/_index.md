@@ -1,5 +1,5 @@
 ---
-title: Skapa och tillämpa WordArt‑effekter i Java
+title: Skapa och applicera WordArt‑effekter i Java
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,385 +10,382 @@ keywords:
 - WordArt‑mall
 - WordArt‑effekt
 - skuggeffekt
-- display‑effekt
-- glöd‑effekt
+- reflektionseffekt
+- glödeffekt
 - WordArt‑transformation
 - 3D‑effekt
 - yttre skuggeffekt
 - inre skuggeffekt
-- PowerPoint
-- presentation
 - Java
 - Aspose.Slides
-description: "Skapa och anpassa WordArt‑effekter i Aspose.Slides för Java. Den här steg‑för‑steg‑guiden hjälper utvecklare att förbättra presentationer med professionell text i Java."
+description: "Skapa och anpassa WordArt‑effekter i Aspose.Slides för Java. Denna steg‑för‑steg‑guide hjälper utvecklare att förbättra presentationer med professionell text i Java."
 ---
 ## **Översikt**
 
-WordArt‑effekter låter dig lägga till visuellt tilltalande, stiliserad text i dina PowerPoint‑presentationer. Med Aspose.Slides kan utvecklare programatiskt skapa, anpassa och hantera WordArt precis som i Microsoft PowerPoint—utan att Office behöver vara installerat. Denna artikel ger en översikt över hur du arbetar med WordArt, inklusive hur du tillämpar textomvandlingar, fyllningsstilar, konturer, skuggor och andra formateringsalternativ för att göra ditt presentationsinnehåll mer uttrycksfullt och engagerande. WordArt låter dig behandla text som ett grafiskt objekt. Det består av effekter eller speciella modifieringar som appliceras på texten för att göra den mer attraktiv eller märkbar.
+WordArt‑effekter låter dig formatera text med fyllningar, konturer, skuggor, reflektioner, glöd, transformationer och 3D‑formatering. Den här artikeln förklarar hur du skapar och anpassar dessa effekter i PowerPoint‑presentationer med Aspose.Slides för Java, utan att Microsoft Office är installerat.
 
-## **Skapa en enkel WordArt‑mall och tillämpa den på text**
+## **Skapa en enkel WordArt-mall och tillämpa den på text**
 
-**Using Aspose.Slides** 
+Följande exempel bygger en enkel WordArt‑stil genom att ange text, teckensnitt, mönsterfyllning och kontur.
 
-Först skapar vi en enkel text med följande Java‑kod: 
+Varje exempel skapar en ny presentation och lägger till en rektangel på den första bilden; ingen indatalfil behövs. Det första exemplet sätter texten till "Aspose.Slides". Formens position och dimensioner mäts i punkter:
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-Nu sätter vi textens teckenhöjd till ett större värde för att göra effekten mer märkbar med denna kod:
 
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+Ställ in teckensnittet till Arial Black i 36 punkter för att göra formateringen mer märkbar:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
-**Using Microsoft PowerPoint**
+Applicera ett [SmallGrid](https://reference.aspose.com/slides/sv/java/com.aspose.slides/patternstyle/#SmallGrid)-mönster med en mörkorange förgrund och en vit bakgrund, och lägg sedan till en svart textkontur med en bredd på 1 punkt:
 
-Gå till WordArt‑effektmenyn i Microsoft PowerPoint:
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
 
-![todo:image_alt_text](image-20200930113926-1.png)
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-Från menyn till höger kan du välja en fördefinierad WordArt‑effekt. Från menyn till vänster kan du ange inställningarna för en ny WordArt. 
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-Detta är några av de tillgängliga parametrarna eller alternativen:
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-![todo:image_alt_text](image-20200930114015-3.png)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    Color darkOrange = new Color(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-**Using Aspose.Slides**
-
-Här applicerar vi mönsterfärgen [SmallGrid](https://reference.aspose.com/slides/sv/java/com.aspose.slides/PatternStyle#SmallGrid) på texten och lägger till en 1‑breddig svart textkontur med följande kod:
-
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Den resulterande texten:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Den enkla WordArt-mallen](WordArt_template.png)
 
-## **Tillämpa andra WordArt‑effekter**
+## **Tillämpa andra WordArt-effekter**
 
-**Using Microsoft PowerPoint**
+Följande exempel visar hur du applicerar skuggor, reflektioner, glöd, transformationer och 3D‑effekter på text.
 
-Från programmets gränssnitt kan du applicera dessa effekter på en text, en textruta, en form eller liknande element:
+### **Applicera yttre skuggeffekter**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+En yttre skugga ger djup genom att placera en skugga bakom texten. Du kan anpassa dess färg, riktning, avstånd, oskärpegrad, skala och skevhet.
 
-Till exempel kan skugga-, reflektion- och glöd‑effekter appliceras på text; 3D‑format‑ och 3D‑rotations‑effekter kan appliceras på en textruta; egenskapen Mjuka kanter kan appliceras på ett Form‑objekt (den har fortfarande effekt när ingen 3D‑format‑egenskap är angiven). 
-
-### **Tillämpa skuggeffekter**
-
-Här avser vi att sätta egenskaper som endast gäller för text. Vi applicerar skuggeffekten på en text med följande Java‑kod:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-
-Aspose.Slides‑API stöder tre typer av skuggor: OuterShadow, InnerShadow och PresetShadow. 
-
-Med PresetShadow kan du applicera en skugga på en text (med förinställda värden). 
-
-**Using Microsoft PowerPoint**
-
-I PowerPoint kan du använda en typ av skugga. Här är ett exempel:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Using Aspose.Slides**
-
-Aspose.Slides låter dig faktiskt applicera två typer av skuggor samtidigt: InnerShadow och PresetShadow.
-
-**Obs:**
-
-- När OuterShadow och PresetShadow används tillsammans appliceras endast OuterShadow‑effekten. 
-- Om OuterShadow och InnerShadow används samtidigt beror den resulterande eller applicerade effekten på PowerPoint‑versionen. Till exempel, i PowerPoint 2013 fördubblas effekten. Men i PowerPoint 2007 appliceras OuterShadow‑effekten. 
-
-### **Tillämpa display på texter**
-
-Vi lägger till display på texten med detta kodexempel i Java:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-
-### **Tillämpa glöd‑effekt på texter**
-
-Vi applicerar glöd‑effekten på texten för att få den att lysa eller sticka ut med följande kod:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-Resultatet av operationen:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-Du kan ändra parametrarna för skugga, display och glöd. Effektens egenskaper sätts separat för varje del av texten. 
-
-{{% /alert %}} 
-
-### **Använda transformationer i WordArt**
-
-Vi använder Transform‑egenskapen (gäller hela textblocket) med följande kod:
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-
-Resultatet:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Både Microsoft PowerPoint och Aspose.Slides för Java erbjuder ett visst antal fördefinierade transformationstyper. 
-
-{{% /alert %}} 
-
-**Using PowerPoint**
-
-För att komma åt fördefinierade transformationstyper, gå till: **Format** → **TextEffect** → **Transform**
-
-**Using Aspose.Slides**
-
-För att välja en transformationstyp, använd enum‑värdet TextShapeType. 
-
-### **Tillämpa 3D‑effekter på texter och former**
-
-Vi sätter en 3D‑effekt på en textform med detta exempel:
-
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-Den resulterande texten och dess form:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-Vi applicerar en 3D‑effekt på texten med följande Java‑kod:
-
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-Resultatet av operationen:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-Applicering av 3D‑effekter på texter eller deras former samt interaktioner mellan effekter följer vissa regler. 
-
-Tänk dig en scen för en text och den form som innehåller texten. 3D‑effekten består av en 3D‑objektrepresentation och den scen där objektet placerats. 
-
-- När scenen är angiven både för figuren och för texten får figurscenen högre prioritet – texts‑scenen ignoreras. 
-- När figuren saknar egen scen men har 3D‑representation används texts‑scenen. 
-- Annars – när formen ursprungligen inte har någon 3D‑effekt – är formen platt och 3D‑effekten appliceras endast på texten. 
-
-Dessa beskrivningar är kopplade till metoderna ThreeDFormat.getLightRig() och ThreeDFormat.getCamera().
-
-{{% /alert %}} 
-
-## **Applicera Outer Shadow‑effekter på texter**
-Aspose.Slides för Java tillhandahåller klasserna [**IOuterShadow**](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ioutershadow/) och [**IInnerShadow**](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iinnershadow/) som låter dig applicera skuggeffekter på text som finns i en [TextFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textframe/). Följ dessa steg:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation).  
-2. Hämta referensen till en bild genom att använda dess index.  
-3. Lägg till en AutoShape av typen Rectangle på bilden.  
-4. Åtkom TextFrame som är kopplad till AutoShape.  
-5. Ställ in FillType för AutoShape till NoFill.  
-6. Instansiera OuterShadow‑klassen.  
-7. Ange BlurRadius för skuggan.  
-8. Ange Direction för skuggan.  
-9. Ange Distance för skuggan.  
-10. Ställ in RectanglelAlign till TopLeft.  
-11. Ange PresetColor för skuggan till Black.  
-12. Spara presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/)‑fil.
-
-Detta Java‑exempel – en implementering av stegen ovan – visar hur du applicerar Outer Shadow‑effekten på en text:
+Detta exempel anropar [enableOuterShadowEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effectformat/#enableOuterShadowEffect--) och ställer in en svart skugga med en oskärpa på 4 punkter, en riktning på 230 grader och ett avstånd på 30 punkter. Skala‑värden på 100 bevarar skuggans storlek, medan horisontell skevhet lutar den 20 grader. Alfa‑transformen sätter dess opacitet till 32%:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Hämta referens till bilden
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en AutoShape av typen rektangel
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Lägg till TextFrame till rektangeln
-    ashp.addTextFrame("Aspose TextBox");
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Inaktivera formens fyllning om vi vill få skugga på texten
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // Lägg till yttre skugga och ange alla nödvändiga parametrar
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    //Write presentationen till disk
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Applicera Inner Shadow‑effekt på former**
-Följ dessa steg:
+Den resulterande texten:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation).  
-2. Hämta referensen till bilden.  
-3. Lägg till en AutoShape av typen Rectangle.  
-4. Aktivera InnerShadowEffect.  
-5. Ställ in alla nödvändiga parametrar.  
-6. Ställ in ColorType till Scheme.  
-7. Ange Scheme‑färgen.  
-8. Spara presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/)‑fil.
+![Den yttre skuggeffekten](outer_shadow_effect.png)
 
-Detta exempel (baserat på stegen ovan) visar hur du lägger till en connector mellan två former i Java:
+{{% alert color="info" title="Note" %}}
+- När yttre och förinställda skuggor används tillsammans, appliceras endast den yttre skuggan.
+- Om yttre och inre skuggor används samtidigt beror den resulterande effekten på vilken PowerPoint-version som används. Till exempel, i PowerPoint 2013 fördubblas effekten, medan i PowerPoint 2007 appliceras endast den yttre skuggan.
+{{% /alert %}}
+
+### **Applicera reflektionseffekter**
+
+En reflektion skapar en spegelbild av texten. Justera dess position, skala, oskärpa och opacitet för att kontrollera dess utseende.
+
+Detta exempel anropar [enableReflectionEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effectformat/#enableReflectionEffect--) och vänder reflektionen vertikalt med en skala på -100%. Det använder en oskärpa på 0.5 punkt och ett avstånd på 4.72 punkt. Opaciteten minskar från 60% till 0.9% mellan positionerna 0% och 60% längs reflektionen:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Hämta referens till bilden
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en AutoShape av typen rektangel
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Lägg till TextFrame till rektangeln
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Aktivera InnerShadowEffect
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-
-    // Ange alla nödvändiga parametrar
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // Ställ in ColorType till Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // Ställ in Scheme Color
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // Spara presentationen
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Den resulterande texten:
 
-**Kan jag använda WordArt‑effekter med olika teckensnitt eller skript (t.ex. arabiska, kinesiska)?**
+![Reflektionseffekten](reflection_effect.png)
 
-Ja, Aspose.Slides stödjer Unicode och fungerar med alla vanliga teckensnitt och skript. WordArt‑effekter såsom skugga, fyllning och kontur kan appliceras oavsett språk, även om teckensnittstillgänglighet och rendering kan bero på systemets teckensnitt.
+### **Applicera glöd‑effekter**
 
-**Kan jag applicera WordArt‑effekter på master‑bilder?**
+En glöd lägger till en mjuk färgad kontur runt texten. Justera dess färg, opacitet och radie för att kontrollera effekten.
 
-Ja, du kan applicera WordArt‑effekter på former i master‑bilder, inklusive titel‑platshållare, sidfot eller bakgrundstext. Ändringar i master‑layouten kommer att återspeglas i alla associerade bilder.
+Detta exempel anropar [enableGlowEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effectformat/#enableGlowEffect--) och tillämpar en röd glöd med 54% opacitet och en radie på 7 punkter:
 
-**Påverkar WordArt‑effekter filstorleken på presentationen?**
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Lite. WordArt‑effekter som skuggor, glöd och gradientfyllningar kan något öka filstorleken på grund av extra formateringsmetadata, men skillnaden är vanligen försumbar.
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+Den resulterande texten:
+
+![Glöd‑effekten](glow_effect.png)
+
+### **Applicera WordArt-transformationer**
+
+WordArt‑transformationer böjer, sträcker eller förvränger ett textblock.
+
+Ställ in [setTransform](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textframeformat/#setTransform-int-) till [ArchUpPour](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textshapetype/#ArchUpPour) för att böja hela textramen uppåt:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+Den resulterande texten:
+
+![WordArt‑transformationen](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Java tillhandahåller ett antal fördefinierade [transformationstyper](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textshapetype/).
+{{% /alert %}}
+
+### **Applicera 3D‑effekter på former och text**
+
+Du kan applicera 3D‑effekter på en form eller på dess text. Avfasningar, extrudering, belysning och kamerainställningar styr det resulterande utseendet.
+
+Följande exempel använder [ThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/threedformat/) för att lägga till cirkulära avfasningar, orange extrudering och en mörkröd kontur på rektangeln. Avfasningsdimensioner, extruderingshöjd, konturbredd och djup mäts i punkter. Ett plastmaterial, balanserad belysning roterad 40 grader runt Z‑axeln och en perspektivkamera definierar dess utseende:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    Color orange = new Color(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+Den resulterande formen:
+
+![Formens 3D‑effekt](shape_3D_effect.png)
+
+Detta exempel tillämpar liknande 3D‑formatering på texten via [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textframeformat/#getThreeDFormat--). Mindre avfasningar formar bokstavskanten, medan extrudering och belysning ger texten djup:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    Color orange = new Color(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+Den resulterande texten:
+
+![Textens 3D‑effekt](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Tillämpningen av 3D‑effekter på text eller dess former — och interaktionen mellan dessa effekter — styrs av specifika regler. Tänk på en scen som involverar både text och formen som innehåller den. En 3D‑effekt inkluderar objektets 3D‑representation och scenen där det placeras.
+
+- Om en scen är inställd för både formen och texten, får formens scen prioritet och textens scen ignoreras.
+- Om formen saknar egen scen men har en 3D‑representation, används textens scen.
+- Om formen inte har någon 3D‑effekt alls behandlas den som platt, och 3D‑effekten appliceras endast på texten.
+
+Detta beteende är relaterat till metoderna [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/sv/java/com.aspose.slides/threedformat/#getLightRig--) och [ThreeDFormat.getCamera](https://reference.aspose.com/slides/sv/java/com.aspose.slides/threedformat/#getCamera--).
+{{% /alert %}}
+
+För att hålla texten platt och läsbar samtidigt som du behåller formens 3D‑formatering, se [Keep Text Flat on a 3D Shape](/slides/sv/java/3d-presentation/) för en jämförelse av båda inställningarna och ett komplett Java‑exempel.
+
+## **Vanliga frågor**
+
+**Kan jag använda WordArt‑effekter med olika teckensnitt eller skript (t.ex. Arabiska, Kinesiska)?**
+
+Ja, Aspose.Slides for Java stöder Unicode och fungerar med alla vanliga teckensnitt och skript. WordArt‑effekter såsom skugga, fyllning och kontur kan appliceras oavsett språk, även om teckensnittstillgänglighet och renderingen kan bero på systemets teckensnitt.
+
+**Kan jag applicera WordArt‑effekter på master‑slide‑element?**
+
+Ja, du kan applicera WordArt‑effekter på former på master‑bilder, inklusive titel‑platshållare, sidfot eller bakgrundstext. Ändringar som görs i master‑layouten kommer att återspeglas på alla associerade bilder.
+
+**Påverkar WordArt‑effekter presentationsfilens storlek?**
+
+Lite. WordArt‑effekter som skuggor, glöd och gradientfyllningar kan öka filstorleken något på grund av extra formateringsmetadata, men skillnaden är oftast försumbar.
 
 **Kan jag förhandsgranska resultatet av WordArt‑effekter utan att spara presentationen?**
 
-Ja, du kan rendera bilder som innehåller WordArt till bildformat (t.ex. PNG, JPEG) med metoden `getImage` från gränssnitten [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) eller [ISlide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islide/). Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.
+Ja, du kan rendera bilder som innehåller WordArt till bilder (t.ex. PNG, JPEG) med hjälp av [ISlide.getImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islide/#getImage--), eller rendera enskilda former med [IShape.getImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getImage--). Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.

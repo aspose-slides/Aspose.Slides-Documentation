@@ -1,5 +1,5 @@
 ---
-title: WordArt hatások létrehozása és alkalmazása Java-ban
+title: WordArt effektusok létrehozása és alkalmazása Java-ban
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,385 +10,382 @@ keywords:
 - WordArt sablon
 - WordArt effektus
 - árnyék effektus
-- megjelenítés effektus
-- glow effektus
+- tükrözés effektus
+- ragyogás effektus
 - WordArt transzformáció
 - 3D effektus
 - külső árnyék effektus
 - belső árnyék effektus
-- PowerPoint
-- prezentáció
 - Java
 - Aspose.Slides
-description: "WordArt hatásokat hozhat létre és testreszabhat az Aspose.Slides for Java-ban. Ez a lépésről-lépésre útmutató segít a fejlesztőknek a prezentációk professzionális szöveggel történő gazdagításában Java-ban."
+description: "WordArt effektusok létrehozása és testreszabása az Aspose.Slides for Java-ban. Ez a lépésről‑lépésre útmutató segít a fejlesztőknek a prezentációk professzionális szövegekkel való gazdagításában Java-ban."
 ---
 ## **Áttekintés**
 
-A WordArt effektusok lehetővé teszik, hogy vizuálisan vonzó, stilizált szöveget adjunk a PowerPoint‑prezentációkhoz. Az Aspose.Slides‑szel a fejlesztők programozottan hozhatnak létre, testre szabhatnak és kezelhetnek WordArt‑ot, akárcsak a Microsoft PowerPoint‑ban – anélkül, hogy az Office‑t telepíteni kellene. Ez a cikk áttekintést nyújt a WordArt használatáról, beleértve a szövegre vonatkozó átalakítások, kitöltési stílusok, körvonalak, árnyékok és egyéb formázási lehetőségek alkalmazását, hogy a prezentáció tartalma kifejezőbb és lebilincselőbb legyen. A WordArt lehetővé teszi, hogy a szöveget grafikus objektumként kezeljük. Effektek vagy speciális módosítások alkalmazásával a szöveget vonzóbbá vagy feltűnőbbé tehetjük.
+A WordArt effektusok lehetővé teszik a szöveg kitöltéssel, körvonalazással, árnyékokkal, tükrözésekkel, ragyogással, transzformációkkal és 3D formázással való formázását. Ez a cikk bemutatja, hogyan hozhatók létre és testreszabhatók ezek az effektusok PowerPoint‑prezentációkban az Aspose.Slides for Java segítségével, anélkül, hogy a Microsoft Office telepítve lenne.
 
 ## **Egyszerű WordArt sablon létrehozása és alkalmazása szövegre**
 
-**Aspose.Slides használata** 
+A következő példák egyszerű WordArt stílust hoznak létre a szöveg, betűtípus, mintakitöltés és körvonal beállításával.
 
-Először egy egyszerű szöveget hozunk létre ezzel a Java kóddal: 
+Minden példa új prezentációt hoz létre, és egy téglalapot ad az első diára; bemeneti fájlra nincs szükség. Az első példa a szöveget „Aspose.Slides” -re állítja. Az alakzat pozíciója és méretei pontban vannak megadva:
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-Most a szöveg betűmagasságát nagyobb értékre állítjuk, hogy a hatás jobban látható legyen, ezzel a kóddal:
 
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+Állítsa be a betűtípust Arial Black-ra 36 pontban, hogy a formázás jobban látható legyen:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
-**Microsoft PowerPoint használata**
+Alkalmazzon egy [SmallGrid](https://reference.aspose.com/slides/hu/java/com.aspose.slides/patternstyle/#SmallGrid) mintát sötét narancssárga előtérrel és fehér háttérrel, majd adjon hozzá egy 1 pont széles fekete szövegkörvonalat:
 
-Nyissa meg a WordArt effektus menüt a Microsoft PowerPointban:
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
 
-![todo:image_alt_text](image-20200930113926-1.png)
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-A jobb oldali menüből választhat egy előre definiált WordArt effektust. A bal oldali menüből megadhatja egy új WordArt beállításait. 
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-Ezek a rendelkezésre álló paraméterek vagy lehetőségek:
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-![todo:image_alt_text](image-20200930114015-3.png)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    Color darkOrange = new Color(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-**Aspose.Slides használata**
-
-Itt a [SmallGrid](https://reference.aspose.com/slides/hu/java/com.aspose.slides/PatternStyle#SmallGrid) minta színt alkalmazzuk a szövegre, és 1 képpontos fekete szövegkeretet adunk hozzá ezzel a kóddal:
-
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Az eredményül kapott szöveg:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Az egyszerű WordArt sablon](WordArt_template.png)
 
-## **Egyéb WordArt hatások alkalmazása**
+## **Más WordArt effektusok alkalmazása**
 
-**Microsoft PowerPoint használata**
+A következő példák bemutatják, hogyan alkalmazhatók árnyékok, tükrözések, ragyogás, transzformációk és 3D effektusok a szövegre.
 
-A program felületéről ezek a hatások alkalmazhatók szövegre, szövegtömbre, alakzatra vagy hasonló elemre:
+### **Külső árnyék effektusok alkalmazása**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+A külső árnyék mélységet ad a szöveg mögé helyezett árnyékkal. Testreszabhatja annak színét, irányát, távolságát, elmosódási sugarát, méretezését és ferdeségét.
 
-Például az Árnyék, a Tükör és a Glow hatásokat szövegre, a 3D Formátum és 3D Forgatás hatásokat szövegtömbre, a Lágy Szélek tulajdonságot alakzatra (akár 3D Formátum tulajdonság nélkül) lehet alkalmazni. 
-
-### **Árnyék hatások alkalmazása**
-
-Itt csak a szövegre vonatkozó tulajdonságokat állítjuk be. A szövegre árnyékhatást alkalmazzuk ezzel a Java kóddal:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-
-Az Aspose.Slides API három típusú árnyékot támogat: OuterShadow, InnerShadow és PresetShadow. 
-
-A PresetShadow segítségével előre definiált értékekkel alkalmazhat árnyékot a szövegre. 
-
-**Microsoft PowerPoint használata**
-
-A PowerPointban csak egy árnyéktípust használhat. Íme egy példa:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Aspose.Slides használata**
-
-Az Aspose.Slides valójában egyszerre két árnyéktípust engedélyez: InnerShadow és PresetShadow.
-
-**Megjegyzések:**
-
-- Ha az OuterShadow és a PresetShadow együtt van használva, csak az OuterShadow hatás kerül alkalmazásra. 
-- Ha az OuterShadow és az InnerShadow egyszerre van használva, a kapott vagy alkalmazott hatás a PowerPoint verziójától függ. Például PowerPoint 2013‑ban a hatás duplázódik, míg PowerPoint 2007‑ben az OuterShadow hatás kerül alkalmazásra. 
-
-### **Megjelenítés alkalmazása szövegekre**
-
-A szöveghez megjelenítést (display) adunk hozzá ezzel a Java kódrészlettel:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-
-### **Glow hatás alkalmazása szövegekre**
-
-A glow hatást a szövegre alkalmazzuk, hogy ragyogjon vagy kitűnjön, ezzel a kóddal:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-A művelet eredménye:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-A shadow, display és glow paramétereit módosíthatja. A hatások tulajdonságait a szöveg minden részére külön‑külön állítják be. 
-
-{{% /alert %}} 
-
-### **Transzformációk használata WordArt-ban**
-
-A Transform tulajdonságot (ami a teljes szövegtömbre vonatkozik) ezzel a kóddal használjuk:
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-
-Az eredmény:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-A Microsoft PowerPoint és az Aspose.Slides for Java egy bizonyos számú előre definiált transzformációs típust biztosít. 
-
-{{% /alert %}} 
-
-**PowerPoint használata**
-
-Az előre definiált transzformációs típusok eléréséhez lépjen a következőre: **Format** -> **TextEffect** -> **Transform**
-
-**Aspose.Slides használata**
-
-A transzformációs típus kiválasztásához használja a TextShapeType enum‑ot. 
-
-### **3D hatások alkalmazása szövegekre és alakzatokra**
-
-Ezzel a mintakóddal 3D hatást állítunk be egy szöveg alakzatra:
-
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-Az eredményül kapott szöveg és alakzata:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-Ezzel a Java kóddal 3D hatást alkalmazunk a szövegre:
-
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-A művelet eredménye:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-A 3D hatások szövegekre vagy alakzataikra való alkalmazása, valamint a hatások közötti kölcsönhatások bizonyos szabályokon alapulnak. 
-
-Tekintsen egy jelenetet a szöveghez és a szöveget tartalmazó alakzatra. A 3D hatás magában foglalja a 3D objektum ábrázolását és a jelenetet, amelyre az objektum kerül. 
-
-- Ha a jelenet mind a alakzatra, mind a szövegre be van állítva, akkor az alakzat jelenete kapja a magasabb prioritást – a szöveg jelenete figyelmen kívül marad. 
-- Ha az alakzatnak nincs saját jelenete, de van 3D ábrázolása, a szöveg jelenete lesz használva. 
-- Egyébként – ha az alakzat eredetileg nincs 3D hatással – az alakzat lapos, és a 3D hatás csak a szövegre kerül alkalmazásra. 
-
-Ezek a leírások a ThreeDFormat.getLightRig() és a ThreeDFormat.getCamera() metódusokhoz kapcsolódnak. 
-
-{{% /alert %}} 
-
-## **Külső árnyék hatások alkalmazása szövegekre**
-Az Aspose.Slides for Java a [**IOuterShadow**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ioutershadow/) és a [**IInnerShadow**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iinnershadow/) osztályokat kínálja, amelyek lehetővé teszik, hogy árnyékhatásokat alkalmazzunk a [TextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textframe/) által tartott szövegre. Kövesse ezeket a lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályból.  
-2. Szerezze meg a dia referenciáját az indexe alapján.  
-3. Adjon egy Rectangle típusú AutoShape‑et a diára.  
-4. Szerezze meg az AutoShape‑hez kapcsolódó TextFrame‑et.  
-5. Állítsa az AutoShape FillType‑ját NoFill‑re.  
-6. Hozzon létre egy OuterShadow példányt.  
-7. Állítsa be az árnyék BlurRadius‑át.  
-8. Állítsa be az árnyék Direction‑ját.  
-9. Állítsa be az árnyék Distance‑ét.  
-10. Állítsa be a RectanglelAlign‑t TopLeft‑ra.  
-11. Állítsa be az árnyék PresetColor‑át Black‑re.  
-12. Mentse a prezentációt PPTX fájlként.
-
-Ez a Java mintakód – a fenti lépések megvalósítása – bemutatja, hogyan alkalmazhatja a külső árnyék hatást szövegre:
+Ez a példa meghívja az [enableOuterShadowEffect](https://reference.aspose.com/slides/hu/java/com.aspose.slides/effectformat/#enableOuterShadowEffect--) metódust, és egy fekete árnyékot állít be 4 pont elmosódási sugárral, 230 fokos iránnyal és 30 pont távolsággal. A 100 méretezési érték megőrzi az árnyék méretét, míg a vízszintes ferdeség 20 fokkal döntja el. Az alfa transzformáció 32 %-os átlátszatlanságot állít be:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Szerezze meg a dia hivatkozását
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hozzon létre Rectangle típusú AutoShape-et
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Szövegkeretet (TextFrame) ad a Rectangle-hez
-    ashp.addTextFrame("Aspose TextBox");
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Tiltsa le az alakzat kitöltését, ha a szöveg árnyékát szeretné megkapni
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // Külső árnyék hozzáadása és az összes szükséges paraméter beállítása
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    // Mentse a prezentációt lemezre
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Belső árnyék hatás alkalmazása alakzatokra**
-Kövesse ezeket a lépéseket:
+Az eredményül kapott szöveg:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályból.  
-2. Szerezze meg a dia referenciáját.  
-3. Adjon egy Rectangle típusú AutoShape‑et.  
-4. Engedélyezze az InnerShadowEffect‑et.  
-5. Állítsa be az összes szükséges paramétert.  
-6. Állítsa be a ColorType‑ot Scheme‑re.  
-7. Állítsa be a Scheme Color‑t.  
-8. Mentse a prezentációt PPTX fájlként.
+![A külső árnyék effektus](outer_shadow_effect.png)
 
-Ez a mintakód (a fenti lépések alapján) megmutatja, hogyan adhat hozzá egy kapcsolatot két alakzat között Java‑ban:
+{{% alert color="info" title="Note" %}}
+- Ha a külső és az előre beállított árnyékok együtt vannak használva, csak a külső árnyék kerül alkalmazásra.
+- Ha a külső és belső árnyékok egyszerre vannak használva, az eredő effektus a PowerPoint verziójától függ. Például a PowerPoint 2013‑ban az effektus duplázódik, míg a PowerPoint 2007‑ben csak a külső árnyék kerül alkalmazásra.
+{{% /alert %}}
+
+### **Tükrözés effektusok alkalmazása**
+
+A tükrözés egy tükrözött másolatot hoz létre a szövegről. Állítsa be a pozícióját, méretezését, elmosódását és átlátszatlanságát a megjelenés irányításához.
+
+Ez a példa meghívja az [enableReflectionEffect](https://reference.aspose.com/slides/hu/java/com.aspose.slides/effectformat/#enableReflectionEffect--) metódust, és függőlegesen fordítja meg a tükrözést -100 %-os méretezéssel. 0,5 pont elmosódási sugarat és 4,72 pont távolságot használ. Az átlátszatlanság 60 %-ról 0,9 %-ra csökken a 0 % és 60 % közötti pozíciók között a tükrözésen:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // A dia hivatkozásának lekérése
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle típusú AutoShape hozzáadása
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // TextFrame hozzáadása a Rectangle-hez
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Belső árnyék effektus engedélyezése
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-
-    // Az összes szükséges paraméter beállítása
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // ColorType beállítása Scheme-re
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // Scheme szín beállítása
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // Prezentáció mentése
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Az eredményül kapott szöveg:
+
+![A tükrözés effektus](reflection_effect.png)
+
+### **Ragyogás effektusok alkalmazása**
+
+A ragyogás egy lágy színes körvonalat ad a szöveg köré. Állítsa be a színét, átlátszatlanságát és sugarát a hatás szabályozásához.
+
+Ez a példa meghívja az [enableGlowEffect](https://reference.aspose.com/slides/hu/java/com.aspose.slides/effectformat/#enableGlowEffect--) metódust, és piros ragyogást alkalmaz 54 %-os átlátszatlansággal és 7 pont sugarral:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredményül kapott szöveg:
+
+![A ragyogás effektus](glow_effect.png)
+
+### **WordArt transzformációk alkalmazása**
+
+A WordArt transzformációk hajlítják, nyújtják vagy torzítják a szövegtömböt.
+
+Állítsa be a [setTransform](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textframeformat/#setTransform-int-) értékét [ArchUpPour](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textshapetype/#ArchUpPour) –ra, hogy a teljes szövegkeretet felfelé görbítse:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredményül kapott szöveg:
+
+![A WordArt transzformáció](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Az Aspose.Slides for Java előre definiált [transformation types](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textshapetype/) készletet kínál.
+{{% /alert %}}
+
+### **3D effektusok alkalmazása alakzatokra és szövegre**
+
+3D effektusokat alkalmazhat egy alakzatra vagy a szövegére. A lekerekítések, kitüremkedés, világítás és kamera beállítások határozzák meg a végeredményt.
+
+A következő példa a [ThreeDFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/threedformat/) használja, hogy körkörös lekerekítéseket, narancs kitüremkedést és sötétvörös körvonalat adjon a téglalaphoz. A lekerekítések mérete, a kitüremkedés magassága, a körvonal szélessége és a mélység pontban van megadva. Egy műanyag anyag, egyensúlyozott megvilágítás, amely 40 fokkal körbeforgatott a Z tengely körül, és egy perspektíva kamera határozza meg a megjelenését:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    Color orange = new Color(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az alakzat 3D effektusa:
+
+![Az alakzat 3D effektusa](shape_3D_effect.png)
+
+Ez a példa hasonló 3D formázást alkalmaz a szövegre a [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textframeformat/#getThreeDFormat--) segítségével. A kisebb lekerekítések a betűk széleit formálják, míg a kitüremkedés és a világítás mélységet ad a szövegnek:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    Color orange = new Color(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+A szöveg 3D effektusa:
+
+![A szöveg 3D effektusa](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+A 3D effektusok alkalmazása szövegre vagy azok alakzataira—és ezek kölcsönhatása—közvetlenül meghatározott szabályok szerint működik. Tekintsen meg egy jelenetet, amely mind a szöveget, mind a benne lévő alakzatot tartalmazza. Egy 3D effektus magában foglalja az objektum 3D ábrázolását és azt a jelenetet, amelyben elhelyezkedik.
+
+- Ha a jelenet mind az alakzatra, mind a szövegre be van állítva, az alakzat jelenete lesz előnyben, a szöveg jelenete figyelmen kívül marad.
+- Ha az alakzatnak nincs saját jelenete, de van 3D ábrázolása, a szöveg jelenete kerül felhasználásra.
+- Ha az alakzatnak egyáltalán nincs 3D effektusa, laposnak tekintik, és a 3D effektus csak a szövegre kerül alkalmazásra.
+
+Ezek a viselkedések a [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/hu/java/com.aspose.slides/threedformat/#getLightRig--) és a [ThreeDFormat.getCamera](https://reference.aspose.com/slides/hu/java/com.aspose.slides/threedformat/#getCamera--) metódusokra vonatkoznak.
+{{% /alert %}}
+
+A szöveg lapos és olvasható tartásához, miközben megmarad az alakzat 3D formázása, tekintse meg a [Keep Text Flat on a 3D Shape](/slides/hu/java/3d-presentation/) oldalt a beállítások összehasonlításához és egy teljes Java példához.
 
 ## **GYIK**
 
-**Használhatok WordArt hatásokat különböző betűtípusokkal vagy írásrendszerekkel (pl. arab, kínai)?**
+**Használhatok WordArt effektusokat különböző betűtípusokkal vagy írásrendszerekkel (pl. arab, kínai)?**
 
-Igen, az Aspose.Slides támogatja a Unicode‑ot, és minden főbb betűtípussal és írásrendszerrel működik. A WordArt hatásokat, például árnyék, kitöltés és körvonal, nyelvtől függetlenül alkalmazhatja, bár a betűtípusok rendelkezésre állása és megjelenítése a rendszer betűtípusaitól függhet.
+Igen, az Aspose.Slides for Java támogatja az Unicode-ot, és működik minden főbb betűtípussal és írásrendszerrel. A WordArt effektusok, például az árnyék, kitöltés és körvonal alkalmazhatók függetlenül a nyelvtől, bár a betűk elérhetősége és megjelenítése a rendszer betűtípusaitól függhet.
 
-**Alkalmazhatok WordArt hatásokat a diamester elemeire?**
+**Alkalmazhatok WordArt effektusokat a diamester elemeire?**
 
-Igen, a WordArt hatásokat mesterdia alakzatokra is alkalmazhatja, beleértve a címhelyettesítőket, lábléceket vagy háttérszövegeket. A mester elrendezésében végzett módosítások minden kapcsolódó diára kihatnak.
+Igen, a WordArt effektusok alkalmazhatók a mester dia alakzataira, beleértve a címmintákat, lábléceket vagy háttérszöveget. A mester elrendezésén végzett változtatások minden kapcsolódó diára kihatnak.
 
-**A WordArt hatások befolyásolják a prezentáció fájlméretét?**
+**A WordArt effektusok befolyásolják a prezentáció fájlméretét?**
 
-Enyhén. A shadow, glow és gradient kitöltések kisebb mértékben növelhetik a fájlméretet a formázási metaadatok hozzáadása miatt, de a különbség általában elhanyagolható.
+Kissé. Az árnyékok, ragyogások és színátmenetes kitöltések némi extra formázási metaadatot adnak hozzá, ami enyhén növelheti a fájlméretet, de általában elhanyagolható.
 
-**Megtekinthetem a WordArt hatások eredményét a prezentáció mentése nélkül?**
+**Előnézhetem a WordArt effektusok eredményét anélkül, hogy menteném a prezentációt?**
 
-Igen, a WordArt‑ot tartalmazó diákat képekké (például PNG, JPEG) renderelheti a [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) vagy a [ISlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/) interfész `getImage` metódusával. Ez lehetővé teszi a végeredmény előnézetét memória‑ vagy képernyőalapon a teljes prezentáció mentése vagy exportálása előtt.
+Igen, a WordArt tartalmazó diákat képekké (pl. PNG, JPEG) renderelheti a [ISlide.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#getImage--) vagy az egyes alakzatokat a [IShape.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/#getImage--) segítségével. Ez lehetővé teszi az eredmény előnézetét memóriában vagy a képernyőn, mielőtt a teljes prezentációt mentené vagy exportálná.

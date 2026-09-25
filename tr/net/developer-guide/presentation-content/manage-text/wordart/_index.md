@@ -1,5 +1,5 @@
 ---
-title: WordArt Efektlerini .NET'te Oluşturma ve Uygulama
+title: WordArt Efektlerini .NET'te Oluşturun ve Uygulayın
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,246 +10,336 @@ keywords:
 - WordArt şablonu
 - WordArt efekti
 - gölge efekti
-- görünüm efekti
-- parıltı efekti
+- yansıma efekti
+- ışıldama efekti
 - WordArt dönüşümü
-- 3D efekti
+- 3B efekti
 - dış gölge efekti
 - iç gölge efekti
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET içinde WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım rehber, geliştiricilerin C#'ta profesyonel metinle sunumları geliştirmelerine yardımcı olur."
+description: "Aspose.Slides for .NET içinde WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım kılavuz, geliştiricilerin C# içinde profesyonel metinle sunumları geliştirmesine yardımcı olur."
 ---
 ## **Genel Bakış**
 
-WordArt efektleri, PowerPoint sunumlarınıza görsel olarak çekici, stilize metin eklemenizi sağlar. Aspose.Slides for .NET ile geliştiriciler, Microsoft PowerPoint'te olduğu gibi WordArt'ı programlı olarak oluşturabilir, özelleştirebilir ve yönetebilir—Office yüklü olmasına gerek yok. Bu makale, .NET'te WordArt ile çalışmaya genel bir bakış sunar; metin dönüşümleri, dolgu stilleri, kenarlıklar, gölgeler ve sunum içeriğinizi daha ifadeli ve ilgi çekici hâle getiren diğer biçimlendirme seçeneklerini nasıl uygulayacağınızı açıklar. WordArt, metni grafik nesnesi gibi işlemeyi sağlar. Metni daha çekici veya belirgin hâle getirmek için uygulanan efektler veya özel değişiklikler bütünüdür.
+WordArt efektleri, metni dolgu, kontur, gölge, yansıma, ışıldama, dönüşüm ve 3B biçimlendirme ile stil vermenizi sağlar. Bu makale, Microsoft Office yüklü olmadan Aspose.Slides for .NET kullanarak PowerPoint sunumlarında bu efektleri nasıl oluşturacağınızı ve özelleştireceğinizi açıklar.
 
-## **Basit Bir WordArt Şablonu Oluşturma ve Metne Uygulama**
+## **Basit bir WordArt Şablonu Oluşturun ve Metne Uygulayın**
 
-Bu bölümde, Aspose.Slides for .NET kullanarak basit bir WordArt şablonu oluşturmayı ve metne uygulamayı inceleyeceğiz. WordArt, çarpıcı görsel efektler ve stillerle metnin görünümünü geliştirmek için kolay bir yol sunar. WordArt oluşturma ve kullanımının temel adımlarını öğrenerek bu teknikleri herhangi bir projeye uyarlayabilir, sunumlarınızı daha canlı ve akılda kalıcı hâle getirebilirsiniz.
+Aşağıdaki örnekler, metin, yazı tipi, desen dolgusu ve konturu ayarlayarak basit bir WordArt stili oluşturur.
 
-İlk olarak, aşağıdaki C# kodu ile basit bir metin oluşturuyoruz:
-
-```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
-
-    IPortion portion = textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
-```
-
-Şimdi, efekti daha belirgin hâle getirmek için metnin yazı tipi yüksekliğini daha büyük bir değere ayarlıyoruz:
+Her örnek yeni bir sunum oluşturur ve ilk slaytına bir dikdörtgen ekler; giriş dosyasına ihtiyaç yoktur. İlk örnek metni "Aspose.Slides" olarak ayarlar. Şeklin konumu ve boyutları puan cinsinden ölçülür:
 
 ```cs
-    portion.PortionFormat.LatinFont = new FontData("Arial Black");
-    portion.PortionFormat.FontHeight = 36;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+
+var portion = textFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
 ```
 
-Burada, metne SmallGrid desen dolgusunu uyguluyor ve 1 genişliğinde siyah bir metin kenarlığı ekliyoruz:
+Biçimin daha belirgin olmasını sağlamak için yazı tipini Arial Black ve 36 puan olarak ayarlayın:
 
 ```cs
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
-    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
 ```
 
-Oluşan metin:
+Koyu turuncu ön plan ve beyaz arka plan ile bir [SmallGrid](https://reference.aspose.com/slides/tr/net/aspose.slides/patternstyle/) deseni uygulayın, ardından 1 puan genişliğinde siyah bir metin konturu ekleyin:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+
+portion.PortionFormat.LineFormat.Width = 1;
+portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+```
+
+Ortaya çıkan metin:
 
 ![Basit WordArt şablonu](WordArt_template.png)
 
-## **Diğer WordArt Efektlerini Uygulama**
+## **Diğer WordArt Efektlerini Uygulayın**
 
-Temel dönüşümlere ek olarak, Aspose.Slides for .NET, metninizin görünümünü artırmak için çeşitli gelişmiş WordArt efektleri uygulamanıza olanak tanır. Bu efektler arasında kenarlıklar, dolgular, gölgeler, yansımalar ve parıltı efektleri bulunur. Bu özellikleri birleştirerek sunumlarınızda öne çıkan göz alıcı metin stilleri oluşturabilirsiniz. Bu bölüm, bu efektleri basit ve temiz kod örnekleriyle programlı olarak nasıl uygulayacağınızı gösterir.
+Aşağıdaki örnekler, metne gölge, yansıma, ışıldama, dönüşüm ve 3B efektler nasıl uygulanacağını gösterir.
 
-### **Dış Gölge Efektlerini Uygulama**
+### **Dış Gölge Efektlerini Uygulayın**
 
-Dış gölge efektleri, metnin konturunun arkasına bir gölge ekleyerek derinlik ve arka plandan ayrışma hissi yaratır. Aspose.Slides for .NET, WordArt metnine dış gölgeleri kolayca uygulamanıza ve özelleştirmenize imkan verir. Bu bölümde gölge rengi, yönü, mesafesi, bulanıklık yarıçapı ve daha fazlasını ayarlayarak istenen görsel etkiyi elde etmeyi öğreneceksiniz.
+Dış gölge, metnin arkasına bir gölge yerleştirerek derinlik kazandırır. Renk, yön, mesafe, bulanıklaştırma yarıçapı, ölçek ve eğim gibi özelliklerini özelleştirebilirsiniz.
 
-Aşağıdaki C# kod parçacığı, yukarıda oluşturulan metne gölge efekti uygular.
+Bu örnek [EnableOuterShadowEffect](https://reference.aspose.com/slides/tr/net/aspose.slides/effectformat/enableoutershadoweffect/) metodunu çağırır ve 4 puan bulanık yarıçap, 230 derece yön ve 30 puan mesafe ile siyah bir gölge ayarlar. Ölçek değeri 100 gölgenin boyutunu korur, yatay eğim ise 20 derece eğim ekler. Alfa dönüşümü opaklığı %32 olarak ayarlar:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
-Oluşan metin:
+Ortaya çıkan metin:
 
 ![Dış Gölge efekti](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
-- OuterShadow ve PresetShadow birlikte kullanıldığında, yalnızca OuterShadow efekti uygulanır.  
-- OuterShadow ve InnerShadow aynı anda kullanıldığında, ortaya çıkan efekt PowerPoint sürümüne bağlıdır. Örneğin, PowerPoint 2013'te efekt iki katına çıkarken, PowerPoint 2007'de yalnızca OuterShadow efekti uygulanır.  
+{{% alert color="info" title="Note" %}}
+- Dış ve önceden tanımlı gölgeler birlikte kullanıldığında, yalnızca dış gölge uygulanır.
+- Dış ve iç gölgeler aynı anda kullanılırsa, ortaya çıkan efekt PowerPoint sürümüne bağlıdır. Örneğin, PowerPoint 2013'te efekt iki katına çıkar, PowerPoint 2007'de ise sadece dış gölge uygulanır.
 {{% /alert %}}
 
-### **Yansıma Efektlerini Uygulama**
+### **Yansıma Efektlerini Uygulayın**
 
-Bu bölümde, Aspose.Slides for .NET kullanarak slaytlarınıza yansıma efektleri eklemeyi inceleyeceksiniz. Yansıma efektleri, metninize veya şekillerinize şık ve modern bir görünüm kazandırarak önemli öğelerin öne çıkmasını sağlar ve sunumunuza derinlik katar. Bu efektleri uygulama ve özelleştirme sürecini anlayarak tasarım ihtiyaçlarınıza ve marka gereksinimlerinize uygun hâle getirebilirsiniz.
+Yansıma, metnin aynalı bir kopyasını oluşturur. Konum, ölçek, bulanıklık ve opaklığı ayarlayarak görünümünü kontrol edebilirsiniz.
 
-Aşağıdaki C# kod örneğiyle metne bir yansıma efekti ekleyin:
+Bu örnek [EnableReflectionEffect](https://reference.aspose.com/slides/tr/net/aspose.slides/effectformat/enablereflectioneffect/) metodunu çağırır ve yansımayı -100% ölçekle dikey olarak ters çevirir. 0,5 puan bulanık yarıçap ve 4,72 puan mesafe kullanır. Opaklık, yansımanın 0% ile 60% konumları arasında %60'tan %0,9'a düşer:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
 ```
 
-Oluşan metin:
+Ortaya çıkan metin:
 
 ![Yansıma efekti](reflection_effect.png)
 
-### **Parıltı Efektlerini Uygulama**
+### **Işıldama Efektlerini Uygulayın**
 
-Bu bölümde, Aspose.Slides for .NET kullanarak metne bir parıltı efekti eklemeyi keşfedeceksiniz. Parıltı efekti, metninizi ışıklı bir konturla vurgulayarak slaytlarınızın görsel çekiciliğini artırır. Renk ve yoğunluk gibi ayarları değiştirerek parıltıyı tasarım ve marka ihtiyaçlarınıza göre kolayca uyarlayabilirsiniz; böylece sunumunuzdaki ana noktalar izleyicinin dikkatini çeker.
+Işıldama, metnin etrafına yumuşak renkli bir kontur ekler. Renk, opaklık ve yarıçapını ayarlayarak efekti kontrol edebilirsiniz.
 
-Aşağıdaki kodla metne parlak bir parıltı efekti uygulayın:
-
-```cs
-    portion.PortionFormat.EffectFormat.EnableGlowEffect();
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
-```
-
-Oluşan metin:
-
-![Parıltı efekti](glow_effect.png)
-
-### **WordArt Dönüşümlerini Uygulama**
-
-Bu bölümde, Aspose.Slides for .NET ile WordArt'ta dönüşümleri nasıl kullanacağınızı inceleyeceksiniz. Dönüşümler, metni bükmenize, uzatmanıza veya eğmenize olanak tanır; benzersiz ve görsel açıdan çarpıcı efektler oluşturur. Bu tekniklere hâkim olarak, metin şekillerini ve stillerini marka kimliğinize veya yaratıcı vizyonunuza uygun hâle getirip etkileyici ve profesyonel bir sunum hazırlayabilirsiniz.
-
-Aşağıdaki kodu kullanarak tüm metin bloğuna uygulanacak `Transform` özelliğini ayarlayın:
+Bu örnek [EnableGlowEffect](https://reference.aspose.com/slides/tr/net/aspose.slides/effectformat/enablegloweffect/) metodunu çağırır ve %54 opaklıkta, 7 puan yarıçapta kırmızı bir ışıldama uygular:
 
 ```cs
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableGlowEffect();
+portion.PortionFormat.EffectFormat.GlowEffect.Color.Color = System.Drawing.Color.Red;
+portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
 ```
 
-Oluşan metin:
+Ortaya çıkan metin:
+
+![Işıldama efekti](glow_effect.png)
+
+### **WordArt Dönüşümlerini Uygulayın**
+
+WordArt dönüşümleri bir metin bloğunu bükebilir, uzatabilir veya çarpıtabilir.
+
+Metin çerçevesinin tamamını yukarı doğru kavis yapmak için [Transform](https://reference.aspose.com/slides/tr/net/aspose.slides/textframeformat/transform/) özelliğini [ArchUpPour](https://reference.aspose.com/slides/tr/net/aspose.slides/textshapetype/) olarak ayarlayın:
+
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+```
+
+Ortaya çıkan metin:
 
 ![WordArt dönüşümü](transform_effect.png)
 
-{{% alert color="primary" %}} 
-Aspose.Slides for .NET, önceden tanımlı [dönüşüm türleri](https://reference.aspose.com/slides/tr/net/aspose.slides/textshapetype/) sağlar.  
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for .NET, önceden tanımlanmış bir dizi [dönüşüm türü](https://reference.aspose.com/slides/tr/net/aspose.slides/textshapetype/) sunar.
+{{% /alert %}}
 
-### **Şekillere ve Metne 3D Efektleri Uygulama**
+### **Şekillere ve Metne 3B Efektler Uygulayın**
 
-Gerçekçi ve göz alıcı görseller yaratmak, sunumlarınızın etkisini büyük ölçüde artırabilir. Bu bölümde, Aspose.Slides for .NET kullanarak şekillere üç boyutlu (3D) efektler eklemeyi inceleyeceksiniz. Derinlik, açı ve aydınlatma gibi parametreleri manipüle ederek, izleyicinizin dikkatini çeken etkileyici 3D dönüşümler üretebilirsiniz. İster ince vurgular ister dramatik illüzyonlar hedefleyin, bu özellikler tasarımınızı yükseltmek ve fikirlerinizi daha çekişmeli bir şekilde iletmek için esnek yollar sunar.
+Bir şekle ya da metnine 3B efektler uygulayabilirsiniz. Koniç, ekstrüzyon, aydınlatma ve kamera ayarları ortaya çıkan görünümü kontrol eder.
 
-Aşağıdaki örnek kodu kullanarak şekle bir 3D efekti ayarlayın:
-
-```cs
-    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
-
-    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-    autoShape.ThreeDFormat.BevelTop.Width = 11;
-
-    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    autoShape.ThreeDFormat.ExtrusionHeight = 6;
-
-    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    autoShape.ThreeDFormat.ContourWidth = 1.5;
-
-    autoShape.ThreeDFormat.Depth = 3;
-
-    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
-
-    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
-
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
-```
-
-Oluşan şekil:
-
-![Şekil 3D efekti](shape_3D_effect.png)
-
-Aşağıdaki örnek kodu kullanarak metne bir 3D efekti ayarlayın:
+Bu örnek, dikdörtgene dairesel koniçler, turuncu ekstrüzyon ve koyu kırmızı bir kontur eklemek için [ThreeDFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/) kullanır. Koniç boyutları, ekstrüzyon yüksekliği, kontur genişliği ve derinlik puan cinsinden ölçülür. Plastik bir malzeme, Z ekseni etrafında 40 derece döndürülmüş dengeli aydınlatma ve perspektif kamera görünümünü tanımlar:
 
 ```cs
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+autoShape.TextFrame.Text = "Aspose.Slides";
 
-    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+autoShape.ThreeDFormat.Depth = 3;
+
+autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-Oluşan metin:
+Ortaya çıkan şekil:
 
-![Metin 3D efekti](text_3D_effect.png)
+![Şekil 3B efekti](shape_3D_effect.png)
 
-{{% alert color="primary" %}} 
-Metne veya şekline uygulanan 3D efektlerin ve bu efektlerin birbirleriyle etkileşiminin belirli kuralları vardır. Metni ve bu metni içeren şekli içeren bir sahneyi düşünün. Bir 3D efekt, nesnenin 3D temsili ve üzerine yerleştirildiği sahneyi içerir.
+Bu örnek, metne benzer 3B biçimlendirmeyi [TextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/textframeformat/threedformat/) aracılığıyla uygular. Daha küçük koniçler harf kenarlarını şekillendirirken, ekstrüzyon ve aydınlatma metne derinlik katar:
 
-- Eğer sahne hem şekil hem de metin için ayarlanmışsa, şeklin sahnesi önceliklidir ve metnin sahnesi yok sayılır.  
-- Eğer şeklin kendi sahnesi yoksa ancak bir 3D temsili varsa, metnin sahnesi kullanılır.  
-- Şeklin hiç 3D efekti yoksa, düz kabul edilir ve 3D efekt yalnızca metne uygulanır.  
+```cs
+using System.Drawing;
+using Aspose.Slides;
 
-Bu davranışlar, [ThreeDFormat.LightRig](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/lightrig/) ve [ThreeDFormat.Camera](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/camera/) özellikleriyle ilişkilidir.  
-{{% /alert %}} 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
+
+textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+
+textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
+
+textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+```
+
+Ortaya çıkan metin:
+
+![Metin 3B efekti](text_3B_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Metne veya şekillere 3B efektlerin uygulanması—ve bu efektler arasındaki etkileşim—belirli kurallara göre yönetilir. Hem metni hem de onu içeren şekli içeren bir sahneyi düşünün. Bir 3B efekt, nesnenin 3B temsilini ve yerleştirildiği sahneyi içerir.
+
+- Eğer sahne hem şekil hem de metin için ayarlanmışsa, şeklin sahnesi öncelik kazanır ve metnin sahnesi yoksayılır.
+- Şeklin kendine ait bir sahnesi yoksa ama bir 3B temsili varsa, metnin sahnesi kullanılır.
+- Şeklin hiç 3B efekti yoksa, şekil düz olarak kabul edilir ve 3B efekt yalnızca metne uygulanır.
+
+Bu davranışlar [ThreeDFormat.LightRig](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/lightrig/) ve [ThreeDFormat.Camera](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/camera/) özellikleriyle ilişkilidir.
+{{% /alert %}}
+
+Metni düz ve okunabilir tutarken şeklin 3B biçimlendirmesini korumak için, her iki ayarın karşılaştırmasını ve tam bir C# örneğini içeren [Keep Text Flat on a 3D Shape](/slides/tr/net/3d-presentation/) sayfasına bakın.
 
 ## **SSS**
 
-**Farklı yazı tipleri veya betikler (ör. Arapça, Çince) ile WordArt efektlerini kullanabilir miyim?**
+**Farklı yazı tipleri veya betikler (örn. Arapça, Çince) ile WordArt efektlerini kullanabilir miyim?**
 
-Evet, Aspose.Slides for .NET Unicode desteği sağlar ve tüm büyük yazı tipleri ve betiklerle çalışır. WordArt efektleri (gölge, dolgu, kenarlık vb.) dil bağımsız olarak uygulanabilir; ancak yazı tipi bulunabilirliği ve render edilmesi sistem yazı tiplerine bağlı olabilir.
+Evet, Aspose.Slides for .NET Unicode'ı destekler ve tüm büyük yazı tipleri ve betiklerle çalışır. Gölge, doldurma ve kontur gibi WordArt efektleri, dil ne olursa olsun uygulanabilir; ancak yazı tipi bulunabilirliği ve renderleme sistem yazı tiplerine bağlı olabilir.
 
-**WordArt efektlerini slayt ana sayfası (master) öğelerine uygulayabilir miyim?**
+**Slayt ana düzeni (master) öğelerine WordArt efektlerini uygulayabilir miyim?**
 
-Evet, başlık yer tutucuları, alt bilgi bölümleri veya arka plan metni gibi master slaytlardaki şekillere WordArt efektleri uygulayabilirsiniz. Master düzeninde yapılan değişiklikler, ilişkili tüm slaytlara yansıtılır.
+Evet, başlık yer tutucuları, alt bilgi veya arka plan metni gibi ana slayt üzerindeki şekillere WordArt efektleri uygulayabilirsiniz. Ana düzen üzerinde yapılan değişiklikler, ilişkili tüm slaytlara yansıyacaktır.
 
 **WordArt efektleri sunum dosya boyutunu etkiler mi?**
 
-Bir miktar. Gölgeler, parıltılar ve degrade dolgular gibi WordArt efektleri, ek biçimlendirme meta verileri eklediği için dosya boyutunu hafifçe artırabilir; ancak fark genellikle ihmal edilebilir düzeydedir.
+Biraz. Gölge, ışıldama ve degrade dolgu gibi WordArt efektleri, ek biçimlendirme meta verileri nedeniyle dosya boyutunu biraz artırabilir, ancak fark genellikle önemsizdir.
 
-**WordArt efektlerinin sonucunu sunumu kaydetmeden önizleyebilir miyim?**
+**WordArt efektlerinin sonucunu sunumu kaydetmeden ön izleyebilir miyim?**
 
-Evet, [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) veya [ISlide](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/) arayüzlerinden `GetImage` yöntemiyle WordArt içeren slaytları PNG, JPEG gibi görüntülere render edebilirsiniz. Böylece tam sunumu kaydetmeden veya dışa aktarmadan önce sonucu bellek içinde veya ekranda önizleyebilirsiniz.
+Evet, WordArt içeren slaytları [ISlide.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/getimage/) ile görüntülere (ör. PNG, JPEG) renderleyebilir veya tek tek şekilleri [IShape.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/getimage/) ile renderleyebilirsiniz. Bu sayede tam sunumu kaydetmeden veya dışa aktarmadan önce sonucu hafızada veya ekranda ön izleyebilirsiniz.

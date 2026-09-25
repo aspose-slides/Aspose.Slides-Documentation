@@ -1,5 +1,5 @@
 ---
-title: Skapa och tillämpa WordArt-effekter i .NET
+title: Skapa och tillämpa WordArt‑effekter i .NET
 linktitle: WordArt
 type: docs
 weight: 110
@@ -7,249 +7,339 @@ url: /sv/net/wordart/
 keywords:
 - WordArt
 - skapa WordArt
-- WordArt-mall
-- WordArt-effekt
+- WordArt‑mall
+- WordArt‑effekt
 - skuggeffekt
-- visningseffekt
-- glöd-effekt
-- WordArt-transformation
-- 3D-effekt
+- reflektionseffekt
+- glödeffekt
+- WordArt‑transformation
+- 3D‑effekt
 - yttre skuggeffekt
 - inre skuggeffekt
 - .NET
 - C#
 - Aspose.Slides
-description: Skapa och anpassa WordArt‑effekter i Aspose.Slides för .NET. Denna steg‑för‑steg‑guide hjälper utvecklare att förbättra presentationer med professionell text i C#
+description: "Skapa och anpassa WordArt‑effekter i Aspose.Slides för .NET. Denna steg‑för‑steg‑guide hjälper utvecklare att förbättra presentationer med professionell text i C#."
 ---
 ## **Översikt**
 
-WordArt-effekter gör att du kan lägga till visuellt tilltalande, styliserad text i dina PowerPoint‑presentationer. Med Aspose.Slides för .NET kan utvecklare programatiskt skapa, anpassa och hantera WordArt precis som i Microsoft PowerPoint—utan att Office behöver vara installerat. Den här artikeln ger en översikt över hur du arbetar med WordArt i .NET, inklusive hur du tillämpar texttransformeringar, fyllningsstilar, konturer, skuggor och andra formateringsalternativ för att göra ditt presentationsinnehåll mer uttrycksfullt och engagerande. WordArt låter dig behandla text som ett grafiskt objekt. Det består av effekter eller särskilda modifieringar som appliceras på text för att göra den mer attraktiv eller märkbar.
+WordArt‑effekter låter dig formatera text med fyllningar, konturer, skuggor, reflektioner, glöd, transformationer och 3D‑formatering. Den här artikeln förklarar hur du skapar och anpassar dessa effekter i PowerPoint‑presentationer med Aspose.Slides för .NET, utan att Microsoft Office är installerat.
 
-## **Skapa en enkel WordArt-mall och tillämpa den på text**
+## **Skapa en enkel WordArt‑mall och tillämpa den på text**
 
-I det här avsnittet utforskar vi hur du skapar en enkel WordArt-mall och tillämpar den på text med Aspose.Slides för .NET. WordArt erbjuder ett enkelt sätt att förbättra textens utseende med slående visuella effekter och stilar. Genom att lära dig de grundläggande stegen för att skapa och använda WordArt kan du snabbt anpassa dessa tekniker till vilket projekt som helst, vilket gör dina presentationer mer levande och minnesvärda.
+Följande exempel bygger en enkel WordArt‑stil genom att ange text, teckensnitt, mönsterfyllning och kontur.
 
-Först skapar vi enkel text med följande C#‑kod:
+Varje exempel skapar en ny presentation och lägger till en rektangel på den första bilden; ingen indatafil krävs. Det första exemplet sätter texten till "Aspose.Slides". Formens position och dimensioner mäts i punkter:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
 
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IPortion portion = textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+
+var portion = textFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
 ```
 
-Nu sätter vi textens teckenhöjd till ett större värde för att göra effekten mer märkbar med följande kod:
+Ställ in teckensnittet till Arial Black med 36 punkter för att göra formateringen mer tydlig:
 
 ```cs
-    portion.PortionFormat.LatinFont = new FontData("Arial Black");
-    portion.PortionFormat.FontHeight = 36;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
 ```
 
-Här applicerar vi SmallGrid‑mönsterfyllning på texten och lägger till en svart textram med bredden 1 med följande kod:
+Applicera ett [SmallGrid](https://reference.aspose.com/slides/sv/net/aspose.slides/patternstyle/)‑mönster med en mörkorange förgrund och en vit bakgrund, lägg sedan till en svart textkontur med en bredd på 1 punkt:
 
 ```cs
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
-    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+
+portion.PortionFormat.LineFormat.Width = 1;
+portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
 ```
 
 Den resulterande texten:
 
-![Den enkla WordArt-mallen](WordArt_template.png)
+![Den enkla WordArt‑mallen](WordArt_template.png)
 
 ## **Applicera andra WordArt‑effekter**
 
-Förutom grundläggande transformationer låter Aspose.Slides för .NET dig tillämpa en rad avancerade WordArt‑effekter för att förbättra din texts utseende. Dessa inkluderar konturer, fyllningar, skuggor, reflektioner och glöd‑effekter. Genom att kombinera dessa funktioner kan du skapa iögonfallande textstilar som sticker ut i dina presentationer. Detta avsnitt demonstrerar hur du programatiskt tillämpar dessa effekter med enkla, rena kodexempel.
+Följande exempel demonstrerar hur man applicerar skuggor, reflektioner, glöd, transformationer och 3D‑effekter på text.
 
 ### **Applicera yttre skuggeffekter**
 
-Yttre skuggeffekter får text att sticka ut genom att lägga till en skugga bakom dess kontur, vilket skapar en känsla av djup och separation från bakgrunden. Aspose.Slides för .NET gör det enkelt att tillämpa och anpassa yttre skuggor på WordArt‑text. I detta avsnitt lär du dig hur du ställer in skuggfärg, riktning, avstånd, oskärpa och mer för att uppnå önskad visuell effekt.
+En yttre skugga ger djup genom att placera en skugga bakom texten. Du kan anpassa dess färg, riktning, avstånd, oskärpediameter, skala och skevning.
 
-Följande C#‑kodsnutt applicerar en skuggeffekt på texten som skapades ovan.
+Detta exempel anropar [EnableOuterShadowEffect](https://reference.aspose.com/slides/sv/net/aspose.slides/effectformat/enableoutershadoweffect/) och ställer in en svart skugga med en oskärpediameter på 4 punkter, en riktning på 230 grader och ett avstånd på 30 punkter. Skalavärden på 100 bevarar skuggans storlek, medan horisontell skevning lutar den 20 grader. Alfa‑transformen sätter dess opacitet till 32 %:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
 Den resulterande texten:
 
 ![Yttre skuggeffekten](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
-- När OuterShadow och PresetShadow används tillsammans appliceras endast OuterShadow‑effekten.
-- Om OuterShadow och InnerShadow används samtidigt beror den resulterande effekten på PowerPoint‑versionen. Till exempel, i PowerPoint 2013 dubbleras effekten, medan i PowerPoint 2007 appliceras bara OuterShadow‑effekten.
+{{% alert color="info" title="Note" %}}
+- När yttre och förinställda skuggor används tillsammans appliceras endast den yttre skuggan.
+- Om yttre och inre skuggor används samtidigt beror den resulterande effekten på PowerPoint‑versionen. Till exempel, i PowerPoint 2013 dubbleras effekten, medan i PowerPoint 2007 appliceras endast den yttre skuggan.
 {{% /alert %}}
 
 ### **Applicera reflektionseffekter**
 
-I detta avsnitt utforskar vi hur du applicerar reflektionseffekter i dina bilder med Aspose.Slides för .NET. Reflektionseffekter kan vara ett effektivt sätt att ge din text eller dina former en stilren och modern look, vilket hjälper nyckelelement att sticka ut och ger djup åt din presentation. Genom att förstå processen för att tillämpa och anpassa dessa effekter kan du enkelt skräddarsy dem efter dina designbehov och varumärkeskrav.
+En reflektion skapar en spegelvänd kopia av texten. Justera dess position, skala, oskärpa och opacitet för att kontrollera dess utseende.
 
-Lägg till en reflektionseffekt på texten med detta C#‑kodexempel:
+Detta exempel anropar [EnableReflectionEffect](https://reference.aspose.com/slides/sv/net/aspose.slides/effectformat/enablereflectioneffect/) och vänder reflektionen vertikalt med en skala på -100 %. Det använder en oskärpediameter på 0,5 punkt och ett avstånd på 4,72 punkt. Opaciteten minskar från 60 % till 0,9 % mellan positionerna 0 % och 60 % längs reflektionen:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
 ```
 
 Den resulterande texten:
 
 ![Reflektionseffekten](reflection_effect.png)
 
-### **Applicera glöd‑effekter**
+### **Applicera glödeffekter**
 
-I detta avsnitt utforskar vi hur du applicerar en glöd‑effekt på text med Aspose.Slides för .NET. Glöd‑effekten kan få din text att sticka ut med en lysande kontur, vilket förbättrar dina bilders visuella attraktionskraft. Genom att justera inställningar som färg och intensitet kan du enkelt anpassa glöden för att passa din design och varumärkesprofil, så att nyckelpunkter i din presentation fångar publikens uppmärksamhet.
+En glöd lägger till en mjuk färgad kontur runt texten. Justera dess färg, opacitet och radie för att kontrollera effekten.
 
-Applicera en glöd‑effekt på texten för att få den att lysa eller sticka ut med följande kod:
+Detta exempel anropar [EnableGlowEffect](https://reference.aspose.com/slides/sv/net/aspose.slides/effectformat/enablegloweffect/) och applicerar en röd glöd med 54 % opacitet och en radie på 7 punkter:
 
 ```cs
-    portion.PortionFormat.EffectFormat.EnableGlowEffect();
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableGlowEffect();
+portion.PortionFormat.EffectFormat.GlowEffect.Color.Color = System.Drawing.Color.Red;
+portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
 ```
 
 Den resulterande texten:
 
-![Glöd‑effekten](glow_effect.png)
+![Glödeffekten](glow_effect.png)
 
 ### **Applicera WordArt‑transformationer**
 
-I detta avsnitt utforskar vi hur du använder transformationer i WordArt med Aspose.Slides för .NET. Transformationer låter dig böja, sträcka eller förvränga text, vilket skapar unika och visuellt slående effekter. Genom att behärska dessa tekniker kan du enkelt anpassa textformer och stilar efter ditt varumärke eller din kreativa vision, vilket säkerställer en övertygande och polerad presentation.
+WordArt‑transformationer böjer, sträcker eller förvränger ett textblock.
 
-Använd `Transform`‑egenskapen (som gäller för hela textblocket) med följande kod:
+Ställ in [Transform](https://reference.aspose.com/slides/sv/net/aspose.slides/textframeformat/transform/) till [ArchUpPour](https://reference.aspose.com/slides/sv/net/aspose.slides/textshapetype/) för att böja hela textramen uppåt:
 
 ```cs
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
 ```
 
 Den resulterande texten:
 
 ![WordArt‑transformationen](transform_effect.png)
 
-{{% alert color="primary" %}} 
-Aspose.Slides för .NET tillhandahåller en uppsättning fördefinierade [transformationstyper](https://reference.aspose.com/slides/sv/net/aspose.slides/textshapetype/).
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides för .NET tillhandahåller ett antal fördefinierade [transformationstyper](https://reference.aspose.com/slides/sv/net/aspose.slides/textshapetype/).
+{{% /alert %}}
 
 ### **Applicera 3D‑effekter på former och text**
 
-Att skapa realistiska, iögonfallande visuella element kan avsevärt förbättra effekten av dina presentationer. I detta avsnitt utforskar vi hur du applicerar tredimensionella (3D)‑effekter på former med Aspose.Slides för .NET. Genom att manipulera parametrar som djup, vinkel och belysning kan du producera imponerande 3D‑transformationer som omedelbart fångar din publiks uppmärksamhet. Oavsett om du siktar på subtila höjdpunkter eller dramatiska illusioner erbjuder dessa funktioner flexibla sätt att lyfta din design och förmedla idéer på ett mer fängslande sätt.
+Du kan applicera 3D‑effekter på en form eller på dess text. Avfasningar, extrudering, belysning och kamerainställningar styr det resulterande utseendet.
 
-Använd följande exempelkod för att ange en 3D‑effekt på formen:
+Följande exempel använder [ThreeDFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/threedformat/) för att lägga till cirkulära avfasningar, orange extrudering och en mörkröd kontur på rektangeln. Avfasningsdimensioner, extruderingshöjd, konturbredd och djup mäts i punkter. Ett plastmaterial, balanserad belysning roterad 40 grader runt Z‑axeln och en perspektivkamera definierar dess utseende:
 
 ```cs
-    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-    autoShape.ThreeDFormat.BevelTop.Width = 11;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    autoShape.ThreeDFormat.ExtrusionHeight = 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+autoShape.TextFrame.Text = "Aspose.Slides";
 
-    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    autoShape.ThreeDFormat.ContourWidth = 1.5;
+autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-    autoShape.ThreeDFormat.Depth = 3;
+autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+autoShape.ThreeDFormat.Depth = 3;
+
+autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
 Den resulterande formen:
 
 ![Formens 3D‑effekt](shape_3D_effect.png)
 
-Använd följande exempelkod för att ange en 3D‑effekt på texten:
+Detta exempel tillämpar liknande 3D‑formatering på texten via [TextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/textframeformat/threedformat/). Mindre avfasningar formar bokstavskanten, medan extrudering och belysning ger texten djup:
 
 ```cs
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
 
-    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
 
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
+
+textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
 Den resulterande texten:
 
 ![Textens 3D‑effekt](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
-Tillämpningen av 3D‑effekter på text eller deras former—och interaktionen mellan dessa effekter—styrs av specifika regler. Betrakta en scen som involverar både en text och formen som innehåller texten. En 3D‑effekt inkluderar objektets 3D‑representation och scenen där den placeras.
+{{% alert color="info" title="Note" %}}
+Tillämpning av 3D‑effekter på text eller deras former — och interaktionen mellan dessa effekter — styrs av specifika regler. Tänk på en scen som involverar både text och den form som innehåller den. En 3D‑effekt inkluderar objektets 3D‑representation och scenen den placeras i.
 
-- Om en scen är inställd för både formen och texten prioriteras formens scen och textens scen ignoreras.
+- Om en scen är inställd för både formen och texten får formens scen prioritet och textens scen ignoreras.
 - Om formen saknar egen scen men har en 3D‑representation används textens scen.
-- Om formen inte har någon 3D‑effekt alls behandlas den som platt, och 3D‑effekten appliceras endast på texten.
+- Om formen inte har någon 3D‑effekt överhuvudtaget behandlas den som platt, och 3D‑effekten tillämpas endast på texten.
 
-Dessa beteenden relaterar till [ThreeDFormat.LightRig](https://reference.aspose.com/slides/sv/net/aspose.slides/threedformat/lightrig/) och [ThreeDFormat.Camera](https://reference.aspose.com/slides/sv/net/aspose.slides/threedformat/camera/) egenskaper.
-{{% /alert %}} 
+Dessa beteenden relaterar till egenskaperna [ThreeDFormat.LightRig](https://reference.aspose.com/slides/sv/net/aspose.slides/threedformat/lightrig/) och [ThreeDFormat.Camera](https://reference.aspose.com/slides/sv/net/aspose.slides/threedformat/camera/).
+{{% /alert %}}
 
-## **FAQ**
+För att hålla texten platt och läsbar samtidigt som du behåller formens 3D‑formatering, se [Behåll text platt på en 3D‑form](/slides/sv/net/3d-presentation/) för en jämförelse av båda inställningarna och ett komplett C#‑exempel.
 
-**Kan jag använda WordArt‑effekter med olika teckensnitt eller skript (t.ex. arabiska, kinesiska)?**
+## **Vanliga frågor**
 
-Ja, Aspose.Slides för .NET stöder Unicode och fungerar med alla större teckensnitt och skript. WordArt‑effekter som skugga, fyllning och kontur kan appliceras oavsett språk, även om teckensnitts­tillgänglighet och rendering kan bero på systemets teckensnitt.
+**Kan jag använda WordArt‑effekter med olika typsnitt eller skript (t.ex. arabiska, kinesiska)?**
 
-**Kan jag applicera WordArt‑effekter på element i bildbakgrunden?**
+Ja, Aspose.Slides för .NET stödjer Unicode och fungerar med alla vanliga typsnitt och skript. WordArt‑effekter som skugga, fyllning och kontur kan appliceras oavsett språk, även om typsnitts‑tillgänglighet och rendering kan bero på systemets typsnitt.
 
-Ja, du kan applicera WordArt‑effekter på former i master‑bilder, inklusive titel‑platshållare, sidfot eller bakgrundstext. Ändringar som görs i master‑layouten kommer att återspeglas i alla associerade bilder.
+**Kan jag applicera WordArt‑effekter på bildmaster‑element?**
 
-**Påverkar WordArt‑effekter presentationsfilens storlek?**
+Ja, du kan applicera WordArt‑effekter på former i bildmaster, inklusive titel‑platshållare, sidfötter eller bakgrundstext. Ändringar som görs i masterlayouten kommer att återspeglas i alla associerade bilder.
+
+**Påverkar WordArt‑effekter filstorleken på presentationen?**
 
 Lite grann. WordArt‑effekter som skuggor, glöd och gradientfyllningar kan något öka filstorleken på grund av extra formateringsmetadata, men skillnaden är vanligtvis försumbar.
 
 **Kan jag förhandsgranska resultatet av WordArt‑effekter utan att spara presentationen?**
 
-Ja, du kan rendera bilder som innehåller WordArt till bildformat (t.ex. PNG, JPEG) med hjälp av `GetImage`‑metoden från [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/)‑ eller [ISlide](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/)‑gränssnitten. Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.
+Ja, du kan rendera bilder som innehåller WordArt till bildformat (t.ex. PNG, JPEG) med hjälp av [ISlide.GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/), eller rendera enskilda former med [IShape.GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/getimage/). Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.

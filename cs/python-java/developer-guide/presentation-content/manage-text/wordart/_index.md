@@ -1,5 +1,5 @@
 ---
-title: Vytvořit a aplikovat efekty WordArt v Pythonu přes Java
+title: Vytvořte a použijte efekty WordArt v Pythonu přes Java
 linktitle: WordArt
 type: docs
 weight: 110
@@ -21,17 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte efekty WordArt v Aspose.Slides pro Python přes Java. Tento podrobný návod pomáhá vývojářům vylepšit prezentace profesionálním textem v Pythonu přes Java."
+description: "Vytvořte a přizpůsobte efekty WordArt v Aspose.Slides pro Python přes Java. Tento podrobný průvodce pomáhá vývojářům vylepšit prezentace profesionálním textem v Pythonu přes Java."
 ---
 ## **Přehled**
 
-Efekty WordArt vám umožňují přidávat vizuálně atraktivní, stylizovaný text do vašich prezentací PowerPoint. S Aspose.Slides mohou vývojáři programově vytvářet, přizpůsobovat a spravovat WordArt stejně jako v Microsoft PowerPoint—bez nutnosti mít nainstalovaný Office. Tento článek poskytuje přehled o práci s WordArt, včetně toho, jak použít textové transformace, styly výplní, obrysy, stíny a další možnosti formátování, aby byl obsah vaší prezentace výraznější a poutavější. WordArt vám umožňuje zacházet s textem jako s grafickým objektem. Skládá se z efektů nebo speciálních úprav aplikovaných na text, aby byl atraktivnější nebo výraznější.
+Efekty WordArt vám umožňují stylizovat text pomocí výplní, obrysů, stínů, odrazů, záře, transformací a 3D formátování. Tento článek vysvětluje, jak vytvořit a přizpůsobit tyto efekty v prezentacích PowerPointu pomocí Aspose.Slides pro Python přes Java, bez nainstalovaného Microsoft Office.
 
-## **Vytvořte jednoduchou šablonu WordArt a použijte ji na text**
+## **Vytvoření jednoduché šablony WordArt a její použití na text**
 
-**Použití Aspose.Slides**
+Následující příklady vytvoří jednoduchý styl WordArt nastavením textu, písma, výplně vzorem a obrysu.
 
-Nejprve vytvoříme jednoduchý text pomocí tohoto kódu v Pythonu:
+Každý příklad vytvoří novou prezentaci a přidá obdélník na první snímek; není vyžadován žádný vstupní soubor. První příklad nastaví text na „Aspose.Slides“. Pozice a rozměry tvaru jsou měřeny v bodech:
 
 ```python
 import jpype
@@ -45,7 +45,8 @@ from asposeslides.api import Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
 
     portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -53,7 +54,8 @@ try:
 finally:
     presentation.dispose()
 ```
-Dále zvětšíme velikost písma, aby byl efekt viditelnější:
+
+Nastavte písmo na Arial Black o velikosti 36 bodů, aby bylo formátování výraznější:
 
 ```python
 import jpype
@@ -67,34 +69,19 @@ from asposeslides.api import FontData, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    font_data = FontData("Arial Black")
-    portion_format = portion.getPortionFormat()
-    portion_format.setLatinFont(font_data)
-    portion_format.setFontHeight(36)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 finally:
     presentation.dispose()
 ```
 
-**Použití Microsoft PowerPoint**
-
-Přejděte do nabídky efektů WordArt v Microsoft PowerPoint:
-
-![Nabídka efektů WordArt v PowerPointu](image-20200930113926-1.png)
-
-V pravém sloupci můžete vybrat předdefinovaný efekt WordArt. V levém sloupci můžete zadat nastavení pro nový WordArt.
-
-Níže jsou některé dostupné parametry nebo možnosti:
-
-![Možnosti formátování WordArt](image-20200930114015-3.png)
-
-**Použití Aspose.Slides**
-
-Zde použijeme vzorové vyplnění [PatternStyle.SmallGrid](https://reference.aspose.com/slides/cs/python-java/aspose.slides/patternstyle/#SmallGrid) pro text a přidáme černý okraj textu pomocí tohoto kódu:
+Použijte vzor [SmallGrid](https://reference.aspose.com/slides/cs/python-java/aspose.slides/patternstyle/#SmallGrid) s tmavě oranžovým popředím a bílým pozadím a poté přidejte černý obrys textu o šířce 1 bod:
 
 ```python
 import jpype
@@ -103,48 +90,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, PatternStyle, Presentation, ShapeType
+from asposeslides.api import FillType, FontData, PatternStyle, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getFillFormat().setFillType(FillType.Pattern)
-    pattern_format = portion_format.getFillFormat().getPatternFormat()
-    pattern_format.getForeColor().setColor(Color.ORANGE)
-    pattern_format.getBackColor().setColor(Color.WHITE)
-    pattern_format.setPatternStyle(PatternStyle.SmallGrid)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern)
+    dark_orange = Color(255, 140, 0)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(dark_orange)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid)
 
-    line_format = portion_format.getLineFormat()
-    line_format.getFillFormat().setFillType(FillType.Solid)
-    line_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getLineFormat().setWidth(1)
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 finally:
     presentation.dispose()
 ```
 
 Výsledný text:
 
-![Text s vzorem výplně a černým obrysem](image-20200930114108-4.png)
+![Jednoduchá šablona WordArt](WordArt_template.png)
 
 ## **Použití dalších efektů WordArt**
 
-**Použití Microsoft PowerPoint**
+Následující příklady ukazují, jak aplikovat stíny, odrazy, záři, transformace a 3D efekty na text.
 
-Z rozhraní aplikace můžete tyto efekty aplikovat na text, textový blok, tvar nebo podobný prvek:
+### **Použití vnějších stínů**
 
-![Efekty textu a tvaru v PowerPointu](image-20200930114129-5.png)
+Vnější stín přidává hloubku umístěním stínu za text. Můžete upravit jeho barvu, směr, vzdálenost, poloměr rozostření, měřítko a zkosení.
 
-Například efekty Stín, Odraz a Záření lze použít na text; Formát 3D a Rotace 3D lze použít na textový blok; Efekt Měkké hrany lze použít na tvar (stále funguje, i když není nastaven efekt Formát 3D).
-
-### **Aplikace stínových efektů**
-
-Následující kód v Pythonu aplikuje stín pouze na text:
+Tento příklad volá [enableOuterShadowEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effectformat/#enableOuterShadowEffect) a nastavuje černý stín s poloměrem rozostření 4 body, směrem 230 stupňů a vzdáleností 30 bodů. Hodnoty měřítka 100 zachovávají velikost stínu, zatímco horizontální zkosení ho naklání o 20 stupňů. Alfa transformace nastaví jeho neprůhlednost na 32 %:
 
 ```python
 import jpype
@@ -153,132 +139,135 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableOuterShadowEffect()
-    outer_shadow = portion_format.getEffectFormat().getOuterShadowEffect()
-    outer_shadow.getShadowColor().setColor(Color.BLACK)
-    outer_shadow.setScaleHorizontal(100)
-    outer_shadow.setScaleVertical(65)
-    outer_shadow.setBlurRadius(4.73)
-    outer_shadow.setDirection(230)
-    outer_shadow.setDistance(2)
-    outer_shadow.setSkewHorizontal(30)
-    outer_shadow.setSkewVertical(0)
-    outer_shadow.getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect()
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
 finally:
     presentation.dispose()
 ```
 
-API Aspose.Slides podporuje tři typy stínů: [OuterShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/outershadow/), [InnerShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/innershadow/) a [PresetShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presetshadow/).
+Výsledný text:
 
-S [PresetShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presetshadow/) můžete aplikovat stín na text pomocí předdefinovaných hodnot.
+![Efekt vnějšího stínu](outer_shadow_effect.png)
 
-**Použití Microsoft PowerPoint**
-
-V PowerPointu můžete použít jen jeden typ stínu. Zde je příklad:
-
-![Nastavení stínu v PowerPointu](image-20200930114225-6.png)
-
-**Použití Aspose.Slides**
-
-Aspose.Slides ve skutečnosti umožňuje aplikovat dva typy stínů najednou: [InnerShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/innershadow/) a [PresetShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presetshadow/).
-
-**Poznámky:**
-
-- Když jsou použity současně [OuterShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/outershadow/) a [PresetShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presetshadow/), použije se pouze efekt [OuterShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/outershadow/).
-- Pokud jsou použity současně [OuterShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/outershadow/) a [InnerShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/innershadow/), výsledný či aplikovaný efekt závisí na verzi PowerPointu. Například ve verzi PowerPoint 2013 je efekt zdvojený, zatímco ve verzi PowerPoint 2007 se použije efekt [OuterShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/outershadow/).
-
-### **Aplikace odrazu na text**
-
-Přidáme odraz k textu pomocí tohoto příkladu kódu v Pythonu přes Java:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, RectangleAlignment, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableReflectionEffect()
-    reflection = portion_format.getEffectFormat().getReflectionEffect()
-    reflection.setBlurRadius(0.5)
-    reflection.setDistance(4.72)
-    reflection.setStartPosAlpha(0)
-    reflection.setEndPosAlpha(60)
-    reflection.setDirection(90)
-    reflection.setScaleHorizontal(100)
-    reflection.setScaleVertical(-100)
-    reflection.setStartReflectionOpacity(60)
-    reflection.setEndReflectionOpacity(0.9)
-    reflection.setRectangleAlign(RectangleAlignment.BottomLeft)
-finally:
-    presentation.dispose()
-```
-
-### **Aplikace zářivého efektu na text**
-
-Aplikujeme zářivý efekt na text, aby zazářil nebo vynikl, pomocí tohoto kódu:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableGlowEffect()
-    glow = portion_format.getEffectFormat().getGlowEffect()
-    glow.getColor().setR(jpype.JByte(-1))
-    glow.getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
-    glow.setRadius(7)
-finally:
-    presentation.dispose()
-```
-
-Výsledek operace:
-
-![Text se zářivým efektem](image-20200930114621-7.png)
-
-{{% alert color="info" title="Note" %}}
-Můžete měnit parametry stínu, odrazu a záře. Vlastnosti efektů se nastavují samostatně pro každou část textu.
+{{% alert color="info" title="Poznámka" %}}
+- Když jsou použity současně vnější a předdefinované stíny, použije se pouze vnější stín.
+- Pokud jsou použity současně vnější a vnitřní stíny, výsledný efekt závisí na verzi PowerPointu. Například v PowerPointu 2013 se efekt zdvojnásobí, zatímco v PowerPointu 2007 se použije jen vnější stín.
 {{% /alert %}}
 
-### **Použití transformací ve WordArt**
+### **Použití odrazových efektů**
 
-Použijte [TextFrameFormat.setTransform](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setTransform) k transformaci celého textového bloku:
+Odraz vytvoří zrcadlovou kopii textu. Upravením jeho polohy, měřítka, rozostření a neprůhlednosti můžete kontrolovat vzhled.
+
+Tento příklad volá [enableReflectionEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effectformat/#enableReflectionEffect) a otočí odraz vertikálně se škálou -100 %. Používá poloměr rozostření 0,5 bodu a vzdálenost 4,72 bodu. Neprůhlednost klesá z 60 % na 0,9 % mezi pozicemi 0 % a 60 % podél odrazu:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, RectangleAlignment, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect()
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft)
+finally:
+    presentation.dispose()
+```
+
+Výsledný text:
+
+![Efekt odrazu](reflection_effect.png)
+
+### **Použití efektu záře**
+
+Záře přidává kolem textu měkký barevný obrys. Upravením barvy, neprůhlednosti a poloměru můžete efekt řídit.
+
+Tento příklad volá [enableGlowEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effectformat/#enableGlowEffect) a použije červenou záři s neprůhledností 54 % a poloměrem 7 bodů:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect()
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7)
+finally:
+    presentation.dispose()
+```
+
+Výsledný text:
+
+![Efekt záře](glow_effect.png)
+
+### **Použití transformací WordArt**
+
+Transformace WordArt ohýbají, roztačují nebo deformují blok textu.
+
+Nastavte [setTransform](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setTransform) na [ArchUpPour](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textshapetype/#ArchUpPour), aby se celý rámec textu zakřivil směrem vzhůru:
 
 ```python
 import jpype
@@ -292,34 +281,29 @@ from asposeslides.api import Presentation, ShapeType, TextShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
-
     text_frame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour)
 finally:
     presentation.dispose()
 ```
 
-Výsledek:
+Výsledný text:
 
-![Text s oblou transformací](image-20200930114712-8.png)
+![Transformace WordArt](transform_effect.png)
 
-{{% alert color="info" title="Note" %}}
-Microsoft PowerPoint i Aspose.Slides pro Python přes Java poskytují určitý počet předdefinovaných typů transformací.
+{{% alert color="info" title="Poznámka" %}}
+Aspose.Slides pro Python přes Java poskytuje sadu předdefinovaných [transformation types](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textshapetype/).
 {{% /alert %}}
 
-**Použití PowerPoint**
+### **Použití 3D efektů na tvary a text**
 
-Pro přístup k předdefinovaným typům transformací přejděte na: **Formát** → **TextEffect** → **Transform**
+Můžete aplikovat 3D efekty na tvar nebo na jeho text. Šikmé řezy, extruze, osvětlení a nastavení kamery řídí výsledný vzhled.
 
-**Použití Aspose.Slides**
-
-Pro výběr typu transformace použijte výčtový typ [TextShapeType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textshapetype/).
-
-### **Aplikace 3D efektů na text a tvary**
-
-Aplikujeme 3D efekt na textový tvar pomocí tohoto ukázkového kódu:
+Následující příklad používá [ThreeDFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/threedformat/) k přidání kulatých šikmých řezů, oranžové extruze a tmavě červeného konturu k obdélníku. Rozměry šikmých řezů, výška extruze, šířka konturu a hloubka jsou měřeny v bodech. Plastový materiál, vyvážené osvětlení otočené o 40 stupňů kolem osy Z a perspektivní kamera definují jeho vzhled:
 
 ```python
 import jpype
@@ -334,42 +318,44 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     auto_shape.getTextFrame().setText("Aspose.Slides")
 
-    three_d_format = auto_shape.getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(10.5)
-    three_d_format.getBevelBottom().setWidth(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelBottom().setHeight(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setWidth(10.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(12.5)
-    three_d_format.getBevelTop().setWidth(11)
+    auto_shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelTop().setHeight(12.5)
+    auto_shape.getThreeDFormat().getBevelTop().setWidth(11)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    auto_shape.getThreeDFormat().getExtrusionColor().setColor(orange)
+    auto_shape.getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    auto_shape.getThreeDFormat().getContourColor().setColor(dark_red)
+    auto_shape.getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    auto_shape.getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    auto_shape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    auto_shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    auto_shape.getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-Výsledný text a jeho tvar:
+Výsledný tvar:
 
-![Textový tvar s 3D efekty](image-20200930114816-9.png)
+![3D efekt tvaru](shape_3D_effect.png)
 
-Aplikujeme 3D efekt na text pomocí tohoto kódu v Pythonu:
+Tento příklad aplikuje podobné 3D formátování na text pomocí [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#getThreeDFormat). Menší šikmé řezy tvarují okraje písmen, zatímco extruze a osvětlení dodávají textu hloubku:
 
 ```python
 import jpype
@@ -384,187 +370,70 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
 
-    three_d_format = text_frame.getTextFrameFormat().getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(3.5)
-    three_d_format.getBevelBottom().setWidth(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(4)
-    three_d_format.getBevelTop().setWidth(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange)
+    text_frame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(dark_red)
+    text_frame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    text_frame.getTextFrameFormat().getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    text_frame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    text_frame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-Výsledek operace:
+Výsledný text:
 
-![Text s 3D efekty](image-20200930114905-10.png)
+![3D efekt textu](text_3D_effect.png)
 
-{{% alert color="info" title="Note" %}}
-Aplikace 3D efektů na text nebo jeho tvary a interakce mezi efekty jsou založeny na určitých pravidlech.
+{{% alert color="info" title="Poznámka" %}}
+Aplikace 3D efektů na text nebo jejich tvary – a interakce mezi těmito efekty – je řízena konkrétními pravidly. Uvažujte scénu zahrnující jak text, tak tvar, který jej obsahuje. 3D efekt zahrnuje 3D reprezentaci objektu a scénu, ve které je umístěn.
 
-Zvažte scénu pro text a tvar, ve kterém je text umístěn. 3D efekt obsahuje reprezentaci 3D objektu a scénu, ve které je objekt umístěn.
-
-- Pokud je scéna nastavena jak pro tvar, tak pro text, má prioritu scéna tvaru — scéna textu se ignoruje.
+- Pokud je scéna nastavena jak pro tvar, tak pro text, scéna tvaru má přednost a scéna textu je ignorována.
 - Pokud tvar nemá vlastní scénu, ale má 3D reprezentaci, použije se scéna textu.
-- V opačném případě — když tvar původně nemá 3D efekt — tvar je plochý a 3D efekt se aplikuje jen na text.
+- Pokud tvar nemá žádný 3D efekt, je považován za plochý a 3D efekt se použije jen na text.
 
-Tato pravidla se vztahují k metodám [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/cs/python-java/aspose.slides/threedformat/#getLightRig) a [ThreeDFormat.getCamera](https://reference.aspose.com/slides/cs/python-java/aspose.slides/threedformat/#getCamera).
+Tyto chování souvisejí s metodami [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/cs/python-java/aspose.slides/threedformat/#getLightRig) a [ThreeDFormat.getCamera](https://reference.aspose.com/slides/cs/python-java/aspose.slides/threedformat/#getCamera).
 {{% /alert %}}
 
-## **Aplikace vnějšího stínu na text**
-
-Aspose.Slides pro Python přes Java poskytuje třídy [OuterShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/outershadow/) a [InnerShadow](https://reference.aspose.com/slides/cs/python-java/aspose.slides/innershadow/), které umožňují aplikovat stínové efekty na text v [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/). Postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Přidejte na snímek obdélníkový tvar.
-4. Získejte textový rámec přidružený k tvaru.
-5. Zakážte výplň tvaru.
-6. Aktivujte efekt vnějšího stínu.
-7. Nastavte poloměr rozostření stínu.
-8. Nastavte směr stínu.
-9. Nastavte vzdálenost stínu.
-10. Zarovnejte stín do levého horního rohu.
-11. Nastavte barvu stínu na černou.
-12. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-Tento ukázkový kód v Pythonu přes Java — implementace výše uvedených kroků — ukazuje, jak aplikovat efekt vnějšího stínu na text:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import FillType, Presentation, PresetColor, RectangleAlignment, SaveFormat, ShapeType
-
-presentation = Presentation()
-try:
-    # Získat referenci na snímek
-    slide = presentation.getSlides().get_Item(0)
-
-    # Přidat AutoShape typu Rectangle
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50)
-
-    # Přidat TextFrame k obdélníku
-    auto_shape.addTextFrame("Aspose TextBox")
-
-    # Zakázat výplň tvaru pro případ, že chceme získat stín textu
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Přidat vnější stín a nastavit všechny potřebné parametry
-    auto_shape.getEffectFormat().enableOuterShadowEffect()
-    shadow = auto_shape.getEffectFormat().getOuterShadowEffect()
-    shadow.setBlurRadius(4.0)
-    shadow.setDirection(45)
-    shadow.setDistance(3)
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft)
-    shadow.getShadowColor().setPresetColor(PresetColor.Black)
-
-    # Uložit prezentaci na disk
-    presentation.save("pres_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **Aplikace vnitřního stínu na tvary**
-
-Postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte odkaz na snímek.
-3. Přidejte obdélníkový tvar.
-4. Aktivujte efekt vnitřního stínu.
-5. Nastavte všechny potřebné parametry.
-6. Nastavte typ barvy stínu na použití barvy motivu.
-7. Zvolte barvu motivu.
-8. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-Tento ukázkový kód (na základě výše uvedených kroků) ukazuje, jak aplikovat efekt vnitřního stínu na text v tvaru v Pythonu přes Java:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorType, FillType, Presentation, SaveFormat, SchemeColor, ShapeType
-
-presentation = Presentation()
-try:
-    # Získat referenci na snímek
-    slide = presentation.getSlides().get_Item(0)
-
-    # Přidat AutoShape typu Rectangle
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300)
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Přidat TextFrame k obdélníku
-    auto_shape.addTextFrame("Aspose TextBox")
-    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion_format = portion.getPortionFormat()
-    portion_format.setFontHeight(50)
-
-    # Povolit efekt vnitřního stínu
-    effect_format = portion_format.getEffectFormat()
-    effect_format.enableInnerShadowEffect()
-
-    # Nastavit všechny potřebné parametry
-    inner_shadow = effect_format.getInnerShadowEffect()
-    inner_shadow.setBlurRadius(8.0)
-    inner_shadow.setDirection(90.0)
-    inner_shadow.setDistance(6.0)
-    inner_shadow.getShadowColor().setB(jpype.JByte(-67))
-
-    # Nastavit ColorType jako Scheme
-    inner_shadow.getShadowColor().setColorType(ColorType.Scheme)
-
-    # Nastavit schématickou barvu
-    inner_shadow.getShadowColor().setSchemeColor(SchemeColor.Accent1)
-
-    # Uložit prezentaci
-    presentation.save("WordArt_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+Pro zachování plochého a čitelného textu při zachování 3D formátování tvaru, viz [Udržet text plochý na 3D tvaru](/slides/cs/python-java/3d-presentation/) pro srovnání obou nastavení a kompletní Python příklad.
 
 ## **Často kladené otázky**
 
-**Mohu použít efekty WordArt s různými písmy nebo skripty (např. arabština, čínština)?**
+**Mohu použít efekty WordArt s různými fonty nebo písmy (např. arabské, čínské)?**
 
-Ano, Aspose.Slides podporuje Unicode a funguje se všemi hlavními písmy a skripty. Efekty WordArt, jako jsou stín, výplň a obrys, lze aplikovat bez ohledu na jazyk, i když dostupnost písma a vykreslování mohou záviset na systémových fontech.
+Ano, Aspose.Slides pro Python přes Java podporuje Unicode a funguje se všemi hlavními fonty a písmy. Efekty WordArt, jako jsou stín, výplň a obrys, lze použít bez ohledu na jazyk, i když dostupnost fontu a rendering mohou záviset na systémových fontech.
 
-**Mohu aplikovat efekty WordArt na prvky masteru snímku?**
+**Mohu aplikovat efekty WordArt na prvky hlavní snímku?**
 
-Ano, můžete aplikovat efekty WordArt na tvary v master‑snímku, včetně zástupných textů titulku, zápatí nebo pozadí. Změny provedené v master rozložení se projeví ve všech přidružených snímcích.
+Ano, můžete aplikovat efekty WordArt na tvary v hlavních snímcích, včetně zástupných symbolů názvu, zápatí nebo textu na pozadí. Změny provedené v rozložení hlavního snímku se projeví na všech souvisejících snímcích.
 
 **Ovlivňují efekty WordArt velikost souboru prezentace?**
 
-Mírně. Efekty WordArt, jako jsou stíny, záře a gradientní výplně, mohou mírně zvětšit velikost souboru kvůli přidaným metadatům formátování, ale rozdíl je obvykle zanedbatelný.
+Mírně. Efekty WordArt, jako jsou stíny, záře a gradientové výplně, mohou mírně zvětšit velikost souboru kvůli přidaným metadatům formátování, ale rozdíl je obvykle zanedbatelný.
 
-**Mohu zobrazit výsledek efektů WordArt bez uložení prezentace?**
+**Mohu náhlednout výsledek efektů WordArt bez uložení prezentace?**
 
-Ano, můžete vykreslit snímky obsahující WordArt do obrázků (např. PNG, JPEG) pomocí [Shape.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getImage) nebo [Slide.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#getImage). To vám umožní náhled výsledku v paměti nebo na obrazovce před uložením či exportem celé prezentace.
+Ano, můžete vykreslit snímky obsahující WordArt do obrázků (např. PNG, JPEG) pomocí [Slide.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#getImage) nebo vykreslit samostatné tvary pomocí [Shape.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getImage). To vám umožní náhlednout výsledek v paměti nebo na obrazovce před uložením nebo exportem celé prezentace.

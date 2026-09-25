@@ -1,68 +1,80 @@
 ---
-title: Crea effetti 3D nelle presentazioni usando PHP
+title: Crea effetti 3D nelle presentazioni con PHP
 linktitle: Presentazione 3D
 type: docs
 weight: 232
 url: /it/php-java/3d-presentation/
 keywords:
 - PowerPoint 3D
-- Presentazione 3D
-- Rotazione 3D
-- Profondità 3D
-- Estrusione 3D
-- Gradiente 3D
-- Testo 3D
+- presentazione 3D
+- rotazione 3D
+- profondità 3D
+- estrusione 3D
+- gradiente 3D
+- testo 3D
 - PowerPoint
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Applica e renderizza gli effetti 3D per forme e testo PowerPoint in PHP con Aspose.Slides. Configura telecamera, illuminazione, materiale, estrusione, riempimenti e testo 3D."
+description: "Applica e renderizza effetti 3D per forme e testo PowerPoint in PHP con Aspose.Slides. Configura fotocamera, illuminazione, materiale, estrusione, riempimenti e testo 3D."
 ---
 ## **Panoramica**
 
-Aspose.Slides per PHP tramite Java può creare, modificare, conservare e renderizzare la formattazione 3D in stile PowerPoint per forme e testo. Questo articolo tratta gli effetti 3D come rotazione, estrusione, smussi, illuminazione, materiale, riempimenti a gradiente o immagine e testo 3D.
+Aspose.Slides per PHP via Java può creare, modificare, preservare e renderizzare la formattazione 3D in stile PowerPoint per forme e testo. Questo articolo tratta gli effetti 3D come rotazione, estrusione, smussi, illuminazione, materiale, riempimenti a gradiente o immagine e testo 3D.
 
-{{% alert color="primary" %}}
-Questo articolo riguarda gli effetti di formattazione 3D su forme e testo di PowerPoint. Non tratta l'inserimento o la modifica di file modello 3D autonomi. Quando esporti una diapositiva in un'immagine, PDF o HTML, Aspose.Slides rende quegli effetti 3D nell'output 2D esportato.
+{{% alert color="info" title="Note" %}}
+Questo articolo riguarda gli effetti di formattazione 3D su forme e testo di PowerPoint. Non tratta l'inserimento o la modifica di file modello 3D autonomi. Quando esporti una diapositiva in un'immagine, PDF o HTML, Aspose.Slides renderizza quegli effetti 3D nell'output 2D esportato.
 {{% /alert %}}
 
 ## **Concetti di Formattazione 3D**
 
-Utilizza la classe [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/) e il suo metodo [Shape::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#getThreeDFormat--) per applicare la formattazione 3D a una forma. Il metodo restituisce [ThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/), che controlla la scena 3D per quella forma.
+Usa il metodo [Shape::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#getThreeDFormat--) per applicare la formattazione 3D a una forma. Il metodo restituisce [ThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/), che controlla la scena 3D per quella forma.
 
-Per il testo, usa la classe [TextFrameFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/) e il suo metodo [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#getThreeDFormat--). Questo applica la formattazione 3D al riquadro di testo invece che al corpo della forma.
+Per il testo, usa il metodo [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#getThreeDFormat--) . Questo applica la formattazione 3D al frame di testo anziché al corpo della forma.
 
-Le impostazioni più importanti sono:
+I membri API più importanti sono:
 
-| Metodo o impostazione | Cosa controlla | Quando usarlo |
+| Membro API | Cosa controlla | Quando usarlo |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getCamera--) | Punto di vista, tipo di telecamera preimpostato, rotazione, zoom e prospettiva. | Ruota l'oggetto nello spazio 3D o corrispondi a una rotazione 3D preimpostata di PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getLightRig--) | Preimpostazione luce, direzione e rotazione della luce. | Modifica come appaiono le luci e le ombre sulla superficie 3D. |
-| [setMaterial](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setMaterial-byte-) | Materiale della superficie, ad esempio piatto, opaco, plastica o metallo. | Rende la stessa geometria più piatta, più morbida, lucida o metallica. |
-| [setExtrusionHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) | Quanto la forma si estende all'indietro dalla sua faccia anteriore. | Trasforma una forma piatta in un oggetto 3D visibilmente spesso. |
-| [getExtrusionColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getExtrusionColor--) | Colore dei lati estrusi. | Rende visibile la profondità o coordina il colore laterale con il riempimento frontale. |
-| [setDepth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setDepth-double-) | Profondità 3D aggiuntiva usata dalla formattazione 3D di PowerPoint. | Regola finemente la profondità per forme o testo, soprattutto insieme a impostazioni di smusso e materiale. |
-| [getBevelTop](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getBevelTop--) e [getBevelBottom](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getBevelBottom--) | Bordi rialzati o arrotondati sulle facce frontali e posteriori. | Aggiunge un bordo smussato o modellato invece di una faccia piatta e netta. |
-| [getContourColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getContourColor--) e [setContourWidth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setContourWidth-double-) | Contorno intorno all'oggetto 3D. | Evidenzia i bordi dell'oggetto nell'output renderizzato. |
+| [getCamera](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getCamera--) | Punto di vista, tipo di fotocamera predefinito, rotazione, zoom e prospettiva. | Ruota l'oggetto nello spazio 3D o corrispondi a un preset di rotazione 3D di PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getLightRig--) | Impostazione luce predefinita, direzione e rotazione della luce. | Modifica l'aspetto di riflessi e ombre sulla superficie 3D. |
+| [getMaterial](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getMaterial--) e [setMaterial](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setMaterial-byte-) | Materiale della superficie, come piatto, opaco, plastica o metallo. | Rendi la stessa geometria più piatta, morbida, lucida o metallica. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getExtrusionHeight--) e [setExtrusionHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) | Quanto la forma si estende all'indietro dalla sua faccia frontale. | Trasforma una forma piatta in un oggetto 3D visibilmente spesso. |
+| [getExtrusionColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getExtrusionColor--) | Colore dei lati estrusi. | Rendi visibile la profondità o coordina il colore laterale con il riempimento frontale. |
+| [getDepth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getDepth--) e [setDepth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setDepth-double-) | Profondità 3D aggiuntiva usata dalla formattazione 3D di PowerPoint. | Regola finemente la profondità per forme o testo, specialmente insieme a impostazioni di smusso e materiale. |
+| [getBevelTop](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getBevelTop--) e [getBevelBottom](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getBevelBottom--) | Bordi rialzati o arrotondati sulle facce frontale e posteriore. | Aggiungi un bordo ammorbidito o modellato invece di una faccia piatta e affilata. |
+| [getContourColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getContourColor--) e [getContourWidth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getContourWidth--) e [setContourWidth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setContourWidth-double-) | Contorno attorno all'oggetto 3D. | Evidenzia il bordo dell'oggetto nel risultato renderizzato. |
 
 ## **Crea una Forma 3D**
 
-Una forma solitamente richiede quattro tipologie di impostazioni prima di apparire realisticamente 3D:
+Una forma normalmente richiede quattro tipi di impostazioni prima di apparire convincente 3D:
 
-- Impostazioni della telecamera, poiché la vista frontale predefinita può nascondere l'estrusione.  
-- Impostazioni della luce, poiché l'illuminazione rende le facce e i lati leggibili.  
-- Impostazioni del materiale, poiché la superficie influisce sul modo in cui viene resa la luce.  
-- Impostazioni di estrusione o profondità, poiché una forma piatta necessita di spessore.  
+- Impostazioni della fotocamera, perché la vista frontale predefinita può nascondere l'estrusione.
+- Impostazioni della luce, perché l'illuminazione rende le facce e i lati leggibili.
+- Impostazioni del materiale, perché la superficie influisce su come la luce viene renderizzata.
+- Impostazioni di estrusione o profondità, perché una forma piatta necessita di spessore.
 
-Il seguente esempio crea un rettangolo, aggiunge testo alla sua faccia anteriore, applica la formattazione 3D, salva la presentazione come PPTX e renderizza la diapositiva in un'immagine PNG.
+Il seguente esempio crea un rettangolo, aggiunge testo alla sua faccia frontale e applica la formattazione 3D. I valori di rotazione della fotocamera sono in gradi e l'altezza di estrusione è 100 punti. L'esempio renderizza la diapositiva in un'immagine PNG al doppio delle dimensioni predefinite e salva la presentazione come PPTX.
 
 ```php
+use aspose\slides\CameraPresetType;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\LightingDirection;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $imageScale = 2;
 
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
+
     $shape->getTextFrame()->setText("3D");
     $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(64);
 
@@ -92,66 +104,113 @@ try {
 
 L'immagine della diapositiva renderizzata mostra il rettangolo come un blocco 3D spesso:
 
-![Rettangolo 3D blu renderizzato con testo 3D bianco sulla faccia anteriore](img_01_01.png)
+![Rettangolo 3D blu renderizzato con testo 3D bianco sulla faccia frontale](img_01_01.png)
 
-## **Ruota una Forma con la Telecamera**
+## **Ruota una Forma con la Fotocamera**
 
-In PowerPoint, la rotazione 3D è configurata dal pannello Rotazione 3-D. I valori di rotazione X, Y e Z corrispondono alla rotazione impostata tramite l'API della telecamera.
+In PowerPoint, la rotazione 3D è configurata dal pannello Rotazione 3-D. I valori di rotazione X, Y e Z corrispondono alla rotazione impostata tramite l'API della fotocamera.
 
-![Pannello Rotazione 3-D di PowerPoint con i valori di rotazione X, Y e Z evidenziati](img_02_01.png)
+![Pannello Rotazione 3-D di PowerPoint con valori di rotazione X, Y e Z evidenziati](img_02_01.png)
 
-In Aspose.Slides, imposta il tipo di telecamera e la rotazione tramite [ThreeDFormat::getCamera](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getCamera--):
+In Aspose.Slides, accedi alla fotocamera tramite [ThreeDFormat::getCamera](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getCamera--). Questo esempio crea un rettangolo, seleziona una vista frontale ortografica e imposta le rotazioni X, Y e Z a 20, 30 e 40 gradi rispettivamente. Configura la forma in memoria senza salvare un file:
 
 ```php
-$shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
-$shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
+use aspose\slides\CameraPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
+
+    $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
+    $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Usa la telecamera quando devi modificare il modo in cui lo spettatore vede l'oggetto. Non modifica la geometria 2D della forma sulla diapositiva. Cambia il punto di vista 3D usato da PowerPoint e da Aspose.Slides durante il rendering.
+Usa la fotocamera quando devi modificare il modo in cui lo spettatore vede l'oggetto. Non cambia la geometria 2D della forma nella diapositiva. Cambia il punto di vista 3D usato da PowerPoint e da Aspose.Slides durante il rendering.
 
 ## **Aggiungi Estrusione e Profondità**
 
-L'estrusione rende una forma spessa estendendola dietro la faccia anteriore. In PowerPoint, il controllo della profondità imposta questo spessore visibile, e il controllo del colore imposta il colore delle facce laterali.
+L'estrusione fa apparire una forma spessa estendendola dietro la faccia frontale. In PowerPoint, il controllo di profondità imposta questo spessore visibile, e il controllo di colore imposta il colore delle facce laterali.
 
-![Controlli di profondità di PowerPoint mappati alle proprietà colore dell'estrusione e altezza dell'estrusione](img_02_02.png)
+![Controlli di profondità di PowerPoint mappati alle proprietà colore estrusione e altezza estrusione](img_02_02.png)
 
-Imposta [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) per lo spessore e [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getExtrusionColor--) per il colore laterale:
+Usa [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) per impostare lo spessore e [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#getExtrusionColor--) per accedere al colore laterale. L'esempio dà al rettangolo un'estrusione di 100 punti con lati viola e ruota la fotocamera per mostrare lo spessore. Configura la forma in memoria senza salvare un file:
 
 ```php
-$shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
-$shape->getThreeDFormat()->setExtrusionHeight(100);
-$shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 128, 0, 128));
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
+
+    $extrusionColor = new Java("java.awt.Color", 128, 0, 128);
+
+    $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
+    $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
+    $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Flat);
+    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $shape->getThreeDFormat()->setMaterial(MaterialPresetType::Flat);
+    $shape->getThreeDFormat()->setExtrusionHeight(100);
+    $shape->getThreeDFormat()->getExtrusionColor()->setColor($extrusionColor);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Usa [ThreeDFormat::setDepth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setDepth-double-) quando devi lavorare direttamente con il valore di profondità di PowerPoint o combinare la profondità con smusso, materiale ed effetti di testo. In molti scenari di forma, `setExtrusionHeight` è l'impostazione più chiara perché esprime direttamente l'estrusione visibile.
+Il metodo [ThreeDFormat::setDepth](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setDepth-double-) imposta la profondità di una forma 3D. Il metodo [setExtrusionHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) controlla l'altezza dell'effetto di estrusione, come mostrato in questo esempio.
 
 ## **Usa Riempimenti a Gradiente o Immagine con Effetti 3D**
 
-La formattazione 3D è indipendente dal riempimento della forma. Puoi applicare un colore solido, un gradiente, un motivo o un riempimento immagine alla faccia anteriore e continuare a usare le stesse impostazioni di telecamera, luce, materiale ed estrusione.
+La formattazione 3D è indipendente dal riempimento della forma. Puoi applicare un colore solido, un gradiente, un motivo o un riempimento immagine alla faccia frontale e comunque usare le stesse impostazioni di fotocamera, luce, materiale ed estrusione.
 
-Questo esempio applica un riempimento gradiente alla forma e un colore di estrusione più scuro ai lati:
+L'esempio applica un gradiente dal blu all'arancione alla faccia frontale e un colore arancione scuro all'estrusione di 150 punti. Le fermate del gradiente a 0 e 100 indicano l'inizio e la fine del gradiente. I valori di rotazione della fotocamera sono in gradi. La diapositiva viene renderizzata in un'immagine PNG al doppio delle dimensioni predefinite:
 
 ```php
+use aspose\slides\CameraPresetType;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\LightingDirection;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $imageScale = 2;
 
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 250, 250);
+
     $shape->getTextFrame()->setText("3D Gradient");
     $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(64);
 
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->add(0, java("java.awt.Color")->BLUE);
-    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->add(100, java("java.awt.Color")->ORANGE);
+    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->add(100, new Java("java.awt.Color", 255, 165, 0));
 
     $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
     $shape->getThreeDFormat()->getCamera()->setRotation(10, 20, 30);
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Flat);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
     $shape->getThreeDFormat()->setMaterial(MaterialPresetType::Flat);
+    $extrusionColor = new Java("java.awt.Color", 255, 140, 0);
     $shape->getThreeDFormat()->setExtrusionHeight(150);
-    $shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 255, 140, 0));
+    $shape->getThreeDFormat()->getExtrusionColor()->setColor($extrusionColor);
 
     $thumbnail = $slide->getImage($imageScale, $imageScale);
     try {
@@ -164,49 +223,89 @@ try {
 }
 ```
 
-![Rettangolo 3D renderizzato con riempimento gradiente dal blu all'arancione e estrusione arancione](img_02_03.png)
+![Rettangolo 3D renderizzato con riempimento a gradiente dal blu all'arancione ed estrusione arancione](img_02_03.png)
 
-Per usare invece un riempimento immagine, aggiungi l'immagine alla presentazione e assegnala al riempimento della forma:
+Per usare invece un riempimento immagine, aggiungi l'immagine alla presentazione e assegnala al riempimento della forma. Questo esempio richiede un file esistente chiamato "image.jpg" nella directory di lavoro. Allunga l'immagine per riempire il rettangolo, applica un'estrusione di 150 punti e imposta la rotazione della fotocamera in gradi. Configura la forma in memoria senza salvare o renderizzare un file:
 
 ```php
-$image = Images::fromFile("image.jpg");
+use aspose\slides\CameraPresetType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LightingDirection;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    $picture = $presentation->getImages()->addImage($image);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 250, 250);
+
+    $sourceImage = Images::fromFile("image.jpg");
+
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
+
+    $shape->getFillFormat()->setFillType(FillType::Picture);
+    $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($image);
+    $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+
+    $extrusionColor = new Java("java.awt.Color", 255, 140, 0);
+    $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
+    $shape->getThreeDFormat()->getCamera()->setRotation(10, 20, 30);
+    $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Flat);
+    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $shape->getThreeDFormat()->setMaterial(MaterialPresetType::Flat);
+    $shape->getThreeDFormat()->setExtrusionHeight(150);
+    $shape->getThreeDFormat()->getExtrusionColor()->setColor($extrusionColor);
 } finally {
-    $image->dispose();
+    $presentation->dispose();
 }
-
-$shape->getFillFormat()->setFillType(FillType::Picture);
-$shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-$shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
-
-$shape->getThreeDFormat()->getCamera()->setRotation(10, 20, 30);
-$shape->getThreeDFormat()->setExtrusionHeight(150);
-$shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 255, 140, 0));
 ```
 
-![Rettangolo 3D renderizzato con riempimento foto sulla faccia anteriore e estrusione arancione](img_02_04.png)
+![Rettangolo 3D renderizzato con riempimento fotografico sulla faccia frontale ed estrusione arancione](img_02_04.png)
 
 ## **Applica Formattazione 3D al Testo**
 
-La formattazione 3D della forma influisce sul corpo della forma. La formattazione 3D del testo influisce sul riquadro di testo. Questo è utile per effetti simili a WordArt in cui le lettere stesse necessitano di estrusione, materiale, illuminazione e impostazioni di telecamera.
+La formattazione 3D della forma influisce sul corpo della forma. La formattazione 3D del testo influisce sul frame di testo. È utile per effetti simili a WordArt dove le lettere stesse necessitano di estrusione, materiale, illuminazione e impostazioni della fotocamera.
 
-Il seguente esempio crea testo con un riempimento a motivo, applica una trasformazione WordArt e configura le impostazioni 3D su [TextFrameFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/):
+Il seguente esempio crea testo con un motivo a griglia arancione e bianco, applica un arco verso l'alto e configura le impostazioni 3D tramite [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#getThreeDFormat--). L'altezza di estrusione e la profondità sono in punti, e la rotazione della luce è in gradi. Il riempimento e il contorno della forma sono nascosti in modo che solo il testo sia visibile. L'esempio renderizza un'immagine PNG a doppi le dimensioni predefinite della diapositiva e salva la presentazione come PPTX:
 
 ```php
+use aspose\slides\CameraPresetType;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\LightingDirection;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextShapeType;
+
 $imageScale = 2;
 
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 250, 250);
+
     $shape->getFillFormat()->setFillType(FillType::NoFill);
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
     $shape->getTextFrame()->setText("3D Text");
 
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
-    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(new Java("java.awt.Color", 255, 140, 0));
+    $patternColor = new Java("java.awt.Color", 255, 140, 0);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor($patternColor);
     $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
     $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::LargeGrid);
 
@@ -235,41 +334,101 @@ try {
 }
 ```
 
-![Testo 3D renderizzato con trasformazione WordArt ad arco, riempimento a motivo arancione e estrusione scura](img_02_05.png)
+![Testo 3D renderizzato con trasformazione WordArt arcuata, riempimento a motivo arancione e estrusione scura](img_02_05.png)
+
+## **Mantieni il Testo Piatti su una Forma 3D**
+
+Per mantenere il testo leggibile preservando l'aspetto 3D della forma, chiama [TextFrameFormat::setKeepTextFlat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#setKeepTextFlat-boolean-) tramite [TextFrame::getTextFrameFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/#getTextFrameFormat--). Quando il valore è `true`, il testo resta fuori dalla scena 3D. Quando è `false`, il testo partecipa alla scena e segue l'orientamento 3D.
+
+Questa impostazione non rimuove la formattazione 3D della forma: la sua fotocamera, illuminazione, materiale ed estrusione rimangono configurati tramite [Shape::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#getThreeDFormat--). È anche diversa dalla rotazione ordinaria. [Shape::setRotation](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#setRotation-float-) ruota la forma nel piano della diapositiva, mentre [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#setRotationAngle-float-) controlla la rotazione personalizzata del testo all'interno del suo riquadro. Tenere il testo fuori dalla scena 3D non resetta nessuno di questi angoli.
+
+Il seguente esempio autonomo crea un rettangolo blu con testo e lo duplica accanto all'originale. Entrambe le forme hanno la stessa formattazione 3D; solo l'impostazione del testo differisce: `false` a sinistra e `true` a destra. Gli angoli della fotocamera sono in gradi, e l'altezza di estrusione è 40 punti. L'esempio salva la presentazione come PPTX e renderizza la diapositiva di confronto in PNG al doppio delle dimensioni predefinite.
+
+```php
+use aspose\slides\CameraPresetType;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\LightingDirection;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextAnchorType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 70, 160, 240, 140);
+
+    $shape->getTextFrame()->setText("Readable text");
+    $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(28);
+    $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->setAlignment(TextAlignment::Center);
+    $shape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Center);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 100, 149, 237));
+
+    $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
+    $shape->getThreeDFormat()->getCamera()->setRotation(30, 30, 0);
+    $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Flat);
+    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $shape->getThreeDFormat()->setMaterial(MaterialPresetType::Flat);
+    $shape->getThreeDFormat()->setExtrusionHeight(40);
+    $shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 65, 105, 225));
+    $shape->getTextFrame()->getTextFrameFormat()->setKeepTextFlat(false);
+
+    $flatTextShape = $slide->getShapes()->addClone($shape, 400, 160);
+    $flatTextShape->getTextFrame()->getTextFrameFormat()->setKeepTextFlat(true);
+
+    $presentation->save("keep_text_flat.pptx", SaveFormat::Pptx);
+    $image = $slide->getImage(2, 2);
+    try {
+        $image->save("keep_text_flat.png", ImageFormat::Png);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+![Rettangoli 3D affiancati: il testo segue l'orientamento 3D a sinistra e rimane piatto a destra](keep_text_flat.png)
 
 ## **Comportamento di Esportazione e Rendering**
 
-Aspose.Slides conserva la formattazione 3D quando salva nei formati PowerPoint come PPTX. Quando si renderizza o si esporta in formati a layout fisso, la scena 3D viene rasterizzata o disegnata nell'output come risultato 2D. Questo vale quando si renderizzano le diapositive in [PNG](/slides/it/php-java/convert-powerpoint-to-png/), si esporta in [PDF](/slides/it/php-java/convert-powerpoint-to-pdf/), si esporta in [HTML](/slides/it/php-java/convert-powerpoint-to-html/), o si generano fotogrammi per la [conversione video](/slides/it/php-java/convert-powerpoint-to-video/).
+Aspose.Slides preserva la formattazione 3D quando salva nei formati PowerPoint come PPTX. Durante il rendering o l'esportazione in formati a layout fisso, la scena 3D viene rasterizzata o disegnata nell'output come risultato 2D. Questo vale quando renderizzi le diapositive in [PNG](/slides/it/php-java/convert-powerpoint-to-png/), esporti in [PDF](/slides/it/php-java/convert-powerpoint-to-pdf/), esporti in [HTML](/slides/it/php-java/convert-powerpoint-to-html/), o generi fotogrammi per [video conversion](/slides/it/php-java/convert-powerpoint-to-video/).
 
-Tieni presente questi punti:
+Tieni presenti questi punti:
 
-- Le immagini e i PDF esportati non sono interattivi. L'oggetto non può essere ruotato dallo spettatore dopo l'esportazione.  
-- L'aspetto finale dipende dalla combinazione di telecamera, set di luci, materiale, estrusione, riempimento e ridimensionamento della diapositiva.  
-- Se devi ispezionare i valori di formattazione ereditati o basati sul tema, leggi le [proprietà effettive della forma](/slides/it/php-java/shape-effective-properties/).  
-- Alcuni formati di output non possono memorizzare la formattazione 3D editabile di PowerPoint. In tali formati, il risultato visivo è renderizzato invece di essere conservato come impostazioni 3D editabili.
+- Le immagini ed i PDF esportati non sono interattivi. L'oggetto non può essere ruotato dallo spettatore dopo l'esportazione.
+- L'aspetto finale dipende dalla combinazione di fotocamera, illuminazione, materiale, estrusione, riempimento e scala della diapositiva.
+- Se devi ispezionare i valori di formattazione ereditati o basati sul tema, leggi le [proprietà effettive della forma](/slides/it/php-java/shape-effective-properties/).
+- Alcuni formati di output non possono memorizzare la formattazione 3D modificabile di PowerPoint. In tali formati, il risultato visivo è renderizzato anziché preservato come impostazioni 3D modificabili.
 
 ## **FAQ**
 
 **Aspose.Slides può creare presentazioni 3D interattive?**
 
-Aspose.Slides crea e renderizza gli effetti 3D di PowerPoint per forme e testo. Non rende le immagini, i PDF o le pagine HTML esportati scene 3D interattive che lo spettatore possa ruotare. In PPTX, la formattazione 3D rimane modificabile in PowerPoint dove il formato la supporta.
+Aspose.Slides crea e renderizza gli effetti 3D di PowerPoint per forme e testo. Non rende interattive le immagini, i PDF o le pagine HTML esportate come scene 3D che lo spettatore può ruotare. In PPTX, la formattazione 3D rimane modificabile in PowerPoint dove il formato la supporta.
 
 **Qual è la differenza tra un modello 3D e un effetto 3D?**
 
-Un modello 3D è un oggetto 3D separato inserito in una presentazione. Un effetto 3D è una formattazione applicata a una forma o a un testo PowerPoint regolare, come rotazione, estrusione, smusso, illuminazione e materiale. Questo articolo tratta gli effetti 3D.
+Un modello 3D è un oggetto 3D separato inserito nella presentazione. Un effetto 3D è una formattazione applicata a una forma o a un testo PowerPoint normale, come rotazione, estrusione, smusso, illuminazione e materiale. Questo articolo tratta gli effetti 3D.
 
 **Quali impostazioni sono necessarie per una forma 3D visibile?**
 
-Al minimo, imposta una rotazione della telecamera e oppure estrusione o profondità. In pratica, imposta anche un set di luci e materiale affinché le facce renderizzate abbiano evidenti luci e ombre.
+Come minimo, imposta una rotazione della fotocamera e una delle due opzioni: estrusione o profondità. Nella pratica, è consigliabile impostare anche un light rig e un materiale affinché le facce renderizzate mostrino chiaramente luci e ombre.
 
 **Posso applicare effetti 3D sia a forme che a testo?**
 
 Sì. Usa [Shape::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#getThreeDFormat--) per il corpo della forma e [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/#getThreeDFormat--) per il testo.
 
-**Gli effetti 3D appariranno quando si esporta in immagini, PDF, HTML o fotogrammi video?**
+**Gli effetti 3D appariranno durante l'esportazione in immagini, PDF, HTML o fotogrammi video?**
 
-Sì. Aspose.Slides renderizza gli effetti 3D quando produce immagini di diapositive, output PDF, output HTML e fotogrammi usati per la conversione video. L'output esportato contiene l'aspetto renderizzato, non un oggetto 3D editabile.
+Sì. Aspose.Slides renderizza gli effetti 3D quando produce immagini delle diapositive, output PDF, output HTML e fotogrammi usati per la conversione video. L'output esportato contiene l'aspetto renderizzato, non un oggetto 3D modificabile.
 
 **Posso leggere i valori finali 3D dopo l'applicazione di ereditarietà e impostazioni del tema?**
 
-Sì. Usa le API di formattazione effettiva descritte in [Shape Effective Properties](/slides/it/php-java/shape-effective-properties/) per leggere la telecamera finale, il set di luci, lo smusso e i relativi valori 3D.
+Sì. Usa le API di formattazione efficace descritte in [Shape Effective Properties](/slides/it/php-java/shape-effective-properties/) per leggere la fotocamera finale, il light rig, lo smusso e i relativi valori 3D.

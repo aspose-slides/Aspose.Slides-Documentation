@@ -1,370 +1,412 @@
 ---
-title: PHP'de WordArt Efektleri Oluşturma ve Uygulama
+title: PHP'de WordArt Efektlerini Oluşturma ve Uygulama
 linktitle: WordArt
 type: docs
 weight: 110
 url: /tr/php-java/wordart/
 keywords:
 - WordArt
-- WordArt Oluştur
-- WordArt Şablonu
-- WordArt Efekti
-- Gölge Efekti
-- Görünüm Efekti
-- Parıltı Efekti
-- WordArt Dönüşümü
-- 3D Efekti
-- Dış Gölge Efekti
-- İç Gölge Efekti
-- PowerPoint
-- Sunum
+- WordArt oluştur
+- WordArt şablonu
+- WordArt efekti
+- gölge efekti
+- yansıma efekti
+- parıltı efekti
+- WordArt dönüşümü
+- 3B efekti
+- dış gölge efekti
+- iç gölge efekti
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java içinde WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım rehber, geliştiricilerin sunumları profesyonel metinle zenginleştirmesine yardımcı olur."
+description: "Aspose.Slides for PHP via Java'da WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım rehber, geliştiricilerin PHP'de profesyonel metinle sunumları geliştirmesine yardımcı olur."
 ---
 ## **Genel Bakış**
 
-WordArt etkileri, PowerPoint sunumlarınıza görsel olarak çekici, stilize metin eklemenizi sağlar. Aspose.Slides ile geliştiriciler, WordArt'ı Microsoft PowerPoint'te olduğu gibi programlı olarak oluşturabilir, özelleştirebilir ve yönetebilir—Office yüklü olmadan. Bu makale, WordArt ile çalışmaya genel bir bakış sunar; metin dönüşümlerini, dolgu stillerini, konturları, gölgeleri ve diğer biçimlendirme seçeneklerini nasıl uygulayacağınızı gösterir ve sunum içeriğinizi daha ifade edici ve ilgi çekici hâle getirir. WordArt, metni grafiksel bir nesne gibi işlemeyi sağlar. Metni daha çekici veya fark edilir kılmak için uygulanmış etkiler veya özel değişikliklerden oluşur.
+WordArt efektleri, metni doldurmalar, konturlar, gölgeler, yansımalar, parıltı, dönüşümler ve 3B biçimlendirme ile stilize etmenizi sağlar. Bu makale, Microsoft Office yüklü olmadan Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarında bu efektlerin nasıl oluşturulacağını ve özelleştirileceğini açıklar.
 
 ## **Basit bir WordArt Şablonu Oluşturun ve Metne Uygulayın**
 
-**Aspose.Slides Kullanarak** 
+Aşağıdaki örnekler, metni, yazı tipini, desen dolgusunu ve konturu ayarlayarak basit bir WordArt stili oluşturur.
 
-İlk olarak, bu PHP kodunu kullanarak basit bir metin oluşturuyoruz:
+Her örnek yeni bir sunum oluşturur ve ilk slaytına bir dikdörtgen ekler; giriş dosyası gerektirmez. İlk örnek metni "Aspose.Slides" olarak ayarlar. Şeklin konumu ve boyutları puan cinsinden ölçülür:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
     $textFrame = $autoShape->getTextFrame();
+
     $portion = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->setText("Aspose.Slides");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-Şimdi, bu kod aracılığıyla etkiyi daha belirgin hâle getirmek için metnin yazı tipi yüksekliğini daha büyük bir değere ayarlıyoruz:
-
-```php
-  $fontData = new FontData("Arial Black");
-  $portion->getPortionFormat()->setLatinFont($fontData);
-  $portion->getPortionFormat()->setFontHeight(36);
-
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Microsoft PowerPoint Kullanarak**
-
-Microsoft PowerPoint'te WordArt efektleri menüsüne gidin:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-Sağdaki menüden önceden tanımlanmış bir WordArt efektini seçebilirsiniz. Soldaki menüden yeni bir WordArt için ayarları belirtebilirsiniz. 
-
-Bunlar, mevcut bazı parametreler veya seçeneklerdir:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Aspose.Slides Kullanarak**
-
-Burada, metne [SmallGrid](https://reference.aspose.com/slides/tr/php-java/aspose.slides/patternstyle/#SmallGrid) desen rengini uyguluyor ve bu kodla 1 genişliğinde siyah bir metin kenarlığı ekliyoruz:
+Biçimin daha belirgin olmasını sağlamak için yazı tipini Arial Black olarak 36 puanda ayarlayın:
 
 ```php
-  $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
-  $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle->SmallGrid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Koyu turuncu ön plan ve beyaz arka plan ile bir [SmallGrid](https://reference.aspose.com/slides/tr/php-java/aspose.slides/patternstyle/#SmallGrid) deseni uygulayın, ardından 1 puan genişliğinde siyah bir metin konturu ekleyin:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor($darkOrange);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::SmallGrid);
+
+    $portion->getPortionFormat()->getLineFormat()->setWidth(1);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 Ortaya çıkan metin:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Basit WordArt şablonu](WordArt_template.png)
 
-## **Diğer WordArt Efektlerini Uygulama**
+## **Diğer WordArt Efektlerini Uygulayın**
 
-**Microsoft PowerPoint Kullanarak**
+Aşağıdaki örnekler, metne gölgeler, yansımalar, parıltı, dönüşümler ve 3B efektler nasıl uygulanacağını gösterir.
 
-Program arayüzünden, bu efektleri bir metne, metin bloğuna, şekle veya benzeri bir öğeye uygulayabilirsiniz:
+### **Dış Gölge Efektlerini Uygula**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Bir dış gölge, metnin arkasına gölge yerleştirerek derinlik katar. Rengini, yönünü, mesafesini, bulanıklık yarıçapını, ölçeğini ve eğimini özelleştirebilirsiniz.
 
-Örneğin, Gölge, Yansıma ve Parıltı efektleri bir metne; 3D Biçim ve 3D Döndürme efektleri bir metin bloğuna; Yumuşak Kenarlar özelliği bir Şekil Nesnesine uygulanabilir (3D Biçim özelliği ayarlı olmasa bile etkisi vardır). 
-
-### **Gölge Efektlerini Uygula**
-
-Burada yalnızca bir metinle ilgili özellikleri ayarlamayı amaçlıyoruz. Bu kodu kullanarak metne gölge efekti uyguluyoruz :
+Bu örnek [enableOuterShadowEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effectformat/#enableOuterShadowEffect--) metodunu çağırır ve 4 puan bulanıklık yarıçapı, 230 derece yön ve 30 puan mesafe ile siyah bir gölge ayarlar. 100 ölçek değerleri gölgenin boyutunu korur, yatay eğim ise 20 derece döndürür. Alfa dönüşümü opaklığını %32 olarak ayarlar:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(65);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4.73);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(2);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(30);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
-  $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.32);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setScaleVertical(100);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setBlurRadius(4);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDirection(230);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setDistance(30);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewHorizontal(20);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
+    $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.32);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Aspose.Slides API'si üç tür gölgeyi destekler: OuterShadow, InnerShadow ve PresetShadow. 
+Ortaya çıkan metin:
 
-PresetShadow ile bir metne (önceden ayarlanmış değerleri kullanarak) gölge uygulayabilirsiniz. 
+![Dış Gölge etkisi](outer_shadow_effect.png)
 
-**Microsoft PowerPoint Kullanarak**
+{{% alert color="info" title="Note" %}}
+- Dış ve önceden tanımlı gölgeler birlikte kullanıldığında, yalnızca dış gölge uygulanır.
+- Dış ve iç gölgeler aynı anda kullanılırsa, ortaya çıkan efekt PowerPoint sürümüne bağlıdır. Örneğin, PowerPoint 2013'te efekt iki kat olur, PowerPoint 2007'de ise yalnızca dış gölge uygulanır.
+{{% /alert %}}
 
-PowerPoint'te tek bir gölge türü kullanabilirsiniz. İşte bir örnek:
+### **Yansıma Efektlerini Uygula**
 
-![todo:image_alt_text](image-20200930114225-6.png)
+Yansıma, metnin aynalı bir kopyasını oluşturur. Konumunu, ölçeğini, bulanıklığını ve opaklığını ayarlayarak görünümünü kontrol edebilirsiniz.
 
-**Aspose.Slides Kullanarak**
-
-Aspose.Slides, aynı anda iki tür gölge uygulamanıza olanak tanır: InnerShadow ve PresetShadow.
-
-**Notlar:** 
-
-- OuterShadow ve PresetShadow birlikte kullanıldığında, yalnızca OuterShadow efekti uygulanır. 
-- OuterShadow ve InnerShadow aynı anda kullanılırsa, ortaya çıkan veya uygulanan efekt PowerPoint sürümüne bağlıdır. Örneğin, PowerPoint 2013'te efekt iki katına çıkar. Ancak PowerPoint 2007'de OuterShadow efekti uygulanır. 
-
-### **Metne Yansıma Efektlerini Uygula**
-
-Bu kod örneğiyle metne yansıma ekliyoruz :
+Bu örnek [enableReflectionEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effectformat/#enableReflectionEffect--) metodunu çağırır ve yansımayı -100% ölçekle dikey olarak çevirir. 0,5 puan bulanıklık yarıçapı ve 4,72 puan mesafe kullanır. Opaklık, yansıma boyunca %0 ile %60 konumları arasında %60'tan %0,9'a düşer:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60.0);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
-  $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->BottomLeft);
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\RectangleAlignment;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDistance(4.72);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartPosAlpha(0);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndPosAlpha(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setDirection(90);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleHorizontal(100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setScaleVertical(-100);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setStartReflectionOpacity(60);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
+    $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment::BottomLeft);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Metne Parıltı Efektlerini Uygula**
+Ortaya çıkan metin:
 
-Bu kodu kullanarak metne parıltı efekti uyguluyor ve metnin parlamasını veya öne çıkmasını sağlıyoruz:
+![Yansıma efekti](reflection_effect.png)
+
+### **Parıltı Efektlerini Uygula**
+
+Parıltı, metnin etrafına yumuşak renkli bir kontur ekler. Rengini, opaklığını ve yarıçapını ayarlayarak efekti kontrol edebilirsiniz.
+
+Bu örnek [enableGlowEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effectformat/#enableGlowEffect--) metodunu çağırır ve %54 opaklıkta, 7 puan yarıçapında kırmızı bir parıltı uygular:
 
 ```php
-  $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.54);
-  $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $portion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->setText("Aspose.Slides");
+    $font = new FontData("Arial Black");
+    $portion->getPortionFormat()->setLatinFont($font);
+    $portion->getPortionFormat()->setFontHeight(36);
+
+    $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setColor(java("java.awt.Color")->RED);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation::SetAlpha, 0.54);
+    $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-İşlemin sonucu:
+Ortaya çıkan metin:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![Parıltı efekti](glow_effect.png)
 
-{{% alert color="primary" %}} 
-Gölge, yansıma ve parıltı parametrelerini değiştirebilirsiniz. Efekt özellikleri metnin her bölümü için ayrı ayrı ayarlanır. 
-{{% /alert %}} 
+### **WordArt Dönüşümlerini Uygula**
 
-### **WordArt'ta Dönüşümleri Kullanma**
+WordArt dönüşümleri, bir metin bloğunu bükebilir, uzatabilir veya şekillendirebilir.
 
-Bu kodla Transform özelliğini (metnin tüm bloğuna özgü) kullanıyoruz:
+[setTransform](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setTransform-int-) metodunu [ArchUpPour](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textshapetype/#ArchUpPour) olarak ayarlayarak tüm metin çerçevesini yukarı doğru eğin:
 
 ```php
-  $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+    $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Sonuç:
+Ortaya çıkan metin:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![WordArt dönüşümü](transform_effect.png)
 
-{{% alert color="primary" %}} 
-Microsoft PowerPoint ve Aspose.Slides for PHP via Java, belirli sayıda önceden tanımlanmış dönüşüm tipi sunar. 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for PHP via Java, önceden tanımlanmış bir dizi [dönüşüm türü](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textshapetype/) sunar.
+{{% /alert %}}
 
-**PowerPoint Kullanarak**
+### **Şekillere ve Metne 3B Efektler Uygula**
 
-Önceden tanımlanmış dönüşüm tiplerine erişmek için şu adımları izleyin: **Format** -> **TextEffect** -> **Transform**
+Bir şekle veya onun metnine 3B efektler uygulayabilirsiniz. Kaldırımlar, ekstrüzyon, aydınlatma ve kamera ayarları ortaya çıkan görünümü kontrol eder.
 
-**Aspose.Slides Kullanarak**
-
-Dönüşüm tipini seçmek için TextShapeType enum'ını kullanın. 
-
-### **Metin ve Şekillere 3D Efektleri Uygula**
-
-Bu örnek kodla bir metin şekline 3D efekti ayarlıyoruz:
+Aşağıdaki örnek, dikdörtgene dairesel kaldırımlar, turuncu ekstrüzyon ve koyu kırmızı bir kontur eklemek için [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) kullanır. Kaldırım boyutları, ekstrüzyon yüksekliği, kontur genişliği ve derinlik puan cinsindendir. Plastik bir malzeme, Z ekseni etrafında 40 derece döndürülmüş dengeli aydınlatma ve bir perspektif kamera görünümünü tanımlar:
 
 ```php
-  $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
-  $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
-  $autoShape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $autoShape->getThreeDFormat()->setExtrusionHeight(6);
-  $autoShape->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $autoShape->getThreeDFormat()->setContourWidth(1.5);
-  $autoShape->getThreeDFormat()->setDepth(3);
-  $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $autoShape->getTextFrame()->setText("Aspose.Slides");
+
+    $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
+    $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
+
+    $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
+    $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $autoShape->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $autoShape->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $autoShape->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $autoShape->getThreeDFormat()->setContourWidth(1.5);
+
+    $autoShape->getThreeDFormat()->setDepth(3);
+
+    $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Ortaya çıkan metin ve şekli:
+![Şekil 3B etkisi](shape_3D_effect.png)
 
-![todo:image_alt_text](image-20200930114816-9.png)
-
-Bu PHP kodu ile metne 3D efekti uyguluyoruz:
+Bu örnek, [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#getThreeDFormat--) aracılığıyla metne benzer bir 3B biçimlendirme uygular. Daha küçük kaldırımlar harf kenarlarını şekillendirirken, ekstrüzyon ve aydınlatma metne derinlik kazandırır:
 
 ```php
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\MaterialPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 200);
+    $textFrame = $autoShape->getTextFrame();
+    $textFrame->setText("Aspose.Slides");
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
+
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor($orange);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(6);
+
+    $darkRed = new Java("java.awt.Color", 139, 0, 0);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor($darkRed);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
+
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-İşlemin sonucu:
+![Metin 3B etkisi](text_3D_effect.png)
 
-![todo:image_alt_text](image-20200930114905-10.png)
+{{% alert color="info" title="Note" %}}
+Metne veya şekillerine 3B efektlerin uygulanması — ve bu efektler arasındaki etkileşim — belirli kurallarla yönetilir. Hem metni hem de onu içeren şekli içeren bir sahneyi düşünün. Bir 3B efekt, nesnenin 3B temsilini ve yerleştirildiği sahneyi içerir.
 
-{{% alert color="primary" %}} 
-Metinlere veya şekillerine 3D efektlerinin uygulanması ve efektler arasındaki etkileşimler belirli kurallara dayanır.
+- Eğer sahne hem şekil hem de metin için ayarlanmışsa, şeklin sahnesi öncelikli olur ve metnin sahnesi göz ardı edilir.
+- Şeklin kendi sahnesi yoksa ancak 3B temsili varsa, metnin sahnesi kullanılır.
+- Şeklin hiç 3B efekti yoksa, düz olarak kabul edilir ve 3B efekt yalnızca metne uygulanır.
 
-Bir metin ve o metni içeren şekil için bir sahne düşünün. 3D efekti, 3D nesne temsili ve nesnenin yerleştirildiği sahneyi içerir.
+Bu davranışlar, [ThreeDFormat::getLightRig](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getLightRig--) ve [ThreeDFormat::getCamera](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getCamera--) yöntemleriyle ilişkilidir.
+{{% /alert %}}
 
-- Sahne hem şekil hem de metin için ayarlandığında, şekil sahnesi daha yüksek önceliğe sahiptir—metin sahnesi yok sayılır.
-- Şeklin kendi sahnesi yok ama 3D temsili varsa, metin sahnesi kullanılır.
-- Aksi takdirde—şeklin başlangıçta 3D efekti yoksa—şekil düz olur ve 3D efekt sadece metne uygulanır.
-
-Bu açıklamalar ThreeDFormat.getLightRig() ve ThreeDFormat.getCamera() metodlarına bağlanır. 
-{{% /alert %}} 
-
-## **Metne Dış Gölge Efektleri Uygula**
-Aspose.Slides for PHP via Java, [OuterShadow](https://reference.aspose.com/slides/tr/php-java/aspose.slides/outershadow/) ve [InnerShadow](https://reference.aspose.com/slides/tr/php-java/aspose.slides/innershadow/) sınıflarını sağlar; bu sınıflar, [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) içindeki bir metne gölge efektleri uygulamanıza imkan verir. Aşağıdaki adımları izleyin:
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. İndeksini kullanarak bir slayt referansı alın.
-3. Slayta Dikdörtgen tipinde bir AutoShape ekleyin.
-4. AutoShape ile ilişkili TextFrame'e erişin.
-5. AutoShape'in FillType özelliğini NoFill olarak ayarlayın.
-6. OuterShadow sınıfının bir örneğini oluşturun.
-7. Gölgenin BlurRadius değerini ayarlayın.
-8. Gölgenin Direction (yön) değerini ayarlayın.
-9. Gölgenin Distance (mesafe) değerini ayarlayın.
-10. RectanglelAlign özelliğini TopLeft olarak ayarlayın.
-11. Gölgenin PresetColor değerini Black olarak ayarlayın.
-12. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.
-
-Bu örnek kod —yukarıdaki adımların bir uygulaması— bir metne dış gölge efektini nasıl uygulayacağınızı gösterir:
-
-```php
-  $pres = new Presentation();
-  try {
-    # Slayt referansını al
-    $sld = $pres->getSlides()->get_Item(0);
-    # Dikdörtgen tipinde bir AutoShape ekle
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Dikdörtgene TextFrame ekle
-    $ashp->addTextFrame("Aspose TextBox");
-    # Metnin gölgesini alabilmek için şekil dolgusunu devre dışı bırak
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Dış gölge ekle ve gerekli tüm parametreleri ayarla
-    $ashp->getEffectFormat()->enableOuterShadowEffect();
-    $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
-    $shadow->setBlurRadius(4.0);
-    $shadow->setDirection(45);
-    $shadow->setDistance(3);
-    $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
-    $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    # Sunumu diske kaydet
-    $pres->save("pres_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Şekillere İç Gölge Efektleri Uygula**
-Aşağıdaki adımları izleyin:
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. Slaytın bir referansını alın.
-3. Dikdörtgen tipinde bir AutoShape ekleyin.
-4. InnerShadowEffect'i etkinleştirin.
-5. Gerekli tüm parametreleri ayarlayın.
-6. ColorType'ı Scheme olarak ayarlayın.
-7. Scheme rengini belirleyin.
-8. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.
-
-Bu örnek kod (yukarıdaki adımlara dayanarak) iki şekil arasında bir bağlayıcı eklemenizi gösterir :
-
-```php
-  $pres = new Presentation();
-  try {
-    # Slayt referansını al
-    $slide = $pres->getSlides()->get_Item(0);
-    # Dikdörtgen tipinde bir AutoShape ekle
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Dikdörtgene TextFrame ekle
-    $ashp->addTextFrame("Aspose TextBox");
-    $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $pf = $port->getPortionFormat();
-    $pf->setFontHeight(50);
-    # İç Gölge Efektini etkinleştir
-    $ef = $pf->getEffectFormat();
-    $ef->enableInnerShadowEffect();
-    # Gerekli tüm parametreleri ayarla
-    $ef->getInnerShadowEffect()->setBlurRadius(8.0);
-    $ef->getInnerShadowEffect()->setDirection(90.0);
-    $ef->getInnerShadowEffect()->setDistance(6.0);
-    $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # RenkTipini Scheme olarak ayarla
-    $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # Şema Rengini ayarla
-    $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    # Sunumu kaydet
-    $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+Daha fazla 3B biçimlendirme örneği için, [Create 3D Effects in Presentations Using PHP](/slides/tr/php-java/3d-presentation/) adresine bakın.
 
 ## **SSS**
 
-**WordArt efektlerini farklı yazı tipleri veya betiklerle (ör. Arapça, Çince) kullanabilir miyim?**
+**Farklı yazı tipleri veya betikler (ör. Arapça, Çince) ile WordArt efektleri kullanabilir miyim?**
 
-Evet, Aspose.Slides Unicode'u destekler ve tüm büyük yazı tipleri ve betiklerle çalışır. Gölge, dolgu ve kontur gibi WordArt efektleri dili ne olursa olsun uygulanabilir; ancak yazı tipi bulunabilirliği ve renderleme sistem yazı tiplerine bağlı olabilir.
+Evet, Aspose.Slides for PHP via Java Unicode destekler ve tüm büyük yazı tipleri ve betikler ile çalışır. Gölge, dolgu ve kontur gibi WordArt efektleri, dili ne olursa olsun uygulanabilir; ancak yazı tipi bulunabilirliği ve renderleme sistem yazı tiplerine bağlı olabilir.
 
-**WordArt efektlerini slayt ana şablon öğelerine uygulayabilir miyim?**
+**WordArt efektlerini slayt ana düzeni öğelerine uygulayabilir miyim?**
 
-Evet, ana slaytlardaki şekillere, başlık yer tutucularına, altbilgilere veya arka plan metnine WordArt efektleri uygulayabilirsiniz. Ana şablonda yapılan değişiklikler, ilişkili tüm slaytlara yansır.
+Evet, başlık yer tutucuları, alt bilgi alanları veya arka plan metni gibi ana slayt üzerindeki şekillere WordArt efektleri uygulayabilirsiniz. Ana düzente yapılan değişiklikler, ilişkili tüm slaytlara yansır.
 
 **WordArt efektleri sunum dosyasının boyutunu etkiler mi?**
 
-Biraz. Gölge, parıltı ve degrade dolgu gibi WordArt efektleri, ek biçimlendirme meta verileri nedeniyle dosya boyutunu biraz artırabilir, ancak fark genellikle önemsizdir.
+Bir miktar. Gölge, parıltı ve degrade dolgu gibi WordArt efektleri, ek formatlama meta verileri nedeniyle dosya boyutunu hafifçe artırabilir, ancak fark genellikle ihmal edilebilir.
 
-**Sunumu kaydetmeden WordArt efektlerinin sonucunu ön izleyebilir miyim?**
+**WordArt efektlerinin sonucunu sunumu kaydetmeden önizleyebilir miyim?**
 
-Evet, [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) veya [Slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/) sınıflarının `getImage` yöntemiyle WordArt içeren slaytları görüntülere (ör. PNG, JPEG) dönüştürebilirsiniz. Bu sayede tam sunumu kaydetmeden ya da dışa aktarmadan önce bellekte veya ekranda ön izleme yapabilirsiniz.
+Evet, [Slide::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getImage--) kullanarak WordArt içeren slaytları görüntülere (örn. PNG, JPEG) renderleyebilir veya [Shape::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getImage--) ile tek tek şekilleri renderleyebilirsiniz. Bu sayede tam sunumu kaydetmeden veya dışa aktarmadan önce sonucu bellekte veya ekranda önizleyebilirsiniz.

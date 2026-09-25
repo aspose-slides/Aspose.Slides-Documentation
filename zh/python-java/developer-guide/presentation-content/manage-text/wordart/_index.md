@@ -1,18 +1,18 @@
 ---
 title: 在 Python via Java 中创建和应用 WordArt 效果
-linktitle: WordArt
+linktitle: 文字艺术
 type: docs
 weight: 110
 url: /zh/python-java/wordart/
 keywords:
-- WordArt
-- 创建 WordArt
-- WordArt 模板
-- WordArt 效果
+- 文字艺术
+- 创建文字艺术
+- 文字艺术模板
+- 文字艺术效果
 - 阴影效果
 - 反射效果
 - 发光效果
-- WordArt 变换
+- 文字艺术变形
 - 3D 效果
 - 外部阴影效果
 - 内部阴影效果
@@ -21,17 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Python via Java 中创建和自定义 WordArt 效果。此分步指南帮助开发人员使用 Python via Java 为演示文稿添加专业文本。"
+description: "在 Aspose.Slides for Python via Java 中创建和自定义 WordArt 效果。此分步指南帮助开发者使用 Python via Java 在演示文稿中添加专业文本。"
 ---
-## **概览**
+## **概述**
 
-WordArt 效果允许您在 PowerPoint 演示文稿中添加视觉上吸引人、风格化的文本。使用 Aspose.Slides，开发人员可以以编程方式创建、定制和管理 WordArt，就像在 Microsoft PowerPoint 中一样——无需安装 Office。本文概述了使用 WordArt 的方法，包括如何应用文本变换、填充样式、轮廓、阴影和其他格式选项，以使演示内容更具表现力和吸引力。WordArt 允许您将文本视为图形对象。它由对文本应用的效果或特殊修改组成，以使其更具吸引力或更显眼。
+WordArt 效果允许您使用填充、轮廓、阴影、反射、发光、变形和 3D 格式来美化文本。本文介绍如何在 PowerPoint 演示文稿中使用 Aspose.Slides for Python via Java 创建和自定义这些效果，且无需安装 Microsoft Office。
 
-## **创建简单的 WordArt 模板并将其应用于文本**
+## **创建简易 WordArt 模板并将其应用于文本**
 
-**使用 Aspose.Slides**
+以下示例通过设置文本、字体、图案填充和轮廓来构建一个简易的 WordArt 样式。
 
-首先，我们使用以下 Python 代码创建简单文本：
+每个示例都会创建一个新演示文稿并在其第一页添加一个矩形；无需输入文件。第一个示例将文本设置为 “Aspose.Slides”。形状的位置和尺寸以点为单位：
 
 ```python
 import jpype
@@ -45,7 +45,8 @@ from asposeslides.api import Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
 
     portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -53,7 +54,8 @@ try:
 finally:
     presentation.dispose()
 ```
-接下来，增大字体大小以使效果更明显：
+
+将字体设置为 36 点的 Arial Black，以便更明显地看到格式：
 
 ```python
 import jpype
@@ -67,84 +69,68 @@ from asposeslides.api import FontData, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    font_data = FontData("Arial Black")
-    portion_format = portion.getPortionFormat()
-    portion_format.setLatinFont(font_data)
-    portion_format.setFontHeight(36)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 finally:
     presentation.dispose()
 ```
 
-**使用 Microsoft PowerPoint**
-
-转到 Microsoft PowerPoint 中的 WordArt 效果菜单：
-
-![PowerPoint 中的 WordArt 效果菜单](image-20200930113926-1.png)
-
-在右侧菜单中，您可以选择预定义的 WordArt 效果。在左侧菜单中，您可以为新 WordArt 指定设置。
-
-以下是一些可用的参数或选项：
-
-![WordArt 格式化选项](image-20200930114015-3.png)
-
-**使用 Aspose.Slides**
-
-在此，我们使用以下代码将 [PatternStyle.SmallGrid](https://reference.aspose.com/slides/zh/python-java/aspose.slides/patternstyle/#SmallGrid) 图案填充应用于文本，并使用黑色文本边框：
+应用带有深橙色前景和白色背景的 [SmallGrid](https://reference.aspose.com/slides/zh/python-java/aspose.slides/patternstyle/#SmallGrid) 图案，然后添加宽度为 1 点的黑色文本轮廓：
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpype.startJVM()
 
-from asposeslides.api import FillType, PatternStyle, Presentation, ShapeType
+from asposeslides.api import FillType, FontData, PatternStyle, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getFillFormat().setFillType(FillType.Pattern)
-    pattern_format = portion_format.getFillFormat().getPatternFormat()
-    pattern_format.getForeColor().setColor(Color.ORANGE)
-    pattern_format.getBackColor().setColor(Color.WHITE)
-    pattern_format.setPatternStyle(PatternStyle.SmallGrid)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern)
+    dark_orange = Color(255, 140, 0)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(dark_orange)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid)
 
-    line_format = portion_format.getLineFormat()
-    line_format.getFillFormat().setFillType(FillType.Solid)
-    line_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getLineFormat().setWidth(1)
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 finally:
     presentation.dispose()
 ```
 
 生成的文本：
 
-![带图案填充和黑色轮廓的文本](image-20200930114108-4.png)
+![简易 WordArt 模板](WordArt_template.png)
 
 ## **应用其他 WordArt 效果**
 
-**使用 Microsoft PowerPoint**
+以下示例演示如何对文本应用阴影、反射、发光、变形和 3D 效果。
 
-在程序界面中，您可以将这些效果应用于文本、文本块、形状或类似元素：
+### **应用外部阴影效果**
 
-![PowerPoint 中的文本和形状效果](image-20200930114129-5.png)
+外部阴影通过在文本后方放置阴影来增加深度。您可以自定义其颜色、方向、距离、模糊半径、缩放和倾斜。
 
-例如，可以将阴影、反射和发光效果应用于文本；将 3D 格式和 3D 旋转效果应用于文本块；将柔化边缘效果应用于形状（即使未设置 3D 格式效果，仍然有效）。
-
-### **应用阴影效果**
-
-以下 Python 代码仅对文本应用阴影效果：
+此示例调用 [enableOuterShadowEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effectformat/#enableOuterShadowEffect) 并设置黑色阴影，模糊半径为 4 点，方向为 230 度，距离为 30 点。缩放值 100 保持阴影大小不变，水平倾斜将其倾斜 20 度。alpha 变换将不透明度设为 32%：
 
 ```python
 import jpype
@@ -153,132 +139,135 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableOuterShadowEffect()
-    outer_shadow = portion_format.getEffectFormat().getOuterShadowEffect()
-    outer_shadow.getShadowColor().setColor(Color.BLACK)
-    outer_shadow.setScaleHorizontal(100)
-    outer_shadow.setScaleVertical(65)
-    outer_shadow.setBlurRadius(4.73)
-    outer_shadow.setDirection(230)
-    outer_shadow.setDistance(2)
-    outer_shadow.setSkewHorizontal(30)
-    outer_shadow.setSkewVertical(0)
-    outer_shadow.getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect()
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
 finally:
     presentation.dispose()
 ```
 
-Aspose.Slides API 支持三种阴影类型：[OuterShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/outershadow/)、[InnerShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/innershadow/) 和 [PresetShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presetshadow/)。
+生成的文本：
 
-使用 [PresetShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presetshadow/)，您可以使用预设值将阴影应用于文本。
+![外部阴影效果](outer_shadow_effect.png)
 
-**使用 Microsoft PowerPoint**
-
-在 PowerPoint 中，您只能使用一种阴影类型。以下是示例：
-
-![PowerPoint 中的阴影设置](image-20200930114225-6.png)
-
-**使用 Aspose.Slides**
-
-Aspose.Slides 实际上允许您一次应用两种阴影类型：[InnerShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/innershadow/) 和 [PresetShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presetshadow/)。
-
-**注意：**
-
-- 当同时使用 [OuterShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/outershadow/) 和 [PresetShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presetshadow/) 时，仅应用 [OuterShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/outershadow/) 效果。
-- 如果同时使用 [OuterShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/outershadow/) 和 [InnerShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/innershadow/)，实际应用的效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会叠加；但在 PowerPoint 2007 中，仅应用 [OuterShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/outershadow/) 效果。
-
-### **将反射应用于文本**
-
-我们通过以下 Python（通过 Java）代码为文本添加反射：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, RectangleAlignment, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableReflectionEffect()
-    reflection = portion_format.getEffectFormat().getReflectionEffect()
-    reflection.setBlurRadius(0.5)
-    reflection.setDistance(4.72)
-    reflection.setStartPosAlpha(0)
-    reflection.setEndPosAlpha(60)
-    reflection.setDirection(90)
-    reflection.setScaleHorizontal(100)
-    reflection.setScaleVertical(-100)
-    reflection.setStartReflectionOpacity(60)
-    reflection.setEndReflectionOpacity(0.9)
-    reflection.setRectangleAlign(RectangleAlignment.BottomLeft)
-finally:
-    presentation.dispose()
-```
-
-### **将发光效果应用于文本**
-
-我们使用以下代码将发光效果应用于文本，使其发光或突出显示：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableGlowEffect()
-    glow = portion_format.getEffectFormat().getGlowEffect()
-    glow.getColor().setR(jpype.JByte(-1))
-    glow.getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
-    glow.setRadius(7)
-finally:
-    presentation.dispose()
-```
-
-操作结果：
-
-![带发光效果的文本](image-20200930114621-7.png)
-
-{{% alert color="info" title="注意" %}}
-您可以更改阴影、反射和发光的参数。效果属性会分别针对文本的每个部分进行设置。
+{{% alert color="info" title="Note" %}}
+- 当同时使用外部阴影和预设阴影时，仅应用外部阴影。
+- 当同时使用外部阴影和内部阴影时，最终效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中效果会加倍，而在 PowerPoint 2007 中仅应用外部阴影。
 {{% /alert %}}
 
-### **在 WordArt 中使用变换**
+### **应用反射效果**
 
-使用 [TextFrameFormat.setTransform](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textframeformat/#setTransform) 对整个文本块进行变换：
+反射会创建文本的镜像副本。通过调整位置、缩放、模糊和不透明度来控制其外观。
+
+此示例调用 [enableReflectionEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effectformat/#enableReflectionEffect) 并将反射垂直翻转，缩放为 -100%。使用 0.5 点的模糊半径和 4.72 点的距离。沿反射方向从 0% 到 60% 的位置，不透明度从 60% 下降至 0.9%：
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, RectangleAlignment, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect()
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft)
+finally:
+    presentation.dispose()
+```
+
+生成的文本：
+
+![反射效果](reflection_effect.png)
+
+### **应用发光效果**
+
+发光在文本周围添加柔和的彩色轮廓。通过调整颜色、不透明度和半径来控制效果。
+
+此示例调用 [enableGlowEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effectformat/#enableGlowEffect) 并应用红色发光，透明度为 54%，半径为 7 点：
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect()
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7)
+finally:
+    presentation.dispose()
+```
+
+生成的文本：
+
+![发光效果](glow_effect.png)
+
+### **应用 WordArt 变形**
+
+WordArt 变形会弯曲、拉伸或扭曲一段文本。
+
+将 [setTransform](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textframeformat/#setTransform) 设置为 [ArchUpPour](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textshapetype/#ArchUpPour) 可使整个文本框向上弧形：
 
 ```python
 import jpype
@@ -292,34 +281,29 @@ from asposeslides.api import Presentation, ShapeType, TextShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
-
     text_frame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour)
 finally:
     presentation.dispose()
 ```
 
-结果：
+生成的文本：
 
-![带拱形变换的文本](image-20200930114712-8.png)
+![WordArt 变形](transform_effect.png)
 
-{{% alert color="info" title="注意" %}}
-Microsoft PowerPoint 和 Aspose.Slides for Python via Java 都提供一定数量的预定义变换类型。
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Python via Java 提供了一组预定义的 [transformation types](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textshapetype/)。
 {{% /alert %}}
 
-**使用 PowerPoint**
+### **应用 3D 效果于形状和文本**
 
-要访问预定义的变换类型，请转到：**格式** -> **文字效果** -> **变换**
+您可以对形状或其文本应用 3D 效果。斜面、挤压、光照和相机设置决定最终外观。
 
-**使用 Aspose.Slides**
-
-要选择变换类型，请使用 [TextShapeType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textshapetype/) 枚举。
-
-### **将 3D 效果应用于文本和形状**
-
-我们使用以下示例代码将 3D 效果应用于文本形状：
+以下示例使用 [ThreeDFormat](https://reference.aspose.com/slides/zh/python-java/aspose.slides/threedformat/) 为矩形添加圆形斜面、橙色挤压和深红色轮廓。斜面尺寸、挤压高度、轮廓宽度和深度均以点为单位。采用塑料材质、围绕 Z 轴旋转 40 度的均衡光照以及透视相机来定义外观：
 
 ```python
 import jpype
@@ -334,42 +318,44 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     auto_shape.getTextFrame().setText("Aspose.Slides")
 
-    three_d_format = auto_shape.getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(10.5)
-    three_d_format.getBevelBottom().setWidth(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelBottom().setHeight(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setWidth(10.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(12.5)
-    three_d_format.getBevelTop().setWidth(11)
+    auto_shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelTop().setHeight(12.5)
+    auto_shape.getThreeDFormat().getBevelTop().setWidth(11)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    auto_shape.getThreeDFormat().getExtrusionColor().setColor(orange)
+    auto_shape.getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    auto_shape.getThreeDFormat().getContourColor().setColor(dark_red)
+    auto_shape.getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    auto_shape.getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    auto_shape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    auto_shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    auto_shape.getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-生成的文本及其形状：
+生成的形状：
 
-![带 3D 效果的文本形状](image-20200930114816-9.png)
+![形状 3D 效果](shape_3D_effect.png)
 
-我们使用以下 Python 代码将 3D 效果应用于文本：
+此示例通过 [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textframeformat/#getThreeDFormat) 对文本应用类似的 3D 格式。较小的斜面塑造字母边缘，挤压和光照赋予文本深度：
 
 ```python
 import jpype
@@ -384,187 +370,70 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
 
-    three_d_format = text_frame.getTextFrameFormat().getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(3.5)
-    three_d_format.getBevelBottom().setWidth(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(4)
-    three_d_format.getBevelTop().setWidth(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange)
+    text_frame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(dark_red)
+    text_frame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    text_frame.getTextFrameFormat().getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    text_frame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    text_frame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-操作结果：
+生成的文本：
 
-![带 3D 效果的文本](image-20200930114905-10.png)
+![文本 3D 效果](text_3D_effect.png)
 
-{{% alert color="info" title="注意" %}}
-将 3D 效果应用于文本或其形状以及效果之间的交互遵循一定规则。
+{{% alert color="info" title="Note" %}}
+对文本或其形状应用 3D 效果以及这些效果之间的交互遵循特定规则。考虑一个同时包含文本和其所在形状的场景。3D 效果包括对象的 3D 表现以及其所在的场景。
 
-考虑文本及其所在形状的场景。3D 效果包含 3D 对象表示以及对象所在的场景。
+- 如果形状和文本都设置了场景，则以形状的场景为主，文本的场景被忽略。
+- 如果形状没有自己的场景但具备 3D 表现，则使用文本的场景。
+- 如果形状根本没有 3D 效果，则视为平面，仅对文本应用 3D 效果。
 
-- 当形状和文本都设置了场景时，形状场景优先——文本场景被忽略。
-- 当形状没有自己的场景但具有 3D 表示时，使用文本场景。
-- 否则——当形状本身没有 3D 效果时，形状为平面，3D 效果仅应用于文本。
-
-这些规则涉及 [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/zh/python-java/aspose.slides/threedformat/#getLightRig) 和 [ThreeDFormat.getCamera](https://reference.aspose.com/slides/zh/python-java/aspose.slides/threedformat/#getCamera) 方法。
+这些行为与 [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/zh/python-java/aspose.slides/threedformat/#getLightRig) 和 [ThreeDFormat.getCamera](https://reference.aspose.com/slides/zh/python-java/aspose.slides/threedformat/#getCamera) 方法相关。
 {{% /alert %}}
 
-## **将外部阴影效果应用于文本**
-
-Aspose.Slides for Python via Java 提供了 [OuterShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/outershadow/) 和 [InnerShadow](https://reference.aspose.com/slides/zh/python-java/aspose.slides/innershadow/) 类，允许您在 [TextFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textframe/) 中对文本应用阴影效果。请按以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。
-2. 使用索引获取幻灯片的引用。
-3. 向幻灯片添加矩形形状。
-4. 访问与形状关联的文本框。
-5. 禁用形状填充。
-6. 启用外部阴影效果。
-7. 设置阴影的模糊半径。
-8. 设置阴影的方向。
-9. 设置阴影的距离。
-10. 将阴影对齐到左上角。
-11. 将阴影颜色设置为黑色。
-12. 将演示文稿保存为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
-
-下面的 Python（通过 Java）示例代码实现了上述步骤，演示如何将外部阴影效果应用于文本：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import FillType, Presentation, PresetColor, RectangleAlignment, SaveFormat, ShapeType
-
-presentation = Presentation()
-try:
-    # 获取幻灯片的引用
-    slide = presentation.getSlides().get_Item(0)
-
-    # 添加矩形类型的 AutoShape
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50)
-
-    # 向矩形添加 TextFrame
-    auto_shape.addTextFrame("Aspose TextBox")
-
-    # 禁用形状填充，以便获取文本的阴影
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # 添加外部阴影并设置所有必要参数
-    auto_shape.getEffectFormat().enableOuterShadowEffect()
-    shadow = auto_shape.getEffectFormat().getOuterShadowEffect()
-    shadow.setBlurRadius(4.0)
-    shadow.setDirection(45)
-    shadow.setDistance(3)
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft)
-    shadow.getShadowColor().setPresetColor(PresetColor.Black)
-
-    # 将演示文稿写入磁盘
-    presentation.save("pres_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **将内部阴影效果应用于形状**
-
-请按以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。
-2. 获取幻灯片的引用。
-3. 添加矩形形状。
-4. 启用内部阴影效果。
-5. 设置所有必要的参数。
-6. 将阴影颜色类型设置为使用主题颜色。
-7. 设置主题颜色。
-8. 将演示文稿保存为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
-
-下面的示例代码（基于上述步骤）展示了如何在 Python via Java 中将内部阴影效果应用于形状中的文本：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorType, FillType, Presentation, SaveFormat, SchemeColor, ShapeType
-
-presentation = Presentation()
-try:
-    # 获取幻灯片的引用
-    slide = presentation.getSlides().get_Item(0)
-
-    # 添加矩形类型的 AutoShape
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300)
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # 向矩形添加 TextFrame
-    auto_shape.addTextFrame("Aspose TextBox")
-    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion_format = portion.getPortionFormat()
-    portion_format.setFontHeight(50)
-
-    # 启用内部阴影效果
-    effect_format = portion_format.getEffectFormat()
-    effect_format.enableInnerShadowEffect()
-
-    # 设置所有必要参数
-    inner_shadow = effect_format.getInnerShadowEffect()
-    inner_shadow.setBlurRadius(8.0)
-    inner_shadow.setDirection(90.0)
-    inner_shadow.setDistance(6.0)
-    inner_shadow.getShadowColor().setB(jpype.JByte(-67))
-
-    # 将 ColorType 设置为 Scheme
-    inner_shadow.getShadowColor().setColorType(ColorType.Scheme)
-
-    # 设置方案颜色
-    inner_shadow.getShadowColor().setSchemeColor(SchemeColor.Accent1)
-
-    # 保存演示文稿
-    presentation.save("WordArt_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+若希望在保持形状的 3D 格式的同时让文本保持平面可读，请参阅 [Keep Text Flat on a 3D Shape](/slides/zh/python-java/3d-presentation/) 了解两种设置的对比以及完整的 Python 示例。
 
 ## **常见问题**
 
-**我可以将 WordArt 效果与不同的字体或文字脚本（例如阿拉伯语、中文）一起使用吗？**
+**我可以将 WordArt 效果用于不同的字体或文字系统（例如阿拉伯语、中文）吗？**
 
-可以，Aspose.Slides 支持 Unicode 并兼容所有主流字体和文字脚本。无论语言如何，都可以应用阴影、填充和轮廓等 WordArt 效果，虽然字体的可用性和渲染可能取决于系统字体。
+可以，Aspose.Slides for Python via Java 支持 Unicode，能够处理所有主流字体和文字系统。无论语言如何，都可以应用阴影、填充和轮廓等 WordArt 效果，不过具体的字体可用性和渲染效果可能取决于系统安装的字体。
 
-**我可以将 WordArt 效果应用于幻灯片母版元素吗？**
+**我可以将 WordArt 效果应用于母版幻灯片的元素吗？**
 
-可以，您可以对母版幻灯片上的形状（包括标题占位符、页脚或背景文本）应用 WordArt 效果。对母版布局的更改会反映到所有相关幻灯片中。
+可以，您可以在母版幻灯片上的形状（如标题占位符、页脚或背景文字）上应用 WordArt 效果。对母版布局的更改会同步到所有使用该母版的幻灯片。
 
-**WordArt 效果会影响演示文稿文件大小吗？**
+**WordArt 效果会影响演示文稿的文件大小吗？**
 
-会略有影响。阴影、发光和渐变填充等 WordArt 效果可能会因增加的格式元数据而稍微增大文件大小，但差异通常可以忽略不计。
+会有轻微影响。阴影、发光和渐变填充等效果会增加少量格式元数据，从而略微增大文件大小，但通常可以忽略不计。
 
 **我可以在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
 
-可以，您可以使用 [Shape.getImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/#getImage) 或 [Slide.getImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/slide/#getImage) 将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），从而在内存或屏幕上预览效果，而无需保存或导出完整演示文稿。
+可以，您可以使用 [Slide.getImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/slide/#getImage) 将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），或使用 [Shape.getImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/#getImage) 单独渲染形状。这样即可在内存中或屏幕上预览效果，而无需保存或导出完整的演示文稿。

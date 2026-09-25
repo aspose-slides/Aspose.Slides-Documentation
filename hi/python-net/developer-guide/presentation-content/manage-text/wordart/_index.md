@@ -1,391 +1,345 @@
 ---
-title: Python में WordArt इफ़ेक्ट बनाना और लागू करना
-linktitle: WordArt
+title: "Python में WordArt प्रभाव बनाएं और लागू करें"
+linktitle: "WordArt"
 type: docs
 weight: 110
 url: /hi/python-net/wordart/
 keywords:
-  - WordArt
-  - WordArt बनाना
-  - WordArt टेम्प्लेट
-  - WordArt इफ़ेक्ट
-  - छाया इफ़ेक्ट
-  - डिस्प्ले इफ़ेक्ट
-  - ग्लो इफ़ेक्ट
-  - WordArt ट्रांसफ़ॉर्मेशन
-  - 3D इफ़ेक्ट
-  - आउटर शैडो इफ़ेक्ट
-  - इनर शैडो इफ़ेक्ट
-  - Python
-  - Aspose.Slides
-description: "Aspose.Slides for Python via .NET में WordArt इफ़ेक्ट बनाना और अनुकूलित करना सीखें। यह चरण‑दर‑चरण मार्गदर्शिका डेवलपर्स को Python में स्टाइलिश, पेशेवर टेक्स्ट के साथ प्रस्तुतियों को बेहतर बनाने में मदद करती है।"
+- "WordArt"
+- "WordArt बनाएं"
+- "WordArt टेम्प्लेट"
+- "WordArt प्रभाव"
+- "छाया प्रभाव"
+- "प्रतिफलन प्रभाव"
+- "ग्लो प्रभाव"
+- "WordArt ट्रांसफ़ॉर्मेशन"
+- "3D प्रभाव"
+- "बाहरी छाया प्रभाव"
+- "आंतरिक छाया प्रभाव"
+- "Python"
+- "Aspose.Slides"
+description: "Aspose.Slides for Python via .NET में WordArt प्रभाव बनाएं और अनुकूलित करें। यह चरण-दर-चरण मार्गदर्शिका डेवलपर्स को Python में पेशेवर टेक्स्ट के साथ प्रस्तुतियों को बेहतर बनाने में मदद करती है।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-WordArt इफ़ेक्ट आपको PowerPoint प्रस्तुतियों में दृश्यात्मक रूप से आकर्षक, शैलीबद्ध टेक्स्ट जोड़ने की अनुमति देता है। Aspose.Slides के साथ, डेवलपर्स प्रोग्रामेटिक रूप से WordArt बना, अनुकूलित और प्रबंधित कर सकते हैं, ठीक Microsoft PowerPoint की तरह—बिना Office इंस्टॉल किए। यह लेख WordArt के साथ काम करने का एक अवलोकन प्रदान करता है, जिसमें टेक्स्ट ट्रांसफ़ॉर्मेशन, फ़िल स्टाइल, आउटलाइन, शैडो और अन्य फ़ॉर्मेटिंग विकल्पों को लागू करके आपकी प्रस्तुति सामग्री को अधिक अभिव्यक्तिपूर्ण और आकर्षक बनाया जाता है। WordArt आपको टेक्स्ट को एक ग्राफ़िकल ऑब्जेक्ट के रूप में व्यवहार करने देता है। यह टेक्स्ट पर लागू किए गए इफ़ेक्ट या विशेष संशोधनों का समूह है जिससे वह अधिक आकर्षक या ध्यान देने योग्य बनता है।
+WordArt प्रभाव आपको टेक्स्ट को फ़िल, आउटलाइन, शैडो, रिफ्लेक्शन, ग्लो, ट्रांसफ़ॉर्मेशन और 3D फ़ॉर्मेटिंग के साथ स्टाइल करने की अनुमति देते हैं। यह लेख PowerPoint प्रस्तुतियों में Aspose.Slides for Python via .NET का उपयोग करके इन प्रभावों को बनाना और अनुकूलित करना समझाता है, बिना Microsoft Office स्थापित किए।
 
-**Microsoft PowerPoint में WordArt**
+## **एक सरल WordArt टेम्प्लेट बनाएं और इसे टेक्स्ट पर लागू करें**
 
-Microsoft PowerPoint में WordArt का उपयोग करने के लिए, आपको पूर्वनिर्धारित WordArt टेम्प्लेट में से एक चुनना होगा। एक WordArt टेम्प्लेट प्रभावों का सेट होता है जो टेक्स्ट या उसकी आकृति पर लागू किया जाता है।
+निम्नलिखित उदाहरण टेक्स्ट, फ़ॉन्ट, पैटर्न फ़िल और आउटलाइन सेट करके एक सरल WordArt शैली बनाते हैं।
 
-**Aspose.Slides में WordArt**
+प्रत्येक उदाहरण एक नई प्रस्तुति बनाता है और उसकी पहली स्लाइड पर एक आयत जोड़ता है; किसी इनपुट फ़ाइल की आवश्यकता नहीं होती। पहला उदाहरण टेक्स्ट को **"Aspose.Slides"** सेट करता है। आकार की स्थिति और आयाम पॉइंट में मापे जाते हैं:
 
-Aspose.Slides for Python via .NET 20.10 में हमने WordArt के समर्थन को लागू किया और बाद की Aspose.Slides for Python via .NET रिलीज़ में इस फीचर में सुधार किया।
-
-Aspose.Slides for Python via .NET के साथ, आप Python में अपना स्वयं का WordArt टेम्प्लेट (एक प्रभाव या कई प्रभावों का संयोजन) आसानी से बना सकते हैं और इसे टेक्स्ट पर लागू कर सकते हैं।
-
-## सरल WordArt टेम्प्लेट बनाना और इसे पाठ पर लागू करना
-
-**Aspose.Slides का उपयोग करना** 
-
-पहले, हम इस Python कोड का उपयोग करके सरल टेक्स्ट बनाते हैं:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-    textFrame = autoShape.text_frame
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    portion = textFrame.paragraphs[0].portions[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    text_frame = auto_shape.text_frame
+
+    portion = text_frame.paragraphs[0].portions[0]
     portion.text = "Aspose.Slides"
-
-    pres.save("wordart-1.pptx", slides.export.SaveFormat.PPTX)
 ```
-अब, हम इस कोड के माध्यम से प्रभाव को अधिक स्पष्ट बनाने के लिए टेक्स्ट का फ़ॉन्ट ऊँचाई बड़ा सेट करते हैं:
 
-```py 
-    fontData = slides.FontData("Arial Black")
-    portion.portion_format.latin_font = fontData
+फ़ॉन्ट को Arial Black, 36 पॉइंट पर सेट करें ताकि फ़ॉर्मेटिंग अधिक स्पष्ट दिखे:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
     portion.portion_format.font_height = 36
 ```
 
-**Microsoft PowerPoint का उपयोग करना**
+एक [SMALL_GRID](https://reference.aspose.com/slides/hi/python-net/aspose.slides/patternstyle/) पैटर्न को डार्क ऑरेंज फोरग्राउंड और सफेद बैकग्राउंड के साथ लागू करें, फिर 1 पॉइंट की चौड़ाई वाला काली टेक्स्ट आउटलाइन जोड़ें:
 
-Microsoft PowerPoint में WordArt इफ़ेक्ट मेनू पर जाएँ:
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-![todo:image_alt_text](image-20200930113926-1.png)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-दाएँ मेनू से आप पूर्वनिर्धारित WordArt इफ़ेक्ट चुन सकते हैं। बाएँ मेनू से आप नई WordArt के लिए सेटिंग्स निर्दिष्ट कर सकते हैं।
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
 
-यहाँ कुछ उपलब्ध पैरामीटर या विकल्प हैं:
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
 
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Aspose.Slides का उपयोग करना**
-
-यहाँ, हम टेक्स्ट पर SmallGrid पैटर्न रंग लागू करते हैं और इस कोड के साथ 1‑पिक्सेल चौड़ाई का काला टेक्स्ट बॉर्डर जोड़ते हैं:
-
-```py 
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
     portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
     portion.portion_format.fill_format.pattern_format.back_color.color = draw.Color.white
     portion.portion_format.fill_format.pattern_format.pattern_style = slides.PatternStyle.SMALL_GRID
-                
+
+    portion.portion_format.line_format.width = 1
     portion.portion_format.line_format.fill_format.fill_type = slides.FillType.SOLID
     portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
 ```
 
 परिणामी टेक्स्ट:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![सरल WordArt टेम्प्लेट](WordArt_template.png)
 
-## अन्य WordArt प्रभाव लागू करना
+## **अन्य WordArt प्रभाव लागू करें**
 
-**Microsoft PowerPoint का उपयोग करना**
+निम्नलिखित उदाहरण दिखाते हैं कि टेक्स्ट पर शैडो, रिफ्लेक्शन, ग्लो, ट्रांसफ़ॉर्मेशन और 3D प्रभाव कैसे लागू करें।
 
-प्रोग्राम के इंटरफ़ेस से आप यह इफ़ेक्ट टेक्स्ट, टेक्स्ट ब्लॉक, शैप या समान तत्व पर लागू कर सकते हैं:
+### **बाहरी शैडो प्रभाव लागू करें**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+एक बाहरी शैडो टेक्स्ट के पीछे शैडो रखकर गहराई जोड़ता है। आप इसका रंग, दिशा, दूरी, ब्लर रेडियस, स्केल और स्क्यू कस्टमाइज़ कर सकते हैं।
 
-उदाहरण के तौर पर, Shadow, Reflection और Glow इफ़ेक्ट टेक्स्ट पर लागू किए जा सकते हैं; 3D Format और 3D Rotation इफ़ेक्ट टेक्स्ट ब्लॉक पर लागू किए जा सकते हैं; Soft Edges प्रॉपर्टी Shape ऑब्जेक्ट पर लागू की जा सकती है (यदि 3D Format प्रॉपर्टी सेट नहीं है तो भी इसका असर रहता है)।
+यह उदाहरण [enable_outer_shadow_effect](https://reference.aspose.com/slides/hi/python-net/aspose.slides/effectformat/enable_outer_shadow_effect/) को कॉल करता है और 4‑पॉइंट ब्लर रेडियस, 230‑डिग्री दिशा और 30‑पॉइंट दूरी वाला काला शैडो सेट करता है। 100 का स्केल मूल आकार को बरकरार रखता है, जबकि हॉरिज़ोंटल स्क्यू शैडो को 20‑डिग्री झुका देता है। अल्फा ट्रांसफ़ॉर्म इसकी अपारदर्शिता को 32 % पर सेट करता है:
 
-### छाया प्रभाव लागू करना
-
-यहाँ, हम केवल टेक्स्ट से संबंधित गुण सेट करने का इरादा रखते हैं। हम Python में इस कोड का उपयोग करके टेक्स्ट पर शैडो इफ़ेक्ट लागू करते हैं:
-
-```py 
-    portion.portion_format.effect_format.enable_outer_shadow_effect()
-    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
-    portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
-    portion.portion_format.effect_format.outer_shadow_effect.scale_vertical = 65
-    portion.portion_format.effect_format.outer_shadow_effect.blur_radius = 4.73
-    portion.portion_format.effect_format.outer_shadow_effect.direction = 230
-    portion.portion_format.effect_format.outer_shadow_effect.distance = 2
-    portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 30
-    portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
-    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
-```
-
-Aspose.Slides API तीन प्रकार की शैडोज़ का समर्थन करता है: OuterShadow, InnerShadow, और PresetShadow।
-
-PresetShadow के साथ, आप प्रीसैट मानों का उपयोग करके टेक्स्ट पर शैडो लागू कर सकते हैं।
-
-**Microsoft PowerPoint का उपयोग करना**
-
-PowerPoint में आप केवल एक प्रकार की शैडो का उपयोग कर सकते हैं। यहाँ एक उदाहरण है:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Aspose.Slides का उपयोग करना**
-
-Aspose.Slides वास्तव में एक साथ दो प्रकार की शैडोज़ लागू करने देता है: InnerShadow और PresetShadow।
-
-**नोट्स:**
-
-- जब OuterShadow और PresetShadow को एक साथ उपयोग किया जाता है, तो केवल OuterShadow इफ़ेक्ट लागू होता है।  
-- यदि OuterShadow और InnerShadow एक साथ उपयोग किए जाते हैं, तो लागू इफ़ेक्ट PowerPoint संस्करण पर निर्भर करता है। उदाहरण के लिए, PowerPoint 2013 में इफ़ेक्ट दो गुना हो जाता है। लेकिन PowerPoint 2007 में OuterShadow इफ़ेक्ट लागू होता है।
-
-### टेक्स्ट पर डिस्प्ले लागू करना
-
-हम इस Python कोड नमूने के माध्यम से टेक्स्ट पर डिस्प्ले जोड़ते हैं:
-
-```py 
-    portion.portion_format.effect_format.enable_reflection_effect()
-    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5 
-    portion.portion_format.effect_format.reflection_effect.distance = 4.72 
-    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0 
-    portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
-    portion.portion_format.effect_format.reflection_effect.direction = 90 
-    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100 
-    portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
-    portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
-    portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
-    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT  
-```
-
-### टेक्स्ट पर ग्लो प्रभाव लागू करना
-
-हम इस कोड का उपयोग करके टेक्स्ट पर ग्लो इफ़ेक्ट लागू करते हैं जिससे वह चमके या बाहर निकलें:
-
-```py 
-    portion.portion_format.effect_format.enable_glow_effect()
-    portion.portion_format.effect_format.glow_effect.color.r = 255
-    portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
-    portion.portion_format.effect_format.glow_effect.radius = 7
-```
-
-ऑपरेशन का परिणाम:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-आप शैडो, डिस्प्ले और ग्लो के पैरामीटर बदल सकते हैं। प्रभावों के गुण प्रत्येक टेक्स्ट हिस्से पर अलग‑अलग सेट होते हैं। 
-{{% /alert %}} 
-
-### WordArt में ट्रांसफ़ॉर्मेशन का उपयोग करना
-
-हम इस कोड के द्वारा पूरे टेक्स्ट ब्लॉक में निहित Transform प्रॉपर्टी का उपयोग करते हैं:
-```py 
-textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
-```
-
-परिणाम:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-Microsoft PowerPoint और Aspose.Slides for Python via .NET दोनों कुछ पूर्वनिर्धारित ट्रांसफ़ॉर्मेशन प्रकार प्रदान करते हैं। 
-{{% /alert %}} 
-
-**PowerPoint का उपयोग करना**
-
-प्रीडिफाइनड ट्रांसफ़ॉर्मेशन प्रकार तक पहुँचने के लिए: **Format** -> **TextEffect** -> **Transform**।
-
-**Aspose.Slides का उपयोग करना**
-
-ट्रांसफ़ॉर्मेशन प्रकार चुनने के लिए, TextShapeType enum का उपयोग करें।
-
-### टेक्स्ट और शैप्स पर 3D इफ़ेक्ट लागू करना
-
-हम इस नमूना कोड का उपयोग करके टेक्स्ट शैप पर 3D इफ़ेक्ट सेट करते हैं:
-
-```py 
-    autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_d_format.bevel_bottom.height = 10.5
-    autoShape.three_d_format.bevel_bottom.width = 10.5
-
-    autoShape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_d_format.bevel_top.height = 12.5
-    autoShape.three_d_format.bevel_top.width = 11
-
-    autoShape.three_d_format.extrusion_color.color = draw.Color.orange
-    autoShape.three_d_format.extrusion_height = 6
-
-    autoShape.three_d_format.contour_color.color = draw.Color.dark_red
-    autoShape.three_d_format.contour_width = 1.5
-
-    autoShape.three_d_format.depth = 3
-
-    autoShape.three_d_format.material = slides.MaterialPresetType.PLASTIC
-
-    autoShape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
-    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    autoShape.three_d_format.light_rig.set_rotation(0, 0, 40)
-
-    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
-```
-
-परिणामी टेक्स्ट और उसकी शैप:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-हम इस Python कोड के साथ टेक्स्ट पर 3D इफ़ेक्ट लागू करते हैं:
-
-```py 
-    textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
-    textFrame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
-
-    textFrame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_d_format.bevel_top.height = 4
-    textFrame.text_frame_format.three_d_format.bevel_top.width = 4
-
-    textFrame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
-    textFrame.text_frame_format.three_d_format.extrusion_height= 6
-
-    textFrame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
-    textFrame.text_frame_format.three_d_format.contour_width = 1.5
-
-    textFrame.text_frame_format.three_d_format.depth= 3
-
-    textFrame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
-
-    textFrame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
-    textFrame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    textFrame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
-
-    textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
-```
-
-ऑपरेशन का परिणाम:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-टेक्स्ट या उनकी शैप्स पर 3D इफ़ेक्ट्स के लागू करने और इफ़ेक्ट्स के बीच इंटरैक्शन कुछ नियमों पर आधारित होते हैं। 
-
-एक टेक्स्ट और उसे सम्मिलित करने वाली शैप के लिए सीन को विचार करें। 3D इफ़ेक्ट में 3D ऑब्जेक्ट प्रतिनिधित्व और वह सीन होता है जिस पर ऑब्जेक्ट रखा गया है। 
-
-- जब दोनों फ़िगर और टेक्स्ट दोनों के लिए सीन सेट किया जाता है, तो फ़िगर सीन को अधिक प्राथमिकता मिलती है—टेक्स्ट सीन को नजरअंदाज़ किया जाता है।  
-- जब फ़िगर के पास अपना सीन नहीं होता लेकिन 3D प्रतिनिधित्व है, तो टेक्स्ट सीन का उपयोग किया जाता है।  
-- अन्यथा—जब शैप मूलतः 3D इफ़ेक्ट नहीं रखता, तो शैप फ्लैट रहता है और 3D इफ़ेक्ट केवल टेक्स्ट पर लागू होता है।  
-
-विवरण [ThreeDFormat.LightRig](https://reference.aspose.com/slides/hi/python-net/aspose.slides/threedformat/) और [ThreeDFormat.Camera](https://reference.aspose.com/slides/hi/python-net/aspose.slides/threedformat/) प्रॉपर्टीज़ से जुड़े हैं। 
-{{% /alert %}} 
-
-## **टेक्स्ट पर आउटर शैडो इफ़ेक्ट लागू करना**
-Aspose.Slides for Python via .NET नीचे दिए गए [**IOuterShadow**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.effects/ioutershadow/) और [**IInnerShadow**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.effects/iinnershadow/) क्लासेज़ प्रदान करता है जो TextFrame द्वारा रखे टेक्स्ट पर शैडो इफ़ेक्ट लागू करने की अनुमति देते हैं। इन चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टैंस बनाएँ।  
-2. इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।  
-3. स्लाइड में Rectangle प्रकार का एक AutoShape जोड़ें।  
-4. AutoShape से जुड़े TextFrame तक पहुँचें।  
-5. AutoShape का FillType NoFill पर सेट करें।  
-6. OuterShadow क्लास का इंस्टैंस बनाएँ।  
-7. शैडो का BlurRadius सेट करें।  
-8. शैडो की Direction सेट करें।  
-9. शैडो की Distance सेट करें।  
-10. RectanglelAlign को TopLeft पर सेट करें।  
-11. शैडो का PresetColor Black पर सेट करें।  
-12. प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।  
-
-यह Python नमूना कोड—ऊपर दिए गए चरणों का कार्यान्वयन—आपको टेक्स्ट पर आउटर शैडो इफ़ेक्ट लागू करने का तरीका दिखाता है:
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-
-    # स्लाइड का संदर्भ प्राप्त करें
-    sld = pres.slides[0]
-
-    # Rectangle प्रकार का AutoShape जोड़ें
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    # Rectangle में TextFrame जोड़ें
-    ashp.add_text_frame("Aspose TextBox")
-
-    # यदि हम टेक्स्ट की शैडो प्राप्त करना चाहते हैं तो शैप फ़िल को अक्षम करें
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # बाहरी शैडो जोड़ें और सभी आवश्यक पैरामीटर सेट करें
-    ashp.effect_format.enable_outer_shadow_effect()
-    shadow = ashp.effect_format.outer_shadow_effect
-    shadow.blur_radius = 4.0
-    shadow.direction = 45
-    shadow.distance = 3
-    shadow.rectangle_align = slides.RectangleAlignment.TOP_LEFT
-    shadow.shadow_color.preset_color = slides.PresetColor.BLACK
-
-    #Write the presentation to disk
-    pres.save("pres_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **शेप्स पर इनर शैडो इफ़ेक्ट लागू करना**
-इन चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टैंस बनाएँ।  
-2. स्लाइड का रेफ़रेंस प्राप्त करें।  
-3. Rectangle प्रकार का एक AutoShape जोड़ें।  
-4. InnerShadowEffect को सक्षम करें।  
-5. सभी आवश्यक पैरामीटर सेट करें।  
-6. ColorType को Scheme पर सेट करें।  
-7. Scheme Color सेट करें।  
-8. प्रेजेंटेशन को [PPTX](https://docs.fileformat.com/presentation/pptx/) फ़ाइल के रूप में लिखें।  
-
-यह नमूना कोड (उपर्युक्त चरणों पर आधारित) आपको Python में दो शैप्स के बीच कनेक्टर जोड़ने की विधि दर्शाता है:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
-    # स्लाइड का संदर्भ प्राप्त करें
     slide = presentation.slides[0]
 
-    # Rectangle प्रकार का AutoShape जोड़ें
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 400, 300)
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
 
-    # Rectangle में TextFrame जोड़ें
-    ashp.add_text_frame("Aspose TextBox")
-    port = ashp.text_frame.paragraphs[0].portions[0]
-    pf = port.portion_format
-    pf.font_height = 50
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
 
-    # inner_shadow_effect सक्षम करें    
-    ef = pf.effect_format
-    ef.enable_inner_shadow_effect()
-
-    # सभी आवश्यक पैरामीटर सेट करें
-    ef.inner_shadow_effect.blur_radius = 8.0
-    ef.inner_shadow_effect.direction = 90.0
-    ef.inner_shadow_effect.distance = 6.0
-    ef.inner_shadow_effect.shadow_color.b = 189
-
-    # ColorType को Scheme के रूप में सेट करें
-    ef.inner_shadow_effect.shadow_color.color_type = slides.ColorType.SCHEME
-
-    # Scheme Color सेट करें
-    ef.inner_shadow_effect.shadow_color.scheme_color = slides.SchemeColor.ACCENT1
-
-    # प्रस्तुति सहेजें
-    presentation.save("WordArt_out.pptx", slides.export.SaveFormat.PPTX)
+    portion.portion_format.effect_format.enable_outer_shadow_effect()
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
+    portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
+    portion.portion_format.effect_format.outer_shadow_effect.scale_vertical = 100
+    portion.portion_format.effect_format.outer_shadow_effect.blur_radius = 4
+    portion.portion_format.effect_format.outer_shadow_effect.direction = 230
+    portion.portion_format.effect_format.outer_shadow_effect.distance = 30
+    portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 20
+    portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
 ```
+
+परिणामी टेक्स्ट:
+
+![बाहरी शैडो प्रभाव](outer_shadow_effect.png)
+
+{{% alert color="info" title="Note" %}}
+- जब बाहरी और प्रीसेट शैडो एक साथ उपयोग किए जाते हैं, तो केवल बाहरी शैडो लागू होता है।
+- यदि बाहरी और आंतरिक शैडो एक साथ उपयोग किए जाते हैं, तो प्रभाव का परिणाम PowerPoint संस्करण पर निर्भर करता है। उदाहरण के लिए, PowerPoint 2013 में प्रभाव दोगुना हो जाता है, जबकि PowerPoint 2007 में केवल बाहरी शैडो लागू होता है।
+{{% /alert %}}
+
+### **रिफ्लेक्शन प्रभाव लागू करें**
+
+एक रिफ्लेक्शन टेक्स्ट की प्रतिबिंबित प्रतिलिपि बनाता है। उसकी स्थिति, स्केल, ब्लर और अपारदर्शिता को समायोजित करके आप उसका स्वरूप नियंत्रित कर सकते हैं।
+
+यह उदाहरण [enable_reflection_effect](https://reference.aspose.com/slides/hi/python-net/aspose.slides/effectformat/enable_reflection_effect/) को कॉल करता है और रिफ्लेक्शन को -100 % स्केल के साथ वर्टिकली फ़्लिप करता है। 0.5‑पॉइंट ब्लर रेडियस और 4.72‑पॉइंट दूरी का उपयोग किया गया है। अपारदर्शिता 60 % से 0.9 % तक घटती है, जो रिफ्लेक्शन के 0 % से 60 % स्थानों के बीच बदलती है:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    portion.portion_format.effect_format.enable_reflection_effect()
+    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5
+    portion.portion_format.effect_format.reflection_effect.distance = 4.72
+    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0
+    portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
+    portion.portion_format.effect_format.reflection_effect.direction = 90
+    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100
+    portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
+    portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
+    portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
+    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT
+```
+
+परिणामी टेक्स्ट:
+
+![रिफ्लेक्शन प्रभाव](reflection_effect.png)
+
+### **ग्लो प्रभाव लागू करें**
+
+एक ग्लो टेक्स्ट के चारों ओर एक हल्की रंगीन आउटलाइन जोड़ता है। इसका रंग, अपारदर्शिता और रेडियस समायोजित करके आप प्रभाव को नियंत्रित कर सकते हैं।
+
+यह उदाहरण [enable_glow_effect](https://reference.aspose.com/slides/hi/python-net/aspose.slides/effectformat/enable_glow_effect/) को कॉल करता है और 54 % अपारदर्शिता और 7 पॉइंट रेडियस के साथ लाल ग्लो लागू करता है:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    portion.portion_format.effect_format.enable_glow_effect()
+    portion.portion_format.effect_format.glow_effect.color.color = draw.Color.red
+    portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
+    portion.portion_format.effect_format.glow_effect.radius = 7
+```
+
+परिणामी टेक्स्ट:
+
+![ग्लो प्रभाव](glow_effect.png)
+
+### **WordArt ट्रांसफ़ॉर्मेशन लागू करें**
+
+WordArt ट्रांसफ़ॉर्मेशन टेक्स्ट ब्लॉक को मोड़ता, खींचता या वॉर्प करता है।
+
+[transform](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/transform/) को [ARCH_UP_POUR](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textshapetype/) पर सेट करें ताकि पूरे टेक्स्ट फ्रेम को ऊपर की ओर वक्र किया जा सके:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    text_frame = auto_shape.text_frame
+    text_frame.text = "Aspose.Slides"
+    text_frame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
+```
+
+परिणामी टेक्स्ट:
+
+![WordArt ट्रांसफ़ॉर्मेशन](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Python via .NET पूर्वनिर्धारित [ट्रांसफ़ॉर्मेशन प्रकारों](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textshapetype/) का सेट प्रदान करता है।
+{{% /alert %}}
+
+### **Shapes और टेक्स्ट पर 3D प्रभाव लागू करें**
+
+आप आकार या उसके टेक्स्ट पर 3D प्रभाव लागू कर सकते हैं। बेवेल, एक्सट्रूज़न, लाइटिंग और कैमरा सेटिंग्स परिणामस्वरूप स्वरूप को नियंत्रित करती हैं।
+
+निम्न उदाहरण [ThreeDFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/threedformat/) का उपयोग करके आयत में गोलाकार बेवेल, ऑरेंज एक्सट्रूज़न और डार्क रेड कंटूर जोड़ता है। बेवेल आयाम, एक्सट्रूज़न ऊँचाई, कंटूर चौड़ाई और गहराई पॉइंट में मापी जाती हैं। एक प्लास्टिक सामग्री, Z-अक्ष के चारों ओर 40 डिग्री घुमाया गया बैलेंस्ड लाइटिंग, और पर्स्पेक्टिव कैमरा इसका स्वरूप निर्धारित करते हैं:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    auto_shape.text_frame.text = "Aspose.Slides"
+
+    auto_shape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    auto_shape.three_d_format.bevel_bottom.height = 10.5
+    auto_shape.three_d_format.bevel_bottom.width = 10.5
+
+    auto_shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    auto_shape.three_d_format.bevel_top.height = 12.5
+    auto_shape.three_d_format.bevel_top.width = 11
+
+    auto_shape.three_d_format.extrusion_color.color = draw.Color.orange
+    auto_shape.three_d_format.extrusion_height = 6
+
+    auto_shape.three_d_format.contour_color.color = draw.Color.dark_red
+    auto_shape.three_d_format.contour_width = 1.5
+
+    auto_shape.three_d_format.depth = 3
+
+    auto_shape.three_d_format.material = slides.MaterialPresetType.PLASTIC
+
+    auto_shape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    auto_shape.three_d_format.light_rig.set_rotation(0, 0, 40)
+
+    auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+```
+
+परिणामी आकार:
+
+![Shape 3D प्रभाव](shape_3D_effect.png)
+
+यह उदाहरण समान 3D फ़ॉर्मेटिंग को टेक्स्ट पर [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/three_d_format/) के माध्यम से लागू करता है। छोटे बेवेल अक्षरों के किनारों को आकार देते हैं, जबकि एक्सट्रूज़न और लाइटिंग टेक्स्ट को गहराई प्रदान करती है:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    text_frame = auto_shape.text_frame
+    text_frame.text = "Aspose.Slides"
+
+    text_frame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    text_frame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
+    text_frame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
+
+    text_frame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    text_frame.text_frame_format.three_d_format.bevel_top.height = 4
+    text_frame.text_frame_format.three_d_format.bevel_top.width = 4
+
+    text_frame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
+    text_frame.text_frame_format.three_d_format.extrusion_height = 6
+
+    text_frame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
+    text_frame.text_frame_format.three_d_format.contour_width = 1.5
+
+    text_frame.text_frame_format.three_d_format.depth = 3
+
+    text_frame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
+
+    text_frame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    text_frame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    text_frame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
+
+    text_frame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+```
+
+परिणामी टेक्स्ट:
+
+![Text 3D प्रभाव](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+टेक्स्ट या उसके आकार पर 3D प्रभाव लागू करने और इन प्रभावों के बीच इंटरैक्शन को विशिष्ट नियमों द्वारा नियंत्रित किया जाता है। कल्पना करें कि टेक्स्ट और वह आकार दोनों शामिल हैं। एक 3D प्रभाव वस्तु की 3D अभिरूप और उस दृश्य को शामिल करता है जिसमें वह स्थित है।
+
+- यदि आकार और टेक्स्ट दोनों के लिए एक दृश्य सेट किया गया है, तो आकार का दृश्य प्राथमिकता लेता है और टेक्स्ट का दृश्य अनदेखा किया जाता है।
+- यदि आकार के पास अपना स्वयं का दृश्य नहीं है लेकिन उसके पास 3D अभिरूप है, तो टेक्स्ट का दृश्य उपयोग किया जाता है।
+- यदि आकार के पास बिल्कुल भी 3D प्रभाव नहीं है, तो वह फ्लैट माना जाता है, और 3D प्रभाव केवल टेक्स्ट पर लागू होता है।
+
+ये व्यवहार [ThreeDFormat.light_rig](https://reference.aspose.com/slides/hi/python-net/aspose.slides/threedformat/light_rig/) और [ThreeDFormat.camera](https://reference.aspose.com/slides/hi/python-net/aspose.slides/threedformat/camera/) गुणों से संबंधित हैं।
+{{% /alert %}}
+
+टेक्स्ट को फ्लैट और पठनीय रखने तथा आकार की 3D फ़ॉर्मेटिंग को बनाए रखने के लिए, दोनों सेटिंग्स की तुलना और एक पूर्ण Python उदाहरण के लिए देखें [Keep Text Flat on a 3D Shape](/slides/hi/python-net/3d-presentation/)।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं WordArt इफ़ेक्ट विभिन्न फ़ॉन्ट्स या स्क्रिप्ट्स (जैसे अरबी, चीनी) के साथ उपयोग कर सकता हूँ?**  
-हाँ, Aspose.Slides Unicode का समर्थन करता है और सभी प्रमुख फ़ॉन्ट्स और स्क्रिप्ट्स के साथ काम करता है। Shadow, Fill और Outline जैसे WordArt इफ़ेक्ट भाषा की परवाह किए बिना लागू किए जा सकते हैं, हालांकि फ़ॉन्ट उपलब्धता और रेंडरिंग सिस्टम फ़ॉन्ट्स पर निर्भर हो सकती है।
+**क्या मैं WordArt प्रभाव विभिन्न फ़ॉन्ट या स्क्रिप्ट (जैसे अरबी, चीनी) के साथ उपयोग कर सकता हूँ?**
 
-**क्या मैं WordArt इफ़ेक्ट स्लाइड मास्टर एलिमेंट्स पर लागू कर सकता हूँ?**  
-हाँ, आप मास्टर स्लाइड्स पर स्थित शैप्स, जैसे टाइटल प्लेसहोल्डर, फुटर या बैकग्राउंड टेक्स्ट, पर WordArt इफ़ेक्ट लागू कर सकते हैं। मास्टर लेआउट में किए गए बदलाव सभी सम्बद्ध स्लाइड्स में परिलक्षित होंगे।
+हां, Aspose.Slides for Python via .NET यूनिकोड का समर्थन करता है और सभी प्रमुख फ़ॉन्ट व स्क्रिप्ट के साथ काम करता है। WordArt प्रभाव जैसे शैडो, फ़िल और आउटलाइन भाषा की परवाह किए बिना लागू किए जा सकते हैं, हालांकि फ़ॉन्ट उपलब्धता और रेंडरिंग सिस्टम फ़ॉन्ट पर निर्भर हो सकती है।
 
-**क्या WordArt इफ़ेक्ट प्रेजेंटेशन फ़ाइल साइज़ को प्रभावित करते हैं?**  
-हद तक। शैडो, ग्लो और ग्रेडिएंट फ़िल जैसे WordArt इफ़ेक्ट थोड़ा फ़ाइल साइज बढ़ा सकते हैं क्योंकि अतिरिक्त फ़ॉर्मेटिंग मेटाडेटा जुड़ती है, लेकिन अंतर आमतौर पर नगण्य होता है।
+**क्या मैं WordArt प्रभाव स्लाइड मास्टर तत्वों पर लागू कर सकता हूँ?**
 
-**क्या मैं प्रेजेंटेशन सहेजे बिना WordArt इफ़ेक्ट का परिणाम पूर्वावलोकन कर सकता हूँ?**  
-हाँ, आप [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) या [Slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/) क्लास के `get_image` मेथड का उपयोग करके WordArt युक्त स्लाइड्स को छवियों (जैसे PNG, JPEG) में रेंडर कर सकते हैं। यह आपको पूरे प्रेजेंटेशन को सहेजने या एक्सपोर्ट करने से पहले इन‑मेमोरी या स्क्रीन पर परिणाम का पूर्वावलोकन करने देता है।
+हां, आप मास्टर स्लाइड पर स्थित आकारों, जैसे शीर्षक प्लेसहोल्डर, फुटर या बैकग्राउंड टेक्स्ट, पर WordArt प्रभाव लागू कर सकते हैं। मास्टर लेआउट में किए गए परिवर्तन सभी संबंधित स्लाइडों में प्रतिबिंबित होते हैं।
+
+**क्या WordArt प्रभाव प्रस्तुति फ़ाइल आकार को प्रभावित करते हैं?**
+
+थोड़ा। शैडो, ग्लो और ग्रेडिएंट फ़िल जैसे WordArt प्रभाव अतिरिक्त फ़ॉर्मेटिंग मेटाडेटा जोड़ते हैं, जिससे फ़ाइल आकार में कुछ वृद्धि हो सकती है, लेकिन आम तौर पर अंतर नगण्य रहता है।
+
+**क्या मैं प्रस्तुति सहेजे बिना WordArt प्रभाव का परिणाम प्रीव्यू कर सकता हूँ?**
+
+हां, आप [Slide.get_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/get_image/) का उपयोग करके WordArt वाले स्लाइड को इमेज (PNG, JPEG आदि) में रेंडर कर सकते हैं, या व्यक्तिगत आकार को [Shape.get_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/get_image/) से रेंडर कर सकते हैं। इससे आप पूरे प्रस्तुति को सहेजने या एक्सपोर्ट करने से पहले मेमोरी या स्क्रीन पर परिणाम का प्रीव्यू ले सकते हैं।

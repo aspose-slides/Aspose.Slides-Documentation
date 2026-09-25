@@ -1,6 +1,6 @@
 ---
-title: "Tạo và Áp dụng Hiệu ứng WordArt trong C++"
-linktitle: "WordArt"
+title: Tạo và áp dụng hiệu ứng WordArt trong C++
+linktitle: WordArt
 type: docs
 weight: 110
 url: /vi/cpp/wordart/
@@ -9,70 +9,130 @@ keywords:
 - tạo WordArt
 - mẫu WordArt
 - hiệu ứng WordArt
-- hiệu ứng bóng đổ
-- hiệu ứng hiển thị
-- hiệu ứng phát sáng
+- hiệu ứng bóng
+- hiệu ứng phản chiếu
+- hiệu ứng hào quang
 - biến đổi WordArt
 - hiệu ứng 3D
 - hiệu ứng bóng ngoài
-- hiệu ứng bóng trong
-- PowerPoint
-- bản trình chiếu
+- hiệu ứng bóng bên trong
 - C++
 - Aspose.Slides
 description: "Tạo và tùy chỉnh các hiệu ứng WordArt trong Aspose.Slides cho C++. Hướng dẫn từng bước này giúp các nhà phát triển nâng cao bản trình chiếu với văn bản chuyên nghiệp trong C++."
 ---
 ## **Tổng quan**
 
-WordArt cho phép bạn thêm văn bản mang phong cách, hấp dẫn trực quan vào các bản trình bày PowerPoint. Với Aspose.Slides, các nhà phát triển có thể tạo, tùy chỉnh và quản lý WordArt một cách lập trình, giống như trong Microsoft PowerPoint—không cần cài đặt Office. Bài viết này cung cấp tổng quan về cách làm việc với WordArt, bao gồm cách áp dụng các biến đổi văn bản, kiểu nền, viền, bóng đổ và các tùy chọn định dạng khác để làm cho nội dung bài thuyết trình trở nên biểu cảm và thu hút hơn. WordArt cho phép bạn coi văn bản như một đối tượng đồ họa. Nó bao gồm các hiệu ứng hoặc sửa đổi đặc biệt được áp dụng cho văn bản để làm cho nó hấp dẫn hoặc nổi bật hơn.
+Hiệu ứng WordArt cho phép bạn tạo kiểu cho văn bản với màu nền, viền, bóng, phản chiếu, ánh hào quang, biến đổi và định dạng 3D. Bài viết này giải thích cách tạo và tùy chỉnh các hiệu ứng này trong bản trình chiếu PowerPoint bằng Aspose.Slides cho C++, mà không cần cài đặt Microsoft Office.
 
-## **Tạo mẫu WordArt đơn giản và áp dụng nó cho văn bản**
+## **Tạo mẫu WordArt đơn giản và áp dụng nó vào văn bản**
 
-**Using Aspose.Slides** 
+Các ví dụ dưới đây xây dựng một kiểu WordArt đơn giản bằng cách đặt văn bản, phông chữ, mẫu nền và viền.
 
-Đầu tiên, chúng ta tạo một đoạn văn bản đơn giản bằng đoạn mã C++ này: 
+Mỗi ví dụ tạo một bản trình chiếu mới và thêm một hình chữ nhật vào slide đầu tiên; không cần tệp đầu vào. Ví dụ đầu tiên đặt văn bản thành “Aspose.Slides”. Vị trí và kích thước của hình được đo bằng điểm:
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
-Bây giờ, chúng ta đặt độ cao phông chữ của văn bản thành giá trị lớn hơn để làm cho hiệu ứng rõ hơn bằng đoạn mã này:
+Đặt phông chữ thành Arial Black với kích thước 36 điểm để làm nổi bật định dạng:
 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Using Microsoft PowerPoint**
+Áp dụng mẫu [SmallGrid](https://reference.aspose.com/slides/vi/cpp/aspose.slides/patternstyle/) với màu nền trước cam đậm và nền trắng, sau đó thêm viền văn bản đen với độ rộng 1 điểm:
 
-Đi tới menu hiệu ứng WordArt trong Microsoft PowerPoint:
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-![todo:image_alt_text](image-20200930113926-1.png)
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Từ menu bên phải, bạn có thể chọn một hiệu ứng WordArt có sẵn. Từ menu bên trái, bạn có thể chỉ định các thiết lập cho một WordArt mới. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Đây là một số tham số hoặc tùy chọn có sẵn:
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-**Using Aspose.Slides**
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-Ở đây, chúng ta áp dụng màu mẫu SmallGrid cho văn bản và thêm viền văn bản đen độ rộng 1 bằng đoạn mã này:
-
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
@@ -80,62 +140,116 @@ lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 
 Văn bản kết quả:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Mẫu WordArt đơn giản](WordArt_template.png)
 
 ## **Áp dụng các hiệu ứng WordArt khác**
 
-**Using Microsoft PowerPoint**
+Các ví dụ dưới đây minh họa cách áp dụng bóng, phản chiếu, hào quang, biến đổi và hiệu ứng 3D cho văn bản.
 
-Từ giao diện của chương trình, bạn có thể áp dụng các hiệu ứng này cho văn bản, khối văn bản, hình dạng hoặc phần tử tương tự:
+### **Áp dụng hiệu ứng bóng ngoài**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Bóng ngoài tạo độ sâu bằng cách đặt bóng phía sau văn bản. Bạn có thể tùy chỉnh màu, hướng, khoảng cách, bán kính làm mờ, tỉ lệ và độ nghiêng.
 
-Ví dụ, các hiệu ứng Shadow, Reflection và Glow có thể được áp dụng cho văn bản; các hiệu ứng 3D Format và 3D Rotation có thể được áp dụng cho khối văn bản; thuộc tính Soft Edges có thể được áp dụng cho một Shape Object (nó vẫn có hiệu ứng khi không đặt thuộc tính 3D Format). 
+Ví dụ này gọi [EnableOuterShadowEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) và đặt bóng đen với bán kính làm mờ 4 điểm, hướng 230 độ và khoảng cách 30 điểm. Giá trị tỉ lệ 100 giữ kích thước bóng, trong khi độ nghiêng ngang nghiêng bóng 20 độ. Biến đổi alpha đặt độ trong suốt là 32%:
 
-### **Áp dụng hiệu ứng bóng đổ cho văn bản**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-Ở đây, chúng ta muốn thiết lập các thuộc tính chỉ liên quan đến văn bản. Chúng ta áp dụng hiệu ứng bóng đổ cho văn bản bằng đoạn mã C++ này:
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides API hỗ trợ ba loại bóng: OuterShadow, InnerShadow và PresetShadow. 
+Văn bản kết quả:
 
-Với PresetShadow, bạn có thể áp dụng bóng cho văn bản (sử dụng các giá trị có sẵn). 
+![Hiệu ứng bóng ngoài](outer_shadow_effect.png)
 
-**Using Microsoft PowerPoint**
-
-Trong PowerPoint, bạn chỉ có thể sử dụng một loại bóng. Dưới đây là một ví dụ:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Using Aspose.Slides**
-
-Aspose.Slides thực tế cho phép bạn áp dụng đồng thời hai loại bóng: InnerShadow và PresetShadow.
-
-**Notes:**
-
-- Khi OuterShadow và PresetShadow được sử dụng cùng nhau, chỉ hiệu ứng OuterShadow được áp dụng. 
-- Nếu OuterShadow và InnerShadow được sử dụng đồng thời, hiệu ứng áp dụng phụ thuộc vào phiên bản PowerPoint. Ví dụ, trong PowerPoint 2013, hiệu ứng sẽ được nhân đôi. Nhưng trong PowerPoint 2007, hiệu ứng OuterShadow sẽ được áp dụng. 
+{{% alert color="info" title="Note" %}}
+- Khi bóng ngoài và bóng được thiết lập trước cùng được sử dụng, chỉ bóng ngoài được áp dụng.
+- Nếu bóng ngoài và bóng bên trong được sử dụng đồng thời, hiệu ứng phụ thuộc vào phiên bản PowerPoint. Ví dụ, trong PowerPoint 2013, hiệu ứng sẽ gấp đôi, trong khi trong PowerPoint 2007 chỉ bóng ngoài được áp dụng.
+{{% /alert %}}
 
 ### **Áp dụng hiệu ứng phản chiếu**
 
-Chúng tôi thêm một phản chiếu vào văn bản bằng ví dụ mã C++ này:
+Phản chiếu tạo một bản sao phản chiếu của văn bản. Điều chỉnh vị trí, tỉ lệ, độ mờ và độ trong suốt để kiểm soát giao diện.
 
-``` cpp 
+Ví dụ này gọi [EnableReflectionEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) và lật phản chiếu theo chiều dọc với tỉ lệ -100%. Nó sử dụng bán kính làm mờ 0.5 điểm và khoảng cách 4.72 điểm. Độ trong suốt giảm từ 60% xuống 0.9% giữa các vị trí 0% và 60% dọc theo phản chiếu:
+
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,61 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **Áp dụng hiệu ứng phát sáng**
+Văn bản kết quả:
 
-Chúng tôi áp dụng hiệu ứng glow cho văn bản để làm cho nó tỏa sáng hoặc nổi bật bằng đoạn mã này:
+![Hiệu ứng phản chiếu](reflection_effect.png)
 
-``` cpp 
+### **Áp dụng hiệu ứng hào quang**
+
+Hào quang thêm một viền màu mềm quanh văn bản. Điều chỉnh màu, độ trong suốt và bán kính để kiểm soát hiệu ứng.
+
+Ví dụ này gọi [EnableGlowEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ieffectformat/enablegloweffect/) và áp dụng hào quang đỏ với độ trong suốt 54% và bán kính 7 điểm:
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
-Kết quả của thao tác:
+Văn bản kết quả:
 
-![todo:image_alt_text](image-20200930114621-7.png)
+![Hiệu ứng hào quang](glow_effect.png)
 
-{{% alert color="primary" %}} 
+### **Áp dụng biến đổi WordArt**
 
-Bạn có thể thay đổi các tham số cho bóng, hiển thị và glow. Các thuộc tính của hiệu ứng được đặt riêng cho từng phần của văn bản. 
+Biến đổi WordArt uốn, kéo dài hoặc làm méo một khối văn bản.
 
-{{% /alert %}} 
+Đặt [ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_transform/) thành [ArchUpPour](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textshapetype/) để cong toàn bộ khung văn bản lên phía trên:
 
-### **Sử dụng biến đổi trong WordArt**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
 
-Chúng tôi sử dụng phương thức set_Transform (áp dụng cho toàn bộ khối văn bản) qua đoạn mã này:
+using namespace Aspose::Slides;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-Kết quả:
+Văn bản kết quả:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+![Biến đổi WordArt](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides cho C++ cung cấp một tập hợp các [transformation types](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textshapetype/) được định sẵn.
+{{% /alert %}}
 
-Cả Microsoft PowerPoint và Aspose.Slides cho C++ đều cung cấp một số loại biến đổi có sẵn. 
+### **Áp dụng hiệu ứng 3D cho hình dạng và văn bản**
 
-{{% /alert %}} 
+Bạn có thể áp dụng hiệu ứng 3D cho một hình dạng hoặc cho văn bản của nó. Các cạnh xiên (bevels), đùn (extrusion), ánh sáng và cài đặt camera điều khiển giao diện cuối cùng.
 
-**Using PowerPoint**
+Ví dụ sau sử dụng [IThreeDFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformat/) để thêm các cạnh xiên tròn, đùn màu cam và viền đỏ đậm cho hình chữ nhật. Định mức các cạnh, chiều cao đùn, độ rộng viền và độ sâu được đo bằng điểm. Vật liệu nhựa, ánh sáng cân bằng xoay 40 độ quanh trục Z và camera phối cảnh xác định giao diện:
 
-Để truy cập các loại biến đổi có sẵn, hãy vào: **Format**->**TextEffect**->**Transform**
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-**Using Aspose.Slides**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-Để chọn một loại biến đổi, sử dụng enum TextShapeType. 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-### **Áp dụng hiệu ứng 3D cho văn bản và hình dạng**
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
 
-Chúng tôi đặt một hiệu ứng 3D cho một hình dạng văn bản bằng đoạn mã mẫu này:
-
-``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -234,13 +422,43 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Văn bản và hình dạng kết quả:
+Hiệu ứng hình dạng:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+![Hiệu ứng 3D cho hình dạng](shape_3D_effect.png)
 
-Chúng tôi áp dụng một hiệu ứng 3D cho văn bản bằng đoạn mã C++ này:
+Ví dụ này áp dụng định dạng 3D tương tự cho văn bản thông qua [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/get_threedformat/). Các cạnh xiên nhỏ hơn tạo hình góc cho các ký tự, trong khi đùn và ánh sáng mang lại độ sâu cho văn bản:
 
-``` cpp 
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -268,133 +486,36 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Kết quả của thao tác:
+Hiệu ứng văn bản:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+![Hiệu ứng 3D cho văn bản](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Việc áp dụng hiệu ứng 3D cho văn bản hoặc hình dạng của chúng—và sự tương tác giữa các hiệu ứng này—được điều khiển bởi các quy tắc cụ thể. Xét một cảnh bao gồm cả văn bản và hình dạng chứa nó. Một hiệu ứng 3D bao gồm đại diện 3D của đối tượng và cảnh mà nó được đặt trong đó.
 
-Việc áp dụng các hiệu ứng 3D cho văn bản hoặc hình dạng của chúng và tương tác giữa các hiệu ứng dựa trên một số quy tắc. 
+- Nếu một cảnh được đặt cho cả hình dạng và văn bản, cảnh của hình dạng được ưu tiên và cảnh của văn bản bị bỏ qua.
+- Nếu hình dạng không có cảnh riêng nhưng có đại diện 3D, cảnh của văn bản sẽ được sử dụng.
+- Nếu hình dạng không có hiệu ứng 3D nào, nó được coi là phẳng và hiệu ứng 3D chỉ được áp dụng cho văn bản.
 
-Xem xét một cảnh cho văn bản và hình dạng chứa văn bản đó. Hiệu ứng 3D bao gồm biểu diễn đối tượng 3D và cảnh mà đối tượng được đặt lên. 
+Các hành vi này liên quan tới các phương thức [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformat/get_lightrig/) và [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformat/get_camera/).
+{{% /alert %}}
 
-- Khi cảnh được thiết lập cho cả hình và văn bản, cảnh của hình có ưu tiên cao hơn—cảnh của văn bản sẽ bị bỏ qua. 
-- Khi hình không có cảnh riêng nhưng có biểu diễn 3D, sẽ sử dụng cảnh của văn bản. 
-- Ngược lại—khi hình ban đầu không có hiệu ứng 3D—hình sẽ phẳng và hiệu ứng 3D chỉ được áp dụng cho văn bản. 
+Để giữ văn bản phẳng và dễ đọc đồng thời giữ định dạng 3D của hình dạng, xem [Keep Text Flat on a 3D Shape](/slides/vi/cpp/3d-presentation/) để so sánh cả hai cài đặt và một ví dụ C++ đầy đủ.
 
-Các mô tả này liên quan đến các phương thức ThreeDFormat.getLightRig() và ThreeDFormat.getCamera(). 
+## **Câu hỏi thường gặp**
 
-{{% /alert %}} 
+**Tôi có thể sử dụng hiệu ứng WordArt với các phông chữ hoặc ký tự khác nhau (ví dụ: Ả Rập, Trung Quốc) không?**
 
-## **Áp dụng hiệu ứng bóng ngoài cho hình dạng**
-Aspose.Slides cho C++ cung cấp các lớp [**IOuterShadow**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.effects.i_outer_shadow) và [**IInnerShadow**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.effects.i_inner_shadow) cho phép bạn áp dụng hiệu ứng bóng cho văn bản được chứa trong TextFrame. Thực hiện các bước sau:
+Có, Aspose.Slides cho C++ hỗ trợ Unicode và hoạt động với mọi phông chữ và ký tự chính. Các hiệu ứng WordArt như bóng, nền và viền có thể được áp dụng bất kể ngôn ngữ, dù việc sẵn có của phông chữ và việc hiển thị có thể phụ thuộc vào phông chữ hệ thống.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation). 
-2. Lấy tham chiếu của một slide bằng cách sử dụng chỉ mục của nó. 
-3. Thêm một AutoShape loại Rectangle vào slide. 
-4. Truy cập TextFrame liên kết với AutoShape. 
-5. Đặt FillType của AutoShape thành NoFill. 
-6. Tạo thể hiện OuterShadow 
-7. Đặt BlurRadius của bóng. 
-8. Đặt Direction của bóng 
-9. Đặt Distance của bóng. 
-10. Đặt RectanglelAlign thành TopLeft. 
-11. Đặt PresetColor của bóng thành Black. 
-12. Ghi bài thuyết trình thành tệp PPTX. 
+**Tôi có thể áp dụng hiệu ứng WordArt cho các thành phần của slide master không?**
 
-Mã mẫu này trong C++—một triển khai các bước trên—cho bạn thấy cách áp dụng hiệu ứng bóng ngoài cho văn bản:
+Có, bạn có thể áp dụng hiệu ứng WordArt cho các hình dạng trên slide master, bao gồm các trình giữ chỗ tiêu đề, chân trang hoặc văn bản nền. Các thay đổi trên bố cục master sẽ được phản ánh trên tất cả các slide liên quan.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// Lấy tham chiếu của slide
-auto sld = pres->get_Slides()->idx_get(0);
+**Hiệu ứng WordArt có ảnh hưởng đến kích thước tệp của bản trình chiếu không?**
 
-// Thêm một AutoShape loại Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
+Hơi có. Các hiệu ứng WordArt như bóng, hào quang và nền gradient có thể làm tăng nhẹ kích thước tệp do thêm siêu dữ liệu định dạng, nhưng sự tăng này thường không đáng kể.
 
-// Thêm TextFrame vào Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
+**Tôi có thể xem trước kết quả của các hiệu ứng WordArt mà không lưu bản trình chiếu không?**
 
-// Vô hiệu hoá việc tô màu hình dạng nếu muốn tạo bóng cho văn bản
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Thêm bóng ngoài và đặt tất cả các tham số cần thiết
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// Ghi bản trình chiếu ra đĩa
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-## **Áp dụng hiệu ứng bóng trong cho hình dạng**
-Thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation). 
-2. Lấy tham chiếu của slide. 
-3. Thêm một AutoShape loại Rectangle. 
-4. Bật InnerShadowEffect. 
-5. Đặt tất cả các tham số cần thiết. 
-6. Đặt ColorType là Scheme. 
-7. Đặt Scheme Color. 
-8. Ghi bài thuyết trình thành tệp [PPTX](https://docs.fileformat.com/presentation/pptx/). 
-
-Mã mẫu này (dựa trên các bước trên) cho bạn thấy cách thêm một connector giữa hai hình dạng trong C++:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// Lấy tham chiếu của một slide
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// Thêm một AutoShape loại Rectangle
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// Thêm TextFrame vào Rectangle
-ashp->AddTextFrame(u"Aspose TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// Kích hoạt InnerShadowEffect
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// Đặt tất cả các tham số cần thiết
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// Đặt ColorType thành Scheme
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// Đặt Scheme Color
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// Lưu bản trình chiếu
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
-
-## **FAQ**
-
-**Có thể sử dụng hiệu ứng WordArt với các phông chữ hoặc script khác nhau (ví dụ: Ả Rập, Trung Quốc) không?**
-
-Có, Aspose.Slides hỗ trợ Unicode và hoạt động với mọi phông chữ và script chính. Các hiệu ứng WordArt như bóng, nền và viền có thể được áp dụng bất kể ngôn ngữ, mặc dù việc có sẵn phông và khả năng hiển thị có thể phụ thuộc vào phông hệ thống.
-
-**Có thể áp dụng hiệu ứng WordArt cho các yếu tố trong slide master không?**
-
-Có, bạn có thể áp dụng hiệu ứng WordArt cho các hình dạng trên slide master, bao gồm các placeholder tiêu đề, chân trang hoặc văn bản nền. Các thay đổi trên bố cục master sẽ được phản ánh trên tất cả các slide liên quan.
-
-**Hiệu ứng WordArt có ảnh hưởng đến kích thước tệp trình chiếu không?**
-
-Một chút. Các hiệu ứng WordArt như bóng, glow và gradient có thể làm tăng nhẹ kích thước tệp do thêm siêu dữ liệu định dạng, nhưng sự khác biệt thường không đáng kể.
-
-**Có thể xem trước kết quả của hiệu ứng WordArt mà không lưu bài thuyết trình không?**
-
-Có, bạn có thể render các slide chứa WordArt thành hình ảnh (ví dụ: PNG, JPEG) bằng phương thức `GetImage` từ giao diện [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) hoặc [ISlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islide/). Điều này cho phép bạn xem trước kết quả trong bộ nhớ hoặc trên màn hình trước khi lưu hoặc xuất bản thuyết trình đầy đủ.
+Có, bạn có thể render các slide chứa WordArt thành hình ảnh (ví dụ: PNG, JPEG) bằng [ISlide::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islide/getimage/), hoặc render các hình dạng riêng lẻ bằng [IShape::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/getimage/). Điều này cho phép bạn xem trước kết quả trong bộ nhớ hoặc trên màn hình trước khi lưu hoặc xuất bản trình chiếu đầy đủ.

@@ -10,147 +10,246 @@ keywords:
 - WordArt 模板
 - WordArt 效果
 - 阴影效果
-- 显示效果
+- 反射效果
 - 发光效果
-- WordArt 变形
+- WordArt 变换
 - 3D 效果
-- 外阴影效果
-- 内阴影效果
-- PowerPoint
-- 演示文稿
+- 外部阴影效果
+- 内部阴影效果
 - C++
 - Aspose.Slides
-description: "在 Aspose.Slides for C++ 中创建和自定义 WordArt 效果。此分步指南帮助开发人员在 C++ 中使用专业文本提升演示文稿。"
+description: "在 Aspose.Slides for C++ 中创建和自定义 WordArt 效果。本分步指南帮助开发者在 C++ 中使用专业文本提升演示文稿。"
 ---
+## **概览**
 
-## **关于 WordArt？**
-WordArt 或 Word Art 是一种功能，允许你对文本应用特效，使其脱颖而出。使用 WordArt，例如，你可以为文本描边或填充颜色（或渐变），为其添加 3D 效果等。你还可以倾斜、弯曲和拉伸文本的形状。 
+WordArt 效果允许您使用填充、轮廓、阴影、反射、发光、变换和 3D 格式来美化文本。本文介绍如何在 PowerPoint 演示文稿中使用 Aspose.Slides for C++（无需安装 Microsoft Office）创建和自定义这些效果。
 
-{{% alert color="primary" %}} 
+## **创建简单的 WordArt 模板并应用于文本**
 
-WordArt 让你可以像处理图形对象一样处理文本。总体而言，WordArt 包含对文本进行的各种特效或特殊修改，以使其更具吸引力或更显眼。 
+以下示例通过设置文本、字体、图案填充和轮廓来构建一个简单的 WordArt 样式。
 
-{{% /alert %}} 
+每个示例都会创建一个新演示文稿，并在其第一张幻灯片上添加一个矩形；无需输入文件。第一个示例将文本设置为 "Aspose.Slides"。形状的位置和尺寸以点为单位：
 
-**Microsoft PowerPoint 中的 WordArt**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 
-在 Microsoft PowerPoint 中使用 WordArt，需要先选择一个预定义的 WordArt 模板。WordArt 模板是一组将应用于文本或其形状的特效。 
+using namespace Aspose::Slides;
 
-**Aspose.Slides 中的 WordArt**
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-在 Aspose.Slides for C++ 20.10 中，我们实现了对 WordArt 的支持，并在后续的 Aspose.Slides for C++ 发行版中对该功能进行了改进。 
-
-使用 Aspose.Slides for C++，你可以轻松在 C++ 中创建自己的 WordArt 模板（单个特效或特效组合），并将其应用于文本。 
-
-## **创建简单的 WordArt 模板并将其应用于文本**
-
-**使用 Aspose.Slides** 
-
-首先，使用以下 C++ 代码创建一段简单的文本： 
-``` cpp 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose.Slides");
 ```
 
+将字体设置为 36 磅的 Arial Black，以使格式更明显：
 
-现在，通过下面的代码将文本的字体高度设置为更大的值，以使特效更明显： 
-``` cpp 
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
+应用一个具有深橙色前景和白色背景的 [SmallGrid](https://reference.aspose.com/slides/zh/cpp/aspose.slides/patternstyle/) 图案，然后添加宽度为 1 磅的黑色文本轮廓：
 
-**使用 Microsoft PowerPoint**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-在 Microsoft PowerPoint 中转到 WordArt 效果菜单：
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-![todo:image_alt_text](image-20200930113926-1.png)
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-在右侧菜单中，你可以选择预定义的 WordArt 效果；在左侧菜单中，你可以为新的 WordArt 指定设置。 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-以下是一些可用的参数或选项：
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-![todo:image_alt_text](image-20200930114015-3.png)
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
 
-**使用 Aspose.Slides**
-
-此处，我们通过以下代码将 SmallGrid 图案颜色应用于文本，并使用宽度为 1 的黑色文本边框： 
-``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
 fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
 fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
+portion->get_PortionFormat()->get_LineFormat()->set_Width(1);
 auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
-
 生成的文本：
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![简单的 WordArt 模板](WordArt_template.png)
 
 ## **应用其他 WordArt 效果**
 
-**使用 Microsoft PowerPoint**
+以下示例演示如何对文本应用阴影、反射、发光、变换和 3D 效果。
 
-在程序界面中，你可以将这些效果应用于文本、文本框、形状或类似元素：
+### **应用外部阴影效果**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+外部阴影通过在文本后方放置阴影来增加深度。您可以自定义其颜色、方向、距离、模糊半径、比例和倾斜度。
 
-例如，阴影、反射和发光效果可应用于文本；3D 格式和 3D 旋转效果可应用于文本框；柔和边缘属性可应用于形状对象（即使未设置 3D 格式属性，也仍会产生效果）。 
+此示例调用 [EnableOuterShadowEffect](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ieffectformat/enableoutershadoweffect/) 并设置一个模糊半径为 4 磅、方向为 230 度、距离为 30 磅的黑色阴影。比例值为 100 可保持阴影大小，而水平倾斜将其倾斜 20 度。Alpha 变换将不透明度设置为 32%：
 
-### **将阴影效果应用于文本**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-此处，我们仅针对文本设置属性。使用以下 C++ 代码将阴影效果应用于文本： 
-``` cpp 
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
 auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
 outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
 outerShadowEffect->set_ScaleHorizontal(100);
-outerShadowEffect->set_ScaleVertical(65);
-outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_ScaleVertical(100);
+outerShadowEffect->set_BlurRadius(4);
 outerShadowEffect->set_Direction(230.0f);
-outerShadowEffect->set_Distance(2);
-outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_Distance(30);
+outerShadowEffect->set_SkewHorizontal(20);
 outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
+生成的文本：
 
-Aspose.Slides API 支持三种阴影类型：OuterShadow、InnerShadow 和 PresetShadow。 
+![外部阴影效果](outer_shadow_effect.png)
 
-使用 PresetShadow，你可以对文本应用预设值的阴影。 
+{{% alert color="info" title="Note" %}}
+- 当外部阴影和预设阴影同时使用时，仅应用外部阴影。
+- 如果外部阴影和内部阴影同时使用，产生的效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会加倍，而在 PowerPoint 2007 中，仅应用外部阴影。
+{{% /alert %}}
 
-**使用 Microsoft PowerPoint**
+### **应用反射效果**
 
-在 PowerPoint 中只能使用一种阴影类型。例如：
+反射会创建文本的镜像副本。通过调整其位置、比例、模糊和不透明度来控制外观。
 
-![todo:image_alt_text](image-20200930114225-6.png)
+此示例调用 [EnableReflectionEffect](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ieffectformat/enablereflectioneffect/) 并将反射垂直翻转，比例为 -100%。使用 0.5 磅的模糊半径和 4.72 磅的距离。沿反射的 0% 到 60% 位置，不透明度从 60% 下降到 0.9%：
 
-**使用 Aspose.Slides**
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
 
-Aspose.Slides 实际上允许一次应用两种阴影：InnerShadow 和 PresetShadow。
+using namespace Aspose::Slides;
 
-**注意：**
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-- 同时使用 OuterShadow 和 PresetShadow 时，仅会应用 OuterShadow 效果。 
-- 如果同时使用 OuterShadow 和 InnerShadow，实际应用的效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中效果会叠加两次，而在 PowerPoint 2007 中仅应用 OuterShadow。 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
 
-### **将反射效果应用于文本**
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
 
-通过以下 C++ 示例代码为文本添加反射： 
-``` cpp 
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -167,63 +266,135 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
+生成的文本：
 
-### **将发光效果应用于文本**
+![反射效果](reflection_effect.png)
 
-使用以下代码将发光效果应用于文本，使其闪亮或突出： 
-``` cpp 
+### **应用发光效果**
+
+发光在文本周围添加柔和的彩色轮廓。通过调整颜色、不透明度和半径来控制效果。
+
+此示例调用 [EnableGlowEffect](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ieffectformat/enablegloweffect/) 并应用一个不透明度为 54%、半径为 7 磅的红色发光：
+
+```cpp
+#include <drawing/color.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
+auto fontData = System::MakeObject<FontData>(u"Arial Black");
+portion->get_PortionFormat()->set_LatinFont(fontData);
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
 auto glowEffect = effectFormat->get_GlowEffect();
-glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->set_Color(Color::get_Red());
 glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
 glowEffect->set_Radius(7);
 ```
 
+生成的文本：
 
-操作结果：
+![发光效果](glow_effect.png)
 
-![todo:image_alt_text](image-20200930114621-7.png)
+### **应用 WordArt 变换**
 
-{{% alert color="primary" %}} 
+WordArt 变换可以弯曲、拉伸或扭曲文本块。
 
-你可以更改阴影、显示和发光的参数。特效属性会分别设置在文本的每个部分。 
+将 [ITextFrameFormat::set_Transform](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_transform/) 设置为 [ArchUpPour](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textshapetype/)，使整个文本框向上弯曲：
 
-{{% /alert %}} 
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
 
-### **在 WordArt 中使用变形**
+using namespace Aspose::Slides;
 
-通过以下代码使用 set_Transform 方法（针对整段文本）：
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
+生成的文本：
 
-结果：
+![WordArt 变换](transform_effect.png)
 
-![todo:image_alt_text](image-20200930114712-8.png)
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for C++ 提供一组预定义的 [transformation types](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textshapetype/)。
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+### **对形状和文本应用 3D 效果**
 
-Microsoft PowerPoint 和 Aspose.Slides for C++ 都提供若干预定义的变形类型。 
+您可以对形状或其文本应用 3D 效果。斜面、拉伸、光照和摄像机设置决定最终外观。
 
-{{% /alert %}} 
+以下示例使用 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 为矩形添加圆形斜面、橙色拉伸和深红色轮廓。斜面尺寸、拉伸高度、轮廓宽度和深度均以点为单位。塑料材质、绕 Z 轴旋转 40 度的均衡光照以及透视摄像机决定其外观：
 
-**使用 PowerPoint**
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-要访问预定义的变形类型，请依次选择：**Format** → **TextEffect** → **Transform**
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-**使用 Aspose.Slides**
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-要选择变形类型，请使用 TextShapeType 枚举。 
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
 
-### **将 3D 效果应用于文本和形状**
-
-我们通过以下示例代码为文本形状设置 3D 效果：
-
-``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -251,14 +422,41 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
+![形状 3D 效果](shape_3D_effect.png)
 
-生成的文本及其形状：
+此示例通过 [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/get_threedformat/) 对文本应用类似的 3D 格式。较小的斜面塑造字母边缘，而拉伸和光照为文本提供深度：
 
-![todo:image_alt_text](image-20200930114816-9.png)
+```cpp
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 
-我们使用以下 C++ 代码将 3D 效果应用于文本：
+using namespace Aspose::Slides;
+using namespace System::Drawing;
 
-``` cpp 
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 200.0f);
+
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -286,136 +484,34 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
+![文本 3D 效果](text_3D_effect.png)
 
-操作结果：
+{{% alert color="info" title="Note" %}}
+对文本或其形状应用 3D 效果——以及这些效果之间的交互——受特定规则约束。考虑一个同时包含文本和其所在形状的场景。3D 效果包括对象的 3D 表现以及其所在的场景。
 
-![todo:image_alt_text](image-20200930114905-10.png)
+- 如果形状和文本都设置了场景，则以形状的场景为优先，文本的场景被忽略。
+- 如果形状没有自己的场景但具有 3D 表现，则使用文本的场景。
+- 如果形状根本没有 3D 效果，则视为平面，仅对文本应用 3D 效果。
 
-{{% alert color="primary" %}} 
+这些行为与 [IThreeDFormat::get_LightRig](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/get_lightrig/) 和 [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/get_camera/) 方法相关。
+{{% /alert %}}
 
-将 3D 效果应用于文本或其形状以及特效之间的交互遵循一定规则。 
+若要在保持形状 3D 格式的同时使文本保持平面且易读，请参阅 [Keep Text Flat on a 3D Shape](/slides/zh/cpp/3d-presentation/) 了解两种设置的比较以及完整的 C++ 示例。
 
-可以将文本及其所在形状视为一个场景。3D 效果包括 3D 对象的表示以及对象所在的场景。 
+## **常见问题**
 
-- 当形状和文本都设置了场景时，形状的场景优先级更高——文本的场景被忽略。 
-- 当形状没有自己的场景但具有 3D 表示时，使用文本的场景。 
-- 否则——当形状本身没有 3D 效果时，形状保持平面，仅在文本上应用 3D 效果。 
+**我可以在不同字体或脚本（例如阿拉伯文、中文）中使用 WordArt 效果吗？**
 
-这些描述与 ThreeDFormat.getLightRig() 和 ThreeDFormat.getCamera() 方法相关。 
+是的，Aspose.Slides for C++ 支持 Unicode，并可与所有主流字体和脚本一起使用。无论语言为何，都可以应用阴影、填充和轮廓等 WordArt 效果，但字体的可用性和渲染可能取决于系统字体。
 
-{{% /alert %}} 
+**我可以将 WordArt 效果应用于幻灯片母版元素吗？**
 
-## **将外阴影效果应用于形状**
-Aspose.Slides for C++ 提供了 [**IOuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow) 和 [**IInnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow) 类，允许你对 TextFrame 中的文本应用阴影效果。按照以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 实例。  
-2. 使用索引获取幻灯片的引用。  
-3. 向幻灯片添加一个矩形类型的 AutoShape。  
-4. 访问该 AutoShape 关联的 TextFrame。  
-5. 将 AutoShape 的 FillType 设置为 NoFill。  
-6. 实例化 OuterShadow 类。  
-7. 设置阴影的 BlurRadius。  
-8. 设置阴影的 Direction。  
-9. 设置阴影的 Distance。  
-10. 将 RectanglelAlign 设置为 TopLeft。  
-11. 将阴影的 PresetColor 设置为 Black。  
-12. 将演示文稿保存为 PPTX 文件。  
-
-下面的 C++ 示例代码展示了如何将外阴影效果应用于文本：
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-// 获取幻灯片的引用
-auto sld = pres->get_Slides()->idx_get(0);
-
-// 添加矩形类型的 AutoShape
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// 向矩形添加 TextFrame
-ashp->AddTextFrame(u"Aspose TextBox");
-
-// 禁用形状填充，以便获取文本阴影
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// 添加外部阴影并设置所有必要参数
-ashp->get_EffectFormat()->EnableOuterShadowEffect();
-auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
-shadow->set_BlurRadius(4.0);
-shadow->set_Direction(45.0f);
-shadow->set_Distance(3);
-shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
-shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
-
-// 将演示文稿写入磁盘
-pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
-```
-
-
-## **将内阴影效果应用于形状**
-按以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 实例。  
-2. 获取幻灯片的引用。  
-3. 添加一个矩形类型的 AutoShape。  
-4. 启用 InnerShadowEffect。  
-5. 设置所有必要的参数。  
-6. 将 ColorType 设置为 Scheme。  
-7. 设置 Scheme Color。  
-8. 将演示文稿保存为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。  
-
-下面的示例代码（基于上述步骤）展示了如何在 C++ 中为两个形状之间添加连接器：
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-// 获取幻灯片的引用
-auto slide = presentation->get_Slides()->idx_get(0);
-
-// 添加矩形类型的 AutoShape
-auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-
-// 向矩形添加 TextFrame
-ashp->AddTextFrame(u"Aspuse TextBox");
-auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-auto pf = port->get_PortionFormat();
-pf->set_FontHeight(50.0f);
-
-// 启用内部阴影效果    
-auto ef = pf->get_EffectFormat();
-ef->EnableInnerShadowEffect();
-
-// 设置所有必要的参数
-auto shadow = ef->get_InnerShadowEffect();
-shadow->set_BlurRadius(8.0);
-shadow->set_Direction(90.0F);
-shadow->set_Distance(6.0);
-shadow->get_ShadowColor()->set_B(189);
-
-// 将 ColorType 设置为 Scheme
-shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
-
-// 设置方案颜色
-shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
-
-// 保存演示文稿
-presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
-```
-
-
-## **FAQ**
-
-**我可以在不同的字体或文字脚本（例如阿拉伯文、中文）上使用 WordArt 效果吗？**
-
-可以，Aspose.Slides 支持 Unicode 并兼容所有主流字体和文字脚本。阴影、填充、描边等 WordArt 效果均可应用于任何语言，尽管具体字体的可用性和渲染效果取决于系统字体。  
-
-**我可以将 WordArt 效果应用于母版幻灯片元素吗？**
-
-可以，你可以对母版幻灯片上的形状（包括标题占位符、页脚或背景文本）应用 WordArt 效果。对母版布局所做的更改会在所有关联的幻灯片中体现。  
+是的，您可以将 WordArt 效果应用于母版幻灯片上的形状，包括标题占位符、页脚或背景文本。对母版布局所做的更改将会反映在所有相关幻灯片中。
 
 **WordArt 效果会影响演示文稿文件大小吗？**
 
-会有轻微影响。阴影、发光和渐变填充等效果会稍微增加文件大小，因为会添加格式元数据，但通常差异可以忽略不计。  
+会有轻微影响。阴影、发光和渐变填充等 WordArt 效果可能会因添加的格式元数据略微增大文件大小，但差异通常可以忽略不计。
 
 **我可以在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
 
-可以，你可以使用 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 或 [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) 接口的 `GetImage` 方法将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），从而在内存或屏幕上预览效果，而无需保存或导出完整的演示文稿。
+是的，您可以使用 [ISlide::GetImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islide/getimage/) 将包含 WordArt 的幻灯片渲染为图像（例如 PNG、JPEG），或使用 [IShape::GetImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/getimage/) 渲染单独的形状。这使您能够在内存中或屏幕上预览结果，而无需保存或导出完整的演示文稿。

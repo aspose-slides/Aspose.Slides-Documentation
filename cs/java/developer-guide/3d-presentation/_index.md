@@ -7,7 +7,7 @@ url: /cs/java/3d-presentation/
 keywords:
 - 3D PowerPoint
 - 3D prezentace
-- 3D otáčení
+- 3D rotace
 - 3D hloubka
 - 3D extruze
 - 3D gradient
@@ -16,60 +16,63 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Použijte a vykreslete 3D efekty pro tvary a text v PowerPointu v Javě pomocí Aspose.Slides. Nakonfigurujte kameru, osvětlení, materiál, extruzi, výplně a 3D text."
+description: "Použijte a vykreslete 3D efekty pro tvary a text PowerPointu v Javě s Aspose.Slides. Nakonfigurujte kameru, osvětlení, materiál, extruzi, výplně a 3D text."
 ---
 ## **Přehled**
 
-Aspose.Slides for Java může vytvářet, upravovat, zachovávat a vykreslovat 3D formátování ve stylu PowerPointu pro tvary a text. Tento článek se zabývá 3D efekty, jako jsou otáčení, extruze, zkosení, osvětlení, materiál, gradientové nebo obrázkové výplně a 3D text.
+Aspose.Slides for Java může vytvářet, upravovat, zachovávat a vykreslovat 3D formátování ve stylu PowerPointu pro tvary a text. Tento článek zahrnuje 3D efekty, jako jsou rotace, extruze, zkosení, osvětlení, materiál, gradientové nebo obrázkové výplně a 3D text.
 
-{{% alert color="primary" %}}
-
-Tento článek popisuje 3D formátovací efekty na tvary a text v PowerPointu. Nejedná se o vkládání nebo úpravu samostatných souborů 3D modelů. Při exportu snímku do obrázku, PDF nebo HTML Aspose.Slides vykreslí tyto 3D efekty do exportovaného 2D výstupu.
-
+{{% alert color="info" title="Note" %}}
+Tento článek se zabývá 3D formátovacími efekty pro tvary a text v PowerPointu. Nejedná se o vkládání nebo úpravu samostatných souborů 3D modelů. Když exportujete snímek do obrázku, PDF nebo HTML, Aspose.Slides vykreslí tyto 3D efekty do exportovaného 2D výstupu.
 {{% /alert %}}
 
 ## **Koncepty 3D formátování**
 
-Pro použití 3D formátování na tvar použijte [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/).`getThreeDFormat()`. Vrácený objekt formátu řídí 3D scénu pro daný tvar.
+Použijte metodu [IShape.getThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getThreeDFormat--) k aplikaci 3D formátování na tvar. Metoda vrací objekt [IThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/), který řídí 3D scénu pro daný tvar.
 
-Pro text použijte [ITextFrameFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()`. Tím se aplikuje 3D formátování na textový rámec místo těla tvaru.
+Pro text použijte metodu [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) . Tím se aplikuje 3D formátování na textový rámec místo těla tvaru.
 
 Nejdůležitější členové API jsou:
 
 | Člen API | Co řídí | Kdy jej použít |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getCamera--) | Pohled, přednastavený typ kamery, otočení, přiblížení a perspektiva. | Otočte objekt ve 3D prostoru nebo odpovídejte přednastavenému 3D otáčení v PowerPointu. |
-| [getLightRig](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getLightRig--) | Přednastavené osvětlení, směr a otočení světla. | Změňte, jak se zvýraznění a stíny zobrazují na 3D povrchu. |
-| [getMaterial](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getMaterial--) a [setMaterial](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Materiál povrchu, např. plochý, matný, plastový nebo kovový. | Udělejte stejnou geometrii plošší, měkčí, lesklejší nebo kovovější. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) a [setExtrusionHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Jak daleko tvar vyčnívá dozadu od své přední plochy. | Přeměňte plochý tvar na viditelně tlustý 3D objekt. |
-| [getExtrusionColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Barva extrudovaných bočních ploch. | Zobrazte hloubku nebo sladěte barvu stran s přední výplní. |
-| [getDepth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getDepth--) a [setDepth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Dodatečná 3D hloubka používaná ve formátování PowerPointu. | Doladěte hloubku pro tvary nebo text, zejména spolu s nastavením zkosení a materiálu. |
-| [getBevelTop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getBevelTop--) a [getBevelBottom](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Vytlačené nebo zaoblené hrany na přední a zadní ploše. | Přidejte zjemněný nebo formovaný okraj místo ostré ploché stěny. |
-| [getContourColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getContourWidth--), a [setContourWidth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Obrys kolem 3D objektu. | Zvýrazněte hranice objektu ve vykresleném výstupu. |
+| [getCamera](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getCamera--) | Pohled, přednastavený typ kamery, rotace, zoom a perspektiva. | Otáčet objekt ve 3D prostoru nebo použít přednastavený PowerPoint 3D otáčecí preset. |
+| [getLightRig](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getLightRig--) | Přednastavení světla, směr a rotace světla. | Změnit, jak se odlesky a stíny zobrazují na 3D povrchu. |
+| [getMaterial](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getMaterial--) a [setMaterial](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Materiál povrchu, např. plochý, matný, plastový nebo kovový. | Udělat stejnou geometrii plochější, měkčí, lesklejší nebo kovovější. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) a [setExtrusionHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Jak daleko se tvar prodlužuje dozadu od své přední plochy. | Přeměnit plochý tvar na viditelně silný 3D objekt. |
+| [getExtrusionColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Barva extrudovaných stran. | Zobrazit hloubku nebo sladit barvu stran s přední výplní. |
+| [getDepth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getDepth--) a [setDepth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Dodatečná 3D hloubka používaná PowerPoint 3D formátováním. | Jemně doladit hloubku pro tvary nebo text, zejména spolu s nastavením zkosení a materiálu. |
+| [getBevelTop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getBevelTop--) a [getBevelBottom](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Zvednuté nebo zaoblené okraje na přední a zadní straně. | Přidat zjemněný nebo formovaný okraj místo ostré ploché plochy. |
+| [getContourColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getContourColor--) a [getContourWidth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getContourWidth--) a [setContourWidth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Obrys kolem 3D objektu. | Zvýraznit hranice objektu ve vykresleném výstupu. |
 
 ## **Vytvoření 3D tvaru**
 
-Tvar obvykle vyžaduje čtyři druhy nastavení, aby vypadal přesvědčivě 3D:
+Tvar obvykle potřebuje čtyři druhy nastavení, aby vypadal přesvědčivě 3D:
 
-- Nastavení kamery, protože výchozí přední pohled může extruzi skrýt.
-- Nastavení osvětlení, protože osvětlení umožňuje rozpoznat plochy a strany.
-- Nastavení materiálu, protože povrch ovlivňuje, jak se světlo vykresluje.
+- Nastavení kamery, protože výchozí přední pohled může skrývat extruzi.
+- Nastavení osvětlení, protože osvětlení umožňuje čitelnost ploch a stran.
+- Nastavení materiálu, protože povrch ovlivňuje, jak je světlo renderováno.
 - Nastavení extruze nebo hloubky, protože plochý tvar potřebuje tloušťku.
 
-Následující příklad vytvoří obdélník, přidá text na jeho přední plochu, použije 3D formátování, uloží prezentaci jako PPTX a vykreslí snímek do PNG obrázku.
+Následující příklad vytvoří obdélník, přidá text na jeho přední plochu a použije 3D formátování. Hodnoty rotace kamery jsou ve stupních a výška extruze je 100 bodů. Příklad vykreslí snímek do PNG obrázku dvakrát ve výchozích rozměrech a uloží prezentaci jako PPTX.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
     shape.getTextFrame().setText("3D");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(100, 149, 237));
 
     shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
@@ -92,62 +95,94 @@ try {
 }
 ```
 
-Vykreslený obrázek snímku ukazuje obdélník jako tlustý 3D blok:
+Vykreslený obrázek snímku ukazuje obdélník jako silný 3D blok:
 
-![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
+![Vykreslený modrý 3D obdélník s bílým 3D textem na přední ploše](img_01_01.png)
 
 ## **Otáčení tvaru pomocí kamery**
 
-V PowerPointu se 3D otáčení nastavuje v podokně 3‑D Rotation. Hodnoty otáčení X, Y a Z odpovídají otáčení nastavenému přes API kamery.
+V PowerPointu se 3D rotace nastavuje v panelu 3‑D Rotation. Hodnoty rotace X, Y a Z odpovídají rotaci, kterou nastavíte pomocí API kamery.
 
-![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
+![Panel PowerPoint 3‑D Rotation se zvýrazněnými hodnotami rotace X, Y a Z](img_02_01.png)
 
-V Aspose.Slides nastavte typ kamery a otáčení pomocí 3D formátu vráceného metodou `shape.getThreeDFormat()`:
+V Aspose.Slides přistupujete ke kameře přes [IThreeDFormat.getCamera](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getCamera--). Tento příklad vytvoří obdélník, vybere ortografický přední pohled a nastaví jeho rotace X, Y a Z na 20, 30 a 40 stupňů. Konfiguruje tvar v paměti bez ukládání souboru:
 
 ```java
-shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Použijte kameru, když potřebujete změnit, jak pozorovatel vidí objekt. Nemění geometrické tvary 2D na snímku. Mění 3D pohledový úhel používaný PowerPointem i Aspose.Slides při vykreslování.
+Použijte kameru, když potřebujete změnit, jak divák vidí objekt. Nemění 2D geometrii tvaru na snímku. Mění 3D úhel pohledu používaný PowerPointem a Aspose.Slides při vykreslování.
 
 ## **Přidání extruze a hloubky**
 
-Extruze způsobí, že tvar vypadá tlustě, protože se prodlouží za přední plochu. V PowerPointu řízení hloubky nastavuje tuto viditelnou tloušťku a řízení barvy nastavuje barvu bočních ploch.
+Extruze způsobí, že tvar vypadá silně, protože se prodlužuje za přední plochu. V PowerPointu kontrola hloubky nastavuje tuto viditelnou tloušťku a kontrola barvy nastavuje barvu bočních ploch.
 
-![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
+![Ovládací prvky hloubky v PowerPointu namapované na vlastnosti barvy extruze a výšky extruze](img_02_02.png)
 
-Nastavte výšku extruze pro tloušťku a barvu extruze pro barvu stran:
+Použijte [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) k nastavení tloušťky a [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) k přístupu k barvě stran. Tento příklad dá obdélníku extruzi 100 bodů s fialovými stranami a otočí kameru, aby odhalila jeho tloušťku. Konfiguruje tvar v paměti bez ukládání souboru:
 
 ```java
-Color extrusionColor = new Color(128, 0, 128);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    Color extrusionColor = new Color(128, 0, 128);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Použijte nastavení hloubky, když potřebujete pracovat přímo s hodnotou hloubky PowerPointu nebo kombinovat hloubku se zkosením, materiálem a textovými efekty. V mnoha scénářích tvaru je výška extruze srozumitelnějším nastavením, protože přímo vyjadřuje viditelnou extruzi.
+Metoda [IThreeDFormat.setDepth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setDepth-double-) nastavuje hloubku 3D tvaru. Metoda [setExtrusionHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) ovládá výšku extruze, jak ukazuje tento příklad.
 
 ## **Použití gradientových nebo obrázkových výplní s 3D efekty**
 
-3D formátování je nezávislé na výplni tvaru. Můžete použít jednotnou barvu, gradient, vzor nebo obrázkovou výplň na přední plochu a stále používat stejná nastavení kamery, osvětlení, materiálu a extruze.
+3D formátování je nezávislé na výplni tvaru. Můžete použít jednolitou barvu, gradient, vzor nebo obrázkovou výplň na přední plochu a stále používat stejná nastavení kamery, světla, materiálu a extruze.
 
-Tento příklad použije gradientní výplň na tvar a tmavší barvu extruze na strany:
+Tento příklad aplikuje gradient od modré k oranžové na přední plochu a tmavě oranžovou barvu na 150‑bodovou extruzi. Zastávky gradientu na 0 a 100 označují začátek a konec gradientu. Hodnoty rotace kamery jsou ve stupních. Snímek je vykreslen do PNG obrázku dvakrát ve výchozích rozměrech:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getTextFrame().setText("3D Gradient");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.BLUE);
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.ORANGE);
+    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, new Color(255, 165, 0));
 
     shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
@@ -171,42 +206,66 @@ try {
 
 Vykreslený výstup zachovává gradient na přední ploše a extruzi vykresluje samostatně:
 
-![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
+![Vykreslený 3D obdélník s gradientní výplní od modré k oranžové a oranžovou extruzí](img_02_03.png)
 
-Pro použití obrázkové výplně místo toho přidejte obrázek do prezentace a přiřaďte jej výplni tvaru:
+Pro použití obrázkové výplně přidejte obrázek do prezentace a přiřaďte jej výplni tvaru. Tento příklad předpokládá existenci souboru „image.jpg“ v pracovním adresáři. Obrázek roztáhne tak, aby vyplnil obdélník, aplikuje extruzi 150 bodů a nastaví rotaci kamery ve stupních. Konfiguruje tvar v paměti bez ukládání nebo vykreslování souboru:
 
 ```java
-java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
-byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
-IPPImage image = presentation.getImages().addImage(imageData);
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-shape.getFillFormat().setFillType(FillType.Picture);
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-Color extrusionColor = new Color(255, 140, 0);
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
+    Path imagePath = Paths.get("image.jpg");
+    byte[] imageData = Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageData);
+
+    shape.getFillFormat().setFillType(FillType.Picture);
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+    Color extrusionColor = new Color(255, 140, 0);
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Obrázek se vykreslí na přední ploše, zatímco extruze se vykreslí jako 3D boční povrch:
+Obrázek je vykreslen na přední ploše, zatímco extruze je vykreslena jako 3D boční povrch:
 
-![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
+![Vykreslený 3D obdélník s fotografickou výplní na přední ploše a oranžovou extruzí](img_02_04.png)
 
-## **Použití 3D formátování na text**
+## **Aplikace 3D formátování na text**
 
 3D formátování tvaru ovlivňuje tělo tvaru. 3D formátování textu ovlivňuje textový rámec. To je užitečné pro efekty podobné WordArt, kde samotná písmena potřebují extruzi, materiál, osvětlení a nastavení kamery.
 
-Následující příklad vytvoří text se vzorovou výplní, použije transformaci WordArt a nakonfiguruje 3D nastavení na [ITextFrameFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/):
+Následující příklad vytvoří text s oranžovo‑bílým mřížkovým vzorem, aplikuje horní oblouk a nastaví 3D parametry přes [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#getThreeDFormat--). Výška extruze a hloubka jsou v bodech, rotace světla ve stupních. Výplň tvaru a obrys jsou skryté, takže je viditelný jen text. Příklad vykreslí PNG obrázek dvakrát ve výchozích rozměrech snímku a uloží prezentaci jako PPTX:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getFillFormat().setFillType(FillType.NoFill);
     shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
     shape.getTextFrame().setText("3D Text");
@@ -243,43 +302,96 @@ try {
 }
 ```
 
-Text se vykreslí jako zakřivené, extrudované 3D písmo:
+Text je vykreslen jako zakřivené, extrudované 3D písmo:
 
-![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
+![Vykreslený 3D text s obloukovým WordArt transformací, oranžovou výplní vzoru a tmavou extruzí](img_02_05.png)
+
+## **Udržení textu plochého na 3D tvaru**
+
+Aby byl text čitelný při zachování 3D vzhledu tvaru, zavolejte [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) přes [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframe/#getTextFrameFormat--). Když je hodnota `true`, text zůstane mimo 3D scénu. Když je `false`, text se podílí na scéně a následuje její 3D orientaci.
+
+Toto nastavení neodstraňuje 3D formátování tvaru: jeho kamera, osvětlení, materiál a extruze zůstávají nastaveny přes [IShape.getThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getThreeDFormat--). Je také odlišné od běžné rotace. [IShape.setRotation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#setRotation-float-) otáčí tvar v rovině snímku, zatímco [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) řídí vlastní rotaci textu v jeho ohraničujícím rámečku. Udržení textu mimo 3D scénu neresetuje žádný z těchto úhlů.
+
+Následující samostatný příklad vytvoří modrý obdélník s textem a zduplikuje jej vedle originálu. Oba tvary mají stejné 3D formátování; liší se pouze nastavením textu: `false` vlevo a `true` vpravo. Úhly kamery jsou ve stupních a výška extruze je 40 bodů. Příklad uloží prezentaci jako PPTX a vykreslí porovnávací snímek do PNG dvakrát ve výchozích rozměrech.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 70, 160, 240, 140);
+
+    shape.getTextFrame().setText("Readable text");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().setAlignment(TextAlignment.Center);
+    shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Center);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(100, 149, 237));
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(30, 30, 0);
+    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(40);
+    shape.getThreeDFormat().getExtrusionColor().setColor(new Color(65, 105, 225));
+    shape.getTextFrame().getTextFrameFormat().setKeepTextFlat(false);
+
+    IAutoShape flatTextShape = (IAutoShape) slide.getShapes().addClone(shape, 400, 160);
+    flatTextShape.getTextFrame().getTextFrameFormat().setKeepTextFlat(true);
+
+    presentation.save("keep_text_flat.pptx", SaveFormat.Pptx);
+    IImage image = slide.getImage(2, 2);
+    try {
+        image.save("keep_text_flat.png", ImageFormat.Png);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Vlevo text následuje 3D orientaci. Vpravo zůstává plochý a lépe čitelný. Oba obdélníky zachovávají stejnou viditelnou extruzi a 3D orientaci.
+
+![Postranně umístěné 3D obdélníky: text následuje 3D orientaci vlevo a zůstává plochý vpravo](keep_text_flat.png)
 
 ## **Chování při exportu a vykreslování**
 
-Aspose.Slides zachovává 3D formátování při ukládání do formátů PowerPointu, jako je PPTX. Při vykreslování nebo exportu do formátů s pevnou rozlohou se 3D scéna rasterizuje nebo nakreslí do výstupu jako 2D výsledek. To platí při vykreslování snímků do [PNG](/slides/cs/java/convert-powerpoint-to-png/), exportu do [PDF](/slides/cs/java/convert-powerpoint-to-pdf/), exportu do [HTML](/slides/cs/java/convert-powerpoint-to-html/) nebo generování snímků pro [video conversion](/slides/cs/java/convert-powerpoint-to-video/).
+Aspose.Slides zachovává 3D formátování při ukládání do formátů PowerPointu, jako je PPTX. Při vykreslování nebo exportu do formátů s pevnou stránkou se 3D scéna rasterizuje nebo nakreslí do výstupu jako 2D výsledek. To platí při vykreslování snímků do [PNG](/slides/cs/java/convert-powerpoint-to-png/), exportu do [PDF](/slides/cs/java/convert-powerpoint-to-pdf/), exportu do [HTML](/slides/cs/java/convert-powerpoint-to-html/) nebo generování snímků pro [konverzi videa](/slides/cs/java/convert-powerpoint-to-video/).
 
-Mějte na paměti následující body:
+Mějte na paměti:
 
-- Exportované obrázky a PDF nejsou interaktivní. Objekt nelze po exportu otáčet.
-- Konečný vzhled závisí na kombinaci kamery, osvětlení, materiálu, extruze, výplně a měřítka snímku.
-- Pokud potřebujete zjistit zděděné nebo tématem podmíněné hodnoty formátování, přečtěte si [effective shape properties](/slides/cs/java/shape-effective-properties/).
-- Některé výstupní formáty nemohou uložit editovatelné 3D formátování PowerPointu. V těchto formátech je vizuální výsledek vykreslen místo toho, aby byl uložen jako editovatelné 3D nastavení.
+- Exportované obrázky a PDF nejsou interaktivní. Objekt nemůže být po exportu otáčen uživatelem.
+- Konečný vzhled závisí na kombinaci kamery, světelného nastavení, materiálu, extruze, výplně a škálování snímku.
+- Pokud potřebujete zkontrolovat zděděné nebo téma‑závislé hodnoty formátování, přečtěte si [efektivní vlastnosti tvaru](/slides/cs/java/shape-effective-properties/).
+- Některé výstupní formáty nemohou uložit editovatelné PowerPoint 3D formátování. V těchto formátech je vizuální výsledek vykreslený místo toho, aby byl uložen jako editovatelné 3D nastavení.
 
 ## **Často kladené otázky**
 
 **Může Aspose.Slides vytvářet interaktivní 3D prezentace?**
 
-Aspose.Slides vytváří a vykresluje 3D efekty PowerPointu pro tvary a text. Nevytváří interaktivní 3D scény v exportovaných obrázcích, PDF nebo HTML, které by si uživatel mohl otáčet. V PPTX zůstává 3D formátování editovatelné v PowerPointu, pokud formát podporuje editaci.
+Aspose.Slides vytváří a vykresluje PowerPoint 3D efekty pro tvary a text. Nevytváří interaktivní 3D scény v exportovaných obrázcích, PDF nebo HTML, které by uživatel mohl otáčet. V PPTX zůstává 3D formátování editovatelné v PowerPointu, pokud formát podporuje editaci.
 
 ** Jaký je rozdíl mezi 3D modelem a 3D efektem?**
 
-3D model je samostatný 3D objekt vložený do prezentace. 3D efekt je formátování aplikované na běžný tvar nebo text v PowerPointu, například otáčení, extruzi, zkosení, osvětlení a materiál. Tento článek se zabývá 3D efekty.
+3D model je samostatný 3D objekt vložený do prezentace. 3D efekt je formátování aplikované na běžný PowerPoint tvar nebo text, jako je rotace, extruze, zkosení, osvětlení a materiál. Tento článek se věnuje 3D efektům.
 
-**Jaká nastavení jsou vyžadována pro viditelný 3D tvar?**
+**Jaké nastavení jsou vyžadována pro viditelný 3D tvar?**
 
-Minimálně je potřeba nastavit otáčení kamery a buď extruzi, nebo hloubku. V praxi také nastavte osvětlení a materiál, aby vykreslené plochy měly jasné zvýraznění a stíny.
+Minimálně nastavte rotaci kamery a buď extruzi, nebo hloubku. V praxi také nastavte světelný rig a materiál, aby měly vykreslené plochy jasné odlesky a stíny.
 
-**Mohu použít 3D efekty jak na tvary, tak na text?**
+**Mohu použít 3D efekty na tvary i na text?**
 
-Ano. Použijte [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/).`getThreeDFormat()` pro tělo tvaru a [ITextFrameFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()` pro text.
+Ano. Použijte [IShape.getThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getThreeDFormat--) pro tělo tvaru a [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) pro text.
 
-**Objeví se 3D efekty při exportu do obrázků, PDF, HTML nebo video snímků?**
+**Zobrazí se 3D efekty při exportu do obrázků, PDF, HTML nebo video snímků?**
 
-Ano. Aspose.Slides vykreslí 3D efekty při tvorbě obrázků snímků, PDF výstupu, HTML výstupu a snímků používaných pro konverzi videa. Exportovaný výstup obsahuje vykreslený vzhled, nikoli editovatelný 3D objekt.
+Ano. Aspose.Slides vykreslí 3D efekty při tvorbě obrázků snímků, PDF výstupu, HTML výstupu a snímcích použité pro konverzi videa. Exportovaný výstup obsahuje vykreslený vzhled, nikoli editovatelný 3D objekt.
 
-**Mohu přečíst konečné 3D hodnoty po aplikaci dědičnosti a nastavení tématu?**
+**Mohu po aplikaci dědictví a tématických nastavení přečíst finální 3D hodnoty?**
 
-Ano. Použijte API efektivního formátování popsané v [Shape Effective Properties](/slides/cs/java/shape-effective-properties/) k načtení konečných hodnot kamery, osvětlení, zkosení a souvisejících 3D parametrů.
+Ano. Použijte API pro efektivní formátování popsané v [Shape Effective Properties](/slides/cs/java/shape-effective-properties/), abyste získali konečnou kameru, světelný rig, zkosení a související 3D hodnoty.

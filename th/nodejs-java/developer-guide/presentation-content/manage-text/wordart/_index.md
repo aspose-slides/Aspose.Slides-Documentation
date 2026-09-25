@@ -1,5 +1,5 @@
 ---
-title: สร้างและใช้เอฟเฟกต์ WordArt ใน JavaScript
+title: สร้างและใช้เอฟเฟกต์ WordArt ใน Node.js
 linktitle: WordArt
 type: docs
 weight: 110
@@ -7,369 +7,372 @@ url: /th/nodejs-java/wordart/
 keywords:
 - WordArt
 - สร้าง WordArt
-- แม่แบบ WordArt
+- เทมเพลต WordArt
 - เอฟเฟกต์ WordArt
 - เอฟเฟกต์เงา
-- เอฟเฟกต์การแสดงผล
+- เอฟเฟกต์การสะท้อน
 - เอฟเฟกต์แสงเรืองแสง
 - การแปลง WordArt
-- เอฟเฟกต์ 3 มิติ
-- เอฟเฟกต์เงานอก
-- เอฟเฟกต์เงาใน
-- PowerPoint
-- การนำเสนอ
+- เอฟเฟกต์ 3D
+- เอฟเฟ็กต์เงานอก
+- เอฟเฟ็กต์เงาภายใน
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "สร้างและปรับแต่งเอฟเฟกต์ WordArt ใน Aspose.Slides สำหรับ Node.js คู่มือนี้แนะนำขั้นตอนทีละขั้นตอนเพื่อช่วยให้นักพัฒนาเพิ่มประสิทธิภาพการนำเสนอด้วยข้อความระดับมืออาชีพ"
+description: "สร้างและปรับแต่งเอฟเฟกต์ WordArt ใน Aspose.Slides สำหรับ Node.js ผ่าน Java คู่มือขั้นตอนนี้ช่วยนักพัฒนาปรับปรุงการนำเสนอด้วยข้อความระดับมืออาชีพใน Node.js."
 ---
 ## **ภาพรวม**
 
-เอฟเฟกต์ WordArt ช่วยให้คุณเพิ่มข้อความที่มีรูปลักษณ์สวยงามและสไตล์ให้กับงานนำเสนอ PowerPoint ของคุณ ด้วย Aspose.Slides นักพัฒนาสามารถสร้าง ปรับแต่ง และจัดการ WordArt ได้เช่นเดียวกับใน Microsoft PowerPoint—โดยไม่ต้องติดตั้ง Office บทความนี้ให้ภาพรวมของการทำงานกับ WordArt รวมถึงวิธีการใช้การแปลงข้อความ การเติมสี การกำหนดขอบเงาและตัวเลือกการจัดรูปแบบอื่น ๆ เพื่อทำให้เนื้อหาในงานนำเสนอของคุณดูมีชีวิตชีวาและดึงดูดมากขึ้น WordArt ทำให้ข้อความเป็นวัตถุกราฟิก โดยใช้เอฟเฟกต์หรือการเปลี่ยนแปลงพิเศษที่ทำให้ข้อความดูโดดเด่นหรือสังเกตได้ง่ายขึ้น
+เอฟเฟกต์ WordArt ช่วยให้คุณจัดรูปแบบข้อความด้วยการเติมสี, เส้นขอบ, เงา, การสะท้อน, แสงเรืองแสง, การแปลงรูป, และการจัดรูปแบบ 3D. บทความนี้อธิบายวิธีสร้างและปรับแต่งเอฟเฟกต์เหล่านี้ในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides for Node.js via Java โดยไม่ต้องติดตั้ง Microsoft Office.
 
-## **การสร้างเทมเพลต WordArt ง่าย ๆ และการนำไปใช้กับข้อความ**
+## **สร้างเทมเพลต WordArt ง่ายและใช้กับข้อความ**
 
-**ใช้ Aspose.Slides** 
+ตัวอย่างต่อไปนี้สร้างสไตล์ WordArt อย่างง่ายโดยการกำหนดข้อความ, ฟอนต์, การเติมลวดลาย, และเส้นขอบ.
 
-ขั้นแรก เราสร้างข้อความง่าย ๆ ด้วยโค้ด JavaScript นี้:
-
+แต่ละตัวอย่างจะสร้างงานนำเสนอใหม่และเพิ่มสี่เหลี่ยมผืนผ้าไปยังสไลด์แรก; ไม่จำเป็นต้องมีไฟล์อินพุต ตัวอย่างแรกตั้งค่าข้อความเป็น "Aspose.Slides". ตำแหน่งและขนาดของรูปร่างวัดเป็นหน่วยจุด:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    var textFrame = autoShape.getTextFrame();
-    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+
+    const portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-ต่อไป เราจะตั้งค่าขนาดฟอนต์ของข้อความให้ใหญ่ขึ้นเพื่อให้เอฟเฟกต์เห็นชัดเจนยิ่งขึ้นด้วยโค้ดนี้:
 
+ตั้งค่าฟอนต์เป็น Arial Black ขนาด 36 จุดเพื่อให้การจัดรูปแบบเด่นชัดยิ่งขึ้น:
 ```javascript
-var fontData = new aspose.slides.FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
-**ใช้ Microsoft PowerPoint**
-
-ไปที่เมนู WordArt effects ใน Microsoft PowerPoint:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-จากเมนูด้านขวา คุณสามารถเลือกเอฟเฟกต์ WordArt ที่กำหนดไว้ล่วงหน้าได้ จากเมนูด้านซ้าย คุณสามารถระบุการตั้งค่าสำหรับ WordArt ใหม่ได้  
-
-นี่คือบางส่วนของพารามิเตอร์หรือทางเลือกที่มีให้:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**ใช้ Aspose.Slides**
-
-ที่นี่ เราใช้สีแบบลาย [SmallGrid](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PatternStyle#SmallGrid) กับข้อความและเพิ่มเส้นขอบสีดำความกว้าง 1 ด้วยโค้ดนี้:
-
+ใช้ลวดลาย [SmallGrid](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/patternstyle/#SmallGrid) โดยมีสีพื้นหน้าสีส้มเข้มและพื้นหลังสีขาว, จากนั้นเพิ่มเส้นขอบข้อความสีดำที่กว้าง 1 จุด:
 ```javascript
-portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
+    const darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
+
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+} finally {
+    presentation.dispose();
+}
 ```
 
 ข้อความที่ได้:
+![เทมเพลต WordArt ง่าย](WordArt_template.png)
 
-![todo:image_alt_text](image-20200930114108-4.png)
+## **ใช้เอฟเฟกต์ WordArt อื่นๆ**
 
-## **การใช้เอฟเฟกต์ WordArt อื่น ๆ**
+ตัวอย่างต่อไปนี้แสดงวิธีใช้เงา, การสะท้อน, แสงเรืองแสง, การแปลงรูป, และเอฟเฟกต์ 3D กับข้อความ.
 
-**ใช้ Microsoft PowerPoint**
+### **ใช้เอฟเฟกต์เงานอก**
 
-จากคลาสของโปรแกรม คุณสามารถนำเอฟเฟกต์เหล่านี้ไปใช้กับข้อความ, กลุ่มข้อความ, รูปร่าง หรือองค์ประกอบคล้าย ๆ กันได้:
+เงานอกเพิ่มความลึกโดยการวางเงาที่อยู่ด้านหลังข้อความ คุณสามารถปรับแต่งสี, ทิศทาง, ระยะทาง, รัศมีความเบลอ, สเกล, และการเอียงของมันได้.
 
-![todo:image_alt_text](image-20200930114129-5.png)
-
-ตัวอย่างเช่น เอฟเฟกต์เงา, การสะท้อนแสง, และแสงเรืองแสงสามารถนำไปใช้กับข้อความ; เอฟเฟกต์ 3D Format และ 3D Rotation สามารถนำไปใช้กับกลุ่มข้อความ; คุณสมบัติ Soft Edges สามารถนำไปใช้กับ Shape Object (ยังคงมีผลอยู่แม้ไม่มีการตั้งค่า 3D Format)
-
-### **การนำเอฟเฟกต์เงาไปใช้**
-
-ที่นี่ เราตั้งค่าคุณสมบัติเกี่ยวกับข้อความเท่านั้น เรานำเอฟเฟกต์เงาไปใช้กับข้อความด้วยโค้ด JavaScript นี้:
-
+ตัวอย่างนี้เรียก [enableOuterShadowEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effectformat/#enableOuterShadowEffect) และตั้งค่าเงาสีดำที่มีรัศมีความเบลอ 4 จุด, ทิศทาง 230 องศา, และระยะ 30 จุด. ค่าระดับสเกล 100 จะคงขนาดเงา, ในขณะที่เอียงแนวนอนทำให้เงาเอียง 20 องศา. การแปลงแอลฟ่า ตั้งค่าความโปร่งแสงเป็น 32%:
 ```javascript
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.32);
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-Aspose.Slides API รองรับเงา 3 ชนิด: OuterShadow, InnerShadow, และ PresetShadow  
-
-ด้วย PresetShadow คุณสามารถนำเงามาใช้กับข้อความ (โดยใช้ค่าที่กำหนดไว้ล่วงหน้า)
-
-**ใช้ Microsoft PowerPoint**
-
-ใน PowerPoint คุณสามารถใช้เงาชนิดเดียวเท่านั้น ตัวอย่างเช่น:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**ใช้ Aspose.Slides**
-
-Aspose.Slides จริง ๆ แล้วอนุญาตให้คุณใช้เงาได้สองชนิดพร้อมกัน: InnerShadow และ PresetShadow
-
-**หมายเหตุ:**
-
-- เมื่อใช้ OuterShadow และ PresetShadow ร่วมกัน จะมีแต่เอฟเฟกต์ OuterShadow ถูกนำไปใช้
-- หากใช้ OuterShadow และ InnerShadow พร้อมกัน ผลลัพธ์หรือเอฟเฟกต์ที่นำไปใช้จะขึ้นกับเวอร์ชันของ PowerPoint เช่น ใน PowerPoint 2013 เอฟเฟกต์จะซ้อนสองครั้ง แต่ใน PowerPoint 2007 จะใช้เฉพาะเอฟเฟกต์ OuterShadow เท่านั้น
-
-### **การนำเอฟเฟกต์แสงสว่าง (Display) ไปใช้กับข้อความ**
-
-เราติดตั้งแสงสว่างให้กับข้อความด้วยตัวอย่างโค้ด JavaScript นี้:
-
-```javascript
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(aspose.slides.RectangleAlignment.BottomLeft);
-```
-
-### **การนำเอฟเฟกต์แสงเรืองแสง (Glow) ไปใช้กับข้อความ**
-
-เรานำเอฟเฟกต์แสงเรืองแสงไปใช้กับข้อความเพื่อให้ดูสว่างหรือโดดเด่นด้วยโค้ดนี้:
-
-```javascript
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-ผลลัพธ์ของการดำเนินการ:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-คุณสามารถเปลี่ยนพารามิเตอร์ของเงา, แสงสว่าง, และแสงเรืองแสงได้ คุณสมบัติของเอฟเฟกต์จะถูกตั้งค่าแยกกันในแต่ละส่วนของข้อความ  
-
-{{% /alert %}} 
-
-### **การใช้การแปลง (Transformations) ใน WordArt**
-
-เราใช้คุณสมบัติ Transform (ซึ่งมีผลต่อบล็อกข้อความทั้งหมด) ด้วยโค้ดนี้:
-```javascript
-textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
-```
-
-ผลลัพธ์:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-ทั้ง Microsoft PowerPoint และ Aspose.Slides สำหรับ Node.js via Java มีประเภทการแปลงที่กำหนดไว้ล่วงหน้าหลายประเภท  
-
-{{% /alert %}} 
-
-**ใช้ PowerPoint**
-
-เพื่อเข้าถึงประเภทการแปลงที่กำหนดไว้ล่วงหน้า ไปที่: **Format** -> **TextEffect** -> **Transform**
-
-**ใช้ Aspose.Slides**
-
-เพื่อเลือกประเภทการแปลง ให้ใช้ enum TextShapeType
-
-### **การนำเอฟเฟกต์ 3D ไปใช้กับข้อความและรูปร่าง**
-
-เราตั้งค่าเอฟเฟกต์ 3D ให้กับรูปร่างข้อความด้วยตัวอย่างโค้ดนี้:
-
-```javascript
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-autoShape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-autoShape.getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-autoShape.getThreeDFormat().setContourWidth(1.5);
-autoShape.getThreeDFormat().setDepth(3);
-autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-ข้อความและรูปร่างที่ได้:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-เรานำเอฟเฟกต์ 3D ไปใช้กับข้อความด้วยโค้ด JavaScript นี้:
-
-```javascript
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-ผลลัพธ์ของการดำเนินการ:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-การนำเอฟเฟกต์ 3D ไปใช้กับข้อความหรือรูปร่างของมันและการโต้ตอบระหว่างเอฟเฟกต์ต่าง ๆ ถูกกำหนดตามกฎบางประการ  
-
-พิจารณาฉากสำหรับข้อความและรูปร่างที่บรรจุข้อความนั้น เอฟเฟกต์ 3D ประกอบด้วยการแสดงออบเจ็กต์ 3D และฉากที่ออบเจ็กต์ถูกวาง  
-
-- เมื่อกำหนดฉากให้กับทั้งรูปและข้อความ ฉากของรูปจะได้ลำดับความสำคัญสูงกว่า—ข้อความจะถูกละเลย  
-- เมื่อรูปไม่มีฉากของตนเองแต่มีการแสดง 3D จะใช้ฉากของข้อความ  
-- ในกรณีอื่น—เมื่อรูปเดิมไม่มีเอฟเฟกต์ 3D—รูปจะเป็นแบนและเอฟเฟกต์ 3D จะถูกนำไปใช้เฉพาะกับข้อความเท่านั้น  
-
-คำอธิบายเหล่านี้เกี่ยวข้องกับเมธอด ThreeDFormat.getLightRig() และ ThreeDFormat.getCamera()  
-
-{{% /alert %}} 
-
-## **การนำเอฟเฟกต์ Outer Shadow ไปใช้กับข้อความ**
-
-Aspose.Slides สำหรับ Node.js via Java มีคลาส [**OuterShadow**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/outershadow/) และ [**InnerShadow**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/innershadow/) ที่ให้คุณนำเอฟเฟกต์เงาไปใช้กับข้อความที่อยู่ใน [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/) ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation)
-2. รับอ้างอิงของสไลด์โดยใช้ดัชนีของมัน
-3. เพิ่ม AutoShape ประเภท Rectangle ลงในสไลด์
-4. เข้าถึง TextFrame ที่เชื่อมโยงกับ AutoShape
-5. ตั้งค่า FillType ของ AutoShape เป็น NoFill
-6. สร้างอินสแตนซ์ของคลาส OuterShadow
-7. ตั้งค่า BlurRadius ของเงา
-8. ตั้งค่า Direction ของเงา
-9. ตั้งค่า Distance ของเงา
-10. ตั้งค่า RectanglelAlign เป็น TopLeft
-11. ตั้งค่า PresetColor ของเงาเป็น Black
-12. เขียนงานนำเสนอออกเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/)  
-
-โค้ดตัวอย่างใน Java ที่แสดงขั้นตอนข้างต้นเพื่อทำการนำเอฟเฟกต์ Outer Shadow ไปใช้กับข้อความมีดังนี้:
-
-```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // รับอ้างอิงของสไลด์
-    var sld = pres.getSlides().get_Item(0);
-    // เพิ่ม AutoShape ประเภท Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // เพิ่ม TextFrame ให้กับ Rectangle
-    ashp.addTextFrame("Aspose TextBox");
-    // ปิดการเติมสีของรูปร่างในกรณีที่ต้องการเงาของข้อความ
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // เพิ่มเงานอกและตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    var shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
-    // เขียนงานนำเสนอลงดิสก์
-    pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.32));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **การนำเอฟเฟกต์ Inner Shadow ไปใช้กับรูปร่าง**
+ข้อความที่ได้:
+![เอฟเฟกต์เงานอก](outer_shadow_effect.png)
 
-ทำตามขั้นตอนต่อไปนี้:
+{{% alert color="info" title="Note" %}}
+- เมื่อใช้เงานอกและเงาที่กำหนดไว้ล่วงหน้าพร้อมกัน จะใช้เฉพาะเงานอกเท่านั้น.
+- หากใช้เงานอกและเงาภายในพร้อมกัน เอฟเฟกต์ที่ได้จะขึ้นอยู่กับเวอร์ชันของ PowerPoint ตัวอย่างเช่น ใน PowerPoint 2013 เอฟเฟกต์จะเพิ่มเป็นสองเท่า, ในขณะที่ใน PowerPoint 2007 จะใช้เฉพาะเงานอกเท่านั้น.
+{{% /alert %}}
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation)
-2. รับอ้างอิงของสไลด์
-3. เพิ่ม AutoShape ประเภท Rectangle
-4. เปิดใช้งาน InnerShadowEffect
-5. ตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-6. ตั้งค่า ColorType เป็น Scheme
-7. ตั้งค่าสี Scheme
-8. เขียนงานนำเสนอออกเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/)  
+### **ใช้เอฟเฟกต์การสะท้อน**
 
-โค้ดตัวอย่าง (ตามขั้นตอนข้างต้น) ที่แสดงวิธีการเพิ่มคอนเน็กเตอร์ระหว่างสองรูปร่างใน JavaScript มีดังนี้:
+การสะท้อนสร้างสำเนาที่เป็นกระจกของข้อความ ปรับตำแหน่ง, สเกล, ความเบลอ, และความโปร่งแสงเพื่อควบคุมลักษณะของมัน.
 
+ตัวอย่างนี้เรียก [enableReflectionEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effectformat/#enableReflectionEffect) และพลิกการสะท้อนในแนวตั้งด้วยสเกล -100%. ใช้รัศมีความเบลอ 0.5 จุดและระยะ 4.72 จุด. ความโปร่งแสงลดลงจาก 60% ไปเป็น 0.9% ระหว่างตำแหน่ง 0% และ 60% ของการสะท้อน:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // รับอ้างอิงของสไลด์
-    var slide = pres.getSlides().get_Item(0);
-    // เพิ่ม AutoShape ประเภท Rectangle
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // เพิ่ม TextFrame ให้กับ Rectangle
-    ashp.addTextFrame("Aspose TextBox");
-    var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    var pf = port.getPortionFormat();
-    pf.setFontHeight(50);
-    // เปิดใช้ InnerShadowEffect
-    var ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-    // ตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB(189);
-    // ตั้งค่า ColorType เป็น Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // ตั้งค่าสี Scheme
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
-    // บันทึกงานนำเสนอ
-    pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(java.newFloat(0));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(java.newFloat(0.9));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.BottomLeft));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+ข้อความที่ได้:
+![เอฟเฟกต์การสะท้อน](reflection_effect.png)
+
+### **ใช้เอฟเฟกต์แสงเรืองแสง**
+
+แสงเรืองแสงเพิ่มเส้นขอบสีอ่อนรอบข้อความ ปรับสี, ความโปร่งแสง, และรัศมีเพื่อควบคุมเอฟเฟกต์.
+
+ตัวอย่างนี้เรียก [enableGlowEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effectformat/#enableGlowEffect) และใช้แสงเรืองแสงสีแดงที่มีความโปร่งแสง 54% และรัศมี 7 จุด:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.54));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+ข้อความที่ได้:
+![เอฟเฟกต์แสงเรืองแสง](glow_effect.png)
+
+### **ใช้การแปลง WordArt**
+
+การแปลง WordArt ทำให้ข้อความโค้ง, ยืดหรือบิดรูปบล็อกข้อความ.
+
+ตั้งค่า [setTransform](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframeformat/#setTransform) เป็น [ArchUpPour](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textshapetype/#ArchUpPour) เพื่อโค้งกรอบข้อความทั้งหมดขึ้นด้านบน:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
+} finally {
+    presentation.dispose();
+}
+```
+
+ข้อความที่ได้:
+![การแปลง WordArt](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Node.js via Java ให้ชุดของ [ประเภทการแปลง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textshapetype/) ที่กำหนดล่วงหน้าต่างๆ
+{{% /alert %}}
+
+### **ใช้เอฟเฟกต์ 3D กับรูปร่างและข้อความ**
+
+คุณสามารถใช้เอฟเฟกต์ 3D กับรูปร่างหรือกับข้อความของมันได้ การเอียงมุม, การบีบอัด, แสงสว่าง, และการตั้งค่ากล้องจะควบคุมลักษณะที่ได้.
+
+ตัวอย่างต่อไปนี้ใช้ [ThreeDFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/) เพื่อเพิ่มการเอียงมุมกลม, การบีบอัดสีส้ม, และเส้นขอบสีแดงเข้มให้กับสี่เหลี่ยมมิติ. ขนาดการเอียงมุม, ความสูงการบีบอัด, ความกว้างเส้นขอบ, และความลึกวัดเป็นหน่วยจุด. วัสดุพลาสติก, แสงสว่างสมดุลที่หมุน 40 องศารอบแกน Z, และกล้องมุมมองกำหนดลักษณะของมัน:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+ภาพที่ได้:
+![เอฟเฟกต์ 3D ของรูปร่าง](shape_3D_effect.png)
+
+ตัวอย่างนี้ใช้การจัดรูปแบบ 3D คล้ายกันกับข้อความผ่าน [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). การเอียงมุมขนาดเล็กจะกำหนดขอบตัวอักษร, ในขณะที่การบีบอัดและแสงสว่างทำให้ข้อความมีความลึก:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+ข้อความที่ได้:
+![เอฟเฟกต์ 3D ของข้อความ](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+การใช้เอฟเฟกต์ 3D กับข้อความหรือรูปร่างของมัน—และการโต้ตอบระหว่างเอฟเฟกต์เหล่านี้—ถูกกำหนดโดยกฎเฉพาะ พิจารณาฉากที่เกี่ยวข้องทั้งข้อความและรูปร่างที่บรรจุข้อความอยู่ เอฟเฟกต์ 3D จะรวมถึงการแสดงผล 3D ของวัตถุและฉากที่มันถูกวางอยู่.
+
+- หากมีการตั้งค่าฉากสำหรับทั้งรูปร่างและข้อความ ฉากของรูปร่างจะมีลำดับความสำคัญก่อนและฉากของข้อความจะถูกละเลย.
+- หากรูปร่างไม่มีฉากของตนเองแต่มีการแสดงผล 3D จะใช้ฉากของข้อความ.
+- หากรูปร่างไม่มีเอฟเฟกต์ 3D เลย จะถือว่าเป็นแบน และเอฟเฟกต์ 3D จะใช้เฉพาะกับข้อความเท่านั้น.
+
+พฤติกรรมเหล่านี้เกี่ยวข้องกับเมธอด [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/#getLightRig) และ [ThreeDFormat.getCamera](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/#getCamera).
+{{% /alert %}}
+
+เพื่อให้ข้อความแบนและอ่านง่ายขณะรักษาการจัดรูปแบบ 3D ของรูปร่างไว้, ดู [Keep Text Flat on a 3D Shape](/slides/th/nodejs-java/3d-presentation/) สำหรับการเปรียบเทียบทั้งสองการตั้งค่าและตัวอย่าง JavaScript ฉบับสมบูรณ์.
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถใช้เอฟเฟกต์ WordArt กับฟอนต์หรือสคริปต์ที่แตกต่างกัน (เช่น Arabic, Chinese) ได้หรือไม่?**
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับฟอนต์หรือสคริปต์ที่ต่างกัน (เช่น ภาษาอาหรับ, ภาษาจีน) ได้หรือไม่?**
 
-ใช่, Aspose.Slides รองรับ Unicode และทำงานร่วมกับฟอนต์และสคริปต์หลักทั้งหมด เอฟเฟกต์ WordArt เช่น เงา, การเติมสี, และขอบสามารถนำไปใช้ได้โดยไม่คำนึงถึงภาษาที่ใช้ แม้ว่าความพร้อมของฟอนต์และการแสดงผลอาจขึ้นอยู่กับฟอนต์ที่ติดตั้งในระบบ
+ใช่, Aspose.Slides for Node.js via Java รองรับ Unicode และทำงานกับฟอนต์และสคริปต์หลักทั้งหมด เอฟเฟกต์ WordArt เช่น เงา, การเติมสี, และเส้นขอบสามารถใช้ได้โดยไม่คำนึงถึงภาษา แม้ว่าการมีฟอนต์และการเรนเดอร์อาจขึ้นอยู่กับฟอนต์ของระบบ.
 
-**ฉันสามารถนำเอฟเฟกต์ WordArt ไปใช้กับองค์ประกอบของ slide master ได้หรือไม่?**
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับองค์ประกอบของมาสเตอร์สไลด์ได้หรือไม่?**
 
-ได้, คุณสามารถนำเอฟเฟกต์ WordArt ไปใช้กับรูปร่างบนสไลด์มาสเตอร์ได้ รวมถึง placeholder ของหัวเรื่อง, ส่วนท้าย, หรือข้อความพื้นหลัง การเปลี่ยนแปลงในเลย์เอาต์มาสเตอร์จะสะท้อนไปยังสไลด์ทั้งหมดที่เชื่อมโยง
+ได้, คุณสามารถใช้เอฟเฟกต์ WordArt กับรูปร่างบนสไลด์มาสเตอร์ได้ รวมถึงตำแหน่งข้อความหัวเรื่อง, ส่วนนิ้วยล่าง, หรือข้อความพื้นหลัง การเปลี่ยนแปลงที่ทำบนเค้าโครงมาสเตอร์จะสะท้อนไปยังสไลด์ทั้งหมดที่เชื่อมโยง.
 
-**เอฟเฟกต์ WordArt มีผลต่อขนาดไฟล์งานนำเสนอหรือไม่?**
+**เอฟเฟกต์ WordArt มีผลต่อขนาดไฟล์การนำเสนอหรือไม่?**
 
-เล็กน้อย การใช้เอฟเฟกต์ WordArt เช่น เงา, แสงเรืองแสง, หรือการเติมสีแบบไล่ระดับอาจทำให้ขนาดไฟล์เพิ่มขึ้นเล็กน้อยเนื่องจากเมตาดาต้าเพิ่มเติมของการจัดรูปแบบ แต่ส่วนต่าง ๆ มักไม่มีผลอย่างมีนัยสำคัญ
+ค่อนข้างน้อย. เอฟเฟกต์ WordArt เช่น เงา, แสงเรืองแสง, และการเติมสีไล่ระดับอาจทำให้ขนาดไฟล์เพิ่มขึ้นเล็กน้อยเนื่องจากเมตาดาท้าการจัดรูปแบบที่เพิ่มเข้ามา แต่ส่วนต่างมักจะไม่สำคัญ.
 
-**ฉันสามารถดูตัวอย่างผลลัพธ์ของเอฟเฟกต์ WordArt ได้โดยไม่ต้องบันทึกงานนำเสนอหรือไม่?**
+**ฉันสามารถดูตัวอย่างผลของเอฟเฟกต์ WordArt ได้โดยไม่ต้องบันทึกการนำเสนอหรือไม่?**
 
-ได้, คุณสามารถเรนเดอร์สไลด์ที่มี WordArt ให้เป็นภาพ (เช่น PNG, JPEG) โดยใช้เมธอด `getImage` จากคลาส [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) หรือ [Slide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/) วิธีนี้ช่วยให้คุณดูตัวอย่างผลลัพธ์แบบอิน‑เมมโมรีหรือบนหน้าจอก่อนที่จะทำการบันทึกหรือส่งออกงานนำเสนอเต็มรูปแบบ
+ได้, คุณสามารถเรนเดอร์สไลด์ที่มี WordArt เป็นภาพ (เช่น PNG, JPEG) โดยใช้ [Slide.getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage), หรือเรนเดอร์รูปร่างแต่ละอันโดยใช้ [Shape.getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getImage). วิธีนี้ทำให้คุณดูตัวอย่างผลลัพธ์ในหน่วยความจำหรือบนหน้าจอก่อนบันทึกหรือส่งออกการนำเสนอเต็มรูปแบบ.

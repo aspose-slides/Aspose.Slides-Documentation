@@ -1,5 +1,5 @@
 ---
-title: สร้างและใช้เอฟเฟ็กต์ WordArt ใน Python ผ่าน Java
+title: สร้างและประยุกต์ใช้เอฟเฟ็กต์ WordArt ใน Python ผ่าน Java
 linktitle: WordArt
 type: docs
 weight: 110
@@ -7,11 +7,11 @@ url: /th/python-java/wordart/
 keywords:
 - WordArt
 - สร้าง WordArt
-- แม่แบบ WordArt
+- เทมเพลต WordArt
 - เอฟเฟ็กต์ WordArt
 - เอฟเฟ็กต์เงา
 - เอฟเฟ็กต์การสะท้อน
-- เอฟเฟ็กต์แสงเรือง
+- เอฟเฟ็กต์แสงเรืองแสง
 - การแปลง WordArt
 - เอฟเฟ็กต์ 3D
 - เอฟเฟ็กต์เงานอก
@@ -21,17 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "สร้างและปรับแต่งเอฟเฟ็กต์ WordArt ใน Aspose.Slides สำหรับ Python ผ่าน Java คำแนะนำทีละขั้นตอนนี้ช่วยนักพัฒนาเพิ่มความโดดเด่นให้กับงานนำเสนอด้วยข้อความระดับมืออาชีพใน Python ผ่าน Java."
+description: "สร้างและปรับแต่งเอฟเฟ็กต์ WordArt ใน Aspose.Slides สำหรับ Python ผ่าน Java คู่มือขั้นตอนนี้ช่วยนักพัฒนาปรับปรุงงานนำเสนอด้วยข้อความระดับมืออาชีพใน Python ผ่าน Java"
 ---
 ## **ภาพรวม**
 
-เอฟเฟ็กต์ WordArt ช่วยให้คุณเพิ่มข้อความสไตล์ที่น่าสนใจและสวยงามในงานนำเสนอ PowerPoint ของคุณ ด้วย Aspose.Slides นักพัฒนาสามารถสร้าง ปรับแต่ง และจัดการ WordArt ได้โดยโปรแกรมเมชัน เช่นเดียวกับใน Microsoft PowerPoint — โดยไม่ต้องติดตั้ง Office บทความนี้ให้ภาพรวมการทำงานกับ WordArt รวมถึงวิธีการนำการแปลงข้อความ รูปแบบการเติม สีขอบ เงา และตัวเลือกการจัดรูปแบบอื่น ๆ เพื่อทำให้เนื้อหาในการนำเสนอของคุณมีความแสดงออกและดึงดูดมากขึ้น WordArt ทำให้คุณจัดการข้อความเป็นวัตถุกราฟิก มันประกอบด้วยเอฟเฟ็กต์หรือการปรับพิเศษที่ใช้กับข้อความเพื่อทำให้ดูน่าสนใจหรือเด่นขึ้น
+เอฟเฟกต์ WordArt ช่วยให้คุณจัดรูปแบบข้อความด้วยการเติมสี, ขอบ, เงา, การสะท้อน, แสงเรืองแสง, การแปลงรูป, และการจัดรูปแบบ 3D บทความนี้อธิบายวิธีสร้างและปรับแต่งเอฟเฟกต์เหล่านี้ในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides for Python via Java โดยไม่ต้องติดตั้ง Microsoft Office
 
-## **สร้างเทมเพลต WordArt ง่ายและนำไปใช้กับข้อความ**
+## **สร้างเทมเพลต WordArt แบบง่ายและนำไปใช้กับข้อความ**
 
-**ใช้ Aspose.Slides**
+ตัวอย่างต่อไปนี้สร้างสไตล์ WordArt แบบง่ายโดยกำหนดข้อความ, ฟอนต์, การเติมลวดลาย, และขอบ
 
-แรกสุด เราสร้างข้อความง่ายด้วยโค้ด Python นี้:
+แต่ละตัวอย่างสร้างงานนำเสนอใหม่และเพิ่มสี่เหลี่ยมผืนผ้าลงในสไลด์แรก; ไม่ต้องใช้ไฟล์อินพุต ตัวอย่างแรกตั้งค่าข้อความเป็น "Aspose.Slides" ตำแหน่งและขนาดของรูปร่างวัดเป็นจุด:
 
 ```python
 import jpype
@@ -45,7 +45,8 @@ from asposeslides.api import Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
 
     portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -53,7 +54,8 @@ try:
 finally:
     presentation.dispose()
 ```
-ต่อมา เพิ่มขนาดฟอนต์เพื่อทำให้เอฟเฟ็กต์เด่นชัดขึ้น:
+
+ตั้งค่าฟอนต์เป็น Arial Black ขนาด 36 จุดเพื่อให้การจัดรูปแบบเด่นชัดขึ้น:
 
 ```python
 import jpype
@@ -67,34 +69,19 @@ from asposeslides.api import FontData, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    font_data = FontData("Arial Black")
-    portion_format = portion.getPortionFormat()
-    portion_format.setLatinFont(font_data)
-    portion_format.setFontHeight(36)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 finally:
     presentation.dispose()
 ```
 
-**ใช้ Microsoft PowerPoint**
-
-ไปที่เมนูเอฟเฟ็กต์ WordArt ใน Microsoft PowerPoint:
-
-![WordArt effects menu in PowerPoint](image-20200930113926-1.png)
-
-จากเมนูด้านขวา คุณสามารถเลือกเอฟเฟ็กต์ WordArt ที่กำหนดล่วงหน้าได้ จากเมนูด้านซ้าย คุณสามารถกำหนดการตั้งค่าสำหรับ WordArt ใหม่
-
-ต่อไปเป็นพารามิเตอร์หรือ ตัวเลือกที่มีให้เลือกบางส่วน:
-
-![WordArt formatting options](image-20200930114015-3.png)
-
-**ใช้ Aspose.Slides**
-
-ที่นี่ เราใช้รูปแบบเติมลาย [PatternStyle.SmallGrid](https://reference.aspose.com/slides/th/python-java/aspose.slides/patternstyle/#SmallGrid) กับข้อความและเพิ่มขอบข้อความสีดำด้วยโค้ดนี้:
+ใช้ลวดลาย [SmallGrid](https://reference.aspose.com/slides/th/python-java/aspose.slides/patternstyle/#SmallGrid) ด้วยสีส้มเข้มเป็นสีพื้นหน้าและพื้นหลังสีขาว จากนั้นเพิ่มขอบข้อความสีดำที่มีความกว้าง 1 จุด:
 
 ```python
 import jpype
@@ -103,182 +90,184 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, PatternStyle, Presentation, ShapeType
+from asposeslides.api import FillType, FontData, PatternStyle, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getFillFormat().setFillType(FillType.Pattern)
-    pattern_format = portion_format.getFillFormat().getPatternFormat()
-    pattern_format.getForeColor().setColor(Color.ORANGE)
-    pattern_format.getBackColor().setColor(Color.WHITE)
-    pattern_format.setPatternStyle(PatternStyle.SmallGrid)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern)
+    dark_orange = Color(255, 140, 0)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(dark_orange)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid)
 
-    line_format = portion_format.getLineFormat()
-    line_format.getFillFormat().setFillType(FillType.Solid)
-    line_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getLineFormat().setWidth(1)
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 finally:
     presentation.dispose()
 ```
 
 ข้อความที่ได้:
 
-![Text with a pattern fill and black outline](image-20200930114108-4.png)
+![เทมเพลต WordArt ง่าย](WordArt_template.png)
 
-## **การใช้เอฟเฟ็กต์ WordArt อื่น ๆ**
+## **ใช้เอฟเฟกต์ WordArt อื่น ๆ**
 
-**ใช้ Microsoft PowerPoint**
+ตัวอย่างต่อไปนี้แสดงวิธีใช้เงา, การสะท้อน, แสงเรืองแสง, การแปลงรูป, และเอฟเฟกต์ 3D กับข้อความ
 
-จากส่วนติดต่อของโปรแกรม คุณสามารถใช้เอฟเฟ็กต์เหล่านี้กับข้อความ กล่องข้อความ รูปร่าง หรือองค์ประกอบที่คล้ายกัน:
+### **ใช้เอฟเฟกต์เงานอก**
 
-![Text and shape effects in PowerPoint](image-20200930114129-5.png)
+เงานอกช่วยเพิ่มความลึกโดยวางเงาไว้ด้านหลังข้อความ คุณสามารถกำหนดสี, ทิศทาง, ระยะ, รัศมีเบลอร์, สเกล, และการบิดเอฟเฟกต์ได้
 
-ตัวอย่างเช่น เอฟเฟ็กต์เงา (Shadow) การสะท้อน (Reflection) และแสงเรือง (Glow) สามารถนำไปใช้กับข้อความ; เอฟเฟ็กต์รูปแบบ 3 มิติ (3D Format) และการหมุน 3 มิติ (3D Rotation) สามารถนำไปใช้กับกล่องข้อความ; เอฟเฟ็กต์ขอบนุ่ม (Soft Edges) สามารถนำไปใช้กับรูปร่าง (แม้ไม่มีเอฟเฟ็กต์ 3D Format ก็ตาม)
-
-### **การใช้เอฟเฟ็กต์เงา**
-
-โค้ด Python ต่อไปนี้ใช้เงาเฉพาะกับข้อความ:
+ตัวอย่างนี้เรียกใช้ [enableOuterShadowEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/effectformat/#enableOuterShadowEffect) และตั้งค่าเงาสีดำที่มีรัศมีเบลอร์ 4 จุด, ทิศทาง 230 องศา, ระยะ 30 จุด ค่าสเกล 100 จะรักษาขนาดเงาไว้, ส่วนการบิดแบบแนวนอนทำให้เงาเอียง 20 องศา การแปลงอัลฟ่าตั้งค่าความทึบเป็น 32%:
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpade.isJVMStarted():
+    jpade.startJVM()
 
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableOuterShadowEffect()
-    outer_shadow = portion_format.getEffectFormat().getOuterShadowEffect()
-    outer_shadow.getShadowColor().setColor(Color.BLACK)
-    outer_shadow.setScaleHorizontal(100)
-    outer_shadow.setScaleVertical(65)
-    outer_shadow.setBlurRadius(4.73)
-    outer_shadow.setDirection(230)
-    outer_shadow.setDistance(2)
-    outer_shadow.setSkewHorizontal(30)
-    outer_shadow.setSkewVertical(0)
-    outer_shadow.getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect()
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
 finally:
     presentation.dispose()
 ```
 
-Aspose.Slides API รองรับเงาสามประเภท: [OuterShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/outershadow/), [InnerShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/innershadow/), และ [PresetShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/presetshadow/)
+ข้อความที่ได้:
 
-ด้วย [PresetShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/presetshadow/) คุณสามารถใช้ค่า preset เพื่อใส่เงาให้กับข้อความได้
-
-**ใช้ Microsoft PowerPoint**
-
-ใน PowerPoint คุณสามารถใช้เงาประเภทเดียว นี่คือตัวอย่าง:
-
-![Shadow settings in PowerPoint](image-20200930114225-6.png)
-
-**ใช้ Aspose.Slides**
-
-Aspose.Slides จริง ๆ แล้วอนุญาตให้คุณใช้เงาสองประเภทพร้อมกัน: [InnerShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/innershadow/) และ [PresetShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/presetshadow/)
-
-**หมายเหตุ:**
-
-- เมื่อใช้ [OuterShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/outershadow/) และ [PresetShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/presetshadow/) ร่วมกัน จะใช้เอฟเฟ็กต์ [OuterShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/outershadow/) เท่านั้น
-- หากใช้ [OuterShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/outershadow/) และ [InnerShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/innershadow/) พร้อมกัน ผลลัพธ์หรือเอฟเฟ็กต์ที่ใช้จะขึ้นอยู่กับเวอร์ชันของ PowerPoint ตัวอย่างเช่น ใน PowerPoint 2013 เอฟเฟ็กต์จะซ้อนกันสองครั้ง แต่ใน PowerPoint 2007 จะใช้เอฟเฟ็กต์ [OuterShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/outershadow/) เพียงอย่างเดียว
-
-### **นำการสะท้อนมาใช้กับข้อความ**
-
-เราติดตั้งการสะท้อนให้กับข้อความผ่านตัวอย่างโค้ดใน Python ผ่าน Java นี้:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, RectangleAlignment, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableReflectionEffect()
-    reflection = portion_format.getEffectFormat().getReflectionEffect()
-    reflection.setBlurRadius(0.5)
-    reflection.setDistance(4.72)
-    reflection.setStartPosAlpha(0)
-    reflection.setEndPosAlpha(60)
-    reflection.setDirection(90)
-    reflection.setScaleHorizontal(100)
-    reflection.setScaleVertical(-100)
-    reflection.setStartReflectionOpacity(60)
-    reflection.setEndReflectionOpacity(0.9)
-    reflection.setRectangleAlign(RectangleAlignment.BottomLeft)
-finally:
-    presentation.dispose()
-```
-
-### **นำเอฟเฟ็กต์แสงเรือง (Glow) ไปใช้กับข้อความ**
-
-เรานำเอฟเฟ็กต์แสงเรืองไปใช้กับข้อความเพื่อให้ส่องสว่างหรือเด่นขึ้นด้วยโค้ดนี้:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableGlowEffect()
-    glow = portion_format.getEffectFormat().getGlowEffect()
-    glow.getColor().setR(jpype.JByte(-1))
-    glow.getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
-    glow.setRadius(7)
-finally:
-    presentation.dispose()
-```
-
-ผลลัพธ์ของการดำเนินการ:
-
-![Text with a glow effect](image-20200930114621-7.png)
+![เอฟเฟกต์เงานอก](outer_shadow_effect.png)
 
 {{% alert color="info" title="Note" %}}
-คุณสามารถเปลี่ยนพารามิเตอร์สำหรับเงา การสะท้อน และแสงเรือง คุณสมบัติของเอฟเฟ็กต์จะถูกตั้งค่าแยกตามส่วนของข้อความแต่ละส่วน
+- เมื่อใช้เงานอกและเงาที่ตั้งล่วงหน้าพร้อมกัน จะใช้เฉพาะเงานอกเท่านั้น
+- หากใช้เงานอกและเงาภายในพร้อมกัน ผลลัพธ์จะแตกต่างตามรุ่น PowerPoint เช่น ใน PowerPoint 2013 เอฟเฟกต์จะเพิ่มเป็นสองเท่า ในขณะที่ใน PowerPoint 2007 จะใช้เฉพาะเงานอก
 {{% /alert %}}
 
-### **การใช้การแปลงใน WordArt**
+### **ใช้เอฟเฟกต์การสะท้อน**
 
-ใช้ [TextFrameFormat.setTransform](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setTransform) เพื่อแปลงทั้งบล็อกข้อความ:
+การสะท้อนสร้างสำเนาที่สะท้อนของข้อความ ปรับตำแหน่ง, สเกล, เบลอร์, และความทึบเพื่อควบคุมรูปลักษณ์
+
+ตัวอย่างนี้เรียกใช้ [enableReflectionEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/effectformat/#enableReflectionEffect) และพลิกการสะท้อนในแนวตั้งด้วยสเกล -100% ใช้รัศมีเบลอร์ 0.5 จุดและระยะ 4.72 จุด ความทึบลดจาก 60% ไปเป็น 0.9% ระหว่างตำแหน่ง 0% ถึง 60% ตลอดการสะท้อน:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, RectangleAlignment, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect()
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft)
+finally:
+    presentation.dispose()
+```
+
+ข้อความที่ได้:
+
+![เอฟเฟกต์การสะท้อน](reflection_effect.png)
+
+### **ใช้เอฟเฟกต์แสงเรืองแสง**
+
+แสงเรืองแสงเพิ่มขอบสีอ่อนรอบข้อความ ปรับสี, ความทึบ, และรัศมีเพื่อควบคุมเอฟเฟกต์
+
+ตัวอย่างนี้เรียกใช้ [enableGlowEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/effectformat/#enableGlowEffect) และใช้แสงเรืองแสงสีแดงที่ความทึบ 54% และรัศมี 7 จุด:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect()
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7)
+finally:
+    presentation.dispose()
+```
+
+ข้อความที่ได้:
+
+![เอฟเฟกต์แสงเรืองแสง](glow_effect.png)
+
+### **ใช้การแปลง WordArt**
+
+การแปลง WordArt ทำให้ข้อความโค้ง, ยืด, หรือบิด
+
+ตั้งค่า [setTransform](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setTransform) เป็น [ArchUpPour](https://reference.aspose.com/slides/th/python-java/aspose.slides/textshapetype/#ArchUpPour) เพื่อนำกรอบข้อความทั้งหมดโค้งขึ้น:
 
 ```python
 import jpype
@@ -292,34 +281,29 @@ from asposeslides.api import Presentation, ShapeType, TextShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
-
     text_frame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour)
 finally:
     presentation.dispose()
 ```
 
-ผลลัพธ์:
+ข้อความที่ได้:
 
-![Text with an arch transformation](image-20200930114712-8.png)
+![การแปลง WordArt](transform_effect.png)
 
 {{% alert color="info" title="Note" %}}
-ทั้ง Microsoft PowerPoint และ Aspose.Slides for Python via Java มีจำนวนจำกัดของประเภทการแปลงที่กำหนดล่วงหน้า
+Aspose.Slides for Python via Java มีชุดของ [ประเภทการแปลงที่กำหนดไว้ล่วงหน้า](https://reference.aspose.com/slides/th/python-java/aspose.slides/textshapetype/) ให้เลือกใช้
 {{% /alert %}}
 
-**ใช้ PowerPoint**
+### **ใช้เอฟเฟกต์ 3D กับรูปร่างและข้อความ**
 
-เพื่อเข้าถึงประเภทการแปลงที่กำหนดล่วงหน้า ไปที่: **Format** → **TextEffect** → **Transform**
+คุณสามารถใช้เอฟเฟกต์ 3D กับรูปร่างหรือกับข้อความของมันได้ เบเวล, การดันออก, แสงสว่าง, และการตั้งค่ากล้องควบคุมลักษณะสุดท้าย
 
-**ใช้ Aspose.Slides**
-
-เพื่อเลือกประเภทการแปลง ใช้ค่าสมการ [TextShapeType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textshapetype/)
-
-### **นำเอฟเฟ็กต์ 3D ไปใช้กับข้อความและรูปร่าง**
-
-เรานำเอฟเฟ็กต์ 3D ไปใช้กับรูปร่างข้อความด้วยโค้ดตัวอย่างนี้:
+ตัวอย่างต่อไปนี้ใช้ [ThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/) เพื่อเพิ่มเบเวลเป็นรูปวงกลม, การดันสีส้ม, และขอบสีแดงเข้มให้กับสี่เหลี่ยมมิติ การวัดเบเวล, ความสูงการดัน, ความกว้างขอบ, และความลึกทั้งหมดเป็นจุด วัสดุพลาสติก, แสงสว่างสมดุลที่หมุน 40 องศารอบแกน Z, และกล้องแบบมุมมองกำหนดลักษณะสุดท้าย:
 
 ```python
 import jpype
@@ -334,42 +318,44 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     auto_shape.getTextFrame().setText("Aspose.Slides")
 
-    three_d_format = auto_shape.getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(10.5)
-    three_d_format.getBevelBottom().setWidth(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelBottom().setHeight(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setWidth(10.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(12.5)
-    three_d_format.getBevelTop().setWidth(11)
+    auto_shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelTop().setHeight(12.5)
+    auto_shape.getThreeDFormat().getBevelTop().setWidth(11)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    auto_shape.getThreeDFormat().getExtrusionColor().setColor(orange)
+    auto_shape.getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    auto_shape.getThreeDFormat().getContourColor().setColor(dark_red)
+    auto_shape.getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    auto_shape.getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    auto_shape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    auto_shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    auto_shape.getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-ข้อความและรูปร่างที่ได้:
+รูปร่างที่ได้:
 
-![Text shape with 3D effects](image-20200930114816-9.png)
+![เอฟเฟกต์ 3D ของรูปร่าง](shape_3D_effect.png)
 
-เรานำเอฟเฟ็กต์ 3D ไปใช้กับข้อความด้วยโค้ด Python นี้:
+ตัวอย่างนี้ใช้การจัดรูปแบบ 3D แบบเดียวกันกับข้อความผ่าน [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#getThreeDFormat) เบเวลขนาดเล็กทำให้ขอบตัวอักษรบิด, ส่วนการดันและแสงสว่างให้ความลึกกับข้อความ:
 
 ```python
 import jpype
@@ -384,187 +370,70 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
 
-    three_d_format = text_frame.getTextFrameFormat().getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(3.5)
-    three_d_format.getBevelBottom().setWidth(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(4)
-    three_d_format.getBevelTop().setWidth(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange)
+    text_frame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(dark_red)
+    text_frame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    text_frame.getTextFrameFormat().getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    text_frame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    text_frame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-ผลลัพธ์ของการดำเนินการ:
+ข้อความที่ได้:
 
-![Text with 3D effects](image-20200930114905-10.png)
+![เอฟเฟกต์ 3D ของข้อความ](text_3D_effect.png)
 
 {{% alert color="info" title="Note" %}}
-การนำเอฟเฟ็กต์ 3D ไปใช้กับข้อความหรือรูปร่างของมัน และการโต้ตอบระหว่างเอฟเฟ็กต์ต่าง ๆ จะอิงตามกฎบางอย่าง
+การใช้เอฟเฟกต์ 3D กับข้อความหรือรูปร่างของมัน—และการโต้ตอบระหว่างเอฟเฟกต์เหล่านี้—ถูกกำหนดโดยกฎเฉพาะ พิจารณาฉากที่มีทั้งข้อความและรูปร่างที่บรรจุข้อความอยู่ เอฟเฟกต์ 3D ประกอบด้วยการแสดงผล 3D ของวัตถุและฉากที่วางอยู่
 
-พิจารณาฉากสำหรับข้อความและรูปร่างที่บรรจุข้อความนั้น เอฟเฟ็กต์ 3D ประกอบด้วยการแสดงวัตถุ 3D และฉากที่วัตถุถูกวาง
+- หากมีการตั้งค่าฉากทั้งสำหรับรูปร่างและข้อความ ฉากของรูปร่างจะมีลำดับความสำคัญและฉากของข้อความจะถูกละเว้น
+- หากรูปร่างไม่มีฉากของตนเองแต่มีการแสดงผล 3D จะใช้ฉากของข้อความ
+- หากรูปร่างไม่มีเอฟเฟกต์ 3D เลย จะถือว่าเป็นแบนและเอฟเฟกต์ 3D จะใช้กับข้อความเท่านั้น
 
-- เมื่อกำหนดฉากให้ทั้งรูปร่างและข้อความ ฉากของรูปร่างจะมีลำดับความสำคัญ — ฉากของข้อความจะถูกละเลย
-- เมื่อรูปร่างไม่มีฉากของตนเองแต่มีการแสดง 3D ฉากของข้อความจะถูกนำมาใช้
-- หากรูปร่างไม่มีเอฟเฟ็กต์ 3D ตั้งแต่ต้น รูปร่างจะอยู่ในแบบแบนและเอฟเฟ็กต์ 3D จะถูกนำไปใช้เฉพาะกับข้อความเท่านั้น
-
-กฎเหล่านี้เกี่ยวข้องกับเมธอด [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getLightRig) และ [ThreeDFormat.getCamera](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getCamera)
+พฤติกรรมเหล่านี้สัมพันธ์กับเมธอด [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getLightRig) และ [ThreeDFormat.getCamera](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getCamera)
 {{% /alert %}}
 
-## **นำเอฟเฟ็กต์ Outer Shadow ไปใช้กับข้อความ**
-
-Aspose.Slides for Python via Java มีคลาส [OuterShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/outershadow/) และ [InnerShadow](https://reference.aspose.com/slides/th/python-java/aspose.slides/innershadow/) ที่อนุญาตให้คุณใส่เอฟเฟ็กต์เงาให้กับข้อความใน [TextFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframe/) ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน
-3. เพิ่มรูปร่างสี่เหลี่ยมลงในสไลด์
-4. เข้าถึงเฟรมข้อความที่เชื่อมโยงกับรูปร่าง
-5. ปิดการเติมสีของรูปร่าง
-6. เปิดใช้งานเอฟเฟ็กต์เงา Outer Shadow
-7. ตั้งค่ารัศมีการเบลอของเงา
-8. ตั้งค่าทิศทางของเงา
-9. ตั้งค่าระยะห่างของเงา
-10. จัดตำแหน่งเงาที่ด้านบนซ้าย
-11. ตั้งค่าสีเงาเป็นสีดำ
-12. เขียนไฟล์งานนำเสนอเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/)
-
-ตัวอย่างโค้ด Python ผ่าน Java — การดำเนินตามขั้นตอนข้างต้น — แสดงวิธีการใส่เอฟเฟ็กต์ Outer Shadow ให้กับข้อความ:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import FillType, Presentation, PresetColor, RectangleAlignment, SaveFormat, ShapeType
-
-presentation = Presentation()
-try:
-    # รับอ้างอิงของสไลด์
-    slide = presentation.getSlides().get_Item(0)
-
-    # เพิ่ม AutoShape ประเภทสี่เหลี่ยมผืนผ้า
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50)
-
-    # เพิ่ม TextFrame ไปยังสี่เหลี่ยมผืนผ้า
-    auto_shape.addTextFrame("Aspose TextBox")
-
-    # ปิดการเติมสีของรูปร่างในกรณีที่ต้องการเงาของข้อความ
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # เพิ่มเงานอกและตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-    auto_shape.getEffectFormat().enableOuterShadowEffect()
-    shadow = auto_shape.getEffectFormat().getOuterShadowEffect()
-    shadow.setBlurRadius(4.0)
-    shadow.setDirection(45)
-    shadow.setDistance(3)
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft)
-    shadow.getShadowColor().setPresetColor(PresetColor.Black)
-
-    # บันทึกงานนำเสนอลงดิสก์
-    presentation.save("pres_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **นำเอฟเฟ็กต์ Inner Shadow ไปใช้กับรูปร่าง**
-
-ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)
-2. รับอ้างอิงของสไลด์
-3. เพิ่มรูปร่างสี่เหลี่ยม
-4. เปิดใช้งานเอฟเฟ็กต์ Inner Shadow
-5. ตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-6. ตั้งค่าชนิดสีของเงาให้ใช้สีธีม
-7. ตั้งค่าสีธีม
-8. เขียนไฟล์งานนำเสนอเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/)
-
-ตัวอย่างโค้ด (ตามขั้นตอนข้างต้น) แสดงวิธีการใส่เอฟเฟ็กต์ Inner Shadow ให้กับข้อความในรูปร่างด้วย Python ผ่าน Java:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorType, FillType, Presentation, SaveFormat, SchemeColor, ShapeType
-
-presentation = Presentation()
-try:
-    # รับอ้างอิงของสไลด์
-    slide = presentation.getSlides().get_Item(0)
-
-    # เพิ่ม AutoShape ประเภทสี่เหลี่ยมผืนผ้า
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300)
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # เพิ่ม TextFrame ไปยังสี่เหลี่ยมผืนผ้า
-    auto_shape.addTextFrame("Aspose TextBox")
-    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion_format = portion.getPortionFormat()
-    portion_format.setFontHeight(50)
-
-    # เปิดใช้งาน InnerShadowEffect
-    effect_format = portion_format.getEffectFormat()
-    effect_format.enableInnerShadowEffect()
-
-    # ตั้งค่าพารามิเตอร์ทั้งหมดที่จำเป็น
-    inner_shadow = effect_format.getInnerShadowEffect()
-    inner_shadow.setBlurRadius(8.0)
-    inner_shadow.setDirection(90.0)
-    inner_shadow.setDistance(6.0)
-    inner_shadow.getShadowColor().setB(jpype.JByte(-67))
-
-    # ตั้งค่า ColorType เป็น Scheme
-    inner_shadow.getShadowColor().setColorType(ColorType.Scheme)
-
-    # ตั้งค่าสี Scheme
-    inner_shadow.getShadowColor().setSchemeColor(SchemeColor.Accent1)
-
-    # บันทึกรายงานนำเสนอ
-    presentation.save("WordArt_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+เพื่อให้ข้อความอยู่ในรูปแบบแบนและอ่านง่ายพร้อมยังคงรักษาการจัดรูปแบบ 3D ของรูปร่าง ดูที่ [Keep Text Flat on a 3D Shape](/slides/th/python-java/3d-presentation/) เพื่อเปรียบเทียบการตั้งค่าทั้งสองและตัวอย่าง Python ฉบับเต็ม
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถใช้เอฟเฟ็กต์ WordArt กับฟอนต์หรือสคริปต์ที่ต่างกัน (เช่น Arabic, Chinese) ได้หรือไม่?**
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับฟอนต์หรือสคริปต์ที่แตกต่างกัน (เช่น Arabic, Chinese) ได้หรือไม่?**
 
-ได้, Aspose.Slides รองรับ Unicode และทำงานกับฟอนต์และสคริปต์หลักทั้งหมด เอฟเฟ็กต์ WordArt เช่น เงา, เติมสี, และขอบสามารถนำไปใช้ได้โดยไม่คำนึงถึงภาษาที่ใช้ แม้ว่าความพร้อมของฟอนต์และการเรนเดอร์อาจขึ้นอยู่กับฟอนต์ของระบบ
+ได้, Aspose.Slides for Python via Java รองรับ Unicode และทำงานกับฟอนต์และสคริปต์หลักทั้งหมด เอฟเฟกต์ WordArt เช่น เงา, การเติม, และขอบสามารถใช้ได้โดยไม่คำนึงถึงภาษา แม้ว่าความพร้อมใช้งานของฟอนต์และการเรนเดอร์อาจขึ้นอยู่กับฟอนต์ของระบบ
 
-**ฉันสามารถนำเอฟเฟ็กต์ WordArt ไปใช้กับองค์ประกอบของสไลด์มาสเตอร์ได้หรือไม่?**
+**ฉันสามารถใช้เอฟเฟกต์ WordArt กับองค์ประกอบในสไลด์มาสเตอร์ได้หรือไม่?**
 
-ได้, คุณสามารถนำเอฟเฟ็กต์ WordArt ไปใช้กับรูปร่างในสไลด์มาสเตอร์ รวมถึงตัวจัดเก็บตำแหน่งหัวข้อ, ส่วนท้าย, หรือข้อความพื้นหลัง การเปลี่ยนแปลงในเลย์เอาต์มาสเตอร์จะสะท้อนในสไลด์ที่เชื่อมโยงทั้งหมด
+ได้, คุณสามารถใช้เอฟเฟกต์ WordArt กับรูปร่างบนสไลด์มาสเตอร์ รวมถึงตัวเขียนหัวเรื่อง, ส่วนท้าย, หรือข้อความพื้นหลัง การเปลี่ยนแปลงในเลเอาต์มาสเตอร์จะสะท้อนไปทั่วสไลด์ที่เชื่อมโยง
 
-**เอฟเฟ็กต์ WordArt มีผลต่อขนาดไฟล์งานนำเสนอหรือไม่?**
+**เอฟเฟกต์ WordArt มีผลต่อขนาดไฟล์งานนำเสนอหรือไม่?**
 
-มีผลเล็กน้อย. เอฟเฟ็กต์ WordArt เช่น เงา, แสงเรือง, และการเติมสีไล่ระดับอาจทำให้ไฟล์ขนาดเพิ่มขึ้นเล็กน้อยเนื่องจากเมทาดาต้าการจัดรูปแบบที่เพิ่มขึ้น แต่ส่วนต่างมักไม่สำคัญ
+เล็กน้อย, เอฟเฟกต์ WordArt เช่น เงา, แสงเรืองแสง, และการเติมไล่สีอาจเพิ่มขนาดไฟล์เล็กน้อยเนื่องจากเมตาดาต้าเพิ่มขึ้น แต่ความแตกต่างมักไม่สำคัญ
 
-**ฉันสามารถดูตัวอย่างผลของเอฟเฟ็กต์ WordArt ได้โดยไม่บันทึกงานนำเสนอหรือไม่?**
+**ฉันสามารถดูตัวอย่างผลของเอฟเฟกต์ WordArt โดยไม่ต้องบันทึกงานนำเสนอได้หรือไม่?**
 
-ได้, คุณสามารถเรนเดอร์สไลด์ที่มี WordArt เป็นภาพ (เช่น PNG, JPEG) โดยใช้ [Shape.getImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getImage) หรือ [Slide.getImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/slide/#getImage) วิธีนี้ช่วยให้คุณดูตัวอย่างผลในหน่วยความจำหรือบนหน้าจอก่อนบันทึกหรือส่งออกงานนำเสนอเต็มรูปแบบ
+ได้, คุณสามารถแปลงสไลด์ที่มี WordArt เป็นภาพ (เช่น PNG, JPEG) ด้วย [Slide.getImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/slide/#getImage) หรือแปลงรูปร่างเดี่ยวด้วย [Shape.getImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getImage) ทำให้คุณสามารถดูผลลัพธ์ในหน่วยความจำหรือบนหน้าจอก่อนบันทึกหรือส่งออกงานนำเสนอเต็มรูปแบบ

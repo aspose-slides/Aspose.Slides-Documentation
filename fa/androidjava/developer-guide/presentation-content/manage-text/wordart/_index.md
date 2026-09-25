@@ -1,5 +1,5 @@
 ---
-title: ایجاد و اعمال افکت‌های WordArt در Android
+title: ایجاد و اعمال اثرات WordArt در اندروید
 linktitle: WordArt
 type: docs
 weight: 110
@@ -8,382 +8,385 @@ keywords:
 - WordArt
 - ایجاد WordArt
 - قالب WordArt
-- افکت WordArt
-- افکت سایه
-- افکت نمایش
-- افکت درخشندگی
+- اثر WordArt
+- اثر سایه
+- اثر بازتاب
+- اثر تابش
 - تبدیل WordArt
-- افکت 3D
-- افکت سایه خارجی
-- افکت سایه داخلی
-- PowerPoint
-- ارائه
+- اثر 3D
+- اثر سایه بیرونی
+- اثر سایه داخلی
 - Android
 - Java
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی افکت‌های WordArt در Aspose.Slides برای Android. این راهنمای گام‌به‌گام به توسعه‌دهندگان کمک می‌کند تا ارائه‌ها را با متن حرفه‌ای در Java ارتقا دهند."
+description: "ایجاد و سفارشی‌سازی اثرات WordArt در Aspose.Slides برای اندروید با جاوا. این راهنمای گام‌به‌گام به توسعه‌دهندگان کمک می‌کند تا ارائه‌ها را با متن حرفه‌ای در اندروید بهبود دهند."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-افکت‌های WordArt به شما امکان می‌دهند متن‌های جذاب و استایل‌دار را به ارائه‌های PowerPoint خود اضافه کنید. با Aspose.Slides، توسعه‌دهندگان می‌توانند به‌صورت برنامه‌نویسی WordArt را همانند Microsoft PowerPoint ایجاد، سفارشی‌سازی و مدیریت کنند—بدون نیاز به نصب Office. این مقاله نگاهی کلی به کار با WordArt می‌اندازد، از جمله نحوه اعمال تبدیل‌های متنی، سبک‌های پر، خطوط حاشیه، سایه‌ها و سایر گزینه‌های قالب‌بندی برای جذاب‌تر و بیانگرتر کردن محتوای ارائه شما. WordArt به شما اجازه می‌دهد متن را به عنوان یک شی گرافیکی در نظر بگیرید. این شامل افکت‌ها یا تغییرات ویژه‌ای است که بر متن اعمال می‌شود تا جذاب‌تر یا قابل‌توجه‌تر باشد.
+تاثیرات WordArt به شما امکان می‌دهد متن را با پرکننده‌ها، خطوط حاشیه، سایه‌ها، بازتاب‌ها، تابش، تبدیل‌ها و قالب‌بندی سه‌بعدی سبک بدهید. این مقاله توضیح می‌دهد چگونه این تاثیرات را در ارائه‌های PowerPoint با استفاده از Aspose.Slides for Android via Java ایجاد و سفارشی کنید، بدون نیاز به نصب Microsoft Office.
 
-## **ایجاد یک قالب ساده WordArt و اعمال آن بر متن**
+## **ایجاد یک قالب WordArt ساده و اعمال آن بر متن**
 
-**استفاده از Aspose.Slides**  
+مثال‌های زیر یک سبک ساده WordArt را با تنظیم متن، قلم، پرکننده الگو و خط حاشیه می‌سازند.
 
-ابتدا، یک متن ساده با این کد Java می‌سازیم:
+هر مثال یک ارائه جدید ایجاد می‌کند و یک مستطیل را به اسلاید اول آن اضافه می‌کند؛ نیازی به فایل ورودی نیست. مثال اول متن را به «Aspose.Slides» تنظیم می‌کند. موقعیت و ابعاد شکل بر حسب نقطه اندازه‌گیری می‌شوند:
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-حال، ارتفاع فونت متن را به مقدار بزرگ‌تری تنظیم می‌کنیم تا افکت واضح‌تر شود، با این کد:
 
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+قلم را به Arial Black با اندازه 36 نقطه تنظیم کنید تا قالب‌بندی بیشتر مشهود باشد:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
-**استفاده از Microsoft PowerPoint**
+یک الگوی [SmallGrid](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/patternstyle/#SmallGrid) با پیش‌زمینه نارنجی تیره و پس‌زمینه سفید اعمال کنید، سپس یک خط حاشیه متنی سیاه با ضخامت 1 نقطه اضافه کنید:
 
-به منوی افکت‌های WordArt در Microsoft PowerPoint بروید:
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-![todo:image_alt_text](image-20200930113926-1.png)
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-از منوی سمت راست می‌توانید یک افکت WordArt پیش‌تعریف شده را انتخاب کنید. از منوی سمت چپ می‌توانید تنظیمات یک WordArt جدید را مشخص کنید.  
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-برخی از پارامترها یا گزینه‌های موجود عبارت‌اند از:
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-![todo:image_alt_text](image-20200930114015-3.png)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    int darkOrange = Color.rgb(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-**استفاده از Aspose.Slides**
-
-در اینجا، الگوی رنگی [SmallGrid](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PatternStyle#SmallGrid) را به متن اعمال می‌کنیم و با این کد یک حاشیه متن سیاه با عرض 1 اضافه می‌کنیم:
-
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+} finally {
+    presentation.dispose();
+}
 ```
 
 متن حاصل:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![قالب ساده WordArt](WordArt_template.png)
 
-## **اعمال سایر افکت‌های WordArt**
+## **اعمال سایر تاثیرات WordArt**
 
-**استفاده از Microsoft PowerPoint**
+مثال‌های زیر نشان می‌دهد چگونه سایه‌ها، بازتاب‌ها، تابش، تبدیل‌ها و اثرات سه‌بعدی را بر متن اعمال کنید.
 
-از رابط برنامه می‌توانید این افکت‌ها را بر متن، بلوک متن، شکل یا المان مشابه اعمال کنید:
+### **اعمال اثرات سایه بیرونی**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+سایه بیرونی با قرار دادن سایه‌ای پشت متن، عمق ایجاد می‌کند. می‌توانید رنگ، جهت، فاصله، شعاع محو، مقیاس و انحراف آن را سفارشی کنید.
 
-به عنوان مثال، افکت‌های سایه، انعکاس و درخشندگی می‌توانند بر متن اعمال شوند؛ افکت‌های قالب‌بندی سه‌بعدی و چرخش سه‌بعدی می‌توانند بر بلوک متن اعمال شوند؛ خصوصیت لبه‌های نرم می‌تواند بر یک شی Shape اعمال شود (هنوز زمانی که خصوصیت قالب‌بندی سه‌بعدی تنظیم نشده باشد، اثر دارد).
-
-### **اعمال افکت‌های سایه**
-
-در اینجا قصد داریم ویژگی‌های مربوط به یک متن را تنظیم کنیم. افکت سایه را به متن با این کد Java اعمال می‌کنیم:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-
-API Aspose.Slides سه نوع سایه پشتیبانی می‌کند: OuterShadow، InnerShadow و PresetShadow.  
-
-با PresetShadow می‌توانید یک سایه پیش‌تنظیم‌شده بر متن اعمال کنید.
-
-**استفاده از Microsoft PowerPoint**
-
-در PowerPoint می‌توانید از یک نوع سایه استفاده کنید. مثال:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**استفاده از Aspose.Slides**
-
-Aspose.Slides در واقع اجازه می‌دهد دو نوع سایه را همزمان اعمال کنید: InnerShadow و PresetShadow.
-
-**نکات:**
-
-- وقتی OuterShadow و PresetShadow هم‌زمان استفاده شوند، تنها افکت OuterShadow اعمال می‌شود.  
-- اگر OuterShadow و InnerShadow همزمان به کار برده شوند، اثر نهایی بستگی به نسخه PowerPoint دارد. برای مثال، در PowerPoint 2013 اثر دو برابر می‌شود؛ اما در PowerPoint 2007، افکت OuterShadow اعمال می‌شود.
-
-### **اعمال افکت‌های انعکاس بر متن**
-
-با این نمونه کد Java نمایش به متن اضافه می‌کنیم:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-
-### **اعمال افکت‌های درخشندگی بر متن**
-
-با این کد افکت درخشندگی را به متن اعمال می‌کنیم تا براق یا برجسته شود:
-
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-نتیجه عملیات:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-می‌توانید پارامترهای سایه، انعکاس و درخشندگی را تغییر دهید. ویژگی‌های افکت بر هر بخش از متن به‌طور جداگانه تنظیم می‌شوند. 
-{{% /alert %}} 
-
-### **استفاده از تبدیل‌ها در WordArt**
-
-با این کد، ویژگی Transform (که بر کل بلوک متن اعمال می‌شود) را استفاده می‌کنیم:
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-
-نتیجه:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-هر دو Microsoft PowerPoint و Aspose.Slides برای Android از طریق Java تعداد معینی از انواع تبدیل‌های پیش‌تعریف‌شده را فراهم می‌کنند. 
-{{% /alert %}} 
-
-**استفاده از PowerPoint**
-
-برای دسترسی به انواع تبدیل‌های پیش‌تعریف‌شده، مسیر زیر را دنبال کنید: **Format** -> **TextEffect** -> **Transform**
-
-**استفاده از Aspose.Slides**
-
-برای انتخاب یک نوع تبدیل، از enum ‎TextShapeType‎ استفاده کنید.
-
-### **اعمال افکت‌های سه‌بعدی بر متن و اشکال**
-
-با این نمونه کد یک افکت سه‌بعدی به شکل متن اعمال می‌کنیم:
-
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-متن و شکل حاصل:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-با این کد Java یک افکت سه‌بعدی بر متن اعمال می‌کنیم:
-
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-نتیجه عملیات:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-اعمال افکت‌های سه‌بعدی بر متن یا شکل‌های آنها و تعامل بین افکت‌ها بر اساس قوانین خاصی انجام می‌شود. 
-
-صحنه‌ای را برای متن و شکلی که متن را در بردارد در نظر بگیرید. افکت سه‌بعدی شامل نمایشی از شی سه‌بعدی و صحنه‌ای است که شی روی آن قرار گرفته است. 
-
-- وقتی صحنه برای هر دو، شکل و متن تنظیم شده باشد، صحنه شکل اولویت بالاتری دارد—صحنه متن نادیده گرفته می‌شود.  
-- وقتی شکل صحنهٔ خود را نداشته باشد اما نمای سه‌بعدی دارد، صحنهٔ متن استفاده می‌شود.  
-- در غیر این صورت—وقتی شکل در ابتدا هیچ افکت سه‌بعدی ندارد—شکل مسطح است و افکت سه‌بعدی فقط بر متن اعمال می‌شود.  
-
-این توضیحات به متدهای ‎ThreeDFormat.getLightRig()‎ و ‎ThreeDFormat.getCamera()‎ مرتبط هستند. 
-{{% /alert %}} 
-
-## **اعمال افکت سایه خارجی بر متن**
-Aspose.Slides برای Android از طریق Java کلاس‌های [**IOuterShadow**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ioutershadow/) و [**IInnerShadow**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iinnershadow/) را ارائه می‌دهد که امکان اعمال افکت‌های سایه به متنی که درون ‎[TextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/textframe/)‎ قرار دارد، می‌دهند. این مراحل را دنبال کنید:
-
-1. یک نمونه از کلاس ‎[Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation)‎ ایجاد کنید.  
-2. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.  
-3. یک AutoShape از نوع Rectangle را به اسلاید اضافه کنید.  
-4. به TextFrame مرتبط با AutoShape دسترسی پیدا کنید.  
-5. FillType AutoShape را روی NoFill تنظیم کنید.  
-6. کلاس OuterShadow را نمونه‌سازی کنید.  
-7. BlurRadius سایه را تنظیم کنید.  
-8. Direction سایه را تنظیم کنید.  
-9. Distance سایه را تنظیم کنید.  
-10. RectanglelAlign را روی TopLeft تنظیم کنید.  
-11. PresetColor سایه را روی Black تنظیم کنید.  
-12. ارائه را به عنوان فایل ‎[PPTX](https://docs.fileformat.com/presentation/pptx/)‎ ذخیره کنید.  
-
-این کد نمونه در Java—پیاده‌سازی مراحل فوق—نحوه اعمال افکت سایه خارجی به متن را نشان می‌دهد:
+این مثال متد [enableOuterShadowEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effectformat/#enableOuterShadowEffect--) را فراخوانی می‌کند و یک سایه سیاه با شعاع محو 4 نقطه، جهت 230 درجه و فاصله 30 نقطه تنظیم می‌کند. مقادیر مقیاس 100 سایه را به همان اندازه حفظ می‌کند، در حالی که انحراف افقی آن را 20 درجه می‌انداخت. تبدیل آلفا شفافیت آن را به 32٪ تنظیم می‌کند:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // دریافت مرجع اسلاید
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // اضافه کردن یک AutoShape از نوع Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // اضافه کردن TextFrame به Rectangle
-    ashp.addTextFrame("Aspose TextBox");
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // غیرفعال‌کردن پر کردن شکل در صورتی که بخواهیم سایه متن را دریافت کنیم
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // اضافه کردن سایه خارجی و تنظیم تمام پارامترهای لازم
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    //نوشتن ارائه در دیسک
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **اعمال افکت سایه داخلی بر اشکال**
-مراحل زیر را دنبال کنید:
+متن حاصل:
 
-1. یک نمونه از کلاس ‎[Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation)‎ ایجاد کنید.  
-2. مرجع اسلاید را دریافت کنید.  
-3. یک AutoShape از نوع Rectangle اضافه کنید.  
-4. InnerShadowEffect را فعال کنید.  
-5. تمام پارامترهای لازم را تنظیم کنید.  
-6. ColorType را به Scheme تنظیم کنید.  
-7. رنگ Scheme را تنظیم کنید.  
-8. ارائه را به عنوان فایل ‎[PPTX](https://docs.fileformat.com/presentation/pptx/)‎ ذخیره کنید.  
+![اثر سایه بیرونی](outer_shadow_effect.png)
 
-این کد نمونه (بر پایه مراحل فوق) نشان می‌دهد چگونه یک کانکتور بین دو shape در Java اضافه کنید:
+{{% alert color="info" title="Note" %}}
+- زمانی که سایه‌های بیرونی و پیش‌تنظیم شده همزمان استفاده شوند، فقط سایه بیرونی اعمال می‌شود.
+- اگر سایه‌های بیرونی و داخلی همزمان به کار روند، اثر نهایی به نسخه PowerPoint وابسته است. به عنوان مثال، در PowerPoint 2013 اثر دو برابر می‌شود، در حالی که در PowerPoint 2007 فقط سایه بیرونی اعمال می‌شود.
+{{% /alert %}}
+
+### **اعمال اثرات بازتاب**
+
+بازتاب یک نسخه آینه‌ای از متن ایجاد می‌کند. می‌توانید موقعیت، مقیاس، محو و شفافیت آن را تنظیم کنید تا ظاهر مورد نظر را به دست آورید.
+
+این مثال متد [enableReflectionEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effectformat/#enableReflectionEffect--) را فراخوانی می‌کند و بازتاب را به صورت عمودی معکوس با مقیاس -100٪ می‌کند. از شعاع محو 0.5 نقطه و فاصله 4.72 نقطه استفاده می‌کند. شفافیت از 60٪ به 0.9٪ بین موقعیت‌های 0٪ تا 60٪ در طول بازتاب کاهش می‌یابد:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // دریافت مرجع اسلاید
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // اضافه کردن یک AutoShape از نوع Rectangle
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // اضافه کردن TextFrame به Rectangle
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // فعال‌سازی InnerShadowEffect
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-
-    // تنظیم تمام پارامترهای لازم
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // تنظیم ColorType به عنوان Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // تنظیم Scheme Color
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // ذخیره‌سازی ارائه
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **سؤالات متداول**
+متن حاصل:
 
-**آیا می‌توانم افکت‌های WordArt را با فونت‌ها یا اسکریپت‌های متفاوت (مانند عربی، چینی) استفاده کنم؟**  
+![اثر بازتاب](reflection_effect.png)
 
-بله، Aspose.Slides از یونیکد پشتیبانی می‌کند و با تمام فونت‌ها و اسکریپت‌های اصلی کار می‌کند. افکت‌های WordArt مانند سایه، پر و خط مرزی می‌توانند صرف‌نظر از زبان اعمال شوند، هرچند در دسترس بودن فونت و رندر ممکن است به فونت‌های سیستم وابسته باشد.
+### **اعمال اثرات تابش**
 
-**آیا می‌توانم افکت‌های WordArt را بر عناصر مستر اسلاید اعمال کنم؟**  
+تابش یک خط حاشیه رنگی نرم دور متن ایجاد می‌کند. می‌توانید رنگ، شفافیت و شعاع آن را تنظیم کنید.
 
-بله، می‌توانید افکت‌های WordArt را به اشکال موجود در مستر اسلایدها، شامل نگهدارنده‌های عنوان، فوتر یا متن پس‌زمینه اعمال کنید. تغییرات اعمال‌شده بر طرح مستر در تمام اسلایدهای مرتبط بازتاب می‌یابد.
+این مثال متد [enableGlowEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effectformat/#enableGlowEffect--) را فراخوانی می‌کند و یک تابش قرمز با شفافیت 54٪ و شعاع 7 نقطه اعمال می‌کند:
 
-**آیا افکت‌های WordArt بر اندازه فایل ارائه تأثیر می‌گذارند؟**  
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-به‌صورت جزئی. افکت‌های WordArt مانند سایه‌ها، درخشندگی‌ها و پرهای گرادیان ممکن است کمی اندازه فایل را به‌دلیل افزودن متادیتای قالب‌بندی افزایش دهند، ولی معمولاً این تفاوت ناچیز است.
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**آیا می‌توانم نتیجه افکت‌های WordArt را بدون ذخیرهٔ ارائه پیش‌نمایش کنم؟**  
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-بله، می‌توانید اسلایدهای حاوی WordArt را به تصویر (مثلاً PNG یا JPEG) رندر کنید با استفاده از متد ‎`getImage`‎ از اینترفیس‌های ‎[IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/)‎ یا ‎[ISlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/)‎. این امکان پیش‌نمایش نتیجه را در حافظه یا روی صفحه قبل از ذخیره یا استخراج کل ارائه فراهم می‌کند.
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+متن حاصل:
+
+![اثر تابش](glow_effect.png)
+
+### **اعمال تبدیل‌های WordArt**
+
+تبدیل‌های WordArt متن را خم، کشیده یا پیچ می‌دهند.
+
+متد [setTransform](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/textframeformat/#setTransform-int-) را به [ArchUpPour](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/textshapetype/#ArchUpPour) تنظیم کنید تا کل قاب متن به سمت بالا منحنی شود:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+متن حاصل:
+
+![تبدیل WordArt](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Android via Java مجموعه‌ای از [انواع تبدیل پیش‌تعریف‌شده](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/textshapetype/) را فراهم می‌کند.
+{{% /alert %}}
+
+### **اعمال اثرات سه‌بعدی بر اشکال و متن**
+
+می‌توانید اثرات سه‌بعدی را بر یک شکل یا بر متن آن اعمال کنید. برجسته‌سازی‌ها، استخراج، نورپردازی و تنظیمات دوربین ظاهر نهایی را کنترل می‌کنند.
+
+مثال زیر از [ThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/) برای افزودن برجسته‌های دایره‌ای، استخراج نارنجی و خطوط دوری قرمز تیره به مستطیل استفاده می‌کند. ابعاد برجسته، ارتفاع استخراج، عرض دوری و عمق بر حسب نقطه اندازه‌گیری می‌شوند. مواد پلاستیکی، نورپردازی متوازن چرخانده شده به‌صورت 40 درجه دور محور Z، و دوربین پرسپکتیو ظاهر را تعریف می‌کنند:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    int orange = Color.rgb(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+شکل حاصل:
+
+![اثر سه‌بعدی شکل](shape_3D_effect.png)
+
+این مثال قالب‌بندی سه‌بعدی مشابهی را بر متن از طریق [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/textframeformat/#getThreeDFormat--) اعمال می‌کند. برجسته‌های کوچکتر لبه‌های حروف را شکل می‌دهند، در حالی که استخراج و نورپردازی به متن عمق می‌بخشند:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    int orange = Color.rgb(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    int darkRed = Color.rgb(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+متن حاصل:
+
+![اثر سه‌بعدی متن](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+اعمال اثرات سه‌بعدی بر متن یا شکل‌هایشان—و تعامل بین این اثرات—به‌صورت قوانین خاصی کنترل می‌شود. صحنه‌ای را در نظر بگیرید که هم متن و هم شکل شامل آن باشد. یک اثر سه‌بعدی شامل نمای سه‌بعدی شیء و صحنه‌ای است که در آن قرار دارد.
+
+- اگر صحنه‌ای برای هر دو، شکل و متن، تنظیم شده باشد، صحنه شکل اولویت دارد و صحنه متن نادیده گرفته می‌شود.
+- اگر شکل صحنه‌ای نداشته باشد اما نمای سه‌بعدی داشته باشد، صحنه متن استفاده می‌شود.
+- اگر شکل هیچ اثر سه‌بعدی نداشته باشد، به‌عنوان صاف در نظر گرفته می‌شود و اثر سه‌بعدی فقط بر متن اعمال می‌شود.
+
+این رفتارها به روش‌های [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/#getLightRig--) و [ThreeDFormat.getCamera](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/#getCamera--) مرتبط هستند.
+{{% /alert %}}
+
+برای حفظ متن به‌صورت صاف و قابل خواندن در حالی که قالب‌بندی سه‌بعدی شکل حفظ می‌شود، به صفحه [Keep Text Flat on a 3D Shape](/slides/fa/androidjava/3d-presentation/) مراجعه کنید تا مقایسه تنظیمات و مثال کامل Java را ببینید.
+
+## **FAQ**
+
+**آیا می‌توانم اثرات WordArt را با قلم‌ها یا اسکریپت‌های مختلف (مانند عربی، چینی) استفاده کنم؟**
+
+بله، Aspose.Slides for Android via Java از یونیکد پشتیبانی می‌کند و با تمام قلم‌ها و اسکریپت‌های عمده کار می‌کند. اثرات WordArt مانند سایه، پرکننده و خط حاشیه بدون توجه به زبان قابل اعمال هستند، اگرچه در دسترس بودن قلم و رندرینگ ممکن است به قلم‌های سیستم وابسته باشد.
+
+**آیا می‌توانم اثرات WordArt را بر عناصر مستر اسلاید اعمال کنم؟**
+
+بله، می‌توانید اثرات WordArt را بر اشکال موجود در اسلایدهای مستر، شامل نگه‌دارنده‌های عنوان، پاورقی‌ها یا متن پس‌زمینه اعمال کنید. تغییرات اعمال‌شده به‌صورت خودکار در تمام اسلایدهای مرتبط بازتاب می‌یابد.
+
+**آیا اثرات WordArt بر حجم فایل ارائه تأثیر می‌گذارد؟**
+
+به‌صورت جزئی. اثراتی مانند سایه‌ها، تابش‌ها و پرکننده‌های گرادیان ممکن است حجم فایل را به دلیل اضافه شدن متادیتای قالب‌بندی کمی افزایش دهند، اما این تفاوت معمولاً ناچیز است.
+
+**آیا می‌توانم نتیجه اثرات WordArt را بدون ذخیره ارائه پیش‌نمایش کنم؟**
+
+بله، می‌توانید اسلایدهای حاوی WordArt را به تصاویر (مانند PNG یا JPEG) با استفاده از [ISlide.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getImage--) رندر کنید، یا اشکال فردی را با [IShape.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getImage--) رندر کنید. این امکان پیش‌نمایش نتیجه در حافظه یا روی صفحه نمایش را پیش از ذخیره یا استخراج کل ارائه فراهم می‌کند.

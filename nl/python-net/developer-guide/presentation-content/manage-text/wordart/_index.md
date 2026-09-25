@@ -1,5 +1,5 @@
 ---
-title: WordArt-effecten maken en toepassen in Python
+title: Maak en pas WordArt-effecten toe in Python
 linktitle: WordArt
 type: docs
 weight: 110
@@ -9,394 +9,337 @@ keywords:
 - WordArt maken
 - WordArt-sjabloon
 - WordArt-effect
-- schaduw-effect
-- display-effect
-- gloei-effect
+- schaduweffect
+- reflectie-effect
+- gloeieffect
 - WordArt-transformatie
 - 3D-effect
-- buitenste schaduw-effect
-- interne schaduw-effect
+- buitenschaduweffect
+- inner schaduweffect
 - Python
 - Aspose.Slides
-description: "Leer hoe je WordArt-effecten kunt maken en aanpassen in Aspose.Slides for Python via .NET. Deze stapsgewijze handleiding helpt ontwikkelaars om presentaties te verbeteren met stijlvolle, professionele tekst in Python."
+description: "Maak en pas WordArt-effecten aan in Aspose.Slides for Python via .NET. Deze stap-voor-stap gids helpt ontwikkelaars om presentaties te verbeteren met professionele tekst in Python."
 ---
 ## **Overzicht**
 
-WordArt‑effecten stellen je in staat om visueel aantrekkelijke, gestileerde tekst toe te voegen aan je PowerPoint‑presentaties. Met Aspose.Slides kunnen ontwikkelaars programmatically WordArt maken, aanpassen en beheren, net zoals in Microsoft PowerPoint—zonder dat Office geïnstalleerd hoeft te zijn. Dit artikel geeft een overzicht van het werken met WordArt, inclusief hoe je teksttransformaties, vulstijlen, contouren, schaduwen en andere opmaakopties toepast om je presentatie‑inhoud expressiever en boeiender te maken. WordArt behandelt tekst als een grafisch object. Het bestaat uit effecten of speciale aanpassingen die op tekst worden toegepast om deze aantrekkelijker of opvallender te maken.
+WordArt-effecten stellen u in staat om tekst op te maken met vullingen, contouren, schaduwen, reflecties, gloed, transformaties en 3D-opmaak. Dit artikel legt uit hoe u deze effecten kunt maken en aanpassen in PowerPoint-presentaties met Aspose.Slides for Python via .NET, zonder dat Microsoft Office geïnstalleerd is.
 
-**WordArt in Microsoft PowerPoint**
+## **Maak een eenvoudige WordArt-sjabloon en pas deze toe op tekst**
 
-Om WordArt in Microsoft PowerPoint te gebruiken, moet je een van de vooraf gedefinieerde WordArt‑sjablonen selecteren. Een WordArt‑sjabloon is een set effecten die op een tekst of de bijbehorende vorm wordt toegepast. 
+De volgende voorbeelden maken een eenvoudige WordArt-stijl door de tekst, het lettertype, de patroonvulling en de contour in te stellen.
 
-**WordArt in Aspose.Slides**
+Elke voorbeeld maakt een nieuwe presentatie aan en voegt een rechthoek toe aan de eerste dia; een invoerbestand is niet vereist. Het eerste voorbeeld stelt de tekst in op "Aspose.Slides". De positie en afmetingen van de vorm worden gemeten in punten:
 
-In Aspose.Slides for Python via .NET 20.10 hebben we ondersteuning voor WordArt geïmplementeerd en de functionaliteit in latere releases verder verbeterd. 
-
-Met Aspose.Slides for Python via .NET kun je eenvoudig je eigen WordArt‑sjabloon (één effect of een combinatie van effecten) maken in Python en toepassen op teksten. 
-
-## Een eenvoudig WordArt‑sjabloon maken en toepassen op een tekst
-
-**Gebruik Aspose.Slides** 
-
-Eerst maken we een eenvoudige tekst met deze Python‑code: 
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-    textFrame = autoShape.text_frame
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    portion = textFrame.paragraphs[0].portions[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    text_frame = auto_shape.text_frame
+
+    portion = text_frame.paragraphs[0].portions[0]
     portion.text = "Aspose.Slides"
-
-    pres.save("wordart-1.pptx", slides.export.SaveFormat.PPTX)
 ```
-Vervolgens stellen we de letterhoogte van de tekst in op een grotere waarde om het effect opvallender te maken via deze code:
 
-```py 
-    fontData = slides.FontData("Arial Black")
-    portion.portion_format.latin_font = fontData
+Stel het lettertype in op Arial Black op 36 punten om de opmaak beter zichtbaar te maken:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
     portion.portion_format.font_height = 36
 ```
 
-**Gebruik Microsoft PowerPoint**
+Pas een [SMALL_GRID](https://reference.aspose.com/slides/nl/python-net/aspose.slides/patternstyle/) patroon toe met een donkeroranje voorgrond en een witte achtergrond, en voeg vervolgens een zwarte tekstcontour toe met een breedte van 1 punt:
 
-Ga naar het WordArt‑effectmenu in Microsoft PowerPoint:
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-![todo:image_alt_text](image-20200930113926-1.png)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-Aan de rechterkant kun je een vooraf gedefinieerd WordArt‑effect kiezen. Aan de linkerkant kun je de instellingen voor een nieuw WordArt specificeren. 
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
 
-Dit zijn enkele van de beschikbare parameters of opties:
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
 
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Gebruik Aspose.Slides**
-
-Hier passen we de SmallGrid‑patronkleur toe op de tekst en voegen we een zwarte tekstrand van 1‑punt toe met deze code:
-
-```py 
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
     portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
     portion.portion_format.fill_format.pattern_format.back_color.color = draw.Color.white
     portion.portion_format.fill_format.pattern_format.pattern_style = slides.PatternStyle.SMALL_GRID
-                
+
+    portion.portion_format.line_format.width = 1
     portion.portion_format.line_format.fill_format.fill_type = slides.FillType.SOLID
     portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
 ```
 
 De resulterende tekst:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![De eenvoudige WordArt-sjabloon](WordArt_template.png)
 
-## Andere WordArt‑effecten toepassen
+## **Pas andere WordArt-effecten toe**
 
-**Gebruik Microsoft PowerPoint**
+De volgende voorbeelden laten zien hoe u schaduwen, reflecties, gloed, transformaties en 3D-effecten op tekst kunt toepassen.
 
-Via de interface van het programma kun je deze effecten toepassen op een tekst, tekstblok, vorm of soortgelijk element:
+### **Pas buitenschaduw-effecten toe**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Een buitenschaduw voegt diepte toe door een schaduw achter de tekst te plaatsen. U kunt de kleur, richting, afstand, vervagingsstraal, schaal en scheefstand aanpassen.
 
-Bijvoorbeeld: Shadow, Reflection en Glow kunnen op een tekst worden toegepast; 3D‑Formaat en 3D‑Rotatie kunnen op een tekstblok worden toegepast; Soft Edges kan op een Shape‑object worden toegepast (het heeft nog steeds effect wanneer er geen 3D‑Formaat‑eigenschap is ingesteld). 
+Dit voorbeeld roept [enable_outer_shadow_effect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/effectformat/enable_outer_shadow_effect/) aan en stelt een zwarte schaduw in met een vervagingsstraal van 4 punten, een richting van 230 graden en een afstand van 30 punten. Schaalwaarden van 100 behouden de grootte van de schaduw, terwijl een horizontale scheefstand deze 20 graden kantelt. De alfa-transformatie stelt de dekking in op 32%:
 
-### Schaduw‑effecten toepassen
-
-Hier richten we ons alleen op de eigenschappen van een tekst. We passen het schaduw‑effect toe op een tekst met deze Python‑code:
-
-```py 
-    portion.portion_format.effect_format.enable_outer_shadow_effect()
-    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
-    portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
-    portion.portion_format.effect_format.outer_shadow_effect.scale_vertical = 65
-    portion.portion_format.effect_format.outer_shadow_effect.blur_radius = 4.73
-    portion.portion_format.effect_format.outer_shadow_effect.direction = 230
-    portion.portion_format.effect_format.outer_shadow_effect.distance = 2
-    portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 30
-    portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
-    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
-```
-
-Aspose.Slides‑API ondersteunt drie soorten schaduwen: OuterShadow, InnerShadow en PresetShadow. 
-
-Met PresetShadow kun je een schaduw voor een tekst toepassen (met vooraf ingestelde waarden). 
-
-**Gebruik Microsoft PowerPoint**
-
-In PowerPoint kun je één type schaduw gebruiken. Hieronder een voorbeeld:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Gebruik Aspose.Slides**
-
-Aspose.Slides staat zelfs toe om twee soorten schaduwen tegelijk toe te passen: InnerShadow en PresetShadow.
-
-**Opmerkingen:**
-
-- Wanneer OuterShadow en PresetShadow samen worden gebruikt, wordt alleen het OuterShadow‑effect toegepast. 
-- Als OuterShadow en InnerShadow gelijktijdig worden gebruikt, hangt het resulterende effect af van de PowerPoint‑versie. Bijvoorbeeld, in PowerPoint 2013 wordt het effect verdubbeld. In PowerPoint 2007 wordt het OuterShadow‑effect toegepast. 
-
-### Display toepassen op teksten
-
-We voegen display toe aan de tekst via dit Python‑voorbeeld:
-
-```py 
-    portion.portion_format.effect_format.enable_reflection_effect()
-    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5 
-    portion.portion_format.effect_format.reflection_effect.distance = 4.72 
-    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0 
-    portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
-    portion.portion_format.effect_format.reflection_effect.direction = 90 
-    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100 
-    portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
-    portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
-    portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
-    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT  
-```
-
-### Glow‑effect toepassen op teksten
-
-We passen het glow‑effect toe op de tekst zodat deze straalt of opvalt met deze code:
-
-```py 
-    portion.portion_format.effect_format.enable_glow_effect()
-    portion.portion_format.effect_format.glow_effect.color.r = 255
-    portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
-    portion.portion_format.effect_format.glow_effect.radius = 7
-```
-
-Het resultaat van de bewerking:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-Je kunt de parameters voor schaduw, display en glow aanpassen. De eigenschappen van de effecten worden afzonderlijk ingesteld op elk tekstdeel. 
-
-{{% /alert %}} 
-
-### Transformaties gebruiken in WordArt
-
-We gebruiken de Transform‑eigenschap (van toepassing op het gehele tekstblok) via deze code:
-```py 
-textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
-```
-
-Het resultaat:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Zowel Microsoft PowerPoint als Aspose.Slides for Python via .NET bieden een bepaald aantal vooraf gedefinieerde transformatietypes. 
-
-{{% /alert %}} 
-
-**Gebruik PowerPoint**
-
-Om toegang te krijgen tot de vooraf gedefinieerde transformatietypes, ga naar: **Format** → **TextEffect** → **Transform**
-
-**Gebruik Aspose.Slides**
-
-Om een transformatietype te selecteren, gebruik je de `TextShapeType`‑enum. 
-
-### 3D‑effecten toepassen op teksten en vormen
-
-We stellen een 3D‑effect in op een tekstvorm met deze voorbeeldcode:
-
-```py 
-    autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_d_format.bevel_bottom.height = 10.5
-    autoShape.three_d_format.bevel_bottom.width = 10.5
-
-    autoShape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_d_format.bevel_top.height = 12.5
-    autoShape.three_d_format.bevel_top.width = 11
-
-    autoShape.three_d_format.extrusion_color.color = draw.Color.orange
-    autoShape.three_d_format.extrusion_height = 6
-
-    autoShape.three_d_format.contour_color.color = draw.Color.dark_red
-    autoShape.three_d_format.contour_width = 1.5
-
-    autoShape.three_d_format.depth = 3
-
-    autoShape.three_d_format.material = slides.MaterialPresetType.PLASTIC
-
-    autoShape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
-    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    autoShape.three_d_format.light_rig.set_rotation(0, 0, 40)
-
-    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
-```
-
-De resulterende tekst en vorm:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-We passen een 3D‑effect toe op de tekst met deze Python‑code:
-
-```py 
-    textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
-    textFrame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
-
-    textFrame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_d_format.bevel_top.height = 4
-    textFrame.text_frame_format.three_d_format.bevel_top.width = 4
-
-    textFrame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
-    textFrame.text_frame_format.three_d_format.extrusion_height= 6
-
-    textFrame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
-    textFrame.text_frame_format.three_d_format.contour_width = 1.5
-
-    textFrame.text_frame_format.three_d_format.depth= 3
-
-    textFrame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
-
-    textFrame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
-    textFrame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    textFrame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
-
-    textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
-```
-
-Het resultaat van de bewerking:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-De toepassing van 3D‑effecten op teksten of hun vormen en de interacties tussen effecten volgen bepaalde regels. 
-
-Beschouw een scène voor een tekst en de vorm die die tekst bevat. Het 3D‑effect bestaat uit een 3D‑objectrepresentatie en de scène waarop het object geplaatst is. 
-
-- Wanneer de scène is ingesteld voor zowel de figuur als de tekst, krijgt de figuur‑scène de hogere prioriteit – de tekst‑scène wordt genegeerd. 
-- Wanneer de figuur geen eigen scène heeft maar wel een 3D‑representatie, wordt de tekst‑scène gebruikt. 
-- Anders – wanneer de vorm oorspronkelijk geen 3D‑effect heeft – is de vorm plat en wordt het 3D‑effect alleen op de tekst toegepast. 
-
-De beschrijvingen zijn gerelateerd aan de eigenschappen [ThreeDFormat.LightRig](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/) en [ThreeDFormat.Camera](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/). 
-
-{{% /alert %}} 
-
-## **Outer Shadow‑effecten toepassen op teksten**
-Aspose.Slides for Python via .NET biedt de [**IOuterShadow**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.effects/ioutershadow/) en [**IInnerShadow**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.effects/iinnershadow/) klassen die je in staat stellen schaduw‑effecten toe te passen op tekst binnen een TextFrame. Volg deze stappen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Verkrijg de referentie van een dia met behulp van de index.
-3. Voeg een AutoShape van het type Rectangle toe aan de dia.
-4. Open de TextFrame die aan de AutoShape is gekoppeld.
-5. Stel de FillType van de AutoShape in op NoFill.
-6. Maak een instantie van de OuterShadow‑klasse.
-7. Stel de BlurRadius van de schaduw in.
-8. Stel de Direction van de schaduw in.
-9. Stel de Distance van de schaduw in.
-10. Stel de RectanglelAlign in op TopLeft.
-11. Stel de PresetColor van de schaduw in op Black.
-12. Schrijf de presentatie naar een PPTX‑bestand.
-
-Deze voorbeeldcode in Python—een implementatie van de bovenstaande stappen—laat zien hoe je het outer shadow‑effect op een tekst toepast:
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-
-    # Verkrijg referentie van de dia
-    sld = pres.slides[0]
-
-    # Voeg een AutoShape van het type RECTANGLE toe
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    # Voeg TextFrame toe aan de rechthoek
-    ashp.add_text_frame("Aspose TextBox")
-
-    # Schakel vormvulling uit voor het geval we de schaduw van de tekst willen krijgen
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
-
-    # Voeg een buitenste schaduw toe en stel alle nodige parameters in
-    ashp.effect_format.enable_outer_shadow_effect()
-    shadow = ashp.effect_format.outer_shadow_effect
-    shadow.blur_radius = 4.0
-    shadow.direction = 45
-    shadow.distance = 3
-    shadow.rectangle_align = slides.RectangleAlignment.TOP_LEFT
-    shadow.shadow_color.preset_color = slides.PresetColor.BLACK
-
-    #Sla de presentatie op naar schijf
-    pres.save("pres_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Inner Shadow‑effect toepassen op vormen**
-Volg deze stappen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een referentie van de dia.
-3. Voeg een AutoShape van het type Rectangle toe.
-4. Schakel InnerShadowEffect in.
-5. Stel alle benodigde parameters in.
-6. Stel de ColorType in op Scheme.
-7. Stel de Scheme‑kleur in.
-8. Schrijf de presentatie naar een [PPTX](https://docs.fileformat.com/presentation/pptx/)‑bestand.
-
-Deze voorbeeldcode (gebaseerd op de bovenstaande stappen) laat zien hoe je een connector tussen twee vormen toevoegt in Python:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
-    # Verkrijg referentie van een dia
     slide = presentation.slides[0]
 
-    # Voeg een AutoShape van type Rectangle toe
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 400, 300)
-    ashp.fill_format.fill_type = slides.FillType.NO_FILL
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
 
-    # Voeg TextFrame toe aan de rechthoek
-    ashp.add_text_frame("Aspose TextBox")
-    port = ashp.text_frame.paragraphs[0].portions[0]
-    pf = port.portion_format
-    pf.font_height = 50
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
 
-    # Schakel inner_shadow_effect in    
-    ef = pf.effect_format
-    ef.enable_inner_shadow_effect()
-
-    # Stel alle benodigde parameters in
-    ef.inner_shadow_effect.blur_radius = 8.0
-    ef.inner_shadow_effect.direction = 90.0
-    ef.inner_shadow_effect.distance = 6.0
-    ef.inner_shadow_effect.shadow_color.b = 189
-
-    # Stel ColorType in als Scheme
-    ef.inner_shadow_effect.shadow_color.color_type = slides.ColorType.SCHEME
-
-    # Stel Scheme-kleur in
-    ef.inner_shadow_effect.shadow_color.scheme_color = slides.SchemeColor.ACCENT1
-
-    # Sla presentatie op
-    presentation.save("WordArt_out.pptx", slides.export.SaveFormat.PPTX)
+    portion.portion_format.effect_format.enable_outer_shadow_effect()
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
+    portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
+    portion.portion_format.effect_format.outer_shadow_effect.scale_vertical = 100
+    portion.portion_format.effect_format.outer_shadow_effect.blur_radius = 4
+    portion.portion_format.effect_format.outer_shadow_effect.direction = 230
+    portion.portion_format.effect_format.outer_shadow_effect.distance = 30
+    portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 20
+    portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
 ```
+
+De resulterende tekst:
+
+![Het buitenschaduw-effect](outer_shadow_effect.png)
+
+{{% alert color="info" title="Note" %}}
+- Wanneer buitenschaduwen en voorinstelde schaduwen samen worden gebruikt, wordt alleen de buitenschaduw toegepast.
+- Als buitenschaduwen en binnenste schaduwen tegelijk worden gebruikt, hangt het resulterende effect af van de PowerPoint-versie. Bijvoorbeeld, in PowerPoint 2013 wordt het effect verdubbeld, terwijl in PowerPoint 2007 alleen de buitenschaduw wordt toegepast.
+{{% /alert %}}
+
+### **Pas reflectie-effecten toe**
+
+Een reflectie creëert een spiegelbeeld van de tekst. Pas de positie, schaal, vervaging en dekking aan om het uiterlijk te regelen.
+
+Dit voorbeeld roept [enable_reflection_effect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/effectformat/enable_reflection_effect/) aan en draait de reflectie verticaal met een schaal van -100%. Het gebruikt een vervagingsstraal van 0.5 punt en een afstand van 4.72 punt. De dekking daalt van 60% naar 0.9% tussen posities 0% en 60% langs de reflectie:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    portion.portion_format.effect_format.enable_reflection_effect()
+    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5
+    portion.portion_format.effect_format.reflection_effect.distance = 4.72
+    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0
+    portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
+    portion.portion_format.effect_format.reflection_effect.direction = 90
+    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100
+    portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
+    portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
+    portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
+    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT
+```
+
+De resulterende tekst:
+
+![Het reflectie-effect](reflection_effect.png)
+
+### **Pas gloed-effecten toe**
+
+Een gloed voegt een zachte gekleurde omtrek rond de tekst toe. Pas de kleur, dekking en straal aan om het effect te regelen.
+
+Dit voorbeeld roept [enable_glow_effect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/effectformat/enable_glow_effect/) aan en past een rode gloed toe met 54% dekking en een straal van 7 punten:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    portion = auto_shape.text_frame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    portion.portion_format.effect_format.enable_glow_effect()
+    portion.portion_format.effect_format.glow_effect.color.color = draw.Color.red
+    portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
+    portion.portion_format.effect_format.glow_effect.radius = 7
+```
+
+De resulterende tekst:
+
+![Het gloed-effect](glow_effect.png)
+
+### **Pas WordArt-transformaties toe**
+
+WordArt-transformaties buigen, rekken of vervormen een blok tekst.
+
+Stel [transform](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/transform/) in op [ARCH_UP_POUR](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textshapetype/) om het volledige tekstframe naar boven te buigen:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+
+    text_frame = auto_shape.text_frame
+    text_frame.text = "Aspose.Slides"
+    text_frame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
+```
+
+De resulterende tekst:
+
+![De WordArt-transformatie](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Python via .NET biedt een reeks vooraf gedefinieerde [transformation types](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textshapetype/).
+{{% /alert %}}
+
+### **Pas 3D-effecten toe op vormen en tekst**
+
+U kunt 3D-effecten toepassen op een vorm of op de tekst ervan. Afscherpingen, extrusie, verlichting en camera-instellingen bepalen het uiteindelijke uiterlijk.
+
+Het volgende voorbeeld gebruikt [ThreeDFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/) om ronde afscherpingen, oranje extrusie en een donkerrode omtrek toe te voegen aan de rechthoek. Afmetingen van de afscherpingen, extrusiehoogte, omtrekbreedte en diepte worden gemeten in punten. Een plastic materiaal, evenwichtige verlichting gedraaid met 40 graden rond de Z-as, en een perspectiefcamera bepalen het uiterlijk:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    auto_shape.text_frame.text = "Aspose.Slides"
+
+    auto_shape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    auto_shape.three_d_format.bevel_bottom.height = 10.5
+    auto_shape.three_d_format.bevel_bottom.width = 10.5
+
+    auto_shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    auto_shape.three_d_format.bevel_top.height = 12.5
+    auto_shape.three_d_format.bevel_top.width = 11
+
+    auto_shape.three_d_format.extrusion_color.color = draw.Color.orange
+    auto_shape.three_d_format.extrusion_height = 6
+
+    auto_shape.three_d_format.contour_color.color = draw.Color.dark_red
+    auto_shape.three_d_format.contour_width = 1.5
+
+    auto_shape.three_d_format.depth = 3
+
+    auto_shape.three_d_format.material = slides.MaterialPresetType.PLASTIC
+
+    auto_shape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    auto_shape.three_d_format.light_rig.set_rotation(0, 0, 40)
+
+    auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+```
+
+De resulterende vorm:
+
+![Het vorm-3D-effect](shape_3D_effect.png)
+
+Dit voorbeeld past een vergelijkbare 3D-opmaak toe op de tekst via [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/three_d_format/). Kleinere afscherpingen vormen de letterranden, terwijl extrusie en verlichting de tekst diepte geven:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 200)
+    text_frame = auto_shape.text_frame
+    text_frame.text = "Aspose.Slides"
+
+    text_frame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    text_frame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
+    text_frame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
+
+    text_frame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    text_frame.text_frame_format.three_d_format.bevel_top.height = 4
+    text_frame.text_frame_format.three_d_format.bevel_top.width = 4
+
+    text_frame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
+    text_frame.text_frame_format.three_d_format.extrusion_height = 6
+
+    text_frame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
+    text_frame.text_frame_format.three_d_format.contour_width = 1.5
+
+    text_frame.text_frame_format.three_d_format.depth = 3
+
+    text_frame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
+
+    text_frame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    text_frame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    text_frame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
+
+    text_frame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+```
+
+De resulterende tekst:
+
+![Het tekst-3D-effect](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+De toepassing van 3D-effecten op tekst of hun vormen—en de interactie tussen deze effecten—wordt beheerst door specifieke regels. Beschouw een scène waarin zowel tekst als de vorm die de tekst bevat aanwezig is. Een 3D-effect omvat de 3D-representatie van het object en de scène waarin het geplaatst is.
+
+- Als er voor zowel de vorm als de tekst een scène is ingesteld, heeft de scène van de vorm voorrang en wordt de scène van de tekst genegeerd.
+- Als de vorm geen eigen scène heeft maar wel een 3D-representatie, wordt de scène van de tekst gebruikt.
+- Als de vorm helemaal geen 3D-effect heeft, wordt deze als plat beschouwd en wordt het 3D-effect alleen op de tekst toegepast.
+
+Deze gedragingen hebben betrekking op de eigenschappen [ThreeDFormat.light_rig](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/light_rig/) en [ThreeDFormat.camera](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/camera/).
+{{% /alert %}}
+
+Om de tekst vlak en leesbaar te houden terwijl de 3D-opmaak van de vorm behouden blijft, zie [Keep Text Flat on a 3D Shape](/slides/nl/python-net/3d-presentation/) voor een vergelijking van beide instellingen en een volledig Python-voorbeeld.
 
 ## **FAQ**
 
-**Kan ik WordArt‑effecten gebruiken met verschillende lettertypen of scripts (bijv. Arabisch, Chinees)?**
+**Kan ik WordArt-effecten gebruiken met verschillende lettertypen of scripts (bijv. Arabisch, Chinees)?**
 
-Ja, Aspose.Slides ondersteunt Unicode en werkt met alle gangbare lettertypen en scripts. WordArt‑effecten zoals schaduw, vulling en omtrek kunnen worden toegepast ongeacht de taal, hoewel de beschikbaarheid van lettertypen en weergave afhankelijk kan zijn van de systeem‑lettertypen.
+Ja, Aspose.Slides for Python via .NET ondersteunt Unicode en werkt met alle belangrijke lettertypen en scripts. WordArt-effecten zoals schaduw, vulling en contour kunnen worden toegepast, ongeacht de taal, hoewel de beschikbaarheid van lettertypen en weergave kunnen afhangen van de systeemlettertypen.
 
-**Kan ik WordArt‑effecten toepassen op elementen van de slide‑master?**
+**Kan ik WordArt-effecten toepassen op elementen van de slide-master?**
 
-Ja, je kunt WordArt‑effecten toepassen op vormen op master‑dia’s, inclusief titel‑plaatsaanduidingen, voetteksten of achtergrondtekst. Wijzigingen in de master‑lay‑out worden doorgevoerd in alle bijbehorende dia’s.
+Ja, u kunt WordArt-effecten toepassen op vormen in de master-dia’s, inclusief titel-placeholder-objecten, voetteksten of achtergrondtekst. Wijzigingen in de master-lay-out worden doorgevoerd naar alle bijbehorende dia’s.
 
-**Beïnvloeden WordArt‑effecten de bestandsgrootte van de presentatie?**
+**Beïnvloeden WordArt-effecten de bestandsgrootte van de presentatie?**
 
-Een beetje. WordArt‑effecten zoals schaduwen, glows en gradient‑vullingen kunnen de bestandsgrootte iets verhogen door extra opmaak‑metadata, maar het verschil is doorgaans verwaarloosbaar.
+Licht. WordArt-effecten zoals schaduwen, gloed en verloopvullingen kunnen de bestandsgrootte een beetje doen toenemen door extra opmaakmetadata, maar het verschil is meestal verwaarloosbaar.
 
-**Kan ik het resultaat van WordArt‑effecten previewen zonder de presentatie op te slaan?**
+**Kan ik het resultaat van WordArt-effecten bekijken zonder de presentatie op te slaan?**
 
-Ja, je kunt dia’s met WordArt renderen naar afbeeldingen (bijv. PNG, JPEG) met de `get_image`‑methode van de [Shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/)‑ of [Slide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/)‑klassen. Hierdoor kun je het resultaat in‑memory of op het scherm bekijken voordat je de volledige presentatie opslaat of exporteert.
+Ja, u kunt dia’s met WordArt renderen naar afbeeldingen (bijv. PNG, JPEG) met behulp van [Slide.get_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/get_image/), of individuele vormen renderen met [Shape.get_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/get_image/). Hiermee kunt u het resultaat in het geheugen of op het scherm bekijken voordat u de volledige presentatie opslaat of exporteert.

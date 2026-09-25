@@ -9,395 +9,383 @@ keywords:
 - crear WordArt
 - plantilla WordArt
 - efecto WordArt
-- efecto sombra
-- efecto de visualización
-- efecto resplandor
+- efecto de sombra
+- efecto de reflejo
+- efecto de brillo
 - transformación WordArt
 - efecto 3D
-- efecto sombra externa
-- efecto sombra interna
-- PowerPoint
-- presentación
+- efecto de sombra externa
+- efecto de sombra interna
 - Java
 - Aspose.Slides
-description: "Crea y personaliza efectos WordArt en Aspose.Slides para Java. Esta guía paso a paso ayuda a los desarrolladores a mejorar presentaciones con texto profesional en Java."
+description: "Cree y personalice efectos WordArt en Aspose.Slides for Java. Esta guía paso a paso ayuda a los desarrolladores a mejorar presentaciones con texto profesional en Java."
 ---
+## **Visión general**
 
-## **¿Acerca de WordArt?**
-WordArt o Word Art es una característica que permite aplicar efectos a los textos para que destaquen. Con WordArt, por ejemplo, puedes contornear un texto o rellenarlo con un color (o degradado), añadirle efectos 3D, etc. También puedes sesgar, doblar y estirar la forma de un texto. 
+Los efectos de WordArt le permiten dar estilo al texto con rellenos, contornos, sombras, reflejos, brillo, transformaciones y formato 3D. Este artículo explica cómo crear y personalizar estos efectos en presentaciones de PowerPoint usando Aspose.Slides for Java, sin necesidad de tener Microsoft Office instalado.
 
-{{% alert color="primary" %}} 
-WordArt permite tratar un texto como si fuera un objeto gráfico. En general, WordArt consta de efectos o modificaciones especiales aplicadas a los textos para que resulten más atractivos o notorios. 
-{{% /alert %}} 
+## **Crear una plantilla WordArt sencilla y aplicarla al texto**
 
-**WordArt en Microsoft PowerPoint**
+Los siguientes ejemplos crean un estilo WordArt sencillo configurando el texto, la fuente, el relleno de patrón y el contorno.
 
-Para usar WordArt en Microsoft PowerPoint, debes seleccionar una de las plantillas de WordArt predefinidas. Una plantilla de WordArt es un conjunto de efectos que se aplican a un texto o a su forma. 
+Cada ejemplo crea una nueva presentación y añade un rectángulo a su primera diapositiva; no se necesita ningún archivo de entrada. El primer ejemplo establece el texto a "Aspose.Slides". La posición y las dimensiones de la forma se miden en puntos:
 
-**WordArt en Aspose.Slides**
+```java
+import com.aspose.slides.*;
 
-En Aspose.Slides para Java 20.10, implementamos soporte para WordArt y mejoramos la característica en versiones posteriores de Aspose.Slides para Java. 
-
-Con Aspose.Slides para Java, puedes crear fácilmente tu propia plantilla de WordArt (un efecto o una combinación de efectos) en Java y aplicarla a los textos. 
-
-## **Crear una plantilla de WordArt simple y aplicarla a un texto**
-
-**Usando Aspose.Slides** 
-
-Primero, creamos un texto sencillo con el siguiente código Java: 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    Portion portion = (Portion)textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Ahora, establecemos la altura de fuente del texto a un valor mayor para que el efecto sea más visible mediante este código:
-``` java 
-FontData fontData = new FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+Establezca la fuente a Arial Black a 36 puntos para que el formato sea más visible:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    presentation.dispose();
+}
 ```
 
+Aplicar un patrón [SmallGrid](https://reference.aspose.com/slides/es/java/com.aspose.slides/patternstyle/#SmallGrid) con un primer plano naranja oscuro y un fondo blanco, y luego añadir un contorno de texto negro con un ancho de 1 punto:
 
-**Usando Microsoft PowerPoint**
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Accede al menú de efectos WordArt en Microsoft PowerPoint:
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-![todo:image_alt_text](image-20200930113926-1.png)
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-Desde el menú de la derecha, puedes elegir un efecto de WordArt predefinido. Desde el menú de la izquierda, puedes especificar la configuración para un WordArt nuevo. 
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-Estos son algunos de los parámetros u opciones disponibles:
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+    Color darkOrange = new Color(255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
 
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Usando Aspose.Slides**
-
-Aquí, aplicamos el color de patrón [SmallGrid](https://reference.aspose.com/slides/java/com.aspose.slides/PatternStyle#SmallGrid) al texto y añadimos un contorno negro de ancho 1 mediante este código:
-``` java 
-portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid);
-
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+} finally {
+    presentation.dispose();
+}
 ```
-
 
 El texto resultante:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![La plantilla WordArt sencilla](WordArt_template.png)
 
-## **Aplicar otros efectos de WordArt**
+## **Aplicar otros efectos WordArt**
 
-**Usando Microsoft PowerPoint**
+Los siguientes ejemplos demuestran cómo aplicar sombras, reflejos, brillo, transformaciones y efectos 3D al texto.
 
-Desde la interfaz del programa, puedes aplicar estos efectos a un texto, bloque de texto, forma o elemento similar:
+### **Aplicar efectos de sombra externa**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Una sombra externa añade profundidad colocando una sombra detrás del texto. Puede personalizar su color, dirección, distancia, radio de desenfoque, escala y sesgo.
 
-Por ejemplo, los efectos Sombra, Reflexión y Resplandor pueden aplicarse a un texto; los efectos Formato 3D y Rotación 3D pueden aplicarse a un bloque de texto; la propiedad Bordes Suaves puede aplicarse a un Objeto Forma (todavía tiene efecto cuando no se establece la propiedad Formato 3D). 
+Este ejemplo llama a [enableOuterShadowEffect](https://reference.aspose.com/slides/es/java/com.aspose.slides/effectformat/#enableOuterShadowEffect--) y establece una sombra negra con un radio de desenfoque de 4 puntos, una dirección de 230 grados y una distancia de 30 puntos. Los valores de escala de 100 conservan el tamaño de la sombra, mientras que el sesgo horizontal la inclina 20 grados. La transformación alfa establece su opacidad al 32%:
 
-### **Aplicar efectos de sombra**
-
-En este caso, nos centramos en establecer propiedades solo para un texto. Aplicamos el efecto de sombra a un texto con este código en Java:
-``` java
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
-```
-
-
-La API de Aspose.Slides admite tres tipos de sombras: OuterShadow, InnerShadow y PresetShadow. 
-
-Con PresetShadow, puedes aplicar una sombra a un texto (usando valores predefinidos). 
-
-**Usando Microsoft PowerPoint**
-
-En PowerPoint, puedes usar un tipo de sombra. Aquí tienes un ejemplo:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Usando Aspose.Slides**
-
-Aspose.Slides permite aplicar dos tipos de sombras a la vez: InnerShadow y PresetShadow.
-
-**Notas:**
-
-- Cuando se utilizan OuterShadow y PresetShadow juntos, solo se aplica el efecto OuterShadow. 
-- Si se usan OuterShadow e InnerShadow simultáneamente, el efecto resultante o aplicado depende de la versión de PowerPoint. Por ejemplo, en PowerPoint 2013 el efecto se duplica. Pero en PowerPoint 2007 se aplica el efecto OuterShadow. 
-
-### **Aplicar contorno a los textos**
-
-Añadimos contorno al texto mediante este fragmento de código Java:
-``` java
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
-```
-
-
-### **Aplicar efecto de resplandor a los textos**
-
-Aplicamos el efecto de resplandor al texto para que brille o destaque con este código:
-``` java
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-
-El resultado de la operación:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-Puedes cambiar los parámetros de sombra, contorno y resplandor. Las propiedades de los efectos se establecen en cada porción del texto por separado. 
-{{% /alert %}} 
-
-### **Usar transformaciones en WordArt**
-
-Utilizamos la propiedad Transform (inherente a todo el bloque de texto) con este código:
-``` java 
-textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
-```
-
-
-El resultado:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-Tanto Microsoft PowerPoint como Aspose.Slides para Java ofrecen un número determinado de tipos de transformación predefinidos. 
-{{% /alert %}} 
-
-**Usando PowerPoint**
-
-Para acceder a los tipos de transformación predefinidos, ve a: **Formato** → **EfectoDeTexto** → **Transformar** 
-
-**Usando Aspose.Slides**
-
-Para seleccionar un tipo de transformación, usa la enumeración TextShapeType. 
-
-### **Aplicar efectos 3D a textos y formas**
-
-Establecemos un efecto 3D a una forma de texto con este ejemplo de código:
-``` java
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-
-autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-
-autoShape.getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-
-autoShape.getThreeDFormat().getContourColor().setColor(Color.RED);
-autoShape.getThreeDFormat().setContourWidth(1.5);
-
-autoShape.getThreeDFormat().setDepth(3);
-
-autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-El texto y su forma resultantes:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-Aplicamos un efecto 3D al texto con este código Java:
-``` java
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(Color.ORANGE);
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(Color.RED);
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-
-El resultado de la operación:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-La aplicación de efectos 3D a textos o a sus formas y la interacción entre efectos se rige por determinadas reglas. 
-
-Considera una escena para un texto y la forma que contiene ese texto. El efecto 3D incluye la representación del objeto 3D y la escena en la que se coloca el objeto. 
-
-- Cuando la escena está definida tanto para la figura como para el texto, la escena de la figura tiene mayor prioridad y la escena del texto se ignora. 
-- Cuando la figura no tiene su propia escena pero sí representación 3D, se usa la escena del texto. 
-- En caso contrario—cuando la forma originalmente no tiene efecto 3D—la forma permanece plana y el efecto 3D solo se aplica al texto. 
-
-Estas descripciones están vinculadas a los métodos ThreeDFormat.getLightRig() y ThreeDFormat.getCamera(). 
-{{% /alert %}} 
-
-## **Aplicar efectos de sombra externa a los textos**
-Aspose.Slides para Java proporciona las clases [**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/) y [**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/iinnershadow/) que permiten aplicar efectos de sombra a un texto contenido en un [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/). Sigue estos pasos:
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation). 
-2. Obtén la referencia de una diapositiva usando su índice. 
-3. Añade una AutoShape de tipo Rectángulo a la diapositiva. 
-4. Accede al TextFrame asociado a la AutoShape. 
-5. Establece el FillType de la AutoShape a NoFill. 
-6. Instancia la clase OuterShadow. 
-7. Define el BlurRadius de la sombra. 
-8. Define la Direction de la sombra. 
-9. Define la Distance de la sombra. 
-10. Establece el RectanglelAlign a TopLeft. 
-11. Establece el PresetColor de la sombra a Black. 
-12. Guarda la presentación como archivo [PPTX](https://docs.fileformat.com/presentation/pptx/). 
-
-Este código de ejemplo en Java—una implementación de los pasos anteriores—muestra cómo aplicar el efecto de sombra externa a un texto:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Obtén referencia de la diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Añade una AutoShape de tipo Rectángulo
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Añade TextFrame al Rectángulo
-    ashp.addTextFrame("Aspose TextBox");
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Desactiva el relleno de la forma en caso de que queramos obtener la sombra del texto
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // Añade sombra externa y establece todos los parámetros necesarios
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(PresetColor.Black);
-
-    // Guarda la presentación en disco
-    pres.save("pres_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+El texto resultante:
 
-## **Aplicar efecto de sombra interna a formas**
-Sigue estos pasos:
+![El efecto de sombra externa](outer_shadow_effect.png)
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation). 
-2. Obtén una referencia a la diapositiva. 
-3. Añade una AutoShape de tipo Rectángulo. 
-4. Habilita InnerShadowEffect. 
-5. Configura todos los parámetros necesarios. 
-6. Establece ColorType como Scheme. 
-7. Define el Scheme Color. 
-8. Guarda la presentación como archivo [PPTX](https://docs.fileformat.com/presentation/pptx/). 
+{{% alert color="info" title="Note" %}}
+- Cuando se usan juntas sombras externas y sombras predefinidas, solo se aplica la sombra externa.
+- Si se usan simultáneamente sombras externas e internas, el efecto resultante depende de la versión de PowerPoint. Por ejemplo, en PowerPoint 2013, el efecto se duplica, mientras que en PowerPoint 2007 solo se aplica la sombra externa.
+{{% /alert %}}
 
-Este código de ejemplo (basado en los pasos anteriores) muestra cómo añadir un conector entre dos formas en Java:
+### **Aplicar efectos de reflejo**
+
+Un reflejo crea una copia espejo del texto. Ajuste su posición, escala, desenfoque y opacidad para controlar su apariencia.
+
+Este ejemplo llama a [enableReflectionEffect](https://reference.aspose.com/slides/es/java/com.aspose.slides/effectformat/#enableReflectionEffect--) y voltea el reflejo verticalmente con una escala de -100 %. Utiliza un radio de desenfoque de 0,5 puntos y una distancia de 4,72 puntos. La opacidad disminuye del 60 % al 0,9 % entre las posiciones 0 % y 60 % a lo largo del reflejo:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Obtén referencia de la diapositiva
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Añade una AutoShape de tipo Rectángulo
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(FillType.NoFill);
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
 
-    // Añade TextFrame al Rectángulo
-    ashp.addTextFrame("Aspose TextBox");
-    IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormat pf = port.getPortionFormat();
-    pf.setFontHeight(50);
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 
-    // Habilita InnerShadowEffect
-    IEffectFormat ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-
-    // Establece todos los parámetros necesarios
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0F);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
-
-    // Establece ColorType como Scheme
-    ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
-
-    // Establece Scheme Color
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
-
-    // Guarda la presentación
-    pres.save("WordArt_out.pptx", SaveFormat.Pptx);
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+El texto resultante:
+
+![El efecto de reflejo](reflection_effect.png)
+
+### **Aplicar efectos de brillo**
+
+Un brillo añade un contorno suave y coloreado alrededor del texto. Ajuste su color, opacidad y radio para controlar el efecto.
+
+Este ejemplo llama a [enableGlowEffect](https://reference.aspose.com/slides/es/java/com.aspose.slides/effectformat/#enableGlowEffect--) y aplica un brillo rojo con una opacidad del 54 % y un radio de 7 puntos:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    IPortion portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    FontData font = new FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+El texto resultante:
+
+![El efecto de brillo](glow_effect.png)
+
+### **Aplicar transformaciones WordArt**
+
+Las transformaciones WordArt doblan, estiran o deforman un bloque de texto.
+
+Establezca [setTransform](https://reference.aspose.com/slides/es/java/com.aspose.slides/textframeformat/#setTransform-int-) a [ArchUpPour](https://reference.aspose.com/slides/es/java/com.aspose.slides/textshapetype/#ArchUpPour) para curvar todo el marco de texto hacia arriba:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
+} finally {
+    presentation.dispose();
+}
+```
+
+El texto resultante:
+
+![La transformación WordArt](transform_effect.png)
+
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Java proporciona un conjunto de [tipos de transformación](https://reference.aspose.com/slides/es/java/com.aspose.slides/textshapetype/) predefinidos.
+{{% /alert %}}
+
+### **Aplicar efectos 3D a formas y texto**
+
+Puede aplicar efectos 3D a una forma o a su texto. Los biseles, la extrusión, la iluminación y la configuración de la cámara controlan la apariencia resultante.
+
+El siguiente ejemplo usa [ThreeDFormat](https://reference.aspose.com/slides/es/java/com.aspose.slides/threedformat/) para añadir biseles circulares, extrusión naranja y un contorno rojo oscuro al rectángulo. Las dimensiones del bisel, la altura de la extrusión, el ancho y la profundidad del contorno se miden en puntos. Un material plástico, una iluminación equilibrada girada 40 grados alrededor del eje Z y una cámara en perspectiva definen su apariencia:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    Color orange = new Color(255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+La forma resultante:
+
+![El efecto 3D de la forma](shape_3D_effect.png)
+
+Este ejemplo aplica un formato 3D similar al texto mediante [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/es/java/com.aspose.slides/textframeformat/#getThreeDFormat--). Biseles más pequeños moldean los bordes de las letras, mientras que la extrusión y la iluminación le dan profundidad al texto:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    Color orange = new Color(255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    Color darkRed = new Color(139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+El texto resultante:
+
+![El efecto 3D del texto](text_3D_effect.png)
+
+{{% alert color="info" title="Note" %}}
+La aplicación de efectos 3D al texto o a sus formas —y la interacción entre estos efectos— está regida por reglas específicas. Considere una escena que involucre tanto el texto como la forma que lo contiene. Un efecto 3D incluye la representación 3D del objeto y la escena en la que se sitúa.
+
+- Si se establece una escena tanto para la forma como para el texto, la escena de la forma tiene prioridad y la escena del texto se ignora.
+- Si la forma no tiene su propia escena pero posee una representación 3D, se utiliza la escena del texto.
+- Si la forma no tiene ningún efecto 3D, se trata como plana y el efecto 3D se aplica solo al texto.
+
+Estos comportamientos se relacionan con los métodos [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/es/java/com.aspose.slides/threedformat/#getLightRig--) y [ThreeDFormat.getCamera](https://reference.aspose.com/slides/es/java/com.aspose.slides/threedformat/#getCamera--).
+{{% /alert %}}
+
+Para mantener el texto plano y legible mientras se conserva el formato 3D de su forma, consulte [Mantener el texto plano en una forma 3D](/slides/es/java/3d-presentation/) para una comparación de ambas configuraciones y un ejemplo Java completo.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo usar los efectos de WordArt con diferentes fuentes o scripts (p. ej., árabe, chino)?**
+**¿Puedo usar los efectos WordArt con diferentes fuentes o escrituras (p.ej., árabe, chino)?**
 
-Sí, Aspose.Slides admite Unicode y funciona con todas las fuentes y scripts principales. Los efectos de WordArt como sombra, relleno y contorno pueden aplicarse sin importar el idioma, aunque la disponibilidad de fuentes y el renderizado pueden depender de las fuentes del sistema.
+Sí, Aspose.Slides for Java admite Unicode y funciona con todas las fuentes y escrituras principales. Los efectos WordArt como sombra, relleno y contorno se pueden aplicar independientemente del idioma, aunque la disponibilidad de la fuente y el renderizado pueden depender de las fuentes del sistema.
 
-**¿Puedo aplicar efectos de WordArt a elementos del patrón de diapositivas?**
+**¿Puedo aplicar efectos WordArt a los elementos de la diapositiva maestra?**
 
-Sí, puedes aplicar efectos de WordArt a las formas de las diapositivas maestras, incluidos los marcadores de posición de título, pies de página o texto de fondo. Los cambios realizados en el patrón se reflejarán en todas las diapositivas asociadas.
+Sí, puede aplicar efectos WordArt a las formas en las diapositivas maestras, incluidos los marcadores de posición de título, pies de página o texto de fondo. Los cambios realizados en el diseño maestro se reflejarán en todas las diapositivas asociadas.
 
-**¿Los efectos de WordArt afectan al tamaño del archivo de la presentación?**
+**¿Los efectos WordArt afectan al tamaño del archivo de la presentación?**
 
-Ligeramente. Los efectos de WordArt como sombras, resplandores y rellenos degradados pueden incrementar ligeramente el tamaño del archivo debido a los metadatos de formato añadidos, pero la diferencia suele ser insignificante.
+Levemente. Los efectos WordArt como sombras, brillos y rellenos degradados pueden incrementar ligeramente el tamaño del archivo debido a los metadatos de formato añadidos, pero la diferencia suele ser insignificante.
 
-**¿Puedo previsualizar el resultado de los efectos de WordArt sin guardar la presentación?**
+**¿Puedo previsualizar el resultado de los efectos WordArt sin guardar la presentación?**
 
-Sí, puedes renderizar diapositivas que contengan WordArt a imágenes (p. ej., PNG, JPEG) usando el método `getImage` de las interfaces [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) o [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/). Esto te permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.
+Sí, puede renderizar diapositivas que contengan WordArt a imágenes (p. ej., PNG, JPEG) usando [ISlide.getImage](https://reference.aspose.com/slides/es/java/com.aspose.slides/islide/#getImage--), o renderizar formas individuales usando [IShape.getImage](https://reference.aspose.com/slides/es/java/com.aspose.slides/ishape/#getImage--). Esto le permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.

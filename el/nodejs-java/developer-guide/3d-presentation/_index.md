@@ -1,5 +1,5 @@
 ---
-title: Δημιουργία 3Δ εφέ σε παρουσιάσεις χρησιμοποιώντας Node.js
+title: Δημιουργία 3Δ εφέ σε παρουσιάσεις με χρήση Node.js
 linktitle: 3Δ Παρουσίαση
 type: docs
 weight: 232
@@ -17,59 +17,64 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Εφαρμόστε και αποδώστε 3Δ εφέ για σχήματα και κείμενο PowerPoint σε Node.js με Aspose.Slides. Διαμορφώστε κάμερα, φωτισμό, υλικό, εξώθηση, γεμίσματα και 3Δ κείμενο."
+description: "Εφαρμόστε και αποδώστε 3Δ εφέ για σχήματα και κείμενο PowerPoint σε Node.js με Aspose.Slides. Διαμορφώστε κάμερα, φωτισμό, υλικό, εξώθηση, γεμίσεις και 3Δ κείμενο."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides για Node.js μέσω Java μπορεί να δημιουργήσει, να επεξεργαστεί, να διατηρήσει και να αποδώσει μορφοποίηση 3Δ σε στυλ PowerPoint για σχήματα και κείμενο. Αυτό το άρθρο καλύπτει εφέ 3Δ όπως περιστροφή, εξώθηση, κλίκωση, φωτισμό, υλικό, γεμίσματα διαβάθμισης ή εικόνας και κείμενο 3Δ.
+Aspose.Slides for Node.js via Java can create, edit, preserve, and render PowerPoint-style 3D formatting for shapes and text. This article covers 3D effects such as rotation, extrusion, bevels, lighting, material, gradient or picture fills, and 3D text.
 
-{{% alert color="primary" %}}
-Αυτό το άρθρο αφορά εφέ μορφοποίησης 3Δ σε σχήματα και κείμενο PowerPoint. Δεν αφορά την εισαγωγή ή επεξεργασία ανεξάρτητων αρχείων μοντέλων 3Δ. Όταν εξάγετε μια διαφάνεια σε εικόνα, PDF ή HTML, το Aspose.Slides αποδίδει αυτά τα εφέ 3Δ στην εξαγόμενη 2Δ έξοδο.
+{{% alert color="info" title="Note" %}}
+Αυτό το άρθρο αφορά τα εφέ μορφοποίησης 3D σε σχήματα και κείμενο PowerPoint. Δεν αφορά την εισαγωγή ή επεξεργασία αυτόνομων αρχείων μοντέλων 3D. Όταν εξάγετε μια διαφάνεια σε εικόνα, PDF ή HTML, το Aspose.Slides αποδίδει αυτά τα εφέ 3D στην εξαχθείσα 2Δ έξοδο.
 {{% /alert %}}
 
-## **Αρχές Μορφοποίησης 3Δ**
+## **Έννοιες μορφοποίησης 3D**
 
-Χρησιμοποιήστε το [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/).`getThreeDFormat()` για να εφαρμόσετε μορφοποίηση 3Δ σε ένα σχήμα. Το επιστρεφόμενο αντικείμενο [ThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/) ελέγχει τη σκηνή 3Δ για εκείνο το σχήμα.
+Use the [Shape.getThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getThreeDFormat) method to apply 3D formatting to a shape. The method returns [ThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/), which controls the 3D scene for that shape.
 
-Για το κείμενο, χρησιμοποιήστε το [TextFrameFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/).`getThreeDFormat()`. Αυτό εφαρμόζει μορφοποίηση 3Δ στο πλαίσιο κειμένου αντί στο σώμα του σχήματος.
+For text, use the [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) method. This applies 3D formatting to the text frame instead of the shape body.
 
-Τα πιο σημαντικά μέλη του API είναι:
+The most important API members are:
 
 | Μέλος API | Τι ελέγχει | Πότε να το χρησιμοποιήσετε |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getCamera) | Οπτική γωνία, προκαθορισμένος τύπος κάμερας, περιστροφή, ζουμ και προοπτική. | Περιστρέψτε το αντικείμενο στο χώρο 3Δ ή ταιριάξτε με μια προκαθορισμένη περιστροφή 3Δ του PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getLightRig) | Προκαθορισμένο φως, κατεύθυνση και περιστροφή φωτός. | Αλλαγή του τρόπου με τον οποίο εμφανίζονται οι αντανακλάσεις και οι σκιές στην επιφάνεια 3Δ. |
-| [getMaterial](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setMaterial) | Υλικό επιφάνειας, όπως επίπεδο, ματ, πλαστικό ή μέταλλο. | Κάντε την ίδια γεωμετρία να φαίνεται πιο επίπεδη, μαλακότερη, γυαλιστερή ή μεταλλική. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Πόσο μακριά επεκτείνεται το σχήμα προς τα πίσω από την μπρούμυρη πλευρά του. | Μετατρέψτε ένα επίπεδο σχήμα σε ένα ορατά παχύ 3Δ αντικείμενο. |
-| [getExtrusionColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Χρώμα των εξωθημένων πλευρών. | Κάντε το βάθος εμφανές ή συντονίστε το χρώμα των πλευρών με τη γέμιση της μπροστινής πλευράς. |
-| [getDepth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setDepth) | Πρόσθετο βάθος 3Δ που χρησιμοποιείται από τη μορφοποίηση 3Δ του PowerPoint. | Ρυθμίστε με ακρίβεια το βάθος για σχήματα ή κείμενο, ιδίως σε συνδυασμό με ρυθμίσεις κλίκωσης και υλικού. |
-| [getBevelTop](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Ανασηκωμένα ή στρογγυλεμένα άκρα στις μπροστινές και πίσω πλευρές. | Προσθέστε ένα μαλακό ή καλυμμένο άκρο αντί για μια αιχμηρή επίπεδη πλευρά. |
-| [getContourColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getContourWidth), and [setContourWidth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Περίγραμμα γύρω από το αντικείμενο 3Δ. | Τονίστε το όριο του αντικειμένου στην αποτυπωμένη έξοδο. |
+| [getCamera](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getCamera) | Οπτικό σημείο, προεπιλεγμένος τύπος κάμερας, περιστροφή, ζουμ και προοπτική. | Περιστρέψτε το αντικείμενο στον τρισδιάστατο χώρο ή συσχετίστε το με προεπιλογή περιστροφής 3D του PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getLightRig) | Προεπιλογή φωτισμού, κατεύθυνση και περιστροφή φωτός. | Αλλάξτε τον τρόπο με τον οποίο εμφανίζονται οι ανταυγείες και οι σκιές στην 3Δ επιφάνεια. |
+| [getMaterial](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setMaterial) | Υλικό επιφάνειας, όπως επίπεδο, ματ, πλαστικό ή μέταλλο. | Κάντε την ίδια γεωμετρία να φαίνεται πιο επίπεδη, μαλακή, λαμπερή ή μεταλλική. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Πόσο μακριά το σχήμα εκτείνεται προς τα πίσω από την πρόσθια όψη. | Μετατρέψτε ένα επίπεδο σχήμα σε ένα ορατά παχύ 3Δ αντικείμενο. |
+| [getExtrusionColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Χρώμα των εξωθημένων πλευρών. | Κάντε το βάθος ορατό ή συντονίστε το χρώμα των πλευρών με τη γέμιση του προσώπου. |
+| [getDepth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setDepth) | Επιπλέον 3Δ βάθος που χρησιμοποιείται από τη μορφοποίηση 3D του PowerPoint. | Ρυθμίστε με ακρίβεια το βάθος για σχήματα ή κείμενο, ειδικά σε συνδυασμό με ρυθμίσεις κλίκας και υλικού. |
+| [getBevelTop](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Ανεβασμένα ή στρογγυλεμένα άκρα στην πρόσωψη και στην πίσω όψη. | Προσθέστε ένα μαλακό ή διαμορφωμένο άκρο αντί για μια αιχμηρή επίπεδη όψη. |
+| [getContourColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getContourWidth), and [setContourWidth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Περίγραμμα γύρω από το 3Δ αντικείμενο. | Τονίστε το σύνορο του αντικειμένου στην αποδοθείσα έξοδο. |
 
-## **Δημιουργία Σχήματος 3Δ**
+## **Δημιουργία 3Δ σχήματος**
 
-Ένα σχήμα συνήθως χρειάζεται τέσσερις τύπους ρυθμίσεων πριν φαίνεται πεπειστικά 3Δ:
+A shape usually needs four kinds of settings before it looks convincingly 3D:
 
-- Ρυθμίσεις κάμερας, επειδή η προεπιλεγμένη μπροστινή προβολή μπορεί να κρύψει την εξώθηση.
-- Ρυθμίσεις φωτισμού, επειδή ο φωτισμός κάνει τις πλευρές και τα πρόσωπα ευανάγνωστα.
-- Ρυθμίσεις υλικού, επειδή η επιφάνεια επηρεάζει τον τρόπο απόδοσης του φωτός.
+- Ρυθμίσεις κάμερας, επειδή η προεπιλεγμένη πρόσοψη μπορεί να κρύβει την εξώθηση.
+- Ρυθμίσεις φωτισμού, επειδή ο φωτισμός κάνει τις όψεις και τις πλευρές αναγνώσιμες.
+- Ρυθμίσεις υλικού, επειδή η επιφάνεια επηρεάζει την απόδοση του φωτός.
 - Ρυθμίσεις εξώθησης ή βάθους, επειδή ένα επίπεδο σχήμα χρειάζεται πάχος.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο, προσθέτει κείμενο στη μπροστινή του πλευρά, εφαρμόζει μορφοποίηση 3Δ, αποθηκεύει την παρουσίαση ως PPTX και αποδίδει τη διαφάνεια σε εικόνα PNG.
+The following example creates a rectangle, adds text to its front face, and applies 3D formatting. The camera rotation values are in degrees, and the extrusion height is 100 points. The example renders the slide to a PNG image at twice its default dimensions and saves the presentation as PPTX.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+
     shape.getTextFrame().setText("3D");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
-    const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(blueColor);
+    const fillColor = java.newInstanceSync("java.awt.Color", 100, 149, 237);
+    shape.getFillFormat().getSolidFillColor().setColor(fillColor);
 
     shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
@@ -77,7 +82,7 @@ try {
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
     shape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Flat);
     shape.getThreeDFormat().setExtrusionHeight(100);
-    shape.getThreeDFormat().getExtrusionColor().setColor(blueColor);
+    shape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
     const thumbnail = slide.getImage(imageScale, imageScale);
     try {
@@ -92,73 +97,104 @@ try {
 }
 ```
 
-Η αποδομένη εικόνα της διαφάνειας δείχνει το ορθογώνιο ως ένα παχύ 3Δ μπλοκ:
+The rendered slide image shows the rectangle as a thick 3D block:
 
-![Αποδομένο μπλε 3Δ ορθογώνιο με λευκό 3Δ κείμενο στη μπροστινή επιφάνεια](img_01_01.png)
+![Απόδοση μπλε 3Δ ορθογωνίου με λευκό 3Δ κείμενο στην πρόσθια όψη](img_01_01.png)
 
-## **Περιστροφή Σχήματος με την Κάμερα**
+## **Περιστροφή σχήματος με την κάμερα**
 
-Στο PowerPoint, η περιστροφή 3Δ ρυθμίζεται από το παράθυρο 3‑Δ Περιστροφή. Οι τιμές περιστροφής X, Y και Z αντιστοιχούν στην περιστροφή που ορίζετε μέσω του API της κάμερας.
+In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, and Z rotation values correspond to the rotation you set through the camera API.
 
-![Παράθυρο 3‑Δ Περιστροφή του PowerPoint με επισημασμένες τιμές περιστροφής X, Y και Z](img_02_01.png)
+![Πλαίσιο Περιστροφής 3‑Δ του PowerPoint με επισημασμένες τιμές X, Y και Z](img_02_01.png)
 
-Στο Aspose.Slides, ορίστε τον τύπο κάμερας και την περιστροφή μέσω της μορφοποίησης 3Δ που επιστρέφεται από `shape.getThreeDFormat()`:
+In Aspose.Slides, access the camera through [ThreeDFormat.getCamera](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getCamera). This example creates a rectangle, selects an orthographic front view, and sets its X, Y, and Z rotations to 20, 30, and 40 degrees, respectively. It configures the shape in memory without saving a file:
 
 ```javascript
-shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Χρησιμοποιήστε την κάμερα όταν χρειάζεται να αλλάξετε τον τρόπο που ο θεατής βλέπει το αντικείμενο. Δεν αλλάζει τη γεωμετρία 2Δ του σχήματος στη διαφάνεια. Αλλάζει την 3Δ οπτική γωνία που χρησιμοποιούν το PowerPoint και το Aspose.Slides κατά την απόδοση.
+Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
 
-## **Προσθήκη Εξώθησης και Βάθους**
+## **Προσθήκη εξώθησης και βάθους**
 
-Η εξώθηση κάνει ένα σχήμα να φαίνεται παχύ επεκτείνοντάς το πίσω από τη μπροστινή πλευρά. Στο PowerPoint, ο έλεγχος βάθους ορίζει αυτό το ορατό πάχος, και ο έλεγχος χρώματος ορίζει το χρώμα των πλευρικών επιφανειών.
+Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.
 
-![Έλεγχοι βάθους του PowerPoint χαρτογραφημένοι σε ιδιότητες χρώματος εξώθησης και ύψους εξώθησης](img_02_02.png)
+![Έλεγχοι βάθους του PowerPoint συνδεδεμένοι με ιδιότητες χρώματος και ύψους εξώθησης](img_02_02.png)
 
-Ορίστε το ύψος εξώθησης για το πάχος και το χρώμα εξώθησης για το χρώμα των πλευρών:
+Use [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) to set the thickness and [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) to access the side color. This example gives a rectangle a 100-point extrusion with purple sides and rotates the camera to reveal its thickness. It configures the shape in memory without saving a file:
 
 ```javascript
-const extrusionColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+
+    const extrusionColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
+
+    shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Χρησιμοποιήστε τη ρύθμιση βάθους όταν χρειάζεται να δουλέψετε απευθείας με την τιμή βάθους του PowerPoint ή να συνδυάσετε το βάθος με κλίκωση, υλικό και εφέ κειμένου. Σε πολλές περιπτώσεις σχήματος, το ύψος εξώθησης είναι η πιο σαφής ρύθμιση επειδή εκφράζει άμεσα την ορατή εξώθηση.
+The [ThreeDFormat.setDepth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setDepth) method sets the depth of a 3D shape. The [setExtrusionHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) method controls the height of the extrusion effect, as shown in this example.
 
-## **Χρήση Γεμισμάτων Διαβάθμισης ή Εικόνας με Εφέ 3Δ**
+## **Χρήση διαβάθμισης ή γεμίσεων εικόνας με εφέ 3D**
 
-Η μορφοποίηση 3Δ είναι ανεξάρτητη από το γέμισμα του σχήματος. Μπορείτε να εφαρμόσετε σταθερό χρώμα, διαβάθμιση, μοτίβο ή γέμισμα εικόνας στη μπροστινή πλευρά και να χρησιμοποιήσετε τις ίδιες ρυθμίσεις κάμερας, φωτισμού, υλικού και εξώθησης.
+3D formatting is independent of the shape fill. You can apply a solid color, gradient, pattern, or picture fill to the front face and still use the same camera, light, material, and extrusion settings.
 
-Αυτό το παράδειγμα εφαρμόζει γέμισμα διαβάθμισης στο σχήμα και πιο σκούρο χρώμα εξώθησης στις πλευρές:
+This example applies a blue-to-orange gradient to the front face and a dark orange color to the 150-point extrusion. The gradient stops at 0 and 100 mark the start and end of the gradient. The camera rotation values are in degrees. The slide is rendered to a PNG image at twice its default dimensions:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getTextFrame().setText("3D Gradient");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
-    const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
-    const orangeColor = java.getStaticFieldValue("java.awt.Color", "ORANGE");
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(0, blueColor);
+    shape.getFillFormat().getGradientFormat().getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    const orangeColor = java.newInstanceSync("java.awt.Color", 255, 165, 0);
     shape.getFillFormat().getGradientFormat().getGradientStops().add(100, orangeColor);
 
-    const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
     shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Flat);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
     shape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Flat);
+    const extrusionColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
     shape.getThreeDFormat().setExtrusionHeight(150);
-    shape.getThreeDFormat().getExtrusionColor().setColor(darkOrangeColor);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
 
     const thumbnail = slide.getImage(imageScale, imageScale);
     try {
@@ -171,56 +207,78 @@ try {
 }
 ```
 
-Η αποδομένη έξοδος διατηρεί τη διαβάθμιση στη μπροστινή πλευρά και αποδίδει την εξώθηση ξεχωριστά:
+The rendered output keeps the gradient on the front face and renders the extrusion separately:
 
-![Αποδομένο 3Δ ορθογώνιο με γέμισμα διαβάθμισης από μπλε σε πορτοκαλί και πορτοκαλί εξώθηση](img_02_03.png)
+![Απόδοση 3Δ ορθογωνίου με διαβάθμιση μπλε‑πορτοκαλί και πορτοκαλί εξώθηση](img_02_03.png)
 
-Για να χρησιμοποιήσετε γέμισμα εικόνας, προσθέστε την εικόνα στην παρουσίαση και αναθέστε τη στο γέμισμα του σχήματος:
+To use a picture fill instead, add the image to the presentation and assign it to the shape fill. This example requires an existing file named "image.jpg" in the working directory. It stretches the picture to fill the rectangle, applies a 150-point extrusion, and sets the camera rotation in degrees. It configures the shape in memory without saving or rendering a file:
 
 ```javascript
-const sourceImage = aspose.slides.Images.fromFile("image.jpg");
-let presentationImage;
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    presentationImage = presentation.getImages().addImage(sourceImage);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
+
+    const sourceImage = aspose.slides.Images.fromFile("image.jpg");
+    let image;
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+
+    const extrusionColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
 } finally {
-    sourceImage.dispose();
+    presentation.dispose();
 }
-
-shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(presentationImage);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-
-const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(darkOrangeColor);
 ```
 
-![Αποδομένο 3Δ ορθογώνιο με γέμισμα φωτογραφίας στη μπροστινή πλευρά και πορτοκαλί εξώθηση](img_02_04.png)
+The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:
 
-## **Εφαρμογή Μορφοποίησης 3Δ σε Κείμενο**
+![Απόδοση 3Δ ορθογωνίου με γέμιση φωτογραφίας στην πρόσθια όψη και πορτοκαλί εξώθηση](img_02_04.png)
 
-Η μορφοποίηση 3Δ του σχήματος επηρεάζει το σώμα του σχήματος. Η μορφοποίηση 3Δ του κειμένου επηρεάζει το πλαίσιο κειμένου. Αυτό είναι χρήσιμο για εφέ τύπου WordArt όπου τα γράμματα απαιτούν εξώθηση, υλικό, φωτισμό και ρυθμίσεις κάμερας.
+## **Εφαρμογή μορφοποίησης 3D σε κείμενο**
 
-Το παρακάτω παράδειγμα δημιουργεί κείμενο με γέμισμα μοτίβου, εφαρμόζει μετασχηματισμό WordArt και διαμορφώνει τις ρυθμίσεις 3Δ στο [TextFrameFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/):
+Shape 3D formatting affects the shape body. Text 3D formatting affects the text frame. This is useful for WordArt-like effects where the letters themselves need extrusion, material, lighting, and camera settings.
+
+The following example creates text with an orange-and-white grid pattern, applies an upward arch, and configures 3D settings through [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). The extrusion height and depth are in points, and the light rotation is in degrees. The shape fill and outline are hidden so that only the text is visible. The example renders a PNG image at twice the default slide dimensions and saves the presentation as PPTX:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
+
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     shape.getTextFrame().setText("3D Text");
 
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-    const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
-    const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrangeColor);
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(whiteColor);
+    const patternColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(patternColor);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
     portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.LargeGrid));
 
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
@@ -248,41 +306,98 @@ try {
 }
 ```
 
-![Αποδομένο 3Δ κείμενο με κυρτό μετασχηματισμό WordArt, πορτοκαλί γέμισμα μοτίβου και σκούρα εξώθηση](img_02_05.png)
+The text is rendered as curved, extruded 3D lettering:
 
-## **Συμπεριφορά Εξαγωγής και Απόδοσης**
+![Απόδοση 3Δ κειμένου με κυρτό WordArt, γέμιση με πορτοκαλί μοτίβο και σκούρα εξώθηση](img_02_05.png)
 
-Το Aspose.Slides διατηρεί τη μορφοποίηση 3Δ κατά την αποθήκευση σε μορφές PowerPoint όπως το PPTX. Κατά την απόδοση ή εξαγωγή σε μορφές σταθερού layout, η σκηνή 3Δ μετατρέπεται σε raster ή σχεδιάζεται στην έξοδο ως αποτέλεσμα 2Δ. Αυτό ισχύει όταν αποδίδετε διαφάνειες σε [PNG](/slides/el/nodejs-java/convert-powerpoint-to-png/), εξάγετε σε [PDF](/slides/el/nodejs-java/convert-powerpoint-to-pdf/), εξάγετε σε [HTML](/slides/el/nodejs-java/convert-powerpoint-to-html/), ή δημιουργείτε πλαίσια για [μετατροπή βίντεο](/slides/el/nodejs-java/convert-powerpoint-to-video/).
+## **Διατήρηση κειμένου επίπεδου σε 3Δ σχήμα**
 
-Διατηρήστε τα παρακάτω σημεία στο μυαλό σας:
+To keep text readable while preserving a shape's 3D appearance, call [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) through [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getTextFrameFormat). When the value is `true`, the text stays out of the 3D scene. When it is `false`, the text participates in the scene and follows its 3D orientation.
 
-- Οι εικόνες και τα PDFs που εξάγονται δεν είναι διαδραστικά. Το αντικείμενο δεν μπορεί να περιστραφεί από τον θεατή μετά την εξαγωγή.
-- Η τελική εμφάνιση εξαρτάται από τον συνδυασμό κάμερας, φωτιστικού, υλικού, εξώθησης, γεμίσματος και κλιμάκωσης διαφάνειας.
-- Εάν χρειάζεται να ελέγξετε κληρονομημένες ή θεματικές τιμές μορφοποίησης, διαβάστε τις [αποτελεσματικές ιδιότητες σχήματος](/slides/el/nodejs-java/shape-effective-properties/).
-- Ορισμένες μορφές εξόδου δεν μπορούν να αποθηκεύσουν επεξεργάσιμη μορφοποίηση 3Δ του PowerPoint. Σε αυτές τις μορφές, το οπτικό αποτέλεσμα αποδίδεται αντί να διατηρείται ως επεξεργάσιμες ρυθμίσεις 3Δ.
+This setting does not remove the shape's 3D formatting: its camera, lighting, material, and extrusion remain configured through [Shape.getThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getThreeDFormat). It is also different from ordinary rotation. [Shape.setRotation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#setRotation) rotates the shape in the slide plane, while [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) controls the text's custom rotation within its bounding box. Keeping text out of the 3D scene does not reset either of those angles.
+
+The following self-contained example creates a blue rectangle with text and clones it beside the original. Both shapes have the same 3D formatting; only the text setting differs: `false` on the left and `true` on the right. The camera angles are in degrees, and the extrusion height is 40 points. The example saves the presentation as PPTX and renders the comparison slide to PNG at twice its default dimensions.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 70, 160, 240, 140);
+
+    shape.getTextFrame().setText("Readable text");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().setAlignment(java.newByte(aspose.slides.TextAlignment.Center));
+    shape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Center));
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 100, 149, 237);
+    shape.getFillFormat().getSolidFillColor().setColor(fillColor);
+
+    shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(30, 30, 0);
+    shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Flat);
+    shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    shape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Flat);
+    shape.getThreeDFormat().setExtrusionHeight(40);
+    const extrusionColor = java.newInstanceSync("java.awt.Color", 65, 105, 225);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+    shape.getTextFrame().getTextFrameFormat().setKeepTextFlat(false);
+
+    const flatTextShape = slide.getShapes().addClone(shape, 400, 160);
+    flatTextShape.getTextFrame().getTextFrameFormat().setKeepTextFlat(true);
+
+    presentation.save("keep_text_flat.pptx", aspose.slides.SaveFormat.Pptx);
+    const image = slide.getImage(2, 2);
+    try {
+        image.save("keep_text_flat.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+On the left, the text follows the 3D orientation. On the right, it stays flat and easier to read. Both rectangles retain the same visible extrusion and 3D orientation.
+
+![Δύο πλάγιες 3Δ ορθογώνιες: το κείμενο ακολουθεί την 3Δ προσανατολισμό στα αριστερά και παραμένει επίπεδο στα δεξιά](keep_text_flat.png)
+
+## **Συμπεριφορά εξαγωγής και απόδοσης**
+
+Aspose.Slides preserves 3D formatting when saving to PowerPoint formats such as PPTX. When rendering or exporting to fixed-layout formats, the 3D scene is rasterized or drawn into the output as a 2D result. This applies when you render slides to [PNG](/slides/el/nodejs-java/convert-powerpoint-to-png/), export to [PDF](/slides/el/nodejs-java/convert-powerpoint-to-pdf/), export to [HTML](/slides/el/nodejs-java/convert-powerpoint-to-html/), or generate frames for [video conversion](/slides/el/nodejs-java/convert-powerpoint-to-video/).
+
+Keep these points in mind:
+
+- Exported images and PDFs are not interactive. The object cannot be rotated by the viewer after export.
+- The final appearance depends on the combination of camera, light rig, material, extrusion, fill, and slide scaling.
+- If you need to inspect inherited or theme-based formatting values, read the [effective shape properties](/slides/el/nodejs-java/shape-effective-properties/).
+- Some output formats cannot store editable PowerPoint 3D formatting. In those formats, the visual result is rendered rather than preserved as editable 3D settings.
 
 ## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Μπορεί το Aspose.Slides να δημιουργήσει διαδραστικές 3Δ παρουσιάσεις;**
+**Μπορεί το Aspose.Slides να δημιουργήσει διαδραστικές 3D παρουσιάσεις;**
 
-Το Aspose.Slides δημιουργεί και αποδίδει εφέ 3Δ του PowerPoint για σχήματα και κείμενο. Δεν καθιστά τις εξαγόμενες εικόνες, PDFs ή σελίδες HTML διαδραστικές σκηνές 3Δ που ένας θεατής μπορεί να περιστρέψει. Σε PPTX, η μορφοποίηση 3Δ παραμένει επεξεργάσιμη στο PowerPoint όπου η μορφή την υποστηρίζει.
+Aspose.Slides creates and renders PowerPoint 3D effects for shapes and text. It does not make exported images, PDFs, or HTML pages interactive 3D scenes that a viewer can rotate. In PPTX, the 3D formatting remains editable in PowerPoint where the format supports it.
 
-**Ποια είναι η διαφορά μεταξύ μοντέλου 3Δ και εφέ 3Δ;**
+**Ποια είναι η διαφορά μεταξύ ενός 3D μοντέλου και ενός 3D εφέ;**
 
-Ένα μοντέλο 3Δ είναι ένα ξεχωριστό αντικείμενο 3Δ που εισάγεται σε μια παρουσίαση. Ένα εφέ 3Δ είναι μορφοποίηση που εφαρμόζεται σε ένα κανονικό σχήμα ή κείμενο του PowerPoint, όπως περιστροφή, εξώθηση, κλίκωση, φωτισμός και υλικό. Αυτό το άρθρο καλύπτει εφέ 3Δ.
+A 3D model is a separate 3D object inserted into a presentation. A 3D effect is formatting applied to a regular PowerPoint shape or text, such as rotation, extrusion, bevel, lighting, and material. This article covers 3D effects.
 
-**Ποιες ρυθμίσεις απαιτούνται για ένα ορατό σχήμα 3Δ;**
+**Ποιες ρυθμίσεις απαιτούνται για ένα ορατό 3D σχήμα;**
 
-Ελάχιστο, ορίστε περιστροφή κάμερας και είτε εξώθηση είτε βάθος. Στην πράξη, ορίστε επίσης φωτιστικό και υλικό ώστε οι αποδομένες πλευρές να έχουν σαφείς αντανακλάσεις και σκιές.
+At minimum, set a camera rotation and either extrusion or depth. In practice, also set a light rig and material so the rendered faces have clear highlights and shadows.
 
-**Μπορώ να εφαρμόσω εφέ 3Δ τόσο σε σχήματα όσο και σε κείμενο;**
+**Μπορώ να εφαρμόσω 3D εφέ σε σχήματα και κείμενο;**
 
-Ναι. Χρησιμοποιήστε το [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/).`getThreeDFormat()` για το σώμα του σχήματος και το [TextFrameFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/).`getThreeDFormat()` για το κείμενο.
+Yes. Use [Shape.getThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getThreeDFormat) for the shape body and [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) for text.
 
-**Θα εμφανιστούν τα εφέ 3Δ κατά την εξαγωγή σε εικόνες, PDF, HTML ή πλαίσια βίντεο;**
+**Θα εμφανιστούν τα 3D εφέ κατά την εξαγωγή σε εικόνες, PDF, HTML ή πλαίσια βίντεο;**
 
-Ναι. Το Aspose.Slides αποδίδει εφέ 3Δ όταν παράγει εικόνες διαφανειών, έξοδο PDF, έξοδο HTML και πλαίσια που χρησιμοποιούνται για μετατροπή βίντεο. Η εξαγόμενη έξοδος περιέχει την αποδομένη εμφάνιση, όχι ένα επεξεργάσιμο αντικείμενο 3Δ.
+Yes. Aspose.Slides renders 3D effects when producing slide images, PDF output, HTML output, and frames used for video conversion. The exported output contains the rendered appearance, not an editable 3D object.
 
-**Μπορώ να διαβάσω τις τελικές τιμές 3Δ μετά την εφαρμογή κληρονομικών και θεματικών ρυθμίσεων;**
+**Μπορώ να διαβάσω τις τελικές 3D τιμές μετά την εφαρμογή κληρονομικών και θεματικών ρυθμίσεων;**
 
-Ναι. Χρησιμοποιήστε τα APIs αποτελεσματικής μορφοποίησης που περιγράφονται στο [Αποτελεσματικές Ιδιότητες Σχήματος](/slides/el/nodejs-java/shape-effective-properties/) για να διαβάσετε τις τελικές τιμές κάμερας, φωτιστικού, κλίκωσης και σχετικές τιμές 3Δ.
+Yes. Use the effective formatting APIs described in [Shape Effective Properties](/slides/el/nodejs-java/shape-effective-properties/) to read final camera, light rig, bevel, and related 3D values.

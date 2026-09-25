@@ -10,247 +10,336 @@ keywords:
 - WordArt 模板
 - WordArt 效果
 - 阴影效果
-- 显示效果
-- 发光效果
-- WordArt 变换
+- 反射效果
+- 辉光效果
+- WordArt 变形
 - 3D 效果
 - 外部阴影效果
 - 内部阴影效果
 - .NET
 - C#
 - Aspose.Slides
-description: "在 Aspose.Slides for .NET 中创建和自定义 WordArt 效果。此分步指南帮助开发人员使用 C# 在演示文稿中添加专业文本。"
+description: "在 Aspose.Slides for .NET 中创建和自定义 WordArt 效果。此分步指南帮助开发者使用 C# 为演示文稿添加专业文本。"
 ---
-
 ## **概述**
 
-WordArt 效果可让您在 PowerPoint 演示文稿中添加视觉上吸引人、样式化的文字。使用 Aspose.Slides for .NET，开发人员可以像在 Microsoft PowerPoint 中一样以编程方式创建、定制和管理 WordArt——无需安装 Office。本文概述了在 .NET 中使用 WordArt 的方法，包括如何应用文字变换、填充样式、轮廓、阴影以及其他格式化选项，使您的演示内容更具表现力和吸引力。WordArt 允许您将文字视为图形对象。它由对文字应用的效果或特殊修改组成，使文字更具吸引力或突出。
+WordArt 效果可让您使用填充、描边、阴影、反射、辉光、变形和 3D 格式化来美化文本。本文介绍如何使用 Aspose.Slides for .NET 在未安装 Microsoft Office 的情况下，在 PowerPoint 演示文稿中创建和自定义这些效果。
 
-## **创建简单的 WordArt 模板并将其应用于文字**
+## **创建简单的WordArt模板并将其应用于文本**
 
-在本节中，我们将探讨如何使用 Aspose.Slides for .NET 创建简单的 WordArt 模板并将其应用于文字。WordArt 提供了一种简便的方法，通过醒目的视觉效果和样式来增强文字外观。通过学习创建和使用 WordArt 的基本步骤，您可以轻松将这些技术适用于任何项目，使演示更生动、更令人难忘。
+以下示例通过设置文本、字体、图案填充和描边来构建一个简单的 WordArt 样式。
 
-首先，我们使用以下 C# 代码创建简单文字：
+每个示例都会创建一个新演示文稿并在其第一张幻灯片上添加一个矩形；无需输入文件。第一个示例将文本设置为 “Aspose.Slides”。形状的位置和尺寸以点为单位：
+
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
 
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IPortion portion = textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+
+var portion = textFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
 ```
 
+将字体设置为 36 点的 Arial Black，以便更明显地显示格式：
 
-现在，使用以下代码将文字的字体高度设置为更大值，以使效果更明显：
 ```cs
-    portion.PortionFormat.LatinFont = new FontData("Arial Black");
-    portion.PortionFormat.FontHeight = 36;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
 ```
 
+应用 [SmallGrid](https://reference.aspose.com/slides/zh/net/aspose.slides/patternstyle/) 图案，前景为深橙色、背景为白色，然后添加宽度为 1 点的黑色文本描边：
 
-在这里，我们使用以下代码将 SmallGrid 图案填充应用于文字，并添加宽度为 1 的黑色文字边框：
 ```cs
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
-    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+
+portion.PortionFormat.LineFormat.Width = 1;
+portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
 ```
 
+生成的文本：
 
-生成的文字：
+![简易WordArt模板](WordArt_template.png)
 
-![简单的 WordArt 模板](WordArt_template.png)
+## **应用其他WordArt效果**
 
-## **应用其他 WordArt 效果**
-
-除了基本变换外，Aspose.Slides for .NET 还允许您应用各种高级 WordArt 效果，以提升文字外观。这些包括轮廓、填充、阴影、反射和发光效果。通过组合这些功能，您可以创建在演示中脱颖而出的吸睛文字样式。本节演示如何使用简洁的代码示例以编程方式应用这些效果。
+以下示例演示如何对文本应用阴影、反射、辉光、变形和 3D 效果。
 
 ### **应用外部阴影效果**
 
-外部阴影效果通过在文字轮廓后添加阴影，使文字更突出，营造出深度感并将其与背景区分开来。Aspose.Slides for .NET 让您可以轻松在 WordArt 文字上应用和定制外部阴影。在本节中，您将学习如何设置阴影颜色、方向、距离、模糊半径等，以实现所需的视觉冲击。
+外部阴影通过在文本后方放置阴影来增加深度。您可以自定义其颜色、方向、距离、模糊半径、比例和倾斜。
 
-以下 C# 代码片段将阴影效果应用于上述创建的文字。
+此示例调用 [EnableOuterShadowEffect](https://reference.aspose.com/slides/zh/net/aspose.slides/effectformat/enableoutershadoweffect/) 并设置黑色阴影，模糊半径为 4 点，方向为 230 度，距离为 30 点。比例值为 100 可保持阴影大小，水平倾斜将其倾斜 20 度。Alpha 变换将不透明度设置为 32%：
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
-
-生成的文字：
+生成的文本：
 
 ![外部阴影效果](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
-- 当同时使用 OuterShadow 和 PresetShadow 时，仅应用 OuterShadow 效果。
-- 如果同时使用 OuterShadow 和 InnerShadow，最终效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中效果会叠加，而在 PowerPoint 2007 中仅应用 OuterShadow 效果。
+{{% alert color="info" title="Note" %}}
+- 同时使用外部阴影和预设阴影时，仅应用外部阴影。
+- 同时使用外部阴影和内部阴影时，效果取决于 PowerPoint 版本。例如，在 PowerPoint 2013 中，效果会加倍；而在 PowerPoint 2007 中，仅应用外部阴影。
 {{% /alert %}}
 
 ### **应用反射效果**
 
-在本节中，我们将探讨如何使用 Aspose.Slides for .NET 在幻灯片中应用反射效果。反射效果是一种为文字或形状赋予时尚现代外观的有效方式，帮助关键元素突出并为演示增添深度。通过了解应用和定制这些效果的过程，您可以轻松将其调整以符合设计需求和品牌要求。
+反射会创建文本的镜像副本。通过调整位置、比例、模糊和不透明度来控制其外观。
 
-使用以下 C# 示例代码为文字添加反射效果：
+此示例调用 [EnableReflectionEffect](https://reference.aspose.com/slides/zh/net/aspose.slides/effectformat/enablereflectioneffect/) 并将反射垂直翻转，比例为 -100%。使用 0.5 点的模糊半径和 4.72 点的距离。不透明度在反射沿着位置 0% 到 60% 之间从 60% 下降到 0.9%：
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
 ```
 
-
-生成的文字：
+生成的文本：
 
 ![反射效果](reflection_effect.png)
 
-### **应用发光效果**
+### **应用辉光效果**
 
-在本节中，我们将探讨如何使用 Aspose.Slides for .NET 为文字应用发光效果。发光效果可以通过发光轮廓使文字更突出，提升幻灯片的视觉吸引力。通过调整颜色和强度等设置，您可以轻松将发光效果定制为符合设计和品牌需求，确保演示中的关键点捕获观众注意力。
+辉光在文本周围添加柔和的彩色轮廓。通过调整颜色、不透明度和半径来控制效果。
 
-使用以下代码为文字应用发光效果，使其闪耀或突出：
+此示例调用 [EnableGlowEffect](https://reference.aspose.com/slides/zh/net/aspose.slides/effectformat/enablegloweffect/) 并应用红色辉光，透明度为 54%，半径为 7 点：
+
 ```cs
-    portion.PortionFormat.EffectFormat.EnableGlowEffect();
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+portion.Text = "Aspose.Slides";
+portion.PortionFormat.LatinFont = new FontData("Arial Black");
+portion.PortionFormat.FontHeight = 36;
+
+portion.PortionFormat.EffectFormat.EnableGlowEffect();
+portion.PortionFormat.EffectFormat.GlowEffect.Color.Color = System.Drawing.Color.Red;
+portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
 ```
 
+生成的文本：
 
-生成的文字：
+![辉光效果](glow_effect.png)
 
-![发光效果](glow_effect.png)
+### **应用WordArt变形**
 
-### **应用 WordArt 变换**
+WordArt 变形可以弯曲、拉伸或扭曲一段文本。
 
-在本节中，我们将探讨如何使用 Aspose.Slides for .NET 在 WordArt 中使用变换。变换允许您弯曲、拉伸或扭曲文字，创造独特且视觉冲击力强的效果。掌握这些技术后，您可以轻松将文字形状和样式定制为符合品牌或创意愿景，确保呈现出引人入胜且精致的演示。
+将 [Transform](https://reference.aspose.com/slides/zh/net/aspose.slides/textframeformat/transform/) 设置为 [ArchUpPour](https://reference.aspose.com/slides/zh/net/aspose.slides/textshapetype/) 可使整个文本框向上弧形：
 
-使用以下代码通过 `Transform` 属性（适用于整段文字）进行变换：
 ```cs
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
+textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
 ```
 
+生成的文本：
 
-生成的文字：
+![WordArt变形](transform_effect.png)
 
-![WordArt 变换效果](transform_effect.png)
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for .NET 提供了一组预定义的 [变形类型](https://reference.aspose.com/slides/zh/net/aspose.slides/textshapetype/)。
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
-Aspose.Slides for .NET 提供了一套预定义的[变换类型](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/)。
-{{% /alert %}} 
+### **对形状和文本应用3D效果**
 
-### **对形状和文字应用 3D 效果**
+您可以对形状或其文本应用 3D 效果。斜角、挤压、光照和摄像机设置决定最终外观。
 
-创建逼真且引人注目的视觉效果可以显著提升演示的冲击力。在本节中，我们将探讨如何使用 Aspose.Slides for .NET 对形状应用三维（3D）效果。通过操作深度、角度和光照等参数，您可以生成令人印象深刻的 3D 变换，立即抓住观众的注意力。无论是微妙的高光还是戏剧性的幻象，这些功能都提供了灵活的方式来提升设计，并以更具吸引力的方式传达理念。
+下面的示例使用 [ThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/threedformat/) 为矩形添加圆形斜角、橙色挤压和深红色轮廓。斜角尺寸、挤压高度、轮廓宽度和深度均以点为单位。使用塑料材质、围绕 Z 轴旋转 40 度的平衡光照以及透视摄像机来定义外观：
 
-使用以下示例代码为形状设置 3D 效果：
 ```cs
-    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-    autoShape.ThreeDFormat.BevelTop.Width = 11;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    autoShape.ThreeDFormat.ExtrusionHeight = 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+autoShape.TextFrame.Text = "Aspose.Slides";
 
-    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    autoShape.ThreeDFormat.ContourWidth = 1.5;
+autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-    autoShape.ThreeDFormat.Depth = 3;
+autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+autoShape.ThreeDFormat.Depth = 3;
+
+autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
-
 
 生成的形状：
 
-![形状 3D 效果](shape_3D_effect.png)
+![形状3D效果](shape_3D_effect.png)
 
-使用以下示例代码为文字设置 3D 效果：
+此示例通过 [TextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/textframeformat/threedformat/) 对文本应用类似的 3D 格式。较小的斜角塑造字母边缘，而挤压和光照则为文本提供深度：
+
 ```cs
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+using System.Drawing;
+using Aspose.Slides;
 
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+var textFrame = autoShape.TextFrame;
+textFrame.Text = "Aspose.Slides";
 
-    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
 
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
+
+textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
+生成的文本：
 
-生成的文字：
+![文本3D效果](text_3D_effect.png)
 
-![文字 3D 效果](text_3D_effect.png)
+{{% alert color="info" title="Note" %}}
+将 3D 效果应用于文本或其形状以及这些效果之间的交互受特定规则约束。考虑包含文本的形状场景时，3D 效果包括对象的 3D 表示以及其所在的场景。
 
-{{% alert color="primary" %}} 
-对文字或其所在形状应用 3D 效果——以及这些效果之间的交互——遵循特定规则。考虑一个同时涉及文字和包含该文字的形状的场景。3D 效果包括对象的 3D 表现以及放置该对象的场景。
+- 如果形状和文本都设置了场景，则以形状的场景为主，文本的场景被忽略。
+- 如果形状没有自己的场景但有 3D 表示，则使用文本的场景。
+- 如果形状根本没有 3D 效果，则视为平面，仅对文本应用 3D 效果。
 
-- 如果对形状和文字都设置了场景，则以形状的场景为优先，文字的场景将被忽略。
-- 如果形状没有自己的场景但具有 3D 表现，则使用文字的场景。
-- 如果形状根本没有 3D 效果，则视为平面，仅对文字应用 3D 效果。
+这些行为与 [ThreeDFormat.LightRig](https://reference.aspose.com/slides/zh/net/aspose.slides/threedformat/lightrig/) 和 [ThreeDFormat.Camera](https://reference.aspose.com/slides/zh/net/aspose.slides/threedformat/camera/) 属性有关。
+{{% /alert %}}
 
-这些行为与[ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/lightrig/)和[ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/camera/)属性有关。
-{{% /alert %}} 
+若希望在保持形状的 3D 格式的同时让文本保持平坦可读，请参阅 [Keep Text Flat on a 3D Shape](/slides/zh/net/3d-presentation/)，了解两种设置的对比以及完整的 C# 示例。
 
 ## **常见问题**
 
-**我可以在不同字体或文字系统（如阿拉伯语、中文）中使用 WordArt 效果吗？**
+**我可以在不同字体或脚本（例如阿拉伯语、中文）中使用 WordArt 效果吗？**
 
-可以，Aspose.Slides for .NET 支持 Unicode，并适用于所有主流字体和文字系统。无论语言如何，都可以应用阴影、填充和轮廓等 WordArt 效果，尽管字体可用性和渲染可能取决于系统字体。
+是的，Aspose.Slides for .NET 支持 Unicode，适用于所有主流字体和脚本。阴影、填充和描边等 WordArt 效果可在任何语言下应用，尽管字体的可用性和渲染可能取决于系统字体。
 
 **我可以将 WordArt 效果应用于母版幻灯片元素吗？**
 
-可以，您可以对母版幻灯片上的形状（包括标题占位符、页脚或背景文字）应用 WordArt 效果。对母版布局的更改将会反映到所有关联的幻灯片中。
+可以，您可以对母版幻灯片上的形状（包括标题占位符、页脚或背景文本）应用 WordArt 效果。对母版布局的更改会反映到所有关联的幻灯片中。
 
 **WordArt 效果会影响演示文稿的文件大小吗？**
 
-会有轻微影响。阴影、发光和渐变填充等 WordArt 效果可能会因附加的格式元数据略微增加文件大小，但差异通常可以忽略不计。
+会略有影响。阴影、辉光和渐变填充等 WordArt 效果会因为额外的格式化元数据而稍微增大文件大小，但差异通常可以忽略不计。
 
-**我能在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
+**我可以在不保存演示文稿的情况下预览 WordArt 效果的结果吗？**
 
-可以，您可以使用 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) 或 [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) 接口的 `GetImage` 方法将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），从而在内存或屏幕上预览效果，而无需保存或导出完整的演示文稿。
+可以，您可以使用 [ISlide.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/islide/getimage/) 将包含 WordArt 的幻灯片渲染为图像（如 PNG、JPEG），或使用 [IShape.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/getimage/) 单独渲染形状。这使您能够在内存中或屏幕上预览效果，而无需保存或导出完整的演示文稿。

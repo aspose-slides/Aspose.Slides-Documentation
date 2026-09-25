@@ -1,5 +1,5 @@
 ---
-title: JavaScript'te WordArt Efektleri Oluşturma ve Uygulama
+title: Node.js'te WordArt Efektleri Oluşturma ve Uygulama
 linktitle: WordArt
 type: docs
 weight: 110
@@ -10,366 +10,385 @@ keywords:
 - WordArt şablonu
 - WordArt efekti
 - gölge efekti
-- görünüm efekti
+- yansıma efekti
 - parıltı efekti
 - WordArt dönüşümü
 - 3B efekti
 - dış gölge efekti
 - iç gölge efekti
-- PowerPoint
-- sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js içinde WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım kılavuz, geliştiricilerin sunumları profesyonel metinle iyileştirmelerine yardımcı olur."
+description: "Aspose.Slides for Node.js via Java'da WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım kılavuz, geliştiricilerin Node.js'te profesyonel metinle sunumları geliştirmesine yardımcı olur."
 ---
-## **Genel Bakış**
+## **Overview**
 
-WordArt efektleri, PowerPoint sunumlarınıza görsel açıdan çekici, stilize metin eklemenizi sağlar. Aspose.Slides ile geliştiriciler, Microsoft PowerPoint'te olduğu gibi WordArt'ı programlı olarak oluşturabilir, özelleştirebilir ve yönetebilir—Office yüklü olmasına gerek yok. Bu makale, WordArt ile çalışmanın bir genel bakışını sunar; metin dönüşümlerini, dolgu stillerini, hatları, gölgeleri ve diğer biçimlendirme seçeneklerini uygulayarak sunum içeriğinizi daha ifade edici ve çekici hale getirmenizi açıklar. WordArt, metni grafik nesnesi gibi ele almanızı sağlar. Metni daha çekici veya fark edilir kılmak için uygulanan efektler veya özel değişikliklerden oluşur.
+WordArt efektleri, metni dolgu, kenarlık, gölge, yansıma, parıltı, dönüşüm ve 3B biçimlendirme ile stilize etmenizi sağlar. Bu makale, Microsoft Office yüklü olmadan, Aspose.Slides for Node.js via Java kullanarak PowerPoint sunumlarında bu efektlerin nasıl oluşturulacağını ve özelleştirileceğini açıklar.
 
-## **Basit Bir WordArt Şablonu Oluşturma ve Metne Uygulama**
+## **Create a Simple WordArt Template and Apply It to Text**
 
-**Using Aspose.Slides**
+Aşağıdaki örnekler, metni, yazı tipini, desen dolgusunu ve kenarlığı ayarlayarak basit bir WordArt stili oluşturur.
 
-İlk olarak, bu JavaScript kodunu kullanarak basit bir metin oluşturuyoruz:
+Her örnek yeni bir sunum oluşturur ve ilk slayta bir dikdörtgen ekler; hiçbir giriş dosyasına ihtiyaç yoktur. İlk örnek, metni "Aspose.Slides" olarak ayarlar. Şeklin konumu ve boyutları punto cinsindendir:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    var textFrame = autoShape.getTextFrame();
-    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+
+    const portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.setText("Aspose.Slides");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-Şimdi, bu kodla metnin yazı tipi yüksekliğini daha büyük bir değere ayarlayarak efekti daha belirgin hale getiriyoruz:
+
+Biçimlendirmeyi daha belirgin hale getirmek için yazı tipini 36 punto Arial Black olarak ayarlayın:
 
 ```javascript
-var fontData = new aspose.slides.FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
-```
+const aspose = { slides: require("aspose.slides.via.java") };
 
-**Using Microsoft PowerPoint**
-
-Microsoft PowerPoint'te WordArt efektleri menüsüne gidin:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-Sağdaki menüden önceden tanımlanmış bir WordArt efekti seçebilirsiniz. Soldaki menüden yeni bir WordArt için ayarları belirleyebilirsiniz.
-
-Bunlar mevcut parametreler veya seçeneklerden bazılarıdır:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Using Aspose.Slides**
-
-Burada, metne [SmallGrid](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PatternStyle#SmallGrid) desen rengini uygular ve bu kodla 1 genişliğinde siyah bir metin kenarlığı ekleriz:
-
-```javascript
-portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-```
-
-Ortaya çıkan metin:
-
-![todo:image_alt_text](image-20200930114108-4.png)
-
-## **Diğer WordArt Efektlerini Uygulama**
-
-**Using Microsoft PowerPoint**
-
-Programın sınıfından, bir metne, metin bloğuna, şekle veya benzeri bir öğeye bu efektleri uygulayabilirsiniz:
-
-![todo:image_alt_text](image-20200930114129-5.png)
-
-Örneğin, Gölge, Yansıma ve Parıltı efektleri bir metne uygulanabilir; 3B Biçim ve 3B Döndürme efektleri bir metin bloğuna uygulanabilir; Yumuşak Kenarlar özelliği bir Şekil Nesnesine uygulanabilir (3B Biçim özelliği ayarlanmamış olsa da etkisi vardır). 
-
-### **Gölge Efektlerini Uygulama**
-
-Burada yalnızca bir metne ilişkin özellikleri ayarlamayı amaçlıyoruz. JavaScript'te bu kodla metne gölge efektini uyguluyoruz:
-
-```javascript
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.32);
-```
-
-Aspose.Slides API, üç tür gölgeyi destekler: OuterShadow, InnerShadow ve PresetShadow.
-
-PresetShadow ile bir metne (önceden tanımlı değerler kullanılarak) gölge uygulayabilirsiniz. 
-
-**Using Microsoft PowerPoint**
-
-PowerPoint'te yalnızca bir tür gölge kullanabilirsiniz. İşte bir örnek:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Using Aspose.Slides**
-
-Aspose.Slides, aynı anda iki tür gölge uygulamanıza olanak tanır: InnerShadow ve PresetShadow.
-
-**Notlar:**
-
-- OuterShadow ve PresetShadow birlikte kullanıldığında, yalnızca OuterShadow efekti uygulanır. 
-- OuterShadow ve InnerShadow aynı anda kullanılırsa, uygulanan efekt PowerPoint sürümüne bağlıdır. Örneğin PowerPoint 2013'te efekt iki katına çıkar. Ancak PowerPoint 2007'de OuterShadow efekti uygulanır. 
-
-### **Metinlere Görünüm Uygulama**
-
-Bu JavaScript kod örneği ile metne görünüm ekliyoruz:
-
-```javascript
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(aspose.slides.RectangleAlignment.BottomLeft);
-```
-
-### **Metinlere Parıltı Efekti Uygulama**
-
-Metni parlak veya öne çıkarmak için bu kodla parıltı efektini uyguluyoruz:
-
-```javascript
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
-```
-
-İşlemin sonucu:
-
-![todo:image_alt_text](image-20200930114621-7.png)
-
-{{% alert color="primary" %}} 
-
-Gölge, görünüm ve parıltı parametrelerini değiştirebilirsiniz. Efektlerin özellikleri metnin her bölümüne ayrı ayrı ayarlanır. 
-
-{{% /alert %}} 
-
-### **WordArt'ta Dönüşümleri Kullanma**
-
-Bu kodla Transform özelliğini (tüm metin bloğu için geçerli) kullanıyoruz:
-```javascript
-textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
-```
-
-Sonuç:
-
-![todo:image_alt_text](image-20200930114712-8.png)
-
-{{% alert color="primary" %}} 
-
-Hem Microsoft PowerPoint hem de Aspose.Slides for Node.js via Java, belirli sayıda önceden tanımlı dönüşüm türü sağlar.
-
-{{% /alert %}} 
-
-**PowerPoint Kullanarak**
-
-Önceden tanımlı dönüşüm türlerine erişmek için şu yolu izleyin: **Format** -> **TextEffect** -> **Transform**
-
-**Aspose.Slides Kullanarak**
-
-Bir dönüşüm türü seçmek için TextShapeType enum'ını kullanın. 
-
-### **Metinlere ve Şekillere 3B Efektleri Uygulama**
-
-Bu örnek kodla bir metin şekline 3B efekt uyguluyoruz:
-
-```javascript
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-autoShape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-autoShape.getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-autoShape.getThreeDFormat().setContourWidth(1.5);
-autoShape.getThreeDFormat().setDepth(3);
-autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-Ortaya çıkan metin ve şekli:
-
-![todo:image_alt_text](image-20200930114816-9.png)
-
-Bu JavaScript kodu ile metne 3B efekt uyguluyoruz:
-
-```javascript
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
-```
-
-İşlemin sonucu:
-
-![todo:image_alt_text](image-20200930114905-10.png)
-
-{{% alert color="primary" %}} 
-
-Metinlere veya şekillerine 3B efektlerin uygulanması ve efektler arasındaki etkileşimler belirli kurallara dayanır. 
-
-Metin ve metni içeren şekil için bir sahneyi düşünün. 3B efekt, 3B nesne temsili ve nesnenin yerleştirildiği sahneyi içerir. 
-
-- Hem şekil hem de metin için sahne ayarlanmışsa, şekil sahnesi daha yüksek önceliğe sahiptir—metin sahnesi yoksayılır. 
-- Şeklin kendi sahnesi yok ama 3B temsili varsa, metin sahnesi kullanılır. 
-- Aksi takdirde—şeklin başlangıçta 3B efekti yoksa—şekil düz olur ve 3B efekt yalnızca metne uygulanır. 
-
-Bu açıklamalar, ThreeDFormat.getLightRig() ve ThreeDFormat.getCamera() metodlarıyla ilişkilidir. 
-
-{{% /alert %}} 
-
-## **Metinlere Dış Gölge Efektleri Uygulama**
-
-Aspose.Slides for Node.js via Java, [**OuterShadow**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/outershadow/) ve [**InnerShadow**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/innershadow/) sınıflarını sunar; bu sınıflar [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) tarafından taşıyan bir metne gölge efektleri uygulamanıza olanak tanır. Bu adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın indeksini kullanarak referansını alın.  
-3. Slayta Rectangle (dikdörtgen) tipinde bir AutoShape ekleyin.  
-4. AutoShape ile ilişkili TextFrame'e erişin.  
-5. AutoShape'in FillType özelliğini NoFill olarak ayarlayın.  
-6. OuterShadow sınıfının bir örneğini oluşturun.  
-7. Gölgenin BlurRadius (bulanıklık yarıçapı) değerini ayarlayın.  
-8. Gölgenin Direction (yön) değerini ayarlayın.  
-9. Gölgenin Distance (mesafe) değerini ayarlayın.  
-10. RectanglelAlign (dikdörtgen hizalama) değerini TopLeft olarak ayarlayın.  
-11. Gölgenin PresetColor (önceden tanımlı renk) değerini Black olarak ayarlayın.  
-12. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.  
-
-Bu Java örnek kodu—yukarıdaki adımların bir uygulamasıdır—size bir metne dış gölge efektini nasıl uygulayacağınızı gösterir:
-
-```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Slayın referansını al
-    var sld = pres.getSlides().get_Item(0);
-    // Dikdörtgen tipinde bir AutoShape ekle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Dikdörtgene TextFrame ekle
-    ashp.addTextFrame("Aspose TextBox");
-    // Metnin gölgesini elde etmek istiyorsak şekil dolgusunu devre dışı bırak
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Dış gölge ekle ve tüm gerekli parametreleri ayarla
-    ashp.getEffectFormat().enableOuterShadowEffect();
-    var shadow = ashp.getEffectFormat().getOuterShadowEffect();
-    shadow.setBlurRadius(4.0);
-    shadow.setDirection(45);
-    shadow.setDistance(3);
-    shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
-    shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
-    // Sunumu diske kaydet
-    pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Şekillere İç Gölge Efekti Uygulama**
-
-Bu adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın bir referansını alın.  
-3. Rectangle tipinde bir AutoShape ekleyin.  
-4. InnerShadowEffect özelliğini etkinleştirin.  
-5. Gerekli tüm parametreleri ayarlayın.  
-6. ColorType değerini Scheme olarak ayarlayın.  
-7. Scheme Color (şema rengi) değerini belirleyin.  
-8. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.  
-
-Bu örnek kod (yukarıdaki adımlara dayanarak) size JavaScript'te iki şekil arasında bir bağlayıcı (connector) eklemenin nasıl yapılacağını gösterir:
+Koyu turuncu ön plan ve beyaz arka planla bir [SmallGrid] (https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/patternstyle/#SmallGrid) deseni uygulayın, ardından 1 punto genişliğinde siyah bir metin kenarlığı ekleyin:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Slayın referansını al
-    var slide = pres.getSlides().get_Item(0);
-    // Dikdörtgen tipinde bir AutoShape ekle
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Dikdörtgene TextFrame ekle
-    ashp.addTextFrame("Aspose TextBox");
-    var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    var pf = port.getPortionFormat();
-    pf.setFontHeight(50);
-    // InnerShadowEffect'i etkinleştir
-    var ef = pf.getEffectFormat();
-    ef.enableInnerShadowEffect();
-    // Tüm gerekli parametreleri ayarla
-    ef.getInnerShadowEffect().setBlurRadius(8.0);
-    ef.getInnerShadowEffect().setDirection(90.0);
-    ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB(189);
-    // ColorType'ı Scheme olarak ayarla
-    ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
-    // Scheme rengini ayarla
-    ef.getInnerShadowEffect().getShadowColor().setSchemeColor(aspose.slides.SchemeColor.Accent1);
-    // Sunumu kaydet
-    pres.save("WordArt_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
+    const darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(darkOrange);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
+
+    portion.getPortionFormat().getLineFormat().setWidth(1);
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Oluşan metin:
+
+![Basit WordArt şablonu](WordArt_template.png)
+
+## **Apply Other WordArt Effects**
+
+Aşağıdaki örnekler, gölgeler, yansımalar, parıltılar, dönüşümler ve 3B efektlerin metne nasıl uygulanacağını gösterir.
+
+### **Apply Outer Shadow Effects**
+
+Dış gölge, metnin arkasına bir gölge ekleyerek derinlik kazandırır. Renk, yön, mesafe, bulanıklaştırma yarıçapı, ölçek ve eğim gibi özelliklerini özelleştirebilirsiniz.
+
+Bu örnek, [enableOuterShadowEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effectformat/#enableOuterShadowEffect) metodunu çağırır ve 4 nokta bulanıklaştırma yarıçapı, 230 derece yön ve 30 nokta mesafe ile siyah bir gölge ayarlar. Ölçek değeri 100 gölgenin boyutunu korur, yatay eğim ise 20 derece ile gölgeyi eğer. Alfa dönüşümü opaklığı %32 olarak belirler:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.32));
+} finally {
+    presentation.dispose();
+}
+```
+
+Oluşan metin:
+
+![Dış Gölge efekti](outer_shadow_effect.png)
+
+{{% alert color="info" title="Not" %}}
+- Dış ve önceden ayarlanmış gölgeler aynı anda kullanıldığında yalnızca dış gölge uygulanır.
+- Dış ve iç gölgeler aynı anda kullanıldığında, sonuç PowerPoint sürümüne bağlıdır. Örneğin, PowerPoint 2013'te efekt iki kat olur, PowerPoint 2007'de yalnızca dış gölge uygulanır.
+{{% /alert %}}
+
+### **Apply Reflection Effects**
+
+Yansıma, metnin yansıtılmış bir kopyasını oluşturur. Konum, ölçek, bulanıklık ve opaklık ayarlarıyla görünümünü kontrol edebilirsiniz.
+
+Bu örnek, [enableReflectionEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effectformat/#enableReflectionEffect) metodunu çağırır ve yansımayı -100% ölçekle dikey olarak ters çevirir. 0,5 nokta bulanıklaştırma yarıçapı ve 4,72 nokta mesafe kullanır. Opaklık, yansımadaki konum %0 ile %60 arasında %60'tan %0,9'a düşer:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(java.newFloat(0));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(java.newFloat(60));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(java.newFloat(0.9));
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.BottomLeft));
+} finally {
+    presentation.dispose();
+}
+```
+
+Oluşan metin:
+
+![Yansıma efekti](reflection_effect.png)
+
+### **Apply Glow Effects**
+
+Parıltı, metnin etrafına yumuşak renkli bir kenarlık ekler. Renk, opaklık ve yarıçap ayarlarıyla efekti kontrol edebilirsiniz.
+
+Bu örnek, [enableGlowEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effectformat/#enableGlowEffect) metodunu çağırır ve %54 opaklığa sahip kırmızı bir parıltı uygular; yarıçap 7 noktadır:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const portion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.setText("Aspose.Slides");
+    const font = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(font);
+    portion.getPortionFormat().setFontHeight(36);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, java.newFloat(0.54));
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    presentation.dispose();
+}
+```
+
+Oluşan metin:
+
+![Parıltı efekti](glow_effect.png)
+
+### **Apply WordArt Transformations**
+
+WordArt dönüşümleri, bir metin bloğunu bükebilir, uzatabilir veya eğebilir.
+
+[setTransform](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#setTransform) metodunu [ArchUpPour](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textshapetype/#ArchUpPour) ile ayarlayarak tüm metin çerçevesini yukarı doğru kavisli hale getirin:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
+} finally {
+    presentation.dispose();
+}
+```
+
+Oluşan metin:
+
+![WordArt dönüşümü](transform_effect.png)
+
+{{% alert color="info" title="Not" %}}
+Aspose.Slides for Node.js via Java, önceden tanımlanmış bir dizi [dönüşüm türü](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textshapetype/) sağlar.
+{{% /alert %}}
+
+### **Apply 3D Effects to Shapes and Text**
+
+Bir şekle veya şeklin metnine 3B efektler uygulayabilirsiniz. Burulma, ekstrüzyon, aydınlatma ve kamera ayarları nihai görünümü belirler.
+
+Aşağıdaki örnek, dikdörtgene dairesel köşe yumuşatmaları, turuncu ekstrüzyon ve koyu kırmızı kontur eklemek için [ThreeDFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/) kullanır. Köşe yumuşatma boyutları, ekstrüzyon yüksekliği, kontur genişliği ve derinlik punto cinsindendir. Plastik bir malzeme, Z ekseni etrafında 40 derece döndürülmüş dengeli aydınlatma ve perspektif kamera görünümünü tanımlar:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.getTextFrame().setText("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(orange);
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    autoShape.getThreeDFormat().getContourColor().setColor(darkRed);
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+
+    autoShape.getThreeDFormat().setDepth(3);
+
+    autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+Oluşan şekil:
+
+![Şekil 3B efekti](shape_3D_effect.png)
+
+Bu örnek, [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) aracılığıyla metne benzer 3B biçimlendirme uygular. Daha küçük köşe yumuşatmaları harf kenarlarını şekillendirirken, ekstrüzyon ve aydınlatma metne derinlik kazandırır:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 200);
+    const textFrame = autoShape.getTextFrame();
+    textFrame.setText("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange);
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+
+    const darkRed = java.newInstanceSync("java.awt.Color", 139, 0, 0);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(darkRed);
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    presentation.dispose();
+}
+```
+
+Oluşan metin:
+
+![Metin 3B efekti](text_3D_effect.png)
+
+{{% alert color="info" title="Not" %}}
+Metne veya şekline 3B efektlerin uygulanması ve bu efektlerin etkileşimi belirli kurallara tabidir. Metni ve onu içeren şekli içeren bir sahneyi düşünün. Bir 3B efekt, nesnenin 3B temsili ve yerleştirildiği sahneyi kapsar.
+
+- Eğer sahne hem şekil hem de metin için ayarlanmışsa, şeklin sahnesi önceliklidir ve metnin sahnesi göz ardı edilir.
+- Şeklin kendi sahnesi yoksa ancak bir 3B temsili varsa, metnin sahnesi kullanılır.
+- Şeklin hiç 3B efekti yoksa, düz olarak değerlendirilir ve 3B efekt yalnızca metne uygulanır.
+
+Bu davranışlar, [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/#getLightRig) ve [ThreeDFormat.getCamera](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/#getCamera) metodlarıyla ilgilidir.
+{{% /alert %}}
+
+Metnin düz kalmasını ve şeklin 3B biçimlendirmesini korumak için, her iki ayarın karşılaştırmasını ve tam bir JavaScript örneğini içeren [3B Şekilde Metni Düz Tutma](/slides/tr/nodejs-java/3d-presentation/) sayfasına bakın.
 
 ## **FAQ**
 
-**Farklı yazı tipleri veya skriptlerle (ör. Arapça, Çince) WordArt efektleri kullanabilir miyim?**
+**Farklı yazı tipleri veya alfabeler (ör. Arapça, Çince) ile WordArt efektlerini kullanabilir miyim?**
 
-**Evet**, Aspose.Slides Unicode'u destekler ve tüm büyük yazı tipleri ve skriptlerle çalışır. Gölge, dolgu ve kontur gibi WordArt efektleri dili ne olursa olsun uygulanabilir; ancak yazı tipi bulunabilirliği ve görüntülenmesi sistem yazı tiplerine bağlı olabilir.
+Evet, Aspose.Slides for Node.js via Java Unicode desteği sunar ve tüm büyük yazı tipleri ve alfabelerle çalışır. WordArt efektleri (gölge, dolgu, kenarlık vb.) dil fark etmeksizin uygulanabilir; ancak yazı tipi bulunabilirliği ve renderlama sistem yazı tiplerine bağlı olabilir.
 
-**Slide master öğelerine WordArt efektleri uygulayabilir miyim?**
+**WordArt efektlerini slayt master öğelerine uygulayabilir miyim?**
 
-**Evet**, master slaytlardaki şekillere, başlık yer tutucularına, altbilgilere veya arka plan metnine WordArt efektleri uygulayabilirsiniz. Master düzeninde yapılan değişiklikler, ilişkili tüm slaytlara yansır.
+Evet, başlık yer tutucuları, alt bilgi alanları veya arka plan metni gibi master slayt üzerindeki şekillere WordArt efektleri uygulayabilirsiniz. Master düzeninde yapılan değişiklikler, ilişkilendirilmiş tüm slaytlara yansır.
 
 **WordArt efektleri sunum dosya boyutunu etkiler mi?**
 
-**Biraz**. Gölge, parıltı ve degrade dolgular gibi WordArt efektleri, ek biçimlendirme meta verileri nedeniyle dosya boyutunu hafifçe artırabilir, ancak fark genellikle ihmal edilebilir.
+Bir miktar etkiler. Gölge, parıltı ve degrade dolgu gibi WordArt efektleri, ek biçimlendirme metası eklediği için dosya boyutunu hafifçe artırabilir, ancak fark genellikle önemsiz düzeydedir.
 
-**WordArt efektlerinin sonucunu sunumu kaydetmeden ön izleyebilir miyim?**
+**Sunumu kaydetmeden WordArt efektlerinin sonucunu önizleyebilir miyim?**
 
-**Evet**, WordArt içeren slaytları [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) veya [Slide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/) sınıflarının `getImage` yöntemiyle görüntülere (PNG, JPEG vb.) dönüştürebilirsiniz. Böylece tam sunumu kaydetmeden veya dışa aktarmadan önce bellekte ya da ekranda ön izleme yapabilirsiniz.
+Evet, WordArt içeren slaytları [Slide.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getImage) ile görüntülere (PNG, JPEG vb.) dönüştürebilir veya bireysel şekilleri [Shape.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getImage) ile renderlayabilirsiniz. Bu sayede tam sunumu kaydetmeden veya dışa aktarmadan önce bellekte ya da ekranda önizleme yapabilirsiniz.

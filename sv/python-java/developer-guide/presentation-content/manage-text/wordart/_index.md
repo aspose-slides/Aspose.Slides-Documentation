@@ -1,5 +1,5 @@
 ---
-title: Skapa och tillämpa WordArt-effekter i Python via Java
+title: Skapa och tillämpa WordArt‑effekter i Python via Java
 linktitle: WordArt
 type: docs
 weight: 110
@@ -7,13 +7,13 @@ url: /sv/python-java/wordart/
 keywords:
 - WordArt
 - skapa WordArt
-- WordArt-mall
-- WordArt-effekt
+- WordArt‑mall
+- WordArt‑effekt
 - skuggeffekt
 - reflektionseffekt
 - glödeffekt
-- WordArt-transformation
-- 3D-effekt
+- WordArt‑transformation
+- 3D‑effekt
 - yttre skuggeffekt
 - inre skuggeffekt
 - PowerPoint
@@ -21,17 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Skapa och anpassa WordArt-effekter i Aspose.Slides för Python via Java. Denna steg-för-steg-guide hjälper utvecklare att förbättra presentationer med professionell text i Python via Java."
+description: "Skapa och anpassa WordArt‑effekter i Aspose.Slides för Python via Java. Denna steg‑för‑steg‑guide hjälper utvecklare att förbättra presentationer med professionell text i Python via Java."
 ---
 ## **Översikt**
 
-WordArt‑effekter låter dig lägga till visuellt tilltalande, stiliserad text i dina PowerPoint‑presentationer. Med Aspose.Slides kan utvecklare programatiskt skapa, anpassa och hantera WordArt precis som i Microsoft PowerPoint—utan att behöva ha Office installerat. Den här artikeln ger en översikt över hur du arbetar med WordArt, inklusive hur du tillämpar texttransformeringar, fyllningsstilar, konturer, skuggor och andra formateringsalternativ för att göra ditt presentationsinnehåll mer uttrycksfullt och engagerande. WordArt låter dig behandla text som ett grafiskt objekt. Det består av effekter eller speciella modifieringar som appliceras på text för att göra den mer attraktiv eller märkbar.
+WordArt‑effekter låter dig formatera text med fyllningar, konturer, skuggor, reflektioner, glöd, transformationer och 3D‑formatering. Denna artikel förklarar hur du skapar och anpassar dessa effekter i PowerPoint‑presentationer med Aspose.Slides för Python via Java, utan att Microsoft Office är installerat.
 
-## **Skapa en enkel WordArt‑mall och tillämpa den på text**
+## **Skapa en enkel WordArt-mall och tillämpa den på text**
 
-**Använda Aspose.Slides**
+Följande exempel skapar en enkel WordArt‑stil genom att ange text, teckensnitt, mönsterfyllning och kontur.
 
-Först skapar vi enkel text med denna Python‑kod:
+Varje exempel skapar en ny presentation och lägger till en rektangel på den första bilden; ingen indatafil krävs. Det första exemplet sätter texten till "Aspose.Slides". Formens position och dimensioner mäts i punkter:
 
 ```python
 import jpype
@@ -45,7 +45,8 @@ from asposeslides.api import Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
 
     portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -53,7 +54,8 @@ try:
 finally:
     presentation.dispose()
 ```
-Därefter ökar vi teckenstorleken för att göra effekten mer märkbar:
+
+Ställ in teckensnittet till Arial Black med 36 punkter för att göra formateringen mer märkbar:
 
 ```python
 import jpype
@@ -67,34 +69,19 @@ from asposeslides.api import FontData, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    font_data = FontData("Arial Black")
-    portion_format = portion.getPortionFormat()
-    portion_format.setLatinFont(font_data)
-    portion_format.setFontHeight(36)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 finally:
     presentation.dispose()
 ```
 
-**Använda Microsoft PowerPoint**
-
-Gå till WordArt‑effektmenyn i Microsoft PowerPoint:
-
-![WordArt‑effektmeny i PowerPoint](image-20200930113926-1.png)
-
-I menyn till höger kan du välja en fördefinierad WordArt‑effekt. I menyn till vänster kan du ange inställningarna för ny WordArt.
-
-Detta är några av de tillgängliga parametrarna eller alternativen:
-
-![WordArt‑formateringsalternativ](image-20200930114015-3.png)
-
-**Använda Aspose.Slides**
-
-Här applicerar vi [PatternStyle.SmallGrid](https://reference.aspose.com/slides/sv/python-java/aspose.slides/patternstyle/#SmallGrid) mönsterfyllning på texten och lägger till en svart textkant med denna kod:
+Applicera ett [SmallGrid](https://reference.aspose.com/slides/sv/python-java/aspose.slides/patternstyle/#SmallGrid)-mönster med en mörk orange förgrund och en vit bakgrund, lägg sedan till en svart textkontur med en bredd på 1 punkt:
 
 ```python
 import jpype
@@ -103,48 +90,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, PatternStyle, Presentation, ShapeType
+from asposeslides.api import FillType, FontData, PatternStyle, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getFillFormat().setFillType(FillType.Pattern)
-    pattern_format = portion_format.getFillFormat().getPatternFormat()
-    pattern_format.getForeColor().setColor(Color.ORANGE)
-    pattern_format.getBackColor().setColor(Color.WHITE)
-    pattern_format.setPatternStyle(PatternStyle.SmallGrid)
+    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern)
+    dark_orange = Color(255, 140, 0)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(dark_orange)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE)
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.SmallGrid)
 
-    line_format = portion_format.getLineFormat()
-    line_format.getFillFormat().setFillType(FillType.Solid)
-    line_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getLineFormat().setWidth(1)
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 finally:
     presentation.dispose()
 ```
 
 Den resulterande texten:
 
-![Text med mönsterfyllning och svart kontur](image-20200930114108-4.png)
+![The simple WordArt template](WordArt_template.png)
 
-## **Tillämpa andra WordArt‑effekter**
+## **Tillämpa andra WordArt-effekter**
 
-**Använda Microsoft PowerPoint**
+Följande exempel visar hur du tillämpar skuggor, reflektioner, glöd, transformationer och 3D‑effekter på text.
 
-Från programmets gränssnitt kan du applicera dessa effekter på text, ett textblock, en form eller ett liknande element:
+### **Applicera yttre skuggeffekter**
 
-![Text‑ och formeffekter i PowerPoint](image-20200930114129-5.png)
+En yttre skugga ger djup genom att placera en skugga bakom texten. Du kan anpassa dess färg, riktning, avstånd, oskärpedjup, skala och skevning.
 
-Till exempel kan skugga‑, reflekterings‑ och glödeffekter appliceras på text; 3D‑format‑ och 3D‑rotations‑effekter kan appliceras på ett textblock; mjuka kanter‑effekten kan appliceras på en form (den har fortfarande en effekt när ingen 3D‑formateffekt är inställd).
-
-### **Applicera skuggeffekter**
-
-Följande Python‑kod applicerar en skuggeffekt enbart på text:
+Detta exempel anropar [enableOuterShadowEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effectformat/#enableOuterShadowEffect) och ställer in en svart skugga med en oskärpedjup på 4 punkter, en riktning på 230 grader och ett avstånd på 30 punkter. Skalvärden på 100 bevarar skuggans storlek, medan horisontell skevning lutande den 20 grader. Alfa‑transformen sätter dess opacitet till 32 %:
 
 ```python
 import jpype
@@ -153,131 +139,135 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
 from java.awt import Color
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
 
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableOuterShadowEffect()
-    outer_shadow = portion_format.getEffectFormat().getOuterShadowEffect()
-    outer_shadow.getShadowColor().setColor(Color.BLACK)
-    outer_shadow.setScaleHorizontal(100)
-    outer_shadow.setScaleVertical(65)
-    outer_shadow.setBlurRadius(4.73)
-    outer_shadow.setDirection(230)
-    outer_shadow.setDistance(2)
-    outer_shadow.setSkewHorizontal(30)
-    outer_shadow.setSkewVertical(0)
-    outer_shadow.getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect()
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(100)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(30)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(20)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0)
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32)
 finally:
     presentation.dispose()
 ```
 
-Aspose.Slides‑API stöder tre typer av skuggor: [OuterShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/outershadow/), [InnerShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/innershadow/) och [PresetShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presetshadow/).
+Den resulterande texten:
 
-Med [PresetShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presetshadow/) kan du applicera en skugga på text med förinställda värden.
-
-**Använda Microsoft PowerPoint**
-
-I PowerPoint kan du använda en typ av skugga. Här är ett exempel:
-
-![Skugginställningar i PowerPoint](image-20200930114225-6.png)
-
-**Använda Aspose.Slides**
-
-Aspose.Slides låter faktiskt dig applicera två typer av skuggor samtidigt: [InnerShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/innershadow/) och [PresetShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presetshadow/).
-
-Obs:
-- När [OuterShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/outershadow/) och [PresetShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presetshadow/) används tillsammans, appliceras endast [OuterShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/outershadow/)‑effekten.
-- Om [OuterShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/outershadow/) och [InnerShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/innershadow/) används samtidigt beror den resulterande eller tillämpade effekten på PowerPoint‑versionen. Till exempel, i PowerPoint 2013 fördubblas effekten. Men i PowerPoint 2007 appliceras [OuterShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/outershadow/)‑effekten.
-
-### **Applicera reflektion på text**
-
-Vi lägger till en reflektion på texten via detta kodexempel i Python via Java:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, RectangleAlignment, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableReflectionEffect()
-    reflection = portion_format.getEffectFormat().getReflectionEffect()
-    reflection.setBlurRadius(0.5)
-    reflection.setDistance(4.72)
-    reflection.setStartPosAlpha(0)
-    reflection.setEndPosAlpha(60)
-    reflection.setDirection(90)
-    reflection.setScaleHorizontal(100)
-    reflection.setScaleVertical(-100)
-    reflection.setStartReflectionOpacity(60)
-    reflection.setEndReflectionOpacity(0.9)
-    reflection.setRectangleAlign(RectangleAlignment.BottomLeft)
-finally:
-    presentation.dispose()
-```
-
-### **Applicera glödeffekt på text**
-
-Vi applicerar glödeffekten på texten för att få den att glänsa eller sticka ut med hjälp av den här koden:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorTransformOperation, Presentation, ShapeType
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
-    text_frame = auto_shape.getTextFrame()
-    portion = text_frame.getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion.setText("Aspose.Slides")
-
-    portion_format = portion.getPortionFormat()
-    portion_format.getEffectFormat().enableGlowEffect()
-    glow = portion_format.getEffectFormat().getGlowEffect()
-    glow.getColor().setR(jpype.JByte(-1))
-    glow.getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
-    glow.setRadius(7)
-finally:
-    presentation.dispose()
-```
-
-Resultatet av operationen:
-
-![Text med glödeffekt](image-20200930114621-7.png)
+![The Outer Shadow effect](outer_shadow_effect.png)
 
 {{% alert color="info" title="Note" %}}
-Du kan ändra parametrarna för skugga, reflektion och glöd. Effektens egenskaper sätts för varje del av texten separat.
+- När yttre och förinställda skuggor används tillsammans, appliceras endast den yttre skuggan.
+- Om yttre och inre skuggor används samtidigt beror den resulterande effekten på vilken PowerPoint‑version som används. Till exempel, i PowerPoint 2013 fördubblas effekten, medan i PowerPoint 2007 appliceras endast den yttre skuggan.
 {{% /alert %}}
 
-### **Använda transformationer i WordArt**
+### **Applicera reflektionseffekter**
 
-Använd [TextFrameFormat.setTransform](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textframeformat/#setTransform) för att transformera hela textblocket:
+En reflektion skapar en spegelkopiering av texten. Justera dess position, skala, oskärpa och opacitet för att kontrollera dess utseende.
+
+Detta exempel anropar [enableReflectionEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effectformat/#enableReflectionEffect) och vänder reflektionen vertikalt med en skala på -100 %. Det använder en oskärpedjup på 0,5 punkt och ett avstånd på 4,72 punkt. Opaciteten minskar från 60 % till 0,9 % mellan positionerna 0 % och 60 % längs reflektionen:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, RectangleAlignment, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect()
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9)
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft)
+finally:
+    presentation.dispose()
+```
+
+Den resulterande texten:
+
+![The Reflection effect](reflection_effect.png)
+
+### **Applicera glödeffekter**
+
+En glöd lägger till en mjuk färgad kontur runt texten. Justera dess färg, opacitet och radie för att kontrollera effekten.
+
+Detta exempel anropar [enableGlowEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effectformat/#enableGlowEffect) och applicerar en röd glöd med 54 % opacitet och en radie på 7 punkter:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FontData, Presentation, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
+    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.setText("Aspose.Slides")
+    font = FontData("Arial Black")
+    portion.getPortionFormat().setLatinFont(font)
+    portion.getPortionFormat().setFontHeight(36)
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect()
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setColor(Color.RED)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54)
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7)
+finally:
+    presentation.dispose()
+```
+
+Den resulterande texten:
+
+![The Glow effect](glow_effect.png)
+
+### **Tillämpa WordArt-transformationer**
+
+WordArt‑transformationer böjer, sträcker eller vrider en textblock.
+
+Använd [setTransform](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textframeformat/#setTransform) till [ArchUpPour](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textshapetype/#ArchUpPour) för att kröka hela textramen uppåt:
 
 ```python
 import jpype
@@ -291,34 +281,29 @@ from asposeslides.api import Presentation, ShapeType, TextShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
+
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
-
     text_frame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour)
 finally:
     presentation.dispose()
 ```
 
-Resultatet:
+Den resulterande texten:
 
-![Text med bågformad transformation](image-20200930114712-8.png)
+![The WordArt transformation](transform_effect.png)
 
 {{% alert color="info" title="Note" %}}
-Både Microsoft PowerPoint och Aspose.Slides för Python via Java tillhandahåller ett visst antal fördefinierade transformationstyper.
+Aspose.Slides för Python via Java tillhandahåller en uppsättning fördefinierade [transformationstyper](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textshapetype/).
 {{% /alert %}}
 
-**Använda PowerPoint**
+### **Tillämpa 3D-effekter på former och text**
 
-För att komma åt fördefinierade transformationstyper, gå till: **Format** -> **TextEffect** -> **Transform**
+Du kan applicera 3D‑effekter på en form eller på dess text. Avfasningar, extrusion, belysning och kamerainställningar styr det resulterande utseendet.
 
-**Använda Aspose.Slides**
-
-För att välja en transformationstyp, använd enum‑typen [TextShapeType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textshapetype/).
-
-### **Applicera 3D‑effekter på text och former**
-
-Vi applicerar en 3D‑effekt på en textform med detta exempel på kod:
+Det följande exemplet använder [ThreeDFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/threedformat/) för att lägga till cirkulära avfasningar, orange extrusion och en mörkröd kontur på rektangeln. Avfasningsdimensioner, extrusionhöjd, konturbredd och djup mäts i punkter. Ett plastmaterial, balanserad belysning roterad 40 grader runt Z‑axeln, och en perspektivkamera definierar dess utseende:
 
 ```python
 import jpype
@@ -333,42 +318,44 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     auto_shape.getTextFrame().setText("Aspose.Slides")
 
-    three_d_format = auto_shape.getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(10.5)
-    three_d_format.getBevelBottom().setWidth(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelBottom().setHeight(10.5)
+    auto_shape.getThreeDFormat().getBevelBottom().setWidth(10.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(12.5)
-    three_d_format.getBevelTop().setWidth(11)
+    auto_shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    auto_shape.getThreeDFormat().getBevelTop().setHeight(12.5)
+    auto_shape.getThreeDFormat().getBevelTop().setWidth(11)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    auto_shape.getThreeDFormat().getExtrusionColor().setColor(orange)
+    auto_shape.getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    auto_shape.getThreeDFormat().getContourColor().setColor(dark_red)
+    auto_shape.getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    auto_shape.getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    auto_shape.getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    auto_shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    auto_shape.getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-Den resulterande texten och dess form:
+Den resulterande formen:
 
-![Textform med 3D‑effekter](image-20200930114816-9.png)
+![The shape 3D effect](shape_3D_effect.png)
 
-Vi applicerar en 3D‑effekt på texten med denna Python‑kod:
+Detta exempel applicerar liknande 3D‑formatering på texten via [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textframeformat/#getThreeDFormat). Små avfasningar formar bokstavens kanter, medan extrusion och belysning ger texten djup:
 
 ```python
 import jpype
@@ -383,187 +370,70 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200)
+
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 200)
     text_frame = auto_shape.getTextFrame()
     text_frame.setText("Aspose.Slides")
 
-    three_d_format = text_frame.getTextFrameFormat().getThreeDFormat()
-    three_d_format.getBevelBottom().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelBottom().setHeight(3.5)
-    three_d_format.getBevelBottom().setWidth(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5)
 
-    three_d_format.getBevelTop().setBevelType(BevelPresetType.Circle)
-    three_d_format.getBevelTop().setHeight(4)
-    three_d_format.getBevelTop().setWidth(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4)
+    text_frame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4)
 
-    three_d_format.getExtrusionColor().setColor(Color.ORANGE)
-    three_d_format.setExtrusionHeight(6)
+    orange = Color(255, 165, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(orange)
+    text_frame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6)
 
-    three_d_format.getContourColor().setColor(Color.RED)
-    three_d_format.setContourWidth(1.5)
+    dark_red = Color(139, 0, 0)
+    text_frame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(dark_red)
+    text_frame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5)
 
-    three_d_format.setDepth(3)
+    text_frame.getTextFrameFormat().getThreeDFormat().setDepth(3)
 
-    three_d_format.setMaterial(MaterialPresetType.Plastic)
+    text_frame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic)
 
-    three_d_format.getLightRig().setDirection(LightingDirection.Top)
-    three_d_format.getLightRig().setLightType(LightRigPresetType.Balanced)
-    three_d_format.getLightRig().setRotation(0, 0, 40)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
+    text_frame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40)
 
-    three_d_format.getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
+    text_frame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing)
 finally:
     presentation.dispose()
 ```
 
-Resultatet av operationen:
+Den resulterande texten:
 
-![Text med 3D‑effekter](image-20200930114905-10.png)
+![The text 3D effect](text_3D_effect.png)
 
 {{% alert color="info" title="Note" %}}
-Tillämpningen av 3D‑effekter på text eller dess former samt interaktioner mellan effekter baseras på vissa regler.
+Appliceringen av 3D‑effekter på text eller dess former — och interaktionen mellan dessa effekter — styrs av specifika regler. Tänk på en scen som involverar både text och den form som innehåller den. En 3D‑effekt inkluderar objektets 3D‑representation och den scen där det placeras.
 
-Tänk på en scen för texten och formen som innehåller texten. 3D‑effekten innehåller en 3D‑objektrepresentation och scenen där objektet placeras.
+- Om en scen är angiven både för formen och för texten, har formens scen prioritet och textens scen ignoreras.
+- Om formen saknar egen scen men har en 3D‑representation, används textens scen.
+- Om formen helt saknar 3D‑effekt behandlas den som platt, och 3D‑effekten appliceras endast på texten.
 
-- När scenen är inställd för både formen och texten, har formens scen prioritet – textscenen ignoreras.
-- När formen saknar egen scen men har en 3D‑representation, används textscenen.
-- Annars – när formen ursprungligen inte har någon 3D‑effekt – är formen platt och 3D‑effekten appliceras bara på texten.
-
-Dessa regler relaterar till metoderna [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/sv/python-java/aspose.slides/threedformat/#getLightRig) och [ThreeDFormat.getCamera](https://reference.aspose.com/slides/sv/python-java/aspose.slides/threedformat/#getCamera).
+Detta beteende är relaterat till metoderna [ThreeDFormat.getLightRig](https://reference.aspose.com/slides/sv/python-java/aspose.slides/threedformat/#getLightRig) och [ThreeDFormat.getCamera](https://reference.aspose.com/slides/sv/python-java/aspose.slides/threedformat/#getCamera).
 {{% /alert %}}
 
-## **Applicera yttre skuggeffekter på text**
+För att hålla texten platt och läsbar samtidigt som du behåller formens 3D‑formatering, se [Keep Text Flat on a 3D Shape](/slides/sv/python-java/3d-presentation/) för en jämförelse av båda inställningarna och ett komplett Python‑exempel.
 
-Aspose.Slides för Python via Java tillhandahåller klasserna [OuterShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/outershadow/) och [InnerShadow](https://reference.aspose.com/slides/sv/python-java/aspose.slides/innershadow/) som låter dig applicera skuggeffekter på text i en [TextFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textframe/). Följ dessa steg:
+## **Vanliga frågor**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta referensen till en bild genom att använda dess index.
-3. Lägg till en rektangulär form på bilden.
-4. Få åtkomst till textramen som är associerad med formen.
-5. Inaktivera formens fyllning.
-6. Aktivera den yttre skuggeffekten.
-7. Ställ in suddradius för skuggan.
-8. Ställ in skuggans riktning.
-9. Ställ in skuggans avstånd.
-10. Justera skuggan till övre vänstra hörnet.
-11. Ställ in skuggans färg till svart.
-12. Spara presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/)‑fil.
+**Kan jag använda WordArt‑effekter med olika teckensnitt eller skript (t.ex. arabiska, kinesiska)?**
 
-Detta exempel på kod i Python via Java—en implementering av stegen ovan—visar hur du applicerar den yttre skuggeffekten på text:
+Ja, Aspose.Slides för Python via Java stödjer Unicode och fungerar med alla större teckensnitt och skript. WordArt‑effekter såsom skugga, fyllning och kontur kan appliceras oavsett språk, även om teckensnittstillgänglighet och rendering kan bero på systemets teckensnitt.
 
-```python
-import jpype
-import asposeslides
+**Kan jag applicera WordArt‑effekter på master‑slide‑element?**
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import FillType, Presentation, PresetColor, RectangleAlignment, SaveFormat, ShapeType
-
-presentation = Presentation()
-try:
-    # Hämta referens till bilden
-    slide = presentation.getSlides().get_Item(0)
-
-    # Lägg till en AutoShape av rektangeltyp
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50)
-
-    # Lägg till TextFrame till rektangeln
-    auto_shape.addTextFrame("Aspose TextBox")
-
-    # Inaktivera formfyllning ifall vi vill få skugga av texten
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Lägg till yttre skugga och sätt alla nödvändiga parametrar
-    auto_shape.getEffectFormat().enableOuterShadowEffect()
-    shadow = auto_shape.getEffectFormat().getOuterShadowEffect()
-    shadow.setBlurRadius(4.0)
-    shadow.setDirection(45)
-    shadow.setDistance(3)
-    shadow.setRectangleAlign(RectangleAlignment.TopLeft)
-    shadow.getShadowColor().setPresetColor(PresetColor.Black)
-
-    # Spara presentationen till disk
-    presentation.save("pres_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **Applicera inre skuggeffekt på former**
-
-Följ dessa steg:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta en referens till bilden.
-3. Lägg till en rektangulär form.
-4. Aktivera den inre skuggeffekten.
-5. Ställ in alla nödvändiga parametrar.
-6. Ställ in skuggans färgtyp för att använda en temafärg.
-7. Ställ in temafärgen.
-8. Spara presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/)‑fil.
-
-Detta exempel på kod (baserat på stegen ovan) visar hur du applicerar den inre skuggeffekten på texten i en form i Python via Java:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ColorType, FillType, Presentation, SaveFormat, SchemeColor, ShapeType
-
-presentation = Presentation()
-try:
-    # Hämta referens till bilden
-    slide = presentation.getSlides().get_Item(0)
-
-    # Lägg till en AutoShape av rektangeltyp
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300)
-    auto_shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Lägg till TextFrame till rektangeln
-    auto_shape.addTextFrame("Aspose TextBox")
-    portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
-    portion_format = portion.getPortionFormat()
-    portion_format.setFontHeight(50)
-
-    # Aktivera InnerShadowEffect
-    effect_format = portion_format.getEffectFormat()
-    effect_format.enableInnerShadowEffect()
-
-    # Ställ in alla nödvändiga parametrar
-    inner_shadow = effect_format.getInnerShadowEffect()
-    inner_shadow.setBlurRadius(8.0)
-    inner_shadow.setDirection(90.0)
-    inner_shadow.setDistance(6.0)
-    inner_shadow.getShadowColor().setB(jpype.JByte(-67))
-
-    # Ange ColorType som Scheme
-    inner_shadow.getShadowColor().setColorType(ColorType.Scheme)
-
-    # Ange Scheme Color
-    inner_shadow.getShadowColor().setSchemeColor(SchemeColor.Accent1)
-
-    # Spara presentationen
-    presentation.save("WordArt_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **FAQ**
-
-**Kan jag använda WordArt‑effekter med olika typsnitt eller skript (t.ex. Arabiska, Kinesiska)?**
-
-Ja, Aspose.Slides stödjer Unicode och fungerar med alla större typsnitt och skript. WordArt‑effekter som skugga, fyllning och kontur kan appliceras oavsett språk, även om typsnittstillgänglighet och rendering kan bero på systemets typsnitt.
-
-**Kan jag applicera WordArt‑effekter på element i bildbakgrund (master)?**
-
-Ja, du kan applicera WordArt‑effekter på former i master‑bilder, inklusive titel‑platshållare, sidfötter eller bakgrundstext. Ändringar i master‑layouten kommer att återspeglas i alla associerade bilder.
+Ja, du kan applicera WordArt‑effekter på former på master‑slides, inklusive titelplatshållare, sidfot eller bakgrundstext. Ändringar gjorda i master‑layouten kommer att reflekteras i alla associerade slides.
 
 **Påverkar WordArt‑effekter presentationsfilens storlek?**
 
-Lite grann. WordArt‑effekter såsom skuggor, glöd och gradientfyllningar kan något öka filstorleken på grund av extra formateringsmetadata, men skillnaden är vanligtvis försumbar.
+Lite. WordArt‑effekter såsom skuggor, glöd och gradientfyllningar kan öka filstorleken något på grund av extra formateringsmetadata, men skillnaden är vanligtvis försumbart.
 
 **Kan jag förhandsgranska resultatet av WordArt‑effekter utan att spara presentationen?**
 
-Ja, du kan rendera bilder som innehåller WordArt till bilder (t.ex. PNG, JPEG) med hjälp av [Shape.getImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/#getImage) eller [Slide.getImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#getImage). Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.
+Ja, du kan rendera slides som innehåller WordArt till bilder (t.ex. PNG, JPEG) med hjälp av [Slide.getImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#getImage), eller rendera enskilda former med [Shape.getImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/#getImage). Detta låter dig förhandsgranska resultatet i minnet eller på skärmen innan du sparar eller exporterar hela presentationen.
