@@ -47,6 +47,8 @@ Collection indexes are convenient while processing a known file, but they are no
 
 The related [UniqueId](https://reference.aspose.com/slides/net/aspose.slides/ishape/uniqueid/) property has presentation scope, but it is intended for add-ins and can be reassigned. It should not be treated as a permanent external key. If long-term identity is essential, keep the mapping in application data and validate that the expected shape still exists.
 
+For a practical example of reading and updating both the alternative text title and description, see [Manage Alternative Text Titles and Descriptions](/slides/net/presentation-accessibility/). Use alternative text to explain the visual's meaning to readers, and keep it separate from shape names used by code to find shapes.
+
 The following example searches by `Name` with an ordinal comparison and reports the slide-scoped interop ID. When the template does not contain the expected shape, the code reports that result instead of continuing with the wrong object.
 
 ```csharp
