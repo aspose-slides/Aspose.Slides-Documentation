@@ -13,10 +13,10 @@ keywords:
 - Usuń kształt
 - Ukryj kształt
 - Zmień kolejność kształtu
-- Pobierz ID kształtu interop
+- Pobierz interopowy ID kształtu
 - Alternatywny tekst kształtu
-- Punkt regulacji kształtu
-- Regulacja predefiniowanego kształtu
+- Punkt dopasowania kształtu
+- Dopasowanie kształtu presetu
 - Geometria kształtu
 - Formaty układu kształtu
 - Kształt jako SVG
@@ -24,28 +24,30 @@ keywords:
 - Wyrównaj kształt
 - Odwróć kształt
 - PowerPoint
-- Prezentacja
+- prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak identyfikować, regulować, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odwracać kształty prezentacji przy użyciu Aspose.Slides dla C++."
+description: "Dowiedz się, jak identyfikować, dostosowywać, klonować, usuwać, ukrywać, przestawiać, eksportować, wyrównywać i odwracać kształty prezentacji przy użyciu Aspose.Slides dla C++."
 ---
 ## **Przegląd**
 
-Aspose.Slides for C++ reprezentuje kształty na slajdzie jako uporządkowaną [IShapeCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/). Kolekcja jest zarówno miejscem, w którym znajdujesz i modyfikujesz kształty, jak i źródłem ich kolejności nakładania: indeks `0` oznacza najgłębiej położony kształt, a ostatni indeks – najbardziej przedni.
+Aspose.Slides for C++ reprezentuje kształty na slajdzie jako uporządkowaną [IShapeCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/). Kolekcja jest zarówno miejscem, w którym znajdujesz i modyfikujesz kształty, jak i źródłem ich kolejności układania: indeks `0` to najbardziej tylny kształt, a ostatni indeks to najbardziej przedni kształt.
 
-Ten artykuł opiera się na tym modelu. Najpierw wyjaśnia, jak niezawodnie zidentyfikować kształt i zmodyfikować predefiniowane punkty regulacji, a następnie pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport do SVG, wyrównywanie oraz ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać wyłącznie operacji potrzebnych w Twoim przepływie pracy.
+Ten artykuł podąża za tym modelem. Najpierw wyjaśnia, jak wiarygodnie zidentyfikować kształt i zmodyfikować wstępne punkty dopasowania, a następnie pokazuje, jak klonować, usuwać, ukrywać i przestawiać kształty. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport SVG, wyrównywanie i ustawienia odwrócenia. Każdy przykład jest niezależny, więc możesz używać tylko operacji, które są potrzebne w twoim przepływie pracy.
 
 ## **Identyfikowanie i znajdowanie kształtów**
 
-Indeksy kolekcji są wygodne podczas przetwarzania znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator w zależności od tego, jak prezentacja jest tworzona i utrzymywana:
+Indeksy kolekcji są wygodne przy przetwarzaniu znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub przestawienie kształtu może zmienić jego indeks. Wybierz identyfikator zgodnie z tym, jak prezentacja jest tworzona i utrzymywana:
 
-- [Name](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_name/) jest przydatny w szablonach kontrolowanych przez dewelopera i łatwo go sprawdzić w panelu wyboru PowerPointa. Nazwy można edytować i nie ma gwarancji, że będą unikalne, więc wprowadź konwencję nazewnictwa, jeśli kod od nich zależy.
-- [AlternativeText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_alternativetext/) jest przydatny, gdy opis dostępności lub tag dostarczony przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisany pod kątem dostępności i nie jest gwarantowany jako unikalny. Nie wykorzystuj cichej treści dostępności jako klucza bazodanowego.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_officeinteropshapeid/) jest identyfikatorem tylko do odczytu, unikalnym w obrębie slajdu i odpowiada ID kształtu używanemu przez interfejs PowerPoint. Używaj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w czasie życia kształtu. Sklonowany lub odtworzony ponownie kształt jest innym kształtem i otrzymuje własny ID.
+- [Name](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_name/) jest przydatny dla szablonów kontrolowanych przez dewelopera i łatwy do sprawdzenia w panelu wyboru programu PowerPoint. Nazwy można edytować i nie są gwarantowane jako unikalne, więc ustanów konwencję nazewnictwa, jeśli kod od nich zależy.
+- [AlternativeText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_alternativetext/) jest przydatny, gdy opis dostępności lub etykieta dostarczona przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisany pod kątem dostępności i nie jest gwarantowany jako unikalny. Nie przekształcaj cichej istotnej treści dostępności w klucz bazy danych.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_officeinteropshapeid/) jest identyfikatorem tylko do odczytu, unikalnym w obrębie slajdu i odpowiadającemu identyfikatorowi kształtu używanemu przez interop PowerPoint. Używaj go przy integracji z PowerPointem lub gdy potrzebujesz niejednoznacznego odwołania podczas życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
 
-Powiązana właściwość [UniqueId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_uniqueid/) ma zakres prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie powinna być traktowana jako stały zewnętrzny klucz. Jeśli długoterminowa tożsamość jest kluczowa, przechowuj mapowanie w danych aplikacji i weryfikuj, czy oczekiwany kształt nadal istnieje.
+Powiązana właściwość [UniqueId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_uniqueid/) ma zakres prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie należy jej traktować jako stałego zewnętrznego klucza. Jeśli długoterminowa tożsamość jest istotna, zachowaj mapowanie w danych aplikacji i zweryfikuj, czy oczekiwany kształt nadal istnieje.
 
-Poniższy przykład wyszukuje po `Name` i raportuje interopowy ID w zakresie slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z nieprawidłowym obiektem.
+Dla praktycznego przykładu odczytu i aktualizacji zarówno tytułu, jak i opisu tekstu alternatywnego, zobacz [Manage Alternative Text Titles and Descriptions](/slides/pl/cpp/presentation-accessibility/). Używaj tekstu alternatywnego, aby wyjaśnić znaczenie wizualizacji czytelnikom i trzymaj go oddzielnie od nazw kształtów używanych przez kod do ich znajdowania.
+
+Poniższy przykład wyszukuje po `Name` i raportuje interopowy identyfikator w kontekście slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -127,28 +129,28 @@ else
 presentation->Dispose();
 ```
 
-## **Identyfikowanie i modyfikowanie predefiniowanych regulacji kształtu**
+## **Identyfikowanie i modyfikowanie wstępnych dopasowań kształtu**
 
-Kształty o predefiniowanej geometrii mogą udostępniać punkty regulacji kontrolujące takie cechy jak rozmiar narożnika, proporcje strzałki czy kąty łuku. Dostęp do nich uzyskuje się przez tylko do odczytu kolekcję [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igeometryshape/get_adjustments/). Sama kolekcja jest dostarczana przez kształt, ale każdy [IAdjustValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/) zawiera wartość, którą można zmienić.
+Kształty o predefiniowanej geometrii mogą udostępniać punkty dopasowania, które sterują takimi cechami jak rozmiar narożników, proporcje strzałki czy kąty łuku. Dostęp do nich uzyskuje się przez kolekcję tylko do odczytu [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igeometryshape/get_adjustments/). Sama kolekcja jest dostarczana przez kształt, ale każdy [IAdjustValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/) zawiera wartość, którą można zmienić.
 
-Nie polegaj wyłącznie na stałym indeksie kolekcji. Iteruj przez regulacje i sprawdzaj tylko do odczytu właściwość [IAdjustValue::get_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/get_type/), której wartość [ShapeAdjustmentType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shapeadjustmenttype/) opisuje, co regulacja kontroluje. Właściwość tylko do odczytu [IAdjustValue::get_Name](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/get_name/) dostarcza dodatkowych informacji identyfikacyjnych i jest szczególnie przydatna, gdy predefinicja zawiera więcej niż jedną regulację tego samego typu semantycznego.
+Nie opieraj się wyłącznie na stałym indeksie kolekcji. Iteruj przez dopasowania i sprawdzaj tylko do odczytu właściwość [IAdjustValue::get_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/get_type/), której wartość [ShapeAdjustmentType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shapeadjustmenttype/) opisuje, co dopasowanie kontroluje. Właściwość tylko do odczytu [IAdjustValue::get_Name](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/get_name/) dostarcza dodatkowych informacji identyfikacyjnych i jest szczególnie przydatna, gdy preset zawiera więcej niż jedno dopasowanie tego samego semantycznego typu.
 
-Użyj właściwości wartości odpowiadającej znaczeniu regulacji:
+Użyj właściwości wartości, która odpowiada znaczeniu dopasowania:
 
-| Typ regulacji | Cel | Wartość do zmiany |
+| Typ dopasowania | Cel | Wartość do zmiany |
 |---|---|---|
-| `CornerSize` | Rozmiar zaokrąglonych narożników | [RawValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
-| `ArrowTailThickness` | Grubość ogona strzałki | `RawValue` |
-| `ArrowheadLength` | Długość grotu strzałki | `RawValue` |
-| `ArrowheadWidth` | Szerokość grotu strzałki | `RawValue` |
-| `StartAngle` | Kąt początkowy koła lub łuku | [AngleValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
-| `EndAngle` | Kąt końcowy koła lub łuku | `AngleValue` |
+| `CornerSize` | Rozmiar zaokrąglonych rogów | [RawValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | Grubość ogona strzały | `RawValue` |
+| `ArrowheadLength` | Długość zakończenia strzały | `RawValue` |
+| `ArrowheadWidth` | Szerokość zakończenia strzały | `RawValue` |
+| `StartAngle` | Kąt początkowy wycinka lub łuku | [AngleValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | Kąt końcowy wycinka lub łuku | `AngleValue` |
 
-`Type` i `Name` nie mogą być przypisywane. `RawValue` jest liczbą całkowitą odczyt/zapis w natywnych jednostkach geometrycznych predefinicji, natomiast `AngleValue` jest liczbą odczyt/zapis wyrażoną w stopniach. Liczba, kolejność, znaczenie i prawidłowy zakres regulacji zależą od predefiniowanego [ShapeType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igeometryshape/get_shapetype/). Wartość ważna dla jednej predefinicji może być nieważna lub mieć inny efekt dla innej.
+`Type` i `Name` nie mogą być przypisane. `RawValue` jest liczbą całkowitą do odczytu/zapisu w jednostkach natywnej geometrii presetu, natomiast `AngleValue` jest liczbą do odczytu/zapisu wyrażoną w stopniach. Liczba, kolejność, znaczenie i dopuszczalny zakres dopasowań zależą od presetu [ShapeType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igeometryshape/get_shapetype/). Wartość ważna dla jednego presetu może być nieprawidłowa lub mieć inny efekt dla innego.
 
-Gdy `Type` jest `ShapeAdjustmentType::Custom`, API nie rozpoznaje standardowego znaczenia semantycznego. Sprawdź `Name`, typ predefinicji oraz istniejącą wartość i pozostaw regulację niezmienioną, chyba że znane są oczekiwane znaczenie i zakres. Nawet dla rozpoznanych typów, sprawdź, czy ten sam typ występuje więcej niż raz przed wybraniem wartości. Artykuł [Connector](/slides/pl/cpp/connector/) pokazuje tę sytuację w kontekście regulacji zgięcia łącznika.
+Gdy `Type` ma wartość `ShapeAdjustmentType::Custom`, API nie rozpoznaje standardowego znaczenia semantycznego. Sprawdź `Name`, typ presetu i istniejącą wartość oraz pozostaw dopasowanie niezmienione, chyba że znane jest oczekiwane znaczenie i zakres. Nawet dla rozpoznanych typów sprawdzaj, czy ten sam typ występuje więcej niż raz przed wybraniem wartości. Artykuł [Connector](/slides/pl/cpp/connector/) pokazuje tę sytuację przy dopasowaniach zgięcia łącznika.
 
-Poniższy kompletny przykład tworzy domyślne i zmodyfikowane wersje trzech predefiniowanych kształtów. Iteruje przez każdą regulację, raportuje jej `Name` i `Type`, zmienia wartości związane z rozmiarem poprzez `RawValue`, zmienia kąty poprzez `AngleValue` i zapisuje wynik. Lewa kolumna zachowuje domyślną geometrię; prawa kolumna pokazuje dostosowany zaokrąglony prostokąt, czterokierunkową strzałkę i kołowy wycinek.
+Poniższy kompletny przykład tworzy domyślne i zmodyfikowane wersje trzech presetów kształtów. Iteruje przez każde dopasowanie, raportuje jego `Name` i `Type`, zmienia wartości związane z rozmiarem przez `RawValue`, zmienia kąty przez `AngleValue` i zapisuje wynik. Lewa kolumna zachowuje domyślną geometrię; prawa kolumna pokazuje dostosowany zaokrąglony prostokąt, czterokierunkową strzałkę i wycinek.
 
 ```cpp
 #include <DOM/IAdjustValue.h>
@@ -174,7 +176,7 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Dodaje nagłówki dla kolumny domyślnego i zmodyfikowanego kształtu.
+// Dodaje nagłówki dla kolumny domyślnej i zmodyfikowanej geometrii kształtu.
 auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
 defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
 auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
@@ -233,17 +235,17 @@ presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sprawdzanie typu semantycznego przed zmianą wartości sprawia, że kod jest jednoznaczny w swoim zamiarze i eliminuje założenie, że konkretny indeks kolekcji ma to samo znaczenie w różnych predefiniowanych kształtach.
+Sprawdzanie typu semantycznego przed zmianą wartości sprawia, że kod jest jednoznaczny co do zamiaru i unika założeń, że konkretny indeks kolekcji ma to samo znaczenie w różnych presetach kształtów.
 
-## **Modyfikacja kolekcji kształtów**
+## **Modyfikowanie kolekcji kształtów**
 
-Metody dodawania, klonowania, usuwania i zmiany kolejności działają bezpośrednio na kolekcji. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie polegaj dalej na indeksach zarejestrowanych przed tą operacją.
+Metody dodawania, klonowania, usuwania i przestawiania działają na kolekcji natychmiast. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie polegaj dalej na indeksach zebranych przed tą operacją.
 
 ### **Klonowanie kształtu**
 
-[AddClone](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addclone/) tworzy niezależną kopię i dodaje ją na końcu docelowej kolekcji. [InsertClone](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/insertclone/) również tworzy kopię, ale umieszcza ją pod określonym indeksem kolejności Z. Przeciążenia przyjmujące współrzędne przenoszą klon bez zmiany jego rozmiaru; przeciążenia z szerokością i wysokością mogą go także przeskalować.
+[AddClone](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addclone/) tworzy niezależną kopię i dołącza ją do docelowej kolekcji. [InsertClone](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/insertclone/) również tworzy kopię, ale umieszcza ją pod wskazanym indeksem kolejności Z. Przeciążenia przyjmujące współrzędne przesuwają klon bez zmiany jego rozmiaru; przeciążenia z szerokością i wysokością mogą go również przeskalować.
 
-Przykład tworzy slajd docelowy, klonuje opisany prostokąt na wierzch oraz wstawia drugi klon z tyłu. Zmiany w dowolnym klonie nie modyfikują kształtu źródłowego.
+Przykład tworzy docelowy slajd, klonuje prostokąt z etykietą na wierzch oraz wstawia drugi klon z tyłu. Zmiany w dowolnym klonie nie modyfikują kształtu źródłowego.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -299,13 +301,13 @@ presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę i tekst alternatywny. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są zarządzane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
+Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę i tekst alternatywny. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty obsługuje prezentacja, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
 
 ### **Usuwanie kształtów**
 
-[Remove](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/remove/) usuwa konkretny obiekt kształtu z jego kolekcji. Przy usuwaniu wielu dopasowań w trakcie iteracji po indeksach, przechodź od końca, aby każdy pozostały indeks pozostał ważny.
+[Remove](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/remove/) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w trakcie iteracji po indeksach, przechodź od końca, aby każdy pozostały indeks pozostał prawidłowy.
 
-Ten przykład usuwa każdy kształt o określonej nazwie. Odczytuje aktualny indeksowany kształt, a nie stały element kolekcji, i nie rzutuje kształtu niepotrzebnie.
+Ten przykład usuwa każdy kształt o określonej nazwie. Odczytuje aktualny indeksowany kształt, a nie stały element kolekcji, i nie rzutuje niepotrzebnie kształtu.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -344,7 +346,7 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Po usunięciu zmienia się liczba kształtów oraz indeksy późniejszych elementów. Odniesienia do niezmienionych kształtów pozostają bardziej wiarygodne niż zapisane indeksy. Pamiętaj także o łącznikach, animacjach i innych elementach prezentacji, które mogą odwoływać się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż tylko wygląd slajdu.
+Po usunięciu liczba kształtów i indeksy późniejszych kształtów ulegają zmianie. Odniesienia do niezmienionych kształtów pozostają bardziej niezawodne niż zapisane indeksy. Należy także uwzględnić łączniki, animacje i inne elementy prezentacji, które mogą odnosić się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż wygląd slajdu.
 
 ### **Ukrywanie kształtu**
 
@@ -383,11 +385,11 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ukrywanie nie jest usunięciem ani zabezpieczeniem. Obiekt nadal może zostać odnaleziony i odsłonięty przez użytkownika lub kod i pozostaje częścią pliku prezentacji.
+Ukrywanie nie jest usunięciem ani zabezpieczeniem. Obiekt nadal może być odkryty i ponownie odsłonięty przez użytkownika lub kod i pozostaje częścią pliku prezentacji.
 
-### **Zmiana kolejności Z (Z‑Order)**
+### **Zmiana kolejności Z**
 
-Kształty zachodzące na siebie są rysowane w kolejności kolekcji. [Reorder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/reorder/) przenosi istniejący kształt do docelowego indeksu bez jego klonowania. Indeks `0` to tył; `Count - 1` to przód.
+Kształty nakładają się w kolejności kolekcji. [Reorder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/reorder/) przenosi istniejący kształt do docelowego indeksu bez klonowania. Indeks `0` to tył; `Count - 1` to przód.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -423,13 +425,13 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Prostokąt jest tworzony najpierw i początkowo znajduje się za elipsą. Przeniesienie go na ostatni indeks ustawia go na wierzchu. Finalizuj kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dołączają lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną kolejność stosu.
+Prostokąt jest tworzony jako pierwszy i początkowo znajduje się za elipsą. Przeniesienie go na ostatni indeks umieszcza go z przodu. Finalizuj kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dołączają lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną kolejkę.
 
 ## **Inspekcja kształtów na slajdach układu**
 
-Zwykłe slajdy, slajdy układu i slajdy główne mają odrębne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem, co podobnie położony kształt na zwykłym slajdzie. Sprawdzaj kształty układu, gdy musisz zrozumieć lub zmienić formatowanie dostarczane przez układ.
+Normalne slajdy, slajdy układu i slajdy nadrzędne mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem, co podobnie pozycjonowany kształt na normalnym slajdzie. Badanie kształtów układu jest konieczne, gdy chcesz zrozumieć lub zmienić formatowanie dostarczane przez układ.
 
-Poniższy przykład odczytuje dla każdego kształtu układu [FillFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_fillformat/) i [LineFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_lineformat/) bez zakładania, że każdy kształt jest `AutoShape`.
+Poniższy przykład odczytuje każdy [FillFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_fillformat/) i [LineFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_lineformat/) kształtu układu, nie zakładając, że każdy kształt jest `AutoShape`.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -459,11 +461,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-Edytowanie układu może wpłynąć na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy zwykły slajd dziedziczy ten obiekt, czy zawiera lokalne nadpisanie, i przetestuj każdy slajd wykorzystujący dany układ.
+Edycja układu może wpłynąć na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy normalny slajd dziedziczy obiekt lub zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
 
-## **Eksport kształtu do SVG**
+## **Eksportowanie kształtu do SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/writeassvg/) zapisuje wyrenderowaną zawartość jednego kształtu do strumienia. Wynik zawiera sam kształt, a nie pełne tło slajdu ani sąsiadujące kształty.
+[WriteAsSvg](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/writeassvg/) zapisuje renderowaną zawartość jednego kształtu do strumienia. Wynik zawiera tylko kształt, nie cały tło slajdu ani sąsiadujące kształty.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -495,13 +497,13 @@ else
 presentation->Dispose();
 ```
 
-Utrzymuj prezentację otwartą podczas renderowania. Wyjście zależy od formatowania kształtu oraz zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd, a nie poszczególny kształt. Wywołujący jest właścicielem strumienia i musi go zamknąć lub usunąć.
+Utrzymuj prezentację otwartą podczas renderowania. Wyjście zależy od formatowania kształtu oraz zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd, a nie pojedynczy kształt. Wywołujący właściciel strumienia musi go zamknąć lub zwolnić.
 
 ## **Wyrównywanie kształtów**
 
-[SlideUtil::AlignShapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides.util/slideutil/alignshapes/) ma przeciążenia wyrównujące wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb rozmieszczenia. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównać wybrane kształty względem siebie.
+Przeciążenia [SlideUtil::AlignShapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides.util/slideutil/alignshapes/) wyrównują wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównać wybrane kształty względem siebie.
 
-Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwrócone referencje do kształtów są konwertowane na ich bieżące indeksy tuż przed wyrównaniem.
+Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwrócone referencje do kształtów są konwertowane na ich aktualne indeksy natychmiast przed wyrównaniem.
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -535,17 +537,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Wyrównanie zmienia pozycje, a nie kolejność Z. Wyrównanie względne zwykle wymaga co najmniej dwóch kształtów, podczas gdy rozmieszczenie poziome lub pionowe wymaga wystarczającej liczby kształtów do określenia odstępów. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
+Wyrównywanie zmienia pozycje, nie kolejność Z. Wyrównywanie względne zwykle wymaga przynajmniej dwóch kształtów, podczas gdy dystrybucja pozioma lub pionowa wymaga wystarczającej liczby kształtów, aby określić odstępy. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
 
-## **Odbijanie kształtu**
+## **Odwrócenie kształtu**
 
-Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz obrót. Jej wartości `FlipH` i `FlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/cpp/aspose.slides/nullablebool/): `True` włącza odbicie, `False` wyłącza, a `NotDefined` zachowuje nieokreślony/domyslny stan.
+Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odwrócenia poziomego i pionowego oraz obrót. Jej wartości `FlipH` i `FlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/cpp/aspose.slides/nullablebool/): `True` włącza odwrócenie, `False` wyłącza, a `NotDefined` zachowuje nieokreślony/ustawiony domyślnie stan.
 
-Poniższa prezentacja wejściowa zawiera jeden nieodwrócony kształt.
+Prezentacja wejściowa poniżej zawiera jeden nieodwrócony kształt.
 
-![The shape before flipping](shape_to_be_flipped.png)
+![Kształt przed odwróceniem](shape_to_be_flipped.png)
 
-Przykład zachowuje wszystkie pozostałe wartości ramki i zamienia jedynie dwa ustawienia odbicia. To ważne, ponieważ przypisanie nowego [Frame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/set_frame/) zastępuje całą ramkę.
+Przykład zachowuje wszystkie inne wartości ramki i zastępuje tylko dwa ustawienia odwrócenia. To ważne, ponieważ przypisanie nowego [Frame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/set_frame/) zastępuje całą ramkę.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -573,24 +575,24 @@ presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Zapisany kształt jest odbity poziomo i pionowo, zachowując jednocześnie swoją pozycję, rozmiar i obrót.
+Zapisany kształt jest odbity poziomo i pionowo, zachowując pozycję, rozmiar i obrót.
 
-![The shape after flipping](flipped_shape.png)
+![Kształt po odwróceniu](flipped_shape.png)
 
 ## **FAQ**
 
 **Czy powinienem używać indeksu kolekcji jako identyfikatora kształtu?**
 
-Tylko przy krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `Name` lub `AlternativeText` dla tworzonych szablonów, lub `OfficeInteropShapeId` dla pracy interopowej w zakresie slajdu.
+Tylko w krótkotrwałym przetwarzaniu, kiedy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `Name` lub `AlternativeText` dla tworzonych szablonów albo `OfficeInteropShapeId` dla pracy z interopem slajdu.
 
 **Czy ukrycie kształtu usuwa go z kolejności Z?**
 
-Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być odnaleziony, zmieniony kolejność, edytowany lub ponownie widoczny.
+Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być odnaleziony, przestawiony, edytowany lub ponownie widoczny.
 
 **Dlaczego sklonowany kształt pojawił się przed innym kształtem?**
 
-`AddClone` dodaje klon na koniec kolekcji, czyli na przód kolejności Z. Użyj `InsertClone`, aby wybrać początkowy indeks, lub `Reorder` po dodaniu wszystkich kształtów.
+`AddClone` dołącza klon na koniec kolekcji, co jest przodem kolejności Z. Użyj `InsertClone`, aby wybrać początkowy indeks, lub `Reorder` po dodaniu wszystkich kształtów.
 
-**Czy mogę używać stałego indeksu do identyfikacji regulacji predefiniowanego kształtu?**
+**Czy mogę używać stałego indeksu do identyfikacji wstępnego dopasowania kształtu?**
 
-Tylko po zweryfikowaniu dokładnej predefinicji i układu kolekcji. Preferuj iterację przez `IGeometryShape::get_Adjustments` i sprawdzanie `IAdjustValue::get_Type`; użyj `IAdjustValue::get_Name` jako dodatkowej informacji, gdy ten sam typ semantyczny występuje więcej niż raz.
+Tylko po zweryfikowaniu dokładnego presetu i układu kolekcji. Preferuj iterację przez `IGeometryShape::get_Adjustments` i sprawdzanie `IAdjustValue::get_Type`; używaj `IAdjustValue::get_Name` jako dodatkowej informacji, gdy ten sam typ semantyczny pojawia się wielokrotnie.

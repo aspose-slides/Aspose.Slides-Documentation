@@ -1,11 +1,11 @@
 ---
-title: Spravovat tvary prezentace na Androidu
+title: Správa tvarů prezentace na Androidu
 linktitle: Manipulace s tvary
 type: docs
 weight: 40
 url: /cs/androidjava/shape-manipulations/
 keywords:
-- tvar PowerPoint
+- PowerPoint tvar
 - tvar prezentace
 - tvar na snímku
 - najít tvar
@@ -28,25 +28,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se, jak identifikovat, upravovat, klonovat, odstraňovat, skrývat, měnit pořadí, exportovat, zarovnávat a převracet tvary prezentace pomocí Aspose.Slides pro Android prostřednictvím Javy."
+description: "Naučte se, jak identifikovat, upravovat, klonovat, odstraňovat, skrývat, měnit pořadí, exportovat, zarovnávat a převracet tvary prezentace pomocí Aspose.Slides pro Android přes Java."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Android prostřednictvím Java představuje tvary na snímku jako uspořádanou [IShapeCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/). Kolekce je zároveň místem, kde najdete a upravujete tvary, a zdrojem jejich pořadí překrývání: index `0` je nejzadnější tvar, zatímco poslední index je nejpřednější tvar.
+Aspose.Slides for Android via Java představuje tvary na snímku jako uspořádanou [IShapeCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/). Kolekce je nejen místem, kde najdete a upravujete tvary, ale také zdrojem jejich pořadí vrstvení: index `0` je nejzadnější tvar, zatímco poslední index je nejpřednější tvar.
 
-Tento článek následuje tento model. Nejprve vysvětluje, jak spolehlivě identifikovat tvar a upravit přednastavené body úpravy tvaru, poté ukazuje, jak klonovat, odstraňovat, skrývat a měnit pořadí tvarů. Poslední sekce pokrývají formátování na úrovni rozvržení, export do SVG, zarovnání a nastavení převrácení. Každý příklad je nezávislý, takže můžete použít jen operace, které vaše pracovní postup vyžaduje.
+Tento článek následuje tento model. Nejprve vysvětluje, jak spolehlivě identifikovat tvar a upravit přednastavené body úpravy tvaru, poté ukazuje, jak klonovat, odstraňovat, skrývat a měnit pořadí tvarů. Závěrečné sekce se věnují formátování na úrovni rozvržení, exportu do SVG, zarovnání a nastavením převrácení. Každý příklad je nezávislý, takže můžete použít pouze operace, které vaše pracovní postupy vyžadují.
 
-## **Identifikace a vyhledávání tvarů**
+## **Identifikace a vyhledání tvarů**
 
-Indexy v kolekci jsou pohodlné při zpracování známého souboru, ale nejsou stabilními identifikátory. Přidání, odstranění nebo změna pořadí tvaru může změnit jeho index. Zvolte identifikátor podle toho, jak je prezentace vytvořena a udržována:
+Indexy kolekce jsou pohodlné při zpracování známého souboru, ale nejsou stabilními identifikátory. Přidání, odebrání nebo změna pořadí tvaru může změnit jeho index. Zvolte identifikátor podle toho, jak je prezentace vytvářena a udržována:
 
-- [Name](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getName--) je užitečný pro šablony řízené vývojářem a snadno se kontroluje v panelu výběru PowerPointu. Jména lze upravovat a nejsou garantována jako jedinečná, takže pokud kód na nich závisí, zaveďte pojmenovací konvenci.
-- [AlternativeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getAlternativeText--) je užitečný, když již popis přístupnosti nebo značka dodaná autorem identifikuje tvar. Je viditelný uživatelům, může být lokalizován nebo přepsán pro přístupnost a také není garantován jako jedinečný. Nepřevádějte tiše smysluplný text přístupnosti na klíč databáze.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) je jen pro čtení a je jedinečný v rámci snímku a odpovídá ID tvaru používanému v interop PowerPointu. Použijte jej při integraci s PowerPointem nebo když potřebujete jednoznačný odkaz během životnosti tvaru. Klonovaný nebo znovu vytvořený tvar je jiný tvar a získá své vlastní ID.
+- **[Name](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getName--)** je užitečný pro šablony řízené vývojáři a snadno se kontroluje v panelu výběru v PowerPointu. Jména lze upravovat a není zaručeno, že jsou jedinečná, proto si vytvořte konvenci pojmenování, pokud na nich kód závisí.
+- **[AlternativeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getAlternativeText--)** je užitečný, když už popis přístupnosti nebo autorově štítek identifikují tvar. Je viditelný pro uživatele, může být lokalizován nebo přepsán pro přístupnost a také není zaručeno, že je jedinečný. Nepřevádějte tiše smysluplný text přístupnosti na klíč databáze.
+- **[OfficeInteropShapeId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--)** je jen pro čtení, jedinečný v rámci snímku a odpovídá ID tvaru používanému v PowerPoint interop. Použijte jej při integraci s PowerPointem nebo když potřebujete jednoznačný odkaz během životnosti tvaru. Klonovaný nebo znovu vytvořený tvar je jiný tvar a získá své vlastní ID.
 
-Související metoda [getUniqueId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getUniqueId--) vrací identifikátor s rozsahem prezentace, ale tento identifikátor je určen pro doplňky a může být přeřazen. Neměl by být považován za trvalý externí klíč. Pokud je dlouhodobá identita podstatná, uložte mapování v aplikačních datech a ověřte, že očekávaný tvar stále existuje.
+Související metoda **[getUniqueId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getUniqueId--)** vrací identifikátor s rozsahem celé prezentace, ale tento identifikátor je určen pro doplňky a může být přeřazen. Neměl by být považován za trvalý externí klíč. Pokud je dlouhodobá identita podstatná, udržujte mapování v aplikačních datech a ověřte, že očekávaný tvar stále existuje.
 
-Následující příklad vyhledává podle názvu s přesnou shodou a reportuje ID interopu v rámci snímku. Když šablona neobsahuje očekávaný tvar, kód vypíše tento výsledek místo toho, aby pokračoval se špatným objektem.
+Pro praktický příklad čtení a aktualizace jak titulku alternativního textu, tak popisu, viz [Manage Alternative Text Titles and Descriptions](/slides/cs/androidjava/presentation-accessibility/). Používejte alternativní text k vysvětlení významu vizuálu čtenářům a udržujte jej odděleně od názvů tvarů, které kód používá k jejich hledání.
+
+Následující příklad hledá podle jména s přesným porovnáním a uvádí interop ID v rozsahu snímku. Když šablona neobsahuje očekávaný tvar, kód vypíše tento výsledek místo pokračování se špatným objektem.
 
 ```java
 import com.aspose.slides.*;
@@ -73,7 +75,7 @@ try {
 }
 ```
 
-Když je operace specifická pro typ tvaru, zkontrolujte rozhraní před použitím typových členů. Tento příklad aktualizuje text a alternativní text pouze pokud je pojmenovaný objekt [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
+Když je operace specifická pro typ tvaru, zkontrolujte rozhraní před použitím členů specifických pro typ. Tento příklad aktualizuje text a alternativní text pouze tehdy, pokud je pojmenovaný objekt **[IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/)**.
 
 ```java
 import com.aspose.slides.*;
@@ -105,26 +107,26 @@ try {
 
 ## **Identifikace a úprava přednastavených úprav tvaru**
 
-Přednastavené geometrické tvary mohou mít body úpravy, které řídí např. velikost rohu, poměr šípů nebo úhly oblouku. Přistupujte k nim přes jen pro čtení [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) kolekci. Kolekce je poskytována tvarem, ale každý [IAdjustValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/) obsahuje hodnotu, kterou lze změnit.
+Tvary s přednastavenou geometrií mohou mít body úpravy, které řídí vlastnosti jako velikost rohu, proporce šipek nebo úhly oblouku. Přistupujte k nim přes jen pro čtení kolekci **[IGeometryShape.getAdjustments](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--)**. Kolekci poskytuje samotný tvar, ale každý **[IAdjustValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/)** obsahuje hodnotu, kterou lze změnit.
 
-Nespoléhejte se jen na pevný index kolekce. Projděte úpravy a zkontrolujte jen pro čtení metodu [getType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getType--) , jejíž hodnota [ShapeAdjustmentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeadjustmenttype/) popisuje, co úprava ovládá. Metoda jen pro čtení [getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getName--) poskytuje doplňující identifikační informace a je zvláště užitečná, když přednastavení obsahuje více úprav se stejným sémantickým typem.
+Nespoléhejte se jen na pevný index kolekce. Procházejte úpravy a kontrolujte jen pro čtení metodu **[getType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getType--)**, jejíž hodnota **[ShapeAdjustmentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeadjustmenttype/)** popisuje, co úprava ovládá. Metoda jen pro čtení **[getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getName--)** poskytuje další identifikační informace a je obzvláště užitečná, když přednastavení obsahuje více než jednu úpravu se stejným sémantickým typem.
 
 Použijte metodu hodnoty, která odpovídá významu úpravy:
 
 | Typ úpravy | Účel | Hodnota ke změně |
 |---|---|---|
 | `CornerSize` | Velikost zaoblených rohů | [setRawValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
-| `ArrowTailThickness` | Tloušťka ocasu šípu | `setRawValue` |
-| `ArrowheadLength` | Délka hrotu šípu | `setRawValue` |
-| `ArrowheadWidth` | Šířka hrotu šípu | `setRawValue` |
+| `ArrowTailThickness` | Tloušťka ocasu šipky | `setRawValue` |
+| `ArrowheadLength` | Délka hrotu šipky | `setRawValue` |
+| `ArrowheadWidth` | Šířka hrotu šipky | `setRawValue` |
 | `StartAngle` | Počáteční úhel výseče nebo oblouku | [setAngleValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
-| `EndAngle` | Konečný úhel výseče nebo oblouku | `setAngleValue` |
+| `EndAngle` | Koncový úhel výseče nebo oblouku | `setAngleValue` |
 
-`getType` a `getName` vrací jen pro čtení informace. `getRawValue` a `setRawValue` pracují s celým číslem v nativních jednotkách geometrie přednastavení, zatímco `getAngleValue` a `setAngleValue` pracují s úhlem ve stupních. Počet, pořadí, význam a platný rozsah úprav závisí na přednastaveném [ShapeType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igeometryshape/#getShapeType--). Hodnota platná pro jedno přednastavení může být neplatná nebo mít jiný efekt pro jiné.
+`getType` a `getName` vrací jen pro čtení informace. `getRawValue` a `setRawValue` pracují s celým číslem v nativních jednotkách geometrie přednastavení, zatímco `getAngleValue` a `setAngleValue` pracují s úhlem ve stupních. Počet, pořadí, význam a platný rozsah úprav závisí na přednastaveném **[ShapeType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igeometryshape/#getShapeType--)**. Hodnota platná pro jedno přednastavení může být neplatná nebo mít jiný efekt pro jiné.
 
-Když `getType` vrátí `ShapeAdjustmentType.Custom`, API nerozpozná standardní sémantický význam. Prozkoumejte `getName`, typ přednastavení a existující hodnotu a nechte úpravu beze změny, pokud neznáte očekávaný význam a rozsah. I pro rozpoznané typy zkontrolujte, zda se stejný typ nevyskytuje vícekrát, než vyberete hodnotu. Článek [Connector](/slides/cs/androidjava/connector/) ukazuje tuto situaci u úprav ohýbání konektorů.
+Když `getType` vrátí **ShapeAdjustmentType.Custom**, API nepozná standardní sémantický význam. Prohlédněte `getName`, typ přednastavení a existující hodnotu a nechte úpravu beze změny, pokud není známen očekávaný význam a rozsah. I pro rozpoznané typy zkontrolujte, zda se stejný typ nevyskytuje vícekrát, než vyberete hodnotu. Článek **[Connector](/slides/cs/androidjava/connector/)** ukazuje tuto situaci u úprav zakřivení konektorů.
 
-Následující kompletní příklad vytváří výchozí a upravené verze tří přednastavených tvarů. Prochází každou úpravu, vypisuje její název a typ, mění hodnoty související s velikostí pomocí `setRawValue`, mění úhly pomocí `setAngleValue` a ukládá výsledek. Levý sloupec zachovává výchozí geometrii; pravý sloupec ukazuje upravený zaoblený obdélník, čtyřcestný šíp a výseč.
+Následující kompletní příklad vytváří výchozí a upravené verze tří přednastavených tvarů. Prochází každou úpravu, vypisuje její název a typ, mění hodnoty související s velikostí pomocí `setRawValue`, mění úhly pomocí `setAngleValue` a ukládá výsledek. Levý sloupec zachovává výchozí geometrie; pravý sloupec ukazuje upravený zaoblený obdélník, čtyřcestnou šipku a výseč.
 
 ```java
 import com.aspose.slides.*;
@@ -194,17 +196,17 @@ try {
 }
 ```
 
-Kontrola sémantického typu před změnou hodnoty dělá kód explicitním ohledně záměru a zabraňuje předpokladu, že konkrétní index kolekce má stejný význam napříč různými přednastavenými tvary.
+Kontrola sémantického typu před změnou hodnoty činí kód explicitní ohledně záměru a zabraňuje předpokladu, že konkrétní index kolekce má stejný význam napříč různými přednastavenými tvary.
 
 ## **Úprava kolekce tvarů**
 
-Metody přidání, klonování, odstranění a změny pořadí fungují na kolekci okamžitě. Pokud operace změní počet nebo pořadí tvarů, nepokračujte v používání indexů zachycených před touto operací.
+Metody pro přidání, klonování, odebrání a změnu pořadí fungují na kolekci okamžitě. Pokud operace změní počet nebo pořadí tvarů, nepakládejte se na indexy zachycené před touto operací.
 
-### **Klonování tvaru**
+### **Klonovat tvar**
 
-[addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) vytvoří nezávislou kopii a připojí ji k cílové kolekci. [insertClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) také vytvoří kopii, ale umístí ji na zadaný index z‑řádu. Přetížení, která přijímají souřadnice, přesunou klon bez změny velikosti; přetížení s šířkou a výškou jej mohou také změnit velikost.
+**[addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-)** vytvoří nezávislou kopii a připojí ji k cílové kolekci. **[insertClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-)** také vytvoří kopii, ale umístí ji na zadaný index z‑order. Přetížení, která přijímají souřadnice, přesunou klon bez změny jeho velikosti; přetížení s šířkou a výškou jej mohou také změnit.
 
-Příklad vytváří cílový snímek, klonuje označený obdélník do popředí a vloží druhý klon do pozadí. Změny v kterémkoli klonu neovlivňují zdrojový tvar.
+Příklad vytváří cílový snímek, klonuje označený obdélník do popředí a vkládá druhý klon do pozadí. Změny v kterémkoli klonu neovlivní zdrojový tvar.
 
 ```java
 import com.aspose.slides.*;
@@ -243,13 +245,13 @@ try {
 }
 ```
 
-Klonování kopíruje obsah a formátování tvaru, včetně jeho názvu a alternativního textu. Při klonování přiřaďte nové logické identifikátory, pokud musí být tyto hodnoty jedinečné. Prostředky používané složitými tvary spravuje prezentace, ale klon zůstává novou položkou v kolekci s novou identitou tvaru.
+Klonování kopíruje obsah a formátování tvaru, včetně jeho názvu a alternativního textu. Přidělte novým klonům logické identifikátory, pokud musí být tyto hodnoty jedinečné. Zdroje používané složitými tvary spravuje prezentace, ale klon zůstává novou položkou kolekce s novou identitou tvaru.
 
-### **Odstranění tvarů**
+### **Odstranit tvary**
 
-[remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) smaže konkrétní objekt tvaru z jeho kolekce. Při odstraňování více shod během indexované iterace procházejte od konce, aby každý zbývající index zůstal platný.
+**[remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-)** smaže konkrétní objekt tvaru z jeho kolekce. Při odstraňování více shod během indexovaného procházení iterujte od konce, aby každý zbývající index zůstal platný.
 
-Tento příklad odstraňuje každý tvar s určeným názvem. Čte tvar na aktuálním indexu, ne pevnou položku kolekce, a nepřetypovává tvar zbytečně.
+Tento příklad odstraňuje každý tvar s určeným názvem. Čte tvar na aktuálním indexu, nikoli pevnou položku kolekce, a neprovádí zbytečné přetypování.
 
 ```java
 import com.aspose.slides.*;
@@ -280,11 +282,11 @@ try {
 }
 ```
 
-Po odstranění se počet tvarů a indexy dalších tvarů změní. Odkazy na nepodřízené tvary zůstávají spolehlivější než uložené indexy. Zvažte také konektory, animace a další prvky prezentace, které mohou odkazovat na odstraněný objekt; odstranění viditelného tvaru může změnit více než jen vzhled snímku.
+Po odstranění se počet tvarů a indexy následujících tvarů změní. Odkazy na nedotčené tvary zůstávají spolehlivější než uložené indexy. Uvažujte také o konektorech, animacích a dalších prvcích prezentace, které mohou odkazovat na odebraný objekt; odebrání viditelného tvaru může změnit více než jen vzhled snímku.
 
-### **Skrytí tvaru**
+### **Skrýt tvar**
 
-Nastavením [Hidden](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) na `true` ponecháte tvar v kolekci, ale zabráníte jeho zobrazování v normální prezentaci. Jeho index, formátování a obsah zůstávají k dispozici kódu, takže skrytí je vhodné pro volitelné prvky, které mohou být později obnoveny.
+Nastavení **[Hidden](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setHidden-boolean-)** na `true` ponechává tvar v kolekci, ale zabraňuje jeho zobrazení v normálním režimu prezentace. Jeho index, formátování i obsah zůstávají dostupné kódu, takže skrývání je vhodné pro volitelné prvky, které mohou být později obnoveny.
 
 ```java
 import com.aspose.slides.*;
@@ -311,11 +313,11 @@ try {
 }
 ```
 
-Skrytí není smazání ani zabezpečení. Objekt může stále být objeven a znovu odhalen uživatelem nebo kódem a zůstává součástí souboru prezentace.
+Skrývání není smazání ani bezpečnostní opatření. Objekt může být stále nalezen a znovu zobrazen uživatelem nebo kódem a zůstává součástí souboru prezentace.
 
-### **Změna Z‑řádu**
+### **Změna Z‑orderu**
 
-Překrývající se tvary jsou kresleny v pořadí kolekce. [reorder](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) přesune existující tvar na cílový index bez jeho klonování. Index `0` je zadní; `size() - 1` je přední.
+Překrývající se tvary jsou vykreslovány v pořadí kolekce. **[reorder](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-)** přesune existující tvar na cílový index bez jeho klonování. Index `0` je zadní; `size() - 1` je přední.
 
 ```java
 import com.aspose.slides.*;
@@ -342,13 +344,13 @@ try {
 }
 ```
 
-Obdélník je vytvořen nejprve a zpočátku leží za elipsou. Přesunutí na poslední index jej umístí do popředí. Dokončete nastavení Z‑řádu po přidání nebo klonování všech souvisejících tvarů, protože tyto operace přidávají nebo vkládají nové položky do kolekce a mohou změnit zamýšlený zásobník.
+Obdélník je vytvořen nejprve a zpočátku leží za elipsou. Přesunutí na poslední index jej umístí dopředu. Finalizujte z‑order po přidání nebo klonování všech souvisejících tvarů, protože tyto operace přidávají nebo vkládají nové položky kolekce a mohou změnit zamýšlený zásobník.
 
-## **Prohlížení tvarů na rozvržení snímků**
+## **Prohlížení tvarů na rozvržovacích snímcích**
 
-Normální snímky, rozvržení snímků a hlavní snímky mají samostatné kolekce tvarů. Tvar v kolekci rozvržení není stejný objekt jako podobně umístěný tvar na normálním snímku. Prohlédněte si tvary rozvržení, když potřebujete pochopit nebo změnit formátování dodané rozvržením.
+Normální snímky, rozvržovací snímky a hlavní snímky mají samostatné kolekce tvarů. Tvar v kolekci rozvržení není stejný objekt jako podobně umístěný tvar na normálním snímku. Prohlédněte si tvary rozvržení, když potřebujete pochopit nebo změnit formátování poskytnuté rozvržením.
 
-Následující příklad čte každé [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getFillFormat--) a [LineFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getLineFormat--) rozvržových tvarů, aniž by předpokládal, že každý tvar je `AutoShape`.
+Následující příklad čte pro každý tvar rozvržení jeho **[FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getFillFormat--)** a **[LineFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getLineFormat--)** bez předpokladu, že každý tvar je `AutoShape`.
 
 ```java
 import com.aspose.slides.*;
@@ -367,11 +369,11 @@ try {
 }
 ```
 
-Úprava rozvržení může ovlivnit více snímků, které jej používají. Před změnou tvaru rozvržení zjistěte, zda normální snímek dědí objekt nebo obsahuje lokální přepsání, a otestujte každý snímek, který toto rozvržení používá.
+Úprava rozvržení může ovlivnit více snímků, které jej používají. Před změnou tvaru rozvržení určete, zda normální snímek dědí objekt nebo obsahuje lokální přepsání, a otestujte každý snímek, který dané rozvržení používá.
 
 ## **Export tvaru do SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) zapíše vykreslený obsah jednoho tvaru do proudu. Výsledek obsahuje jen tvar, ne celé pozadí snímku ani sousední tvary.
+**[writeAsSvg](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-)** zapíše vykreslený obsah jednoho tvaru do proudu. Výsledek obsahuje jen tvar, ne celé pozadí snímku ani sousední tvary.
 
 ```java
 import com.aspose.slides.*;
@@ -397,13 +399,13 @@ try {
 }
 ```
 
-Udržujte prezentaci otevřenou během renderování. Výstup závisí na formátování tvaru a na prostředcích, jako jsou písma a obrázky. Pokud potřebujete celou kompozici, exportujte snímek místo jednotlivého tvaru. Volající vlastní proud a musí jej zavřít.
+Udržujte prezentaci otevřenou během renderování. Výstup závisí na formátování tvaru a na zdrojích, jako jsou písma a obrázky. Pokud potřebujete celou kompozici, exportujte snímek místo jednotlivého tvaru. Volající vlastní proud a musí jej uzavřít.
 
 ## **Zarovnání tvarů**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) má přetížení, která zarovnávají buď všechny tvary, nebo vybrané indexy v kolekci. [ShapesAlignmentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapesalignmenttype/) specifikuje hranu, středovou čáru nebo režim distribuce. Nastavte `alignToSlide` na `true`, chcete-li použít hrany snímku; nastavte na `false`, chcete-li zarovnat vybrané tvary vůči sobě navzájem.
+**[SlideUtil.alignShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)** má přetížení, která zarovnávají buď všechny tvary, nebo vybrané indexy kolekce. **[ShapesAlignmentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapesalignmenttype/)** specifikuje okraj, středovou čáru nebo režim rozložení. Nastavte `alignToSlide` na `true`, chcete-li použít okraje snímku; nastavte na `false`, chcete-li zarovnat vybrané tvary relativně k sobě navzájem.
 
-Tento příklad zarovnává tři tvary k horní hraně snímku. Vrácené reference tvarů jsou okamžitě převedeny na jejich aktuální indexy před zarovnáním.
+Tento příklad zarovnává tři tvary k hornímu okraji snímku. Vrácené odkazy na tvary jsou před zarovnáním okamžitě převedeny na jejich aktuální indexy.
 
 ```java
 import com.aspose.slides.*;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-Zarovnání mění pozice, ne Z‑řád. Relativní zarovnání obvykle vyžaduje alespoň dva tvary, zatímco horizontální nebo vertikální distribuce potřebuje dostatek tvarů k definování rozestupů. Přepočítejte indexy, pokud před voláním metody upravujete kolekci.
+Zarovnání mění pozice, ne z‑order. Relativní zarovnání obvykle vyžaduje alespoň dva tvary, zatímco vodorovné nebo svislé rozložení potřebuje dostatek tvarů pro definování mezery. Přepočítejte indexy, pokud před voláním metody upravujete kolekci.
 
-## **Převrácení tvaru**
+## **Převrátit tvar**
 
-Třída [ShapeFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeframe/) ukládá pozici, velikost, nastavení horizontálního a vertikálního převrácení a rotaci. Její hodnoty `getFlipH` a `getFlipV` používají [NullableBool](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/nullablebool/): `True` zapíná převrácení, `False` jej vypíná a `NotDefined` zachovává neurčený/defaultní stav.
+Třída **[ShapeFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeframe/)** ukládá pozici, velikost, horizontální a vertikální nastavení převrácení a rotaci. Její hodnoty `getFlipH` a `getFlipV` používají **[NullableBool](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/nullablebool/)**: `True` povolí převrácení, `False` jej zakáže a `NotDefined` zachová nedefinovaný/výchozí stav.
 
-Vstupní prezentace níže obsahuje jeden neotočený tvar.
+Vstupní prezentace níže obsahuje jeden neobrácený tvar.
 
-![Tvar před otočením](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Příklad zachovává všechny ostatní hodnoty rámce a nahrazuje jen dvě nastavení převrácení. To je důležité, protože přiřazení nového [Frame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) nahrazuje celý rámec.
+Příklad zachovává všechny ostatní hodnoty rámce a nahrazuje jen dvě nastavení převrácení. To je důležité, protože při přiřazení nového **[Frame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-)** se nahradí celý rámec.
 
 ```java
 import com.aspose.slides.*;
@@ -459,24 +461,24 @@ try {
 }
 ```
 
-Uložený tvar je zrcadlen horizontálně i vertikálně při zachování své pozice, velikosti a rotace.
+Uložený tvar je horizontálně i vertikálně zrcadlen, přičemž si zachovává svou pozici, velikost a rotaci.
 
-![Tvar po otočení](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
 **Mám používat index kolekce jako identifikátor tvaru?**
 
-Jen pro krátkodobé zpracování, kdy se kolekce před použitím indexu nezmění. Upřednostněte ověřenou konvenci `Name` nebo `AlternativeText` pro šablony vytvářené autory, nebo `OfficeInteropShapeId` pro práci s interopem na úrovni snímku.
+Pouze pro krátkodobé zpracování, kdy se kolekce před použitím indexu nezmění. Upřednostněte ověřenou konvenci `Name` nebo `AlternativeText` pro vytvořené šablony, nebo `OfficeInteropShapeId` pro práci s interopem v rozsahu snímku.
 
-**Odstraňuje skrytí tvaru jeho z‑řád?**
+**Odstraňuje skrytí tvaru jeho pozici v z‑orderu?**
 
-Ne. Skrytý tvar zůstává v kolekci na stejném indexu. Lze jej najít, změnit pořadí, upravit nebo opět zobrazit.
+Ne. Skrytý tvar zůstává v kolekci na stejném indexu. Lze ho najít, změnit pořadí, upravit nebo opět zobrazit.
 
 **Proč se klonovaný tvar objevil před jiným tvarem?**
 
-`addClone` přidá klon na konec kolekce, což je přední část z‑řádu. Použijte `insertClone` pro volbu počátečního indexu nebo `reorder` po přidání všech tvarů.
+`addClone` připojí klon na konec kolekce, což je přední část z‑orderu. Použijte `insertClone` pro výběr počátečního indexu nebo `reorder` po přidání všech tvarů.
 
-**Mohu použít pevný index pro identifikaci přednastavené úpravy tvaru?**
+**Mohu použít pevný index k identifikaci úpravy přednastaveného tvaru?**
 
-Jen po ověření přesného přednastavení a rozložení kolekce. Upřednostněte iteraci přes `IGeometryShape.getAdjustments` a kontrolu `IAdjustValue.getType`; použijte `IAdjustValue.getName` jako doplňující informaci, když se stejný sémantický typ objeví vícekrát.
+Pouze po ověření konkrétního přednastavení a rozložení kolekce. Upřednostněte iteraci přes `IGeometryShape.getAdjustments` a kontrolu `IAdjustValue.getType`; použijte `IAdjustValue.getName` jako doplňující informaci, pokud se stejný sémantický typ objeví vícekrát.

@@ -1,6 +1,6 @@
 ---
 title: Prezentációs alakzatok kezelése Androidon
-linktitle: Alakzatkezelés
+linktitle: Alakzatmanipuláció
 type: docs
 weight: 40
 url: /hu/androidjava/shape-manipulations/
@@ -15,12 +15,12 @@ keywords:
 - alakzat sorrendjének módosítása
 - interop alakzat ID lekérése
 - alakzat alternatív szövege
-- alakzat beállítási pont
-- előre meghatározott alakzat beállítása
-- alakzat geometria
-- alakzat elrendezés formátumok
-- alakzat SVG-ként
-- alakzat SVG-be
+- alakzat igazítási pontja
+- előre beállított alakzat igazítása
+- alakzat geometriai adatai
+- alakzat elrendezési formátumok
+- alakzat SVG‑ként
+- alakzat SVG‑be
 - alakzat igazítása
 - alakzat tükrözése
 - PowerPoint
@@ -28,25 +28,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan azonosíthat, módosíthat, klónozhat, eltávolíthat, elrejthet, újrarendezhet, exportálhat, igazíthat és tükrözhet prezentációs alakzatokat az Aspose.Slides for Android via Java használatával."
+description: "Ismerje meg, hogyan azonosíthat, módosíthat, klónozhat, eltávolíthat, elrejthet, újrarendezhet, exportálhat, igazíthat és tükrözhet prezentációs alakzatokat az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Android via Java egy rendezett [IShapeCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/) formájában képviseli a dián lévő alakzatokat. A gyűjtemény egyben az a hely, ahol alakzatokat találhat és módosíthat, valamint a rétegzési sorrend forrása: a `0` indexű alakzat a leghátrul lévő, míg az utolsó index a legelöl álló alakzat.
+Aspose.Slides for Android via Java a dián lévő alakzatokat egy rendezett [IShapeCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/)‑ként ábrázolja. A gyűjtemény egyszerre a hely, ahol megtalálja és módosíthatja az alakzatokat, valamint az egymásra helyezés sorrendjének forrása: a `0`‑es index a leghátsó alakzat, míg az utolsó index a legelső alakzat.
 
-Ez a cikk ezt a modellt követi. Először bemutatja, hogyan lehet egy alakzatot megbízhatóan azonosítani és előre meghatározott alakzat‑állítási pontokat módosítani, majd megmutatja, hogyan lehet klónozni, eltávolítani, elrejteni és újrarendezni az alakzatokat. Az utolsó szakaszok a diatervezési szintű formázást, az SVG exportot, az igazítást és a tükrözési beállításokat fedik le. Minden példa önálló, így csak a munkafolyamatához szükséges műveleteket használhatja.
+Ez a cikk ezt a modellt követi. Először azt mutatja be, hogyan lehet egy alakzatot megbízhatóan azonosítani és a beépített alakzat‑igazítási pontokat módosítani, majd azt, hogy hogyan lehet klónozni, eltávolítani, elrejteni és újrarendezni az alakzatokat. Az utolsó szakaszok az elrendezés‑szintű formázást, az SVG‑exportálást, a justálást és a tükrözési beállításokat fedik le. Minden példa független, így csak a munkafolyamatához szükséges műveleteket használhatja.
 
 ## **Alakzatok azonosítása és keresése**
 
-A gyűjtemény indexei kényelmesek egy ismert fájl feldolgozásakor, de nem stabil azonosítók. Alakzat hozzáadása, eltávolítása vagy átrendezése megváltoztathatja az indexét. Válasszon azonosítót a bemutató szerkesztési és karbantartási módja alapján:
+A gyűjtemény indexei kényelmesek egy ismert fájl feldolgozásakor, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy újrarendezése megváltoztathatja az indexét. Válasszon azonosítót a prezentáció szerkesztésének és karbantartásának módja szerint:
 
-- [Name](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getName--) hasznos fejlesztő által vezérelt sablonoknál, és könnyen megtekinthető a PowerPoint **Selection Pane**‑jében. A nevek szerkeszthetők, de nem garantált, hogy egyediek, ezért vegyen fel egy elnevezési konvenciót, ha a kód enkre támaszkodik.
-- [AlternativeText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getAlternativeText--) akkor hasznos, ha egy hozzáférhetőségi leírás vagy egy szerző által megadott címke már azonosítja az alakzatot. A felhasználók számára látható, lokalizálható, illetve átírható a hozzáférhetőség érdekében, és nem garantált, hogy egyedi. Ne használja csendben az értelmes hozzáférhetőségi szöveget adatbáziskulcsként.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) egy csak‑olvasású azonosító, amely egy dián belül egyedi, és megfelel a PowerPoint interop által használt alakzat‑azonosítónak. Használja, ha PowerPoint‑tal integrál, vagy ha egyértelmű hivatkozásra van szükség egy alakzat élettartama alatt. Egy klónozott vagy újból létrehozott alakzat másik alakzat, és saját azonosítót kap.
+- **[Name](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getName--)** hasznos fejlesztő‑vezérelt sablonok esetén, és könnyen megtekinthető a PowerPoint „Selection Pane”‑ben. A neveket szerkeszthető, de nem garantált a egyediségük, ezért ha a kód rá támaszkodik, alakíts ki egy elnevezési konvenciót.
+- **[AlternativeText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getAlternativeText--)** akkor hasznos, ha egy akadálymentesítési leírás vagy a szerző által megadott címke már azonosítja az alakzatot. Látható a felhasználók számára, lokalizálható vagy átírható akadálymentesítés céljából, és nem garantált az egyediség. Ne használja csendben az értelmes akadálymentesítési szöveget adatbáziskulcsként.
+- **[OfficeInteropShapeId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--)** egy csak‑olvasású azonosító, amely egy dián belül egyedi, és megfelel a PowerPoint interop által használt alakzat‑azonosítónak. Használja, ha a PowerPoint‑tel integrál, vagy ha a forma életciklusa alatt egyértelmű hivatkozásra van szükség. Egy klónozott vagy újból létrehozott alakzat másik alakzat, és saját ID‑t kap.
 
-A kapcsolódó [getUniqueId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getUniqueId--) metódus egy bemutató‑szintű azonosítót ad vissza, de ez az azonosító kiegészítők számára készült, és újra kiosztható. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú identitásra van szükség, tárolja a leképezést az alkalmazás‑adatokban, és ellenőrizze, hogy a várt alakzat továbbra is létezik‑e.
+A kapcsolódó **[getUniqueId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getUniqueId--)** metódus prezentáció‑szintű azonosítót ad vissza, de ez a metódus kiegészítők számára készült, és újra hozzárendelhető. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú azonosságra van szükség, tárolja a leképezést az alkalmazás adatbázisában, és ellenőrizze, hogy a várt alakzat még mindig létezik‑e.
 
-Az alábbi példa név szerint keres pontos egyezéssel, és a diára vonatkozó interop‑azonosítót jelzi. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelenti, ahelyett, hogy a hibás objektummal folytatná.
+A **[Manage Alternative Text Titles and Descriptions](/slides/hu/androidjava/presentation-accessibility/)** példában látható, hogyan lehet elolvasni és frissíteni az alternatív szöveg címet és leírást. Használja az alternatív szöveget a vizuális elemek jelentésének magyarázatára, és tartsa külön a kód által használt alakzatnevektől.
+
+Az alábbi példa név szerint keres pontos egyezéssel, és a diára vonatkozó interop‑ID‑t jelzi. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelenti, ahelyett, hogy a rossz objektummal folytatná.
 
 ```java
 import com.aspose.slides.*;
@@ -73,7 +75,7 @@ try {
 }
 ```
 
-Amikor egy művelet alakzat‑típusra specifikus, ellenőrizze a felületet a típus‑specifikus tagok használata előtt. Ez a példa szöveget és alternatív szöveget frissít csak akkor, ha a név szerint keresett objektum egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/).
+Amikor egy művelet alakzat‑típusra specifikus, ellenőrizze az interfészt, mielőtt típus‑specifikus tagokat használna. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a megnevezett objektum egy **[IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/)**.
 
 ```java
 import com.aspose.slides.*;
@@ -103,28 +105,28 @@ try {
 }
 ```
 
-## **Előre meghatározott alakzat‑állítások azonosítása és módosítása**
+## **Előre beállított alakzat‑igazítások azonosítása és módosítása**
 
-Az előre meghatározott geometriai alakzatok felhasználhatók olyan beállítási pontokkal, amelyek a sarokméretet, nyíl arányokat vagy ív szögeket szabályozzák. Ezeket a csak‑olvasású [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) gyűjteményén keresztül érheti el. Maga a gyűjtemény az alakzattól származik, de minden [IAdjustValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/) egy módosítható értéket tartalmaz.
+Az előre beállított geometriai alakzatok ki tudnak adni igazítási pontokat, amelyek a sarkok méretét, a nyíl arányait vagy ívhöjét szabályozzák. Ezeket a csak‑olvasású **[IGeometryShape.getAdjustments](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--)** gyűjteményen keresztül érheti el. A gyűjteményt maga az alakzat biztosítja, de minden **[IAdjustValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/)** tartalmaz egy módosítható értéket.
 
-Ne csak egy rögzített gyűjtemény‑indexre támaszkodjon. Iteráljon a beállításokon, és vizsgálja meg a csak‑olvasású [getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getType--) metódust, amelynek [ShapeAdjustmentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeadjustmenttype/) értéke leírja, mit szabályoz a beállítás. A csak‑olvasású [getName](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getName--) metódus további azonosító információt ad, és különösen hasznos, ha egy előre meghatározott alakzat több azonos szemantikai típussal rendelkező beállítást tartalmaz.
+Ne csak egy rögzített gyűjtemény‑indexre támaszkodjon. Iteráljon az igazításokon, és vizsgálja meg a csak‑olvasású **[getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getType--)** metódust, amelynek **[ShapeAdjustmentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeadjustmenttype/)** értéke leírja, mit szabályoz az adott igazítás. A csak‑olvasású **[getName](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getName--)** további azonosítási információt ad, és különösen hasznos, ha egy előre beállítás több ugyanolyan szemantikai típusú igazítást tartalmaz.
 
-Használja a beállítás jelentésének megfelelő érték‑metódust:
+Használja a jelentésnek megfelelő értékmódszert:
 
 | Adjustment type | Purpose | Value to change |
 |---|---|---|
-| `CornerSize` | A lekerekített sarkok mérete | [setRawValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `CornerSize` | Kerekített sarkok mérete | [setRawValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
 | `ArrowTailThickness` | Nyíl farok vastagsága | `setRawValue` |
-| `ArrowheadLength` | Nyílhegy hossza | `setRawValue` |
-| `ArrowheadWidth` | Nyílhegy szélessége | `setRawValue` |
-| `StartAngle` | Körszelet vagy ív kezdő szöge | [setAngleValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
-| `EndAngle` | Körszelet vagy ív záró szöge | `setAngleValue` |
+| `ArrowheadLength` | Nyílfej hossza | `setRawValue` |
+| `ArrowheadWidth` | Nyílfej szélessége | `setRawValue` |
+| `StartAngle` | Kör-/ív kezdőszöge | [setAngleValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Kör-/ív befejező szöge | `setAngleValue` |
 
-A `getType` és a `getName` csak‑olvasású információt ad. A `getRawValue` és a `setRawValue` egy egész számot használ a beállítás natív geometriai egységeiben, míg a `getAngleValue` és a `setAngleValue` fokban megadott szöget kezel. A beállítások száma, sorrendje, jelentése és érvényes tartománya a beállított [ShapeType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igeometryshape/#getShapeType--)‑tól függ. Egy presethez érvényes érték egy másik presetnél érvénytelen lehet vagy más hatást eredményezhet.
+A `getType` és a `getName` csak‑olvasású információt ad. A `getRawValue` és a `setRawValue` egy egész számot használ a beállított geometriai egységben, míg a `getAngleValue` és a `setAngleValue` fokban megadott szöget kezel. Az igazítások száma, sorrendje, jelentése és érvényes tartománya a konkrét **[ShapeType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igeometryshape/#getShapeType--)**‑tól függ. Egy presethez érvényes érték egy másik presetnél érvénytelen lehet vagy más hatást eredményezhet.
 
-Ha a `getType` visszaadja a `ShapeAdjustmentType.Custom` értéket, az API nem ismeri fel a szabványos szemantikai jelentést. Vizsgálja meg a `getName`‑et, a preset típusát és a jelenlegi értéket, és csak akkor módosítsa a beállítást, ha a várt jelentés és tartomány ismert. Még a felismert típusoknál is ellenőrizze, hogy ugyanaz a típus többször előfordul‑e, mielőtt egy értéket választana. A [Connector](/slides/hu/androidjava/connector/) cikk bemutatja ezt a helyzetet a csatlakozó‑görbületek esetén.
+Ha a `getType` **ShapeAdjustmentType.Custom**‑ot ad vissza, az API nem ismeri fel a szabványos szemantikai jelentést. Vizsgálja meg a `getName`‑et, a preset típusát és a meglévő értéket, és csak akkor módosítsa, ha a várható jelentés és tartomány ismert. Még a felismert típusoknál is ellenőrizze, hogy ugyanaz a típus többször is előfordul‑e, mielőtt értéket választana. A **[Connector](/slides/hu/androidjava/connector/)** cikk bemutatja ezt a helyzetet a connector‑görbületi igazításoknál.
 
-Az alábbi teljes példa három előre meghatározott alakzat alap‑ és módosított változatát hozza létre. Iterál minden beállításon, jelzi a nevét és típusát, `setRawValue`‑val méret‑kapcsoló értékeket, `setAngleValue`‑val szögeket változtat, és menti az eredményt. A bal oszlop az alap geometria, a jobb oszlop a módosított lekerekített téglalapot, a négyszögletű nyilat és a szelet mutatja.
+Az alábbi teljes példa három előre beállított alakzat alap‑ és módosított változatát hozza létre. Minden igazításon végigiterál, kiírja a nevét és típusát, a `setRawValue`‑val méret‑kapcsolt értékeket módosít, a `setAngleValue`‑val szögeket változtat, majd az eredményt menti. A bal oszlop az alap geometriai adatot, a jobb oszlop a módosított lekerekített téglalapot, a négyszögletes nyilat és a kört mutatja.
 
 ```java
 import com.aspose.slides.*;
@@ -133,7 +135,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fejlécek hozzáadása az alapértelmezett és a módosított alakzatoszlopokhoz.
+    // Hozzáadja a fejléceket az alap és a módosított alakzatoszlopokhoz.
     IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
     defaultColumnLabel.getTextFrame().setText("Default preset geometry");
     IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -194,17 +196,17 @@ try {
 }
 ```
 
-A szemantikai típus ellenőrzése érték módosítása előtt egyértelművé teszi a kód szándékát, és elkerüli, hogy egy adott gyűjtemény‑indexnek ugyanazt a jelentést tulajdonítsuk különböző preset alakzatoknál.
+A szemantikai típus ellenőrzése a módosítás előtt egyértelművé teszi a kód szándékát, és elkerüli, hogy egy adott gyűjtemény‑index különböző preset alakzatoknál más jelentéssel bírjon.
 
-## **Az alakzatgyűjtemény módosítása**
+## **Alakzatgyűjtemény módosítása**
 
-A hozzáadás, klónozás, eltávolítás és újrarendezés metódusai azonnal a gyűjteményen hatnak. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne támaszkodjon az előzőleg rögzített indexekre.
+A hozzáadás, klónozás, eltávolítás és újrarendezés módszerek azonnal a gyűjteményen dolgoznak. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne támaszkodjon tovább az előzőleg rögzített indexekre.
 
 ### **Alakzat klónozása**
 
-[addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) egy független másolatot hoz létre, és a célgyűjteményhez fűzi. [insertClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) szintén másolatot készít, de egy meghatározott z‑sorrend‑indexhez helyezi. A koordinátákat elfogadó túlterhelések a méretet nem változtatják; a szélesség‑ és magasság‑paraméteres változatok átméretezhetik is.
+A **[addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-)** egy független másolatot hoz létre, és a célgyűjtemény végére fűzi. A **[insertClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-)** szintén másolatot készít, de egy megadott z‑sorrend‑indexen helyezi el. A koordinátákat elfogadó túlterhelések a klónt méret‑változtatás nélkül mozgatják; a szélesség‑ és magasságot megadó túlterhelések át is méretezhetik.
 
-A példa egy cél‑diát hoz létre, egy feliratos téglalapot klónoz elölre, és egy második klónozatot szúr be hátulra. Az egyik klónozat módosítása nem változtatja meg a forrás‑alakzatot.
+A példa egy cél‑diát hoz létre, egy címkézett téglalapot a frontba klónoz, és egy második klónt a hátulra illeszt be. Az egyik vagy másik klónon végzett módosítások nem érintik a forrás alakzatot.
 
 ```java
 import com.aspose.slides.*;
@@ -243,13 +245,13 @@ try {
 }
 ```
 
-A klónozás átmásolja az alakzat tartalmát és formázását, beleértve a nevét és az alternatív szöveget is. Ha ezeknek az értékeknek egyedinek kell lenniük, adjon új logikai azonosítókat a klónnak. A bonyolult alakzatok által használt erőforrásokat a bemutató kezeli, de a klón egy új gyűjtemény‑elem, új alakzat‑azonosítóval.
+A klónozás másolja az alakzat tartalmát és formázását, beleértve a nevét és az alternatív szöveget is. Ha ezeknek az értékeknek egyedinek kell lenniük, adjon új logikai azonosítókat a klónnak. A komplex alakzatok által használt erőforrásokat a prezentáció kezeli, de a klón egy új gyűjtemény‑elemet jelent új alakzat‑azonosítóval.
 
 ### **Alakzatok eltávolítása**
 
-[remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) egy adott alakzat objektumot töröl a saját gyűjteményéből. Több egyező elem eltávolításakor indexelt iteráció során haladjon a vég felől, hogy a fennmaradó indexek érvényben maradjanak.
+A **[remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-)** egy konkrét alakzat‑objektust töröl a gyűjteményéből. Több egyező alakzat eltávolítása során indexelt iteráció esetén járjon végig a gyűjteményen a végtől a kezdő felé, hogy minden maradt index érvényes maradjon.
 
-Ez a példa minden kijelölt névű alakzatot eltávolít. A jelenlegi indexnél lévő alakzatot olvassa, nem egy rögzített gyűjtemény‑elemet, és nem végez felesleges cast‑et.
+Ez a példa minden megnevezett névvel rendelkező alakzatot eltávolít. Az aktuális indexnél olvassa be az alakzatot, nem egy rögzített gyűjtemény‑elemet, és nincs felesleges típuskényszerítés.
 
 ```java
 import com.aspose.slides.*;
@@ -280,11 +282,11 @@ try {
 }
 ```
 
-Eltávolítás után a alakzatszám és a későbbi alakzatok indexei változnak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak, mint a korábban elmentett indexek. Vegye figyelembe a csatlakozókat, animációkat és egyéb bemutató‑elemeket, amelyek a törölt objektumra hivatkozhatnak; egy látható alakzat eltávolítása a dia megjelenésén túl is változást idézhet elő.
+Eltávolítás után a alakzatok száma és a későbbi alakzatok indexei is változnak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak, mint a mentett indexek. Vegye figyelembe a csatlakozókat, animációkat és a prezentáció egyéb elemeit, amelyek hivatkozhatnak a törölt objektumra; egy látható alakzat eltávolítása több mint csak a dia megjelenését befolyásolhatja.
 
 ### **Alakzat elrejtése**
 
-A [Hidden](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) `true`‑ra állítása megtartja az alakzatot a gyűjteményben, de megakadályozza, hogy a normál diavetítésben megjelenjen. Indexe, formázása és tartalma továbbra is elérhető a kód számára, így az elrejtés alkalmas opcionális elemekhez, amelyek később visszaállíthatók.
+A **[Hidden](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#setHidden-boolean-)** `true`‑ra állítása megtartja az alakzatot a gyűjteményben, de megakadályozza, hogy a normál diavetítésben megjelenjen. Indexe, formázása és tartalma továbbra is elérhető a kód számára, ezért az elrejtés alkalmas opcionális elemekre, amelyeket később vissza lehet állítani.
 
 ```java
 import com.aspose.slides.*;
@@ -311,11 +313,11 @@ try {
 }
 ```
 
-Az elrejtés nem törlés vagy biztonsági funkció. Az objektum továbbra is felfedezhető és visszakapcsolható felhasználó vagy kód által, és része marad a bemutatófájlnek.
+Az elrejtés nem törlés vagy biztonsági intézkedés. Az objektum továbbra is felfedezhető és visszakapcsolható felhasználó vagy kód által, és része marad a prezentáció fájlnak.
 
-### **Z‑rend átalakítása**
+### **Z‑rendezés módosítása**
 
-A átfedő alakzatok a gyűjtemény sorrendjében kerülnek felvitelre. [reorder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) egy meglévő alakzatot egy cél‑indexre helyez anélkül, hogy klónozná. A `0` index a hátul, a `size() - 1` az elöl.
+Az átfedő alakzatok a gyűjtemény sorrendjében kerülnek festésre. A **[reorder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-)** egy meglévő alakzatot egy cél‑indexre helyez anélkül, hogy klónozná. A `0`‑as index a hátul, a `size() - 1` a front.
 
 ```java
 import com.aspose.slides.*;
@@ -342,13 +344,13 @@ try {
 }
 ```
 
-A téglalap először létrejön, és eleinte az ellipsz mögött helyezkedik el. A végső indexre mozgatásával előre kerül. Z‑rendet a kapcsolódó alakzatok hozzáadása vagy klónozása után állítsa be, mivel ezek a műveletek új gyűjtemény‑elemeket fűznek hozzá vagy szúrnak be, és módosíthatják a kívánt rétegsorrendet.
+Először a téglalap jön létre, ezért eleinte a ellipszis mögött helyezkedik el. A végső indexre mozgatásával előre kerül. A z‑rendezést a kapcsolódó alakzatok hozzáadása vagy klónozása után finomítsa, mivel ezek a műveletek új gyűjtemény‑elemeket szúrhatnak be és módosíthatják a kívánt rétegsorrendet.
 
-## **Alakzatok vizsgálata elrendezési diákon**
+## **Elrendezési diák alakzatainak vizsgálata**
 
-A normál diák, az elrendezési diák és a mester diák különálló alakzat‑gyűjteményekkel rendelkeznek. Egy elrendezési gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonlóan elhelyezkedő alakzat egy normál dián. Vizsgálja meg az elrendezési alakzatokat, amikor a formázást kell megértenie vagy módosítania, amelyet egy elrendezés biztosít.
+A normál diák, elrendezési diák és fődiák külön alakzatgyűjteményekkel rendelkeznek. Egy elrendezési gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonlóan elhelyezkedő alakzat egy normál dián. Vizsgálja meg az elrendezési alakzatokat, ha formázást kell megértenie vagy módosítania, amelyet egy elrendezés biztosít.
 
-Az alábbi példa minden elrendezési alakzat [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getFillFormat--) és [LineFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getLineFormat--) tulajdonságát olvassa, anélkül, hogy feltételezné, hogy minden alakzat egy `AutoShape`.
+Az alábbi példa minden elrendezési alakzat **[FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getFillFormat--)** és **[LineFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getLineFormat--)** tulajdonságát olvassa ki, anélkül, hogy feltegyené, minden alakzat egy `AutoShape`.
 
 ```java
 import com.aspose.slides.*;
@@ -367,11 +369,11 @@ try {
 }
 ```
 
-Egy elrendezés szerkesztése több diára is hatással lehet, amelyik használja azt. Mielőtt egy elrendezési alakzatot módosítana, határozza meg, hogy egy normál dia örökölte‑e az objektumot vagy helyi felülírást tartalmaz‑e, és tesztelje az összes olyan diát, amely az elrendezést használja.
+Az elrendezés szerkesztése több, azt használó diára is hatással lehet. Mielőtt megváltoztatna egy elrendezési alakzatot, határozza meg, hogy egy normál dia örökli‑e az objektumot vagy helyi felülírást tartalmaz‑e, és tesztelje az összes olyan diát, amely az adott elrendezést használja.
 
-## **Alakzat exportálása SVG‑ként**
+## **Alakzat exportálása SVG‑be**
 
-[writeAsSvg](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) egy alakzat renderelt tartalmát írja ki egy folyamra. Az eredmény csak az alakzatot tartalmazza, nem a teljes dia hátterét vagy a szomszédos alakzatokat.
+A **[writeAsSvg](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-)** egy alakzat renderelt tartalmát írja egy adatfolyamba. Az eredmény csak az alakzatot tartalmazza, nem a teljes dia háttérjét vagy a szomszédos alakzatokat.
 
 ```java
 import com.aspose.slides.*;
@@ -397,13 +399,13 @@ try {
 }
 ```
 
-Tartsa nyitva a bemutatót a renderelés alatt. A kimenet az alakzat formázásától, valamint a betűkészletek és képek erőforrásaitól függ. Ha a teljes kompozícióra van szükség, exportálja a diát, ne pedig az egyes alakzatot. A hívó a folyamatot felhasználja, és saját maga kell, hogy lezárja azt.
+Tartsa nyitva a prezentációt a renderelés közben. A kimenet az alakzat formázásától, valamint a betűtípusok és képekhez hasonló erőforrásoktól függ. Ha a teljes kompozícióra van szüksége, exportálja a diát, nem csak az egyes alakzatot. A hívó birtokolja az adatfolyamot, és köteles azt bezárni.
 
 ## **Alakzatok igazítása**
 
-A [SlideUtil.alignShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) túlterhelései vagy az összes alakzatot, vagy a kiválasztott gyűjteményindexeket igazítják. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapesalignmenttype/) megadja a szél, középpont vagy elosztási módot. Az `alignToSlide`‑t `true`‑ra állítva a dia széleit használja; `false` esetén a kiválasztott alakzatok egymáshoz viszonyított igazítását.
+A **[SlideUtil.alignShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)** túlterhelésekkel vagy minden alakzatot, vagy kiválasztott gyűjtemény indexeket igazít. A **[ShapesAlignmentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapesalignmenttype/)** határozza meg a széleket, középvonalat vagy elosztási módot. Állítsa az `alignToSlide`‑t `true`‑ra a dia széleihez igazításhoz; `false`‑ra állítva a kiválasztott alakzatok egymáshoz viszonyított igazításához.
 
-Ez a példa három alakzatot a dia felső széléhez igazít. A visszakapott alakzat‑hivatkozásokat az igazítás előtt az aktuális indexeikre konvertálja.
+Ez a példa három alakzatot a dia felső széléhez igazít. A visszakapott alakzat‑referenciákat a tényleges indexeikre konvertálja közvetlenül az igazítás előtt.
 
 ```java
 import com.aspose.slides.*;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-Az igazítás pozíciókat változtat, nem a z‑rendet. Relatív igazításhoz általában legalább két alakzat szükséges, míg a vízszintes vagy függőleges elosztáshoz elegendő számú alakzat kell a távolság meghatározásához. Ha a metódus hívása előtt módosítja a gyűjteményt, számolja újra az indexeket.
+Az igazítás a pozíciókat változtatja, nem a z‑rendezést. Relatív igazításhoz általában legalább két alakzat szükséges, míg a vízszintes vagy függőleges elosztáshoz elegendő alakzat kell, hogy meghatározza a távolságot. Ha a metódus meghívása előtt módosította a gyűjteményt, számolja újra az indexeket.
 
 ## **Alakzat tükrözése**
 
-A [ShapeFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeframe/) osztály tárolja a pozíciót, méretet, a vízszintes és függőleges tükrözési beállításokat, valamint a forgást. A `getFlipH` és `getFlipV` értékek a [NullableBool](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/nullablebool/)‑t használják: `True` engedélyezi a tükrözést, `False` letiltja, a `NotDefined` pedig megőrzi a nem meghatározott/alapértelmezett állapotot.
+A **[ShapeFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeframe/)** osztály tárolja a pozíciót, méretet, a vízszintes és függőleges tükrözés beállításait, valamint a forgást. A `getFlipH` és `getFlipV` értékek **[NullableBool](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/nullablebool/)** típusúak: `True` engedélyezi a tükrözést, `False` letiltja, a `NotDefined` pedig a nem meghatározott/alapértelmezett állapotot őrzi meg.
 
-Az alábbi bemutató egy nem tükrözött alakzatot tartalmaz.
+Az alábbi bemeneti prezentáció egy nem tükrözött alakzatot tartalmaz.
 
-![The shape before flipping](shape_to_be_flipped.png)
+![Az alakzat a tükrözés előtt](shape_to_be_flipped.png)
 
-A példa minden egyéb keretértéket megtart, csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új [Frame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) hozzárendelése felülírja a teljes keretet.
+A példa minden egyéb keretértéket megőriz, és csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új **[Frame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-)** hozzárendelése a teljes keretet felülírja.
 
 ```java
 import com.aspose.slides.*;
@@ -459,24 +461,24 @@ try {
 }
 ```
 
-A mentett alakzat vízszintesen és függőlegesen tükrözve jelenik meg, miközben megőrzi a pozíciót, méretet és forgást.
+A mentett alakzat vízszintesen és függőlegesen tükrözve marad, miközben a pozíciója, mérete és forgási szöge változatlan.
 
-![The shape after flipping](flipped_shape.png)
+![Az alakzat a tükrözés után](flipped_shape.png)
 
 ## **GYIK**
 
 **Használjak gyűjtemény‑indexet alakzat azonosítóként?**
 
-Csak rövid életű feldolgozás esetén, amikor a gyűjtemény nem változik az index használata előtt. A szerkesztett sablonokhoz validált `Name` vagy `AlternativeText` konvenciót, a diára vonatkozó interop munkához pedig `OfficeInteropShapeId`‑t részesítsen előnyben.
+Csak rövid életű feldolgozáskor, amikor a gyűjtemény nem változik az index használata előtt. Hosszabb távon válasszon ellenőrzött `Name` vagy `AlternativeText` konvenciót a szerkesztett sablonokhoz, vagy `OfficeInteropShapeId`‑t a diára vonatkozó interop feladatokhoz.
 
-**Eltávolítja-e a rejtett alakzat a z‑rendet?**
+**Az elrejtett alakzat eltűnik a z‑rendezésből?**
 
-Nem. A rejtett alakzat a gyűjteményben marad ugyanazzal az indexszel. Megtalálható, újrarendezhető, szerkeszthető vagy újra láthatóvá tehető.
+Nem. Egy elrejtett alakzat ugyanazon az indexen marad a gyűjteményben. Megtalálható, újrarendezhető, szerkeszthető vagy újra láthatóvá tehető.
 
 **Miért jelent meg egy klónozott alakzat egy másik alakzat előtt?**
 
-Az `addClone` a klónt a gyűjtemény végére fűzi, ami a z‑rend első helye. Használja az `insertClone`‑t a kezdeti index megadásához, vagy az `reorder`‑t az összes alakzat hozzáadása után.
+Az `addClone` a klónt a gyűjtemény végére fűzi, ami a z‑rendezés frontja. Használja az `insertClone`‑t a kezdeti index megadásához, vagy a `reorder`‑t minden alakzat hozzáadása után.
 
-**Használhatok rögzített indexet egy előre meghatározott alakzat‑állítás azonosításához?**
+**Használhatok rögzített indexet egy előre beállított alakzat‑igazítás azonosításához?**
 
-Csak akkor, ha a pontos presetet és a gyűjtemény‑elrendezést előzetesen ellenőrizte. Inkább iteráljon a `IGeometryShape.getAdjustments`‑on, és ellenőrizze a `IAdjustValue.getType`‑t; ha ugyanaz a szemantikai típus többször fordul elő, használja a `IAdjustValue.getName`‑t további információként.
+Csak akkor, ha az adott presetet és a gyűjtemény elrendezését validálta. Inkább iteráljon a `IGeometryShape.getAdjustments`‑on, és ellenőrizze az `IAdjustValue.getType`‑t; ha ugyanaz a szemantikai típus többször is megjelenik, használja az `IAdjustValue.getName`‑t további információként.

@@ -1,52 +1,54 @@
 ---
-title: 在 Android 上管理簡報形狀
-linktitle: 形狀操作
+title: 在 Android 上管理簡報圖形
+linktitle: 圖形操作
 type: docs
 weight: 40
 url: /zh-hant/androidjava/shape-manipulations/
 keywords:
-- PowerPoint 形狀
-- 簡報形狀
-- 投影片上的形狀
-- 尋找形狀
-- 複製形狀
-- 移除形狀
-- 隱藏形狀
-- 變更形狀順序
-- 取得 Interop 形狀 ID
-- 形狀替代文字
-- 形狀調整點
-- 預設形狀調整
-- 形狀幾何
-- 形狀版面格式
-- 形狀為 SVG
-- 形狀轉 SVG
-- 對齊形狀
-- 翻轉形狀
+- PowerPoint 圖形
+- 簡報圖形
+- 投影片上的圖形
+- 尋找圖形
+- 複製圖形
+- 移除圖形
+- 隱藏圖形
+- 變更圖形順序
+- 取得 interop 圖形 ID
+- 圖形替代文字
+- 圖形調整點
+- 預設圖形調整
+- 圖形幾何
+- 圖形版面格式
+- 圖形為 SVG
+- 圖形轉 SVG
+- 對齊圖形
+- 翻轉圖形
 - PowerPoint
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Android via Java 識別、調整、複製、移除、隱藏、重新排序、匯出、對齊與翻轉簡報形狀。"
+description: "了解如何使用 Aspose.Slides for Android via Java 識別、調整、複製、移除、隱藏、重新排序、匯出、對齊與翻轉簡報圖形。"
 ---
-## **概述**
+## **概觀**
 
-Aspose.Slides for Android via Java 以有序的 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/) 來表示投影片上的形狀。此集合同時是您尋找與修改形狀的所在，也是它們堆疊順序的來源：索引 `0` 為最靠後的形狀，而最後一個索引為最前面的形狀。
+Aspose.Slides for Android via Java 將投影片上的圖形表示為一個有序的 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/)。此集合同時是您尋找與修改圖形的所在，也是它們堆疊順序的來源：索引 `0` 為最背後的圖形，最後一個索引則為最前面的圖形。
 
-本文遵循此模型。首先說明如何可靠地辨識形狀並修改預設的調整點，接著展示如何複製、移除、隱藏與重新排序形狀。最後的章節涵蓋版面層級的格式設定、SVG 匯出、對齊與翻轉設定。每個範例皆獨立，您可以僅使用工作流程所需的操作。
+本文遵循此模型。首先說明如何可靠地識別圖形並修改預設的圖形調整點，接著示範如何複製、移除、隱藏與重新排序圖形。最後的章節涵蓋版面層級的格式設定、SVG 匯出、對齊與翻轉設定。每個範例都是獨立的，您可以只使用工作流程所需的操作。
 
-## **識別與尋找形狀**
+## **識別與尋找圖形**
 
-在處理已知檔案時，使用集合索引很方便，但它們不是穩定的識別子。新增、移除或重新排序形狀都會改變其索引。請依照簡報的製作與維護方式選擇識別子：
+在處理已知檔案時，集合索引很方便，但它們不是穩定的識別子。新增、移除或重新排序圖形都會改變其索引。請依據投影片的製作與維護方式選擇識別子：
 
-- [Name](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getName--) 於開發人員控制的模板中很有用，且可在 PowerPoint 的「選取窗格」中檢視。名稱可編輯且不保證唯一，若程式碼依賴名稱，請建立命名慣例。
-- [AlternativeText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getAlternativeText--) 在已提供可辨識形狀的無障礙說明或作者標籤時很有用。此文字會向使用者顯示，可能會本地化或為無障礙重新編寫，且不保證唯一。不要將具有意義的無障礙文字悄悄用作資料庫鍵值。
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) 為唯讀識別子，於投影片內唯一，對應 PowerPoint Interop 使用的形狀 ID。當與 PowerPoint 整合或在形狀生命週期內需要明確參照時使用。被複製或重新建立的形狀會成為不同的形狀，並取得自己的 ID。
+- [Name](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getName--) 對於開發人員控制的樣板很有用，且在 PowerPoint 的「選取窗格」中易於檢查。名稱可以編輯，但不保證唯一，若程式碼依賴名稱，請建立命名規則。
+- [AlternativeText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getAlternativeText--) 在已有無障礙說明或作者自行標記已識別圖形時很有用。它會對使用者可見，可能會本地化或為無障礙需求重新撰寫，且不保證唯一。不要把有意義的無障礙文字悄悄用作資料庫鍵。
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) 是唯讀的識別子，在投影片內唯一，對應 PowerPoint 互操作使用的形狀 ID。於整合 PowerPoint 或需要在圖形生命週期內取得明確參照時使用。被複製或重新建立的圖形會是不同的圖形，會取得自己的 ID。
 
-相關的 [getUniqueId](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getUniqueId--) 方法會傳回簡報範圍內的識別子，但此識別子僅供外掛使用，可能會重新指派。不要將其視為永久的外部鍵。若長期身份辨識很重要，請在應用程式資料中保存對應關係，並驗證預期的形狀仍然存在。
+相關的 [getUniqueId](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getUniqueId--) 方法會回傳投影片範圍內的識別子，但此識別子僅供外掛使用，可能會被重新指派，不應視為永久的外部鍵。若需要長期身分辨識，請將對應關係保存在應用程式資料中，並驗證預期的圖形仍然存在。
 
-以下範例以名稱做完全相等比對搜尋，並回報投影片範圍的 Interop ID。當模板未包含預期形狀時，程式會回報此結果，而不會繼續使用錯誤的物件。
+若要實作讀取與更新替代文字的標題與說明，請參考 [Manage Alternative Text Titles and Descriptions](/slides/zh-hant/androidjava/presentation-accessibility/)。使用替代文字向讀者說明視覺資訊的意義，並將其與程式碼用來尋找圖形的名稱分開管理。
+
+以下範例以精確比較的方式依名稱搜尋，並回報投影片層級的 interop ID。當樣板未包含預期圖形時，程式會回報該結果而不是繼續使用錯誤的物件。
 
 ```java
 import com.aspose.slides.*;
@@ -73,7 +75,7 @@ try {
 }
 ```
 
-當操作針對特定形狀類型時，使用前請先檢查介面。本範例僅在命名物件為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/) 時，才更新文字與替代文字。
+當操作特定於圖形類型時，請先檢查介面再使用類型專屬的成員。此範例僅在命名物件為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/) 時，才會更新文字與替代文字。
 
 ```java
 import com.aspose.slides.*;
@@ -103,28 +105,28 @@ try {
 }
 ```
 
-## **識別與修改預設形狀調整**
+## **識別與修改預設圖形調整**
 
-預設幾何形狀可能會暴露調整點，用以控制如角落大小、箭頭比例或弧度等特徵。透過唯讀的 [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) 集合存取它們。集合本身由形狀提供，但每個 [IAdjustValue](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/) 包含可變更的值。
+預設幾何圖形可能會公開調整點，以控制角落大小、箭頭比例或弧度等特徵。透過唯讀的 [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) 集合取得。集合本身由圖形提供，但每個 [IAdjustValue](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/) 含有可變更的值。
 
-不要只依賴固定的集合索引。遍歷調整項目，並檢查唯讀的 [getType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#getType--) 方法，其回傳的 [ShapeAdjustmentType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shapeadjustmenttype/) 會說明此調整控制什麼。唯讀的 [getName](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#getName--) 方法提供額外辨識資訊，當同一語意類型出現多次時特別有用。
+不要只依賴固定的集合索引。遍歷調整項目並檢查唯讀的 [getType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#getType--) 方法，其 [ShapeAdjustmentType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shapeadjustmenttype/) 值描述此調整控制什麼。唯讀的 [getName](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#getName--) 方法提供額外的識別資訊，當同一語義類型出現多次時特別有用。
 
-使用與調整意義相符的值方法：
+使用與調整意義相符的方法：
 
 | 調整類型 | 目的 | 要變更的值 |
 |---|---|---|
-| `CornerSize` | 圓角的大小 | [setRawValue](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
-| `ArrowTailThickness` | 箭尾的粗細 | `setRawValue` |
-| `ArrowheadLength` | 箭頭的長度 | `setRawValue` |
-| `ArrowheadWidth` | 箭頭的寬度 | `setRawValue` |
-| `StartAngle` | 扇形或弧形的起始角度 | [setAngleValue](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
-| `EndAngle` | 扇形或弧形的結束角度 | `setAngleValue` |
+| `CornerSize` | 圓角大小 | [setRawValue](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | 箭尾厚度 | `setRawValue` |
+| `ArrowheadLength` | 箭頭長度 | `setRawValue` |
+| `ArrowheadWidth` | 箭頭寬度 | `setRawValue` |
+| `StartAngle` | 扇形或弧線的起始角度 | [setAngleValue](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | 扇形或弧線的結束角度 | `setAngleValue` |
 
-`getType` 與 `getName` 只回傳唯讀資訊。`getRawValue` 與 `setRawValue` 使用預設幾何單位的整數，而 `getAngleValue` 與 `setAngleValue` 使用度數。調整的數量、順序、語意與有效範圍取決於預設的 [ShapeType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igeometryshape/#getShapeType--)。某一預設有效的值，對其他預設可能無效或產生不同效果。
+`getType` 與 `getName` 回傳唯讀資訊。`getRawValue` 與 `setRawValue` 使用預設幾何單位的整數，而 `getAngleValue` 與 `setAngleValue` 使用度數。調整項目的數量、順序、意義與有效範圍取決於預設的 [ShapeType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igeometryshape/#getShapeType--)。對一種預設有效的值，對另一種預設可能無效或產生不同效果。
 
-當 `getType` 回傳 `ShapeAdjustmentType.Custom` 時，API 無法辨識標準語意。請檢查 `getName`、預設類型與現有值，除非已知預期的意義與範圍，否則保持調整不變。即使是已辨識的類型，也要先確認同一類型是否出現多次再選取值。[Connector](/slides/zh-hant/androidjava/connector/) 文章示範了連接線彎曲調整的情況。
+當 `getType` 回傳 `ShapeAdjustmentType.Custom` 時，API 無法辨識標準語意。檢查 `getName`、預設類型與現有值，除非已知預期的意義與範圍，否則保持調整不變。即使是已辨識的類型，也要先確認同一類型是否出現多次再選取值。[Connector](/slides/zh-hant/androidjava/connector/) 文章示範了連接線彎曲調整的情況。
 
-以下完整範例建立三種預設形狀的預設與修改版本。它遍歷每個調整項目，回報名稱與類型，使用 `setRawValue` 變更尺寸相關值，使用 `setAngleValue` 變更角度，並儲存結果。左欄保留預設幾何，右欄則顯示調整後的圓角矩形、四向箭頭與餅形。
+以下完整範例建立三個預設圖形的預設與修改版本。它遍歷每個調整，回報名稱與類型，透過 `setRawValue` 更改與大小相關的值，透過 `setAngleValue` 更改角度，並儲存結果。左側保留預設幾何，右側則顯示調整後的圓角矩形、四向箭頭與扇形。
 
 ```java
 import com.aspose.slides.*;
@@ -133,7 +135,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 為預設與調整後的形狀欄位添加標題。
+    // 為預設與調整後的圖形欄位新增標題。
     IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
     defaultColumnLabel.getTextFrame().setText("Default preset geometry");
     IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -194,17 +196,17 @@ try {
 }
 ```
 
-在變更值之前先檢查語意類型，可讓程式碼對意圖更明確，並避免假設同一索引在不同預設形狀中具有相同意義。
+在變更值之前先檢查語意類型，可讓程式明確表達意圖，避免假設相同集合索引在不同預設圖形中有相同意義。
 
-## **修改形狀集合**
+## **修改圖形集合**
 
-加入、複製、移除與重新排序的方法會立即作用於集合。若操作改變形狀的數量或順序，請勿繼續使用先前捕獲的索引。
+新增、複製、移除與重新排序方法會立即作用於集合。若操作改變了圖形的數量或順序，請勿再依賴先前取得的索引。
 
-### **複製形狀**
+### **複製圖形**
 
-[addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) 會建立獨立的副本，並將其附加到目標集合。[insertClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) 亦會建立副本，但會放置在指定的 z‑order 索引。接受座標的多載會在不改變尺寸的情況下移動副本；帶有寬度與高度的多載則可同時調整大小。
+[addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) 會建立獨立的副本，並將其附加至目標集合的末端。[insertClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) 也會建立副本，但會放在指定的 Z 軸索引位置。接受座標的重載會在不變更大小的情況下移動副本；接受寬度與高度的重載則同時調整大小。
 
-範例建立目標投影片，將帶標籤的矩形複製至最前面，並在最背面插入第二個副本。對任一副本的變更不會影響來源形狀。
+此範例建立目的投影片，將帶標籤的矩形複製至前端，並在後端插入第二個副本。對任一副本的變更都不會影響來源圖形。
 
 ```java
 import com.aspose.slides.*;
@@ -243,13 +245,13 @@ try {
 }
 ```
 
-複製會將形狀的內容與格式，包括名稱與替代文字，一同複製。若這些值必須唯一，請為副本指派新的邏輯識別子。複雜形狀使用的資源由簡報處理，但副本仍是新集合項目，擁有新的形狀識別。
+複製會將圖形的內容與格式（包括名稱與替代文字）一起複製。若這些值必須唯一，請為副本指派新的邏輯識別子。複雜圖形使用的資源由投影片管理，但副本仍是集合中的新項目，擁有新的圖形身分。
 
-### **移除形狀**
+### **移除圖形**
 
-[remove](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) 會從其集合中刪除特定形狀物件。於索引化迭代時若要移除多個符合項目，請從末端向前遍歷，以免剩餘索引失效。
+[remove](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) 會從其集合中刪除指定的圖形物件。於索引迭代過程中移除多個符合項目時，請自尾端向前遍歷，以確保剩餘索引仍然有效。
 
-此範例移除所有具有指定名稱的形狀。它在目前索引讀取形狀，而非固定的集合項目，且不會不必要地進行型別轉換。
+此範例移除所有具有指定名稱的圖形。它在當前索引讀取圖形，而非固定的集合項目，且不會不必要地轉型圖形。
 
 ```java
 import com.aspose.slides.*;
@@ -280,11 +282,11 @@ try {
 }
 ```
 
-移除後，形狀計數與後續形狀的索引會變化。對未受影響的形狀保持參考比保存的索引更可靠。也請考慮連接線、動畫與其他可能參照被移除物件的簡報功能；移除可見形狀可能會改變投影片外觀以外的更多項目。
+移除後，圖形計數與之後圖形的索引皆會變動。對未受影響圖形的參照較保存的索引更可靠。同時也要考慮連接線、動畫及其他可能參照被移除物件的投影片功能；移除可見圖形可能改變的不僅是投影片外觀。
 
-### **隱藏形狀**
+### **隱藏圖形**
 
-將 [Hidden](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) 設為 `true` 會保留形狀於集合中，但阻止其在一般投影片放映中顯示。其索引、格式與內容仍可供程式碼存取，因此適用於可能稍後恢復的可選元素。
+將 [Hidden](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) 設為 `true` 會保留圖形於集合中，但在正常投影片放映時不會顯示。其索引、格式與內容仍可供程式碼使用，因此隱藏適用於可能稍後恢復的可選元素。
 
 ```java
 import com.aspose.slides.*;
@@ -311,11 +313,11 @@ try {
 }
 ```
 
-隱藏不是刪除或安全機制。使用者或程式碼仍可發現並取消隱藏，且它仍是簡報檔案的一部份。
+隱藏並非刪除或安全保護。使用者或程式碼仍能發現並取消隱藏，且它仍是投影片檔案的一部份。
 
-### **變更 Z‑Order**
+### **變更 Z 軸順序**
 
-重疊的形狀會依集合順序繪製。[reorder](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) 會將既有形狀移動至目標索引，且不會產生副本。索引 `0` 為最背面，`size() - 1` 為最前面。
+重疊的圖形會依集合順序繪製。[reorder](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) 會將現有圖形移動到目標索引，且不會產生副本。索引 `0` 為最背後；`size() - 1` 為最前端。
 
 ```java
 import com.aspose.slides.*;
@@ -342,13 +344,13 @@ try {
 }
 ```
 
-此範例先建立矩形，使其最初位於橢圓之後。將其移至最後索引後即位於前方。請在加入或複製所有相關形狀之後再最終確定 Z‑order，因為這些操作會新增或插入集合項目，可能改變原先的堆疊順序。
+矩形最先建立，最初位於橢圓之後。將其移至最終索引即會置於前端。請於加入或複製所有相關圖形後再最終確認 Z 軸順序，因為這些操作會在集合中新增或插入項目，可能改變原先的堆疊。
 
-## **檢查版面投影片上的形狀**
+## **檢查版面投影片上的圖形**
 
-一般投影片、版面投影片與母片各自擁有獨立的形狀集合。版面集合中的形狀不是與普通投影片上相同位置的形狀同一物件。當您需要了解或變更版面提供的格式時，請檢查版面形狀。
+一般投影片、版面投影片與母版投影片各自擁有獨立的圖形集合。版面集合中的圖形並非與一般投影片上同位置圖形相同的物件。當需要了解或變更版面提供的格式時，請檢查版面圖形。
 
-以下範例讀取每個版面形狀的 [FillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getFillFormat--) 與 [LineFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getLineFormat--)，且不假設每個形狀都是 `AutoShape`。
+以下範例讀取每個版面圖形的 [FillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getFillFormat--) 與 [LineFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getLineFormat--)，且不假設每個圖形都是 `AutoShape`。
 
 ```java
 import com.aspose.slides.*;
@@ -367,11 +369,11 @@ try {
 }
 ```
 
-編輯版面可能會影響使用該版面的多個投影片。變更版面形狀前，請先確定普通投影片是繼承該物件還是有本地覆寫，並測試所有使用該版面的投影片。
+編輯版面可能會影響多個使用該版面的投影片。變更版面圖形前，請先確認一般投影片是繼承該物件還是具有本地覆寫，並測試所有使用該版面的投影片。
 
-## **將形狀匯出為 SVG**
+## **將圖形匯出為 SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) 會將單一形狀的渲染內容寫入串流。結果僅包含該形狀本身，不會包含整張投影片的背景或鄰近形狀。
+[writeAsSvg](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) 會將單一圖形的渲染內容寫入串流。結果僅包含該圖形本身，而非整張投影片的背景或相鄰圖形。
 
 ```java
 import com.aspose.slides.*;
@@ -397,13 +399,13 @@ try {
 }
 ```
 
-渲染時請保持簡報開啟。輸出取決於形狀的格式以及字型、影像等資源。若需要整個組合，請匯出投影片而非單一形狀。呼叫方負責管理串流，需自行關閉。
+渲染時請保持投影片開啟狀態。輸出內容取決於圖形的格式以及字型、圖像等資源。如果需要整個組合，請匯出投影片而非單一圖形。呼叫端擁有串流的所有權，必須自行關閉。
 
-## **對齊形狀**
+## **對齊圖形**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) 的多載可對齊全部形狀或選取的集合索引。[ShapesAlignmentType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shapesalignmenttype/) 定義對齊的邊緣、中心線或分佈模式。將 `alignToSlide` 設為 `true` 以使用投影片邊緣；設為 `false` 則以相對於彼此的方式對齊選取的形狀。
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) 的重載可以對全部圖形或選取的集合索引進行對齊。[ShapesAlignmentType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shapesalignmenttype/) 指定要對齊的邊緣、中心線或分佈模式。將 `alignToSlide` 設為 `true` 以使用投影片邊緣；設為 `false` 則將選取的圖形相互對齊。
 
-此範例將三個形狀對齊至投影片的上緣。返回的形狀參考會在對齊前立即轉換為其當前索引。
+此範例將三個圖形對齊至投影片的上緣。返回的圖形參照會在對齊前立即轉換為目前的索引。
 
 ```java
 import com.aspose.slides.*;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-對齊會變更位置，而非 Z‑order。相對對齊通常需要至少兩個形狀，而水平或垂直分佈則需要足夠的形狀以定義間距。若在呼叫方法前修改了集合，請重新計算索引。
+對齊會變更位置，而不是 Z 軸順序。相對對齊通常至少需要兩個圖形，而水平或垂直分佈則需要足夠的圖形以定義間距。若在呼叫方法前修改了集合，請重新計算索引。
 
-## **翻轉形狀**
+## **翻轉圖形**
 
-[ShapeFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shapeframe/) 類別儲存位置、大小、水平與垂直翻轉設定，以及旋轉角度。其 `getFlipH` 與 `getFlipV` 值使用 [NullableBool](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/nullablebool/)：`True` 表示啟用翻轉，`False` 表示停用，`NotDefined` 代表保留未指定/預設狀態。
+[ShapeFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shapeframe/) 類別儲存位置、大小、水平與垂直翻轉設定，以及旋轉角度。其 `getFlipH` 與 `getFlipV` 值使用 [NullableBool](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/nullablebool/)：`True` 表示啟用翻轉，`False` 表示關閉，`NotDefined` 表示保留未指定/預設狀態。
 
-下方輸入的簡報僅包含一個未翻轉的形狀。
+以下輸入投影片包含一個未翻轉的圖形。
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-此範例保留其他所有框架值，僅取代兩個翻轉設定。這點很重要，因為指派新的 [Frame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) 會取代整個框架。
+範例保留其他所有框架值，只替換兩個翻轉設定。這點很重要，因為指派新的 [Frame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) 會取代整個框架。
 
 ```java
 import com.aspose.slides.*;
@@ -459,24 +461,24 @@ try {
 }
 ```
 
-儲存的形狀會在水平與垂直方向上鏡像，同時保留其位置、大小與旋轉。
+儲存的圖形會水平與垂直鏡像，同時保留其位置、大小與旋轉。
 
 ![The shape after flipping](flipped_shape.png)
 
-## **FAQ**
+## **常見問題**
 
-**是否應該使用集合索引作為形狀識別子？**
+**我可以使用集合索引作為圖形識別子嗎？**
 
-僅在集合在使用索引前不會變更的短暫處理情境下可使用。對於已製作的模板，建議使用已驗證的 `Name` 或 `AlternativeText` 慣例；對於投影片層級的 Interop 工作，則使用 `OfficeInteropShapeId`。
+僅在集合不會在使用索引前變更的短暫處理情境下可使用。對於已製作的樣板，建議使用已驗證的 `Name` 或 `AlternativeText` 方案；對於投影片層級的互操作工作，則使用 `OfficeInteropShapeId`。
 
-**隱藏形狀會從 Z‑order 中移除嗎？**
+**隱藏圖形會把它從 Z 軸順序中移除嗎？**
 
-不會。隱藏的形狀仍保留於集合中，索引不變。它仍可被尋找、重新排序、編輯或再次顯示。
+不會。隱藏的圖形仍保留在集合的相同索引中。它仍可被搜尋、重新排序、編輯或再次顯示。
 
-**為何被複製的形狀會出現在另一個形狀前面？**
+**為什麼複製的圖形會出現在另一個圖形的前面？**
 
-`addClone` 會將副本附加至集合的末端，即 Z‑order 的最前面。若要指定起始索引，可使用 `insertClone`，或在所有形狀加入後使用 `reorder`。
+`addClone` 會將副本附加至集合末端，也就是 Z 軸的最前端。若想指定初始索引，請使用 `insertClone`，或在全部圖形加入後使用 `reorder`。
 
-**我可以使用固定索引來識別預設形狀的調整項目嗎？**
+**我可以使用固定索引來識別預設圖形調整嗎？**
 
-僅在已驗證確切的預設與集合佈局後方可使用。更建議遍歷 `IGeometryShape.getAdjustments`，檢查 `IAdjustValue.getType`；當相同語意類型出現多次時，使用 `IAdjustValue.getName` 作為補充資訊。
+只能在已驗證的確切預設與集合布局下使用。建議遍歷 `IGeometryShape.getAdjustments`，檢查 `IAdjustValue.getType`；若同一語意類型出現多次，請使用 `IAdjustValue.getName` 作為額外資訊。

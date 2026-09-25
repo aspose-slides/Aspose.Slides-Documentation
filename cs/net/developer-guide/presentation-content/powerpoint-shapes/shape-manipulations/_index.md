@@ -13,12 +13,12 @@ keywords:
 - odstranit tvar
 - skrýt tvar
 - změnit pořadí tvaru
-- získat ID interop tvaru
+- získat interop ID tvaru
 - alternativní text tvaru
 - bod úpravy tvaru
-- předdefinovaná úprava tvaru
+- přednastavená úprava tvaru
 - geometrie tvaru
-- formáty rozvržení tvaru
+- formáty rozložení tvaru
 - tvar jako SVG
 - tvar do SVG
 - zarovnat tvar
@@ -32,21 +32,23 @@ description: "Naučte se, jak identifikovat, upravovat, klonovat, odstraňovat, 
 ---
 ## **Přehled**
 
-Aspose.Slides for .NET představuje tvary na snímku jako uspořádanou [IShapeCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/). Kolekce je zároveň místem, kde můžete tvary najít a upravit, a zdrojem jejich pořadí vrstvení: index `0` je nejzaznější tvar, zatímco poslední index je nejpřednější tvar.
+Aspose.Slides for .NET představuje tvary na snímku jako uspořádanou [IShapeCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/). Tato kolekce slouží jak k vyhledávání a úpravám tvarů, tak i jako zdroj jejich pořadí vrstvení: index `0` je nejzadnější tvar, zatímco poslední index je nejpřednější tvar.
 
-Tento článek následuje tento model. Nejprve vysvětluje, jak spolehlivě identifikovat tvar a upravit předdefinované body úprav tvaru, poté ukazuje, jak klonovat, odstraňovat, skrývat a měnit pořadí tvarů. Závěrečné části pokrývají formátování na úrovni rozvržení, export do SVG, zarovnání a nastavení převrácení. Každý příklad je nezávislý, takže můžete použít jen operace, které váš pracovní postup vyžaduje.
+Tento článek následuje tento model. Nejprve vysvětluje, jak spolehlivě identifikovat tvar a upravit přednastavené body úprav, pak ukazuje, jak klonovat, odstraňovat, skrývat a měnit pořadí tvarů. Závěrečné části pokrývají formátování na úrovni rozložení, export do SVG, zarovnání a nastavení převrácení. Každý příklad je nezávislý, takže můžete použít jen operace, které váš pracovní postup vyžaduje.
 
-## **Identifikace a vyhledávání tvarů**
+## **Identifikace a vyhledání tvarů**
 
-Indexy kolekce jsou výhodné při zpracování známého souboru, ale nejsou stabilními identifikátory. Přidání, odebrání nebo přeuspořádání tvaru může změnit jeho index. Vyberte identifikátor podle toho, jak je prezentace vytvářena a udržována:
+Indexy v kolekci jsou praktické při zpracování známého souboru, ale nejsou stabilními identifikátory. Přidání, odebrání nebo přeuspořádání tvaru může změnit jeho index. Vyberte identifikátor podle toho, jak je prezentace tvořena a udržována:
 
-- [Name](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/name/) je užitečný pro šablony řízené vývojářem a snadno se kontroluje v panelu výběru v PowerPointu. Jména lze upravovat a není zaručena jejich jedinečnost, takže pokud na nich kód závisí, stanovte konvence pojmenování.
-- [AlternativeText](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/alternativetext/) je užitečný, když již popis přístupnosti nebo autorově štítek tvar identifikují. Je viditelný uživatelům, může být lokalizován nebo přepsán pro přístupnost a není zaručeně jedinečný. Nepřevádějte tiše smysluplný text přístupnosti na klíč databáze.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/officeinteropshapeid/) je jen pro čtení a je jedinečný v rámci snímku a odpovídá ID tvaru používanému v PowerPoint interop. Použijte jej při integraci s PowerPointem nebo když potřebujete jednoznačný odkaz během životnosti tvaru. Klonovaný nebo znovu vytvořený tvar je jiný tvar a získá své vlastní ID.
+- [Name](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/name/) je užitečný pro šablony řízené vývojářem a snadno jej lze zkontrolovat v panelu výběru PowerPointu. Jména lze upravovat a nejsou garantována jako jedinečná, takže pokud kód na nich závisí, zavést konvenci pojmenování.
+- [AlternativeText](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/alternativetext/) je užitečný, když popis přístupnosti nebo autorův štítek již tvar identifikuje. Je viditelný uživatelům, může být lokalizován nebo přepsán pro přístupnost a není garantován jako jedinečný. Nepřeměňujte tiše smysluplný text přístupnosti na klíč databáze.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/officeinteropshapeid/) je jen pro čtení identifikátor, který je jedinečný v rámci snímku a odpovídá ID tvaru používanému PowerPoint interop. Použijte jej při integraci s PowerPointem nebo když potřebujete jednoznačný odkaz během životnosti tvaru. Klonovaný nebo znovu vytvořený tvar je jiný tvar a získá své vlastní ID.
 
-Související vlastnost [UniqueId](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/uniqueid/) má rozsah prezentace, ale je určena pro doplňky a může být přidělena znovu. Neměla by být považována za trvalý externí klíč. Pokud je dlouhodobá identita podstatná, uchovávejte mapování v aplikačních datech a ověřujte, že očekávaný tvar stále existuje.
+Související vlastnost [UniqueId](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/uniqueid/) má rozsah prezentace, ale je určena pro doplňky a může být přeřazena. Neměla by být považována za trvalý externí klíč. Pokud je dlouhodobá identita zásadní, uložte mapování v datech aplikace a ověřte, že očekávaný tvar stále existuje.
 
-Následující příklad hledá podle `Name` s ordinální comparací a hlásí ID interopu v rozsahu snímku. Když šablona neobsahuje očekávaný tvar, kód hlásí tento výsledek místo pokračování se špatným objektem.
+Pro praktický příklad čtení a aktualizace jak alternativního textu, tak názvu, viz [Manage Alternative Text Titles and Descriptions](/slides/cs/net/presentation-accessibility/). Používejte alternativní text k vysvětlení významu vizuálu čtenářům a oddělte jej od názvů tvarů používaných kódem pro vyhledávání tvarů.
+
+Následující příklad vyhledává podle `Name` s ordinálním porovnáním a uvádí ID interopu v rámci snímku. Když šablona neobsahuje očekávaný tvar, kód vrátí tento výsledek místo pokračování se špatným objektem.
 
 ```csharp
 using System;
@@ -75,7 +77,7 @@ else
 }
 ```
 
-Když je operace specifická pro typ tvaru, ověřte rozhraní před použitím členů specifických pro typ. Tento příklad aktualizuje text a alternativní text pouze pokud pojmenovaný objekt je [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+Když je operace specifická pro typ tvaru, zkontrolujte rozhraní před použitím členů specifických pro typ. Tento příklad aktualizuje text a alternativní text pouze pokud je pojmenovaný objekt typu [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
 
 ```csharp
 using System;
@@ -107,28 +109,28 @@ else
 }
 ```
 
-## **Identifikace a úprava předdefinovaných úprav tvarů**
+## **Identifikace a úprava přednastavených úprav tvarů**
 
-Tvary s předdefinovanou geometrií mohou odhalovat body úprav, které řídí například velikost rohu, proporce šipky nebo úhly oblouku. Přistupujte k nim přes kolekci jen pro čtení [IGeometryShape.Adjustments](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/adjustments/). Samotná kolekce je poskytována tvarem, ale každá [IAdjustValue](https://reference.aspose.com/slides/cs/net/aspose.slides/iadjustvalue/) obsahuje hodnotu, kterou lze změnit.
+Tvary s přednastavenou geometrií mohou mít body úprav, které řídí například velikost rohu, proporce šipek nebo úhly oblouků. Přistupujte k nim přes jen pro čtení kolekci [IGeometryShape.Adjustments](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/adjustments/). Kolekci samotnou poskytuje tvar, ale každý [IAdjustValue](https://reference.aspose.com/slides/cs/net/aspose.slides/iadjustvalue/) obsahuje hodnotu, kterou lze změnit.
 
-Nespoléhejte se pouze na pevný index kolekce. Procházejte úpravy a kontrolujte jen pro čtení vlastnost [Type](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/type/), jejíž hodnota [ShapeAdjustmentType](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeadjustmenttype/) popisuje, co úprava ovládá. Jen pro čtení vlastnost [Name](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/name/) poskytuje další identifikační informace a je zvláště užitečná, když předloha obsahuje více úprav se stejným sémantickým typem.
+Nespoléhejte pouze na pevný index kolekce. Procházejte úpravy a kontrolujte jen pro čtení vlastnost [Type](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/type/), jejíž hodnota [ShapeAdjustmentType](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeadjustmenttype/) popisuje, co úprava ovládá. Jen pro čtení vlastnost [Name](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/name/) poskytuje další identifikační informace a je zvláště užitečná, když přednastavení obsahuje více úprav se stejným sémantickým typem.
 
-Použijte vlastnost hodnoty, která odpovídá významu úpravy:
+Použijte hodnotovou vlastnost, která odpovídá významu úpravy:
 
-| Typ úpravy | Účel | Hodnota k úpravě |
+| Typ úpravy | Účel | Hodnota ke změně |
 |---|---|---|
 | `CornerSize` | Velikost zaoblených rohů | [RawValue](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/rawvalue/) |
-| `ArrowTailThickness` | Tloušťka konce šipky | `RawValue` |
-| `ArrowheadLength` | Délka hrotu šipky | `RawValue` |
-| `ArrowheadWidth` | Šířka hrotu šipky | `RawValue` |
+| `ArrowTailThickness` | Tloušťka ocasu šipky | `RawValue` |
+| `ArrowheadLength` | Délka špičky šipky | `RawValue` |
+| `ArrowheadWidth` | Šířka špičky šipky | `RawValue` |
 | `StartAngle` | Počáteční úhel výseče nebo oblouku | [AngleValue](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/anglevalue/) |
 | `EndAngle` | Koncový úhel výseče nebo oblouku | `AngleValue` |
 
-`Type` a `Name` nelze přiřadit. `RawValue` je čtení/zápis celé číslo v nativních jednotkách geometrie předlohy, zatímco `AngleValue` je čtení/zápis úhel ve stupních. Počet, pořadí, význam a platný rozsah úprav závisí na předloze [ShapeType](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/shapetype/). Hodnota, která je platná pro jednu předlohu, může být pro jinou neplatná nebo mít jiný efekt.
+`Type` a `Name` nelze přiřazovat. `RawValue` je čtení/zápis celé číslo v nativních jednotkách geometrie přednastavení, zatímco `AngleValue` je čtení/zápis úhel ve stupních. Počet, pořadí, význam a platný rozsah úprav závisí na přednastaveném [ShapeType](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/shapetype/). Hodnota platná pro jedno přednastavení může být neplatná nebo mít jiný efekt pro jiné.
 
-Když je `Type` `ShapeAdjustmentType.Custom`, API nerozpozná standardní sémantický význam. Prohlédněte `Name`, typ předlohy a existující hodnotu a ponechte úpravu beze změny, pokud není znám očekávaný význam a rozsah. I pro rozpoznané typy kontrolujte, zda se stejný typ vyskytuje vícekrát, než vyberete hodnotu. Článek [Connector](/slides/cs/net/connector/) ukazuje tuto situaci u úprav ohybu konektoru.
+Když je `Type` rovno `ShapeAdjustmentType.Custom`, API nepozná standardní sémantický význam. Prozkoumejte `Name`, typ přednastavení a existující hodnotu a ponechte úpravu nezměněnou, pokud nejsou známé očekávaný význam a rozsah. I pro rozpoznané typy zkontrolujte, zda se stejný typ vyskytuje vícekrát, než vyberete hodnotu. Článek [Connector](/slides/cs/net/connector/) ukazuje tuto situaci s úpravami zakřivení spojnic.
 
-Následující kompletní příklad vytváří výchozí a upravené verze tří předdefinovaných tvarů. Prochází každou úpravu, hlásí její `Name` a `Type`, mění hodnoty související s velikostí pomocí `RawValue`, mění úhly pomocí `AngleValue` a ukládá výsledek. Levý sloupec zachovává výchozí geometrii; pravý sloupec ukazuje upravený zaoblený obdélník, čtyřcestnou šipku a výseč.
+Následující kompletní příklad vytváří výchozí a upravené verze tří přednastavených tvarů. Prochází každou úpravu, uvádí její `Name` a `Type`, mění hodnoty související s velikostí pomocí `RawValue`, mění úhly pomocí `AngleValue` a ukládá výsledek. Levý sloupec zachovává výchozí geometrii; pravý sloupec zobrazuje upravený zaoblený obdélník, čtyřsměrovou šipku a výseč.
 
 ```csharp
 using System;
@@ -138,7 +140,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-// Přidá záhlaví pro sloupce výchozího a upraveného tvaru.
+// Přidá záhlaví pro výchozí a upravené sloupce tvarů.
 var defaultColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
 defaultColumnLabel.TextFrame.Text = "Default preset geometry";
 var adjustedColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -200,17 +202,17 @@ foreach (var shape in shapesToAdjust)
 presentation.Save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
 ```
 
-Kontrola sémantického typu před změnou hodnoty činí kód explicitním ohledně záměru a zabraňuje předpokladu, že konkrétní index kolekce má stejný význam napříč různými předdefinovanými tvary.
+Kontrola sémantického typu před změnou hodnoty činí kód explicitním ohledně jeho záměru a zabraňuje předpokladu, že určitý index kolekce má stejný význam u různých přednastavených tvarů.
 
 ## **Úprava kolekce tvarů**
 
-Metody pro přidání, klonování, odebrání a změnu pořadí operují na kolekci okamžitě. Pokud operace změní počet nebo pořadí tvarů, nepokračujte s odkazy na indexy zachycené před touto operací.
+Metody pro přidání, klonování, odebrání a přeřazení operují na kolekci okamžitě. Pokud operace změní počet nebo pořadí tvarů, nespoléhejte nadále na indexy zachycené před touto operací.
 
 ### **Klonování tvaru**
 
-[AddClone](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addclone/) vytvoří nezávislou kopii a připojí ji k cílové kolekci. [InsertClone](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/insertclone/) také vytvoří kopii, ale umístí ji na zadaný index z‑řazení. Přetížení, která akceptují souřadnice, posunou klon bez změny velikosti; přetížení s šířkou a výškou ho mohou také změnit velikost.
+[AddClone](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addclone/) vytvoří nezávislou kopii a připojí ji k cílové kolekci. [InsertClone](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/insertclone/) také vytvoří kopii, ale umístí ji na určený index z‑řazení. Přetížení, která přijímají souřadnice, přesunou klon bez změny velikosti; přetížení s šířkou a výškou jej mohou také změnit velikost.
 
-Příklad vytvoří cílový snímek, klonuje označený obdélník do popředí a vloží druhý klon do pozadí. Změny v kterémkoli klonu neovlivní zdrojový tvar.
+Příklad vytváří cílový snímek, klonuje označený obdélník dopředu a vloží druhý klon dozadu. Změny v libovolném klonu neovlivní zdrojový tvar.
 
 ```csharp
 using System;
@@ -251,13 +253,13 @@ else
 presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Klonování kopíruje obsah a formátování tvaru, včetně jeho jména a alternativního textu. Při klonování přiřaďte nové logické identifikátory, pokud musí být tyto hodnoty jedinečné. Prostředky používané složitými tvary spravuje prezentace, ale klon zůstává novou položkou kolekce s novou identitou tvaru.
+Klonování kopíruje obsah a formátování tvaru, včetně jeho názvu a alternativního textu. Přidělte novým klonům logické identifikátory, pokud musí být tyto hodnoty jedinečné. Zdroje používané složitými tvary spravuje prezentace, ale klon zůstává novou položkou kolekce s novou identitou tvaru.
 
 ### **Odstranění tvarů**
 
-[Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/remove/) smaže konkrétní objekt tvaru z jeho kolekce. Při odstraňování více shod během indexované iterace procházejte od konce, aby každý zbývající index zůstal platný.
+[Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/remove/) smaže konkrétní objekt tvaru z jeho kolekce. Při odstraňování více shod během iterace s indexy procházejte od konce, aby každý zbývající index zůstal platný.
 
-Tento příklad odstraňuje každý tvar s určeným jménem. Čte `slide.Shapes[i]`, nikoli pevnou položku kolekce, a nepotřebně nekonvertuje typ tvaru.
+Tento příklad odstraňuje každý tvar s určeným názvem. Čte `slide.Shapes[i]`, ne pevnou položku kolekce, a nepřetypovává tvar zbytečně.
 
 ```csharp
 using System;
@@ -288,11 +290,11 @@ for (var i = slide.Shapes.Count - 1; i >= 0; i--)
 presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Po odstranění se počet tvarů a indexy pozdějších tvarů změní. Odkazy na neovlivněné tvary zůstávají spolehlivější než uložené indexy. Zvažte také konektory, animace a další funkce prezentace, které mohou odkazovat na odebraný objekt; odstranění viditelného tvaru může změnit více než jen vzhled snímku.
+Po odebrání se mění počet tvarů a indexy následujících tvarů. Odkazy na nedotčené tvary zůstávají spolehlivější než uložené indexy. Zvažte také spojnice, animace a další funkce prezentace, které mohou odkazovat na odebraný objekt; odebrání viditelného tvaru může změnit více než jen vzhled snímku.
 
 ### **Skrytí tvaru**
 
-Nastavení [Hidden](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/hidden/) na `true` ponechá tvar v kolekci, ale zabrání mu se objevit v běžné prezentaci. Jeho index, formátování a obsah zůstávají k dispozici kódu, takže skrytí je vhodné pro volitelné prvky, které mohou být později obnoveny.
+Nastavením [Hidden](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/hidden/) na `true` ponecháte tvar v kolekci, ale zabráníte jeho zobrazení v běžné promítací sekvenci. Jeho index, formátování a obsah zůstávají dostupné kódu, takže skrytí je vhodné pro volitelné prvky, které mohou být později obnoveny.
 
 ```csharp
 using System;
@@ -319,7 +321,7 @@ foreach (var shape in slide.Shapes)
 presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
 ```
 
-Skrytí není smazání ani bezpečnostní opatření. Objekt může být stále objeven a odskryt uživatelem nebo kódem a zůstává součástí souboru prezentace.
+Skrytí není smazání ani zabezpečení. Objekt může být nadále objeven a odskryt uživatelem nebo kódem a zůstává součástí souboru prezentace.
 
 ### **Změna Z‑řazení**
 
@@ -347,13 +349,13 @@ slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
 presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Obdélník je vytvořen jako první a zpočátku leží za elipsou. Přesunutí na poslední index jej umístí do popředí. Závěrečné nastavení Z‑řazení proveďte po přidání nebo klonování všech souvisejících tvarů, protože tyto operace přidávají nebo vkládají nové položky do kolekce a mohou změnit zamýšlený zásobník.
+Obdélník je vytvořen jako první a nejprve leží za elipsou. Přesunutí na poslední index ho umístí dopředu. Dokončete z‑řazení po přidání nebo klonování všech souvisejících tvarů, protože tyto operace přidávají nebo vkládají nové položky kolekce a mohou změnit zamýšlený zásobník.
 
-## **Prohlížení tvarů na rozvrhových snímcích**
+## **Prohlížení tvarů na rozložení snímků**
 
-Normální snímky, rozvrhové snímky a hlavní snímky mají oddělené kolekce tvarů. Tvar v kolekci rozvrhu není stejný objekt jako podobně umístěný tvar na normálním snímku. Prohlížejte rozvrhové tvary, když potřebujete pochopit nebo změnit formátování poskytnuté rozvržením.
+Normální snímky, rozložení a hlavní snímky mají samostatné kolekce tvarů. Tvar v kolekci rozložení není stejný objekt jako podobně umístěný tvar na normálním snímku. Prohlédněte si tvary rozložení, když potřebujete pochopit nebo změnit formátování poskytované rozložením.
 
-Následující příklad čte každému rozvrhovému tvaru [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/fillformat/) a [LineFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/lineformat/) bez předpokladu, že každý tvar je `AutoShape`.
+Následující příklad čte pro každý tvar rozložení [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/fillformat/) a [LineFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/lineformat/) bez předpokladu, že každý tvar je `AutoShape`.
 
 ```csharp
 using System;
@@ -372,11 +374,11 @@ foreach (var layoutSlide in presentation.LayoutSlides)
 }
 ```
 
-Úprava rozvrhu může ovlivnit více snímků, které jej používají. Před změnou tvaru rozvrhu určete, zda normální snímek dědí objekt nebo obsahuje lokální přepsání, a otestujte každý snímek, který používá daný rozvrh.
+Úprava rozložení může ovlivnit více snímků, které jej používají. Před změnou tvaru rozložení zjistěte, zda normální snímek objekt dědí nebo obsahuje místní přepsání, a otestujte každý snímek, který dané rozložení používá.
 
 ## **Export tvaru do SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/writeassvg/) zapíše vykreslený obsah jednoho tvaru do proudu. Výsledek obsahuje tvar, ne celé pozadí snímku ani sousední tvary.
+[WriteAsSvg](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/writeassvg/) zapíše vykreslený obsah jednoho tvaru do proudu. Výsledek obsahuje tvar, nikoli celé pozadí snímku nebo sousední tvary.
 
 ```csharp
 using System;
@@ -398,13 +400,13 @@ else
 }
 ```
 
-Udržujte prezentaci otevřenou během renderování. Výstup závisí na formátování tvaru a na prostředcích, jako jsou písma a obrázky. Pokud potřebujete celou kompozici, exportujte celý snímek místo jednotlivého tvaru. Volající vlastní proud a musí jej uvolnit.
+Udržujte prezentaci otevřenou během renderování. Výstup závisí na formátování tvaru a na zdrojích, jako jsou písma a obrázky. Pokud potřebujete celou kompozici, exportujte snímek místo jednotlivého tvaru. Volající vlastní proud a musí jej uvolnit.
 
 ## **Zarovnání tvarů**
 
-[Použijte SlideUtil.AlignShapes](https://reference.aspose.com/slides/cs/net/aspose.slides.util/slideutil/alignshapes/) – přetížení umožňují zarovnat buď všechny tvary, nebo vybrané indexy kolekce. [ShapesAlignmentType](https://reference.aspose.com/slides/cs/net/aspose.slides/shapesalignmenttype/) určuje okraj, středovou čáru nebo režim rozdělení. Nastavte `alignToSlide` na `true` pro použití okrajů snímku; nastavte na `false` pro zarovnání vybraných tvarů vzhledem k sobě navzájem.
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/cs/net/aspose.slides.util/slideutil/alignshapes/) mají přetížení, která zarovnávají buď všechny tvary, nebo vybrané indexy kolekce. [ShapesAlignmentType](https://reference.aspose.com/slides/cs/net/aspose.slides/shapesalignmenttype/) určuje okraj, středovou čáru nebo režim rozdělení. Nastavte `alignToSlide` na `true`, chcete-li použít okraje snímku; nastavte na `false` pro zarovnání vybraných tvarů vůči sobě navzájem.
 
-Tento příklad zarovnává tři tvary k hornímu okraji snímku. Vrácené reference na tvary jsou okamžitě převedeny na jejich aktuální indexy před zarovnáním.
+Tento příklad zarovnává tři tvary k hornímu okraji snímku. Vrácené odkazy na tvary jsou okamžitě převedeny na jejich aktuální indexy před zarovnáním.
 
 ```csharp
 using Aspose.Slides;
@@ -432,17 +434,17 @@ SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
 presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Zarovnání mění pozice, nikoli Z‑řazení. Relativní zarovnání obvykle vyžaduje alespoň dva tvary, zatímco horizontální nebo vertikální rozdělení potřebuje dostatek tvarů pro definování rozestupů. Přepočítejte indexy, pokud před voláním metody měníte kolekci.
+Zarovnání mění pozice, nikoli Z‑řazení. Relativní zarovnání obvykle vyžaduje alespoň dva tvary, zatímco horizontální nebo vertikální rozdělení potřebuje dostatek tvarů k definování mezery. Přepočítejte indexy, pokud upravujete kolekci před voláním metody.
 
-## **Převrácení tvaru**
+## **Překlopení tvaru**
 
-Třída [ShapeFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeframe/) ukládá pozici, velikost, horizontální a vertikální nastavení převrácení a rotaci. Její hodnoty `FlipH` a `FlipV` používají [NullableBool](https://reference.aspose.com/slides/cs/net/aspose.slides/nullablebool/): `True` zapíná převrácení, `False` jej vypíná a `NotDefined` zachovává neupřesněný/výchozí stav.
+Třída [ShapeFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeframe/) ukládá pozici, velikost, horizontální a vertikální nastavení převrácení a rotaci. Její hodnoty `FlipH` a `FlipV` používají [NullableBool](https://reference.aspose.com/slides/cs/net/aspose.slides/nullablebool/): `True` zapíná převrácení, `False` jej vypíná a `NotDefined` zachovává nedefinovaný/výchozí stav.
 
-Vstupní prezentace níže obsahuje jeden nepřevrácený tvar.
+Vstupní prezentace níže obsahuje jeden neobrácený tvar.
 
-![Tvar před převrácením](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Příklad zachovává každou jinou hodnotu rámce a nahrazuje pouze dvě nastavení převrácení. To je důležité, protože při přiřazení nového [Frame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/frame/) se nahradí celý rámec.
+Příklad zachovává všechny ostatní hodnoty rámce a nahrazuje pouze dvě nastavení převrácení. To je důležité, protože při přiřazení nového [Frame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/frame/) se nahradí celý rámec.
 
 ```csharp
 using System;
@@ -463,24 +465,24 @@ shape.Frame = new ShapeFrame(
 presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Uložený tvar je zrcadlen horizontálně i vertikálně při zachování pozice, velikosti a rotace.
+Uložený tvar je zrcadlen horizontálně i vertikálně, přičemž si zachovává pozici, velikost a rotaci.
 
-![Tvar po převrácení](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Mám používat index kolekce jako identifikátor tvaru?**
 
-Pouze pro krátkodobé zpracování, kdy se kolekce před použitím indexu nezmění. Upřednostněte ověřený `Name` nebo konvenci `AlternativeText` pro šablony, nebo `OfficeInteropShapeId` pro interop práci v rámci snímku.
+Pouze pro krátkodobé zpracování, kdy se kolekce před použitím indexu nezmění. Upřednostněte ověřený konvent `Name` nebo `AlternativeText` pro šablony, nebo `OfficeInteropShapeId` pro práci s interopem na úrovni snímku.
 
-**Odstraní skrytí tvaru jeho položku ze Z‑řazení?**
+**Odstraní skrytí tvaru jeho z‑řazení?**
 
-Ne. Skrytý tvar zůstává v kolekci na stejném indexu. Může být nalezen, přeřazen, upraven nebo znovu zviditelněn.
+Ne. Skrytý tvar zůstává v kolekci na stejném indexu. Lze jej najít, přeřadit, upravit nebo znovu zobrazit.
 
 **Proč se klonovaný tvar objevil před jiným tvarem?**
 
-`AddClone` připojí klon na konec kolekce, což je přední část Z‑řazení. Použijte `InsertClone` pro volbu počátečního indexu nebo `Reorder` po přidání všech tvarů.
+`AddClone` připojí klon na konec kolekce, což je přední část Z‑řazení. Použijte `InsertClone` pro výběr počátečního indexu nebo `Reorder` po přidání všech tvarů.
 
-**Mohu použít pevný index pro identifikaci úpravy předdefinovaného tvaru?**
+**Mohu použít pevný index k identifikaci úpravy přednastaveného tvaru?**
 
-Pouze po ověření konkrétní předlohy a uspořádání kolekce. Upřednostněte iteraci přes `IGeometryShape.Adjustments` a kontrolu `IAdjustValue.Type`; použijte `IAdjustValue.Name` jako doplňující informaci, když se stejný sémantický typ vyskytuje vícekrát.
+Pouze po ověření přesného přednastavení a rozložení kolekce. Upřednostněte iteraci přes `IGeometryShape.Adjustments` a kontrolu `IAdjustValue.Type`; použijte `IAdjustValue.Name` jako doplňující informaci, když se stejný sémantický typ objeví vícekrát.

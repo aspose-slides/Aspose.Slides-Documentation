@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunum Şekillerini Yönetme
+title: .NET'te Sunum Şekillerini Yönet
 linktitle: Şekil Manipülasyonu
 type: docs
 weight: 40
@@ -7,46 +7,48 @@ url: /tr/net/shape-manipulations/
 keywords:
 - PowerPoint şekli
 - sunum şekli
-- slayttaki şekil
+- slayt üzerindeki şekil
 - şekil bulma
 - şekil kopyalama
 - şekil kaldırma
 - şekil gizleme
 - şekil sırasını değiştirme
-- interop şekil kimliğini al
+- interop şekil kimliği alma
 - şekil alternatif metni
 - şekil ayar noktası
-- önceden tanımlı şekil ayarı
+- önceden ayarlanmış şekil ayarı
 - şekil geometrisi
-- şekil düzen biçimleri
+- şekil düzen formatları
 - şekil SVG olarak
-- şekli SVG'ye dönüştür
+- şekli SVG'ye
 - şekli hizala
-- şekli çevir
+- şekli döndür
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET ile sunum şekillerini tanımlamayı, ayarlamayı, kopyalamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve çevirmeyi öğrenin.
+description: "Aspose.Slides for .NET ile sunum şekillerini tanımlamayı, ayarlamayı, kopyalamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve döndürmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for .NET, bir slayttaki şekilleri sıralı bir [IShapeCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirdiğiniz yer olmanın yanı sıra yığılma sırasının kaynağıdır: indeks `0` en arkadaki şekildir, son indeks ise en öndeki şekildir.
+Aspose.Slides for .NET, bir slayttaki şekilleri sıralı bir [IShapeCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirebileceğiniz yer olduğu gibi, yığın sırasının da kaynağıdır: indeks `0` en arka şekildir, son indeks ise en ön şekildir.
 
-Bu makale bu modeli izler. Önce bir şekli güvenilir şekilde tanımlamayı ve önceden ayarlanmış şekil ayar noktalarını değiştirmeyi açıklar, ardından şekilleri kopyalama, kaldırma, gizleme ve yeniden sıralamayı gösterir. Son bölümler, düzen seviyesinde biçimlendirme, SVG dışa aktarma, hizalama ve çevirme ayarlarını kapsar. Her örnek bağımsızdır, böylece yalnızca iş akışınızın gerektirdiği işlemleri kullanabilirsiniz.
+Bu makale bu modeli izler. Önce bir şekli güvenilir şekilde tanımlamayı ve önceden ayarlanmış şekil ayar noktalarını değiştirmeyi açıklar, ardından şekilleri kopyalamayı, kaldırmayı, gizlemeyi ve yeniden sıralamayı gösterir. Son bölümler, düzen seviyesindeki biçimlendirme, SVG dışa aktarımı, hizalama ve döndürme ayarlarını kapsar. Her örnek bağımsızdır, böylece yalnızca iş akışınızın gerektirdiği işlemleri kullanabilirsiniz.
 
-## **Şekilleri Tanımlama ve Bulma**
+## **Şekilleri Tanımla ve Bul**
 
-Koleksiyon indeksleri bilinen bir dosya işlenirken kullanışlıdır, ancak sabit tanımlayıcılar değildir. Bir şekil eklemek, kaldırmak veya yeniden sıralamak indeksini değiştirebilir. Sunumun nasıl oluşturulduğuna ve bakımına bağlı olarak bir tanımlayıcı seçin:
+Koleksiyon indeksleri, bilinen bir dosya işlenirken kullanışlıdır, ancak kararlı tanımlayıcılar değildir. Bir şekli eklemek, kaldırmak veya yeniden sıralamak indeksini değiştirebilir. Sunumun nasıl oluşturulduğuna ve sürdürüldüğüne göre bir tanımlayıcı seçin:
 
-- [Name](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/name/) geliştirici kontrolündeki şablonlar için yararlıdır ve PowerPoint'in Seçim Bölmesi'nde kolayca incelenebilir. Adlar düzenlenebilir ve benzersiz olması garanti edilmez; kod bunlara bağlıysa bir adlandırma kuralları oluşturun.
-- [AlternativeText](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/alternativetext/) bir erişilebilirlik açıklaması veya yazar tarafından sağlanan bir etiket zaten şekli tanımlıyorsa kullanışlıdır. Kullanıcılara görünür, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti edilmez. Anlamlı erişilebilirlik metnini sessizce bir veritabanı anahtarı olarak yeniden kullanmayın.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/officeinteropshapeid/) bir slayt içinde benzersiz olan, PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelen yalnızca‑okunur bir tanımlayıcıdır. PowerPoint ile bütünleştirirken veya bir şeklin ömrü boyunca kesin bir referansa ihtiyaç duyduğunuzda kullanın. Kopyalanan veya yeniden oluşturulan bir şekil farklı bir şekildir ve kendi kimliğini alır.
+- [Name](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/name/) geliştirici kontrolündeki şablonlar için yararlıdır ve PowerPoint'in Seçim Bölmesi'nde kolayca incelenir. İsimler düzenlenebilir ve benzersiz olması garanti değildir; kod bu isimlere bağımlıysa bir adlandırma kuralları oluşturun.
+- [AlternativeText](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/alternativetext/) erişilebilirlik açıklaması veya yazar tarafından sağlanan bir etiket zaten şekli tanımlıyorsa faydalıdır. Kullanıcılar tarafından görülür, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti değildir. Anlamlı erişilebilirlik metnini sessizce bir veri tabanı anahtarı olarak kullanmayın.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/officeinteropshapeid/) yalnızca bir slayt içinde benzersiz ve PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelen salt okunur bir tanımlayıcıdır. PowerPoint ile entegrasyon yaparken veya bir şeklin ömrü boyunca kesin bir referansa ihtiyaç duyduğunuzda kullanın. Kopyalanan veya yeniden oluşturulan bir şekil farklı bir şekildir ve kendi kimliğini alır.
 
-İlgili [UniqueId](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/uniqueid/) özelliği sunum kapsamına sahiptir, ancak eklentiler için tasarlanmıştır ve yeniden atanabilir. Kalıcı bir dış anahtar olarak ele alınmamalıdır. Uzun vadeli kimlik önemliyse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
+İlgili [UniqueId](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/uniqueid/) özelliği sunum kapsamına sahiptir, ancak eklentiler için tasarlanmıştır ve yeniden atanabilir. Dışsal kalıcı bir anahtar gibi davranılmamalıdır. Uzun vadeli kimlik gerekliliği varsa, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
 
-Aşağıdaki örnek, `Name` üzerinden sıralı (ordinal) karşılaştırma yaparak arama yapar ve slayt kapsamlı interop kimliğini raporlar. Şablon beklenen şekli içermediğinde kod, yanlış nesneyle devam etmek yerine bu sonucu raporlar.
+Alternatif metin başlığı ve açıklamasını okuyup güncellemek için pratik bir örnek görmek isterseniz, [Alternatif Metin Başlıkları ve Açıklamaları Yönet](/slides/tr/net/presentation-accessibility/) bölümüne bakın. Alternatif metni, görselin anlamını okuyuculara açıklamak için kullanın ve kodun şekilleri bulmak için kullandığı şekil adlarından ayrı tutun.
+
+Aşağıdaki örnek, `Name` ile sıralı karşılaştırma yaparak arama yapar ve slayt kapsamlı interop kimliğini raporlar. Şablon beklenen şekli içermediğinde, kod yanlış nesneyle devam etmek yerine bu sonucu raporlar.
 
 ```csharp
 using System;
@@ -75,7 +77,7 @@ else
 }
 ```
 
-Bir işlem belirli bir şekil tipine özgüyse, tip‑özgü üyeleri kullanmadan önce arabirimi kontrol edin. Bu örnek, adlandırılmış nesne bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ise yalnızca metin ve alternatif metni günceller.
+Bir işlem belirli bir şekil türüne özgüyse, tip‑özel üyeleri kullanmadan önce arabirimi kontrol edin. Bu örnek, adlandırılmış nesne bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ise yalnızca metin ve alternatif metni günceller.
 
 ```csharp
 using System;
@@ -107,28 +109,28 @@ else
 }
 ```
 
-## **Önceden Tanımlı Şekil Ayarlarını Tanımlama ve Değiştirme**
+## **Önceden Ayarlanmış Şekil Ayarlarını Tanımla ve Değiştir**
 
-Önceden tanımlı geometri şekilleri, köşe boyutu, ok oranları veya yay açıları gibi özellikleri kontrol eden ayar noktaları sunabilir. Bunlara, yalnızca‑okunur [IGeometryShape.Adjustments](https://reference.aspose.com/slides/tr/net/aspose.slides/igeometryshape/adjustments/) koleksiyonu üzerinden erişin. Koleksiyon şekil tarafından sağlanır, ancak her [IAdjustValue](https://reference.aspose.com/slides/tr/net/aspose.slides/iadjustvalue/) değiştirilebilen bir değer içerir.
+Önceden ayarlanmış geometri şekilleri, köşe boyutu, ok oranları veya yay açıları gibi özellikleri kontrol eden ayar noktalarına sahip olabilir. Bu noktalara, salt okunur [IGeometryShape.Adjustments](https://reference.aspose.com/slides/tr/net/aspose.slides/igeometryshape/adjustments/) koleksiyonu üzerinden erişilir. Koleksiyon şekil tarafından sağlanır, ancak her [IAdjustValue](https://reference.aspose.com/slides/tr/net/aspose.slides/iadjustvalue/) değiştirilebilen bir değere sahiptir.
 
-Yalnızca sabit bir koleksiyon indeksine güvenmeyin. Ayarları döngüyle gezerek yalnızca‑okunur [Type](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/type/) özelliğine bakın; [ShapeAdjustmentType](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeadjustmenttype/) değeri, ayarın neyi kontrol ettiğini tanımlar. Yalnızca‑okunur [Name](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/name/) özelliği ek tanımlama bilgisi sağlar ve aynı anlamsal tipe sahip birden çok ayar bulunduğunda özellikle yararlıdır.
+Sadece sabit bir koleksiyon indeksine güvenmeyin. Ayarları döngüyle inceleyin ve salt okunur [Type](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/type/) özelliğine bakın; bu özelliğin [ShapeAdjustmentType](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeadjustmenttype/) değeri, ayarın neyi kontrol ettiğini açıklar. Salt okunur [Name](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/name/) özelliği ek tanımlama bilgisi sağlar ve aynı anlamsal türe sahip birden fazla ayar içeren önceden ayarlanmışlarda özellikle yararlıdır.
 
 Ayara uygun değer özelliğini kullanın:
 
-| Ayarlama türü | Amaç | Değiştirilecek değer |
+| Ayarlama türü | Amaç | Değiştirilmesi gereken değer |
 |---|---|---|
 | `CornerSize` | Yuvarlatılmış köşelerin boyutu | [RawValue](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/rawvalue/) |
 | `ArrowTailThickness` | Ok kuyruğunun kalınlığı | `RawValue` |
 | `ArrowheadLength` | Ok başının uzunluğu | `RawValue` |
 | `ArrowheadWidth` | Ok başının genişliği | `RawValue` |
-| `StartAngle` | Dilim ya da yay başlangıç açısı | [AngleValue](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/anglevalue/) |
-| `EndAngle` | Dilim ya da yay bitiş açısı | `AngleValue` |
+| `StartAngle` | Pasta veya yay başlangıç açısı | [AngleValue](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/anglevalue/) |
+| `EndAngle` | Pasta veya yay bitiş açısı | `AngleValue` |
 
-`Type` ve `Name` atanamaz. `RawValue`, önceden tanımlı şeklin yerel geometri birimlerinde okun‑yazılabilir bir tamsayıdır, `AngleValue` ise derece cinsinden okun‑yazılabilir bir açıdır. Ayarların sayısı, sırası, anlamı ve geçerli aralığı, önceden tanımlı [ShapeType](https://reference.aspose.com/slides/tr/net/aspose.slides/igeometryshape/shapetype/) öğesine bağlıdır. Bir önceden tanımlı için geçerli bir değer, diğerine uygulanınca geçersiz veya farklı bir etki yaratabilir.
+`Type` ve `Name` atanamaz. `RawValue`, önceden ayarlanmışın yerel geometri birimlerinde okuma/yazma tam sayı iken, `AngleValue` derece cinsinden okuma/yazma açı değeridir. Ayarların sayısı, sırası, anlamı ve geçerli aralığı önceden ayarlanmış [ShapeType](https://reference.aspose.com/slides/tr/net/aspose.slides/igeometryshape/shapetype/) üzerine bağlıdır. Bir önceden ayarlama için geçerli bir değer, başka bir önceden ayarlama için geçersiz olabilir veya farklı etki yaratabilir.
 
-`Type` `ShapeAdjustmentType.Custom` olduğunda API standart bir anlamsal anlam tanımaz. `Name`, önceden tanımlı tip ve mevcut değeri inceleyin; beklenen anlam ve aralık bilinmiyorsa ayarı değiştirmeyin. Tanınan tipler için bile aynı tip birden çok kez ortaya çıkıyorsa değeri seçmeden önce kontrol edin. [Connector](/slides/tr/net/connector/) makalesi, bağlayıcı bükülme ayarlarıyla ilgili bu durumu gösterir.
+`Type` `ShapeAdjustmentType.Custom` olduğunda API standart bir anlamsal anlam tanımaz. `Name`, önceden ayarlama türü ve mevcut değeri inceleyin; beklenen anlam ve aralık bilinmiyorsa ayarı değiştirmeyin. Tanınan türlerde bile aynı tip birden çok kez geçiyorsa, bir değer seçmeden önce bunu kontrol edin. [Connector](/slides/tr/net/connector/) makalesi, bağlayıcı bükülme ayarlarıyla bu durumu gösterir.
 
-Aşağıdaki tam örnek, üç önceden tanımlı şeklin varsayılan ve değiştirilmiş sürümlerini oluşturur. Tüm ayarları döngüyle gezerek `Name` ve `Type` değerlerini raporlar, boyut‑ilişkili değerleri `RawValue` ile, açıları `AngleValue` ile değiştirir ve sonucu kaydeder. Sol sütun varsayılan geometriyi, sağ sütun ise ayarlanmış yuvarlatılmış dikdörtgen, dört‑yönlü ok ve dilimi gösterir.
+Aşağıdaki tam örnek, üç önceden ayarlanmış şeklin varsayılan ve değiştirilmiş sürümlerini oluşturur. Her ayarı dolaşır, `Name` ve `Type` değerlerini raporlar, boyutla ilgili değerleri `RawValue` üzerinden, açıları `AngleValue` üzerinden değiştirir ve sonucu kaydeder. Sol sütun varsayılan geometrileri tutar; sağ sütun ayarlanmış yuvarlak dikdörtgen, dört yönlü ok ve pasta gösterir.
 
 ```csharp
 using System;
@@ -138,7 +140,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-// Varsayılan ve ayarlanmış şekil sütunları için başlıklar ekler.
+// Varsayılan ve ayarlanmış şekil sütunları için başlık ekler.
 var defaultColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
 defaultColumnLabel.TextFrame.Text = "Default preset geometry";
 var adjustedColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
@@ -200,17 +202,17 @@ foreach (var shape in shapesToAdjust)
 presentation.Save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
 ```
 
-Değer değiştirmeden önce anlamsal tipin kontrol edilmesi, kodun niyetini açıklar ve farklı önceden tanımlı şekillerde aynı koleksiyon indeksinin aynı anlama gelmediği varsayımını önler.
+Değeri değiştirmeden önce anlamsal türü kontrol etmek, kodun amacını açıkça belirtir ve farklı önceden ayarlanmış şekillerde aynı koleksiyon indeksinin aynı anlama gelmediğini varsaymayı önler.
 
-## **Şekil Koleksiyonunu Değiştirme**
+## **Şekil Koleksiyonunu Değiştir**
 
-Ekle, kopyala, kaldır ve yeniden sırala yöntemleri koleksiyon üzerinde anında çalışır. Bir işlem şekil sayısını veya sırasını değiştirirse, o işlemden önce yakalanmış indekslere güvenmeye devam etmeyin.
+Ekleme, kopyalama, kaldırma ve yeniden sıralama yöntemleri koleksiyon üzerinde anında çalışır. Bir işlem şekil sayısını ya da sırasını değiştiriyorsa, o işlemden önce yakalanan indekslere güvenmeye devam etmeyin.
 
-### **Bir Şekli Kopyalama**
+### **Bir Şekli Kopyala**
 
-[AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addclone/) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/insertclone/) da bir kopya oluşturur ancak belirtilen z‑order indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler kopyayı boyutunu değiştirmeden taşırken, genişlik ve yükseklik kabul edenler yeniden boyutlandırabilir.
+[AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addclone/) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/insertclone/) da bir kopya oluşturur ancak belirtilen z‑order indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler, boyutu değiştirmeden kopyayı taşır; genişlik ve yükseklik alan aşırı yüklemeler ise yeniden boyutlandırabilir.
 
-Örnek, bir hedef slayt oluşturur, etiketli bir dikdörtgeni ön tarafa kopyalar ve ikinci bir kopyayı arka tarafa ekler. Her iki kopyada yapılan değişiklikler kaynak şekli etkilemez.
+Örnek, bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne kopyalar ve ikinci bir kopyayı arka tarafa ekler. Her iki kopyada yapılan değişiklikler kaynak şekli etkilemez.
 
 ```csharp
 using System;
@@ -251,13 +253,13 @@ else
 presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Kopyalama, şeklin içeriğini ve biçimlendirmesini, adını ve alternatif metnini de dahil olmak üzere kopyalar. Bu değerlerin benzersiz olması gerekiyorsa kopyaya yeni mantıksal tanımlayıcılar atayın. Karmaşık şekillerin kullandığı kaynaklar sunum tarafından yönetilir, ancak bir kopya hâlâ yeni bir koleksiyon öğesi ve yeni şekil kimliğiyle bulunur.
+Kopyalama, şeklin içeriğini ve biçimlendirmesini, adını ve alternatif metnini de dahil olmak üzere kopyalar. Bu değerlerin benzersiz olması gerekiyorsa, kopyaya yeni mantıksal kimlikler atayın. Karmaşık şekillerin kullandığı kaynaklar sunum tarafından yönetilir, ancak bir kopya yeni bir koleksiyon öğesi ve yeni bir şekil kimliğiyle kalır.
 
-### **Şekilleri Kaldırma**
+### **Şekilleri Kaldır**
 
-[Remove](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/remove/) belirli bir şekil nesnesini koleksiyonundan siler. İndeksli bir döngü sırasında birden çok eşleşme kaldırılırken, kalan indekslerin geçerli kalması için sondan başlanarak gezin.
+[Remove](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/remove/) belirli bir şekil nesnesini koleksiyonundan siler. Birden çok eşleşmeyi indeksli döngü içinde kaldırırken, kalan indekslerin geçerli kalması için sondan başlangıca doğru dolaşın.
 
-Bu örnek, belirli bir ada sahip her şekli kaldırır. Sabit bir koleksiyon öğesi yerine `slide.Shapes[i]` okunur ve şekil gereksiz yere cast edilmez.
+Bu örnek, belirli bir ad taşıyan tüm şekilleri kaldırır. Sabit bir koleksiyon öğesi yerine `slide.Shapes[i]` okur ve şekli gereksiz yere tip dönüşümü yapmaz.
 
 ```csharp
 using System;
@@ -288,11 +290,11 @@ for (var i = slide.Shapes.Count - 1; i >= 0; i--)
 presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Kaldırma sonrası şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmeyen şekillere yapılan referanslar, kaydedilmiş indekslerden daha güvenilir kalır. Ayrıca kaldırılan nesneye başvuran bağlayıcılar, animasyonlar ve diğer sunum özelliklerini de göz önünde bulundurun; görünür bir şekli kaldırmak slaydın görünümünden daha fazlasını değiştirebilir.
+Kaldırma işleminden sonra şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmemiş şekillere referanslar kaydedilen indekslerden daha güvenilirdir. Bağlayıcılar, animasyonlar ve kaldırılan nesneye başvuran diğer sunum özelliklerini de göz önünde bulundurun; görünür bir şekli kaldırmak slaydın görünümünden daha fazlasını etkileyebilir.
 
-### **Bir Şekli Gizleme**
+### **Bir Şekli Gizle**
 
-[Hidden](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/hidden/) değerini `true` olarak ayarlamak şekli koleksiyonda tutar ancak normal slayt gösterisinde görünmesini engeller. İndeksi, biçimlendirmesi ve içeriği koda hâlâ erişilebilir olur; bu yüzden gizleme, daha sonra geri getirilebilecek isteğe bağlı öğeler için uygundur.
+[Hidden](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/hidden/) öğesini `true` yapmak, şekli koleksiyonda tutar ancak normal slayt gösteriminde görünmesini engeller. İndeksi, biçimlendirmesi ve içeriği kod için hâlâ erişilebilir olduğundan, daha sonra geri getirilebilecek isteğe bağlı öğeler için gizleme uygundur.
 
 ```csharp
 using System;
@@ -319,11 +321,11 @@ foreach (var shape in slide.Shapes)
 presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
 ```
 
-Gizleme silme ya da güvenlik değildir. Nesne hâlâ keşfedilebilir ve bir kullanıcı ya da kod tarafından tekrar görünür hâle getirilebilir ve sunum dosyasının bir parçası kalır.
+Gizleme silme ya da güvenlik değildir. Nesne hâlâ keşfedilebilir ve bir kullanıcı ya da kod tarafından gizlenmesi kaldırılabilir; ayrıca sunum dosyasının bir parçası olarak kalır.
 
-### **Z‑Sırasını Değiştirme**
+### **Z‑Order Değiştir**
 
-Üst‑üste binen şekiller koleksiyon sırasına göre boyanır. [Reorder](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/reorder/) mevcut bir şekli kopyalamadan hedef bir indekse taşır. İndeks `0` arka taraftır; `Count - 1` ön taraftır.
+Üst üste gelen şekiller koleksiyon sırasına göre çizilir. [Reorder](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/reorder/) mevcut bir şekli kopyalamadan hedef indekse taşır. İndeks `0` arka, `Count - 1` ise ön taraftır.
 
 ```csharp
 using System.Drawing;
@@ -347,13 +349,13 @@ slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
 presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Dikdörtgen önce oluşturulur ve başlangıçta elipsin arkasında durur. Son indekse taşındığında ön tarafa gelir. Tüm ilgili şekiller eklenip/kopyalanıp tamamlandıktan sonra z‑sırasını sonlandırın; çünkü bu işlemler yeni koleksiyon öğeleri ekleyebilir ve istenen yığını değiştirebilir.
+Dikdörtgen ilk oluşturulduğunda elipsin arkasındadır. Son indekse taşındığında ön tarafa gelir. Tüm ilgili şekiller eklendikten ya da kopyalandıktan sonra z‑order'ı sonlandırın; bu işlemler yeni koleksiyon öğeleri ekleyebilir ve istenen yığını değiştirebilir.
 
-## **Düzen Slaytlarındaki Şekilleri İnceleme**
+## **Düzen Slaytlarındaki Şekilleri İncele**
 
-Normal slaytlar, düzen slaytları ve ana slaytlar ayrı şekil koleksiyonlarına sahiptir. Bir düzen koleksiyonundaki şekil, normal bir slayttaki aynı konumda bulunan şekille aynı nesne değildir. Düzen tarafından sağlanan biçimlendirmeyi anlamak ya da değiştirmek istediğinizde düzen şekillerini inceleyin.
+Normal slaytlar, düzen slaytları ve ana slaytların ayrı şekil koleksiyonları vardır. Bir düzen koleksiyonundaki şekil, normal bir slayttaki aynı konumdaki şekille aynı nesne değildir. Düzen tarafından sağlanan biçimlendirmeyi anlamak ya da değiştirmek gerektiğinde düzen şekillerini inceleyin.
 
-Aşağıdaki örnek, her düzen şeklinin [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/fillformat/) ve [LineFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/lineformat/) özelliklerini okur; `AutoShape` olup olmadığına bakmadan.
+Aşağıdaki örnek, her düzen şeklinin [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/fillformat/) ve [LineFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/lineformat/) özelliklerini `AutoShape` olup olmadığına bakmadan okur.
 
 ```csharp
 using System;
@@ -372,11 +374,11 @@ foreach (var layoutSlide in presentation.LayoutSlides)
 }
 ```
 
-Bir düzeni düzenlemek, onu kullanan birden çok slaytı etkileyebilir. Bir düzen şekli değiştirmeden önce, normal bir slayt nesneyi devralıyor mu yoksa yerel bir geçersiz kılma içeriyor mu belirleyin ve o düzeni kullanan her slaytı test edin.
+Bir düzeni düzenlemek, onu kullanan birden çok slaytı etkileyebilir. Bir düzen şekli değiştirmeden önce, normal bir slaydın nesneyi devralıp devralmadığını veya yerel bir geçersiz kılma içerip içermediğini belirleyin ve o düzeni kullanan her slaytı test edin.
 
-## **Bir Şekli SVG Olarak Dışa Aktarma**
+## **Bir Şekli SVG Olarak Dışa Aktar**
 
-[WriteAsSvg](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/writeassvg/) bir şeklin işlenmiş içeriğini bir akıma yazar. Sonuç, şekli içerir; tüm slayt arka planını veya komşu şekilleri içermez.
+[WriteAsSvg](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/writeassvg/) bir şeklin render edilmiş içeriğini akışa yazar. Sonuç, tüm slayt arka planı veya komşu şekilleri içermeden yalnızca şekli içerir.
 
 ```csharp
 using System;
@@ -398,13 +400,13 @@ else
 }
 ```
 
-Render ederken sunumu açık tutun. Çıktı, şeklin biçimlendirmesine ve fontlar ile görseller gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa slaytı dışa aktarın, tek bir şekli değil. Çağıran akımı sahiplenir ve kapatmalıdır.
+Sunumu render ederken açık tutun. Çıktı, şeklin biçimlendirmesine ve yazı tipleri, görseller gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa, bireysel şekil yerine slaytı dışa aktarın. Akışı çağıran taraf sahiplenir ve serbest bırakmalıdır.
 
-## **Şekilleri Hizalama**
+## **Şekilleri Hizala**
 
-[SlideUtil.AlignShapes](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/alignshapes/) aşırı yüklemeleri, tüm şekilleri ya da seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/net/aspose.slides/shapesalignmenttype/) kenar, merkez çizgi ya da dağıtım modunu belirtir. `alignToSlide` değerini `true` yaparsanız slayt kenarları kullanılır; `false` yaparsanız seçili şekiller birbirine göre hizalanır.
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/alignshapes/) aşırı yüklemeleri, tüm şekilleri ya da seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/net/aspose.slides/shapesalignmenttype/) kenar, merkez çizgisi veya dağıtım modunu belirtir. `alignToSlide` `true` ise slayt kenarları kullanılır; `false` ise seçili şekiller birbirine göre hizalanır.
 
-Bu örnek, üç şekli slaytın üst kenarına hizalar. Dönen şekil referansları, hizalamadan hemen önce mevcut indekslerine dönüştürülür.
+Bu örnek üç şekli slaytın üst kenarına hizalar. Döndürülen şekil referansları, hizalamadan hemen önce mevcut indekslerine dönüştürülür.
 
 ```csharp
 using Aspose.Slides;
@@ -432,17 +434,17 @@ SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
 presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-Hizalama konumu değiştirir, z‑sırasını değiştirmez. Göreceli hizalama genellikle en az iki şekil gerektirirken, yatay ya da dikey dağıtım yeterli boşluk tanımlamak için yeterli sayıda şekle ihtiyaç duyar. Metodu çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
+Hizalama konumları değiştirir, z‑order'ı etkilemez. Göreceli hizalama genellikle en az iki şekil gerektirir, yatay ya da dikey dağıtım ise boşlukları tanımlamak için yeterli sayıda şekil gerektirir. Metodu çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
 
-## **Bir Şekli Çevirme**
+## **Bir Şekli Döndür**
 
-[ShapeFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey çevirme ayarları ve döndürmeyi saklar. `FlipH` ve `FlipV` değerleri [NullableBool](https://reference.aspose.com/slides/tr/net/aspose.slides/nullablebool/) kullanır: `True` çevirme etkin, `False` devre dışı ve `NotDefined` belirtilmemiş/varsayılan durumu korur.
+[ShapeFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey döndürme ayarları ve rotasyonu saklar. `FlipH` ve `FlipV` değerleri [NullableBool](https://reference.aspose.com/slides/tr/net/aspose.slides/nullablebool/) kullanır: `True` döndürmeyi açar, `False` devre dışı bırakır ve `NotDefined` belirtilmemiş/varsayılan durumu korur.
 
-Aşağıdaki giriş sunumu, çevirilmemiş bir şekil içerir.
+Aşağıdaki giriş sunumu, döndürülmemiş bir şekil içerir.
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-Örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki çevirme ayarını değiştirir. Bu önemlidir çünkü yeni bir [Frame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/frame/) atanması çerçevenin tamamını değiştirir.
+Örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki döndürme ayarını değiştirir. Bu, yeni bir [Frame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/frame/) atandığında çerçevenin tamamının değişeceği için önemlidir.
 
 ```csharp
 using System;
@@ -463,7 +465,7 @@ shape.Frame = new ShapeFrame(
 presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Kaydedilen şekil konumunu, boyutunu ve döndürmesini korurken yatay ve dikey olarak aynalanır.
+Kaydedilen şekil, konumu, boyutu ve rotasyonu korurken yatay ve dikey olarak yansıtılmıştır.
 
 ![The shape after flipping](flipped_shape.png)
 
@@ -471,16 +473,16 @@ Kaydedilen şekil konumunu, boyutunu ve döndürmesini korurken yatay ve dikey o
 
 **Bir şekil tanımlayıcısı olarak koleksiyon indeksi kullanmalı mıyım?**
 
-Sadece koleksiyon işlem sırasında değişmeyecek ve kısa sürede kullanılacak ise kullanılabilir. Oluşturulmuş şablonlar için doğrulanmış bir `Name` ya da `AlternativeText` kuralı, slayt kapsamlı interop çalışmaları için `OfficeInteropShapeId` tercih edin.
+Yalnızca koleksiyonun indeks kullanılmadan önce değişmeyeceği kısa vadeli işlemelerde kullanılabilir. Şablonlar için doğrulanmış bir `Name` veya `AlternativeText` kuralı, slayt‑kapsamlı interop işleri için `OfficeInteropShapeId` tercih edin.
 
-**Bir şekli gizlemek, onu z‑sırasından çıkarır mı?**
+**Bir şekli gizlemek, onu z‑order'dan kaldırır mı?**
 
 Hayır. Gizli bir şekil aynı indekste koleksiyonda kalır. Bulunabilir, yeniden sıralanabilir, düzenlenebilir veya tekrar görünür hâle getirilebilir.
 
-**Kopyalanan bir şekil neden başka bir şeklin önünde göründü?**
+**Neden kopyalanan bir şekil başka bir şeklin önünde görünüyor?**
 
-`AddClone` kopyayı koleksiyonun sonuna ekler; bu, z‑sırasının ön kısmıdır. Başlangıç indeksi seçmek için `InsertClone` kullanın ya da tüm şekiller eklendikten sonra `Reorder` ile konumu ayarlayın.
+`AddClone` kopyayı koleksiyonun sonuna ekler; koleksiyonun sonu z‑order'da ön taraftır. Başlangıç indeksini seçmek için `InsertClone` kullanın veya tüm şekiller eklendikten sonra `Reorder` ile konumlandırın.
 
-**Önceden tanımlı bir şekil ayarını tanımlamak için sabit bir indeks kullanabilir miyim?**
+**Önceden ayarlanmış bir şekil ayarını tanımlamak için sabit bir indeks kullanabilir miyim?**
 
-Sadece tam olarak hangi önceden tanımlı şekil ve koleksiyon düzeni olduğundan emin olduktan sonra. `IGeometryShape.Adjustments` döngüsü yapın ve `IAdjustValue.Type` kontrol edin; aynı anlamsal tip birden çok kez ortaya çıkıyorsa ek bilgi için `IAdjustValue.Name` kullanın.
+Sadece kesin önceden ayarlama ve koleksiyon düzeni doğrulandıktan sonra kullanılabilir. `IGeometryShape.Adjustments` içinde döngüyle dolaşıp `IAdjustValue.Type` kontrol etmeyi tercih edin; aynı anlamsal tip birden çok kez ortaya çıkıyorsa ek bilgi için `IAdjustValue.Name` kullanın.

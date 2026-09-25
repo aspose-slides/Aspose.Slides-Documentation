@@ -1,12 +1,12 @@
 ---
-title: Prezentáció alakzatok kezelése C++-ban
+title: Prezentációs alakzatok kezelése C++-ban
 linktitle: Alakzatkezelés
 type: docs
 weight: 40
 url: /hu/cpp/shape-manipulations/
 keywords:
 - PowerPoint alakzat
-- prezentáció alakzat
+- prezentációs alakzat
 - alakzat a dián
 - alakzat keresése
 - alakzat klónozása
@@ -15,8 +15,8 @@ keywords:
 - alakzat sorrendjének módosítása
 - interop alakzat ID lekérése
 - alakzat alternatív szövege
-- alakzat igazítási pont
-- előre beállított alakzat igazítás
+- alakzat korrekciós pontja
+- előre definiált alakzatkorrekció
 - alakzat geometria
 - alakzat elrendezési formátumok
 - alakzat SVG-ként
@@ -27,25 +27,27 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan azonosíthatja, módosíthatja, klónozhatja, eltávolíthatja, elrejtheti, átrendezheti, exportálhatja, igazíthatja és tükrözheti a prezentáció alakzatait az Aspose.Slides for C++ segítségével."
+description: "Ismerje meg, hogyan azonosítsa, állítsa be, klónozza, távolítsa el, rejtse el, módosítsa a sorrendet, exportálja, igazítsa és tükrözze a prezentációs alakzatokat az Aspose.Slides for C++ segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for C++ a dián lévő alakzatokat egy rendezett [IShapeCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/) segítségével ábrázolja. A gyűjtemény egyszerre a hely, ahol az alakzatokat megtalálja és módosíthatja, és a rétegezési sorrend forrása: a `0` index a leghátsó alakzatot jelöli, míg az utolsó index a legelöl lévő alakzatot.
+Az Aspose.Slides for C++ a dián lévő alakzatokat egy rendezett [IShapeCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/) reprezentálja. A gyűjtemény egyaránt a hely, ahol az alakzatokat megtalálja és módosítja, valamint a rétegezés sorrendjének forrása: a `0` indexű alakzat a leghátrébb lévő, míg az utolsó indexű a legelöl lévő.
 
-Ez a cikk ezt a modellt követi. Először bemutatja, hogyan azonosíthat egy alakzatot megbízhatóan és módosíthatja az előre beállított alakzategyesztési pontokat, majd megmutatja, hogyan klónozhat, távolíthat el, rejthet el és módosíthatja az alakzatok sorrendjét. Az utolsó szakaszok a elrendezés‑szintű formázást, SVG‑exportot, igazítást és tükrözési beállításokat fedik le. Minden példa önálló, így csak azokat a műveleteket használhatja, amelyekre a munkafolyamatának szüksége van.
+Ez a cikk ezt a modellt követi. Először bemutatja, hogyan azonosítsunk biztonságosan egy alakzatot és módosítsuk az előre beállított alakzat‑korrekciós pontokat, majd megmutatja, hogyan klónozzunk, távolítsunk el, rejtsünk el és rendezzünk át alakzatokat. Az utolsó szakaszok a layout‑szintű formázást, SVG‑exportálást, igazítást és tükrözési beállításokat fedik le. Minden példa önálló, így csak a munkafolyamatához szükséges műveleteket használhatja.
 
-## **Az alakzatok azonosítása és keresése**
+## **Alakzatok azonosítása és keresése**
 
-A gyűjtemény indexei kényelmesek, ha egy ismert fájlt dolgoz fel, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy átrendezése megváltoztathatja az indexét. Válasszon azonosítót a prezentáció szerkesztési és karbantartási módja szerint:
+A gyűjtemény indexei kényelmesek egy ismert fájl feldolgozásakor, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy átrendezése megváltoztathatja az indexét. Válasszon azonosítót attól függően, hogy a prezentációt hogyan szerkesztik és tartják karban:
 
-- **[Name](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_name/)** hasznos a fejlesztő által vezérelt sablonok esetén, és könnyen megtekinthető a PowerPoint **Selection Pane**‑ben. A neveket szerkeszthető, és nem garantált, hogy egyediek, ezért vezessen be névkonvenciót, ha a kód ezekre támaszkodik.
-- **[AlternativeText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_alternativetext/)** akkor hasznos, ha egy hozzáférhetőségi leírás vagy szerző által megadott címke már azonosítja az alakzatot. A felhasználók számára látható, lokalizálható vagy hozzáférhetőség‑célra átírható, de nem garantált, hogy egyedi. Ne használja csendben a jelentős hozzáférhetőségi szöveget adatbáziskulcsként.
-- **[OfficeInteropShapeId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_officeinteropshapeid/)** egy csak‑olvasású azonosító, amely egy dián belül egyedi, és a PowerPoint interop által használt alakzat‑azonosítónak felel meg. Használja, ha PowerPoint‑integrációt valósít meg, vagy ha a forma élettartama során egyértelmű hivatkozásra van szüksége. Egy klónozott vagy újra‑létrehozott alakzat egy másik alakzat, és saját ID‑t kap.
+- [Name](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_name/) hasznos fejlesztő‑vezérelt sablonoknál, és könnyen ellenőrizhető a PowerPoint **Selection Pane**‑ben. A neveket szerkeszthetőek, és nem garantált a **unique** státuszuk, ezért ha a kód rá támaszkodik, alakíts ki névadási konvenciót.
+- [AlternativeText](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_alternativetext/) akkor hasznos, ha egy akadálymentesítési leírás vagy a szerző által megadott címke már azonosítja az alakzatot. A felhasználók számára látható, lokalizálható vagy átírható akadálymentesség miatt, és nem garantált egyedi. Ne használja néma módon a jelentős akadálymentesítési szöveget adatbáziskulcsként.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_officeinteropshapeid/) egy csak‑olvasású azonosító, amely egy dián belül egyedi, és a PowerPoint interop által használt alakzat‑azonosítónak felel meg. Használja, ha PowerPointhoz integrál, vagy ha egyértelmű hivatkozásra van szükség egy alakzat élettartama alatt. Egy klónozott vagy újra‑létrehozott alakzat más alakzat, és saját ID‑t kap.
 
-A kapcsolódó **[UniqueId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_uniqueid/)** tulajdonság prezentáció‑szintű, de kiegészítőknek szánt, és újra‑hozzárendelhető. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú azonosításra van szükség, tárolja a leképezést az alkalmazás adataiban, és ellenőrizze, hogy a várt alakzat még létezik‑e.
+A kapcsolódó [UniqueId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_uniqueid/) tulajdonság prezentáció‑szintű, de kiegészítőkhöz szánták, és újra‑hozzárendelhető. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú azonosításra van szükség, tárolja a leképezést az alkalmazás adatában, és ellenőrizze, hogy a várt alakzat még létezik‑e.
 
-Az alábbi példa a **Name** alapján keres, és a dián‑szintű interop ID‑t jelzi. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelenti ahelyett, hogy a helytelen objektummal folytatná a műveletet.
+A [Manage Alternative Text Titles and Descriptions](/slides/hu/cpp/presentation-accessibility/) példában a cím és leírás alternatív szövegének olvasása és frissítése látható. Használja az alternatív szöveget a vizuális tartalom jelentésének elmagyarázására, és tartsa külön a kódban használt alakzatnevektől.
+
+Az alábbi példa a `Name` alapján keres, és a diára jellemző interop ID‑t jeleníti meg. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt jelzi a helytelen objektum használata helyett.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -83,7 +85,7 @@ else
 presentation->Dispose();
 ```
 
-Amikor egy művelet egy adott alakzattípusra vonatkozik, ellenőrizze a felületet, mielőtt típus‑specifikus tagokat használna. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a nevű objektum egy **[IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/)**.
+Amikor egy művelet alakzat‑típustól függ, ellenőrizze a felületet, mielőtt típus‑specifikus tagokat használna. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a névvel jelölt objektum egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) példány.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -127,28 +129,28 @@ else
 presentation->Dispose();
 ```
 
-## **Az előre beállított alakzat‑igazítások azonosítása és módosítása**
+## **Alapértelmezett alakzat‑korrekciók azonosítása és módosítása**
 
-Az előre definiált geometriai alakzatok olyan igazítási pontokat fedhetnek fel, amelyek a sarokméretet, nyíl arányait vagy ívhöket szabályozzák. Ezekhez a csak‑olvasású **[IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igeometryshape/get_adjustments/)** gyűjteményen keresztül férhet hozzá. A gyűjteményt maga az alakzat biztosítja, de minden **[IAdjustValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/)** tartalmaz egy változtatható értéket.
+Az előre definiált geometriai alakzatok olyan korrekciós pontokat (adjustment points) biztosíthatnak, amelyek a sarokméretet, nyíl arányokat vagy ív‑szögeket szabályozzák. Ezekhez a csak‑olvasású [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igeometryshape/get_adjustments/) gyűjteményen keresztül férhet hozzá. Magát a gyűjteményt az alakzat biztosítja, de minden [IAdjustValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/) tartalmaz egy módosítható értéket.
 
-Ne csak egy rögzített gyűjtemény‑indexre támaszkodjon. Iteráljon végig az igazításokon, és vizsgálja meg a csak‑olvasású **[IAdjustValue::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/get_type/)** tulajdonságot, amelynek **[ShapeAdjustmentType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapeadjustmenttype/)** értéke leírja, mit szabályoz az igazítás. A csak‑olvasású **[IAdjustValue::get_Name](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/get_name/)** további azonosításhoz nyújt információt, és különösen hasznos, ha egy előre beállítás több azonos szemantikai típusú igazítást tartalmaz.
+Ne csak egy rögzített gyűjtemény‑indexre támaszkodjon. Iteráljon a korrekciókon, és vizsgálja a csak‑olvasású [IAdjustValue::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/get_type/) tulajdonságot, amelynek [ShapeAdjustmentType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapeadjustmenttype/) értéke leírja, mit szabályoz a korrekció. A csak‑olvasású [IAdjustValue::get_Name](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/get_name/) további azonosítási információkat ad, és különösen hasznos, ha egy előre definiált alakzat több ugyanazon szemantikai típusú korrekciót tartalmaz.
 
-Használja a jelentésnek megfelelő értéktulajdonságot:
+Használja azt az értéktulajdonságot, amely megfelel a korrekció jelentésének:
 
-| Igazítás típusa | Cél | Módosítandó érték |
+| Adjustment type | Purpose | Value to change |
 |---|---|---|
-| `CornerSize` | Kerekített sarkok mérete | [RawValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
-| `ArrowTailThickness` | Nyílfarok vastagsága | `RawValue` |
-| `ArrowheadLength` | Nyílhegy hossza | `RawValue` |
-| `ArrowheadWidth` | Nyílhegy szélessége | `RawValue` |
-| `StartAngle` | Körív vagy ív kezdőszöge | [AngleValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
-| `EndAngle` | Körív vagy ív végszöge | `AngleValue` |
+| `CornerSize` | A lekerekített sarkok mérete | [RawValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | A nyíl farok vastagsága | `RawValue` |
+| `ArrowheadLength` | A nyílhegy hossza | `RawValue` |
+| `ArrowheadWidth` | A nyílhegy szélessége | `RawValue` |
+| `StartAngle` | A szektor vagy ív kezdő szöge | [AngleValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | A szektor vagy ív befejező szöge | `AngleValue` |
 
-A `Type` és `Name` értékek nem módosíthatók. A `RawValue` egy csak‑olvasás/írás egész szám a beállítás natív geometriai egységeiben, míg az `AngleValue` egy csak‑olvasás/írás fokban megadott szög. Az igazítások száma, sorrendje, jelentése és érvényes tartománya a konkrét **[ShapeType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igeometryshape/get_shapetype/)**‑től függ. Egy bizonyos előre beállításban érvényes érték egy másiknál érvénytelen vagy más hatást válthat ki.
+A `Type` és `Name` nem állítható. A `RawValue` egy olvas‑/írható egész szám a beállított geometriai egységekben, míg az `AngleValue` fokban kifejezett olvas‑/írható szög. Az értékek száma, sorrendje, jelentése és érvényes tartománya az adott [ShapeType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igeometryshape/get_shapetype/) alapján változik. Egy megadott presethez megfelelő érték egy másiknál érvénytelen lehet vagy más hatást eredményezhet.
 
-Ha a `Type` **ShapeAdjustmentType::Custom**, az API nem ismeri fel a szabványos szemantikai jelentést. Vizsgálja meg a `Name`‑et, a beállítás típusát és a meglévő értéket, és csak akkor változtassa meg, ha a várt jelentés és tartomány ismert. Még a felismert típusok esetén is ellenőrizze, hogy ugyanaz a típus többször is előfordul‑e, mielőtt értéket választana. A **[Connector](/slides/hu/cpp/connector/)** cikk bemutatja ezt a helyzetet a csatlakozó‑görbületi igazításoknál.
+Ha a `Type` értéke `ShapeAdjustmentType::Custom`, az API nem ismeri fel a szabványos szemantikai jelentést. Vizsgálja meg a `Name`‑et, a preset típusát és a meglévő értéket, és csak akkor változtassa meg a korrekciót, ha a jelentés és a tartomány ismert. Még a felismert típusok esetén is ellenőrizze, hogy ugyanaz a típus többször előfordul‑e, mielőtt értéket választana. A [Connector](/slides/hu/cpp/connector/) cikk bemutatja ezt a helyzetet a csatlakozó‑görbületi korrekciókkal.
 
-Az alábbi teljes példa létrehozza egy alap‑ és egy módosított változatát három előre beállított alakzatnak. Végigiterál minden igazításon, kiírja a `Name` és `Type` értékeket, a mérettel kapcsolatos értékeket a `RawValue`‑val, a szögeket az `AngleValue`‑val módosítja, és menti az eredményt. A bal oszlop az alap geometriai adatot tartja; a jobb oszlop a módosított lekerekített téglalapot, a négy irányú nyilat és a körívet mutatja.
+Az alábbi teljes példa három preset alakzat alap‑ és módosított verzióját hozza létre. Iterál minden korrekción, kiírja a `Name`‑t és `Type`‑t, a méret‑kapcsolódó értékeket a `RawValue`‑val, a szögeket az `AngleValue`‑val módosítja, majd elmenti az eredményt. A bal oszlop a alap‑geometriát mutatja; a jobb oszlop a módosított lekerekített téglalapot, a négysíkú nyilat és a szelet mutatja.
 
 ```cpp
 #include <DOM/IAdjustValue.h>
@@ -174,7 +176,7 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Fejléc hozzáadása az alap és a módosított alakzatoszlopokhoz.
+// Fejlécet ad hozzá az alapértelmezett és a módosított alakzat oszlopokhoz.
 auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
 defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
 auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
@@ -233,17 +235,17 @@ presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Az érték módosítása előtt a szemantikai típus ellenőrzése egyértelművé teszi a kód szándékát, és elkerüli, hogy egy adott gyűjtemény‑index különböző előre beállított alakzatoknál más jelentéssel bírjon.
+A szemantikai típus ellenőrzése érték módosítása előtt egyértelművé teszi a szándékot, és elkerüli, hogy egy adott gyűjtemény‑index ugyanazt a jelentést hordozza különböző preset alakzatoknál.
 
-## **Az alakzatgyűjtemény módosítása**
+## **Alakzatgyűjtemény módosítása**
 
-A hozzáadás, klónozás, eltávolítás és átrendezés metódusok azonnal a gyűjteményen hatnak. Ha egy művelet módosítja az alakzatok számát vagy sorrendjét, ne támaszkodjon tovább a művelet előtt rögzített indexekre.
+A hozzáadás, klónozás, eltávolítás és átrendezés metódusok azonnal a gyűjteményen dolgoznak. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne támaszkodjon a művelet előtt rögzített indexekre.
 
 ### **Alakzat klónozása**
 
-**[AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addclone/)** egy független másolatot hoz létre, és a célgyűjtemény végére fűzi. **[InsertClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/insertclone/)** szintén másolatot készít, de a megadott z‑rendezési indexre helyezi. Az olyan túlterhelések, amelyek koordinátákat fogadnak, a méretet változtatás nélkül mozgatják a klónt; a szélességet és magasságot megadók pedig átméretezhetik.
+[AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addclone/) egy független másolatot hoz létre, és a célgűjtemény végére fűzi. [InsertClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/insertclone/) szintén másolatot készít, de a megadott z‑order indexen helyezi el. A koordinátákat elfogadó túlterhelések a méretet nem változtatják; a szélesség‑magasságot megadó változatok átméretezhetik a klónt is.
 
-A példa egy cél‑diát hoz létre, egy címkézett téglalapot klónoz a frontra, és egy második klónt szúr be a hátulra. Az egyik vagy másik klónon végzett módosítás nem befolyásolja a forrás‑alakzatot.
+A példa egy cél‑diát hoz létre, a felirattal ellátott téglalapot a frontra klónozza, majd egy második klónt a háttérbe illeszt be. Bármelyik klónt módosító változtatás nem érinti a forrás alakzatot.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -299,13 +301,13 @@ presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A klónozás a forma tartalmát és formázását, köztük a nevét és az alternatív szöveget is másolja. Ha ezeknek az értékeknek egyedinek kell lenniük, új logikai azonosítót kell adni a klónnak. Az összetett alakzatok által használt erőforrások a prezentáció által kerülnek kezelésre, de egy klón új gyűjteményelem, új alakzat‑azonosítóval.
+A klónozás másolja az alakzat tartalmát és formázását, beleértve a nevet és az alternatív szöveget is. Ha ezeknek az értékeknek egyedinek kell lenniük, új logikai azonosítókat kell rendelnünk a klónnak. A komplex alakzatok által használt erőforrásokat a prezentáció kezeli, de a klón egy új gyűjtemény‑elem, új alakzat‑azonosítóval.
 
 ### **Alakzatok eltávolítása**
 
-**[Remove](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/remove/)** egy konkrét alakzat‑objektumot töröl a saját gyűjteményéből. Több egyező elem eltávolítása során indexelt iterációkor haladjon a vég felől, hogy a maradó indexek érvényben maradjanak.
+[Remove](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/remove/) egy konkrét alakzat‑objektumot töröl a gyűjteményéből. Több egyező elem eltávolításakor indexelt iteráció során haladjon visszafelé, hogy a fennmaradó indexek érvényben maradjanak.
 
-Ez a példa minden, meghatározott névvel rendelkező alakzatot eltávolít. A jelenlegi indexelt alakzatot olvassa, nem egy rögzített gyűjtemény‑elemet, és nem kényszeríti a típust feleslegesen.
+Ez a példa minden megadott névvel rendelkező alakzatot eltávolít. Az aktuálisan indexelt alakzatot olvassa, nem egy rögzített gyűjtemény‑elemet, és nem kényszeríti a felesleges típuskonverziót.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -344,11 +346,11 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Eltávolítás után a alakzatok száma és a későbbi elemek indexei változnak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak, mint a tárolt indexek. Vegye figyelembe a csatlakozókat, animációkat és egyéb prezentációs elemeket, amelyek az eltávolított objektumra hivatkozhatnak; egy látható alakzat eltávolítása több mint a dia megjelenését is megváltoztathatja.
+Eltávolítás után a alakzatszám és a későbbi alakzatok indexei megváltoznak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak, mint a korábban mentett indexek. Fontolja meg a csatlakozók, animációk és egyéb prezentációs elemek hatását is, amelyek a törölt objektumra hivatkozhatnak; egy látható alakzat eltávolítása több mint csak a dia megjelenését változtathatja meg.
 
 ### **Alakzat elrejtése**
 
-A **[Hidden](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/set_hidden/)** értékének `true`‑ra állítása megtartja az alakzatot a gyűjteményben, de megakadályozza, hogy a normál diavetítésben megjelenjen. Az indexe, formázása és tartalma továbbra is elérhető a kódból, ezért a rejtés alkalmas opcionális elemekre, amelyeket később vissza lehet állítani.
+A [Hidden](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/set_hidden/) `true`‑ra állítása megtartja az alakzatot a gyűjteményben, de megakadályozza, hogy a normál diavetítésben megjelenjen. Indexe, formázása és tartalma továbbra is elérhető a kód számára, így az elrejtés alkalmas opcionális elemekre, amelyeket később vissza lehet állítani.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -383,11 +385,11 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A rejtés nem törlés vagy biztonsági funkció. Az objektum továbbra is felfedezhető és feltártható felhasználó vagy kód által, és része marad a prezentáció fájlnak.
+Az elrejtés nem törlés vagy biztonsági intézkedés. Az objektum továbbra is felfedezhető és újra láthatóvá tehető felhasználó vagy kód által, és része marad a prezentációs fájlnak.
 
-### **Z‑rend sorrend módosítása**
+### **Z‑rend módosítása**
 
-Az átfedő alakzatok a gyűjtemény sorrendjében kerülnek kirajzolásra. **[Reorder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/reorder/)** egy meglévő alakzatot a kívánt indexre mozgat klónozás nélkül. A `0` index a hátul, a `Count - 1` az elöl helyezkedik el.
+Az átfedő alakzatok a gyűjtemény sorrendjében kerülnek megrajzolásra. A [Reorder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/reorder/) egy meglévő alakzatot egy cél‑indexre helyez anélkül, hogy klónozná. A `0` index a hátul, a `Count - 1` az elöl.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -423,13 +425,13 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A téglalapot előbb hozták létre, és kezdetben a kör alatti helyen volt. A végső indexre helyezve előre kerül. Z‑rendet érdemes az összes kapcsolódó alakzat hozzáadása vagy klónozása után véglegesíteni, mert ezek a műveletek új gyűjteményelemeket fűznek a sorhoz, és megváltoztathatják a kívánt rétegsorrendet.
+A téglalap először jön létre, és eleinte a ellipszis mögött helyezkedik el. A végső indexre helyezve előrébb kerül. A z‑rendet a kapcsolódó alakzatok hozzáadása vagy klónozása után kell véglegesíteni, mivel ezek a műveletek új gyűjtemény‑elemeket illesztenek be, és módosíthatják a kívánt rétegsorrendet.
 
-## **Elrendezési diákon lévő alakzatok ellenőrzése**
+## **Layout diákon lévő alakzatok vizsgálata**
 
-A normál diák, elrendezési diák és master‑diák saját alakzatgyűjteménnyel rendelkezik. Egy elrendezési gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonlóan elhelyezett alakzat egy normál dián. Ellenőrizze az elrendezési alakzatokat, ha a formázást, amelyet egy elrendezés biztosít, meg kell érteni vagy módosítani.
+A normál diák, layout diák és master diák külön alakzatgyűjteményekkel rendelkeznek. Egy layout gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonló pozícióban lévő alakzat egy normál dián. Layout alakzatokat akkor vizsgálja, ha a layout által biztosított formázást kell megérteni vagy módosítani.
 
-Az alábbi példa minden elrendezési alakzat **[FillFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_fillformat/)** és **[LineFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_lineformat/)** tulajdonságát olvassa, anélkül, hogy azt feltételezné, hogy minden alakzat egy `AutoShape`.
+Az alábbi példa minden layout alakzat [FillFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_fillformat/) és [LineFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_lineformat/) tulajdonságát olvassa, anélkül, hogy feltételezné, minden alakzat `AutoShape`.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -459,11 +461,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-Egy elrendezés szerkesztése több diát is érinthet, amelyik használja azt. Mielőtt egy elrendezési alakzatot módosítana, határozza meg, hogy egy normál dia örökli‑e az objektumot vagy helyi felülírással rendelkezik‑e, és tesztelje az összes olyan diát, amely az elrendezést használja.
+Egy layout szerkesztése több, azt használó diát is érinthet. Mielőtt módosítana egy layout alakzatot, határozza meg, hogy egy normál dia örökli‑e az objektumot vagy helyi felülírást tartalmaz‑e, és tesztelje az összes diát, amely azt a layoutot használja.
 
-## **Alakzat exportálása SVG‑be**
+## **Alakzat exportálása SVG‑ként**
 
-**[WriteAsSvg](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/writeassvg/)** egy alakzat megjelenített tartalmát egy adatfolyamba írja. Az eredmény csak az alakzatot tartalmazza, nem a teljes dia háttérjét vagy a szomszédos alakzatokat.
+A [WriteAsSvg](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/writeassvg/) egy alakzat renderelt tartalmát írja egy streambe. Az eredmény csak az alakzatot tartalmazza, nem a teljes dia háttérét vagy a szomszédos alakzatokat.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -495,13 +497,13 @@ else
 presentation->Dispose();
 ```
 
-Tartsa nyitva a prezentációt a renderelés alatt. A kimenet az alakzat formázásától, valamint a betűkészletek és képek erőforrásoktól függ. Ha a teljes kompozícióra van szüksége, exportálja a diát, ne pedig az egyedi alakzatot. A hívó tulajdonában van a stream, és azt be kell zárni vagy el kell dobni.
+Tartsa nyitva a prezentációt a renderelés közben. A kimenet az alakzat formázását, valamint a betűtípusok és képekhez tartozó erőforrásokat is figyelembe veszi. Ha az egész kompozícióra van szükség, exportálja a diát, ne egyetlen alakzatot. A hívó birtokolja a streamet, és köteles azt lezárni vagy felszabadítani.
 
 ## **Alakzatok igazítása**
 
-A **[SlideUtil::AlignShapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/alignshapes/)** túlterhelései vagy az összes alakzatot, vagy a kiválasztott gyűjtemény‑indexeket igazítják. A **[ShapesAlignmentType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapesalignmenttype/)** meghatározza a szegélyt, középvonalat vagy elosztási módot. Az `alignToSlide` értéket `true`‑ra állítva a dia széléhez igazít, `false`‑ra állítva a kiválasztott alakzatok egymáshoz viszonyított igazítása történik.
+A [SlideUtil::AlignShapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/alignshapes/) túlterhelései vagy az összes alakzatot, vagy a kiválasztott gyűjtemény‑indexeket igazítják. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapesalignmenttype/) meghatározza a szél, középvonal vagy elosztási módot. Az `alignToSlide` `true`‑ra állítása a dia széleit használja; `false` esetén a kiválasztott alakzatok egymáshoz viszonyított igazítását végzi.
 
-Ez a példa három alakzatot a dia felső széléhez igazít. A visszaadott alakzat‑referenciákat közvetlenül az igazítás előtt aktuális indexeikre konvertálja.
+Ez a példa három alakzatot igazít a dia felső széléhez. A visszakapott alakzat‑referenciákat a igazítás előtt az aktuális indexeikre konvertálja.
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -535,17 +537,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Az igazítás a pozíciókat, nem a z‑rendet változtatja. Relatív igazításhoz általában legalább két alakzat szükséges, míg a vízszintes vagy függőleges elosztáshoz elegendő alakzat kell ahhoz, hogy a távolságot meghatározza. Ha a metódus hívása előtt módosítja a gyűjteményt, számolja újra az indexeket.
+Az igazítás a pozíciókat, nem a z‑rendet változtatja. Relatív igazításhoz általában legalább két alakzatra van szükség, míg a vízszintes vagy függőleges elosztáshoz elegendő alakzat szükséges a távolság meghatározásához. Ha a metódus meghívása előtt módosítja a gyűjteményt, számolja újra az indexeket.
 
 ## **Alakzat tükrözése**
 
-A **[ShapeFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapeframe/)** osztály tárolja a pozíciót, méretet, vízszintes és függőleges tükrözési beállításokat, valamint a forgást. A `FlipH` és `FlipV` értékek **[NullableBool](https://reference.aspose.com/slides/hu/cpp/aspose.slides/nullablebool/)** típusúak: `True` engedélyezi a tükrözést, `False` letiltja, `NotDefined` pedig megtartja a nem definiált/alapértelmezett állapotot.
+A [ShapeFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapeframe/) osztály tárolja a pozíciót, méretet, vízszintes‑ és függőleges tükrözési beállításokat, valamint a forgást. A `FlipH` és `FlipV` értékek a [NullableBool](https://reference.aspose.com/slides/hu/cpp/aspose.slides/nullablebool/) típusúak: `True` engedélyezi a tükrözést, `False` letiltja, a `NotDefined` megtartja a nem meghatározott/alapértelmezett állapotot.
 
 Az alábbi bemeneti prezentáció egy nem tükrözött alakzatot tartalmaz.
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-A példa minden más keretértéket változatlanul hagy, és csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új **[Frame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/set_frame/)** hozzárendelése a teljes keret felülírását eredményezi.
+A példa minden egyéb keretértéket megtart, és csak a két tükrözési beállítást cseréli. Ez fontos, mert egy új [Frame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/set_frame/) hozzárendelése a teljes keret cseréjét jelenti.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -573,24 +575,24 @@ presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A mentett alakzat vízszintesen és függőlegesen is tükröződik, miközben megtartja a pozícióját, méretét és forgását.
+A mentett alakzat vízszintesen és függőlegesen tükröződik, miközben megtartja a pozíciót, méretet és forgást.
 
 ![The shape after flipping](flipped_shape.png)
 
 ## **GYIK**
 
-**Használjak gyűjtemény‑indexet alakzat azonosítóként?**
+**Használjak-e gyűjtemény‑indexet alakzat azonosítóként?**
 
-Csak rövid‑élettartamú feldolgozás esetén, amikor a gyűjtemény nem változik az index használata előtt. Sablonok esetén részesítsen előnyben egy ellenőrzött `Name` vagy `AlternativeText` konvenciót, illetve slide‑szintű interop munkához `OfficeInteropShapeId`‑t.
+Csak rövid életű feldolgozás esetén, amikor a gyűjtemény nem változik az index használata előtt. Inkább validált `Name` vagy `AlternativeText` konvenciót alkalmazzon a szerkesztett sablonoknál, vagy `OfficeInteropShapeId`‑t a dia‑szintű interop munkához.
 
-**Eltávolítja-e egy rejtett alakzat a z‑rendet?**
+**Eltávolítja‑e egy elrejtett alakzat a z‑rendet?**
 
-Nem. Egy rejtett alakzat ugyanazon az indexen marad a gyűjteményben. Megtalálható, átrendezhető, szerkeszthető vagy újra láthatóvá tehető.
+Nem. Egy elrejtett alakzat a gyűjteményben marad ugyanazon az indexen. Megtalálható, átrendezhető, szerkeszthető vagy újra láthatóvá tehető.
 
-**Miért jelent meg egy klónozott alakzat egy másik előtt?**
+**Miért jelent meg a klónozott alakzat egy másik alakzat előtt?**
 
-Az `AddClone` a klónt a gyűjtemény végére fűzi, ami a z‑rend eleje. Használja az `InsertClone`‑t, ha kezdeti indexet szeretne megadni, vagy a `Reorder`‑t a hozzáadás után.
+Az `AddClone` a klónt a gyűjtemény végére fűzi, ami a z‑rend előre lépését jelenti. Használja az `InsertClone`‑t a kezdeti index kiválasztásához, vagy a `Reorder`‑t az összes alakzat hozzáadása után.
 
-**Használhatok rögzített indexet előre beállított alakzat‑igazítás azonosításához?**
+**Használhatok‑e rögzített indexet egy előre definiált alakzatkorrekció azonosításához?**
 
-Csak akkor, ha a pontos előre beállítás és a gyűjtemény elrendezése előre validálva van. Inkább iteráljon a `IGeometryShape::get_Adjustments`‑on, és ellenőrizze a `IAdjustValue::get_Type`‑t; ha ugyanaz a szemantikai típus többször is előfordul, használja a `IAdjustValue::get_Name`‑t további információként.
+Csak akkor, ha a pontos presetet és a gyűjtemény‑elrendezést előre validálta. Inkább iteráljon a `IGeometryShape::get_Adjustments`‑on, ellenőrizze a `IAdjustValue::get_Type`‑t; ha ugyanaz a szemantikai típus több alkalommal is előfordul, használja a `IAdjustValue::get_Name`‑t további információként.
