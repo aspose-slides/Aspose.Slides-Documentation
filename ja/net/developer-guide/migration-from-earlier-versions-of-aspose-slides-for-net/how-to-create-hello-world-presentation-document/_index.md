@@ -17,75 +17,87 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "レガシーおよびモダン API の両方を使用して、Aspose.Slidesで .NET における Hello World の PowerPoint PPT、PPTX、ODP プレゼンテーションを作成するシンプルなガイドです。"
+description: ".NET で Aspose.Slides を使用して、レガシー API とモダン API の両方を使ったシンプルなガイドで、Hello World の PowerPoint PPT、PPTX、および ODP プレゼンテーションを作成します。"
 ---
-
-{{% alert color="primary" %}} 
-
-新しい [Aspose.Slides for .NET API](/slides/ja/net/) がリリースされ、現在この単一製品は最初から PowerPoint ドキュメントを生成し、既存のドキュメントを編集する機能をサポートしています。
-
+{{% alert color="info" %}} 
+新しい [Aspose.Slides for .NET API](/slides/ja/net/) がリリースされ、この単一製品で最初から PowerPoint ドキュメントを生成し、既存のものを編集する機能がサポートされました。
 {{% /alert %}} 
 ## **レガシーコードのサポート**
-13.x 以前の Aspose.Slides for .NET バージョンで作成されたレガシーコードを使用するには、コードにいくつか小さな変更を加える必要がありますが、変更後も従来どおり動作します。旧 Aspose.Slides for .NET の Aspose.Slide および Aspose.Slides.Pptx 名前空間にあったすべてのクラスは、現在単一の Aspose.Slides 名前空間に統合されています。以下のシンプルなコードスニペットでレガシー Aspose.Slides API を使用して Hello World プレゼンテーション ドキュメントを作成する例をご覧いただき、新しい統合 API への移行手順をご確認ください。
+13.x より前の Aspose.Slides for .NET バージョンで開発されたレガシーコードを使用するには、コードに少しだけ変更を加える必要がありますが、コードは従来どおり動作します。旧版 Aspose.Slides for .NET の Aspose.Slide および Aspose.Slides.Pptx 名前空間に存在したすべてのクラスは、現在単一の Aspose.Slides 名前空間に統合されています。レガシー Aspose.Slides API で Hello World プレゼンテーション ドキュメントを作成する以下のシンプルなコードスニペットをご覧いただき、新しい統合 API への移行手順をご確認ください。
 ## **レガシー Aspose.Slides for .NET アプローチ**
 ```c#
-//PPT ファイルを表す Presentation オブジェクトをインスタンス化します
+using System.Drawing;
+using Aspose.Slides;
+
+//Instantiate a Presentation object that represents a PPT file
+// => PPT ファイルを表す Presentation オブジェクトをインスタンス化します
 Presentation pres = new Presentation();
 
-//License オブジェクトを作成します
+//Create a License object
+// => License オブジェクトを作成します
 License license = new License();
 
-//評価制限を回避するために Aspose.Slides for .NET のライセンスを設定します
+//Set the license of Aspose.Slides for .NET to avoid the evaluation limitations
+// => 評価制限を回避するために Aspose.Slides for .NET のライセンスを設定します
 license.SetLicense("Aspose.Slides.lic");
 
-//プレゼンテーションに空のスライドを追加し、参照を取得します
-//その空のスライド
+//Adding an empty slide to the presentation and getting the reference of
+// => プレゼンテーションに空のスライドを追加し、参照を取得します
+//that empty slide
+// => その空のスライド
 Slide slide = pres.AddEmptySlide();
 
-//スライドに矩形 (X=2400, Y=1800, Width=1000 & Height=500) を追加します
+//Adding a rectangle (X=2400, Y=1800, Width=1000 & Height=500) to the slide
+// => スライドに長方形 (X=2400, Y=1800, 幅=1000, 高さ=500) を追加します
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-//矩形の線を非表示にします
+//Hiding the lines of rectangle
+// => 長方形の枠線を非表示にします
 rect.LineFormat.ShowLines = false;
 
-//矩形にテキストフレームを追加し、デフォルトテキストとして "Hello World" を設定します
+//Adding a text frame to the rectangle with "Hello World" as a default text
+// => 長方形にテキストフレームを追加し、デフォルトテキストとして "Hello World" を設定します
 rect.AddTextFrame("Hello World");
 
-//プレゼンテーションの最初のスライドを削除します。このスライドは常に
-//Aspose.Slides for .NET がデフォルトで作成時に追加するものです
+//Removing the first slide of the presentation which is always added by
+// => プレゼンテーションの最初のスライドを削除します（このスライドは常に
+//Aspose.Slides for .NET by default while creating the presentation
+// => Aspose.Slides for .NET によってデフォルトで作成されるものです）
 pres.Slides.RemoveAt(0);
 
-//プレゼンテーションを PPT ファイルとして書き出します
+//Writing the presentation as a PPT file
+// => プレゼンテーションを PPT ファイルとして書き込みます
 pres.Write("C:\\hello.ppt");
 ```
 
-
-
-
 ## **新しい Aspose.Slides for .NET 13.x アプローチ**
 ```c#
-// Presentation をインスタンス化
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantiate Presentation
 Presentation pres = new Presentation();
 
-// 最初のスライドを取得
+// Get the first slide
 ISlide sld = (ISlide)pres.Slides[0];
 
-// 矩形タイプの AutoShape を追加
+// Add an AutoShape of Rectangle type
 IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-// 矩形に ITextFrame を追加
+// Add ITextFrame to the Rectangle
 ashp.AddTextFrame("Hello World");
 
-// テキストの色を黒に変更 (デフォルトは白です)
+// Change the text color to Black (which is White by default)
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// 矩形の線の色を白に変更
+// Change the line color of the rectangle to White
 ashp.ShapeStyle.LineColor.Color = Color.White;
 
-// シェイプの塗りつぶし設定をすべて削除
+// Remove any fill formatting in the shape
 ashp.FillFormat.FillType = FillType.NoFill;
 
-// プレゼンテーションをディスクに保存
-pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
+// Save the presentation to disk
+pres.Save("HelloWorld.pptx", SaveFormat.Pptx);
 ```

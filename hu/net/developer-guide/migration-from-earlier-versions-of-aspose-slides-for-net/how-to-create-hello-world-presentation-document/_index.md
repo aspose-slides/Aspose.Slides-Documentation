@@ -1,12 +1,12 @@
 ---
-title: Hogyan hozzunk létre Hello World prezentációkat .NET-ben
+title: Hogyan készítsünk Hello World prezentációkat .NET-ben
 linktitle: Hello World prezentáció
 type: docs
 weight: 10
 url: /hu/net/how-to-create-hello-world-presentation-document/
 keywords:
 - migráció
-- hello world
+- helló világ
 - örökölt kód
 - modern kód
 - örökölt megközelítés
@@ -17,42 +17,47 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-- description: "Készítsen egy Hello World PowerPoint PPT, PPTX és ODP prezentációt .NET-ben az Aspose.Slides segítségével, mind az örökölt, mind a modern API-kat felhasználva egy egyszerű útmutatóban."
+description: "Készítsen egy Hello World PowerPoint PPT, PPTX és ODP prezentációt .NET-ben az Aspose.Slides segítségével, a régi és az új API-k használatával egy egyszerű útmutatóban."
 ---
-{{% alert color="primary" %}} 
-Megjelent egy új [Aspose.Slides for .NET API](/slides/hu/net/), és most ez a termék képes PowerPoint dokumentumok létrehozására a semmiből, valamint a meglévők szerkesztésére.
+{{% alert color="info" %}} 
+
+Egy új [Aspose.Slides for .NET API](/slides/hu/net/) jelent meg, és most ez a termék képes PowerPoint dokumentumok létrehozására a semmiből, valamint a meglévők szerkesztésére.
+
 {{% /alert %}} 
-## **Örökölt kód támogatása**
-Az Aspose.Slides for .NET 13.x előtti verziókkal fejlesztett öröklött kód használatához néhány kisebb módosítást kell végrehajtania a kódban, hogy az úgy működjön, ahogy korábban. Az összes, a régi Aspose.Slides for .NET-ben az Aspose.Slide és az Aspose.Slides.Pptx névterek alatt megtalálható osztály most egyetlen Aspose.Slides névtérbe lett egyesítve. Tekintse meg az alábbi egyszerű kódrészletet, amely egy Hello World prezentációs dokumentumot hoz létre a régi Aspose.Slides API-val, és kövesse a lépéseket, amelyek leírják, hogyan lehet átmenni az új egyesített API-ra.
+## **Legacy kód támogatása**
+Az Aspose.Slides for .NET 13.x előtti verziókkal fejlesztett legacy kód használatához néhány kisebb módosításra van szükség a kódban, és a kód ugyanúgy fog működni, mint korábban. Az összes régi Aspose.Slides for .NET alatt, az Aspose.Slide és Aspose.Slides.Pptx névterekben lévő osztály most egyetlen Aspose.Slides névtérbe van egyesítve. Tekintse meg az alábbi egyszerű kódrészletet, amely egy Hello World prezentációs dokumentumot hoz létre a legacy Aspose.Slides API-val, és kövesse a lépéseket, amelyek leírják, hogyan lehet átmenni az új egyesített API-ra.
 ## **Legacy Aspose.Slides for .NET megközelítés**
 ```c#
-//Egy Presentation objektum példányosítása, amely egy PPT fájlt képvisel
+using System.Drawing;
+using Aspose.Slides;
+
+//Példányosítsunk egy Presentation objektumot, amely egy PPT fájlt képvisel
 Presentation pres = new Presentation();
 
-//License objektum létrehozása
+//Hozzunk létre egy License objektumot
 License license = new License();
 
-//A Aspose.Slides for .NET licencének beállítása az értékelési korlátozások elkerülése érdekében
+//Állítsuk be az Aspose.Slides for .NET licencét az értékelési korlátozások elkerüléséhez
 license.SetLicense("Aspose.Slides.lic");
 
-//Üres dia hozzáadása a prezentációhoz és az üres dia hivatkozásának lekérése
-//az üres diára
+//Üres diát adunk a prezentációhoz, és lekérjük a hivatkozását
+//az üres diát
 Slide slide = pres.AddEmptySlide();
 
-//Téglalap (X=2400, Y=1800, Szélesség=1000 & Magasság=500) hozzáadása a diára
+//Téglalap hozzáadása (X=2400, Y=1800, Szélesség=1000 & Magasság=500) a diára
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
 //A téglalap vonalainak elrejtése
 rect.LineFormat.ShowLines = false;
 
-//Szövegkeret hozzáadása a téglalaphoz a "Hello World" alapértelmezett szöveggel
+//"Hello World" alapértelmezett szöveggel szövegkeret hozzáadása a téglalaphoz
 rect.AddTextFrame("Hello World");
 
-//A prezentáció első diájának eltávolítása, amely mindig hozzáadódik
+//Az első diát eltávolítjuk a prezentációból, amelyet mindig hozzáad a
 //az Aspose.Slides for .NET alapértelmezés szerint a prezentáció létrehozásakor
 pres.Slides.RemoveAt(0);
 
-//Writing the presentation as a PPT file
+//A prezentáció mentése PPT fájlként
 pres.Write("C:\\hello.ppt");
 ```
 
@@ -60,7 +65,11 @@ pres.Write("C:\\hello.ppt");
 
 ## **Új Aspose.Slides for .NET 13.x megközelítés**
 ```c#
-// Presentation példányosítása
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Példányosítsuk a prezentációt
 Presentation pres = new Presentation();
 
 // Get the first slide
@@ -83,5 +92,5 @@ ashp.ShapeStyle.LineColor.Color = Color.White;
 ashp.FillFormat.FillType = FillType.NoFill;
 
 // Save the presentation to disk
-pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
+pres.Save("HelloWorld.pptx", SaveFormat.Pptx);
 ```

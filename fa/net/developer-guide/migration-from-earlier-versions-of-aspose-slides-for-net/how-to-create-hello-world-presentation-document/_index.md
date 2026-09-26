@@ -1,6 +1,6 @@
 ---
-title: "نحوه ایجاد ارائه‌های Hello World در .NET"
-linktitle: "ارائه Hello World"
+title: نحوه ایجاد ارائه‌های Hello World در .NET
+linktitle: ارائه Hello World
 type: docs
 weight: 10
 url: /fa/net/how-to-create-hello-world-presentation-document/
@@ -17,39 +17,44 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-- description: "یک ارائه PowerPoint PPT، PPTX و ODP Hello World را در .NET با Aspose.Slides با استفاده از هر دو API قدیمی و مدرن در یک راهنمای ساده ایجاد کنید."
+description: "یک ارائه PowerPoint Hello World به فرمت‌های PPT، PPTX و ODP در .NET با Aspose.Slides با استفاده از هر دو API قدیمی و مدرن در یک راهنمای ساده ایجاد کنید."
 ---
-{{% alert color="primary" %}} 
-یک [Aspose.Slides for .NET API](/slides/fa/net/) جدید منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از صفر و ویرایش اسناد موجود را دارد.
+{{% alert color="info" %}} 
+
+یک [API Aspose.Slides برای .NET](/slides/fa/net/) جدید منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از ابتدا و ویرایش اسناد موجود را دارد.
+
 {{% /alert %}} 
-## **پشتیبانی از کدهای قدیم**
-برای استفاده از کدهای قدیمی که با Aspose.Slides for .NET نسخه‌های قبل از 13.x توسعه یافته‌اند، نیاز به اعمال برخی تغییرات جزئی در کد خود دارید و کد همانند قبل کار خواهد کرد. تمام کلاس‌هایی که در Aspose.Slides for .NET قبلی تحت فضاهای نام Aspose.Slide و Aspose.Slides.Pptx وجود داشتند، اکنون در یک فضای نام Aspose.Slides ادغام شده‌اند. لطفاً به قطعه کد ساده زیر برای ایجاد سند ارائه Hello World در API قدیمی Aspose.Slides نگاهی بیندازید و مراحل توصیف‌شده برای مهاجرت به API جدید ادغام‌شده را دنبال کنید.
-## **رویکرد قدیمی Aspose.Slides for .NET**
+## **پشتیبانی از کدهای قدیمی**
+برای استفاده از کدهای قدیمی که با نسخه‌های Aspose.Slides for .NET قبل از 13.x توسعه یافته‌اند، باید برخی تغییرات جزئی در کد خود اعمال کنید و کد همانند قبل کار خواهد کرد. تمام کلاس‌هایی که در Aspose.Slides for .NET قدیم تحت نام‌فضاهای Aspose.Slide و Aspose.Slides.Pptx موجود بودند، اکنون در یک نام‌فضای Aspose.Slides واحد ترکیب شده‌اند. لطفاً به قطعه کد ساده زیر برای ایجاد یک سند ارائه Hello World در API قدیمی Aspose.Slides نگاه کنید و مراحل توضیح داده‌شده برای مهاجرت به API ترکیبی جدید را دنبال کنید.
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
-//یک شیء Presentation را که نمایانگر یک فایل PPT است، ایجاد کنید
+using System.Drawing;
+using Aspose.Slides;
+
+//یک شیء Presentation ایجاد می‌کند که نمایانگر یک فایل PPT است
 Presentation pres = new Presentation();
 
-//یک شیء License ایجاد کنید
+//یک شیء License ایجاد می‌کند
 License license = new License();
 
-//مجوز Aspose.Slides for .NET را تنظیم کنید تا محدودیت‌های ارزیابی حذف شود
+//مجوز Aspose.Slides برای .NET را تنظیم می‌کند تا از محدودیت‌های ارزیابی جلوگیری شود
 license.SetLicense("Aspose.Slides.lic");
 
-//اضافه‌کردن یک اسلاید خالی به ارائه و دریافت مرجع آن
-//از آن اسلاید خالی
+//یک اسلاید خالی به ارائه اضافه می‌کند و مرجع آن را دریافت می‌کند
+//آن اسلاید خالی
 Slide slide = pres.AddEmptySlide();
 
-//اضافه‌کردن یک مستطیل (X=2400, Y=1800, Width=1000 & Height=500) به اسلاید
+//یک مستطیل (X=2400, Y=1800, Width=1000 & Height=500) به اسلاید اضافه می‌کند
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-//پنهان‌کردن خطوط مستطیل
+//خطوط مستطیل را مخفی می‌کند
 rect.LineFormat.ShowLines = false;
 
-//اضافه‌کردن یک فریم متن به مستطیل با "Hello World" به عنوان متن پیش‌فرض
+//یک فریم متنی به مستطیل اضافه می‌کند با متن پیش‌فرض "Hello World"
 rect.AddTextFrame("Hello World");
 
-//حذف اولین اسلاید ارائه که همواره توسط
-//Aspose.Slides for .NET به‌صورت پیش‌فرض هنگام ایجاد ارائه اضافه می‌شود
+//حذف اولین اسلاید ارائه که همیشه توسط
+//Aspose.Slides برای .NET به‌صورت پیش‌فرض در هنگام ایجاد ارائه اضافه می‌شود
 pres.Slides.RemoveAt(0);
 
 //نوشتن ارائه به صورت یک فایل PPT
@@ -58,9 +63,13 @@ pres.Write("C:\\hello.ppt");
 
 
 
-## **رویکرد جدید Aspose.Slides for .NET 13.x**
+## **New Aspose.Slides for .NET 13.x Approach**
 ```c#
-// نمونه‌سازی Presentation
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantiate Presentation
 Presentation pres = new Presentation();
 
 // Get the first slide
@@ -83,5 +92,5 @@ ashp.ShapeStyle.LineColor.Color = Color.White;
 ashp.FillFormat.FillType = FillType.NoFill;
 
 // Save the presentation to disk
-pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
+pres.Save("HelloWorld.pptx", SaveFormat.Pptx);
 ```
