@@ -73,14 +73,14 @@ Aspose.Slides for .NET เป็นไลบรารีคลาสสำหร
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/th/net/">เอกสาร API</a></li>
-<li><a href="https://releases.aspose.com/slides/th/net/release-notes/">บันทึกการปล่อยเวอร์ชัน</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">เอกสาร API</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">บันทึกการปล่อยเวอร์ชัน</a></li>
 <li><a href="/slides/th/net/known-issues/">ปัญหาที่ทราบ</a></li>
-<li><a href="https://releases.aspose.com/slides/th/net/">ดาวน์โหลด</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">ดาวน์โหลด</a></li>
 </ul>
 <p>การสนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบชำระค่าบริการ</a></li>
 </ul>
 </div>
