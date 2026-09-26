@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for .NET
-second_title: Aspose.Slides for .NET
+title: Aspose.Slides untuk .NET
+second_title: Aspose.Slides untuk .NET
 type: docs
 weight: 10
 url: /id/net/
@@ -13,35 +13,106 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi .NET membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®.
+description: "Mulai di sini: instal Aspose.Slides untuk .NET, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, serta dukungan."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Selamat datang di Aspose.Slides for .NET**
+Aspose.Slides for .NET adalah perpustakaan kelas untuk membuat, membaca, mengedit, dan mengonversi presentasi PowerPoint dan OpenDocument dalam aplikasi .NET, tanpa Microsoft PowerPoint atau Otomasi Office.
 
-![Logo Produk Aspose.Slides for .NET](home_1.png)
+Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
-Aspose.Slides for .NET adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi .NET membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Komponen pertama dan satu-satunya yang menyediakan fungsionalitas yang diperlukan untuk mengelola dokumen PowerPoint®.
+------
 
-Aspose.Slides for .NET menawarkan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio dan video ke slide, meninjau slide, mengekspor slide ke SVG, PDF, dan berbagai format lainnya, serta banyak kemampuan lainnya.
+<div class="row">
+<div class="col-md-4">
+<p><b>Mulai</b></p>
+<hr>
+<p>MEMULAI</p>
+<ul>
+<li><a href="/slides/id/net/installation/">Instalasi</a></li>
+<li><a href="/slides/id/net/create-presentation/">Buat presentasi pertama Anda</a></li>
+<li><a href="/slides/id/net/getting-started/">Panduan memulai</a></li>
+</ul>
+<p>EVALUASI</p>
+<ul>
+<li><a href="/slides/id/net/supported-file-formats/">Format file yang didukung</a></li>
+<li><a href="/slides/id/net/evaluate-aspose-slides/">Batasan percobaan</a></li>
+<li><a href="/slides/id/net/licensing/">Lisensi</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Bangun dengan Slides</b></p>
+<hr>
+<p>TUGAS UMUM</p>
+<ul>
+<li><a href="/slides/id/net/open-presentation/">Buka presentasi</a></li>
+<li><a href="/slides/id/net/save-presentation/">Simpan presentasi</a></li>
+<li><a href="/slides/id/net/convert-powerpoint-to-pdf/">Konversi ke PDF</a></li>
+<li><a href="/slides/id/net/convert-slide/">Render slide sebagai gambar</a></li>
+<li><a href="/slides/id/net/manage-text/">Edit teks dan bentuk</a></li>
+</ul>
+<p>ALUR KERJA SLIDES</p>
+<ul>
+<li><a href="/slides/id/net/powerpoint-charts/">Diagram</a></li>
+<li><a href="/slides/id/net/powerpoint-animation/">Animasi</a></li>
+<li><a href="/slides/id/net/manage-media-files/">Audio dan video</a></li>
+<li><a href="/slides/id/net/presentation-design/">Desain slide</a></li>
+<li><a href="/slides/id/net/merge-presentation/">Gabungkan presentasi</a></li>
+</ul>
+<p>CONTOH</p>
+<ul>
+<li><a href="/slides/id/net/examples/">Contoh berdasarkan elemen slide</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">Contoh di GitHub</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Referensi &amp; Dukungan</b></p>
+<hr>
+<p>REFERENSI</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/id/net/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/id/net/release-notes/">Catatan rilis</a></li>
+<li><a href="/slides/id/net/known-issues/">Masalah yang dikenal</a></li>
+<li><a href="https://releases.aspose.com/slides/id/net/">Download</a></li>
+</ul>
+<p>DUKUNGAN</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Sumber Daya Aspose.Slides for .NET
+## **Presentasi pertama Anda**
 
-Berikut ini adalah tautan ke sumber daya yang berguna:
+Buat aplikasi konsol dengan .NET SDK 6 atau yang lebih baru:
 
-- [Dokumentasi Online Aspose.Slides for .NET](/slides/id/net/)
-- [Fitur Aspose.Slides for .NET](/slides/id/net/features-overview/)
-- [Keterbatasan Aspose.Slides for .NET](/slides/id/net/known-issues/)
-- [Catatan Rilis Aspose.Slides for .NET](https://releases.aspose.com/slides/id/net/release-notes/)
-- [Halaman Produk Aspose.Slides for .NET](https://products.aspose.com/slides/id/net/)
-- [Unduh Aspose.Slides for .NET](https://releases.aspose.com/slides/id/net/)
-- [Instal Paket NuGet Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Panduan Referensi API Aspose.Slides for .NET](https://reference.aspose.com/slides/id/net)
-- [Unduh Contoh dari Repository GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Forum Dukungan Gratis Aspose.Slides for .NET](https://forum.aspose.com/c/slides/id/11)
-- [Helpdesk Dukungan Berbayar Aspose.Slides for .NET](https://helpdesk.aspose.com/)
+```bash
+dotnet new console -n HelloSlides
+cd HelloSlides
+```
+
+Kemudian tambahkan satu paket untuk platform Anda:
+
+- Pada Windows: `dotnet add package Aspose.Slides.NET`
+- Pada Linux dan macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — lihat [Instalasi](/slides/id/net/installation/) untuk prasyarat Linux dan untuk sistem yang membutuhkan Aspose.Slides.NET sebagai gantinya.
+
+Ganti isi *Program.cs* dengan kode ini dan jalankan `dotnet run`:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
+```
+
+Program ini menyimpan *hello.pptx* dengan satu slide yang berisi kotak teks. Tanpa lisensi, file yang disimpan menampilkan watermark evaluasi — lihat [Lisensi](/slides/id/net/licensing/). Untuk cara lain membuat dan mengisi presentasi, lihat [Buat Presentasi](/slides/id/net/create-presentation/).
