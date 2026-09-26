@@ -17,7 +17,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-- description: "Create a Hello World PowerPoint PPT, PPTX and ODP presentation in .NET with Aspose.Slides using both legacy and modern APIs in one simple guide."
+description: "Create a Hello World PowerPoint PPT, PPTX and ODP presentation in .NET with Aspose.Slides using both legacy and modern APIs in one simple guide."
 ---
 
 {{% alert color="info" %}} 
