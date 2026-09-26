@@ -73,14 +73,14 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/id/net/">Referensi API</a></li>
-<li><a href="https://releases.aspose.com/slides/id/net/release-notes/">Catatan rilis</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/net/known-issues/">Masalah yang dikenal</a></li>
-<li><a href="https://releases.aspose.com/slides/id/net/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Download</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>
