@@ -19,97 +19,100 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Δημιουργήστε παρουσιάσεις σε .NET με Aspose.Slides—παράγουμε αρχεία PPT, PPTX και ODP, επωφεληθείτε από τη υποστήριξη OpenDocument και αποθηκεύστε τα προγραμματιστικά για αξιόπιστα αποτελέσματα."
+description: "Δημιουργήστε παρουσιάσεις σε .NET με το Aspose.Slides - παράγετε αρχεία PPT, PPTX και ODP, επωφεληθείτε από την υποστήριξη OpenDocument και αποθηκεύστε τα προγραμματιστικά για αξιόπιστα αποτελέσματα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να δημιουργήσετε μια παρουσίαση στο Aspose.Slides, να προσθέσετε απλό περιεχόμενο σε μια διαφάνεια και να αποθηκεύσετε το αποτέλεσμα ως αρχείο. Επίσης, επιδεικνύει πώς να δημιουργήσετε και να αποθηκεύσετε μια νέα παρουσίαση, να ανοίξετε μια υπάρχουσα παρουσίαση σε υποστηριζόμενη μορφή και να την αποθηκεύσετε σε άλλη μορφή. Επιπλέον, το άρθρο περιλαμβάνει μια σύντομη ενότητα FAQ που καλύπτει συχνές ερωτήσεις σχετικά με μορφές, πρότυπα, διαστάσεις διαφάνειας, μονάδες, χρήση μνήμης, πολυνηματικότητα, αδειοδότηση, ψηφιακές υπογραφές και υποστήριξη VBA.
+Αυτό το άρθρο δείχνει πώς να δημιουργήσετε μια παρουσίαση στο Aspose.Slides, να προσθέσετε ένα πλαίσιο κειμένου στην πρώτη διαφάνειά της και να αποθηκεύσετε το αποτέλεσμα ως αρχείο. Επίσης δείχνει πώς να δημιουργήσετε και να αποθηκεύσετε μια κενή παρουσίαση, καθώς και πώς να ανοίξετε μια υπάρχουσα παρουσίαση σε υποστηριζόμενη μορφή και να την αποθηκεύσετε σε άλλη μορφή. Ένα σύντομο FAQ στο τέλος καλύπτει κοινές ερωτήσεις σχετικά με μορφές, πρότυπα, μέγεθος διαφάνειας, μονάδες, χρήση μνήμης, πολυνηματισμό, αδειοδότηση, ψηφιακές υπογραφές και υποστήριξη VBA.
+
+Πριν ξεκινήσετε, προσθέστε το Aspose.Slides στο έργο σας από το NuGet. Δείτε [Εγκατάσταση](/slides/el/net/installation/) για το πακέτο που χρησιμοποιείται σε Windows, Linux και macOS.
 
 ## **Δημιουργία παρουσίασης PowerPoint**
 
-Για να προσθέσετε μια απλή γραμμή σε μια επιλεγμένη διαφάνεια της παρουσίασης, παρακαλώ ακολουθήστε τα παρακάτω βήματα:
+Για να δημιουργήσετε μια παρουσίαση και να τοποθετήσετε ένα πλαίσιο κειμένου στην πρώτη διαφάνειά της, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης Presentation.
-2. Αποκτήστε την αναφορά μιας διαφάνειας χρησιμοποιώντας το Index της.
-3. Προσθέστε ένα AutoShape τύπου Line χρησιμοποιώντας τη μέθοδο AddAutoShape που εκτίθεται από το αντικείμενο Shapes.
-4. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Στο παρακάτω παράδειγμα, προσθέσαμε μια γραμμή στην πρώτη διαφάνεια της παρουσίασης.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.
+2. Αποκτήστε αυτή τη διαφάνεια από τη συλλογή [Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) με το δείκτη 0.
+3. Προσθέστε ένα ορθογώνιο σχήμα με τη μέθοδο [AddAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addautoshape/) και ορίστε το [text](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/text/).
+4. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX χρησιμοποιώντας τη μέθοδο [Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/).
 
 ```c#
- // Δημιουργήστε ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
- using (Presentation presentation = new Presentation())
- {
-     // Πάρτε την πρώτη διαφάνεια
-     ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // Προσθέστε ένα αυτόματο σχήμα τύπου γραμμή
-     slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-     presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
- }
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-## **Δημιουργία και αποθήκευση παρουσίασης**
+Η γωνία επάνω‑αριστερά του ορθογωνίου βρίσκεται 50 points από την αριστερή άκρη και 50 points από την επάνω άκρη της διαφάνειας, και το ορθογώνιο έχει πλάτος 400 points και ύψος 100 points. Το αποθηκευμένο αρχείο περιλαμβάνει μία διαφάνεια με αυτό το ορθογώνιο και το κείμενό του. Χωρίς άδεια, το Aspose.Slides προσθέτει επίσης ένα υδατογράφημα αξιολόγησης σε κάθε διαφάνεια που αποθηκεύει· δείτε [Αδειοδότηση](/slides/el/net/licensing/).
 
-<a name="csharp-create-save-presentation"><strong>Βήματα: Δημιουργία και αποθήκευση παρουσίασης σε C#</strong></a>
+## **Δημιουργία και αποθήκευση μιας παρουσίασης**
 
-1. Δημιουργήστε ένα στιγμιότυπο της [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) κλάσης.
-2. Αποθηκεύστε το _Presentation_ σε οποιαδήποτε μορφή υποστηρίζεται από [SaveFormat](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveformat/)
+<a name="csharp-create-save-presentation"></a>
+
+Για να δημιουργήσετε μια κενή παρουσίαση και να την αποθηκεύσετε, δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και αποθηκεύστε την σε οποιαδήποτε μορφή του απαριθμού [SaveFormat](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveformat/). Το αποτέλεσμα είναι μια παρουσίαση με μία κενή διαφάνεια.
 
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **Άνοιγμα και αποθήκευση παρουσίασης**
 
-<a name="csharp-open-save-presentation"><strong>Βήματα: Άνοιγμα και αποθήκευση παρουσίασης σε C#</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) κλάσης με οποιαδήποτε μορφή, π.χ. PPT, PPTX, ODP κλπ.
-2. Αποθηκεύστε το _Presentation_ σε οποιαδήποτε μορφή υποστηρίζεται από [SaveFormat](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveformat/)
+Για να μετατρέψετε μια παρουσίαση από τη μία μορφή στην άλλη, ανοίξτε την περνώντας τη διαδρομή της στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/presentation/). Στη συνέχεια αποθηκεύστε την στην επιλεγμένη μορφή. Το Aspose.Slides ανιχνεύει τη μορφή εισόδου, όπως PPT, PPTX ή ODP, από το ίδιο το αρχείο.
+
+Το παρακάτω παράδειγμα αναμένει μια παρουσίαση OpenDocument με όνομα *Sample.odp* στον τρέχοντα φάκελο και την αποθηκεύει ως PPTX.
 
 ```c#
- // Φορτώστε οποιοδήποτε υποστηριζόμενο αρχείο σε Presentation π.χ. ppt, pptx, odp κλπ.
- Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **Συχνές ερωτήσεις**
 
-**Σε ποιες μορφές μπορώ να αποθηκεύσω μια νέα παρουσίαση;**
+### Σε ποιες μορφές μπορώ να αποθηκεύσω μια νέα παρουσίαση;
 
-Μπορείτε να αποθηκεύσετε σε [PPTX, PPT, and ODP](/slides/el/net/save-presentation/), και να εξάγετε σε [PDF](/slides/el/net/convert-powerpoint-to-pdf/), [XPS](/slides/el/net/convert-powerpoint-to-xps/), [HTML](/slides/el/net/convert-powerpoint-to-html/), [SVG](/slides/el/net/convert-powerpoint-to-png/), και [images](/slides/el/net/convert-powerpoint-to-png/), μεταξύ άλλων.
+Μπορείτε να αποθηκεύσετε σε [PPTX, PPT, and ODP](/slides/el/net/save-presentation/), και να εξάγετε σε [PDF](/slides/el/net/convert-powerpoint-to-pdf/), [XPS](/slides/el/net/convert-powerpoint-to-xps/), [HTML](/slides/el/net/convert-powerpoint-to-html/), [SVG](/slides/el/net/render-a-slide-as-an-svg-image/) και [images](/slides/el/net/convert-powerpoint-to-png/), μεταξύ άλλων.
 
-**Μπορώ να ξεκινήσω από ένα πρότυπο (POTX/POTM) και να το αποθηκεύσω ως κανονικό PPTX;**
+### Μπορώ να ξεκινήσω από ένα πρότυπο (POTX/POTM) και να το αποθηκεύσω ως κανονικό PPTX;
 
-Ναι. Φορτώστε το πρότυπο και αποθηκεύστε στην επιθυμητή μορφή· οι μορφές POTX/POTM/PPTM και παρόμοιες [are supported](/slides/el/net/supported-file-formats/).
+Ναι. Φορτώστε το πρότυπο και αποθηκεύστε το στην επιθυμητή μορφή· τα μορφές POTX/POTM/PPTM και παρόμοιες [υποστηρίζονται](/slides/el/net/supported-file-formats/).
 
-**Πώς ελέγχω το μέγεθος/αναλογία διαφάνειας όταν δημιουργώ μια παρουσίαση;**
+### Πώς μπορώ να ελέγξω το μέγεθος/αναλογία διαφάνειας κατά τη δημιουργία μιας παρουσίασης;
 
-Ορίστε το [slide size](/slides/el/net/slide-size/) (συμπεριλαμβανομένων προκαθορισμένων όπως 4:3 και 16:9 ή προσαρμοσμένων διαστάσεων) και επιλέξτε πώς πρέπει να κλιμακώνεται το περιεχόμενο.
+Ορίστε το [slide size](/slides/el/net/slide-size/) (συμπεριλαμβανομένων των προεπιλογών όπως 4:3 και 16:9 ή προσαρμοσμένων διαστάσεων) και επιλέξτε πώς θα κλιμακώνονται τα περιεχόμενα.
 
-**Σε ποιες μονάδες μετρώνται τα μεγέθη και οι συντεταγμένες;**
+### Σε ποιες μονάδες μετρώνται τα μεγέθη και οι συντεταγμένες;
 
 Σε points: 1 ίντσα ισούται με 72 μονάδες.
 
-**Πώς διαχειρίζομαι πολύ μεγάλες παρουσιάσεις (με πολλά αρχεία πολυμέσων) για να μειώσω τη χρήση μνήμης;**
+### Πώς μπορώ να διαχειριστώ πολύ μεγάλες παρουσιάσεις (με πολλά αρχεία πολυμέσων) για να μειώσω τη χρήση μνήμης;
 
-Χρησιμοποιήστε [BLOB management strategies](/slides/el/net/manage-blob/), περιορίστε την αποθήκευση στη μνήμη αξιοποιώντας προσωρινά αρχεία, και προτιμήστε ροές εργασίας βασισμένες σε αρχεία αντί για καθαρά ρεύματα στη μνήμη.
+Χρησιμοποιήστε τις [BLOB management strategies](/slides/el/net/manage-blob/), περιορίστε την αποθήκευση στη μνήμη αξιοποιώντας προσωρινά αρχεία, και προτιμήστε ροές εργασίας βασισμένες σε αρχεία αντί για καθαρά ρεύματα στη μνήμη.
 
-**Μπορώ να δημιουργήσω/αποθηκεύσω παρουσιάσεις παράλληλα;**
+### Μπορώ να δημιουργώ/αποθηκεύω παρουσιάσεις παράλληλα;
 
-Δεν μπορείτε να λειτουργείτε στην ίδια [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) παρουσίαση από [multiple threads](/slides/el/net/multithreading/). Εκτελέστε ξεχωριστά, απομονωμένα στιγμιότυπα ανά νήμα ή διαδικασία.
+Δεν μπορείτε να λειτουργήσετε στο ίδιο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) από [multiple threads](/slides/el/net/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες εμφανίσεις ανά νήμα ή διαδικασία.
 
-**Πώς αφαιρώ το υδατογράφημα δοκιμαστικής έκδοσης και τους περιορισμούς;**
+### Πώς μπορώ να αφαιρέσω το υδατογράφημα δοκιμής και τους περιορισμούς;
 
-[Apply a license](/slides/el/net/licensing/) μία φορά ανά διεργασία. Το XML της άδειας πρέπει να παραμείνει αμετάβλητο, και η ρύθμιση της άδειας πρέπει να συγχρονίζεται εάν εμπλέκονται πολλαπλά νήματα.
+[Εφαρμογή άδειας](/slides/el/net/licensing/) μία φορά ανά διαδικασία. Το XML της άδειας πρέπει να παραμείνει αμετάβλητο, και η ρύθμιση της άδειας πρέπει να συγχρονίζεται εάν εμπλέκονται πολλαπλά νήματα.
 
-**Μπορώ να υπογράψω ψηφιακά το PPTX που δημιουργώ;**
+### Μπορώ να υπογράψω ψηφιακά το PPTX που δημιουργώ;
 
-Ναι. [Digital signatures](/slides/el/net/digital-signature-in-powerpoint/) (προσθήκη και επαλήθευση) υποστηρίζονται για παρουσιάσεις.
+Ναι. Οι [Digital signatures](/slides/el/net/digital-signature-in-powerpoint/) (προσθήκη και επαλήθευση) υποστηρίζονται για παρουσιάσεις.
 
-**Υποστηρίζονται μακροεντολές (VBA) στις δημιουργημένες παρουσιάσεις;**
+### Υποστηρίζονται μακροεντολές (VBA) σε δημιουργημένες παρουσιάσεις;
 
-Ναι. Μπορείτε να [create/edit VBA projects](/slides/el/net/presentation-via-vba/) και να αποθηκεύσετε αρχεία με δυνατότητα μακροεντολών όπως PPTM/PPSM.
+Ναι. Μπορείτε να [create/edit VBA projects](/slides/el/net/presentation-via-vba/) και να αποθηκεύσετε αρχεία με ενεργοποιημένες μακροεντολές όπως PPTM/PPSM.

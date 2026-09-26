@@ -17,83 +17,112 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何快速安裝 Aspose.Slides for .NET。一步一步的指南、系統需求與程式碼範例 — 現在即可開始使用 PowerPoint 簡報！"
+description: "在 Windows、Linux 與 macOS 上，從 NuGet 安裝 Aspose.Slides for .NET：在兩個套件之間選擇，以 .NET CLI 或 Visual Studio 加入其中一個，並安裝 Linux 前置需求。"
 ---
-## **概觀**
+## **概覽**
 
-本文說明如何在 Windows、Linux 與 macOS 上安裝 Aspose.Slides for .NET。重點在於基於 NuGet 的安裝，並示範如何在 Windows 上透過 NuGet 套件管理員或套件管理員主控台加入此函式庫、在 Linux 上加入 .NET 專案，以及在 macOS 上的 Visual Studio 專案。亦說明如何更新套件及在需要時安裝預先發行版本。
+本文說明如何在 Windows、Linux 和 macOS 專案中加入 Aspose.Slides for .NET。Aspose.Slides 透過 NuGet 發佈。您可以在任何作業系統上使用 .NET CLI 加入，或在 Windows 的 Visual Studio 中使用 NuGet 套件管理員或套件管理員主控台。本文也說明兩個 NuGet 套件的選擇以及 Linux 需要的額外項目。
 
-在安裝之前，請在[系統需求](/slides/zh-hant/net/system-requirements/) 中檢查受支援的作業系統、.NET 實作以及其他相依性。
+在安裝之前，請檢查於 [System Requirements](/slides/zh-hant/net/system-requirements/) 中支援的作業系統、.NET 實作以及其他相依性。
+
+## **選擇套件**
+
+Aspose.Slides for .NET 以兩個 NuGet 套件發佈。兩者提供相同的 Aspose.Slides 命名空間與類別，因此切換時程式碼不會變更；只有套件參考和平台需求不同。
+
+| 套件 | 使用情境 | 其他需求 |
+|---|---|---|
+| [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) | Windows 與 .NET Framework 應用程式 | 在 Linux 與 macOS 上：`libgdiplus` 函式庫，且在應用程式啟動時啟用 `System.Drawing.EnableUnixSupport` 開關 |
+| [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) | .NET 6 或更新版本於 Windows、Linux 與 macOS 上 | 在 Linux 上：如果尚未安裝則需要 `fontconfig` 函式庫 |
+
+如果不確定，請在 Windows 使用 Aspose.Slides.NET，於 Linux 與 macOS 使用 Aspose.Slides.NET6.CrossPlatform。於 Alpine Linux，或 glibc 版本低於 2.23（x64）或 2.39（ARM64）的 Linux 系統，請改用 Aspose.Slides.NET。[System Requirements](/slides/zh-hant/net/system-requirements/) 列出了每個套件支援的平台。
+
+## **使用 .NET CLI 安裝**
+
+以下步驟適用於 Windows、Linux 與 macOS，使用 .NET SDK 6 或更新版本。建立一個主控台應用程式：
+
+```bash
+dotnet new console -n HelloSlides
+cd HelloSlides
+```
+
+然後為您的平台加入套件。請於專案中僅加入其中一個套件。
+
+- 在 Windows：`dotnet add package Aspose.Slides.NET`
+- 在 Linux 與 macOS：`dotnet add package Aspose.Slides.NET6.CrossPlatform`（在 Linux 上，請先安裝其前置條件；請參閱 [Linux](#linux)）
+
+為驗證套件是否運作，請將 *Program.cs* 的內容取代為 [Create Presentations](/slides/zh-hant/net/create-presentation/) 中的第一個範例，然後執行 `dotnet run`。它會將 *hello.pptx* 儲存於專案資料夾中。
 
 ## **Windows**
-NuGet 提供在個人電腦上下載與安裝 Aspose .NET API 的最簡易路徑。
 
 ### **方法 1：從 NuGet 套件管理員安裝或更新 Aspose.Slides**
-1. 開啟 Microsoft Visual Studio。 
-2. 建立簡易的主控台應用程式或開啟現有專案。 
-3. 在 **Tools** > **NuGet package manager** 中進行操作。 
-4. 在 **Browse** 下，於文字欄位搜尋 *Aspose Slides*。 
-{{% image img="installation_1.png" alt="Aspose.Slides Installation from NuGet Package Manager - 1" %}}
-5. 點選 **Aspose.Slides.NET**，然後點選 **Install**。 
-   * 如果您想要更新 Aspose.Slides（假設您已安裝），請改點 **Update**。 
 
-選取的 API 會被下載並在您的專案中加入參考。
+1. 開啟 Microsoft Visual Studio。
+2. 建立主控台應用程式或開啟現有專案。
+3. 在 **Solution Explorer** 中，右鍵點擊專案並選取 **Manage NuGet Packages**（或前往 **Project** > **Manage NuGet Packages**）。
+4. 在 **Browse** 下，搜尋 *Aspose.Slides*。
+{{% image img="installation_1.png" alt="Aspose.Slides Installation from NuGet Package Manager - 1" %}}
+5. 點擊 **Aspose.Slides.NET**，再點擊 **Install**。  
+   * 如果您已經安裝 Aspose.Slides 且想更新，請改點 **Update**。
+
+套件已下載並在專案中加入參考。
 
 ### **方法 2：透過套件管理員主控台安裝或更新 Aspose.Slides**
-1. 開啟 Microsoft Visual Studio。 
-2. 建立簡易的主控台應用程式或開啟現有專案。 
-3. 在 **Tools** > **Library Package Manager** > **Package Manager Console** 中進行操作。 
-![todo:image_alt_text](installation_2.png)
-4. 執行以下指令：`Install-Package Aspose.Slides.NET` 
-![todo:image_alt_text](installation_3.png)
-最新的完整版本會安裝至您的應用程式中。 
 
-* 或者，您可以在指令後加入 `-prerelease` 後綴，以指定同時安裝最新的發行版（包含修補程式）。
+以下說明如何透過套件管理員主控台參考 [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) 套件：
 
-視窗底部會顯示 **Installing Aspose.Slides.NET** 提示。 
-![todo:image_alt_text](installation_4.png)
+1. 開啟 Microsoft Visual Studio。
+2. 建立主控台應用程式或開啟現有專案。
+3. 前往 **Tools** > **NuGet Package Manager** > **Package Manager Console**。
+![Opening the Package Manager Console](installation_2.png)
+4. 執行以下指令：`Install-Package Aspose.Slides.NET`
+![Running the Install-Package command](installation_3.png)
+最新版本已安裝於您的專案中。
 
-下載完成後，您應會看到一些確認訊息。 
+視窗底部會出現 **Installing Aspose.Slides.NET** 訊息。
+![Installation progress in the Package Manager Console](installation_4.png)
 
-如果您不熟悉 [Aspose 使用者授權協議](https://about.aspose.com/legal/eula)，建議閱讀 URL 中提及的授權說明。 
-![todo:image_alt_text](installation_5.png)
+下載完成後，會顯示確認訊息。此套件依據 [Aspose EULA](https://about.aspose.com/legal/eula) 發佈。
+![Installation confirmation messages](installation_5.png)
 
-在您的應用程式中，您應該會看到 Aspose.Slides 已成功加入並被參考。 
-![todo:image_alt_text](installation_6.png)
+Aspose.Slides 現已加入您的專案並成為參考。
+![Aspose.Slides referenced in the project](installation_6.png)
 
-在套件管理員主控台中，您可以執行 `Update-Package Aspose.Slides.NET` 指令，以檢查 Aspose.Slides 套件的更新。若有更新，會自動安裝。您也可以使用 `-prerelease` 後綴來更新最新的發行版。
-
-#### **考量於共享伺服器環境執行時的注意事項**
-我們強烈建議您以 **Full Trust** 權限執行所有 Aspose .NET 元件，因為 Aspose 元件有時需要存取登錄表設定與位於虛擬目錄以外的檔案，例如讀取字型時。 
-此外，Aspose.NET 元件是基於核心 .NET 系統類別，而其中某些類別在特定情況下亦需 Full Trust 權限才能執行操作。 
-
-托管多家公司應用程式的網際服務提供商通常會強制使用 Medium Trust 安全等級。在 .NET 2.0 情況下，這種安全等級可能會導致限制，影響 Aspose.Slides 的運作：
-
-- **RegistryPermission** 不可用。這意味著您無法存取登錄表，而渲染文件時需要列舉已安裝的字型。 
-- **FileIOPermission** 受限。這表示您只能存取應用程式虛擬目錄階層中的檔案，亦可能導致匯出作業時無法讀取字型。 
-
-基於上述原因，我們強烈建議在 **Full Trust** 權限下執行 Aspose.Slides。若使用 **Medium trust**，可能會出現不一致情況——某些函式庫功能（例如渲染）在執行特定任務時可能無法運作。 
+若要更新套件，請在套件管理員主控台執行 `Update-Package Aspose.Slides.NET`。
 
 ## **Linux**
-NuGet 提供在 Linux 上下載與安裝 Aspose.Slides for .NET 的最簡易方式。將 [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) 套件加入您的 .NET 專案中。
+
+請使用上述 .NET CLI 步驟。選擇套件並使用您的發行版套件管理員安裝其前置條件。在 Debian 與 Ubuntu 上：
+
+- **Aspose.Slides.NET6.CrossPlatform**：安裝 `fontconfig`。  
+  ```bash
+  sudo apt-get update && sudo apt-get install -y libfontconfig1
+  dotnet add package Aspose.Slides.NET6.CrossPlatform
+  ```
+
+- **Aspose.Slides.NET**：安裝 `libgdiplus`，且在應用程式使用 Aspose.Slides 前啟用 System.Drawing 的 Unix 支援。  
+  ```bash
+  sudo apt-get update && sudo apt-get install -y libgdiplus
+  dotnet add package Aspose.Slides.NET
+  ```
+
+在應用程式開頭、任何 Aspose.Slides 呼叫之前加入此敘述。若在使用頂層語句的 *Program.cs* 中，請於 `using` 指令之後加入：  
+```c#
+  System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+  ```
+
+在 Alpine Linux 以及 glibc 版本過舊而無法使用 Aspose.Slides.NET6.CrossPlatform 的系統上，請使用此套件。
+
+您簡報所使用的字型或相容替代字型必須安裝於系統上，才能正確呈現文字。[System Requirements](/slides/zh-hant/net/system-requirements/) 說明了 Aspose.Slides.NET 在 Alpine Linux 上所需的套件，包括字型。
 
 ## **macOS**
-NuGet 提供在 Mac 電腦上下載與安裝 Aspose.Slides for .NET 的最簡易方式。
 
-### **安裝 Aspose.Slides**
-1. 開啟 Visual Studio。 
-2. 建立簡易的主控台應用程式或開啟現有專案。 
-3. 在 **Project** > **Manage NuGet Packages...** 中操作。 
-![path-to-nuget-macos](path-to-nuget-macos.png)
-4. 在文字欄位輸入 *Aspose.Slides*。 
-5. 點選 **Aspose.Slides for .NET**，然後點選 **Add Package**。 
-6. 加入簡單的程式碼片段。 
-   * 您可以在[此頁面](/slides/zh-hant/net/create-presentation/) 上複製程式碼。 
-7. 執行應用程式。 
-8. 開啟您的專案 *folder/bin/Debug/presentation_file_name*。
+請使用上述 .NET CLI 步驟，搭配 **Aspose.Slides.NET6.CrossPlatform** 套件，該套件支援 Intel (x86_64) 與 Apple silicon (ARM64) 的 Mac：  
+```bash
+dotnet add package Aspose.Slides.NET6.CrossPlatform
+```
 
-## **FAQ**
+## **常見問題**
 
 **是否有免費版或試用限制？**
 
-是的，預設情況下，Aspose.Slides 以評估模式執行，會加上浮水印且可能有其他限制。若要解除限制，需套用有效的[授權](/slides/zh-hant/net/licensing/)。
+是。若未持有授權，Aspose.Slides 會以評估模式執行：會在每張儲存的投影片上加入評估水印，且會截斷從簡報中讀取的文字。若要移除這些限制，請套用有效的 [license](/slides/zh-hant/net/licensing/)。

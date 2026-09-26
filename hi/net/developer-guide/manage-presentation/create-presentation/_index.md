@@ -1,114 +1,118 @@
 ---
-title: ".NET में प्रस्तुतियाँ बनाएं"
-linktitle: "प्रस्तुति बनाएं"
+title: .NET में प्रस्तुतियों को बनाएं
+linktitle: प्रस्तुति बनाएं
 type: docs
 weight: 10
 url: /hi/net/create-presentation/
 keywords:
-- "प्रस्तुति बनाएं"
-- "नयी प्रस्तुति"
-- "PPT बनाएं"
-- "नया PPT"
-- "PPTX बनाएं"
-- "नया PPTX"
-- "ODP बनाएं"
-- "नया ODP"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रस्तुति"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: " .NET में Aspose.Slides के साथ प्रस्तुतियों को बनाएं—PPT, PPTX और ODP फ़ाइलें बनाएं, OpenDocument समर्थन का लाभ उठाएँ, और विश्वसनीय परिणामों के लिए प्रोग्रामेटिक रूप से सहेजें।"
+- प्रस्तुति बनाएं
+- नई प्रस्तुति
+- PPT बनाएं
+- नया PPT
+- PPTX बनाएं
+- नया PPTX
+- ODP बनाएं
+- नया ODP
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET में Aspose.Slides का उपयोग करके प्रस्तुतियों को बनाएं—PPT, PPTX, और ODP फ़ाइलें बनाएं, OpenDocument समर्थन का लाभ उठाएँ, और विश्वसनीय परिणामों के लिए उन्हें प्रोग्रामेटिकली सहेजें।"
 ---
-## **परिचय**
+## **समीक्षा**
 
-यह लेख दर्शाता है कि Aspose.Slides में प्रस्तुति कैसे बनायें, स्लाइड में सरल सामग्री जोड़ें, और परिणाम को फ़ाइल के रूप में सहेजें। यह यह भी प्रदर्शित करता है कि नई प्रस्तुति कैसे बनायें और सहेजें, समर्थित फ़ॉर्मेट में मौजूदा प्रस्तुति खोलें, और उसे किसी अन्य फ़ॉर्मेट में सहेजें। अतिरिक्त रूप से, इस लेख में फ़ॉर्मेट, टेम्प्लेट, स्लाइड आकार, इकाइयाँ, मेमोरी उपयोग, थ्रेडिंग, लाइसेंसिंग, डिजिटल हस्ताक्षर, और VBA समर्थन से संबंधित सामान्य प्रश्नों को कवर करने वाला एक छोटा FAQ शामिल है।
+यह लेख Aspose.Slides में प्रस्तुति बनाना, उसकी पहली स्लाइड पर टेक्स्ट बॉक्स जोड़ना, और परिणाम को फ़ाइल के रूप में सहेजना दिखाता है। इसमें ख़ाली प्रस्तुति बनाना और सहेजना, तथा समर्थित प्रारूप में मौजूदा प्रस्तुति खोलना और उसे दूसरे प्रारूप में सहेजना भी दिखाया गया है। अंत में एक छोटा FAQ सामान्य प्रश्नों को कवर करता है, जैसे प्रारूप, टेम्प्लेट, स्लाइड आकार, इकाइयाँ, मेमोरी उपयोग, थ्रेडिंग, लाइसेंसिंग, डिजिटल हस्ताक्षर, और VBA समर्थन।
+
+शुरू करने से पहले, NuGet से Aspose.Slides को अपने प्रोजेक्ट में जोड़ें। पैकेज के बारे में जानकारी के लिए देखें [स्थापना](/slides/hi/net/installation/)।
 
 ## **PowerPoint प्रस्तुति बनाएं**
-प्रस्तुति की चयनित स्लाइड में सरल सीधी रेखा जोड़ने के लिए, नीचे दिए गए चरणों का पालन करें:
 
-1. Presentation वर्ग का एक उदाहरण बनाएं।
-2. इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
-3. Shapes ऑब्जेक्ट द्वारा उजागर AddAutoShape मेथड का उपयोग करके Line प्रकार का AutoShape जोड़ें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+एक प्रस्तुति बनाने और उसकी पहली स्लाइड पर टेक्स्ट बॉक्स रखने के लिए, निम्न चरणों का पालन करें:
 
-नीचे दिए गए उदाहरण में, हमने प्रस्तुति की पहली स्लाइड में एक रेखा जोड़ी है।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास की नई instance बनाएँ। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
+1. उस स्लाइड को [Slides](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/slides/hi/) संग्रह से उसके इंडेक्स 0 द्वारा प्राप्त करें।
+1. [AddAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addautoshape/) मेथड के साथ एक आयत जोड़ें और उसके [text](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/text/) को सेट करें।
+1. [Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड का उपयोग करके प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
 ```c#
-// एक Presentation ऑब्जेक्ट बनाएं जो एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है
-using (Presentation presentation = new Presentation())
-{
-    // पहली स्लाइड प्राप्त करें
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // लाइन प्रकार का ऑटोषेप जोड़ें
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
+
+आयत का शीर्ष-बायाँ कोना स्लाइड के बाएँ किनारे से 50 पॉइंट और शीर्ष किनारे से 50 पॉइंट दूर है, और आयत की चौड़ाई 400 पॉइंट तथा ऊँचाई 100 पॉइंट है। सहेजी गई फ़ाइल में एक स्लाइड है जिसमें वह आयत और उसका टेक्स्ट है। बिना लाइसेंस के, Aspose.Slides प्रत्येक सहेजी गई स्लाइड में एक मूल्यांकन वॉटरमार्क भी जोड़ता है; देखें [लाइसेंसिंग](/slides/hi/net/licensing/)।
 
 ## **प्रस्तुति बनाएं और सहेजें**
 
-<a name="csharp-create-save-presentation"><strong>चरण: C# में प्रस्तुति बनाएं और सहेजें</strong></a>
+<a name="csharp-create-save-presentation"></a>
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) वर्ग का एक उदाहरण बनाएं।
-2. _Presentation_ को किसी भी फ़ॉर्मेट में सहेजें जो [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) द्वारा समर्थित हो।
+एक खाली प्रस्तुति बनाने और उसे सहेजने के लिए, [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास की instance बनाएं और उसे [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) enumeration के किसी भी फ़ॉर्मेट में सहेजें। परिणामस्वरूप एक खाली स्लाइड वाली प्रस्तुति बनती है।
 
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **प्रस्तुति खोलें और सहेजें**
 
-<a name="csharp-open-save-presentation"><strong>चरण: C# में प्रस्तुति खोलें और सहेजें</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) वर्ग का एक उदाहरण बनाएं किसी भी फ़ॉर्मेट के साथ, जैसे PPT, PPTX, ODP आदि।
-2. _Presentation_ को किसी भी फ़ॉर्मेट में सहेजें जो [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) द्वारा समर्थित हो।
+एक प्रस्तुति को एक फ़ॉर्मेट से दूसरे में बदलने के लिए, उसके पथ को [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/presentation/) कंस्ट्रक्टर में पास करके इसे खोलें, फिर लक्ष्य फ़ॉर्मेट में सहेजें। Aspose.Slides फ़ाइल से स्वयं इनपुट फ़ॉर्मेट, जैसे PPT, PPTX, या ODP, का पता लगाता है।
+
+निम्न उदाहरण कार्य निर्देशिका में *Sample.odp* नामक एक OpenDocument प्रस्तुति की अपेक्षा करता है और इसे PPTX के रूप में सहेजता है।
 
 ```c#
-// Presentation में कोई भी समर्थित फ़ाइल लोड करें, जैसे ppt, pptx, odp आदि।
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**मैं नई प्रस्तुति को किन फॉर्मेट में सहेज सकता हूँ?**
+### मैं नई प्रस्तुति को किन फ़ॉर्मेट में सहेज सकता हूँ?
 
-आप नई प्रस्तुति को [PPTX, PPT, and ODP](/slides/hi/net/save-presentation/) में सहेज सकते हैं, और इसे [PDF](/slides/hi/net/convert-powerpoint-to-pdf/), [XPS](/slides/hi/net/convert-powerpoint-to-xps/), [HTML](/slides/hi/net/convert-powerpoint-to-html/), [SVG](/slides/hi/net/convert-powerpoint-to-png/), और [images](/slides/hi/net/convert-powerpoint-to-png/) जैसे फॉर्मेट में निर्यात कर सकते हैं।
+आप [PPTX, PPT, और ODP](/slides/hi/net/save-presentation/) में सहेज सकते हैं, और [PDF](/slides/hi/net/convert-powerpoint-to-pdf/), [XPS](/slides/hi/net/convert-powerpoint-to-xps/), [HTML](/slides/hi/net/convert-powerpoint-to-html/), [SVG](/slides/hi/net/render-a-slide-as-an-svg-image/), और [छवियाँ](/slides/hi/net/convert-powerpoint-to-png/) सहित अन्य फ़ॉर्मेट में निर्यात कर सकते हैं।
 
-**क्या मैं टेम्प्लेट (POTX/POTM) से शुरू कर सकता हूँ और नियमित PPTX के रूप में सहेज सकता हूँ?**
+### क्या मैं टेम्प्लेट (POTX/POTM) से शुरू करके नियमित PPTX के रूप में सहेज सकता हूँ?
 
-हाँ। टेम्प्लेट लोड करें और इच्छित फ़ॉर्मेट में सहेजें; POTX/POTM/PPTM और समान फ़ॉर्मेट [are supported](/slides/hi/net/supported-file-formats/)।
+हाँ। टेम्प्लेट को लोड करें और इच्छित फ़ॉर्मेट में सहेजें; POTX/POTM/PPTM और समान फ़ॉर्मेट [समर्थित](/slides/hi/net/supported-file-formats/) हैं।
 
-**मैं प्रस्तुति बनाते समय स्लाइड आकार/आस्पेक्ट अनुपात को कैसे नियंत्रित करूँ?**
+### प्रस्तुति बनाते समय स्लाइड आकार/अनुपात को कैसे नियंत्रित करूँ?
 
-स्लाइड आकार को सेट करें ([slide size](/slides/hi/net/slide-size/)) (जैसे 4:3 और 16:9 जैसी प्रीसेट्स या कस्टम आयाम) और चुनें कि सामग्री कैसे स्केल होनी चाहिए।
+[स्लाइड आकार](/slides/hi/net/slide-size/) सेट करें (जैसे 4:3 और 16:9 प्रीसेट या कस्टम आयाम) और तय करें कि सामग्री कैसे स्केल होनी चाहिए।
 
-**आकार और निर्देशांक किस इकाइयों में मापे जाते हैं?**
+### आकार और निर्देशांक किन इकाइयों में मापे जाते हैं?
 
-प्वाइंट्स में: 1 इंच बराबर 72 इकाइयों के।
+पॉइंट में: 1 इंच के बराबर 72 इकाइयाँ हैं।
 
-**बहुत बड़ी प्रस्तुतियों (जिनमें कई मीडिया फ़ाइलें हों) को मेमोरी उपयोग कम करने के लिए मैं कैसे संभालूँ?**
+### बड़े पैमाने की प्रस्तुतियों (कई मीडिया फ़ाइलों के साथ) को मेमोरी उपयोग कम करने के लिए कैसे संभालूँ?
 
-[BLOB management strategies](/slides/hi/net/manage-blob/) का उपयोग करें, अस्थायी फ़ाइलों का उपयोग करके in-memory संग्रहण को सीमित करें, और शुद्ध in-memory स्ट्रीम्स की बजाय फ़ाइल-आधारित कार्यप्रवाह को प्राथमिकता दें।
+[BLOB management strategies](/slides/hi/net/manage-blob/) का उपयोग करें, अस्थायी फ़ाइलों के माध्यम से इन‑मेमोरी स्टोरेज को सीमित करें, और शुद्ध इन‑मेमोरी स्ट्रीम्स की बजाय फ़ाइल‑आधारित वर्कफ़्लो को प्राथमिकता दें।
 
-**क्या मैं समानांतर में प्रस्तुतियों को बनाकर/सहेज सकता हूँ?**
+### क्या मैं समानांतर रूप में प्रस्तुतियों को बना/सहेज सकता हूँ?
 
-आप समान [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) इंस्टेंस को [multiple threads](/slides/hi/net/multithreading/) से संचालित नहीं कर सकते। प्रत्येक थ्रेड या प्रक्रिया के लिए अलग, अलग इंस्टेंस चलाएँ।
+आप एक ही [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) instance को [एकाधिक थ्रेड](/slides/hi/net/multithreading/) से नहीं चला सकते। प्रत्येक थ्रेड या प्रक्रिया के लिए अलग, अलग-अलग instances चलाएँ।
 
-**मैं ट्रायल वॉटरमार्क और सीमाओं को कैसे हटाऊँ?**
+### ट्रायल वॉटरमार्क और सीमाओं को कैसे हटाएँ?
 
-[Apply a license](/slides/hi/net/licensing/) प्रक्रिया में एक बार लागू करें। लाइसेंस XML को अपरिवर्तित रहना चाहिए, और यदि कई थ्रेड शामिल हों तो लाइसेंस सेटअप को समकालिक किया जाना चाहिए।
+[Apply a license](/slides/hi/net/licensing/) को प्रक्रिया के लिए एक बार लागू करें। लाइसेंस XML को अनबदला रखा जाना चाहिए, और यदि कई थ्रेड शामिल हों तो लाइसेंस सेटअप को समन्वित करना चाहिए।
 
-**क्या मैं बनायी गई PPTX को डिजिटल रूप से साइन कर सकता हूँ?**
+### क्या मैं बनाई गई PPTX को डिजिटल रूप से साइन कर सकता हूँ?
 
-हाँ। प्रस्तुतियों के लिए [Digital signatures](/slides/hi/net/digital-signature-in-powerpoint/) (जोड़ना और सत्यापित करना) समर्थित हैं।
+हाँ। [Digital signatures](/slides/hi/net/digital-signature-in-powerpoint/) (जोड़ना और सत्यापित करना) प्रस्तुतियों के लिए समर्थित हैं।
 
-**क्या बनाई गई प्रस्तुतियों में मैक्रो (VBA) समर्थित हैं?**
+### क्या निर्मित प्रस्तुतियों में मैक्रो (VBA) समर्थित हैं?
 
-हाँ। आप [create/edit VBA projects](/slides/hi/net/presentation-via-vba/) कर सकते हैं और PPTM/PPSM जैसी मैक्रो‑सक्षम फ़ाइलें सहेज सकते हैं।
+हाँ। आप [create/edit VBA projects](/slides/hi/net/presentation-via-vba/) कर सकते हैं और PPTM/PPSM जैसे मैक्रो‑सक्षम फ़ाइलें सहेज सकते हैं।

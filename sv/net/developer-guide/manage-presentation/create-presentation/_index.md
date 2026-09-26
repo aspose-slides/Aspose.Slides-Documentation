@@ -19,96 +19,100 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Skapa presentationer i .NET med Aspose.Slides—generera PPT-, PPTX- och ODP-filer, dra nytta av OpenDocument-stöd och spara dem programmatiskt för pålitliga resultat."
+description: "Skapa presentationer i .NET med Aspose.Slides—generera PPT-, PPTX- och ODP-filer, dra nytta av OpenDocument-stöd och spara dem programatiskt för pålitliga resultat."
 ---
 ## **Översikt**
 
-Denna artikel visar hur du skapar en presentation i Aspose.Slides, lägger till enkelt innehåll på en bild och sparar resultatet som en fil. Den demonstrerar också hur du skapar och sparar en ny presentation, öppnar en befintlig presentation i ett stödformat och sparar den till ett annat format. Dessutom innehåller artikeln en kort FAQ med vanliga frågor om format, mallar, bildstorlek, enheter, minnesanvändning, trådar, licensiering, digitala signaturer och VBA‑stöd.
+Den här artikeln visar hur du skapar en presentation i Aspose.Slides, lägger till en textruta på dess första bild och sparar resultatet som en fil. Den visar också hur du skapar och sparar en tom presentation samt hur du öppnar en befintlig presentation i ett stödt format och sparar den i ett annat format. En kort FAQ i slutet täcker vanliga frågor om format, mallar, bildstorlek, enheter, minnesanvändning, trådar, licensiering, digitala signaturer och VBA-stöd.
+
+Innan du börjar, lägg till Aspose.Slides i ditt projekt från NuGet. Se [Installation](/slides/sv/net/installation/) för paketet att använda på Windows, Linux och macOS.
 
 ## **Skapa en PowerPoint-presentation**
-För att lägga till en enkel rak linje på en vald bild i presentationen, följ stegen nedan:
 
-1. Skapa en instans av Presentation-klassen.  
-1. Hämta referensen till en bild genom att använda dess Index.  
-1. Lägg till en AutoShape av typ Line med metoden AddAutoShape som exponeras av Shapes‑objektet.  
-1. Skriv den modifierade presentationen som en PPTX‑fil.
+För att skapa en presentation och placera en textruta på dess första bild, följ dessa steg:
 
-I exemplet nedan har vi lagt till en linje på den första bilden i presentationen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.
+2. Hämta den bilden från samlingen [Slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/slides/sv/) med dess index, 0.
+3. Lägg till en rektangel med metoden [AddAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addautoshape/) och ange dess [text](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/text/).
+4. Spara presentationen som en PPTX-fil med metoden [Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/).
 
 ```c#
- // Instansiera ett Presentation-objekt som representerar en presentationsfil
-using (Presentation presentation = new Presentation())
-{
-    // Hämta den första bilden
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Lägg till en autoshape av typ linje
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
+
+Rektangelns övre vänstra hörn är 50 punkter från vänsterkanten och 50 punkter från övre kanten på bilden, och rektangeln är 400 punkter bred och 100 punkter hög. Den sparade filen innehåller en bild med den rektangeln och dess text. Utan licens lägger Aspose.Slides även till ett utvärderingsvattenstämpel på varje bild den sparar; se [Licensing](/slides/sv/net/licensing/).
 
 ## **Skapa och spara en presentation**
 
-<a name="csharp-create-save-presentation"><strong>Steg: Skapa och spara presentation i C#</strong></a>
+<a name="csharp-create-save-presentation"></a>
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑klassen.  
-2. Spara _Presentation_ till valfritt format som stöds av [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/)
+För att skapa en tom presentation och spara den, skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och spara den i vilket format som helst från uppräkningen [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/). Resultatet är en presentation med en tom bild.
 
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **Öppna och spara en presentation**
 
-<a name="csharp-open-save-presentation"><strong>Steg: Öppna och spara presentation i C#</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑klassen med valfritt format, t.ex. PPT, PPTX, ODP osv.  
-2. Spara _Presentation_ till valfritt format som stöds av [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/)
+För att konvertera en presentation från ett format till ett annat, öppna den genom att skicka dess sökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/presentation/), spara den sedan i målformatet. Aspose.Slides upptäcker inmatningsformatet, t.ex. PPT, PPTX eller ODP, från själva filen.
+
+Exemplet nedan förväntar sig en OpenDocument-presentation med namnet *Sample.odp* i arbetskatalogen och sparar den som PPTX.
 
 ```c#
-// Ladda någon stödfil i Presentation, t.ex. ppt, pptx, odp osv.
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vilka format kan jag spara en ny presentation till?**
+### Vilka format kan jag spara en ny presentation till?
 
-Du kan spara till [PPTX, PPT, and ODP](/slides/sv/net/save-presentation/), och exportera till [PDF](/slides/sv/net/convert-powerpoint-to-pdf/), [XPS](/slides/sv/net/convert-powerpoint-to-xps/), [HTML](/slides/sv/net/convert-powerpoint-to-html/), [SVG](/slides/sv/net/convert-powerpoint-to-png/), och [bilder](/slides/sv/net/convert-powerpoint-to-png/), bland annat.
+Du kan spara till [PPTX, PPT och ODP](/slides/sv/net/save-presentation/), och exportera till [PDF](/slides/sv/net/convert-powerpoint-to-pdf/), [XPS](/slides/sv/net/convert-powerpoint-to-xps/), [HTML](/slides/sv/net/convert-powerpoint-to-html/), [SVG](/slides/sv/net/render-a-slide-as-an-svg-image/) och [bilder](/slides/sv/net/convert-powerpoint-to-png/), bland annat.
 
-**Kan jag börja från en mall (POTX/POTM) och spara som en vanlig PPTX?**
+### Kan jag börja från en mall (POTX/POTM) och spara som en vanlig PPTX?
 
-Ja. Läs in mallen och spara till önskat format; POTX/POTM/PPTM och liknande format [stöds](/slides/sv/net/supported-file-formats/).
+Ja. Läs in mallen och spara i önskat format; POTX/POTM/PPTM och liknande format [stöds](/slides/sv/net/supported-file-formats/).
 
-**Hur styr jag bildstorlek/formatförhållande när jag skapar en presentation?**
+### Hur kontrollerar jag bildstorlek/bildförhållande när jag skapar en presentation?
 
-Ställ in [bildstorlek](/slides/sv/net/slide-size/) (inklusive förinställningar som 4:3 och 16:9 eller egna dimensioner) och välj hur innehållet ska skalas.
+Ställ in [bildstorleken](/slides/sv/net/slide-size/) (inklusive förinställningar som 4:3 och 16:9 eller egna mått) och välj hur innehållet ska skalas.
 
-**I vilka enheter mäts storlekar och koordinater?**
+### I vilka enheter mäts storlekar och koordinater?
 
 I punkter: 1 tum motsvarar 72 enheter.
 
-**Hur hanterar jag mycket stora presentationer (med många mediefiler) för att minska minnesanvändningen?**
+### Hur hanterar jag mycket stora presentationer (med många mediafiler) för att minska minnesanvändning?
 
-Använd [BLOB management strategies](/slides/sv/net/manage-blob/), begränsa minneslagring genom att utnyttja temporära filer och föredra filbaserade arbetsflöden framför rena minnesströmmar.
+Använd [BLOB-hanteringsstrategier](/slides/sv/net/manage-blob/), begränsa lagring i minnet genom att utnyttja temporära filer och föredra filbaserade arbetsflöden framför rena minnesströmmar.
 
-**Kan jag skapa/spara presentationer parallellt?**
+### Kan jag skapa/spara presentationer parallellt?
 
 Du kan inte arbeta på samma [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/net/multithreading/). Kör separata, isolerade instanser per tråd eller process.
 
-**Hur tar jag bort provversionens vattenstämpel och begränsningar?**
+### Hur tar jag bort provvattenstämpeln och begränsningarna?
 
-[Applicera en licens](/slides/sv/net/licensing/) en gång per process. Licens‑XML‑filen får inte ändras, och licensinställningen bör synkroniseras om flera trådar är inblandade.
+[Applicera en licens](/slides/sv/net/licensing/) en gång per process. Licens‑XML‑filen får inte modifieras, och licensinställningen bör synkroniseras om flera trådar är inblandade.
 
-**Kan jag digitalt signera PPTX‑filen jag skapar?**
+### Kan jag digitalt signera PPTX‑filen jag skapar?
 
-Ja. [Digital signatures](/slides/sv/net/digital-signature-in-powerpoint/) (lägg till och verifiera) stöds för presentationer.
+Ja. [Digitala signaturer](/slides/sv/net/digital-signature-in-powerpoint/) (tillägg och verifiering) stöds för presentationer.
 
-**Stöds makron (VBA) i skapade presentationer?**
+### Stöds makron (VBA) i skapade presentationer?
 
-Ja. Du kan [create/edit VBA projects](/slides/sv/net/presentation-via-vba/) och spara makro‑aktiverade filer såsom PPTM/PPSM.
+Ja. Du kan [skapa/redigera VBA‑projekt](/slides/sv/net/presentation-via-vba/) och spara makro‑aktiverade filer såsom PPTM/PPSM.

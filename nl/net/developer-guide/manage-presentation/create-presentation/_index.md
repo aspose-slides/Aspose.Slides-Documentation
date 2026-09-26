@@ -19,96 +19,100 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Maak presentaties in .NET met Aspose.Slides — produceer PPT-, PPTX- en ODP-bestanden, profiteer van OpenDocument-ondersteuning, en sla ze programmatisch op voor betrouwbare resultaten."
+description: "Maak presentaties in .NET met Aspose.Slides — genereer PPT-, PPTX- en ODP-bestanden, profiteer van OpenDocument-ondersteuning, en sla ze programmatisch op voor betrouwbare resultaten."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe je een presentatie maakt met Aspose.Slides, eenvoudige inhoud aan een dia toevoegt en het resultaat opslaat als bestand. Het toont ook hoe je een nieuwe presentatie maakt en opslaat, een bestaande presentatie in een ondersteund formaat opent en deze opslaat naar een ander formaat. Daarnaast bevat het een korte FAQ met veelgestelde vragen over formaten, sjablonen, dia-grootte, eenheden, geheugenverbruik, threading, licenties, digitale handtekeningen en VBA-ondersteuning.
+Dit artikel laat zien hoe u een presentatie maakt in Aspose.Slides, een tekstvak toevoegt aan de eerste dia, en het resultaat opslaat als een bestand. Het laat ook zien hoe u een lege presentatie maakt en opslaat, en hoe u een bestaande presentatie in een ondersteund formaat opent en opslaat in een ander formaat. Een korte FAQ aan het eind behandelt veelgestelde vragen over formaten, sjablonen, dia‑afmetingen, eenheden, geheugengebruik, threading, licenties, digitale handtekeningen en VBA‑ondersteuning.
 
-## **Maak een PowerPoint-presentatie**
-Om een eenvoudige rechte lijn toe te voegen aan een geselecteerde dia van de presentatie, volg je de onderstaande stappen:
+Voordat u begint, voegt u Aspose.Slides toe aan uw project via NuGet. Zie [Installation](/slides/nl/net/installation/) voor het pakket dat u kunt gebruiken op Windows, Linux en macOS.
 
-1. Maak een instantie van de **Presentation**‑klasse.
-1. Verkrijg de referentie van een dia door zijn index te gebruiken.
-1. Voeg een AutoShape van het type **Line** toe met de **AddAutoShape**‑methode van het **Shapes**‑object.
-1. Schrijf de aangepaste presentatie weg als een PPTX‑bestand.
+## **Een PowerPoint‑presentatie maken**
 
-In het onderstaande voorbeeld hebben we een lijn toegevoegd aan de eerste dia van de presentatie.
+Om een presentatie te maken en een tekstvak op de eerste dia te plaatsen, volgt u deze stappen:
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/). Een nieuwe presentatie bevat reeds één lege dia.  
+2. Haal die dia op uit de [Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/) collectie via de index 0.  
+3. Voeg een rechthoek toe met de methode [AddAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addautoshape/) en stel de [text](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/text/) in.  
+4. Sla de presentatie op als een PPTX‑bestand met de [Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/) methode.
 
 ```c#
-// Instantieser een Presentation-object dat een presentatiebestand vertegenwoordigt
-using (Presentation presentation = new Presentation())
-{
-    // Verkrijg de eerste dia
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Voeg een autoshape van het type line toe
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-## **Maak en sla een presentatie op**
+De linkerbovenhoek van de rechthoek bevindt zich 50 punten vanaf de linkerrand en 50 punten vanaf de bovenzijde van de dia, en de rechthoek is 400 punten breed en 100 punten hoog. Het opgeslagen bestand bevat één dia met die rechthoek en de tekst ervan. Zonder licentie voegt Aspose.Slides ook een evaluatiewatermerk toe aan elke dia die wordt opgeslagen; zie [Licensing](/slides/nl/net/licensing/).
 
-<a name="csharp-create-save-presentation"><strong>Stappen: Maak en sla een presentatie op in C#</strong></a>
+## **Een presentatie maken en opslaan**
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse.
-2. Sla _Presentatie_ op in elk formaat dat wordt ondersteund door [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/)
+<a name="csharp-create-save-presentation"></a>
+
+Om een lege presentatie te maken en op te slaan, maakt u een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) en slaat u deze op in een willekeurig formaat van de enumeratie [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/). Het resultaat is een presentatie met één lege dia.
 
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Openen en opslaan van een presentatie**
+## **Een presentatie openen en opslaan**
 
-<a name="csharp-open-save-presentation"><strong>Stappen: Openen en opslaan van een presentatie in C#</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse met elk formaat, bijv. PPT, PPTX, ODP, enz.
-2. Sla _Presentatie_ op in elk formaat dat wordt ondersteund door [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/)
+Om een presentatie van het ene formaat naar het andere te converteren, opent u deze door het pad door te geven aan de constructor van [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/). Sla vervolgens op in het doelformaat. Aspose.Slides detecteert het invoerformaat, zoals PPT, PPTX of ODP, op basis van het bestand zelf.
+
+Het onderstaande voorbeeld verwacht een OpenDocument‑presentatie met de naam *Sample.odp* in de werkmap en slaat deze op als PPTX.
 
 ```c#
-// Laad elk ondersteund bestand in Presentation, bijv. ppt, pptx, odp, enz.
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**In welke formaten kan ik een nieuwe presentatie opslaan?**
+### In welke formaten kan ik een nieuwe presentatie opslaan?
 
-Je kunt opslaan naar [PPTX, PPT en ODP](/slides/nl/net/save-presentation/), en exporteren naar [PDF](/slides/nl/net/convert-powerpoint-to-pdf/), [XPS](/slides/nl/net/convert-powerpoint-to-xps/), [HTML](/slides/nl/net/convert-powerpoint-to-html/), [SVG](/slides/nl/net/convert-powerpoint-to-png/) en [afbeeldingen](/slides/nl/net/convert-powerpoint-to-png/), onder andere.
+U kunt opslaan naar [PPTX, PPT en ODP](/slides/nl/net/save-presentation/), en exporteren naar [PDF](/slides/nl/net/convert-powerpoint-to-pdf/), [XPS](/slides/nl/net/convert-powerpoint-to-xps/), [HTML](/slides/nl/net/convert-powerpoint-to-html/), [SVG](/slides/nl/net/render-a-slide-as-an-svg-image/) en [afbeeldingen](/slides/nl/net/convert-powerpoint-to-png/), onder andere.
 
-**Kan ik starten vanuit een sjabloon (POTX/POTM) en opslaan als een gewone PPTX?**
+### Kan ik starten vanaf een sjabloon (POTX/POTM) en opslaan als een gewone PPTX?
 
-Ja. Laad het sjabloon en sla op naar het gewenste formaat; POTX/POTM/PPTM en soortgelijke formaten [worden ondersteund](/slides/nl/net/supported-file-formats/).
+Ja. Laad het sjabloon en sla op in het gewenste formaat; POTX/POTM/PPTM en soortgelijke formaten [are supported](/slides/nl/net/supported-file-formats/).
 
-**Hoe regel ik de dia‑grootte/beeldverhouding bij het maken van een presentatie?**
+### Hoe beheer ik de dia‑grootte / beeldverhouding bij het maken van een presentatie?
 
-Stel de [dia‑grootte](/slides/nl/net/slide-size/) in (inclusief voorgedefinieerde opties zoals 4:3 en 16:9 of aangepaste afmetingen) en kies hoe de inhoud moet worden geschaald.
+Stel de [slide size](/slides/nl/net/slide-size/) in (inclusief presets zoals 4:3 en 16:9 of aangepaste afmetingen) en bepaal hoe de inhoud moet worden geschaald.
 
-**In welke eenheden worden afmetingen en coördinaten gemeten?**
+### In welke eenheden worden afmetingen en coördinaten gemeten?
 
 In punten: 1 inch is gelijk aan 72 eenheden.
 
-**Hoe ga ik om met zeer grote presentaties (met veel mediabestanden) om het geheugenverbruik te verminderen?**
+### Hoe ga ik om met zeer grote presentaties (met veel mediabestanden) om het geheugengebruik te verminderen?
 
-Gebruik [BLOB‑beheersstrategieën](/slides/nl/net/manage-blob/), beperk opslag in het geheugen door tijdelijke bestanden te benutten, en geef de voorkeur aan bestandsgebaseerde workflows boven puur in‑memory streams.
+Gebruik [BLOB management strategies](/slides/nl/net/manage-blob/), beperk het in‑memory opslaggebruik door tijdelijke bestanden te benutten, en geef de voorkeur aan bestands‑gebaseerde workflows boven uitsluitend in‑memory streams.
 
-**Kan ik presentaties parallel creëren/op slaan?**
+### Kan ik presentaties parallel maken/opslaan?
 
-Je kunt niet dezelfde [Presentatie](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie bewerken vanuit [meerdere threads](/slides/nl/net/multithreading/). Maak aparte, geïsoleerde instanties per thread of proces.
+U kunt niet dezelfde [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) instantie bedienen vanaf [multiple threads](/slides/nl/net/multithreading/). Gebruik afzonderlijke, geïsoleerde instanties per thread of proces.
 
-**Hoe verwijder ik het proefwatermerk en de beperkingen?**
+### Hoe verwijder ik het proef‑watermerk en de beperkingen?
 
-[Pas een licentie toe](/slides/nl/net/licensing/) één keer per proces. Het licentie‑XML‑bestand moet onveranderd blijven, en de licentie‑initialisatie moet gesynchroniseerd worden als meerdere threads betrokken zijn.
+[Apply a license](/slides/nl/net/licensing/) eenmaal per proces. Het licentie‑XML‑bestand moet ongewijzigd blijven, en de licentie‑configuratie moet gesynchroniseerd worden als meerdere threads betrokken zijn.
 
-**Kan ik de PPTX die ik maak digitaal ondertekenen?**
+### Kan ik de PPTX die ik maak digitaal ondertekenen?
 
-Ja. [Digitale handtekeningen](/slides/nl/net/digital-signature-in-powerpoint/) (toevoegen en verifiëren) worden ondersteund voor presentaties.
+Ja. [Digital signatures](/slides/nl/net/digital-signature-in-powerpoint/) (toevoegen en verifiëren) worden ondersteund voor presentaties.
 
-**Worden macro's (VBA) ondersteund in gemaakte presentaties?**
+### Worden macro’s (VBA) ondersteund in aangemaakte presentaties?
 
-Ja. Je kunt [VBA‑projecten creëren/bewerken](/slides/nl/net/presentation-via-vba/) en macro‑geactiveerde bestanden opslaan, zoals PPTM/PPSM.
+Ja. U kunt [create/edit VBA projects](/slides/nl/net/presentation-via-vba/) en macro‑enabled bestanden opslaan zoals PPTM/PPSM.

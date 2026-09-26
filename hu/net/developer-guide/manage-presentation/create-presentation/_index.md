@@ -19,96 +19,100 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Prezentációk létrehozása .NET-ben az Aspose.Slides-szal - PPT, PPTX és ODP fájlok előállítása, az OpenDocument támogatásának kihasználása, valamint programozott mentés megbízható eredményekért."
+description: "Készítsen prezentációkat .NET-ben az Aspose.Slides segítségével — hozzon létre PPT, PPTX és ODP fájlokat, használja ki az OpenDocument támogatást, és mentse őket programozottan a megbízható eredmények érdekében."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan hozhatunk létre egy prezentációt az Aspose.Slides használatával, hogyan adhatunk egyszerű tartalmat egy diára, és hogyan menthetjük az eredményt fájlként. Továbbá megmutatja, hogyan hozhatunk létre és menthetünk új prezentációt, hogyan nyithatunk meg egy meglévő, támogatott formátumú prezentációt, és hogyan menthetjük el egy másik formátumba. Emellett a cikk rövid GYIK‑ot is tartalmaz a formátumokkal, sablonokkal, diaméretezéssel, mértékegységekkel, memóriahasználattal, szálkezeléssel, licenceléssel, digitális aláírásokkal és VBA‑támogatással kapcsolatos gyakori kérdésekről.
+Ez a cikk bemutatja, hogyan hozhat létre egy bemutatót az Aspose.Slides segítségével, hogyan adhat szövegdobozt az első diájához, és hogyan mentheti az eredményt fájlként. Azt is bemutatja, hogyan hozhat létre és menthet egy üres bemutatót, valamint hogyan nyithat meg egy meglévő, támogatott formátumú bemutatót, és mentheti egy másik formátumba. A végén egy rövid GYIK a formátumokkal, sablonokkal, diaméretekkel, egységekkel, memóriahasználattal, szálkezeléssel, licenceléssel, digitális aláírásokkal és VBA‑támogatással kapcsolatos gyakori kérdéseket tárgyalja.
 
-## **PowerPoint‑prezentáció létrehozása**
-Egyszerű, egyszerű vonal hozzáadásához a prezentáció egy kiválasztott diájához kövesse az alábbi lépéseket:
+Mielőtt elkezdené, adja hozzá az Aspose.Slides‑t a projektjéhez a NuGet‑ről. Lásd a [Telepítés](/slides/hu/net/installation/) oldalt a Windows, Linux és macOS rendszerekhez használható csomagról.
 
-1. Hozzon létre egy **Presentation** osztálypéldányt.
-2. Szerezze meg a dia referenciáját az Index használatával.
-3. Adjon hozzá egy **AutoShape** típusú **Line** elemet az **AddAutoShape** metódussal, amelyet a **Shapes** objektum biztosít.
-4. Írja ki a módosított prezentációt PPTX fájlként.
+## **PowerPoint prezentáció létrehozása**
 
-Az alább bemutatott példában egy vonalat adtunk hozzá a prezentáció első diához.
+A prezentáció létrehozásához és egy szövegdoboz elhelyezéséhez az első dián kövesse az alábbi lépéseket:
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból. Egy új prezentáció már tartalmaz egy üres diát.
+2. Szerezze meg azt a diát a [Slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slides/hu/) gyűjteményből az indexével, 0.
+3. Adjon hozzá egy téglalapot a [AddAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addautoshape/) metódussal, és állítsa be a [text](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/text/) értékét.
+4. Mentse a prezentációt PPTX fájlként a [Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódussal.
 
 ```c#
-// Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel
-using (Presentation presentation = new Presentation())
-{
-    // Lekérdezi az első diát
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Hozzáad egy autóképző elemet vonal típusban
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
+
+A téglalap bal felső sarka 50 ponttal van a dia bal szélétől és 50 ponttal a felső szélétől; a téglalap 400 pont széles és 100 pont magas. A mentett fájl egy diát tartalmaz, amelyen ez a téglalap és a szövege szerepel. Licenc nélkül az Aspose.Slides minden mentett diára egy értékelési vízjelet is felhelyez; lásd a [Licencelés](/slides/hu/net/licensing/) oldalt.
 
 ## **Prezentáció létrehozása és mentése**
 
-<a name="csharp-create-save-presentation"><strong>Lépések: Prezentáció létrehozása és mentése C#‑ban</strong></a>
+<a name="csharp-create-save-presentation"></a>
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztálypéldányt.
-2. Mentse a _Presentation_-t bármely, a [SaveFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) által támogatott formátumba.
+Üres prezentáció létrehozásához és mentéséhez hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból, és mentse a [SaveFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) felsorolás bármely formátumában. Az eredmény egy egyetlen üres diát tartalmazó prezentáció.
 
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **Prezentáció megnyitása és mentése**
 
-<a name="csharp-open-save-presentation"><strong>Lépések: Prezentáció megnyitása és mentése C#‑ban</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztálypéldányt bármely formátummal, például PPT, PPTX, ODP stb.
-2. Mentse a _Presentation_-t bármely, a [SaveFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) által támogatott formátumba.
+Egy prezentáció átalakításához egyik formátumból a másikba nyissa meg a fájl elérési útját átadva a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/presentation/) konstruktorának, majd mentse a célformátumba. Az Aspose.Slides a bemeneti formátumot, például PPT, PPTX vagy ODP, a fájlból saját maga ismeri fel.
+
+Az alábbi példa egy *Sample.odp* nevű OpenDocument prezentációt vár a munkakönyvtárban, és PPTX‑ként menti.
 
 ```c#
-// Töltsön be bármilyen támogatott fájlt a Presentation-be, például ppt, pptx, odp stb.
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **GYIK**
 
-**Milyen formátumokba menthetek egy új prezentációt?**
+### Milyen formátumokra mentheti az új prezentációt?
 
-Menthet [PPTX, PPT és ODP](/slides/hu/net/save-presentation/) formátumokba, valamint exportálhat [PDF](/slides/hu/net/convert-powerpoint-to-pdf/), [XPS](/slides/hu/net/convert-powerpoint-to-xps/), [HTML](/slides/hu/net/convert-powerpoint-to-html/), [SVG](/slides/hu/net/convert-powerpoint-to-png/) és [képek](/slides/hu/net/convert-powerpoint-to-png/) formátumokba, többek között.
+Menthet [PPTX, PPT és ODP](/slides/hu/net/save-presentation/) formátumokba, valamint exportálhat [PDF](/slides/hu/net/convert-powerpoint-to-pdf/), [XPS](/slides/hu/net/convert-powerpoint-to-xps/), [HTML](/slides/hu/net/convert-powerpoint-to-html/), [SVG](/slides/hu/net/render-a-slide-as-an-svg-image/) és [képek](/slides/hu/net/convert-powerpoint-to-png/) formátumokba, többek között.
 
-**Kezdhetek sablonból (POTX/POTM), és menthetem sima PPTX‑ként?**
+### Kezdhetek egy sablonból (POTX/POTM), és menthetem egyszerű PPTX‑ként?
 
-Igen. Töltse be a sablont, és mentse a kívánt formátumba; a POTX/POTM/PPTM és hasonló formátumok [támogatottak](/slides/hu/net/supported-file-formats/).
+Igen. Töltse be a sablont, majd mentse a kívánt formátumba; a POTX/POTM/PPTM és hasonló formátumok [támogatottak](/slides/hu/net/supported-file-formats/).
 
-**Hogyan szabályozhatom a dia méretét/méretarányát a prezentáció létrehozásakor?**
+### Hogyan szabályozhatom a dia méretét/méretarányát a prezentáció létrehozásakor?
 
-Állítsa be a [dia méretét](/slides/hu/net/slide-size/) (beleértve a 4:3 és 16:9 előre beállítottakat vagy egyéni méreteket), és válassza ki, hogyan skálázódjon a tartalom.
+Állítsa be a [dia méretét](/slides/hu/net/slide-size/) (beleértve az 4:3 és 16:9 előre beállított vagy egyéni méreteket), és válassza ki, hogyan méreteződjön a tartalom.
 
-**Milyen egységekben mérik a méreteket és a koordinátákat?**
+### Milyen egységekben mérik a méreteket és a koordinátákat?
 
-Pontban: 1 hüvelyk = 72 egység.
+Pontokban: 1 hüvelyk 72 egységnek felel meg.
 
-**Hogyan kezeljem a nagyon nagy prezentációkat (sok médiafájllal) a memóriahasználat csökkentése érdekében?**
+### Hogyan kezeljem a nagyon nagy prezentációkat (sok médiafájllal) a memóriahasználat csökkentése érdekében?
 
-Használjon [BLOB-kezelési stratégiákat](/slides/hu/net/manage-blob/), korlátozza a memóriában tárolt adatot átmeneti fájlokkal, és részesítse előnyben a fájlalapú munkafolyamatokat a tisztán memóriaáramok helyett.
+Használjon [BLOB kezelési stratégiákat](/slides/hu/net/manage-blob/), korlátozza a memóriában tárolt adatot ideiglenes fájlok használatával, és részesítse előnyben a fájlalapú munkafolyamatokat a tisztán memóriában lévő adatfolyamok helyett.
 
-**Létrehozhatok/menthetek prezentációkat párhuzamosan?**
+### Létrehozhatok/menthetek prezentációkat párhuzamosan?
 
-Nem kezelhet ugyanazon [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányt [több szál](/slides/hu/net/multithreading/)ból. Indítson külön, izolált példányokat szálanként vagy folyamatonként.
+Nem lehet ugyanazon a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányon műveleteket végezni [több szálról](/slides/hu/net/multithreading/). Indítson külön, elszigetelt példányokat szálonként vagy folyamatonként.
 
-**Hogyan távolíthatom el a próba‑vízjelet és a korlátozásokat?**
+### Hogyan távolíthatom el a próbaverzió vízjelét és korlátozásait?
 
-[Alkalmazzon licencet](/slides/hu/net/licensing/) egyszer a folyamatban. A licenc XML‑nek változatlanul kell maradnia, és a licencbeállítást szinkronizálni kell, ha több szál használja.
+[Alkalmazzon licencet](/slides/hu/net/licensing/) egyszer a folyamat során. A licenc XML‑nek változatlanul kell maradnia, és a licenc beállítását szinkronizálni kell, ha több szál is érintett.
 
-**Alá tudom-e írni digitálisan a létrehozott PPTX‑et?**
+### Aláírhatom digitálisan a létrehozott PPTX‑t?
 
-Igen. A [digitális aláírások](/slides/hu/net/digital-signature-in-powerpoint/) (létrehozás és ellenőrzés) támogatottak a prezentációk esetén.
+Igen. A [digitális aláírások](/slides/hu/net/digital-signature-in-powerpoint/) (létrehozása és ellenőrzése) támogatottak a prezentációknál.
 
-**Támogatottak a makrók (VBA) a létrehozott prezentációkban?**
+### Támogatottak a makrók (VBA) a létrehozott prezentációkban?
 
-Igen. [Létrehozhat/szerkeszthet VBA projekteket](/slides/hu/net/presentation-via-vba/), és menthet makró‑engedélyezett fájlokat, például PPTM/PPSM.
+Igen. [Létrehozhat/szerkeszthet VBA projekteket](/slides/hu/net/presentation-via-vba/), és menthet makróval engedélyezett fájlokat, például PPTM/PPSM.

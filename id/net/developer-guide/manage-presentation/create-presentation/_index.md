@@ -23,92 +23,96 @@ description: "Buat presentasi di .NET dengan Aspose.Slides—hasilkan file PPT, 
 ---
 ## **Gambaran Umum**
 
-Artikel ini menunjukkan cara membuat presentasi di Aspose.Slides, menambahkan konten sederhana ke slide, dan menyimpan hasilnya sebagai file. Artikel ini juga memperlihatkan cara membuat dan menyimpan presentasi baru, membuka presentasi yang sudah ada dalam format yang didukung, dan menyimpannya ke format lain. Selain itu, artikel ini mencakup FAQ singkat yang membahas pertanyaan umum terkait format, templat, ukuran slide, satuan, penggunaan memori, threading, lisensi, tanda tangan digital, dan dukungan VBA.
+Artikel ini menunjukkan cara membuat presentasi di Aspose.Slides, menambahkan kotak teks ke slide pertamanya, dan menyimpan hasilnya sebagai file. Artikel ini juga menunjukkan cara membuat dan menyimpan presentasi kosong, serta cara membuka presentasi yang ada dalam format yang didukung dan menyimpannya dalam format lain. FAQ singkat di bagian akhir mencakup pertanyaan umum tentang format, templat, ukuran slide, satuan, penggunaan memori, threading, lisensi, tanda tangan digital, dan dukungan VBA.
 
-## **Buat Presentasi PowerPoint**
-Untuk menambahkan garis sederhana ke slide yang dipilih dalam presentasi, ikuti langkah-langkah berikut:
+Sebelum memulai, tambahkan Aspose.Slides ke proyek Anda dari NuGet. Lihat [Installation](/slides/id/net/installation/) untuk paket yang digunakan pada Windows, Linux, dan macOS.
 
-1. Buat sebuah instance dari kelas Presentation.
-2. Dapatkan referensi slide dengan menggunakan Index-nya.
-3. Tambahkan AutoShape tipe Line menggunakan metode AddAutoShape yang disediakan oleh objek Shapes.
-4. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+## **Membuat Presentasi PowerPoint**
 
-Pada contoh di bawah ini, kami telah menambahkan garis ke slide pertama presentasi.
+Untuk membuat presentasi dan menempatkan kotak teks pada slide pertama, ikuti langkah‑langkah berikut:
+
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
+2. Dapatkan slide tersebut dari koleksi [Slides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slides/id/) dengan indeksnya, 0.  
+3. Tambahkan persegi panjang dengan metode [AddAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addautoshape/) dan atur [teks](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/text/).  
+4. Simpan presentasi sebagai file PPTX dengan metode [Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/).
 
 ```c#
-// Membuat objek Presentation yang mewakili file presentasi
-using (Presentation presentation = new Presentation())
-{
-    // Mengambil slide pertama
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Menambahkan autoshape tipe garis
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-## **Buat dan Simpan Presentasi**
+Sudut kiri atas persegi panjang berada 50 poin dari tepi kiri dan 50 poin dari tepi atas slide, dan persegi panjang tersebut memiliki lebar 400 poin dan tinggi 100 poin. File yang disimpan berisi satu slide dengan persegi panjang itu dan teksnya. Tanpa lisensi, Aspose.Slides juga menambahkan watermark evaluasi pada setiap slide yang disimpan; lihat [Licensing](/slides/id/net/licensing/).
 
-<a name="csharp-create-save-presentation"><strong>Langkah: Buat dan Simpan Presentasi dalam C#</strong></a>
+## **Membuat dan Menyimpan Presentasi**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-2. Simpan _Presentation_ ke format apa pun yang didukung oleh [SaveFormat](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/)
+<a name="csharp-create-save-presentation"></a>
+
+Untuk membuat presentasi kosong dan menyimpannya, buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan simpan dalam format apa pun dari enumerasi [SaveFormat](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/). Hasilnya adalah presentasi dengan satu slide kosong.
 
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Buka dan Simpan Presentasi**
+## **Membuka dan Menyimpan Presentasi**
 
-<a name="csharp-open-save-presentation"><strong>Langkah: Buka dan Simpan Presentasi dalam C#</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dengan format apa pun, misalnya PPT, PPTX, ODP, dll.
-2. Simpan _Presentation_ ke format apa pun yang didukung oleh [SaveFormat](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/)
+Untuk mengonversi presentasi dari satu format ke format lain, buka dengan memberikan jalurnya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/presentation/), lalu simpan dalam format target. Aspose.Slides mendeteksi format input, seperti PPT, PPTX, atau ODP, dari file itu sendiri.
+
+Contoh di bawah mengharapkan sebuah presentasi OpenDocument bernama *Sample.odp* di direktori kerja dan menyimpannya sebagai PPTX.
 
 ```c#
-// Muat file yang didukung apa pun di Presentation misalnya ppt, pptx, odp dll.
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Format apa yang dapat saya gunakan untuk menyimpan presentasi baru?**
+### Format apa yang dapat saya simpan untuk presentasi baru?
 
-Anda dapat menyimpan ke [PPTX, PPT, dan ODP](/slides/id/net/save-presentation/), dan mengekspor ke [PDF](/slides/id/net/convert-powerpoint-to-pdf/), [XPS](/slides/id/net/convert-powerpoint-to-xps/), [HTML](/slides/id/net/convert-powerpoint-to-html/), [SVG](/slides/id/net/convert-powerpoint-to-png/), dan [gambar](/slides/id/net/convert-powerpoint-to-png/), serta lainnya.
+Anda dapat menyimpan ke [PPTX, PPT, dan ODP](/slides/id/net/save-presentation/), dan mengekspor ke [PDF](/slides/id/net/convert-powerpoint-to-pdf/), [XPS](/slides/id/net/convert-powerpoint-to-xps/), [HTML](/slides/id/net/convert-powerpoint-to-html/), [SVG](/slides/id/net/render-a-slide-as-an-svg-image/), serta [gambar](/slides/id/net/convert-powerpoint-to-png/), antara lain.
 
-**Apakah saya dapat memulai dari templat (POTX/POTM) dan menyimpan sebagai PPTX reguler?**
+### Bisakah saya memulai dari templat (POTX/POTM) dan menyimpan sebagai PPTX biasa?
 
-Ya. Muat templat tersebut dan simpan ke format yang diinginkan; format POTX/POTM/PPTM dan format serupa [didukung](/slides/id/net/supported-file-formats/).
+Ya. Muat templat dan simpan ke format yang diinginkan; format POTX/POTM/PPTM dan format serupa [didukung](/slides/id/net/supported-file-formats/).
 
-**Bagaimana saya mengontrol ukuran slide/rasio aspek saat membuat presentasi?**
+### Bagaimana cara mengontrol ukuran slide/rasio aspek saat membuat presentasi?
 
-Atur [ukuran slide](/slides/id/net/slide-size/) (termasuk preset seperti 4:3 dan 16:9 atau dimensi kustom) dan pilih cara konten harus diskalakan.
+Atur [slide size](/slides/id/net/slide-size/) (termasuk preset seperti 4:3 dan 16:9 atau dimensi khusus) dan pilih bagaimana konten harus di‑skala.
 
-**Dalam satuan apa ukuran dan koordinat diukur?**
+### Dalam satuan apa ukuran dan koordinat diukur?
 
-Dalam poin: 1 inci sama dengan 72 unit.
+Dalam poin: 1 inci sama dengan 72 satuan.
 
-**Bagaimana saya menangani presentasi sangat besar (dengan banyak file media) untuk mengurangi penggunaan memori?**
+### Bagaimana cara menangani presentasi yang sangat besar (dengan banyak file media) untuk mengurangi penggunaan memori?
 
-Gunakan [strategi manajemen BLOB](/slides/id/net/manage-blob/), batasi penyimpanan dalam memori dengan memanfaatkan file sementara, dan pilih alur kerja berbasis file daripada alur kerja murni dalam memori.
+Gunakan [BLOB management strategies](/slides/id/net/manage-blob/), batasi penyimpanan dalam memori dengan memanfaatkan file sementara, dan lebih pilih alur kerja berbasis file dibandingkan aliran murni dalam memori.
 
-**Bisakah saya membuat/menyimpan presentasi secara paralel?**
+### Bisakah saya membuat/menyimpan presentasi secara paralel?
 
-Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) yang sama dari [banyak thread](/slides/id/net/multithreading/). Jalankan instance terpisah yang terisolasi per thread atau proses.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/net/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
 
-**Bagaimana cara menghapus watermark percobaan dan batasan?**
+### Bagaimana cara menghilangkan watermark percobaan dan batasan?
 
-[Terapkan lisensi](/slides/id/net/licensing/) sekali per proses. XML lisensi harus tetap tidak diubah, dan penyiapan lisensi harus disinkronkan jika banyak thread terlibat.
+[Terapkan lisensi](/slides/id/net/licensing/) sekali per proses. XML lisensi harus tetap tidak diubah, dan pengaturan lisensi harus disinkronkan jika beberapa thread terlibat.
 
-**Bisakah saya menandatangani digital PPTX yang saya buat?**
+### Bisakah saya menandatangani secara digital PPTX yang saya buat?
 
-Ya. [Tanda tangan digital](/slides/id/net/digital-signature-in-powerpoint/) (penambahan dan verifikasi) didukung untuk presentasi.
+Ya. [Digital signatures](/slides/id/net/digital-signature-in-powerpoint/) (menambah dan memverifikasi) didukung untuk presentasi.
 
-**Apakah makro (VBA) didukung dalam presentasi yang dibuat?**
+### Apakah makro (VBA) didukung dalam presentasi yang dibuat?
 
-Ya. Anda dapat [membuat/mengedit proyek VBA](/slides/id/net/presentation-via-vba/) dan menyimpan file yang mendukung makro seperti PPTM/PPSM.
+Ya. Anda dapat [buat/ubah proyek VBA](/slides/id/net/presentation-via-vba/) dan menyimpan file yang mendukung makro seperti PPTM/PPSM.

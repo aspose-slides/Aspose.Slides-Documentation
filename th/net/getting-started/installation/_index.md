@@ -17,91 +17,114 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีติดตั้ง Aspose.Slides for .NET อย่างรวดเร็ว คู่มือแบบขั้นตอน ระบบข้อกำหนด และตัวอย่างโค้ด — เริ่มทำงานกับการนำเสนอ PowerPoint วันนี้!"
+description: "ติดตั้ง Aspose.Slides for .NET จาก NuGet บน Windows, Linux, และ macOS: เลือกระหว่างสองแพ็กเกจ, เพิ่มหนึ่งแพ็กเกจด้วย .NET CLI หรือ Visual Studio, และติดตั้งข้อกำหนดล่วงหน้าของ Linux."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการติดตั้ง Aspose.Slides for .NET บน Windows, Linux และ macOS โดยมุ่งเน้นการติดตั้งผ่าน NuGet และแสดงวิธีเพิ่มไลบรารีด้วย NuGet Package Manager หรือ Package Manager Console บน Windows, ในโครงการ .NET บน Linux, และในโครงการ Visual Studio บน macOS นอกจากนี้ยังอธิบายวิธีอัปเดตแพคเกจและติดตั้ง build รุ่นก่อนออกเมื่อจำเป็น
+บทความนี้อธิบายวิธีเพิ่ม Aspose.Slides for .NET ลงในโครงการบน Windows, Linux และ macOS. Aspose.Slides แจกจ่ายผ่าน NuGet. คุณสามารถเพิ่มได้ด้วย .NET CLI บนระบบปฏิบัติการใดก็ได้, หรือด้วย NuGet Package Manager หรือ Package Manager Console ใน Visual Studio บน Windows. บทความนี้ยังอธิบายว่าควรเลือก NuGet package ใดจากสองตัวและ Linux ต้องการอะไรเพิ่มเติม.
 
-ก่อนการติดตั้ง ให้ตรวจสอบระบบปฏิบัติการที่รองรับ, การทำงานของ .NET, และการพึ่งพาเพิ่มเติมใน [ข้อกำหนดระบบ](/slides/th/net/system-requirements/)
+ก่อนทำการติดตั้ง ให้ตรวจสอบระบบปฏิบัติการที่รองรับ, การนำ .NET ไปใช้, และการพึ่งพาเพิ่มเติมใน [ข้อกำหนดระบบ](/slides/th/net/system-requirements/).
+
+## **เลือกแพ็กเกจ**
+
+Aspose.Slides for .NET มีการเผยแพร่เป็น NuGet packages สองตัว. ทั้งสองให้ namespace และคลาสของ Aspose.Slides เดียวกัน, ดังนั้นโค้ดของคุณจะไม่เปลี่ยนเมื่อสลับระหว่างพวกมัน; เพียงแค่การอ้างอิงแพ็กเกจและข้อกำหนดของแพลตฟอร์มที่แตกต่างกัน.
+
+| แพ็กเกจ | ใช้สำหรับ | ความต้องการเพิ่มเติม |
+|---|---|---|
+| [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) | Windows และแอปพลิเคชัน .NET Framework | บน Linux และ macOS: ไลบรารี `libgdiplus` และสวิตช์ `System.Drawing.EnableUnixSupport` ที่เปิดใช้งานเมื่อตัวแอปพลิเคชันเริ่มทำงาน |
+| [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) | .NET 6 หรือรุ่นถัดไปบน Windows, Linux, และ macOS | บน Linux: ไลบรารี `fontconfig` หากยังไม่ได้ติดตั้ง |
+
+หากคุณไม่แน่ใจ ให้ใช้ Aspose.Slides.NET บน Windows และ Aspose.Slides.NET6.CrossPlatform บน Linux และ macOS. บน Alpine Linux และบนระบบ Linux ที่ glibc มีอายุเก่ากว่า 2.23 (x64) หรือ 2.39 (ARM64) ให้ใช้ Aspose.Slides.NET แทน. [ข้อกำหนดระบบ](/slides/th/net/system-requirements/) ระบุแพลตฟอร์มที่รองรับของแต่ละแพ็กเกจ.
+
+## **ติดตั้งด้วย .NET CLI**
+
+ขั้นตอนเหล่านี้ทำงานบน Windows, Linux, และ macOS ด้วย .NET SDK 6 หรือรุ่นถัดไป. สร้างแอปพลิเคชันคอนโซล:
+
+```bash
+dotnet new console -n HelloSlides
+cd HelloSlides
+```
+
+จากนั้นเพิ่มแพ็กเกจสำหรับแพล็ตฟอร์มของคุณ. เพิ่มเพียงหนึ่งในสองแพ็กเกจลงในโครงการ.
+
+- บน Windows: `dotnet add package Aspose.Slides.NET`
+- บน Linux และ macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` (บน Linux ให้ติดตั้งสิ่งที่ต้องการล่วงหน้าก่อน; ดู [Linux](#linux))
+
+เพื่อตรวจสอบว่าแพ็กเกจทำงาน, แทนที่เนื้อหาของ *Program.cs* ด้วยตัวอย่างแรกใน [สร้างการนำเสนอ](/slides/th/net/create-presentation/) แล้วรัน `dotnet run`. มันจะบันทึกไฟล์ *hello.pptx* ลงในโฟลเดอร์ของโครงการ.
 
 ## **Windows**
-NuGet ให้วิธีที่ง่ายที่สุดในการดาวน์โหลดและติดตั้ง Aspose API สำหรับ .NET บนพีซี
 
 ### **วิธีที่ 1: ติดตั้งหรืออัปเดต Aspose.Slides จาก NuGet Package Manager**
 
-1. เปิด Microsoft Visual Studio  
-2. สร้างแอปคอนโซลง่าย ๆ หรือเปิดโครงการที่มีอยู่  
-3. ไปที่ **Tools** > **NuGet package manager**  
-4. ภายใต้ **Browse** ค้นหา *Aspose Slides* ในช่องข้อความ  
+1. เปิด Microsoft Visual Studio.
+2. สร้างแอปคอนโซลหรือเปิดโครงการที่มีอยู่.
+3. ใน **Solution Explorer**, คลิกขวาที่โครงการและเลือก **Manage NuGet Packages** (หรือไปที่ **Project** > **Manage NuGet Packages**).
+4. ภายใต้ **Browse**, ค้นหา *Aspose.Slides*.
 {{% image img="installation_1.png" alt="การติดตั้ง Aspose.Slides จาก NuGet Package Manager - 1" %}}
-5. คลิก **Aspose.Slides.NET** แล้วคลิก **Install**  
-   * หากต้องการอัปเดต Aspose.Slides — สมมติว่าคุณได้ติดตั้งไว้แล้ว — คลิก **Update** แทน  
+5. คลิก **Aspose.Slides.NET** แล้วคลิก **Install**.
+   * หากคุณได้ติดตั้ง Aspose.Slides แล้วและต้องการอัปเดต, คลิก **Update** แทน.
 
-API ที่เลือกจะถูกดาวน์โหลดและอ้างอิงในโครงการของคุณ
+แพ็กเกจจะถูกดาวน์โหลดและอ้างอิงในโครงการของคุณ.
 
 ### **วิธีที่ 2: ติดตั้งหรืออัปเดต Aspose.Slides ผ่าน Package Manager Console**
 
-นี่คือวิธีการอ้างอิง [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.NET/) ผ่านคอนโซลผู้จัดการแพคเกจ:
+นี่คือวิธีที่คุณอ้างอิงแพ็กเกจ [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) ผ่าน Package Manager Console:
 
-1. เปิด Microsoft Visual Studio  
-2. สร้างแอปคอนโซลง่าย ๆ หรือเปิดโครงการที่มีอยู่  
-3. ไปที่ **Tools** > **Library Package Manager** > **Package Manager Console**  
-![todo:image_alt_text](installation_2.png)
-4. รันคำสั่งนี้: `Install-Package Aspose.Slides.NET`  
-![todo:image_alt_text](installation_3.png)
-รุ่นเต็มล่าสุดจะถูกติดตั้งในแอปพลิเคชันของคุณ  
+1. เปิด Microsoft Visual Studio.
+2. สร้างแอปคอนโซลหรือเปิดโครงการที่มีอยู่.
+3. ไปที่ **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+![เปิด Package Manager Console](installation_2.png)
+4. รันคำสั่งนี้: `Install-Package Aspose.Slides.NET`
+![รันคำสั่ง Install-Package](installation_3.png)
+รุ่นล่าสุดจะถูกติดตั้งในโครงการของคุณ.
 
-* หรือคุณสามารถเพิ่มส่วนต่อท้าย `-prerelease` เพื่อระบุให้ติดตั้งรุ่นล่าสุด (รวม hotfix) ด้วย  
+ข้อความ **Installing Aspose.Slides.NET** ปรากฏที่ด้านล่างของหน้าต่าง.
+![ความคืบหน้าในการติดตั้งใน Package Manager Console](installation_4.png)
 
-คำแนะนำ **Installing Aspose.Slides.NET** จะปรากฏที่ด้านล่างของหน้าต่าง  
-![todo:image_alt_text](installation_4.png)
+เมื่อดาวน์โหลดเสร็จ, จะมีข้อความยืนยันปรากฏ. แพ็กเกจนี้จัดจำหน่ายภายใต้ [Aspose EULA](https://about.aspose.com/legal/eula).
+![ข้อความยืนยันการติดตั้ง](installation_5.png)
 
-เมื่อการดาวน์โหลดเสร็จสิ้น คุณควรเห็นข้อความยืนยันบางอย่าง  
+Aspose.Slides ถูกเพิ่มเข้าในโครงการของคุณและอ้างอิงแล้ว.
+![Aspose.Slides ถูกอ้างอิงในโครงการ](installation_6.png)
 
-หากคุณไม่คุ้นเคยกับ [ข้อตกลง EULA ของ Aspose](https://about.aspose.com/legal/eula) คุณอาจต้องการอ่านใบอนุญาตที่ระบุใน URL  
-![todo:image_alt_text](installation_5.png)
-
-ในแอปพลิเคชันของคุณ คุณควรเห็นว่า Aspose.Slides ได้ถูกเพิ่มและอ้างอิงอย่างสำเร็จ  
-![todo:image_alt_text](installation_6.png)
-
-ใน Package Manager Console คุณสามารถรันคำสั่ง `Update-Package Aspose.Slides.NET` เพื่อเช็คการอัปเดตของแพคเกจ Aspose.Slides การอัปเดต (ถ้ามี) จะถูกติดตั้งโดยอัตโนมัติ คุณสามารถใช้ส่วนต่อท้าย `-prerelease` เพื่ออัปเดตรุ่นล่าสุดได้เช่นกัน  
-
-#### **ข้อควรพิจารณาเมื่อทำงานบนสภาพแวดล้อมเซิร์ฟเวอร์ที่ใช้ร่วมกัน**
-เราขอแนะนำอย่างยิ่งให้คุณรันคอมโพเนนต์ Aspose .NET ทั้งหมดด้วยชุดสิทธิ์ **Full Trust** เนื่องจากคอมโพเนนต์ Aspose บางครั้งต้องเข้าถึงการตั้งค่าจดหมายทะเบียนและไฟล์ในตำแหน่งที่ไม่ใช่ไดเรกทอรีเสมือน — เช่น เมื่อต้องอ่านฟอนต์  
-
-นอกจากนี้คอมโพเนนต์ Aspose.NET พื้นฐานมาจากคลาสระบบ .NET หลัก — และบางคลาสเหล่านั้นก็ต้องการสิทธิ์ Full Trust สำหรับการทำงานในบางกรณี  
-
-ผู้ให้บริการอินเทอร์เน็ต (ISP) ที่โฮสต์แอปพลิเคชันหลาย ๆ ตัวจากบริษัทต่าง ๆ มักบังคับใช้ระดับความปลอดภัย **Medium Trust** ในกรณี .NET 2.0 ระดับความปลอดภัยนี้อาจทำให้เกิดข้อจำกัดที่ส่งผลต่อการทำงานของ Aspose.Slides:
-
-- **RegistryPermission** ไม่พร้อมใช้งาน หมายความว่าคุณไม่สามารถเข้าถึงรีจิสทรีได้ ซึ่งจำเป็นสำหรับการนับฟอนต์ที่ติดตั้งเมื่อเรนเดอร์เอกสาร  
-- **FileIOPermission** ถูกจำกัด หมายความว่าคุณสามารถเข้าถึงไฟล์ได้เฉพาะในไดเรกทอรีเสมือนของแอปพลิเคชันของคุณเท่านั้น ซึ่งอาจทำให้ไม่สามารถอ่านฟอนต์ได้ในระหว่างการส่งออก  
-
-ด้วยเหตุผลดังกล่าว เราแนะนำอย่างยิ่งให้คุณรัน Aspose.Slides ด้วยสิทธิ์ **Full Trust** หากคุณใช้ **Medium Trust** คุณอาจพบความไม่สอดคล้อง — ฟีเจอร์บางอย่างของไลบรารี (เช่น การเรนเดอร์) อาจไม่ทำงานเมื่อทำงานบางอย่าง  
+เพื่ออัปเดตแพ็กเกจ, รัน `Update-Package Aspose.Slides.NET` ใน Package Manager Console.
 
 ## **Linux**
 
-NuGet ให้วิธีที่ง่ายที่สุดในการดาวน์โหลดและติดตั้ง Aspose.Slides for .NET บน Linux ให้เพิ่มแพคเกจ [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) ไปยังโครงการ .NET ของคุณ
+ใช้ขั้นตอน .NET CLI ด้านบน. เลือกแพ็กเกจและติดตั้งสิ่งที่ต้องการล่วงหน้าด้วยผู้จัดการแพ็กเกจของการแจกแจงของคุณ. บน Debian และ Ubuntu:
+
+- **Aspose.Slides.NET6.CrossPlatform**: ติดตั้ง `fontconfig`.
+
+  ```bash
+  sudo apt-get update && sudo apt-get install -y libfontconfig1
+  dotnet add package Aspose.Slides.NET6.CrossPlatform
+```
+
+- **Aspose.Slides.NET**: ติดตั้ง `libgdiplus` และเปิดใช้งานการสนับสนุน Unix สำหรับ System.Drawing ก่อนที่แอปพลิเคชันของคุณจะใช้ Aspose.Slides.
+
+  ```bash
+  sudo apt-get update && sudo apt-get install -y libgdiplus
+  dotnet add package Aspose.Slides.NET
+```
+
+เพิ่มคำสั่งนี้ที่จุดเริ่มต้นของแอปพลิเคชันของคุณ, ก่อนการเรียกใช้ Aspose.Slides ใดๆ. ในไฟล์ *Program.cs* ที่มีคำสั่งระดับบนสุด, วางหลังจากคำสั่ง `using`:
+```c#
+  System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+```
+
+ใช้แพ็กเกจนี้บน Alpine Linux, และบนระบบที่ glibc เก่าเกินไปสำหรับ Aspose.Slides.NET6.CrossPlatform.
+
+ฟอนต์ที่ใช้ในงานนำเสนอของคุณ, หรือฟอนต์ทดแทนที่เหมาะสม, ต้องติดตั้งบนระบบเพื่อให้ข้อความแสดงผลอย่างถูกต้อง. [ข้อกำหนดระบบ](/slides/th/net/system-requirements/) อธิบายแพ็กเกจที่ Aspose.Slides.NET ต้องการบน Alpine Linux, รวมถึงฟอนต์.
 
 ## **macOS**
 
-NuGet ให้วิธีที่ง่ายที่สุดในการดาวน์โหลดและติดตั้ง Aspose.Slides for .NET บน macs
+ใช้ขั้นตอน .NET CLI ด้านบนกับแพ็กเกจ **Aspose.Slides.NET6.CrossPlatform**, ซึ่งสนับสนุน Mac ทั้งแบบ Intel (x86_64) และ Apple silicon (ARM64):
+```bash
+dotnet add package Aspose.Slides.NET6.CrossPlatform
+```
 
-### **ติดตั้ง Aspose.Slides**
+## **คำถามที่พบบ่อย**
 
-1. เปิด Visual Studio  
-2. สร้างแอปคอนโซลง่าย ๆ หรือเปิดโครงการที่มีอยู่  
-3. ไปที่ **Project** > **Manage NuGet Packages...**  
-   ![path-to-nuget-macos](path-to-nuget-macos.png)
-4. พิมพ์ *Aspose.Slides* ลงในช่องข้อความ  
-5. คลิก **Aspose.Slides for .NET** แล้วคลิก **Add Package**  
-6. เพิ่มโค้ดสั้น ๆ  
-   * คุณสามารถคัดลอกรหัสจาก [หน้านี้](/slides/th/net/create-presentation/)  
-7. รันแอปพลิเคชัน  
-8. เปิด *folder/bin/Debug/presentation_file_name* ของโครงการคุณ  
+**มีเวอร์ชันฟรีหรือข้อจำกัดของรุ่นทดลองไหม?**
 
-## **FAQ**
-
-**มีเวอร์ชันฟรีหรือข้อจำกัดของรุ่นทดลองหรือไม่?**
-
-ใช่ โดยค่าเริ่มต้น Aspose.Slides จะทำงานในโหมดประเมินผล ซึ่งจะใส่น้ำลายน้ำและอาจมีข้อจำกัดอื่น ๆ หากต้องการลบข้อจำกัดเหล่านั้น คุณต้องใช้ [ใบอนุญาต](/slides/th/net/licensing/) ที่ถูกต้อง.
+ใช่. หากไม่มีใบอนุญาต, Aspose.Slides จะทำงานในโหมดประเมินผล: จะเพิ่มลายน้ำการประเมินผลในทุกสไลด์ที่บันทึกและตัดข้อความที่อ่านจากการนำเสนอ. เพื่อลบข้อจำกัดเหล่านี้, ให้ใช้ใบอนุญาตที่ถูกต้อง [ใบอนุญาต](/slides/th/net/licensing/).
