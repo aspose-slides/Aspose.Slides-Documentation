@@ -7,12 +7,11 @@ WHY THIS EXISTS
     `sudo rm -rf` on the live directory, so the moment a `url:` value changes or vanishes, the old
     URL returns a hard 404 with no redirect.
 
-    Measured 2026-07-28: 227 URLs carrying 62,287 impressions/year were 404ing, and the content repo
-    contained NO `aliases:` key anywhere in 43,566 files. Three URL-destroying renames landed in the
-    eight weeks before that measurement (SLIDESDOC-609, -731, -753).
+    When this check was added the content repo contained NO `aliases:` key anywhere, and three
+    URL-destroying renames had landed in the eight weeks before (SLIDESDOC-609, -731, -753).
 
     Hugo 0.80 supports `aliases:` natively. This check makes forgetting it a build failure instead of
-    a silent traffic loss discovered a quarter later.
+    a silent 404 discovered much later.
 
 USAGE
     python check_url_removal.py <base-ref> <head-ref>
