@@ -73,14 +73,14 @@ Aspose.Slides for .NET .NET एप्लिकेशन में PowerPoint औ
 <hr>
 <p>संदर्भ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hi/net/">API संदर्भ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/net/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API संदर्भ</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">रिलीज़ नोट्स</a></li>
 <li><a href="/slides/hi/net/known-issues/">ज्ञात समस्याएँ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/net/">डाउनलोड</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">डाउनलोड</a></li>
 </ul>
 <p>समर्थन</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">मुक्त समर्थन फ़ोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">मुक्त समर्थन फ़ोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">भुगतान किया गया समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>
