@@ -73,14 +73,14 @@ Nó tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP, bao gồm c�
 <hr>
 <p>THAM KHẢO</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/vi/net/">Tham chiếu API</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/net/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Tham chiếu API</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Ghi chú phát hành</a></li>
 <li><a href="/slides/vi/net/known-issues/">Vấn đề đã biết</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/net/">Tải xuống</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Bàn trợ giúp hỗ trợ trả phí</a></li>
 </ul>
 </div>
