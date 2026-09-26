@@ -1,5 +1,5 @@
 ---
-title: Správa poznámek prezentace v Pythonu přes Java
+title: Spravovat poznámky k prezentaci v Pythonu přes Java
 linktitle: Poznámky k prezentaci
 type: docs
 weight: 110
@@ -17,18 +17,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Přizpůsobte poznámky prezentace pomocí Aspose.Slides pro Python přes Java. Plynule pracujte s poznámkami v PowerPoint a OpenDocument a zvyšte svou produktivitu."
+description: "Přizpůsobte si poznámky k prezentaci pomocí Aspose.Slides pro Python přes Java. Bezproblémově pracujte s poznámkami v PowerPointu a OpenDocument, abyste zvýšili svou produktivitu."
 ---
 ## **Přehled**
 
-Aspose.Slides podporuje odstraňování poznámkových snímků z prezentace. Toto téma představuje tuto funkci, včetně toho, jak odstranit poznámky a jak použít styl na poznámkové snímky v prezentaci. Aspose.Slides vám umožňuje odstranit poznámky z libovolného snímku a aplikovat stylování na existující poznámky. Vývojáři mohou odstraňovat poznámky následujícími způsoby:
+Aspose.Slides podporuje odstraňování snímků s poznámkami z prezentace. Toto téma představuje tuto funkci, včetně toho, jak odstranit poznámky a jak použít styl na snímky s poznámkami v prezentaci. Aspose.Slides vám umožňuje odstranit poznámky z libovolného snímku a použít formátování na existující poznámky. Vývojáři mohou odstranit poznámky následujícími způsoby:
 
 - Odstranit poznámky z konkrétního snímku v prezentaci.
 - Odstranit poznámky ze všech snímků v prezentaci.
 
+Pro čtení nebo změnu rozměrů stránky s poznámkami, přepnutí orientace a kontrolu chování exportu viz [Notes Page Size](/slides/cs/python-java/notes-size/).
+
 ## **Odstranit poznámky ze snímku**
 
-Poznámky z konkrétního snímku lze odstranit, jak je ukázáno v níže uvedeném příkladu:
+Poznámky z konkrétního snímku lze odstranit, jak je uvedeno v níže uvedeném příkladu:
 
 ```python
 import jpype
@@ -98,7 +100,7 @@ try:
     notes_master = presentation.getMasterNotesSlideManager().getMasterNotesSlide()
 
     if notes_master is not None:
-        # Získejte styl textu hlavního snímku poznámek.
+        # Získejte styl textu hlavního snímku s poznámkami.
         notes_style = notes_master.getNotesStyle()
 
         # Nastavte symbolické odrážky pro odstavce první úrovně.
@@ -110,9 +112,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Která entita API poskytuje přístup k poznámkám konkrétního snímku?**
+**Která API entita poskytuje přístup k poznámkám konkrétního snímku?**
 
 Poznámky jsou přístupné prostřednictvím správce poznámek snímku: snímek má [NotesSlideManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notesslidemanager/) a metodu [getNotesSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notesslidemanager/#getNotesSlide), která vrací objekt poznámek, nebo `None`, pokud žádné poznámky neexistují.
 

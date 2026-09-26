@@ -3,7 +3,7 @@ title: Konvertera presentationer i handout‑läge med Python
 linktitle: Handout‑läge
 type: docs
 weight: 150
-url: /sv/python-net/convert-powerpoint-in-Handout-mode/
+url: /sv/python-net/convert-powerpoint-in-handout-mode/
 keywords:
 - konvertera PowerPoint
 - konvertera presentation
@@ -15,20 +15,24 @@ keywords:
 - PPTX
 - Python
 - Aspose.Slides
-description: "Konvertera presentationer till handouts i Python. Ställ in bilder per sida, behåll anteckningar, exportera till PDF eller bilder med Aspose.Slides, med exempel kod. Prova det gratis."
+description: "Konvertera presentationer till handouts i Python. Ställ in bilder per sida, behåll anteckningar, exportera till PDF eller bilder med Aspose.Slides, med exempelprogramkod. Prova gratis."
 ---
 ## **Introduktion**
 
-Aspose.Slides tillhandahåller möjligheten att konvertera presentationer till olika format, inklusive att skapa handouts för utskrift i Handout‑läge. Detta läge låter dig konfigurera hur flera bilder visas på en enda sida, vilket gör det användbart för konferenser, seminarier och andra evenemang. Du kan aktivera detta läge genom att sätta egenskapen `slides_layout_options` i klasserna [PdfOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/htmloptions/) och [TiffOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/tiffoptions/).
+Aspose.Slides erbjuder möjligheten att konvertera presentationer till olika format, inklusive att skapa handouts för utskrift i Handout‑läge. Detta läge låter dig konfigurera hur flera bilder visas på en enda sida, vilket är användbart för konferenser, seminarier och andra evenemang. Du kan aktivera detta läge genom att sätta egenskapen `slides_layout_options` i klasserna [PdfOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/htmloptions/) och [TiffOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/tiffoptions/).
+
+För att ställa in handout‑sidans dimensioner och orientering innan export, se [Notessidans storlek](/slides/sv/python-net/notes-size/).
 
 ## **Export av Handout‑läge**
 
-För att konfigurera Handout‑läge, använd objektet [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/handoutlayoutingoptions/), som bestämmer hur många bilder som placeras på en enda sida samt andra visningsparametrar.
+För att konfigurera Handout‑läget, använd objektet [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/handoutlayoutingoptions/), som bestämmer hur många bilder som placeras på en enda sida och andra visningsparametrar.
 
-Nedan är ett kodexempel som visar hur du konverterar en presentation till PDF i Handout‑läge.
+Nedan följer ett kodexempel som visar hur du konverterar en presentation till PDF i Handout‑läge.
 
 ```py
-# Laddar en presentation.
+import aspose.slides as slides
+
+# Ladda en presentation.
 with slides.Presentation("sample.pptx") as presentation:
 
     # Ställ in exportalternativen.
@@ -45,11 +49,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 Kom ihåg att egenskapen `slides_layout_options` endast är tillgänglig för vissa utdataformat, såsom PDF, HTML, TIFF, och vid rendering som bilder.
 {{% /alert %}} 
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Vad är det maximala antalet bildminiatyrer per sida i Handout‑läge?**
 

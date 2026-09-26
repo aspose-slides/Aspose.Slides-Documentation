@@ -1,5 +1,5 @@
 ---
-title: Konwertuj prezentacje PowerPoint na PDF z notatkami w języku Python
+title: Konwertuj prezentacje PowerPoint na PDF z notatkami w Pythonie
 linktitle: PowerPoint do PDF z notatkami
 type: docs
 weight: 50
@@ -21,15 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konwertuj prezentacje PPT i PPTX na PDF z notatkami prelegenta przy użyciu Aspose.Slides dla Pythona przez Javę. Skonfiguruj położenie notatek i zachowaj długie notatki."
+description: "Konwertuj prezentacje PPT i PPTX na PDF z notatkami prelegenta przy użyciu Aspose.Slides for Python via Java. Skonfiguruj położenie notatek i zachowaj długie notatki."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak konwertować prezentacje PowerPoint na PDF z notatkami prelegenta przy użyciu Aspose.Slides dla Pythona za pośrednictwem Javy. Możesz umieścić notatki pod każdym slajdem i pozwolić długim notatkom kontynuować na dodatkowych stronach. Inne ustawienia eksportu PDF znajdziesz w [Convert PowerPoint to PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/).
+Ten artykuł wyjaśnia, jak przekonwertować prezentacje PowerPoint do formatu PDF z notatkami prelegenta przy użyciu Aspose.Slides for Python via Java. Możesz dołączyć notatki pod każdym slajdem i umożliwić długim notatkom kontynuację na dodatkowych stronach. Inne ustawienia eksportu PDF znajdziesz w [Konwertuj PowerPoint do PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/).
 
-## **Konwertowanie PowerPoint na PDF z notatkami**
+Aby ustawić wymiary i orientację strony notatek przed eksportem, zobacz [Rozmiar strony notatek](/slides/pl/python-java/notes-size/).
 
-Użyj metody [save](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#save) klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/), aby wyeksportować prezentację PPT lub PPTX do formatu PDF. Aby dołączyć notatki prelegenta, utwórz obiekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notescommentslayoutingoptions/) i skonfiguruj położenie notatek za pomocą jego metody [setNotesPosition](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Przypisz ten układ do [PdfOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/) za pomocą [setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **Konwertuj PowerPoint do PDF z notatkami**
+
+Użyj metody [save](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#save) klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/), aby wyeksportować prezentację PPT lub PPTX do PDF. Aby uwzględnić notatki prelegenta, utwórz obiekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notescommentslayoutingoptions/) i skonfiguruj położenie notatek za pomocą jego metody [setNotesPosition](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Przypisz ten układ do [PdfOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/) używając [setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
 
 Poniższy przykład ładuje `sample.pptx` i eksportuje go do `output.pdf` z notatkami prelegenta pod slajdami:
 
@@ -51,26 +53,26 @@ try:
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(notes_options)
 
-    # Zapisz prezentację do PDF z notatkami prelegenta.
+    # Zapisz prezentację jako PDF z notatkami prelegenta.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}}
-Możesz także wypróbować [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/pl/conversion).
+{{% alert color="info" title="Uwaga" %}}
+Możesz również wypróbować [Internetowy konwerter PowerPoint do PDF](https://products.aspose.app/slides/pl/conversion).
 {{% /alert %}}
 
 ## **FAQ**
 
 **Jak mogę zapobiec obcięciu długich notatek prelegenta?**
 
-Użyj [NotesPositions.BottomFull](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notespositions/#BottomFull), jak w powyższym przykładzie. To ustawienie wyświetla pełne notatki, wykorzystując dodatkowe strony w razie potrzeby.
+Użyj [NotesPositions.BottomFull](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notespositions/#BottomFull), tak jak w powyższym przykładzie. To ustawienie wyświetla pełne notatki, używając dodatkowych stron w razie potrzeby.
 
-**Czy mogę utrzymać każdy slajd i jego notatki na jednej stronie?**
+**Czy mogę zachować każdy slajd i jego notatki na jednej stronie?**
 
-Użyj [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notespositions/#BottomTruncated). To ustawienie ogranicza notatki do jednej strony, więc notatki, które nie mieszczą się, mogą zostać obcięte.
+Użyj [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notespositions/#BottomTruncated). To ustawienie ogranicza notatki do jednej strony, więc notatki, które nie mieszczą się, mogą zostać przycięte.
 
 **Jak wyeksportować slajdy bez notatek prelegenta?**
 
-Pomiń konfigurację układu notatek i użyj standardowego eksportu PDF opisanego w [Convert PowerPoint to PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/).
+Pomiń konfigurację układu notatek i użyj standardowego eksportu PDF opisanego w [Konwertuj PowerPoint do PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/).

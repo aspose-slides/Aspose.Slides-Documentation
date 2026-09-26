@@ -18,18 +18,18 @@ keywords:
 - Aspose.Slides
 description: "Personaliza las notas de la presentación con Aspose.Slides para PHP a través de Java. Trabaja sin problemas con notas de PowerPoint y OpenDocument para aumentar tu productividad."
 ---
+## **Descripción general**
 
-{{% alert color="primary" %}}
-Aspose.Slides admite eliminar diapositivas de notas de una presentación. En este tema, presentaremos esta nueva funcionalidad de eliminar notas y también añadir diapositivas con estilo de notas a cualquier presentación.
-{{% /alert %}}
+Aspose.Slides admite la eliminación de diapositivas de notas de una presentación. En este tema, presentaremos esta característica, incluyendo cómo eliminar notas y cómo aplicar un estilo a las diapositivas de notas en una presentación. Aspose.Slides le permite eliminar notas de cualquier diapositiva y también aplicar estilos a las notas existentes. Los desarrolladores pueden eliminar notas de las siguientes maneras:
 
-Aspose.Slides para PHP a través de Java ofrece la función de eliminar notas de cualquier diapositiva, así como añadir estilo a las notas existentes. Los desarrolladores pueden eliminar notas de las siguientes maneras:
+- Eliminar notas de una diapositiva específica en una presentación.
+- Eliminar notas de todas las diapositivas de una presentación.
 
-* Eliminar notas de una diapositiva específica de una presentación.
-* Eliminar notas de todas las diapositivas de una presentación.
+Para leer o cambiar las dimensiones de la página de notas, cambiar la orientación y comprobar el comportamiento de exportación, vea [Tamaño de página de notas](/slides/es/php-java/notes-size/).
 
 ## **Eliminar notas de una diapositiva**
 Las notas de una diapositiva específica pueden eliminarse como se muestra en el ejemplo a continuación:
+
 ```php
   # Instanciar un objeto Presentation que representa un archivo de presentación
   $pres = new Presentation("presWithNotes.pptx");
@@ -46,9 +46,9 @@ Las notas de una diapositiva específica pueden eliminarse como se muestra en el
   }
 ```
 
-
 ## **Eliminar notas de una presentación**
 Las notas de todas las diapositivas de una presentación pueden eliminarse como se muestra en el ejemplo a continuación:
+
 ```php
   # Instanciar un objeto Presentation que representa un archivo de presentación
   $pres = new Presentation("presWithNotes.pptx");
@@ -68,9 +68,9 @@ Las notas de todas las diapositivas de una presentación pueden eliminarse como 
   }
 ```
 
+## **Agregar un estilo de notas**
+El método [getNotesStyle](https://reference.aspose.com/slides/es/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) de la clase [MasterNotesSlide](https://reference.aspose.com/slides/es/php-java/aspose.slides/MasterNotesSlide) proporciona acceso al estilo de texto de las notas. La implementación se muestra en el ejemplo a continuación.
 
-## **Añadir un estilo de notas**
-Se ha añadido el método [getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) a la clase [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) respectivamente. Esta propiedad especifica el estilo del texto de una nota. La implementación se muestra en el ejemplo a continuación.
 ```php
   # Instanciar un objeto Presentation que representa un archivo de presentación
   $pres = new Presentation("demo.pptx");
@@ -91,11 +91,12 @@ Se ha añadido el método [getNotesStyle](https://reference.aspose.com/slides/ph
   }
 ```
 
-
 ## **Preguntas frecuentes**
 
-**¿Qué entidad API proporciona acceso a las notas de una diapositiva específica?**
-Las notas se acceden a través del gestor de notas de la diapositiva: la diapositiva tiene un [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) y un [método](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/) que devuelve el objeto de notas, o `null` si no hay notas.
+**¿Qué entidad de la API proporciona acceso a las notas de una diapositiva específica?**
+
+Las notas se acceden a través del gestor de notas de la diapositiva: la diapositiva tiene un [NotesSlideManager](https://reference.aspose.com/slides/es/php-java/aspose.slides/notesslidemanager/) y un [método](https://reference.aspose.com/slides/es/php-java/aspose.slides/notesslidemanager/getnotesslide/) que devuelve el objeto de notas, o `null` si no hay notas.
 
 **¿Existen diferencias en la compatibilidad de notas entre las versiones de PowerPoint con las que funciona la biblioteca?**
-La biblioteca está dirigida a una amplia gama de formatos de Microsoft PowerPoint (desde 97–newer) y ODP; las notas son compatibles con estos formatos sin depender de una copia instalada de PowerPoint.
+
+La biblioteca funciona con una amplia gama de formatos de Microsoft PowerPoint (de 97–newer) y ODP; las notas son compatibles con estos formatos sin depender de una copia instalada de PowerPoint.

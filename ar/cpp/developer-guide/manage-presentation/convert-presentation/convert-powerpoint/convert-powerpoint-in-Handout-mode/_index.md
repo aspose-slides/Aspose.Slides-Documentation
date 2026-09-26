@@ -1,64 +1,77 @@
 ---
-title: تحويل عروض PowerPoint في وضع النشرة باستخدام C++
-linktitle: وضع النشرة
+title: تحويل عروض PowerPoint إلى وضع Handout باستخدام C++
+linktitle: وضع Handout
 type: docs
 weight: 150
 url: /ar/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - تحويل PowerPoint
-- تحويل العرض
-- وضع النشرة
-- نشرة
+- تحويل العرض التقديمي
+- وضع Handout
+- نسخة توزيع
 - PPT
 - PPTX
 - PowerPoint
-- عرض
+- عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تحويل العروض إلى نشرات باستخدام C++. تعيين عدد الشرائح لكل صفحة، الحفاظ على الملاحظات، التصدير إلى PDF أو صور باستخدام Aspose.Slides، مع الشيفرة النموذجية. جربه مجاناً."
+description: "تحويل العروض إلى نسخ توزيع في C++. ضبط عدد الشرائح لكل صفحة، الاحتفاظ بالملاحظات، التصدير إلى PDF أو صور باستخدام Aspose.Slides، مع مثال على الشيفرة. جرّبه مجانًا."
 ---
+## **المقدمة**
 
-## **تصدير وضع النشرات**
+توفر Aspose.Slides القدرة على تحويل العروض التقديمية إلى صيغ مختلفة، بما في ذلك إنشاء النسخ الورقية للطباعة في وضع Handout. يتيح لك هذا الوضع تكوين كيفية ظهور عدة شرائح على صفحة واحدة، مما يجعله مفيدًا للمؤتمرات والندوات وغيرها من الفعاليات. يمكنك تمكين هذا الوضع عن طريق استدعاء طريقة `set_SlidesLayoutOptions` في واجهات [IPdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/ipdfoptions/),[IRenderingOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/irenderingoptions/),[IHtmlOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/ihtmloptions/),و[ITiffOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/itiffoptions/) .
 
-توفر Aspose.Slides القدرة على تحويل العروض التقديمية إلى صيغ مختلفة، بما في ذلك إنشاء نشرة للطباعة في وضع النشرة. يتيح لك هذا الوضع تكوين عدد الشرائح التي تظهر على صفحة واحدة، مما يجعله مفيداً للمؤتمرات والندوات وغيرها من الفعاليات. يمكنك تمكين هذا الوضع عن طريق تعيين الطريقة `set_SlidesLayoutOptions` في واجهات [IPdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/ipdfoptions/)، [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/)، [IHtmlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/ihtmloptions/)، و[ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/).
+لتعيين أبعاد صفحة النسخة واتجاهها قبل التصدير، راجع [حجم صفحة الملاحظات](/slides/ar/cpp/notes-size/).
 
-لتكوين وضع النشرة، استخدم كائن [HandoutLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/handoutlayoutingoptions/)، الذي يحدد عدد الشرائح التي توضع على صفحة واحدة والمعلمات الأخرى للعرض.
+## **تصدير وضع Handout**
 
-فيما يلي مثال شفري يوضح كيفية تحويل عرض تقديمي إلى PDF في وضع النشرة.
+لتكوين وضع Handout، استخدم كائن [HandoutLayoutingOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/handoutlayoutingoptions/) الذي يحدد عدد الشرائح التي توضع على صفحة واحدة وغيرها من معلمات العرض.
+
+فيما يلي مثال على الشيفرة يُظهر كيفية تحويل عرض تقديمي إلى PDF في وضع Handout.
+
 ```cpp
-// تحميل عرض تقديمي.
+#include <DOM/Presentation.h>
+#include <Export/HandoutLayoutingOptions.h>
+#include <Export/HandoutType.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Load a presentation.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// ضبط خيارات التصدير.
+// Set the export options.
 auto slidesLayoutOptions = MakeObject<HandoutLayoutingOptions>();
-slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // 4 شرائح على صفحة واحدة أفقياً
+slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // 4 شرائح على صفحة واحدة أفقيًا
 slidesLayoutOptions->set_PrintSlideNumbers(true);                    // طباعة أرقام الشرائح
 slidesLayoutOptions->set_PrintFrameSlide(true);                      // طباعة إطار حول الشرائح
-slidesLayoutOptions->set_PrintComments(false);                       // لا تعليقات
+slidesLayoutOptions->set_PrintComments(false);                       // بدون تعليقات
 
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(slidesLayoutOptions);
 
-// تصدير العرض إلى PDF باستخدام التخطيط المختار.
+// Export the presentation to PDF with the chosen layout.
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-
 {{% alert color="warning" %}} 
-تذكر أن طريقة `set_SlidesLayoutOptions` متاحة فقط لبعض صيغ الإخراج، مثل PDF وHTML وTIFF، وعند التصيير كصور.
+ضع في اعتبارك أن طريقة `set_SlidesLayoutOptions` متاحة فقط لبعض صيغ الإخراج، مثل PDF وHTML وTIFF، وعند التصيير كصور.
 {{% /alert %}} 
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**ما هو الحد الأقصى لعدد صور الشرائح المصغرة في الصفحة في وضع النشرة؟**
+### ما هو الحد الأقصى لعدد صور الشرائح المصغرة لكل صفحة في وضع Handout؟
 
-تدعم Aspose.Slides [الإعدادات المسبقة](https://reference.aspose.com/slides/cpp/aspose.slides.export/handouttype/) التي تصل إلى 9 صور مصغرة في الصفحة مع ترتيب أفقي أو عمودي: 1، 2، 3، 4 (أفقي/عمودي)، 6 (أفقي/عمودي)، و9 (أفقي/عمودي).
+يدعم Aspose.Slides [الاستعدادات المسبقة](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/handouttype/) حتى 9 صور مصغرة لكل صفحة مع ترتيب أفقي أو عمودي: 1، 2، 3، 4 (أفقي/عمودي)، 6 (أفقي/عمودي)، و9 (أفقي/عمودي).
 
-**هل يمكنني تعريف شبكة مخصصة، مثل 5 أو 8 شرائح في الصفحة؟**
+### هل يمكنني تحديد شبكة مخصصة، مثل 5 أو 8 شرائح لكل صفحة؟
 
-لا. عدد وترتيب الصور المصغرة يتحكم فيه تماماً تعداد [HandoutType](https://reference.aspose.com/slides/cpp/aspose.slides.export/handouttype/)، ولا تدعم التخطيطات العشوائية.
+لا. يتم التحكم في عدد وترتيب الصور المصغرة بدقة بواسطة تعداد [HandoutType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/handouttype/); ولا تُدعم التخطيطات العشوائية.
 
-**هل يمكن تضمين الشرائح المخفية في ناتج النشرة؟**
+### هل يمكنني تضمين الشرائح المخفية في مخرجات Handout؟
 
-نعم. استخدم الطريقة `set_ShowHiddenSlides` في إعدادات التصدير للصيغة المستهدفة، مثل [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/)، [HtmlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/htmloptions/)، أو [TiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/).
+نعم. استخدم طريقة `set_ShowHiddenSlides` في إعدادات التصدير للصيغة المستهدفة، مثل [PdfOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/pdfoptions/),[HtmlOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/htmloptions/),أو [TiffOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/tiffoptions/).

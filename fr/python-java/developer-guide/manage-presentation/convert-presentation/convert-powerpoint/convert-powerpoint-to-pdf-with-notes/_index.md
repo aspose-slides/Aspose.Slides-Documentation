@@ -21,17 +21,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Convertir les présentations PPT et PPTX en PDF avec les notes du présentateur en utilisant Aspose.Slides pour Python via Java. Configurer le placement des notes et conserver les notes longues."
+description: "Convertir les présentations PPT et PPTX en PDF avec les notes du présentateur à l'aide d'Aspose.Slides pour Python via Java. Configurer le placement des notes et conserver les notes longues."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment convertir des présentations PowerPoint en PDF avec les notes du présentateur en utilisant Aspose.Slides pour Python via Java. Vous pouvez placer les notes sous chaque diapositive et permettre aux notes longues de se poursuivre sur des pages supplémentaires. Pour d’autres paramètres d’exportation PDF, voir [Convert PowerPoint to PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/).
+Cet article explique comment convertir des présentations PowerPoint en PDF avec des notes du présentateur en utilisant Aspose.Slides pour Python via Java. Vous pouvez inclure des notes sous chaque diapositive et permettre aux notes longues de se poursuivre sur des pages supplémentaires. Pour d'autres paramètres d'exportation PDF, voir [Convert PowerPoint to PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/).
+
+Pour définir les dimensions et l'orientation de la page des notes avant l'exportation, voir [Notes Page Size](/slides/fr/python-java/notes-size/).
 
 ## **Convertir PowerPoint en PDF avec notes**
 
-Utilisez la méthode [save](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#save) de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) pour exporter une présentation PPT ou PPTX au format PDF. Pour inclure les notes du présentateur, créez un objet [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notescommentslayoutingoptions/) et configurez le placement des notes avec sa méthode [setNotesPosition](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Assignez cette disposition à [PdfOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfoptions/) à l’aide de [setSlidesLayoutOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+Utilisez la méthode [save](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#save) de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) pour exporter une présentation PPT ou PPTX en PDF. Pour inclure les notes du présentateur, créez un objet [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notescommentslayoutingoptions/) et configurez le placement des notes avec sa méthode [setNotesPosition](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Assignez cette mise en page à [PdfOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfoptions/) à l'aide de [setSlidesLayoutOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
 
-L’exemple suivant charge `sample.pptx` et l’exporte vers `output.pdf` avec les notes du présentateur sous les diapositives :
+L'exemple suivant charge `sample.pptx` et l'exporte vers `output.pdf` avec les notes du présentateur sous les diapositives :
 
 ```python
 import jpype
@@ -57,20 +59,22 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Remarque" %}}
-Vous pouvez également essayer le [Convertisseur PowerPoint en PDF en ligne](https://products.aspose.app/slides/fr/conversion).
+{{% alert color="info" title="Note" %}}
+
+Vous pouvez également essayer le [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/fr/conversion).
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Comment éviter que les notes de présentateur longues ne soient tronquées ?**
+**Comment empêcher que les notes du présentateur longues soient coupées ?**
 
-Utilisez [NotesPositions.BottomFull](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notespositions/#BottomFull), comme dans l’exemple ci‑dessus. Ce paramètre affiche les notes complètes, en utilisant des pages supplémentaires si nécessaire.
+Utilisez [NotesPositions.BottomFull](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notespositions/#BottomFull), comme dans l'exemple ci-dessus. Ce paramètre affiche les notes complètes, en utilisant des pages supplémentaires si nécessaire.
 
 **Puis‑je garder chaque diapositive et ses notes sur une seule page ?**
 
-Utilisez [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notespositions/#BottomTruncated). Ce paramètre limite les notes à une page, de sorte que les notes qui ne tiennent pas peuvent être tronquées.
+Utilisez [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/fr/python-java/aspose.slides/notespositions/#BottomTruncated). Ce paramètre limite les notes à une page, les notes qui ne tiennent pas peuvent être tronquées.
 
 **Comment exporter les diapositives sans notes du présentateur ?**
 
-Omettez la configuration de la disposition des notes et utilisez l’exportation PDF standard décrite dans [Convert PowerPoint to PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/).
+Omettez la configuration de la mise en page des notes et utilisez l'exportation PDF standard décrite dans [Convert PowerPoint to PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/).

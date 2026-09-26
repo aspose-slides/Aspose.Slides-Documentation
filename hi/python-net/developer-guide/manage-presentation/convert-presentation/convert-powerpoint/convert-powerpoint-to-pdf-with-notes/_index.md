@@ -1,6 +1,6 @@
 ---
 title: Python में नोट्स के साथ प्रस्तुतियों को PDF में बदलें
-linktitle: नोट्स के साथ प्रस्तुति को PDF में बदलें
+linktitle: प्रस्तुति को नोट्स के साथ PDF में
 type: docs
 weight: 50
 url: /hi/python-net/convert-powerpoint-to-pdf-with-notes/
@@ -21,20 +21,24 @@ keywords:
 - नोट्स के साथ PDF
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python का उपयोग करके PPT, PPTX और ODP फ़ॉर्मेट को नोट्स के साथ PDF में बदलें। पेशेवर प्रस्तुतियों के लिए लेआउट और स्पीकर नोट्स को संरक्षित रखें।"
+description: "Aspose.Slides for Python का उपयोग करके PPT, PPTX और ODP फॉर्मेट को नोट्स के साथ PDF में बदलें। पेशेवर प्रस्तुतियों के लिए लेआउट और स्पीकर नोट्स को सुरक्षित रखें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-इस लेख में, आप Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों को स्पीकर नोट्स के साथ PDF फॉर्मेट में परिवर्तित करना सीखेंगे। यह गाइड आवश्यक चरणों को कवर करेगा और कोड उदाहरण प्रदान करेगा जिससे आप इस कार्य को कुशलता से पूरा कर सकें। लेख के अंत तक, आप सक्षम होंगे:
+इस लेख में आप Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों को नोट्स के साथ PDF प्रारूप में बदलना सीखेंगे। यह गाइड आवश्यक चरणों को कवर करेगा और कार्य को कुशलतापूर्वक पूरा करने के लिए कोड उदाहरण प्रदान करेगा। इस लेख के अंत में आप सक्षम होंगे:
 
-- परिवर्तन प्रक्रिया को लागू करके PowerPoint स्लाइड्स को PDF दस्तावेज़ में बदलना, जबकि स्पीकर नोट्स को संरक्षित रखना।
-- आउटपुट PDF को इस तरह कस्टमाइज़ करना कि स्पीकर नोट्स आपके आवश्यकताओं के अनुसार शामिल और फ़ॉर्मेटेड हों।
+- PowerPoint स्लाइड्स को PDF दस्तावेज़ों में बदलने की प्रक्रिया को लागू करना, जबकि स्पीकर नोट्स को बनाए रखना।
+- आउटपुट PDF को अनुकूलित करना ताकि स्पीकर नोट्स शामिल हों और आपकी आवश्यकताओं के अनुसार स्वरूपित हों।
 
-## **PowerPoint को नोट्स के साथ PDF में बदलें**
+निर्यात से पहले नोट्स पृष्ठ का आकार और अभिविन्यास सेट करने के लिए, देखें [Notes Page Size](/slides/hi/python-net/notes-size/)।
 
-`save` मेथड को [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास में उपयोग करके PPT या PPTX प्रस्तुतियों को स्पीकर नोट्स के साथ PDF में बदला जा सकता है। Aspose.Slides के साथ, आप बस प्रस्तुति लोड करें, स्पीकर नोट्स शामिल करने के लिए [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notescommentslayoutingoptions/) क्लास का उपयोग करके लेआउट विकल्प कॉन्फ़िगर करें, और फिर फ़ाइल को PDF के रूप में सहेजें। नीचे दिया गया कोड स्निपेट दिखाता है कि कैसे एक नमूना प्रस्तुति को नोट्स स्लाइड व्यू में PDF में बदलें।
+## **नोट्स के साथ PowerPoint को PDF में बदलें**
+
+`save` मेथड को [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास में उपयोग करके PPT या PPTX प्रस्तुतियों को स्पीकर नोट्स के साथ PDF में बदला जा सकता है। Aspose.Slides के साथ, आप बस प्रस्तुति लोड करते हैं, स्पीकर नोट्स शामिल करने के लिए [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notescommentslayoutingoptions/) क्लास का उपयोग करके लेआउट विकल्प कॉन्फ़िगर करते हैं, और फिर फ़ाइल को PDF के रूप में सहेजते हैं। निम्नलिखित कोड स्निपेट यह दर्शाता है कि कैसे नमूना प्रस्तुति को नोट्स स्लाइड दृश्य में PDF में बदला जाए।
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
 
     # स्पीकर नोट्स को रेंडर करने के लिए PDF विकल्प कॉन्फ़िगर करें।
@@ -48,6 +52,6 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-{{% alert color="primary" %}} 
-आप Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hi/conversion) को देख सकते हैं। 
+{{% alert color="info" title="Note" %}}
+आप Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hi/conversion) को देखना चाह सकते हैं।
 {{% /alert %}}

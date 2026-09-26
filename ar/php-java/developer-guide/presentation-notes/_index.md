@@ -6,33 +6,31 @@ weight: 110
 url: /ar/php-java/presentation-notes/
 keywords:
 - ملاحظات
-- شريحة الملاحظات
+- شريحة ملاحظات
 - إضافة ملاحظات
 - إزالة ملاحظات
 - نمط الملاحظات
-- الملاحظات الرئيسية
+- ملاحظات رئيسية
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "قم بتخصيص ملاحظات العرض التقديمي باستخدام Aspose.Slides للـ PHP عبر Java. اعمل بسلاسة مع ملاحظات PowerPoint وOpenDocument لتعزيز إنتاجيتك."
+description: "تخصيص ملاحظات العرض التقديمي باستخدام Aspose.Slides للـ PHP عبر Java. العمل بسلاسة مع ملاحظات PowerPoint و OpenDocument لتعزيز إنتاجيتك."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+تدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. في هذا الموضوع، سنقدم هذه الميزة، بما في ذلك كيفية إزالة الملاحظات وكيفية تطبيق نمط على شرائح الملاحظات في العرض التقديمي. تتيح Aspose.Slides لك إزالة الملاحظات من أي شريحة وكذلك تطبيق تنسيق على الملاحظات الموجودة. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
 
-يدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. في هذا المقال، سوف نقدم هذه الميزة الجديدة لإزالة الملاحظات وإضافة أنماط الملاحظات إلى أي عرض تقديمي.
+- إزالة الملاحظات من شريحة محددة في العرض التقديمي.
+- إزالة الملاحظات من جميع الشرائح في العرض التقديمي.
 
-{{% /alert %}} 
+لقراءة أو تغيير أبعاد صفحة الملاحظات، تغيير الاتجاه، والتحقق من سلوك التصدير، راجع [حجم صفحة الملاحظات](/slides/ar/php-java/notes-size/).
 
-يوفر Aspose.Slides لـ PHP عبر Java إمكانية إزالة ملاحظات أي شريحة وكذلك إضافة نمط للملاحظات الموجودة. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
+## **إزالة الملاحظات من شريحة**
 
-* إزالة ملاحظات شريحة معينة من العرض التقديمي.
-* إزالة ملاحظات جميع الشرائح في العرض التقديمي.
+يمكن إزالة الملاحظات من شريحة محددة كما هو موضح في المثال أدناه:
 
-
-## **Remove Notes from a Slide**
-يمكن إزالة ملاحظات شريحة معينة كما هو موضح في المثال أدناه:
 ```php
   # إنشاء كائن Presentation يمثل ملف عرض تقديمي
   $pres = new Presentation("presWithNotes.pptx");
@@ -49,9 +47,10 @@ description: "قم بتخصيص ملاحظات العرض التقديمي با�
   }
 ```
 
+## **إزالة الملاحظات من العرض التقديمي**
 
-## **Remove Notes from a Presentation**
-يمكن إزالة ملاحظات جميع شرائح العرض التقديمي كما هو موضح في المثال أدناه:
+يمكن إزالة الملاحظات من جميع الشرائح في العرض التقديمي كما هو موضح في المثال أدناه:
+
 ```php
   # إنشاء كائن Presentation يمثل ملف عرض تقديمي
   $pres = new Presentation("presWithNotes.pptx");
@@ -71,9 +70,10 @@ description: "قم بتخصيص ملاحظات العرض التقديمي با�
   }
 ```
 
+## **إضافة نمط للملاحظات**
 
-## **Add a Notes Style**
-تم إضافة طريقة [getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) إلى الفئة [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) على التوالي. تُحدد هذه الخاصية نمط نص الملاحظات. يتم توضيح التنفيذ في المثال أدناه.
+توفر طريقة [getNotesStyle](https://reference.aspose.com/slides/ar/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) في الفئة [MasterNotesSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/MasterNotesSlide) إمكانية الوصول إلى نمط نص الملاحظات. تم توضيح التنفيذ في المثال أدناه.
+
 ```php
   # إنشاء كائن Presentation يمثل ملف عرض تقديمي
   $pres = new Presentation("demo.pptx");
@@ -82,7 +82,7 @@ description: "قم بتخصيص ملاحظات العرض التقديمي با�
     if (!java_is_null($notesMaster)) {
       # الحصول على نمط نص MasterNotesSlide
       $notesStyle = $notesMaster->getNotesStyle();
-      # تعيين نقطة رمزية للمستوى الأول من الفقرات
+      # تعيين نقطه رمزية للفقرات من المستوى الأول
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -94,13 +94,12 @@ description: "قم بتخصيص ملاحظات العرض التقديمي با�
   }
 ```
 
+## **الأسئلة الشائعة**
 
-## **FAQ**
+**أي كيان API يوفر الوصول إلى ملاحظات شريحة محددة؟**
 
-**Which API entity provides access to the notes of a specific slide?**
+يتم الوصول إلى الملاحظات عبر مدير ملاحظات الشريحة: تحتوي الشريحة على كائن [NotesSlideManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/notesslidemanager/) و[طريقة](https://reference.aspose.com/slides/ar/php-java/aspose.slides/notesslidemanager/getnotesslide/) تُعيد كائن الملاحظات، أو `null` إذا لم تكن هناك ملاحظات.
 
-يتم الوصول إلى الملاحظات عبر مدير ملاحظات الشريحة: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) و[method](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/) التي تُعيد كائن الملاحظات، أو `null` إذا لم تتوفر ملاحظات.
+**هل هناك اختلافات في دعم الملاحظات عبر إصدارات PowerPoint التي تعمل معها المكتبة؟**
 
-**Are there differences in notes support across the PowerPoint versions the library works with?**
-
-تستهدف المكتبة مجموعة واسعة من تنسيقات Microsoft PowerPoint (من الإصدار 97 وما بعده) وODP؛ يتم دعم الملاحظات داخل هذه التنسيقات دون الاعتماد على نسخة مثبتة من PowerPoint.
+تستهدف المكتبة مجموعة واسعة من صيغ Microsoft PowerPoint (من 97‑إلى الأحدث) وODP؛ يتم دعم الملاحظات داخل هذه الصيغ دون الاعتماد على نسخة مثبتة من PowerPoint.

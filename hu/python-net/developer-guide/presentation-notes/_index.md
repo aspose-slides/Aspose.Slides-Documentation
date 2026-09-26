@@ -1,89 +1,90 @@
 ---
-title: Prezentációs jegyzetek kezelése Pythonban
-linktitle: Prezentációs jegyzetek
+title: Prezentációs megjegyzések kezelése Pythonban
+linktitle: Prezentációs megjegyzések
 type: docs
 weight: 110
 url: /hu/python-net/presentation-notes/
 keywords:
-- jegyzetek
-- jegyzet dia
-- jegyzetek hozzáadása
-- jegyzetek eltávolítása
-- jegyzet stílus
-- mester jegyzetek
+- megjegyzések
+- megjegyzésdia
+- megjegyzések hozzáadása
+- megjegyzések eltávolítása
+- megjegyzés stílus
+- master megjegyzések
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Testreszabhatja a prezentációs jegyzeteket az Aspose.Slides for Python via .NET használatával. Zökkenőmentesen dolgozhat PowerPoint és OpenDocument jegyzetekkel, hogy növelje a produktivitását."
+description: "Testreszabhatja a prezentációs megjegyzéseket az Aspose.Slides for Python segítségével .NET-en keresztül. Zökkenőmentesen dolgozhat PowerPoint és OpenDocument megjegyzésekkel, hogy növelje a termelékenységét."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides támogatja a jegyzetdiák eltávolítását egy prezentációból. Ebben a témában bemutatjuk ezt a funkciót, beleértve, hogyan távolíthatók el a jegyzetek, és hogyan alkalmazhatók stílusok a jegyzetdiákra egy prezentációban. Az Aspose.Slides lehetővé teszi, hogy jegyzeteket távolítson el bármely diáról, és stílusokat alkalmazzon a meglévő jegyzetekre. A fejlesztők a következő módon távolíthatják el a jegyzeteket:
+Az Aspose.Slides támogatja a megjegyzéses diák eltávolítását egy prezentációból. Ebben a témában bemutatjuk ezt a funkciót, beleértve, hogyan távolítható el a megjegyzés, és hogyan alkalmazható stílus a megjegyzéses diákra egy prezentációban. Az Aspose.Slides lehetővé teszi, hogy bármely diáról eltávolítsa a megjegyzéseket, és stílusokat alkalmazzon a meglévő megjegyzésekre. A fejlesztők a következő módokon távolíthatják el a megjegyzéseket:
 
-- Jegyzetek eltávolítása egy adott diáról a prezentációban.
-- Jegyzetek eltávolítása az összes diáról a prezentációban.
+- A megjegyzések eltávolítása egy adott diáról a prezentációban.  
+- A megjegyzések eltávolítása az összes diáról a prezentációban.
 
-## **Jegyzetek eltávolítása egy diáról**
-Egy adott diáról a jegyzetek eltávolíthatók, ahogyan az alábbi példában látható:
+A megjegyzésoldal méreteinek megtekintéséhez vagy módosításához, az orientáció megváltoztatásához és az export viselkedés ellenőrzéséhez lásd a [Notes Page Size](/slides/hu/python-net/notes-size/) oldalt.
+
+## **Megjegyzés eltávolítása egy diáról**
+Egy adott diáról a megjegyzéseket az alábbi példában mutatott módon lehet eltávolítani:
 
 ```py
 import aspose.slides as slides
 
-# Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Az első dia jegyzeteinek eltávolítása
+# Egy Presentation objektum példányosítása, amely egy bemutató fájlt képvisel 
+# Az első dia megjegyzéseinek eltávolítása
     mgr = presentation.slides[0].notes_slide_manager
     mgr.remove_notes_slide()
 
-    # prezentáció mentése lemezre
+    # A bemutató mentése lemezre
     presentation.save("RemoveNotesAtSpecificSlide_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Jegyzetek eltávolítása az összes diáról**
-A prezentáció összes diájáról a jegyzetek eltávolíthatók, ahogyan az alábbi példában látható:
+## **Megjegyzés eltávolítása az összes diáról**
+A prezentáció minden diájáról a megjegyzéseket az alábbi példában mutatott módon lehet eltávolítani:
 
 ```py
 import aspose.slides as slides
 
-# Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Az összes dia jegyzeteinek eltávolítása
+# Egy Presentation objektum példányosítása, amely egy bemutató fájlt képvisel
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # Az összes dia megjegyzéseinek eltávolítása
     for i in range(len(presentation.slides)):
         mgr = presentation.slides[i].notes_slide_manager
         mgr.remove_notes_slide()
-    # prezentáció mentése lemezre
+    # A bemutató mentése lemezre
     presentation.save("RemoveNotesFromAllSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **NotesStyle hozzáadása**
-A [notes_style](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslide/notes_style/) tulajdonság hozzá lett adva a [MasterNotesSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslide/) osztályhoz. Ez a tulajdonság meghatározza a jegyzet szövegének stílusát. A megvalósítást az alábbi példában mutatjuk be.
+## **Megjegyzés stílus alkalmazása**
+A [notes_style](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslide/notes_style/) tulajdonságot hozzáadták a [MasterNotesSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslide/) osztályhoz. Ez a tulajdonság a megjegyzés szövegének stílusát határozza meg. A megvalósítást az alábbi példában mutatjuk be.
 
 ```py
 import aspose.slides as slides
 
-# Példányosítja a Presentation osztályt, amely a prezentációs fájlt képviseli
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Presentation osztály példányosítása, amely a bemutató fájlt képviseli
+with slides.Presentation("AccessSlides.pptx") as presentation:
     notesMaster = presentation.master_notes_slide_manager.master_notes_slide
     if notesMaster != None:
-        # A MasterNotesSlide szövegstílusának lekérése
+        # MasterNotesSlide szövegstílusának lekérése
         notesStyle = notesMaster.notes_style
 
-        #Állítsa be a szimbolikus felsorolójelet az első szintű bekezdésekhez
+        # Szimbólum típusú jelölő beállítása az első szintű bekezdésekhez
         paragraphFormat = notesStyle.get_level(0)
         paragraphFormat.bullet.type = slides.BulletType.SYMBOL
 
-    # mentse a PPTX fájlt a lemezre
+    # A PPTX fájl mentése a lemezre
     presentation.save("AddNotesSlideWithNotesStyle_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **GYIK**
 
-**Mely API entitás biztosítja a hozzáférést egy adott dia jegyzeteihez?**
+**Mely API entitás biztosít hozzáférést egy adott dia megjegyzéséhez?**
 
-A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diához tartozik egy [NotesSlideManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslidemanager/) és egy [property](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslidemanager/notes_slide/), amely visszaadja a jegyzetobjektumot, vagy `None`‑t, ha nincs jegyzet.
+A megjegyzések a dia megjegyzéskezelőjén keresztül érhetők el: a diához tartozik egy [NotesSlideManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslidemanager/) és egy [property](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslidemanager/notes_slide/), amely visszaadja a megjegyzés objektumot, vagy `None`, ha nincs megjegyzés.
 
-**Vannak-e különbségek a jegyzetek támogatásában a könyvtár által támogatott PowerPoint verziók között?**
+**Vannak különbségek a megjegyzések támogatásában a különböző PowerPoint verziók között, amelyeket a könyvtár támogat?**
 
-A könyvtár a Microsoft PowerPoint számos formátumát (97‑től napjainkig) és az ODP‑t célozza; a jegyzetek ezekben a formátumokban támogatottak, anélkül, hogy telepített PowerPoint példányra lenne szükség.
+A könyvtár a Microsoft PowerPoint széles körű formátumaira (97‑től újakig) és ODP‑re céloz; a megjegyzések ezekben a formátumokban támogatottak anélkül, hogy a PowerPoint telepített példányára támaszkodnának.

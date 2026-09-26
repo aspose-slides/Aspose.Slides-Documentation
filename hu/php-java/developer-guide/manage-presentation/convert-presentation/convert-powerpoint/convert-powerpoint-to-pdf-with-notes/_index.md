@@ -1,13 +1,13 @@
 ---
-title: PowerPoint-prezentációk konvertálása PDF-be jegyzetekkel PHP-ben
-linktitle: PowerPoint PDF-be jegyzetekkel
+title: PowerPoint prezentációk konvertálása PDF-be jegyzetekkel PHP-ban
+linktitle: PowerPoint PDF-be konvertálás jegyzetekkel
 type: docs
 weight: 50
 url: /hu/php-java/convert-powerpoint-to-pdf-with-notes/
 keywords:
 - PowerPoint konvertálása
 - prezentáció konvertálása
-- diák konvertálása
+- dia konvertálása
 - PPT konvertálása
 - PPTX konvertálása
 - PowerPoint PDF-be
@@ -24,25 +24,27 @@ keywords:
 - PDF jegyzetekkel
 - PHP
 - Aspose.Slides
-description: "Konvertálja a PPT és PPTX formátumokat PDF-be jegyzetekkel az Aspose.Slides for PHP segítségével Java-n keresztül. Megőrzi az elrendezéseket és az előadói jegyzeteket professzionális prezentációkhoz."
+description: "Konvertálja a PPT és PPTX formátumokat PDF-be jegyzetekkel az Aspose.Slides for PHP Java-on keresztül. Tartsa meg az elrendezéseket és az előadói jegyzeteket a professzionális prezentációkhoz."
 ---
 ## **Áttekintés**
 
-Ebben a cikkben megtanulja, hogyan konvertálhat PowerPoint‑prezentációkat PDF formátumba előadói jegyzetekkel az Aspose.Slides használatával. Ez az útmutató lefedi a szükséges lépéseket, és kódrészleteket biztosít, hogy hatékonyan megvalósíthassa ezt a feladatot. A cikk végére képes lesz:
+Ebben a cikkben megtanulja, hogyan konvertálhat PowerPoint‑prezentációkat PDF formátumba előadói jegyzetekkel az Aspose.Slides segítségével. Ez az útmutató lefedi a szükséges lépéseket, és kódrészleteket biztosít a feladat hatékony megvalósításához. A cikk végére képes lesz:
 
-- Megvalósítani a konverziós folyamatot, amely a PowerPoint‑diákokat PDF‑dokumentummá alakítja, miközben megőrzi az előadói jegyzeteket.
-- Testreszabni a kimeneti PDF‑et, hogy az előadói jegyzetek benne legyenek, és az igényei szerint legyenek formázva.
+- Implementálja a konverziós folyamatot, hogy a PowerPoint‑diák PDF‑dokumentumokká alakuljanak, miközben megőrzik az előadói jegyzeteket.
+- Testreszabhatja a kimeneti PDF‑et, hogy az előadói jegyzetek szerepeljenek benne, és a kívánt módon legyenek formázva.
+
+A jegyzetoldal méretének és tájolásának beállításához exportálás előtt tekintse meg a [Notes Page Size](/slides/hu/php-java/notes-size/) oldalt.
 
 ## **PowerPoint konvertálása PDF‑be jegyzetekkel**
 
-A `save` metódus a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályban használható PPT vagy PPTX prezentáció PDF‑re konvertálásához előadói jegyzetekkel. Az Aspose.Slides használatával egyszerűen betölti a prezentációt, a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notescommentslayoutingoptions/) osztály segítségével beállítja az elrendezési lehetőségeket az előadói jegyzetek felvételéhez, majd a fájlt PDF‑ként menti. Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy mintaprezentációt PDF‑re Jegyzet diák nézetben.
+A `save` metódus a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályban használható PPT vagy PPTX prezentáció PDF‑re konvertálásához előadói jegyzetekkel. Az Aspose.Slides segítségével egyszerűen betölti a prezentációt, a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notescommentslayoutingoptions/) osztály használatával beállítja az elrendezési opciókat az előadói jegyzetek belefoglalásához, majd PDF‑ként menti a fájlt. Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy minta‑prezentációt PDF‑re a Jegyzetdiák nézetben.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 
-// Konfigurálja a PDF beállításokat az előadói jegyzetek megjelenítéséhez.
+// Állítsa be a PDF beállításokat az előadói jegyzetek megjelenítéséhez.
 $notesOptions = new NotesCommentsLayoutingOptions();
-$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Az előadói jegyzeteket a dia alá rendereli.
+$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Az előadói jegyzetek megjelenítése a dia alatt.
 
 $pdfOptions = new PdfOptions();
 $pdfOptions->setSlidesLayoutOptions($notesOptions);
@@ -52,6 +54,6 @@ $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-Érdemes megnézni az Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hu/conversion) szolgáltatást. 
+{{% alert color="info" title="Note" %}}
+Érdemes megnézni az Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hu/conversion).
 {{% /alert %}}
