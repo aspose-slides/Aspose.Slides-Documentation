@@ -73,14 +73,14 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e templa
 <hr>
 <p>RIFERIMENTO</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/it/net/">Riferimento API</a></li>
-<li><a href="https://releases.aspose.com/slides/it/net/release-notes/">Note di rilascio</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Riferimento API</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Note di rilascio</a></li>
 <li><a href="/slides/it/net/known-issues/">Problemi noti</a></li>
-<li><a href="https://releases.aspose.com/slides/it/net/">Scarica</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Scarica</a></li>
 </ul>
 <p>SUPPORTO</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/it/11">Forum di supporto gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum di supporto gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk di supporto a pagamento</a></li>
 </ul>
 </div>
