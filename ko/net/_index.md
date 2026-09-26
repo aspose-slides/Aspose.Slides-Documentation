@@ -73,14 +73,14 @@ Aspose.Slides for .NET은 Microsoft PowerPoint 또는 Office 자동화 없이 .N
 <hr>
 <p>참조</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ko/net/">API 참조</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/net/release-notes/">릴리스 노트</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API 참조</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">릴리스 노트</a></li>
 <li><a href="/slides/ko/net/known-issues/">알려진 문제</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/net/">다운로드</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">다운로드</a></li>
 </ul>
 <p>지원</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">무료 지원 포럼</a></li>
 <li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
 </ul>
 </div>
