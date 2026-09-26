@@ -73,14 +73,14 @@ Aspose.Slides for .NET — это библиотека классов для с�
 <hr>
 <p>СПРАВОЧНИК</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ru/net/">API справочник</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/net/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API справочник</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/net/known-issues/">Известные проблемы</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/net/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платный сервис поддержки</a></li>
 </ul>
 </div>
