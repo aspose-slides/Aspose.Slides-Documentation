@@ -73,14 +73,14 @@ Aspose.Slides for .NET هي مكتبة فئات لإنشاء وقراءة وتع
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/net/">وثائق API</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/net/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">وثائق API</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/net/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/net/">التنزيل</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">التنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب مساعدة الدعم المدفوع</a></li>
 </ul>
 </div>
