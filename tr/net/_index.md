@@ -73,14 +73,14 @@ Macro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/tr/net/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/net/release-notes/">Sürüm notları</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/net/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/net/">İndirme</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">İndirme</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmeti</a></li>
 </ul>
 </div>
