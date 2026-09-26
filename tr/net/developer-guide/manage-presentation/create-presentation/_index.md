@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunumlar Oluştur
+title: .NET'te Sunumlar Oluşturma
 linktitle: Sunum Oluştur
 type: docs
 weight: 10
@@ -19,96 +19,100 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides ile .NET'te sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinden yararlanın ve güvenilir sonuçlar için programlı olarak kaydedin."
+description: "Aspose.Slides ile .NET'te sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinden yararlanın ve güvenilir sonuçlar için programatik olarak kaydedin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'te bir sunum oluşturmayı, bir slayta basit içerik eklemeyi ve sonucu dosya olarak kaydetmeyi gösterir. Ayrıca yeni bir sunum oluşturup kaydetme, desteklenen bir formatta mevcut bir sunumu açma ve başka bir formata kaydetme süreçlerini örnekler. Ek olarak, formatlar, şablonlar, slayt boyutu, birimler, bellek kullanımı, çoklu iş parçacığı, lisanslama, dijital imzalar ve VBA desteğiyle ilgili yaygın soruları kapsayan kısa bir SSS içerir.
+Bu makale, Aspose.Slides'ta bir sunum oluşturmayı, ilk slaytına bir metin kutusu eklemeyi ve sonucu bir dosya olarak kaydetmeyi gösterir. Ayrıca boş bir sunum oluşturup kaydetmeyi ve desteklenen bir biçimde mevcut bir sunumu açıp başka bir biçimde kaydetmeyi gösterir. Sonundaki kısa SSS, biçimler, şablonlar, slayt boyutu, birimler, bellek kullanımı, çok iş parçacığı, lisanslama, dijital imzalar ve VBA desteğiyle ilgili yaygın soruları kapsar.
 
-## **PowerPoint Sunumu Oluştur**
-Seçili bir slayda basit bir düz çizgi eklemek için aşağıdaki adımları izleyin:
+Başlamadan önce, projenize NuGet üzerinden Aspose.Slides ekleyin. Windows, Linux ve macOS'ta kullanılacak paket için [Installation](/slides/tr/net/installation/) sayfasına bakın.
 
-1. Presentation sınıfının bir örneğini oluşturun.
-1. Slaydın indeksini kullanarak onun referansını alın.
-1. Shapes nesnesi tarafından sunulan AddAutoShape yöntemiyle Line türünde bir AutoShape ekleyin.
-1. Değiştirilen sunumu bir PPTX dosyası olarak yazın.
+## **PowerPoint Sunumu Oluşturma**
 
-Aşağıdaki örnekte, sunumun ilk slaytına bir çizgi ekledik.
+Bir sunum oluşturup ilk slaytına bir metin kutusu eklemek için şu adımları izleyin:
+
+1. Yeni bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı örneği oluşturun. Yeni bir sunum zaten tek bir boş slayt içerir.
+2. Bu slaytı, indeks 0 kullanarak [Slides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/slides/tr/) koleksiyonundan alın.
+3. [AddAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addautoshape/) yöntemiyle bir dikdörtgen ekleyin ve onun [text](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/text/) özelliğini ayarlayın.
+4. [Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) yöntemiyle sunumu PPTX dosyası olarak kaydedin.
 
 ```c#
-// Sunum dosyasını temsil eden bir Presentation nesnesi örneği oluştur
-using (Presentation presentation = new Presentation())
-{
-    // İlk slaytı al
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Tipi çizgi olan bir autoshape ekle
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-## **Sunum Oluştur ve Kaydet**
+Dikdörtgenin sol üst köşesi slaytın sol kenarından 50 puan, üst kenarından 50 puan uzaktadır ve dikdörtgen 400 puan genişliğinde ve 100 puan yüksekliğindedir. Kaydedilen dosya, bu dikdörtgeni ve metnini içeren bir slayt içerir. Lisans olmadan, Aspose.Slides kaydettiği her slayta bir değerlendirme filigranı ekler; [Licensing](/slides/tr/net/licensing/) sayfasına bakın.
 
-<a name="csharp-create-save-presentation"><strong>C# ile Sunum Oluşturma ve Kaydetme Adımları</strong></a>
+## **Sunum Oluşturma ve Kaydetme**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. _Presentation_ öğesini [SaveFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) tarafından desteklenen herhangi bir formatta kaydedin.
+<a name="csharp-create-save-presentation"></a>
+
+Boş bir sunum oluşturup kaydetmek için, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve bunu [SaveFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) enumarasyonundaki herhangi bir biçimde kaydedin. Sonuç, tek bir boş slayt içeren bir sunum olur.
 
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Sunumu Aç ve Kaydet**
+## **Sunumu Açma ve Kaydetme**
 
-<a name="csharp-open-save-presentation"><strong>C# ile Sunumu Açma ve Kaydetme Adımları</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. PPT, PPTX, ODP vb. herhangi bir formatta [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. _Presentation_ öğesini [SaveFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) tarafından desteklenen herhangi bir formatta kaydedin.
+Bir sunumu bir biçimden başka bir biçime dönüştürmek için, dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/presentation/) yapıcısına geçirerek açın, ardından hedef biçimde kaydedin. Aspose.Slides, giriş dosyasından PPT, PPTX veya ODP gibi biçimi algılar.
+
+Aşağıdaki örnek, çalışma dizininde *Sample.odp* adlı bir OpenDocument sunumu olduğu varsayımını yapar ve bunu PPTX olarak kaydeder.
 
 ```c#
-// Presentation içinde desteklenen herhangi bir dosyayı yükle, örn. ppt, pptx, odp vb.
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **SSS**
 
-**Yeni bir sunumu hangi formatlarda kaydedebilirim?**
+### Yeni bir sunumu hangi biçimlere kaydedebilirim?
 
-[PPTX, PPT ve ODP](/slides/tr/net/save-presentation/) formatlarında kaydedebilir ve [PDF](/slides/tr/net/convert-powerpoint-to-pdf/), [XPS](/slides/tr/net/convert-powerpoint-to-xps/), [HTML](/slides/tr/net/convert-powerpoint-to-html/), [SVG](/slides/tr/net/convert-powerpoint-to-png/) ve [görseller](/slides/tr/net/convert-powerpoint-to-png/) gibi diğer formatlara dışa aktarabilirsiniz.
+[PPTX, PPT ve ODP](/slides/tr/net/save-presentation/) biçimlerine kaydedebilir ve ayrıca [PDF](/slides/tr/net/convert-powerpoint-to-pdf/), [XPS](/slides/tr/net/convert-powerpoint-to-xps/), [HTML](/slides/tr/net/convert-powerpoint-to-html/), [SVG](/slides/tr/net/render-a-slide-as-an-svg-image/) ve [images](/slides/tr/net/convert-powerpoint-to-png/) gibi diğer biçimlere dışa aktarabilirsiniz.
 
-**Şablondan (POTX/POTM) başlayıp düzenli bir PPTX olarak kaydedebilir miyim?**
+### Bir şablondan (POTX/POTM) başlayıp düzenli bir PPTX olarak kaydedebilir miyim?
 
-Evet. Şablonu yükleyin ve istediğiniz formata kaydedin; POTX/POTM/PPTM ve benzeri formatlar [desteklenir](/slides/tr/net/supported-file-formats/).
+Evet. Şablonu yükleyin ve istediğiniz biçimde kaydedin; POTX/POTM/PPTM ve benzeri biçimler [desteklenir](/slides/tr/net/supported-file-formats/).
 
-**Sunum oluştururken slayt boyutunu/eni-yüksek oranını nasıl kontrol edebilirim?**
+### Sunum oluştururken slayt boyutunu/eksen oranını nasıl kontrol ederim?
 
-[slayt boyutunu](/slides/tr/net/slide-size/) (4:3, 16:9 gibi ön ayarlar veya özelleştirilmiş boyutlar dahil) ayarlayın ve içeriğin nasıl ölçekleneceğini seçin.
+Slayt boyutunu (4:3 ve 16:9 gibi ön ayarlar veya özel boyutlar dahil) ayarlayın ve içeriğin nasıl ölçekleneceğini seçin.  
 
-**Boyutlar ve koordinatlar hangi birimlerde ölçülür?**
+### Boyutlar ve koordinatlar hangi birimlerde ölçülür?
 
 Puan cinsinden: 1 inç 72 birime eşittir.
 
-**Bellek kullanımını azaltmak için çok büyük sunumları (çok sayıda medya dosyası içeren) nasıl yönetebilirim?**
+### Çok büyük sunumları (çok sayıda medya dosyası içeren) bellek kullanımını azaltmak için nasıl yönetirim?
 
-[Blob yönetim stratejilerini](/slides/tr/net/manage-blob/) kullanın, geçici dosyalar aracılığıyla bellek içi depolamayı sınırlayın ve mümkün olduğunca dosya tabanlı iş akışlarını tercih edin.
+[BLOB yönetim stratejilerini](/slides/tr/net/manage-blob/) kullanın, geçici dosyalarla bellek içi depolamayı sınırlayın ve tamamen bellek içi akışlar yerine dosya tabanlı iş akışlarını tercih edin.
 
-**Sunumları paralel olarak oluşturup kaydedebilir miyim?**
+### Sunumları paralel olarak oluşturup/kaydedebilir miyim?
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğine [birçok iş parçacığından](/slides/tr/net/multithreading/) erişemezsiniz. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
+Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneği üzerinde [çoklu iş parçacıkları](/slides/tr/net/multithreading/) ile işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
 
-**Deneme sürümü filigranını ve sınırlamaları nasıl kaldırırım?**
+### Deneme filigranını ve kısıtlamaları nasıl kaldırırım?
 
-İşlem başına bir kez [lisans uygulayın](/slides/tr/net/licensing/). Lisans XML'i değiştirilmemeli ve birden fazla iş parçacığı kullanılıyorsa lisans ayarı senkronize edilmelidir.
+Her süreçte bir kez [Lisans uygulayın](/slides/tr/net/licensing/). Lisans XML'i değiştirilmeden kalmalı ve birden fazla iş parçacığı kullanılıyorsa lisans ayarı senkronize edilmelidir.
 
-**Oluşturduğum PPTX dosyasını dijital olarak imzalayabilir miyim?**
+### Oluşturduğum PPTX'i dijital olarak imzalayabilir miyim?
 
-Evet. Sunumlar için [dijital imzalar](/slides/tr/net/digital-signature-in-powerpoint/) (ekleme ve doğrulama) desteklenir.
+Evet. Sunumlar için [Dijital imzalar](/slides/tr/net/digital-signature-in-powerpoint/) (ekleme ve doğrulama) desteklenir.
 
-**Oluşturulan sunumlarda makrolar (VBA) destekleniyor mu?**
+### Oluşturulan sunumlarda makrolar (VBA) destekleniyor mu?
 
-Evet. [VBA projeleri oluşturup düzenleyebilir](/slides/tr/net/presentation-via-vba/) ve PPTM/PPSM gibi makro etkin dosyaları kaydedebilirsiniz.
+Evet. [VBA projeleri oluşturup/düzenleyebilir](/slides/tr/net/presentation-via-vba/) ve PPTM/PPSM gibi makro etkin dosyaları kaydedebilirsiniz.

@@ -4,9 +4,9 @@ type: docs
 weight: 70
 url: /tr/net/installation/
 keywords:
-- Aspose.Slides yükleme
-- Aspose.Slides indirme
-- Aspose.Slides kullanımı
+- Aspose.Slides'i kur
+- Aspose.Slides'i indir
+- Aspose.Slides'i kullan
 - Aspose.Slides kurulumu
 - Windows
 - Linux
@@ -17,90 +17,116 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'i hızlı bir şekilde nasıl kuracağınızı öğrenin. Adım adım kılavuz, sistem gereksinimleri ve kod örnekleri — bugün PowerPoint sunumlarıyla çalışmaya başlayın!"
+description: "NuGet üzerinden Windows, Linux ve macOS'ta .NET için Aspose.Slides'i kurun: iki paket arasından seçim yapın, .NET CLI veya Visual Studio ile birini ekleyin ve Linux önkoşullarını kurun."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET'in Windows, Linux ve macOS üzerinde nasıl kurulacağını açıklar. NuGet tabanlı kuruluma odaklanır ve Windows'ta NuGet Paket Yöneticisi veya Paket Yöneticisi Konsolu aracılığıyla, Linux'ta bir .NET projesine ve macOS'ta bir Visual Studio projesine kütüphanenin nasıl ekleneceğini gösterir. Ayrıca paketin nasıl güncelleneceğini ve gerektiğinde ön sürüm (prerelease) derlemelerinin nasıl yükleneceğini açıklar.
+Bu makale, Aspose.Slides for .NET'i Windows, Linux ve macOS üzerindeki bir projeye nasıl ekleyeceğinizi açıklar. Aspose.Slides NuGet aracılığıyla dağıtılır. Herhangi bir işletim sisteminde .NET CLI ile ekleyebilir, Windows'ta Visual Studio'da NuGet Paketi Yöneticisi veya Paket Yöneticisi Konsolu ile ekleyebilirsiniz. Makale ayrıca iki NuGet paketinden hangisinin seçileceği ve Linux için ek olarak nelerin gerektiğini açıklar.
 
-Kurulumdan önce, desteklenen işletim sistemlerini, .NET uygulamalarını ve ek bağımlılıkları [Sistem Gereksinimleri](/slides/tr/net/system-requirements/) bölümünde inceleyin.
+Kurulumdan önce, desteklenen işletim sistemlerini, .NET uygulamalarını ve ek bağımlılıkları [System Requirements](/slides/tr/net/system-requirements/) içinde inceleyin.
+
+## **Paket Seçimi**
+
+Aspose.Slides for .NET iki NuGet paketi olarak yayımlanır. Her ikisi de aynı Aspose.Slides ad alanlarını ve sınıflarını sağlar, bu nedenle paketler arasında geçiş yaptığınızda kodunuz değişmez; yalnızca paket referansı ve platform gereksinimleri farklıdır.
+
+| Paket | Kullanım Alanı | Ek gereksinimler |
+|---|---|---|
+| [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) | Windows ve .NET Framework uygulamaları | Linux ve macOS'ta: `libgdiplus` kitaplığı ve uygulama başlangıcında etkinleştirilen `System.Drawing.EnableUnixSupport` anahtarı |
+| [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) | .NET 6 veya üzeri Windows, Linux ve macOS üzerinde | Linux'ta: `fontconfig` kitaplığı, eğer önceden yüklü değilse |
+
+Emin değilseniz, Windows'ta Aspose.Slides.NET'i, Linux ve macOS'ta Aspose.Slides.NET6.CrossPlatform'u kullanın. Alpine Linux'ta ve glibc'si 2.23 (x64) veya 2.39 (ARM64) sürümünden daha eski olan Linux sistemlerinde Aspose.Slides.NET'i tercih edin. [System Requirements](/slides/tr/net/system-requirements/) her paketin desteklediği platformları listeler.
+
+## **.NET CLI ile Kurulum**
+
+Bu adımlar Windows, Linux ve macOS'ta .NET SDK 6 veya üzeri ile çalışır. Bir konsol uygulaması oluşturun:
+
+```bash
+dotnet new console -n HelloSlides
+cd HelloSlides
+```
+
+Ardından platformunuz için paketi ekleyin. Bir projeye sadece iki paketten birini ekleyin.
+
+- Windows'ta: `dotnet add package Aspose.Slides.NET`
+- Linux ve macOS'ta: `dotnet add package Aspose.Slides.NET6.CrossPlatform` (Linux'ta, önce önkoşulunu yükleyin; bkz. [Linux](#linux))
+
+Paketi test etmek için *Program.cs* içeriğini [Create Presentations](/slides/tr/net/create-presentation/) sayfasındaki ilk örnekle değiştirin ve `dotnet run` komutunu çalıştırın. *hello.pptx* dosyasını proje klasörüne kaydeder.
 
 ## **Windows**
-NuGet, PC'lerde Aspose API'lerini .NET için indirme ve kurmanın en kolay yolunu sağlar. 
 
-### **Yöntem 1: NuGet Paket Yöneticisi'nden Aspose.Slides'ı Yükleme veya Güncelleme**
+### **Yöntem 1: NuGet Paket Yöneticisi'nden Aspose.Slides'i Yükleyin veya Güncelleyin**
 
-1. Microsoft Visual Studio'yu açın. 
-2. Basit bir konsol uygulaması oluşturun veya mevcut bir projeyi açın. 
-3. **Tools** > **NuGet package manager** yolunu izleyin. 
-4. **Browse** altında, metin alanına *Aspose Slides* yazın ve arama yapın. 
-{{% image img="installation_1.png" alt="NuGet Paket Yöneticisinden Aspose.Slides Kurulumu - 1" %}}
-5. **Aspose.Slides.NET** üzerine tıklayın ve ardından **Install**'a tıklayın. 
-   * Aspose.Slides'ı zaten yüklediyseniz ve güncellemek istiyorsanız **Update**'a tıklayın. 
+1. Microsoft Visual Studio'yu açın.
+2. Bir konsol uygulaması oluşturun ya da mevcut bir projeyi açın.
+3. **Solution Explorer** içinde projeye sağ tıklayın ve **Manage NuGet Packages** seçeneğini seçin (veya **Project** > **Manage NuGet Packages** menüsüne gidin).
+4. **Browse** altında *Aspose.Slides* arayın.
+{{% image img="installation_1.png" alt="Aspose.Slides Installation from NuGet Package Manager - 1" %}}
+5. **Aspose.Slides.NET**'e tıklayın ve ardından **Install**'a tıklayın.  
+   * Eğer Aspose.Slides'i zaten yüklediyseniz ve güncellemek istiyorsanız, bunun yerine **Update**'a tıklayın.
 
-Seçilen API projenize indirilir ve referans olarak eklenir.
+Paket indirildi ve projenizde referans olarak eklendi.
 
-### **Yöntem 2: Paket Yöneticisi Konsolu Üzerinden Aspose.Slides'ı Yükleme veya Güncelleme**
+### **Yöntem 2: Paket Yöneticisi Konsolu üzerinden Aspose.Slides'i Yükleyin veya Güncelleyin**
 
-Bu, paket yöneticisi konsolu üzerinden [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.NET/) referansını eklemenin yoludur:
+Bu, [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) paketini Paket Yöneticisi Konsolu üzerinden nasıl referans göstereceğinizdir:
 
-1. Microsoft Visual Studio'yu açın. 
-2. Basit bir konsol uygulaması oluşturun veya mevcut bir projeyi açın. 
-3. **Tools** > **Library Package Manager** > **Package Manager Console** yolunu izleyin. 
-![todo:image_alt_text](installation_2.png)
-4. Bu komutu çalıştırın: `Install-Package Aspose.Slides.NET` 
-![todo:image_alt_text](installation_3.png)
-En son tam sürüm uygulamanıza kurulur. 
+1. Microsoft Visual Studio'yu açın.
+2. Bir konsol uygulaması oluşturun ya da mevcut bir projeyi açın.
+3. **Tools** > **NuGet Package Manager** > **Package Manager Console** menüsüne gidin.
+![Opening the Package Manager Console](installation_2.png)
+4. Bu komutu çalıştırın: `Install-Package Aspose.Slides.NET`
+![Running the Install-Package command](installation_3.png)
+En son sürüm projenize yüklendi.
 
-* Alternatif olarak, `-prerelease` son ekini ekleyerek en son sürümün (sıcak düzeltmeler dahil) kurulmasını sağlayabilirsiniz.
+**Installing Aspose.Slides.NET** mesajı pencerenin alt kısmında görünür.
+![Installation progress in the Package Manager Console](installation_4.png)
 
- **Installing Aspose.Slides.NET** ipucu, pencerenin alt kısmında görünür. 
-![todo:image_alt_text](installation_4.png)
+İndirme tamamlandığında onay mesajları gösterilir. Paket, [Aspose EULA](https://about.aspose.com/legal/eula) altında dağıtılır.
+![Installation confirmation messages](installation_5.png)
 
-İndirme tamamlandığında bazı onay mesajları görmelisiniz. 
+Aspose.Slides artık projenize eklenmiş ve referans gösterilmiştir.
+![Aspose.Slides referenced in the project](installation_6.png)
 
-[Aspose EULA](https://about.aspose.com/legal/eula) ile aşina değilseniz, URL'de referans verilen lisansı okumanız önerilir. 
-![todo:image_alt_text](installation_5.png)
-
-Uygulamanızda Aspose.Slides'ın başarıyla eklendiğini ve referans alındığını görmelisiniz. 
-![todo:image_alt_text](installation_6.png)
-
-Paket Yöneticisi Konsolu'nda `Update-Package Aspose.Slides.NET` komutunu çalıştırarak Aspose.Slides paketindeki güncellemeleri kontrol edebilirsiniz. Bulunan güncellemeler otomatik olarak kurulur. `-prerelease` son ekini ekleyerek en son sürümü de güncelleyebilirsiniz.
-#### **Paylaşılan Sunucu Ortamında Çalıştırırken Dikkat Edilmesi Gerekenler**
-Aspose .NET bileşenlerini **Full Trust** izin setiyle çalıştırmanızı şiddetle tavsiye ederiz; çünkü Aspose bileşenleri bazen sanal dizinin dışında bulunan kayıt defteri ayarları ve dosyalara erişim gerektirebilir—örneğin, font dosyalarını okurken.
-
-Ayrıca Aspose.NET bileşenleri temel .NET sistem sınıflarına dayanır ve bu sınıfların bazıları belirli durumlarda Full Trust izni gerektirir.
-
-Farklı şirketlerin uygulamalarını barındıran Internet Service Provider'lar genellikle **Medium Trust** güvenlik seviyesini uygular. .NET 2.0 ortamında bu güvenlik seviyesi, Aspose.Slides işlemlerini etkileyebilecek kısıtlamalara yol açabilir:
-
-- **RegistryPermission** mevcut değildir. Bu, belgeleri işlerken yüklü fontları listelemek için kayıt defterine erişilemeyeceği anlamına gelir. 
-- **FileIOPermission** kısıtlanmıştır. Bu, yalnızca uygulamanızın sanal dizin hiyerarşisindeki dosyalara erişebileceğiniz anlamına gelir. Bu durum, dışa aktarma sırasında fontların okunamamasına da yol açabilir. 
-
-Yukarıdaki nedenlerden dolayı Aspose.Slides'ı **Full Trust** izinleriyle çalıştırmanızı şiddetle öneriyoruz. **Medium trust** kullanırsanız, bazı kütüphane özellikleri (örneğin render işlemleri) belirli görevlerde çalışmayabilir. 
+Paketi güncellemek için Paket Yöneticisi Konsolu'nda `Update-Package Aspose.Slides.NET` komutunu çalıştırın.
 
 ## **Linux**
 
-NuGet, Linux'ta Aspose.Slides for .NET'i indirme ve kurmanın en kolay yolunu sağlar. .NET projenize [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) paketini ekleyin.
+Yukarıdaki .NET CLI adımlarını kullanın. Paketi seçin ve dağıtımınızın paket yöneticisiyle önkoşulunu yükleyin. Debian ve Ubuntu'da:
+
+- **Aspose.Slides.NET6.CrossPlatform**: `fontconfig` paketini kurun.
+
+  ```bash
+  sudo apt-get update && sudo apt-get install -y libfontconfig1
+  dotnet add package Aspose.Slides.NET6.CrossPlatform
+```
+
+- **Aspose.Slides.NET**: `libgdiplus` paketini kurun ve uygulamanız Aspose.Slides'i kullanmadan önce System.Drawing için Unix desteğini etkinleştirin.
+
+  ```bash
+  sudo apt-get update && sudo apt-get install -y libgdiplus
+  dotnet add package Aspose.Slides.NET
+```
+
+  Bu ifadeyi uygulamanızın başına, herhangi bir Aspose.Slides çağrısından önce ekleyin. Üst‑seviye bildirimleri olan bir *Program.cs* dosyasında, `using` yönergelerinden sonra koyun:
+
+  ```c#
+  System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+  ```
+
+  Bu paketi Alpine Linux'ta ve glibc'si Aspose.Slides.NET6.CrossPlatform için çok eski olan sistemlerde kullanın.
+
+Sunumlarınızda kullanılan yazı tipleri veya uygun alternatifleri, metnin doğru görüntülenebilmesi için sistemde yüklü olmalıdır. [System Requirements](/slides/tr/net/system-requirements/) Alpine Linux'ta Aspose.Slides.NET'in ihtiyaç duyduğu paketleri, yazı tiplerini de içerecek şekilde açıklar.
 
 ## **macOS**
 
-NuGet, Mac'lerde Aspose.Slides for .NET'i indirme ve kurmanın en kolay yolunu sağlar.
+Yukarıdaki .NET CLI adımlarını **Aspose.Slides.NET6.CrossPlatform** paketiyle kullanın; bu paket Intel (x86_64) ve Apple silikon (ARM64) Mac'leri destekler:
 
-### **Aspose.Slides'ı Kurun**
-
-1. Visual Studio'yu açın. 
-2. Basit bir konsol uygulaması oluşturun veya mevcut bir projeyi açın. 
-3. **Project** > **Manage NuGet Packages...** yolunu izleyin. 
-   ![path-to-nuget-macos](path-to-nuget-macos.png)
-4. Metin alanına *Aspose.Slides* yazın. 
-5. **Aspose.Slides for .NET** üzerine tıklayın ve ardından **Add Package**'a tıklayın. 
-6. Basit bir kod parçacığı ekleyin. 
-   * [bu sayfadaki](/slides/tr/net/create-presentation/) kodu kopyalayabilirsiniz. 
-7. Uygulamayı çalıştırın. 
-8. Projenizin *folder/bin/Debug/presentation_file_name* klasörünü açın. 
+```bash
+dotnet add package Aspose.Slides.NET6.CrossPlatform
+```
 
 ## **SSS**
 
 **Ücretsiz bir sürüm veya deneme sınırlaması var mı?**
 
-Evet, varsayılan olarak Aspose.Slides değerlendirme modunda çalışır; bu mod, filigran ekler ve başka sınırlamalar içerebilir. Kısıtlamaları kaldırmak için geçerli bir [lisans](/slides/tr/net/licensing/) uygulamanız gerekir.
+Evet. Lisans olmadan, Aspose.Slides değerlendirme modunda çalışır: kaydettiği her slayda değerlendirme filigranı ekler ve sunumlardan okunan metni kısaltır. Bu sınırlamaları kaldırmak için geçerli bir [license](/slides/tr/net/licensing/) uygulayın.

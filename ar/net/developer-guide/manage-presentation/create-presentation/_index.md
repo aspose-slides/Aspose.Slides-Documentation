@@ -19,93 +19,98 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إنشاء عروض تقديمية في .NET باستخدام Aspose.Slides—إنشاء ملفات PPT و PPTX و ODP، الاستفادة من دعم OpenDocument، وحفظها برمجياً للحصول على نتائج موثوقة."
+description: "إنشاء عروض تقديمية في .NET باستخدام Aspose.Slides—إنتاج ملفات PPT و PPTX و ODP، الاستفادة من دعم OpenDocument، وحفظها برمجياً للحصول على نتائج موثوقة."
 ---
+## **نظرة عامة**
 
-## **إنشاء عرض تقديمي PowerPoint**
-لإضافة خط بسيط عادي إلى الشريحة المحددة في العرض التقديمي، يرجى اتباع الخطوات أدناه:
+هذه المقالة توضح كيفية إنشاء عرض تقديمي في Aspose.Slides، إضافة صندوق نص إلى الشريحة الأولى، وحفظ النتيجة كملف. كما توضح كيفية إنشاء عرض تقديمي فارغ وحفظه، وكيفية فتح عرض تقديمي موجود بتنسيق مدعوم وحفظه بتنسيق آخر. يتضمن قسم الأسئلة الشائعة في النهاية إجابات على أسئلة شائعة حول الصيغ، القوالب، حجم الشرائح، الوحدات، استهلاك الذاكرة، التعددية، الترخيص، التوقيعات الرقمية، ودعم VBA.
 
-1. إنشاء مثيل لفئة Presentation.
-1. الحصول على مرجع الشريحة باستخدام مؤشرها.
-1. إضافة AutoShape من نوع الخط باستخدام طريقة AddAutoShape التي توفرها كائن Shapes.
-1. كتابة العرض التقديمي المعدل كملف PPTX.
+قبل البدء، أضف Aspose.Slides إلى مشروعك من NuGet. راجع [Installation](/slides/ar/net/installation/) للحصول على الحزمة للاستخدام على Windows وLinux وmacOS.
 
-في المثال المذكور أدناه، قمنا بإضافة خط إلى الشريحة الأولى من العرض التقديمي.
+## **إنشاء عرض PowerPoint**
+
+1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) . يحتوي العرض الجديد بالفعل على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة من مجموعة [Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) بواسم الفهرس 0.
+3. أضف مستطيلًا باستخدام الطريقة [AddAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addautoshape/) ثم اضبط [text](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/text/).
+4. احفظ العرض كملف PPTX باستخدام الطريقة [Save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/) .
+
 ```c#
- // إنشاء كائن Presentation يمثل ملف عرض تقديمي
-using (Presentation presentation = new Presentation())
-{
-    // الحصول على الشريحة الأولى
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // إضافة AutoShape من نوع خط
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
+زاوية المستطيل العلوية اليسرى تقع على بُعد 50 نقطة من الحافة اليسرى و50 نقطة من الحافة العليا للشريحة، وعرض المستطيل 400 نقطة وارتفاعه 100 نقطة. يحتوي الملف المحفوظ على شريحة واحدة تضم ذلك المستطيل ونصه. بدون ترخيص، يضيف Aspose.Slides علامة مائية للتقييم إلى كل شريحة يتم حفظها؛ راجع [Licensing](/slides/ar/net/licensing/).
 
 ## **إنشاء وحفظ عرض تقديمي**
 
-<a name="csharp-create-save-presentation"><strong>الخطوات: إنشاء وحفظ عرض تقديمي في C#</strong></a>
+<a name="csharp-create-save-presentation"></a>
 
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. حفظ _Presentation_ إلى أي تنسيق يدعمه [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+لإنشاء عرض تقديمي فارغ وحفظه، أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) واحفظه بأي تنسيق من تعداد [SaveFormat](https://reference.aspose.com/slides/ar/net/aspose.slides.export/saveformat/) . النتيجة هي عرض تقديمي يحتوي على شريحة فارغة واحدة.
+
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **فتح وحفظ عرض تقديمي**
 
-<a name="csharp-open-save-presentation"><strong>الخطوات: فتح وحفظ عرض تقديمي في C#</strong></a>
+<a name="csharp-open-save-presentation"></a>
 
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بأي تنسيق مثل PPT أو PPTX أو ODP وغيرها.
-2. حفظ _Presentation_ إلى أي تنسيق يدعمه [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+لتحويل عرض تقديمي من تنسيق إلى آخر، افتحه بتمرير مساره إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/presentation/) ، ثم احفظه بالتنسيق الهدف. يكتشف Aspose.Slides تنسيق الإدخال، مثل PPT أو PPTX أو ODP، من الملف نفسه.
+
+المثال أدناه يتوقع وجود عرض OpenDocument باسم *Sample.odp* في دليل العمل ويحفظه كـ PPTX.
+
 ```c#
- // قم بتحميل أي ملف مدعوم في Presentation مثل ppt أو pptx أو odp وغيرها.
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **الأسئلة الشائعة**
 
-**ما هي الصيغ التي يمكنني حفظ عرض تقديمي جديد إليها؟**
+### ما الصيغ التي يمكنني حفظ عرض تقديمي جديد إليها؟
 
-يمكنك الحفظ إلى [PPTX, PPT, و ODP](/slides/ar/net/save-presentation/)، وكذلك التصدير إلى [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/net/convert-powerpoint-to-xps/)، [HTML](/slides/ar/net/convert-powerpoint-to-html/)، [SVG](/slides/ar/net/convert-powerpoint-to-png/)، و[الصور](/slides/ar/net/convert-powerpoint-to-png/)، وغيرها.
+يمكنك الحفظ إلى [PPTX, PPT, and ODP](/slides/ar/net/save-presentation/)، وتصدير إلى [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/net/convert-powerpoint-to-xps/), [HTML](/slides/ar/net/convert-powerpoint-to-html/), [SVG](/slides/ar/net/render-a-slide-as-an-svg-image/), و[images](/slides/ar/net/convert-powerpoint-to-png/)، وغيرها.
 
-**هل يمكنني البدء من قالب (POTX/POTM) وحفظه كملف PPTX عادي؟**
+### هل يمكنني البدء من قالب (POTX/POTM) وحفظه كـ PPTX عادي؟
 
-نعم. قم بتحميل القالب واحفظه بالتنسيق المطلوب؛ الصيغ POTX/POTM/PPTM والصيغ المماثلة [مدعومة](/slides/ar/net/supported-file-formats/).
+نعم. حمّل القالب واحفظه بالتنسيق المطلوب؛ صيغ POTX/POTM/PPTM والصيغ المشابهة [مدعومة](/slides/ar/net/supported-file-formats/).
 
-**كيف يمكنني التحكم في حجم الشريحة/نسبة الأبعاد عند إنشاء عرض تقديمي؟**
+### كيف يمكنني التحكم في حجم الشريحة/نسبة العرض إلى الارتفاع عند إنشاء عرض تقديمي؟
 
-حدد [حجم الشريحة](/slides/ar/net/slide-size/) (بما في ذلك الإعدادات المسبقة مثل 4:3 و 16:9 أو الأبعاد المخصصة) واختر كيفية ضبط المحتوى.
+حدد [slide size](/slides/ar/net/slide-size/) (بما في ذلك القوالب مثل 4:3 و16:9 أو الأبعاد المخصصة) واختر طريقة تحجيم المحتوى.
 
-**ما هي الوحدات المستخدمة لقياس الأحجام والإحداثيات؟**
+### بأي وحدات تُقاس الأحجام والإحداثيات؟
 
-بالنقطة: 1 بوصة تساوي 72 وحدة.
+بالنقاط: 1 بوصة تساوي 72 وحدة.
 
-**كيف يمكنني التعامل مع عروض تقديمية كبيرة جدًا (مع العديد من ملفات الوسائط) لتقليل استخدام الذاكرة؟**
+### كيف أتعامل مع عروض تقديمية كبيرة جدًا (مع العديد من ملفات الوسائط) لتقليل استهلاك الذاكرة؟
 
-استخدم [استراتيجيات إدارة BLOB](/slides/ar/net/manage-blob/)، وقلل التخزين في الذاكرة عن طريق الاستفادة من الملفات المؤقتة، وفضّل سير العمل القائم على الملفات بدلاً من التدفقات التي تقتصر على الذاكرة.
+استخدم [BLOB management strategies](/slides/ar/net/manage-blob/)، قِم بتقليل التخزين في الذاكرة عن طريق الاستفادة من الملفات المؤقتة، وفضّل سير عمل يعتمد على الملفات بدلاً من التدفقات داخل الذاكرة فقط.
 
-**هل يمكنني إنشاء/حفظ عروض تقديمية بالتوازي؟**
+### هل يمكنني إنشاء/حفظ عروض تقديمية بالتوازي؟
 
-لا يمكنك العمل على نفس مثيل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/net/multithreading/). شغل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) من [multiple threads](/slides/ar/net/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
 
-**كيف يمكنني إزالة علامة التجربة المائية والقيود؟**
+### كيف أقوم بإزالة علامة التجربة المائية والقيود؟
 
-[تطبيق ترخيص](/slides/ar/net/licensing/) مرة واحدة لكل عملية. يجب أن يبقى ملف XML للترخيص غير معدل، ويجب مزامنة إعداد الترخيص إذا كانت هناك خيوط متعددة.
+[Apply a license](/slides/ar/net/licensing/) مرة واحدة لكل عملية. يجب أن يبقى ملف ترخيص XML دون تعديل، ويجب مزامنة إعداد الترخيص إذا كانت هناك خيوط متعددة.
 
-**هل يمكنني توقيع ملف PPTX الذي أنشئه رقميًا؟**
+### هل يمكنني توقيع PPTX الذي أنشئه رقميًا؟
 
-نعم. [التوقيعات الرقمية](/slides/ar/net/digital-signature-in-powerpoint/) (الإضافة والتحقق) مدعومة للعرض التقديمي.
+نعم. [Digital signatures](/slides/ar/net/digital-signature-in-powerpoint/) (الإضافة والتحقق) مدعومة للعرض التقديمي.
 
-**هل تدعم العروض التقديمية التي تم إنشاؤها الماكرو (VBA)؟**
+### هل تدعم العروض التي تم إنشاؤها الماكرو (VBA)؟
 
-نعم. يمكنك [إنشاء/تحرير مشاريع VBA](/slides/ar/net/presentation-via-vba/) وحفظ الملفات الممكّن للماكرو مثل PPTM/PPSM.
+نعم. يمكنك [create/edit VBA projects](/slides/ar/net/presentation-via-vba/) وحفظ ملفات تمكين الماكرو مثل PPTM/PPSM.

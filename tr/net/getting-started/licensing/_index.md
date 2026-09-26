@@ -8,7 +8,7 @@ keywords:
 - geçici lisans
 - lisans ayarla
 - lisans kullan
-- lisans doğrula
+- lisansı doğrula
 - lisans dosyası
 - değerlendirme sürümü
 - PowerPoint
@@ -17,129 +17,117 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'te lisansları uygulayın, yönetin ve sorun giderin. Adım adım lisanslama rehberimizle tam özelliklere kesintisiz erişimi sağlayın."
+description: "Aspose.Slides for .NET'te lisansları uygulayın, yönetin ve sorun gidermek için çözümler bulun. Adım adım lisanslama rehberimizle tam özelliklere kesintisiz erişimi sağlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides değerlendirme modunda veya geçerli bir lisansla kullanılabilir. Değerlendirme sürümü, lisanslı sürümle aynı işlevselliği sağlar, ancak sunumlar açıldığında veya kaydedildiğinde bir değerlendirme filigranı ekler ve metin çıkarımını bir slaytla sınırlar.
+Aspose.Slides, değerlendirme modunda veya geçerli bir lisansla kullanılabilir. Değerlendirme sürümü, lisanslı sürümle aynı işlevi sunar; ancak kaydettiği her sununun her slaytına bir değerlendirme filigranı ekler ve kodunuzun sunumlardan okuduğu metni kısaltır.
 
-Bu makale, Aspose.Slides'te lisanslamanın nasıl çalıştığını ve kütüphaneyi kullanmadan önce nasıl lisans uygulanacağını açıklar. Lisans, `License` sınıfı kullanılarak bir dosya, akış ya da gömülü kaynak üzerinden yüklenebilir. Makale ayrıca lisansın doğru bir şekilde uygulanıp uygulanmadığını nasıl doğrulayacağınızı gösterir.
+Bu makale, Aspose.Slides’ta lisanslamanın nasıl çalıştığını ve kütüphaneyi kullanmadan önce nasıl bir lisans uygulanacağını açıklar. Bir lisans, `License` sınıfı kullanılarak dosyadan, akıştan veya gömülü kaynaktan yüklenebilir. Makale ayrıca bir lisansın doğru şekilde uygulanıp uygulanmadığını doğrulamanın yollarını gösterir.
 
-## **Aspose.Slides'ı Değerlendirin**
+## **Aspose.Slides Değerlendirme**
 
-{{% alert color="primary" %}} 
-
-Bir değerlendirme sürümünü **Aspose.Slides for NET**'i [NuGet indirme sayfasından](https://www.nuget.org/packages/Aspose.Slides.NET/) indirebilirsiniz. Değerlendirme sürümü, ürünün lisanslı sürümüyle aynı işlevselliği sağlar. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, birkaç kod satırı ekleyip lisansı uyguladıktan sonra basitçe lisanslı hâle gelir.
-
-Aspose.Slides değerlendirmesinden memnun kaldığınızda, bir [lisans satın alabilirsiniz](https://purchase.aspose.com/buy). Farklı abonelik türlerine göz atmanızı öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
-
-Her Aspose lisansı, abonelik süresi içinde yayınlanan yeni sürüm ve düzeltmelere ücretsiz yükseltme sağlayan bir yıllık abonelik içerir. Lisanslı ürünlere sahip kullanıcılar ya da değerlendirme sürümünü kullananlar ücretsiz ve sınırsız teknik destek alır.
-
-{{% /alert %}} 
-
-**Değerlendirme sürümü sınırlamaları**
-
-* Lisans belirtilmemiş Aspose.Slides değerlendirme sürümü tam ürün işlevselliği sağlarken, açma ve kaydetme işlemlerinde belgenin üst kısmına bir değerlendirme filigranı ekler.
-* Sunum slaytlarından metin çıkarırken yalnızca bir slaytla sınırlısınız.
-
-{{% alert color="primary" %}} 
-
-Aspose.Slides'ı sınırlamaları olmadan test etmek için **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [Geçici Lisans nasıl alınır](https://purchase.aspose.com/temporary-license) sayfasına bakın.
-
+{{% alert color="info" title="Not" %}}
+**Aspose.Slides for .NET**’in bir değerlendirme sürümünü [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.NET/) adresinden indirebilirsiniz. Değerlendirme sürümü, ürünün lisanslı sürümüyle aynı işlevleri sağlar. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
 {{% /alert %}}
 
-## **Aspose.Slides'te Lisanslama**
-* Bir değerlendirme sürümü, bir lisans satın alındıktan ve birkaç kod satırı eklenerek (lisansı uygulamak için) lisanslı hâle gelir.
-* Lisans, ürün adı, lisanslı geliştirici sayısı, abonelik bitiş tarihi gibi ayrıntıları içeren düz metin XML dosyasıdır.
-* Lisans dosyası dijital olarak imzalanmıştır, bu yüzden dosyayı değiştirmemelisiniz. Dosyaya fazladan bir satır sonu eklenmesi bile lisansı geçersiz kılar.
-* Aspose.Slides for .NET genellikle lisansı şu konumlarda arar:
+Değerlendirme sürecinizden memnun kaldığınızda **Aspose.Slides**’i [purchase a license](https://purchase.aspose.com/pricing/slides/tr/net/) ile lisanslayabilirsiniz. Farklı abonelik türlerine göz atmanızı öneririz. Sorularınız varsa Aspose satış ekibiyle iletişime geçin.
+
+Her Aspose lisansı, abonelik süresi içinde ücretsiz yükseltmeler ve düzeltmeler alabileceğiniz bir yıllık abonelik içerir. Lisanslı ürünler ya da değerlendirme sürümleri sınırsız teknik destek alır.
+
+**Değerlendirme sürümü sınırlamaları**
+* Lisans belirtilmemiş değerlendirme sürümü, tam ürün işlevselliği sağlar, ancak kaydettiği her sununun her slaytına bir değerlendirme filigranı metin kutusu ekler.
+* Kodunuzun bir sunumdan okuduğu metin, ilk birkaç karaktere kısaltılır ve değerlendirme sınırlaması hakkında bir uyarı eklenir. Kodunuzun yazdığı metin tam olarak kaydedilir.
+
+{{% alert color="info" title="Not" %}}
+Kısıtlamasız bir şekilde Aspose.Slides’ı test etmek isterseniz **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [How to get a Temporary License](https://purchase.aspose.com/temporary-license) sayfasına bakın.
+{{% /alert %}}
+
+## **Aspose.Slides’da Lisanslama**
+* Değerlendirme sürümü, bir lisans satın alıp birkaç satır kod eklediğinizde lisanslı hâle gelir.
+* Lisans, ürün adı, lisanslı geliştirici sayısı, abonelik bitiş tarihi gibi bilgileri içeren sade‑metin XML dosyasıdır.
+* Lisans dosyası dijital olarak imzalıdır; dosyada herhangi bir ek satır boşluğu gibi değişiklik yapılmamalıdır, aksi takdirde lisans geçersiz olur.
+* Aspose.Slides for .NET genellikle lisansı şu konumlardan bulmaya çalışır:
   * Açık bir yol
-  * Bileşenin DLL'ini içeren klasör (Aspose.Slides içinde dahil edilir)
-  * Bileşenin DLL'ini çağıran derlemenin bulunduğu klasör (Aspose.Slides içinde dahil edilir)
-  * Giriş derlemesini (exe dosyanızı) içeren klasör
-  * Bileşenin DLL'ini çağıran derlemede gömülü kaynak (Aspose.Slides içinde dahil edilir).
-* Değerlendirme sürümüyle ilişkili sınırlamalardan kaçınmak için Aspose.Slides'ı kullanmadan önce bir lisans ayarlamanız gerekir. Bir uygulama ya da süreç için lisansı yalnızca bir kez ayarlamanız yeterlidir.
+  * Bileşenin DLL dosyasının bulunduğu klasör (Aspose.Slides içinde)
+  * Bileşenin DLL dosyasını çağıran derlemenin bulunduğu klasör (Aspose.Slides içinde)
+  * Giriş derlemesinin (exe) bulunduğu klasör
+  * Bileşenin DLL dosyasını çağıran derlemede gömülü bir kaynak (Aspose.Slides içinde)
+* Değerlendirme sürümüne ait sınırlamaları aşmak için Aspose.Slides’ı kullanmadan önce bir lisans ayarlamanız gerekir. Bir uygulama ya da süreç için lisansı yalnızca bir kez ayarlamanız yeterlidir.
 
-{{% alert color="primary" %}} 
-
-İsterseniz [Ölçülü Lisanslama](https://docs.aspose.com/slides/tr/net/metered-licensing/) sayfasına göz atabilirsiniz.
-
-{{% /alert %}} 
-
+{{% alert color="info" title="Not" %}}
+[Metered Licensing](/slides/tr/net/metered-licensing/) sayfasına göz atmak isteyebilirsiniz.
+{{% /alert %}}
 
 ## **Lisans Uygulama**
-Lisans, bir **dosyadan**, **akıştan** veya **gömülü kaynaktan** yüklenebilir. 
+Bir lisans **dosyadan**, **akıştan** veya **gömülü kaynaktan** yüklenebilir.
 
-{{% alert color="primary" %}}
-
+{{% alert color="info" title="Not" %}}
 Aspose.Slides, lisanslama işlemleri için [License](https://reference.aspose.com/slides/tr/net/aspose.slides/license) sınıfını sağlar.
+{{% /alert %}}
 
-{{% /alert %}} 
-
-{{% alert color="warning" %}} 
-
-Yeni lisanslar yalnızca 21.4 veya daha sonraki sürümde Aspose.Slides'ı etkinleştirebilir. Daha eski sürümler farklı bir lisanslama sistemi kullanır ve bu lisansları tanımaz.
-
+{{% alert color="warning" title="Uyarı" %}}
+Yeni lisanslar, yalnızca 21.4 veya sonraki sürümlerde Aspose.Slides’ı etkinleştirir. Daha eski sürümler farklı bir lisanslama sistemi kullanır ve bu lisansları tanımaz.
 {{% /alert %}}
 
 ### **Dosya**
-Lisans ayarlamanın en kolay yöntemi, lisans dosyasını bileşenin DLL'inin (Aspose.Slides içinde dahil) bulunduğu aynı klasöre koymayı ve yalnızca dosya adını, yol olmadan belirtmeyi gerektirir.
+Lisans ayarlamanın en kolay yöntemi, lisans dosyasını bileşenin DLL (Aspose.Slides içinde) ile aynı klasöre koymak ve yalnızca dosya adını, yol olmadan belirtmektir.
 
 Bu C# kodu, bir lisans dosyasının nasıl ayarlanacağını gösterir:
 
 ``` csharp
-// Lisans sınıfını örnekler 
+// License sınıfını örnekler 
 Aspose.Slides.License license = new Aspose.Slides.License();
 
 // Lisans dosyası yolunu ayarlar
 license.SetLicense("Aspose.Slides.lic");
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Uyarı" %}}
+Lisans dosyasını farklı bir dizine koyarsanız, [SetLicense](https://reference.aspose.com/slides/tr/net/aspose.slides/license/setlicense/#setlicense_1) yöntemini çağırdığınızda belirtilen yolun sonundaki lisans dosyası adı, gerçek lisans dosyası adınızla aynı olmalıdır.
 
-Lisans dosyasını farklı bir dizine koyarsanız, [SetLicense](https://reference.aspose.com/slides/tr/net/aspose.slides/license/setlicense/#setlicense_1) yöntemini çağırdığınızda, belirtilen açık yolun sonunda yer alan lisans dosyası adı lisans dosyanızla aynı olmalıdır.
-
-Örneğin, lisans dosyası adını *Aspose.Slides.lic.xml* olarak değiştirebilirsiniz. Ardından, kodunuzda [SetLicense](https://reference.aspose.com/slides/tr/net/aspose.slides/license/setlicense/#setlicense_1) yöntemine dosya yolunu ( *Aspose.Slides.lic.xml* ile biten) vermeniz gerekir.
-
+Örneğin, lisans dosyası adını *Aspose.Slides.lic.xml* olarak değiştirirseniz, kodunuzda dosya yolunu (sonu *Aspose.Slides.lic.xml* olacak şekilde) [SetLicense](https://reference.aspose.com/slides/tr/net/aspose.slides/license/setlicense/#setlicense_1) metoduna geçirmeniz gerekir.
 {{% /alert %}}
 
 ### **Akış**
-Bir lisansı akıştan yükleyebilirsiniz. Bu C# kodu, bir akıştan lisans nasıl uygulanır gösterir:
+Bir lisansı bir akıştan yükleyebilirsiniz. Bu C# kodu, bir akıştan lisans uygulamanın nasıl yapılacağını gösterir:
 
 ``` csharp
-// Lisans sınıfını örnekler 
+// License sınıfını örnekler
 Aspose.Slides.License license = new Aspose.Slides.License();
 
+// Lisans dosyasını akış olarak açar
+using FileStream licenseStream = File.OpenRead("Aspose.Slides.lic");
+
 // Lisansı bir akış üzerinden ayarlar
-license.SetLicense(myStream);
+license.SetLicense(licenseStream);
 ```
 
 ### **Gömülü Kaynak**
-Lisansı, bileşenin DLL'ini çağıran derlemelerden birine gömülü kaynak olarak ekleyerek uygulamanızla birlikte paketleyebilir (kaybolmasını önlemek için). 
+Lisansı uygulamanızla birlikte paketleyerek (kayıp olmasını önlemek için) bileşenin DLL dosyasını çağıran derlemelerden birine gömülü kaynak olarak ekleyebilirsiniz.
 
-Lisans dosyasını gömülü kaynak olarak ekleme yöntemi şu şekildedir:
+Lisans dosyasını gömülü kaynak olarak ekleme adımları:
 
-1. Visual Studio'da, lisans (.lic) dosyasını projeye şu şekilde ekleyin: **File** > **Add Existing Item** > **Add** menüsüne gidin.
-2. **Solution Explorer** içinde dosyayı seçin.
-3. **Properties** penceresinde, **Build Action** değerini **Embedded Resource** olarak ayarlayın.
-4. Derlemede gömülü lisansa erişmek için lisans dosyasını projeye gömülü kaynak olarak ekleyin ve ardından lisans dosyası adını `SetLicense` yöntemine geçirin. 
+1. Visual Studio’da, lisans (.lic) dosyasını projeye ekleyin: **File** > **Add Existing Item** > **Add** yolunu izleyin.  
+2. Dosyayı **Solution Explorer** içinde seçin.  
+3. **Properties** penceresinde **Build Action** değerini **Embedded Resource** olarak ayarlayın.  
+4. Derlemede gömülü lisansa erişmek için lisans dosyasını gömülü kaynak olarak projeye ekleyin ve `SetLicense` metoduna lisans dosyası adını aktarın.  
 
+`License` sınıfı, gömülü kaynaklarda lisans dosyasını otomatik olarak bulur. Microsoft .NET Framework’te `System.Reflection.Assembly` sınıfının `GetExecutingAssembly` ve `GetManifestResourceStream` metodlarını çağırmanıza gerek yoktur.
 
-`License` sınıfı, lisans dosyasını gömülü kaynaklarda otomatik olarak bulur. Microsoft .NET Framework'te `System.Reflection.Assembly` sınıfının `GetExecutingAssembly` ve `GetManifestResourceStream` yöntemlerini çağırmanıza gerek yoktur.
-
-Bu C# kodu, bir lisansı gömülü kaynak olarak nasıl ayarlayacağınızı gösterir:
+Bu C# kodu, lisansın gömülü kaynak olarak nasıl ayarlanacağını gösterir:
 
 ``` csharp
-// Lisans sınıfını örnekler
+// License sınıfını örnekler
 Aspose.Slides.License license = new Aspose.Slides.License();
 
-// Derlemede gömülü olan lisans dosyası adını aktarır
+// Derlemede gömülü lisans dosyası adını iletir
 license.SetLicense("Aspose.Slides.lic");
 ```
 
 ## **Lisansı Doğrulama**
 
-Bir lisansın doğru bir şekilde ayarlanıp ayarlanmadığını kontrol etmek için onu doğrulayabilirsiniz. Bu C# kodu, bir lisansın nasıl doğrulanacağını gösterir:
+Bir lisansın doğru şekilde ayarlanıp ayarlanmadığını kontrol etmek için doğrulayabilirsiniz. Bu C# kodu, bir lisansı nasıl doğrulayacağınızı gösterir:
 
 ```c#
 Aspose.Slides.License license = new Aspose.Slides.License();
@@ -155,18 +143,16 @@ if (license.IsLicensed())
 
 ## **İş Parçacığı Güvenliği**
 
-{{% alert title="Note" color="warning" %}} 
-
-[license.SetLicense](https://reference.aspose.com/slides/tr/net/aspose.slides/license/setlicense/) yöntemi iş parçacığı güvenli değildir. Bu yöntem birden çok iş parçacığından aynı anda çağrılması gerekiyorsa, sorunları önlemek için bir kilit gibi senkronizasyon primiitiflerini kullanmak isteyebilirsiniz. 
-
+{{% alert color="warning" title="Uyarı" %}}
+[license.SetLicense](https://reference.aspose.com/slides/tr/net/aspose.slides/license/setlicense/) metodu iş parçacığı güvenli değildir. Bu yöntem birden çok iş parçacığından aynı anda çağrılacaksa, sorunları önlemek için bir kilit gibi senkronizasyon ilkelileri kullanmanız önerilir.
 {{% /alert %}}
 
-## **Sıkça Sorulan Sorular**
+## **SSS**
 
-**Lisansı tamamen çevrim dışı bir ortamda (internet erişimi olmadan) uygulayabilir miyim?**
+### Lisansı tamamen çevrim dışı bir ortamda (internet erişimi olmadan) uygulayabilir miyim?
 
-Evet. Lisans doğrulaması, lisans dosyası kullanılarak yerel olarak yapılır; internet bağlantısı gerekmez.
+Evet. Lisans doğrulaması yerel olarak lisans dosyasıyla yapılır; internet bağlantısı gerekmez.
 
-**Bir yıllık abonelik sona erdiğinde ne olur? Kütüphane çalışmayı durdurur mu?**
+### Bir yıllık abonelik süresi dolduğunda ne olur? Kütüphane çalışmayı durdurur mu?
 
-Hayır. Lisans süresizdir: abonelik bitiş tarihinizden önce yayınlanan sürümleri kullanmaya devam edebilirsiniz; ancak yenilerini kullanmak için yenilemeniz gerekir.
+Hayır. Lisans kalıcıdır: abonelik bitiş tarihinizden önce yayımlanan sürümleri kullanmaya devam edebilirsiniz; ancak yenilerini kullanmak için lisans yenilemeniz gerekir.

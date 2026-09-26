@@ -8,104 +8,111 @@ keywords:
 - Präsentation erstellen
 - neue Präsentation
 - PPT erstellen
-- neue PPT
+- neues PPT
 - PPTX erstellen
-- neue PPTX
+- neues PPTX
 - ODP erstellen
-- neue ODP
+- neues ODP
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Erstellen Sie Präsentationen in .NET mit Aspose.Slides – erzeugen Sie PPT-, PPTX- und ODP-Dateien, profitieren Sie von OpenDocument‑Unterstützung und speichern Sie sie programmgesteuert für zuverlässige Ergebnisse."
+description: "Erstellen Sie Präsentationen in .NET mit Aspose.Slides - erstellen Sie PPT-, PPTX- und ODP-Dateien, nutzen Sie die OpenDocument-Unterstützung und speichern Sie sie programmgesteuert für zuverlässige Ergebnisse."
 ---
+## **Übersicht**
 
-## **Erstellen einer PowerPoint-Präsentation**
-Um eine einfache gerade Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, folgen Sie bitte den untenstehenden Schritten:
+Dieser Artikel zeigt, wie man in Aspose.Slides eine Präsentation erstellt, auf ihrer ersten Folie ein Textfeld hinzufügt und das Ergebnis als Datei speichert. Er zeigt außerdem, wie man eine leere Präsentation erstellt und speichert sowie wie man eine vorhandene Präsentation in einem unterstützten Format öffnet und in ein anderes Format speichert. Ein kurzer FAQ am Ende beantwortet häufige Fragen zu Formaten, Vorlagen, Foliengröße, Einheiten, Speichernutzung, Threading, Lizenzierung, digitalen Signaturen und VBA‑Unterstützung.
 
-1. Erstellen Sie eine Instanz der Klasse Presentation.
-2. Rufen Sie die Referenz einer Folie über ihren Index ab.
-3. Fügen Sie mit der Methode AddAutoShape des Shapes-Objekts ein AutoShape vom Typ Linie hinzu.
-4. Speichern Sie die geänderte Präsentation als PPTX-Datei.
+Bevor Sie beginnen, fügen Sie Ihrem Projekt Aspose.Slides über NuGet hinzu. Siehe [Installation](/slides/de/net/installation/) für das zu verwendende Paket unter Windows, Linux und macOS.
 
-Im untenstehenden Beispiel haben wir eine Linie zur ersten Folie der Präsentation hinzugefügt.
+## **PowerPoint‑Präsentation erstellen**
+
+Um eine Präsentation zu erstellen und ein Textfeld auf ihrer ersten Folie zu platzieren, folgen Sie diesen Schritten:
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/). Eine neue Präsentation enthält bereits eine leere Folie.
+2. Rufen Sie diese Folie aus der Sammlung [Slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slides/de/) über ihren Index 0 ab.
+3. Fügen Sie mit der Methode [AddAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie dessen [text](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/text/).
+4. Speichern Sie die Präsentation als PPTX-Datei mit der Methode [Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/).
+
 ```c#
-// Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
-using (Presentation presentation = new Presentation())
-{
-    // Die erste Folie abrufen
-    ISlide slide = presentation.Slides[0];
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Ein AutoShape vom Typ Linie hinzufügen
-    slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
+Die obere linke Ecke des Rechtecks ist 50 Punkte vom linken Rand und 50 Punkte vom oberen Rand der Folie entfernt, und das Rechteck ist 400 Punkte breit und 100 Punkte hoch. Die gespeicherte Datei enthält eine Folie mit diesem Rechteck und dessen Text. Ohne Lizenz fügt Aspose.Slides jedem gespeicherten Folie ein Evaluierungswasserzeichen hinzu; siehe [Licensing](/slides/de/net/licensing/).
 
-## **Erstellen und Speichern einer Präsentation**
+## **Präsentation erstellen und speichern**
 
-<a name="csharp-create-save-presentation"><strong>Schritte: Präsentation in C# erstellen und speichern</strong></a>
+<a name="csharp-create-save-presentation"></a>
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse.
-2. Speichern Sie _Presentation_ in ein beliebiges von [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) unterstütztes Format.
+Um eine leere Präsentation zu erstellen und zu speichern, erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) und speichern sie in einem beliebigen Format der Aufzählung [SaveFormat](https://reference.aspose.com/slides/de/net/aspose.slides.export/saveformat/). Das Ergebnis ist eine Präsentation mit einer leeren Folie.
+
 ```c#
-Presentation presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
 
+## **Präsentation öffnen und speichern**
 
-## **Öffnen und Speichern einer Präsentation**
+<a name="csharp-open-save-presentation"></a>
 
-<a name="csharp-open-save-presentation"><strong>Schritte: Präsentation in C# öffnen und speichern</strong></a>
+Um eine Präsentation von einem Format in ein anderes zu konvertieren, öffnen Sie sie, indem Sie ihren Pfad an den Konstruktor [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/presentation/) übergeben, und speichern sie anschließend im Ziel‑format. Aspose.Slides erkennt das Eingabeformat, wie PPT, PPTX oder ODP, anhand der Datei selbst.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse mit einem beliebigen Format, z. B. PPT, PPTX, ODP usw.
-2. Speichern Sie _Presentation_ in ein beliebiges von [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) unterstütztes Format.
+Das nachstehende Beispiel erwartet eine OpenDocument‑Präsentation mit dem Namen *Sample.odp* im Arbeitsverzeichnis und speichert sie als PPTX.
+
 ```c#
-// Laden Sie eine beliebige unterstützte Datei in Presentation, z. B. ppt, pptx, odp usw.
-Presentation presentation = new Presentation("Sample.odp");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("Sample.odp");
+presentation.Save("OutputPresentation.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **FAQ**
 
-**In welchen Formaten kann ich eine neue Präsentation speichern?**
+### In welchen Formaten kann ich eine neue Präsentation speichern?
 
-Sie können in [PPTX, PPT und ODP](/slides/de/net/save-presentation/) speichern und in [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [XPS](/slides/de/net/convert-powerpoint-to-xps/), [HTML](/slides/de/net/convert-powerpoint-to-html/), [SVG](/slides/de/net/convert-powerpoint-to-png/) und [Bilder](/slides/de/net/convert-powerpoint-to-png/) exportieren, unter anderem.
+Sie können nach [PPTX, PPT und ODP](/slides/de/net/save-presentation/) speichern und in [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [XPS](/slides/de/net/convert-powerpoint-to-xps/), [HTML](/slides/de/net/convert-powerpoint-to-html/), [SVG](/slides/de/net/render-a-slide-as-an-svg-image/) und [Bilder](/slides/de/net/convert-powerpoint-to-png/) exportieren, unter anderem.
 
-**Kann ich von einer Vorlage (POTX/POTM) ausgehen und als reguläres PPTX speichern?**
+### Kann ich von einer Vorlage (POTX/POTM) ausgehen und als reguläres PPTX speichern?
 
-Ja. Laden Sie die Vorlage und speichern Sie sie in das gewünschte Format; POTX/POTM/PPTM und ähnliche Formate sind [unterstützt](/slides/de/net/supported-file-formats/).
+Ja. Laden Sie die Vorlage und speichern Sie sie im gewünschten Format; POTX/POTM/PPTM und ähnliche Formate werden [unterstützt](/slides/de/net/supported-file-formats/).
 
-**Wie kann ich die Foliengröße bzw. das Seitenverhältnis beim Erstellen einer Präsentation steuern?**
+### Wie kann ich die Foliengröße bzw. das Seitenverhältnis beim Erstellen einer Präsentation steuern?
 
-Setzen Sie die [Foliengröße](/slides/de/net/slide-size/) (inklusive Vorgaben wie 4:3 und 16:9 oder benutzerdefinierte Abmessungen) und wählen Sie, wie der Inhalt skaliert werden soll.
+Stellen Sie die [slide size](/slides/de/net/slide-size/) ein (einschließlich Voreinstellungen wie 4:3 und 16:9 oder benutzerdefinierte Abmessungen) und wählen Sie, wie der Inhalt skaliert werden soll.
 
-**In welchen Einheiten werden Größen und Koordinaten gemessen?**
+### In welchen Einheiten werden Größen und Koordinaten gemessen?
 
 In Punkten: 1 Zoll entspricht 72 Einheiten.
 
-**Wie gehe ich mit sehr großen Präsentationen (mit vielen Mediendateien) um, um den Speicherverbrauch zu reduzieren?**
+### Wie gehe ich mit sehr großen Präsentationen (mit vielen Mediendateien) um, um den Speicherverbrauch zu reduzieren?
 
-Verwenden Sie [BLOB‑Verwaltungsstrategien](/slides/de/net/manage-blob/), begrenzen Sie die In‑Memory‑Speicherung durch temporäre Dateien und bevorzugen Sie dateibasierte Workflows gegenüber reinen In‑Memory‑Streams.
+Verwenden Sie [BLOB management strategies](/slides/de/net/manage-blob/), begrenzen Sie den Speicher im Arbeitsspeicher, indem Sie temporäre Dateien nutzen, und bevorzugen Sie dateibasierte Workflows gegenüber rein speicherinternen Streams.
 
-**Kann ich Präsentationen parallel erstellen/speichern?**
+### Kann ich Präsentationen parallel erstellen/speichern?
 
-Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Instanz aus [mehreren Threads](/slides/de/net/multithreading/) gleichzeitig verwenden. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
+Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Instanz von [multiple threads](/slides/de/net/multithreading/) aus bedienen. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
 
-**Wie entferne ich das Testwasserzeichen und die Einschränkungen?**
+### Wie entferne ich das Testwasserzeichen und die Einschränkungen?
 
-[Wenden Sie eine Lizenz](/slides/de/net/licensing/) pro Prozess an. Die Lizenz‑XML muss unverändert bleiben, und die Lizenz‑Initialisierung sollte synchronisiert werden, wenn mehrere Threads beteiligt sind.
+[Apply a license](/slides/de/net/licensing/) einmal pro Prozess. Die Lizenz‑XML darf nicht verändert werden, und die Lizenzkonfiguration sollte synchronisiert werden, wenn mehrere Threads beteiligt sind.
 
-**Kann ich das von mir erstellte PPTX digital signieren?**
+### Kann ich das von mir erstellte PPTX digital signieren?
 
-Ja. [Digitale Signaturen](/slides/de/net/digital-signature-in-powerpoint/) (Hinzufügen und Überprüfen) werden für Präsentationen unterstützt.
+Ja. [Digital signatures](/slides/de/net/digital-signature-in-powerpoint/) (Hinzufügen und Überprüfen) werden für Präsentationen unterstützt.
 
-**Werden Makros (VBA) in erstellten Präsentationen unterstützt?**
+### Werden Makros (VBA) in erstellten Präsentationen unterstützt?
 
-Ja. Sie können [VBA‑Projekte erstellen/bearbeiten](/slides/de/net/presentation-via-vba/) und makrofähige Dateien wie PPTM/PPSM speichern.
+Ja. Sie können [create/edit VBA projects](/slides/de/net/presentation-via-vba/) verwenden und makrofähige Dateien wie PPTM/PPSM speichern.
