@@ -73,14 +73,14 @@ Aspose.Slides for .NET یک کتابخانهٔ کلاس برای ایجاد، خ
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fa/net/">مستندات API</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/net/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">مستندات API</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">یادداشت‌های انتشار</a></li>
 <li><a href="/slides/fa/net/known-issues/">مسائل شناخته شده</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/net/">دانلود</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">دانلود</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">پشتیبانی پولی</a></li>
 </ul>
 </div>
