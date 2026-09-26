@@ -22,14 +22,13 @@ description: "Evaluate Aspose.Slides for .NET and explore API features for Power
 
 ## **Aspose.Slides Evaluation**
 
-You can easily download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to apply the license. 
+You can download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package; it becomes licensed after you add a few lines of code to apply the license.
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save. You are also limited to one slide when extracting texts from presentation slides.
+Without a license, Aspose.Slides provides its full functionality in evaluation mode, with two limitations: it adds an evaluation watermark text box to every slide of each presentation it saves, and text that your code reads from a presentation is truncated to its first few characters, followed by a notice about the evaluation limitation. Text that your code writes is saved in full.
 
+![A slide with the evaluation watermark](evaluate-aspose-slides_1.png)
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 If you want to test Aspose.Slides without evaluation version limitations, you can request a **30 Day Temporary License**. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) for more information.
 
@@ -40,6 +39,8 @@ If you want to test Aspose.Slides without evaluation version limitations, you ca
 ```bash
 dotnet add package Aspose.Slides.NET
 ```
+
+On Linux and macOS, you can use the Aspose.Slides.NET6.CrossPlatform package instead; see [Installation](/slides/net/installation/).
 
 ## **Apply a License**
 
@@ -58,7 +59,7 @@ license.SetLicense("Aspose.Slides.NET.lic");
 resource rather than a file on disk. If the path is wrong or the file has expired the call throws, so
 failures surface immediately at start-up instead of silently reverting to evaluation mode.
 
-Once the license is applied the watermark disappears and the one-slide text-extraction limit is lifted.
+Once the license is applied, saved presentations no longer carry the watermark, and text is read in full.
 
 ## **FAQ**
 

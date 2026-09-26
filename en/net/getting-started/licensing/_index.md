@@ -22,28 +22,28 @@ description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for .NET
 
 ## **Overview**
 
-Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark when presentations are opened or saved and limits text extraction to one slide.
+Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark to every slide of each presentation it saves and truncates text that your code reads from presentations.
 
 This article explains how licensing works in Aspose.Slides and how to apply a license before using the library. A license can be loaded from a file, stream, or embedded resource by using the `License` class. The article also shows how to validate whether a license has been applied correctly.
 
 ## **Evaluate Aspose.Slides**
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-You can download an evaluation version of **Aspose.Slides for NET** from [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.NET/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
+You can download an evaluation version of **Aspose.Slides for .NET** from [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.NET/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
 
-Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy). We recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
+Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/pricing/slides/net/). We recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
 
-Every Aspose license comes with one-year subscription for free upgrades to new versions or fixes released within the subscription period. Users with licensed products or even evaluation versions get free and unlimited technical support.
+Every Aspose license comes with a one-year subscription for free upgrades to new versions or fixes released within the subscription period. Users with licensed products or even evaluation versions get free and unlimited technical support.
 
 {{% /alert %}} 
 
 **Evaluation version limitations**
 
-* While Aspose.Slides evaluation version (without a license specified) provides full product functionality, it inserts an evaluation watermark at the top of the document on open and save operations. 
-* You are limited to one slide when extracting texts from presentation slides.
+* The evaluation version (without a license specified) provides full product functionality, but it adds an evaluation watermark text box to every slide of each presentation it saves.
+* Text that your code reads from a presentation is truncated to its first few characters, followed by a notice about the evaluation limitation. Text that your code writes is saved in full.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary License**. See the [How to get a Temporary License](https://purchase.aspose.com/temporary-license) page for more information.
 
@@ -61,9 +61,9 @@ To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary 
   * An embedded resource in the assembly that called the dll of the component (included in Aspose.Slides).
 * To avoid the limitations associated with the evaluation version, you need to set a license before using Aspose.Slides. You only have to set a license once per application or process.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-You may want to see [Metered Licensing](https://docs.aspose.com/slides/net/metered-licensing/).
+You may want to see [Metered Licensing](/slides/net/metered-licensing/).
 
 {{% /alert %}} 
 
@@ -71,13 +71,13 @@ You may want to see [Metered Licensing](https://docs.aspose.com/slides/net/meter
 ## **Apply a License**
 A license can be loaded from a **file**, **stream**, or **embedded resource**. 
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Aspose.Slides provides the [License](https://reference.aspose.com/slides/net/aspose.slides/license) class for licensing operations.
 
 {{% /alert %}} 
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 
 New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier versions use a different licensing system and will not recognize these licenses.
 
@@ -96,9 +96,9 @@ Aspose.Slides.License license = new Aspose.Slides.License();
 license.SetLicense("Aspose.Slides.lic");
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 
-If you place the license file in a different directory, when you call the [SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/#setlicense_1) method, the license file name at the end of the specified explicit must be the same as your license file.
+If you place the license file in a different directory, when you call the [SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/#setlicense_1) method, the license file name at the end of the specified path must be the same as your license file name.
 
 For example, you can change the license file name to *Aspose.Slides.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.lic.xml*) to the [SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/#setlicense_1) method.
 
@@ -159,7 +159,7 @@ if (license.IsLicensed())
 
 ## **Thread Safety**
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 
 The [license.SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/) method is not thread-safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
 
