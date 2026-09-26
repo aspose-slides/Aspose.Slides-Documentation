@@ -1,47 +1,118 @@
 ---
 title: Aspose.Slides for .NET
-second_title: "Aspose.Slides दस्तावेज़ीकरण"
+second_title: Aspose.Slides for .NET
 type: docs
 weight: 10
 url: /hi/net/
 keywords:
 - दस्तावेज़ीकरण
-- प्रस्तुति प्रसंस्करण
-- प्रस्तुति परिवर्तन
+- प्रस्तुतिकरण प्रक्रिया
+- प्रस्तुतिकरण रूपांतरण
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET एक Microsoft PowerPoint® प्रबंधन API है जो .NET अनुप्रयोगों को Microsoft PowerPoint® का उपयोग किए बिना PowerPoint® दस्तावेज़ों को पढ़ने और लिखने में सक्षम बनाता है।
+description: "यहाँ से शुरू करें: Aspose.Slides for .NET इंस्टॉल करें, पहली प्रस्तुति बनाएं, और सामान्य कार्यों, API संदर्भ और समर्थन के लिए मार्गदर्शिकाएँ खोजें."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Aspose.Slides for .NET में आपका स्वागत है**
+Aspose.Slides for .NET .NET एप्लिकेशन में PowerPoint और OpenDocument प्रस्तुतियों को बनाने, पढ़ने, संपादित करने और परिवर्तित करने के लिए एक क्लास लाइब्रेरी है, बिना Microsoft PowerPoint या Office Automation के।
 
-![Aspose.Slides for .NET उत्पाद लोगो](home_1.png)
+यह PPT, PPTX, PPS, POT और ODP को लोड और सहेजता है, जिसमें मैक्रो‑सक्षम और टेम्पलेट संस्करण शामिल हैं, और PDF, XPS, HTML, SVG, TIFF, Markdown और छवियों में निर्यात करता है।
 
-Aspose.Slides for .NET एक Microsoft PowerPoint® प्रबंधन API है जो .NET अनुप्रयोगों को Microsoft PowerPoint® का उपयोग किए बिना PowerPoint® दस्तावेज़ों को पढ़ने और लिखने में सक्षम बनाता है।
+<div style="clear:both"></div>
 
-Aspose.Slides for .NET पहला और एकमात्र घटक है जो PowerPoint® दस्तावेज़ों को प्रबंधित करने के लिए आवश्यक कार्यात्मकताएँ प्रदान करता है।
+------
 
-Aspose.Slides for .NET कई प्रमुख सुविधाएँ प्रदान करता है जैसे टेक्स्ट, शेप्स, टेबल और एनीमेशन का प्रबंधन, स्लाइड्स में ऑडियो और वीडियो जोड़ना, स्लाइड्स का पूर्वावलोकन, स्लाइड्स को SVG, PDF और विभिन्न फ़ॉर्मैट्स में निर्यात करना, और कई अन्य क्षमताएँ।
+<div class="row">
+<div class="col-md-4">
+<p><b>आरंभ करें</b></p>
+<hr>
+<p>शुरूआत</p>
+<ul>
+<li><a href="/slides/hi/net/installation/">इंस्टॉलेशन</a></li>
+<li><a href="/slides/hi/net/create-presentation/">अपना पहला प्रस्तुतिकरण बनाएं</a></li>
+<li><a href="/slides/hi/net/getting-started/">शुरूआत गाइड</a></li>
+</ul>
+<p>मूल्यांकन</p>
+<ul>
+<li><a href="/slides/hi/net/supported-file-formats/">समर्थित फ़ाइल स्वरूप</a></li>
+<li><a href="/slides/hi/net/evaluate-aspose-slides/">ट्रायल सीमाएँ</a></li>
+<li><a href="/slides/hi/net/licensing/">लाइसेंसिंग</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Slides के साथ बनाएं</b></p>
+<hr>
+<p>सामान्य कार्य</p>
+<ul>
+<li><a href="/slides/hi/net/open-presentation/">प्रस्तुति खोलें</a></li>
+<li><a href="/slides/hi/net/save-presentation/">प्रस्तुति सहेजें</a></li>
+<li><a href="/slides/hi/net/convert-powerpoint-to-pdf/">PDF में परिवर्तित करें</a></li>
+<li><a href="/slides/hi/net/convert-slide/">स्लाइड को छवियों के रूप में रेंडर करें</a></li>
+<li><a href="/slides/hi/net/manage-text/">पाठ और आकार संपादित करें</a></li>
+</ul>
+<p>Slides कार्यप्रवाह</p>
+<ul>
+<li><a href="/slides/hi/net/powerpoint-charts/">चार्ट</a></li>
+<li><a href="/slides/hi/net/powerpoint-animation/">एनिमेशन</a></li>
+<li><a href="/slides/hi/net/manage-media-files/">ऑडियो और वीडियो</a></li>
+<li><a href="/slides/hi/net/presentation-design/">स्लाइड डिज़ाइन</a></li>
+<li><a href="/slides/hi/net/merge-presentation/">प्रस्तुतियों को मिलाएं</a></li>
+</ul>
+<p>उदाहरण</p>
+<ul>
+<li><a href="/slides/hi/net/examples/">स्लाइड तत्व द्वारा उदाहरण</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">GitHub पर उदाहरण</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>संदर्भ और समर्थन</b></p>
+<hr>
+<p>संदर्भ</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/hi/net/">API संदर्भ</a></li>
+<li><a href="https://releases.aspose.com/slides/hi/net/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="/slides/hi/net/known-issues/">ज्ञात समस्याएँ</a></li>
+<li><a href="https://releases.aspose.com/slides/hi/net/">डाउनलोड</a></li>
+</ul>
+<p>समर्थन</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/hi/11">मुक्त समर्थन फ़ोरम</a></li>
+<li><a href="https://helpdesk.aspose.com/">भुगतान किया गया समर्थन हेल्पडेस्क</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Aspose.Slides for .NET संसाधन
+## **आपकी पहली प्रस्तुति**
 
-These are links to useful resources:
+.NET SDK 6 या बाद के संस्करण के साथ एक कंसोल एप्लिकेशन बनाएं:
 
-- [Aspose.Slides for .NET ऑनलाइन दस्तावेज़ीकरण](/slides/hi/net/)
-- [Aspose.Slides for .NET सुविधाएँ](/slides/hi/net/features-overview/)
-- [Aspose.Slides for .NET सीमाएँ](/slides/hi/net/known-issues/)
-- [Aspose.Slides for .NET रिलीज़ नोट्स](https://releases.aspose.com/slides/hi/net/release-notes/)
-- [Aspose.Slides for .NET उत्पाद पृष्ठ](https://products.aspose.com/slides/hi/net/)
-- [Aspose.Slides for .NET डाउनलोड करें](https://releases.aspose.com/slides/hi/net/)
-- [Aspose.Slides for .NET NuGet पैकेज स्थापित करें](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Aspose.Slides for .NET API संदर्भ मार्गदर्शिका](https://reference.aspose.com/slides/hi/net)
-- [GitHub रिपोज़िटरी से उदाहरण डाउनलोड करें](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Aspose.Slides for .NET निःशुल्क समर्थन फ़ोरम](https://forum.aspose.com/c/slides/hi/11)
-- [Aspose.Slides for .NET सशुल्क समर्थन हेल्पडेस्क](https://helpdesk.aspose.com/)
+```bash
+dotnet new console -n HelloSlides
+cd HelloSlides
+```
+
+फिर अपने प्लेटफ़ॉर्म के लिए एक पैकेज जोड़ें:
+
+- On Windows: `dotnet add package Aspose.Slides.NET`
+- On Linux and macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — see [Installation](/slides/hi/net/installation/) for the Linux prerequisite and for the systems that need Aspose.Slides.NET instead.
+
+इस कोड के साथ *Program.cs* की सामग्री बदलें और `dotnet run` चलाएँ:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
+```
+
+प्रोग्राम *hello.pptx* को एक स्लाइड के साथ सहेजता है, जिसमें एक टेक्स्ट बॉक्स होता है। बिना लाइसेंस के, सहेजी गई फ़ाइल में मूल्यांकन वॉटरमार्क होता है — देखें [लाइसेंसिंग](/slides/hi/net/licensing/). अधिक तरीकों से प्रस्तुति बनाने और भरने के लिए, देखें [प्रस्तुति बनाएं](/slides/hi/net/create-presentation/).
