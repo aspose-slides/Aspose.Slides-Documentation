@@ -81,7 +81,7 @@ De nieuwste release wordt in je project geïnstalleerd.
 Het bericht **Installing Aspose.Slides.NET** verschijnt onderaan het venster.  
 ![Installation progress in the Package Manager Console](installation_4.png)
 
-Wanneer de download voltooid is, verschijnen bevestigingsberichten. Het pakket wordt gedistribueerd onder de [Aspose‑licentie]((https://about.aspose.com/legal/eula)).  
+Wanneer de download voltooid is, verschijnen bevestigingsberichten. Het pakket wordt gedistribueerd onder de [Aspose‑licentie](https://about.aspose.com/legal/eula).  
 ![Installation confirmation messages](installation_5.png)
 
 Aspose.Slides staat nu in je project en wordt verwezen.  
