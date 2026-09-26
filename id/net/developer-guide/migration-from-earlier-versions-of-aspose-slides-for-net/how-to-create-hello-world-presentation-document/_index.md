@@ -17,26 +17,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Buat presentasi PowerPoint PPT, PPTX, dan ODP Hello World di .NET dengan Aspose.Slides menggunakan API legacy dan modern dalam satu panduan sederhana."
+description: "Buat presentasi PowerPoint PPT, PPTX, dan ODP Hello World di .NET dengan Aspose.Slides menggunakan API warisan dan modern dalam satu panduan sederhana."
 ---
-{{% alert color="primary" %}} 
-Sebuah [Aspose.Slides for .NET API](/slides/id/net/) baru telah dirilis dan kini produk tunggal ini mendukung kemampuan untuk menghasilkan dokumen PowerPoint dari awal serta mengedit dokumen yang sudah ada.
+{{% alert color="info" %}} 
+Sebuah [Aspose.Slides for .NET API](/slides/id/net/) baru telah dirilis dan sekarang produk tunggal ini mendukung kemampuan untuk menghasilkan dokumen PowerPoint dari awal serta mengedit dokumen yang sudah ada.
 {{% /alert %}} 
-## **Dukungan Kode Legacy**
-Untuk menggunakan kode warisan yang dikembangkan dengan Aspose.Slides untuk .NET versi sebelum 13.x, Anda perlu melakukan beberapa perubahan kecil pada kode Anda dan kode tersebut akan berfungsi seperti sebelumnya. Semua kelas yang ada di Aspose.Slides untuk .NET lama di namespace Aspose.Slide dan Aspose.Slides.Pptx kini digabungkan menjadi satu namespace Aspose.Slides. Silakan lihat potongan kode sederhana berikut untuk membuat dokumen Presentasi Hello World menggunakan API Aspose.Slides legacy dan ikuti langkah-langkah yang menjelaskan cara bermigrasi ke API yang baru digabungkan.
-## **Pendekatan Legacy Aspose.Slides untuk .NET**
+## **Dukungan untuk Kode Warisan**
+Untuk menggunakan kode warisan yang dikembangkan dengan Aspose.Slides for .NET versi sebelum 13.x, Anda perlu melakukan beberapa perubahan kecil pada kode Anda dan kode tersebut akan berfungsi seperti sebelumnya. Semua kelas yang ada di Aspose.Slides for .NET lama di dalam namespace Aspose.Slide dan Aspose.Slides.Pptx kini telah digabungkan ke dalam satu namespace Aspose.Slides. Silakan lihat cuplikan kode sederhana berikut untuk membuat dokumen Presentasi Hello World dengan API Aspose.Slides lama dan ikuti langkah-langkah yang menjelaskan cara bermigrasi ke API yang baru digabungkan.
+## **Pendekatan Legacy Aspose.Slides for .NET**
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Membuat objek Presentation yang mewakili file PPT
 Presentation pres = new Presentation();
 
-//Buat objek License
+//Membuat objek License
 License license = new License();
 
 //Set lisensi Aspose.Slides untuk .NET untuk menghindari batasan evaluasi
 license.SetLicense("Aspose.Slides.lic");
 
 //Menambahkan slide kosong ke presentasi dan mendapatkan referensi
-//slide kosong tersebut
+//dari slide kosong tersebut
 Slide slide = pres.AddEmptySlide();
 
 //Menambahkan persegi panjang (X=2400, Y=1800, Lebar=1000 & Tinggi=500) ke slide
@@ -56,30 +59,35 @@ pres.Slides.RemoveAt(0);
 pres.Write("C:\\hello.ppt");
 ```
 
-## **Pendekatan Baru Aspose.Slides untuk .NET 13.x**
+
+## **Pendekatan Baru Aspose.Slides for .NET 13.x**
 ```c#
-// Membuat instance Presentation
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantiate Presentation
 Presentation pres = new Presentation();
 
-// Ambil slide pertama
+// Get the first slide
 ISlide sld = (ISlide)pres.Slides[0];
 
-// Tambahkan AutoShape tipe Persegi panjang
+// Add an AutoShape of Rectangle type
 IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-// Tambahkan ITextFrame ke Persegi panjang
+// Add ITextFrame to the Rectangle
 ashp.AddTextFrame("Hello World");
 
-// Ubah warna teks menjadi Hitam (yang defaultnya Putih)
+// Change the text color to Black (which is White by default)
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Ubah warna garis persegi panjang menjadi Putih
+// Change the line color of the rectangle to White
 ashp.ShapeStyle.LineColor.Color = Color.White;
 
-// Hapus semua format isian pada bentuk
+// Remove any fill formatting in the shape
 ashp.FillFormat.FillType = FillType.NoFill;
 
-// Simpan presentasi ke disk
-pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
+// Save the presentation to disk
+pres.Save("HelloWorld.pptx", SaveFormat.Pptx);
 ```

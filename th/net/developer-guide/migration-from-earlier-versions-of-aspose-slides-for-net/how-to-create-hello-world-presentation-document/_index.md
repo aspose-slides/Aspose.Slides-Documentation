@@ -6,69 +6,68 @@ weight: 10
 url: /th/net/how-to-create-hello-world-presentation-document/
 keywords:
 - การย้าย
-- สวัสดี โลก
-- โค้ดรุ่นเก่า
+- Hello World
+- โค้ด legacy
 - โค้ดสมัยใหม่
-- วิธีการรุ่นเก่า
-- วิธีการสมัยใหม่
+- วิธีการเดิม
+- แนวทางสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "สร้างการนำเสนอ PowerPoint PPT, PPTX และ ODP Hello World ใน .NET ด้วย Aspose.Slides โดยใช้ API รุ่นเก่าและรุ่นใหม่ในหนึ่งคู่มือที่ง่าย."
+description: "สร้างการนำเสนอ PowerPoint PPT, PPTX และ ODP Hello World ใน .NET ด้วย Aspose.Slides โดยใช้ API แบบ legacy และ modern ในคู่มือแบบง่ายหนึ่งเล่ม."
 ---
-{{% alert color="primary" %}} 
-ได้มีการเปิดตัว [Aspose.Slides for .NET API](/slides/th/net/) เวอร์ชันใหม่แล้วและตอนนี้ผลิตภัณฑ์เดียวนี้รองรับความสามารถในการสร้างเอกสาร PowerPoint ตั้งแต่เริ่มต้นและแก้ไขเอกสารที่มีอยู่
-{{% /alert %}} 
-## **การสนับสนุนโค้ดรุ่นเก่า**
-เพื่อใช้โค้ดรุ่นเก่าที่พัฒนาด้วย Aspose.Slides for .NET รุ่นก่อนหน้า 13.x คุณต้องทำการเปลี่ยนแปลงเล็กน้อยในโค้ดของคุณและโค้ดจะทำงานเช่นเดิม คลาสทั้งหมดที่เคยอยู่ใน Aspose.Slides for .NET รุ่นเก่าภายใต้เนมสเปซ Aspose.Slide และ Aspose.Slides.Pptx ตอนนี้ได้ถูกรวมเป็นเนมสเปซ Aspose.Slides เพียงเดียว โปรดดูตัวอย่างโค้ดง่าย ๆ ด้านล่างสำหรับการสร้างเอกสารการนำเสนอ Hello World ใน API Aspose.Slides รุ่นเก่าและทำตามขั้นตอนที่อธิบายวิธีการย้ายไปยัง API ที่รวมใหม่
-## **วิธีการใช้ Aspose.Slides for .NET รุ่นเก่า**
+{{% alert color="info" %}}
+
+มีการเปิดตัว [Aspose.Slides for .NET API](/slides/th/net/) ใหม่แล้วและตอนนี้ผลิตภัณฑ์เดียวนี้รองรับความสามารถในการสร้างเอกสาร PowerPoint ตั้งแต่เริ่มต้นและแก้ไขเอกสารที่มีอยู่
+
+{{% /alert %}}
+## **การสนับสนุนโค้ด Legacy**
+เพื่อใช้โค้ด legacy ที่พัฒนาด้วย Aspose.Slides for .NET รุ่นก่อนหน้า 13.x คุณต้องทำการเปลี่ยนแปลงเล็กน้อยในโค้ดของคุณและโค้ดจะทำงานเหมือนเดิม ทุกคลาสที่เคยอยู่ใน Aspose.Slides for .NET เก่า ภายใต้เนมสเปซ Aspose.Slide และ Aspose.Slides.Pptx ตอนนี้ถูกรวมเป็นหนึ่งเนมสเปซ Aspose.Slides กรุณาดูตัวอย่างโค้ดง่ายต่อไปนี้สำหรับการสร้างเอกสารนำเสนอ Hello World ใน Aspose.Slides API รุ่น legacy และทำตามขั้นตอนที่อธิบายวิธีการย้ายไปยัง API ที่รวมใหม่
+## **แนวทาง Aspose.Slides for .NET รุ่น Legacy**
 ```c#
-//สร้างออบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์ PPT
-//สร้างออบเจกต์ License
-//ตั้งค่าลิขสิทธิ์ของ Aspose.Slides for .NET เพื่อหลีกเลี่ยงข้อจำกัดการประเมินผล
-//เพิ่มสไลด์ว่างลงในงานนำเสนอและรับอ้างอิงของ
-//สไลด์ว่างนั้น
-//เพิ่มสี่เหลี่ยมผืนผ้า (X=2400, Y=1800, Width=1000 & Height=500) ลงในสไลด์
-//ซ่อนเส้นของสี่เหลี่ยมผืนผ้า
-//เพิ่ม TextFrame ลงในสี่เหลี่ยมผืนผ้าด้วยข้อความเริ่มต้น "Hello World"
-//ลบสไลด์แรกของงานนำเสนอซึ่งโดยปกติจะถูกเพิ่มโดย
-//Aspose.Slides for .NET เป็นค่าเริ่มต้นขณะสร้างงานนำเสนอ
-//เขียนงานนำเสนอเป็นไฟล์ PPT
+using System.Drawing;
+using Aspose.Slides;
+
+//สร้างอ็อบเจกต์ Presentation ที่แสดงถึงไฟล์ PPT
 Presentation pres = new Presentation();
 
-//Create a License object
+//สร้างอ็อบเจกต์ License
 License license = new License();
 
-//Set the license of Aspose.Slides for .NET to avoid the evaluation limitations
+//ตั้งไลเซนส์ของ Aspose.Slides for .NET เพื่อหลีกเลี่ยงข้อจำกัดการประเมินผล
 license.SetLicense("Aspose.Slides.lic");
 
-//Adding an empty slide to the presentation and getting the reference of
-//that empty slide
+//เพิ่มสไลด์เปล่าเข้าไปในการนำเสนอและรับอ้างอิงของ
+//สไลด์เปล่านั้น
 Slide slide = pres.AddEmptySlide();
 
-//Adding a rectangle (X=2400, Y=1800, Width=1000 & Height=500) to the slide
+//เพิ่มสี่เหลี่ยม (X=2400, Y=1800, Width=1000 & Height=500) ไปยังสไลด์
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-//Hiding the lines of rectangle
+//ซ่อนเส้นของสี่เหลี่ยม
 rect.LineFormat.ShowLines = false;
 
-//Adding a text frame to the rectangle with "Hello World" as a default text
+//เพิ่มกรอบข้อความลงในสี่เหลี่ยมโดยใช้ "Hello World" เป็นข้อความเริ่มต้น
 rect.AddTextFrame("Hello World");
 
-//Removing the first slide of the presentation which is always added by
-//Aspose.Slides for .NET by default while creating the presentation
+//ลบสไลด์แรกของการนำเสนอที่โดยปกติจะถูกเพิ่มโดย
+//Aspose.Slides for .NET โดยค่าเริ่มต้นขณะสร้างการนำเสนอ
 pres.Slides.RemoveAt(0);
 
-//Writing the presentation as a PPT file
+//เขียนการนำเสนอเป็นไฟล์ PPT
 pres.Write("C:\\hello.ppt");
 ```
 
-## **วิธีการใช้ Aspose.Slides for .NET 13.x รุ่นใหม่**
+## **แนวทางใหม่ของ Aspose.Slides for .NET 13.x**
 ```c#
-// สร้าง Presentation
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantiate Presentation
 Presentation pres = new Presentation();
 
 // Get the first slide
@@ -91,5 +90,5 @@ ashp.ShapeStyle.LineColor.Color = Color.White;
 ashp.FillFormat.FillType = FillType.NoFill;
 
 // Save the presentation to disk
-pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
+pres.Save("HelloWorld.pptx", SaveFormat.Pptx);
 ```

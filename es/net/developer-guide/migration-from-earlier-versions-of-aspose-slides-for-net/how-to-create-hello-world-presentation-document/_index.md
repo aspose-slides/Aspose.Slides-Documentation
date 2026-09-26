@@ -17,75 +17,90 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Cree una presentación PowerPoint PPT, PPTX y ODP Hello World en .NET con Aspose.Slides usando tanto APIs heredadas como modernas en una guía simple."
+description: "Cree una presentación PowerPoint PPT, PPTX y ODP Hello World en .NET con Aspose.Slides utilizando tanto APIs heredadas como modernas en una guía sencilla."
 ---
-
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Se ha lanzado una nueva [Aspose.Slides for .NET API](/slides/es/net/) y ahora este único producto admite la capacidad de generar documentos PowerPoint desde cero y editar los existentes.
 
 {{% /alert %}} 
 ## **Compatibilidad con código heredado**
-Para usar el código heredado desarrollado con versiones de Aspose.Slides for .NET anteriores a la 13.x, debe realizar algunos cambios menores en su código y este continuará funcionando como antes. Todas las clases que estaban presentes en el antiguo Aspose.Slides for .NET bajo los espacios de nombres Aspose.Slide y Aspose.Slides.Pptx ahora están fusionadas en un único espacio de nombres Aspose.Slides. Por favor, revise el siguiente fragmento de código simple para crear un documento de presentación Hello World en la API legacy de Aspose.Slides y siga los pasos que describen cómo migrar a la nueva API fusionada.
-## **Enfoque legacy de Aspose.Slides for .NET**
+Para utilizar el código heredado desarrollado con versiones de Aspose.Slides for .NET anteriores a la 13.x, es necesario realizar algunos cambios menores en su código y éste seguirá funcionando como antes. Todas las clases que estaban presentes en la versión antigua de Aspose.Slides for .NET bajo los espacios de nombres Aspose.Slide y Aspose.Slides.Pptx ahora se han fusionado en un único espacio de nombres Aspose.Slides. Revise el siguiente fragmento de código simple para crear un documento de presentación Hello World con la API heredada de Aspose.Slides y siga los pasos que describen cómo migrar a la nueva API fusionada.
+## **Enfoque heredado de Aspose.Slides for .NET**
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Instanciar un objeto Presentation que representa un archivo PPT
+//Crear un objeto License
+//Establecer la licencia de Aspose.Slides for .NET para evitar las limitaciones de evaluación
+//Añadir una diapositiva vacía a la presentación y obtener la referencia de
+//esa diapositiva vacía
+//Añadir un rectángulo (X=2400, Y=1800, Ancho=1000 & Alto=500) a la diapositiva
+//Ocultar las líneas del rectángulo
+//Añadir un marco de texto al rectángulo con "Hello World" como texto predeterminado
+//Eliminar la primera diapositiva de la presentación que siempre se añade por
+//Aspose.Slides for .NET de forma predeterminada al crear la presentación
+//Escribir la presentación como un archivo PPT
 Presentation pres = new Presentation();
 
-//Crear un objeto License
+//Create a License object
 License license = new License();
 
-//Establecer la licencia de Aspose.Slides for .NET para evitar las limitaciones de evaluación
+//Set the license of Aspose.Slides for .NET to avoid the evaluation limitations
 license.SetLicense("Aspose.Slides.lic");
 
-//Agregar una diapositiva vacía a la presentación y obtener la referencia de
-//esa diapositiva vacía
+//Adding an empty slide to the presentation and getting the reference of
+//that empty slide
 Slide slide = pres.AddEmptySlide();
 
-//Agregar un rectángulo (X=2400, Y=1800, Ancho=1000 & Alto=500) a la diapositiva
+//Adding a rectangle (X=2400, Y=1800, Width=1000 & Height=500) to the slide
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-//Ocultar las líneas del rectángulo
+//Hiding the lines of rectangle
 rect.LineFormat.ShowLines = false;
 
-//Agregar un marco de texto al rectángulo con "Hello World" como texto predeterminado
+//Adding a text frame to the rectangle with "Hello World" as a default text
 rect.AddTextFrame("Hello World");
 
-//Eliminar la primera diapositiva de la presentación que siempre es agregada por
-//Aspose.Slides for .NET por defecto al crear la presentación
+//Removing the first slide of the presentation which is always added by
+//Aspose.Slides for .NET by default while creating the presentation
 pres.Slides.RemoveAt(0);
 
-//Escribir la presentación como un archivo PPT
+//Writing the presentation as a PPT file
 pres.Write("C:\\hello.ppt");
 ```
 
 
 
-
-## **Nuevo enfoque de Aspose.Slides for .NET 13.x**
+## **Enfoque nuevo de Aspose.Slides for .NET 13.x**
 ```c#
- // Instanciar Presentation
- Presentation pres = new Presentation();
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- // Obtener la primera diapositiva
- ISlide sld = (ISlide)pres.Slides[0];
+// Instantiate Presentation
+Presentation pres = new Presentation();
 
- // Agregar una AutoShape de tipo Rectángulo
- IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+// Get the first slide
+ISlide sld = (ISlide)pres.Slides[0];
 
- // Agregar ITextFrame al rectángulo
- ashp.AddTextFrame("Hello World");
+// Add an AutoShape of Rectangle type
+IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
- // Cambiar el color del texto a Negro (que es Blanco por defecto)
- ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
- ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+// Add ITextFrame to the Rectangle
+ashp.AddTextFrame("Hello World");
 
- // Cambiar el color de la línea del rectángulo a Blanco
- ashp.ShapeStyle.LineColor.Color = Color.White;
+// Change the text color to Black (which is White by default)
+ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
+ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
- // Eliminar cualquier formato de relleno en la forma
- ashp.FillFormat.FillType = FillType.NoFill;
+// Change the line color of the rectangle to White
+ashp.ShapeStyle.LineColor.Color = Color.White;
 
- // Guardar la presentación en disco
- pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
+// Remove any fill formatting in the shape
+ashp.FillFormat.FillType = FillType.NoFill;
+
+// Save the presentation to disk
+pres.Save("HelloWorld.pptx", SaveFormat.Pptx);
 ```
