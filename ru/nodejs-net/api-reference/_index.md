@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET документируется 
 ---
 ## **Обзор**
 
-Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Пакет экспортирует классы Aspose.Slides for .NET в JavaScript под теми же именами, с именами членов в camelCase, поэтому [справка по API Aspose.Slides for .NET](https://reference.aspose.com/slides/ru/net/) содержит описание его классов, членов и перечислений.
+Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Пакет экспортирует классы Aspose.Slides for .NET в JavaScript под теми же именами, с именами членов в camelCase, поэтому [справка по API Aspose.Slides for .NET](https://reference.aspose.com/slides/net/) содержит описание его классов, членов и перечислений.
 
 ## **Сопоставление имен .NET с JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Скрипт записывает `slide.png` и `slide.pdf` в текущую папку. Оба файла отображают прямоугольник с его текстом. Без лицензии они также содержат водяной знак оценки; см. [Лицензирование](/slides/ru/nodejs-net/licensing/).
 
-Для получения подробной информации о используемых здесь членах, смотрите [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/ru/net/aspose.slides/textframe/text/) и [Slide.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage/) в справке по API Aspose.Slides for .NET.
+Для получения подробной информации о используемых здесь членах, смотрите [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) и [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) в справке по API Aspose.Slides for .NET.

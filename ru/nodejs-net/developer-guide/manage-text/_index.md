@@ -31,12 +31,12 @@ description: "Добавьте текстовое поле на слайд, за
 Для примеров нужен проект, настроенный согласно [Installation](/slides/ru/nodejs-net/installation/). Сохраните каждый пример как файл с расширением `.js` в папке проекта и запустите его из этой папки командой `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он отражает API Aspose.Slides for .NET с именами в camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ru/net/).
+Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он отражает API Aspose.Slides for .NET с именами в camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Добавить текстовое поле**
 
-Чтобы добавить текстовое поле, добавьте автофигуру на слайд с помощью метода [addAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/shapecollection/addautoshape/) и задайте ей текст методом [addTextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/autoshape/addtextframe/). В следующем примере к первому слайду новой презентации добавляется прямоугольник и презентация сохраняется как `text-box.pptx`:
+Чтобы добавить текстовое поле, добавьте автофигуру на слайд с помощью метода [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) и задайте ей текст методом [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). В следующем примере к первому слайду новой презентации добавляется прямоугольник и презентация сохраняется как `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **Изменить текст и его форматирование**
 
-В следующем примере открывается `text-box.pptx`, созданный в предыдущем примере, и получает первая фигура на первом слайде. Такие фигуры, как изображения и таблицы, не имеют текстового кадра, поэтому пример проверяет, что фигура является [AutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/autoshape/) перед тем как использовать её свойство [textFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/autoshape/textframe/). Затем он делает следующее:
+В следующем примере открывается `text-box.pptx`, созданный в предыдущем примере, и получает первая фигура на первом слайде. Такие фигуры, как изображения и таблицы, не имеют текстового кадра, поэтому пример проверяет, что фигура является [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) перед тем как использовать её свойство [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/). Затем он делает следующее:
 
-1. Заменяет текст через свойство [text](https://reference.aspose.com/slides/ru/net/aspose.slides/textframe/text/) текстового кадра. После этого в текстовом кадре оказывается один абзац с одним фрагментом.
-2. Получает этот фрагмент из коллекций [paragraphs](https://reference.aspose.com/slides/ru/net/aspose.slides/textframe/paragraphs/) и [portions](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraph/portions/), а затем читает его [portionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/portion/portionformat/).
-3. Устанавливает [fontHeight](https://reference.aspose.com/slides/ru/net/aspose.slides/baseportionformat/fontheight/), размер шрифта в пунктах, и [fontBold](https://reference.aspose.com/slides/ru/net/aspose.slides/baseportionformat/fontbold/), которому присваивается значение типа [NullableBool](https://reference.aspose.com/slides/ru/net/aspose.slides/nullablebool/).
+1. Заменяет текст через свойство [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) текстового кадра. После этого в текстовом кадре оказывается один абзац с одним фрагментом.
+2. Получает этот фрагмент из коллекций [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) и [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/), а затем читает его [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).
+3. Устанавливает [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), размер шрифта в пунктах, и [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), которому присваивается значение типа [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

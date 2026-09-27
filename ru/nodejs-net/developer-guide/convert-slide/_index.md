@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET рендерит слайды из презе
 Примеры ожидают презентацию с именем `sample.pptx` в папке проекта, которую вы настроили в [Installation](/slides/ru/nodejs-net/installation/). Подойдёт любая презентация PowerPoint. Сохраните каждый пример как файл `.js` в папке проекта и запустите его из этой папки командой `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он зеркалирует API Aspose.Slides for .NET с именами в camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ru/net/).
+Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он зеркалирует API Aspose.Slides for .NET с именами в camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 Чтобы преобразовать слайд в изображение, выполните следующие шаги:
 
-1. Откройте презентацию с помощью конструктора [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/presentation/).
-1. Получите слайд из коллекции [slides](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/slides/ru/) с помощью `get(index)`. Индексы начинаются с 0.
-1. Отрендерите слайд с помощью `getImageWithScale` или `getImageWithImageSize`. В справке по .NET API оба метода являются перегрузками [Slide.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage/). Они возвращают объект изображения, соответствующий [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/).
-1. Сохраните изображение с помощью его метода [save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/save/) и значения [ImageFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/imageformat/), затем вызовите его метод `dispose`.
+1. Откройте презентацию с помощью конструктора [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+1. Получите слайд из коллекции [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) с помощью `get(index)`. Индексы начинаются с 0.
+1. Отрендерите слайд с помощью `getImageWithScale` или `getImageWithImageSize`. В справке по .NET API оба метода являются перегрузками [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Они возвращают объект изображения, соответствующий [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+1. Сохраните изображение с помощью его метода [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) и значения [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), затем вызовите его метод `dispose`.
 
 ## **Преобразовать каждый слайд в PNG‑изображение**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Скрипт записывает по одному файлу на каждый слайд: `slide_1.png`, `slide_2.png` и так далее, нумеруя их с 1. Для презентации 16:9 со слайдами размером 960 × 540 пунктов каждое изображение будет 1920 × 1080 пикселей. Скрытые слайды тоже рендерятся; чтобы пропустить их, проверьте свойство слайда [hidden](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/hidden/). Каждое изображение освобождается в собственном блоке `finally`, что освобождает его перед рендерингом следующего слайда. Без лицензии изображения также содержат водяной знак оценки; см. [Licensing](/slides/ru/nodejs-net/licensing/).
+Скрипт записывает по одному файлу на каждый слайд: `slide_1.png`, `slide_2.png` и так далее, нумеруя их с 1. Для презентации 16:9 со слайдами размером 960 × 540 пунктов каждое изображение будет 1920 × 1080 пикселей. Скрытые слайды тоже рендерятся; чтобы пропустить их, проверьте свойство слайда [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/). Каждое изображение освобождается в собственном блоке `finally`, что освобождает его перед рендерингом следующего слайда. Без лицензии изображения также содержат водяной знак оценки; см. [Licensing](/slides/ru/nodejs-net/licensing/).
 
 ## **Преобразовать слайд в изображение заданного размера**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-Свойство [slideSize.size](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesize/size/) возвращает ширину и высоту слайда в пунктах. Для презентации 16:9 скрипт выводит `Saved a 1280 x 720 image` и пишет файл `slide_1_1280px.png`; для презентации 4:3 изображение будет 1280 × 960 пикселей.
+Свойство [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) возвращает ширину и высоту слайда в пунктах. Для презентации 16:9 скрипт выводит `Saved a 1280 x 720 image` и пишет файл `slide_1_1280px.png`; для презентации 4:3 изображение будет 1280 × 960 пикселей.
 
 ## **FAQ**
 

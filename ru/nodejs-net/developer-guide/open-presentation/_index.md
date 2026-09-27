@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET открывает презентации Pow
 Примеры ожидают презентацию с именем `sample.pptx` в папке проекта, которую вы настроили в [Установка](/slides/ru/nodejs-net/installation/). Подойдёт любая презентация PowerPoint. Сохраните каждый пример как файл `.js` в папке проекта и запустите его из этой папки с помощью `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET не имеет собственной справочной документации API. Он отражает API Aspose.Slides для .NET с camelCase‑именами, поэтому ссылки API в этой статье ведут к соответствующим классам и членам в [справочник API Aspose.Slides для .NET](https://reference.aspose.com/slides/ru/net/).
+Aspose.Slides for Node.js via .NET не имеет собственной справочной документации API. Он отражает API Aspose.Slides для .NET с camelCase‑именами, поэтому ссылки API в этой статье ведут к соответствующим классам и членам в [справочник API Aspose.Slides для .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Открытие презентации из файла**
 
-Чтобы открыть презентацию, передайте её путь конструктору [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/presentation/). Aspose.Slides определяет формат по содержимому файла, а не по расширению, поэтому тот же код открывает файлы PPTX, PPT и ODP. Относительный путь разрешается относительно текущего рабочего каталога, которым является папка проекта, когда вы запускаете скрипт из неё.
+Чтобы открыть презентацию, передайте её путь конструктору [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Aspose.Slides определяет формат по содержимому файла, а не по расширению, поэтому тот же код открывает файлы PPTX, PPT и ODP. Относительный путь разрешается относительно текущего рабочего каталога, которым является папка проекта, когда вы запускаете скрипт из неё.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Скрипт выводит количество слайдов в `sample.pptx`, например `Slide count: 9`. Свойство `count` коллекции [slides](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/slides/ru/) включает скрытые слайды. Вызывайте `dispose` в блоке `finally`, как показано, чтобы ресурсы .NET, связанные с презентацией, освобождались даже в случае ошибки кода.
+Скрипт выводит количество слайдов в `sample.pptx`, например `Slide count: 9`. Свойство `count` коллекции [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) включает скрытые слайды. Вызывайте `dispose` в блоке `finally`, как показано, чтобы ресурсы .NET, связанные с презентацией, освобождались даже в случае ошибки кода.
 
 ## **Открытие презентации из Buffer**
 
@@ -71,7 +71,7 @@ try {
 
 ## **Сохранение презентации в другом формате**
 
-Чтобы конвертировать презентацию в другой формат презентации, откройте её и сохраните с другим значением [SaveFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.export/saveformat/). В следующем примере выводится формат, определённый Aspose.Slides, который возвращает свойство [sourceFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/sourceformat/), и презентация сохраняется как OpenDocument презентация:
+Чтобы конвертировать презентацию в другой формат презентации, откройте её и сохраните с другим значением [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). В следующем примере выводится формат, определённый Aspose.Slides, который возвращает свойство [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/), и презентация сохраняется как OpenDocument презентация:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **Как открыть презентацию, защищённую паролем?**
 
-Создайте объект [LoadOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/), задайте его свойство [password](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/password/) и передайте объект третьим аргументом конструктора: `new Presentation("protected.pptx", null, loadOptions)`. Без правильного пароля конструктор выбрасывает ошибку.
+Создайте объект [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), задайте его свойство [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) и передайте объект третьим аргументом конструктора: `new Presentation("protected.pptx", null, loadOptions)`. Без правильного пароля конструктор выбрасывает ошибку.
 
 **Почему конструктор бросает `Error` с пустым сообщением?**
 

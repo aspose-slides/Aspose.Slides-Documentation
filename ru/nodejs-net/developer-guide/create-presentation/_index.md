@@ -27,17 +27,17 @@ description: "Создавайте презентации PowerPoint на JavaSc
 Для примеров требуется проект, настроенный согласно инструкции в разделе [Installation](/slides/ru/nodejs-net/installation/). Сохраните каждый пример как файл с расширением `.js` в папке проекта и запустите его из этой папки с помощью `node`, например `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он отражает API Aspose.Slides for .NET с именами в camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ru/net/).
+Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он отражает API Aspose.Slides for .NET с именами в camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Создание презентации с текстовым полем**
 
 Чтобы создать презентацию и разместить текстовое поле на её первом слайде, выполните следующие действия:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.  
-1. Получите этот слайд из коллекции [slides](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/slides/ru/). Коллекции в этом пакете читаются методом `get(index)`, индексы начинаются с 0.  
-1. Добавьте прямоугольник с помощью метода [addAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/shapecollection/addautoshape/) и задайте [text](https://reference.aspose.com/slides/ru/net/aspose.slides/textframe/text/) его [textFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/autoshape/textframe/).  
-1. Сохраните презентацию методом [save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/) и значением `SaveFormat.Pptx`.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.  
+1. Получите этот слайд из коллекции [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). Коллекции в этом пакете читаются методом `get(index)`, индексы начинаются с 0.  
+1. Добавьте прямоугольник с помощью метода [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) и задайте [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) его [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).  
+1. Сохраните презентацию методом [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) и значением `SaveFormat.Pptx`.  
 1. Вызовите `dispose` в блоке `finally`, чтобы освободить .NET‑ресурсы, поддерживающие презентацию.
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **Добавление слайдов**
 
-Новая презентация содержит один слайд. Чтобы добавить больше, передайте слайд‑макет в метод [addEmptySlide](https://reference.aspose.com/slides/ru/net/aspose.slides/slidecollection/addemptyslide/) коллекции `slides`. Метод [getByType](https://reference.aspose.com/slides/ru/net/aspose.slides/layoutslidecollection/getbytype/) коллекции [layoutSlides](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/layoutslides/) возвращает первый макет указанного [SlideLayoutType](https://reference.aspose.com/slides/ru/net/aspose.slides/slidelayouttype/).
+Новая презентация содержит один слайд. Чтобы добавить больше, передайте слайд‑макет в метод [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) коллекции `slides`. Метод [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) коллекции [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) возвращает первый макет указанного [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 Следующий пример добавляет два слайда с макетом Blank:
 
@@ -86,7 +86,7 @@ try {
 
 ## **Установка размера слайда**
 
-Новая презентация использует слайды 4:3 размером 720 × 540 пунктов (10 × 7,5 дюйма). Чтобы создать широкоформатные слайды, вызовите метод [setSize](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesize/setsize/) свойства [slideSize](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/slidesize/) презентации, передав значение [SlideSizeType](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesizetype/) и [SlideSizeScaleType](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesizescaletype/). Тип масштабирования указывает Aspose.Slides, как обращаться с уже существующими на слайдах объектами; `DoNotScale` оставляет их без изменений, что является правильным выбором для презентации без содержимого.
+Новая презентация использует слайды 4:3 размером 720 × 540 пунктов (10 × 7,5 дюйма). Чтобы создать широкоформатные слайды, вызовите метод [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) свойства [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) презентации, передав значение [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) и [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). Тип масштабирования указывает Aspose.Slides, как обращаться с уже существующими на слайдах объектами; `DoNotScale` оставляет их без изменений, что является правильным выбором для презентации без содержимого.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ try {
 
 **В какие форматы можно сохранить новую презентацию?**
 
-В любой из форматов, представленных в перечислении [SaveFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.export/saveformat/), например `SaveFormat.Ppt` для PowerPoint 97–2003, `SaveFormat.Odp` для OpenDocument или `SaveFormat.Pdf`. Для вывода в PDF см. раздел [Convert PowerPoint to PDF](/slides/ru/nodejs-net/convert-powerpoint-to-pdf/).
+В любой из форматов, представленных в перечислении [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), например `SaveFormat.Ppt` для PowerPoint 97–2003, `SaveFormat.Odp` для OpenDocument или `SaveFormat.Pdf`. Для вывода в PDF см. раздел [Convert PowerPoint to PDF](/slides/ru/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Почему сохранённая презентация содержит текст «Evaluation only»?**
 
