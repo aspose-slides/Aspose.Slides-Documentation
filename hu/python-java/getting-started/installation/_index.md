@@ -66,7 +66,7 @@ Egy meglévő Aspose.Slides telepítés frissítéséhez futtassa a `python -m p
 
 ## **Telepítés ZIP archívumból**
 
-A könyvtárat a [Aspose.Slides letöltési oldalról](https://releases.aspose.com/slides/hu/python-java/) is használhatja:
+A könyvtárat a [Aspose.Slides letöltési oldalról](https://releases.aspose.com/slides/python-java/) is használhatja:
 
 1. Telepítse a Python‑t és a Java‑t a [Előfeltételek](#prerequisites) leírása szerint.
 2. Hozzon létre és aktiváljon egy virtuális környezetet a fenti útmutató szerint.

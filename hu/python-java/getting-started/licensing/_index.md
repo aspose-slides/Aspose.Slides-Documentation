@@ -17,7 +17,7 @@ description: "Alkalmazzon fájl, bájt-alapú vagy használati licencet az Aspos
 
 Az Aspose.Slides for Python via Java futtatható értékelő módban vagy licenccel. Értékelő módban egy értékelő vízjel szövegdobozt ad minden diára minden mentett prezentációban, és a prezentációkból a kód által olvasott szöveget csonkolja. Ez a cikk elmagyarázza, hogyan lehet licencet alkalmazni fájlból vagy bájtokból, és hogyan konfigurálható a használati licencelés.
 
-A vásárlási lehetőségekért tekintse meg a [Ár információ](https://purchase.aspose.com/pricing/slides/hu/family) oldalt. Általános licencelési és vásárlási kérdésekért lásd a [Vásárlási irányelvek és GYIK](https://purchase.aspose.com/policies) oldalt.
+A vásárlási lehetőségekért tekintse meg a [Ár információ](https://purchase.aspose.com/pricing/slides/family) oldalt. Általános licencelési és vásárlási kérdésekért lásd a [Vásárlási irányelvek és GYIK](https://purchase.aspose.com/policies) oldalt.
 
 Az értékelési korlátozásokért és az ideiglenes licenc kérésének módjáért tekintse meg a [Evaluate Aspose.Slides](/slides/hu/python-java/evaluate-aspose-slides/) oldalt. Az ideiglenes licencet ugyanúgy kell alkalmazni, mint a megvásárolt licencfájlt.
 
@@ -29,7 +29,7 @@ A licencfájl olyan információkat tartalmaz, mint a termék neve, a licencelt 
 Ne módosítsa a licencfájlt. Még egy felesleges sortörés is érvénytelenítheti digitális aláírását.
 {{% /alert %}}
 
-A licencet egyszer kell alkalmazni alkalmazásonként vagy folyamatonként, mielőtt prezentációkat hozna létre vagy más Aspose.Slides műveleteket végezne. Licencfájl esetén használja a [License](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/) osztályt. A használati (metered) licencelés nyilvános és privát kulcspárt használ a licencfájl helyett.
+A licencet egyszer kell alkalmazni alkalmazásonként vagy folyamatonként, mielőtt prezentációkat hozna létre vagy más Aspose.Slides műveleteket végezne. Licencfájl esetén használja a [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/) osztályt. A használati (metered) licencelés nyilvános és privát kulcspárt használ a licencfájl helyett.
 
 ## **Licenc alkalmazása**
 
@@ -37,7 +37,7 @@ A következő példák feltételezik, hogy az Aspose.Slides for Python via Java 
 
 ### **Licenc alkalmazása fájlból**
 
-Adja át a licencfájl útvonalát a [License.setLicense](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/#setLicense) metódusnak. Cserélje le a `Aspose.Slides.lic`-et a licencfájl útvonalára.
+Adja át a licencfájl útvonalát a [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense) metódusnak. Cserélje le a `Aspose.Slides.lic`-et a licencfájl útvonalára.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Használja a pontos fájlnevet, beleértve a kiterjesztést is. Például, ha a fájl neve `Aspose.Slides.lic.xml`, a `.xml` kiterjesztést is adja meg az úton. Egy abszolút útvonal elkerüli a bizonytalanságot az alkalmazás munkakönyvtárát illetően.
 
-A példa a [License.isLicensed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/#isLicensed) metódust használja annak ellenőrzésére, hogy a licenc alkalmazva lett-e.
+A példa a [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) metódust használja annak ellenőrzésére, hogy a licenc alkalmazva lett-e.
 
 ### **Licenc alkalmazása bájtokból**
 
-Használja a [License.setLicenseFromBytes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/#setLicenseFromBytes) metódust, amikor a licenc Python bájtokként érhető el. A következő példa bináris módban olvassa be a fájlt, majd a licenc alkalmazása előtt bezárja azt.
+Használja a [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) metódust, amikor a licenc Python bájtokként érhető el. A következő példa bináris módban olvassa be a fájlt, majd a licenc alkalmazása előtt bezárja azt.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ Tartsa a eredeti bájtokat változatlanul. Ne dekódolja, formázza át vagy mó
 
 ## **Használati (metered) licenc alkalmazása**
 
-A használati licenc az API használat alapján számláz. A használati licenc megszerzése után a nyilvános és privát kulcsait a [Metered.setMeteredKey](https://reference.aspose.com/slides/hu/python-java/aspose.slides/metered/#setMeteredKey) metódussal alkalmazza. Inicializálja a [Metered](https://reference.aspose.com/slides/hu/python-java/aspose.slides/metered/) objektumot, és a kulcsokat egyszer az alkalmazás indításánál alkalmazza.
+A használati licenc az API használat alapján számláz. A használati licenc megszerzése után a nyilvános és privát kulcsait a [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey) metódussal alkalmazza. Inicializálja a [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) objektumot, és a kulcsokat egyszer az alkalmazás indításánál alkalmazza.
 
 A következő példa a `ASPOSE_METERED_PUBLIC_KEY` és `ASPOSE_METERED_PRIVATE_KEY` környezeti változókból olvassa be a kulcsokat. Állítsa be mindkét változót a szkript futtatása előtt.
 

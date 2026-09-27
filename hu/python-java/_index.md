@@ -77,14 +77,14 @@ Támogatja a PPT, PPTX, PPS, POT és ODP fájlok betöltését és mentését, b
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hu/python-java/">API referenciák</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/python-java/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API referenciák</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Kiadási megjegyzések</a></li>
 <li><a href="/slides/hu/python-java/known-issues/">Ismert hibák</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/python-java/">Letöltés</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatói fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatói fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetős támogatási helpdesk</a></li>
 </ul>
 </div>

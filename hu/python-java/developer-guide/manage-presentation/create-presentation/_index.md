@@ -29,13 +29,13 @@ Mielőtt elkezdené, telepítse a Python‑t, egy JDK‑t, a JPype‑ot és az A
 
 ## **Prezentáció létrehozása**
 
-PowerPoint‑fájl létrehozása az Aspose.Slides for Python via Java‑ban a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztály példányosításával olyan egyszerű, mint egy üres füzet létrehozása egyetlen diával, amely azonnali vászonként szolgál alakzatok, szöveg, diagramok vagy bármilyen egyéb tartalom számára, amelyre az alkalmazásának szüksége van. Miután módosította azt a diát – vagy újakat ad hozzá – elmentheti az eredményt PPTX, régebbi PPT vagy akár OpenDocument formátumba is. Az alábbi rövid kópminta illusztrálja ezt a munkafolyamatot egy egyszerű alakzat hozzáadásával az első diára.
+PowerPoint‑fájl létrehozása az Aspose.Slides for Python via Java‑ban a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztály példányosításával olyan egyszerű, mint egy üres füzet létrehozása egyetlen diával, amely azonnali vászonként szolgál alakzatok, szöveg, diagramok vagy bármilyen egyéb tartalom számára, amelyre az alkalmazásának szüksége van. Miután módosította azt a diát – vagy újakat ad hozzá – elmentheti az eredményt PPTX, régebbi PPT vagy akár OpenDocument formátumba is. Az alábbi rövid kópminta illusztrálja ezt a munkafolyamatot egy egyszerű alakzat hozzáadásával az első diára.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.  
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.  
 1. Szerezze be az első diát a 0 indexével.  
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) típusú [ShapeType.Cloud](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapetype/#Cloud) alakzatot a [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#addAutoShape) metódussal.  
-1. Állítsa be az alakzat szövegét a [TextFrame.setText](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframe/#setText) segítségével.  
-1. Mentse a prezentációt a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódussal, a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/#Pptx) formátummal.
+1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) típusú [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) alakzatot a [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) metódussal.  
+1. Állítsa be az alakzat szövegét a [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) segítségével.  
+1. Mentse a prezentációt a [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) metódussal, a [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) formátummal.
 
 Az alábbi példa elindítja a Java Virtual Machine‑et (JVM), ha még nem fut, hozzáad egy felhő alakzatot szöveggel az első diához, majd elmenti a prezentációt. Mentse *create_presentation.py* néven:
 
@@ -98,7 +98,7 @@ Használja a [BLOB kezelési stratégiákat](/slides/hu/python-java/manage-blob/
 
 **Létrehozhatok/menthetek prezentációkat párhuzamosan?**
 
-Nem működhet ugyanazon a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) példányon több [szál](/slides/hu/python-java/multithreading/) egyidejűleg. Indítson külön, izolált példányokat szálanként vagy folyamatanként.
+Nem működhet ugyanazon a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) példányon több [szál](/slides/hu/python-java/multithreading/) egyidejűleg. Indítson külön, izolált példányokat szálanként vagy folyamatanként.
 
 **Hogyan távolíthatom el a próba vízjelet és a korlátozásokat?**
 

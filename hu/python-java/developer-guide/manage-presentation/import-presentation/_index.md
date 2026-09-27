@@ -26,9 +26,9 @@ description: "Ismerje meg, hogyan lehet PDF és HTML tartalmat PowerPoint prezen
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Python via Java a PDF oldalakat vagy HTML tartalmat Microsoft PowerPoint nélkül PowerPoint diákra konvertálhatja. A [SlideCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/) osztály a [addFromPdf](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addFromPdf) és a [addFromHtml](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addFromHtml) metódusokat biztosítja az importált tartalom bemutatóhoz való hozzáfűzéshez.
+Az Aspose.Slides for Python via Java a PDF oldalakat vagy HTML tartalmat Microsoft PowerPoint nélkül PowerPoint diákra konvertálhatja. A [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) osztály a [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) és a [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) metódusokat biztosítja az importált tartalom bemutatóhoz való hozzáfűzéshez.
 
-További vezérléshez az HTML elhelyezése felett a [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#insertFromHtml) beszúrhatja a generált diákat egy gyűjtemény indexén vagy elkezdheti kitölteni a rendelkezésre álló helyet egy meglévő dián. A hosszú HTML automatikusan oldalakra van bontva további diákra, a forrás megadható karakterláncként vagy folyamként, és a külső eszközök betölthetők az [ExternalResourceResolver](https://reference.aspose.com/slides/hu/python-java/aspose.slides/externalresourceresolver/) segítségével egy alap URI-val. A visszaadott [Slide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/) tömb az érintett és újonnan létrehozott diákat azonosítja.
+További vezérléshez az HTML elhelyezése felett a [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) beszúrhatja a generált diákat egy gyűjtemény indexén vagy elkezdheti kitölteni a rendelkezésre álló helyet egy meglévő dián. A hosszú HTML automatikusan oldalakra van bontva további diákra, a forrás megadható karakterláncként vagy folyamként, és a külső eszközök betölthetők az [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) segítségével egy alap URI-val. A visszaadott [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) tömb az érintett és újonnan létrehozott diákat azonosítja.
 
 ## **Importálás PDF-ből**
 
@@ -36,9 +36,9 @@ Egy PDF dokumentum PowerPoint bemutatóvá konvertálásához importálja annak 
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. Hozzon létre egy új [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) objektumot.  
-2. Hívja meg a [addFromPdf](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addFromPdf) metódust a PDF fájl útvonalával.  
-3. Hívja meg a [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/#Pptx) használatával a bemutató PPTX fájlba írásához.
+1. Hozzon létre egy új [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) objektumot.  
+2. Hívja meg a [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) metódust a PDF fájl útvonalával.  
+3. Hívja meg a [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) használatával a bemutató PPTX fájlba írásához.
 
 A következő Python példa importál egy PDF dokumentumot, és elmenti a generált diákat PowerPoint bemutatóként:
 
@@ -59,21 +59,21 @@ finally:
     presentation.dispose()
 ```
 
-Az alapértelmezett üres dia a bemutatóban marad, mivel az importálás diák hozzáfűzésével történik. Ha csak az importált oldalakat szeretné megtartani, törölje a diagyűjteményt a [SlideCollection.clear](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#clear) metódussal az importálás előtt.
+Az alapértelmezett üres dia a bemutatóban marad, mivel az importálás diák hozzáfűzésével történik. Ha csak az importált oldalakat szeretné megtartani, törölje a diagyűjteményt a [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) metódussal az importálás előtt.
 
-A [addFromPdf](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addFromPdf) metódus visszaadja a hozzáadott diákat, ami hasznos, ha csak az importált diákat kell feldolgozni.
+A [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) metódus visszaadja a hozzáadott diákat, ami hasznos, ha csak az importált diákat kell feldolgozni.
 
 {{% alert title="Tip" color="success" %}}
-Próbálja ki az ingyenes [PDF to PowerPoint](https://products.aspose.app/slides/hu/import/pdf-to-powerpoint) webalkalmazást, hogy lássa a konverziós munkafolyamatot működés közben.
+Próbálja ki az ingyenes [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) webalkalmazást, hogy lássa a konverziós munkafolyamatot működés közben.
 {{% /alert %}}
 
 ## **Importálás HTML-ből**
 
 Az Aspose.Slides also képes diák létrehozására HTML dokumentumból. A forrást meg lehet adni HTML szövegként vagy folyamként. A következő lépések egy fájlfolyamot használnak:
 
-1. Hozzon létre egy új [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) objektumot.  
-2. Nyissa meg a HTML fájlt olvasásra, és adja át a folyamot a [addFromHtml](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addFromHtml) metódusnak.  
-3. Hívja meg a [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/#Pptx) használatával az eredmény PPTX fájlba írásához.
+1. Hozzon létre egy új [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) objektumot.  
+2. Nyissa meg a HTML fájlt olvasásra, és adja át a folyamot a [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) metódusnak.  
+3. Hívja meg a [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) használatával az eredmény PPTX fájlba írásához.
 
 A következő Python példa importál egy HTML dokumentumot, és elmenti a generált diákat PowerPoint bemutatóként:
 
@@ -101,14 +101,14 @@ finally:
 
 ## **HTML tartalom beszúrása**
 
-Használja a [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#insertFromHtml) metódust, ha a HTML által generált diákat egy adott pozícióba kell helyezni, ahelyett, hogy hozzáfűznék őket. Az index nullától kezdődik, és az importálás kiinduló helyét jelöli.
+Használja a [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) metódust, ha a HTML által generált diákat egy adott pozícióba kell helyezni, ahelyett, hogy hozzáfűznék őket. Az index nullától kezdődik, és az importálás kiinduló helyét jelöli.
 
 Az `useSlideWithIndexAsStart` argumentum szabályozza, hogyan használja az importáló ezt a pozíciót:
 
 - Ha `False`, az importáló új diákat hoz létre a megadott indexnél, és eltolja a mögötte lévő diákat.  
 - Ha `True`, az importáló a már létező dián ezen az indexen elérhető helyen kezdi meg a tartalom elhelyezését. Ha a HTML nem fér el, az Aspose.Slides automatikusan oldalakra bontja, és közvetlenül a kezdő dia után szúr be további diákat.
 
-A [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#insertFromHtml) visszaad egy [Slide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/) objektumok tömbjét. Ha a beszúrás új diákon kezdődik, minden visszaadott elem újnak jön létre. Ha egy meglévő dia van használva kiindulási pontként, a tömb tartalmazza az érintett diát, majd az esetleges új túlcsorduló diákat. Ennek a tömbnek a vizsgálata helyettesítheti a befolyó tartomány kiszámítását a bemutató diák számából.
+A [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) visszaad egy [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) objektumok tömbjét. Ha a beszúrás új diákon kezdődik, minden visszaadott elem újnak jön létre. Ha egy meglévő dia van használva kiindulási pontként, a tömb tartalmazza az érintett diát, majd az esetleges új túlcsorduló diákat. Ennek a tömbnek a vizsgálata helyettesítheti a befolyó tartomány kiszámítását a bemutató diák számából.
 
 ### **HTML beszúrása új diákba**
 
@@ -145,7 +145,7 @@ finally:
 
 A következő példa a HTML-t folyamként adja meg. Megtartja a fejléct alakzatot a meglévő sablon dián, a lefoglalt terület alá kezdi az importálást, és a hosszú tartalmat további diákkal folytatja.
 
-A HTML tartalmaz egy relatív kép URL-t is. Az [ExternalResourceResolver](https://reference.aspose.com/slides/hu/python-java/aspose.slides/externalresourceresolver/) lekéri az erőforrást, míg az alap URI megmondja az importálónak, hogyan oldja fel a `images/logo.png` hivatkozást. Ebben a példában a fájl a `html-assets/images/logo.png` helyen várható.
+A HTML tartalmaz egy relatív kép URL-t is. Az [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) lekéri az erőforrást, míg az alap URI megmondja az importálónak, hogyan oldja fel a `images/logo.png` hivatkozást. Ebben a példában a fájl a `html-assets/images/logo.png` helyen várható.
 
 ```python
 from pathlib import Path
@@ -197,7 +197,7 @@ Az egyenlő módon korlátlan külső erőforrás feloldó képes a HTML-ben hiv
 
 **Az Aspose.Slides képes táblázatokat felismerni PDF importálásakor?**
 
-Igen. Hozzon létre egy [PdfImportOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfimportoptions/) objektumot, hívja meg a [setDetectTables](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfimportoptions/#setDetectTables) metódust `True` értékkel, és adja át a beállításokat a [addFromPdf](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addFromPdf) metódusnak. A táblázatfelismerés minősége a forrás PDF szerkezetétől és összetettségétől függ.
+Igen. Hozzon létre egy [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/) objektumot, hívja meg a [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables) metódust `True` értékkel, és adja át a beállításokat a [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) metódusnak. A táblázatfelismerés minősége a forrás PDF szerkezetétől és összetettségétől függ.
 
 {{% alert title="Note" color="info" %}}
 HTML importálása után a diák exportálhatók [images](/slides/hu/python-java/convert-powerpoint-to-png/), [TIFF](/slides/hu/python-java/convert-powerpoint-to-tiff/), vagy [SVG](/slides/hu/python-java/render-a-slide-as-an-svg-image/) formátumokba.
