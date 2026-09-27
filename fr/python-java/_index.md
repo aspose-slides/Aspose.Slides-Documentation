@@ -9,47 +9,128 @@ keywords:
 - Aspose.Slides pour Python via Java
 - Bibliothèque PowerPoint Python
 - gérer des présentations PowerPoint en Python
-- lire et écrire des PowerPoint en Python
+- lire et écrire PowerPoint en Python
 - modifier des diapositives PowerPoint en Python
-- exporter PowerPoint vers PDF en Python
-- exporter PowerPoint vers SVG en Python
+- exporter PowerPoint en PDF en Python
+- exporter PowerPoint en SVG en Python
 - prévisualiser les diapositives en Python
 - ajouter de l'audio et de la vidéo aux diapositives en Python
 - PowerPoint sans Microsoft Office
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides pour Python via Java vous permet de gérer le texte, les formes, les tableaux et les animations, d'ajouter de l'audio et de la vidéo, de prévisualiser les diapositives et d'exporter les présentations vers SVG, PDF et plus encore."
+description: "Commencez ici : installez Aspose.Slides pour Python via Java, créez une première présentation, et trouvez les guides pour les tâches courantes, la référence API et le support."
 ---
-{{% alert color="info" title="Note" %}}
+<img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides for Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Bienvenue sur Aspose.Slides pour Python via Java**
+Aspose.Slides for Python via Java est une bibliothèque permettant de créer, lire, modifier et convertir des présentations PowerPoint et OpenDocument dans des applications Python, sans Microsoft PowerPoint ; elle exécute le moteur Java Aspose.Slides dans votre processus Python via JPype.
 
-![Logo du produit Aspose.Slides pour Python via Java](aspose_slides-for-python-via-java.png)
+Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les variantes macro‑activées et les modèles, et exporte vers PDF, XPS, HTML, SVG, TIFF, Markdown et images.
 
-Aspose.Slides pour Python via Java est une bibliothèque de classes qui permet à vos applications Python de lire et d'écrire des présentations PowerPoint® sans nécessiter Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Ses principales fonctionnalités comprennent la gestion du texte, des formes, des tableaux et des animations ; l'ajout d'audio et de vidéo aux diapositives ; l'aperçu des diapositives ; et l'exportation des diapositives vers SVG, PDF et d'autres formats.
+------
 
-{{% /alert %}}
+<div class="row">
+<div class="col-md-4">
+<p><b>Commencer</b></p>
+<hr>
+<p>DÉMARRAGE</p>
+<ul>
+<li><a href="/slides/fr/python-java/installation/">Installation</a></li>
+<li><a href="/slides/fr/python-java/create-presentation/">Créer votre première présentation</a></li>
+<li><a href="/slides/fr/python-java/getting-started/">Guide de démarrage</a></li>
+</ul>
+<p>ÉVALUER</p>
+<ul>
+<li><a href="/slides/fr/python-java/supported-file-formats/">Formats de fichiers pris en charge</a></li>
+<li><a href="/slides/fr/python-java/evaluate-aspose-slides/">Limitations de l'essai</a></li>
+<li><a href="/slides/fr/python-java/licensing/">Licence</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Créer avec Slides</b></p>
+<hr>
+<p>TÂCHES COURANTES</p>
+<ul>
+<li><a href="/slides/fr/python-java/open-presentation/">Ouvrir une présentation</a></li>
+<li><a href="/slides/fr/python-java/save-presentation/">Enregistrer une présentation</a></li>
+<li><a href="/slides/fr/python-java/convert-powerpoint-to-pdf/">Convertir en PDF</a></li>
+<li><a href="/slides/fr/python-java/convert-slide/">Rendre les diapositives en images</a></li>
+<li><a href="/slides/fr/python-java/manage-text/">Modifier le texte et les formes</a></li>
+</ul>
+<p>FLUX DE TRAVAIL SLIDES</p>
+<ul>
+<li><a href="/slides/fr/python-java/powerpoint-charts/">Graphiques</a></li>
+<li><a href="/slides/fr/python-java/powerpoint-animation/">Animations</a></li>
+<li><a href="/slides/fr/python-java/manage-media-files/">Audio et vidéo</a></li>
+<li><a href="/slides/fr/python-java/presentation-design/">Conception de diapositives</a></li>
+<li><a href="/slides/fr/python-java/merge-presentation/">Fusionner des présentations</a></li>
+</ul>
+<p>EXEMPLES</p>
+<ul>
+<li><a href="/slides/fr/python-java/examples/">Exemples par élément de diapositive</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Référence &amp; Assistance</b></p>
+<hr>
+<p>RÉFÉRENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/fr/python-java/">Référence API</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/python-java/release-notes/">Notes de version</a></li>
+<li><a href="/slides/fr/python-java/known-issues/">Problèmes connus</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/python-java/">Téléchargement</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
+</ul>
+</div>
+</div>
 
-## **Ressources Aspose.Slides pour Python via Java**
+------
 
-{{% alert color="info" title="Remarque" %}}
+## **Votre première présentation**
 
-Aspose.Slides pour Python via Java est porté depuis Aspose.Slides pour Java, vous pouvez donc également utiliser la documentation et la référence d'API d'Aspose.Slides pour Java.
+Installez Python et un JDK, définissez `JAVA_HOME`, puis créez et activez un environnement virtuel comme décrit dans [Installation](/slides/fr/python-java/installation/). Ensuite, installez JPype et Aspose.Slides depuis PyPI :
 
-{{% /alert %}}
+```sh
+python -m pip install JPype1 aspose-slides-java
+```
 
-Explorez les ressources suivantes :
+Enregistrez ce code sous *hello.py*. Il démarre la machine virtuelle Java, ajoute une forme nuage avec du texte à la première diapositive d'une nouvelle présentation, et enregistre la présentation :
 
-- [Documentation en ligne d'Aspose.Slides pour Python via Java](/slides/fr/python-java/developer-guide/)
-- [Fonctionnalités d'Aspose.Slides pour Python via Java](/slides/fr/python-java/features-overview/)
-- [Limitations et différences d'API d'Aspose.Slides pour Python via Java](/slides/fr/python-java/limitations-and-api-differences/)
-- [Notes de version d'Aspose.Slides pour Python via Java](https://releases.aspose.com/slides/fr/python-java/release-notes/)
-- [Page produit d'Aspose.Slides pour Python via Java](https://products.aspose.com/slides/fr/python-java/)
-- [Télécharger le package Aspose.Slides pour Python via Java](https://releases.aspose.com/slides/fr/python-java/)
-- [Installer Aspose.Slides pour Python via Java](/slides/fr/python-java/installation/)
-- [Référence d'API Aspose.Slides pour Python via Java](https://reference.aspose.com/slides/fr/python-java/)
-- [Forum d'assistance gratuit Aspose.Slides pour Python via Java](https://forum.aspose.com/c/slides/fr/11)
-- [Helpdesk d'assistance payante Aspose.Slides pour Python via Java](https://helpdesk.aspose.com/)
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+# Créez une présentation avec une diapositive vierge.
+presentation = Presentation()
+try:
+    # Obtenez la première diapositive.
+    slide = presentation.getSlides().get_Item(0)
+
+    # Ajoutez une forme nuage et définissez son texte.
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
+    auto_shape.getTextFrame().setText("Hello, Aspose!")
+
+    # Enregistrez la présentation au format PPTX.
+    presentation.save("new_presentation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Exécutez‑le dans le même environnement virtuel :
+
+```sh
+python hello.py
+```
+
+Le script enregistre *new_presentation.pptx* avec une diapositive contenant une forme nuage avec le texte « Hello, Aspose! ». Sans licence, le fichier enregistré comporte également un filigrane d'évaluation — voir [Licensing](/slides/fr/python-java/licensing/). Pour plus de méthodes de création et de remplissage d'une présentation, consultez [Create Presentations](/slides/fr/python-java/create-presentation/).

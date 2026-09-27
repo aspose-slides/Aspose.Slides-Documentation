@@ -7,49 +7,130 @@ url: /cs/python-java/
 is_root: true
 keywords:
 - Aspose.Slides pro Python via Java
-- Knihovna PowerPoint pro Python
+- Knihovna Python pro PowerPoint
 - spravovat PowerPoint prezentace v Pythonu
 - číst a zapisovat PowerPoint v Pythonu
 - upravit PowerPoint snímky v Pythonu
 - exportovat PowerPoint do PDF v Pythonu
 - exportovat PowerPoint do SVG v Pythonu
 - náhled snímků v Pythonu
-- přidat zvuk a video na snímky v Pythonu
+- přidat audio a video do snímků v Pythonu
 - PowerPoint bez Microsoft Office
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides pro Python via Java vám umožňuje spravovat text, tvary, tabulky a animace, přidávat zvuk a video, prohlížet snímky a exportovat prezentace do SVG, PDF a dalších formátů."
+description: "Začněte zde: nainstalujte Aspose.Slides pro Python via Java, vytvořte první prezentaci a najděte průvodce pro běžné úkoly, referenční API a podporu."
 ---
-{{% alert color="info" title="Poznámka" %}}
+<img src="aspose_slides-for-python-via-java.png" alt="Aspose.Slides for Python via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Vítejte v Aspose.Slides for Python via Java**
+Aspose.Slides for Python via Java je knihovna pro vytváření, čtení, úpravu a převod prezentací PowerPoint a OpenDocument v aplikacích Python, bez Microsoft PowerPoint; spouští Java engine Aspose.Slides ve vašem Python procesu prostřednictvím JPype.
 
-![Logo produktu Aspose.Slides for Python via Java](aspose_slides-for-python-via-java.png)
+Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šablon, a exportuje do PDF, XPS, HTML, SVG, TIFF, Markdownu a obrázků.
 
-Aspose.Slides for Python via Java je knihovna tříd, která umožňuje vašim aplikacím v Pythonu číst a zapisovat prezentace PowerPoint® bez nutnosti Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Mezi jeho hlavní funkce patří správa textu, tvarů, tabulek a animací; přidávání zvuku a videa na snímky; náhled snímků; a export snímků do SVG, PDF a dalších formátů.
+------
 
-{{% /alert %}}
+<div class="row">
+<div class="col-md-4">
+<p><b>Začínáme</b></p>
+<hr>
+<p>ZAČÁTEK</p>
+<ul>
+<li><a href="/slides/cs/python-java/installation/">Instalace</a></li>
+<li><a href="/slides/cs/python-java/create-presentation/">Vytvořte svou první prezentaci</a></li>
+<li><a href="/slides/cs/python-java/getting-started/">Průvodce pro začátečníky</a></li>
+</ul>
+<p>HODNOCENÍ</p>
+<ul>
+<li><a href="/slides/cs/python-java/supported-file-formats/">Podporované formáty souborů</a></li>
+<li><a href="/slides/cs/python-java/evaluate-aspose-slides/">Omezení zkušební verze</a></li>
+<li><a href="/slides/cs/python-java/licensing/">Licencování</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Vytvářejte pomocí Slides</b></p>
+<hr>
+<p>OBECNÉ ÚKOLY</p>
+<ul>
+<li><a href="/slides/cs/python-java/open-presentation/">Otevřít prezentaci</a></li>
+<li><a href="/slides/cs/python-java/save-presentation/">Uložit prezentaci</a></li>
+<li><a href="/slides/cs/python-java/convert-powerpoint-to-pdf/">Převést do PDF</a></li>
+<li><a href="/slides/cs/python-java/convert-slide/">Vykreslit snímky jako obrázky</a></li>
+<li><a href="/slides/cs/python-java/manage-text/">Upravit text a tvary</a></li>
+</ul>
+<p>PRACOVNÍ PROCESY</p>
+<ul>
+<li><a href="/slides/cs/python-java/powerpoint-charts/">Grafy</a></li>
+<li><a href="/slides/cs/python-java/powerpoint-animation/">Animace</a></li>
+<li><a href="/slides/cs/python-java/manage-media-files/">Audio a video</a></li>
+<li><a href="/slides/cs/python-java/presentation-design/">Design snímků</a></li>
+<li><a href="/slides/cs/python-java/merge-presentation/">Sloučit prezentace</a></li>
+</ul>
+<p>PŘÍKLADY</p>
+<ul>
+<li><a href="/slides/cs/python-java/examples/">Příklady podle prvku snímku</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Reference &amp; Podpora</b></p>
+<hr>
+<p>REFERENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/cs/python-java/">Reference API</a></li>
+<li><a href="https://releases.aspose.com/slides/cs/python-java/release-notes/">Poznámky k vydání</a></li>
+<li><a href="/slides/cs/python-java/known-issues/">Známé problémy</a></li>
+<li><a href="https://releases.aspose.com/slides/cs/python-java/">Stáhnout</a></li>
+</ul>
+<p>PODPOUŽKA</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/cs/11">Bezplatné fórum podpory</a></li>
+<li><a href="https://helpdesk.aspose.com/">Placená podpora</a></li>
+</ul>
+</div>
+</div>
 
-## **Zdroje pro Aspose.Slides for Python via Java**
+------
 
-{{% alert color="info" title="Poznámka" %}}
+## **Vaše první prezentace**
 
-Aspose.Slides for Python via Java je portováno z Aspose.Slides for Java, takže můžete také používat dokumentaci a referenční příručku API pro Aspose.Slides for Java.
+Nainstalujte Python a JDK, nastavte `JAVA_HOME` a vytvořte a aktivujte virtuální prostředí podle popisu v [Instalace](/slides/cs/python-java/installation/). Poté nainstalujte JPype a Aspose.Slides z PyPI:
 
-{{% /alert %}}
+```sh
+python -m pip install JPype1 aspose-slides-java
+```
 
-Prozkoumejte následující zdroje:
+Uložte tento kód jako *hello.py*. Spustí Java Virtual Machine, přidá tvar mraku s textem na první snímek nové prezentace a uloží prezentaci:
 
-- [Online dokumentace Aspose.Slides for Python via Java](/slides/cs/python-java/developer-guide/)
-- [Funkce Aspose.Slides for Python via Java](/slides/cs/python-java/features-overview/)
-- [Omezení a rozdíly v API Aspose.Slides for Python via Java](/slides/cs/python-java/limitations-and-api-differences/)
-- [Poznámky k vydání Aspose.Slides for Python via Java](https://releases.aspose.com/slides/cs/python-java/release-notes/)
-- [Stránka produktu Aspose.Slides for Python via Java](https://products.aspose.com/slides/cs/python-java/)
-- [Stáhnout balíček Aspose.Slides for Python via Java](https://releases.aspose.com/slides/cs/python-java/)
-- [Instalace Aspose.Slides for Python via Java](/slides/cs/python-java/installation/)
-- [Referenční příručka API Aspose.Slides for Python via Java](https://reference.aspose.com/slides/cs/python-java/)
-- [Bezplatné fórum podpory Aspose.Slides for Python via Java](https://forum.aspose.com/c/slides/cs/11)
-- [Placený helpdesk podpory Aspose.Slides for Python via Java](https://helpdesk.aspose.com/)
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+# Vytvořte prezentaci s jedním prázdným snímkem.
+presentation = Presentation()
+try:
+    # Získejte první snímek.
+    slide = presentation.getSlides().get_Item(0)
+
+    # Přidejte tvar mraku a nastavte jeho text.
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
+    auto_shape.getTextFrame().setText("Hello, Aspose!")
+
+    # Uložte prezentaci jako soubor PPTX.
+    presentation.save("new_presentation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Spusťte jej ve stejném virtuálním prostředí:
+
+```sh
+python hello.py
+```
+
+Skript uloží *new_presentation.pptx* s jedním snímkem obsahujícím tvar mraku s textem „Hello, Aspose!“. Bez licence má uložený soubor také vodoznak z hodnocení — viz [Licencování](/slides/cs/python-java/licensing/). Další způsoby, jak vytvořit a vyplnit prezentaci, najdete v [Vytvořit prezentace](/slides/cs/python-java/create-presentation/).

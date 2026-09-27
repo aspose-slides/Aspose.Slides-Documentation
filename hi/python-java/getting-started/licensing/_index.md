@@ -1,156 +1,147 @@
 ---
 title: लाइसेंसिंग
-description: "Aspose.Slides for Python via Java विभिन्न खरीद योजनाएँ प्रदान करता है या फ्री ट्रायल तथा 30-दिन का टेम्पररी लाइसेंस मूल्यांकन के लिए पेश करता है, लाइसेंसिंग और सब्सक्रिप्शन नीतियों का उपयोग करके।"
 type: docs
 weight: 80
 url: /hi/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- लाइसेंस फ़ाइल
+- अस्थायी लाइसेंस
+- मीटर लाइसेंसिंग
+- मूल्यांकन सीमाएँ
+description: "Aspose.Slides for Python via Java में फ़ाइल‑आधारित, बाइट‑आधारित या मीटर लाइसेंस लागू करें और अपनी एप्लिकेशनों से मूल्यांकन सीमाओं को हटाएँ।"
 ---
-कभी‑कभी, सर्वोत्तम मूल्यांकन परिणामों के लिए व्यावहारिक दृष्टिकोण की आवश्यकता हो सकती है। इसी कारण से, Aspose.Slides विभिन्न खरीद योजनाएँ प्रदान करता है और एक फ्री ट्रायल तथा 30‑दिन का टेम्पररी लाइसेंस भी उपलब्ध कराता है।
+## **अवलोकन**
 
-{{% alert color="primary" %}}
-ध्यान दें कि कई सामान्य नीतियाँ और प्रक्रियाएँ हैं जो आपको हमारे उत्पादों का मूल्यांकन, उचित लाइसेंस प्राप्त करने और खरीदने में मार्गदर्शन करती हैं। आप इन्हें ["खरीद नीतियां और अक्सर पूछे जाने वाले प्रश्न"](https://purchase.aspose.com/policies) अनुभाग में पा सकते हैं।
+Aspose.Slides for Python via Java मूल्यांकन मोड में या लाइसेंस के साथ चल सकता है। मूल्यांकन मोड में, यह प्रत्येक प्रस्तुति को सहेजते समय प्रत्येक स्लाइड में एक मूल्यांकन वाटरमार्क टेक्स्ट बॉक्स जोड़ता है और आपके कोड द्वारा प्रस्तुतियों से पढ़े गए टेक्स्ट को काट देता है। यह लेख फ़ाइल या बाइट्स से लाइसेंस लागू करने और मीटर लाइसेंसिंग को कॉन्फ़िगर करने के तरीके को समझाता है।
+
+For purchase options, see [मूल्य जानकारी](https://purchase.aspose.com/pricing/slides/hi/family). For general licensing and purchasing questions, see [क्रय नीतियां और अक्सर पूछे जाने वाले प्रश्न](https://purchase.aspose.com/policies).
+
+For evaluation limitations and how to request a temporary license, see [Aspose.Slides का मूल्यांकन करें](/slides/hi/python-java/evaluate-aspose-slides/). Apply a temporary license in the same way as a purchased license file.
+
+{{% alert color="warning" title="चेतावनी" %}}
+लाइसेंस फ़ाइल को संपादित न करें। अतिरिक्त लाइन ब्रेक भी उसकी डिजिटल सिग्नेचर को अमान्य कर सकता है।
 {{% /alert %}}
 
-## **Aspose.Slides का मूल्यांकन करें**
-आप आसानी से Aspose.Slides को मूल्यांकन हेतु डाउनलोड कर सकते हैं। मूल्यांकन पैकेज खरीदे गए पैकेज के समान होता है। मूल्यांकन संस्करण कुछ कोड लाइनों को जोड़कर लाइसेंस लागू करने के बाद सरलता से लाइसेंस प्राप्त हो जाता है। 
+Apply the license once per application or process, before creating presentations or performing other Aspose.Slides operations. For a license file, use the [License](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/) class. Metered licensing uses a public and private key pair instead of a license file.
 
-## **मूल्यांकन संस्करण की सीमाएँ**
-Aspose.Slides का मूल्यांकन संस्करण (बिना लाइसेंस निर्दिष्ट) पूरी उत्पाद कार्यक्षमता प्रदान करता है, लेकिन यह खोलने और सेव करने पर दस्तावेज़ के शीर्ष पर एक मूल्यांकन वॉटरमार्क डालता है। प्रस्तुति स्लाइड्स से टेक्स्ट निकालते समय आप केवल एक स्लाइड तक सीमित हैं।
+## **लाइसेंस लागू करना**
 
-{{% alert color="primary" %}} 
-यदि आप Aspose.Slides को मूल्यांकन संस्करण की सीमाओं के बिना परीक्षण करना चाहते हैं, तो आप **30 दिन का टेम्पररी लाइसेंस** का अनुरोध कर सकते हैं। अधिक जानकारी के लिए कृपया [अस्थायी लाइसेंस कैसे प्राप्त करें?](https://purchase.aspose.com/temporary-license) देखें।
-{{% /alert %}} 
+The following examples assume that Aspose.Slides for Python via Java and its prerequisites are installed. Each example is a standalone script that starts the JVM, imports the API, and applies a license. In your application, perform your presentation operations after applying the license and shut down the JVM only after all Aspose.Slides work is complete.
 
-## **लाइसेंस के बारे में**
-आप आसानी से Aspose.Slides का मूल्यांकन संस्करण Python via Java के लिए उसके [डाउनलोड पेज](https://releases.aspose.com/slides/hi/python-java/) से डाउनलोड कर सकते हैं। मूल्यांकन संस्करण Aspose.Slides के लाइसेंस प्राप्त संस्करण की पूरी **इसी क्षमताओं** को प्रदान करता है। साथ ही, मूल्यांकन संस्करण लाइसेंस खरीदने और लाइसेंस लागू करने के लिए कुछ कोड लाइनों को जोड़ने पर सरलता से लाइसेंस प्राप्त हो जाता है।
+### **फ़ाइल से लाइसेंस लागू करना**
 
-लाइसेंस एक साधारण टेक्स्ट XML फ़ाइल है जिसमें उत्पाद का नाम, जिस संख्या के डेवलपर्स को लाइसेंस दिया गया है, सदस्यता समाप्ति तिथि आदि विवरण होते हैं। फ़ाइल डिजिटल रूप से साइन की गई है, इसलिए इसे संशोधित न करें। फ़ाइल की सामग्री में अनजाने में अतिरिक्त लाइन ब्रेक जोड़ने से भी वह अमान्य हो जाएगी।
-
-मूल्यांकन संस्करण से जुड़ी सीमाओं से बचने के लिए, **Aspose.Slides** का उपयोग करने से पहले आपको लाइसेंस सेट करना आवश्यक है। आपको प्रति एप्लिकेशन या प्रोसेस केवल एक बार लाइसेंस सेट करना होगा।
-
-## खरीदा गया लाइसेंस
-
-खरीद के बाद, आपको लाइसेंस फ़ाइल या स्ट्रीम लागू करनी होगी। 
-
-{{% alert color="primary" %}}
-आपको लाइसेंस सेट करना आवश्यक है:
-* प्रति एप्लिकेशन डोमेन केवल एक बार
-* किसी भी अन्य Aspose.Slides क्लास का उपयोग करने से पहले
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-आप मूल्य सूचना को [“मूल्य सूचना”](https://purchase.aspose.com/pricing/slides/hi/family) पृष्ठ पर पा सकते हैं।
-{{% /alert %}}
-
-### **Python via Java के लिए Aspose.Slides में लाइसेंस सेट करना**
-
-लाइसेंस निम्नलिखित स्थानों से लागू किए जा सकते हैं:
-
-* स्पष्ट पथ
-* स्ट्रीम
-* Metered लाइसेंस के रूप में – एक नया लाइसेंसिंग तंत्र
-
-{{% alert color="primary" %}}
-किसी कंपोनेंट को लाइसेंस करने के लिए **setLicense** मेथड का उपयोग करें।
-
-हालाँकि कई बार **setLicense** कॉल करना हानिकारक नहीं है, पर यह संसाधनों (प्रोसेसर) की बर्बादी है।
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-नये लाइसेंस केवल संस्करण 21.4 या बाद के Aspose.Slides को सक्रिय कर सकते हैं। पहले के संस्करण अलग लाइसेंसिंग सिस्टम उपयोग करते हैं और इन लाइसेंस को पहचान नहीं पाएंगे।
-{{% /alert %}}
-
-#### **फ़ाइल का उपयोग करके लाइसेंस लागू करना**
-यह कोड स्निपेट लाइसेंस फ़ाइल सेट करने के लिए उपयोग किया जाता है:
-
-**Python**
+Pass the license file path to [License.setLicense](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/#setLicense). Replace `Aspose.Slides.lic` with the path to your license file.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # यहाँ प्रस्तुति संचालन करें, JVM को बंद करने से पहले।
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-setLicense मेथड को कॉल करते समय लाइसेंस नाम आपके लाइसेंस फ़ाइल के नाम के समान होना चाहिए। उदाहरण के लिए, आप लाइसेंस फ़ाइल का नाम "Aspose.Slides.lic.xml" में बदल सकते हैं। इसके बाद, अपने कोड में आपको नया लाइसेंस नाम (Aspose.Slides.lic.xml) setLicense मेथड को पास करना होगा।
+Use the exact file name, including its extension. For example, if the file is named `Aspose.Slides.lic.xml`, include `.xml` in the path. An absolute path avoids ambiguity about the application's working directory.
 
-#### **बाइट्स से लाइसेंस लागू करना**
-यह कोड स्निपेट बाइट्स से लाइसेंस लागू करने के लिए उपयोग किया जाता है:
+The example uses [License.isLicensed](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/#isLicensed) to check whether the license has been applied.
 
-**Python**
+### **बाइट्स से लाइसेंस लागू करना**
+
+Use [License.setLicenseFromBytes](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/#setLicenseFromBytes) when the license is available as Python bytes. The following example reads the file in binary mode and closes it before applying the license.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # यहाँ प्रस्तुति संचालन करें, JVM को बंद करने से पहले।
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### Metered लाइसेंस लागू करें
-Aspose.Slides डेवलपर्स को Metered कुंजी लागू करने की अनुमति देता है। यह एक नया लाइसेंसिंग तंत्र है।
+Keep the original bytes unchanged. Do not decode, reformat, or otherwise modify the license content before applying it.
 
-नया लाइसेंसिंग तंत्र मौजूदा लाइसेंसिंग विधि के साथ उपयोग किया जाएगा। वे ग्राहक जो API सुविधाओं के उपयोग के आधार पर बिलिंग चाहते हैं, Metered लाइसेंसिंग का उपयोग कर सकते हैं।
+## **मीटर लाइसेंस लागू करना**
 
-इस प्रकार का लाइसेंस प्राप्त करने के सभी आवश्यक चरणों को पूरा करने के बाद, आपको लाइसेंस फ़ाइल नहीं बल्कि कुंजियों प्राप्त होंगी। यह Metered कुंजी विशेष रूप से इस उद्देश्य के लिए प्रस्तुत **Metered** क्लास का उपयोग करके लागू की जा सकती है।
+Metered licensing bills you according to API usage. After obtaining a metered license, apply its public and private keys with [Metered.setMeteredKey](https://reference.aspose.com/slides/hi/python-java/aspose.slides/metered/#setMeteredKey). Initialize the [Metered](https://reference.aspose.com/slides/hi/python-java/aspose.slides/metered/) object and apply the keys once at application startup.
 
-निम्नलिखित कोड उदाहरण दिखाता है कि Metered सार्वजनिक और निजी कुंजियों को कैसे सेट किया जाए:
+The following example reads the keys from the `ASPOSE_METERED_PUBLIC_KEY` and `ASPOSE_METERED_PRIVATE_KEY` environment variables. Set both variables before running the script.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
-jpype.startJVM()
+jpile.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# CAD Metered क्लास का एक उदाहरण बनाएं
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# set_metered_key प्रॉपर्टी तक पहुंचें और सार्वजनिक व निजी कुंजियों को पैरामीटर के रूप में पास करें
-metered.setMeteredKey("*****", "*****");
-
-# API कॉल करने से पहले मीटर डेटा मात्रा प्राप्त करें
-amountbefore = Metered.getConsumptionQuantity()
-
-# सूचना प्रदर्शित करें
-print("Amount Consumed Before: \" + amountbefore + \"" )
-
-# डिस्क से दस्तावेज़ लोड करें।
-pres = Presentation();
-
-# दस्तावेज़ के पृष्ठ गणना प्राप्त करें
-print("Amount Consumed After: \" +  pres.getSlides().size()) + \"" )
-
-# PDF के रूप में सहेजें
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# API कॉल करने के बाद मीटर डेटा मात्रा प्राप्त करें
-amountafter = Metered.getConsumptionQuantity()
-
-# सूचना प्रदर्शित करें
-print("Amount Consumed After: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # यहाँ प्रस्तुति संचालन करें, JVM को बंद करने से पहले।
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-कृपया ध्यान दें कि Metered लाइसेंस के सही उपयोग के लिए आपके पास स्थिर इंटरनेट कनेक्शन होना आवश्यक है, क्योंकि Metered तंत्र सही गणना के लिए हमारे सेवाओं के साथ निरन्तर संपर्क की आवश्यकता रखता है। अधिक विवरण के लिए [“Metered लाइसेंसिंग FAQ”](https://purchase.aspose.com/faqs/licensing/metered) अनुभाग देखें।
+{{% alert color="info" title="नोट" %}}
+Metered licensing requires an Internet connection to validate the keys and report usage. Keep the private key out of source code and logs. See the [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) for connectivity and billing details.
 {{% /alert %}}
+
+## **FAQ**
+
+**क्या लाइसेंस खरीदने के बाद मुझे कोई अलग पैकेज स्थापित करना पड़ता है?**
+
+नहीं। मूल्यांकन के लिए उपयोग किए गए वही पैकेज पर लाइसेंस लागू करें।
+
+**क्या प्रत्येक प्रस्तुति के लिए लाइसेंस लागू करना आवश्यक है?**
+
+नहीं। एप्लिकेशन स्टार्टअप के दौरान एक बार लागू करें, प्रस्तुति बनाने या लोड करने से पहले।
+
+**क्या मैं लाइसेंस फ़ाइल का नाम बदल सकता हूँ?**
+
+हाँ। कोड में नया फ़ाइल नाम ठीक उसी तरह प्रयोग करें और फ़ाइल की सामग्री अपरिवर्तित रखें।
+
+**क्या मैं अस्थायी लाइसेंस को बाइट‑आधारित उदाहरण में उपयोग कर सकता हूँ?**
+
+हाँ। अस्थायी लाइसेंस फ़ाइल को बाइट्स के रूप में पढ़ें और इसे उसी तरह लागू करें जैसा आप खरीदे हुए लाइसेंस को लागू करते हैं।

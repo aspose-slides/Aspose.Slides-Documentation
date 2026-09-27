@@ -1,5 +1,5 @@
 ---
-title: ایجاد ارائه‌ها در Python از طریق Java
+title: ایجاد ارائه‌ها در پایتون از طریق جاوا
 linktitle: ایجاد ارائه
 type: docs
 weight: 10
@@ -13,29 +13,31 @@ keywords:
 - PPTX جدید
 - ایجاد ODP
 - ODP جدید
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "ایجاد ارائه‌ها در Python از طریق Java با Aspose.Slides—تولید فایل‌های PPT، PPTX و ODP، بهره‌مندی از پشتیبانی OpenDocument و ذخیره برنامه‌نویسی‌شده آن‌ها برای نتایج قابل‌اعتماد."
+description: "ایجاد ارائه‌ها در پایتون از طریق جاوا با Aspose.Slides — تولید فایل‌های PPT، PPTX و ODP، بهره‌مندی از پشتیبانی OpenDocument و ذخیره برنامه‌نویسی‌شدهٔ آن‌ها برای نتایج قابل‌اعتماد."
 ---
 ## **بررسی کلی**
 
-این مقاله نشان می‌دهد که چگونه یک ارائه با Aspose.Slides برای Python از طریق Java ایجاد کنید، یک شکل با متن به اولین اسلاید اضافه کنید و نتیجه را به صورت فایل PPTX ذخیره کنید. بخش سوالات متداول، فرمت‌های خروجی، الگوها، اندازه‌گیری اسلاید، مصرف حافظه، رشته‌سازی، مجوزها، امضای دیجیتال و پشتیبانی VBA را پوشش می‌دهد.
+این مقاله نشان می‌دهد چگونه می‌توانید با Aspose.Slides for Python via Java یک ارائه بسازید، شکل متنی به اسلاید اول اضافه کنید و نتیجه را به صورت فایل PPTX ذخیره کنید. بخش پرسش‌های متداول شامل قالب‌های خروجی، قالب‌ها، اندازه اسلاید، مصرف حافظه، چندنخی بودن، لایسنس، امضای دیجیتال و پشتیبانی از VBA است.
+
+پیش از شروع، Python، JDK، JPype و Aspose.Slides for Python via Java را نصب کنید. برای مراحل نصب در ویندوز، لینوکس و macOS به [Installation](/slides/fa/python-java/installation/) مراجعه کنید.
 
 ## **ایجاد یک ارائه**
 
-ایجاد یک فایل PowerPoint از ابتدا در Aspose.Slides برای Python از طریق Java به سادگی ساخت یک شی از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) است. سازنده به طور خودکار یک دک خالی با یک اسلاید واحد فراهم می‌کند که بلافاصله بستر برای شکل‌ها، متن، نمودارها یا هر محتوای دیگری که برنامه‌تان نیاز دارد، می‌شود. پس از آنکه این اسلاید را تغییر دادید—یا اسلایدهای جدیدی افزودید—می‌توانید نتیجه را به فرمت‌های PPTX، PPT قدیمی یا حتی OpenDocument ذخیره کنید. مثال کوتاه کد زیر این جریان کاری را با افزودن یک شکل ساده به اولین اسلاید نشان می‌دهد.
+ساخت یک فایل PowerPoint از ابتدا در Aspose.Slides for Python via Java به آسانیِ نمونه‌سازی کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) است. سازنده به‌طور خودکار یک دک خالی با یک اسلاید می‌سازد و بوم فوری برای اضافه‌کردن شکل‌ها، متن، نمودارها یا هر محتوای دیگری که برنامه‌تان نیاز دارد، فراهم می‌کند. پس از تغییر آن اسلاید یا افزودن اسلایدهای جدید می‌توانید نتیجه را به PPTX، PPT قدیمی یا حتی قالب‌های OpenDocument ذخیره کنید. نمونه کد کوتاه زیر این فرآیند را با افزودن یک شکل ساده به اسلاید اول نشان می‌دهد.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-2. اولین اسلاید را بر اساس ایندکس آن دریافت کنید.
-3. یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) از نوع [ShapeType.Cloud](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapetype/#Cloud) با استفاده از [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapecollection/#addAutoShape) اضافه کنید.
-4. متن شکل را با استفاده از [TextFrame.setText](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/#setText) تنظیم کنید.
-5. ارائه را با استفاده از [Presentation.save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) به همراه [SaveFormat.Pptx](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/#Pptx) ذخیره کنید.
+1. اسلاید اول را با شاخص 0 دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) از نوع [ShapeType.Cloud](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapetype/#Cloud) با استفاده از [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapecollection/#addAutoShape) اضافه کنید.
+1. متن شکل را با [TextFrame.setText](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/#setText) تنظیم کنید.
+1. ارائه را با [Presentation.save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) و [SaveFormat.Pptx](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/#Pptx) ذخیره کنید.
 
-مثال زیر به Aspose.Slides برای Python از طریق Java و یک زمان‌اجرای Java سازگار نیاز دارد. اگر JVM در حال اجرا نباشد، آن را راه‌اندازی می‌کند، یک شکل ابر به اولین اسلاید اضافه می‌کند و ارائه را ذخیره می‌نماید:
+مثال زیر JVM را در صورت عدم اجرا راه‌اندازی می‌کند، یک شکل ابری با متن به اسلاید اول اضافه می‌کند و ارائه را ذخیره می‌نماید. آن را به نام *create_presentation.py* ذخیره کنید:
 
 ```python
 import jpype
@@ -46,60 +48,68 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# ایجاد یک ارائه با یک اسلاید خالی.
+# یک ارائه با یک اسلاید خالی ایجاد کنید.
 presentation = Presentation()
 try:
-    # دریافت اولین اسلاید.
+    # اسلاید اول را دریافت کنید.
     slide = presentation.getSlides().get_Item(0)
 
-    # افزودن یک شکل ابر و تنظیم متن آن.
+    # یک شکل ابری اضافه کنید و متن آن را تنظیم کنید.
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
 
-    # ذخیره ارائه به عنوان فایل PPTX.
+    # ارائه را به عنوان فایل PPTX ذخیره کنید.
     presentation.save("new_presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+اسکریپٹ را در محیطی که بسته‌ها را نصب کرده‌اید اجرا کنید:
+
+```sh
+python create_presentation.py
+```
+
+گوشه بالای چپ ابر 20 نقطه از لبه‌های چپ و بالا اسلاید فاصله دارد و ابعاد ابر 200 نقطه عرض و 80 نقطه ارتفاع است. اسکریپت *new_presentation.pptx* را در پوشهٔ کاری فعلی ذخیره می‌کند، با یک اسلاید که شامل ابر و متن آن است. JVM تا خروجی پردازش Python فعال می‌ماند؛ برای جزئیات به [Limitations and API Differences](/slides/fa/python-java/limitations-and-api-differences/#import-the-library) مراجعه کنید. بدون لایسنس، Aspose.Slides یک جعبه متن علامت آب‌نشان ارزیابی را به هر اسلاید ذخیره‌شده اضافه می‌کند؛ برای اطلاعات بیشتر به [Licensing](/slides/fa/python-java/licensing/) نگاه کنید.
+
 نتیجه:
 
-![ارائه جدید](new_presentation.png)
+![نمایش جدید](new_presentation.png)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**کدام فرمت‌ها را می‌توانم برای ذخیره یک ارائه جدید استفاده کنم؟**
+**چه قالب‌هایی می‌توانم برای ذخیرهٔ یک ارائه جدید استفاده کنم؟**
 
-می‌توانید به فرمت‌های [PPTX، PPT و ODP](/slides/fa/python-java/save-presentation/) ذخیره کنید و به [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/)، [XPS](/slides/fa/python-java/convert-powerpoint-to-xps/)، [HTML](/slides/fa/python-java/convert-powerpoint-to-html/)، [SVG](/slides/fa/python-java/render-slide-as-svg/) و [تصاویر](/slides/fa/python-java/convert-powerpoint-to-png/) صادرات کنید، و غیره.
+می‌توانید به [PPTX، PPT و ODP](/slides/fa/python-java/save-presentation/) ذخیره کنید و به [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/)، [XPS](/slides/fa/python-java/convert-powerpoint-to-xps/)، [HTML](/slides/fa/python-java/convert-powerpoint-to-html/)، [SVG](/slides/fa/python-java/render-a-slide-as-an-svg-image/) و [تصاویر](/slides/fa/python-java/convert-powerpoint-to-png/) صادر کنید.
 
-**آیا می‌توانم از یک قالب (POTX/POTM) شروع کنم و به‌عنوان یک PPTX معمولی ذخیره کنم؟**
+**آیا می‌توانم از یک قالب (POTX/POTM) شروع کنم و به صورت PPTX معمولی ذخیره کنم؟**
 
-بله. قالب را بارگذاری کنید و به فرمت مورد نظر ذخیره کنید؛ قالب‌های POTX/POTM/PPTM و فرمت‌های مشابه [پشتیبانی می‌شوند](/slides/fa/python-java/supported-file-formats/).
+بله. قالب را بارگیری کنید و به قالب دلخواه ذخیره کنید؛ قالب‌های POTX/POTM/PPTM و مشابه آن‌ها [پشتیبانی می‌شوند](/slides/fa/python-java/supported-file-formats/).
 
-**چگونه می‌توانم اندازه/نسبت ابعاد اسلاید را هنگام ایجاد یک ارائه کنترل کنم؟**
+**چگونه می‌توانم اندازه/نسبت تصویر اسلاید را هنگام ایجاد ارائه کنترل کنم؟**
 
-اندازه [اسلاید](/slides/fa/python-java/slide-size/) را تنظیم کنید (از جمله پیش‌تنظیم‌های 4:3 و 16:9 یا ابعاد سفارشی) و انتخاب کنید که محتوای چطور مقیاس‌بندی شود.
+[اندازهٔ اسلاید](/slides/fa/python-java/slide-size/) را تنظیم کنید (از پیش‌تنظیم‌های 4:3 و 16:9 یا ابعاد دلخواه) و نحوهٔ مقیاس‌بندی محتوا را انتخاب کنید.
 
-**واحدهای اندازه‌ها و مختصات به چه صورت‌اند؟**
+**اندازه‌ها و مختصات به چه واحدی اندازه‌گیری می‌شوند؟**
 
-بر حسب پوینت: 1 اینچ معادل 72 واحد است.
+به نقطه: 1 اینچ برابر 72 نقطه است.
 
-**چگونه می‌توانم ارائه‌های بسیار بزرگ (با تعداد زیادی فایل رسانه) را برای کاهش مصرف حافظه مدیریت کنم؟**
+**چگونه می‌توانم ارائه‌های بسیار بزرگ (با فایل‌های رسانه‌ای زیاد) را برای کاهش مصرف حافظه بهینه کنم؟**
 
-از [استراتژی‌های مدیریت BLOB](/slides/fa/python-java/manage-blob/) استفاده کنید، ذخیره‌سازی در حافظه را با بهره‌گیری از فایل‌های موقت محدود کنید و ترجیحاً روندهای مبتنی بر فایل را به جریان‌های کاملاً در حافظه ترجیح دهید.
+از [استراتژی‌های مدیریت BLOB](/slides/fa/python-java/manage-blob/) استفاده کنید، ذخیره‌سازی در حافظه را با بهره‌گیری از فایل‌های موقت محدود کنید و جریان‌های مبتنی بر فایل را نسبت به جریان‌های صرفاً در‑حافظه ترجیح دهید.
 
-**آیا می‌توانم ارائه‌ها را به‌صورت موازی ایجاد/ذخیره کنم؟**
+**آیا می‌توانم ارائه‌ها را به صورت موازی ایجاد/ذخیره کنم؟**
 
-نمی‌توانید بر روی همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) از [چندین رشته](/slides/fa/python-java/multithreading/) کار کنید. برای هر رشته یا فرآیند، نمونه‌های جدا و ایزوله اجرا کنید.
+نمی‌توانید به همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) از [چندین نخ](/slides/fa/python-java/multithreading/) دسترسی داشته باشید. برای هر نخ یا پردازش یک نمونهٔ جداگانه ایجاد کنید.
 
-**چگونه می‌توانم واترمارک و محدودیت‌های نسخه آزمایشی را حذف کنم؟**
+**چگونه می‌توانم علامت آب‌نشان آزمایشی و محدودیت‌ها را حذف کنم؟**
 
-[یک لایسنس اعمال کنید](/slides/fa/python-java/licensing/) یک بار برای هر فرآیند. XML لایسنس باید دست‌نخورده بماند و تنظیم لایسنس در صورت حضور چندین رشته باید همگام‌سازی شود.
+یک بار برای هر فرآیند [لایسنس اعمال کنید](/slides/fa/python-java/licensing/). فایل XML لایسنس باید دست‌نخورده بماند و تنظیم لایسنس در صورت استفاده از چندین نخ همگام‌سازی شود.
 
-**آیا می‌توانم PPTX تولید شده را به‌صورت دیجیتالی امضا کنم؟**
+**آیا می‌توانم PPTX ایجادشده را دیجیتally امضا کنم؟**
 
-بله. [امضاهای دیجیتال](/slides/fa/python-java/digital-signature-in-powerpoint/) (افزودن و تأیید) برای ارائه‌ها پشتیبانی می‌شوند.
+بله. [امضاهای دیجیتال](/slides/fa/python-java/digital-signature-in-powerpoint/) (اضافه و تأیید) برای ارائه‌ها پشتیبانی می‌شود.
 
-**آیا ماکروها (VBA) در ارائه‌های ایجاد شده پشتیبانی می‌شوند؟**
+**آیا ماکروها (VBA) در ارائه‌های ساخته‌شده پشتیبانی می‌شوند؟**
 
-بله. می‌توانید [پروژه‌های VBA را ایجاد/ویرایش](/slides/fa/python-java/presentation-via-vba/) کنید و فایل‌های فعال‌ماکرو مانند PPTM/PPSM را ذخیره کنید.
+بله. می‌توانید [پروژه‌های VBA را ایجاد/ویرایش](/slides/fa/python-java/presentation-via-vba/) کنید و فایل‌های فعال‌سازی‌دار مانند PPTM/PPSM را ذخیره کنید.

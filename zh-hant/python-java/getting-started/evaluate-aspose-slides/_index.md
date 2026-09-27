@@ -3,13 +3,23 @@ title: 評估 Aspose.Slides
 type: docs
 weight: 120
 url: /zh-hant/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- 評估版
+- 試用限制
+- 評估浮水印
+- 臨時授權
+description: "評估 Aspose.Slides for Python via Java，了解試用限制，並申請 30 天臨時授權以測試完整功能。"
 ---
-您可以輕鬆下載 Aspose.Slides 以進行評估。評估套件與購買的套件相同。只要加入幾行程式碼套用授權，評估版即可直接變為授權版。
+您可以下載 Aspose.Slides for Python via Java 以評估其功能。評估套件與授權套件完全相同。若要在沒有評估限制的情況下使用，請在程式碼中加入幾行以[套用授權](/slides/zh-hant/python-java/licensing/)。
 
-未指定授權的 Aspose.Slides 評估版提供完整的產品功能，但在開啟和儲存文件時會在文件頂部插入評估水印。 在從簡報投影片中擷取文字時，亦只能處理一張投影片。
+Aspose.Slides 的評估版（未使用授權）提供完整的產品功能，但有兩項限制：
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+- 它會在每個已儲存的簡報的每張投影片上新增一個評估浮水印文字框。開啟簡報時不會新增，但儲存已帶有浮水印的檔案時會再新增一個。
+- 程式碼讀取的文字會被截斷，只保留前幾個字元，並附上評估限制的說明。此限制會套用於每張投影片，以及程式碼剛設定的文字與從檔案載入的文字。程式碼寫入的文字會完整儲存。
 
-{{% alert color="primary" %}} 
-如果您想測試 Aspose.Slides 而不受評估版限制，可申請 **30 天臨時授權**。欲了解更多資訊，請參考 [如何取得臨時授權？](https://purchase.aspose.com/temporary-license)。
+{{% alert color="info" title="Note" %}}
+若要在不受評估限制的情況下測試 Aspose.Slides，您可以申請 **30 天臨時授權**。請參閱[取得臨時授權](https://purchase.aspose.com/temporary-license)以獲得更多資訊。
 {{% /alert %}}

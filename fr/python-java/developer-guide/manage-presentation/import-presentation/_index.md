@@ -1,6 +1,6 @@
 ---
 title: Importer des présentations depuis PDF ou HTML en Python via Java
-linktitle: Importer une présentation
+linktitle: Importer la présentation
 type: docs
 weight: 60
 url: /fr/python-java/import-presentation/
@@ -22,19 +22,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Apprenez à importer du contenu PDF et HTML dans des présentations PowerPoint en Python via Java avec Aspose.Slides et à enregistrer les résultats au format PPTX."
+description: "Apprenez comment importer du contenu PDF et HTML dans des présentations PowerPoint en Python via Java avec Aspose.Slides et enregistrer les résultats au format PPTX."
 ---
 ## **Introduction**
 
-Aspose.Slides pour Python via Java peut transformer des pages PDF ou du contenu HTML en diapositives PowerPoint sans Microsoft PowerPoint. La classe [SlideCollection](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/) fournit [addFromPdf](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromPdf) et [addFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromHtml) pour ajouter le contenu importé à une présentation.
+Aspose.Slides for Python via Java peut transformer des pages PDF ou du contenu HTML en diapositives PowerPoint sans Microsoft PowerPoint. La classe [SlideCollection](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/) fournit [addFromPdf](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromPdf) et [addFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromHtml) pour ajouter le contenu importé à une présentation.
 
-Pour un contrôle plus fin du placement du HTML, [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#insertFromHtml) peut insérer les diapositives générées à un index de la collection ou commencer à remplir l’espace disponible sur une diapositive existante. Le HTML long est paginé automatiquement sur des diapositives supplémentaires, la source peut être fournie sous forme de chaîne ou de flux, et les ressources externes peuvent être chargées via [ExternalResourceResolver](https://reference.aspose.com/slides/fr/python-java/aspose.slides/externalresourceresolver/) avec une URI de base. Le tableau de [Slide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/) renvoyé identifie les diapositives affectées et celles nouvellement créées.
+Pour un contrôle plus fin du placement du HTML, [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#insertFromHtml) peut insérer les diapositives générées à un indice de la collection ou commencer à remplir l’espace disponible sur une diapositive existante. Le HTML long est automatiquement paginé sur des diapositives supplémentaires, la source peut être fournie sous forme de chaîne ou de flux, et les ressources externes peuvent être chargées via [ExternalResourceResolver](https://reference.aspose.com/slides/fr/python-java/aspose.slides/externalresourceresolver/) avec un URI de base. Le tableau [Slide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/) retourné identifie les diapositives affectées et celles nouvellement créées.
 
 ## **Importation depuis PDF**
 
 Pour convertir un document PDF en présentation PowerPoint, importez son contenu dans la collection de diapositives et enregistrez le résultat sous forme de fichier PPTX.
 
-<img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
+<img src="pdf-to-powerpoint.png" alt="pdf-vers-powerpoint" style="zoom: 50%;" />
 
 1. Créez un nouvel objet [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
 2. Appelez [addFromPdf](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromPdf) avec le chemin du fichier PDF.
@@ -61,10 +61,12 @@ finally:
 
 La diapositive vierge par défaut reste dans la présentation car l’importation ajoute des diapositives. Pour ne conserver que les pages importées, videz la collection de diapositives avec [SlideCollection.clear](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#clear) avant l’importation.
 
-La méthode [addFromPdf](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromPdf) renvoie les diapositives qu’elle ajoute, ce qui est utile lorsque vous devez traiter uniquement les diapositives importées.
+La méthode [addFromPdf](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromPdf) renvoie les diapositives qu’elle ajoute, ce qui est utile lorsque vous devez ne traiter que les diapositives importées.
 
 {{% alert title="Astuce" color="success" %}}
-Essayez l’application Web gratuite [PDF to PowerPoint](https://products.aspose.app/slides/fr/import/pdf-to-powerpoint) pour voir ce flux de conversion en action.
+
+Essayez l’application web gratuite [PDF to PowerPoint](https://products.aspose.app/slides/fr/import/pdf-to-powerpoint) pour voir ce flux de conversion en action.
+
 {{% /alert %}}
 
 ## **Importation depuis HTML**
@@ -101,18 +103,18 @@ finally:
 
 ## **Insertion de contenu HTML**
 
-Utilisez [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#insertFromHtml) lorsque les diapositives générées à partir du HTML doivent être placées à une position précise au lieu d’être ajoutées à la fin. L’index est zéro‑based et indique la position à partir de laquelle l’importation débute.
+Utilisez [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#insertFromHtml) lorsque les diapositives générées à partir du HTML doivent être placées à une position précise plutôt que d’être ajoutées à la fin. L’indice est basé sur zéro et indique la position à partir de laquelle commence l’importation.
 
 L’argument `useSlideWithIndexAsStart` contrôle la façon dont l’importateur utilise cette position :
 
-- Lorsqu’il est `False`, l’importateur crée de nouvelles diapositives à l’index spécifié et décale les diapositives suivantes.
-- Lorsqu’il est `True`, l’importateur commence à placer le contenu dans l’espace disponible de la diapositive existante à cet index. Si le HTML ne tient pas, Aspose.Slides le pagine automatiquement et insère des diapositives supplémentaires immédiatement après la diapositive de départ.
+- Lorsqu’il est `False`, l’importateur crée de nouvelles diapositives à l’indice spécifié et décale les diapositives qui les suivent.
+- Lorsqu’il est `True`, l’importateur commence à placer le contenu dans l’espace disponible de la diapositive existante à cet indice. Si le HTML ne tient pas, Aspose.Slides le pagine automatiquement et insère des diapositives supplémentaires immédiatement après la diapositive de départ.
 
-[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#insertFromHtml) renvoie un tableau d’objets [Slide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/). Lorsque l’insertion démarre sur de nouvelles diapositives, chaque élément renvoyé est nouvellement créé. Lorsqu’une diapositive existante est utilisée comme point de départ, le tableau comprend cette diapositive affectée suivie des éventuelles diapositives de dépassement. Vous pouvez examiner ce tableau au lieu de calculer la plage affectée à partir du nombre total de diapositives.
+[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#insertFromHtml) renvoie un tableau d’objets [Slide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/). Lorsque l’insertion commence sur de nouvelles diapositives, chaque élément renvoyé est nouvellement créé. Lorsqu’une diapositive existante est utilisée comme point de départ, le tableau comprend d’abord cette diapositive affectée, suivie de toutes les nouvelles diapositives de dépassement. Vous pouvez inspecter ce tableau au lieu de calculer la plage affectée à partir du nombre total de diapositives de la présentation.
 
-### **Insertion de HTML en tant que nouvelles diapositives**
+### **Insérer HTML comme nouvelles diapositives**
 
-L’exemple suivant fournit le HTML sous forme de chaîne et insère les diapositives générées à l’index de collection `1`. Passer `False` laisse les diapositives existantes inchangées, à l’exception du décalage pour faire de la place.
+L’exemple suivant fournit le HTML sous forme de chaîne et insère les diapositives générées à l’indice de collection `1`. Passer `False` laisse les diapositives existantes inchangées, à l’exception du déplacement nécessaire pour faire de la place.
 
 ```python
 import jpype
@@ -141,11 +143,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Démarrer sur une diapositive existante**
+### **Commencer sur une diapositive existante**
 
 L’exemple suivant fournit le HTML via un flux. Il conserve une forme d’en‑tête sur la diapositive modèle existante, commence l’importation sous la zone occupée et laisse le corps long se poursuivre sur de nouvelles diapositives.
 
-Le HTML contient également une URL d’image relative. Un [ExternalResourceResolver](https://reference.aspose.com/slides/fr/python-java/aspose.slides/externalresourceresolver/) récupère la ressource, tandis que l’URI de base indique à l’importateur comment résoudre `images/logo.png`. Dans cet exemple, ce fichier est attendu dans `html-assets/images/logo.png`.
+Le HTML contient également une URL d’image relative. Un [ExternalResourceResolver](https://reference.aspose.com/slides/fr/python-java/aspose.slides/externalresourceresolver/) obtient la ressource, tandis que l’URI de base indique à l’importateur comment résoudre `images/logo.png`. Dans cet exemple, ce fichier est attendu dans `html-assets/images/logo.png`.
 
 ```python
 from pathlib import Path
@@ -190,15 +192,19 @@ finally:
 ```
 
 {{% alert title="Avertissement" color="warning" %}}
-Un résolveur de ressources externes non restreint peut lire des ressources locales ou réseau référencées par le HTML. Pour des entrées non fiables, validez et assainissez les URL des ressources selon une liste blanche de schémas, répertoires et hôtes autorisés avant d’importer le HTML.
+
+Un résolveur de ressources externes non restreint peut lire des ressources locales ou réseau référencées par le HTML. Pour des entrées non fiables, validez et nettoyez les URL des ressources à l’aide d’une liste blanche de schémas, répertoires et hôtes autorisés avant d’importer le HTML.
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Aspose.Slides peut‑il détecter les tableaux lors de l’importation d’un PDF ?**
+**Aspose.Slides peut‑il détecter les tables lors de l’importation d’un PDF ?**
 
-Oui. Créez un objet [PdfImportOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfimportoptions/), appelez [setDetectTables](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfimportoptions/#setDetectTables) avec `True`, et transmettez les options à [addFromPdf](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromPdf). La qualité de la reconnaissance des tableaux dépend de la structure et de la complexité du PDF source.
+Oui. Créez un objet [PdfImportOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfimportoptions/), appelez [setDetectTables](https://reference.aspose.com/slides/fr/python-java/aspose.slides/pdfimportoptions/#setDetectTables) avec `True`, puis transmettez les options à [addFromPdf](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slidecollection/#addFromPdf). La qualité de la reconnaissance des tables dépend de la structure et de la complexité du PDF source.
 
-{{% alert title="Remarque" color="info" %}}
-Après l’importation de HTML, vous pouvez également exporter les diapositives vers [images](/slides/fr/python-java/convert-powerpoint-to-png/), [TIFF](/slides/fr/python-java/convert-powerpoint-to-tiff/), ou [SVG](/slides/fr/python-java/render-slide-as-svg/).
+{{% alert title="Note" color="info" %}}
+
+Après l’importation du HTML, vous pouvez également exporter les diapositives vers des [images](/slides/fr/python-java/convert-powerpoint-to-png/), [TIFF](/slides/fr/python-java/convert-powerpoint-to-tiff/), ou [SVG](/slides/fr/python-java/render-a-slide-as-an-svg-image/).
+
 {{% /alert %}}
