@@ -17,7 +17,7 @@ description: "ใช้ใบอนุญาตแบบไฟล์, แบบ�
 
 Aspose.Slides for Python via Java สามารถทำงานในโหมดการประเมินหรือด้วยใบอนุญาตได้ ในโหมดการประเมิน มันจะเพิ่มกล่องข้อความลายน้ำการประเมินลงในสไลด์ทุกแผ่นของแต่ละงานนำเสนอที่บันทึกและตัดข้อความที่โค้ดของคุณอ่านจากงานนำเสนอ บทความนี้อธิบายวิธีการใช้ใบอนุญาตจากไฟล์หรือไบต์และวิธีการกำหนดค่าการให้ใบอนุญาตแบบมีมิเตอร์
 
-สำหรับตัวเลือกการซื้อ ดูที่ [ข้อมูลการกำหนดราคา](https://purchase.aspose.com/pricing/slides/th/family) สำหรับคำถามทั่วไปเกี่ยวกับการให้ใบอนุญาตและการซื้อ ดูที่ [นโยบายการซื้อและคำถามที่พบบ่อย](https://purchase.aspose.com/policies)
+สำหรับตัวเลือกการซื้อ ดูที่ [ข้อมูลการกำหนดราคา](https://purchase.aspose.com/pricing/slides/family) สำหรับคำถามทั่วไปเกี่ยวกับการให้ใบอนุญาตและการซื้อ ดูที่ [นโยบายการซื้อและคำถามที่พบบ่อย](https://purchase.aspose.com/policies)
 
 สำหรับข้อจำกัดของการประเมินและวิธีขอใบอนุญาตชั่วคราว ดูที่ [ประเมิน Aspose.Slides](/slides/th/python-java/evaluate-aspose-slides/) ใช้ใบอนุญาตชั่วคราวในลักษณะเดียวกับไฟล์ใบอนุญาตที่ซื้อไว้
 
@@ -29,7 +29,7 @@ Aspose.Slides for Python via Java สามารถทำงานในโห�
 ห้ามแก้ไขไฟล์ใบอนุญาต แม้แต่การเพิ่มบรรทัดว่างเพิ่มเติมก็อาจทำให้ลายเซ็นดิจิทัลไม่ถือความถูกต้อง
 {{% /alert %}}
 
-ให้ใช้ใบอนุญาตหนึ่งครั้งต่อแอปพลิเคชันหรือกระบวนการ ก่อนสร้างงานนำเสนอหรือทำการดำเนินการ Aspose.Slides อื่น ๆ สำหรับไฟล์ใบอนุญาต ให้ใช้คลาส [License](https://reference.aspose.com/slides/th/python-java/aspose.slides/license/) การให้ใบอนุญาตแบบมีมิเตอร์ใช้คู่คีย์สาธารณะและส่วนตัวแทนไฟล์ใบอนุญาต
+ให้ใช้ใบอนุญาตหนึ่งครั้งต่อแอปพลิเคชันหรือกระบวนการ ก่อนสร้างงานนำเสนอหรือทำการดำเนินการ Aspose.Slides อื่น ๆ สำหรับไฟล์ใบอนุญาต ให้ใช้คลาส [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/) การให้ใบอนุญาตแบบมีมิเตอร์ใช้คู่คีย์สาธารณะและส่วนตัวแทนไฟล์ใบอนุญาต
 
 ## **การใช้ใบอนุญาต**
 
@@ -37,7 +37,7 @@ Aspose.Slides for Python via Java สามารถทำงานในโห�
 
 ### **ใช้ใบอนุญาตจากไฟล์**
 
-ส่งพาธไฟล์ใบอนุญาตไปที่ [License.setLicense](https://reference.aspose.com/slides/th/python-java/aspose.slides/license/#setLicense) แทนที่ `Aspose.Slides.lic` ด้วยพาธไปยังไฟล์ใบอนุญาตของคุณ
+ส่งพาธไฟล์ใบอนุญาตไปที่ [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense) แทนที่ `Aspose.Slides.lic` ด้วยพาธไปยังไฟล์ใบอนุญาตของคุณ
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 ใช้ชื่อไฟล์ที่ตรงกันพอดี รวมทั้งส่วนขยายของมัน ตัวอย่างเช่น หากไฟล์ชื่อ `Aspose.Slides.lic.xml` ให้รวม `.xml` เข้าในพาธ พาธแบบเต็มช่วยหลีกเลี่ยงความกำกวมเกี่ยวกับไดเรกทอรีทำงานของแอปพลิเคชัน
 
-ตัวอย่างนี้ใช้ [License.isLicensed](https://reference.aspose.com/slides/th/python-java/aspose.slides/license/#isLicensed) เพื่อตรวจสอบว่ามีการใช้ใบอนุญาตหรือไม่
+ตัวอย่างนี้ใช้ [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) เพื่อตรวจสอบว่ามีการใช้ใบอนุญาตหรือไม่
 
 ### **ใช้ใบอนุญาตจากไบต์**
 
-ใช้ [License.setLicenseFromBytes](https://reference.aspose.com/slides/th/python-java/aspose.slides/license/#setLicenseFromBytes) เมื่อใบอนุญาตอยู่ในรูปแบบไบต์ของ Python ตัวอย่างต่อไปนี้อ่านไฟล์ในโหมดไบนารีและปิดไฟล์ก่อนใช้ใบอนุญาต
+ใช้ [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) เมื่อใบอนุญาตอยู่ในรูปแบบไบต์ของ Python ตัวอย่างต่อไปนี้อ่านไฟล์ในโหมดไบนารีและปิดไฟล์ก่อนใช้ใบอนุญาต
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ finally:
 
 ## **ใช้ใบอนุญาตแบบมีมิเตอร์**
 
-การให้ใบอนุญาตแบบมีมิเตอร์เรียกเก็บเงินตามการใช้ API หลังจากได้ใบอนุญาตแบบมีมิเตอร์แล้ว ให้ใช้คีย์สาธารณะและส่วนตัวกับ [Metered.setMeteredKey](https://reference.aspose.com/slides/th/python-java/aspose.slides/metered/#setMeteredKey) เริ่มต้นอ็อบเจ็กต์ [Metered](https://reference.aspose.com/slides/th/python-java/aspose.slides/metered/) และใส่คีย์ครั้งเดียวเมื่อแอปพลิเคชันเริ่มทำงาน
+การให้ใบอนุญาตแบบมีมิเตอร์เรียกเก็บเงินตามการใช้ API หลังจากได้ใบอนุญาตแบบมีมิเตอร์แล้ว ให้ใช้คีย์สาธารณะและส่วนตัวกับ [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey) เริ่มต้นอ็อบเจ็กต์ [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) และใส่คีย์ครั้งเดียวเมื่อแอปพลิเคชันเริ่มทำงาน
 
 ตัวอย่างต่อไปนี้อ่านคีย์จากตัวแปรสภาพแวดล้อม `ASPOSE_METERED_PUBLIC_KEY` และ `ASPOSE_METERED_PRIVATE_KEY` ตั้งค่าตัวแปรทั้งสองก่อนรันสคริปต์
 

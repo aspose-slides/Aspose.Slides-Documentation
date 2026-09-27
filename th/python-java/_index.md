@@ -77,14 +77,14 @@ Aspose.Slides for Python via Java เป็นไลบรารีสำหร�
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/th/python-java/">อ้างอิง API</a></li>
-<li><a href="https://releases.aspose.com/slides/th/python-java/release-notes/">บันทึกการปล่อย</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">อ้างอิง API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">บันทึกการปล่อย</a></li>
 <li><a href="/slides/th/python-java/known-issues/">ปัญหาที่ทราบ</a></li>
-<li><a href="https://releases.aspose.com/slides/th/python-java/">ดาวน์โหลด</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">ดาวน์โหลด</a></li>
 </ul>
 <p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรัมสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรัมสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือที่ต้องชำระเงิน</a></li>
 </ul>
 </div>

@@ -29,13 +29,13 @@ description: "สร้างงานนำเสนอใน Python ผ่า�
 
 ## **สร้างงานนำเสนอ**
 
-การสร้างไฟล์ PowerPoint ตั้งแต่ต้นใน Aspose.Slides for Python via Java ทำได้ง่ายโดยการสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/). ตัวสร้างจะให้สำเนาว่างที่มีสไลด์เดียว, ทำให้คุณมีผืนแคนวาสพร้อมสำหรับรูปร่าง, ข้อความ, แผนภูมิ, หรือเนื้อหาอื่น ๆ ที่แอปพลิเคชันของคุณต้องการ. หลังจากที่คุณปรับแต่งสไลด์นั้นหรือเพิ่มสไลด์ใหม่, คุณสามารถบันทึกผลลัพธ์เป็น PPTX, PPT รุ่นเก่า, หรือแม้กระทั่งรูปแบบ OpenDocument. ตัวอย่างโค้ดสั้นด้านล่างแสดงขั้นตอนทำงานนี้โดยการเพิ่มรูปร่างง่าย ๆ ลงบนสไลด์แรก.
+การสร้างไฟล์ PowerPoint ตั้งแต่ต้นใน Aspose.Slides for Python via Java ทำได้ง่ายโดยการสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). ตัวสร้างจะให้สำเนาว่างที่มีสไลด์เดียว, ทำให้คุณมีผืนแคนวาสพร้อมสำหรับรูปร่าง, ข้อความ, แผนภูมิ, หรือเนื้อหาอื่น ๆ ที่แอปพลิเคชันของคุณต้องการ. หลังจากที่คุณปรับแต่งสไลด์นั้นหรือเพิ่มสไลด์ใหม่, คุณสามารถบันทึกผลลัพธ์เป็น PPTX, PPT รุ่นเก่า, หรือแม้กระทั่งรูปแบบ OpenDocument. ตัวอย่างโค้ดสั้นด้านล่างแสดงขั้นตอนทำงานนี้โดยการเพิ่มรูปร่างง่าย ๆ ลงบนสไลด์แรก.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. รับสไลด์แรกโดยใช้ดัชนี 0.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/) ประเภท [ShapeType.Cloud](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapetype/#Cloud) ด้วย [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. กำหนดข้อความของรูปร่างโดยใช้ [TextFrame.setText](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframe/#setText).
-1. บันทึกงานนำเสนอโดยใช้ [Presentation.save](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#save) พร้อม [SaveFormat.Pptx](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveformat/#Pptx).
+1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ประเภท [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) ด้วย [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. กำหนดข้อความของรูปร่างโดยใช้ [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. บันทึกงานนำเสนอโดยใช้ [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) พร้อม [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 ตัวอย่างต่อไปนี้จะเริ่มเครื่องเสมือน Java (JVM) หากยังไม่ได้ทำงาน, เพิ่มรูปร่างเมฆพร้อมข้อความลงในสไลด์แรก, และบันทึกงานนำเสนอ. บันทึกเป็น *create_presentation.py*:
 
