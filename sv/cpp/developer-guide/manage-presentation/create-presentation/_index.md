@@ -30,10 +30,10 @@ Innan du börjar, lägg till Aspose.Slides i ditt projekt: från NuGet i ett Vis
 
 För att skapa en presentation och lägga till en textruta på dess första bild, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.
-1. Hämta den bilden med metoden [Presentation::get_Slide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_slide/) och dess index, 0.
-1. Lägg till en rektangel med metoden [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/addautoshape/) och sätt dess text med metoden [ITextFrame::set_Text](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframe/set_text/).
-1. Spara presentationen som en PPTX‑fil med metoden [Presentation::Save](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/save/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.
+1. Hämta den bilden med metoden [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) och dess index, 0.
+1. Lägg till en rektangel med metoden [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) och sätt dess text med metoden [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+1. Spara presentationen som en PPTX‑fil med metoden [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Använd [BLOB‑hanteringsstrategier](/slides/sv/cpp/manage-blob/), begränsa la
 
 ### Kan jag skapa/spara presentationer parallellt?
 
-Du kan inte arbeta med samma [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/cpp/multithreading/). Kör separata, isolerade instanser per tråd eller process.
+Du kan inte arbeta med samma [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/cpp/multithreading/). Kör separata, isolerade instanser per tråd eller process.
 
 ### Hur tar jag bort provvattenstämpeln och begränsningarna?
 
