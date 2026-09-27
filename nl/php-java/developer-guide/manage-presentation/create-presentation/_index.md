@@ -30,10 +30,10 @@ Voordat u begint, installeert u Aspose.Slides voor PHP via Java met Composer en 
 
 Om een presentatie te maken en een tekstvak op de eerste dia te plaatsen, volgt u deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse. Een nieuwe presentatie bevat al één lege dia.  
-2. Haal die dia op uit de collectie die wordt geretourneerd door [Presentation::getSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/getslides/), met index 0.  
-3. Voeg een rechthoek toe met de [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/addautoshape/) methode en stel de tekst in met [TextFrame::setText](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/settext/).  
-4. Sla de presentatie op als een PPTX‑bestand met de [Presentation::save](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/save/) methode.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse. Een nieuwe presentatie bevat al één lege dia.  
+2. Haal die dia op uit de collectie die wordt geretourneerd door [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), met index 0.  
+3. Voeg een rechthoek toe met de [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) methode en stel de tekst in met [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).  
+4. Sla de presentatie op als een PPTX‑bestand met de [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) methode.
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides leest en schrijft bestanden binnen Tomcat, niet in uw PHP‑proces
 
 ## **Presentatie maken en opslaan**
 
-Om een lege presentatie te maken en op te slaan, maakt u een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse en slaat u deze op in een willekeurig formaat van de [SaveFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/saveformat/) enumeratie. Het resultaat is een presentatie met één lege dia.
+Om een lege presentatie te maken en op te slaan, maakt u een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse en slaat u deze op in een willekeurig formaat van de [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) enumeratie. Het resultaat is een presentatie met één lege dia.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Presentatie openen en opslaan**
 
-Om een presentatie van het ene formaat naar het andere te converteren, opent u deze door het pad door te geven aan de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) constructor, en slaat u deze vervolgens op in het doel‑formaat. Aspose.Slides detecteert het invoerformaat, zoals PPT, PPTX of ODP, aan de hand van het bestand zelf.
+Om een presentatie van het ene formaat naar het andere te converteren, opent u deze door het pad door te geven aan de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) constructor, en slaat u deze vervolgens op in het doel‑formaat. Aspose.Slides detecteert het invoerformaat, zoals PPT, PPTX of ODP, aan de hand van het bestand zelf.
 
 Het voorbeeld hieronder verwacht een OpenDocument‑presentatie met de naam *Sample.odp* naast het script en slaat deze op als PPTX.
 
@@ -127,7 +127,7 @@ Gebruik [BLOB-beheerstrategieën](/slides/nl/php-java/manage-blob/), beperk opsl
 
 ### Kan ik presentaties parallel maken/opslaan?
 
-U kunt niet tegelijk op dezelfde [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) instantie werken vanuit [meerdere threads](/slides/nl/php-java/multithreading/). Gebruik afzonderlijke, geïsoleerde instanties per thread of proces.
+U kunt niet tegelijk op dezelfde [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) instantie werken vanuit [meerdere threads](/slides/nl/php-java/multithreading/). Gebruik afzonderlijke, geïsoleerde instanties per thread of proces.
 
 ### Hoe verwijder ik het proef‑watermerk en de beperkingen?
 

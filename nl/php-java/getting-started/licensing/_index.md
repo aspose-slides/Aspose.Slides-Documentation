@@ -61,7 +61,7 @@ U moet de licentie:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-U vindt prijsinformatie op de [“Prijzinformatie”](https://purchase.aspose.com/pricing/slides/nl/family) pagina.
+U vindt prijsinformatie op de [“Prijzinformatie”](https://purchase.aspose.com/pricing/slides/family) pagina.
 {{% /alert %}}
 
 ### **Een licentie instellen in Aspose.Slides voor PHP via Java**
