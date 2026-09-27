@@ -30,11 +30,11 @@ description: "Aspose.Slides के साथ प्रस्तुतिया�
 
 प्रस्तुति बनाने और उसकी पहली स्लाइड पर एक टेक्स्ट बॉक्स रखने के लिए, इन चरणों का पालन करें:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास की एक इंस्टैंस बनाएं। एक नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
-2. [slide collection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/getslides/) से उसकी इंडेक्स 0 द्वारा स्लाइड प्राप्त करें।
-3. [addAutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/addautoshape/) मेथड से एक आयत जोड़ें और [setText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframe/settext/) से उसका टेक्स्ट सेट करें।
-4. [save](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/save/) मेथड से प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-5. [dispose](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/dispose/) मेथड से प्रस्तुति को रिलीज़ करें, और प्रक्रिया समाप्त करें।
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास की एक इंस्टैंस बनाएं। एक नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
+2. [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) से उसकी इंडेक्स 0 द्वारा स्लाइड प्राप्त करें।
+3. [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) मेथड से एक आयत जोड़ें और [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/) से उसका टेक्स्ट सेट करें।
+4. [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) मेथड से प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+5. [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) मेथड से प्रस्तुति को रिलीज़ करें, और प्रक्रिया समाप्त करें।
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -83,7 +83,7 @@ Aspose.Slides एक Java वर्चुअल मशीन में चलत
 
 ### क्या मैं समानांतर रूप से प्रस्तुतियों को बना/सहेज सकता हूँ?
 
-आप एक ही [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) को [एकाधिक थ्रेड्स](/slides/hi/nodejs-java/multithreading/) से ऑपरेट नहीं कर सकते। प्रत्येक थ्रेड या प्रक्रिया के लिए अलग, अलग-अलग इंस्टैंस चलाएँ।
+आप एक ही [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) को [एकाधिक थ्रेड्स](/slides/hi/nodejs-java/multithreading/) से ऑपरेट नहीं कर सकते। प्रत्येक थ्रेड या प्रक्रिया के लिए अलग, अलग-अलग इंस्टैंस चलाएँ।
 
 ### ट्रायल वाटरमार्क और सीमाएँ कैसे हटाऊँ?
 

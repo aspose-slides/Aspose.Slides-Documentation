@@ -100,7 +100,7 @@ node hello.js
 पैकेज npm पैकेज के समान सामग्री के साथ एक ZIP संग्रह के रूप में भी उपलब्ध है। इसे संग्रह से स्थापित करने के लिए:
 
 1. ऊपर वर्णित अनुसार अपने ऑपरेटिंग सिस्टम के लिए पूर्वापेक्षाएँ स्थापित करें।
-2. [Aspose.Slides for Node.js via Java डाउनलोड पृष्ठ](https://releases.aspose.com/slides/hi/nodejs-java/) से संग्रह डाउनलोड करें।
+2. [Aspose.Slides for Node.js via Java डाउनलोड पृष्ठ](https://releases.aspose.com/slides/nodejs-java/) से संग्रह डाउनलोड करें।
 3. एक प्रोजेक्ट फ़ोल्डर बनाएं:
 
     ```bash

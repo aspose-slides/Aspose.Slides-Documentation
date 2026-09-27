@@ -44,7 +44,7 @@ description: "Aspose.Slides for Node.js में लाइसेंस ला�
 
 ## **लाइसेंस के बारे में**
 
-आप आसानी से Aspose.Slides for Node.js via Java का मूल्यांकन संस्करण उसका [download page](https://releases.aspose.com/slides/hi/nodejs-java/) से डाउनलोड कर सकते हैं। मूल्यांकन संस्करण में वही फीचर होते हैं जो लाइसेंस प्राप्त संस्करण में होते हैं, साथ ही ऊपर वर्णित सीमाएँ भी लागू होती हैं। इसके अतिरिक्त, लाइसेंस खरीदने और कुछ पंक्तियों का कोड जोड़ने पर मूल्यांकन संस्करण स्वयं लाइसेंस प्राप्त हो जाता है।
+आप आसानी से Aspose.Slides for Node.js via Java का मूल्यांकन संस्करण उसका [download page](https://releases.aspose.com/slides/nodejs-java/) से डाउनलोड कर सकते हैं। मूल्यांकन संस्करण में वही फीचर होते हैं जो लाइसेंस प्राप्त संस्करण में होते हैं, साथ ही ऊपर वर्णित सीमाएँ भी लागू होती हैं। इसके अतिरिक्त, लाइसेंस खरीदने और कुछ पंक्तियों का कोड जोड़ने पर मूल्यांकन संस्करण स्वयं लाइसेंस प्राप्त हो जाता है।
 
 लाइसेंस एक सामान्य‑पाठ XML फ़ाइल है जिसमें उत्पाद नाम, लाइसेंस प्राप्त डेवलपर्स की संख्या, सदस्यता समाप्ति तिथि आदि विवरण होते हैं। फ़ाइल डिजिटल रूप से साइन की गई है, इसलिए उसे संशोधित न करें। फ़ाइल की सामग्री में एक अतिरिक्त लाइन‑ब्रेक भी जोड़ने से वह अमान्य हो जाएगा।
 
@@ -65,7 +65,7 @@ description: "Aspose.Slides for Node.js में लाइसेंस ला�
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-आप कीमतों की जानकारी [“मूल्य जानकारी”](https://purchase.aspose.com/pricing/slides/hi/family) पेज पर पा सकते हैं।
+आप कीमतों की जानकारी [“मूल्य जानकारी”](https://purchase.aspose.com/pricing/slides/family) पेज पर पा सकते हैं।
 {{% /alert %}}
 
 ### **Node.js के लिए Aspose.Slides में लाइसेंस सेट करना (Java के माध्यम से)**
@@ -99,11 +99,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-जब आप setLicense मेथड को कॉल करते हैं, तो लाइसेंस नाम आपके लाइसेंस फ़ाइल के नाम के समान होना चाहिए। उदाहरण के लिए, आप लाइसेंस फ़ाइल का नाम "Aspose.Slides.lic.xml" बदल सकते हैं। फिर कोड में आपको नया लाइसेंस नाम (Aspose.Slides.lic.xml) setLicense मेथड में पास करना होगा। यदि फ़ाइल अनुपलब्ध है या वैध लाइसेंस नहीं रखती, तो [setLicense](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/license/setlicense/) एक अपवाद फेंकता है, जिससे स्क्रिप्ट त्रुटि के साथ समाप्त हो जाती है।
+जब आप setLicense मेथड को कॉल करते हैं, तो लाइसेंस नाम आपके लाइसेंस फ़ाइल के नाम के समान होना चाहिए। उदाहरण के लिए, आप लाइसेंस फ़ाइल का नाम "Aspose.Slides.lic.xml" बदल सकते हैं। फिर कोड में आपको नया लाइसेंस नाम (Aspose.Slides.lic.xml) setLicense मेथड में पास करना होगा। यदि फ़ाइल अनुपलब्ध है या वैध लाइसेंस नहीं रखती, तो [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) एक अपवाद फेंकता है, जिससे स्क्रिप्ट त्रुटि के साथ समाप्त हो जाती है।
 
 #### **स्ट्रीम से लाइसेंस लागू करना**
 
-स्ट्रीम से लाइसेंस लागू करने के लिए, [License](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/license/) ऑब्जेक्ट और एक रीडेबल स्ट्रीम को स्थिर [setLicenseFromStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/license/setlicense/) मेथड में पास करें। स्ट्रीम असिंक्रोनस रूप से पढ़ी जाती है, और यदि स्ट्रीम में वैध लाइसेंस नहीं है तो कॉलबैक को एक त्रुटि प्राप्त होती है:
+स्ट्रीम से लाइसेंस लागू करने के लिए, [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) ऑब्जेक्ट और एक रीडेबल स्ट्रीम को स्थिर [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) मेथड में पास करें। स्ट्रीम असिंक्रोनस रूप से पढ़ी जाती है, और यदि स्ट्रीम में वैध लाइसेंस नहीं है तो कॉलबैक को एक त्रुटि प्राप्त होती है:
 
 **Node.js**
 
