@@ -29,7 +29,7 @@ Bu makale, Aspose.Slides'te lisanslamanın nasıl çalıştığını ve kütüph
 {{% alert color="info" title="Note" %}}
 **Aspose.Slides for Java**'ın değerlendirme sürümünü [indirme sayfasından](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) indirebilirsiniz. Değerlendirme sürümü, ürünün lisanslı sürümüyle aynı işlevleri sağlar. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, birkaç satır kod ekleyerek (lisansı uygulamak için) lisanslı hâle gelir.
 
-**Aspose.Slides**'ı değerlendirmeden memnun kaldıktan sonra bir [lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/java/). Farklı abonelik tiplerini gözden geçirmenizi öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
+**Aspose.Slides**'ı değerlendirmeden memnun kaldıktan sonra bir [lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/java/). Farklı abonelik tiplerini gözden geçirmenizi öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
 
 Her Aspose lisansı, abonelik süresi içinde yayınlanan yeni sürümlere veya düzeltmelere ücretsiz yükseltmeler için bir yıllık abonelik içerir. Lisanslı ürünleri (veya hatta değerlendirme sürümlerini) kullanan kullanıcılar ücretsiz ve sınırsız teknik destek alır.
 {{% /alert %}} 
@@ -61,7 +61,7 @@ Aspose.Slides'ı sınırlama olmadan test etmek için **30 Günlük Geçici Lisa
 Bir lisans **dosyadan** veya **akıştan** (stream) yüklenebilir.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides, lisansleme işlemleri için [License](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/) sınıfını sağlar.
+Aspose.Slides, lisansleme işlemleri için [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) sınıfını sağlar.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -81,9 +81,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Lisans dosyasını farklı bir dizine koyarsanız, [setLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/#setLicense-java.lang.String-) metodunu çağırdığınızda, belirtilen yolun sonundaki lisans dosyası adı, lisans dosyanızın adıyla aynı olmalıdır.
+Lisans dosyasını farklı bir dizine koyarsanız, [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) metodunu çağırdığınızda, belirtilen yolun sonundaki lisans dosyası adı, lisans dosyanızın adıyla aynı olmalıdır.
 
-Örneğin, lisans dosyası adını *Aspose.Slides.Java.lic.xml* olarak değiştirebilirsiniz. Ardından, kodunuzda [setLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/#setLicense-java.lang.String-) metoduna dosyanın yolunu (*Aspose.Slides.Java.lic.xml* ile biten) geçirmeniz gerekir.
+Örneğin, lisans dosyası adını *Aspose.Slides.Java.lic.xml* olarak değiştirebilirsiniz. Ardından, kodunuzda [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) metoduna dosyanın yolunu (*Aspose.Slides.Java.lic.xml* ile biten) geçirmeniz gerekir.
 {{% /alert %}}
 
 ### **Akış**
@@ -121,7 +121,7 @@ if (license.isLicensed())
 ## **İş Parçacığı Güvenliği**
 
 {{% alert color="warning" title="Warning" %}}
-[setLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) metodu iş parçacığı güvenli değildir. Bu metodun birçok iş parçacığından aynı anda çağrılması gerekiyorsa, sorunları önlemek için senkronizasyon primitifleri (örneğin bir kilit) kullanmak isteyebilirsiniz.
+[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) metodu iş parçacığı güvenli değildir. Bu metodun birçok iş parçacığından aynı anda çağrılması gerekiyorsa, sorunları önlemek için senkronizasyon primitifleri (örneğin bir kilit) kullanmak isteyebilirsiniz.
 {{% /alert %}}
 
 ## **FAQ**

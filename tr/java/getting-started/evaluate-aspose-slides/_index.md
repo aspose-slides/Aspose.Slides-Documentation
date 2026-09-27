@@ -22,7 +22,7 @@ description: "Java için Aspose.Slides'i değerlendirin ve PowerPoint (PPT, PPTX
 
 Aspose.Slides'ı değerlendirme amaçlı olarak indirebilirsiniz. Değerlendirme sürümü, satın alınan sürümle aynıdır; lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
 
-Lisans olmadan, Aspose.Slides tam işlevselliğini değerlendirme modunda sunar, ancak iki sınırlama vardır: kaydettiği her sununun her slaytına bir değerlendirme filigranı metin kutusu ekler ve API aracılığıyla kodunuzun okuduğu metin (az önce ayarlanan metin dahil) yalnızca ilk birkaç karakteri gösterir ve ardından değerlendirme sınırlamasıyla ilgili bir uyarı eklenir. Kodunuzun yazdığı metin tam olarak kaydedilir. Tüm sunumu yüklemeden metin çıkaran [getPresentationText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) yöntemi yalnızca değerlendirme uyarılarını döndürür, slayt metni içermez.
+Lisans olmadan, Aspose.Slides tam işlevselliğini değerlendirme modunda sunar, ancak iki sınırlama vardır: kaydettiği her sununun her slaytına bir değerlendirme filigranı metin kutusu ekler ve API aracılığıyla kodunuzun okuduğu metin (az önce ayarlanan metin dahil) yalnızca ilk birkaç karakteri gösterir ve ardından değerlendirme sınırlamasıyla ilgili bir uyarı eklenir. Kodunuzun yazdığı metin tam olarak kaydedilir. Tüm sunumu yüklemeden metin çıkaran [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) yöntemi yalnızca değerlendirme uyarılarını döndürür, slayt metni içermez.
 
 ![Değerlendirme filigranı içeren bir slayt](evaluate-aspose-slides_1.png)
 

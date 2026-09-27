@@ -149,11 +149,11 @@ Sunumlarınızda kullanılan fontlar veya uygun ikameler de metnin doğru görü
 
 ### Aspose.Slides'ın doğru bir şekilde entegre edildiğini nasıl doğrularım?
 
-Projenizi derleyin, boş bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesi oluşturun ve yeni bir adla kaydedin. Dosya istisna fırlatmadan oluşturulursa, kütüphane başarıyla entegre edilmiştir.
+Projenizi derleyin, boş bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) nesnesi oluşturun ve yeni bir adla kaydedin. Dosya istisna fırlatmadan oluşturulursa, kütüphane başarıyla entegre edilmiştir.
 
 ### Büyük sunumlar işlenirken bellek tüketimini nasıl sınırlayabilirim?
 
-JVM bellek limitlerini yalnızca ihtiyaç duyulan seviyeye yükseltin ve her [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneğinde bir `finally` bloğu içinde [dispose](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#dispose--) metodunu çağırarak önbelleği hemen serbest bırakın. Bu, bellek yetersizliği hatalarını önler ve toplu işlemler sırasında genel bellek kullanımını öngörülebilir tutar.
+JVM bellek limitlerini yalnızca ihtiyaç duyulan seviyeye yükseltin ve her [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) örneğinde bir `finally` bloğu içinde [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) metodunu çağırarak önbelleği hemen serbest bırakın. Bu, bellek yetersizliği hatalarını önler ve toplu işlemler sırasında genel bellek kullanımını öngörülebilir tutar.
 
 ### Gereksiz dışa aktarma formatlarını dışarı çıkararak final JAR boyutunu küçültebilir miyim?
 

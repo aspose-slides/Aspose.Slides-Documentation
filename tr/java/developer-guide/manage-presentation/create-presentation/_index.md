@@ -28,14 +28,14 @@ Başlamadan önce, Aspose Slides for Java'yı projenize Aspose'nun Maven deposun
 
 ## **Sunum Oluşturma**
 
-Aspose.Slides for Java'da sıfırdan bir PowerPoint dosyası oluşturmak, [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğiyle başlar. Yapıcı, şekiller, metin, grafikler veya uygulamanızın ihtiyaç duyduğu diğer içerikler için hazır tek bir slayt içeren boş bir sunum sağlar. Bu slaytı düzenledikten veya yeni slaytlar ekledikten sonra sonucu PPTX, eski PPT veya OpenDocument biçimlerinde kaydedebilirsiniz.
+Aspose.Slides for Java'da sıfırdan bir PowerPoint dosyası oluşturmak, [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğiyle başlar. Yapıcı, şekiller, metin, grafikler veya uygulamanızın ihtiyaç duyduğu diğer içerikler için hazır tek bir slayt içeren boş bir sunum sağlar. Bu slaytı düzenledikten veya yeni slaytlar ekledikten sonra sonucu PPTX, eski PPT veya OpenDocument biçimlerinde kaydedebilirsiniz.
 
 Bir sunum oluşturmak ve ilk slayta metinli bir şekil eklemek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
-2. [getSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlides--) metodunun döndürdüğü koleksiyondan, indeks 0 kullanarak o slaytı alın.  
-3. `Cloud` tipinde bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) eklemek için [addAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) metodunu kullanın ve metnini [setText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#setText-java.lang.String-) ile ayarlayın.  
-4. Sunumu, [save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metodu ile PPTX dosyası olarak kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
+2. [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) metodunun döndürdüğü koleksiyondan, indeks 0 kullanarak o slaytı alın.  
+3. `Cloud` tipinde bir [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) eklemek için [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) metodunu kullanın ve metnini [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-) ile ayarlayın.  
+4. Sunumu, [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metodu ile PPTX dosyası olarak kaydedin.
 
 Aşağıdaki örnek tam bir programdır. [Installation](/slides/tr/java/installation/) bölümündeki Maven projesinde, *src/main/java/HelloSlides.java* olarak kaydedin ve `mvn compile exec:java` komutunu çalıştırın.
 
@@ -93,7 +93,7 @@ Puan cinsinden: 1 inç 72 birime eşittir.
 
 ### Sunumları paralel olarak oluşturabilir/kaydedebilir miyim?
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği üzerine [multiple threads](/slides/tr/java/multithreading/) üzerinden işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
+Aynı [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) örneği üzerine [multiple threads](/slides/tr/java/multithreading/) üzerinden işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
 
 ### Deneme filigranı ve sınırlamaları nasıl kaldırırım?
 
