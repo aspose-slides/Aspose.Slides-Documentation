@@ -22,69 +22,121 @@ description: "Δημιουργήστε παρουσιάσεις με το Aspose
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να δημιουργήσετε μια παρουσίαση στο Aspose.Slides, να προσθέσετε απλό περιεχόμενο σε μια διαφάνεια και να αποθηκεύσετε το αποτέλεσμα ως αρχείο. Επίσης, παρουσιάζει πώς να δημιουργήσετε και να αποθηκεύσετε μια νέα παρουσίαση, να ανοίξετε μια υπάρχουσα παρουσίαση σε υποστηριζόμενη μορφή και να τη μετατρέψετε σε άλλη μορφή. Επιπλέον, το άρθρο περιλαμβάνει μια σύντομη ενότητα FAQ που καλύπτει κοινές ερωτήσεις σχετικά με μορφές, πρότυπα, μέγεθος διαφάνειας, μονάδες, χρήση μνήμης, πολυνηματικότητα, αδειοδότηση, ψηφιακές υπογραφές και υποστήριξη VBA.
+Αυτό το άρθρο δείχνει πώς να δημιουργήσετε μια παρουσίαση στο Aspose.Slides, να προσθέσετε ένα πλαίσιο κειμένου στην πρώτη της διαφάνεια και να αποθηκεύσετε το αποτέλεσμα ως αρχείο. Επίσης δείχνει πώς να δημιουργήσετε και να αποθηκεύσετε μια κενή παρουσίαση, καθώς και πώς να ανοίξετε μια υπάρχουσα παρουσίαση σε υποστηριζόμενη μορφή και να την αποθηκεύσετε σε άλλη μορφή. Μια σύντομη ενότητα Συχνών Ερωτήσεων στο τέλος καλύπτει κοινές ερωτήσεις σχετικά με μορφές, πρότυπα, μέγεθος διαφάνειας, μονάδες, χρήση μνήμης, πολυνηματισμό, άδειες, ψηφιακές υπογραφές και υποστήριξη VBA.
 
-## **Δημιουργία Παρουσίασης**
+Πριν ξεκινήσετε, εγκαταστήστε το Aspose.Slides για PHP μέσω Java με τον Composer και εκκινήστε το PHP/Java Bridge στον Apache Tomcat. Δείτε την [Εγκατάσταση](/slides/el/php-java/installation/) για τη πλήρη ρύθμιση. Τα παραδείγματα παρακάτω υποθέτουν ότι ο Tomcat εκτελείται στο `localhost:8080` και ότι ο φάκελος `vendor` του Composer βρίσκεται δίπλα στο script.
 
-Για να προσθέσετε μια απλή ευθεία γραμμή σε μια επιλεγμένη διαφάνεια της παρουσίασης, ακολουθήστε τα παρακάτω βήματα:
+## **Δημιουργία παρουσίασης PowerPoint**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης Presentation.
-2. Αποκτήστε την αναφορά μιας διαφάνειας χρησιμοποιώντας το Index της.
-3. Προσθέστε ένα AutoShape τύπου Line χρησιμοποιώντας τη μέθοδο addAutoShape που εκτίθεται από το αντικείμενο Shapes.
-4. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Για να δημιουργήσετε μια παρουσίαση και να τοποθετήσετε ένα πλαίσιο κειμένου στην πρώτη της διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-Στο παρακάτω παράδειγμα, προσθέσαμε μια γραμμή στην πρώτη διαφάνεια της παρουσίασης.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) . Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.
+1. Αποκτήστε αυτή τη διαφάνεια από τη συλλογή που επιστρέφει το [Presentation::getSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/getslides/), με το δείκτη του, 0.
+1. Προσθέστε ένα ορθογώνιο με τη μέθοδο [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addautoshape/) και ορίστε το κείμενό του με το [TextFrame::setText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/settext/).
+1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [Presentation::save](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/save/) .
 
 ```php
-  # Δημιουργήστε ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-  $pres = new Presentation();
-  try {
-    # Λάβετε την πρώτη διαφάνεια
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθέστε ένα autoshape τύπου γραμμή
-    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
-    $pres->save("NewPresentation_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once(__DIR__ . "/vendor/aspose/slides/el/lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    $shape->getTextFrame()->setText("Hello, Aspose.Slides!");
+    $presentation->save(__DIR__ . "/hello.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+Οι δύο γραμμές `require_once` φορτώνουν τον πελάτη PHP/Java Bridge από τον Tomcat και τις κλάσεις Aspose.Slides από το πακέτο Composer. Η πάνω‑αριστερή γωνία του ορθογωνίου βρίσκεται 50 σημεία από την αριστερή άκρη και 50 σημεία από την πάνω άκρη της διαφάνειας, και το ορθογώνιο έχει πλάτος 400 σημείων και ύψος 100 σημείων. Το αποθηκευμένο αρχείο περιέχει μία διαφάνεια με αυτό το ορθογώνιο και το κείμενό του. Χωρίς άδεια, το Aspose.Slides προσθέτει επίσης ένα υδατογράφημα αξιολόγησης σε κάθε διαφάνεια που αποθηκεύει· δείτε την [Άδεια](/slides/el/php-java/licensing/) .
 
-**Ποιες μορφές μπορώ να αποθηκεύσω μια νέα παρουσίαση;**
+{{% alert color="info" title="Note" %}}
+Το Aspose.Slides διαβάζει και γράφει αρχεία μέσα στον Tomcat, όχι στη διαδικασία PHP σας, έτσι ένα σχετικό μονοπάτι όπως `"hello.pptx"` λύνεται σε σχέση με το φάκελο εργασίας του Tomcat. Τα παραδείγματα σε αυτή τη σελίδα δημιουργούν απόλυτες διαδρομές με `__DIR__`, ώστε τα αρχεία να διαβάζονται και να αποθηκεύονται δίπλα στο script.
+{{% /alert %}}
 
-Μπορείτε να αποθηκεύσετε σε [PPTX, PPT, and ODP](/slides/el/php-java/save-presentation/), και να εξάγετε σε [PDF](/slides/el/php-java/convert-powerpoint-to-pdf/), [XPS](/slides/el/php-java/convert-powerpoint-to-xps/), [HTML](/slides/el/php-java/convert-powerpoint-to-html/), [SVG](/slides/el/php-java/convert-powerpoint-to-png/), και [images](/slides/el/php-java/convert-powerpoint-to-png/), μεταξύ άλλων.
+## **Δημιουργία και αποθήκευση παρουσίασης**
 
-**Μπορώ να ξεκινήσω από ένα πρότυπο (POTX/POTM) και να το αποθηκεύσω ως κανονικό PPTX;**
+Για να δημιουργήσετε μια κενή παρουσίαση και να την αποθηκεύσετε, δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και αποθηκεύστε την σε οποιαδήποτε μορφή της απαρίθμησης [SaveFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/saveformat/) . Το αποτέλεσμα είναι μια παρουσίαση με μία κενή διαφάνεια.
 
-Ναι. Φορτώστε το πρότυπο και αποθηκεύστε το στην επιθυμητή μορφή· οι μορφές POTX/POTM/PPTM και παρόμοιες [are supported](/slides/el/php-java/supported-file-formats/).
+```php
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once(__DIR__ . "/vendor/aspose/slides/el/lib/aspose.slides.php");
 
-**Πώς ελέγχω το μέγεθος/αναλογία διαφάνειας κατά τη δημιουργία μιας παρουσίασης;**
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-Ορίστε το [slide size](/slides/el/php-java/slide-size/) (συμπεριλαμβανομένων των προεπιλογών όπως 4:3 και 16:9 ή προσαρμοσμένων διαστάσεων) και επιλέξτε πώς θα κλιμακωθεί το περιεχόμενο.
+$presentation = new Presentation();
+try {
+    $presentation->save(__DIR__ . "/OutputPresentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-**Σε ποιες μονάδες μετρώνται τα μεγέθη και οι συντεταγμένες;**
+## **Άνοιγμα και αποθήκευση παρουσίασης**
 
-Σε points: 1 ίντσα ισοδυναμεί με 72 μονάδες.
+Για να μετατρέψετε μια παρουσίαση από μορφή σε άλλη, ανοίξτε την περνώντας τη διαδρομή της στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) , στη συνέχεια αποθηκεύστε τη στη στοχευμένη μορφή. Το Aspose.Slides εντοπίζει τη μορφή εισόδου, όπως PPT, PPTX ή ODP, από το ίδιο το αρχείο.
 
-**Πώς αντιμετωπίζω πολύ μεγάλες παρουσιάσεις (με πολλά αρχεία πολυμέσων) ώστε να μειωθεί η χρήση μνήμης;**
+Το παρακάτω παράδειγμα υποθέτει ότι υπάρχει μια παρουσίαση OpenDocument με όνομα *Sample.odp* δίπλα στο script και την αποθηκεύει ως PPTX.
 
-Χρησιμοποιήστε [BLOB management strategies](/slides/el/php-java/manage-blob/), περιορίστε την αποθήκευση στη μνήμη εκμεταλλευόμενοι προσωρινά αρχεία, και προτιμήστε ροές βασισμένες σε αρχεία αντί για καθαρά in‑memory streams.
+```php
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once(__DIR__ . "/vendor/aspose/slides/el/lib/aspose.slides.php");
 
-**Μπορώ να δημιουργώ/αποθηκεύω παρουσιάσεις παράλληλα;**
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-Δεν μπορείτε να λειτουργήσετε στην ίδια [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) παρουσίαση από [multiple threads](/slides/el/php-java/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες παρουσίες ανά νήμα ή διεργασία.
+$presentation = new Presentation(__DIR__ . "/Sample.odp");
+try {
+    $presentation->save(__DIR__ . "/OutputPresentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-**Πώς αφαιρώ το υδατογράφημα δοκιμής και τους περιορισμούς;**
+## **Συχνές ερωτήσεις**
 
-[Apply a license](/slides/el/php-java/licensing/) μία φορά ανά διεργασία. Το XML της άδειας πρέπει να παραμείνει αμετάβλητο και η εγκατάσταση της άδειας πρέπει να συγχρονίζεται εάν εμπλέκονται πολλαπλά νήματα.
+### Σε ποιες μορφές μπορώ να αποθηκεύσω μια νέα παρουσίαση;
 
-**Μπορώ να υπογράψω ψηφιακά το PPTX που δημιουργώ;**
+Μπορείτε να αποθηκεύσετε σε [PPTX, PPT, and ODP](/slides/el/php-java/save-presentation/) , και να εξάγετε σε [PDF](/slides/el/php-java/convert-powerpoint-to-pdf/) , [XPS](/slides/el/php-java/convert-powerpoint-to-xps/) , [HTML](/slides/el/php-java/convert-powerpoint-to-html/) , [SVG](/slides/el/php-java/render-a-slide-as-an-svg-image/) , και [images](/slides/el/php-java/convert-powerpoint-to-png/) , μεταξύ άλλων.
 
-Ναι. Οι [Digital signatures](/slides/el/php-java/digital-signature-in-powerpoint/) (προσθήκη και επαλήθευση) υποστηρίζονται για παρουσιάσεις.
+### Μπορώ να ξεκινήσω από ένα πρότυπο (POTX/POTM) και να το αποθηκεύσω ως κανονικό PPTX;
 
-**Υποστηρίζονται μακροεντολές (VBA) στις δημιουργημένες παρουσιάσεις;**
+Ναι. Φορτώστε το πρότυπο και αποθηκεύστε το στην επιθυμητή μορφή· τα POTX/POTM/PPTM και παρόμοιες μορφές [υποστηρίζονται](/slides/el/php-java/supported-file-formats/) .
 
-Ναι. Μπορείτε να [create/edit VBA projects](/slides/el/php-java/presentation-via-vba/) και να αποθηκεύσετε αρχεία με ενεργοποιημένη μακροεντολή όπως PPTM/PPSM.
+### Πώς ελέγχω το μέγεθος/αναλογία διαφάνειας όταν δημιουργώ μια παρουσίαση;
+
+Ορίστε το [μέγεθος διαφάνειας](/slides/el/php-java/slide-size/) (συμπεριλαμβανομένων των προκαθορισμένων όπως 4:3 και 16:9 ή προσαρμοσμένων διαστάσεων) και επιλέξτε πώς θα κλιμακωθεί το περιεχόμενο.
+
+### Σε ποιες μονάδες μετρώνται τα μεγέθη και οι συντεταγμένες;
+
+Σε σημεία: 1 ίντσα ισούται με 72 μονάδες.
+
+### Πώς διαχειρίζομαι πολύ μεγάλες παρουσιάσεις (με πολλά αρχεία πολυμέσων) για να μειώσω τη χρήση μνήμης;
+
+Χρησιμοποιήστε τις [στρατηγικές διαχείρισης BLOB](/slides/el/php-java/manage-blob/) , περιορίστε την αποθήκευση στη μνήμη αξιοποιώντας προσωρινά αρχεία και προτιμήστε ροές εργασίας βασισμένες σε αρχεία αντί για καθαρά ροές μνήμης.
+
+### Μπορώ να δημιουργήσω/αποθηκεύσω παρουσιάσεις παράλληλα;
+
+Δεν μπορείτε να λειτουργήσετε στο ίδιο αντικείμενο [Presentation]... από [πολλαπλά νήματα]... Εκτελέστε ξεχωριστές, απομονωμένες εμφανίσεις ανά νήμα ή διεργασία.
+
+### Πώς αφαιρώ το υδατογράφημα δοκιμής και τους περιορισμούς;
+
+[Εφαρμόστε άδεια](/slides/el/php-java/licensing/) μία φορά ανά διεργασία. Το XML της άδειας πρέπει να παραμένει αμετάβλητο και η ρύθμιση της άδειας πρέπει να συγχρονίζεται εάν εμπλέκονται πολλαπλά νήματα.
+
+### Μπορώ να υπογράψω ψηφιακά το PPTX που δημιουργώ;
+
+Ναι. Οι [Ψηφιακές υπογραφές](/slides/el/php-java/digital-signature-in-powerpoint/) (προσθήκη και επαλήθευση) υποστηρίζονται για παρουσιάσεις.
+
+### Υποστηρίζονται μακροεντολές (VBA) στις δημιουργημένες παρουσιάσεις;
+
+Ναι. Μπορείτε να [δημιουργία/επεξεργασία έργων VBA](/slides/el/php-java/presentation-via-vba/) και να αποθηκεύσετε αρχεία με ενεργοποιημένες μακροεντολές όπως PPTM/PPSM.

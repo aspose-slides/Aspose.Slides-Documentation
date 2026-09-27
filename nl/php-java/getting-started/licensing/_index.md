@@ -16,70 +16,73 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Licenties toepassen, beheren en problemen oplossen in Aspose.Slides voor PHP via Java. Zorg voor ononderbroken toegang tot alle functies met onze stapsgewijze licentiehandleiding."
+description: "Licenties toepassen, beheren en problemen oplossen in Aspose.Slides voor PHP via Java. Zorg voor onbeperkte toegang tot alle functies met onze stapsgewijze licentiehandleiding."
 ---
-## **Introductie**
+## **Inleiding**
 
-Soms is voor de beste evaluatieresultaten een praktische aanpak nodig. Om die reden biedt Aspose.Slides verschillende aankoopplannen en ook een gratis proefversie en een tijdelijke licentie van 30 dagen voor evaluatie aan.
+Soms is een praktische aanpak nodig voor de beste evaluatieresultaten. Daarom biedt Aspose.Slides verschillende aankoop‑plannen en tevens een Gratis Proefversie en een 30‑daagse Tijdelijke Licentie voor evaluatie.
 
-{{% alert color="primary" %}}
-Let op dat er een aantal algemene beleidsregels en praktijken zijn die u begeleiden bij het evalueren, correct licenseren en aanschaffen van onze producten. U kunt ze vinden in de ["Purchase Policies and FAQ"](https://purchase.aspose.com/policies) sectie.
+{{% alert color="info" title="Note" %}}
+Let op: er zijn verschillende algemene beleidslijnen en werkwijzen die u begeleiden bij het evalueren, correct licenseren en aanschaffen van onze producten. Deze vindt u in de ["Aankoopbeleid en FAQ"](https://purchase.aspose.com/policies) sectie.
 {{% /alert %}}
 
 ## **Aspose.Slides evalueren**
-U kunt Aspose.Slides eenvoudig downloaden voor evaluatie. Het evaluatiepakket is hetzelfde als het gekochte pakket. De evaluatieversie wordt simpelweg gelicentieerd nadat u enkele regels code hebt toegevoegd om de licentie toe te passen.
+U kunt eenvoudig Aspose.Slides downloaden voor evaluatie. Het evaluatie‑pakket is identiek aan het gekochte pakket. De evaluatieversie wordt automatisch gelicenseerd zodra u enkele regels code toevoegt om de licentie toe te passen.
 
 ## **Beperking van de evaluatieversie**
-De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt de volledige functionaliteit van het product, maar voegt een evaluatiewatermerk toe aan de bovenkant van het document bij openen en opslaan. U bent ook beperkt tot één dia bij het extraheren van tekst uit presentatiedia's.
+De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt de volledige productfunctionaliteit, met twee beperkingen:
 
-{{% alert color="primary" %}} 
-Als u Aspose.Slides wilt testen zonder de beperkingen van de evaluatieversie, kunt u een **30 Day Temporary License** aanvragen. Raadpleeg [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) voor meer informatie.
+* Er wordt een evaluatiewatermerk‑tekstvak in het midden van elke dia van elke presentatie die wordt opgeslagen, toegevoegd.
+* Tekst die uw code uit een presentatie leest, wordt afgekapt tot de eerste paar tekens, gevolgd door een melding over de evaluatiebeperking. Tekst die uw code schrijft, wordt volledig opgeslagen.
+
+{{% alert color="info" title="Note" %}}
+Als u Aspose.Slides wilt testen zonder de beperkingen van de evaluatieversie, kunt u een **30‑daagse Tijdelijke Licentie** aanvragen. Raadpleeg [Hoe krijg ik een tijdelijke licentie?](https://purchase.aspose.com/temporary-license) voor meer informatie.
 {{% /alert %}} 
 
 ## **Over de licentie**
-U kunt eenvoudig een evaluatieversie van Aspose.Slides voor PHP via Java downloaden via de [download page](https://packagist.org/packages/aspose/slides). De evaluatieversie biedt absoluut **dezelfde mogelijkheden** als de gelicentieerde versie van Aspose.Slides. Bovendien wordt de evaluatieversie simpelweg gelicentieerd nadat u een licentie heeft aangeschaft en een paar regels code heeft toegevoegd om de licentie toe te passen.
+U kunt eenvoudig een evaluatieversie van Aspose.Slides voor PHP via Java downloaden vanaf de [downloadpagina](https://packagist.org/packages/aspose/slides). De evaluatieversie biedt absoluut **dezelfde mogelijkheden** als de gelicentieerde versie van Aspose.Slides. Bovendien wordt de evaluatieversie automatisch gelicenseerd zodra u een licentie aanschaft en een paar regels code toevoegt om de licentie toe te passen.
 
-De licentie is een platte‑tekst XML‑bestand dat details bevat zoals de productnaam, het aantal ontwikkelaars waarvoor deze gelicentieerd is, de vervaldatum van de abonnementen, enzovoort. Het bestand is digitaal ondertekend, dus wijzig het bestand niet. Zelfs een onbedoelde extra regeleinde in de inhoud van het bestand maakt het ongeldig.
+De licentie is een platte XML‑tekstbestand dat details bevat zoals de productnaam, het aantal ontwikkelaars waarvoor het is gelicentieerd, de vervaldatum van het abonnement, enzovoort. Het bestand is digitaal ondertekend; wijzig het bestand niet. Zelfs een per ongeluk toegevoegde regeleinde in de inhoud maakt het bestand ongeldig.
 
-Om de beperkingen van de evaluatieversie te vermijden, moet u een licentie instellen voordat u **Aspose.Slides** gebruikt. U hoeft de licentie slechts één keer per applicatie of proces in te stellen.
+Om de beperkingen van de evaluatieversie te vermijden, moet u een licentie instellen voordat u **Aspose.Slides** gebruikt. U hoeft de licentie slechts één keer per toepassing of proces in te stellen.
 
-{{% alert color="primary" %}} 
-U wilt misschien [Metered Licensing](https://docs.aspose.com/slides/nl/php-java/metered-licensing/) bekijken.
+{{% alert color="info" title="Note" %}}
+U wilt misschien [Metered Licensing](/slides/nl/php-java/metered-licensing/) zien.
 {{% /alert %}} 
 
 ## **Aangekochte licentie**
 
-Na aankoop moet u het licentiebestand of de -stream toepassen.
+Na aankoop dient u het licentiebestand of de stream toe te passen.
 
-{{% alert color="primary" %}}
-U moet de licentie instellen:
-* slechts één keer per toepassingsdomein
-* voordat u andere Aspose.Slides‑klassen gebruikt
+{{% alert color="info" title="Note" %}}
+U moet de licentie:
+* éénmaal per toepassingsdomein instellen
+* voordat u enige andere Aspose.Slides‑klassen gebruikt
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-U kunt prijsinformatie vinden op de [“Pricing Information”](https://purchase.aspose.com/pricing/slides/nl/family) pagina.
+{{% alert color="info" title="Note" %}}
+U vindt prijsinformatie op de [“Prijzinformatie”](https://purchase.aspose.com/pricing/slides/nl/family) pagina.
 {{% /alert %}}
 
 ### **Een licentie instellen in Aspose.Slides voor PHP via Java**
 
-Licenties kunnen worden toegepast vanaf deze locaties:
+Licenties kunnen worden toegepast vanaf de volgende locaties:
 
 * Expliciet pad
 * Stream
-* Als een Metered License – een nieuw licentiemechanisme
+* Als een Metered‑licentie – een nieuw licentie‑mechanisme
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 Gebruik de **setLicense**‑methode om een component te licenseren.
 
-Hoewel meerdere aanroepen van **setLicense** niet schadelijk zijn, is het een verspilling van middelen (processor).
+Hoewel meerdere oproepen naar **setLicense** niet schadelijk zijn, zijn ze wel een verspilling van middelen (processor).
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-Nieuwe licenties kunnen Aspose.Slides alleen activeren met versie 21.4 of later. Eerdere versies gebruiken een ander licentiesysteem en zullen deze licenties niet herkennen.
+{{% alert color="warning" title="Warning" %}}
+Nieuwe licenties kunnen Aspose.Slides alleen activeren vanaf versie 21.4 of later. Eerdere versies gebruiken een ander licentiesysteem en herkennen deze licenties niet.
 {{% /alert %}}
 
-#### **Een licentie toepassen met een bestand**
+#### **Licentie toepassen met een bestand**
 
 Deze code‑fragment wordt gebruikt om een licentiebestand in te stellen:
 
@@ -88,39 +91,41 @@ Deze code‑fragment wordt gebruikt om een licentiebestand in te stellen:
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/nl/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
 $license = new License();
-$license->setLicense("Aspose.Slides.lic");
-?>
+$license->setLicense(__DIR__ . "/Aspose.Slides.lic");
 ```
 
-Bij het aanroepen van de setLicense‑methode moet de licentienaam hetzelfde zijn als die van uw licentiebestand. Bijvoorbeeld, u kunt de bestandsnaam van de licentie wijzigen naar "Aspose.Slides.lic.xml". Vervolgens moet u in uw code de nieuwe licentienaam (Aspose.Slides.lic.xml) doorgeven aan de setLicense‑methode.
+Het voorbeeld verwacht het licentiebestand naast het script en geeft het absolute pad door: Aspose.Slides draait binnen Tomcat, dus het lost geen relatief pad op ten opzichte van uw scriptmap. Bij het aanroepen van de setLicense‑methode moet de licentienaam gelijk zijn aan die van uw licentiebestand. Bijvoorbeeld, u kunt de licentiebestandsnaam wijzigen naar "Aspose.Slides.lic.xml". Vervolgens moet u in uw code de nieuwe licentienaam (Aspose.Slides.lic.xml) doorgeven aan de setLicense‑methode.
 
-#### **Een licentie toepassen vanuit een stream**
+#### **Licentie toepassen vanuit een stream**
 
-Deze code‑fragment wordt gebruikt om een licentie vanuit een stream toe te passen:
+Dit code‑fragment wordt gebruikt om een licentie vanuit een stream toe te passen:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/nl/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
+$stream = new Java("java.io.FileInputStream", __DIR__ . "/Aspose.Slides.lic");
+
 $license = new License();
 $license->setLicense($stream);
-?>
+
+$stream->close();
 ```
 
 ## **FAQ**
 
-**Kan ik de licentie toepassen in een volledig offline omgeving (geen internettoegang)?**
+### Kan ik de licentie toepassen in een volledig offline omgeving (geen internettoegang)?
 
-Ja. Licentieverificatie wordt lokaal uitgevoerd met behulp van het licentiebestand; er is geen internetverbinding nodig.
+Ja. Licentievalidatie gebeurt lokaal met het licentiebestand; er is geen internetverbinding vereist.
 
-**Wat gebeurt er nadat het eenjarig abonnement verloopt? Stopt de bibliotheek met werken?**
+### Wat gebeurt er nadat het een‑jarig abonnement verloopt? Stopt de bibliotheek met werken?
 
-Nee. De licentie is eeuwigdurend: u kunt de versies blijven gebruiken die vóór de einddatum van uw abonnement zijn uitgebracht; u kunt echter geen nieuwere releases gebruiken zonder te vernieuwen.
+Nee. De licentie is eeuwigdurend: u kunt versies blijven gebruiken die vóór de einddatum van uw abonnement zijn uitgebracht; u kunt echter geen nieuwere releases gebruiken zonder verlenging.

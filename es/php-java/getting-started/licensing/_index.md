@@ -1,5 +1,5 @@
 ---
-title: Licenciamiento
+title: Licencias
 type: docs
 weight: 80
 url: /es/php-java/licensing/
@@ -16,51 +16,55 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aplica, gestiona y soluciona problemas de licencias en Aspose.Slides para PHP a través de Java. Garantiza un acceso ininterrumpido a todas las funcionalidades con nuestra guía paso a paso de licenciamiento."
+description: "Aplicar, gestionar y solucionar problemas de licencias en Aspose.Slides para PHP a través de Java. Garantiza el acceso ininterrumpido a todas las funciones con nuestra guía paso a paso de licenciamiento."
 ---
+## **Introducción**
 
-A veces, para obtener los mejores resultados de evaluación, puede ser necesario un enfoque práctico. Por esta razón, Aspose.Slides ofrece diferentes planes de compra y también proporciona una versión de prueba gratuita y una Licencia Temporal de 30 días para la evaluación.
+A veces, para obtener los mejores resultados de evaluación, puede ser necesario un enfoque práctico. Por este motivo, Aspose.Slides ofrece diferentes planes de compra y también proporciona una Prueba Gratuita y una Licencia Temporal de 30 días para la evaluación.
 
-{{% alert color="primary" %}}
-Nota: existen diversas políticas y prácticas generales que le indican cómo evaluar, licenciar correctamente y adquirir nuestros productos. Puede encontrarlas en la sección [Políticas de compra y preguntas frecuentes](https://purchase.aspose.com/policies).
+{{% alert color="info" title="Nota" %}}
+Ten en cuenta que existen varias políticas y prácticas generales que te guían sobre cómo evaluar, licenciar correctamente y comprar nuestros productos. Puedes encontrarlas en la sección ["Purchase Policies and FAQ"](https://purchase.aspose.com/policies).
 {{% /alert %}}
 
 ## **Evaluar Aspose.Slides**
-Puede descargar Aspose.Slides para evaluación de forma sencilla. El paquete de evaluación es idéntico al paquete adquirido. La versión de evaluación simplemente se licencian añadiendo unas pocas líneas de código para aplicar la licencia.
+Puedes descargar Aspose.Slides fácilmente para su evaluación. El paquete de evaluación es idéntico al paquete adquirido. La versión de evaluación simplemente se licencia después de añadir unas pocas líneas de código para aplicar la licencia. 
 
-## **Limitación de la versión de evaluación**
-La versión de evaluación de Aspose.Slides (sin especificar una licencia) proporciona la funcionalidad completa del producto, pero inserta una marca de agua de evaluación en la parte superior del documento al abrirlo y guardarlo. Además, está limitado a una diapositiva al extraer texto de las presentaciones.
+## **Limitaciones de la versión de evaluación**
+La versión de evaluación de Aspose.Slides (sin una licencia especificada) ofrece la funcionalidad completa del producto, con dos limitaciones:
 
-{{% alert color="primary" %}} 
-Si desea probar Aspose.Slides sin las limitaciones de la versión de evaluación, puede solicitar una **Licencia Temporal de 30 días**. Consulte [¿Cómo obtener una licencia temporal?](https://purchase.aspose.com/temporary-license) para más información.
+* Añade un cuadro de texto con marca de agua de evaluación en el centro de cada diapositiva de cada presentación que se guarda.
+* El texto que tu código lee de una presentación se trunca a sus primeros caracteres, seguido de un aviso sobre la limitación de la evaluación. El texto que tu código escribe se guarda completo.
+
+{{% alert color="info" title="Nota" %}}
+Si deseas probar Aspose.Slides sin las limitaciones de la versión de evaluación, puedes solicitar una **Licencia Temporal de 30 días**. Consulta [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) para más información.
 {{% /alert %}} 
 
 ## **Acerca de la licencia**
-Puede descargar fácilmente una versión de evaluación de Aspose.Slides para PHP vía Java desde su [página de descarga](https://packagist.org/packages/aspose/slides). La versión de evaluación ofrece absolutamente **las mismas capacidades** que la versión con licencia de Aspose.Slides. Además, la versión de evaluación simplemente se licencian después de adquirir una licencia y añadir un par de líneas de código para aplicar la licencia.
+Puedes descargar fácilmente una versión de evaluación de Aspose.Slides para PHP a través de Java desde su [download page](https://packagist.org/packages/aspose/slides). La versión de evaluación proporciona **las mismas capacidades** que la versión con licencia de Aspose.Slides. Además, la versión de evaluación simplemente se licencia después de comprar una licencia y añadir un par de líneas de código para aplicarla.
 
-La licencia es un archivo XML de texto plano que contiene detalles como el nombre del producto, el número de desarrolladores a los que está licenciado, la fecha de vencimiento de la suscripción, etc. El archivo está firmado digitalmente, por lo que no debe modificarlo. Incluso la adición inadvertida de una línea extra al contenido del archivo lo invalidará.
+La licencia es un archivo XML de texto plano que contiene detalles como el nombre del producto, el número de desarrolladores a los que está licenciada, la fecha de expiración de la suscripción, etc. El archivo está firmado digitalmente, por lo que no debe modificarse. Incluso la adición accidental de un salto de línea extra al contenido del archivo lo invalidará.
 
-Para evitar las limitaciones asociadas a la versión de evaluación, debe establecer una licencia antes de usar **Aspose.Slides**. Sólo es necesario establecer la licencia una vez por aplicación o proceso.
+Para evitar las limitaciones asociadas a la versión de evaluación, debes establecer una licencia antes de usar **Aspose.Slides**. Sólo es necesario establecer la licencia una vez por aplicación o proceso.
 
-{{% alert color="primary" %}} 
-Puede consultar [Licenciamiento por consumo](https://docs.aspose.com/slides/php-java/metered-licensing/).
+{{% alert color="info" title="Nota" %}}
+Puede que quieras consultar [Metered Licensing](/slides/es/php-java/metered-licensing/).
 {{% /alert %}} 
 
-## **Licencia adquirida**
+## **Licencia comprada**
 
-Tras la compra, debe aplicar el archivo o flujo de la licencia.
+Después de la compra, necesitas aplicar el archivo o flujo de licencia. 
 
-{{% alert color="primary" %}}
-Debe establecer la licencia:
-* una sola vez por dominio de aplicación
+{{% alert color="info" title="Nota" %}}
+Debes establecer la licencia:
+* sólo una vez por dominio de aplicación
 * antes de usar cualquier otra clase de Aspose.Slides
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Puede encontrar la información de precios en la página de ["Información de precios"](https://purchase.aspose.com/pricing/slides/family).
+{{% alert color="info" title="Nota" %}}
+Puedes encontrar información de precios en la página de ["Pricing Information"](https://purchase.aspose.com/pricing/slides/es/family).
 {{% /alert %}}
 
-### **Establecer una licencia en Aspose.Slides para PHP vía Java**
+### **Establecer una licencia en Aspose.Slides para PHP a través de Java**
 
 Las licencias pueden aplicarse desde estas ubicaciones:
 
@@ -68,13 +72,13 @@ Las licencias pueden aplicarse desde estas ubicaciones:
 * Flujo
 * Como Licencia por consumo – un nuevo mecanismo de licenciamiento
 
-{{% alert color="primary" %}}
-Utilice el método **setLicense** para licenciar un componente.
+{{% alert color="info" title="Nota" %}}
+Utiliza el método **setLicense** para licenciar un componente.
 
-Aunque múltiples llamadas a **setLicense** no son dañinas, representan un desperdicio de recursos (procesador).
+Aunque varias llamadas a **setLicense** no son perjudiciales, suponen un desperdicio de recursos (procesador).
 {{% /alert %}}
 
-{{% alert color="warning" %}}
+{{% alert color="warning" title="Advertencia" %}}
 Las licencias nuevas pueden activar Aspose.Slides sólo a partir de la versión 21.4 o posterior. Las versiones anteriores usan un sistema de licenciamiento diferente y no reconocerán estas licencias.
 {{% /alert %}}
 
@@ -83,43 +87,45 @@ Las licencias nuevas pueden activar Aspose.Slides sólo a partir de la versión 
 Este fragmento de código se usa para establecer un archivo de licencia:
 
 **PHP**
+
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/es/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
 $license = new License();
-$license->setLicense("Aspose.Slides.lic");
-?>
+$license->setLicense(__DIR__ . "/Aspose.Slides.lic");
 ```
 
-
-Al llamar al método setLicense, el nombre de la licencia debe coincidir con el de su archivo de licencia. Por ejemplo, puede cambiar el nombre del archivo de licencia a "Aspose.Slides.lic.xml". Luego, en su código, debe pasar el nuevo nombre de licencia (Aspose.Slides.lic.xml) al método setLicense.
+El ejemplo supone que el archivo de licencia está junto al script y pasa su ruta absoluta: Aspose.Slides se ejecuta dentro de Tomcat, por lo que no resuelve una ruta relativa respecto a la carpeta de tu script. Al llamar al método setLicense, el nombre de la licencia debe ser idéntico al de tu archivo de licencia. Por ejemplo, puedes cambiar el nombre del archivo de licencia a "Aspose.Slides.lic.xml". Entonces, en tu código, deberás pasar el nuevo nombre de licencia (Aspose.Slides.lic.xml) al método setLicense.
 
 #### **Aplicar una licencia desde un flujo**
 
 Este fragmento de código se usa para aplicar una licencia desde un flujo:
+
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/es/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
+$stream = new Java("java.io.FileInputStream", __DIR__ . "/Aspose.Slides.lic");
+
 $license = new License();
 $license->setLicense($stream);
-?>
-```
 
+$stream->close();
+```
 
 ## **Preguntas frecuentes**
 
-**¿Puedo aplicar la licencia en un entorno totalmente offline (sin acceso a internet)?**
+### ¿Puedo aplicar la licencia en un entorno completamente offline (sin acceso a internet)?
 
-Sí. La validación de la licencia se realiza localmente usando el archivo de licencia; no se necesita conexión a internet.
+Sí. La validación de la licencia se realiza localmente usando el archivo de licencia; no se requiere conexión a internet.
 
-**¿Qué ocurre después de que expira la suscripción de un año? ¿La biblioteca deja de funcionar?**
+### ¿Qué ocurre cuando expira la suscripción de un año? ¿Dejará de funcionar la biblioteca?
 
-No. La licencia es perpetua: puede seguir usando versiones publicadas antes de la fecha de finalización de su suscripción; simplemente no podrá usar versiones más recientes sin renovar.
+No. La licencia es perpetua: puedes seguir usando las versiones publicadas antes de la fecha de finalización de tu suscripción; simplemente no podrás usar versiones más recientes sin renovar.

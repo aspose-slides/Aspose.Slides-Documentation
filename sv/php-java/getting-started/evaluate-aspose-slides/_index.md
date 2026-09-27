@@ -8,45 +8,40 @@ keywords:
 - Aspose.Slides-utvärdering
 - utvärderingsversion
 - full funktionalitet
-- utvärderingsvattenmärke
-- köp Aspose.Slides
+- utvärderingsvattenstämpel
+- köpa Aspose.Slides
 - begränsning
 - PowerPoint
 - OpenDocument
 - presentation
 - PHP
 - Aspose.Slides
-description: "Utvärdera Aspose.Slides för PHP via Java och utforska API-funktioner för PowerPoint (PPT, PPTX) och OpenDocument (ODP) presentationer - starta din gratis provperiod."
+description: "Utvärdera Aspose.Slides för PHP via Java och utforska API-funktioner för PowerPoint (PPT, PPTX) och OpenDocument (ODP) presentationer—starta din gratis provperiod."
 ---
 ## **Aspose.Slides-utvärdering**
 
-Du kan enkelt ladda ner Aspose.Slides för utvärdering. Utvärderingspaketet är samma som det köpta paketet. Utvärderingsversionen blir enkelt licensierad efter att du lagt till några rader kod för att tillämpa licensen. 
+Du kan ladda ner Aspose.Slides för utvärdering. Utvärderingspaketet är detsamma som det köpta paketet; det blir licensierat efter att du har lagt till några rader kod för att tillämpa licensen. Se [Installation](/slides/sv/php-java/installation/) för att installera det och [Licensing](/slides/sv/php-java/licensing/) för att tillämpa en licens.
 
-Utvärderingsversionen av Aspose.Slides (utan en specificerad licens) ger full produktfunktionalitet, men den sätter in ett utvärderingsvattenmärke högst upp i dokumentet vid öppning och sparning. Du är också begränsad till en bild när du extraherar texter från presentationsbilder.
+Utan en licens erbjuder Aspose.Slides full funktionalitet i utvärderingsläge, med två begränsningar: det lägger till en vattenstämpel för utvärdering i mitten av varje bild i varje presentation som den sparar, och text som din kod läser från en presentation trunkeras till de första tecknen, följt av ett meddelande om utvärderingsbegränsningen. Text som din kod skriver sparas i sin helhet.
 
-
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Om du vill testa Aspose.Slides utan begränsningar i utvärderingsversionen kan du begära en **30 dagars tillfällig licens**. Se gärna [Hur får man en tillfällig licens?](https://purchase.aspose.com/temporary-license) för mer information.
-
+{{% alert color="info" title="Note" %}}
+Om du vill testa Aspose.Slides utan begränsningar i utvärderingsversionen kan du begära en **30‑dagars tillfällig licens**. Se gärna [Hur får jag en tillfällig licens?](https://purchase.aspose.com/temporary-license) för mer information.
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag testa flera presentationer parallellt över olika trådar i utvärderingsläge?**
+### Kan jag testa flera presentationer parallellt över olika trådar i utvärderingsläge?
 
-Ja. Du kan behandla olika dokument parallellt; du bör inte dela samma presentationsobjekt [över trådar](/slides/sv/php-java/multithreading/). Utvärderingsläge påverkar inte detta.
+Ja. Du kan bearbeta olika dokument parallellt; du bör inte dela samma presentationsobjekt [över trådar](/slides/sv/php-java/multithreading/). Utvärderingsläget påverkar inte detta.
 
-**Behöver jag installera Microsoft PowerPoint för att utvärdera biblioteket på en server eller i CI?**
+### Behöver jag installera Microsoft PowerPoint för att utvärdera biblioteket på en server eller i CI?
 
-Nej. Aspose.Slides är en fristående motor och kräver inte att PowerPoint är installerat, varken för utvärdering eller produktion.
+Nej. Aspose.Slides är en fristående motor och kräver inte att PowerPoint är installerat vare sig för utvärdering eller produktion.
 
-**Kan jag fullständigt testa konvertering av PPT/PPTX till PDF och bilder i utvärderingsläge?**
+### Kan jag fullt ut testa konvertering av PPT/PPTX till PDF och bilder i utvärderingsläge?
 
-Ja. [Konverterarna](/slides/sv/php-java/convert-presentation/) fungerar; resultatet kommer att innehålla ett vattenmärke.
+Ja. [konverterare](/slides/sv/php-java/convert-presentation/) fungerar; resultatet kommer att innehålla en vattenstämpel.
 
-**Kan jag använda en tillfällig licens för belastningstest utan vattenmärke?**
+### Kan jag använda en tillfällig licens för belastningstestning utan vattenstämpel?
 
-Ja. En 30‑dagars tillfällig licens tar bort begränsningarna i utvärderingsläge och möjliggör testning utan vattenmärke.
+Ja. En 30‑dagars tillfällig licens tar bort begränsningarna i utvärderingsläget och möjliggör testning utan vattenstämpel.

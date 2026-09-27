@@ -1,51 +1,119 @@
 ---
-title: Aspose.Slides for PHP via Java
-second_title: Aspose.Slides for PHP
+title: Aspose.Slides cho PHP qua Java
+second_title: Aspose.Slides cho PHP
 type: docs
 weight: 45
 url: /vi/php-java/
 keywords:
 - tài liệu
-- xử lý bản trình bày
-- chuyển đổi bản trình bày
+- xử lý bản thuyết trình
+- chuyển đổi bản thuyết trình
 - PowerPoint
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides là API quản lý Microsoft PowerPoint® cho phép các ứng dụng PHP đọc và ghi tài liệu PowerPoint® mà không cần sử dụng Microsoft PowerPoint®."
+description: "Bắt đầu tại đây: cài đặt Aspose.Slides cho PHP qua Java, tạo một bản thuyết trình đầu tiên, và tìm các hướng dẫn cho các nhiệm vụ phổ biến, tham chiếu API và hỗ trợ."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides cho PHP qua Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Welcome to Aspose.Slides for PHP via Java**
+Aspose.Slides for PHP via Java là một thư viện lớp cho phép tạo, đọc, chỉnh sửa và chuyển đổi các bản thuyết trình PowerPoint và OpenDocument trong các ứng dụng PHP, mà không cần Microsoft PowerPoint hoặc Office Automation.
 
-![Aspose.Slides for PHP via Java Product Logo](aspose_slides-for-php-via-java.png)
+Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP, bao gồm các biến thể có macro và mẫu, và xuất ra PDF, XPS, HTML, SVG, TIFF, Markdown và hình ảnh.
 
-Aspose.Slides for PHP via Java là một thư viện lớp cho phép các ứng dụng của bạn đọc và ghi tài liệu PowerPoint® mà không cần sử dụng Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Aspose.Slides for PHP via Java là thành phần đầu tiên và duy nhất cung cấp chức năng quản lý tài liệu PowerPoint®.
+------
 
-Aspose.Slides for PHP via Java cung cấp nhiều tính năng chính như quản lý văn bản, hình dạng, bảng và hoạt cảnh, thêm âm thanh và video vào slide, xem trước slide, xuất slide sang định dạng SVG, PDF và nhiều hơn nữa.
+<div class="row">
+<div class="col-md-4">
+<p><b>Bắt đầu</b></p>
+<hr>
+<p>BẮT ĐẦU</p>
+<ul>
+<li><a href="/slides/vi/php-java/installation/">Cài đặt</a></li>
+<li><a href="/slides/vi/php-java/create-presentation/">Tạo bài thuyết trình đầu tiên của bạn</a></li>
+<li><a href="/slides/vi/php-java/getting-started/">Hướng dẫn bắt đầu</a></li>
+</ul>
+<p>ĐÁNH GIÁ</p>
+<ul>
+<li><a href="/slides/vi/php-java/supported-file-formats/">Định dạng tệp hỗ trợ</a></li>
+<li><a href="/slides/vi/php-java/evaluate-aspose-slides/">Giới hạn dùng thử</a></li>
+<li><a href="/slides/vi/php-java/licensing/">Cấp phép</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Xây dựng với Slides</b></p>
+<hr>
+<p>CÁC NHIỆM VỤ THÔNG THƯỜNG</p>
+<ul>
+<li><a href="/slides/vi/php-java/open-presentation/">Mở một bài thuyết trình</a></li>
+<li><a href="/slides/vi/php-java/save-presentation/">Lưu một bài thuyết trình</a></li>
+<li><a href="/slides/vi/php-java/convert-powerpoint-to-pdf/">Chuyển đổi sang PDF</a></li>
+<li><a href="/slides/vi/php-java/convert-slide/">Kết xuất các slide dưới dạng hình ảnh</a></li>
+<li><a href="/slides/vi/php-java/manage-text/">Chỉnh sửa văn bản và hình dạng</a></li>
+</ul>
+<p>QUÀN TRÌNH SLIDES</p>
+<ul>
+<li><a href="/slides/vi/php-java/powerpoint-charts/">Biểu đồ</a></li>
+<li><a href="/slides/vi/php-java/powerpoint-animation/">Hoạt ảnh</a></li>
+<li><a href="/slides/vi/php-java/manage-media-files/">Âm thanh và video</a></li>
+<li><a href="/slides/vi/php-java/presentation-design/">Thiết kế slide</a></li>
+<li><a href="/slides/vi/php-java/merge-presentation/">Hợp nhất các bài thuyết trình</a></li>
+</ul>
+<p>VÍ DỤ</p>
+<ul>
+<li><a href="/slides/vi/php-java/examples/">Ví dụ theo yếu tố slide</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Tham khảo &amp; Hỗ trợ</b></p>
+<hr>
+<p>THAM KHẢO</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/vi/php-java/">Tham chiếu API</a></li>
+<li><a href="https://releases.aspose.com/slides/vi/php-java/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="/slides/vi/php-java/known-issues/">Các vấn đề đã biết</a></li>
+<li><a href="https://releases.aspose.com/slides/vi/php-java/">Tải xuống</a></li>
+</ul>
+<p>HỖ TRỢ</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://helpdesk.aspose.com/">Trợ giúp hỗ trợ trả phí</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Tài nguyên Aspose.Slides for PHP via Java
+## **Bài thuyết trình đầu tiên của bạn**
 
-{{% alert color="primary" %}}
+Aspose.Slides for PHP via Java chạy trên Java trong Apache Tomcat, và các script PHP của bạn tiếp cận nó qua PHP/Java Bridge. [Cài đặt](/slides/vi/php-java/installation/) thiết lập PHP 8.3 hoặc phiên bản trước, Java, Tomcat và bridge, sau đó cài đặt gói từ Packagist vào thư mục dự án:
 
-Aspose.Slides for PHP via Java được chuyển đổi từ Aspose.Slides for Java, vì vậy bạn có thể sử dụng tài liệu và tham chiếu API của nó.
+```bash
+composer require aspose/slides
+```
 
-{{% /alert %}}
+Sau đó sao chép tệp JAR của gói vào bridge và khởi động lại Tomcat, như trong bước 4 của [Cài đặt trên Linux](/slides/vi/php-java/installation/#install-on-linux) hoặc bước 6 của [Cài đặt trên Windows](/slides/vi/php-java/installation/#install-on-windows). Khi Tomcat đang chạy, lưu script này dưới tên *hello.php* trong thư mục dự án và chạy `php hello.php`:
 
-Đây là các liên kết tới các tài nguyên hữu ích:
+```php
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once(__DIR__ . "/vendor/aspose/slides/vi/lib/aspose.slides.php");
 
-- [Tài liệu trực tuyến Aspose.Slides for PHP via Java](/slides/vi/php-java/)
-- [Các tính năng Aspose.Slides for PHP via Java](/slides/vi/php-java/features-overview/)
-- [Hạn chế và sự khác biệt API của Aspose.Slides for PHP via Java](/slides/vi/php-java/limitations-and-api-differences/)
-- [Ghi chú phát hành Aspose.Slides for PHP via Java](https://releases.aspose.com/slides/vi/php-java/release-notes/)
-- [Trang sản phẩm Aspose.Slides for PHP via Java](https://products.aspose.com/slides/vi/php-java/)
-- [Tải xuống gói Aspose.Slides for PHP via Java](https://releases.aspose.com/slides/vi/php-java/)
-- [Cài đặt Aspose.Slides for PHP via Java](/slides/vi/php-java/installation/)
-- [Tham chiếu API Aspose.Slides for PHP via Java](https://reference.aspose.com/slides/vi/php-java/)
-- [Diễn đàn hỗ trợ miễn phí Aspose.Slides for PHP via Java](https://forum.aspose.com/c/slides/vi/11)
-- [Trung tâm hỗ trợ trả phí Aspose.Slides for PHP via Java](https://helpdesk.aspose.com/)
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    $shape->getTextFrame()->setText("Hello, Aspose.Slides!");
+    $presentation->save(__DIR__ . "/hello.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Script sẽ lưu *hello.pptx* cạnh chính nó, với một slide chứa hộp văn bản. Nếu không có giấy phép, tệp đã lưu sẽ có watermark đánh giá — xem [Cấp phép](/slides/vi/php-java/licensing/). Để biết thêm cách tạo và điền nội dung cho một bài thuyết trình, xem [Tạo bài thuyết trình](/slides/vi/php-java/create-presentation/).

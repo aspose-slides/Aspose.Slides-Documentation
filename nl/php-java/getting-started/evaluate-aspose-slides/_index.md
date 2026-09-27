@@ -9,44 +9,39 @@ keywords:
 - evaluatieversie
 - volledige functionaliteit
 - evaluatiewatermerk
-- Aspose.Slides aanschaffen
+- aankoop Aspose.Slides
 - beperking
 - PowerPoint
 - OpenDocument
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Evalueer Aspose.Slides voor PHP via Java en verken de API-functies voor PowerPoint (PPT, PPTX) en OpenDocument (ODP) presentaties — start uw gratis proefversie."
+description: "Evalueer Aspose.Slides voor PHP via Java en ontdek API-functies voor PowerPoint (PPT, PPTX) en OpenDocument (ODP) presentaties - start uw gratis proefversie."
 ---
-## **Aspose.Slides Evaluation**
+## **Aspose.Slides Evaluatie**
 
-U kunt eenvoudig Aspose.Slides downloaden voor evaluatie. Het evaluatie-pakket is identiek aan het gekochte pakket. De evaluatie-versie wordt simpelweg gelicentieerd nadat u een paar regels code toevoegt om de licentie toe te passen. 
+U kunt Aspose.Slides downloaden voor evaluatie. Het evaluatiepakket is hetzelfde als het aangekochte pakket; het wordt gelicentieerd nadat u een paar regels code hebt toegevoegd om de licentie toe te passen. Zie [Installatie](/slides/nl/php-java/installation/) om het in te stellen en [Licentie](/slides/nl/php-java/licensing/) om een licentie toe te passen.
 
-De evaluatie-versie van Aspose.Slides (zonder opgegeven licentie) biedt volledige productfunctionaliteit, maar voegt een evaluatiewatermerk toe aan de bovenkant van het document bij openen en opslaan. U bent bovendien beperkt tot één dia bij het extraheren van tekst uit presentatiedia's.
+Zonder licentie biedt Aspose.Slides zijn volledige functionaliteit in evaluatiemodus, met twee beperkingen: het voegt een evaluatiewatermerk‑tekstvak toe in het midden van elke dia van elke presentatie die het opslaat, en tekst die uw code uit een presentatie leest, wordt afgekapt tot de eerste paar tekens, gevolgd door een bericht over de evaluatiebeperking. Tekst die uw code schrijft, wordt volledig opgeslagen.
 
-
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Als u Aspose.Slides wilt testen zonder de beperkingen van de evaluatie-versie, kunt u een **30-daagse tijdelijke licentie** aanvragen. Zie voor meer informatie [Hoe verkrijg ik een tijdelijke licentie?](https://purchase.aspose.com/temporary-license).
-
+{{% alert color="info" title="Note" %}}
+Als u Aspose.Slides wilt testen zonder de beperkingen van de evaluatieversie, kunt u een **30 Day Temporary License** aanvragen. Raadpleeg [Hoe verkrijgt u een tijdelijke licentie?](https://purchase.aspose.com/temporary-license) voor meer informatie.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan ik meerdere presentaties tegelijk in verschillende threads testen in de evaluatiemodus?**
+### Kan ik meerdere presentaties parallel testen over verschillende threads in evaluatiemodus?
 
-Ja. U kunt verschillende documenten parallel verwerken; u dient hetzelfde presentatiedocument niet te delen [across threads](/slides/nl/php-java/multithreading/). De evaluatiemodus heeft hier geen invloed op.
+Ja. U kunt verschillende documenten parallel verwerken; u mag hetzelfde presentaties‑object niet delen [across threads](/slides/nl/php-java/multithreading/). De evaluatiemodus beïnvloedt dit niet.
 
-**Moet ik Microsoft PowerPoint installeren om de bibliotheek te evalueren op een server of in CI?**
+### Moet ik Microsoft PowerPoint installeren om de bibliotheek op een server of in CI te evalueren?
 
-Nee. Aspose.Slides is een zelfstandige engine en vereist geen geinstalleerde PowerPoint, zowel voor evaluatie als productie.
+Nee. Aspose.Slides is een zelfstandige engine en vereist geen geïnstalleerde PowerPoint, zowel voor evaluatie als voor productie.
 
-**Kan ik de conversie van PPT/PPTX naar PDF en afbeeldingen volledig testen in de evaluatiemodus?**
+### Kan ik de conversie van PPT/PPTX naar PDF en afbeeldingen volledig testen in evaluatiemodus?
 
-Ja. De [converters](/slides/nl/php-java/convert-presentation/) werken; de uitvoer bevat een watermerk.
+Ja. De [converters](/slides/nl/php-java/convert-presentation/) werken; de output bevat een watermerk.
 
-**Kan ik een tijdelijke licentie gebruiken voor load-testing zonder een watermerk?**
+### Kan ik een tijdelijke licentie gebruiken voor load‑testing zonder watermerk?
 
-Ja. Een 30-daagse tijdelijke licentie verwijdert de beperkingen van de evaluatiemodus en maakt testen zonder watermerk mogelijk.
+Ja. Een 30‑daagse tijdelijke licentie verwijdert de beperkingen van de evaluatiemodus en maakt testen zonder watermerk mogelijk.

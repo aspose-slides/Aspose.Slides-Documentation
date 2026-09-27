@@ -6,7 +6,7 @@ url: /id/php-java/licensing/
 keywords:
 - lisensi
 - lisensi sementara
-- menetapkan lisensi
+- atur lisensi
 - gunakan lisensi
 - validasi lisensi
 - file lisensi
@@ -16,111 +16,114 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Terapkan, kelola, dan selesaikan masalah lisensi di Aspose.Slides untuk PHP via Java. Pastikan akses tanpa gangguan ke semua fitur dengan panduan lisensi langkah demi langkah kami."
+description: "Menerapkan, mengelola, dan memecahkan masalah lisensi di Aspose.Slides untuk PHP via Java. Pastikan akses tanpa gangguan ke semua fitur dengan panduan lisensi langkah demi langkah kami."
 ---
 ## **Pendahuluan**
 
-Kadang-kadang, untuk hasil evaluasi terbaik, pendekatan langsung mungkin diperlukan. Untuk alasan ini, Aspose.Slides menyediakan berbagai rencana pembelian dan juga menawarkan Uji Coba Gratis serta Lisensi Sementara selama 30 hari untuk evaluasi.
+Kadang-kadang, untuk hasil evaluasi terbaik, pendekatan langsung mungkin diperlukan. Untuk alasan ini, Aspose.Slides menyediakan berbagai paket pembelian dan juga menawarkan Uji Coba Gratis serta Lisensi Sementara 30 hari untuk evaluasi.
 
-{{% alert color="primary" %}}
-Perhatikan bahwa ada sejumlah kebijakan dan praktik umum yang memandu Anda tentang cara mengevaluasi, melisensikan dengan tepat, dan membeli produk kami. Anda dapat menemukannya di bagian [Kebijakan Pembelian dan FAQ](https://purchase.aspose.com/policies).
+{{% alert color="info" title="Note" %}}
+Perlu dicatat bahwa ada sejumlah kebijakan dan praktik umum yang membimbing Anda tentang cara mengevaluasi, melisensikan dengan benar, dan membeli produk kami. Anda dapat menemukan mereka di bagian ["Kebijakan Pembelian dan FAQ"](https://purchase.aspose.com/policies).
 {{% /alert %}}
 
 ## **Evaluasi Aspose.Slides**
-Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi secara otomatis menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
+Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi akan menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi. 
 
 ## **Batasan Versi Evaluasi**
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan semua fungsi produk, tetapi menyisipkan watermark evaluasi di bagian atas dokumen saat dibuka dan disimpan. Anda juga dibatasi hanya satu slide ketika mengekstrak teks dari slide presentasi.
+Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan fungsi penuh produk, dengan dua batasan:
 
-{{% alert color="primary" %}} 
+* Menambahkan kotak teks watermark evaluasi di tengah setiap slide dari setiap presentasi yang disimpannya.
+* Teks yang dibaca kode Anda dari presentasi dipotong sampai beberapa karakter pertama, diikuti dengan pemberitahuan tentang batasan evaluasi. Teks yang ditulis kode Anda disimpan secara lengkap.
+
+{{% alert color="info" title="Note" %}}
 Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat meminta **Lisensi Sementara 30 Hari**. Silakan lihat [Cara mendapatkan Lisensi Sementara?](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
 {{% /alert %}} 
 
 ## **Tentang Lisensi**
-Anda dapat dengan mudah mengunduh versi evaluasi Aspose.Slides untuk PHP via Java dari [halaman unduhan](https://packagist.org/packages/aspose/slides). Versi evaluasi memberikan **kemampuan yang sama persis** dengan versi berlisensi Aspose.Slides. Selanjutnya, versi evaluasi secara otomatis menjadi berlisensi setelah Anda membeli lisensi dan menambahkan beberapa baris kode untuk menerapkan lisensi.
+Anda dapat dengan mudah mengunduh versi evaluasi Aspose.Slides untuk PHP via Java dari [halaman unduhan](https://packagist.org/packages/aspose/slides). Versi evaluasi memberikan **kemampuan yang sama persis** dengan versi berlisensi Aspose.Slides. Lebih lanjut, versi evaluasi akan menjadi berlisensi setelah Anda membeli lisensi dan menambahkan beberapa baris kode untuk menerapkan lisensi.
 
-Lisensi adalah file XML teks biasa yang berisi detail seperti nama produk, jumlah pengembang yang dilisensikan, tanggal kedaluwarsa langganan, dan sebagainya. File tersebut ditandatangani secara digital, jadi jangan memodifikasi file. Bahkan penambahan baris baru secara tidak sengaja pada isi file akan membuatnya tidak valid.
+Lisensi adalah file XML teks biasa yang berisi detail seperti nama produk, jumlah pengembang yang memiliki lisensi, tanggal kedaluwarsa langganan, dan sebagainya. File ini ditandatangani secara digital, jadi jangan memodifikasi file tersebut. Bahkan penambahan baris kosong secara tidak sengaja pada isi file akan membuatnya tidak valid.
 
-Untuk menghindari batasan yang terkait dengan versi evaluasi, Anda harus menetapkan lisensi sebelum menggunakan **Aspose.Slides**. Anda hanya perlu menetapkan lisensi sekali per aplikasi atau proses.
+Untuk menghindari batasan yang terkait dengan versi evaluasi, Anda perlu menyetel lisensi sebelum menggunakan **Aspose.Slides**. Anda hanya perlu menyetel lisensi satu kali per aplikasi atau proses.
 
-{{% alert color="primary" %}} 
-Anda mungkin ingin melihat [Lisensi Berdasarkan Meter](https://docs.aspose.com/slides/id/php-java/metered-licensing/).
+{{% alert color="info" title="Note" %}}
+Anda mungkin ingin melihat [Metered Licensing](/slides/id/php-java/metered-licensing/).
 {{% /alert %}} 
 
 ## **Lisensi yang Dibeli**
 
-Setelah pembelian, Anda perlu menerapkan file atau aliran lisensi. 
+Setelah pembelian, Anda perlu menerapkan file atau stream lisensi. 
 
-{{% alert color="primary" %}}
-Anda harus menetapkan lisensi:
+{{% alert color="info" title="Note" %}}
+Anda perlu menyetel lisensi:
 * hanya sekali per domain aplikasi
 * sebelum menggunakan kelas Aspose.Slides lainnya
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Anda dapat menemukan informasi harga pada halaman [Informasi Harga](https://purchase.aspose.com/pricing/slides/id/family).
+{{% alert color="info" title="Note" %}}
+Anda dapat menemukan informasi harga pada halaman [“Informasi Harga”](https://purchase.aspose.com/pricing/slides/id/family).
 {{% /alert %}}
 
-### **Menetapkan Lisensi di Aspose.Slides untuk PHP via Java**
+### **Menyetel Lisensi di Aspose.Slides untuk PHP via Java**
 
 Lisensi dapat diterapkan dari lokasi berikut:
 
 * Jalur eksplisit
-* Aliran
-* Sebagai Lisensi Berdasarkan Meter – mekanisme lisensi baru
+* Stream
+* Sebagai Metered License – mekanisme lisensi baru
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 Gunakan metode **setLicense** untuk melisensikan sebuah komponen.
 
-Meskipun beberapa pemanggilan **setLicense** tidak berbahaya, hal itu membuang sumber daya (prosesor).
+Meskipun memanggil **setLicense** berkali‑kali tidak berbahaya, hal itu membuang sumber daya (prosesor).
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-Lisensi baru hanya dapat mengaktifkan Aspose.Slides pada versi 21.4 atau yang lebih baru. Versi sebelumnya menggunakan sistem lisensi yang berbeda dan tidak akan mengenali lisensi ini.
+{{% alert color="warning" title="Warning" %}}
+Lisensi baru hanya dapat mengaktifkan Aspose.Slides dengan versi 21.4 atau yang lebih baru. Versi sebelumnya menggunakan sistem lisensi yang berbeda dan tidak akan mengenali lisensi ini.
 {{% /alert %}}
 
-#### **Terapkan Lisensi Menggunakan File**
+#### **Menerapkan Lisensi Menggunakan File**
 
-Potongan kode ini digunakan untuk menetapkan file lisensi:
+Potongan kode ini digunakan untuk menyetel file lisensi:
 
 **PHP**
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/id/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
 $license = new License();
-$license->setLicense("Aspose.Slides.lic");
-?>
+$license->setLicense(__DIR__ . "/Aspose.Slides.lic");
 ```
 
-Saat memanggil metode setLicense, nama lisensi harus sama dengan nama file lisensi Anda. Misalnya, Anda dapat mengubah nama file lisensi menjadi "Aspose.Slides.lic.xml". Kemudian, dalam kode Anda, harus meneruskan nama lisensi baru (Aspose.Slides.lic.xml) ke metode setLicense.
+Contoh ini mengharapkan file lisensi berada di samping skrip dan menggunakan jalur absolutnya: Aspose.Slides berjalan di dalam Tomcat, sehingga tidak memecahkan jalur relatif terhadap folder skrip Anda. Saat memanggil metode setLicense, nama lisensi harus sama dengan nama file lisensi Anda. Misalnya, Anda dapat mengubah nama file lisensi menjadi "Aspose.Slides.lic.xml". Kemudian, dalam kode Anda, Anda harus melewatkan nama lisensi baru (Aspose.Slides.lic.xml) ke metode setLicense.
 
-#### **Terapkan Lisensi dari Aliran**
+#### **Menerapkan Lisensi dari Stream**
 
-Potongan kode ini digunakan untuk menerapkan lisensi dari aliran:
+Potongan kode ini digunakan untuk menerapkan lisensi dari stream:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/id/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
+$stream = new Java("java.io.FileInputStream", __DIR__ . "/Aspose.Slides.lic");
+
 $license = new License();
 $license->setLicense($stream);
-?>
+
+$stream->close();
 ```
 
 ## **FAQ**
 
-**Apakah saya dapat menerapkan lisensi di lingkungan yang sepenuhnya offline (tanpa akses internet)?**
+### Bisakah saya menerapkan lisensi di lingkungan offline sepenuhnya (tanpa akses internet)?
+Ya. Validasi lisensi dilakukan secara lokal menggunakan file lisensi; tidak diperlukan koneksi internet.
 
-Ya. Validasi lisensi dilakukan secara lokal menggunakan file lisensi; tidak memerlukan koneksi internet.
-
-**Apa yang terjadi setelah langganan satu tahun berakhir? Apakah perpustakaan akan berhenti berfungsi?**
-
-Tidak. Lisensi bersifat seumur hidup: Anda dapat terus menggunakan versi yang dirilis sebelum tanggal berakhirnya langganan Anda; Anda hanya tidak akan dapat menggunakan rilis terbaru tanpa memperbarui langganan.
+### Apa yang terjadi setelah langganan satu tahun berakhir? Apakah perpustakaan akan berhenti berfungsi?
+Tidak. Lisensi bersifat permanen: Anda dapat terus menggunakan versi yang dirilis sebelum tanggal berakhirnya langganan Anda; Anda hanya tidak akan dapat menggunakan rilis yang lebih baru tanpa memperbarui.

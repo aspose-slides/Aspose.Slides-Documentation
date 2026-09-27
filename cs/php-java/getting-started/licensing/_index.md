@@ -9,132 +9,121 @@ keywords:
 - nastavit licenci
 - použít licenci
 - ověřit licenci
-- licenční soubor
+- soubor licence
 - verze pro hodnocení
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Používejte, spravujte a řešte problémy s licencemi v Aspose.Slides pro PHP přes Java. Zajistěte nepřerušený přístup k plným funkcím pomocí našeho podrobného průvodce licencováním."
+description: "Aplikujte, spravujte a řešte problémy s licencemi v Aspose.Slides pro PHP přes Java. Zajistěte nepřerušený přístup k plným funkcím pomocí našeho krok za krokem průvodce licencováním."
 ---
 ## **Úvod**
 
-Někdy je pro dosažení nejlepších výsledků z hodnocení potřeba praktický přístup. Z tohoto důvodu Aspose.Slides poskytuje různé nákupní plány a také nabízí Bezplatnou zkušební verzi a 30denní dočasnou licenci pro hodnocení.
+Někdy je pro dosažení nejlepších výsledků hodnocení potřeba praktický přístup. Z tohoto důvodu Aspose.Slides poskytuje různé nákupní plány a také nabízí bezplatnou zkušební verzi a 30‑denní dočasnou licenci pro hodnocení.
 
-{{% alert color="primary" %}}
-
-Všimněte si, že existuje řada obecných zásad a postupů, které vás provádějí, jak hodnotit, řádně licencovat a nakupovat naše produkty. Najdete je v sekci ["Zásady nákupu a FAQ"](https://purchase.aspose.com/policies).
-
+{{% alert color="info" title="Note" %}}
+Všimněte si, že existuje řada obecných zásad a postupů, které vás vedou, jak hodnotit, řádně licencovat a nakupovat naše produkty. Najdete je v sekci ["Zásady nákupu a časté dotazy"](https://purchase.aspose.com/policies).
 {{% /alert %}}
 
-## **Vyhodnoťte Aspose.Slides**
-Aspose.Slides můžete snadno stáhnout pro hodnocení. Hodnotící balíček je stejný jako zakoupený balíček. Hodnotící verze se jednoduše licencuje poté, co přidáte několik řádků kódu pro použití licence. 
+## **Vyzkoušejte Aspose.Slides**
+Můžete snadno stáhnout Aspose.Slides pro hodnocení. Hodnotící balíček je stejný jako zakoupený balíček. Verze pro hodnocení se jednoduše stane licencovanou po přidání několika řádků kódu pro aplikaci licence.
 
-## **Omezení hodnotící verze**
-Hodnotící verze Aspose.Slides (bez určené licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení do dokumentu vkládá vodotisk pro hodnocení v horní části. Při extrahování textu z prezentačních snímků jste také omezeni na jeden snímek.
+## **Omezení verze pro hodnocení**
+Verze Aspose.Slides pro hodnocení (bez určené licence) poskytuje plnou funkčnost produktu, s dvěma omezeními:
 
-{{% alert color="primary" %}} 
+* Přidá textové pole s vodoznakem „evaluation“ do středu každého snímku každé prezentace, kterou uloží.
+* Text, který váš kód načítá z prezentace, je zkrácen na několik prvních znaků, následovaný upozorněním o omezení hodnocení. Text, který váš kód zapisuje, je uložen celý.
 
-Pokud chcete testovat Aspose.Slides bez omezení hodnotící verze, můžete požádat o **30denní dočasnou licenci**. Další informace naleznete v [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license).
-
+{{% alert color="info" title="Note" %}}
+Pokud chcete testovat Aspose.Slides bez omezení verze pro hodnocení, můžete požádat o **30 Day Temporary License**. Další informace najdete v [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license).
 {{% /alert %}} 
 
 ## **O licenci**
-Můžete snadno stáhnout hodnotící verzi Aspose.Slides pro PHP přes Java z její [stahovací stránky](https://packagist.org/packages/aspose/slides). Hodnotící verze poskytuje naprosto **stejné funkce** jako licencovaná verze Aspose.Slides. Navíc se hodnotící verze jednoduše licencuje po zakoupení licence a přidání několika řádků kódu pro aplikaci licence.
+Snadno můžete stáhnout verzi pro hodnocení Aspose.Slides pro PHP přes Java z její [stránky ke stažení](https://packagist.org/packages/aspose/slides). Verze pro hodnocení poskytuje naprosto **stejné funkce** jako licencovaná verze Aspose.Slides. Navíc se verze pro hodnocení jednoduše stane licencovanou po zakoupení licence a přidání několika řádků kódu pro aplikaci licence.
 
-Licence je běžný XML soubor, který obsahuje údaje jako název produktu, počet vývojářů, pro které je licence určena, datum vypršení předplatného a další. Soubor je digitálně podepsaný, proto jej neupravujte. I nevědomé přidání dalšího řádkového zlomu do obsahu souboru jej zneplatní.
+Licence je soubor XML v prostém textu, který obsahuje podrobnosti jako název produktu, počet vývojářů, pro které je licencována, datum vypršení předplatného a podobně. Soubor je digitálně podepsán, takže jej nechte beze změny. I neúmyslné přidání dalšího konce řádku do obsahu souboru jej zneplatní.
 
-Aby se předešlo omezením spojeným s hodnotící verzí, musíte nastavit licenci před použitím **Aspose.Slides**. Licenci je třeba nastavit pouze jednou pro aplikaci nebo proces.
+Abyste se vyhnuli omezením spojeným s verzí pro hodnocení, musíte nastavit licenci před použitím **Aspose.Slides**. Licence se nastavuje jen jednou na aplikaci nebo proces.
 
-{{% alert color="primary" %}} 
-
-Možná budete chtít zobrazit [Měřené licencování](https://docs.aspose.com/slides/cs/php-java/metered-licensing/).
-
+{{% alert color="info" title="Note" %}}
+Můžete si prohlédnout [Licencování na měření](/slides/cs/php-java/metered-licensing/).
 {{% /alert %}} 
 
 ## **Zakoupená licence**
 
-Po zakoupení je třeba aplikovat licenční soubor nebo stream. 
+Po zakoupení musíte aplikovat soubor licence nebo stream. 
 
-{{% alert color="primary" %}}
-
+{{% alert color="info" title="Note" %}}
 Musíte nastavit licenci:
-* pouze jednou na aplikační doménu
-* před použitím jakýchkoli jiných tříd Aspose.Slides
-
+* pouze jednou na doménu aplikace
+* před použitím jakýchkoli dalších tříd Aspose.Slides
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-
-Informace o cenách najdete na stránce [“Informace o cenách”](https://purchase.aspose.com/pricing/slides/cs/family).
-
+{{% alert color="info" title="Note" %}}
+Informace o cenách najdete na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/cs/family).
 {{% /alert %}}
 
-### **Nastavte licenci v Aspose.Slides pro PHP přes Java**
+### **Nastavení licence v Aspose.Slides pro PHP přes Java**
 
-Licence lze použít z následujících míst:
+Licence mohou být aplikovány z těchto zdrojů:
 
 * Explicitní cesta
-* Stream
-* Jako měřená licence – nový licenční mechanismus
+* Proud
+* Jako licencování na měření – nový licenční mechanismus
 
-{{% alert color="primary" %}}
-
+{{% alert color="info" title="Note" %}}
 Použijte metodu **setLicense** k licencování komponenty.
 
-I když více volání **setLicense** neškodí, jsou zbytečnou zátěží (procesor).
-
+Ačkoli více volání **setLicense** není škodlivých, jsou zbytečnou zátěží (procesor).
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-
-Nové licence mohou aktivovat Aspose.Slides pouze s verzí 21.4 nebo novější. Starší verze používají jiný licenční systém a tyto licence nepoznají.
-
+{{% alert color="warning" title="Warning" %}}
+Nové licence mohou aktivovat Aspose.Slides jen od verze 21.4 nebo novější. Starší verze používají jiný licenční systém a tyto licence nepoznají.
 {{% /alert %}}
 
-#### **Aplikujte licenci pomocí souboru**
+#### **Aplikace licence ze souboru**
 
-Tento úryvek kódu slouží k nastavení licenčního souboru:
+Tento úryvek kódu se používá k nastavení souboru licence:
 
 **PHP**
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/cs/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
 $license = new License();
-$license->setLicense("Aspose.Slides.lic");
-?>
+$license->setLicense(__DIR__ . "/Aspose.Slides.lic");
 ```
 
-Při volání metody setLicense by měl být název licence shodný s názvem vašeho licenčního souboru. Například můžete změnit název licenčního souboru na "Aspose.Slides.lic.xml". Poté ve svém kódu musíte předat nový název licence (Aspose.Slides.lic.xml) metodě setLicense.
+Ukázka očekává soubor licence vedle skriptu a předává jeho absolutní cestu: Aspose.Slides běží v Tomcatu, takže neřeší relativní cestu vůči složce vašeho skriptu. Při volání metody setLicense by měl mít název licence stejný jako název vašeho souboru licence. Například můžete změnit název souboru licence na "Aspose.Slides.lic.xml". Pak ve svém kódu musíte předat nový název licence (Aspose.Slides.lic.xml) metodě setLicense.
 
-#### **Aplikujte licenci ze streamu**
+#### **Aplikace licence z proudu**
 
-Tento úryvek kódu slouží k aplikaci licence ze streamu:
+Tento úryvek kódu se používá k aplikaci licence z proudu:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/cs/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
+$stream = new Java("java.io.FileInputStream", __DIR__ . "/Aspose.Slides.lic");
+
 $license = new License();
 $license->setLicense($stream);
-?>
+
+$stream->close();
 ```
 
 ## **Často kladené otázky**
 
-**Mohu licenci použít v úplně offline prostředí (bez přístupu k internetu)?**
+### Mohu aplikovat licenci v zcela offline prostředí (bez přístupu k internetu)?
+Ano. Ověření licence probíhá lokálně pomocí souboru licence; není vyžadováno internetové připojení.
 
-Ano. Ověření licence probíhá lokálně pomocí licenčního souboru; není vyžadováno internetové připojení.
-
-**Co se stane po vypršení ročního předplatného? Přestane knihovna fungovat?**
-
-Ne. Licence je trvalá: můžete nadále používat verze vydané před datem vypršení vašeho předplatného; prostě nebudete mít nárok na novější verze bez obnovení.
+### Co se stane po vypršení jednoletého předplatného? Přestane knihovna fungovat?
+Ne. Licence je trvalá: můžete nadále používat verze vydané před datem ukončení vašeho předplatného; pouze nebudete mít nárok na novější verze bez obnovení.

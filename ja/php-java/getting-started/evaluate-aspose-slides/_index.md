@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides を評価する
+title: Aspose.Slides の評価
 type: docs
 weight: 120
 url: /ja/php-java/evaluate-aspose-slides/
@@ -16,35 +16,32 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java を介して PHP 用の Aspose.Slides を評価し、PowerPoint（PPT、PPTX）および OpenDocument（ODP）プレゼンテーション向けの API 機能を探索してください—無料トライアルを開始しましょう。"
+description: "Java 経由で PHP 用 Aspose.Slides を評価し、PowerPoint (PPT, PPTX) および OpenDocument (ODP) プレゼンテーション向けの API 機能を体験してください—無料トライアルを開始しましょう。"
 ---
+## **Aspose.Slides の評価**
 
-## **Aspose.Slides 評価**
+評価用に Aspose.Slides をダウンロードできます。評価パッケージは購入パッケージと同一で、ライセンスを適用するコードを数行追加すればライセンスが有効になります。セットアップ方法は[Installation](/slides/ja/php-java/installation/)、ライセンス適用方法は[Licensing](/slides/ja/php-java/licensing/)をご覧ください。
 
-Aspose.Slides を簡単に評価用にダウンロードできます。評価パッケージは購入パッケージと同じです。評価バージョンは、ライセンスを適用するために数行のコードを追加すれば、単にライセンス適用された状態になります。
+ライセンスがない場合、Aspose.Slides は評価モードでフル機能を提供しますが、2 つの制限があります。保存する各プレゼンテーションのすべてのスライドの中央に評価用透かしテキストボックスが追加され、プレゼンテーションからコードで読み取るテキストは最初の数文字に切り詰められ、評価制限に関する通知が付加されます。コードで書き込むテキストは全文が保存されます。
 
-ライセンスが指定されていない Aspose.Slides の評価版は、製品の全機能を提供しますが、開くおよび保存時にドキュメントの上部に評価用透かしを挿入します。また、プレゼンテーション スライドからテキストを抽出する場合、スライドは1枚に制限されます。
-
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-評価版の制限なしで Aspose.Slides をテストしたい場合は、**30 日間の一時ライセンス**をリクエストできます。詳細については、[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license) を参照してください。
+{{% alert color="info" title="Note" %}}
+評価版の制限なしで Aspose.Slides をテストしたい場合は、**30 Day Temporary License**を取得できます。詳細については[How to get a Temporary License?](https://purchase.aspose.com/temporary-license)をご参照ください。
 {{% /alert %}}
 
 ## **FAQ**
 
-**評価モードで複数のプレゼンテーションを異なるスレッドで並行してテストできますか？**
+### 評価モードで複数のプレゼンテーションを異なるスレッドで並行してテストできますか？
 
-はい。異なるドキュメントを並行して処理できますが、同じプレゼンテーション オブジェクトを[スレッド間で](/slides/ja/php-java/multithreading/)共有しないでください。評価モードはこれに影響しません。
+はい。異なるドキュメントを並行して処理できますが、同じプレゼンテーションオブジェクトを[across threads](/slides/ja/php-java/multithreading/)しないでください。評価モードはこれに影響しません。
 
-**サーバーやCIでライブラリを評価するために Microsoft PowerPoint をインストールする必要がありますか？**
+### サーバーや CI でライブラリを評価するために Microsoft PowerPoint をインストールする必要がありますか？
 
-いいえ。Aspose.Slides は単独エンジンであり、評価でも本番でも PowerPoint のインストールは必要ありません。
+いいえ。Aspose.Slides はスタンドアロンエンジンであり、評価でも本番でも PowerPoint のインストールは不要です。
 
-**評価モードで PPT/PPTX を PDF や画像に変換するテストを完全に行えますか？**
+### 評価モードで PPT/PPTX を PDF や画像に変換するテストをフルに行えますか？
 
-はい。[コンバータ](/slides/ja/php-java/convert-presentation/)は機能します；出力には透かしが含まれます。
+はい。[converters](/slides/ja/php-java/convert-presentation/)は機能します。出力には透かしが含まれます。
 
-**ロードテストで透かしなしで一時ライセンスを使用できますか？**
+### ロードテストで透かしなしに一時ライセンスを使用できますか？
 
-はい。30 日間の一時ライセンスを使用すると、評価モードの制限が解除され、透かしなしでテストできます。
+はい。30-day temporary licenseを使用すれば、評価モードの制限が解除され、透かしなしでテストできます。
