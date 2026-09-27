@@ -77,14 +77,14 @@ description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Sl
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/el/python-java/">Αναφορά API</a></li>
-<li><a href="https://releases.aspose.com/slides/el/python-java/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">Αναφορά API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Σημειώσεις έκδοσης</a></li>
 <li><a href="/slides/el/python-java/known-issues/">Γνωστά προβλήματα</a></li>
-<li><a href="https://releases.aspose.com/slides/el/python-java/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Πληρωμένο helpdesk υποστήριξης</a></li>
 </ul>
 </div>

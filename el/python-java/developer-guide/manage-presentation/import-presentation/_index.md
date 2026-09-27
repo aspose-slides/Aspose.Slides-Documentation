@@ -26,9 +26,9 @@ description: "Μάθετε πώς να εισάγετε περιεχόμενο P
 ---
 ## **Εισαγωγή**
 
-Aspose.Slides for Python via Java μπορεί να μετατρέπει σελίδες PDF ή περιεχόμενο HTML σε διαφάνειες PowerPoint χωρίς το Microsoft PowerPoint. Η κλάση [SlideCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/) παρέχει τις μεθόδους [addFromPdf](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#addFromPdf) και [addFromHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#addFromHtml) για την προσθήκη εισαγόμενου περιεχομένου σε μια παρουσίαση.
+Aspose.Slides for Python via Java μπορεί να μετατρέπει σελίδες PDF ή περιεχόμενο HTML σε διαφάνειες PowerPoint χωρίς το Microsoft PowerPoint. Η κλάση [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) παρέχει τις μεθόδους [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) και [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) για την προσθήκη εισαγόμενου περιεχομένου σε μια παρουσίαση.
 
-Για μεγαλύτερο έλεγχο στην τοποθέτηση του HTML, το [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#insertFromHtml) μπορεί να εισάγει τις παραγόμενες διαφάνειες σε ένα δείκτη της συλλογής ή να αρχίσει να γεμίζει τον διαθέσιμο χώρο σε μια υπάρχουσα διαφάνεια. Το μακρύ HTML σελιδοποιείται αυτόματα σε πρόσθετες διαφάνειες, η πηγή μπορεί να παρασχεθεί ως συμβολοσειρά ή ροή, και εξωτερικά περιουσιακά στοιχεία μπορούν να φορτωθούν μέσω του [ExternalResourceResolver](https://reference.aspose.com/slides/el/python-java/aspose.slides/externalresourceresolver/) με μια βασική URI. Ο πίνακας [Slide](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/) που επιστρέφεται προσδιορίζει τις επηρεαζόμενες και τις νεοδημιουμένες διαφάνειες.
+Για μεγαλύτερο έλεγχο στην τοποθέτηση του HTML, το [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) μπορεί να εισάγει τις παραγόμενες διαφάνειες σε ένα δείκτη της συλλογής ή να αρχίσει να γεμίζει τον διαθέσιμο χώρο σε μια υπάρχουσα διαφάνεια. Το μακρύ HTML σελιδοποιείται αυτόματα σε πρόσθετες διαφάνειες, η πηγή μπορεί να παρασχεθεί ως συμβολοσειρά ή ροή, και εξωτερικά περιουσιακά στοιχεία μπορούν να φορτωθούν μέσω του [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) με μια βασική URI. Ο πίνακας [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) που επιστρέφεται προσδιορίζει τις επηρεαζόμενες και τις νεοδημιουμένες διαφάνειες.
 
 ## **Εισαγωγή από PDF**
 
@@ -36,9 +36,9 @@ Aspose.Slides for Python via Java μπορεί να μετατρέπει σελ�
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. Δημιουργήστε ένα νέο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-2. Καλέστε τη μέθοδο [addFromPdf](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#addFromPdf) με τη διαδρομή προς το αρχείο PDF.
-3. Καλέστε τη μέθοδο [save](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#save) με το [SaveFormat.Pptx](https://reference.aspose.com/slides/el/python-java/aspose.slides/saveformat/#Pptx) για να γράψετε την παρουσίαση σε αρχείο PPTX.
+1. Δημιουργήστε ένα νέο αντικείμενο [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Καλέστε τη μέθοδο [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) με τη διαδρομή προς το αρχείο PDF.
+3. Καλέστε τη μέθοδο [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) με το [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) για να γράψετε την παρουσίαση σε αρχείο PPTX.
 
 Το παρακάτω παράδειγμα Python εισάγει ένα έγγραφο PDF και αποθηκεύει τις παραγόμενες διαφάνειες ως παρουσίαση PowerPoint:
 
@@ -59,21 +59,21 @@ finally:
     presentation.dispose()
 ```
 
-Η προεπιλεγμένη κενή διαφάνεια παραμένει στην παρουσίαση επειδή η εισαγωγή προσθέτει διαφάνειες. Για να διατηρήσετε μόνο τις εισαγόμενες σελίδες, καθαρίστε τη συλλογή διαφανειών με το [SlideCollection.clear](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#clear) πριν την εισαγωγή.
+Η προεπιλεγμένη κενή διαφάνεια παραμένει στην παρουσίαση επειδή η εισαγωγή προσθέτει διαφάνειες. Για να διατηρήσετε μόνο τις εισαγόμενες σελίδες, καθαρίστε τη συλλογή διαφανειών με το [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) πριν την εισαγωγή.
 
-Η μέθοδος [addFromPdf](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#addFromPdf) επιστρέφει τις διαφάνειες που προσθέτει, κάτι που είναι χρήσιμο όταν χρειάζεται να επεξεργαστείτε μόνο τις εισαγόμενες διαφάνειες.
+Η μέθοδος [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) επιστρέφει τις διαφάνειες που προσθέτει, κάτι που είναι χρήσιμο όταν χρειάζεται να επεξεργαστείτε μόνο τις εισαγόμενες διαφάνειες.
 
 {{% alert title="Tip" color="success" %}}
-Δοκιμάστε τη δωρεάν εφαρμογή ιστού [PDF to PowerPoint](https://products.aspose.app/slides/el/import/pdf-to-powerpoint) για να δείτε αυτή τη ροή εργασίας μετατροπής σε δράση.
+Δοκιμάστε τη δωρεάν εφαρμογή ιστού [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) για να δείτε αυτή τη ροή εργασίας μετατροπής σε δράση.
 {{% /alert %}}
 
 ## **Εισαγωγή από HTML**
 
 Το Aspose.Slides μπορεί επίσης να δημιουργήσει διαφάνειες από ένα έγγραφο HTML. Η πηγή μπορεί να παρασχεθεί ως κείμενο HTML ή ως ροή. Τα παρακάτω βήματα χρησιμοποιούν ροή αρχείου:
 
-1. Δημιουργήστε ένα νέο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-2. Ανοίξτε το αρχείο HTML για ανάγνωση και περάστε τη ροή στη μέθοδο [addFromHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#addFromHtml).
-3. Καλέστε τη μέθοδο [save](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#save) με το [SaveFormat.Pptx](https://reference.aspose.com/slides/el/python-java/aspose.slides/saveformat/#Pptx) για να γράψετε το αποτέλεσμα σε αρχείο PPTX.
+1. Δημιουργήστε ένα νέο αντικείμενο [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Ανοίξτε το αρχείο HTML για ανάγνωση και περάστε τη ροή στη μέθοδο [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml).
+3. Καλέστε τη μέθοδο [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) με το [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) για να γράψετε το αποτέλεσμα σε αρχείο PPTX.
 
 Το παρακάτω παράδειγμα Python εισάγει ένα έγγραφο HTML και αποθηκεύει τις παραγόμενες διαφάνειες ως παρουσίαση PowerPoint:
 
@@ -101,14 +101,14 @@ finally:
 
 ## **Εισαγωγή περιεχομένου HTML**
 
-Χρησιμοποιήστε το [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#insertFromHtml) όταν οι διαφάνειες που παράγονται από HTML πρέπει να τοποθετηθούν σε συγκεκριμένη θέση αντί για προσθήκη στο τέλος. Ο δείκτης είναι μηδενικής βάσης και προσδιορίζει τη θέση από όπου ξεκινά η εισαγωγή.
+Χρησιμοποιήστε το [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) όταν οι διαφάνειες που παράγονται από HTML πρέπει να τοποθετηθούν σε συγκεκριμένη θέση αντί για προσθήκη στο τέλος. Ο δείκτης είναι μηδενικής βάσης και προσδιορίζει τη θέση από όπου ξεκινά η εισαγωγή.
 
 Το όρισμα `useSlideWithIndexAsStart` ελέγχει τον τρόπο με τον οποίο ο εισαγωγέας χρησιμοποιεί αυτή τη θέση:
 
 - Όταν είναι `False`, ο εισαγωγέας δημιουργεί νέες διαφάνειες στη συγκεκριμένη θέση και μετακινεί τις διαφάνειες που ακολουθούν.
 - Όταν είναι `True`, ο εισαγωγέας αρχίζει να τοποθετεί περιεχόμενο στον διαθέσιμο χώρο της υπάρχουσας διαφάνειας σε αυτή τη θέση. Αν το HTML δεν χωράει, το Aspose.Slides το σελιδοποιεί αυτόματα και εισάγει πρόσθετες διαφάνειες αμέσως μετά τη διαφάνεια έναρξης.
 
-Το [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#insertFromHtml) επιστρέφει έναν πίνακα αντικειμένων [Slide](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/). Όταν η εισαγωγή ξεκινά σε νέες διαφάνειες, κάθε στοιχείο που επιστρέφεται είναι νεοδημιουργούμενο. Όταν χρησιμοποιείται μια υπάρχουσα διαφάνεια ως αρχή, ο πίνακας περιλαμβάνει τηffected διαφάνεια και στη συνέχεια τυχόν νέες διαφάνειες υπερχείλισης. Μπορείτε να εξετάσετε αυτόν τον πίνακα αντί να υπολογίσετε την επηρεαζόμενη περιοχή από το σύνολο διαφανειών της παρουσίασης.
+Το [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) επιστρέφει έναν πίνακα αντικειμένων [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Όταν η εισαγωγή ξεκινά σε νέες διαφάνειες, κάθε στοιχείο που επιστρέφεται είναι νεοδημιουργούμενο. Όταν χρησιμοποιείται μια υπάρχουσα διαφάνεια ως αρχή, ο πίνακας περιλαμβάνει τηffected διαφάνεια και στη συνέχεια τυχόν νέες διαφάνειες υπερχείλισης. Μπορείτε να εξετάσετε αυτόν τον πίνακα αντί να υπολογίσετε την επηρεαζόμενη περιοχή από το σύνολο διαφανειών της παρουσίασης.
 
 ### **Εισαγωγή HTML ως νέες διαφάνειες**
 
@@ -145,7 +145,7 @@ finally:
 
 Το επόμενο παράδειγμα παρέχει το HTML μέσω ροής. Διατηρεί ένα σχήμα κεφαλίδας στη διαφάνεια προτύπου, αρχίζει την εισαγωγή κάτω από την κατειλημμένη περιοχή και αφήνει το μακρύ κυρίως κείμενο να συνεχίσει σε νέες διαφάνειες.
 
-Το HTML περιέχει επίσης σχετικό URL εικόνας. Ένας [ExternalResourceResolver](https://reference.aspose.com/slides/el/python-java/aspose.slides/externalresourceresolver/) αποκτά τον πόρο, ενώ η βασική URI λέει στον εισαγωγέα πώς να επιλύσει το `images/logo.png`. Σε αυτό το παράδειγμα, το αρχείο αναμένεται στο `html-assets/images/logo.png`.
+Το HTML περιέχει επίσης σχετικό URL εικόνας. Ένας [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) αποκτά τον πόρο, ενώ η βασική URI λέει στον εισαγωγέα πώς να επιλύσει το `images/logo.png`. Σε αυτό το παράδειγμα, το αρχείο αναμένεται στο `html-assets/images/logo.png`.
 
 ```python
 from pathlib import Path
@@ -197,7 +197,7 @@ finally:
 
 **Μπορεί το Aspose.Slides να εντοπίσει πίνακες κατά την εισαγωγή PDF;**
 
-Ναι. Δημιουργήστε ένα αντικείμενο [PdfImportOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfimportoptions/), καλέστε το [setDetectTables](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfimportoptions/#setDetectTables) με `True` και περάστε τις επιλογές στο [addFromPdf](https://reference.aspose.com/slides/el/python-java/aspose.slides/slidecollection/#addFromPdf). Η ποιότητα της αναγνώρισης πινάκων εξαρτάται από τη δομή και την πολυπλοκότητα του πηγαίου PDF.
+Ναι. Δημιουργήστε ένα αντικείμενο [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/), καλέστε το [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables) με `True` και περάστε τις επιλογές στο [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf). Η ποιότητα της αναγνώρισης πινάκων εξαρτάται από τη δομή και την πολυπλοκότητα του πηγαίου PDF.
 
 {{% alert title="Note" color="info" %}}
 Μετά την εισαγωγή HTML, μπορείτε επίσης να εξάγετε τις διαφάνειες σε [images](/slides/el/python-java/convert-powerpoint-to-png/), [TIFF](/slides/el/python-java/convert-powerpoint-to-tiff/), ή [SVG](/slides/el/python-java/render-a-slide-as-an-svg-image/).

@@ -17,7 +17,7 @@ description: "Εφαρμόστε μια άδεια από αρχείο, με β�
 
 Το Aspose.Slides για Python μέσω Java μπορεί να λειτουργεί σε λειτουργία αξιολόγησης ή με άδεια. Σε λειτουργία αξιολόγησης, προσθέτει ένα πλαίσιο κειμένου με υδατογράφημα αξιολόγησης σε κάθε διαφάνεια κάθε παρουσίασης που αποθηκεύει και περικόπτει το κείμενο που διαβάζει ο κώδικάς σας από τις παρουσιάσεις. Αυτό το άρθρο εξηγεί πώς να εφαρμόσετε μια άδεια από αρχείο ή από bytes και πώς να διαμορφώσετε τη χρεώσιμη άδεια.
 
-Για επιλογές αγοράς, δείτε [Pricing Information](https://purchase.aspose.com/pricing/slides/el/family). Για γενικές ερωτήσεις σχετικά με τις άδειες και τις αγορές, δείτε [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
+Για επιλογές αγοράς, δείτε [Pricing Information](https://purchase.aspose.com/pricing/slides/family). Για γενικές ερωτήσεις σχετικά με τις άδειες και τις αγορές, δείτε [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
 
 Για περιορισμούς αξιολόγησης και πώς να ζητήσετε προσωρινή άδεια, δείτε [Evaluate Aspose.Slides](/slides/el/python-java/evaluate-aspose-slides/). Εφαρμόστε μια προσωρινή άδεια με τον ίδιο τρόπο όπως ένα αγορασμένο αρχείο άδειας.
 
@@ -29,7 +29,7 @@ description: "Εφαρμόστε μια άδεια από αρχείο, με β�
 Μην επεξεργαστείτε το αρχείο άδειας. Ακόμη και ένα επιπλέον διάλειμμα γραμμής μπορεί να ακυρώσει την ψηφιακή του υπογραφή.
 {{% /alert %}}
 
-Εφαρμόστε την άδεια μία φορά ανά εφαρμογή ή διαδικασία, πριν τη δημιουργία παρουσιάσεων ή την εκτέλεση άλλων λειτουργιών του Aspose.Slides. Για ένα αρχείο άδειας, χρησιμοποιήστε την κλάση [License](https://reference.aspose.com/slides/el/python-java/aspose.slides/license/). Η χρεώσιμη άδεια χρησιμοποιεί ένα ζεύγος δημόσιου και ιδιωτικού κλειδιού αντί για αρχείο άδειας.
+Εφαρμόστε την άδεια μία φορά ανά εφαρμογή ή διαδικασία, πριν τη δημιουργία παρουσιάσεων ή την εκτέλεση άλλων λειτουργιών του Aspose.Slides. Για ένα αρχείο άδειας, χρησιμοποιήστε την κλάση [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). Η χρεώσιμη άδεια χρησιμοποιεί ένα ζεύγος δημόσιου και ιδιωτικού κλειδιού αντί για αρχείο άδειας.
 
 ## **Εφαρμογή Άδειας**
 
@@ -37,7 +37,7 @@ description: "Εφαρμόστε μια άδεια από αρχείο, με β�
 
 ### **Εφαρμογή Άδειας από Αρχείο**
 
-Παραδώστε τη διαδρομή του αρχείου άδειας στο [License.setLicense](https://reference.aspose.com/slides/el/python-java/aspose.slides/license/#setLicense). Αντικαταστήστε `Aspose.Slides.lic` με τη διαδρομή του αρχείου άδειάς σας.
+Παραδώστε τη διαδρομή του αρχείου άδειας στο [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Αντικαταστήστε `Aspose.Slides.lic` με τη διαδρομή του αρχείου άδειάς σας.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Χρησιμοποιήστε το ακριβές όνομα του αρχείου, συμπεριλαμβανομένης της επέκτασής του. Για παράδειγμα, εάν το αρχείο ονομάζεται `Aspose.Slides.lic.xml`, συμπεριλάβετε το `.xml` στη διαδρομή. Μια απόλυτη διαδρομή αποφεύγει την αβεβαιότητα σχετικά με το φάκελο εργασίας της εφαρμογής.
 
-Το παράδειγμα χρησιμοποιεί το [License.isLicensed](https://reference.aspose.com/slides/el/python-java/aspose.slides/license/#isLicensed) για να ελέγξει εάν η άδεια έχει εφαρμοστεί.
+Το παράδειγμα χρησιμοποιεί το [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) για να ελέγξει εάν η άδεια έχει εφαρμοστεί.
 
 ### **Εφαρμογή Άδειας από Bytes**
 
-Χρησιμοποιήστε το [License.setLicenseFromBytes](https://reference.aspose.com/slides/el/python-java/aspose.slides/license/#setLicenseFromBytes) όταν η άδεια διατίθεται ως bytes της Python. Το παρακάτω παράδειγμα διαβάζει το αρχείο σε δυαδική λειτουργία και το κλείνει πριν εφαρμόσει την άδεια.
+Χρησιμοποιήστε το [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) όταν η άδεια διατίθεται ως bytes της Python. Το παρακάτω παράδειγμα διαβάζει το αρχείο σε δυαδική λειτουργία και το κλείνει πριν εφαρμόσει την άδεια.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ finally:
 
 ## **Εφαρμογή Χρεώσιμης Άδειας**
 
-Η χρεώσιμη άδεια χρεώνει με βάση τη χρήση του API. Αφού αποκτήσετε μια χρεώσιμη άδεια, εφαρμόστε τα δημόσια και ιδιωτικά της κλειδιά με το [Metered.setMeteredKey](https://reference.aspose.com/slides/el/python-java/aspose.slides/metered/#setMeteredKey). Αρχικοποιήστε το αντικείμενο [Metered](https://reference.aspose.com/slides/el/python-java/aspose.slides/metered/) και εφαρμόστε τα κλειδιά μία φορά κατά την εκκίνηση της εφαρμογής.
+Η χρεώσιμη άδεια χρεώνει με βάση τη χρήση του API. Αφού αποκτήσετε μια χρεώσιμη άδεια, εφαρμόστε τα δημόσια και ιδιωτικά της κλειδιά με το [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). Αρχικοποιήστε το αντικείμενο [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) και εφαρμόστε τα κλειδιά μία φορά κατά την εκκίνηση της εφαρμογής.
 
 Το παρακάτω παράδειγμα διαβάζει τα κλειδιά από τις μεταβλητές περιβάλλοντος `ASPOSE_METERED_PUBLIC_KEY` και `ASPOSE_METERED_PRIVATE_KEY`. Ορίστε και τις δύο μεταβλητές πριν τρέξετε το σενάριο.
 

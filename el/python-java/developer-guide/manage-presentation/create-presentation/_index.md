@@ -29,13 +29,13 @@ description: "Δημιουργήστε παρουσιάσεις σε Python μέ
 
 ## **Δημιουργία Παρουσίασης**
 
-Η δημιουργία αρχείου PowerPoint από την αρχή στο Aspose.Slides για Python μέσω Java είναι τόσο απλή όσο η δημιουργία ενός αντικειμένου της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) . Ο κατασκευαστής παρέχει αυτόματα ένα κενό σετ με μία διαφάνεια, προσφέροντάς σας αμέσως έναν καμβά για σχήματα, κείμενο, γραφήματα ή οποιοδήποτε άλλο περιεχόμενο χρειάζεται η εφαρμογή σας. Μόλις τροποποιήσετε αυτή τη διαφάνεια — ή προσθέσετε νέες — μπορείτε να αποθηκεύσετε το αποτέλεσμα σε PPTX, κληροδοτημένο PPT ή ακόμη και σε μορφές OpenDocument. Το σύντομο παράδειγμα κώδικα παρακάτω δείχνει αυτή τη ροή εργασίας προσθέτοντας ένα απλό σχήμα στην πρώτη διαφάνεια.
+Η δημιουργία αρχείου PowerPoint από την αρχή στο Aspose.Slides για Python μέσω Java είναι τόσο απλή όσο η δημιουργία ενός αντικειμένου της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) . Ο κατασκευαστής παρέχει αυτόματα ένα κενό σετ με μία διαφάνεια, προσφέροντάς σας αμέσως έναν καμβά για σχήματα, κείμενο, γραφήματα ή οποιοδήποτε άλλο περιεχόμενο χρειάζεται η εφαρμογή σας. Μόλις τροποποιήσετε αυτή τη διαφάνεια — ή προσθέσετε νέες — μπορείτε να αποθηκεύσετε το αποτέλεσμα σε PPTX, κληροδοτημένο PPT ή ακόμη και σε μορφές OpenDocument. Το σύντομο παράδειγμα κώδικα παρακάτω δείχνει αυτή τη ροή εργασίας προσθέτοντας ένα απλό σχήμα στην πρώτη διαφάνεια.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Αποκτήστε την πρώτη διαφάνεια με το ευρετήριο της, 0.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) τύπου [ShapeType.Cloud](https://reference.aspose.com/slides/el/python-java/aspose.slides/shapetype/#Cloud) χρησιμοποιώντας το [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Ορίστε το κείμενο του σχήματος χρησιμοποιώντας το [TextFrame.setText](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#setText).
-1. Αποθηκεύστε την παρουσίαση χρησιμοποιώντας το [Presentation.save](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#save) με το [SaveFormat.Pptx](https://reference.aspose.com/slides/el/python-java/aspose.slides/saveformat/#Pptx).
+1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) τύπου [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) χρησιμοποιώντας το [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Ορίστε το κείμενο του σχήματος χρησιμοποιώντας το [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Αποθηκεύστε την παρουσίαση χρησιμοποιώντας το [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) με το [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 Το παρακάτω παράδειγμα ξεκινά τη Java Virtual Machine (JVM) αν δεν εκτελείται ήδη, προσθέτει ένα σχήμα σύννεφων με κείμενο στην πρώτη διαφάνεια και αποθηκεύει την παρουσίαση. Αποθηκεύστε το ως *create_presentation.py*:
 
@@ -100,7 +100,7 @@ python create_presentation.py
 
 **Μπορώ να δημιουργήσω/αποθηκεύσω παρουσιάσεις παράλληλα;**
 
-Δεν μπορείτε να λειτουργήσετε στην ίδια παρουσίαση [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) από [πολλαπλά νήματα](/slides/el/python-java/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες παρουσίες ανά νήμα ή διεργασία.
+Δεν μπορείτε να λειτουργήσετε στην ίδια παρουσίαση [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) από [πολλαπλά νήματα](/slides/el/python-java/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες παρουσίες ανά νήμα ή διεργασία.
 
 **Πώς αφαιρώ το υδατογράφημα δοκιμής και τους περιορισμούς;**
 
