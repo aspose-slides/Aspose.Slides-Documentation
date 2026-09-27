@@ -4,134 +4,96 @@ type: docs
 weight: 70
 url: /ja/python-net/installation/
 keywords:
-- Aspose.Slides のダウンロード
+- Aspose.Slides をダウンロード
+- Aspose.Slides をインストール
+- Aspose.Slides を使用
 - Aspose.Slides のインストール
-- Aspose.Slides の使用
-- Aspose.Slides インストール
+- pip
+- PyPI
 - Windows
+- Linux
 - macOS
 - Python
-description: "Aspose.Slides for Python via .NET のインストール方法をすばやく学びましょう。ステップバイステップのガイド、システム要件、コードサンプルをご紹介し、すぐに PowerPoint プレゼンテーションの操作を開始できます！"
+description: "Windows、Linux、macOS 上で、PyPI から pip を使用して .NET 経由の Aspose.Slides for Python をインストールし、Linux と macOS が必要とするネイティブライブラリもインストールします。"
 ---
-
 ## **概要**
 
-Aspose.Slides for Python via .NET パッケージには必須の .NET ライブラリがすべて同梱されているため、.NET を別途インストールする必要はありません。これによりセットアップが簡素化され、開発者はすぐにプレゼンテーションの操作を開始できます。ただし、使用しているオペレーティングシステムや環境によっては、.NET が必要とするプラットフォーム固有の依存関係を別途インストールする必要がある場合があります。また、パッケージの完全な互換性と正常な動作を保証するために、特定のシステム要件を満たす必要があります。
+この記事では、Windows、Linux、macOS 上で .NET 経由で Python 用 Aspose.Slides をインストールする方法を説明します。パッケージは[PyPI](https://pypi.org/project/aspose.slides/)に公開されており、pip でインストールします。.NET ランタイムが同梱されているため、別途 .NET をインストールする必要はありません。Linux と macOS では、ランタイムが OS に含まれていない可能性のあるネイティブライブラリを必要とします。以下のセクションでそれらを示します。
+
+Aspose.Slides for Python via .NET は Python 3.5 から 3.14 をサポートしています。PyPI では Windows（32 ビットおよび 64 ビット）、Linux（x86_64 および ARM64）、macOS（Intel と Apple silicon）向けのパッケージが提供されています。
 
 ## **Windows**
 
-**システム要件**
+Windows では、pip でパッケージをインストールします。他のライブラリは必要ありません。
 
-お使いのマシンの仕様が [システム要件](/slides/ja/python-net/system-requirements/) を満たしているか、またはそれ以上であることを確認してください。
-
-### **Aspose.Slides のインストール**
-
-`pip` は Windows 上で [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) をダウンロードしてインストールする最も簡単な方法です。
-
-Aspose.Slides をインストールするには、次のコマンドを実行してください:
-```sh
-pip install aspose-slides
+```bash
+pip install aspose.slides
 ```
 
+## **Linux**
 
-**Aspose.Slides の使用**
+Linux では、パッケージに含まれる .NET ランタイムが次の 2 つのライブラリを必要とします：
 
-以下のコードを実行して PowerPoint プレゼンテーションを作成し、Aspose.Slides のインストールが正しく行われたことをテストしてください:
-```python
-# Aspose.Slides for Python via .NET モジュールをインポートします。
-import aspose.slides as slides
+- **libgdiplus** は Windows の GDI+ グラフィック API の実装です。これが無いと、プレゼンテーションの保存時にエラー `The type initializer for 'Gdip' threw an exception` が発生します。
+- **ICU**（International Components for Unicode）。これが無いと、最初の Aspose.Slides 呼び出し時に Python プロセスが終了し、`Couldn't find a valid ICU package installed on the system` というメッセージが表示されます。
 
-# プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
+Debian および Ubuntu では、apt を使って両方をインストールします：
+
+```bash
+sudo apt-get update && sudo apt-get install -y libgdiplus libicu76
 ```
 
+ICU パッケージの名前にはバージョンが含まれます。`libicu76` は Debian 13 用のパッケージです。Debian 12 では代わりに `libicu72`、Ubuntu 24.04 では `libicu74` をインストールしてください。システム上で名前を確認するには、次のコマンドを実行します：
+
+```bash
+apt-cache search --names-only '^libicu[0-9]+$'
+```
+
+その後、仮想環境にパッケージをインストールします。現在の Debian および Ubuntu のリリースでは、システム Python は仮想環境外での `pip install` を許可せず、`externally-managed-environment` エラーで停止します。
+
+```bash
+sudo apt-get install -y python3-venv
+python3 -m venv .venv
+. .venv/bin/activate
+pip install aspose.slides
+```
+
+スクリプトは、同じ仮想環境をアクティブにした状態で実行してください。ディストリビューションが管理しない Python（例: 公式 `python` Docker イメージ内のもの）を使用する場合は、仮想環境なしでも `pip install aspose.slides` を実行できます。
+
+プレゼンテーションで使用するフォント、または適切な代替フォントは、スライドを PDF や画像に変換する際にテキストが正しく表示されるようシステムにインストールしておく必要があります。
 
 ## **macOS**
 
-**システム要件**
+macOS でのインストールはまだ検証していません。macOS では、Aspose.Slides が以下の前提条件を必要とします：
 
-お使いのマシンの仕様が [システム要件](/slides/ja/python-net/system-requirements/) を満たしているか、またはそれ以上であることを確認してください。
+- **共有ライブラリ付き Python**、すなわち `--enable-shared` オプションでビルドされた Python です。[pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos) で Python をインストールする場合、Python バージョンをインストールするときに環境変数 `PYTHON_CONFIGURE_OPTS` を `--enable-shared` に設定してください。
+- **システムライブラリディレクトリにある libpython ライブラリ**。pyenv でインストールした Python は *~/.pyenv/versions* 配下に *libpython3.9.dylib* などの libpython ライブラリを保持します。これへのシンボリックリンクを */usr/local/lib* に作成してください。
+- **libgdiplus** は Windows の GDI+ グラフィック API の実装です。Homebrew では `mono-libgdiplus` パッケージとして提供されています。
 
-### **前提条件**
+その後、pip でパッケージをインストールします。
 
-**Shared Libraries を持つ Python**
+## **インストールの確認**
 
-macOS に Python をインストールする方法はいくつかありますが、[pyenv ツール](https://github.com/pyenv/pyenv#homebrew-in-macos) の使用を強く推奨します。
+インストールを確認するには、[Create Presentations](/slides/ja/python-net/create-presentation/) の最初の例を *hello.py* として保存し、`python hello.py` を実行します。現在のフォルダーに *new_presentation.pptx* が保存されます。
 
-**pyenv** をインストールして設定した後、ターミナルアプリで次のコマンドを実行して Shared Libraries を持つ Python をインストールします:
+## **アップグレード**
 
-1. Python をインストール:
-```sh
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install --verbose 3.9.13
+既存のインストールを最新バージョンにアップグレードするには、パッケージをインストールした環境で次のコマンドを実行してください：
+
+```bash
+pip install --upgrade aspose.slides
 ```
-
-
-2. グローバルな Python バージョンとして設定:
-```sh
-pyenv global 3.9.13
-```
-
-
-3. シェル固有の Python バージョンとして設定:
-```sh
-pyenv shell 3.9.13
-```
-
-
-4. システムライブラリディレクトリに libpython ライブラリへのシンボリックリンクを作成:
-```sh
-ln -s /Users/<username>/.pyenv/versions/3.9.13/lib/libpython3.9.dylib /usr/local/lib/libpython3.9.dylib
-```
-
-
-注意: Python 3.5 以上が必要です。ここでは例として 3.9.13 を使用しています。
-
-**libgdiplus ライブラリのインストール**
-
-**libgdiplus** ライブラリは macOS と Linux 用の Windows GDI+ 実装で、.NET がこれらのプラットフォームでグラフィック機能を利用する際に必要です。macOS にこのライブラリをインストールするには、次のコマンドを実行してください:
-```sh
-brew install mono-libgdiplus
-```
-
-
-### **Aspose.Slides のインストール**
-
-`pip` は macOS 上で [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) をダウンロードしてインストールする最も簡単な方法です。
-
-Aspose.Slides をインストールするには、次のコマンドを実行してください:
-```sh
-pip install aspose-slides
-```
-
-
-**Aspose.Slides の使用**
-
-以下のコードを実行して PowerPoint プレゼンテーションを作成し、Aspose.Slides のインストールが正しく行われたことをテストしてください:
-```python
-# Aspose.Slides for Python via .NET モジュールをインポートします。
-import aspose.slides as slides
-
-# プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-with slides.Presentation() as presentation:    
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
-```
-
 
 ## **FAQ**
 
 **仮想環境に Aspose.Slides をインストールできますか？**
 
-はい、`pip` を使用して任意の Python 仮想環境にインストールできます。OS に応じて必要なネイティブ依存関係にアクセスできることを確認してください。
+はい。pip を使用して任意の Python 仮想環境にインストールできます。Linux と macOS が必要とするネイティブライブラリはシステムにインストールされ、仮想環境内にはインストールされません。
 
 **Docker コンテナで Aspose.Slides を使用できますか？**
 
-はい、ただし Docker イメージに必須のネイティブライブラリ（**libgdiplus**、フォントパッケージなど）と適切なバージョンの Python を含める必要があります。
+はい。イメージには Linux システムと同様のネイティブライブラリ（libgdiplus と ICU）およびプレゼンテーションで使用するフォントを含める必要があります。
 
-**無料版やトライアルの制限はありますか？**
+**無料版や評価版の制限はありますか？**
 
-はい、デフォルトでは Aspose.Slides は評価モードで動作し、透かしが付加されたりその他の制限があります。制限を解除するには、有効な [ライセンス](/slides/ja/python-net/licensing/) を適用してください。
+はい。ライセンスがない場合、Aspose.Slides は評価モードで動作し、保存するすべてのスライドに評価用の透かしが付与され、プレゼンテーションから読み取ったテキストが切り詰められます。これらの制限を解除するには、有効な[license](/slides/ja/python-net/licensing/) を適用してください。

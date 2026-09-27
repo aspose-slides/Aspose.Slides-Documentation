@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides para Python mediante .NET
+title: Aspose.Slides para Python a través de .NET
 second_title: Aspose.Slides para Python
 type: docs
 weight: 35
@@ -15,91 +15,110 @@ keywords:
 - PowerPoint de Python sin Microsoft Office
 - Gestionar PPTX con Python
 - Vista previa de diapositivas con Python
-- Python añadir audio a diapositivas
+- Añadir audio a diapositivas con Python
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Aspose.Slides para Python mediante .NET ofrece un conjunto completo de funcionalidades, que incluyen la gestión de texto, formas, tablas y animaciones, la incorporación de audio y vídeo a las diapositivas, la previsualización de diapositivas y la exportación a SVG, PDF y mucho más."
+description: "Comienza aquí: instala Aspose.Slides para Python a través de .NET, crea una primera presentación y encuentra las guías para tareas comunes, la referencia de la API y el soporte."
 ---
-{{% alert color="info" %}}
+<img src="aspose_slides-for-python.png" alt="Aspose.Slides para Python a través de .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Bienvenido a Aspose.Slides para Python mediante .NET**
+Aspose.Slides for Python via .NET es una biblioteca Python para crear, leer, editar y convertir presentaciones de PowerPoint y OpenDocument, sin Microsoft PowerPoint ni Microsoft Office.
 
-![Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.png)
+Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas variantes con macros y plantillas, y exporta a PDF, XPS, HTML, SVG, TIFF, Markdown e imágenes.
 
-Aspose.Slides para Python mediante .NET es una biblioteca de clases robusta que permite a sus aplicaciones leer y escribir presentaciones PowerPoint® sin requerir Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Es el primer y único componente que ofrece gestión completa de documentos PowerPoint® para desarrolladores Python.
+------
 
-Aspose.Slides para Python mediante .NET incluye una amplia gama de funciones, como trabajar con texto, formas, tablas y animaciones; añadir audio y vídeo; previsualizar diapositivas; y exportar diapositivas a formatos como SVG, PDF y otros.
+<div class="row">
+<div class="col-md-4">
+<p><b>Comenzar</b></p>
+<hr>
+<p>COMENZANDO</p>
+<ul>
+<li><a href="/slides/es/python-net/installation/">Instalación</a></li>
+<li><a href="/slides/es/python-net/create-presentation/">Crea tu primera presentación</a></li>
+<li><a href="/slides/es/python-net/getting-started/">Guía de inicio</a></li>
+</ul>
+<p>EVALUAR</p>
+<ul>
+<li><a href="/slides/es/python-net/supported-file-formats/">Formatos de archivo compatibles</a></li>
+<li><a href="/slides/es/python-net/evaluate-aspose-slides/">Limitaciones de la versión de prueba</a></li>
+<li><a href="/slides/es/python-net/licensing/">Licenciamiento</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Construir con Slides</b></p>
+<hr>
+<p>TAREAS COMUNES</p>
+<ul>
+<li><a href="/slides/es/python-net/open-presentation/">Abrir una presentación</a></li>
+<li><a href="/slides/es/python-net/save-presentation/">Guardar una presentación</a></li>
+<li><a href="/slides/es/python-net/convert-powerpoint-to-pdf/">Convertir a PDF</a></li>
+<li><a href="/slides/es/python-net/convert-slide/">Renderizar diapositivas como imágenes</a></li>
+<li><a href="/slides/es/python-net/manage-text/">Editar texto y formas</a></li>
+</ul>
+<p>FLUJOS DE TRABAJO DE SLIDES</p>
+<ul>
+<li><a href="/slides/es/python-net/powerpoint-charts/">Gráficos</a></li>
+<li><a href="/slides/es/python-net/powerpoint-animation/">Animaciones</a></li>
+<li><a href="/slides/es/python-net/manage-media-files/">Audio y video</a></li>
+<li><a href="/slides/es/python-net/presentation-design/">Diseño de diapositivas</a></li>
+<li><a href="/slides/es/python-net/merge-presentation/">Combinar presentaciones</a></li>
+</ul>
+<p>EJEMPLOS</p>
+<ul>
+<li><a href="/slides/es/python-net/examples/">Ejemplos por elemento de diapositiva</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Python-via-.NET">Ejemplos en GitHub</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Referencia y Soporte</b></p>
+<hr>
+<p>REFERENCIA</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/es/python-net/">Referencia de API</a></li>
+<li><a href="https://releases.aspose.com/slides/es/python-net/release-notes/">Notas de la versión</a></li>
+<li><a href="https://releases.aspose.com/slides/es/python-net/">Descargar</a></li>
+</ul>
+<p>SOPORTE</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/es/11">Foro de soporte gratuito</a></li>
+<li><a href="https://helpdesk.aspose.com/">Mesa de ayuda de soporte pago</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Instalar Aspose.Slides para Python mediante .NET
+## **Tu primera presentación**
+
+Instala el paquete desde PyPI:
 
 ```bash
 pip install aspose.slides
 ```
 
-El paquete incluye el tiempo de ejecución .NET que necesita, por lo que no hay nada más que instalar y no se requiere Microsoft PowerPoint. Python 3.7 o posterior en Windows, Linux o macOS.
+El paquete incluye el runtime .NET que utiliza, por lo que no es necesario instalar .NET. En Linux, también instale las librerías libgdiplus e ICU, y con el Python del sistema de Debian o Ubuntu, ejecute el comando en un entorno virtual. macOS tiene requisitos adicionales y no hemos verificado la instalación allí. Consulte [Instalación](/slides/es/python-net/installation/) para los comandos, los requisitos de macOS y las versiones de Python compatibles.
 
-## Crear una presentación PowerPoint en Python
+Guarde este código como *hello.py*:
 
-Este ejemplo crea una presentación, añade una forma con texto a la primera diapositiva y guarda el resultado tanto en PPTX como en PDF.
-
-```python
+```py
 import aspose.slides as slides
 
+# Instanciar la clase Presentation que representa un archivo de presentación.
 with slides.Presentation() as presentation:
+    # Obtener la primera diapositiva.
     slide = presentation.slides[0]
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 600, 100)
-    shape.text_frame.text = "Created with Aspose.Slides for Python via .NET"
 
-    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
-    presentation.save("presentation.pdf", slides.export.SaveFormat.PDF)
+    # Añadir una forma automática de tipo CLOUD.
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
+    auto_shape.text_frame.text = "Hello, Aspose!"
+
+    # Guardar la presentación como un archivo PPTX.
+    presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Al ejecutarlo se generan `presentation.pptx` (aprox. 34 KB) y `presentation.pdf` (aprox. 36 KB) en el directorio de trabajo.
-
-Sin una licencia, la biblioteca se ejecuta en modo de evaluación, lo que añade una marca de agua y limita el número de diapositivas. Consulte [Licensing](/slides/es/python-net/licensing/) para aplicar una.
-
-## Recursos de Aspose.Slides para Python mediante .NET
-
-Explore estos recursos útiles::
-
-- [Aspose.Slides para Python mediante .NET Documentación en línea](/slides/es/python-net/)
-- [Aspose.Slides para Python mediante .NET Características](/slides/es/python-net/features-overview/)
-- [Aspose.Slides para Python mediante .NET Notas de la versión](https://releases.aspose.com/slides/es/python-net/release-notes/)
-- [Aspose.Slides para Python mediante .NET Página del producto](https://products.aspose.com/slides/es/python-net/)
-- [Descargar Aspose.Slides para Python mediante .NET](https://releases.aspose.com/slides/es/python-net/)
-- [Instalar Aspose.Slides para Python mediante .NET paquete PyPi](https://pypi.org/project/aspose.slides/)
-- [Aspose.Slides para Python mediante .NET Guía de referencia de API](https://reference.aspose.com/slides/es/python-net/)
-- [Aspose.Slides para Python mediante .NET Foro de soporte gratuito](https://forum.aspose.com/c/slides/es/11)
-- [Aspose.Slides para Python mediante .NET Servicio de ayuda con soporte de pago](https://helpdesk.aspose.com/)
-
-## Preguntas frecuentes
-
-### ¿Qué es Aspose.Slides para Python mediante .NET?
-
-Aspose.Slides para Python mediante .NET es una potente biblioteca Python que permite crear, editar y convertir presentaciones PowerPoint (PPT, PPTX, ODP) programáticamente sin necesidad de Microsoft PowerPoint instalado.
-
-### ¿Qué funciones de presentación admite Aspose.Slides?
-
-La biblioteca admite la gestión de texto, formas, tablas, gráficos, animaciones, diapositivas maestras, audio, vídeo y más. También permite la previsualización de diapositivas, renderizado y exportación a formatos como PDF, SVG, HTML e imágenes.
-
-### ¿Puedo convertir presentaciones a otros formatos con Aspose.Slides?
-
-Sí. Aspose.Slides permite la conversión de archivos PowerPoint a PDF, SVG, HTML, JPG, PNG, TIFF y otros formatos con alta fidelidad y rendimiento.
-
-### ¿Se requiere Microsoft PowerPoint para usar Aspose.Slides?
-
-No. Aspose.Slides es una API independiente y no necesita Microsoft Office ni ningún software de terceros.
-
-### ¿Qué plataformas son compatibles con Aspose.Slides para Python mediante .NET?
-
-Es multiplataforma y funciona en entornos Windows, Linux y macOS.
-
-### ¿Cómo empiezo a usar Aspose.Slides para Python?
-
-Puede instalarlo mediante PyPi y explorar la [Developer Guide](/slides/es/python-net/developer-guide/) para comenzar con ejemplos, referencias de API y tutoriales.
+Ejecútelo con `python hello.py`. El script guarda *new_presentation.pptx* en la carpeta actual, con una diapositiva que contiene una forma de nube que dice "Hello, Aspose!". Sin una licencia, el archivo guardado lleva una marca de agua de evaluación — consulte [Licenciamiento](/slides/es/python-net/licensing/). Para más formas de crear y rellenar una presentación, consulte [Crear presentaciones](/slides/es/python-net/create-presentation/).

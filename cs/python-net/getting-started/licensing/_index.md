@@ -9,84 +9,82 @@ keywords:
 - nastavit licenci
 - použít licenci
 - ověřit licenci
-- soubor licence
-- verze pro hodnocení
+- licenční soubor
+- evaluační verze
 - Python
 - Aspose.Slides
-description: "Zjistěte, jak aplikovat, spravovat a řešit problémy s licencemi v Aspose.Slides for Python via .NET. Zajistěte nepřerušený přístup k plným funkcím pomocí našeho krok za krokem průvodce licencováním."
+description: "Naučte se, jak aplikovat, spravovat a řešit problémy s licencemi v Aspose.Slides pro Python pomocí .NET. Zajistěte si nepřerušený přístup k plným funkcím pomocí našeho podrobného průvodce licencováním krok za krokem."
 ---
 ## **Přehled**
 
-Aspose.Slides lze použít v režimu hodnocení nebo s platnou licencí. Hodnotící verze poskytuje stejnou funkčnost jako licencovaná verze, ale přidává vodotisk hodnocení při otevření nebo uložení prezentací a omezuje extrakci textu na jeden snímek.
+Aspose.Slides může být používán v evaluačním režimu nebo s platnou licencí. Evaluační verze poskytuje stejnou funkčnost jako licencovaná verze, ale přidává evaluační vodoznak ke každému snímku každé prezentace, kterou uloží, a zkracuje text, který váš kód čte z prezentací.
 
 ## **Vyzkoušejte Aspose.Slides**
 
-Můžete si stáhnout hodnotící verzi **Aspose.Slides for Python via .NET** z její [stránky ke stažení](https://pypi.org/project/Aspose.Slides/). Hodnotící verze poskytuje stejné funkce jako licencovaný produkt. Hodnotící balíček je identický s zakoupeným balíčkem a po přidání několika řádků kódu pro aplikaci licence se stane licencovaným.
+Evaluační verzi **Aspose.Slides for Python via .NET** si můžete stáhnout z její [stránky ke stažení](https://pypi.org/project/Aspose.Slides/). Evaluační verze poskytuje stejné funkce jako licencovaný produkt. Evaluační balíček je identický s zakoupeným balíčkem a po přidání několika řádků kódu pro aplikaci licence se stane licencovaným.
 
-Když budete s hodnocením **Aspose.Slides** spokojeni, můžete [zakoupit licenci](https://purchase.aspose.com/buy). Doporučujeme prohlédnout dostupné možnosti předplatného. Pokud máte otázky, kontaktujte prodejní tým Aspose.
+Jakmile budete s vyhodnocením **Aspose.Slides** spokojeni, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cs/python-net/). Doporučujeme si prohlédnout dostupné možnosti předplatného. Pokud máte otázky, kontaktujte prodejní tým Aspose.
 
-Každá licence Aspose zahrnuje roční předplatné s bezplatnými aktualizacemi na nové verze a opravy vydávané během tohoto období. Licencovaní i hodnotící uživatelé získávají bezplatnou neomezenou technickou podporu.
+Každá licence Aspose zahrnuje roční předplatné s bezplatnými aktualizacemi na nové verze a opravy vydané během tohoto období. Jak licencovaní, tak evaluační uživatelé získávají bezplatnou neomezenou technickou podporu.
 
-**Omezení hodnotící verze**
+**Omezení evaluační verze**
 
-* Zatímco hodnotící verze Aspose.Slides (když není použita licence) poskytuje plnou funkčnost, přidává vodotisk hodnocení na horní část dokumentu při každém otevření nebo uložení.
-* Při extrakci textu z prezentace jste omezeni na jeden snímek.
+* Evaluační verze (když není použita licence) poskytuje plnou funkčnost, ale přidává textové pole s evaluačním vodoznakem ke každému snímku každé prezentace, kterou uloží.
+* Text, který váš kód čte z prezentace, je zkrácen na několik prvních znaků, následuje upozornění o evaluačním omezení. Text, který váš kód zapisuje, je uložen celý.
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 Pro testování Aspose.Slides bez omezení můžete požádat o **30denní dočasnou licenci**. Podrobnosti najdete na stránce [Jak získat dočasnou licenci](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}
 
 ## **Licencování v Aspose.Slides**
 
-* Hodnotící verze se stane licencovanou po zakoupení licence a přidání několika řádků kódu pro její aplikaci.
-* Licence je soubor XML v prostém textu, který obsahuje podrobnosti jako název produktu, počet vývojářů, které pokrývá, datum vypršení předplatného a podobně.
-* Soubor licence je digitálně podepsán, takže jej nesmíte upravovat. I přidání jediného konce řádku jej zneplatní.
-* Aspose.Slides for Python via .NET obvykle hledá licenci na následujících místech:
-  * Explicitní cesta, kterou zadáte
-  * Složka, která obsahuje Python skript volající Aspose.Slides for Python via .NET
-* Aby se zabránilo omezením hodnocení, nastavte licenci před použitím Aspose.Slides. Stačí ji nastavit jednou na aplikaci nebo proces.
+* Evaluační verze se stane licencovanou po zakoupení licence a přidání několika řádků kódu pro její aplikaci.
+* Licence je soubor XML v prostém textu, který obsahuje podrobnosti jako název produktu, počet vývojářů, které pokrývá, datum expirace předplatného a podobně.
+* Licenční soubor je digitálně podepsaný, takže jej nesmíte měnit. I přidání jediného zalomení řádku jej zneplatní.
+* Aspose.Slides for Python via .NET hledá licenci v cestě, kterou mu předáte. Relativní cesta nebo název souboru bez cesty je vyhodnocena vůči aktuálnímu pracovnímu adresáři, který nemusí být nutně složka obsahující váš Python skript.
+* Aby se předešlo evaluačním omezením, nastavit licenci před použitím Aspose.Slides. Stačí ji nastavit jednou na aplikaci či proces.
 
-{{% alert color="primary" %}}
-Možná budete chtít také prohlédnout [Metered Licensing](/slides/cs/python-net/metered-licensing/).
+{{% alert color="info" title="Note" %}}
+Můžete si také přečíst [Metered Licensing](/slides/cs/python-net/metered-licensing/).
 {{% /alert %}}
 
 ## **Aplikace licence**
 
-Licence může být načtena ze **souboru**, **proudu** nebo **vloženého prostředku**.
+Licence může být načtena ze **souboru** nebo **proudu**.
 
-{{% alert color="primary" %}}
-Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/) pro správu licencování.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/) pro správu licencí.
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-Nové licence mohou aktivovat Aspose.Slides pouze s verzí 21.4 nebo novější. Starší verze používají jiný licenční systém a tyto licence nepoznají.
+{{% alert color="warning" title="Warning" %}}
+Nové licence mohou aktivovat Aspose.Slides pouze ve verzi 21.4 nebo novější. Starší verze používají odlišný licenční systém a tyto licence nerozpoznají.
 {{% /alert %}}
 
 ### **Soubor**
 
-Nejjednodušší způsob, jak nastavit licenci, je umístit soubor licence do stejné složky jako DLL komponenty a zadat pouze název souboru (bez cesty).
+Nejjednodušší způsob, jak nastavit licenci, je předat cestu k licenčnímu souboru metodě [set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/). Pokud předáte pouze název souboru, jako v ukázce níže, Aspose.Slides hledá soubor v aktuálním pracovním adresáři.
 
-Následující Python kód ukazuje, jak nastavit soubor licence:
+Následující Python kód ukazuje, jak nastavit licenční soubor:
 
 ```py
 import aspose.slides as slides
 
-# Vytvoří instanci třídy License.
+# Vytvoří instanci třídy License. 
 license = slides.License()
 
-# Nastaví cestu k souboru licence.
+# Nastaví cestu k licenčnímu souboru.
 license.set_license("Aspose.Slides.lic")
 ```
 
-{{% alert color="warning" %}}
-Pokud umístíte soubor licence do jiné složky, při volání [License.set_license()](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/#str) musí název souboru na konci explicitní cesty odpovídat názvu vašeho licenčního souboru.
+{{% alert color="warning" title="Warning" %}}
+Pokud umístíte licenční soubor do jiného adresáře, při volání [License.set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/#str) musí název souboru na konci explicitní cesty odpovídat názvu vašeho licenčního souboru.
 
-Například můžete přejmenovat licenční soubor na *Aspose.Slides.lic.xml*. Poté ve svém kódu předáte úplnou cestu k tomuto souboru (končící Aspose.Slides.lic.xml) metodě [License.set_license()](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/#str).
+Například můžete přejmenovat licenční soubor na *Aspose.Slides.lic.xml*. Pak ve svém kódu předáte úplnou cestu k tomuto souboru (končící na Aspose.Slides.lic.xml) metodě [License.set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/#str).
 {{% /alert %}}
 
 ### **Proud**
 
-Licence může být načtena z proudu. Následující Python příklad ukazuje, jak aplikovat licenci z proudu:
+Licenci můžete načíst ze streamu. Následující Python příklad ukazuje, jak aplikovat licenci ze streamu:
 
 ```py
 import aspose.slides as slides
@@ -95,12 +93,13 @@ import aspose.slides as slides
 license = slides.License()
 
 # Nastaví licenci ze streamu.
-license.set_license(stream)
+with open("Aspose.Slides.lic", "rb") as stream:
+    license.set_license(stream)
 ```
 
 ## **Ověření licence**
 
-Pro ověření, že licence byla správně aplikována, ji můžete validovat. Následující Python kód ukazuje, jak validovat licenci:
+Pro ověření, že licence byla použita správně, ji můžete validovat. Následující Python kód demonstruje, jak licenci validovat:
 
 ```py
 import aspose.slides as slides
@@ -113,18 +112,18 @@ if license.is_licensed():
     print("License is good!")
 ```
 
-## **Bezpečnost vláken**
+## **Bezpečnost při více vláknech**
 
-{{% alert title="Note" color="warning" %}}
-Metody [License.set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/) nejsou bezpečné pro více vláken. Pokud je je třeba volat souběžně z více vláken, použijte synchronizační primitiva (např. `threading.Lock`), aby se předešlo problémům.
+{{% alert color="warning" title="Warning" %}}
+Metoda [License.set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/) není bezpečná pro více vláken. Pokud ji potřebujete volat souběžně z více vláken, použijte synchronizační primitivum, jako je `threading.Lock`, abyste se vyhnuli problémům.
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Mohu aplikovat licenci v úplně offline prostředí (bez přístupu k internetu)?**
+### Můžu aplikovat licenci v úplně offline prostředí (bez přístupu k internetu)?
 
 Ano. Ověření licence se provádí lokálně pomocí licenčního souboru; není vyžadováno připojení k internetu.
 
-**Co se stane po vypršení ročního předplatného? Přestane knihovna fungovat?**
+### Co se stane po vypršení ročního předplatného? Přestane knihovna fungovat?
 
-Ne. Licence je trvalá: můžete i nadále používat verze vydané před datem skončení vašeho předplatného; jen nebudete mít nárok na novější vydání bez obnovy.
+Ne. Licence je trvalá: můžete nadále používat verze vydané před datem konce vašeho předplatného; jen nebudete mít nárok na novější vydání bez obnovení.

@@ -1,18 +1,18 @@
 ---
-title: Aspose.Slides for Python via .NET
-second_title: Aspose.Slides for Python
+title: 适用于 .NET 的 Aspose.Slides Python 版
+second_title: Aspose.Slides Python 版
 type: docs
 weight: 35
 url: /zh/python-net/
 is_root: true
 keywords:
-- Aspose.Slides for Python
-- Python 中的 PowerPoint 自动化
+- Aspose.Slides Python 版
+- PowerPoint 自动化 Python
 - Python PPT 库
-- 使用 Python 将 PowerPoint 导出为 PDF
-- 使用 Python 将 PowerPoint 导出为 SVG
+- 将 PowerPoint 导出为 PDF 的 Python 库
+- 将 PowerPoint 导出为 SVG 的 Python 库
 - 在 Python 中编辑 PowerPoint
-- Python PowerPoint（无需 Microsoft Office）
+- 无需 Microsoft Office 的 Python PowerPoint
 - 使用 Python 管理 PPTX
 - Python 幻灯片预览
 - Python 为幻灯片添加音频
@@ -20,86 +20,105 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET 提供全面的功能集，包括管理文本、形状、表格和动画，为幻灯片添加音频和视频，预览幻灯片，以及导出为 SVG、PDF 等格式。"
+description: "从这里开始：安装适用于 .NET 的 Aspose.Slides Python 版，创建第一个演示文稿，并查找常用任务指南、API 参考和支持。"
 ---
-{{% alert color="info" %}}
+<img src="aspose_slides-for-python.png" alt="Aspose.Slides for Python via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**欢迎使用 Aspose.Slides for Python via .NET**
+Aspose.Slides for Python via .NET 是一个 Python 库，可用于创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint 或 Microsoft Office。
 
-![Aspose.Slides for Python via .NET 产品徽标](aspose_slides-for-python.png)
+它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括带宏的和模板变体，并导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
 
-Aspose.Slides for Python via .NET 是一个强大的类库，允许您的应用程序在不需要 Microsoft PowerPoint® 的情况下读取和写入 PowerPoint® 演示文稿。
+<div style="clear:both"></div>
 
-它是首个也是唯一一个为 Python 开发者提供完整 PowerPoint® 文档管理功能的组件。
+------
 
-Aspose.Slides for Python via .NET 包含广泛的功能，例如处理文本、形状、表格和动画；添加音频和视频；预览幻灯片；以及将幻灯片导出为 SVG、PDF 等格式。
+<div class="row">
+<div class="col-md-4">
+<p><b>快速入门</b></p>
+<hr>
+<p>开始使用</p>
+<ul>
+<li><a href="/slides/zh/python-net/installation/">安装</a></li>
+<li><a href="/slides/zh/python-net/create-presentation/">创建您的第一个演示文稿</a></li>
+<li><a href="/slides/zh/python-net/getting-started/">快速入门指南</a></li>
+</ul>
+<p>评估</p>
+<ul>
+<li><a href="/slides/zh/python-net/supported-file-formats/">支持的文件格式</a></li>
+<li><a href="/slides/zh/python-net/evaluate-aspose-slides/">试用版限制</a></li>
+<li><a href="/slides/zh/python-net/licensing/">授权许可</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>使用 Slides 构建</b></p>
+<hr>
+<p>常见任务</p>
+<ul>
+<li><a href="/slides/zh/python-net/open-presentation/">打开演示文稿</a></li>
+<li><a href="/slides/zh/python-net/save-presentation/">保存演示文稿</a></li>
+<li><a href="/slides/zh/python-net/convert-powerpoint-to-pdf/">转换为 PDF</a></li>
+<li><a href="/slides/zh/python-net/convert-slide/">将幻灯片渲染为图像</a></li>
+<li><a href="/slides/zh/python-net/manage-text/">编辑文本和形状</a></li>
+</ul>
+<p>Slides 工作流</p>
+<ul>
+<li><a href="/slides/zh/python-net/powerpoint-charts/">图表</a></li>
+<li><a href="/slides/zh/python-net/powerpoint-animation/">动画</a></li>
+<li><a href="/slides/zh/python-net/manage-media-files/">音频和视频</a></li>
+<li><a href="/slides/zh/python-net/presentation-design/">幻灯片设计</a></li>
+<li><a href="/slides/zh/python-net/merge-presentation/">合并演示文稿</a></li>
+</ul>
+<p>示例</p>
+<ul>
+<li><a href="/slides/zh/python-net/examples/">按幻灯片元素分类的示例</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Python-via-.NET">GitHub 示例</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>参考与支持</b></p>
+<hr>
+<p>参考</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/zh/python-net/">API 参考</a></li>
+<li><a href="https://releases.aspose.com/slides/zh/python-net/release-notes/">发行说明</a></li>
+<li><a href="https://releases.aspose.com/slides/zh/python-net/">下载</a></li>
+</ul>
+<p>支持</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://helpdesk.aspose.com/">付费支持帮助台</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## 安装 Aspose.Slides for Python via .NET
+## **您的第一个演示文稿**
+
+从 PyPI 安装包：
 
 ```bash
 pip install aspose.slides
 ```
 
-该包自带所需的 .NET 运行时，因此无需额外安装，也不需要 Microsoft PowerPoint。支持在 Windows、Linux 或 macOS 上运行 Python 3.7 及以上版本。
+该包包含其使用的 .NET 运行时，因此您无需安装 .NET。在 Linux 上，还需安装 libgdiplus 和 ICU 库；在 Debian 或 Ubuntu 的系统 Python 环境中，请在虚拟环境中运行该命令。macOS 还有其他先决条件，我们尚未验证该平台的安装。请参阅[安装](/slides/zh/python-net/installation/)获取命令、macOS 先决条件以及受支持的 Python 版本。
 
-## 在 Python 中创建 PowerPoint 演示文稿
+将此代码保存为 *hello.py*：
 
-此示例创建一个演示文稿，在第一页添加带文本的形状，并将结果分别保存为 PPTX 和 PDF。
-
-```python
+```py
 import aspose.slides as slides
 
+# 实例化表示演示文稿文件的 Presentation 类。
 with slides.Presentation() as presentation:
+    # 获取第一张幻灯片。
     slide = presentation.slides[0]
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 600, 100)
-    shape.text_frame.text = "Created with Aspose.Slides for Python via .NET"
 
-    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
-    presentation.save("presentation.pdf", slides.export.SaveFormat.PDF)
+    # 添加类型为 CLOUD 的自动形状。
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
+    auto_shape.text_frame.text = "Hello, Aspose!"
+
+    # 将演示文稿保存为 PPTX 文件。
+    presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-运行后会在工作目录生成 `presentation.pptx`（约 34 KB）和 `presentation.pdf`（约 36 KB）。
-
-如果没有许可证，库将以评估模式运行，会添加水印并限制幻灯片数量。请参阅[许可](/slides/zh/python-net/licensing/)以获取许可证。
-
-## Aspose.Slides for Python via .NET 资源
-
-探索以下有用资源：
-
-- [Aspose.Slides for Python via .NET 在线文档](/slides/zh/python-net/)
-- [Aspose.Slides for Python via .NET 功能](/slides/zh/python-net/features-overview/)
-- [Aspose.Slides for Python via .NET 发布说明](https://releases.aspose.com/slides/zh/python-net/release-notes/)
-- [Aspose.Slides for Python via .NET 产品页面](https://products.aspose.com/slides/zh/python-net/)
-- [下载 Aspose.Slides for Python via .NET](https://releases.aspose.com/slides/zh/python-net/)
-- [安装 Aspose.Slides for Python via .NET PyPi 包](https://pypi.org/project/aspose.slides/)
-- [Aspose.Slides for Python via .NET API 参考指南](https://reference.aspose.com/slides/zh/python-net/)
-- [Aspose.Slides for Python via .NET 免费支持论坛](https://forum.aspose.com/c/slides/zh/11)
-- [Aspose.Slides for Python via .NET 付费支持帮助台](https://helpdesk.aspose.com/)
-
-## 常见问题
-
-### Aspose.Slides for Python via .NET 是什么？
-
-Aspose.Slides for Python via .NET 是一个强大的 Python 库，允许您在未安装 Microsoft PowerPoint 的情况下以编程方式创建、编辑和转换 PowerPoint 演示文稿（PPT、PPTX、ODP）。
-
-### Aspose.Slides 支持哪些演示文稿功能？
-
-该库支持管理文本、形状、表格、图表、动画、母版幻灯片、音频、视频等。它还提供幻灯片预览、渲染以及导出为 PDF、SVG、HTML 和图片等格式的功能。
-
-### 我可以使用 Aspose.Slides 将演示文稿转换为其他格式吗？
-
-可以。Aspose.Slides 能够将 PowerPoint 文件高保真、高性能地转换为 PDF、SVG、HTML、JPG、PNG、TIFF 等格式。
-
-### 使用 Aspose.Slides 是否需要 Microsoft PowerPoint？
-
-不需要。Aspose.Slides 是独立的 API，无需 Microsoft Office 或任何第三方软件。
-
-### Aspose.Slides for Python via .NET 支持哪些平台？
-
-它是跨平台的，可在 Windows、Linux 和 macOS 环境下运行。
-
-### 如何开始使用 Aspose.Slides for Python？
-
-您可以通过 PyPi 安装它，并浏览[开发者指南](/slides/zh/python-net/developer-guide/) 开始使用示例、API 参考和教程。
+使用 `python hello.py` 运行它。脚本会在当前文件夹中保存 *new_presentation.pptx*，其中包含一张带有云形状并显示“Hello, Aspose!”的幻灯片。若未授权，保存的文件会带有评估水印 —— 请参阅[授权许可](/slides/zh/python-net/licensing/)。欲了解创建和填充演示文稿的更多方法，请查看[创建演示文稿](/slides/zh/python-net/create-presentation/)。

@@ -7,132 +7,93 @@ keywords:
 - télécharger Aspose.Slides
 - installer Aspose.Slides
 - utiliser Aspose.Slides
-- installation Aspose.Slides
+- installation d'Aspose.Slides
+- pip
+- PyPI
 - Windows
+- Linux
 - macOS
 - Python
-description: "Apprenez comment installer rapidement Aspose.Slides pour Python via .NET. Guide étape par étape, exigences système et extraits de code — commencez à travailler avec des présentations PowerPoint dès aujourd'hui!"
+description: "Installez Aspose.Slides for Python via .NET depuis PyPI avec pip sur Windows, Linux et macOS, et installez les bibliothèques natives requises par Linux et macOS."
 ---
-
 ## **Vue d'ensemble**
 
-Le package Aspose.Slides for Python via .NET inclut toutes les bibliothèques .NET essentielles, ce qui signifie qu'il n'est pas nécessaire d'installer .NET séparément. Cela simplifie le processus d'installation et permet aux développeurs de commencer à travailler avec des présentations immédiatement. Cependant, il est important de noter que, selon votre système d'exploitation ou votre environnement, vous devrez peut‑être toujours installer certaines dépendances spécifiques à la plateforme requises par .NET. De plus, certaines exigences système doivent être respectées pour garantir une pleine compatibilité et le bon fonctionnement du package.
+Cet article explique comment installer Aspose.Slides for Python via .NET sur Windows, Linux et macOS. Le package est publié sur [PyPI](https://pypi.org/project/aspose.slides/) et installé avec pip. Il inclut le runtime .NET qu'il utilise, vous n’avez donc pas besoin d’installer .NET. Sur Linux et macOS, ce runtime nécessite des bibliothèques natives que le système d’exploitation peut ne pas inclure ; les sections ci‑dessous les nomment.
+
+Aspose.Slides for Python via .NET prend en charge Python 3.5 à 3.14. PyPI propose des packages pour Windows (32 bits et 64 bits), Linux (x86_64 et ARM64) et macOS (Intel et Apple silicon).
 
 ## **Windows**
 
-**Exigences système**
+Sur Windows, installez le package avec pip. Aucune autre bibliothèque n’est requise.
 
-Vérifiez et confirmez que les spécifications de votre machine répondent ou dépassent les [exigences système](/slides/fr/python-net/system-requirements/).
-
-### **Installer Aspose.Slides**
-
-`pip` est le moyen le plus simple de télécharger et d'installer [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) sous Windows.
-
-Pour installer Aspose.Slides, exécutez la commande suivante :
-```sh
-pip install aspose-slides
+```bash
+pip install aspose.slides
 ```
 
+## **Linux**
 
-**Utiliser Aspose.Slides**
+Sur Linux, le runtime .NET inclus dans le package nécessite deux bibliothèques :
 
-Testez votre installation Aspose.Slides en exécutant le code suivant pour créer une présentation PowerPoint :
-```python
-# Importer le module Aspose.Slides pour Python via .NET.
-import aspose.slides as slides
+- **libgdiplus**, une implémentation de l’API graphique Windows GDI+. Sans elle, l’enregistrement d’une présentation échoue avec l’erreur `The type initializer for 'Gdip' threw an exception`.
+- **ICU** (International Components for Unicode). Sans elle, le processus Python se termine dès le premier appel à Aspose.Slides avec le message `Couldn't find a valid ICU package installed on the system`.
 
-# Instancier la classe Presentation qui représente un fichier de présentation.
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
+Sur Debian et Ubuntu, installez les deux avec apt :
+
+```bash
+sudo apt-get update && sudo apt-get install -y libgdiplus libicu76
 ```
 
+Le nom du package ICU contient sa version : `libicu76` est le package pour Debian 13. Sur Debian 12, installez `libicu72` à la place, et sur Ubuntu 24.04, `libicu74`. Pour trouver le nom sur votre système, exécutez :
+
+```bash
+apt-cache search --names-only '^libicu[0-9]+$'
+```
+
+Ensuite, installez le package dans un environnement virtuel. Sur les versions actuelles de Debian et Ubuntu, le Python système n’autorise pas `pip install` en dehors d’un environnement virtuel et s’arrête avec l’erreur `externally-managed-environment`.
+
+```bash
+sudo apt-get install -y python3-venv
+python3 -m venv .venv
+. .venv/bin/activate
+pip install aspose.slides
+```
+
+Exécutez vos scripts avec le même environnement virtuel activé. Si vous utilisez un Python que votre distribution ne gère pas, comme celui des images Docker officielles `python`, vous pouvez également exécuter `pip install aspose.slides` sans environnement virtuel.
+
+Les polices utilisées dans vos présentations, ou des substituts appropriés, doivent être installées sur le système pour que le texte s’affiche correctement lors de la conversion des diapositives en PDF ou en images.
 
 ## **macOS**
 
-**Exigences système**
+Nous n’avons pas vérifié l’installation sur macOS. Sur macOS, Aspose.Slides nécessite les prérequis suivants :
 
-Vérifiez et confirmez que les spécifications de votre machine répondent ou dépassent les [exigences système](/slides/fr/python-net/system-requirements/).
+- **Python avec bibliothèques partagées**, c’est‑à‑dire Python compilé avec l’option de configuration `--enable-shared`. Si vous installez Python avec [pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos), définissez la variable d’environnement `PYTHON_CONFIGURE_OPTS` à `--enable-shared` lors de l’installation d’une version de Python.
+- **La bibliothèque libpython dans un répertoire de bibliothèques système.** Un Python installé avec pyenv conserve sa bibliothèque libpython, comme *libpython3.9.dylib*, sous *~/.pyenv/versions* ; créez un lien symbolique vers celle‑ci dans */usr/local/lib*.
+- **libgdiplus**, une implémentation de l’API graphique Windows GDI+. Homebrew le fournit sous le package `mono-libgdiplus`.
 
-### **Prérequis**
+Installez ensuite le package avec pip.
 
-**Python avec bibliothèques partagées**
+## **Vérifier l'installation**
 
-Il existe plusieurs façons d'installer Python sur macOS, mais nous recommandons fortement d'utiliser l'[outil pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos).
+Pour vérifier l’installation, enregistrez le premier exemple de [Create Presentations](/slides/fr/python-net/create-presentation/) sous le nom *hello.py* et exécutez `python hello.py`. Il enregistre *new_presentation.pptx* dans le dossier courant.
 
-Après avoir installé et configuré **pyenv**, installez Python avec des bibliothèques partagées en exécutant les commandes suivantes dans l'application Terminal :
+## **Mise à jour**
 
-1. Installez Python :
-```sh
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install --verbose 3.9.13
+Pour mettre à jour une installation existante vers la dernière version, exécutez cette commande dans l’environnement où vous avez installé le package :
+
+```bash
+pip install --upgrade aspose.slides
 ```
-
-
-2. Définissez‑le comme version Python globale :
-```sh
-pyenv global 3.9.13
-```
-
-
-3. Définissez‑le comme version Python spécifique au shell :
-```sh
-pyenv shell 3.9.13
-```
-
-
-4. Créez un lien symbolique pour la bibliothèque libpython dans un répertoire de bibliothèque système :
-```sh
-ln -s /Users/<username>/.pyenv/versions/3.9.13/lib/libpython3.9.dylib /usr/local/lib/libpython3.9.dylib
-```
-
-
-Remarque : Python 3.5 ou supérieur est requis. La version 3.9.13 est utilisée ici uniquement à titre d'exemple.
-
-**Installer la bibliothèque libgdiplus**
-
-La bibliothèque **libgdiplus** est une implémentation Windows GDI+ pour macOS et Linux dont .NET dépend pour les fonctions graphiques sur ces plateformes.  
-Pour installer cette bibliothèque sur macOS, exécutez la commande suivante :
-```sh
-brew install mono-libgdiplus
-```
-
-
-### **Installer Aspose.Slides**
-
-`pip` est le moyen le plus simple de télécharger et d'installer [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) sur macOS.
-
-Pour installer Aspose.Slides, exécutez la commande suivante :
-```sh
-pip install aspose-slides
-```
-
-
-**Utiliser Aspose.Slides**
-
-Testez votre installation Aspose.Slides en exécutant le code suivant pour créer une présentation PowerPoint :
-```python
-# Importer le module Aspose.Slides pour Python via .NET.
-import aspose.slides as slides
-
-# Instancier la classe Presentation qui représente un fichier de présentation.
-with slides.Presentation() as presentation:    
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
-```
-
 
 ## **FAQ**
 
 **Puis‑je installer Aspose.Slides dans un environnement virtuel ?**
 
-Oui, vous pouvez l'installer dans n'importe quel environnement virtuel Python en utilisant `pip`. Assurez‑vous simplement que l'environnement a accès aux dépendances natives requises selon votre système d'exploitation.
+Oui. Vous pouvez l’installer dans n’importe quel environnement virtuel Python avec pip. Les bibliothèques natives requises par Linux et macOS sont installées sur le système, pas dans l’environnement virtuel.
 
 **Puis‑je utiliser Aspose.Slides dans des conteneurs Docker ?**
 
-Oui, mais vous devez vous assurer que votre image Docker inclut les bibliothèques natives requises (**libgdiplus**, paquets de polices, etc.) ainsi que la version correcte de Python.
+Oui. L’image doit inclure les mêmes bibliothèques natives qu’un système Linux — libgdiplus et ICU — ainsi que les polices utilisées par vos présentations.
 
 **Existe‑t‑il une version gratuite ou une limitation d’essai ?**
 
-Oui, par défaut, Aspose.Slides fonctionne en mode évaluation, ce qui ajoute des filigranes et peut imposer d'autres limitations. Pour supprimer ces restrictions, vous devez appliquer une [licence](/slides/fr/python-net/licensing/) valide.
+Oui. Sans licence, Aspose.Slides fonctionne en mode d’évaluation : il ajoute un filigrane d’évaluation à chaque diapositive enregistrée et tronque le texte lu depuis les présentations. Pour supprimer ces limitations, appliquez une [licence](/slides/fr/python-net/licensing/) valide.

@@ -8,129 +8,92 @@ keywords:
 - 安裝 Aspose.Slides
 - 使用 Aspose.Slides
 - Aspose.Slides 安裝
+- pip
+- PyPI
 - Windows
+- Linux
 - macOS
 - Python
-description: "了解如何快速安裝 Aspose.Slides for Python via .NET。逐步指南、系統需求與程式碼範例 — 今天就開始使用 PowerPoint 簡報！"
+description: "在 Windows、Linux 與 macOS 上，透過 .NET 從 PyPI 使用 pip 安裝 Aspose.Slides for Python，並安裝 Linux 與 macOS 所需的原生函式庫。"
 ---
 ## **概觀**
 
-Aspose.Slides for Python via .NET 套件已將所有必要的 .NET 函式庫捆綁，這意味著無需另外安裝 .NET。此方式簡化了設定流程，開發人員可立即開始處理簡報。然而，請留意依據您的作業系統或環境，仍可能需要安裝 .NET 所需的特定平台相依性。此外，必須滿足某些系統需求，以確保套件的完整相容性與正常運作。
+本文說明如何在 Windows、Linux 與 macOS 上透過 .NET 安裝 Aspose.Slides for Python。此套件發佈於 [PyPI](https://pypi.org/project/aspose.slides/)，並以 pip 安裝。它已內含所使用的 .NET 執行時，因此不需要另外安裝 .NET。於 Linux 與 macOS 上，執行時需要作業系統未必提供的原生函式庫；以下段落會列出這些函式庫。
+
+Aspose.Slides for Python via .NET 支援 Python 3.5 至 3.14。PyPI 提供 Windows（32 位元與 64 位元）、Linux（x86_64 與 ARM64）與 macOS（Intel 與 Apple silicon）之套件。
 
 ## **Windows**
 
-**系統需求**
+在 Windows 上，使用 pip 安裝套件。不需要其他函式庫。
 
-檢查並確認您的機器規格符合或超過[系統需求](/slides/zh-hant/python-net/system-requirements/)。
-
-### **安裝 Aspose.Slides**
-
-`pip` 是在 Windows 上下載與安裝[Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) 的最簡方式。
-
-要安裝 Aspose.Slides，請執行以下指令：
-
-```sh
-pip install aspose-slides
+```bash
+pip install aspose.slides
 ```
 
-**使用 Aspose.Slides**
+## **Linux**
 
-執行下列程式碼以建立 PowerPoint 簡報，測試您的 Aspose.Slides 安裝是否成功：
+在 Linux 上，套件內含的 .NET 執行時需要兩個函式庫：
 
-```python
-# 匯入 Aspose.Slides for Python via .NET 模組。
-import aspose.slides as slides
+- **libgdiplus**，Windows GDI+ 圖形 API 的實作。若缺少此函式庫，儲存簡報時會出現錯誤 `The type initializer for 'Gdip' threw an exception`。
+- **ICU**（International Components for Unicode）。若缺少此函式庫，Python 程序在第一次呼叫 Aspose.Slides 時會終止，顯示訊息 `Couldn't find a valid ICU package installed on the system`。
 
-# 建立代表簡報檔案的 Presentation 類別實例。
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
+在 Debian 與 Ubuntu 上，使用 apt 安裝兩者：
+
+```bash
+sudo apt-get update && sudo apt-get install -y libgdiplus libicu76
 ```
+
+ICU 套件名稱包含版本號：`libicu76` 為 Debian 13 的套件。Debian 12 使用 `libicu72`，Ubuntu 24.04 使用 `libicu74`。若要查詢系統上的套件名稱，可執行：
+
+```bash
+apt-cache search --names-only '^libicu[0-9]+$'
+```
+
+接著在虛擬環境中安裝套件。於目前的 Debian 與 Ubuntu 發行版，系統 Python 不允許在非虛擬環境下執行 `pip install`，會因 `externally-managed-environment` 錯誤而停止。
+
+```bash
+sudo apt-get install -y python3-venv
+python3 -m venv .venv
+. .venv/bin/activate
+pip install aspose.slides
+```
+
+以已啟用相同虛擬環境的方式執行腳本。若使用發行版未管理的 Python（例如官方 `python` Docker 映像），也可在沒有虛擬環境的情況下執行 `pip install aspose.slides`。
+
+必須在系統中安裝簡報使用的字型或相容的替代字型，才能在將投影片轉為 PDF 或圖片時正確呈現文字。
 
 ## **macOS**
 
-**系統需求**
+我們尚未驗證 macOS 上的安裝。於 macOS 上，Aspose.Slides 需要以下前置條件：
 
-檢查並確認您的機器規格符合或超過[系統需求](/slides/zh-hant/python-net/system-requirements/)。
+- **Python with shared libraries**，即以 `--enable-shared` 設定選項編譯的 Python。若使用 [pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos) 安裝 Python，請在安裝特定 Python 版本時將環境變數 `PYTHON_CONFIGURE_OPTS` 設為 `--enable-shared`。
+- **系統函式庫目錄中的 libpython 函式庫**。使用 pyenv 安裝的 Python 會將其 libpython 函式庫（如 *libpython3.9.dylib*）放在 *~/.pyenv/versions* 下；請在 */usr/local/lib* 中建立指向該檔案的符號連結。
+- **libgdiplus**，Windows GDI+ 圖形 API 的實作。Homebrew 以 `mono-libgdiplus` 套件提供。
 
-### **前置條件**
+之後使用 pip 安裝套件。
 
-**含共享函式庫的 Python**
+## **檢查安裝**
 
-macOS 上有多種安裝 Python 的方式，但我們強烈建議使用[pyenv 工具](https://github.com/pyenv/pyenv#homebrew-in-macos)。
+要檢查安裝是否成功，請將 [建立簡報](/slides/zh-hant/python-net/create-presentation/) 中的第一個範例存為 *hello.py*，並執行 `python hello.py`。它會在目前目錄中產生 *new_presentation.pptx*。
 
-安裝並設定 **pyenv** 後，請在 Terminal 應用程式中執行以下指令以安裝含共享函式庫的 Python：
+## **升級**
 
-1. 安裝 Python：
+若要將現有安裝升級至最新版本，請在安裝套件的環境中執行以下指令：
 
-```sh
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install --verbose 3.9.13
+```bash
+pip install --upgrade aspose.slides
 ```
 
-2. 將其設為全域 Python 版本：
-
-```sh
-pyenv global 3.9.13
-```
-
-3. 將其設為 Shell 專屬 Python 版本：
-
-```sh
-pyenv shell 3.9.13
-```
-
-4. 在系統函式庫目錄中為 libpython 函式庫建立符號連結：
-
-```sh
-ln -s /Users/<username>/.pyenv/versions/3.9.13/lib/libpython3.9.dylib /usr/local/lib/libpython3.9.dylib
-```
-
-注意：需要 Python 3.5 或更高版本。此處以 3.9.13 為範例。
-
-**安裝 libgdiplus 函式庫**
-
-**libgdiplus** 函式庫是 .NET 在 macOS 與 Linux 上使用的 Windows GDI+ 實作，提供圖形功能。若要在 macOS 上安裝此函式庫，請執行以下指令：
-
-```sh
-brew install mono-libgdiplus
-```
-
-### **安裝 Aspose.Slides**
-
-`pip` 是在 macOS 上下載與安裝[Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) 的最簡方式。
-
-要安裝 Aspose.Slides，請執行以下指令：
-
-```sh
-pip install aspose-slides
-```
-
-**使用 Aspose.Slides**
-
-執行下列程式碼以建立 PowerPoint 簡報，測試您的 Aspose.Slides 安裝是否成功：
-
-```python
-# 匯入 Aspose.Slides for Python via .NET 模組。
-import aspose.slides as slides
-
-# 建立代表簡報檔案的 Presentation 類別實例。
-with slides.Presentation() as presentation:    
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **FAQ**
+## **常見問題**
 
 **我可以在虛擬環境中安裝 Aspose.Slides 嗎？**
 
-可以，您可以在任何 Python 虛擬環境中使用 `pip` 安裝。只要確保該環境可取得依作業系統需求的原生相依性即可。
+可以。您可以在任何 Python 虛擬環境中使用 pip 安裝。Linux 與 macOS 所需的原生函式庫會安裝在系統上，而非虛擬環境內。
 
 **我可以在 Docker 容器中使用 Aspose.Slides 嗎？**
 
-可以，但必須確保您的 Docker 映像檔已包含所需的原生函式庫（**libgdiplus**、字型套件等）以及正確版本的 Python。
+可以。映像必須包含與 Linux 系統相同的原生函式庫——libgdiplus 與 ICU——以及簡報所使用的字型。
 
 **是否有免費版或試用限制？**
 
-有，預設情況下 Aspose.Slides 以評估模式執行，會加上浮水印且可能有其他限制。若要解除這些限制，需套用有效的[授權](/slides/zh-hant/python-net/licensing/)。
+有。未提供授權時，Aspose.Slides 會以評估模式執行：會在每張儲存的投影片上加上評估浮水印，且會截斷從簡報讀取的文字。若要移除這些限制，請套用有效的 [授權](/slides/zh-hant/python-net/licensing/)。

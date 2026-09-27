@@ -1,14 +1,14 @@
 ---
-title: Evaluieren Aspose.Slides
+title: Aspose.Slides evaluieren
 type: docs
 weight: 120
 url: /de/python-net/evaluate-aspose-slides/
 keywords:
 - Aspose.Slides evaluieren
 - Aspose.Slides Evaluierung
-- Evaluierungsversion
+- Evaluierungs-Version
 - volle Funktionalität
-- Evaluierungswasserzeichen
+- Evaluierungs-Wasserzeichen
 - Aspose.Slides kaufen
 - Einschränkung
 - PowerPoint
@@ -16,37 +16,34 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Evaluieren Sie Aspose.Slides für Python über .NET und entdecken Sie API-Funktionen für PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen - starten Sie Ihre kostenlose Testversion."
+description: "Evaluieren Sie Aspose.Slides für Python über .NET und entdecken Sie API-Funktionen für PowerPoint (PPT, PPTX) und OpenDocument (ODP)-Präsentationen - starten Sie Ihre kostenlose Testphase."
 ---
+## **Aspose.Slides Evaluierung**
 
-## **Aspose.Slides Bewertung**
+Sie können Aspose.Slides zur Evaluierung herunterladen. Das Evaluierungspaket ist dasselbe wie das erworbene Paket; es wird lizenziert, nachdem Sie ein paar Codezeilen hinzugefügt haben, um die Lizenz anzuwenden.
 
-Sie können Aspose.Slides problemlos zum Testen herunterladen. Das Evaluierungspaket ist dasselbe wie das gekaufte Paket. Die Evaluierungsversion wird einfach lizenziert, sobald Sie ein paar Codezeilen hinzufügen, um die Lizenz zu aktivieren.
+Ohne Lizenz bietet Aspose.Slides seine volle Funktionalität im Evaluierungsmodus, jedoch mit zwei Einschränkungen: Es fügt jedem Folienblatt jeder Präsentation, die es speichert, ein Wasserzeichen-Textfeld für die Evaluierung hinzu, und Text, den Ihr Code aus einer Präsentation liest, wird auf die ersten wenigen Zeichen gekürzt, gefolgt von einem Hinweis auf die Evaluierungseinschränkung. Text, den Ihr Code schreibt, wird vollständig gespeichert.
 
-Die Evaluierungsversion von Aspose.Slides (ohne angegebene Lizenz) bietet die volle Funktionalität des Produkts, fügt jedoch beim Öffnen und Speichern ein Evaluierungswasserzeichen oben im Dokument ein. Außerdem sind Sie beim Extrahieren von Texten aus Präsentationsfolien auf eine Folie beschränkt.
+{{% alert color="info" title="Note" %}}
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Wenn Sie Aspose.Slides ohne Einschränkungen der Evaluierungsversion testen möchten, können Sie eine **30‑tägige temporäre Lizenz** anfordern. Weitere Informationen finden Sie unter [Wie erhalte ich eine temporäre Lizenz?](https://purchase.aspose.com/temporary-license).
+Wenn Sie Aspose.Slides ohne Einschränkungen der Evaluierungs-Version testen möchten, können Sie eine **30-tägige temporäre Lizenz** anfordern. Weitere Informationen finden Sie unter [Wie erhalte ich eine temporäre Lizenz?](https://purchase.aspose.com/temporary-license).
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kann ich mehrere Präsentationen gleichzeitig über verschiedene Threads im Evaluierungsmodus testen?**
+### Kann ich mehrere Präsentationen parallel über verschiedene Threads im Evaluierungsmodus testen?
 
-Ja. Sie können verschiedene Dokumente parallel verarbeiten; Sie sollten das gleiche Präsentationsobjekt nicht [über Threads](/slides/de/python-net/multithreading/) teilen. Der Evaluierungsmodus hat darauf keinen Einfluss.
+Ja. Sie können verschiedene Dokumente parallel verarbeiten; Sie sollten nicht dasselbe Präsentationsobjekt [über Threads](/slides/de/python-net/multithreading/) teilen. Der Evaluierungsmodus hat darauf keinen Einfluss.
 
-**Muss ich Microsoft PowerPoint installieren, um die Bibliothek auf einem Server oder in CI zu evaluieren?**
+### Muss ich Microsoft PowerPoint installieren, um die Bibliothek auf einem Server oder in CI zu evaluieren?
 
-Nein. Aspose.Slides ist eine eigenständige Engine und erfordert weder für die Evaluierung noch für die Produktion eine installierte PowerPoint-Version.
+Nein. Aspose.Slides ist eine eigenständige Engine und erfordert weder für die Evaluierung noch für den Produktivbetrieb eine installierte PowerPoint-Version.
 
-**Kann ich die Konvertierung von PPT/PPTX zu PDF und Bildern im Evaluierungsmodus vollständig testen?**
+### Kann ich die Konvertierung von PPT/PPTX nach PDF und Bildern im Evaluierungsmodus vollständig testen?
 
 Ja. Die [Konverter](/slides/de/python-net/convert-presentation/) funktionieren; die Ausgabe enthält ein Wasserzeichen.
 
-**Kann ich eine temporäre Lizenz für Lasttests ohne Wasserzeichen verwenden?**
+### Kann ich eine temporäre Lizenz für Lasttests ohne Wasserzeichen verwenden?
 
-Ja. Eine 30‑tägige temporäre Lizenz entfernt die Einschränkungen des Evaluierungsmodus und ermöglicht Tests ohne Wasserzeichen.
+Ja. Eine 30-tägige temporäre Lizenz entfernt die Einschränkungen des Evaluierungsmodus und ermöglicht Tests ohne Wasserzeichen.

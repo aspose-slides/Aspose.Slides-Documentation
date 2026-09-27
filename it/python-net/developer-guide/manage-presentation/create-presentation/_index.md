@@ -1,39 +1,38 @@
 ---
-title: Creare presentazioni in Python
-linktitle: Creare presentazione
+title: Crea Presentazioni in Python
+linktitle: Crea Presentazione
 type: docs
 weight: 10
 url: /it/python-net/create-presentation/
 keywords:
-- creare presentazione
+- crea presentazione
 - nuova presentazione
-- creare PPT
+- crea PPT
 - nuovo PPT
-- creare PPTX
+- crea PPTX
 - nuovo PPTX
-- creare ODP
+- crea ODP
 - nuovo ODP
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Crea presentazioni PowerPoint in Python con Aspose.Slides—produci file PPT, PPTX e ODP, usufrui del supporto OpenDocument e salvali programmaticamente per risultati affidabili."
+description: "Crea presentazioni PowerPoint in Python con Aspose.Slides—produci file PPT, PPTX e ODP, sfrutta il supporto OpenDocument e salvali programmaticamente per risultati affidabili."
 ---
 ## **Panoramica**
 
-Aspose.Slides per Python ti consente di creare un nuovo file di presentazione interamente tramite codice. Questo articolo mostra il flusso di lavoro principale—creare un oggetto [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) , recuperare la prima diapositiva, inserire una forma semplice e salvare il risultato—così puoi vedere quanto poco sia necessario configurare per generare una presentazione senza Microsoft Office. Poiché la stessa API scrive file PPT, PPTX e ODP, puoi puntare sia ai tradizionali formati PowerPoint sia a quelli OpenDocument da un unico codice. Aspose.Slides è adatto a ambienti desktop, web o server, offrendo alla tua applicazione Python un punto di partenza efficiente per aggiungere contenuti più ricchi, come testo, immagini o grafici, una volta che il mazzo di diapositive iniziale è pronto.
+Questo articolo mostra come creare una presentazione con Aspose.Slides per Python via .NET, aggiungere una forma con testo alla sua prima diapositiva e salvare il risultato come file PPTX. La stessa API salva anche le presentazioni come PPT e ODP, così è possibile mirare sia ai formati PowerPoint che OpenDocument da un unico codice, senza Microsoft Office. Una breve FAQ alla fine copre le domande comuni su formati, modelli, dimensioni delle diapositive, unità, utilizzo della memoria, threading, licenze, firme digitali e supporto VBA.
+
+Prima di iniziare, installa il pacchetto da PyPI con `pip install aspose.slides`. Vedi [Installazione](/slides/it/python-net/installation/) per le librerie necessarie su Linux e macOS, e per l'ambiente virtuale richiesto dal Python di sistema di Debian e Ubuntu.
 
 ## **Crea una presentazione**
 
-Creare un file PowerPoint da zero con Aspose.Slides per Python è semplice come istanziare la classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/). Il costruttore fornisce automaticamente un mazzo vuoto con una singola diapositiva, offrendoti una tela immediata per forme, testo, grafici o qualsiasi altro contenuto di cui la tua applicazione ha bisogno. Una volta modificata quella diapositiva—o aggiunte nuove—puoi salvare il risultato in PPTX, PPT legacy o anche nei formati OpenDocument. Il breve esempio di codice qui sotto illustra questo flusso di lavoro aggiungendo una forma semplice sulla prima diapositiva.
+Per creare una presentazione e inserire una forma con testo nella sua prima diapositiva, segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento alla diapositiva tramite il suo indice.
-1. Aggiungi un oggetto [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) di tipo `CLOUD` usando il metodo `add_auto_shape` esposto dalla collezione `shapes`.
-1. Aggiungi del testo alla forma automatica.
-1. Salva la presentazione modificata come file PPTX.
-
-Nell'esempio seguente, una forma nuvola viene aggiunta alla prima diapositiva della presentazione.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) . Una nuova presentazione contiene già una diapositiva vuota.  
+1. Recupera quella diapositiva dalla collezione [slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/slides/it/) per indice, 0.  
+1. Aggiungi una nuvola a forma di [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) con il metodo [add_auto_shape](https://reference.aspose.com/slides/it/python-net/aspose.slides/shapecollection/add_auto_shape/) della collezione [shapes](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/shapes/) della diapositiva, e imposta il suo [text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/text/).  
+1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/save/) .
 
 ```py
 import aspose.slides as slides
@@ -51,44 +50,46 @@ with slides.Presentation() as presentation:
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+L'angolo superiore sinistro della nuvola è a 20 punti dal bordo sinistro e a 20 punti dal bordo superiore della diapositiva, e la nuvola è larga 200 punti e alta 80 punti. L'istruzione `with` rilascia le risorse della presentazione al termine del blocco. Lo script salva *new_presentation.pptx* nella cartella corrente, con una diapositiva che contiene la nuvola e il suo testo. Senza una licenza, Aspose.Slides aggiunge anche una filigrana di valutazione a ogni diapositiva salvata; vedi [Licenza](/slides/it/python-net/licensing/) .
+
 Il risultato:
 
 ![La nuova presentazione](new_presentation.png)
 
-## **Domande frequenti**
+## **FAQ**
 
-**In quali formati posso salvare una nuova presentazione?**
+### In quali formati posso salvare una nuova presentazione?
 
-Puoi salvare in [PPTX, PPT e ODP](/slides/it/python-net/save-presentation/), ed esportare in [PDF](/slides/it/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/it/python-net/convert-powerpoint-to-xps/), [HTML](/slides/it/python-net/convert-powerpoint-to-html/), [SVG](/slides/it/python-net/convert-powerpoint-to-png/), e [immagini](/slides/it/python-net/convert-powerpoint-to-png/), tra gli altri.
+Puoi salvare in [PPTX, PPT, and ODP](/slides/it/python-net/save-presentation/), ed esportare in [PDF](/slides/it/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/it/python-net/convert-powerpoint-to-xps/), [HTML](/slides/it/python-net/convert-powerpoint-to-html/), [SVG](/slides/it/python-net/render-a-slide-as-an-svg-image/), e [immagini](/slides/it/python-net/convert-powerpoint-to-png/), tra gli altri.
 
-**Posso partire da un modello (POTX/POTM) e salvarlo come un PPTX normale?**
+### Posso partire da un modello (POTX/POTM) e salvare come un PPTX regolare?
 
-Sì. Carica il modello e salvalo nel formato desiderato; i formati POTX/POTM/PPTM e simili [sono supportati](/slides/it/python-net/supported-file-formats/).
+Sì. Carica il modello e salva nel formato desiderato; i formati POTX/POTM/PPTM e simili [sono supportati](/slides/it/python-net/supported-file-formats/) .
 
-**Come posso controllare le dimensioni/rapporto d'aspetto della diapositiva quando creo una presentazione?**
+### Come controllo la dimensione/rapporto d'aspetto della diapositiva quando creo una presentazione?
 
-Imposta la [dimensione della diapositiva](/slides/it/python-net/slide-size/) (incluse le preimpostazioni come 4:3 e 16:9 o dimensioni personalizzate) e scegli come il contenuto deve essere scalato.
+Imposta la [dimensione della diapositiva](/slides/it/python-net/slide-size/) (inclusi preset come 4:3 e 16:9 o dimensioni personalizzate) e scegli come scalare il contenuto.
 
-**In quali unità sono misurate le dimensioni e le coordinate?**
+### In quali unità sono misurate le dimensioni e le coordinate?
 
-In punti: 1 pollice corrisponde a 72 unità.
+In punti: 1 pollice equivale a 72 unità.
 
-**Come gestire presentazioni molto grandi (con molti file multimediali) per ridurre l'uso di memoria?**
+### Come gestire presentazioni molto grandi (con molti file multimediali) per ridurre l'uso della memoria?
 
-Usa le [strategie di gestione BLOB](/slides/it/python-net/manage-blob/), limita la memorizzazione in memoria sfruttando file temporanei e preferisci i flussi basati su file rispetto a quelli esclusivamente in memoria.
+Usa [BLOB management strategies](/slides/it/python-net/manage-blob/), limita lo storage in memoria sfruttando file temporanei, e preferisci flussi basati su file rispetto a flussi puramente in memoria.
 
-**Posso creare/salvare presentazioni in parallelo?**
+### Posso creare/salvare presentazioni in parallelo?
 
-Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) da [più thread](/slides/it/python-net/multithreading/). Esegui istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) da [più thread](/slides/it/python-net/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
-**Come rimuovere la filigrana di prova e le limitazioni?**
+### Come rimuovere la filigrana di valutazione e le limitazioni?
 
-[Applica una licenza](/slides/it/python-net/licensing/) una volta per processo. Il file XML della licenza deve rimanere non modificato e la configurazione della licenza dovrebbe essere sincronizzata se sono coinvolti più thread.
+[Applica una licenza](/slides/it/python-net/licensing/) una volta per processo. Il file XML della licenza deve rimanere inalterato, e la configurazione della licenza deve essere sincronizzata se più thread sono coinvolti.
 
-**Posso firmare digitalmente il PPTX che creo?**
+### Posso firmare digitalmente il PPTX che creo?
 
-Sì. Le [firme digitali](/slides/it/python-net/digital-signature-in-powerpoint/) (aggiunta e verifica) sono supportate per le presentazioni.
+Sì. [Firme digitali](/slides/it/python-net/digital-signature-in-powerpoint/) (aggiunta e verifica) sono supportate per le presentazioni.
 
-**Le macro (VBA) sono supportate nelle presentazioni create?**
+### Le macro (VBA) sono supportate nelle presentazioni create?
 
-Sì. Puoi [creare/modificare progetti VBA](/slides/it/python-net/presentation-via-vba/) e salvare file con macro abilitata come PPTM/PPSM.
+Sì. Puoi [creare/modificare progetti VBA](/slides/it/python-net/presentation-via-vba/) e salvare file abilitati alle macro come PPTM/PPSM.

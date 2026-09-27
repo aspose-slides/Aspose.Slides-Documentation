@@ -8,130 +8,92 @@ keywords:
 - Aspose.Slides telepítése
 - Aspose.Slides használata
 - Aspose.Slides telepítése
+- pip
+- PyPI
 - Windows
+- Linux
 - macOS
 - Python
-description: "Ismerje meg, hogyan telepítheti gyorsan az Aspose.Slides for Python via .NET-et. Lépésről lépésre útmutató, rendszerkövetelmények és kódminták — kezdje el a PowerPoint‑prezentációk használatát még ma!"
+description: "Telepítse az Aspose.Slides for Python via .NET csomagot a PyPI-ról pip segítségével Windows, Linux és macOS rendszeren, és telepítse a Linux és macOS által igényelt natív könyvtárakat."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Python via .NET csomag minden szükséges .NET könyvtárat tartalmaz, ami azt jelenti, hogy a .NET-et külön nem kell telepíteni. Ez egyszerűsíti a beállítási folyamatot, és lehetővé teszi a fejlesztők számára, hogy azonnal prezentációkkal dolgozhassanak. Fontos azonban megjegyezni, hogy operációs rendszerétől vagy környezetétől függően előfordulhat, hogy a .NET-hez szükséges platformspecifikus függőségeket még mindig telepíteni kell. Továbbá bizonyos rendszerkövetelményeket teljesíteni kell a csomag teljes kompatibilitásának és megfelelő működésének biztosítása érdekében.
+Ez a cikk leírja, hogyan telepíthető az Aspose.Slides for Python via .NET Windows, Linux és macOS operációs rendszerekre. A csomag a [PyPI](https://pypi.org/project/aspose.slides/) oldalon érhető el, és a pip segítségével telepíthető. Tartalmazza a használt .NET futtatókörnyezetet, így nem szükséges a .NET-et külön telepíteni. Linuxon és macOS-en a futtatókörnyezethez natív könyvtárakra van szükség, amelyeket a rendszer esetleg nem biztosít; az alábbi szakaszok megnevezik ezeket.
+
+Az Aspose.Slides for Python via .NET a Python 3.5‑től 3.14‑ig terjedő verzióit támogatja. A PyPI Windowsra (32‑bit és 64‑bit), Linuxra (x86_64 és ARM64) és macOS‑re (Intel és Apple szilícium) kínál csomagokat.
 
 ## **Windows**
 
-**Rendszerkövetelmények**
+Windowson a csomagot a pip‑el telepítheti. Egyéb könyvtárak nem szükségesek.
 
-Ellenőrizze és erősítse meg, hogy gépe specifikációi megfelelnek vagy meghaladják a [rendszerkövetelmények](/slides/hu/python-net/system-requirements/).
-
-### **Aspose.Slides telepítése**
-
-`pip` a legegyszerűbb módja a [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) letöltésének és telepítésének Windows rendszeren.
-
-Az Aspose.Slides telepítéséhez futtassa a következő parancsot:
-
-```sh
-pip install aspose-slides
+```bash
+pip install aspose.slides
 ```
 
-**Aspose.Slides használata**
+## **Linux**
 
-Tesztelje az Aspose.Slides telepítését a következő kód futtatásával egy PowerPoint‑prezentáció létrehozásához:
+Linuxon a csomagban szereplő .NET futtatókörnyezetnek két könyvtárra van szüksége:
 
-```python
-# Aspose.Slides for Python via .NET modul importálása.
-import aspose.slides as slides
+- **libgdiplus**, a Windows GDI+ grafikus API megvalósítása. Nélküle a prezentáció mentése a `The type initializer for 'Gdip' threw an exception` hibával kudarcot vall.
+- **ICU** (International Components for Unicode). Nélküle a Python folyamat az első Aspose.Slides hívásnál leáll a `Couldn't find a valid ICU package installed on the system` üzenettel.
 
-# A Presentation osztály példányosítása, amely egy prezentációs fájlt képvisel.
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
+Debianon és Ubuntu-n mindkettőt az apt‑vel telepítheti:
+
+```bash
+sudo apt-get update && sudo apt-get install -y libgdiplus libicu76
 ```
+
+Az ICU csomag neve tartalmazza a verziót: a `libicu76` a Debian 13‑hoz tartozó csomag. Debian 12‑n a `libicu72`‑t kell telepíteni, Ubuntu 24.04‑n pedig a `libicu74`‑et. A rendszerén lévő név megállapításához futtassa:
+
+```bash
+apt-cache search --names-only '^libicu[0-9]+$'
+```
+
+Ezután telepítse a csomagot egy virtuális környezetbe. A jelenlegi Debian és Ubuntu kiadásokban a rendszerszintű Python nem engedélyezi a `pip install` végrehajtását virtuális környezet nélkül, és a `externally-managed-environment` hibával áll le.
+
+```bash
+sudo apt-get install -y python3-venv
+python3 -m venv .venv
+. .venv/bin/activate
+pip install aspose.slides
+```
+
+A szkriptjeit ugyanabban a aktivált virtuális környezetben futtassa. Ha olyan Python‑t használ, amelyet a disztribúciója nem kezel, például a hivatalos `python` Docker‑képekben lévőt, akkor a `pip install aspose.slides` parancsot virtuális környezet nélkül is futtathatja.
+
+A prezentációkban használt betűtípusoknak, vagy megfelelő helyettesítőknek a rendszerre telepítve kell lenniük, hogy a szöveg PDF‑re vagy képekre konvertálásakor helyesen jelenjen meg.
 
 ## **macOS**
 
-**Rendszerkövetelmények**
+A macOS‑on történő telepítést még nem ellenőriztük. macOS‑en az Aspose.Slides a következő előfeltételeket igényli:
 
-Ellenőrizze és erősítse meg, hogy gépe specifikációi megfelelnek vagy meghaladják a [rendszerkövetelmények](/slides/hu/python-net/system-requirements/).
+- **Python megosztott könyvtárakkal**, vagyis olyan Python, amely a `--enable-shared` konfigurációs opcióval lett felépítve. Ha a Python‑t a [pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos)‑vel telepíti, állítsa a `PYTHON_CONFIGURE_OPTS` környezeti változót `--enable-shared`‑re a Python verzió telepítésekor.
+- **A libpython könyvtár a rendszerkönyvtárban**. A pyenv‑vel telepített Python a libpython könyvtárát, például a *libpython3.9.dylib*-t, a *~/.pyenv/versions* könyvtárban tartja; hozzon létre egy szimbolikus linket rá a */usr/local/lib* könyvtárban.
+- **libgdiplus**, a Windows GDI+ grafikus API megvalósítása. A Homebrew a `mono-libgdiplus` csomagként biztosítja.
 
-### **Előfeltételek**
+Ezután a csomagot a pip‑el telepítse.
 
-**Python megosztott könyvtárakkal**
+## **A telepítés ellenőrzése**
 
-Több mód is létezik a Python macOS‑ra történő telepítésére, de erősen ajánljuk a [pyenv tool](https://github.com/pyenv/pyenv#homebrew-in-macos) használatát.
+A telepítés ellenőrzéséhez mentse el az első példát a [Create Presentations](/slides/hu/python-net/create-presentation/) oldalról *hello.py* néven, és futtassa a `python hello.py` parancsot. A parancs a *new_presentation.pptx*-t a jelenlegi mappába menti.
 
-A **pyenv** telepítése és konfigurálása után telepítse a Python‑t megosztott könyvtárakkal a Terminal alkalmazásban a következő parancsok futtatásával:
+## **Frissítés**
 
-1. Python telepítése:
+A meglévő telepítés legújabb verzióra történő frissítéséhez futtassa ezt a parancsot abban a környezetben, ahol a csomagot telepítette:
 
-```sh
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install --verbose 3.9.13
-```
-
-2. Állítsa be globális Python verzióként:
-
-```sh
-pyenv global 3.9.13
-```
-
-3. Állítsa be a shell‑specifikus Python verzióként:
-
-```sh
-pyenv shell 3.9.13
-```
-
-4. Hozzon létre szimbolikus linket a libpython könyvtárhoz egy rendszermappában:
-
-```sh
-ln -s /Users/<username>/.pyenv/versions/3.9.13/lib/libpython3.9.dylib /usr/local/lib/libpython3.9.dylib
-```
-
-Megjegyzés: Python 3.5 vagy újabb szükséges. A 3.9.13 verzió csak példaként van használva.
-
-**A libgdiplus könyvtár telepítése**
-
-A **libgdiplus** könyvtár egy Windows GDI+ megvalósítás macOS‑ra és Linuxra, amelyre a .NET a grafikai funkciók biztosításához támaszkodik.  
-A könyvtár macOS‑on való telepítéséhez futtassa a következő parancsot:
-
-```sh
-brew install mono-libgdiplus
-```
-
-### **Aspose.Slides telepítése**
-
-`pip` a legegyszerűbb módja a [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) letöltésének és telepítésének macOS rendszeren.
-
-Az Aspose.Slides telepítéséhez futtassa a következő parancsot:
-
-```sh
-pip install aspose-slides
-```
-
-**Aspose.Slides használata**
-
-Tesztelje az Aspose.Slides telepítését a következő kód futtatásával egy PowerPoint‑prezentáció létrehozásához:
-
-```python
-# Aspose.Slides for Python via .NET modul importálása.
-import aspose.slides as slides
-
-# A Presentation osztály példányosítása, amely egy prezentációs fájlt képvisel.
-with slides.Presentation() as presentation:    
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
+```bash
+pip install --upgrade aspose.slides
 ```
 
 ## **GYIK**
 
-**Telepíthetem az Aspose.Slides‑t virtuális környezetben?**
+**Telepíthetek Aspose.Slides‑t virtuális környezetben?**
 
-Igen, bármely Python virtuális környezetben telepítheti a `pip` segítségével. Ügyeljen arra, hogy a környezet hozzáférjen a szükséges natív függőségekhez operációs rendszerétől függően.
+Igen. Bármely Python virtuális környezetben a pip‑el telepítheti. A Linuxnak és a macOS‑nek szükséges natív könyvtárak a rendszerre vannak telepítve, nem a virtuális környezetbe.
 
 **Használhatom az Aspose.Slides‑t Docker konténerekben?**
 
-Igen, de biztosítania kell, hogy a Docker‑képe tartalmazza a szükséges natív könyvtárakat (**libgdiplus**, betűcsomagok stb.) és a megfelelő Python verziót.
+Igen. A képfájlnak tartalmaznia kell ugyanazokat a natív könyvtárakat, mint egy Linux rendszer – a libgdiplus‑t és az ICU‑t –, valamint a prezentációkban használt betűtípusokat.
 
-**Van ingyenes verzió vagy próbaidő korlátozás?**
+**Van ingyenes verzió vagy próbaverzió korlátozással?**
 
-Igen, alapértelmezés szerint az Aspose.Slides értékelő módban fut, amely vízjeleket helyez el és egyéb korlátozásokkal is járhat. A korlátozások eltávolításához egy érvényes [licenc](/slides/hu/python-net/licensing/) alkalmazása szükséges.
+Igen. Licenc nélkül az Aspose.Slides értékelési módban működik: minden mentett diára egy értékelési vízjelet helyez, és a prezentációkból beolvasott szöveget csonkolja. E korlátozások eltávolításához alkalmazzon egy érvényes [license](/slides/hu/python-net/licensing/) licencet.

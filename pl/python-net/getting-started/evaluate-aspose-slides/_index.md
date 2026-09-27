@@ -1,12 +1,12 @@
 ---
-title: Ocena Aspose.Slides
+title: Ewaluacja Aspose.Slides
 type: docs
 weight: 120
 url: /pl/python-net/evaluate-aspose-slides/
 keywords:
 - ocena Aspose.Slides
 - ocena Aspose.Slides
-- wersja ewaluacyjna
+- wersja oceny
 - pełna funkcjonalność
 - znak wodny oceny
 - zakup Aspose.Slides
@@ -16,34 +16,28 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Oceń Aspose.Slides dla Pythona za pośrednictwem .NET i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij darmowy okres próbny."
+description: "Ewaluuj Aspose.Slides dla Pythona przez .NET i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
 ---
 ## **Ocena Aspose.Slides**
 
-Możesz łatwo pobrać Aspose.Slides do oceny. Pakiet ewaluacyjny jest taki sam jak zakupiony pakiet. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku linii kodu, aby zastosować licencję. 
+Możesz pobrać Aspose.Slides do oceny. Pakiet oceny jest taki sam jak zakupiony pakiet; zostaje licencjonowany po dodaniu kilku linijek kodu w celu zastosowania licencji.
 
-Wersja ewaluacyjna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny oceny u góry dokumentu podczas otwierania i zapisywania. Dodatkowo ograniczony jesteś do jednego slajdu podczas wyodrębniania tekstu z slajdów prezentacji.
+Bez licencji Aspose.Slides udostępnia pełną funkcjonalność w trybie oceny, z dwoma ograniczeniami: dodaje pole tekstowe z znakiem wodnym oceny do każdego slajdu każdej prezentacji, którą zapisuje, a tekst odczytywany przez Twój kod z prezentacji jest przycinany do kilku pierwszych znaków, po których pojawia się informacja o ograniczeniu oceny. Tekst zapisywany przez Twój kod jest zachowywany w całości.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz zażądać **30-dniowa licencja tymczasowa**. Więcej informacji znajdziesz w [Jak uzyskać licencję tymczasową?](https://purchase.aspose.com/temporary-license). 
+{{% alert color="info" title="Note" %}}
+Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji oceny, możesz poprosić o **30‑dniową tymczasową licencję**. Więcej informacji znajdziesz w [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę testować wiele prezentacji równolegle w różnych wątkach w trybie ewaluacyjnym?**
+### Czy mogę testować wiele prezentacji równocześnie w różnych wątkach w trybie oceny?
+Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś udostępniać tego samego obiektu prezentacji [między wątkami](/slides/pl/python-net/multithreading/). Tryb oceny nie wpływa na to.
 
-Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [między wątkami](/slides/pl/python-net/multithreading/). Tryb ewaluacyjny nie wpływa na to.
+### Czy muszę zainstalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?
+Nie. Aspose.Slides to samodzielny silnik i nie wymaga zainstalowanego PowerPointa zarówno w trybie oceny, jak i w produkcji.
 
-**Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?**
-
-Nie. Aspose.Slides jest niezależnym silnikiem i nie wymaga zainstalowanego PowerPointa zarówno w trybie ewaluacyjnym, jak i produkcyjnym.
-
-**Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie ewaluacyjnym?**
-
+### Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie oceny?
 Tak. [Konwertery](/slides/pl/python-net/convert-presentation/) działają; wynik będzie zawierał znak wodny.
 
-**Czy mogę używać licencji tymczasowej do testów obciążeniowych bez znaku wodnego?**
-
-Tak. 30-dniowa licencja tymczasowa usuwa ograniczenia trybu ewaluacyjnego i pozwala na testowanie bez znaku wodnego.
+### Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znaku wodnego?
+Tak. 30‑dniowa tymczasowa licencja usuwa ograniczenia trybu oceny i pozwala na testowanie bez znaku wodnego.
