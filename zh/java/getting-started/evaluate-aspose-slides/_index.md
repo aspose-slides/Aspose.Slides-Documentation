@@ -22,7 +22,7 @@ description: "评估 Aspose.Slides for Java 并探索针对 PowerPoint (PPT, PPT
 
 您可以下载 Aspose.Slides 进行评估。评估版下载与购买版相同；在添加几行代码以应用许可证后即可获得授权。
 
-在没有许可证的情况下，Aspose.Slides 在评估模式下提供全部功能，但有两项限制：它会在每个保存的演示文稿的每张幻灯片上添加评估水印文本框；以及通过 API 读取的文本（包括刚刚设置的文本）会被截断为前几字符，并附加关于评估限制的提示。代码写入的文本会完整保存。用于在不加载整个演示文稿的情况下提取文本的 [getPresentationText](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) 方法仅返回评估提示，而不返回幻灯片文本。
+在没有许可证的情况下，Aspose.Slides 在评估模式下提供全部功能，但有两项限制：它会在每个保存的演示文稿的每张幻灯片上添加评估水印文本框；以及通过 API 读取的文本（包括刚刚设置的文本）会被截断为前几字符，并附加关于评估限制的提示。代码写入的文本会完整保存。用于在不加载整个演示文稿的情况下提取文本的 [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) 方法仅返回评估提示，而不返回幻灯片文本。
 
 ![带有评估水印的幻灯片](evaluate-aspose-slides_1.png)
 

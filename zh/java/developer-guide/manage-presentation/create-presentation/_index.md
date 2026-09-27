@@ -28,14 +28,14 @@ description: "使用 Aspose.Slides 在 Java 中创建演示文稿——生成 PP
 
 ## **创建演示文稿**
 
-在 Aspose.Slides for Java 中从头创建 PowerPoint 文件始于实例化[Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/)类。构造函数会提供一个包含单张幻灯片的空白演示文稿，可用于放置形状、文本、图表或任何其他应用程序需要的内容。修改该幻灯片或添加新幻灯片后，您可以将结果保存为 PPTX、旧版 PPT 或 OpenDocument 格式。
+在 Aspose.Slides for Java 中从头创建 PowerPoint 文件始于实例化[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)类。构造函数会提供一个包含单张幻灯片的空白演示文稿，可用于放置形状、文本、图表或任何其他应用程序需要的内容。修改该幻灯片或添加新幻灯片后，您可以将结果保存为 PPTX、旧版 PPT 或 OpenDocument 格式。
 
 要创建演示文稿并在其第一张幻灯片上放置带文本的形状，请按以下步骤操作：
 
-1. 创建[Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/)类的实例。新的演示文稿已经包含一张空幻灯片。
-2. 通过其索引 0，从[getSlides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#getSlides--)返回的集合中获取该幻灯片。
-3. 使用[addAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-)方法添加一个`Cloud`类型的[IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)，并使用[setText](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/#setText-java.lang.String-)设置其文本。
-4. 使用[save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#save-java.lang.String-int-)方法将演示文稿保存为 PPTX 文件。
+1. 创建[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)类的实例。新的演示文稿已经包含一张空幻灯片。
+2. 通过其索引 0，从[getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)返回的集合中获取该幻灯片。
+3. 使用[addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-)方法添加一个`Cloud`类型的[IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)，并使用[setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-)设置其文本。
+4. 使用[save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-)方法将演示文稿保存为 PPTX 文件。
 
 下面的示例是完整的程序。在来自[安装](/slides/zh/java/installation/)的 Maven 项目中，将其保存为*src/main/java/HelloSlides.java*并运行`mvn compile exec:java`。
 
@@ -92,7 +92,7 @@ public class HelloSlides {
 
 ### 我可以并行创建/保存演示文稿吗？
 
-不能在[多个线程](/slides/zh/java/multithreading/)中操作同一个[Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/)实例。请为每个线程或进程运行独立的实例。
+不能在[多个线程](/slides/zh/java/multithreading/)中操作同一个[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)实例。请为每个线程或进程运行独立的实例。
 
 ### 如何移除试用水印和限制？
 

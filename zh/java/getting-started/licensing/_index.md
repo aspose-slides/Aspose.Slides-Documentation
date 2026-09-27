@@ -30,7 +30,7 @@ Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。
 
 您可以从其[下载页面](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)下载 **Aspose.Slides for Java** 的评估版。评估版提供与授权版相同的功能。评估包与购买的包相同，只需在代码中添加几行（以应用许可证），评估版即可转为授权版。
 
-在您对 **Aspose.Slides** 的评估满意后，可以[购买许可证](https://purchase.aspose.com/pricing/slides/zh/java/)。我们建议您了解不同的订阅类型。如有疑问，请联系 Aspose 销售团队。
+在您对 **Aspose.Slides** 的评估满意后，可以[购买许可证](https://purchase.aspose.com/pricing/slides/java/)。我们建议您了解不同的订阅类型。如有疑问，请联系 Aspose 销售团队。
 
 每个 Aspose 许可证均附带一年免费升级订阅，可在订阅期间获取新版本或修复。拥有许可证的用户（甚至是评估版用户）均可免费获得无限技术支持。
 
@@ -70,7 +70,7 @@ Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。
 
 {{% alert color="info" title="注意" %}}
 
-Aspose.Slides 提供用于授权操作的[License](https://reference.aspose.com/slides/zh/java/com.aspose.slides/license/)类。
+Aspose.Slides 提供用于授权操作的[License](https://reference.aspose.com/slides/java/com.aspose.slides/license/)类。
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="警告" %}}
 
-如果将许可证文件放在其他目录中，在调用[setLicense](https://reference.aspose.com/slides/zh/java/com.aspose.slides/license/#setLicense-java.lang.String-)方法时，指定路径末尾的许可证文件名必须与实际文件名相同。
+如果将许可证文件放在其他目录中，在调用[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-)方法时，指定路径末尾的许可证文件名必须与实际文件名相同。
 
-例如，您可以将许可证文件名改为 *Aspose.Slides.Java.lic.xml*。此时在代码中需要将路径（以 *Aspose.Slides.Java.lic.xml* 结尾）传递给[setLicense](https://reference.aspose.com/slides/zh/java/com.aspose.slides/license/#setLicense-java.lang.String-)方法。
+例如，您可以将许可证文件名改为 *Aspose.Slides.Java.lic.xml*。此时在代码中需要将路径（以 *Aspose.Slides.Java.lic.xml* 结尾）传递给[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-)方法。
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="警告" %}}
 
-[setLicense](https://reference.aspose.com/slides/zh/java/com.aspose.slides/license/#setLicense-java.io.InputStream-)方法不是线程安全的。如果需要在多个线程中同时调用此方法，建议使用同步原语（如锁）以避免问题。
+[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-)方法不是线程安全的。如果需要在多个线程中同时调用此方法，建议使用同步原语（如锁）以避免问题。
 
 {{% /alert %}}
 

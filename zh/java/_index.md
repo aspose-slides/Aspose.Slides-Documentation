@@ -72,14 +72,14 @@ Aspose.Slides for Java 是一个类库，用于在 Java 应用程序中创建、
 <hr>
 <p>参考</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh/java/">API 参考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/java/release-notes/">发行说明</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">API 参考</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">发行说明</a></li>
 <li><a href="/slides/zh/java/known-issues/">已知问题</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/java/">下载</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">下载</a></li>
 </ul>
 <p>支持</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免费支持论坛</a></li>
 <li><a href="https://helpdesk.aspose.com/">付费支持帮助台</a></li>
 </ul>
 </div>

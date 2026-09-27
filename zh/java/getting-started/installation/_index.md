@@ -151,11 +151,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### 如何验证 Aspose.Slides 已正确集成？
 
-构建项目，实例化一个空的 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/)，并使用新名称保存。如果文件创建而未抛出异常，则库已成功集成。
+构建项目，实例化一个空的 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)，并使用新名称保存。如果文件创建而未抛出异常，则库已成功集成。
 
 ### 在处理大型演示文稿时，如何限制内存消耗？
 
-仅将 JVM 内存限制提升到所需的水平，并在 `finally` 块中对每个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 实例调用 [dispose](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#dispose--)，以及时释放缓存。这可防止内存不足错误，并在批处理操作期间保持总体内存使用可预测。
+仅将 JVM 内存限制提升到所需的水平，并在 `finally` 块中对每个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 实例调用 [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--)，以及时释放缓存。这可防止内存不足错误，并在批处理操作期间保持总体内存使用可预测。
 
 ### 是否可以排除不需要的导出格式以减小最终 JAR 大小？
 
