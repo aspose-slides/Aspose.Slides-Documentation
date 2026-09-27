@@ -30,10 +30,10 @@ Antes de começar, instale o Aspose.Slides para PHP via Java com o Composer e in
 
 Para criar uma apresentação e colocar uma caixa de texto no seu primeiro slide, siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.
-1. Recupere esse slide da coleção retornada por [Presentation::getSlides](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/getslides/), pelo índice 0.
-1. Adicione um retângulo com o método [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addautoshape/) e defina seu texto com [TextFrame::setText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/settext/).
-1. Salve a apresentação como um arquivo PPTX com o método [Presentation::save](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/save/).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.
+1. Recupere esse slide da coleção retornada por [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), pelo índice 0.
+1. Adicione um retângulo com o método [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) e defina seu texto com [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+1. Salve a apresentação como um arquivo PPTX com o método [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides lê e grava arquivos dentro do Tomcat, não no seu processo PHP, p
 
 ## **Criar e salvar uma apresentação**
 
-Para criar uma apresentação vazia e salvá‑la, crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) e salve‑a em qualquer formato da enumeração [SaveFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/saveformat/). O resultado é uma apresentação com um slide vazio.
+Para criar uma apresentação vazia e salvá‑la, crie uma instância da classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) e salve‑a em qualquer formato da enumeração [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). O resultado é uma apresentação com um slide vazio.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Abrir e salvar uma apresentação**
 
-Para converter uma apresentação de um formato para outro, abra‑a passando seu caminho ao construtor [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/), então salve‑a no formato de destino. O Aspose.Slides detecta o formato de entrada, como PPT, PPTX ou ODP, a partir do próprio arquivo.
+Para converter uma apresentação de um formato para outro, abra‑a passando seu caminho ao construtor [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), então salve‑a no formato de destino. O Aspose.Slides detecta o formato de entrada, como PPT, PPTX ou ODP, a partir do próprio arquivo.
 
 O exemplo abaixo pressupõe uma apresentação OpenDocument chamada *Sample.odp* ao lado do script e a salva como PPTX.
 
@@ -127,7 +127,7 @@ Use [estratégias de gerenciamento de BLOB](/slides/pt/php-java/manage-blob/), l
 
 ### Posso criar/salvar apresentações em paralelo?
 
-Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) a partir de [múltiplas threads](/slides/pt/php-java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
+Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) a partir de [múltiplas threads](/slides/pt/php-java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
 
 ### Como remover a marca d'água de avaliação e as limitações?
 

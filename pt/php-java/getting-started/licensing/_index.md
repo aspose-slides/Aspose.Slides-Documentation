@@ -61,7 +61,7 @@ Você precisa definir a licença:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Você pode encontrar informações de preços na página [“Informações de Preços”](https://purchase.aspose.com/pricing/slides/pt/family).
+Você pode encontrar informações de preços na página [“Informações de Preços”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Definir uma Licença no Aspose.Slides para PHP via Java**
