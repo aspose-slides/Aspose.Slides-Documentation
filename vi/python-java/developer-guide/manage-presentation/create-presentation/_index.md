@@ -29,13 +29,13 @@ Trước khi bắt đầu, hãy cài đặt Python, JDK, JPype và Aspose.Slides
 
 ## **Tạo bản trình chiếu**
 
-Việc tạo tệp PowerPoint từ đầu trong Aspose.Slides for Python via Java đơn giản như việc khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/). Hàm khởi tạo tự động tạo một bản trình chiếu trống với một slide duy nhất, cung cấp ngay một canvas cho các hình dạng, văn bản, biểu đồ hoặc bất kỳ nội dung nào mà ứng dụng của bạn cần. Khi bạn chỉnh sửa slide đó—hoặc thêm slide mới—bạn có thể lưu kết quả dưới dạng PPTX, PPT cổ điển hoặc thậm chí các định dạng OpenDocument. Đoạn mã ngắn dưới đây minh họa quy trình này bằng cách thêm một hình dạng đơn giản vào slide đầu tiên.
+Việc tạo tệp PowerPoint từ đầu trong Aspose.Slides for Python via Java đơn giản như việc khởi tạo lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Hàm khởi tạo tự động tạo một bản trình chiếu trống với một slide duy nhất, cung cấp ngay một canvas cho các hình dạng, văn bản, biểu đồ hoặc bất kỳ nội dung nào mà ứng dụng của bạn cần. Khi bạn chỉnh sửa slide đó—hoặc thêm slide mới—bạn có thể lưu kết quả dưới dạng PPTX, PPT cổ điển hoặc thậm chí các định dạng OpenDocument. Đoạn mã ngắn dưới đây minh họa quy trình này bằng cách thêm một hình dạng đơn giản vào slide đầu tiên.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Lấy slide đầu tiên bằng chỉ mục 0.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/) loại [ShapeType.Cloud](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapetype/#Cloud) bằng cách sử dụng [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Đặt văn bản cho hình dạng bằng [TextFrame.setText](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/#setText).
-1. Lưu bản trình chiếu bằng [Presentation.save](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#save) với [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/python-java/aspose.slides/saveformat/#Pptx).
+1. Thêm một [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) loại [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) bằng cách sử dụng [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Đặt văn bản cho hình dạng bằng [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Lưu bản trình chiếu bằng [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) với [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 Ví dụ sau khởi động Java Virtual Machine (JVM) nếu nó chưa chạy, thêm một hình đám mây có văn bản vào slide đầu tiên và lưu bản trình chiếu. Lưu lại dưới tên *create_presentation.py*:
 
@@ -100,7 +100,7 @@ Sử dụng [chiến lược quản lý BLOB](/slides/vi/python-java/manage-blob
 
 **Tôi có thể tạo/lưu bản trình chiếu song song không?**
 
-Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/python-java/multithreading/). Hãy chạy các thể hiện riêng biệt, cô lập cho mỗi luồng hoặc tiến trình.
+Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/python-java/multithreading/). Hãy chạy các thể hiện riêng biệt, cô lập cho mỗi luồng hoặc tiến trình.
 
 **Làm sao tôi loại bỏ watermark dùng thử và các hạn chế?**
 

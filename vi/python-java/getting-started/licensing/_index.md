@@ -17,7 +17,7 @@ description: "Áp dụng giấy phép từ tệp, dựa trên byte hoặc tính 
 
 Aspose.Slides for Python via Java có thể chạy ở chế độ đánh giá hoặc có giấy phép. Trong chế độ đánh giá, nó sẽ thêm một hộp văn bản watermark đánh giá vào mỗi slide của mỗi bài thuyết trình khi lưu và cắt ngắn văn bản mà mã của bạn đọc từ các bài thuyết trình. Bài viết này giải thích cách áp dụng giấy phép từ tệp hoặc byte và cách cấu hình giấy phép tính theo lượt.
 
-Đối với các tùy chọn mua, xem [Thông tin giá](https://purchase.aspose.com/pricing/slides/vi/family). Đối với các câu hỏi chung về giấy phép và mua hàng, xem [Chính sách mua hàng và Câu hỏi thường gặp](https://purchase.aspose.com/policies).
+Đối với các tùy chọn mua, xem [Thông tin giá](https://purchase.aspose.com/pricing/slides/family). Đối với các câu hỏi chung về giấy phép và mua hàng, xem [Chính sách mua hàng và Câu hỏi thường gặp](https://purchase.aspose.com/policies).
 
 Đối với các hạn chế trong chế độ đánh giá và cách yêu cầu giấy phép tạm thời, xem [Evaluate Aspose.Slides](/slides/vi/python-java/evaluate-aspose-slides/). Áp dụng giấy phép tạm thời theo cùng cách như tệp giấy phép đã mua.
 
@@ -29,7 +29,7 @@ Tệp giấy phép chứa thông tin như tên sản phẩm, số lượng nhà 
 Không chỉnh sửa tệp giấy phép. Ngay cả một dấu ngắt dòng thừa cũng có thể làm mất hiệu lực chữ ký số.
 {{% /alert %}}
 
-Áp dụng giấy phép một lần cho mỗi ứng dụng hoặc quy trình, trước khi tạo bài thuyết trình hoặc thực hiện các thao tác khác của Aspose.Slides. Đối với tệp giấy phép, sử dụng lớp [License](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/). Giấy phép tính theo lượt sử dụng sử dụng cặp khóa công khai và riêng tư thay vì tệp giấy phép.
+Áp dụng giấy phép một lần cho mỗi ứng dụng hoặc quy trình, trước khi tạo bài thuyết trình hoặc thực hiện các thao tác khác của Aspose.Slides. Đối với tệp giấy phép, sử dụng lớp [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). Giấy phép tính theo lượt sử dụng sử dụng cặp khóa công khai và riêng tư thay vì tệp giấy phép.
 
 ## **Áp dụng giấy phép**
 
@@ -37,7 +37,7 @@ Các ví dụ sau giả định rằng Aspose.Slides for Python via Java và cá
 
 ### **Áp dụng giấy phép từ tệp**
 
-Chuyển đường dẫn tệp giấy phép tới [License.setLicense](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/#setLicense). Thay thế `Aspose.Slides.lic` bằng đường dẫn tới tệp giấy phép của bạn.
+Chuyển đường dẫn tệp giấy phép tới [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Thay thế `Aspose.Slides.lic` bằng đường dẫn tới tệp giấy phép của bạn.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Sử dụng đúng tên tệp, bao gồm cả phần mở rộng. Ví dụ, nếu tệp có tên `Aspose.Slides.lic.xml`, hãy bao gồm `.xml` trong đường dẫn. Đường dẫn tuyệt đối tránh sự mơ hồ về thư mục làm việc của ứng dụng.
 
-Ví dụ sử dụng [License.isLicensed](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/#isLicensed) để kiểm tra xem giấy phép đã được áp dụng chưa.
+Ví dụ sử dụng [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) để kiểm tra xem giấy phép đã được áp dụng chưa.
 
 ### **Áp dụng giấy phép từ byte**
 
-Sử dụng [License.setLicenseFromBytes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/#setLicenseFromBytes) khi giấy phép có sẵn dưới dạng byte Python. Ví dụ sau đọc tệp ở chế độ nhị phân và đóng nó trước khi áp dụng giấy phép.
+Sử dụng [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) khi giấy phép có sẵn dưới dạng byte Python. Ví dụ sau đọc tệp ở chế độ nhị phân và đóng nó trước khi áp dụng giấy phép.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ Giữ nguyên các byte gốc. Không giải mã, định dạng lại, hoặc t
 
 ## **Áp dụng giấy phép tính theo lượt**
 
-Giấy phép tính theo lượt tính phí dựa trên việc sử dụng API. Sau khi có giấy phép tính theo lượt, áp dụng khóa công khai và riêng tư của nó bằng [Metered.setMeteredKey](https://reference.aspose.com/slides/vi/python-java/aspose.slides/metered/#setMeteredKey). Khởi tạo đối tượng [Metered](https://reference.aspose.com/slides/vi/python-java/aspose.slides/metered/) và áp dụng các khóa một lần khi khởi động ứng dụng.
+Giấy phép tính theo lượt tính phí dựa trên việc sử dụng API. Sau khi có giấy phép tính theo lượt, áp dụng khóa công khai và riêng tư của nó bằng [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). Khởi tạo đối tượng [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) và áp dụng các khóa một lần khi khởi động ứng dụng.
 
 Ví dụ sau đọc các khóa từ các biến môi trường `ASPOSE_METERED_PUBLIC_KEY` và `ASPOSE_METERED_PRIVATE_KEY`. Đặt cả hai biến trước khi chạy script.
 

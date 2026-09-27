@@ -66,7 +66,7 @@ Sử dụng `python -m pip` đảm bảo các gói được cài đặt cho trì
 
 ## **Cài đặt từ tệp ZIP**
 
-Bạn cũng có thể sử dụng thư viện từ [trang tải xuống Aspose.Slides](https://releases.aspose.com/slides/vi/python-java/):
+Bạn cũng có thể sử dụng thư viện từ [trang tải xuống Aspose.Slides](https://releases.aspose.com/slides/python-java/):
 
 1. Cài đặt Python và Java như mô tả trong [Yêu cầu trước](#prerequisites).
 2. Tạo và kích hoạt một môi trường ảo bằng cách sử dụng các hướng dẫn ở trên.
