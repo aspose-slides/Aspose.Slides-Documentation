@@ -24,40 +24,47 @@ description: "Create presentations in Java with Aspose.Slides for Android—prod
 
 ## **Overview**
 
-This article shows how to create a presentation in Aspose.Slides, add simple content to a slide, and save the result as a file. It also demonstrates how to create and save a new presentation, open an existing presentation in a supported format, and save it to another format.
+This article shows how to create a presentation in Aspose.Slides for Android via Java, add a text box to its first slide, and save the result as a file in your app's storage. To open an existing presentation or save it in another format, see [Open Presentation](/slides/androidjava/open-presentation/) and [Save Presentation](/slides/androidjava/save-presentation/). A short FAQ at the end covers common questions about formats, templates, slide sizing, units, memory usage, threading, licensing, digital signatures, and VBA support.
+
+Before you begin, add Aspose.Slides to your Android project from Aspose's Maven repository. See [Installation](/slides/androidjava/install-aspose-slides-for-android-via-java/).
 
 ## **Create a PowerPoint Presentation**
-To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
-1. Create an instance of Presentation class.
-1. Obtain the reference of a slide by using its Index.
-1. Add an AutoShape of Line type using addAutoShape method exposed by Shapes object.
-1. Write the modified presentation as a PPTX file.
+To create a presentation and put a text box on its first slide, follow these steps:
 
-In the example given below, we have added a line to the first slide of the presentation.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class. A new presentation already contains one empty slide.
+1. Get that slide from the [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) by its index, 0.
+1. Add a rectangle with the [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) method of the [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) and set the text of its [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) with the [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) method.
+1. Save the presentation as a PPTX file with the [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) method, in the [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/) format.
+
+The code runs inside an `Activity`, for example in its `onCreate` method. It saves the file to the directory returned by the [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) method: your app's private storage, which it can write to without requesting any permission.
 
 ```java
 import com.aspose.slides.*;
+import java.io.File;
 
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation();
+File outputFile = new File(getFilesDir(), "hello.pptx");
+
+Presentation presentation = new Presentation();
 try {
-    // Get the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Add an autoshape of type line
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+The rectangle's top-left corner is 50 points from the left edge and 50 points from the top edge of the slide, and the rectangle is 400 points wide and 100 points high. The saved file contains one slide with that rectangle and its text. Without a license, Aspose.Slides also adds an evaluation watermark to every slide it saves; see [Licensing](/slides/androidjava/licensing/).
+
+To look at the file, open Android Studio's [Device Explorer](https://developer.android.com/studio/debug/device-file-explorer) and find *hello.pptx* under *data/data/*, in the *files* folder of your app. In a real app, process presentations on a background thread so that the user interface stays responsive.
 
 ## **FAQ**
 
 ### What formats can I save a new presentation to?
 
-You can save to [PPTX, PPT, and ODP](/slides/androidjava/save-presentation/), and export to [PDF](/slides/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/androidjava/convert-powerpoint-to-html/), [SVG](/slides/androidjava/convert-powerpoint-to-png/), and [images](/slides/androidjava/convert-powerpoint-to-png/), among others.
+You can save to [PPTX, PPT, and ODP](/slides/androidjava/save-presentation/), and export to [PDF](/slides/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/androidjava/convert-powerpoint-to-html/), [SVG](/slides/androidjava/render-a-slide-as-an-svg-image/), and [images](/slides/androidjava/convert-powerpoint-to-png/), among others.
 
 ### Can I start from a template (POTX/POTM) and save as a regular PPTX?
 

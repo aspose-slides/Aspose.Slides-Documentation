@@ -8,237 +8,102 @@ keywords:
 - download Aspose.Slides
 - use Aspose.Slides
 - Aspose.Slides installation
+- Gradle
+- Maven repository
 - PowerPoint
 - OpenDocument
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Quickly install Aspose.Slides for Android. Step-by-step guide, system requirements, and Java code samples — start working with PowerPoint presentations today!"
+description: "Add Aspose.Slides for Android via Java to an Android Studio project with Gradle from Aspose's Maven repository, or add the JAR file manually."
 ---
 
 ## **Overview**
 
-This article explains how to install Aspose.Slides for Android via Java and add it to an Android project. It describes two installation options: adding the Aspose.Slides JAR file to the project manually and installing the library from the Maven repository.
+This article explains how to add Aspose.Slides for Android via Java to an Android project. The recommended way is to let Gradle download the library from Aspose's Maven repository. You can also download the JAR file and add it to your project manually.
 
-The article also provides a step-by-step example that shows how to create a new Android application in Android Studio, reference the Aspose.Slides library, create a PowerPoint presentation programmatically, and save it in PPTX format. It also includes notes on versioning and answers common questions about verifying the integration, managing memory usage, and reducing the final JAR size.
+The library is not published to Maven Central or Google's Maven repository. It is available from Aspose's own repository, as the `aspose-slides` artifact with the `android.via.java` classifier.
 
-## **Installation**
-Previously, Aspose.Slides for Android via Java was distributed as a single ZIP file containing the JAR file, demos, and the product documentation. 
+## **Install from Aspose's Maven Repository**
 
-1. If you want to use a version older than Aspose.Slides for Android via Java 18.9, you need to unzip that version of Aspose.Slides.Android.zip into your preferred directory. 
-1. Add the extracted Jar file in your application by using the Build Path configuration. 
-### **Add a Reference to Aspose.Slides for Android via Java Jar**
-1. Download the newest version of [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/androidjava)
-1. Copy aspose-slides-18.9-android.via.java.jar into your project’s *libs/*folder
+### **Step 1: Add the Repository**
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_1.png)
+New Android Studio projects declare their repositories in the `dependencyResolutionManagement` block of *settings.gradle.kts*, and Gradle rejects repositories that a module's build file adds. Add the `maven` line shown below to the `repositories` block inside that existing block, rather than pasting a second `dependencyResolutionManagement` block:
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_2.png)
-### **Install Aspose.Slides for Android via Java from the Maven Repository**
-1. Add maven repository into your build.gradle. 
-1. Add [Aspose.Slides for Android via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) JAR as a dependency.
-
-``` groovy
-
- // 1. Add maven repository into your build.gradle 
-
-repositories {
-
-    mavenCentral()
-
-    maven { url "https://releases.aspose.com/java/repo/" }
-
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://releases.aspose.com/java/repo/") }
+    }
 }
+```
 
-// 2. Add 'Aspose.Slides for Android via Java' JAR as a dependency
+### **Step 2: Add the Dependency**
 
+Add the library to the `dependencies` block of the app module's build file, *app/build.gradle.kts*:
+
+```kotlin
 dependencies {
-
-    ...
-
-    ...
-
-    compile (group: 'com.aspose', name: 'aspose-slides', version: 'XX.XX', classifier: 'android.via.java')
-
+    implementation("com.aspose:aspose-slides:26.9:android.via.java")
 }
-
-```
-## **Your First Application Using Aspose.Slides for Android via Java**
-In this section, you will learn how to get started with Aspose.Slides for Android via Java. We intend to show you how to setup a new Android project from scratch, add a reference to the Aspose.Slides JAR, and create a new PowerPoint presentation which is saved to the disk in the PPTX format. The example here uses [Android Studio](https://developer.android.com/studio/index.html) for development and the application is run on the Android Emulator. To get started with Aspose.Slides for Android via Java, follow this step-by-step tutorial to create an app that uses Aspose.Slides for Android via Java:
-
-1. Download and the [Android Studio](https://developer.android.com/studio/index.html) and install to any location.
-1. Run the Android Studio.
-1. Create a new Android Application Project.
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_3.png)
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_4.png)
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_5.png)
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_6.png)
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_7.png)
-
-
-
-
-
-1. Copy aspose-slides-XX.XX-android.via.java.jar into your project’s libs/folder
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_1.png)
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_2.png)
-
-
-
-
-1. Select Project Section (from the file menu) and click on the Dependencies tab.
-   1. Click on "+" button. Select the file dependency option.
-   1. Select Aspose.Slides library from libs folder and click on OK.
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_10.png)
-
-
-
-
-1. Sync the project with gradle files if necessary. 
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_11.png)
-
-
-
-
-
-1. To access the SDcard, special permissions have to be added. Click on the AndroidManifest.xml file and choose XML view. Add this line to the file <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_12.png)
-
-
-
-
-1. Navigate back to the code section of the app and add these imports: 
-
-``` java
-import java.io.File;
-
-import com.aspose.slides.IAutoShape;
-import com.aspose.slides.IParagraph;
-import com.aspose.slides.IPortion;
-import com.aspose.slides.ISlide;
-import com.aspose.slides.ITextFrame;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ShapeType;
-
-import android.os.Environment;
-
 ```
 
-Now, insert this code in the body of the onCreate method to create a new Presentation from scratch using Aspose.Slides and save it to the SDCard in PPTX format.
+The last part of the coordinates, `android.via.java`, is the classifier that selects the Android build of the library. Without it, Gradle cannot find the artifact.
 
-``` java
-import com.aspose.slides.*;
-import java.io.File;
+Then sync the project with the Gradle files, so that Gradle downloads the library.
 
-import android.os.Environment;
+### **Choose a Version**
 
+Aspose.Slides for Android via Java is not built for every version in the repository. Its builds are published for some Aspose.Slides for Java versions only, and a version without an Android build fails to resolve. Pick a version listed on the [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/androidjava/).
 
- try
+### **Groovy Build Scripts**
 
-{
+If your project uses Groovy build scripts, add the `maven` line to the `repositories` block inside the existing `dependencyResolutionManagement` block of *settings.gradle*:
 
-    // Instantiate Presentation class that represents PPTX
-
-    Presentation pres = new Presentation();
-
-
-
-    // Access first slide
-
-    ISlide sld = pres.getSlides().get_Item(0);
-
-
-
-    // Add an AutoShape of Rectangle type
-
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-
-
-    // Add TextFrame to the Rectangle
-
-    ashp.addTextFrame(" ");
-
-
-
-    // Accessing the text frame
-
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-
-
-    // Create the Paragraph object for text frame
-
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-
-
-    // Create Portion object for paragraph
-
-    IPortion portion = para.getPortions().get_Item(0);
-
-
-
-    // Set Text
-
-    portion.setText("Aspose TextBox");
-
-
-
-    // Save the PPTX to card
-
-    String sdCardPath = Environment.getExternalStorageDirectory().getPath() + File.separator;
-
-    pres.save(sdCardPath + "Textbox.pptx",SaveFormat.Pptx);
-
+```groovy
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = 'https://releases.aspose.com/java/repo/' }
+    }
 }
-
-catch (Exception e)
-
-{
-
-   e.printStackTrace();
-
-}
-
 ```
 
-The full code should look like this:
+And add the dependency to *app/build.gradle*:
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_13.png)
+```groovy
+dependencies {
+    implementation 'com.aspose:aspose-slides:26.9:android.via.java'
+}
+```
 
+## **Add the JAR File Manually**
 
+If you cannot use a Maven repository, add the JAR file to your project:
 
-1. Now run the application again. This time, the Aspose.Slides code will run in the background and generate a document that is saved to the SDcard.
+1. Download the JAR file from the version's folder in [Aspose's Maven repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). For version 26.9, the file is *aspose-slides-26.9-android.via.java.jar* in the *26.9* folder.
+1. Copy the file into the *app/libs* folder of your project. Create the folder if it does not exist.
+1. Add the file to the `dependencies` block of *app/build.gradle.kts*, then sync the project:
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_14.png)
+```kotlin
+dependencies {
+    implementation(files("libs/aspose-slides-26.9-android.via.java.jar"))
+}
+```
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_15.jpg)
+## **Create Your First Presentation**
 
-1. To view the created document, navigate to the Tools menu. Choose Android and then select Android Device Monitor
+After the project syncs, continue with [Create Presentations](/slides/androidjava/create-presentation/). Its first example adds a text box to a slide and saves the presentation to your app's private storage, which needs no storage permission. Without a license, Aspose.Slides adds an evaluation watermark to every slide it saves; see [Licensing](/slides/androidjava/licensing/).
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_16.jpg)
-
-
-
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_17.jpg)
 ## **Versioning**
-Since 2018, the versioning of Aspose.Slides for Android via Java complies with Aspose.Slides for Java. 
+
+Since 2018, the versioning of Aspose.Slides for Android via Java has complied with Aspose.Slides for Java. Android builds are not published for every Java version; see [Choose a Version](#choose-a-version).
 
 ## **FAQ**
 
@@ -248,7 +113,7 @@ Build your project, instantiate a blank [Presentation](https://reference.aspose.
 
 ### How can I limit memory consumption when processing large presentations?
 
-Raise JVM memory limits only as high as needed, and close each [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) instance in a `finally` block to release the cache promptly. This prevents out‑of‑memory errors and keeps overall memory usage predictable during batch operations.
+Call the [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) method of each [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) instance in a `finally` block to release its resources promptly, and process one large presentation at a time. This helps prevent out-of-memory errors and keeps overall memory usage predictable during batch operations.
 
 ### Can I exclude unwanted export formats to shrink the final JAR size?
 

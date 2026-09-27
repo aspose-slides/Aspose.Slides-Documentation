@@ -22,28 +22,28 @@ description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for Andr
 
 ## **Overview**
 
-Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark when presentations are opened or saved and limits text extraction to one slide.
+Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark to every slide of each presentation it saves and truncates text that your code reads from presentations.
 
-This article explains how licensing works in Aspose.Slides and how to apply a license before using the library. A license can be loaded from a file, stream, or embedded resource by using the `License` class. The article also shows how to validate whether a license has been applied correctly.
+This article explains how licensing works in Aspose.Slides and how to apply a license before using the library. A license can be loaded from a file, stream, or embedded resource by using the [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) class. The article also shows how to validate whether a license has been applied correctly.
 
 ## **Evaluate Aspose.Slides**
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 You can download an evaluation version of **Aspose.Slides for Android via Java** from its [download page](https://releases.aspose.com/slides/androidjava/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
 
-Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy). We recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
+Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/pricing/slides/android-java/). We recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
 
-Every Aspose license comes with one-year subscription for free upgrades to new versions or fixes released within the subscription period. Users with licensed products (or even evaluation versions) get free and unlimited technical support.
+Every Aspose license comes with a one-year subscription for free upgrades to new versions or fixes released within the subscription period. Users with licensed products (or even evaluation versions) get free and unlimited technical support.
 
 {{% /alert %}} 
 
 **Evaluation version limitations**
 
-* While Aspose.Slides evaluation version (without a license specified) provides full product functionality, it inserts an evaluation watermark at the top of the document on open and save operations. 
-* You are limited to one slide when extracting texts from presentation slides.
+* The evaluation version (without a license specified) provides full product functionality, but it adds an evaluation watermark text box to every slide of each presentation it saves.
+* Text that your code reads from a presentation is truncated to its first few characters, followed by a notice about the evaluation limitation. Text that your code writes is saved in full.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary License**. See the [How to get a Temporary License](https://purchase.aspose.com/temporary-license) page for more information.
 
@@ -63,13 +63,13 @@ To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary 
 
 A license can be loaded from a **file** or **stream**.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Aspose.Slides provides the [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) class for licensing operations.
 
 {{% /alert %}} 
 
-{{% alert color="warning" %}}
+{{% alert color="warning" title="Warning" %}}
 
 New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier versions use a different licensing system and will not recognize these licenses.
 
@@ -77,7 +77,13 @@ New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier
 
 ### **File**
 
-The easiest method of setting a license requires you to place the license file in the folder containing Aspose.Slides.jar or your applications' jar.
+The easiest method of setting a license requires you to place the license file in the folder containing Aspose.Slides.jar or your application's jar.
+
+{{% alert color="info" title="Note" %}}
+
+On Android, the library and your app are packaged into the APK, so there is no folder that contains the library's JAR file, and a relative path such as *Aspose.Slides.Android.via.Java.lic* does not point to a file in your app. Add the license file to your app's assets and load it from a stream, as shown in [Stream from App Assets](#stream-from-app-assets).
+
+{{% /alert %}}
 
 This Java code shows you how to set a license file:
 
@@ -89,11 +95,11 @@ com.aspose.slides.License license = new com.aspose.slides.License();
 license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 
-If you place the license file in a different directory, when you call the [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) method, the license file name at the end of the specified explicit must be the same as your license file.
+If you place the license file in a different directory, when you call the [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) method, the license file name at the end of the specified path must be the same as your license file name.
 
-For example, you can change the license file name to *Aspose.Slides.Android.via.Java.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.Android.via.Java.lic.xml*) to the [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) method.
+For example, you can change the license file name to *Aspose.Slides.Android.via.Java.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.Android.via.Java.lic.xml*) to the [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) method.
 
 {{% /alert %}}
 
@@ -108,6 +114,26 @@ com.aspose.slides.License license = new com.aspose.slides.License();
 // Sets the license through a stream
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.lic"));
 ```
+
+### **Stream from App Assets**
+
+In an Android app, put the license file in the *assets* folder of the app module, *app/src/main/assets*, so that it is packaged into the APK. Open the file with the [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) method and pass the stream to the [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) method. The code runs inside an `Activity`, for example in its `onCreate` method, before the app uses Aspose.Slides:
+
+```java
+import android.util.Log;
+import com.aspose.slides.License;
+import java.io.IOException;
+import java.io.InputStream;
+
+License license = new License();
+try (InputStream licenseStream = getAssets().open("Aspose.Slides.Android.via.Java.lic")) {
+    license.setLicense(licenseStream);
+} catch (IOException exception) {
+    Log.e("Licensing", "Cannot read the license file from the app's assets.", exception);
+}
+```
+
+The file name passed to the [open](https://developer.android.com/reference/android/content/res/AssetManager#open(java.lang.String)) method is relative to the *assets* folder. If the file is not there, the code logs the error, and Aspose.Slides stays in evaluation mode. To check whether the license was applied, see [Validating a License](#validating-a-license).
 
 ## **Validating a License**
 
@@ -127,9 +153,9 @@ if (license.isLicensed())
 
 ## **Thread Safety**
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 
-The [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) method is not thread-safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
+The [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) method is not thread-safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues.
 
 {{% /alert %}}
 
