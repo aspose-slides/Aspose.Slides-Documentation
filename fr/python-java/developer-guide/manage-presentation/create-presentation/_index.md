@@ -29,13 +29,13 @@ Avant de commencer, installez Python, un JDK, JPype et Aspose.Slides for Python 
 
 ## **Créer une présentation**
 
-Créer un fichier PowerPoint à partir de zéro avec Aspose.Slides for Python via Java est aussi simple que d’instancier la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/). Le constructeur fournit automatiquement un jeu vierge avec une seule diapositive, vous donnant immédiatement un canevas pour des formes, du texte, des graphiques ou tout autre contenu dont votre application a besoin. Une fois que vous avez modifié cette diapositive — ou ajouté de nouvelles — vous pouvez enregistrer le résultat au format PPTX, PPT hérité ou même aux formats OpenDocument. L’exemple de code court ci‑dessous illustre ce flux de travail en ajoutant une forme simple à la première diapositive.
+Créer un fichier PowerPoint à partir de zéro avec Aspose.Slides for Python via Java est aussi simple que d’instancier la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Le constructeur fournit automatiquement un jeu vierge avec une seule diapositive, vous donnant immédiatement un canevas pour des formes, du texte, des graphiques ou tout autre contenu dont votre application a besoin. Une fois que vous avez modifié cette diapositive — ou ajouté de nouvelles — vous pouvez enregistrer le résultat au format PPTX, PPT hérité ou même aux formats OpenDocument. L’exemple de code court ci‑dessous illustre ce flux de travail en ajoutant une forme simple à la première diapositive.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. récupérez la première diapositive par son indice, 0.
-1. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) de type [ShapeType.Cloud](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shapetype/#Cloud) à l’aide de [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Définissez le texte de la forme avec [TextFrame.setText](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/#setText).
-1. Enregistrez la présentation avec [Presentation.save](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#save) en utilisant [SaveFormat.Pptx](https://reference.aspose.com/slides/fr/python-java/aspose.slides/saveformat/#Pptx).
+1. Ajoutez un [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) de type [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) à l’aide de [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Définissez le texte de la forme avec [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Enregistrez la présentation avec [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) en utilisant [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 L’exemple suivant démarre la machine virtuelle Java (JVM) si elle n’est pas déjà en cours d’exécution, ajoute une forme de nuage avec du texte à la première diapositive et enregistre la présentation. Enregistrez‑le sous le nom *create_presentation.py* :
 
@@ -100,7 +100,7 @@ Utilisez les [stratégies de gestion des BLOB](/slides/fr/python-java/manage-blo
 
 **Puis‑je créer/enregistrer des présentations en parallèle ?**
 
-Vous ne pouvez pas manipuler la même instance de [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/python-java/multithreading/). Exécutez des instances distinctes et isolées par thread ou processus.
+Vous ne pouvez pas manipuler la même instance de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/python-java/multithreading/). Exécutez des instances distinctes et isolées par thread ou processus.
 
 **Comment supprimer le filigrane d’évaluation et les limitations ?**
 
