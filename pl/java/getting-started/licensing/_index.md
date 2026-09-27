@@ -30,7 +30,7 @@ Ten artykuł wyjaśnia, jak działa licencjonowanie w Aspose.Slides oraz jak zas
 
 Możesz pobrać wersję ewaluacyjną **Aspose.Slides for Java** z jego [strona pobierania](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Wersja ewaluacyjna zapewnia te same funkcje co licencjonowana wersja produktu. Pakiet ewaluacyjny jest taki sam jak zakupiony pakiet. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku linii kodu (aby zastosować licencję).
 
-Gdy będziesz zadowolony z ewaluacji **Aspose.Slides**, możesz [zakupić licencję](https://purchase.aspose.com/pricing/slides/pl/java/). Zalecamy zapoznanie się z różnymi typami subskrypcji. Jeśli masz pytania, skontaktuj się z zespołem sprzedaży Aspose.
+Gdy będziesz zadowolony z ewaluacji **Aspose.Slides**, możesz [zakupić licencję](https://purchase.aspose.com/pricing/slides/java/). Zalecamy zapoznanie się z różnymi typami subskrypcji. Jeśli masz pytania, skontaktuj się z zespołem sprzedaży Aspose.
 
 Każda licencja Aspose zawiera roczną subskrypcję na bezpłatne aktualizacje do nowych wersji lub poprawek wydanych w okresie subskrypcji. Użytkownicy posiadający licencjonowane produkty (lub nawet wersje ewaluacyjne) otrzymują bezpłatne i nieograniczone wsparcie techniczne.
 
@@ -70,7 +70,7 @@ Licencję można załadować z **pliku** lub **strumienia**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides udostępnia klasę [License](https://reference.aspose.com/slides/pl/java/com.aspose.slides/license/) do operacji licencjonowania.
+Aspose.Slides udostępnia klasę [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) do operacji licencjonowania.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Jeśli umieścisz plik licencji w innym katalogu, przy wywołaniu metody [setLicense](https://reference.aspose.com/slides/pl/java/com.aspose.slides/license/#setLicense-java.lang.String-) nazwa pliku licencji na końcu określonej ścieżki musi być taka sama jak Twoja nazwa pliku licencji.
+Jeśli umieścisz plik licencji w innym katalogu, przy wywołaniu metody [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) nazwa pliku licencji na końcu określonej ścieżki musi być taka sama jak Twoja nazwa pliku licencji.
 
-Na przykład możesz zmienić nazwę pliku licencji na *Aspose.Slides.Java.lic.xml*. Następnie w kodzie musisz przekazać ścieżkę do tego pliku (kończącą się *Aspose.Slides.Java.lic.xml*) metodzie [setLicense](https://reference.aspose.com/slides/pl/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Na przykład możesz zmienić nazwę pliku licencji na *Aspose.Slides.Java.lic.xml*. Następnie w kodzie musisz przekazać ścieżkę do tego pliku (kończącą się *Aspose.Slides.Java.lic.xml*) metodzie [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-Metoda [setLicense](https://reference.aspose.com/slides/pl/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) nie jest bezpieczna wątkowo. Jeśli metoda ta ma być wywoływana jednocześnie z wielu wątków, rozważ użycie prymitywów synchronizacji (np. blokady), aby uniknąć problemów.
+Metoda [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) nie jest bezpieczna wątkowo. Jeśli metoda ta ma być wywoływana jednocześnie z wielu wątków, rozważ użycie prymitywów synchronizacji (np. blokady), aby uniknąć problemów.
 
 {{% /alert %}}
 

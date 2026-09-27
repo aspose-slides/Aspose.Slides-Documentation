@@ -151,11 +151,11 @@ Czcionki używane w Twoich prezentacjach, lub ich odpowiednie zamienniki, muszą
 
 ### Jak mogę zweryfikować, że Aspose.Slides jest prawidłowo zintegrowany?
 
-Zbuduj swój projekt, utwórz pustą [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) i zapisz ją pod nową nazwą. Jeśli plik zostanie utworzony bez wyrzucania wyjątków, biblioteka została pomyślnie zintegrowana.
+Zbuduj swój projekt, utwórz pustą [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) i zapisz ją pod nową nazwą. Jeśli plik zostanie utworzony bez wyrzucania wyjątków, biblioteka została pomyślnie zintegrowana.
 
 ### Jak mogę ograniczyć zużycie pamięci podczas przetwarzania dużych prezentacji?
 
-Zwiększaj limity pamięci JVM tylko do niezbędnego poziomu i wywołuj [dispose](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#dispose--) na każdej instancji [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) w bloku `finally`, aby niezwłocznie zwolnić pamięć podręczną. Zapobiega to błędom braku pamięci i utrzymuje przewidywalne ogólne zużycie pamięci podczas operacji wsadowych.
+Zwiększaj limity pamięci JVM tylko do niezbędnego poziomu i wywołuj [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) na każdej instancji [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) w bloku `finally`, aby niezwłocznie zwolnić pamięć podręczną. Zapobiega to błędom braku pamięci i utrzymuje przewidywalne ogólne zużycie pamięci podczas operacji wsadowych.
 
 ### Czy mogę wykluczyć niechciane formaty eksportu, aby zmniejszyć ostateczny rozmiar JAR?
 
