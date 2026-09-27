@@ -1,20 +1,15 @@
 ---
-title: Aspose.Slides Bewerten
+title: Aspose.Slides evaluieren
 type: docs
 weight: 120
 url: /de/nodejs-net/evaluate-aspose-slides/
 ---
+Sie können Aspose.Slides problemlos zum Testen herunterladen. Das Evaluierungspaket ist dasselbe wie das gekaufte Paket. Die Evaluierungsversion wird einfach lizenziert, wenn Sie ein paar Codezeilen hinzufügen, um die Lizenz anzuwenden.
 
-
-Sie können Aspose.Slides einfach zur Bewertung herunterladen. Das Bewertungspaket ist dasselbe wie das gekaufte Paket. Die Bewertungsversion wird einfach lizenziert, nachdem Sie ein paar Zeilen Code hinzugefügt haben, um die Lizenz anzuwenden.
-
-Die Bewertungsversion von Aspose.Slides (ohne angegebene Lizenz) bietet die volle Produktfunktionalität, fügt jedoch beim Öffnen und Speichern ein Wasserzeichen für die Bewertung oben im Dokument ein. Sie sind auch auf eine Folie beschränkt, wenn Sie Texte aus Präsentationsfolien extrahieren.
-
+Die Evaluierungsversion von Aspose.Slides (ohne angegebene Lizenz) bietet die vollständige Produktfunktionalität, fügt jedoch beim Öffnen und Speichern ein Evaluierungswasserzeichen oben im Dokument ein. Außerdem sind Sie beim Extrahieren von Texten aus Präsentationsfolien auf eine Folie beschränkt.
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-
-Wenn Sie Aspose.Slides ohne Einschränkungen der Bewertungsversion testen möchten, können Sie eine **30 Tage temporäre Lizenz** anfordern. Bitte beziehen Sie sich auf [Wie bekomme ich eine temporäre Lizenz?](https://purchase.aspose.com/temporary-license) für weitere Informationen.
-
+{{% alert color="info" %}} 
+Wenn Sie Aspose.Slides ohne die Einschränkungen der Evaluierungsversion testen möchten, können Sie eine **30-tägige temporäre Lizenz** anfordern. Bitte beachten Sie [Wie bekomme ich eine temporäre Lizenz?](https://purchase.aspose.com/temporary-license) für weitere Informationen.
 {{% /alert %}}
