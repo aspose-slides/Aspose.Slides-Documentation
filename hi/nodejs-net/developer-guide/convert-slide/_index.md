@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET PowerPoint और OpenDocument प्रस�
 उदाहरणों को आपके द्वारा [स्थापना](/slides/hi/nodejs-net/installation/) में सेट किए गये प्रोजेक्ट फ़ोल्डर में `sample.pptx` नामक प्रस्तुति की अपेक्षा है। कोई भी PowerPoint प्रस्तुति काम करेगी। प्रत्येक उदाहरण को प्रोजेक्ट फ़ोल्डर में एक `.js` फ़ाइल के रूप में सहेजें और `node` के साथ उसी फ़ोल्डर से चलाएँ।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET के पास अपना कोई API संदर्भ नहीं है। यह Aspose.Slides for .NET API को camelCase नामों के साथ प्रतिबिंबित करता है, इसलिए इस लेख में API लिंक [Aspose.Slides for .NET API संदर्भ](https://reference.aspose.com/slides/hi/net/) में मिलते-जुलते क्लास और मेंबर्स की ओर ले जाते हैं।
+Aspose.Slides for Node.js via .NET के पास अपना कोई API संदर्भ नहीं है। यह Aspose.Slides for .NET API को camelCase नामों के साथ प्रतिबिंबित करता है, इसलिए इस लेख में API लिंक [Aspose.Slides for .NET API संदर्भ](https://reference.aspose.com/slides/net/) में मिलते-जुलते क्लास और मेंबर्स की ओर ले जाते हैं।
 {{% /alert %}}
 
 एक स्लाइड को छवि में परिवर्तित करने के लिए, इन चरणों का पालन करें:
 
-1. प्रस्तुति को [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/presentation/) कन्स्ट्रक्टर से खोलें।
-2. `get(index)` के साथ [slides](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/slides/hi/) संग्रह से एक स्लाइड प्राप्त करें। इंडेक्स 0 से शुरू होते हैं।
-3. स्लाइड को `getImageWithScale` या `getImageWithImageSize` के साथ रेंडर करें। .NET API संदर्भ में, दोनों [Slide.GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/slide/getimage/) के ओवरलोड हैं। वे एक छवि ऑब्जेक्ट लौटाते हैं जो [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) के अनुरूप होता है।
-4. छवि को उसके [save](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/save/) मेथड और एक [ImageFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/imageformat/) मान के साथ सहेजें, और फिर उसका `dispose` मेथड कॉल करें।
+1. प्रस्तुति को [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) कन्स्ट्रक्टर से खोलें।
+2. `get(index)` के साथ [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) संग्रह से एक स्लाइड प्राप्त करें। इंडेक्स 0 से शुरू होते हैं।
+3. स्लाइड को `getImageWithScale` या `getImageWithImageSize` के साथ रेंडर करें। .NET API संदर्भ में, दोनों [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) के ओवरलोड हैं। वे एक छवि ऑब्जेक्ट लौटाते हैं जो [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) के अनुरूप होता है।
+4. छवि को उसके [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) मेथड और एक [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) मान के साथ सहेजें, और फिर उसका `dispose` मेथड कॉल करें।
 
 ## **प्रत्येक स्लाइड को PNG छवि में परिवर्तित करें**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-स्क्रिप्ट प्रत्येक स्लाइड के लिए एक फ़ाइल लिखती है, `slide_1.png`, `slide_2.png`, आदि, जो 1 से क्रमांकित होते हैं। 16:9 प्रस्तुति में 960 × 540 पॉइंट स्लाइडों के लिए, प्रत्येक छवि 1920 × 1080 पिक्सेल होती है। छुपी हुई स्लाइडें भी रेंडर होती हैं; उन्हें छोड़ने के लिए स्लाइड के [hidden](https://reference.aspose.com/slides/hi/net/aspose.slides/slide/hidden/) प्रॉपर्टी की जाँच करें। प्रत्येक छवि को उसके स्वयं के `finally` ब्लॉक में डिस्पोज़ किया जाता है, जो अगली स्लाइड रेंडर होने से पहले इसे रिलीज़ कर देता है। लाइसेंस के बिना, छवियों पर मूल्यांकन वॉटरमार्क भी दिखता है; देखें [लाइसेंसिंग](/slides/hi/nodejs-net/licensing/)।
+स्क्रिप्ट प्रत्येक स्लाइड के लिए एक फ़ाइल लिखती है, `slide_1.png`, `slide_2.png`, आदि, जो 1 से क्रमांकित होते हैं। 16:9 प्रस्तुति में 960 × 540 पॉइंट स्लाइडों के लिए, प्रत्येक छवि 1920 × 1080 पिक्सेल होती है। छुपी हुई स्लाइडें भी रेंडर होती हैं; उन्हें छोड़ने के लिए स्लाइड के [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) प्रॉपर्टी की जाँच करें। प्रत्येक छवि को उसके स्वयं के `finally` ब्लॉक में डिस्पोज़ किया जाता है, जो अगली स्लाइड रेंडर होने से पहले इसे रिलीज़ कर देता है। लाइसेंस के बिना, छवियों पर मूल्यांकन वॉटरमार्क भी दिखता है; देखें [लाइसेंसिंग](/slides/hi/nodejs-net/licensing/)।
 
 ## **निर्दिष्ट आकार की छवि में एक स्लाइड को परिवर्तित करें**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-[slideSize.size](https://reference.aspose.com/slides/hi/net/aspose.slides/slidesize/size/) प्रॉपर्टी स्लाइड की चौड़ाई और ऊँचाई पॉइंट में लौटाती है। 16:9 प्रस्तुति के लिए, स्क्रिप्ट `Saved a 1280 x 720 image` प्रिंट करती है और `slide_1_1280px.png` लिखती है; 4:3 प्रस्तुति के लिए, छवि 1280 × 960 पिक्सेल होती है।
+[slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) प्रॉपर्टी स्लाइड की चौड़ाई और ऊँचाई पॉइंट में लौटाती है। 16:9 प्रस्तुति के लिए, स्क्रिप्ट `Saved a 1280 x 720 image` प्रिंट करती है और `slide_1_1280px.png` लिखती है; 4:3 प्रस्तुति के लिए, छवि 1280 × 960 पिक्सेल होती है।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 

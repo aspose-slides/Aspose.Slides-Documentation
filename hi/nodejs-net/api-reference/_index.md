@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET को Aspose.Slides for .NET A
 ---
 ## **अवलोकन**
 
-Aspose.Slides for Node.js via .NET का अपना कोई API संदर्भ नहीं है। पैकेज Aspose.Slides for .NET की क्लासों को समान नामों के साथ, camelCase सदस्य नामों के साथ JavaScript में उजागर करता है, इसलिए [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hi/net/) उसकी क्लास, सदस्य और एनेमरेशन को दस्तावेज़ करता है।
+Aspose.Slides for Node.js via .NET का अपना कोई API संदर्भ नहीं है। पैकेज Aspose.Slides for .NET की क्लासों को समान नामों के साथ, camelCase सदस्य नामों के साथ JavaScript में उजागर करता है, इसलिए [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) उसकी क्लास, सदस्य और एनेमरेशन को दस्तावेज़ करता है।
 
 ## **.NET नामों को JavaScript में मैप करें**
 
@@ -54,4 +54,4 @@ try {
 
 स्क्रिप्ट `slide.png` और `slide.pdf` को वर्तमान फ़ोल्डर में लिखती है। दोनों में आयत और उसका टेक्स्ट दिखता है। बिना लाइसेंस के, वे एक मूल्यांकन वॉटरमार्क भी दिखाते हैं; देखें [लाइसेंसिंग](/slides/hi/nodejs-net/licensing/)।
 
-यहाँ उपयोग किए गए सदस्यों के विवरण के लिए, Aspose.Slides for .NET API संदर्भ में [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/text/) और [Slide.GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/slide/getimage/) देखें।
+यहाँ उपयोग किए गए सदस्यों के विवरण के लिए, Aspose.Slides for .NET API संदर्भ में [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) और [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) देखें।

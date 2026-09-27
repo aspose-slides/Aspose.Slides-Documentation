@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 इंस्टॉलेशन के दौरान, पैकेज अपनी नेटिव ड्रॉइंग लाइब्रेरीज़ (वे फ़ाइलें जिनके नाम में `aspose.slides.drawing.capi` शामिल है) को प्रोजेक्ट फ़ोल्डर में, `package.json` के बगल में कॉपी करता है।
 
-पैकेज को [releases.aspose.com](https://releases.aspose.com/slides/hi/nodejs-net/) पर ज़िप आर्काइव के रूप में भी प्रकाशित किया गया है। यह लेख केवल npm से इंस्टॉल करने को कवर करता है।
+पैकेज को [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/) पर ज़िप आर्काइव के रूप में भी प्रकाशित किया गया है। यह लेख केवल npm से इंस्टॉल करने को कवर करता है।
 
 ## **.NET निर्भरताएँ रीस्टोर करें**
 
@@ -154,7 +154,7 @@ node hello.js
 अपनी स्क्रिप्ट्स को प्रोजेक्ट फ़ोल्डर से चलाएँ, वह फ़ोल्डर जिसमें `package.json` है। `hello.pptx` जैसे रिलेटिव पाथ वर्तमान फ़ोल्डर के सापेक्ष हल होते हैं, और कुछ मशीनों पर किसी अन्य फ़ोल्डर से शुरू की गई स्क्रिप्ट प्रस्तुति नहीं बना सकती।
 {{% /alert %}}
 
-JavaScript API Aspose.Slides for .NET का प्रतिबिंब है: क्लासेस अपने .NET नाम बनाए रखते हैं, प्रॉपर्टीज़ और मेथड्स camelCase का उपयोग करते हैं (`Slides` बन जाता है `slides`, `AddAutoShape` बन जाता है `addAutoShape`), और कलेक्शन आइटम्स को `get(index)` से पढ़ा जाता है। इस पैकेज के लिए अलग API रेफ़रेंस नहीं है, इसलिए क्लास और मेंबर विवरण के लिए [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hi/net/) का उपयोग करें, उदाहरण के लिए [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) और [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/shapecollection/addautoshape/)।
+JavaScript API Aspose.Slides for .NET का प्रतिबिंब है: क्लासेस अपने .NET नाम बनाए रखते हैं, प्रॉपर्टीज़ और मेथड्स camelCase का उपयोग करते हैं (`Slides` बन जाता है `slides`, `AddAutoShape` बन जाता है `addAutoShape`), और कलेक्शन आइटम्स को `get(index)` से पढ़ा जाता है। इस पैकेज के लिए अलग API रेफ़रेंस नहीं है, इसलिए क्लास और मेंबर विवरण के लिए [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) का उपयोग करें, उदाहरण के लिए [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) और [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 

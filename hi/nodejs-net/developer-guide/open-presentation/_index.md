@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET PowerPoint और OpenDocument प्रस�
 उदाहरणों को एक प्रस्तुति की आवश्यकता है जिसका नाम `sample.pptx` हो, जो आपके प्रोजेक्ट फ़ोल्डर में हो जिसे आपने [स्थापना](/slides/hi/nodejs-net/installation/) में सेट किया है। कोई भी PowerPoint प्रस्तुति चलेगी। प्रत्येक उदाहरण को प्रोजेक्ट फ़ोल्डर में `.js` फ़ाइल के रूप में सहेजें और `node` के साथ उसी फ़ोल्डर से चलाएँ।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET की अपनी कोई API संदर्भ नहीं है। यह Aspose.Slides for .NET API को camelCase नामों के साथ प्रतिबिंबित करता है, इसलिए इस लेख में API लिंक संबंधित वर्गों और सदस्यों की ओर ले जाते हैं जो [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hi/net/) में हैं।
+Aspose.Slides for Node.js via .NET की अपनी कोई API संदर्भ नहीं है। यह Aspose.Slides for .NET API को camelCase नामों के साथ प्रतिबिंबित करता है, इसलिए इस लेख में API लिंक संबंधित वर्गों और सदस्यों की ओर ले जाते हैं जो [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) में हैं।
 {{% /alert %}}
 
 ## **फ़ाइल से प्रस्तुति खोलें**
 
-प्रस्तुति खोलने के लिए, उसके पथ को [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/presentation/) कंस्ट्रक्टर को पास करें। Aspose.Slides फ़ाइल सामग्री से फ़ॉर्मेट निर्धारित करता है, न कि एक्सटेंशन से, इसलिए वही कोड PPTX, PPT, और ODP फ़ाइलें खोलता है। एक सापेक्ष पथ वर्तमान कार्य निर्देशिका के मुकाबले हल किया जाता है, जो स्क्रिप्ट चलाने पर प्रोजेक्ट फ़ोल्डर होता है।
+प्रस्तुति खोलने के लिए, उसके पथ को [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) कंस्ट्रक्टर को पास करें। Aspose.Slides फ़ाइल सामग्री से फ़ॉर्मेट निर्धारित करता है, न कि एक्सटेंशन से, इसलिए वही कोड PPTX, PPT, और ODP फ़ाइलें खोलता है। एक सापेक्ष पथ वर्तमान कार्य निर्देशिका के मुकाबले हल किया जाता है, जो स्क्रिप्ट चलाने पर प्रोजेक्ट फ़ोल्डर होता है।
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-स्क्रिप्ट `sample.pptx` में स्लाइडों की संख्या प्रदर्शित करती है, उदाहरण के लिए `Slide count: 9`। [slides](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/slides/hi/) संग्रह की `count` प्रॉपर्टी में छिपी स्लाइडें भी शामिल होती हैं। जैसा कि दिखाया गया है, `dispose` को `finally` ब्लॉक में कॉल करें, ताकि प्रस्तुति के पीछे के .NET संसाधन आपके कोड के असफल होने पर भी मुक्त हो जाएँ।
+स्क्रिप्ट `sample.pptx` में स्लाइडों की संख्या प्रदर्शित करती है, उदाहरण के लिए `Slide count: 9`। [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) संग्रह की `count` प्रॉपर्टी में छिपी स्लाइडें भी शामिल होती हैं। जैसा कि दिखाया गया है, `dispose` को `finally` ब्लॉक में कॉल करें, ताकि प्रस्तुति के पीछे के .NET संसाधन आपके कोड के असफल होने पर भी मुक्त हो जाएँ।
 
 ## **बफ़र से प्रस्तुति खोलें**
 
@@ -71,7 +71,7 @@ try {
 
 ## **प्रस्तुति को किसी अन्य फ़ॉर्मेट में सहेजें**
 
-प्रस्तुति को किसी अन्य फ़ॉर्मेट में बदलने के लिए, उसे खोलें और अलग [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) मान के साथ सहेजें। नीचे दिया गया उदाहरण वह फ़ॉर्मेट प्रिंट करता है जिसे Aspose.Slides ने पहचाना, जो [sourceFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/sourceformat/) प्रॉपर्टी लौटाती है, और प्रस्तुति को OpenDocument प्रस्तुति के रूप में सहेजता है:
+प्रस्तुति को किसी अन्य फ़ॉर्मेट में बदलने के लिए, उसे खोलें और अलग [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) मान के साथ सहेजें। नीचे दिया गया उदाहरण वह फ़ॉर्मेट प्रिंट करता है जिसे Aspose.Slides ने पहचाना, जो [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) प्रॉपर्टी लौटाती है, और प्रस्तुति को OpenDocument प्रस्तुति के रूप में सहेजता है:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **पासवर्ड‑संरक्षित प्रस्तुति को कैसे खोलूँ?**
 
-एक [LoadOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/) ऑब्जेक्ट बनाएँ, उसकी [password](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/password/) प्रॉपर्टी सेट करें, और उस ऑब्जेक्ट को तीसरे कंस्ट्रक्टर तर्क के रूप में पास करें: `new Presentation("protected.pptx", null, loadOptions)`। सही पासवर्ड के बिना, कंस्ट्रक्टर त्रुटि फेंकेगा।
+एक [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ऑब्जेक्ट बनाएँ, उसकी [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) प्रॉपर्टी सेट करें, और उस ऑब्जेक्ट को तीसरे कंस्ट्रक्टर तर्क के रूप में पास करें: `new Presentation("protected.pptx", null, loadOptions)`। सही पासवर्ड के बिना, कंस्ट्रक्टर त्रुटि फेंकेगा।
 
 **कंस्ट्रक्टर खाली संदेश के साथ `Error` क्यों फेंकता है?**
 

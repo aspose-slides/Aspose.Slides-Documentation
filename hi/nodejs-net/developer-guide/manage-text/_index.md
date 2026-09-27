@@ -31,12 +31,12 @@ Aspose.Slides में, स्लाइड पर पाठ एक shape से
 उदाहरणों को एक प्रोजेक्ट की आवश्यकता होती है जिसे [स्थापना](/slides/hi/nodejs-net/installation/) में वर्णित के अनुसार सेट किया गया हो। प्रत्येक उदाहरण को प्रोजेक्ट फ़ोल्डर में एक `.js` फ़ाइल के रूप में सहेजें और उसे उस फ़ोल्डर से `node` के साथ चलाएँ।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET का अपना कोई API रेफ़रेंस नहीं है। यह Aspose.Slides for .NET API को camelCase नामों के साथ प्रतिबिंबित करता है, इसलिए इस लेख में API लिंक [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hi/net/) में मिलते‑जुलते क्लास और सदस्य की ओर ले जाते हैं।
+Aspose.Slides for Node.js via .NET का अपना कोई API रेफ़रेंस नहीं है। यह Aspose.Slides for .NET API को camelCase नामों के साथ प्रतिबिंबित करता है, इसलिए इस लेख में API लिंक [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) में मिलते‑जुलते क्लास और सदस्य की ओर ले जाते हैं।
 {{% /alert %}}
 
 ## **टेक्स्ट बॉक्स जोड़ें**
 
-टेक्स्ट बॉक्स जोड़ने के लिए, स्लाइड में एक ऑटो शैप को [addAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/shapecollection/addautoshape/) मेथड से जोड़ें और उसे [addTextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/addtextframe/) मेथड से टेक्स्ट दें। निम्नलिखित उदाहरण नए प्रस्तुति की पहली स्लाइड में एक आयत जोड़ता है और प्रस्तुति को `text-box.pptx` के रूप में सहेजता है:
+टेक्स्ट बॉक्स जोड़ने के लिए, स्लाइड में एक ऑटो शैप को [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) मेथड से जोड़ें और उसे [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) मेथड से टेक्स्ट दें। निम्नलिखित उदाहरण नए प्रस्तुति की पहली स्लाइड में एक आयत जोड़ता है और प्रस्तुति को `text-box.pptx` के रूप में सहेजता है:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **टेक्स्ट और उसके स्वरूपण को बदलें**
 
-निम्नलिखित उदाहरण `text-box.pptx` खोलता है, जिसे पिछले उदाहरण ने बनाया था, और पहली स्लाइड पर पहला shape प्राप्त करता है। चित्र और तालिका जैसे shape में कोई टेक्स्ट फ्रेम नहीं होता, इसलिए उदाहरण यह जांचता है कि shape एक [AutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) है या नहीं, इससे पहले कि वह shape के [textFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/textframe/) का उपयोग करे। फिर यह निम्नलिखित करता है:
+निम्नलिखित उदाहरण `text-box.pptx` खोलता है, जिसे पिछले उदाहरण ने बनाया था, और पहली स्लाइड पर पहला shape प्राप्त करता है। चित्र और तालिका जैसे shape में कोई टेक्स्ट फ्रेम नहीं होता, इसलिए उदाहरण यह जांचता है कि shape एक [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) है या नहीं, इससे पहले कि वह shape के [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) का उपयोग करे। फिर यह निम्नलिखित करता है:
 
-1. यह टेक्स्ट फ्रेम की [text](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/text/) प्रॉपर्टी के माध्यम से टेक्स्ट को बदलता है। इसके बाद, टेक्स्ट फ्रेम में एक पैराग्राफ और उसमें एक पोर्शन होता है।
-2. यह उस पोर्शन को [paragraphs](https://reference.aspose.com/slides/hi/net/aspose.slides/textframe/paragraphs/) और [portions](https://reference.aspose.com/slides/hi/net/aspose.slides/paragraph/portions/) कलेक्शन से प्राप्त करता है और उसका [portionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/portion/portionformat/) पढ़ता है।
-3. यह [fontHeight](https://reference.aspose.com/slides/hi/net/aspose.slides/baseportionformat/fontheight/), फ़ॉन्ट आकार को पॉइंट में सेट करता है, और [fontBold](https://reference.aspose.com/slides/hi/net/aspose.slides/baseportionformat/fontbold/), जो कि एक [NullableBool](https://reference.aspose.com/slides/hi/net/aspose.slides/nullablebool/) मान लेता है, को सेट करता है।
+1. यह टेक्स्ट फ्रेम की [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) प्रॉपर्टी के माध्यम से टेक्स्ट को बदलता है। इसके बाद, टेक्स्ट फ्रेम में एक पैराग्राफ और उसमें एक पोर्शन होता है।
+2. यह उस पोर्शन को [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) और [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) कलेक्शन से प्राप्त करता है और उसका [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/) पढ़ता है।
+3. यह [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), फ़ॉन्ट आकार को पॉइंट में सेट करता है, और [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), जो कि एक [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) मान लेता है, को सेट करता है।
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

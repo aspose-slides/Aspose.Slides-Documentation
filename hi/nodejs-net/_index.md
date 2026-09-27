@@ -58,13 +58,13 @@ Aspose.Slides for Node.js via .NET एक लाइब्रेरी है ज
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hi/net/">.NET API संदर्भ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/nodejs-net/release-notes/">रिलीज नोट्स</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/nodejs-net/">डाउनलोड</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">.NET API संदर्भ</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">रिलीज नोट्स</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">डाउनलोड</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">निःशुल्क समर्थन फ़ोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">निःशुल्क समर्थन फ़ोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">भुगतान किया गया समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>

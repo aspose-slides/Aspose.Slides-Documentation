@@ -10,7 +10,7 @@ url: /hi/nodejs-net/licensing/
 Aspose.Slides for Node.js via .NET एक npm पैकेज है जो मूल्यांकन और उत्पादन दोनों के लिए है। बिना लाइसेंस के, यह मूल्यांकन मोड में चलता है। जब आप लाइसेंस खरीदते हैं, या एक मुफ्त 30-दिन का अस्थायी लाइसेंस प्राप्त करते हैं, तो आप इसे कुछ लाइनों कोड से लागू करते हैं, और मूल्यांकन सीमाएँ अब लागू नहीं रहतीं।
 
 {{% alert color="info" title="Note" %}}
-Aspose उत्पादों का मूल्यांकन, लाइसेंस और खरीदने के सामान्य नीतियों को [Purchase Policies and FAQ](https://purchase.aspose.com/policies) में संग्रहीत किया गया है। कीमतें [Pricing Information](https://purchase.aspose.com/pricing/slides/hi/family) पृष्ठ पर सूचीबद्ध हैं।
+Aspose उत्पादों का मूल्यांकन, लाइसेंस और खरीदने के सामान्य नीतियों को [Purchase Policies and FAQ](https://purchase.aspose.com/policies) में संग्रहीत किया गया है। कीमतें [Pricing Information](https://purchase.aspose.com/pricing/slides/family) पृष्ठ पर सूचीबद्ध हैं।
 {{% /alert %}}
 
 ## **मूल्यांकन संस्करण सीमाएँ**
@@ -53,4 +53,4 @@ try {
 
 यदि फ़ाइल नहीं मिलती या वह वैध लाइसेंस नहीं है, तो `setLicense` एक त्रुटि फेंकता है, और Aspose.Slides मूल्यांकन मोड में रहता है। स्क्रिप्ट त्रुटि को पकड़ी है और उसका संदेश प्रदर्शित करती है। यदि फ़ाइल अनुपलब्ध है, तो संदेश `License "Aspose.Slides.lic" doesn't exist or access is restricted.` से शुरू होता है और सभी खोजी गई स्थितियों को सूचीबद्ध करता है।
 
-इस पैकेज में, लाइसेंस केवल फ़ाइल से ही लागू किया जाता है। `License` स्ट्रीम को स्वीकार नहीं करता, और पैकेज मीटरड लाइसेंसिंग को उजागर नहीं करता। जिस क्लास को पैकेज रैप करता है, उसके लिए देखें [License](https://reference.aspose.com/slides/hi/net/aspose.slides/license/) Aspose.Slides for .NET API रेफ़रेंस में।
+इस पैकेज में, लाइसेंस केवल फ़ाइल से ही लागू किया जाता है। `License` स्ट्रीम को स्वीकार नहीं करता, और पैकेज मीटरड लाइसेंसिंग को उजागर नहीं करता। जिस क्लास को पैकेज रैप करता है, उसके लिए देखें [License](https://reference.aspose.com/slides/net/aspose.slides/license/) Aspose.Slides for .NET API रेफ़रेंस में।
