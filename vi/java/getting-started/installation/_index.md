@@ -16,68 +16,145 @@ keywords:
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách cài đặt nhanh Aspose.Slides cho Java. Hướng dẫn từng bước, yêu cầu hệ thống và mẫu mã — bắt đầu làm việc với các bản trình chiếu PowerPoint ngay hôm nay!"
+description: "Cài đặt Aspose.Slides cho Java từ kho Maven của Aspose hoặc dưới dạng tệp JAR, thiết lập các yêu cầu trước cho Linux, và kiểm tra việc cài đặt bằng một chương trình đầu tiên."
 ---
 ## **Tổng quan**
 
-Hướng dẫn cài đặt giải thích cách thêm Aspose.Slides cho Java vào môi trường dự án của bạn. Nó chỉ ra cách tham chiếu thư viện từ Maven Central hoặc tải xuống gói JAR ngoại tuyến, và chỉ ra nơi tìm các tệp checksum để bạn có thể xác minh tính toàn vẹn. Khi kết thúc phần này, bạn sẽ sẵn sàng bao gồm Aspose.Slides trong quy trình build và chạy một bản trình chiếu đơn giản “Hello, World” để xác nhận mọi thứ đã được cấu hình đúng.
+Bài viết này giải thích cách thêm Aspose.Slides for Java vào một dự án. Aspose.Slides for Java được phát hành trong kho Maven riêng của Aspose, không phải trên Maven Central, vì vậy một dự án Maven phải khai báo kho đó. Bạn cũng có thể tải xuống tệp JAR và đặt nó vào classpath của mình. Cả hai cách đều kết thúc bằng một chương trình ngắn để xác nhận thư viện hoạt động.
 
-Aspose.Slides cho Java không yêu cầu Microsoft PowerPoint. Nó tạo ra các tệp trình chiếu cần thiết một cách lập trình. Tuy nhiên, để xem các trình chiếu được tạo, bạn có thể cần Microsoft PowerPoint hoặc một trình xem khác.
+Aspose.Slides for Java không yêu cầu Microsoft PowerPoint. Nó tạo ra các tệp trình chiếu cần thiết một cách lập trình. Tuy nhiên, để xem các trình chiếu được tạo, bạn có thể cần Microsoft PowerPoint hoặc một trình xem trình chiếu khác.
 
-## **Cài đặt và cấu hình Java**
+## **Yêu cầu trước**
 
-Java là một ngôn ngữ lập trình phổ biến cho phép bạn chạy chương trình trên nhiều nền tảng. Để biết thông tin về cài đặt và cấu hình Java trên bất kỳ hệ điều hành nào, hãy truy cập https://java.com/.
+- Một Java Development Kit (JDK). Dự án và các lệnh trong bài viết này cần JDK 11 trở lên. Trên JDK 11, chương trình kiểm tra cài đặt sẽ in ra cảnh báo bắt đầu bằng "WARNING: An illegal reflective access operation has occurred"; nó không ảnh hưởng đến kết quả và có thể bỏ qua.
+- [Apache Maven](https://maven.apache.org/install.html), nếu bạn sử dụng cách Maven.
+- Trên Linux, thư viện fontconfig và ít nhất một phông chữ đã được cài đặt. Xem [Linux](#linux).
 
-## **Cài đặt Aspose.Slides cho Java từ Maven Repository**
+## **Cài đặt từ kho Maven**
 
-Aspose lưu trữ tất cả các API Java trong [các kho Maven](https://releases.aspose.com/java/repo/com/aspose/). Bạn có thể tích hợp API [Aspose.Slides cho Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) trực tiếp vào các dự án Maven của mình với cấu hình tối thiểu.
+Aspose lưu trữ các thư viện Java của mình trong [kho Maven](https://releases.aspose.com/java/repo/com/aspose/) riêng. Để sử dụng [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) trong một dự án Maven, thêm hai mục vào *pom.xml* của bạn.
 
-1. **Xác định cấu hình kho Maven**
+1. **Khai báo kho Maven của Aspose.**
 
-   Xác định cấu hình/vị trí kho Maven của Aspose trong pom.xml của bạn như sau:
+   ```xml
+   <repositories>
+       <repository>
+           <id>AsposeJavaAPI</id>
+           <name>Aspose Java API</name>
+           <url>https://releases.aspose.com/java/repo/</url>
+       </repository>
+   </repositories>
+   ```
 
-``` xml
-<repositories>
-    <repository>
-        <id>AsposeJavaAPI</id>
-        <name>Aspose Java API</name>
-        <url>https://releases.aspose.com/java/repo/</url>
-    </repository>
-</repositories>
+2. **Thêm phụ thuộc Aspose.Slides for Java.**
+
+   ```xml
+   <dependencies>
+       <dependency>
+           <groupId>com.aspose</groupId>
+           <artifactId>aspose-slides</artifactId>
+           <version>26.9</version>
+           <classifier>jdk16</classifier>
+       </dependency>
+   </dependencies>
+   ```
+
+Phân loại `jdk16` là bắt buộc: nó chọn bản dựng Java SE của thư viện. Thay thế `26.9` bằng phiên bản mới nhất được liệt kê trong [kho](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Kho sẽ xuất bản một tệp kiểm tra SHA-1 bên cạnh mỗi JAR, mà Maven sẽ kiểm tra khi tải thư viện.
+
+### **Kiểm tra cài đặt**
+
+Để kiểm tra cấu hình với một dự án mới:
+
+1. Tạo một thư mục cho dự án và lưu *pom.xml* này vào trong đó:
+
+   ```xml
+   <project xmlns="http://maven.apache.org/POM/4.0.0">
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>com.example</groupId>
+       <artifactId>hello-slides</artifactId>
+       <version>1.0</version>
+
+       <properties>
+           <maven.compiler.release>11</maven.compiler.release>
+           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+           <exec.mainClass>HelloSlides</exec.mainClass>
+       </properties>
+
+       <repositories>
+           <repository>
+               <id>AsposeJavaAPI</id>
+               <name>Aspose Java API</name>
+               <url>https://releases.aspose.com/java/repo/</url>
+           </repository>
+       </repositories>
+
+       <dependencies>
+           <dependency>
+               <groupId>com.aspose</groupId>
+               <artifactId>aspose-slides</artifactId>
+               <version>26.9</version>
+               <classifier>jdk16</classifier>
+           </dependency>
+       </dependencies>
+
+       <build>
+           <plugins>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <version>3.15.0</version>
+               </plugin>
+           </plugins>
+       </build>
+   </project>
+   ```
+
+   Ngoài kho và phụ thuộc, *pom.xml* này thiết lập phiên bản Java để biên dịch, đặt tên lớp mà `mvn exec:java` chạy, và cố định plugin biên dịch, vì plugin cũ mà một số cài đặt Maven sử dụng mặc định sẽ bỏ qua thiết lập `maven.compiler.release`.
+
+2. Lưu ví dụ đầu tiên trong [Create Presentations](/slides/vi/java/create-presentation/) dưới dạng *src/main/java/HelloSlides.java*.
+
+3. Trong thư mục dự án, chạy:
+
+   ```bash
+   mvn compile exec:java
+   ```
+
+Maven tải xuống Aspose.Slides for Java, biên dịch chương trình và chạy nó. Chương trình lưu *new_presentation.pptx* trong thư mục dự án.
+
+## **Sử dụng tệp JAR mà không cần Maven**
+
+1. Tải xuống *aspose-slides-26.9-jdk16.jar* từ [thư mục phiên bản](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.9/) trong kho. Đối với phiên bản khác, mở thư mục của nó trong [kho](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) và tải về tệp có hậu tố *-jdk16.jar*.
+2. Lưu ví dụ đầu tiên trong [Create Presentations](/slides/vi/java/create-presentation/) dưới dạng *HelloSlides.java* trong cùng thư mục với tệp JAR.
+3. Trong thư mục đó, chạy:
+
+   ```bash
+   java -cp aspose-slides-26.9-jdk16.jar HelloSlides.java
+   ```
+
+JDK sẽ biên dịch và chạy tệp nguồn duy nhất, và chương trình sẽ lưu *new_presentation.pptx* trong thư mục. Trong ứng dụng của bạn, thêm tệp JAR vào classpath trong công cụ xây dựng hoặc IDE của bạn.
+
+## **Linux**
+
+Aspose.Slides for Java sử dụng hỗ trợ phông chữ của Java, trên Linux cần thư viện fontconfig và ít nhất một phông chữ đã được cài đặt. Nếu không có chúng, việc lưu trình chiếu sẽ thất bại với lỗi "Fontconfig head is null, check your fonts or fonts configuration". Các hình ảnh máy chủ và container tối thiểu có thể thiếu cả hai; ví dụ, hình ảnh container Ubuntu chính thức không có bất kỳ thứ nào.
+
+Trên Debian và Ubuntu, lệnh này cài đặt JDK, Maven, fontconfig và phông chữ DejaVu:
+
+```bash
+sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig fonts-dejavu-core
 ```
-2. **Xác định phụ thuộc API Aspose.Slides cho Java**
 
-   Xác định phụ thuộc API Aspose.Slides cho Java trong pom.xml của bạn theo cách này:
+Các phông chữ được sử dụng trong trình chiếu của bạn, hoặc các sự thay thế phù hợp, cũng phải được cài đặt để văn bản hiển thị đúng.
 
-``` xml
-<dependencies>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>jdk16</classifier>
-    </dependency>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>javadoc</classifier>
-    </dependency>
-</dependencies>
-```
+## **FAQ**
 
-Phụ thuộc Aspose.Slides cho Java sẽ được định nghĩa trong dự án Maven của bạn.
+### Làm sao tôi có thể xác minh rằng Aspose.Slides đã được tích hợp đúng?
 
-## **Câu hỏi thường gặp**
+Xây dựng dự án của bạn, tạo một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) trống và lưu nó với một tên mới. Nếu tệp được tạo mà không ném ngoại lệ, thư viện đã được tích hợp thành công.
 
-**Làm thế nào để tôi xác minh rằng Aspose.Slides đã được tích hợp đúng?**
+### Làm sao tôi có thể giới hạn việc tiêu thụ bộ nhớ khi xử lý các trình chiếu lớn?
 
-Xây dựng dự án của bạn, tạo một đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) trống và lưu nó với tên mới. Nếu tệp được tạo mà không gặp ngoại lệ, thư viện đã được tích hợp thành công.
+Tăng giới hạn bộ nhớ JVM chỉ lên mức cần thiết, và gọi [dispose](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#dispose--) trên mỗi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) trong một khối `finally` để giải phóng bộ nhớ đệm kịp thời. Điều này ngăn lỗi hết bộ nhớ và giữ cho việc sử dụng bộ nhớ tổng thể dự đoán được trong các hoạt động batch.
 
-**Làm thế nào để tôi giới hạn tiêu thụ bộ nhớ khi xử lý các bản trình chiếu lớn?**
+### Tôi có thể loại bỏ các định dạng xuất không mong muốn để giảm kích thước JAR cuối cùng không?
 
-Tăng giới hạn bộ nhớ JVM chỉ lên mức cần thiết, và đóng mỗi thể hiện của [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) trong khối `finally` để giải phóng bộ đệm kịp thời. Điều này ngăn lỗi thiếu bộ nhớ và giữ việc sử dụng bộ nhớ tổng thể dự đoán được trong các hoạt động batch.
-
-**Tôi có thể loại trừ các định dạng xuất không mong muốn để giảm kích thước JAR cuối cùng không?**
-
-Các phiên bản Aspose.Slides hiện tại được phát hành dưới dạng một thư viện đơn khối, vì vậy bạn không thể tắt các trình xuất cụ thể như PDF hoặc SVG trong quá trình xây dựng.
+Các phiên bản hiện tại của Aspose.Slides được phát hành dưới dạng một thư viện đơn lẻ, vì vậy bạn không thể tắt các trình xuất cụ thể như PDF hoặc SVG trong quá trình xây dựng.

@@ -5,39 +5,164 @@ type: docs
 weight: 20
 url: /tr/java/
 keywords:
-- belgelendirme
+- dokümantasyon
 - sunum işleme
 - sunum dönüştürme
 - PowerPoint
 - OpenDocument
 - Java
 - Aspose.Slides
-description: Aspose.Slides for Java, Microsoft PowerPoint® belgelerini Microsoft PowerPoint® kullanmadan okuyup yazabilen bir Microsoft PowerPoint® yönetim API'sidir.
+description: "Buradan başlayın: Aspose.Slides for Java'yi kurun, ilk sunumunuzu oluşturun ve ortak görevler, API referansı ve destek için rehberleri bulun."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-![Aspose.Slides for Java Ürün Logosu](home_1.png)
+Aspose.Slides for Java, Microsoft PowerPoint olmadan Java uygulamalarında PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir sınıf kitaplığıdır.
 
-**Aspose.Slides for Java'a Hoş Geldiniz!**
+Makro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntülere dışa aktarır.
 
-Aspose.Slides for Java, Microsoft PowerPoint® belgelerini Microsoft PowerPoint® olmadan okuma ve yazma yeteneği sağlayan bir Microsoft PowerPoint® yönetim API'sidir. Aspose.Slides for Java, PowerPoint® belgelerini yönetme işlevselliğini sağlayan ilk ve tek bileşendir. Aspose.Slides for Java, metin, şekiller, tablolar ve animasyonlar yönetimi, slaytlara ses ve video ekleme, slaytları ön izleme, slaytları SVG, PDF ve diğer formatlara dışa aktarma gibi birçok ana özelliği sunar.
+<div style="clear:both"></div>
 
-{{% /alert %}}
+------
 
-## **Aspose.Slides for Java Kaynakları**
+<div class="row">
+<div class="col-md-4">
+<p><b>Başlarken</b></p>
+<hr>
+<p>BAŞLAMA</p>
+<ul>
+<li><a href="/slides/tr/java/installation/">Kurulum</a></li>
+<li><a href="/slides/tr/java/create-presentation/">İlk sunumunuzu oluşturun</a></li>
+<li><a href="/slides/tr/java/getting-started/">Başlangıç rehberi</a></li>
+</ul>
+<p>DEĞERLENDİR</p>
+<ul>
+<li><a href="/slides/tr/java/supported-file-formats/">Desteklenen dosya formatları</a></li>
+<li><a href="/slides/tr/java/evaluate-aspose-slides/">Deneme sınırlamaları</a></li>
+<li><a href="/slides/tr/java/licensing/">Lisanslama</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Slides ile Oluşturun</b></p>
+<hr>
+<p>ORTAK GÖREVLER</p>
+<ul>
+<li><a href="/slides/tr/java/open-presentation/">Bir sunumu açın</a></li>
+<li><a href="/slides/tr/java/save-presentation/">Bir sunumu kaydedin</a></li>
+<li><a href="/slides/tr/java/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
+<li><a href="/slides/tr/java/convert-slide/">Slaytları resim olarak render et</a></li>
+<li><a href="/slides/tr/java/manage-text/">Metin ve şekilleri düzenle</a></li>
+</ul>
+<p>SLIDES İŞ AKIŞLARI</p>
+<ul>
+<li><a href="/slides/tr/java/powerpoint-charts/">Grafikler</a></li>
+<li><a href="/slides/tr/java/powerpoint-animation/">Animasyonlar</a></li>
+<li><a href="/slides/tr/java/manage-media-files/">Ses ve video</a></li>
+<li><a href="/slides/tr/java/presentation-design/">Slayt tasarımı</a></li>
+<li><a href="/slides/tr/java/merge-presentation/">Sunumları birleştir</a></li>
+</ul>
+<p>ÖRNEKLER</p>
+<ul>
+<li><a href="/slides/tr/java/examples/">Slayt öğesine göre örnekler</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">GitHub'daki örnekler</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Referans &amp; Destek</b></p>
+<hr>
+<p>REFERANS</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/tr/java/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/tr/java/release-notes/">Sürüm notları</a></li>
+<li><a href="/slides/tr/java/known-issues/">Bilinen sorunlar</a></li>
+<li><a href="https://releases.aspose.com/slides/tr/java/">İndirme</a></li>
+</ul>
+<p>DESTEK</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
+</ul>
+</div>
+</div>
 
-Bunlar faydalı kaynaklara bağlantılardır:
+------
 
-- [Aspose.Slides for Java Çevrimiçi Dokümantasyonu](/slides/tr/java/)
-- [Aspose.Slides for Java Özellikleri](/slides/tr/java/features-overview/)
-- [Aspose.Slides for Java Sınırlamaları](/slides/tr/java/known-issues/)
-- [Aspose.Slides for Java Sürüm Notları](https://releases.aspose.com/slides/tr/java/release-notes/)
-- [Aspose.Slides for Java Ürün Sayfası](https://products.aspose.com/slides/tr/java/)
-- [Aspose.Slides for Java'ı İndir](https://releases.aspose.com/slides/tr/java/)
-- [Aspose.Slides for Java Maven Deposu](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Aspose.Slides for Java'ı Maven Deposundan Kurun](/slides/tr/java/installation/)
-- [Aspose.Slides for Java API Referans Kılavuzu](https://reference.aspose.com/slides/tr/java)
-- [GitHub Deposundan Örnekleri İndirin](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [Aspose.Slides for Java Ücretsiz Destek Forumu](https://forum.aspose.com/c/slides/tr/11)
-- [Aspose.Slides for Java Ücretli Destek Yardım Masası](https://helpdesk.aspose.com/)
+## **İlk sunumunuz**
+
+Aspose.Slides for Java, Maven Central yerine Aspose'un kendi Maven deposunda yayımlanır. Bir Maven projesi için bir klasör oluşturun ve *pom.xml* dosyasını içine kaydedin. Depoyu bildirir, kütüphaneyi ekler ve çalıştırılacak sınıfı adlandırır:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>hello-slides</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <exec.mainClass>HelloSlides</exec.mainClass>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://releases.aspose.com/java/repo/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-slides</artifactId>
+            <version>26.9</version>
+            <classifier>jdk16</classifier>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+Bu kodu *src/main/java/HelloSlides.java* olarak kaydedin:
+
+```java
+import com.aspose.slides.*;
+
+public class HelloSlides {
+    public static void main(String[] args) {
+        // Bir sunum oluşturun. Zaten içinde bir boş slayt içeriyor.
+        Presentation presentation = new Presentation();
+        try {
+            // İlk slaytı alın.
+            ISlide slide = presentation.getSlides().get_Item(0);
+
+            // Bir bulut şekli ekleyin ve içine metin yerleştirin.
+            IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
+            autoShape.getTextFrame().setText("Hello, Aspose!");
+
+            // Sunumu PPTX dosyası olarak kaydedin.
+            presentation.save("new_presentation.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Ardından, JDK 11 veya daha yeni bir sürüm ve Apache Maven kurulu olduğunda, proje klasöründe şu komutu çalıştırın:
+
+```bash
+mvn compile exec:java
+```
+
+Program, proje klasöründe bir slayt içinde metin içeren bir bulut şekli bulunan *new_presentation.pptx* dosyasını kaydeder. Linux'ta fontconfig ve en az bir fontun yüklü olması gerekir; bkz.[Kurulum](/slides/tr/java/installation/#linux). Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı içerir — bkz.[Lisanslama](/slides/tr/java/licensing/). Sunum oluşturma ve doldurma hakkında daha fazla yöntem için bkz.[Sunum Oluşturma](/slides/tr/java/create-presentation/).

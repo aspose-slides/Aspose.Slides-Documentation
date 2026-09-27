@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides untuk Java
+title: Aspose.Slides for Java
 second_title: Aspose.Slides for Java
 type: docs
 weight: 20
@@ -12,32 +12,157 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: Aspose.Slides for Java adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi Java membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®.
+description: "Mulai di sini: instal Aspose.Slides for Java, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, dan dukungan."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-![Logo Produk Aspose.Slides for Java](home_1.png)
+Aspose.Slides for Java adalah perpustakaan kelas untuk membuat, membaca, mengedit, dan mengkonversi presentasi PowerPoint dan OpenDocument dalam aplikasi Java, tanpa Microsoft PowerPoint.
 
-**Selamat datang di Aspose.Slides for Java!**
+Perpustakaan ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
-Aspose.Slides for Java adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi Java membaca dan menulis dokumen PowerPoint® tanpa Microsoft PowerPoint®. Aspose.Slides for Java adalah komponen pertama dan satu-satunya yang menyediakan fungsionalitas untuk mengelola dokumen PowerPoint®. Aspose.Slides for Java menyediakan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio & video ke slide, meninjau slide, mengekspor slide ke SVG, PDF, dan format lainnya.
+<div style="clear:both"></div>
 
-{{% /alert %}}
+------
 
-## **Sumber Daya Aspose.Slides for Java**
+<div class="row">
+<div class="col-md-4">
+<p><b>Mulai</b></p>
+<hr>
+<p>MEMULAI</p>
+<ul>
+<li><a href="/slides/id/java/installation/">Instalasi</a></li>
+<li><a href="/slides/id/java/create-presentation/">Buat presentasi pertama Anda</a></li>
+<li><a href="/slides/id/java/getting-started/">Panduan memulai</a></li>
+</ul>
+<p>EVALUASI</p>
+<ul>
+<li><a href="/slides/id/java/supported-file-formats/">Format file yang didukung</a></li>
+<li><a href="/slides/id/java/evaluate-aspose-slides/">Batasan percobaan</a></li>
+<li><a href="/slides/id/java/licensing/">Lisensi</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Bangun dengan Slides</b></p>
+<hr>
+<p>TUGAS UMUM</p>
+<ul>
+<li><a href="/slides/id/java/open-presentation/">Buka presentasi</a></li>
+<li><a href="/slides/id/java/save-presentation/">Simpan presentasi</a></li>
+<li><a href="/slides/id/java/convert-powerpoint-to-pdf/">Konversi ke PDF</a></li>
+<li><a href="/slides/id/java/convert-slide/">Render slide sebagai gambar</a></li>
+<li><a href="/slides/id/java/manage-text/">Edit teks dan bentuk</a></li>
+</ul>
+<p>ALUR KERJA SLIDES</p>
+<ul>
+<li><a href="/slides/id/java/powerpoint-charts/">Diagram</a></li>
+<li><a href="/slides/id/java/powerpoint-animation/">Animasi</a></li>
+<li><a href="/slides/id/java/manage-media-files/">Audio dan video</a></li>
+<li><a href="/slides/id/java/presentation-design/">Desain slide</a></li>
+<li><a href="/slides/id/java/merge-presentation/">Gabungkan presentasi</a></li>
+</ul>
+<p>CONTOH</p>
+<ul>
+<li><a href="/slides/id/java/examples/">Contoh berdasarkan elemen slide</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">Contoh di GitHub</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Referensi &amp; Dukungan</b></p>
+<hr>
+<p>REFERENSI</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/id/java/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/id/java/release-notes/">Catatan rilis</a></li>
+<li><a href="/slides/id/java/known-issues/">Masalah yang diketahui</a></li>
+<li><a href="https://releases.aspose.com/slides/id/java/">Download</a></li>
+</ul>
+<p>DUKUNGAN</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
+</ul>
+</div>
+</div>
 
-Berikut adalah tautan ke sumber daya yang berguna:
+------
 
-- [Dokumentasi Online Aspose.Slides for Java](/slides/id/java/)
-- [Fitur Aspose.Slides for Java](/slides/id/java/features-overview/)
-- [Keterbatasan Aspose.Slides for Java](/slides/id/java/known-issues/)
-- [Catatan Rilis Aspose.Slides for Java](https://releases.aspose.com/slides/id/java/release-notes/)
-- [Halaman Produk Aspose.Slides for Java](https://products.aspose.com/slides/id/java/)
-- [Unduh Aspose.Slides for Java](https://releases.aspose.com/slides/id/java/)
-- [Repositori Maven Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Instal Aspose.Slides for Java dari Repositori Maven](/slides/id/java/installation/)
-- [Panduan Referensi API Aspose.Slides for Java](https://reference.aspose.com/slides/id/java)
-- [Unduh Contoh dari Repositori GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [Forum Dukungan Gratis Aspose.Slides for Java](https://forum.aspose.com/c/slides/id/11)
-- [Helpdesk Dukungan Berbayar Aspose.Slides for Java](https://helpdesk.aspose.com/)
+## **Presentasi pertama Anda**
+
+Aspose.Slides for Java dipublikasikan di repositori Maven milik Aspose sendiri, bukan di Maven Central. Buat folder untuk proyek Maven dan simpan *pom.xml* ini di dalamnya. File ini menyatakan repositori, menambahkan perpustakaan, dan menentukan kelas yang akan dijalankan:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>hello-slides</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <exec.mainClass>HelloSlides</exec.mainClass>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://releases.aspose.com/java/repo/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-slides</artifactId>
+            <version>26.9</version>
+            <classifier>jdk16</classifier>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+Simpan kode ini sebagai *src/main/java/HelloSlides.java*:
+
+```java
+import com.aspose.slides.*;
+
+public class HelloSlides {
+    public static void main(String[] args) {
+        // Buat presentasi. Sudah berisi satu slide kosong.
+        Presentation presentation = new Presentation();
+        try {
+            // Dapatkan slide pertama.
+            ISlide slide = presentation.getSlides().get_Item(0);
+
+            // Tambahkan bentuk awan dan masukkan teks ke dalamnya.
+            IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
+            autoShape.getTextFrame().setText("Hello, Aspose!");
+
+            // Simpan presentasi sebagai file PPTX.
+            presentation.save("new_presentation.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Kemudian, dengan JDK 11 atau lebih baru dan Apache Maven terinstal, jalankan perintah berikut di folder proyek:
+
+```bash
+mvn compile exec:java
+```
+
+Program ini menyimpan *new_presentation.pptx* di folder proyek, dengan satu slide yang berisi bentuk awan dengan teks. Pada Linux, fontconfig dan setidaknya satu font harus diinstal; lihat [Instalasi](/slides/id/java/installation/#linux). Tanpa lisensi, file yang disimpan akan memiliki watermark evaluasi — lihat [Lisensi](/slides/id/java/licensing/). Untuk lebih banyak cara membuat dan mengisi presentasi, lihat [Buat Presentasi](/slides/id/java/create-presentation/).

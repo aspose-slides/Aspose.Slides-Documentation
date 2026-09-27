@@ -16,68 +16,145 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีติดตั้ง Aspose.Slides for Java อย่างรวดเร็ว คำแนะนำทีละขั้นตอน ความต้องการของระบบและตัวอย่างโค้ด — เริ่มทำงานกับการนำเสนอ PowerPoint วันนี้!"
+description: "ติดตั้ง Aspose.Slides for Java จาก Maven repository ของ Aspose หรือเป็นไฟล์ JAR ตั้งค่าเงื่อนไขเบื้องต้นสำหรับ Linux และตรวจสอบการติดตั้งด้วยโปรแกรมแรก"
 ---
 ## **ภาพรวม**
 
-คู่มือการติดตั้งอธิบายวิธีเพิ่ม Aspose.Slides for Java ไปยังสภาพแวดล้อมของโปรเจกต์ของคุณ มันแสดงวิธีอ้างอิงไลบรารีจาก Maven Central หรือดาวน์โหลดแพ็กเกจ JAR แบบออฟไลน์ และบอกตำแหน่งไฟล์ checksum เพื่อให้คุณตรวจสอบความสมบูรณ์ของไฟล์ ด้วยการอ่านจบส่วนนี้แล้ว คุณควรพร้อมที่จะรวม Aspose.Slides เข้าไปใน pipeline การสร้างและรันการนำเสนอ “Hello, World” อย่างง่ายเพื่อยืนยันว่าทุกอย่างถูกกำหนดค่าอย่างถูกต้อง  
+บทความนี้อธิบายวิธีเพิ่ม Aspose.Slides for Java ไปยังโครงการ Aspose.Slides for Java ถูกเผยแพร่ในที่เก็บ Maven ของ Aspose เอง ไม่ใช่ใน Maven Central ดังนั้นโครงการ Maven จึงต้องประกาศที่เก็บนั้น คุณยังสามารถดาวน์โหลดไฟล์ JAR และใส่ลงใน class path ด้วยตนเอง ทั้งสองวิธีจะจบด้วยโปรแกรมสั้น ๆ ที่ยืนยันว่าห้องสมุดทำงานได้
 
-Aspose.Slides for Java ไม่ต้องการ Microsoft PowerPoint มันสร้างไฟล์การนำเสนอที่จำเป็นโดยอัตโนมัติ อย่างไรก็ตาม เพื่อดูการนำเสนอที่สร้างขึ้น คุณอาจต้องใช้ Microsoft PowerPoint หรือโปรแกรมดูการนำเสนออื่นๆ  
+Aspose.Slides for Java ไม่จำเป็นต้องมี Microsoft PowerPoint มันสร้างไฟล์พรีเซนเทชันที่จำเป็นโดยอัตโนมัติ อย่างไรก็ตาม หากต้องการดูพรีเซนเทชันที่สร้างขึ้น คุณอาจต้องใช้ Microsoft PowerPoint หรือโปรแกรมดูพรีเซนเทชันอื่น
 
-## **ติดตั้งและกำหนดค่า Java**
+## **ข้อกำหนดเบื้องต้น**
 
-Java เป็นภาษาการเขียนโปรแกรมที่ได้รับความนิยมซึ่งทำให้คุณสามารถเรียกใช้โปรแกรมบนหลายแพลตฟอร์ม สำหรับข้อมูลเกี่ยวกับการติดตั้งและกำหนดค่า Java บนระบบปฏิบัติการใด ๆ โปรดเยี่ยมชม https://java.com/.
+- ชุดพัฒนา Java (JDK) โครงการและคำสั่งในบทความนี้ต้องการ JDK 11 หรือใหม่กว่า บน JDK 11 โปรแกรมที่ตรวจสอบการติดตั้งจะแสดงคำเตือนที่ขึ้นต้นด้วย “WARNING: An illegal reflective access operation has occurred”; คำเตือนนี้ไม่กระทบผลลัพธ์และสามารถละเลยได้
+- [Apache Maven](https://maven.apache.org/install.html) หากคุณใช้วิธี Maven
+- บน Linux จำเป็นต้องมีไลบรารี fontconfig และฟอนต์อย่างน้อยหนึ่งตัว ดูที่ [Linux](#linux)
 
-## **ติดตั้ง Aspose.Slides for Java จาก Maven Repository**
+## **ติดตั้งจากที่เก็บ Maven**
 
-Aspose โฮสต์ API ของ Java ทั้งหมดใน [Maven repositories](https://releases.aspose.com/java/repo/com/aspose/) ของมัน คุณสามารถรวม API [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) ลงในโปรเจกต์ Maven ของคุณได้โดยตรงด้วยการกำหนดค่าที่น้อยที่สุด  
+Aspose โฮสต์ไลบรารี Java ของตนใน [Maven repository](https://releases.aspose.com/java/repo/com/aspose/) ของเอง เพื่อใช้ [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) ในโครงการ Maven ให้เพิ่มสองรายการลงใน *pom.xml* ของคุณ
 
-1. **ระบุการกำหนดค่า Maven Repository**
+1. **ประกาศที่เก็บ Maven ของ Aspose.**
 
-   ระบุการกำหนดค่า/ตำแหน่งของ Maven repository ของ Aspose ในไฟล์ pom.xml ของคุณดังนี้:
+   ```xml
+   <repositories>
+       <repository>
+           <id>AsposeJavaAPI</id>
+           <name>Aspose Java API</name>
+           <url>https://releases.aspose.com/java/repo/</url>
+       </repository>
+   </repositories>
+   ```
 
-``` xml
-<repositories>
-    <repository>
-        <id>AsposeJavaAPI</id>
-        <name>Aspose Java API</name>
-        <url>https://releases.aspose.com/java/repo/</url>
-    </repository>
-</repositories>
+2. **เพิ่มการอ้างอิง Aspose.Slides for Java.**
+
+   ```xml
+   <dependencies>
+       <dependency>
+           <groupId>com.aspose</groupId>
+           <artifactId>aspose-slides</artifactId>
+           <version>26.9</version>
+           <classifier>jdk16</classifier>
+       </dependency>
+   </dependencies>
+   ```
+
+ตัวจัดประเภท `jdk16` จำเป็นต้องใช้: มันเลือกรุ่น Java SE ของไลบรารี แทนที่ `26.9` ด้วยเวอร์ชันล่าสุดที่แสดงใน [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) ที่เก็บจะเผยไฟล์ตรวจสอบ SHA‑1 ควบคู่กับแต่ละ JAR ซึ่ง Maven จะตรวจสอบเมื่อดาวน์โหลดไลบรารี
+
+### **ตรวจสอบการติดตั้ง**
+
+เพื่อทดสอบการตั้งค่าโดยสร้างโครงการใหม่:
+
+1. สร้างโฟลเดอร์สำหรับโครงการและบันทึก *pom.xml* นี้ลงในนั้น:
+
+   ```xml
+   <project xmlns="http://maven.apache.org/POM/4.0.0">
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>com.example</groupId>
+       <artifactId>hello-slides</artifactId>
+       <version>1.0</version>
+
+       <properties>
+           <maven.compiler.release>11</maven.compiler.release>
+           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+           <exec.mainClass>HelloSlides</exec.mainClass>
+       </properties>
+
+       <repositories>
+           <repository>
+               <id>AsposeJavaAPI</id>
+               <name>Aspose Java API</name>
+               <url>https://releases.aspose.com/java/repo/</url>
+           </repository>
+       </repositories>
+
+       <dependencies>
+           <dependency>
+               <groupId>com.aspose</groupId>
+               <artifactId>aspose-slides</artifactId>
+               <version>26.9</version>
+               <classifier>jdk16</classifier>
+           </dependency>
+       </dependencies>
+
+       <build>
+           <plugins>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <version>3.15.0</version>
+               </plugin>
+           </plugins>
+       </build>
+   </project>
+   ```
+
+   นอกเหนือจากที่เก็บและการอ้างอิง *pom.xml* นี้กำหนดค่า Java release ที่จะคอมไพล์ ชื่อคลาสที่ `mvn exec:java` จะเรียกใช้ และตรึงปลั๊กอินคอมไพเลอร์ เนื่องจากปลั๊กอินเก่าบางตัวที่ Maven เริ่มต้นใช้จะละเลยการตั้งค่า `maven.compiler.release`
+
+2. บันทึกตัวอย่างแรกจาก [Create Presentations](/slides/th/java/create-presentation/) เป็น *src/main/java/HelloSlides.java*.
+
+3. ในโฟลเดอร์โครงการให้รัน:
+
+   ```bash
+   mvn compile exec:java
+   ```
+
+Maven จะดาวน์โหลด Aspose.Slides for Java คอมไพล์โปรแกรมและรัน โปรแกรมจะบันทึกไฟล์ *new_presentation.pptx* ไว้ในโฟลเดอร์โครงการ
+
+## **ใช้ไฟล์ JAR โดยไม่ใช้ Maven**
+
+1. ดาวน์โหลดไฟล์ *aspose-slides-26.9-jdk16.jar* จาก [โฟลเดอร์เวอร์ชัน](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.9/) ในที่เก็บ หากต้องการเวอร์ชันอื่น ให้เปิดโฟลเดอร์ของเวอร์ชันนั้นใน [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) และดาวน์โหลดไฟล์ที่ลงท้ายด้วย *-jdk16.jar*  
+2. บันทึกตัวอย่างแรกจาก [Create Presentations](/slides/th/java/create-presentation/) เป็น *HelloSlides.java* ในโฟลเดอร์เดียวกับไฟล์ JAR  
+3. ในโฟลเดอร์นั้นให้รัน:
+
+   ```bash
+   java -cp aspose-slides-26.9-jdk16.jar HelloSlides.java
+   ```
+
+JDK จะคอมไพล์และรันไฟล์ซอร์สเดียวนี้ และโปรแกรมจะบันทึก *new_presentation.pptx* ไว้ในโฟลเดอร์นั้น ในแอปพลิเคชันของคุณเองให้เพิ่มไฟล์ JAR ไปยัง class path ของเครื่องมือสร้างหรือ IDE ที่ใช้
+
+## **Linux**
+
+Aspose.Slides for Java ใช้การสนับสนุนฟอนต์ของ Java ซึ่งบน Linux จำเป็นต้องมีไลบรารี fontconfig และฟอนต์อย่างน้อยหนึ่งตัว หากไม่มี ฟังก์ชันการบันทึกพรีเซนเทชันจะล้มเหลวด้วยข้อผิดพลาด “Fontconfig head is null, check your fonts or fonts configuration” ภาพลักษณ์เซิร์ฟเวอร์และคอนเทนเนอร์ขนาดเล็กอาจไม่มีทั้งสองอย่าง เช่น ภาพคอนเทนเนอร์ Ubuntu อย่างเป็นทางการไม่มีเลย
+
+บน Debian และ Ubuntu คำสั่งต่อไปนี้จะติดตั้ง JDK, Maven, fontconfig และฟอนต์ DejaVu:
+
+```bash
+sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig fonts-dejavu-core
 ```
-2. **กำหนดการพึ่งพา API Aspose.Slides for Java**
 
-   กำหนดการพึ่งพา API Aspose.Slides for Java ในไฟล์ pom.xml ของคุณโดยวิธีนี้:
-
-``` xml
-<dependencies>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>jdk16</classifier>
-    </dependency>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>javadoc</classifier>
-    </dependency>
-</dependencies>
-```
-
-การพึ่งพา Aspose.Slides for Java จะถูกกำหนดในโปรเจกต์ Maven ของคุณแล้ว.
+ฟอนต์ที่ใช้ในพรีเซนเทชันของคุณ หรือฟอนต์ทดแทนที่เหมาะสม ต้องติดตั้งด้วยเพื่อให้ข้อความแสดงผลถูกต้อง
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบว่า Aspose.Slides ได้รวมอย่างถูกต้องหรือไม่?**
+### วิธีตรวจสอบว่า Aspose.Slides ได้รวมอย่างถูกต้องหรือไม่?
 
-สร้างโปรเจกต์ของคุณ, สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ว่างเปล่าและบันทึกด้วยชื่อใหม่ หากไฟล์ถูกสร้างขึ้นโดยไม่เกิดข้อยกเว้นไลบรารีจะถูกรวมอย่างสำเร็จ.
+สร้างโครงการของคุณ ประกอบออบเจ็กต์เปล่า [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) แล้วบันทึกด้วยชื่อใหม่ หากไฟล์สร้างสำเร็จโดยไม่เกิดข้อยกเว้น หมายความว่าห้องสมุดได้รวมอย่างถูกต้องแล้ว
 
-**ฉันจะจำกัดการใช้หน่วยความจำเมื่อประมวลผลการนำเสนอขนาดใหญ่ได้อย่างไร?**
+### วิธีจำกัดการใช้หน่วยความจำเมื่อต้องประมวลผลการนำเสนอขนาดใหญ่?
 
-เพิ่มขีดจำกัดหน่วยความจำของ JVM เท่าที่จำเป็นเท่านั้น และปิดแต่ละอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ในบล็อก `finally` เพื่อปล่อยแคชอย่างเร็ว การทำเช่นนี้ป้องกันข้อผิดพลาด out‑of‑memory และทำให้การใช้หน่วยความจำโดยรวมคาดการณ์ได้ระหว่างการทำงานเป็นชุด.
+ปรับขีดจำกัดหน่วยความจำของ JVM ให้สูงเท่าที่จำเป็นเท่านั้น และเรียกใช้เมธอด [dispose](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#dispose--) บนแต่ละอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ภายในบล็อก `finally` เพื่อคืนค่าแคชโดยเร็ว วิธีนี้จะป้องกันข้อผิดพลาด out‑of‑memory และทำให้การใช้หน่วยความจำโดยรวมคาดการณ์ได้ระหว่างการดำเนินการแบบแบตช์
 
-**ฉันสามารถยกเว้นรูปแบบการส่งออกที่ไม่ต้องการเพื่อลดขนาดไฟล์ JAR ขั้นสุดท้ายได้หรือไม่?**
+### ฉันสามารถยกเว้นรูปแบบการส่งออกที่ไม่ต้องการเพื่อลดขนาด JAR สุดท้ายได้หรือไม่?
 
-รุ่น Aspose.Slides ปัจจุบันจัดจำหน่ายเป็นไลบรารีเดียวแบบโมโนลิธิก ดังนั้นคุณไม่สามารถปิดใช้งานตัวส่งออกเฉพาะอย่าง PDF หรือ SVG ในขั้นตอนการสร้างได้.
+รุ่นปัจจุบันของ Aspose.Slides จะจัดส่งเป็นไลบรารีเดี่ยวแบบโมโนลิธิก จึงไม่สามารถปิดการทำงานของผู้ส่งออกเฉพาะอย่าง PDF หรือ SVG ได้ในขั้นตอนการสร้าง​
