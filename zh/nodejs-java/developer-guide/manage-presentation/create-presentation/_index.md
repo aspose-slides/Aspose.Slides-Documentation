@@ -31,11 +31,11 @@ description: "使用 Aspose.Slides 创建演示文稿—生成 PPT、PPTX 和 OD
 
 要创建演示文稿并在其首张幻灯片上放置文本框，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。新演示文稿默认包含一张空白幻灯片。  
-2. 通过索引 0 从[slide collection](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/getslides/)中获取该幻灯片。  
-3. 使用 [addAutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/addautoshape/) 方法添加矩形，并使用 [setText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/settext/) 设置其文本。  
-4. 使用 [save](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。  
-5. 使用 [dispose](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/dispose/) 方法释放演示文稿，并结束进程。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 类的实例。新演示文稿默认包含一张空白幻灯片。  
+2. 通过索引 0 从[slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/)中获取该幻灯片。  
+3. 使用 [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) 方法添加矩形，并使用 [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/) 设置其文本。  
+4. 使用 [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。  
+5. 使用 [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) 方法释放演示文稿，并结束进程。
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Aspose.Slides 在 `java` 包启动的 Java 虚拟机中运行，该虚拟机位�
 
 ### 能否并行创建/保存演示文稿？
 
-不能在[multiple threads](/slides/zh/nodejs-java/multithreading/)中对同一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 实例进行操作。请为每个线程或进程使用独立的实例。
+不能在[multiple threads](/slides/zh/nodejs-java/multithreading/)中对同一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 实例进行操作。请为每个线程或进程使用独立的实例。
 
 ### 如何去除试用水印和限制？
 

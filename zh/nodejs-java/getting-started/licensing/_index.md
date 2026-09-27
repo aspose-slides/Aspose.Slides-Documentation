@@ -41,7 +41,7 @@ Aspose.Slides 的评估版本（未指定许可证）提供完整的产品功能
 {{% /alert %}}
 
 ## **关于许可证**
-您可以从其[下载页面](https://releases.aspose.com/slides/zh/nodejs-java/)轻松下载 Aspose.Slides for Node.js via Java 的评估版本。该评估版本具备与授权版本相同的功能，只是存在上述限制。除此之外，购买许可证并添加几行代码来应用许可证后，评估版本即可转为已授权。
+您可以从其[下载页面](https://releases.aspose.com/slides/nodejs-java/)轻松下载 Aspose.Slides for Node.js via Java 的评估版本。该评估版本具备与授权版本相同的功能，只是存在上述限制。除此之外，购买许可证并添加几行代码来应用许可证后，评估版本即可转为已授权。
 
 许可证是一个纯文本 XML 文件，包含产品名称、授权开发者数量、订阅到期日期等信息。文件经过数字签名，请勿修改文件。即使意外在文件内容中添加额外的换行也会导致其失效。
 
@@ -62,7 +62,7 @@ Aspose.Slides 的评估版本（未指定许可证）提供完整的产品功能
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-您可以在[“定价信息”](https://purchase.aspose.com/pricing/slides/zh/family) 页面找到定价信息。
+您可以在[“定价信息”](https://purchase.aspose.com/pricing/slides/family) 页面找到定价信息。
 {{% /alert %}}
 
 ### **在 Aspose.Slides for Node.js via Java 中设置许可证**
@@ -96,11 +96,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-调用 setLicense 方法时，许可证名称应与许可证文件的名称相同。例如，您可以将许可证文件名更改为 "Aspose.Slides.lic.xml"。随后，在代码中必须将新许可证名 (Aspose.Slides.lic.xml) 传递给 setLicense 方法。如果文件缺失或不包含有效的许可证，[setLicense](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/license/setlicense/) 将抛出异常，导致脚本错误结束。
+调用 setLicense 方法时，许可证名称应与许可证文件的名称相同。例如，您可以将许可证文件名更改为 "Aspose.Slides.lic.xml"。随后，在代码中必须将新许可证名 (Aspose.Slides.lic.xml) 传递给 setLicense 方法。如果文件缺失或不包含有效的许可证，[setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) 将抛出异常，导致脚本错误结束。
 
 #### **从流中应用许可证**
 
-要从流中应用许可证，请将 [License](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/license/) 对象和可读流传递给静态的 [setLicenseFromStream](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/license/setlicense/) 方法。该流会异步读取，如果流中不包含有效许可证，回调将收到错误：
+要从流中应用许可证，请将 [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) 对象和可读流传递给静态的 [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) 方法。该流会异步读取，如果流中不包含有效许可证，回调将收到错误：
 
 **Node.js**
 

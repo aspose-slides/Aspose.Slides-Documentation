@@ -100,7 +100,7 @@ node hello.js
 该包也提供与 npm 包相同内容的 ZIP 存档。使用该存档进行安装的步骤如下：
 
 1. 按上述说明为你的操作系统安装先决条件。
-2. 从 [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/zh/nodejs-java/) 下载存档。
+2. 从 [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/) 下载存档。
 3. 创建项目文件夹：
 
     ```bash
