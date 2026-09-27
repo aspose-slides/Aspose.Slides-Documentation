@@ -28,14 +28,14 @@ Prima di iniziare, aggiungi Aspose.Slides per Java al tuo progetto dal repositor
 
 ## **Creare una presentazione**
 
-Creare un file PowerPoint da zero in Aspose.Slides per Java inizia con un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/). Il costruttore fornisce una presentazione vuota con una singola diapositiva, pronta per forme, testo, grafici o qualsiasi altro contenuto richiesto dalla tua applicazione. Dopo aver modificato quella diapositiva, o averne aggiunte di nuove, puoi salvare il risultato nei formati PPTX, PPT legacy o OpenDocument.
+Creare un file PowerPoint da zero in Aspose.Slides per Java inizia con un'istanza della classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Il costruttore fornisce una presentazione vuota con una singola diapositiva, pronta per forme, testo, grafici o qualsiasi altro contenuto richiesto dalla tua applicazione. Dopo aver modificato quella diapositiva, o averne aggiunte di nuove, puoi salvare il risultato nei formati PPTX, PPT legacy o OpenDocument.
 
 Per creare una presentazione e inserire una forma con testo nella sua prima diapositiva, segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
-1. Ottieni quella diapositiva tramite il suo indice, 0, dalla collezione restituita da [getSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getSlides--).
-1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) di tipo `Cloud` con il metodo [addAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), e imposta il suo testo con [setText](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
-1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
+1. Ottieni quella diapositiva tramite il suo indice, 0, dalla collezione restituita da [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--).
+1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) di tipo `Cloud` con il metodo [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), e imposta il suo testo con [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
+1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 L'esempio seguente è un programma completo. Nel progetto Maven di [Installation](/slides/it/java/installation/), salvalo come *src/main/java/HelloSlides.java* ed esegui `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ Usa le [BLOB management strategies](/slides/it/java/manage-blob/), limita l'arch
 
 ### Posso creare/salvare presentazioni in parallelo?
 
-Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) da [multiple threads](/slides/it/java/multithreading/). Avvia istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) da [multiple threads](/slides/it/java/multithreading/). Avvia istanze separate e isolate per thread o processo.
 
 ### Come rimuovo la filigrana di prova e le limitazioni?
 
