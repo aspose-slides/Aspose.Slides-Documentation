@@ -60,7 +60,7 @@ description: "Εφαρμόστε, διαχειριστείτε και αντιμ
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Μπορείτε να βρείτε πληροφορίες τιμολόγησης στη σελίδα [“Pricing Information”](https://purchase.aspose.com/pricing/slides/el/family).
+Μπορείτε να βρείτε πληροφορίες τιμολόγησης στη σελίδα [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Ορίστε μια άδεια στο Aspose.Slides για PHP μέσω Java**

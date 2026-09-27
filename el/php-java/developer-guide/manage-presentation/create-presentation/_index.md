@@ -30,10 +30,10 @@ description: "Δημιουργήστε παρουσιάσεις με το Aspose
 
 Για να δημιουργήσετε μια παρουσίαση και να τοποθετήσετε ένα πλαίσιο κειμένου στην πρώτη της διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) . Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.
-1. Αποκτήστε αυτή τη διαφάνεια από τη συλλογή που επιστρέφει το [Presentation::getSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/getslides/), με το δείκτη του, 0.
-1. Προσθέστε ένα ορθογώνιο με τη μέθοδο [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addautoshape/) και ορίστε το κείμενό του με το [TextFrame::setText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/settext/).
-1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [Presentation::save](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/save/) .
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) . Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.
+1. Αποκτήστε αυτή τη διαφάνεια από τη συλλογή που επιστρέφει το [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), με το δείκτη του, 0.
+1. Προσθέστε ένα ορθογώνιο με τη μέθοδο [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) και ορίστε το κείμενό του με το [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) .
 
 ```php
 <?php
@@ -63,7 +63,7 @@ try {
 
 ## **Δημιουργία και αποθήκευση παρουσίασης**
 
-Για να δημιουργήσετε μια κενή παρουσίαση και να την αποθηκεύσετε, δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και αποθηκεύστε την σε οποιαδήποτε μορφή της απαρίθμησης [SaveFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/saveformat/) . Το αποτέλεσμα είναι μια παρουσίαση με μία κενή διαφάνεια.
+Για να δημιουργήσετε μια κενή παρουσίαση και να την αποθηκεύσετε, δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) και αποθηκεύστε την σε οποιαδήποτε μορφή της απαρίθμησης [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) . Το αποτέλεσμα είναι μια παρουσίαση με μία κενή διαφάνεια.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Άνοιγμα και αποθήκευση παρουσίασης**
 
-Για να μετατρέψετε μια παρουσίαση από μορφή σε άλλη, ανοίξτε την περνώντας τη διαδρομή της στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) , στη συνέχεια αποθηκεύστε τη στη στοχευμένη μορφή. Το Aspose.Slides εντοπίζει τη μορφή εισόδου, όπως PPT, PPTX ή ODP, από το ίδιο το αρχείο.
+Για να μετατρέψετε μια παρουσίαση από μορφή σε άλλη, ανοίξτε την περνώντας τη διαδρομή της στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) , στη συνέχεια αποθηκεύστε τη στη στοχευμένη μορφή. Το Aspose.Slides εντοπίζει τη μορφή εισόδου, όπως PPT, PPTX ή ODP, από το ίδιο το αρχείο.
 
 Το παρακάτω παράδειγμα υποθέτει ότι υπάρχει μια παρουσίαση OpenDocument με όνομα *Sample.odp* δίπλα στο script και την αποθηκεύει ως PPTX.
 
