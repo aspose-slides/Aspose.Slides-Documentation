@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET は、PowerPoint および OpenDocument プ�
 例では、[Installation](/slides/ja/nodejs-net/installation/) で設定したプロジェクトフォルダーに `sample.pptx` という名前のプレゼンテーションがあることを想定しています。任意の PowerPoint プレゼンテーションで構いません。各例をプロジェクトフォルダー内に `.js` ファイルとして保存し、そのフォルダーから `node` で実行してください。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。CamelCase 名で Aspose.Slides for .NET API を鏡像として提供しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ja/net/) の該当クラスおよびメンバーに導きます。
+Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。CamelCase 名で Aspose.Slides for .NET API を鏡像として提供しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) の該当クラスおよびメンバーに導きます。
 {{% /alert %}}
 
 ## **ファイルからプレゼンテーションを開く**
 
-プレゼンテーションを開くには、そのパスを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/presentation/) コンストラクタに渡します。Aspose.Slides は拡張子ではなくファイル内容から形式を検出するため、同じコードで PPTX、PPT、ODP ファイルを開くことができます。相対パスは現在の作業ディレクトリに対して解決され、スクリプトをそのフォルダーから実行するとプロジェクトフォルダーが基準になります。
+プレゼンテーションを開くには、そのパスを [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) コンストラクタに渡します。Aspose.Slides は拡張子ではなくファイル内容から形式を検出するため、同じコードで PPTX、PPT、ODP ファイルを開くことができます。相対パスは現在の作業ディレクトリに対して解決され、スクリプトをそのフォルダーから実行するとプロジェクトフォルダーが基準になります。
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-スクリプトは `sample.pptx` のスライド数を出力します（例: `Slide count: 9`）。[slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) コレクションの `count` プロパティには非表示スライドも含まれます。例のように `finally` ブロックで `dispose` を呼び出し、コードが失敗した場合でもプレゼンテーション背後の .NET リソースが解放されるようにしてください。
+スクリプトは `sample.pptx` のスライド数を出力します（例: `Slide count: 9`）。[slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) コレクションの `count` プロパティには非表示スライドも含まれます。例のように `finally` ブロックで `dispose` を呼び出し、コードが失敗した場合でもプレゼンテーション背後の .NET リソースが解放されるようにしてください。
 
 ## **バッファからプレゼンテーションを開く**
 
@@ -71,7 +71,7 @@ try {
 
 ## **別の形式でプレゼンテーションを保存する**
 
-プレゼンテーションを別の形式に変換するには、開いた後に異なる [SaveFormat](https://reference.aspose.com/slides/ja/net/aspose.slides.export/saveformat/) の値で保存します。次の例は Aspose.Slides が検出した形式（[sourceFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/sourceformat/) プロパティが返す）を表示し、OpenDocument プレゼンテーションとして保存します。
+プレゼンテーションを別の形式に変換するには、開いた後に異なる [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) の値で保存します。次の例は Aspose.Slides が検出した形式（[sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) プロパティが返す）を表示し、OpenDocument プレゼンテーションとして保存します。
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **パスワードで保護されたプレゼンテーションを開くにはどうすればよいですか？**
 
-[LoadOptions](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/) オブジェクトを作成し、その `password` プロパティにパスワードを設定して、3 番目のコンストラクタ引数として渡します：`new Presentation("protected.pptx", null, loadOptions)`。正しいパスワードがない場合、コンストラクタはエラーをスローします。
+[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) オブジェクトを作成し、その `password` プロパティにパスワードを設定して、3 番目のコンストラクタ引数として渡します：`new Presentation("protected.pptx", null, loadOptions)`。正しいパスワードがない場合、コンストラクタはエラーをスローします。
 
 **なぜコンストラクタが空のメッセージで `Error` をスローするのですか？**
 
