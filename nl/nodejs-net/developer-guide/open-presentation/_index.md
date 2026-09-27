@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET opent PowerPoint- en OpenDocument-presentatie
 De voorbeelden gaan uit van een presentatie met de naam `sample.pptx` in de projectmap die je hebt opgezet in [Installation](/slides/nl/nodejs-net/installation/). Elke PowerPoint-presentatie is geschikt. Sla elk voorbeeld op als een `.js`‑bestand in de projectmap en voer het vanuit die map uit met `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET‑API met camelCase‑namen, dus de API‑links in dit artikel verwijzen naar de overeenkomende klassen en leden in de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/nl/net/).
+Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET‑API met camelCase‑namen, dus de API‑links in dit artikel verwijzen naar de overeenkomende klassen en leden in de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Een presentatie openen vanuit een bestand**
 
-Om een presentatie te openen, geef je het pad door aan de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/)‑constructor. Aspose.Slides detecteert het formaat uit de bestandsinhoud in plaats van uit de extensie, zodat dezelfde code PPTX-, PPT- en ODP‑bestanden kan openen. Een relatief pad wordt opgelost ten opzichte van de huidige werkmap, die de projectmap is wanneer je het script daar uitvoert.
+Om een presentatie te openen, geef je het pad door aan de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/)‑constructor. Aspose.Slides detecteert het formaat uit de bestandsinhoud in plaats van uit de extensie, zodat dezelfde code PPTX-, PPT- en ODP‑bestanden kan openen. Een relatief pad wordt opgelost ten opzichte van de huidige werkmap, die de projectmap is wanneer je het script daar uitvoert.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Het script geeft het aantal dia's in `sample.pptx` weer, bijvoorbeeld `Slide count: 9`. De `count`‑eigenschap van de [slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/)‑collectie omvat verborgen dia's. Roep `dispose` aan in een `finally`‑blok, zoals getoond, zodat de .NET‑resources achter de presentatie worden vrijgegeven, zelfs als je code faalt.
+Het script geeft het aantal dia's in `sample.pptx` weer, bijvoorbeeld `Slide count: 9`. De `count`‑eigenschap van de [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)‑collectie omvat verborgen dia's. Roep `dispose` aan in een `finally`‑blok, zoals getoond, zodat de .NET‑resources achter de presentatie worden vrijgegeven, zelfs als je code faalt.
 
 ## **Een presentatie openen vanuit een buffer**
 
@@ -71,7 +71,7 @@ Het script geeft hetzelfde aantal dia's weer als het vorige voorbeeld. Het tweed
 
 ## **Een presentatie opslaan in een ander formaat**
 
-Om een presentatie naar een ander presentatiefomaat te converteren, open je deze en sla je hem op met een andere [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/)-waarde. Het volgende voorbeeld geeft het formaat weer dat Aspose.Slides heeft gedetecteerd, dat de [sourceFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/sourceformat/)‑eigenschap retourneert, en slaat de presentatie op als een OpenDocument‑presentatie:
+Om een presentatie naar een ander presentatiefomaat te converteren, open je deze en sla je hem op met een andere [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)-waarde. Het volgende voorbeeld geeft het formaat weer dat Aspose.Slides heeft gedetecteerd, dat de [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/)‑eigenschap retourneert, en slaat de presentatie op als een OpenDocument‑presentatie:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ Het script geeft `Source format: Pptx` weer en schrijft `sample.odp`, die dezelf
 
 **Hoe open ik een met wachtwoord beveiligde presentatie?**
 
-Maak een [LoadOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/)‑object aan, stel de eigenschap [password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/) in, en geef het object door als derde argument van de constructor: `new Presentation("protected.pptx", null, loadOptions)`. Zonder het juiste wachtwoord werpt de constructor een fout.
+Maak een [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)‑object aan, stel de eigenschap [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) in, en geef het object door als derde argument van de constructor: `new Presentation("protected.pptx", null, loadOptions)`. Zonder het juiste wachtwoord werpt de constructor een fout.
 
 **Waarom gooit de constructor een `Error` met een leeg bericht?**
 

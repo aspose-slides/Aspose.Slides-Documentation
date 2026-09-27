@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 Tijdens de installatie kopieert het pakket zijn native tekenbibliotheken (de bestanden waarvan de namen `aspose.slides.drawing.capi` bevatten) naar de projectmap, naast `package.json`.
 
-Het pakket wordt ook gepubliceerd als een ZIP‑archief op [releases.aspose.com](https://releases.aspose.com/slides/nl/nodejs-net/). Dit artikel behandelt alleen installatie via npm.
+Het pakket wordt ook gepubliceerd als een ZIP‑archief op [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/). Dit artikel behandelt alleen installatie via npm.
 
 ## **De .NET‑afhankelijkheden herstellen**
 
@@ -154,7 +154,7 @@ Het script geeft `Saved hello.pptx` weer. Open `hello.pptx` om één slide te zi
 Voer je scripts uit vanuit de projectmap, degene die `package.json` bevat. Relatieve paden zoals `hello.pptx` worden ten opzichte van de huidige map opgelost, en op sommige machines kan een script dat vanuit een andere map wordt gestart geen presentatie maken.
 {{% /alert %}}
 
-De JavaScript‑API spiegelt Aspose.Slides voor .NET: klassen behouden hun .NET‑namen, eigenschappen en methoden gebruiken camelCase (`Slides` wordt `slides`, `AddAutoShape` wordt `addAutoShape`), en collectie‑items worden gelezen met `get(index)`. Er is geen aparte API‑referentie voor dit pakket, dus gebruik de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/nl/net/) voor klasse‑ en lid‑details, bijvoorbeeld [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) en [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/shapecollection/addautoshape/).
+De JavaScript‑API spiegelt Aspose.Slides voor .NET: klassen behouden hun .NET‑namen, eigenschappen en methoden gebruiken camelCase (`Slides` wordt `slides`, `AddAutoShape` wordt `addAutoShape`), en collectie‑items worden gelezen met `get(index)`. Er is geen aparte API‑referentie voor dit pakket, dus gebruik de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) voor klasse‑ en lid‑details, bijvoorbeeld [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) en [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **Veelgestelde vragen**
 

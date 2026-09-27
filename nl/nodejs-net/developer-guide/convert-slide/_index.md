@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET renderen dia's uit PowerPoint‑ en OpenDocum
 De voorbeelden verwachten een presentatie met de naam `sample.pptx` in de projectmap die je hebt opgezet in [Installation](/slides/nl/nodejs-net/installation/). Elke PowerPoint‑presentatie voldoet. Sla elk voorbeeld op als een `.js`‑bestand in de projectmap en voer het uit vanuit die map met `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET API met camelCase‑namen, dus de API‑links in dit artikel verwijzen naar de overeenkomstige klassen en leden in de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/nl/net/).
+Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET API met camelCase‑namen, dus de API‑links in dit artikel verwijzen naar de overeenkomstige klassen en leden in de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 Om een dia naar een afbeelding te converteren, volg deze stappen:
 
-1. Open de presentatie met de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/) constructor.  
-1. Haalt een dia op uit de [slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/) collectie met `get(index)`. Indexen beginnen bij 0.  
-1. Render de dia met `getImageWithScale` of `getImageWithImageSize`. In de .NET API‑referentie zijn dit overloads van [Slide.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/getimage/). Ze retourneren een afbeelding‑object dat overeenkomt met [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/).  
-1. Sla de afbeelding op met zijn [save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/) methode en een [ImageFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/imageformat/) waarde, en roep daarna zijn `dispose` methode aan.
+1. Open de presentatie met de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) constructor.  
+1. Haalt een dia op uit de [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collectie met `get(index)`. Indexen beginnen bij 0.  
+1. Render de dia met `getImageWithScale` of `getImageWithImageSize`. In de .NET API‑referentie zijn dit overloads van [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Ze retourneren een afbeelding‑object dat overeenkomt met [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).  
+1. Sla de afbeelding op met zijn [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) methode en een [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) waarde, en roep daarna zijn `dispose` methode aan.
 
 ## **Converteer elke dia naar een PNG‑afbeelding**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Het script schrijft één bestand per dia, `slide_1.png`, `slide_2.png`, enzovoort, genummerd vanaf 1. Voor een 16:9‑presentatie met dia’s van 960 × 540 punten, is elke afbeelding 1920 × 1080 pixels. Verborgen dia's worden ook gerenderd; om ze over te slaan, controleer je de [hidden](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/hidden/) eigenschap van de dia. Elke afbeelding wordt in zijn eigen `finally`‑block disposed, waardoor deze wordt vrijgegeven vóórdat de volgende dia wordt gerenderd. Zonder licentie bevatten de afbeeldingen ook een evaluatiewatermerk; zie [Licensing](/slides/nl/nodejs-net/licensing/).
+Het script schrijft één bestand per dia, `slide_1.png`, `slide_2.png`, enzovoort, genummerd vanaf 1. Voor een 16:9‑presentatie met dia’s van 960 × 540 punten, is elke afbeelding 1920 × 1080 pixels. Verborgen dia's worden ook gerenderd; om ze over te slaan, controleer je de [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) eigenschap van de dia. Elke afbeelding wordt in zijn eigen `finally`‑block disposed, waardoor deze wordt vrijgegeven vóórdat de volgende dia wordt gerenderd. Zonder licentie bevatten de afbeeldingen ook een evaluatiewatermerk; zie [Licensing](/slides/nl/nodejs-net/licensing/).
 
 ## **Converteer een dia naar een afbeelding met een opgegeven grootte**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-De eigenschap [slideSize.size](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesize/size/) geeft de breedte en hoogte van de dia in punten terug. Voor een 16:9‑presentatie toont het script `Saved a 1280 x 720 image` en schrijft `slide_1_1280px.png`; voor een 4:3‑presentatie is de afbeelding 1280 × 960 pixels.
+De eigenschap [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) geeft de breedte en hoogte van de dia in punten terug. Voor een 16:9‑presentatie toont het script `Saved a 1280 x 720 image` en schrijft `slide_1_1280px.png`; voor een 4:3‑presentatie is de afbeelding 1280 × 960 pixels.
 
 ## **FAQ**
 

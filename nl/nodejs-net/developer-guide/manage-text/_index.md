@@ -31,12 +31,12 @@ Dit artikel voegt een tekstvak toe aan een dia en slaat de presentatie op. Vervo
 De voorbeelden hebben een project nodig zoals beschreven in [Installation](/slides/nl/nodejs-net/installation/). Sla elk voorbeeld op als een `.js`‑bestand in de projectmap en voer het vanuit die map uit met `node`.
 
 {{% alert color="info" title="Opmerking" %}}
-Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET API met camelCase‑namen, dus de API‑links in dit artikel leiden naar de overeenkomstige klassen en leden in de [Aspose.Slides for .NET API‑referentie](https://reference.aspose.com/slides/nl/net/).
+Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET API met camelCase‑namen, dus de API‑links in dit artikel leiden naar de overeenkomstige klassen en leden in de [Aspose.Slides for .NET API‑referentie](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Een Tekstvak Toevoegen**
 
-Om een tekstvak toe te voegen, voegt u een automatische vorm toe aan een dia met de [addAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/shapecollection/addautoshape/)‑methode en geeft u deze tekst met de [addTextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/addtextframe/)‑methode. Het volgende voorbeeld voegt een rechthoek toe aan de eerste dia van een nieuwe presentatie en slaat de presentatie op als `text-box.pptx`:
+Om een tekstvak toe te voegen, voegt u een automatische vorm toe aan een dia met de [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)‑methode en geeft u deze tekst met de [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/)‑methode. Het volgende voorbeeld voegt een rechthoek toe aan de eerste dia van een nieuwe presentatie en slaat de presentatie op als `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ De dia in `text-box.pptx` bevat een rechthoek, 500 punten breed en 80 punten hoo
 
 ## **De Tekst en Opmaak Wijzigen**
 
-Het volgende voorbeeld opent `text-box.pptx`, dat door het vorige voorbeeld is gemaakt, en krijgt de eerste vorm op de eerste dia. Vormen zoals afbeeldingen en tabellen hebben geen tekstvak, dus het voorbeeld controleert of de vorm een [AutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/) is voordat het de [textFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/textframe/) van de vorm gebruikt. Daarna gebeurt het volgende:
+Het volgende voorbeeld opent `text-box.pptx`, dat door het vorige voorbeeld is gemaakt, en krijgt de eerste vorm op de eerste dia. Vormen zoals afbeeldingen en tabellen hebben geen tekstvak, dus het voorbeeld controleert of de vorm een [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) is voordat het de [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) van de vorm gebruikt. Daarna gebeurt het volgende:
 
-1. Het vervangt de tekst via de [text](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/text/)‑eigenschap van het tekstvak. Daarna bevat het tekstvak één alinea met één deel.
-2. Het haalt dat deel op uit de [paragraphs](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/paragraphs/)‑ en [portions](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/portions/)‑collecties en leest de [portionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/portion/portionformat/).
-3. Het stelt [fontHeight](https://reference.aspose.com/slides/nl/net/aspose.slides/baseportionformat/fontheight/) in, de lettergrootte in punten, en [fontBold](https://reference.aspose.com/slides/nl/net/aspose.slides/baseportionformat/fontbold/), die een [NullableBool](https://reference.aspose.com/slides/nl/net/aspose.slides/nullablebool/)‑waarde accepteert.
+1. Het vervangt de tekst via de [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/)‑eigenschap van het tekstvak. Daarna bevat het tekstvak één alinea met één deel.
+2. Het haalt dat deel op uit de [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/)‑ en [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/)‑collecties en leest de [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).
+3. Het stelt [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) in, de lettergrootte in punten, en [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), die een [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)‑waarde accepteert.
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

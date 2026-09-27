@@ -27,17 +27,17 @@ Dit artikel laat zien hoe je een presentatie maakt met Aspose.Slides for Node.js
 De voorbeelden vereisen een project dat is opgezet zoals beschreven in [Installatie](/slides/nl/nodejs-net/installation/). Sla elk voorbeeld op als een `.js`‑bestand in de projectmap en voer het uit vanuit die map met `node`, bijvoorbeeld `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET‑API met camelCase‑namen, zodat de API‑links in dit artikel verwijzen naar de overeenkomende klassen en leden in de [Aspose.Slides for .NET API‑referentie](https://reference.aspose.com/slides/nl/net/).
+Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het spiegelt de Aspose.Slides for .NET‑API met camelCase‑namen, zodat de API‑links in dit artikel verwijzen naar de overeenkomende klassen en leden in de [Aspose.Slides for .NET API‑referentie](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Een presentatie maken met een tekstvak**
 
 Volg deze stappen om een presentatie te maken en een tekstvak op de eerste dia te plaatsen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
-2. Haal die dia op uit de [slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/)‑collectie. Collecties in dit pakket worden gelezen met `get(index)`, en indexen beginnen bij 0.  
-3. Voeg een rechthoek toe met de [addAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/shapecollection/addautoshape/)‑methode en stel de [text](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/text/) van het bijbehorende [textFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/textframe/) in.  
-4. Sla de presentatie op met de [save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/)‑methode en de `SaveFormat.Pptx`‑waarde.  
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
+2. Haal die dia op uit de [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)‑collectie. Collecties in dit pakket worden gelezen met `get(index)`, en indexen beginnen bij 0.  
+3. Voeg een rechthoek toe met de [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)‑methode en stel de [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) van het bijbehorende [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) in.  
+4. Sla de presentatie op met de [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)‑methode en de `SaveFormat.Pptx`‑waarde.  
 5. Roep `dispose` aan in een `finally`‑blok om de .NET‑bronnen die de presentatie ondersteunen vrij te geven.
 
 ```javascript
@@ -62,7 +62,7 @@ Het script schrijft `new-presentation.pptx` naar de projectmap. Het bestand beva
 
 ## **Dia's toevoegen**
 
-Een nieuwe presentatie heeft één dia. Om meer dia's toe te voegen, geef je een lay-outdia door aan de [addEmptySlide](https://reference.aspose.com/slides/nl/net/aspose.slides/slidecollection/addemptyslide/)‑methode van de `slides`‑collectie. De [getByType](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutslidecollection/getbytype/)‑methode van de [layoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/layoutslides/)‑collectie geeft de eerste lay-out terug van een opgegeven [SlideLayoutType](https://reference.aspose.com/slides/nl/net/aspose.slides/slidelayouttype/).
+Een nieuwe presentatie heeft één dia. Om meer dia's toe te voegen, geef je een lay-outdia door aan de [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/)‑methode van de `slides`‑collectie. De [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/)‑methode van de [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/)‑collectie geeft de eerste lay-out terug van een opgegeven [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 Het volgende voorbeeld voegt twee dia's toe met de Blank‑lay-out:
 
@@ -86,7 +86,7 @@ Het script geeft `Slide count: 3` weer en schrijft `three-slides.pptx`. De nieuw
 
 ## **Diaformaat instellen**
 
-Een nieuwe presentatie gebruikt 4:3‑dia's van 720 × 540 punten (10 × 7,5 inch). Om breedbeelddia's te maken, roep je de [setSize](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesize/setsize/)‑methode van de [slideSize](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slidesize/) van de presentatie aan met een [SlideSizeType](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesizetype/)‑waarde en een [SlideSizeScaleType](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesizescaletype/)‑waarde. Het schaaltype vertelt Aspose.Slides wat te doen met vormen die al op de dia's staan; `DoNotScale` laat ze onveranderd, wat de juiste keuze is voor een presentatie zonder inhoud.
+Een nieuwe presentatie gebruikt 4:3‑dia's van 720 × 540 punten (10 × 7,5 inch). Om breedbeelddia's te maken, roep je de [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/)‑methode van de [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) van de presentatie aan met een [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/)‑waarde en een [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/)‑waarde. Het schaaltype vertelt Aspose.Slides wat te doen met vormen die al op de dia's staan; `DoNotScale` laat ze onveranderd, wat de juiste keuze is voor een presentatie zonder inhoud.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ In punten. Eén inch is 72 punten, dus de standaard 4:3‑dia is 720 × 540 punt
 
 **Naar welke formaten kan ik een nieuwe presentatie opslaan?**
 
-Naar elke waarde van de [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/)‑enumeratie, bijvoorbeeld `SaveFormat.Ppt` voor PowerPoint 97–2003, `SaveFormat.Odp` voor OpenDocument, of `SaveFormat.Pdf`. Voor PDF‑output, zie [PowerPoint naar PDF converteren](/slides/nl/nodejs-net/convert-powerpoint-to-pdf/).
+Naar elke waarde van de [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)‑enumeratie, bijvoorbeeld `SaveFormat.Ppt` voor PowerPoint 97–2003, `SaveFormat.Odp` voor OpenDocument, of `SaveFormat.Pdf`. Voor PDF‑output, zie [PowerPoint naar PDF converteren](/slides/nl/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Waarom bevat de opgeslagen presentatie de tekst “Evaluation only”?**
 

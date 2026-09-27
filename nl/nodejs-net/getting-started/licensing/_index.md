@@ -10,7 +10,7 @@ url: /nl/nodejs-net/licensing/
 Aspose.Slides for Node.js via .NET is één npm‑pakket voor zowel evaluatie als productie. Zonder licentie draait het in evaluatiemodus. Nadat u een licentie hebt gekocht, of een gratis tijdelijke licentie van 30 dagen hebt verkregen, past u deze toe met een paar regels code, en gelden de evaluatiebeperkingen niet meer.
 
 {{% alert color="info" title="Note" %}}
-Algemene richtlijnen over hoe u Aspose‑producten kunt evalueren, licenseren en aanschaffen, vindt u in [Purchase Policies and FAQ](https://purchase.aspose.com/policies). De prijzen staan vermeld op de pagina [Pricing Information](https://purchase.aspose.com/pricing/slides/nl/family).
+Algemene richtlijnen over hoe u Aspose‑producten kunt evalueren, licenseren en aanschaffen, vindt u in [Purchase Policies and FAQ](https://purchase.aspose.com/policies). De prijzen staan vermeld op de pagina [Pricing Information](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ## **Beperkingen van de evaluatieversie**
@@ -53,4 +53,4 @@ Een bestandsnaam of relatieve pad wordt opgezocht ten opzichte van de huidige ma
 
 Als het bestand niet gevonden kan worden, of geen geldige licentie is, genereert `setLicense` een fout, en blijft Aspose.Slides in evaluatiemodus. Het script vangt de fout op en geeft het bijbehorende bericht weer. Bij een ontbrekend bestand begint het bericht met `License "Aspose.Slides.lic" doesn't exist or access is restricted.` en somt het elke locatie op die werd doorzocht.
 
-In dit pakket wordt een licentie uitsluitend vanuit een bestand toegepast. `License` accepteert geen stream, en het pakket biedt geen meter‑licensering aan. Voor de klasse die het pakket omsluit, zie [License](https://reference.aspose.com/slides/nl/net/aspose.slides/license/) in de Aspose.Slides for .NET API‑referentie.
+In dit pakket wordt een licentie uitsluitend vanuit een bestand toegepast. `License` accepteert geen stream, en het pakket biedt geen meter‑licensering aan. Voor de klasse die het pakket omsluit, zie [License](https://reference.aspose.com/slides/net/aspose.slides/license/) in de Aspose.Slides for .NET API‑referentie.

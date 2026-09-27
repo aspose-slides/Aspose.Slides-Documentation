@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET wordt gedocumenteerd door de As
 ---
 ## **Overzicht**
 
-Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het pakket maakt de klassen van Aspose.Slides for .NET beschikbaar in JavaScript onder dezelfde namen, met camelCase‑leden, zodat de [Aspose.Slides for .NET API‑referentie](https://reference.aspose.com/slides/nl/net/) haar klassen, leden en enumeraties documenteert.
+Aspose.Slides for Node.js via .NET heeft geen eigen API‑referentie. Het pakket maakt de klassen van Aspose.Slides for .NET beschikbaar in JavaScript onder dezelfde namen, met camelCase‑leden, zodat de [Aspose.Slides for .NET API‑referentie](https://reference.aspose.com/slides/net/) haar klassen, leden en enumeraties documenteert.
 
 ## **Koppel .NET-namen aan JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Het script schrijft `slide.png` en `slide.pdf` naar de huidige map. Beide tonen de rechthoek met zijn tekst. Zonder licentie tonen ze ook een evaluatiewatermerk; zie [Licentie](/slides/nl/nodejs-net/licensing/).
 
-Voor details over de gebruikte leden, zie [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/text/) en [Slide.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/getimage/) in de Aspose.Slides for .NET API‑referentie.
+Voor details over de gebruikte leden, zie [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) en [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) in de Aspose.Slides for .NET API‑referentie.

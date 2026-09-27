@@ -22,20 +22,20 @@ description: "Converteer PPTX-, PPT- en ODP-presentaties naar PDF in JavaScript 
 ---
 ## **Overzicht**
 
-Aspose.Slides for Node.js via .NET converteert PowerPoint- en OpenDocument-presentaties naar PDF zonder Microsoft PowerPoint. Elke zichtbare dia wordt één PDF-pagina van dezelfde afmeting als de dia, en de tekst blijft selecteerbaar en doorzoekbaar. Dit artikel toont de standaardconversie en een conversie naar PDF/A met [PdfOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET converteert PowerPoint- en OpenDocument-presentaties naar PDF zonder Microsoft PowerPoint. Elke zichtbare dia wordt één PDF-pagina van dezelfde afmeting als de dia, en de tekst blijft selecteerbaar en doorzoekbaar. Dit artikel toont de standaardconversie en een conversie naar PDF/A met [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 De voorbeelden gaan uit van een presentatie met de naam `sample.pptx` in de projectmap die je hebt ingesteld in [Installation](/slides/nl/nodejs-net/installation/). Elke PowerPoint-presentatie voldoet. Sla elk voorbeeld op als een `.js`-bestand in de projectmap en voer het uit vanuit die map met `node`.
 
 {{% alert color="info" title="Opmerking" %}}
-Aspose.Slides for Node.js via .NET heeft geen eigen API-referentie. Het spiegelt de Aspose.Slides for .NET API met camelCase-namen, dus de API-links in dit artikel verwijzen naar de bijbehorende klassen en leden in de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/nl/net/).
+Aspose.Slides for Node.js via .NET heeft geen eigen API-referentie. Het spiegelt de Aspose.Slides for .NET API met camelCase-namen, dus de API-links in dit artikel verwijzen naar de bijbehorende klassen en leden in de [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Een presentatie naar PDF converteren**
 
 Om een presentatie naar PDF te converteren, volg deze stappen:
 
-1. Open de presentatie door het pad door te geven aan de constructor van [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/). Dezelfde code werkt voor PPTX-, PPT- en ODP-bestanden.
-1. Roep de [save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/)‑methode aan met het uitvoerpad en `SaveFormat.Pdf`.
+1. Open de presentatie door het pad door te geven aan de constructor van [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Dezelfde code werkt voor PPTX-, PPT- en ODP-bestanden.
+1. Roep de [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)‑methode aan met het uitvoerpad en `SaveFormat.Pdf`.
 1. Roep `dispose` aan in een `finally`-blok om de .NET-bronnen die de presentatie ondersteunen vrij te geven.
 
 ```javascript
@@ -54,7 +54,7 @@ Het script schrijft `sample.pdf` naar de projectmap. De conversie gebruikt de st
 
 ## **Een presentatie naar PDF/A converteren**
 
-Om de output te bepalen, geef je een [PdfOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/)-object door als het derde argument van `save`. Het volgende voorbeeld stelt de eigenschap [compliance](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/compliance/) in op `PdfCompliance.PdfA2b`, waardoor een PDF/A-2b-bestand wordt gemaakt. PDF/A is de ISO-norm voor langdurige archivering: onder andere vereist het dat elk lettertype dat het document gebruikt, wordt ingebed in het bestand.
+Om de output te bepalen, geef je een [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)-object door als het derde argument van `save`. Het volgende voorbeeld stelt de eigenschap [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) in op `PdfCompliance.PdfA2b`, waardoor een PDF/A-2b-bestand wordt gemaakt. PDF/A is de ISO-norm voor langdurige archivering: onder andere vereist het dat elk lettertype dat het document gebruikt, wordt ingebed in het bestand.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-Het script schrijft `sample-pdfa.pdf` met dezelfde pagina’s als de standaardconversie. Om te bevestigen dat een bestand aan de norm voldoet, controleer het met een PDF/A-validator zoals [veraPDF](https://verapdf.org/). Andere [PdfCompliance](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfcompliance/)-waarden selecteren andere standaarden, zoals `PdfA1b`, `PdfA2a` of `PdfUa` voor toegankelijkheid.
+Het script schrijft `sample-pdfa.pdf` met dezelfde pagina’s als de standaardconversie. Om te bevestigen dat een bestand aan de norm voldoet, controleer het met een PDF/A-validator zoals [veraPDF](https://verapdf.org/). Andere [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/)-waarden selecteren andere standaarden, zoals `PdfA1b`, `PdfA2a` of `PdfUa` voor toegankelijkheid.
 
 ## **FAQ**
 
 **Hoe kan ik verborgen dia’s opnemen in de PDF?**
 
-Verborgen dia’s worden standaard overgeslagen. Stel de eigenschap [showHiddenSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/showhiddenslides/) van `PdfOptions` in op `true` en geef de opties door aan `save`.
+Verborgen dia’s worden standaard overgeslagen. Stel de eigenschap [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) van `PdfOptions` in op `true` en geef de opties door aan `save`.
 
 **Kan ik de PDF beveiligen met een wachtwoord?**
 
-Ja. Stel de eigenschap [password](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/password/) van `PdfOptions` in voordat je `save` aanroept. PDF-lezers vragen dan om dat wachtwoord voordat ze het bestand openen.
+Ja. Stel de eigenschap [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) van `PdfOptions` in voordat je `save` aanroept. PDF-lezers vragen dan om dat wachtwoord voordat ze het bestand openen.
 
 **Kan ik alleen bepaalde dia’s converteren?**
 
