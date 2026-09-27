@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET는 파일 경로나 Node.js `Buffer`에서 PP
 예제에서는 [Installation](/slides/ko/nodejs-net/installation/)에서 설정한 프로젝트 폴더에 `sample.pptx`라는 프레젠테이션이 있다고 가정합니다. 어떤 PowerPoint 프레젠테이션이라도 사용할 수 있습니다. 각 예제를 프로젝트 폴더에 `.js` 파일로 저장하고 해당 폴더에서 `node`로 실행하세요.
 
 {{% alert color="info" title="참고" %}}
-Aspose.Slides for Node.js via .NET에는 자체 API 참조가 없습니다. camelCase 이름을 사용하는 Aspose.Slides for .NET API를 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ko/net/)에 있는 해당 클래스와 멤버로 연결됩니다.
+Aspose.Slides for Node.js via .NET에는 자체 API 참조가 없습니다. camelCase 이름을 사용하는 Aspose.Slides for .NET API를 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)에 있는 해당 클래스와 멤버로 연결됩니다.
 {{% /alert %}}
 
 ## **파일에서 프레젠테이션 열기**
 
-프레젠테이션을 열려면 해당 경로를 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/presentation/) 생성자에 전달합니다. Aspose.Slides는 확장자가 아니라 파일 내용으로 형식을 감지하므로, 동일한 코드로 PPTX, PPT, ODP 파일을 모두 열 수 있습니다. 상대 경로는 현재 작업 디렉터리를 기준으로 해석되며, 스크립트를 해당 폴더에서 실행할 경우 프로젝트 폴더가 작업 디렉터리가 됩니다.
+프레젠테이션을 열려면 해당 경로를 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 생성자에 전달합니다. Aspose.Slides는 확장자가 아니라 파일 내용으로 형식을 감지하므로, 동일한 코드로 PPTX, PPT, ODP 파일을 모두 열 수 있습니다. 상대 경로는 현재 작업 디렉터리를 기준으로 해석되며, 스크립트를 해당 폴더에서 실행할 경우 프로젝트 폴더가 작업 디렉터리가 됩니다.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-스크립트는 예를 들어 `Slide count: 9`와 같이 `sample.pptx`의 슬라이드 수를 출력합니다. [slides](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/slides/ko/) 컬렉션의 `count` 속성에는 숨겨진 슬라이드도 포함됩니다. 아래와 같이 `finally` 블록에서 `dispose`를 호출하면 코드가 실패하더라도 프레젠테이션 뒤에 있는 .NET 리소스가 해제됩니다.
+스크립트는 예를 들어 `Slide count: 9`와 같이 `sample.pptx`의 슬라이드 수를 출력합니다. [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 컬렉션의 `count` 속성에는 숨겨진 슬라이드도 포함됩니다. 아래와 같이 `finally` 블록에서 `dispose`를 호출하면 코드가 실패하더라도 프레젠테이션 뒤에 있는 .NET 리소스가 해제됩니다.
 
 ## **버퍼에서 프레젠테이션 열기**
 
@@ -71,7 +71,7 @@ try {
 
 ## **다른 형식으로 프레젠테이션 저장**
 
-프레젠테이션을 다른 형식으로 변환하려면 열고 다른 [SaveFormat](https://reference.aspose.com/slides/ko/net/aspose.slides.export/saveformat/) 값을 지정해 저장합니다. 아래 예제는 Aspose.Slides가 감지한 형식을 출력하고, `sourceFormat` 속성이 반환하는 값을 표시한 뒤, 프레젠테이션을 OpenDocument 형식으로 저장합니다.
+프레젠테이션을 다른 형식으로 변환하려면 열고 다른 [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 값을 지정해 저장합니다. 아래 예제는 Aspose.Slides가 감지한 형식을 출력하고, `sourceFormat` 속성이 반환하는 값을 표시한 뒤, 프레젠테이션을 OpenDocument 형식으로 저장합니다.
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **비밀번호로 보호된 프레젠테이션을 어떻게 열 수 있나요?**
 
-[LoadOptions](https://reference.aspose.com/slides/ko/net/aspose.slides/loadoptions/) 객체를 만든 뒤, 그 object's [password](https://reference.aspose.com/slides/ko/net/aspose.slides/loadoptions/password/) 속성을 설정하고, 이를 세 번째 생성자 인수로 전달합니다: `new Presentation("protected.pptx", null, loadOptions)`. 올바른 비밀번호가 없으면 생성자가 오류를 발생시킵니다.
+[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) 객체를 만든 뒤, 그 object's [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) 속성을 설정하고, 이를 세 번째 생성자 인수로 전달합니다: `new Presentation("protected.pptx", null, loadOptions)`. 올바른 비밀번호가 없으면 생성자가 오류를 발생시킵니다.
 
 **생성자가 빈 메시지와 함께 `Error`를 발생시키는 이유는 무엇인가요?**
 
