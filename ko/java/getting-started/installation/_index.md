@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### Aspose.Slides가 올바르게 통합되었는지 어떻게 확인할 수 있나요?
 
-프로젝트를 빌드하고 빈 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/)을 인스턴스화한 뒤 새 이름으로 저장합니다. 예외 없이 파일이 생성되면 라이브러리가 성공적으로 통합된 것입니다.
+프로젝트를 빌드하고 빈 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)을 인스턴스화한 뒤 새 이름으로 저장합니다. 예외 없이 파일이 생성되면 라이브러리가 성공적으로 통합된 것입니다.
 
 ### 큰 프레젠테이션을 처리할 때 메모리 사용량을 어떻게 제한할 수 있나요?
 
-필요한 만큼만 JVM 메모리 제한을 높이고, `finally` 블록에서 각 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 인스턴스에 대해 [dispose](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#dispose--)를 호출해 캐시를 즉시 해제하세요. 이렇게 하면 메모리 부족 오류를 방지하고 배치 작업 중 메모리 사용량을 예측 가능하게 유지할 수 있습니다.
+필요한 만큼만 JVM 메모리 제한을 높이고, `finally` 블록에서 각 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 인스턴스에 대해 [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--)를 호출해 캐시를 즉시 해제하세요. 이렇게 하면 메모리 부족 오류를 방지하고 배치 작업 중 메모리 사용량을 예측 가능하게 유지할 수 있습니다.
 
 ### 불필요한 내보내기 형식을 제외해 최종 JAR 크기를 줄일 수 있나요?
 

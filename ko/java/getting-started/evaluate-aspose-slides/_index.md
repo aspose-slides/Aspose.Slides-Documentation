@@ -22,7 +22,7 @@ description: "Java용 Aspose.Slides를 평가하고 PowerPoint(PPT, PPTX) 및 Op
 
 평가용 Aspose.Slides를 다운로드할 수 있습니다. 평가용 다운로드는 구매용 다운로드와 동일하며, 라이선스를 적용하는 몇 줄의 코드를 추가하면 라이선스가 적용됩니다.
 
-라이선스가 없을 경우, Aspose.Slides는 평가 모드에서 전체 기능을 제공하지만 두 가지 제한이 있습니다: 저장하는 각 프레젠테이션의 모든 슬라이드에 평가용 워터마크 텍스트 상자를 추가하고, API를 통해 코드가 읽는 텍스트(방금 설정한 텍스트 포함)가 첫 몇 문자만 남기고 평가 제한에 대한 안내문이 뒤에 붙도록 잘립니다. 코드가 쓰는 텍스트는 전체가 저장됩니다. 전체 프레젠테이션을 로드하지 않고 텍스트를 추출하는 [getPresentationText](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) 메서드는 평가 안내문만 반환하고 슬라이드 텍스트는 반환하지 않습니다.
+라이선스가 없을 경우, Aspose.Slides는 평가 모드에서 전체 기능을 제공하지만 두 가지 제한이 있습니다: 저장하는 각 프레젠테이션의 모든 슬라이드에 평가용 워터마크 텍스트 상자를 추가하고, API를 통해 코드가 읽는 텍스트(방금 설정한 텍스트 포함)가 첫 몇 문자만 남기고 평가 제한에 대한 안내문이 뒤에 붙도록 잘립니다. 코드가 쓰는 텍스트는 전체가 저장됩니다. 전체 프레젠테이션을 로드하지 않고 텍스트를 추출하는 [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) 메서드는 평가 안내문만 반환하고 슬라이드 텍스트는 반환하지 않습니다.
 
 ![평가 워터마크가 포함된 슬라이드](evaluate-aspose-slides_1.png)
 

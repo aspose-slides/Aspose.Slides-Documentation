@@ -30,7 +30,7 @@ Aspose.Slides는 평가 모드나 유효한 라이선스로 사용할 수 있습
 
 **Aspose.Slides for Java** 평가판은 [다운로드 페이지](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)에서 다운로드할 수 있습니다. 평가 버전은 제품의 라이선스 버전과 동일한 기능을 제공합니다. 평가 패키지는 구매한 패키지와 동일합니다. 몇 줄의 코드를 추가하여(라이선스를 적용하면) 평가 버전은 라이선스 버전이 됩니다.
 
-**Aspose.Slides** 평가가 만족스러우면 [라이선스 구매](https://purchase.aspose.com/pricing/slides/ko/java/)를 진행할 수 있습니다. 다양한 구독 유형을 검토하시기 바랍니다. 질문이 있으면 Aspose 영업팀에 문의하세요.
+**Aspose.Slides** 평가가 만족스러우면 [라이선스 구매](https://purchase.aspose.com/pricing/slides/java/)를 진행할 수 있습니다. 다양한 구독 유형을 검토하시기 바랍니다. 질문이 있으면 Aspose 영업팀에 문의하세요.
 
 모든 Aspose 라이선스에는 구독 기간 동안 신규 버전이나 출시된 수정 사항에 대한 무료 업그레이드 1년 구독이 포함됩니다. 라이선스 제품(또는 평가 버전) 사용자는 무료이면서 무제한 기술 지원을 받을 수 있습니다.
 
@@ -70,7 +70,7 @@ Aspose.Slides는 평가 모드나 유효한 라이선스로 사용할 수 있습
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides는 라이선스 작업을 위한 [License](https://reference.aspose.com/slides/ko/java/com.aspose.slides/license/) 클래스를 제공합니다.
+Aspose.Slides는 라이선스 작업을 위한 [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) 클래스를 제공합니다.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-라이선스 파일을 다른 디렉터리에 배치한 경우, [setLicense](https://reference.aspose.com/slides/ko/java/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드를 호출할 때 지정된 경로 끝에 있는 파일 이름이 실제 라이선스 파일 이름과 동일해야 합니다.
+라이선스 파일을 다른 디렉터리에 배치한 경우, [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드를 호출할 때 지정된 경로 끝에 있는 파일 이름이 실제 라이선스 파일 이름과 동일해야 합니다.
 
-예를 들어 라이선스 파일 이름을 *Aspose.Slides.Java.lic.xml* 로 바꿀 수 있습니다. 그런 다음 코드에서 파일 경로(끝이 *Aspose.Slides.Java.lic.xml* 로 끝나는)를 [setLicense](https://reference.aspose.com/slides/ko/java/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드에 전달해야 합니다.
+예를 들어 라이선스 파일 이름을 *Aspose.Slides.Java.lic.xml* 로 바꿀 수 있습니다. 그런 다음 코드에서 파일 경로(끝이 *Aspose.Slides.Java.lic.xml* 로 끝나는)를 [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드에 전달해야 합니다.
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-[setLicense](https://reference.aspose.com/slides/ko/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) 메서드는 스레드 안전하지 않습니다. 여러 스레드에서 동시에 호출해야 하는 경우 동기화 프리미티브(예: lock)를 사용하여 문제를 예방하세요.
+[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) 메서드는 스레드 안전하지 않습니다. 여러 스레드에서 동시에 호출해야 하는 경우 동기화 프리미티브(예: lock)를 사용하여 문제를 예방하세요.
 
 {{% /alert %}}
 

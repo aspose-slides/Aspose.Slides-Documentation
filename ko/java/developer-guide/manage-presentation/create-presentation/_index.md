@@ -28,14 +28,14 @@ description: "Aspose.Slides를 사용하여 Java에서 프레젠테이션을 만
 
 ## **프레젠테이션 만들기**
 
-Aspose.Slides for Java에서 처음부터 PowerPoint 파일을 만들려면 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스의 인스턴스로 시작합니다. 생성자는 단일 슬라이드가 포함된 빈 프레젠테이션을 제공하며, 도형, 텍스트, 차트 또는 애플리케이션이 필요로 하는 모든 콘텐츠를 추가할 준비가 되어 있습니다. 해당 슬라이드를 수정하거나 새 슬라이드를 추가한 후에는 결과를 PPTX, 기존 PPT 또는 OpenDocument 형식으로 저장할 수 있습니다.
+Aspose.Slides for Java에서 처음부터 PowerPoint 파일을 만들려면 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 클래스의 인스턴스로 시작합니다. 생성자는 단일 슬라이드가 포함된 빈 프레젠테이션을 제공하며, 도형, 텍스트, 차트 또는 애플리케이션이 필요로 하는 모든 콘텐츠를 추가할 준비가 되어 있습니다. 해당 슬라이드를 수정하거나 새 슬라이드를 추가한 후에는 결과를 PPTX, 기존 PPT 또는 OpenDocument 형식으로 저장할 수 있습니다.
 
 프레젠테이션을 만들고 첫 번째 슬라이드에 텍스트가 포함된 도형을 추가하려면 다음 단계에 따라 진행하십시오:
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
-2. 해당 슬라이드를 인덱스 0으로, [getSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#getSlides--)가 반환하는 컬렉션에서 가져옵니다.
-3. `Cloud` 유형의 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)을 [addAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 메서드로 추가하고, [setText](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/#setText-java.lang.String-)으로 텍스트를 설정합니다.
-4. [save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 메서드를 사용해 프레젠테이션을 PPTX 파일로 저장합니다.
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
+2. 해당 슬라이드를 인덱스 0으로, [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)가 반환하는 컬렉션에서 가져옵니다.
+3. `Cloud` 유형의 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)을 [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 메서드로 추가하고, [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-)으로 텍스트를 설정합니다.
+4. [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 메서드를 사용해 프레젠테이션을 PPTX 파일로 저장합니다.
 
 아래 예제는 전체 프로그램입니다. [설치](/slides/ko/java/installation/)에서 Maven 프로젝트에 *src/main/java/HelloSlides.java* 파일로 저장하고 `mvn compile exec:java`를 실행하십시오.
 
@@ -93,7 +93,7 @@ BLOB 관리 전략([BLOB 관리 전략](/slides/ko/java/manage-blob/))을 사용
 
 ### 프레젠테이션을 병렬로 만들거나 저장할 수 있나요?
 
-동일한 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 인스턴스를 [다중 스레드](/slides/ko/java/multithreading/)에서 동시에 사용할 수 없습니다. 스레드나 프로세스당 별도의 독립 인스턴스를 실행하십시오.
+동일한 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 인스턴스를 [다중 스레드](/slides/ko/java/multithreading/)에서 동시에 사용할 수 없습니다. 스레드나 프로세스당 별도의 독립 인스턴스를 실행하십시오.
 
 ### 평가 워터마크와 제한을 어떻게 제거하나요?
 
