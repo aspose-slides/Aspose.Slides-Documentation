@@ -31,11 +31,11 @@ Avant de commencer, installez le package `aspose.slides.via.java` depuis npm, ai
 
 Pour créer une présentation et ajouter une zone de texte sur sa première diapositive, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.  
-2. Obtenez cette diapositive à partir de la [collection de diapositives](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/getslides/) par son indice, 0.  
-3. Ajoutez un rectangle avec la méthode [addAutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shapecollection/addautoshape/) et définissez son texte avec [setText](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/settext/).  
-4. Enregistrez la présentation au format PPTX avec la méthode [save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/save/).  
-5. Libérez la présentation avec la méthode [dispose](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/dispose/) et terminez le processus.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.  
+2. Obtenez cette diapositive à partir de la [collection de diapositives](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) par son indice, 0.  
+3. Ajoutez un rectangle avec la méthode [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) et définissez son texte avec [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).  
+4. Enregistrez la présentation au format PPTX avec la méthode [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).  
+5. Libérez la présentation avec la méthode [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) et terminez le processus.  
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Utilisez les [stratégies de gestion des BLOB](/slides/fr/nodejs-java/manage-blo
 
 ### Puis‑je créer/enregistrer des présentations en parallèle ?
 
-Vous ne pouvez pas manipuler la même instance de [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/nodejs-java/multithreading/). Exécutez des instances séparées et isolées par thread ou processus.
+Vous ne pouvez pas manipuler la même instance de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/nodejs-java/multithreading/). Exécutez des instances séparées et isolées par thread ou processus.
 
 ### Comment supprimer le filigrane d'évaluation et les limitations ?
 

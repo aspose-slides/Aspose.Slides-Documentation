@@ -45,7 +45,7 @@ Si vous souhaitez tester Aspose.Slides sans les limitations de la version d’é
 {{% /alert %}}
 
 ## **À propos de la licence**
-Vous pouvez facilement télécharger une version d’évaluation d’Aspose.Slides pour Node.js via Java depuis sa [page de téléchargement](https://releases.aspose.com/slides/fr/nodejs-java/). La version d’évaluation possède les mêmes fonctionnalités que la version sous licence, avec les limitations décrites ci‑above. De plus, la version d’évaluation devient simplement sous licence après que vous achetiez une licence et ajoutiez quelques lignes de code pour l’appliquer.
+Vous pouvez facilement télécharger une version d’évaluation d’Aspose.Slides pour Node.js via Java depuis sa [page de téléchargement](https://releases.aspose.com/slides/nodejs-java/). La version d’évaluation possède les mêmes fonctionnalités que la version sous licence, avec les limitations décrites ci‑above. De plus, la version d’évaluation devient simplement sous licence après que vous achetiez une licence et ajoutiez quelques lignes de code pour l’appliquer.
 
 La licence est un fichier XML en texte clair qui contient des informations telles que le nom du produit, le nombre de développeurs autorisés, la date d’expiration de l’abonnement, etc. Le fichier est signé numériquement, ne le modifiez donc pas. Même l’ajout accidentel d’une ligne vide supplémentaire dans le contenu du fichier l’invalidera.
 
@@ -71,7 +71,7 @@ Vous devez définir la licence :
 
 {{% alert color="info" title="Note" %}}
 
-Vous pouvez trouver les informations de tarification sur la page ["Informations sur les tarifs"](https://purchase.aspose.com/pricing/slides/fr/family).
+Vous pouvez trouver les informations de tarification sur la page ["Informations sur les tarifs"](https://purchase.aspose.com/pricing/slides/family).
 
 {{% /alert %}}
 
@@ -108,11 +108,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-Lors de l’appel de la méthode setLicense, le nom de la licence doit être identique à celui de votre fichier de licence. Par exemple, vous pouvez renommer le fichier de licence en « Aspose.Slides.lic.xml ». Ensuite, dans votre code, vous devez passer ce nouveau nom de licence (Aspose.Slides.lic.xml) à la méthode setLicense. Si le fichier est absent ou ne contient pas une licence valide, [setLicense](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/license/setlicense/) lève une exception, ce qui termine le script avec une erreur.
+Lors de l’appel de la méthode setLicense, le nom de la licence doit être identique à celui de votre fichier de licence. Par exemple, vous pouvez renommer le fichier de licence en « Aspose.Slides.lic.xml ». Ensuite, dans votre code, vous devez passer ce nouveau nom de licence (Aspose.Slides.lic.xml) à la méthode setLicense. Si le fichier est absent ou ne contient pas une licence valide, [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) lève une exception, ce qui termine le script avec une erreur.
 
 #### **Appliquer une licence à partir d’un flux**
 
-Pour appliquer une licence à partir d’un flux, transmettez l’objet [License](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/license/) et un flux lisible à la méthode statique [setLicenseFromStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/license/setlicense/). Le flux est lu de façon asynchrone, et le rappel reçoit une erreur si le flux ne contient pas une licence valide :
+Pour appliquer une licence à partir d’un flux, transmettez l’objet [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) et un flux lisible à la méthode statique [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/). Le flux est lu de façon asynchrone, et le rappel reçoit une erreur si le flux ne contient pas une licence valide :
 
 **Node.js**
 
