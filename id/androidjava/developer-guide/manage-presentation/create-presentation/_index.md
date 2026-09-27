@@ -19,71 +19,80 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Buat presentasi dalam Java dengan Aspose.Slides untuk Android—hasilkan file PPT, PPTX, dan ODP, manfaatkan dukungan OpenDocument, dan simpan secara programatik untuk hasil yang dapat diandalkan."
+description: "Buat presentasi dalam Java dengan Aspose.Slides untuk Android—hasilkan file PPT, PPTX, dan ODP, manfaatkan dukungan OpenDocument, serta simpan secara programatik untuk hasil yang dapat diandalkan."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menunjukkan cara membuat presentasi di Aspose.Slides, menambahkan konten sederhana ke sebuah slide, dan menyimpan hasilnya sebagai file. Artikel ini juga menunjukkan cara membuat dan menyimpan presentasi baru, membuka presentasi yang ada dalam format yang didukung, dan menyimpannya ke format lain.
+Artikel ini menunjukkan cara membuat presentasi di Aspose.Slides untuk Android melalui Java, menambahkan kotak teks ke slide pertama, dan menyimpan hasilnya sebagai file di penyimpanan aplikasi Anda. Untuk membuka presentasi yang sudah ada atau menyimpannya dalam format lain, lihat [Open Presentation](/slides/id/androidjava/open-presentation/) dan [Save Presentation](/slides/id/androidjava/save-presentation/). FAQ singkat di akhir mencakup pertanyaan umum tentang format, templat, ukuran slide, satuan, penggunaan memori, threading, lisensi, tanda tangan digital, dan dukungan VBA.
+
+Sebelum memulai, tambahkan Aspose.Slides ke proyek Android Anda dari repositori Maven Aspose. Lihat [Installation](/slides/id/androidjava/install-aspose-slides-for-android-via-java/).
 
 ## **Buat Presentasi PowerPoint**
-Untuk menambahkan garis sederhana ke slide yang dipilih dalam presentasi, ikuti langkah-langkah di bawah ini:
 
-1. Buat instance dari kelas Presentation.
-1. Dapatkan referensi slide dengan menggunakan Index-nya.
-1. Tambahkan AutoShape tipe Line menggunakan metode addAutoShape yang disediakan oleh objek Shapes.
-1. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+Untuk membuat presentasi dan menambahkan kotak teks pada slide pertama, ikuti langkah‑langkah berikut:
 
-Dalam contoh di bawah ini, kami telah menambahkan garis ke slide pertama presentasi.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
+2. Dapatkan slide tersebut dari [slide collection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/) dengan indeksnya, 0.  
+3. Tambahkan persegi panjang dengan metode [addAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) pada [shape collection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/) dan setel teks pada [text frame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/)‑nya menggunakan metode [setText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Simpan presentasi sebagai file PPTX dengan metode [save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) dalam format [SaveFormat.Pptx](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/saveformat/).
+
+Kode dijalankan di dalam sebuah `Activity`, misalnya pada metode `onCreate`. Itu menyimpan file ke direktori yang dikembalikan oleh metode [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) : penyimpanan privat aplikasi Anda, yang dapat ditulis tanpa meminta izin apapun.
 
 ```java
-// Instansiasi objek Presentation yang mewakili file presentasi
-Presentation pres = new Presentation();
-try {
-    // Dapatkan slide pertama
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.File;
 
-    // Tambahkan autoshape tipe garis
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+File outputFile = new File(getFilesDir(), "hello.pptx");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tanya Jawab**
+Sudut kiri‑atas persegi panjang berada 50 point dari tepi kiri dan 50 point dari tepi atas slide, dan persegi panjang tersebut berukuran 400 point lebar dan 100 point tinggi. File yang disimpan berisi satu slide dengan persegi panjang dan teksnya. Tanpa lisensi, Aspose.Slides juga menambahkan watermark evaluasi pada setiap slide yang disimpan; lihat [Licensing](/slides/id/androidjava/licensing/).
 
-**Format apa yang dapat saya simpan untuk presentasi baru?**
+Untuk melihat file tersebut, buka [Device Explorer](https://developer.android.com/studio/debug/device-file-explorer) di Android Studio dan temukan *hello.pptx* di bawah *data/data/*, pada folder *files* aplikasi Anda. Pada aplikasi nyata, proses presentasi pada thread latar belakang agar antarmuka pengguna tetap responsif.
 
-Anda dapat menyimpan ke [PPTX, PPT, dan ODP](/slides/id/androidjava/save-presentation/), dan mengekspor ke [PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/id/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/id/androidjava/convert-powerpoint-to-html/), [SVG](/slides/id/androidjava/convert-powerpoint-to-png/), dan [images](/slides/id/androidjava/convert-powerpoint-to-png/), di antara lainnya.
+## **FAQ**
 
-**Apakah saya dapat memulai dari template (POTX/POTM) dan menyimpan sebagai PPTX biasa?**
+### Format apa saja yang dapat saya gunakan untuk menyimpan presentasi baru?
 
-Ya. Muat template dan simpan ke format yang diinginkan; format POTX/POTM/PPTM dan format serupa [didukung](/slides/id/androidjava/supported-file-formats/).
+Anda dapat menyimpan ke [PPTX, PPT, dan ODP](/slides/id/androidjava/save-presentation/), dan mengekspor ke [PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/id/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/id/androidjava/convert-powerpoint-to-html/), [SVG](/slides/id/androidjava/render-a-slide-as-an-svg-image/), serta [gambar](/slides/id/androidjava/convert-powerpoint-to-png/), dan lain‑lain.
 
-**Bagaimana cara mengontrol ukuran/rasio aspek slide saat membuat presentasi?**
+### Dapatkah saya memulai dari templat (POTX/POTM) dan menyimpannya sebagai PPTX biasa?
 
-Atur [slide size](/slides/id/androidjava/slide-size/) (termasuk preset seperti 4:3 dan 16:9 atau dimensi khusus) dan pilih bagaimana konten harus diskalakan.
+Ya. Muat templat tersebut dan simpan ke format yang diinginkan; format POTX/POTM/PPTM dan format serupa [didukung](/slides/id/androidjava/supported-file-formats/).
 
-**Dalam satuan apa ukuran dan koordinat diukur?**
+### Bagaimana cara mengontrol ukuran/rasio aspek slide saat membuat presentasi?
 
-Dalam poin: 1 inci sama dengan 72 unit.
+Atur [ukuran slide](/slides/id/androidjava/slide-size/) (termasuk preset seperti 4:3 dan 16:9 atau dimensi khusus) dan pilih bagaimana konten harus diskalakan.
 
-**Bagaimana cara menangani presentasi yang sangat besar (dengan banyak berkas media) untuk mengurangi penggunaan memori?**
+### Dalam satuan apa ukuran dan koordinat diukur?
 
-Gunakan [strategi manajemen BLOB](/slides/id/androidjava/manage-blob/), batasi penyimpanan dalam memori dengan memanfaatkan berkas sementara, dan pilih alur kerja berbasis berkas daripada alur kerja yang sepenuhnya dalam memori.
+Dalam point: 1 inci sama dengan 72 unit.
 
-**Apakah saya dapat membuat/menyimpan presentasi secara paralel?**
+### Bagaimana cara menangani presentasi yang sangat besar (dengan banyak file media) untuk mengurangi penggunaan memori?
 
-Anda tidak dapat mengoperasikan [Presentasi]https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/ yang sama dari [beberapa thread](/slides/id/androidjava/multithreading/). Jalankan instance terpisah yang terisolasi per thread atau proses.
+Gunakan [strategi manajemen BLOB](/slides/id/androidjava/manage-blob/), batasi penyimpanan di memori dengan memanfaatkan file temporer, dan lebih pilih alur kerja berbasis file daripada aliran murni di memori.
 
-**Bagaimana cara menghapus watermark percobaan dan batasan?**
+### Dapatkah saya membuat/menyimpan presentasi secara paralel?
 
-[Terapkan lisensi](/slides/id/androidjava/licensing/) sekali per proses. XML lisensi harus tetap tidak diubah, dan penyiapan lisensi harus disinkronkan jika ada banyak thread yang terlibat.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) yang sama dari [multiple threads](/slides/id/androidjava/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
 
-**Apakah saya dapat menandatangani secara digital PPTX yang saya buat?**
+### Bagaimana cara menghapus watermark percobaan dan batasan?
 
-Ya. [Tanda tangan digital](/slides/id/androidjava/digital-signature-in-powerpoint/) (penambahan dan verifikasi) didukung untuk presentasi.
+[Apply a license](/slides/id/androidjava/licensing/) sekali per proses. File XML lisensi harus tetap tidak diubah, dan penyiapan lisensi harus disinkronkan jika ada banyak thread.
 
-**Apakah makro (VBA) didukung dalam presentasi yang dibuat?**
+### Dapatkah saya menandatangani secara digital PPTX yang saya buat?
 
-Ya. Anda dapat [buat/edit proyek VBA](/slides/id/androidjava/presentation-via-vba/) dan menyimpan berkas yang mendukung makro seperti PPTM/PPSM.
+Ya. [Digital signatures](/slides/id/androidjava/digital-signature-in-powerpoint/) (penambahan dan verifikasi) didukung untuk presentasi.
+
+### Apakah macro (VBA) didukung dalam presentasi yang dibuat?
+
+Ya. Anda dapat [create/edit VBA projects](/slides/id/androidjava/presentation-via-vba/) dan menyimpan file yang mendukung macro seperti PPTM/PPSM.

@@ -1,42 +1,113 @@
 ---
-title: Aspose.Slides for Android via Java
-second_title: Aspose.Slides for Android
+title: Android için Java ile Aspose.Slides
+second_title: Android için Aspose.Slides
 type: docs
 weight: 40
 url: /tr/androidjava/
 keywords:
-- belgelendirme
+- belgeleme
 - sunum işleme
-- sunum dönüştürme
+- sunum dönüşümü
 - PowerPoint
 - OpenDocument
 - Android
 - Java
 - Aspose.Slides
-description: Aspose.Slides for Android, Microsoft PowerPoint® yönetim API'sidir ve Java uygulamalarının Microsoft PowerPoint® kullanmadan PowerPoint® belgelerini okumasını ve yazmasını sağlar.
+description: "Buradan başlayın: Aspose.Slides for Android via Java'yi uygulamanıza ekleyin, ilk sunumu oluşturun ve ortak görevler, API referansı ve destek için kılavuzları bulun."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-![Aspose.Slides for Android Ürün Logosu](home_1.png)
+Aspose.Slides for Android via Java, Android uygulamalarında Microsoft PowerPoint olmadan PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir sınıf kitaplığıdır.
 
-**Aspose.Slides for Android via Java'a Hoş Geldiniz**
+Makro destekli ve şablon varyantları dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder; ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntülere aktarır.
 
-Aspose.Slides for Android via Java, Microsoft PowerPoint® yönetim API'sidir ve Android uygulamalarının Microsoft PowerPoint® olmadan PowerPoint® belgelerini okumasını ve yazmasını sağlar. Aspose.Slides for Android via Java, Android platformlarında PowerPoint® belgelerini yönetmek için gerekli işlevselliği sağlayan ilk ve tek bileşendir. Aspose.Slides for Android, slaytlarda metin, şekil, tablo ve animasyon, ses ve video eklemenize, değiştirmenize ve manipüle etmenize olanak tanıyan birçok ana özellik sunar.
+<div style="clear:both"></div>
 
-{{% /alert %}}
+------
 
-## **Aspose.Slides for Android via Java Kaynakları**
+<div class="row">
+<div class="col-md-4">
+<p><b>Başlarken</b></p>
+<hr>
+<p>BAŞLANGIÇ</p>
+<ul>
+<li><a href="/slides/tr/androidjava/install-aspose-slides-for-android-via-java/">Kurulum</a></li>
+<li><a href="/slides/tr/androidjava/create-presentation/">İlk sunumunuzu oluşturun</a></li>
+<li><a href="/slides/tr/androidjava/getting-started/">Başlangıç kılavuzu</a></li>
+</ul>
+<p>DEĞERLENDİR</p>
+<ul>
+<li><a href="/slides/tr/androidjava/supported-file-formats/">Desteklenen dosya formatları</a></li>
+<li><a href="/slides/tr/androidjava/evaluate-aspose-slides/">Deneme sınırlamaları</a></li>
+<li><a href="/slides/tr/androidjava/licensing/">Lisanslama</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Slides ile Oluşturun</b></p>
+<hr>
+<p>ORTAK GÖREVLER</p>
+<ul>
+<li><a href="/slides/tr/androidjava/open-presentation/">Bir sunumu aç</a></li>
+<li><a href="/slides/tr/androidjava/save-presentation/">Bir sunumu kaydet</a></li>
+<li><a href="/slides/tr/androidjava/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
+<li><a href="/slides/tr/androidjava/convert-slide/">Slaytları resim olarak oluştur</a></li>
+<li><a href="/slides/tr/androidjava/manage-text/">Metin ve şekilleri düzenle</a></li>
+</ul>
+<p>SLAYT İŞ AKIŞLARI</p>
+<ul>
+<li><a href="/slides/tr/androidjava/powerpoint-charts/">Grafikler</a></li>
+<li><a href="/slides/tr/androidjava/powerpoint-animation/">Animasyonlar</a></li>
+<li><a href="/slides/tr/androidjava/manage-media-files/">Ses ve video</a></li>
+<li><a href="/slides/tr/androidjava/presentation-design/">Slayt tasarımı</a></li>
+<li><a href="/slides/tr/androidjava/merge-presentation/">Sunumları birleştir</a></li>
+</ul>
+<p>ÖRNEKLER</p>
+<ul>
+<li><a href="/slides/tr/androidjava/examples/">Slayt öğesine göre örnekler</a></li>
+</ul>
+</div>
+<div class="col-md-5">
+<p><b>Referans &amp; Destek</b></p>
+<hr>
+<p>REFERANS</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/tr/androidjava/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/tr/androidjava/release-notes/">Sürüm notları</a></li>
+<li><a href="/slides/tr/androidjava/known-issues/">Bilinen sorunlar</a></li>
+<li><a href="https://releases.aspose.com/slides/tr/androidjava/">İndir</a></li>
+</ul>
+<p>DESTEK</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek masası</a></li>
+</ul>
+</div>
+</div>
 
-İşiniz için ihtiyaç duyabileceğiniz faydalı kaynaklara yönlendiren bağlantılar:
+------
 
-- [Aspose.Slides for Android via Java Çevrimiçi Belgeleri](/slides/tr/androidjava/)
-- [Aspose.Slides for Android via Java Özellikleri](https://docs.aspose.com/slides/tr/androidjava/aspose-slides-for-android-via-java-features/)
-- [Aspose.Slides for Android via Java Sürüm Notları](https://releases.aspose.com/slides/tr/androidjava/release-notes/)
-- [Aspose.Slides for Android via Java Ürün Sayfası](https://products.aspose.com/slides/tr/android-java/)
-- [Aspose.Slides for Android via Java'ı İndirin](https://releases.aspose.com/slides/tr/androidjava/)
-- [Aspose.Slides for Android via Java Maven Deposu](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Aspose.Slides for Android via Java'ı Yükleyin](/slides/tr/androidjava/install-aspose-slides-for-android-via-java/)
-- [Aspose.Slides for Android via Java API Referans Kılavuzu](https://reference.aspose.com/slides/tr/androidjava)
-- [Aspose.Slides for Android via Java Ücretsiz Destek Forumu](https://forum.aspose.com/c/slides/tr/11)
-- [Aspose.Slides for Android via Java Ücretli Destek Yardım Masası](https://helpdesk.aspose.com/)
+## **İlk sunumunuz**
+
+Kütüphane Aspose'un Maven deposundan gelir. Yeni Android Studio projeleri zaten *settings.gradle.kts* içinde bir `dependencyResolutionManagement` bloğuna sahiptir. Aşağıda gösterilen `maven` satırını, ikinci bir blok yapıştırmak yerine, içindeki `repositories` bloğuna ekleyin:
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://releases.aspose.com/java/repo/") }
+    }
+}
+```
+
+Ardından kütüphaneyi *app/build.gradle.kts* dosyasına ekleyin ve projeyi senkronize edin:
+
+```kotlin
+dependencies {
+    implementation("com.aspose:aspose-slides:26.9:android.via.java")
+}
+```
+
+[Kurulum](/slides/tr/androidjava/install-aspose-slides-for-android-via-java/) Groovy derleme komut dosyalarını, manuel JAR dosyasını ve bir sürüm seçmeyi kapsar. İlk sunumunuz için kod [Sunum Oluşturma](/slides/tr/androidjava/create-presentation/): bir slayta metin kutusu ekler ve sunumu uygulamanızın depolama alanına kaydeder. Bu örnek derlenip bir APK'ye oluşturulmuştur; bir cihazda çalıştırılmamıştır. Lisans olmadan, kaydedilen sunumlar bir değerlendirme filigranı içerir — [Lisanslama](/slides/tr/androidjava/licensing/) sayfasına bakın.

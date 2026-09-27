@@ -19,68 +19,80 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Создавайте презентации на Java с Aspose.Slides для Android — создавайте файлы PPT, PPTX и ODP, получайте поддержку OpenDocument и сохраняйте их программно для надёжных результатов."
+description: "Создавайте презентации на Java с помощью Aspose.Slides для Android — генерируйте файлы PPT, PPTX и ODP, получайте поддержку OpenDocument и сохраняйте их программно для надёжных результатов."
 ---
+## **Обзор**
 
-## **Создать презентацию PowerPoint**
-Чтобы добавить простую линию к выбранному слайду презентации, выполните следующие шаги:
+Эта статья показывает, как создать презентацию в Aspose.Slides для Android через Java, добавить текстовое поле на её первый слайд и сохранить результат в виде файла в хранилище вашего приложения. Чтобы открыть существующую презентацию или сохранить её в другом формате, см. [Открыть презентацию](/slides/ru/androidjava/open-presentation/) и [Сохранить презентацию](/slides/ru/androidjava/save-presentation/). В конце статьи приведён короткий FAQ, охватывающий часто задаваемые вопросы о форматах, шаблонах, размерах слайдов, единицах измерения, использовании памяти, многопоточности, лицензировании, цифровых подпях и поддержке VBA.
 
-1. Создайте экземпляр класса Presentation.
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте AutoShape типа Line, используя метод addAutoShape, предоставляемый объектом Shapes.
-1. Сохраните изменённую презентацию в файл PPTX.
+Прежде чем начать, добавьте Aspose.Slides в ваш Android‑проект из Maven‑репозитория Aspose. Смотрите [Установка](/slides/ru/androidjava/install-aspose-slides-for-android-via-java/).
 
-В приведённом ниже примере мы добавили линию на первый слайд презентации.
+## **Создание презентации PowerPoint**
+
+Чтобы создать презентацию и разместить текстовое поле на её первом слайде, выполните следующие шаги:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
+2. Получите этот слайд из [slide collection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islidecollection/) по его индексу 0.
+3. Добавьте прямоугольник с помощью метода [addAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) коллекции [shape collection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapecollection/) и задайте текст его [text frame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframe/) через метод [setText](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
+4. Сохраните презентацию как файл PPTX с помощью метода [save](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) в формате [SaveFormat.Pptx](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/saveformat/).
+
+Код выполняется внутри `Activity`, например в её методе `onCreate`. Файл сохраняется в каталог, возвращаемый методом [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()), т.е. во внутреннее частное хранилище приложения, без необходимости запрашивать какие‑либо разрешения.
+
 ```java
-// Создайте объект Presentation, представляющий файл презентации
-Presentation pres = new Presentation();
-try {
-    // Получите первый слайд
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.File;
 
-    // Добавьте автофигуру типа линия
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+File outputFile = new File(getFilesDir(), "hello.pptx");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Левый верхний угол прямоугольника находится на расстоянии 50 пунктов от левого края и 50 пунктов от верхнего края слайда; ширина прямоугольника — 400 пунктов, высота — 100 пунктов. Сохранённый файл содержит один слайд с этим прямоугольником и его текстом. Без лицензии Aspose.Slides также добавляет оценочный водяной знак к каждому сохраняемому слайду; см. [Лицензирование](/slides/ru/androidjava/licensing/).
 
-## **Часто задаваемые вопросы**
+Чтобы просмотреть файл, откройте [Device Explorer] в Android Studio и найдите *hello.pptx* в каталоге *data/data/* в папке *files* вашего приложения. В реальном приложении обрабатывайте презентации в фоновом потоке, чтобы пользовательский интерфейс оставался отзывчивым.
 
-**В какие форматы можно сохранить новую презентацию?**
+## **FAQ**
 
-Вы можете сохранять в [PPTX, PPT, and ODP](/slides/ru/androidjava/save-presentation/), а также экспортировать в [PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/ru/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/ru/androidjava/convert-powerpoint-to-html/), [SVG](/slides/ru/androidjava/convert-powerpoint-to-png/) и [images](/slides/ru/androidjava/convert-powerpoint-to-png/), среди прочего.
+### Какие форматы доступны для сохранения новой презентации?
 
-**Можно ли начинать с шаблона (POTX/POTM) и сохранять как обычный PPTX?**
+Можно сохранять в [PPTX, PPT и ODP](/slides/ru/androidjava/save-presentation/), а также экспортировать в [PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/ru/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/ru/androidjava/convert-powerpoint-to-html/), [SVG](/slides/ru/androidjava/render-a-slide-as-an-svg-image/) и [изображения](/slides/ru/androidjava/convert-powerpoint-to-png/), и др.
 
-Да. Загрузите шаблон и сохраните в нужный формат; форматы POTX/POTM/PPTM и аналогичные форматы [поддерживаются](/slides/ru/androidjava/supported-file-formats/).
+### Можно ли начать с шаблона (POTX/POTM) и сохранить как обычный PPTX?
 
-**Как управлять размером слайда/соотношением сторон при создании презентации?**
+Да. Загрузите шаблон и сохраните в требуемый формат; форматы POTX/POTM/PPTM и аналогичные [поддерживаются](/slides/ru/androidjava/supported-file-formats/).
 
-Установите [размер слайда](/slides/ru/androidjava/slide-size/) (включая предустановки 4:3 и 16:9 или пользовательские размеры) и выберите способ масштабирования содержимого.
+### Как управлять размером/соотношением сторон слайда при создании презентации?
 
-**В каких единицах измеряются размеры и координаты?**
+Установите [размер слайда](/slides/ru/androidjava/slide-size/) (включая готовые варианты 4:3, 16:9 или пользовательские размеры) и задайте, как масштабировать содержимое.
 
-В пунктах: 1 дюйм равен 72 единицам.
+### В каких единицах измеряются размеры и координаты?
 
-**Как работать с очень большими презентациями (много медиафайлов), чтобы снизить использование памяти?**
+В пунктах: 1 дюйм = 72 пункта.
 
-Используйте [стратегии управления BLOB](/slides/ru/androidjava/manage-blob/), ограничьте хранение в памяти, используя временные файлы, и предпочтите файловые рабочие процессы вместо полностью в‑памяти потоков.
+### Как работать с очень большими презентациями (много медиа‑файлов), чтобы снизить расход памяти?
 
-**Можно ли создавать/сохранять презентации параллельно?**
+Используйте [стратегии управления BLOB](/slides/ru/androidjava/manage-blob/), ограничивайте хранение в памяти, используя временные файлы, и предпочтительно работайте с файловыми потоками вместо чисто оперативных.
 
-Вы не можете работать с одним и тем же [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) из [нескольких потоков](/slides/ru/androidjava/multithreading/). Запускайте отдельные, изолированные экземпляры на каждый поток или процесс.
+### Можно ли создавать/сохранять презентации параллельно?
 
-**Как удалить пробный водяной знак и ограничения?**
+Нельзя работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) из [нескольких потоков](/slides/ru/androidjava/multithreading/). Запускайте отдельные изолированные экземпляры для каждого потока или процесса.
 
-[Примените лицензию](/slides/ru/androidjava/licensing/) один раз на процесс. XML‑файл лицензии должен оставаться неизменным, а настройка лицензии должна быть синхронизирована при работе нескольких потоков.
+### Как удалить пробный водяной знак и ограничения?
 
-**Можно ли цифровой подписать созданный PPTX?**
+[Примените лицензию](/slides/ru/androidjava/licensing/) один раз за процесс. XML‑файл лицензии должен оставаться неизменным, а процесс её установки должен быть синхронизирован при работе нескольких потоков.
+
+### Можно ли добавить цифровую подпись к создаваемому PPTX?
 
 Да. [Цифровые подписи](/slides/ru/androidjava/digital-signature-in-powerpoint/) (добавление и проверка) поддерживаются для презентаций.
 
-**Поддерживаются ли макросы (VBA) в созданных презентациях?**
+### Поддерживаются ли макросы (VBA) в созданных презентациях?
 
-Да. Вы можете [создавать/редактировать проекты VBA](/slides/ru/androidjava/presentation-via-vba/) и сохранять файлы с включёнными макросами, такие как PPTM/PPSM.
+Да. Вы можете [создавать/редактировать VBA‑проекты](/slides/ru/androidjava/presentation-via-vba/) и сохранять файлы с поддержкой макросов, такие как PPTM/PPSM.

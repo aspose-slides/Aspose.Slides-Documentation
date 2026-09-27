@@ -17,37 +17,38 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "通过 Java 评估适用于 Android 的 Aspose.Slides，并探索针对 PowerPoint (PPT、PPTX) 和 OpenDocument (ODP) 演示文稿的 API 功能——立即开始免费试用。"
+description: "通过 Java 评估 Android 平台的 Aspose.Slides，并探索针对 PowerPoint (PPT、PPTX) 和 OpenDocument (ODP) 演示文稿的 API 功能——立即开始免费试用。"
 ---
-
 ## **Aspose.Slides 评估**
 
-您可以轻松下载 Aspose.Slides 进行评估。评估包与购买的包相同。只需添加几行代码以应用许可证，评估版即可转为已授权。
+您可以下载 Aspose.Slides 进行评估。评估包与购买的包相同；在添加几行代码以应用许可后，它会变为已授权。
 
-Aspose.Slides 的评估版（未指定许可证）提供完整的产品功能，但在打开和保存文档时会在文档顶部插入评估水印。提取演示文稿文本时也仅限于一张幻灯片。
+没有许可证时，Aspose.Slides 在评估模式下提供完整功能，但有两项限制：它会在每个保存的演示文稿的每张幻灯片上添加一个评估水印文本框，并且代码从演示文稿读取的文本会被截断，仅保留前几个字符，随后附带一条关于评估限制的通知。代码写入的文本会完整保存。
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![带有评估水印的幻灯片](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-如果您想在不受评估版限制的情况下测试 Aspose.Slides，可以申请 30 天的临时许可证。请参阅[如何获取临时许可证？](https://purchase.aspose.com/temporary-license)
+如果您想在没有评估版本限制的情况下测试 Aspose.Slides，您可以请求 30 天的临时许可证。请参阅[如何获取临时许可证？](https://purchase.aspose.com/temporary-license)了解更多信息。
 
 {{% /alert %}}
 
+要将评估包添加到您的 Android 项目，请参阅[安装](/slides/zh/androidjava/install-aspose-slides-for-android-via-java/)。要移除限制，请[应用许可证](/slides/zh/androidjava/licensing/)。
+
 ## **常见问题**
 
-**我能在评估模式下在不同线程中并行测试多个演示文稿吗？**
+### 在评估模式下，我能在不同线程中并行测试多个演示文稿吗？
 
-可以。您可以并行处理不同的文档；不应在不同线程间共享同一演示文稿对象[跨线程](/slides/zh/androidjava/multithreading/)。评估模式不会影响此行为。
+是的。您可以并行处理不同的文档；不应在多个线程之间共享同一个演示文稿对象[跨线程](/slides/zh/androidjava/multithreading/)。评估模式不受此影响。
 
-**在服务器或 CI 环境中评估该库是否需要安装 Microsoft PowerPoint？**
+### 我是否需要在服务器或 CI 环境中安装 Microsoft PowerPoint 来评估该库？
 
-不需要。Aspose.Slides 是独立的引擎，无论是评估还是生产环境，都不需要安装 PowerPoint。
+不需要。Aspose.Slides 是独立的引擎，评估或生产环境均不需要安装 PowerPoint。
 
-**我能在评估模式下完整测试 PPT/PPTX 转 PDF 和图像的转换吗？**
+### 我能在评估模式下完整测试 PPT/PPTX 到 PDF 和图像的转换吗？
 
-可以。该[转换器](/slides/zh/androidjava/convert-presentation/)可正常工作；输出会包含水印。
+可以。 [转换器](/slides/zh/androidjava/convert-presentation/) 工作；输出将包含水印。
 
-**我能使用临时许可证进行负载测试且没有水印吗？**
+### 我能使用临时许可证进行负载测试且不出现水印吗？
 
-可以。30 天的临时许可证会取消评估模式的限制，允许在没有水印的情况下进行测试。
+可以。30 天的临时许可证会移除评估模式限制，允许在没有水印的情况下进行测试。

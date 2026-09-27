@@ -19,71 +19,80 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "در جاوا با Aspose.Slides برای اندروید، ارائه‌ها را ایجاد کنید—فایل‌های PPT، PPTX و ODP تولید کنید، از پشتیبانی OpenDocument بهره‌مند شوید و آن‌ها را به‌صورت برنامه‌نویسی ذخیره کنید تا نتایج قابل اعتماد به دست آید."
+description: "ارائه‌ها را در جاوا با Aspose.Slides برای اندروید ایجاد کنید—فایل‌های PPT، PPTX و ODP تولید کنید، از پشتیبانی OpenDocument بهره‌مند شوید و آنها را به‌صورت برنامه‌نویسی‌شده ذخیره کنید تا نتایج قابل اعتماد به‌دست آورید."
 ---
-## **مرور کلی**
+## **نمای کلی**
 
-این مقاله نشان می‌دهد چگونه یک ارائه در Aspose.Slides ایجاد کنید، محتوی ساده‌ای به یک اسلاید اضافه کنید و نتیجه را به عنوان یک فایل ذخیره کنید. همچنین نحوه ایجاد و ذخیره یک ارائه جدید، باز کردن یک ارائه موجود در یک قالب پشتیبانی‌شده، و ذخیره آن به قالب دیگری را نشان می‌دهد.
+این مقاله نشان می‌دهد چگونه یک ارائه در Aspose.Slides برای Android از طریق Java ایجاد کنید، یک جعبه متن به اولین اسلاید آن اضافه کنید و نتیجه را به‌عنوان فایلی در حافظهٔ برنامه‌تان ذخیره کنید. برای باز کردن یک ارائهٔ موجود یا ذخیرهٔ آن در قالب دیگری، به [Open Presentation](/slides/fa/androidjava/open-presentation/) و [Save Presentation](/slides/fa/androidjava/save-presentation/) مراجعه کنید. یک سؤال‌نامهٔ کوتاه در انتها به سؤالات رایج دربارهٔ قالب‌ها، الگوها، اندازه‌گذاری اسلاید، واحدها، مصرف حافظه، چندنخی، مجوزدهی، امضای دیجیتال و پشتیبانی از VBA می‌پردازد.
 
-## **ایجاد یک ارائه پاورپوینت**
-برای افزودن یک خط ساده به اسلاید انتخاب‌شده از ارائه، لطفاً مراحل زیر را دنبال کنید:
+قبل از شروع، Aspose.Slides را از مخزن Maven Aspose به پروژهٔ Android خود اضافه کنید. ببینید [Installation](/slides/fa/androidjava/install-aspose-slides-for-android-via-java/).
 
-1. یک نمونه از کلاس Presentation ایجاد کنید.
-1. با استفاده از ایندکس آن، مرجع یک اسلاید را به دست آورید.
-1. با استفاده از متد addAutoShape که توسط شیء Shapes فراهم شده، یک AutoShape از نوع خط اضافه کنید.
-1. ارائه‌ی اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
+## **ایجاد یک ارائهٔ پاورپوینت**
 
-در مثال زیر، ما یک خط به اسلاید اول ارائه اضافه کرده‌ایم.
+برای ایجاد یک ارائه و قرار دادن یک جعبه متن بر روی اولین اسلاید آن، مراحل زیر را دنبال کنید:
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید از قبل شامل یک اسلاید خالی است.  
+2. آن اسلاید را از [slide collection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/) با استفاده از اندیس 0 دریافت کنید.  
+3. یک مستطیل با روش [addAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) از [shape collection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/) اضافه کنید و متن [text frame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) آن را با روش [setText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) تنظیم کنید.  
+4. ارائه را به‌عنوان فایل PPTX با روش [save](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-)، در قالب [SaveFormat.Pptx](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/saveformat/) ذخیره کنید.
+
+کد داخل یک `Activity` اجرا می‌شود، برای مثال در متد `onCreate` آن. این کد فایل را در دایرکتوری‌ای که توسط متد [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) برگردانده می‌شود ذخیره می‌کند: حافظهٔ خصوصی برنامهٔ شما که بدون درخواست هیچ‌گونه مجوزی می‌تواند به آن نوشت.
 
 ```java
-// یک شی Presentation ایجاد کنید که نمایانگر یک فایل ارائه است
-Presentation pres = new Presentation();
-try {
-    // دریافت اولین اسلاید
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.File;
 
-    // یک AutoShape از نوع خط اضافه کنید
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+File outputFile = new File(getFilesDir(), "hello.pptx");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **پرسش‌های متداول**
+بالا‑چپ مستطیل 50 نقطه از لبهٔ چپ و 50 نقطه از لبهٔ بالا اسلاید فاصله دارد و عرض آن 400 نقطه و ارتفاع 100 نقطه است. فایل ذخیره‌شده شامل یک اسلاید با آن مستطیل و متن آن است. بدون داشتن لایسنس، Aspose.Slides همچنین یک واترمارک ارزیابی به هر اسلایدی که ذخیره می‌کند اضافه می‌کند؛ ببینید [Licensing](/slides/fa/androidjava/licensing/).
 
-**کدام قالب‌ها را می‌توانم برای ذخیره یک ارائه جدید استفاده کنم؟**
+برای مشاهدهٔ فایل، [Device Explorer] در Android Studio را باز کنید و *hello.pptx* را در زیر پوشهٔ *data/data/*، در پوشهٔ *files* برنامه‌تان پیدا کنید. در یک برنامهٔ واقعی، پردازش ارائه‌ها را روی یک رشتهٔ پس‌زمینه انجام دهید تا رابط کاربری پاسخگو بماند.
 
-می‌توانید به‌صورت [PPTX، PPT و ODP](/slides/fa/androidjava/save-presentation/) ذخیره کنید و به‌صورت [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/)، [XPS](/slides/fa/androidjava/convert-powerpoint-to-xps/)، [HTML](/slides/fa/androidjava/convert-powerpoint-to-html/)، [SVG](/slides/fa/androidjava/convert-powerpoint-to-png/) و [images](/slides/fa/androidjava/convert-powerpoint-to-png/) صادر کنید، و غیره.
+## **سوالات متداول**
 
-**آیا می‌توانم از یک الگو (POTX/POTM) شروع کنم و به‌صورت یک PPTX معمولی ذخیره کنم؟**
+### چه قالب‌هایی می‌توانم یک ارائهٔ جدید را در آن ذخیره کنم؟
 
-بله. الگو را بارگذاری کنید و به قالب موردنظر ذخیره کنید؛ قالب‌های POTX/POTM/PPTM و مشابه آن‌ها [پشتیبانی می‌شوند](/slides/fa/androidjava/supported-file-formats/).
+می‌توانید به قالب‌های [PPTX, PPT, و ODP](/slides/fa/androidjava/save-presentation/) ذخیره کنید و به [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/)، [XPS](/slides/fa/androidjava/convert-powerpoint-to-xps/)، [HTML](/slides/fa/androidjava/convert-powerpoint-to-html/)، [SVG](/slides/fa/androidjava/render-a-slide-as-an-svg-image/) و [images](/slides/fa/androidjava/convert-powerpoint-to-png/) تبدیل کنید، و غیره.
 
-**چگونه می‌توانم اندازه/نسبت تصویر اسلاید را هنگام ایجاد یک ارائه کنترل کنم؟**
+### آیا می‌توانم از یک الگو (POTX/POTM) شروع کرده و به‌صورت PPTX معمولی ذخیره کنم؟
 
-اندازه [اسلاید](/slides/fa/androidjava/slide-size/) را تنظیم کنید (از جمله پیش‌تنظیمات 4:3 و 16:9 یا ابعاد سفارشی) و نحوه‌ی مقیاس‌گذاری محتوا را انتخاب کنید.
+بله. الگو را بارگذاری کنید و در قالب موردنظر ذخیره کنید؛ قالب‌های POTX/POTM/PPTM و مشابه آن‌ها [are supported](/slides/fa/androidjava/supported-file-formats/).
 
-**واحدهای اندازه و مختصات به چه صورت هستند؟**
+### چگونه هنگام ایجاد یک ارائه، اندازه/نسبت‌عرض به‌ارتفاع اسلاید را کنترل کنم؟
 
-به واحد پوینت: 1 اینچ برابر با 72 واحد است.
+[slide size](/slides/fa/androidjava/slide-size/) را تنظیم کنید (از جمله پیش‌تنظیم‌های 4:3 و 16:9 یا ابعاد سفارشی) و نحوهٔ مقیاس‌بندی محتوا را انتخاب کنید.
 
-**چگونه می‌توانم ارائه‌های بسیار بزرگ (با فایل‌های رسانه‌ای زیاد) را برای کاهش مصرف حافظه مدیریت کنم؟**
+### اندازها و مختصات بر حسب چه واحدی اندازه‌گیری می‌شوند؟
 
-از [استراتژی‌های مدیریت BLOB](/slides/fa/androidjava/manage-blob/) استفاده کنید، ذخیره‌سازی در حافظه را با بهره‌گیری از فایل‌های موقت محدود کنید و به‌جای جریان‌های صرفاً در‑حافظه، روی گردش‌کارهای مبتنی بر فایل ترجیح دهید.
+بر حسب نقطه: 1 اینچ برابر 72 واحد است.
 
-**آیا می‌توانم ارائه‌ها را به‌صورت موازی ایجاد/ذخیره کنم؟**
+### چگونه با ارائه‌های بسیار بزرگ (دارای بسیاری از فایل‌های رسانه‌ای) برای کاهش مصرف حافظه برخورد کنم؟
 
-نمی‌توانید بر روی همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) از [چندین نخ](/slides/fa/androidjava/multithreading/) کار کنید. برای هر نخ یا فرایند نمونه‌های جداگانه و ایزوله اجرا کنید.
+از [BLOB management strategies](/slides/fa/androidjava/manage-blob/) استفاده کنید، ذخیره‌سازی در حافظه را با استفاده از فایل‌های موقت محدود کنید و جریان‌های مبتنی بر فایل را نسبت به جریان‌های صرفاً در‑حافظه ترجیح دهید.
 
-**چگونه علامت آب‌نما و محدودیت‌های نسخه آزمایشی را حذف کنم؟**
+### آیا می‌توانم ارائه‌ها را به‌صورت موازی ایجاد/ذخیره کنم؟
 
-[اعمال یک لایسنس](/slides/fa/androidjava/licensing/) یک‌بار برای هر فرآیند. فایل XML لایسنس باید بدون تغییر باقی بماند و تنظیم لایسنس در صورت استفاده از چندین نخ، باید همگام‌سازی شود.
+نمی‌توانید روی همان نمونهٔ [Presentation](/slides/fa/androidjava/presentation/) از [multiple threads](/slides/fa/androidjava/multithreading/) عملیات انجام دهید. برای هر رشته یا پردازش یک نمونهٔ جداگانه و ایزوله اجرا کنید.
 
-**آیا می‌توانم PPTX ای که ایجاد می‌کنم را به‌صورت دیجیتال امضا کنم؟**
+### چگونه واترمارک آزمایشی و محدودیت‌ها را حذف کنم؟
 
-بله. [امضاهای دیجیتال](/slides/fa/androidjava/digital-signature-in-powerpoint/) (افزودن و تأیید) برای ارائه‌ها پشتیبانی می‌شوند.
+[Apply a license](/slides/fa/androidjava/licensing/) را یک‌بار برای هر فرایند اعمال کنید. فایل XML لایسنس باید بدون تغییر باقی بماند و تنظیم لایسنس در صورت وجود چندین رشته باید هماهنگ شود.
 
-**آیا ماکروها (VBA) در ارائه‌های ایجاد شده پشتیبانی می‌شوند؟**
+### آیا می‌توانم PPTX ایجاد شده را به‌صورت دیجیتالی امضا کنم؟
 
-بله. می‌توانید [پروژه‌های VBA را ایجاد/ویرایش](/slides/fa/androidjava/presentation-via-vba/) کنید و فایل‌های دارای ماکرو مانند PPTM/PPSM را ذخیره کنید.
+بله. [Digital signatures](/slides/fa/androidjava/digital-signature-in-powerpoint/) (افزودن و تأیید) برای ارائه‌ها پشتیبانی می‌شود.
+
+### آیا ماکروها (VBA) در ارائه‌های ایجاد شده پشتیبانی می‌شوند؟
+
+بله. می‌توانید [create/edit VBA projects](/slides/fa/androidjava/presentation-via-vba/) کنید و فایل‌های ماکروپذیر مانند PPTM/PPSM را ذخیره کنید.

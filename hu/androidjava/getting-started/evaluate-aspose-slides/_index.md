@@ -6,45 +6,49 @@ url: /hu/androidjava/evaluate-aspose-slides/
 keywords:
 - Aspose.Slides értékelése
 - Aspose.Slides értékelés
-- értékelő verzió
+- értékelési verzió
 - teljes funkcionalitás
-- értékelő vízjel
+- értékelési vízjel
 - Aspose.Slides megvásárlása
-- korlátozás
+- korlát
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Értékelje az Aspose.Slides-ot Androidra Java segítségével, és fedezze fel a PowerPoint (PPT, PPTX) valamint az OpenDocument (ODP) prezentációk API-funkcióit—kezdje el ingyenes próbaverzióját."
+description: "Az Aspose.Slides értékelése Androidra Java segítségével, és az API funkciók felfedezése PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkhoz — indítsa el ingyenes próbáját."
 ---
-## **Aspose.Slides értékelés**
+## **Aspose.Slides Értékelés**
 
-Az Aspose.Slides könnyen letölthető értékelés céljából. Az értékelő csomag ugyanaz, mint a megvásárolt csomag. Az értékelő verzió egyszerűen licencessé válik, miután néhány kódsort hozzáad a licenc alkalmazásához.
+Letöltheti az Aspose.Slides-et értékeléshez. Az értékelési csomag megegyezik a megvásárolt csomaggal; licenszzé válik, miután néhány kódsort hozzáad a licenc alkalmazásához.
 
-Az Aspose.Slides értékelő verziója (licenc megadása nélkül) teljes termékképességet biztosít, de a dokumentum megnyitásakor és mentésekor egy értékelő vizesjelet helyez a dokumentum tetejére. Emellett csak egy diát használhat fel a prezentációs diák szövegének kinyerésénél.
+Licenc nélkül az Aspose.Slides teljes funkcionalitását biztosítja értékelési módban, két korláttal: minden mentett prezentáció minden diához hozzáad egy értékelési vízjel szövegdobozt, és a kódból egy prezentációból olvasott szöveg csak az első néhány karakterre lesz csonkítva, majd egy értesítést kap az értékelési korlátról. A kóddal írt szöveg teljes egészében mentésre kerül.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Egy dia az értékelési vízjellel](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}}
-Ha az Aspose.Slides-t az értékelő verzió korlátozása nélkül szeretné tesztelni, kérhet egy 30 napos ideiglenes licencet. Lásd a [Hogyan szerezhető be egy ideiglenes licenc?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Note" %}}
+
+Ha az Aspose.Slides-et az értékelési verzió korlátozása nélkül szeretné tesztelni, kérhet egy 30 napos ideiglenes licencet. További információért tekintse meg a [Hogyan szerezhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) oldalt.
+
 {{% /alert %}}
 
-## **GYIK**
+Az értékelési csomag Android projektbe való hozzáadásához lásd a [Telepítés](/slides/hu/androidjava/install-aspose-slides-for-android-via-java/) oldalt. A korlátozások eltávolításához [licencet alkalmazzon](/slides/hu/androidjava/licensing/).
 
-**Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelő módban?**
+## **FAQ**
 
-Igen. Különböző dokumentumokat dolgozhat fel párhuzamosan; nem szabad ugyanazt a prezentációs objektumot megosztani a [szálak között](/slides/hu/androidjava/multithreading/). Az értékelő mód ezt nem befolyásolja.
+### Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelési módban?
 
-**Szükséges-e a Microsoft PowerPoint telepítése a könyvtár értékeléséhez egy szerveren vagy CI-ben?**
+Igen. Különböző dokumentumokat párhuzamosan feldolgozhat; nem szabad ugyanazt a prezentációobjektumot [szálak között megosztani](/slides/hu/androidjava/multithreading/). Az értékelési mód nem befolyásolja ezt.
 
-Nem. Az Aspose.Slides egy önálló motor, és sem az értékeléshez, sem a termeléshez nem igényel PowerPoint telepítést.
+### Szükséges-e a Microsoft PowerPoint telepítése a könyvtár szerver- vagy CI környezetben való értékeléséhez?
 
-**Teljesen tesztelhetem a PPT/PPTX PDF- és képre konvertálását értékelő módban?**
+Nem. Az Aspose.Slides egy önálló motor, amelyhez sem értékelés, sem termelés esetén nincs szükség a PowerPoint telepítésére.
 
-Igen. A [konverterek](/slides/hu/androidjava/convert-presentation/) működnek; a kimenetben egy vizesjel lesz.
+### Teljes mértékben tesztelhetem a PPT/PPTX PDF‑re és képekre történő konvertálását értékelési módban?
 
-**Használhatok ideiglenes licencet terheléses teszteléshez vizesjel nélkül?**
+Igen. A [konverterek](/slides/hu/androidjava/convert-presentation/) működnek; a kimenet vízjelet tartalmaz majd.
 
-Igen. A 30 napos ideiglenes licenc eltávolítja az értékelő mód korlátozásait, és lehetővé teszi a vizesjel nélküli tesztelést.
+### Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?
+
+Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelési mód korlátait, és lehetővé teszi a tesztelést vízjel nélkül.

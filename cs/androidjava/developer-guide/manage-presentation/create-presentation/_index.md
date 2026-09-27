@@ -19,71 +19,80 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Vytvářejte prezentace v jazyce Java pomocí Aspose.Slides pro Android — vytvářejte soubory PPT, PPTX a ODP, využívejte podporu OpenDocument a ukládejte je programově pro spolehlivé výsledky."
+description: "Vytvářejte prezentace v Javě pomocí Aspose.Slides pro Android - vytvářejte soubory PPT, PPTX a ODP, využívejte podporu OpenDocument a ukládejte je programově pro spolehlivé výsledky."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak vytvořit prezentaci v Aspose.Slides, přidat jednoduchý obsah do snímku a výsledek uložit jako soubor. Také demonstruje, jak vytvořit a uložit novou prezentaci, otevřít existující prezentaci v podporovaném formátu a uložit ji do jiného formátu.
+Tento článek ukazuje, jak vytvořit prezentaci v Aspose.Slides pro Android pomocí Javy, přidat textové pole na první snímek a uložit výsledek jako soubor v úložišti vaší aplikace. Pro otevření existující prezentace nebo uložení v jiném formátu viz [Open Presentation](/slides/cs/androidjava/open-presentation/) a [Save Presentation](/slides/cs/androidjava/save-presentation/). Krátké FAQ na konci pokrývá běžné otázky o formátech, šablonách, velikosti snímků, jednotkách, využití paměti, vláknování, licencování, digitálních podpisů a podpoře VBA.
 
-## **Vytvoření prezentace PowerPoint**
-Chcete-li přidat jednoduchou rovnou čáru do vybraného snímku prezentace, postupujte podle níže uvedených kroků:
+Než začnete, přidejte Aspose.Slides do svého Android projektu z Maven repozitáře Aspose. Viz [Installation](/slides/cs/androidjava/install-aspose-slides-for-android-via-java/).
 
-1. Vytvořte instanci třídy Presentation.
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Přidejte AutoShape typu Line pomocí metody addAutoShape, která je součástí objektu Shapes.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+## **Vytvořit PowerPoint prezentaci**
 
-V níže uvedeném příkladu jsme přidali čáru na první snímek prezentace.
+Chcete‑li vytvořit prezentaci a umístit textové pole na její první snímek, postupujte následovně:
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
+1. Získejte tento snímek z [slide collection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/) podle jeho indexu, 0.
+1. Přidejte obdélník pomocí metody [addAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ze [shape collection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/) a nastavte text jeho [text frame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) metodou [setText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
+1. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ve formátu [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/saveformat/).
+
+Kód běží uvnitř `Activity`, například v metodě `onCreate`. Ukládá soubor do adresáře vráceného metodou [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()), tedy do soukromého úložiště vaší aplikace, kam lze zapisovat bez požadování oprávnění.
 
 ```java
-// Vytvořte instanci objektu Presentation, který představuje soubor prezentace
-Presentation pres = new Presentation();
-try {
-    // Získejte první snímek
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.File;
 
-    // Přidejte autoshape typu čára
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+File outputFile = new File(getFilesDir(), "hello.pptx");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Levá horní krajní bod obdélníka je vzdálen 50 bodů od levého okraje a 50 bodů od horního okraje snímku, šířka je 400 bodů a výška 100 bodů. Výsledný soubor obsahuje jeden snímek s tímto obdélníkem a jeho textem. Bez licence také Aspose.Slides přidává evaluační vodoznak ke každému uloženému snímku; viz [Licensing](/slides/cs/androidjava/licensing/).
 
-**Do jakých formátů mohu uložit novou prezentaci?**
+Pro zobrazení souboru otevřete v Android Studiu [Device Explorer](https://developer.android.com/studio/debug/device-file-explorer) a najděte *hello.pptx* pod *data/data/* v adresáři *files* vaší aplikace. Ve skutečné aplikaci zpracovávejte prezentace na pozadí, aby uživatelské rozhraní zůstalo responzivní.
 
-Můžete uložit do [PPTX, PPT a ODP](/slides/cs/androidjava/save-presentation/), a exportovat do [PDF](/slides/cs/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/cs/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/cs/androidjava/convert-powerpoint-to-html/), [SVG](/slides/cs/androidjava/convert-powerpoint-to-png/) a [obrázků](/slides/cs/androidjava/convert-powerpoint-to-png/), mezi ostatními.
+## **Často kladené otázky**
 
-**Mohu začít ze šablony (POTX/POTM) a uložit jako běžný PPTX?**
+### Jaké formáty mohu použít pro uložení nové prezentace?
+
+Můžete ukládat do [PPTX, PPT a ODP](/slides/cs/androidjava/save-presentation/) a exportovat do [PDF](/slides/cs/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/cs/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/cs/androidjava/convert-powerpoint-to-html/), [SVG](/slides/cs/androidjava/render-a-slide-as-an-svg-image/) a [obrázků](/slides/cs/androidjava/convert-powerpoint-to-png/), mezi jinými.
+
+### Mohu začít ze šablony (POTX/POTM) a uložit jako běžný PPTX?
 
 Ano. Načtěte šablonu a uložte do požadovaného formátu; formáty POTX/POTM/PPTM a podobné [jsou podporovány](/slides/cs/androidjava/supported-file-formats/).
 
-**Jak mohu ovládat velikost/snámkový poměr při vytváření prezentace?**
+### Jak mohu kontrolovat velikost snímku/poměr stran při vytváření prezentace?
 
-Nastavte [velikost snímku](/slides/cs/androidjava/slide-size/) (včetně předvoleb jako 4:3 a 16:9 nebo vlastní rozměry) a zvolte, jak se má obsah měřítkovat.
+Nastavte [slide size](/slides/cs/androidjava/slide-size/) (včetně předvoleb jako 4:3 a 16:9 nebo vlastních rozměrů) a zvolte, jak se má obsah škálovat.
 
-**V jakých jednotkách se měří velikosti a souřadnice?**
+### V jakých jednotkách jsou měřeny rozměry a souřadnice?
 
 V bodech: 1 palec odpovídá 72 jednotkám.
 
-**Jak zacházet s velmi velkými prezentacemi (s mnoha mediálními soubory), aby se snížila spotřeba paměti?**
+### Jak zacházet s velmi velkými prezentacemi (s mnoha mediálními soubory) pro snížení využití paměti?
 
-Použijte [strategií správy BLOB](/slides/cs/androidjava/manage-blob/), omezte úložiště v paměti pomocí dočasných souborů a upřednostňujte workflow založené na souborech před čistě paměťovými streamy.
+Použijte [BLOB management strategies](/slides/cs/androidjava/manage-blob/), omezte ukládání do paměti využitím dočasných souborů a upřednostňujte workflow založené na souborech místo čistě paměťových streamů.
 
-**Mohu vytvářet/ukládat prezentace paralelně?**
+### Mohu vytvářet/ukládat prezentace paralelně?
 
-Nelze operovat na stejné [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) instanci z [více vláken](/slides/cs/androidjava/multithreading/). Spusťte samostatné, izolované instance pro každé vlákno nebo proces.
+Nelze pracovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) z [multiple threads](/slides/cs/androidjava/multithreading/). Používejte oddělené instance pro každé vlákno nebo proces.
 
-**Jak odstranit vodotisk a omezení z trial verze?**
+### Jak odstranit zkušební vodoznak a omezení?
 
-[Aplikujte licenci](/slides/cs/androidjava/licensing/) jednou na proces. Licenční XML nesmí být změněno a nastavení licence by mělo být synchronizováno, pokud je zapojeno více vláken.
+[Apply a license](/slides/cs/androidjava/licensing/) jednou na proces. Licenční XML nesmí být upravováno a nastavení licence by mělo být synchronizováno, pokud jsou zapojena více vláken.
 
-**Mohu digitálně podepsat vytvořený PPTX?**
+### Mohu digitálně podepsat vytvořený PPTX?
 
-Ano. [Digitální podpisy](/slides/cs/androidjava/digital-signature-in-powerpoint/) (přidání a ověření) jsou pro prezentace podporovány.
+Ano. [Digital signatures](/slides/cs/androidjava/digital-signature-in-powerpoint/) (přidávání i ověřování) jsou pro prezentace podporovány.
 
-**Jsou v vytvořených prezentacích podporovány makra (VBA)?**
+### Jsou makra (VBA) podporována v vytvořených prezentacích?
 
-Ano. Můžete [vytvářet/upravovat projekty VBA](/slides/cs/androidjava/presentation-via-vba/) a ukládat soubory s makry, jako jsou PPTM/PPSM.
+Ano. Můžete [create/edit VBA projects](/slides/cs/androidjava/presentation-via-vba/) a ukládat soubory s povolenými makry, například PPTM/PPSM.
