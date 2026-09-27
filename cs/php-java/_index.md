@@ -71,14 +71,14 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/cs/php-java/">Reference API</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/php-java/release-notes/">Poznámky k vydání</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">Reference API</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Poznámky k vydání</a></li>
 <li><a href="/slides/cs/php-java/known-issues/">Známé problémy</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/php-java/">Stáhnout</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">Stáhnout</a></li>
 </ul>
 <p>PODPOŘA</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/cs/11">Bezplatné fórum podpory</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
 <li><a href="https://helpdesk.aspose.com/">Placená podpora helpdesk</a></li>
 </ul>
 </div>

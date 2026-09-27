@@ -30,10 +30,10 @@ Než začnete, nainstalujte Aspose.Slides pro PHP přes Java s Composerem a spus
 
 Pro vytvoření prezentace a přidání textového pole na její první snímek postupujte podle těchto kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
-2. Získejte tento snímek z kolekce vrácené metodou [Presentation::getSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/getslides/), podle jeho indexu 0.
-3. Přidejte obdélník pomocí metody [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addautoshape/) a nastavte jeho text pomocí [TextFrame::setText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/settext/).
-4. Uložte prezentaci jako soubor PPTX pomocí metody [Presentation::save](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/save/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
+2. Získejte tento snímek z kolekce vrácené metodou [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), podle jeho indexu 0.
+3. Přidejte obdélník pomocí metody [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) a nastavte jeho text pomocí [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+4. Uložte prezentaci jako soubor PPTX pomocí metody [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides čte a zapisuje soubory uvnitř Tomcatu, ne ve vašem PHP procesu,
 
 ## **Vytvoření a uložení prezentace**
 
-Pro vytvoření prázdné prezentace a její uložení vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) a uložte ji v libovolném formátu z výčtu [SaveFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/saveformat/). Výsledkem je prezentace s jedním prázdným snímkem.
+Pro vytvoření prázdné prezentace a její uložení vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) a uložte ji v libovolném formátu z výčtu [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). Výsledkem je prezentace s jedním prázdným snímkem.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Otevření a uložení prezentace**
 
-Chcete-li převést prezentaci z jednoho formátu na druhý, otevřete ji předáním její cesty do konstruktoru [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/), poté ji uložte v cílovém formátu. Aspose.Slides detekuje vstupní formát, například PPT, PPTX nebo ODP, podle samotného souboru.
+Chcete-li převést prezentaci z jednoho formátu na druhý, otevřete ji předáním její cesty do konstruktoru [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), poté ji uložte v cílovém formátu. Aspose.Slides detekuje vstupní formát, například PPT, PPTX nebo ODP, podle samotného souboru.
 
 Příklad níže očekává, že OpenDocument prezentace pojmenovaná *Sample.odp* bude vedle skriptu a uloží ji jako PPTX.
 
@@ -127,7 +127,7 @@ Použijte [strategie správy BLOB](/slides/cs/php-java/manage-blob/), omezte ukl
 
 ### Mohu vytvářet/ukládat prezentace paralelně?
 
-Nelze pracovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) z [více vláken](/slides/cs/php-java/multithreading/). Používejte samostatné, izolované instance pro každé vlákno nebo proces.
+Nelze pracovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) z [více vláken](/slides/cs/php-java/multithreading/). Používejte samostatné, izolované instance pro každé vlákno nebo proces.
 
 ### Jak odstranit zkušební vodotisk a omezení?
 

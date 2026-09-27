@@ -157,7 +157,7 @@ PHP se nepodařilo načíst `Java.inc` z Tomcatu. Pokud před tímto hlášením
 
 **Jak mohu omezit spotřebu paměti při zpracování velkých prezentací?**
 
-Zvyšte limity paměti JVM jen tak, jak jsou potřeba, a uzavřete každou instanci [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) v bloku `finally`, aby se cache uvolnila okamžitě. Tím se předejde chybám nedostatku paměti a celková spotřeba paměti zůstane předvídatelná během dávkových operací.
+Zvyšte limity paměti JVM jen tak, jak jsou potřeba, a uzavřete každou instanci [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) v bloku `finally`, aby se cache uvolnila okamžitě. Tím se předejde chybám nedostatku paměti a celková spotřeba paměti zůstane předvídatelná během dávkových operací.
 
 **Mohu vyloučit nechtěné exportní formáty a tím zmenšit konečnou velikost JAR?**
 

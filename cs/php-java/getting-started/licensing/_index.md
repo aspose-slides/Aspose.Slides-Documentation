@@ -61,7 +61,7 @@ Musíte nastavit licenci:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Informace o cenách najdete na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/cs/family).
+Informace o cenách najdete na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Nastavení licence v Aspose.Slides pro PHP přes Java**
