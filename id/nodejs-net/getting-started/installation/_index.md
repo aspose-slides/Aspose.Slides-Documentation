@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 Selama instalasi, paket menyalin pustaka menggambar native-nya (file‑file yang namanya mengandung `aspose.slides.drawing.capi`) ke dalam folder proyek, di sebelah `package.json`.
 
-Paket ini juga dipublikasikan sebagai arsip ZIP di [releases.aspose.com](https://releases.aspose.com/slides/id/nodejs-net/). Artikel ini hanya membahas instalasi dari npm.
+Paket ini juga dipublikasikan sebagai arsip ZIP di [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/). Artikel ini hanya membahas instalasi dari npm.
 
 ## **Pulihkan Dependensi .NET**
 
@@ -154,7 +154,7 @@ Skrip mencetak `Saved hello.pptx`. Buka `hello.pptx` untuk melihat satu slide de
 Jalankan skrip Anda dari folder proyek, yaitu yang berisi `package.json`. Jalur relatif seperti `hello.pptx` diselesaikan relatif terhadap folder saat ini, dan pada beberapa mesin skrip yang dijalankan dari folder lain tidak dapat membuat presentasi.
 {{% /alert %}}
 
-API JavaScript mencerminkan Aspose.Slides untuk .NET: kelas mempertahankan nama .NET mereka, properti dan metode menggunakan camelCase (`Slides` menjadi `slides`, `AddAutoShape` menjadi `addAutoShape`), dan item koleksi dibaca dengan `get(index)`. Tidak ada referensi API terpisah untuk paket ini, jadi gunakan [referensi API Aspose.Slides untuk .NET](https://reference.aspose.com/slides/id/net/) untuk detail kelas dan anggota, misalnya [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/shapecollection/addautoshape/).
+API JavaScript mencerminkan Aspose.Slides untuk .NET: kelas mempertahankan nama .NET mereka, properti dan metode menggunakan camelCase (`Slides` menjadi `slides`, `AddAutoShape` menjadi `addAutoShape`), dan item koleksi dibaca dengan `get(index)`. Tidak ada referensi API terpisah untuk paket ini, jadi gunakan [referensi API Aspose.Slides untuk .NET](https://reference.aspose.com/slides/net/) untuk detail kelas dan anggota, misalnya [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) dan [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **FAQ**
 

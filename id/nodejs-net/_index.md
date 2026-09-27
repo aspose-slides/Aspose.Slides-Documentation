@@ -58,13 +58,13 @@ Perpustakaan ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk var
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/id/net/">Referensi API .NET</a></li>
-<li><a href="https://releases.aspose.com/slides/id/nodejs-net/release-notes/">Catatan rilis</a></li>
-<li><a href="https://releases.aspose.com/slides/id/nodejs-net/">Unduh</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Referensi API .NET</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Catatan rilis</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">Unduh</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>

@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET membuka presentasi PowerPoint dan OpenDocumen
 Contoh-contoh mengharapkan sebuah presentasi bernama `sample.pptx` di folder proyek yang Anda siapkan di [Installation](/slides/id/nodejs-net/installation/). Presentasi PowerPoint apa pun dapat digunakan. Simpan setiap contoh sebagai file `.js` di folder proyek dan jalankan dari folder tersebut dengan `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET tidak memiliki referensi API sendiri. Ia mencerminkan API Aspose.Slides untuk .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang cocok di [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/id/net/).
+Aspose.Slides for Node.js via .NET tidak memiliki referensi API sendiri. Ia mencerminkan API Aspose.Slides untuk .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang cocok di [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Buka Presentasi dari File**
 
-Untuk membuka sebuah presentasi, berikan jalurnya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/presentation/). Aspose.Slides mendeteksi format dari isi file bukan dari ekstensi, sehingga kode yang sama dapat membuka file PPTX, PPT, dan ODP. Jalur relatif diselesaikan terhadap direktori kerja saat ini, yang merupakan folder proyek ketika Anda menjalankan skrip dari sana.
+Untuk membuka sebuah presentasi, berikan jalurnya ke konstruktor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Aspose.Slides mendeteksi format dari isi file bukan dari ekstensi, sehingga kode yang sama dapat membuka file PPTX, PPT, dan ODP. Jalur relatif diselesaikan terhadap direktori kerja saat ini, yang merupakan folder proyek ketika Anda menjalankan skrip dari sana.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Skrip mencetak jumlah slide dalam `sample.pptx`, misalnya `Slide count: 9`. Properti `count` dari koleksi [slides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slides/id/) termasuk slide tersembunyi. Panggil `dispose` dalam blok `finally`, seperti yang ditunjukkan, sehingga sumber daya .NET di balik presentasi dibebaskan bahkan jika kode Anda gagal.
+Skrip mencetak jumlah slide dalam `sample.pptx`, misalnya `Slide count: 9`. Properti `count` dari koleksi [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) termasuk slide tersembunyi. Panggil `dispose` dalam blok `finally`, seperti yang ditunjukkan, sehingga sumber daya .NET di balik presentasi dibebaskan bahkan jika kode Anda gagal.
 
 ## **Buka Presentasi dari Buffer**
 
@@ -71,7 +71,7 @@ Skrip mencetak jumlah slide yang sama seperti contoh sebelumnya. Argumen kedua h
 
 ## **Simpan Presentasi dalam Format Lain**
 
-Untuk mengonversi sebuah presentasi ke format presentasi lain, buka dan simpan dengan nilai [SaveFormat](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/) yang berbeda. Contoh berikut mencetak format yang dideteksi Aspose.Slides, yang dikembalikan oleh properti [sourceFormat](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/sourceformat/), dan menyimpan presentasi sebagai presentasi OpenDocument:
+Untuk mengonversi sebuah presentasi ke format presentasi lain, buka dan simpan dengan nilai [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) yang berbeda. Contoh berikut mencetak format yang dideteksi Aspose.Slides, yang dikembalikan oleh properti [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/), dan menyimpan presentasi sebagai presentasi OpenDocument:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ Skrip mencetak `Source format: Pptx` dan menulis `sample.odp`, yang berisi slide
 
 **Bagaimana cara membuka presentasi yang dilindungi kata sandi?**
 
-Buat objek [LoadOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/) , set properti [password](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/password/) , dan berikan objek tersebut sebagai argumen konstruktor ketiga: `new Presentation("protected.pptx", null, loadOptions)`. Tanpa kata sandi yang benar, konstruktor akan melempar error.
+Buat objek [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) , set properti [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) , dan berikan objek tersebut sebagai argumen konstruktor ketiga: `new Presentation("protected.pptx", null, loadOptions)`. Tanpa kata sandi yang benar, konstruktor akan melempar error.
 
 **Mengapa konstruktor melempar `Error` dengan pesan kosong?**
 

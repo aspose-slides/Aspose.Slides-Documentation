@@ -22,20 +22,20 @@ description: "Mengonversi presentasi PPTX, PPT, dan ODP ke PDF dalam JavaScript 
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for Node.js via .NET mengonversi presentasi PowerPoint dan OpenDocument ke PDF tanpa Microsoft PowerPoint. Setiap slide yang terlihat menjadi satu halaman PDF dengan ukuran yang sama dengan slide, dan teks tetap dapat dipilih serta dapat dicari. Artikel ini menunjukkan konversi default dan konversi ke PDF/A dengan [PdfOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET mengonversi presentasi PowerPoint dan OpenDocument ke PDF tanpa Microsoft PowerPoint. Setiap slide yang terlihat menjadi satu halaman PDF dengan ukuran yang sama dengan slide, dan teks tetap dapat dipilih serta dapat dicari. Artikel ini menunjukkan konversi default dan konversi ke PDF/A dengan [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 Contoh‑contoh mengharapkan sebuah presentasi bernama `sample.pptx` di folder proyek yang Anda siapkan di [Installation](/slides/id/nodejs-net/installation/). Presentasi PowerPoint apa saja dapat digunakan. Simpan tiap contoh sebagai file `.js` di folder proyek dan jalankan dari folder tersebut dengan `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET tidak memiliki referensi API tersendiri. Ia mencerminkan API Aspose.Slides for .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang cocok di [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/id/net/).
+Aspose.Slides for Node.js via .NET tidak memiliki referensi API tersendiri. Ia mencerminkan API Aspose.Slides for .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang cocok di [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Mengonversi Presentasi ke PDF**
 
 Untuk mengonversi presentasi ke PDF, ikuti langkah‑langkah berikut:
 
-1. Buka presentasi dengan memberikan jalurnya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/presentation/). Kode yang sama berfungsi untuk file PPTX, PPT, dan ODP.  
-2. Panggil metode [save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/) dengan jalur output dan `SaveFormat.Pdf`.  
+1. Buka presentasi dengan memberikan jalurnya ke konstruktor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Kode yang sama berfungsi untuk file PPTX, PPT, dan ODP.  
+2. Panggil metode [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) dengan jalur output dan `SaveFormat.Pdf`.  
 3. Panggil `dispose` dalam blok `finally` untuk melepaskan sumber daya .NET yang mendasari presentasi.
 
 ```javascript
@@ -54,7 +54,7 @@ Skrip menulis `sample.pdf` ke folder proyek. Konversi menggunakan pengaturan def
 
 ## **Mengonversi Presentasi ke PDF/A**
 
-Untuk mengendalikan output, berikan objek [PdfOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfoptions/) sebagai argumen ketiga `save`. Contoh berikut mengatur properti [compliance](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfoptions/compliance/) menjadi `PdfCompliance.PdfA2b`, yang menghasilkan berkas PDF/A-2b. PDF/A adalah standar ISO untuk pengarsipan jangka panjang: di antara aturan lainnya, standar ini mewajibkan setiap font yang digunakan dokumen disematkan dalam berkas.
+Untuk mengendalikan output, berikan objek [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) sebagai argumen ketiga `save`. Contoh berikut mengatur properti [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) menjadi `PdfCompliance.PdfA2b`, yang menghasilkan berkas PDF/A-2b. PDF/A adalah standar ISO untuk pengarsipan jangka panjang: di antara aturan lainnya, standar ini mewajibkan setiap font yang digunakan dokumen disematkan dalam berkas.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-Skrip menulis `sample-pdfa.pdf` dengan halaman yang sama seperti konversi default. Untuk memastikan sebuah berkas memenuhi standar, periksa dengan validator PDF/A seperti [veraPDF](https://verapdf.org/). Nilai [PdfCompliance](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfcompliance/) lainnya memilih standar lain, seperti `PdfA1b`, `PdfA2a`, atau `PdfUa` untuk aksesibilitas.
+Skrip menulis `sample-pdfa.pdf` dengan halaman yang sama seperti konversi default. Untuk memastikan sebuah berkas memenuhi standar, periksa dengan validator PDF/A seperti [veraPDF](https://verapdf.org/). Nilai [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) lainnya memilih standar lain, seperti `PdfA1b`, `PdfA2a`, atau `PdfUa` untuk aksesibilitas.
 
 ## **FAQ**
 
 **Bagaimana cara menyertakan slide tersembunyi dalam PDF?**
 
-Slide tersembunyi dilewati secara default. Atur properti [showHiddenSlides](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfoptions/showhiddenslides/) dari `PdfOptions` menjadi `true` dan berikan opsi tersebut ke `save`.
+Slide tersembunyi dilewati secara default. Atur properti [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) dari `PdfOptions` menjadi `true` dan berikan opsi tersebut ke `save`.
 
 **Apakah saya dapat melindungi PDF dengan kata sandi?**
 
-Ya. Atur properti [password](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfoptions/password/) dari `PdfOptions` sebelum memanggil `save`. Pembaca PDF kemudian akan meminta kata sandi tersebut sebelum membuka berkas.
+Ya. Atur properti [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) dari `PdfOptions` sebelum memanggil `save`. Pembaca PDF kemudian akan meminta kata sandi tersebut sebelum membuka berkas.
 
 **Apakah saya dapat mengonversi hanya sebagian slide?**
 

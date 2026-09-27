@@ -26,15 +26,15 @@ Aspose.Slides untuk Node.js via .NET merender slide dari presentasi PowerPoint d
 Contoh-contoh mengharapkan sebuah presentasi bernama `sample.pptx` di folder proyek yang Anda siapkan di [Instalasi](/slides/id/nodejs-net/installation/). Presentasi PowerPoint apa pun dapat digunakan. Simpan tiap contoh sebagai file `.js` di folder proyek dan jalankan dari folder tersebut dengan `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET has no API reference of its own. It mirrors the Aspose.Slides for .NET API with camelCase names, so the API links in this article lead to the matching classes and members in the [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/id/net/).
+Aspose.Slides for Node.js via .NET has no API reference of its own. It mirrors the Aspose.Slides for .NET API with camelCase names, so the API links in this article lead to the matching classes and members in the [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 Untuk mengonversi slide menjadi gambar, ikuti langkah-langkah berikut:
 
-1. Buka presentasi dengan konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/presentation/).
-1. Dapatkan slide dari koleksi [slides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slides/id/) dengan `get(index)`. Indeks dimulai dari 0.
-1. Render slide dengan `getImageWithScale` atau `getImageWithImageSize`. Dalam referensi API .NET, keduanya merupakan overload dari [Slide.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/slide/getimage/). Mereka mengembalikan objek gambar yang sesuai dengan [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/).
-1. Simpan gambar dengan metode [save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/save/) dan nilai [ImageFormat](https://reference.aspose.com/slides/id/net/aspose.slides/imageformat/), lalu panggil metode `dispose`-nya.
+1. Buka presentasi dengan konstruktor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+1. Dapatkan slide dari koleksi [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) dengan `get(index)`. Indeks dimulai dari 0.
+1. Render slide dengan `getImageWithScale` atau `getImageWithImageSize`. Dalam referensi API .NET, keduanya merupakan overload dari [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Mereka mengembalikan objek gambar yang sesuai dengan [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+1. Simpan gambar dengan metode [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) dan nilai [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), lalu panggil metode `dispose`-nya.
 
 ## **Konversi Setiap Slide ke Gambar PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Skrip menulis satu file per slide, `slide_1.png`, `slide_2.png`, dan seterusnya, dengan penomoran mulai dari 1. Untuk presentasi 16:9 dengan slide berukuran 960 × 540 poin, tiap gambar berukuran 1920 × 1080 piksel. Slide yang tersembunyi juga dirender; untuk melewatkannya, periksa properti [hidden](https://reference.aspose.com/slides/id/net/aspose.slides/slide/hidden/) slide. Setiap gambar dibebaskan dalam blok `finally` masing‑masing, yang melepaskannya sebelum slide berikutnya dirender. Tanpa lisensi, gambar juga menampilkan watermark evaluasi; lihat [Lisensi](/slides/id/nodejs-net/licensing/).
+Skrip menulis satu file per slide, `slide_1.png`, `slide_2.png`, dan seterusnya, dengan penomoran mulai dari 1. Untuk presentasi 16:9 dengan slide berukuran 960 × 540 poin, tiap gambar berukuran 1920 × 1080 piksel. Slide yang tersembunyi juga dirender; untuk melewatkannya, periksa properti [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) slide. Setiap gambar dibebaskan dalam blok `finally` masing‑masing, yang melepaskannya sebelum slide berikutnya dirender. Tanpa lisensi, gambar juga menampilkan watermark evaluasi; lihat [Lisensi](/slides/id/nodejs-net/licensing/).
 
 ## **Konversi Slide ke Gambar dengan Ukuran Tertentu**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-Properti [slideSize.size](https://reference.aspose.com/slides/id/net/aspose.slides/slidesize/size/) mengembalikan lebar dan tinggi slide dalam poin. Untuk presentasi 16:9, skrip mencetak `Saved a 1280 x 720 image` dan menulis `slide_1_1280px.png`; untuk presentasi 4:3, gambar berukuran 1280 × 960 piksel.
+Properti [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) mengembalikan lebar dan tinggi slide dalam poin. Untuk presentasi 16:9, skrip mencetak `Saved a 1280 x 720 image` dan menulis `slide_1_1280px.png`; untuk presentasi 4:3, gambar berukuran 1280 × 960 piksel.
 
 ## **FAQ**
 

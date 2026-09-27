@@ -27,15 +27,15 @@ Artikel ini menunjukkan cara membuat presentasi dengan Aspose.Slides untuk Node.
 Contoh-contoh memerlukan proyek yang disiapkan seperti dijelaskan di [Instalasi](/slides/id/nodejs-net/installation/). Simpan setiap contoh sebagai file `.js` di folder proyek dan jalankan dari folder itu dengan `node`, misalnya `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides untuk Node.js via .NET tidak memiliki referensi API sendiri. Ia mencerminkan API Aspose.Slides untuk .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang cocok di [Referensi API Aspose.Slides untuk .NET](https://reference.aspose.com/slides/id/net/).
+Aspose.Slides untuk Node.js via .NET tidak memiliki referensi API sendiri. Ia mencerminkan API Aspose.Slides untuk .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang cocok di [Referensi API Aspose.Slides untuk .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Buat Presentasi dengan Kotak Teks**
 
-1. Buat instance dari kelas [Presentasi](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
-2. Dapatkan slide tersebut dari koleksi [slides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slides/id/). Koleksi dalam paket ini dibaca dengan `get(index)`, dan indeks dimulai dari 0.  
-3. Tambahkan sebuah persegi panjang dengan metode [addAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/shapecollection/addautoshape/) dan atur [text](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/text/) pada [textFrame](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/textframe/) miliknya.  
-4. Simpan presentasi dengan metode [save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/) dan nilai `SaveFormat.Pptx`.  
+1. Buat instance dari kelas [Presentasi](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
+2. Dapatkan slide tersebut dari koleksi [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). Koleksi dalam paket ini dibaca dengan `get(index)`, dan indeks dimulai dari 0.  
+3. Tambahkan sebuah persegi panjang dengan metode [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) dan atur [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) pada [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) miliknya.  
+4. Simpan presentasi dengan metode [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) dan nilai `SaveFormat.Pptx`.  
 5. Panggil `dispose` dalam blok `finally` untuk melepaskan sumber daya .NET yang mendukung presentasi.
 
 ```javascript
@@ -60,7 +60,7 @@ Skrip menulis `new-presentation.pptx` ke folder proyek. File tersebut memiliki s
 
 ## **Tambah Slide**
 
-Presentasi baru memiliki satu slide. Untuk menambahkan lebih banyak, berikan slide tata letak ke metode [addEmptySlide](https://reference.aspose.com/slides/id/net/aspose.slides/slidecollection/addemptyslide/) dari koleksi `slides`. Metode [getByType](https://reference.aspose.com/slides/id/net/aspose.slides/layoutslidecollection/getbytype/) dari koleksi [layoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/layoutslides/) mengembalikan tata letak pertama dari [SlideLayoutType](https://reference.aspose.com/slides/id/net/aspose.slides/slidelayouttype/) yang diberikan.
+Presentasi baru memiliki satu slide. Untuk menambahkan lebih banyak, berikan slide tata letak ke metode [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) dari koleksi `slides`. Metode [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) dari koleksi [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) mengembalikan tata letak pertama dari [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) yang diberikan.
 
 Contoh berikut menambahkan dua slide dengan tata letak Blank:
 
@@ -84,7 +84,7 @@ Skrip mencetak `Slide count: 3` dan menulis `three-slides.pptx`. Slide baru dita
 
 ## **Atur Ukuran Slide**
 
-Presentasi baru menggunakan slide 4:3 yang berukuran 720 × 540 poin (10 × 7,5 inci). Untuk membuat slide layar lebar, panggil metode [setSize](https://reference.aspose.com/slides/id/net/aspose.slides/slidesize/setsize/) dari [slideSize](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slidesize/) presentasi dengan nilai [SlideSizeType](https://reference.aspose.com/slides/id/net/aspose.slides/slidesizetype/) dan nilai [SlideSizeScaleType](https://reference.aspose.com/slides/id/net/aspose.slides/slidesizescaletype/). Tipe skala memberi tahu Aspose.Slides apa yang harus dilakukan dengan bentuk yang sudah ada di slide; `DoNotScale` membiarkannya apa adanya, yang merupakan pilihan tepat untuk presentasi yang belum memiliki konten.
+Presentasi baru menggunakan slide 4:3 yang berukuran 720 × 540 poin (10 × 7,5 inci). Untuk membuat slide layar lebar, panggil metode [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) dari [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) presentasi dengan nilai [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) dan nilai [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). Tipe skala memberi tahu Aspose.Slides apa yang harus dilakukan dengan bentuk yang sudah ada di slide; `DoNotScale` membiarkannya apa adanya, yang merupakan pilihan tepat untuk presentasi yang belum memiliki konten.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -112,7 +112,7 @@ Dalam poin. Satu inci adalah 72 poin, sehingga slide default 4:3 berukuran 720 �
 
 **Format apa yang dapat saya simpan untuk presentasi baru?**
 
-Nilai apa pun dari enumerasi [SaveFormat](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/), misalnya `SaveFormat.Ppt` untuk PowerPoint 97–2003, `SaveFormat.Odp` untuk OpenDocument, atau `SaveFormat.Pdf`. Untuk output PDF, lihat [Konversi PowerPoint ke PDF](/slides/id/nodejs-net/convert-powerpoint-to-pdf/).
+Nilai apa pun dari enumerasi [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), misalnya `SaveFormat.Ppt` untuk PowerPoint 97–2003, `SaveFormat.Odp` untuk OpenDocument, atau `SaveFormat.Pdf`. Untuk output PDF, lihat [Konversi PowerPoint ke PDF](/slides/id/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Mengapa presentasi yang disimpan berisi teks "Evaluation only"?**
 

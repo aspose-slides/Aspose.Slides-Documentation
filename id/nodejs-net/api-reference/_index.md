@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET didokumentasikan oleh referensi
 ---
 ## **Ikhtisar**
 
-Aspose.Slides for Node.js via .NET tidak memiliki referensi API tersendiri. Paket ini mengekspos kelas‑kelas Aspose.Slides untuk .NET ke JavaScript dengan nama yang sama, dengan nama anggota camelCase, sehingga [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/id/net/) mendokumentasikan kelas, anggota, dan enumerasinya.
+Aspose.Slides for Node.js via .NET tidak memiliki referensi API tersendiri. Paket ini mengekspos kelas‑kelas Aspose.Slides untuk .NET ke JavaScript dengan nama yang sama, dengan nama anggota camelCase, sehingga [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) mendokumentasikan kelas, anggota, dan enumerasinya.
 
 ## **Pemetaan Nama .NET ke JavaScript**
 
@@ -52,4 +52,4 @@ try {
 
 Script ini menulis `slide.png` dan `slide.pdf` ke folder saat ini. Keduanya menampilkan persegi panjang dengan teksnya. Tanpa lisensi, mereka juga menampilkan watermark evaluasi; lihat [Licensing](/slides/id/nodejs-net/licensing/).
 
-Untuk detail tentang anggota yang digunakan di sini, lihat [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/text/) dan [Slide.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/slide/getimage/) di referensi API Aspose.Slides untuk .NET.
+Untuk detail tentang anggota yang digunakan di sini, lihat [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) dan [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) di referensi API Aspose.Slides untuk .NET.

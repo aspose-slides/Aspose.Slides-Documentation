@@ -31,12 +31,12 @@ Artikel ini menambahkan kotak teks ke sebuah slide dan menyimpan presentasi. Kem
 Contoh‑contoh memerlukan proyek yang disiapkan seperti yang dijelaskan dalam [Instalasi](/slides/id/nodejs-net/installation/). Simpan setiap contoh sebagai file `.js` di folder proyek dan jalankan dari folder itu dengan `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides untuk Node.js via .NET tidak memiliki referensi API tersendiri. Ia mencerminkan API Aspose.Slides untuk .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang sesuai dalam [referensi API Aspose.Slides untuk .NET](https://reference.aspose.com/slides/id/net/).
+Aspose.Slides untuk Node.js via .NET tidak memiliki referensi API tersendiri. Ia mencerminkan API Aspose.Slides untuk .NET dengan nama camelCase, sehingga tautan API dalam artikel ini mengarah ke kelas dan anggota yang sesuai dalam [referensi API Aspose.Slides untuk .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Menambahkan Kotak Teks**
 
-Untuk menambahkan kotak teks, tambahkan auto shape ke slide dengan metode [addAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/shapecollection/addautoshape/) dan berikan teks dengan metode [addTextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/addtextframe/). Contoh berikut menambahkan persegi panjang ke slide pertama dari presentasi baru dan menyimpan presentasi sebagai `text-box.pptx`:
+Untuk menambahkan kotak teks, tambahkan auto shape ke slide dengan metode [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) dan berikan teks dengan metode [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). Contoh berikut menambahkan persegi panjang ke slide pertama dari presentasi baru dan menyimpan presentasi sebagai `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ Slide dalam `text-box.pptx` berisi persegi panjang berukuran 500 poin lebar dan 
 
 ## **Mengubah Teks dan Pemformatannya**
 
-Contoh berikut membuka `text-box.pptx`, yang dibuat pada contoh sebelumnya, dan mengambil shape pertama pada slide pertama. Shape seperti gambar dan tabel tidak memiliki teks frame, sehingga contoh memeriksa apakah shape tersebut merupakan [AutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) sebelum menggunakan [textFrame](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/textframe/) milik shape. Selanjutnya dilakukan hal‑hal berikut:
+Contoh berikut membuka `text-box.pptx`, yang dibuat pada contoh sebelumnya, dan mengambil shape pertama pada slide pertama. Shape seperti gambar dan tabel tidak memiliki teks frame, sehingga contoh memeriksa apakah shape tersebut merupakan [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) sebelum menggunakan [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) milik shape. Selanjutnya dilakukan hal‑hal berikut:
 
-1. Mengganti teks melalui properti [text](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/text/) pada teks frame. Setelah itu, teks frame berisi satu paragraf dengan satu portion.
-2. Mengambil portion tersebut dari koleksi [paragraphs](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/paragraphs/) dan [portions](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/portions/) serta membaca [portionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/portion/portionformat/).
-3. Menetapkan [fontHeight](https://reference.aspose.com/slides/id/net/aspose.slides/baseportionformat/fontheight/), ukuran font dalam poin, dan [fontBold](https://reference.aspose.com/slides/id/net/aspose.slides/baseportionformat/fontbold/), yang menerima nilai [NullableBool](https://reference.aspose.com/slides/id/net/aspose.slides/nullablebool/).
+1. Mengganti teks melalui properti [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) pada teks frame. Setelah itu, teks frame berisi satu paragraf dengan satu portion.
+2. Mengambil portion tersebut dari koleksi [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) dan [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) serta membaca [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).
+3. Menetapkan [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), ukuran font dalam poin, dan [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), yang menerima nilai [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

@@ -11,7 +11,7 @@ Aspose.Slides untuk Node.js via .NET adalah satu paket npm untuk evaluasi maupun
 
 {{% alert color="info" title="Note" %}}
 
-Kebijakan umum tentang cara mengevaluasi, melisensikan, dan membeli produk Aspose dikumpulkan dalam [Kebijakan Pembelian dan FAQ](https://purchase.aspose.com/policies). Harga terdaftar pada [Informasi Harga](https://purchase.aspose.com/pricing/slides/id/family) halaman.
+Kebijakan umum tentang cara mengevaluasi, melisensikan, dan membeli produk Aspose dikumpulkan dalam [Kebijakan Pembelian dan FAQ](https://purchase.aspose.com/policies). Harga terdaftar pada [Informasi Harga](https://purchase.aspose.com/pricing/slides/family) halaman.
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ Nama file atau jalur relatif akan diselesaikan berdasarkan folder saat ini, yait
 
 Jika file tidak dapat ditemukan, atau bukan lisensi yang sah, `setLicense` akan melemparkan error, dan Aspose.Slides tetap berada dalam mode evaluasi. Skrip menangkapi error tersebut dan mencetak pesannya. Untuk file yang hilang, pesan dimulai dengan `License "Aspose.Slides.lic" doesn't exist or access is restricted.` dan mencantumkan setiap lokasi yang dicari.
 
-Dalam paket ini, lisensi hanya diterapkan dari file. `License` tidak menerima stream, dan paket tidak mengekspos lisensi berbasis meteran. Untuk kelas yang dibungkus paket ini, lihat [Lisensi](https://reference.aspose.com/slides/id/net/aspose.slides/license/) dalam referensi API Aspose.Slides untuk .NET.
+Dalam paket ini, lisensi hanya diterapkan dari file. `License` tidak menerima stream, dan paket tidak mengekspos lisensi berbasis meteran. Untuk kelas yang dibungkus paket ini, lihat [Lisensi](https://reference.aspose.com/slides/net/aspose.slides/license/) dalam referensi API Aspose.Slides untuk .NET.
