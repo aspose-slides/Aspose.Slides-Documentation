@@ -7,39 +7,46 @@ keywords:
 - đánh giá Aspose.Slides
 - đánh giá Aspose.Slides
 - phiên bản đánh giá
-- tính năng đầy đủ
-- đánh dấu bản quyền đánh giá
+- chức năng đầy đủ
+- watermark đánh giá
 - mua Aspose.Slides
 - hạn chế
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình bày
 - C++
 - Aspose.Slides
-description: "Đánh giá Aspose.Slides cho C++ và khám phá các tính năng API cho các bài thuyết trình PowerPoint (PPT, PPTX) và OpenDocument (ODP) — bắt đầu dùng thử miễn phí."
+description: "Đánh giá Aspose.Slides cho C++ và khám phá các tính năng API cho các bản trình bày PowerPoint (PPT, PPTX) và OpenDocument (ODP) — bắt đầu dùng thử miễn phí của bạn."
 ---
-## **Aspose.Slides Evaluation**
+## **Đánh giá Aspose.Slides**
 
-Bạn có thể dễ dàng tải xuống Aspose.Slides để đánh giá. Bản tải xuống cho đánh giá giống như bản đã mua. Phiên bản đánh giá sẽ trở thành có giấy phép khi bạn thêm một vài dòng mã để áp dụng giấy phép.
+Bạn có thể tải xuống Aspose.Slides để đánh giá. Gói đánh giá giống với gói đã mua; nó sẽ được cấp phép sau khi bạn thêm một vài dòng mã để áp dụng giấy phép, như được mô tả trong [Cấp phép](/slides/vi/cpp/licensing/).
 
-Phiên bản đánh giá của Aspose.Slides (không chỉ định giấy phép) cung cấp đầy đủ chức năng sản phẩm, nhưng nó chèn một dấu bản quyền đánh giá ở đầu tài liệu khi mở và lưu, và giới hạn chỉ một slide khi trích xuất văn bản từ các slide của bài thuyết trình.
+Nếu không có giấy phép, Aspose.Slides cung cấp đầy đủ tính năng ở chế độ đánh giá, nhưng có hai hạn chế:
 
-![todo:image_alt_text](evaluate-aspose.slides-001.png)
+* Nó thêm một hộp văn bản watermark đánh giá vào giữa mỗi slide của mọi bản trình bày mà nó lưu. Khi mở một bản trình bày không có watermark mới được thêm, nhưng watermark đã lưu trước sẽ được tải lại dưới dạng một hình dạng trên slide. Vì vậy nếu bạn mở một bản trình bày đã được lưu ở chế độ đánh giá và lưu lại lần nữa, mỗi slide sẽ có hai watermark.
+* Văn bản mà mã của bạn đọc từ một bản trình bày sẽ bị cắt ngắn chỉ còn vài ký tự đầu, kèm theo một thông báo về hạn chế của chế độ đánh giá. Điều này áp dụng cho mọi slide, và cả văn bản mà mã của bạn vừa thiết lập. Văn bản mà mã của bạn ghi sẽ được lưu đầy đủ.
 
-{{% alert color="primary" %}}
-Nếu bạn muốn thử Aspose.Slides mà không có các hạn chế của phiên bản đánh giá, bạn cũng có thể yêu cầu Giấy phép tạm thời 30 ngày. Vui lòng tham khảo [Cách nhận Giấy phép Tạm thời?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Note" %}}
+
+Nếu bạn muốn kiểm tra Aspose.Slides mà không gặp các hạn chế của phiên bản đánh giá, bạn cũng có thể yêu cầu Giấy phép tạm thời 30 ngày. Vui lòng tham khảo [Cách nhận Giấy phép Tạm thời?](https://purchase.aspose.com/temporary-license)
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Tôi có thể thử nghiệm nhiều bài thuyết trình đồng thời trên các luồng khác nhau trong chế độ đánh giá không?**  
-Có. Bạn có thể xử lý các tài liệu khác nhau đồng thời; bạn không nên chia sẻ cùng một đối tượng presentation [trên các luồng](/slides/vi/cpp/multithreading/). Chế độ đánh giá không ảnh hưởng đến điều này.
+### Tôi có thể kiểm tra nhiều bản trình bày đồng thời trên các luồng khác nhau trong chế độ đánh giá không?
 
-**Tôi có cần cài đặt Microsoft PowerPoint để đánh giá thư viện trên máy chủ hoặc trong CI không?**  
-Không. Aspose.Slides là một engine độc lập và không yêu cầu PowerPoint được cài đặt cho cả đánh giá và sản xuất.
+Có. Bạn có thể xử lý các tài liệu khác nhau song song; không nên chia sẻ cùng một đối tượng bản trình bày [trên các luồng](/slides/vi/cpp/multithreading/). Chế độ đánh giá không ảnh hưởng đến điều này.
 
-**Tôi có thể hoàn toàn kiểm tra chuyển đổi PPT/PPTX sang PDF và ảnh trong chế độ đánh giá không?**  
-Có. Các [bộ chuyển đổi](/slides/vi/cpp/convert-presentation/) hoạt động; kết quả sẽ bao gồm một dấu bản quyền.
+### Tôi có cần cài đặt Microsoft PowerPoint để đánh giá thư viện trên máy chủ hoặc trong CI không?
 
-**Tôi có thể sử dụng giấy phép tạm thời để kiểm tra tải mà không có dấu bản quyền không?**  
-Có. Giấy phép tạm thời 30 ngày loại bỏ các hạn chế của chế độ đánh giá và cho phép kiểm tra mà không có dấu bản quyền.
+Không. Aspose.Slides là một động cơ độc lập và không yêu cầu cài đặt PowerPoint cho cả chế độ đánh giá và sản xuất.
+
+### Tôi có thể kiểm tra đầy đủ việc chuyển đổi PPT/PPTX sang PDF và hình ảnh trong chế độ đánh giá không?
+
+Có. Các [bộ chuyển đổi](/slides/vi/cpp/convert-presentation/) hoạt động; đầu ra sẽ bao gồm watermark.
+
+### Tôi có thể sử dụng giấy phép tạm thời để tải thử nghiệm mà không có watermark không?
+
+Có. Giấy phép tạm thời 30 ngày loại bỏ các hạn chế của chế độ đánh giá và cho phép kiểm tra mà không có watermark.

@@ -7,74 +7,143 @@ keywords:
 - installera Aspose.Slides
 - ladda ner Aspose.Slides
 - använd Aspose.Slides
-- Aspose.Slides installation
+- Aspose.Slides-installation
+- NuGet
+- CMake
 - Windows
+- Linux
 - PowerPoint
 - OpenDocument
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig hur du snabbt installerar Aspose.Slides för C++. Steg-för-steg-guide, systemkrav och kodexempel — börja arbeta med PowerPoint-presentationer idag!"
+description: "Installera Aspose.Slides för C++ på Windows från NuGet i Visual Studio, eller på Linux från ZIP-paketet med CMake, och kontrollera installationen med ett första program."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du installerar Aspose.Slides på Windows. Den fokuserar på NuGet‑baserad installation och visar hur du lägger till biblioteket i ett Visual Studio‑projekt antingen via NuGet Package Manager eller Package Manager Console på Windows. Den beskriver också hur du uppdaterar paketet och installerar förhandsutgåvor när det behövs.
+Aspose.Slides for C++ is distributed in two forms:
+
+| Form | Använd den för | Var får du den |
+|---|---|---|
+| NuGet-paket: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64-bit) and [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32-bit) | Visual Studio C++‑projekt på Windows | NuGet |
+| ZIP‑paket för Windows, Linux och macOS | Byggningar utan NuGet, t.ex. CMake‑projekt | [nedladdningssidan](https://releases.aspose.com/slides/sv/cpp/) |
+
+This article shows how to install the NuGet package in Visual Studio on Windows and how to use the ZIP package with CMake on Linux. Both routes end with the same check: build and run the first example in [Create Presentations](/slides/sv/cpp/create-presentation/).
 
 ## **Windows**
-NuGet erbjuder den enklaste vägen för att ladda ner och installera Aspose API:er för C++ på PC:n. 
 
-### **Alternativ ett: Installera eller uppdatera Aspose.Slides för C++ från NuGet Package Manager**
+På Windows lägger du till NuGet‑paketet i ett Visual Studio C++‑project. Paketet installerar också dess beroende, CodePorting.Translator.Cs2Cpp.Framework, och kopierar DLL‑filerna som ditt program behöver till byggoutput‑mappen.
 
-1. Öppna Microsoft Visual Studio. 
-2. Skapa en enkel konsolapplikation. Eller så kan du öppna ditt föredragna projekt. 
-3. Gå via **Tools** > **NuGet package manager**.
-4. Under **Browse**, skriv *Aspose.Slides.Cpp* i textfältet. 
+Välj paketet efter den plattform du bygger för: **Aspose.Slides.Cpp** för x64, och **Aspose.Slides.Cpp.x86** för Win32 (x86). Paketet Aspose.Slides.Cpp tillämpas inte på en Win32‑byggnation, så kompilatorn kan inte hitta dess rubriker där.
 
-![todo:image_alt_text](installation_1.png)
+Ett Windows ZIP‑paket finns också tillgängligt på [nedladdningssidan](https://releases.aspose.com/slides/sv/cpp/).
 
-3. Klicka på den version du behöver **Aspose.Slides.Cpp** och klicka sedan på **Install**. 
-   * Om du vill uppdatera Aspose.Slides—vilket betyder att du redan har det installerat—klicka på **Update** istället. 
+### **Metod 1: Installera eller uppdatera Aspose.Slides från NuGet‑pakethanteraren**
 
-Det valda API:et laddas ner och refereras i ditt projekt.
+1. Öppna Microsoft Visual Studio.
+2. Skapa ett C++ **Console App**‑projekt, eller öppna ett befintligt projekt.
+3. I **Solution Explorer**, högerklicka på projektet och välj **Manage NuGet Packages** (eller gå till **Project** > **Manage NuGet Packages**).
+4. Under **Browse**, sök efter *Aspose.Slides.Cpp*.
+![Söker efter Aspose.Slides.Cpp i NuGet‑pakethanteraren](installation_1.png)
+5. Klicka på **Aspose.Slides.Cpp** (eller **Aspose.Slides.Cpp.x86** för en 32‑bit‑byggnation) och klicka sedan på **Install**.
+   * Om du redan har installerat Aspose.Slides och vill uppdatera det, klicka på **Update** istället.
 
-### **Alternativ 2: Installera eller uppdatera Aspose.Slides via Package Manager Console**
+Paketet laddas ner och refereras i ditt projekt.
 
-För att referera till [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.Cpp/) med hjälp av package manager console, gör så här:
+### **Metod 2: Installera eller uppdatera Aspose.Slides via Package Manager Console**
 
-1. Öppna din lösning/projekt i Visual Studio.
+1. Öppna Microsoft Visual Studio.
+2. Skapa ett C++ **Console App**‑projekt, eller öppna ett befintligt projekt.
+3. Gå till **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+![Öppnar Package Manager Console](installation_2.png)
+4. Kör detta kommando:
 
-1. Gå via **Tools** > **NuGet Package Manager** > **Package Manager Console**. 
+   ```powershell
+   Install-Package Aspose.Slides.Cpp
+   ```
 
-Package Manager Console öppnas. 
+   För en 32‑bit (Win32) byggnation, installera x86‑paketet istället:
 
-![todo:image_alt_text](installation_2.png)
+   ```powershell
+   Install-Package Aspose.Slides.Cpp.x86
+   ```
 
-4. Skriv detta kommando: `Install-Package Aspose.Slides.Cpp` 
-> Om du vill installera x86‑versionen, använd paketet Aspose.Slides.Cpp.x86: `Install-Package Aspose.Slides.Cpp.x86`
+![Kör Install-Package‑kommandot](installation_3.png)
 
-5. Tryck på Enter. 
+När installationen är klar visas bekräftelsemeddelanden. Paketet distribueras enligt [Aspose EULA](https://about.aspose.com/legal/eula).
+![Bekräftelsemeddelanden för installation](installation_4.png)
 
-Den senaste fullständiga utgåvan installeras i din applikation. 
+För att uppdatera paketet, kör `Update-Package Aspose.Slides.Cpp` (eller `Update-Package Aspose.Slides.Cpp.x86`) i Package Manager Console.
 
-* Alternativt kan du lägga till suffixet `-prerelease` i kommandot för att ange att den senaste utgåvan (inklusive hotfixar) också ska installeras som helhet.
+### **Kontrollera installationen**
 
-![todo:image_alt_text](installation_3.png)
+1. Ersätt innehållet i projektets huvud‑*.cpp*-fil (filen som innehåller `main`) med det första exemplet i [Skapa presentationer](/slides/sv/cpp/create-presentation/).
+2. I verktygsfältet väljer du plattformen **x64**, eller **x86** om du installerade Aspose.Slides.Cpp.x86.
+3. Tryck på **Ctrl+F5** för att bygga och köra programmet.
 
-När nedladdningen är klar bör du se några bekräftelsemeddelanden.  
+Programmet sparar *hello.pptx* i projektmappen, vilket är standardarbetskatalogen när Visual Studio kör ett program.
 
-![todo:image_alt_text](installation_4.png)
+## **Linux**
 
-Om du inte är bekant med [Aspose EULA](https://about.aspose.com/legal/eula) kanske du vill läsa licensen som refereras i URL:en. 
+På Linux används Linux‑ZIP‑paketet med CMake. Det innehåller Aspose.Slides‑biblioteket, dess beroende CodePorting.Translator.Cs2Cpp.Framework och en CMake‑konfigurationsfil för var och en av dem. Biblioteken är byggda för x86_64‑Linux med glibc 2.23 eller senare.
 
-I Package Manager Console kan du köra kommandot `Update-Package Aspose.Slides.Cpp` för att kontrollera uppdateringar av Aspose.Slides‑paketet. Uppdateringar (om de finns) installeras automatiskt. Du kan också använda suffixet `-prerelease` för att uppdatera den senaste utgåvan.
+1. Installera en C++‑kompilator, make, CMake, unzip och fontconfig‑biblioteket, som Aspose.Slides‑biblioteken är beroende av. På Debian och Ubuntu:
 
-### **Använda Include- och lib‑mappar**
-1. [Download](https://downloads.aspose.com/slides/sv/cpp) den senaste versionen av Aspose.Slides för C++.
-1. Packa upp mappen till produktionsmiljön.
-1. För att använda Aspose.Slides för C++, referera Include- och lib‑mapparna i ditt projekt
+   ```bash
+   sudo apt-get update && sudo apt-get install -y g++ make cmake unzip libfontconfig1
+   ```
+
+2. Skapa en projektmapp och gå in i den:
+
+   ```bash
+   mkdir hello-slides
+   cd hello-slides
+   ```
+
+3. Ladda ner Linux‑ZIP‑paketet (**Aspose.Slides for C++ Linux**) från [nedladdningssidan](https://releases.aspose.com/slides/sv/cpp/) till projektmappen och packa upp det i underkatalogen *aspose-slides-cpp*:
+
+   ```bash
+   unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp
+   ```
+
+4. Skapa en fil med namnet *CMakeLists.txt* i projektmappen med följande innehåll:
+
+   ```cmake
+   cmake_minimum_required(VERSION 3.13)
+   project(HelloSlides CXX)
+
+   set(CMAKE_CXX_STANDARD 14)
+   set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+   set(ASPOSE_SLIDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/aspose-slides-cpp")
+   find_package(CodePorting.Translator.Cs2Cpp.Framework REQUIRED CONFIG PATHS "${ASPOSE_SLIDES_DIR}" NO_DEFAULT_PATH)
+   find_package(Aspose.Slides.Cpp REQUIRED CONFIG PATHS "${ASPOSE_SLIDES_DIR}" NO_DEFAULT_PATH)
+
+   add_executable(hello main.cpp)
+   target_link_libraries(hello PRIVATE Aspose.Slides.Cpp)
+   ```
+
+   De två `find_package`‑anropen läser in CMake‑konfigurationsfilerna från det uppackade paketet. Ramverket hittas först eftersom Aspose.Slides är beroende av det. Länkning av mål `Aspose.Slides.Cpp` lägger till inkluderingsmapparna och båda biblioteken i bygget.
+
+5. Spara det första exemplet i [Skapa presentationer](/slides/sv/cpp/create-presentation/) som *main.cpp* i projektmappen.
+6. Bygg och kör programmet:
+
+   ```bash
+   cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+   cmake --build build
+   ./build/hello
+   ```
+
+Programmet sparar *hello.pptx* i den aktuella mappen. CMake lagrar bibliotekens plats i programmet, så du behöver inte sätta `LD_LIBRARY_PATH` så länge *aspose-slides-cpp*-mappen förblir på plats.
+
+Typsnitten som används i dina presentationer, eller lämpliga ersättningar, måste vara installerade på systemet för att text ska renderas korrekt när du konverterar bilder till PDF eller bildfiler.
 
 ## **FAQ**
 
 **Finns det en gratis version eller begränsning i provperioden?**
 
-Ja, som standard kör Aspose.Slides i evalueringsläge, vilket lägger till vattenstämplar och kan ha andra begränsningar. För att ta bort begränsningarna måste du tillämpa en giltig [license](/slides/sv/cpp/licensing/).
+Ja. Utan licens kör Aspose.Slides i evalueringsläge: det lägger till ett evalueringsvattenmärke på varje bild den sparar och trunkerar text som läses från presentationer. För att ta bort dessa begränsningar, tillämpa en giltig [licens](/slides/sv/cpp/licensing/).
+
+**Varför rapporterar kompilatorn att den inte kan öppna *DOM/Presentation.h*?**
+
+Det installerade paketet matchar inte plattformen du bygger för. Aspose.Slides.Cpp gäller endast för x64‑byggen, och Aspose.Slides.Cpp.x86 endast för Win32‑byggen. Välj rätt plattform i Visual Studio, eller installera det andra paketet.
