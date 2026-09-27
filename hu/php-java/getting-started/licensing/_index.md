@@ -59,7 +59,7 @@ Be kell állítania a licencet:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Ár információkat a [Ár információ](https://purchase.aspose.com/pricing/slides/hu/family) oldalon találja.
+Ár információkat a [Ár információ](https://purchase.aspose.com/pricing/slides/family) oldalon találja.
 {{% /alert %}}
 
 ### **Licenc beállítása az Aspose.Slides PHP (Java) verziójában**

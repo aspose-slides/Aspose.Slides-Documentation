@@ -154,7 +154,7 @@ A PHP nem tudta betölteni a `Java.inc` fájlt a Tomcat‑ról. Ha az üzenet el
 
 **Hogyan korlátozhatom a memóriafogyasztást nagy prezentációk feldolgozása közben?**
 
-Emelje csak annyira a JVM memória korlátját, amennyire szükség van, és minden [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt zárjon le egy `finally` blokkban a gyors gyorsítótár felszabadításáért. Ez megakadályozza a memória‑elfogyási hibákat, és a kötegelt műveletek során előre látható memóriahasználatot biztosít.
+Emelje csak annyira a JVM memória korlátját, amennyire szükség van, és minden [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) példányt zárjon le egy `finally` blokkban a gyors gyorsítótár felszabadításáért. Ez megakadályozza a memória‑elfogyási hibákat, és a kötegelt műveletek során előre látható memóriahasználatot biztosít.
 
 **Kizárhatok-e nem kívánt exportformátumokat a végső JAR méretének csökkentése érdekében?**
 

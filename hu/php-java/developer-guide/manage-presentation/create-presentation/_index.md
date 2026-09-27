@@ -30,10 +30,10 @@ Mielőtt elkezdené, telepítse az Aspose.Slides for PHP via Java csomagot a Com
 
 A bemutató létrehozásához és egy szövegdoboz elhelyezéséhez az első diapont, kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból. Egy új bemutató már egy üres diát tartalmaz.
-2. Szerezze meg ezt a diát a [Presentation::getSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/getslides/) által visszaadott gyűjteményből, indexével, 0.
-3. Adjon hozzá egy téglalapot a [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addautoshape/) metódussal, és állítsa be a szövegét a [TextFrame::setText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/settext/) segítségével.
-4. Mentse a bemutatót PPTX fájlként a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/save/) metódussal.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból. Egy új bemutató már egy üres diát tartalmaz.
+2. Szerezze meg ezt a diát a [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) által visszaadott gyűjteményből, indexével, 0.
+3. Adjon hozzá egy téglalapot a [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) metódussal, és állítsa be a szövegét a [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/) segítségével.
+4. Mentse a bemutatót PPTX fájlként a [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) metódussal.
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Az Aspose.Slides a Tomcaton belül olvas és ír fájlokat, nem a PHP folyamatba
 
 ## **Bemutató létrehozása és mentése**
 
-Üres bemutató létrehozásához és mentéséhez hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból, és mentse bármely a [SaveFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/) felsorolásban szereplő formátumban. Az eredmény egy bemutató egy üres diával.
+Üres bemutató létrehozásához és mentéséhez hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból, és mentse bármely a [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) felsorolásban szereplő formátumban. Az eredmény egy bemutató egy üres diával.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Bemutató megnyitása és mentése**
 
-A bemutató egy formátumból egy másikba konvertálásához nyissa meg a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) konstruktorának az útvonal átadásával, majd mentse a célformátumban. Az Aspose.Slides a bemeneti formátumot, például PPT, PPTX vagy ODP, a fájlból veszi észre.
+A bemutató egy formátumból egy másikba konvertálásához nyissa meg a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) konstruktorának az útvonal átadásával, majd mentse a célformátumban. Az Aspose.Slides a bemeneti formátumot, például PPT, PPTX vagy ODP, a fájlból veszi észre.
 
 Az alábbi példa egy *Sample.odp* nevű OpenDocument bemutatót vár a szkript mellől, és PPTX formátumban menti.
 
@@ -127,7 +127,7 @@ Használjon [BLOB management strategies](/slides/hu/php-java/manage-blob/) strat
 
 ### Készíthetek/menthetek bemutatókat párhuzamosan?
 
-Nem működtethet ugyanazon a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányon [több szál](/slides/hu/php-java/multithreading/) esetén. Indítson külön, elszigetelt példányokat szálanként vagy folyamatokként.
+Nem működtethet ugyanazon a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) példányon [több szál](/slides/hu/php-java/multithreading/) esetén. Indítson külön, elszigetelt példányokat szálanként vagy folyamatokként.
 
 ### Hogyan távolíthatom el a próbavízjelet és a korlátozásokat?
 
