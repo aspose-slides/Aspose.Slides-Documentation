@@ -79,13 +79,13 @@ Aspose.Slides for Python via .NET เป็นไลบรารี Python ส�
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/th/python-net/">อ้างอิง API</a></li>
-<li><a href="https://releases.aspose.com/slides/th/python-net/release-notes/">บันทึกการอัปเดต</a></li>
-<li><a href="https://releases.aspose.com/slides/th/python-net/">ดาวน์โหลด</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">อ้างอิง API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">บันทึกการอัปเดต</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">ดาวน์โหลด</a></li>
 </ul>
 <p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบชำระเงิน</a></li>
 </ul>
 </div>

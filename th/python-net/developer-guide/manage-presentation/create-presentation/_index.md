@@ -29,10 +29,10 @@ description: "สร้างพรีเซนเทชัน PowerPoint ด้
 
 เพื่อสร้างพรีเซนเทชันและวางรูปทรงที่มีข้อความบนสไลด์แรก, ปฏิบัติตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/). พรีเซนเทชันใหม่จะมีสไลด์ว่างหนึ่งสไลด์อยู่แล้ว.
-2. ดึงสไลด์นั้นจากคอลเลกชัน [slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slides/th/) โดยใช้ดัชนี 0.
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปร่างเมฆโดยใช้เมธอด [add_auto_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_auto_shape/) ของคอลเลกชัน [shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/shapes/) ของสไลด์, และตั้งค่า [text](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/text/).
-4. บันทึกพรีเซนเทชันเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/save/).
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). พรีเซนเทชันใหม่จะมีสไลด์ว่างหนึ่งสไลด์อยู่แล้ว.
+2. ดึงสไลด์นั้นจากคอลเลกชัน [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) โดยใช้ดัชนี 0.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) รูปร่างเมฆโดยใช้เมธอด [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) ของคอลเลกชัน [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) ของสไลด์, และตั้งค่า [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+4. บันทึกพรีเซนเทชันเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### ฉันสามารถสร้าง/บันทึกพรีเซนเทชันแบบขนานได้หรือไม่?
 
-คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) เดียวกันจาก [multiple threads](/slides/th/python-net/multithreading/) ได้. ให้เรียกใช้อินสแตนซ์แยกจากกันต่อแต่ละเธรดหรือโพรเซส.
+คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) เดียวกันจาก [multiple threads](/slides/th/python-net/multithreading/) ได้. ให้เรียกใช้อินสแตนซ์แยกจากกันต่อแต่ละเธรดหรือโพรเซส.
 
 ### ฉันจะลบลายน้ำทดลองและข้อจำกัดออกได้อย่างไร?
 

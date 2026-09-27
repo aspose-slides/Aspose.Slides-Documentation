@@ -23,7 +23,7 @@ Aspose.Slides สามารถใช้ได้ในโหมดประเ
 
 คุณสามารถดาวน์โหลดรุ่นประเมินของ **Aspose.Slides for Python via .NET** ได้จาก [หน้าดาวน์โหลด](https://pypi.org/project/Aspose.Slides/). รุ่นประเมินให้คุณสมบัติเหมือนกับผลิตภัณฑ์ที่มีใบอนุญาต แพคเกจประเมินนั้นเหมือนกับแพคเกจที่ซื้อและจะกลายเป็นใบอนุญาตหลังจากคุณเพิ่มบรรทัดโค้ดบางบรรทัดเพื่อใช้ใบอนุญาต
 
-เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** ของคุณแล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/th/python-net/). เราแนะนำให้ตรวจสอบตัวเลือกการสมัครสมาชิกที่มี หากคุณมีคำถามใด ๆ โปรดติดต่อทีมขายของ Aspose
+เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** ของคุณแล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/python-net/). เราแนะนำให้ตรวจสอบตัวเลือกการสมัครสมาชิกที่มี หากคุณมีคำถามใด ๆ โปรดติดต่อทีมขายของ Aspose
 
 ใบอนุญาตแต่ละใบของ Aspose จะรวมการสมัครสมาชิกหนึ่งปีพร้อมการอัปเกรดฟรีไปยังเวอร์ชันใหม่และการแก้ไขที่ปล่อยในช่วงเวลานั้น ผู้ใช้ที่มีใบอนุญาตและผู้ใช้รุ่นประเมินได้รับการสนับสนุนทางเทคนิคฟรีไม่จำกัดจำนวน
 
@@ -58,7 +58,7 @@ Aspose.Slides สามารถใช้ได้ในโหมดประเ
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides มีคลาส [License](https://reference.aspose.com/slides/th/python-net/aspose.slides/license/) เพื่อจัดการการให้ใบอนุญาต
+Aspose.Slides มีคลาส [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) เพื่อจัดการการให้ใบอนุญาต
 
 {{% /alert %}}
 
@@ -70,7 +70,7 @@ Aspose.Slides มีคลาส [License](https://reference.aspose.com/slides/t
 
 ### **ไฟล์**
 
-วิธีที่ง่ายที่สุดในการตั้งค่าใบอนุญาตคือส่งเส้นทางของไฟล์ใบอนุญาตไปยังเมธอด [set_license](https://reference.aspose.com/slides/th/python-net/aspose.slides/license/set_license/) หากคุณส่งเฉพาะชื่อไฟล์เท่านั้น เช่นในตัวอย่างด้านล่าง Aspose.Slides จะค้นหาไฟล์ในไดเรกทอรีทำงานปัจจุบัน
+วิธีที่ง่ายที่สุดในการตั้งค่าใบอนุญาตคือส่งเส้นทางของไฟล์ใบอนุญาตไปยังเมธอด [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) หากคุณส่งเฉพาะชื่อไฟล์เท่านั้น เช่นในตัวอย่างด้านล่าง Aspose.Slides จะค้นหาไฟล์ในไดเรกทอรีทำงานปัจจุบัน
 
 โค้ด Python ด้านล่างแสดงวิธีตั้งค่าไฟล์ใบอนุญาต:
 
@@ -86,9 +86,9 @@ license.set_license("Aspose.Slides.lic")
 
 {{% alert color="warning" title="Warning" %}}
 
-หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียก [License.set_license](https://reference.aspose.com/slides/th/python-net/aspose.slides/license/set_license/#str) ชื่อไฟล์ที่อยู่ท้ายเส้นทางต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณ
+หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียก [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) ชื่อไฟล์ที่อยู่ท้ายเส้นทางต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณ
 
-ตัวอย่างเช่น คุณสามารถเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.lic.xml* แล้วในโค้ดของคุณส่งเส้นทางเต็มของไฟล์นั้น (ลงท้ายด้วย Aspose.Slides.lic.xml) ไปยังเมธอด [License.set_license](https://reference.aspose.com/slides/th/python-net/aspose.slides/license/set_license/#str)
+ตัวอย่างเช่น คุณสามารถเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.lic.xml* แล้วในโค้ดของคุณส่งเส้นทางเต็มของไฟล์นั้น (ลงท้ายด้วย Aspose.Slides.lic.xml) ไปยังเมธอด [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)
 
 {{% /alert %}}
 
@@ -126,7 +126,7 @@ if license.is_licensed():
 
 {{% alert color="warning" title="Warning" %}}
 
-เมธอด [License.set_license](https://reference.aspose.com/slides/th/python-net/aspose.slides/license/set_license/) ไม่ปลอดภัยต่อการทำงานหลายเธรด หากคุณต้องการเรียกใช้พร้อมกันจากหลายเธรด ให้ใช้ primitive การซิงโครไนซ์ เช่น `threading.Lock` เพื่อหลีกเลี่ยงปัญหา
+เมธอด [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) ไม่ปลอดภัยต่อการทำงานหลายเธรด หากคุณต้องการเรียกใช้พร้อมกันจากหลายเธรด ให้ใช้ primitive การซิงโครไนซ์ เช่น `threading.Lock` เพื่อหลีกเลี่ยงปัญหา
 
 {{% /alert %}}
 
