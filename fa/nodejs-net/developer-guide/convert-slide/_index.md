@@ -26,15 +26,15 @@ Aspose.Slides برای Node.js از طریق .NET اسلایدها را از ا�
 مثال‌ها انتظار یک ارائه به نام `sample.pptx` در پوشه پروژه که در [نصب](/slides/fa/nodejs-net/installation/) تنظیم کرده‌اید، را دارند. هر ارائه PowerPoint ای قابل استفاده است. هر مثال را به عنوان یک فایل `.js` در پوشه پروژه ذخیره کنید و آن را از همان پوشه با `node` اجرا کنید.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides برای Node.js از طریق .NET مرجع API خاص خود را ندارد. این کتابخانه API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین پیوندهای API در این مقاله به کلاس‌ها و اعضای متناظر در [مرجع API Aspose.Slides برای .NET](https://reference.aspose.com/slides/fa/net/) هدایت می‌شوند.
+Aspose.Slides برای Node.js از طریق .NET مرجع API خاص خود را ندارد. این کتابخانه API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین پیوندهای API در این مقاله به کلاس‌ها و اعضای متناظر در [مرجع API Aspose.Slides برای .NET](https://reference.aspose.com/slides/net/) هدایت می‌شوند.
 {{% /alert %}}
 
 برای تبدیل یک اسلاید به تصویر، مراحل زیر را دنبال کنید:
 
-1. ارائه را با سازنده [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/presentation/) باز کنید.
-1. یک اسلاید را از مجموعه [slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slides/fa/) با استفاده از `get(index)` دریافت کنید. ایندکس‌ها از ۰ شروع می‌شوند.
-1. اسلاید را با `getImageWithScale` یا `getImageWithImageSize` رندر کنید. در مرجع API .NET، هر دو نسخه‌ای از [Slide.GetImage](https://reference.aspose.com/slides/fa/net/aspose.slides/slide/getimage/) هستند. آن‌ها یک شیء تصویر را برمی‌گردانند که به [IImage](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/) مربوط است.
-1. تصویر را با متد [save](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/save/) و مقدار [ImageFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/imageformat/) ذخیره کنید، سپس متد `dispose` آن را فراخوانی کنید.
+1. ارائه را با سازنده [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) باز کنید.
+1. یک اسلاید را از مجموعه [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) با استفاده از `get(index)` دریافت کنید. ایندکس‌ها از ۰ شروع می‌شوند.
+1. اسلاید را با `getImageWithScale` یا `getImageWithImageSize` رندر کنید. در مرجع API .NET، هر دو نسخه‌ای از [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) هستند. آن‌ها یک شیء تصویر را برمی‌گردانند که به [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) مربوط است.
+1. تصویر را با متد [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) و مقدار [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) ذخیره کنید، سپس متد `dispose` آن را فراخوانی کنید.
 
 ## **تبدیل هر اسلاید به تصویر PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-این اسکریپت برای هر اسلاید یک فایل می‌نویسد، `slide_1.png`، `slide_2.png` و به‌ همین ترتیب، به‌صورت عددی از ۱ شروع می‌شود. برای یک ارائه 16:9 با اسلایدهای 960 × 540 نقطه، هر تصویر 1920 × 1080 پیکسل است. اسلایدهای مخفی نیز رندر می‌شوند؛ برای صرف‌نظر کردن از آن‌ها، ویژگی [hidden](https://reference.aspose.com/slides/fa/net/aspose.slides/slide/hidden/) اسلاید را بررسی کنید. هر تصویر در بلوک `finally` خودش آزاد (dispose) می‌شود، که قبل از رندر اسلاید بعدی آن را آزاد می‌کند. بدون لایسنس، تصاویر همچنین نشانگر آب‌نشان ارزیابی دارند؛ برای جزئیات به [Licensing](/slides/fa/nodejs-net/licensing/) مراجعه کنید.
+این اسکریپت برای هر اسلاید یک فایل می‌نویسد، `slide_1.png`، `slide_2.png` و به‌ همین ترتیب، به‌صورت عددی از ۱ شروع می‌شود. برای یک ارائه 16:9 با اسلایدهای 960 × 540 نقطه، هر تصویر 1920 × 1080 پیکسل است. اسلایدهای مخفی نیز رندر می‌شوند؛ برای صرف‌نظر کردن از آن‌ها، ویژگی [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) اسلاید را بررسی کنید. هر تصویر در بلوک `finally` خودش آزاد (dispose) می‌شود، که قبل از رندر اسلاید بعدی آن را آزاد می‌کند. بدون لایسنس، تصاویر همچنین نشانگر آب‌نشان ارزیابی دارند؛ برای جزئیات به [Licensing](/slides/fa/nodejs-net/licensing/) مراجعه کنید.
 
 ## **تبدیل یک اسلاید به تصویر با اندازه مشخص**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-خاصیت [slideSize.size](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesize/size/) عرض و ارتفاع اسلاید را بر حسب نقطه برمی‌گرداند. برای یک ارائه 16:9، اسکریپت `Saved a 1280 x 720 image` را چاپ می‌کند و `slide_1_1280px.png` را می‌نویسد؛ برای یک ارائه 4:3، تصویر 1280 × 960 پیکسل است.
+خاصیت [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) عرض و ارتفاع اسلاید را بر حسب نقطه برمی‌گرداند. برای یک ارائه 16:9، اسکریپت `Saved a 1280 x 720 image` را چاپ می‌کند و `slide_1_1280px.png` را می‌نویسد؛ برای یک ارائه 4:3، تصویر 1280 × 960 پیکسل است.
 
 ## **سؤالات متداول**
 

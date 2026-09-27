@@ -31,12 +31,12 @@ description: "یک جعبه متن را به یک اسلاید اضافه کنی
 مثالات نیاز به پروژه‌ای دارند که همان‌طور که در [نصب](/slides/fa/nodejs-net/installation/) توضیح داده شده است تنظیم شده باشد. هر مثال را به صورت یک فایل `.js` در پوشهٔ پروژه ذخیره کنید و از همان پوشه با `node` اجرا کنید.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides برای Node.js از طریق .NET مرجع API خاص خود را ندارد. این کتابخانه API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین پیوندهای API در این مقاله به کلاس‌ها و اعضای متناظر در [مستندات API Aspose.Slides برای .NET](https://reference.aspose.com/slides/fa/net/) ارجاع می‌دهند.
+Aspose.Slides برای Node.js از طریق .NET مرجع API خاص خود را ندارد. این کتابخانه API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین پیوندهای API در این مقاله به کلاس‌ها و اعضای متناظر در [مستندات API Aspose.Slides برای .NET](https://reference.aspose.com/slides/net/) ارجاع می‌دهند.
 {{% /alert %}}
 
 ## **اضافه کردن جعبه متن**
 
-برای اضافه کردن یک TextBox، یک AutoShape را به اسلاید با روش [addAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/shapecollection/addautoshape/) اضافه کنید و با روش [addTextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/addtextframe/) متن موردنظر را به آن بدهید. مثال زیر یک مستطیل را به اولین اسلاید یک ارائهٔ جدید اضافه می‌کند و ارائه را به عنوان `text-box.pptx` ذخیره می‌نماید:
+برای اضافه کردن یک TextBox، یک AutoShape را به اسلاید با روش [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) اضافه کنید و با روش [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) متن موردنظر را به آن بدهید. مثال زیر یک مستطیل را به اولین اسلاید یک ارائهٔ جدید اضافه می‌کند و ارائه را به عنوان `text-box.pptx` ذخیره می‌نماید:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **تغییر متن و قالب‌بندی آن**
 
-مثال زیر `text-box.pptx` را که مثال قبلی ایجاد کرده بود باز می‌کند و اولین Shape را در اولین اسلاید دریافت می‌نماید. Shapeهایی مانند تصویر و جدول TextFrame ندارند، بنابراین مثال قبل از استفاده از [textFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/textframe/) بررسی می‌کند که Shape موردنظر یک [AutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/) است یا نه. سپس کارهای زیر را انجام می‌دهد:
+مثال زیر `text-box.pptx` را که مثال قبلی ایجاد کرده بود باز می‌کند و اولین Shape را در اولین اسلاید دریافت می‌نماید. Shapeهایی مانند تصویر و جدول TextFrame ندارند، بنابراین مثال قبل از استفاده از [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) بررسی می‌کند که Shape موردنظر یک [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) است یا نه. سپس کارهای زیر را انجام می‌دهد:
 
-1. متن را از طریق ویژگی [text](https://reference.aspose.com/slides/fa/net/aspose.slides/textframe/text/) در TextFrame جایگزین می‌کند. پس از این، TextFrame شامل یک پاراگراف با یک Portion می‌شود.
-2. آن Portion را از مجموعه‌های [paragraphs](https://reference.aspose.com/slides/fa/net/aspose.slides/textframe/paragraphs/) و [portions](https://reference.aspose.com/slides/fa/net/aspose.slides/paragraph/portions/) می‌گیرد و [portionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/portion/portionformat/) آن را می‌خواند.
-3. مقدار [fontHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/baseportionformat/fontheight/) (اندازهٔ فونت به نقطه) و [fontBold](https://reference.aspose.com/slides/fa/net/aspose.slides/baseportionformat/fontbold/) (که مقدار یک [NullableBool](https://reference.aspose.com/slides/fa/net/aspose.slides/nullablebool/) می‌گیرد) را تنظیم می‌کند.
+1. متن را از طریق ویژگی [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) در TextFrame جایگزین می‌کند. پس از این، TextFrame شامل یک پاراگراف با یک Portion می‌شود.
+2. آن Portion را از مجموعه‌های [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) و [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) می‌گیرد و [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/) آن را می‌خواند.
+3. مقدار [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) (اندازهٔ فونت به نقطه) و [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/) (که مقدار یک [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) می‌گیرد) را تنظیم می‌کند.
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

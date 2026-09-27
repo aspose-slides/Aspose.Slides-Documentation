@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET فایل‌های ارائه PowerPoint و Op
 مثال‌ها انتظار دارند که پرونده ارائه‌ای به نام `sample.pptx` در پوشه پروژه‌ای که در [نصب](/slides/fa/nodejs-net/installation/) تنظیم کرده‌اید موجود باشد. هر ارائه PowerPoint‌ای کار می‌کند. هر مثال را به صورت یک فایل `.js` در پوشه پروژه ذخیره کنید و با `node` از همان پوشه اجرا کنید.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET مرجع API اختصاصی خود را ندارد. این کتابخانه API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین پیوندهای API در این مقاله به کلاس‌ها و اعضای متناظر در [مرجع API Aspose.Slides برای .NET](https://reference.aspose.com/slides/fa/net/) منتهی می‌شوند.
+Aspose.Slides for Node.js via .NET مرجع API اختصاصی خود را ندارد. این کتابخانه API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین پیوندهای API در این مقاله به کلاس‌ها و اعضای متناظر در [مرجع API Aspose.Slides برای .NET](https://reference.aspose.com/slides/net/) منتهی می‌شوند.
 {{% /alert %}}
 
 ## **باز کردن یک ارائه از فایل**
 
-برای باز کردن یک ارائه، مسیر آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/presentation/) پاس دهید. Aspose.Slides قالب را بر اساس محتوای فایل نه پسوند شناسایی می‌کند، بنابراین همان کد فایل‌های PPTX، PPT و ODP را باز می‌کند. مسیر نسبی نسبت به پوشه کاری فعلی که هنگام اجرای اسکریپت همان پوشه پروژه است، حل می‌شود.
+برای باز کردن یک ارائه، مسیر آن را به سازنده [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) پاس دهید. Aspose.Slides قالب را بر اساس محتوای فایل نه پسوند شناسایی می‌کند، بنابراین همان کد فایل‌های PPTX، PPT و ODP را باز می‌کند. مسیر نسبی نسبت به پوشه کاری فعلی که هنگام اجرای اسکریپت همان پوشه پروژه است، حل می‌شود.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-اسکریپت تعداد اسلایدهای موجود در `sample.pptx` را چاپ می‌کند، برای مثال `Slide count: 9`. خصوصیت `count` در مجموعه‌ی [اسلایدها](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slides/fa/) شامل اسلایدهای مخفی نیز می‌شود. همان‌طور که نشان داده شده، `dispose` را در یک بلوک `finally` صدا بزنید تا منابع .NET پشت ارائه حتی در صورت بروز خطا آزاد شوند.
+اسکریپت تعداد اسلایدهای موجود در `sample.pptx` را چاپ می‌کند، برای مثال `Slide count: 9`. خصوصیت `count` در مجموعه‌ی [اسلایدها](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) شامل اسلایدهای مخفی نیز می‌شود. همان‌طور که نشان داده شده، `dispose` را در یک بلوک `finally` صدا بزنید تا منابع .NET پشت ارائه حتی در صورت بروز خطا آزاد شوند.
 
 ## **باز کردن یک ارائه از Buffer**
 
@@ -71,7 +71,7 @@ try {
 
 ## **ذخیره یک ارائه در قالب دیگر**
 
-برای تبدیل یک ارائه به قالب ارائه دیگری، آن را باز کنید و با مقدار متفاوتی از [SaveFormat](https://reference.aspose.com/slides/fa/net/aspose.slides.export/saveformat/) ذخیره کنید. مثال زیر قالبی را که Aspose.Slides تشخیص داده است (خاصیت [sourceFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/sourceformat/)) چاپ می‌کند و ارائه را به‌صورت یک ارائه OpenDocument ذخیره می‌نماید:
+برای تبدیل یک ارائه به قالب ارائه دیگری، آن را باز کنید و با مقدار متفاوتی از [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) ذخیره کنید. مثال زیر قالبی را که Aspose.Slides تشخیص داده است (خاصیت [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/)) چاپ می‌کند و ارائه را به‌صورت یک ارائه OpenDocument ذخیره می‌نماید:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **چگونه یک ارائه محافظت شده با رمز عبور را باز کنم؟**
 
-یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/) ایجاد کنید، خصوصیت [password](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/password/) آن را تنظیم کنید و شی را به عنوان آرگومان سوم سازنده پاس دهید: `new Presentation("protected.pptx", null, loadOptions)`. بدون رمز عبور صحیح، سازنده خطای `Error` می‌اندازد.
+یک شیء [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ایجاد کنید، خصوصیت [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) آن را تنظیم کنید و شی را به عنوان آرگومان سوم سازنده پاس دهید: `new Presentation("protected.pptx", null, loadOptions)`. بدون رمز عبور صحیح، سازنده خطای `Error` می‌اندازد.
 
 **چرا سازنده یک `Error` با پیام خالی پرتاب می‌کند؟**
 

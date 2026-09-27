@@ -27,17 +27,17 @@ description: "ایجاد ارائه‌های پاورپوینت در جاواا�
 مثال‌ها نیاز به پروژه‌ای دارند که مطابق بخش [Installation](/slides/fa/nodejs-net/installation/) تنظیم شده باشد. هر مثال را به‌عنوان یک فایل `.js` در پوشهٔ پروژه ذخیره کرده و با `node` از همان پوشه اجرا کنید، برای مثال `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET مرجع API مخصوص خود را ندارد. این کتابخانه مرجع API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین لینک‌های API در این مقاله به کلاس‌ها و اعضای متناظر در [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/fa/net/) ارجاع می‌شود.
+Aspose.Slides for Node.js via .NET مرجع API مخصوص خود را ندارد. این کتابخانه مرجع API Aspose.Slides برای .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین لینک‌های API در این مقاله به کلاس‌ها و اعضای متناظر در [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) ارجاع می‌شود.
 {{% /alert %}}
 
 ## **ایجاد یک ارائه با جعبه متن**
 
 برای ایجاد یک ارائه و قرار دادن جعبهٔ متن بر روی اسلاید اول، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید از پیش شامل یک اسلاید خالی است.
-1. آن اسلاید را از مجموعهٔ [slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slides/fa/) دریافت کنید. در این بسته مجموعه‌ها با `get(index)` خوانده می‌شوند و ایندکس‌ها از 0 شروع می‌شوند.
-1. با متد [addAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/shapecollection/addautoshape/) یک مستطیل اضافه کنید و متن آن را با استفاده از [text](https://reference.aspose.com/slides/fa/net/aspose.slides/textframe/text/) در [textFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/textframe/) تنظیم کنید.
-1. ارائه را با متد [save](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/save/) و مقدار `SaveFormat.Pptx` ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید از پیش شامل یک اسلاید خالی است.
+1. آن اسلاید را از مجموعهٔ [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) دریافت کنید. در این بسته مجموعه‌ها با `get(index)` خوانده می‌شوند و ایندکس‌ها از 0 شروع می‌شوند.
+1. با متد [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) یک مستطیل اضافه کنید و متن آن را با استفاده از [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) در [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) تنظیم کنید.
+1. ارائه را با متد [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) و مقدار `SaveFormat.Pptx` ذخیره کنید.
 1. `dispose` را در یک بلوک `finally` فراخوانی کنید تا منابع .NET مرتبط با ارائه آزاد شوند.
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **افزودن اسلایدها**
 
-یک ارائهٔ جدید شامل یک اسلاید است. برای افزودن اسلایدهای بیشتر، یک اسلاید قالب را به متد [addEmptySlide](https://reference.aspose.com/slides/fa/net/aspose.slides/slidecollection/addemptyslide/) از مجموعهٔ `slides` پاس کنید. متد [getByType](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutslidecollection/getbytype/) از مجموعهٔ [layoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/layoutslides/) اولین قالب از نوع داده شده‌ی [SlideLayoutType](https://reference.aspose.com/slides/fa/net/aspose.slides/slidelayouttype/) را برمی‌گرداند.
+یک ارائهٔ جدید شامل یک اسلاید است. برای افزودن اسلایدهای بیشتر، یک اسلاید قالب را به متد [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) از مجموعهٔ `slides` پاس کنید. متد [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) از مجموعهٔ [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) اولین قالب از نوع داده شده‌ی [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) را برمی‌گرداند.
 
 مثال زیر دو اسلاید با قالب Blank اضافه می‌کند:
 
@@ -86,7 +86,7 @@ try {
 
 ## **تنظیم اندازه اسلاید**
 
-یک ارائهٔ جدید از اسلایدهای 4:3 با ابعاد 720 × 540 پوینت (10 × 7.5 اینچ) استفاده می‌کند. برای ایجاد اسلایدهای widescreen به‌جای آن، متد [setSize](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesize/setsize/) از ویژگی [slideSize](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slidesize/) را با مقدار [SlideSizeType](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesizetype/) و [SlideSizeScaleType](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesizescaletype/) صدا بزنید. نوع مقیاس تعیین می‌کند Aspose.Slides چه کاری با اشکالی که از قبل روی اسلایدها هستند انجام دهد؛ `DoNotScale` آن‌ها را به همان حالت فعلی باقی می‌گذارد که برای ارائه‌ای که هنوز محتوا ندارد گزینهٔ مناسب است.
+یک ارائهٔ جدید از اسلایدهای 4:3 با ابعاد 720 × 540 پوینت (10 × 7.5 اینچ) استفاده می‌کند. برای ایجاد اسلایدهای widescreen به‌جای آن، متد [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) از ویژگی [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) را با مقدار [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) و [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) صدا بزنید. نوع مقیاس تعیین می‌کند Aspose.Slides چه کاری با اشکالی که از قبل روی اسلایدها هستند انجام دهد؛ `DoNotScale` آن‌ها را به همان حالت فعلی باقی می‌گذارد که برای ارائه‌ای که هنوز محتوا ندارد گزینهٔ مناسب است.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ try {
 
 **کدام فرمت‌ها را می‌توان برای ذخیرهٔ یک ارائهٔ جدید استفاده کرد؟**
 
-هر مقدار از перечисление [SaveFormat](https://reference.aspose.com/slides/fa/net/aspose.slides.export/saveformat/) قابل استفاده است، برای مثال `SaveFormat.Ppt` برای PowerPoint 97–2003، `SaveFormat.Odp` برای OpenDocument یا `SaveFormat.Pdf`. برای خروجی PDF، به بخش [Convert PowerPoint to PDF](/slides/fa/nodejs-net/convert-powerpoint-to-pdf/) مراجعه کنید.
+هر مقدار از перечисление [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) قابل استفاده است، برای مثال `SaveFormat.Ppt` برای PowerPoint 97–2003، `SaveFormat.Odp` برای OpenDocument یا `SaveFormat.Pdf`. برای خروجی PDF، به بخش [Convert PowerPoint to PDF](/slides/fa/nodejs-net/convert-powerpoint-to-pdf/) مراجعه کنید.
 
 **چرا فایل ارائهٔ ذخیره‌شده متن «Evaluation only» دارد؟**
 

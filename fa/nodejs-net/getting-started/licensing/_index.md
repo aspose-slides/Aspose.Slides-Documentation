@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET یک بسته npm برای ارزیابی و 
 
 {{% alert color="info" title="نکته" %}}
 
-سیاست‌های کلی برای ارزیابی، لایسنس و خرید محصولات Aspose در [سیاست‌های خرید و پرسش‌های متداول](https://purchase.aspose.com/policies) جمع‌آوری شده‌اند. قیمت‌ها در صفحه [اطلاعات قیمت‌گذاری](https://purchase.aspose.com/pricing/slides/fa/family) نمایش داده می‌شود.
+سیاست‌های کلی برای ارزیابی، لایسنس و خرید محصولات Aspose در [سیاست‌های خرید و پرسش‌های متداول](https://purchase.aspose.com/policies) جمع‌آوری شده‌اند. قیمت‌ها در صفحه [اطلاعات قیمت‌گذاری](https://purchase.aspose.com/pricing/slides/family) نمایش داده می‌شود.
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ try {
 
 اگر فایل پیدا نشود یا لایسنس معتبر نباشد، `setLicense` یک خطا پرتاب می‌کند و Aspose.Slides در حالت ارزیابی باقی می‌ماند. اسکریپت خطا را می‌گیرد و پیام آن را چاپ می‌کند. برای فایل‌های گمشده، پیام با `License "Aspose.Slides.lic" doesn't exist or access is restricted.` شروع می‌شود و تمام مسیرهای جستجو شده را فهرست می‌کند.
 
-در این بسته، لایسنس فقط از یک فایل اعمال می‌شود. `License` استریم را قبول نمی‌کند و بسته قابلیت لایسنس‌گذاری متره‌ای را افشا نمی‌کند. برای کلاس‌‎هایی که بسته آن‌ها را می‌پیچد، به [License](https://reference.aspose.com/slides/fa/net/aspose.slides/license/) در مرجع API Aspose.Slides for .NET مراجعه کنید.
+در این بسته، لایسنس فقط از یک فایل اعمال می‌شود. `License` استریم را قبول نمی‌کند و بسته قابلیت لایسنس‌گذاری متره‌ای را افشا نمی‌کند. برای کلاس‌‎هایی که بسته آن‌ها را می‌پیچد، به [License](https://reference.aspose.com/slides/net/aspose.slides/license/) در مرجع API Aspose.Slides for .NET مراجعه کنید.

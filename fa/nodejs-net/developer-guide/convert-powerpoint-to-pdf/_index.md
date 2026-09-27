@@ -22,20 +22,20 @@ description: "تبدیل ارائه‌های PPTX، PPT و ODP به PDF در Jav
 ---
 ## **نمای کلی**
 
-Aspose.Slides for Node.js via .NET ارائه‌های PowerPoint و OpenDocument را بدون نیاز به Microsoft PowerPoint به PDF تبدیل می‌کند. هر اسلاید قابل مشاهده به یک صفحه PDF با همان اندازه اسلاید تبدیل می‌شود و متن به شکل قابل انتخاب و جستجو باقی می‌ماند. این مقاله تبدیل پیش‌فرض و تبدیل به PDF/A را با استفاده از [PdfOptions](https://reference.aspose.com/slides/fa/net/aspose.slides.export/pdfoptions/) نشان می‌دهد.
+Aspose.Slides for Node.js via .NET ارائه‌های PowerPoint و OpenDocument را بدون نیاز به Microsoft PowerPoint به PDF تبدیل می‌کند. هر اسلاید قابل مشاهده به یک صفحه PDF با همان اندازه اسلاید تبدیل می‌شود و متن به شکل قابل انتخاب و جستجو باقی می‌ماند. این مقاله تبدیل پیش‌فرض و تبدیل به PDF/A را با استفاده از [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) نشان می‌دهد.
 
 مثال‌ها انتظار دارند ارائه‌ای به نام `sample.pptx` در پوشه پروژه وجود داشته باشد که در [Installation](/slides/fa/nodejs-net/installation/) راه‌اندازی کرده‌اید. هر ارائه PowerPoint‌ای مناسب است. هر مثال را به عنوان یک فایل `.js` در پوشه پروژه ذخیره کنید و آن را با `node` از همان پوشه اجرا کنید.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET سند مرجعی برای خود ندارد. این کتابخانه API Aspose.Slides for .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین لینک‌های API در این مقاله به کلاس‌ها و اعضای متناظر در [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/fa/net/) هدایت می‌شوند.
+Aspose.Slides for Node.js via .NET سند مرجعی برای خود ندارد. این کتابخانه API Aspose.Slides for .NET را با نام‌های camelCase بازتاب می‌دهد، بنابراین لینک‌های API در این مقاله به کلاس‌ها و اعضای متناظر در [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) هدایت می‌شوند.
 {{% /alert %}}
 
 ## **Convert a Presentation to PDF**
 
 برای تبدیل یک ارائه به PDF، مراحل زیر را دنبال کنید:
 
-1. ارائه را با پاس دادن مسیر آن به سازنده [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/presentation/) باز کنید. همان کد برای فایل‌های PPTX، PPT و ODP کار می‌کند.
-2. متد [save](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/save/) را با مسیر خروجی و `SaveFormat.Pdf` فراخوانی کنید.
+1. ارائه را با پاس دادن مسیر آن به سازنده [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) باز کنید. همان کد برای فایل‌های PPTX، PPT و ODP کار می‌کند.
+2. متد [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) را با مسیر خروجی و `SaveFormat.Pdf` فراخوانی کنید.
 3. در یک بلوک `finally` متد `dispose` را صدا بزنید تا منابع .NET مربوط به ارائه آزاد شوند.
 
 ```javascript
@@ -54,7 +54,7 @@ try {
 
 ## **Convert a Presentation to PDF/A**
 
-برای کنترل خروجی، یک شیء [PdfOptions](https://reference.aspose.com/slides/fa/net/aspose.slides.export/pdfoptions/) را به عنوان سومین آرگومان متد `save` بگذارید. مثال زیر ویژگی [compliance](https://reference.aspose.com/slides/fa/net/aspose.slides.export/pdfoptions/compliance/) را به `PdfCompliance.PdfA2b` تنظیم می‌کند که فایلی PDF/A-2b تولید می‌کند. PDF/A استاندارد ISO برای بایگانی طولانی‌مدت است: در میان قوانین دیگر، این استاندارد می‌طلبد که هر فونتی که سند استفاده می‌کند در فایل تعبیه شود.
+برای کنترل خروجی، یک شیء [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) را به عنوان سومین آرگومان متد `save` بگذارید. مثال زیر ویژگی [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) را به `PdfCompliance.PdfA2b` تنظیم می‌کند که فایلی PDF/A-2b تولید می‌کند. PDF/A استاندارد ISO برای بایگانی طولانی‌مدت است: در میان قوانین دیگر، این استاندارد می‌طلبد که هر فونتی که سند استفاده می‌کند در فایل تعبیه شود.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-اسکریپت `sample-pdfa.pdf` را با همان صفحات تبدیل پیش‌فرض می‌نویسد. برای تأیید اینکه یک فایل معیار را برآورده می‌کند، آن را با یک اعتبارسنج PDF/A مانند [veraPDF](https://verapdf.org/) بررسی کنید. مقادیر دیگر [PdfCompliance](https://reference.aspose.com/slides/fa/net/aspose.slides.export/pdfcompliance/) استانداردهای دیگری مانند `PdfA1b`، `PdfA2a` یا `PdfUa` برای دسترسی‌پذیری را انتخاب می‌کنند.
+اسکریپت `sample-pdfa.pdf` را با همان صفحات تبدیل پیش‌فرض می‌نویسد. برای تأیید اینکه یک فایل معیار را برآورده می‌کند، آن را با یک اعتبارسنج PDF/A مانند [veraPDF](https://verapdf.org/) بررسی کنید. مقادیر دیگر [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) استانداردهای دیگری مانند `PdfA1b`، `PdfA2a` یا `PdfUa` برای دسترسی‌پذیری را انتخاب می‌کنند.
 
 ## **FAQ**
 
 **چگونه می‌توانم اسلایدهای مخفی را در PDF گنجانده کنم؟**
 
-اسلایدهای مخفی به‌صورت پیش‌فرض نادیده گرفته می‌شوند. ویژگی [showHiddenSlides](https://reference.aspose.com/slides/fa/net/aspose.slides.export/pdfoptions/showhiddenslides/) را در `PdfOptions` به `true` تنظیم کنید و گزینه‌ها را به `save` پاس بدهید.
+اسلایدهای مخفی به‌صورت پیش‌فرض نادیده گرفته می‌شوند. ویژگی [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) را در `PdfOptions` به `true` تنظیم کنید و گزینه‌ها را به `save` پاس بدهید.
 
 **آیا می‌توانم PDF را با رمز عبور محافظت کنم؟**
 
-بله. قبل از فراخوانی `save`، ویژگی [password](https://reference.aspose.com/slides/fa/net/aspose.slides.export/pdfoptions/password/) را در `PdfOptions` تنظیم کنید. سپس برنامه‌خوان‌های PDF قبل از باز کردن فایل از کاربر رمز عبور می‌خواهند.
+بله. قبل از فراخوانی `save`، ویژگی [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) را در `PdfOptions` تنظیم کنید. سپس برنامه‌خوان‌های PDF قبل از باز کردن فایل از کاربر رمز عبور می‌خواهند.
 
 **آیا می‌توانم فقط برخی از اسلایدها را تبدیل کنم؟**
 
