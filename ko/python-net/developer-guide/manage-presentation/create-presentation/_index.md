@@ -29,10 +29,10 @@ description: "Aspose.Slides를 사용해 Python에서 PowerPoint 프레젠테이
 
 프레젠테이션을 만들고 첫 번째 슬라이드에 텍스트가 포함된 도형을 넣으려면 다음 단계를 따르세요:
 
-1. 새 [프레젠테이션](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함됩니다.
-2. 인덱스 0을 사용해 [슬라이드](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/slides/ko/) 컬렉션에서 해당 슬라이드를 가져옵니다.
-3. 슬라이드의 [shapes](https://reference.aspose.com/slides/ko/python-net/aspose.slides/slide/shapes/) 컬렉션에서 [add_auto_shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/shapecollection/add_auto_shape/) 메서드를 사용해 구름 모양의 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/)을 추가하고, 해당 [text](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/text/)를 설정합니다.
-4. [save](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/save/) 메서드를 사용해 프레젠테이션을 PPTX 파일로 저장합니다.
+1. 새 [프레젠테이션](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함됩니다.
+2. 인덱스 0을 사용해 [슬라이드](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) 컬렉션에서 해당 슬라이드를 가져옵니다.
+3. 슬라이드의 [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) 컬렉션에서 [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) 메서드를 사용해 구름 모양의 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)을 추가하고, 해당 [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/)를 설정합니다.
+4. [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) 메서드를 사용해 프레젠테이션을 PPTX 파일로 저장합니다.
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### 프레젠테이션을 병렬로 만들거나 저장할 수 있나요?
 
-동일한 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 인스턴스를 [여러 스레드](/slides/ko/python-net/multithreading/)에서 동시에 사용할 수 없습니다. 각 스레드 또는 프로세스마다 별도의 독립 인스턴스를 실행하십시오.
+동일한 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 인스턴스를 [여러 스레드](/slides/ko/python-net/multithreading/)에서 동시에 사용할 수 없습니다. 각 스레드 또는 프로세스마다 별도의 독립 인스턴스를 실행하십시오.
 
 ### 평가 워터마크와 제한을 어떻게 제거하나요?
 

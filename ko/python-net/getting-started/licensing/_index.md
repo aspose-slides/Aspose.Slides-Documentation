@@ -23,7 +23,7 @@ Aspose.Slides는 평가 모드 또는 유효한 라이선스로 사용할 수 �
 
 **Aspose.Slides for Python via .NET**의 평가 버전을 [download page](https://pypi.org/project/Aspose.Slides/)에서 다운로드할 수 있습니다. 평가 버전은 라이선스 제품과 동일한 기능을 제공하며, 구매한 패키지와 동일하고 라이선스를 적용하는 몇 줄의 코드를 추가하면 라이선스가 적용됩니다.
 
-평가가 만족스러우면 **Aspose.Slides**를 [purchase a license](https://purchase.aspose.com/pricing/slides/ko/python-net/)할 수 있습니다. 사용 가능한 구독 옵션을 검토하시기 바랍니다. 질문이 있으면 Aspose 영업팀에 문의하십시오.
+평가가 만족스러우면 **Aspose.Slides**를 [purchase a license](https://purchase.aspose.com/pricing/slides/python-net/)할 수 있습니다. 사용 가능한 구독 옵션을 검토하시기 바랍니다. 질문이 있으면 Aspose 영업팀에 문의하십시오.
 
 모든 Aspose 라이선스에는 1년 구독이 포함되며, 해당 기간 동안 새 버전 및 버그 수정에 대한 무료 업그레이드가 제공됩니다. 라이선스 사용자와 평가 사용자 모두 무료 무제한 기술 지원을 받습니다.
 
@@ -53,7 +53,7 @@ Aspose.Slides는 평가 모드 또는 유효한 라이선스로 사용할 수 �
 라이선스는 **파일** 또는 **스트림**에서 로드할 수 있습니다.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides는 라이선스 관리를 위해 [License](https://reference.aspose.com/slides/ko/python-net/aspose.slides/license/) 클래스를 제공합니다.
+Aspose.Slides는 라이선스 관리를 위해 [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) 클래스를 제공합니다.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ Aspose.Slides는 라이선스 관리를 위해 [License](https://reference.aspos
 
 ### **파일**
 
-라이선스를 설정하는 가장 간단한 방법은 라이선스 파일 경로를 [set_license](https://reference.aspose.com/slides/ko/python-net/aspose.slides/license/set_license/) 메서드에 전달하는 것입니다. 아래 예시처럼 파일 이름만 전달하면 Aspose.Slides는 현재 작업 디렉터리에서 파일을 찾습니다.
+라이선스를 설정하는 가장 간단한 방법은 라이선스 파일 경로를 [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) 메서드에 전달하는 것입니다. 아래 예시처럼 파일 이름만 전달하면 Aspose.Slides는 현재 작업 디렉터리에서 파일을 찾습니다.
 
 다음 Python 코드는 라이선스 파일을 설정하는 방법을 보여줍니다:
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-라이선스 파일을 다른 디렉터리에 두는 경우, [License.set_license](https://reference.aspose.com/slides/ko/python-net/aspose.slides/license/set_license/#str) 메서드를 호출할 때 명시적인 경로의 마지막 파일 이름은 라이선스 파일 이름과 정확히 일치해야 합니다.
+라이선스 파일을 다른 디렉터리에 두는 경우, [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) 메서드를 호출할 때 명시적인 경로의 마지막 파일 이름은 라이선스 파일 이름과 정확히 일치해야 합니다.
 
-예를 들어 라이선스 파일 이름을 *Aspose.Slides.lic.xml*로 바꿀 수 있습니다. 그런 다음 코드에서 해당 파일의 전체 경로(Aspose.Slides.lic.xml로 끝나는)를 [License.set_license](https://reference.aspose.com/slides/ko/python-net/aspose.slides/license/set_license/#str) 메서드에 전달하십시오.
+예를 들어 라이선스 파일 이름을 *Aspose.Slides.lic.xml*로 바꿀 수 있습니다. 그런 다음 코드에서 해당 파일의 전체 경로(Aspose.Slides.lic.xml로 끝나는)를 [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) 메서드에 전달하십시오.
 {{% /alert %}}
 
 ### **스트림**
@@ -115,7 +115,7 @@ if license.is_licensed():
 ## **스레드 안전성**
 
 {{% alert color="warning" title="Warning" %}}
-[License.set_license](https://reference.aspose.com/slides/ko/python-net/aspose.slides/license/set_license/) 메서드는 스레드 안전하지 않습니다. 여러 스레드에서 동시에 호출해야 하는 경우 `threading.Lock`과 같은 동기화 프리미티브를 사용하십시오.
+[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) 메서드는 스레드 안전하지 않습니다. 여러 스레드에서 동시에 호출해야 하는 경우 `threading.Lock`과 같은 동기화 프리미티브를 사용하십시오.
 {{% /alert %}}
 
 ## **FAQ**
