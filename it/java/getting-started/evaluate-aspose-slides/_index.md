@@ -16,36 +16,30 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Valuta Aspose.Slides per Java e scopri le funzionalità API per presentazioni PowerPoint (PPT, PPTX) e OpenDocument (ODP) - inizia la tua prova gratuita."
+description: "Valuta Aspose.Slides per Java ed esplora le funzionalità API per presentazioni PowerPoint (PPT, PPTX) e OpenDocument (ODP) — inizia la tua prova gratuita."
 ---
 ## **Valutazione di Aspose.Slides**
 
-Puoi scaricare facilmente Aspose.Slides per la valutazione. Il download di valutazione è lo stesso del download acquistato. La versione di valutazione diventa semplicemente licenziata quando aggiungi alcune righe di codice per applicare la licenza.
+È possibile scaricare Aspose.Slides per la valutazione. Il download di valutazione è identico a quello acquistato; diventa licenziato dopo aver aggiunto alcune righe di codice per applicare la licenza.
 
-La versione di valutazione di Aspose.Slides (senza una licenza specificata) fornisce tutta la funzionalità del prodotto, ma inserisce una filigrana di valutazione nella parte superiore del documento all'apertura e al salvataggio, e limita a una diapositiva l'estrazione del testo dalle diapositive della presentazione.
+Senza licenza, Aspose.Slides fornisce tutta la sua funzionalità in modalità di valutazione, con due limitazioni: aggiunge una casella di testo con filigrana di valutazione a ogni diapositiva di ogni presentazione che salva, e il testo che il tuo codice legge tramite l'API, incluso il testo appena impostato, viene troncato ai primi caratteri, seguito da un avviso sulla limitazione di valutazione. Il testo che il tuo codice scrive viene salvato per intero. Il metodo [getPresentationText](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) che estrae il testo senza caricare l'intera presentazione, restituisce solo gli avvisi di valutazione e nessun testo delle diapositive.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Una diapositiva con la filigrana di valutazione](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-
-Se desideri testare Aspose.Slides senza le limitazioni della versione di valutazione, puoi anche richiedere una Licenza Temporanea di 30 giorni. Consulta [Come ottenere una licenza temporanea?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+Se desideri testare Aspose.Slides senza le limitazioni della versione di valutazione, puoi anche richiedere una Licenza Temporanea di 30 giorni. Consulta [Come ottenere una Licenza Temporanea?](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Posso testare più presentazioni in parallelo su thread diversi in modalità valutazione?**
+### Posso testare più presentazioni in parallelo su thread diversi in modalità di valutazione?
+Sì. È possibile elaborare documenti diversi in parallelo; non bisogna condividere lo stesso oggetto presentazione [tra i thread](/slides/it/java/multithreading/). La modalità di valutazione non influisce su questo.
 
-Sì. Puoi elaborare documenti diversi in parallelo; non dovresti condividere lo stesso oggetto presentazione [across threads](/slides/it/java/multithreading/). La modalità valutazione non influisce su questo.
+### Devo installare Microsoft PowerPoint per valutare la libreria su un server o in CI?
+No. Aspose.Slides è un motore stand‑alone e non richiede l'installazione di PowerPoint né per la valutazione né per la produzione.
 
-**Devo installare Microsoft PowerPoint per valutare la libreria su un server o in CI?**
+### Posso testare completamente la conversione di PPT/PPTX in PDF e immagini in modalità di valutazione?
+Sì. I [convertitori](/slides/it/java/convert-presentation/) funzionano; l'output includerà una filigrana.
 
-No. Aspose.Slides è un motore autonomo e non richiede l'installazione di PowerPoint né per la valutazione né per la produzione.
-
-**Posso testare completamente la conversione di PPT/PPTX in PDF e immagini in modalità valutazione?**
-
-Sì. I [converters](/slides/it/java/convert-presentation/) funzionano; l'output includerà una filigrana.
-
-**Posso utilizzare una licenza temporanea per il test di carico senza filigrana?**
-
-Sì. Una licenza temporanea di 30 giorni rimuove le limitazioni della modalità valutazione e consente di testare senza una filigrana.
+### Posso utilizzare una licenza temporanea per test di carico senza filigrana?
+Sì. Una licenza temporanea di 30 giorni rimuove le limitazioni della modalità di valutazione e consente di testare senza filigrana.

@@ -16,69 +16,145 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как быстро установить Aspose.Slides для Java. Пошаговое руководство, системные требования и примеры кода — начните работать с презентациями PowerPoint уже сегодня!"
+description: "Установите Aspose.Slides for Java из Maven‑репозитория Aspose или в виде JAR‑файла, настройте предварительные требования Linux и проверьте установку с помощью первой программы."
 ---
-
 ## **Обзор**
 
-Руководство по установке объясняет, как добавить Aspose.Slides for Java в среду вашего проекта. Оно показывает, как ссылаться на библиотеку из Maven Central или загрузить автономный пакет JAR, и указывает, где найти файлы контрольных сумм, чтобы вы могли проверить целостность. К концу раздела вы будете готовы включить Aspose.Slides в ваш конвейер сборки и запустить простую презентацию «Hello, World», чтобы подтвердить, что всё настроено правильно.
+В этой статье объясняется, как добавить Aspose.Slides for Java в проект. Aspose.Slides for Java публикуется в собственном Maven‑репозитории Aspose, а не в Maven Central, поэтому Maven‑проект должен объявить этот репозиторий. Вы также можете скачать JAR‑файл и разместить его в пути к классам вручную. Оба пути завершаются небольшим примером, подтверждающим работу библиотеки.
 
-Aspose.Slides for Java не требует Microsoft PowerPoint. Он программно генерирует необходимые файлы презентаций. Однако для просмотра сгенерированных презентаций вам может потребоваться Microsoft PowerPoint или другой просмотрщик презентаций.
+Aspose.Slides for Java не требует Microsoft PowerPoint. Он программно генерирует необходимые файлы презентаций. Однако для просмотра сгенерированных презентаций может потребоваться Microsoft PowerPoint или другой просмотрщик презентаций.
 
-## **Установить и настроить Java**
+## **Предварительные требования**
 
-Java — популярный язык программирования, позволяющий запускать программы на многих платформах. Для получения информации об установке и настройке Java на любой операционной системе посетите https://java.com/.
+- Java Development Kit (JDK). Для проекта и команд в этой статье требуется JDK 11 или новее. В JDK 11 программа, проверяющая установку, выводит предупреждение, начинающееся с «WARNING: An illegal reflective access operation has occurred»; оно не влияет на результат и может быть проигнорировано.
+- [Apache Maven](https://maven.apache.org/install.html), если вы используете путь Maven.
+- В Linux требуется библиотека fontconfig и как минимум один установленный шрифт. См. раздел [Linux](#linux).
 
-## **Установить Aspose.Slides for Java из репозитория Maven**
+## **Установка из Maven‑репозитория**
 
-Aspose размещает все Java API в своих [Maven repositories](https://releases.aspose.com/java/repo/com/aspose/). Вы можете интегрировать API [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) напрямую в свои Maven-проекты с минимальной настройкой.
+Aspose размещает свои Java‑библиотеки в собственном [Maven‑репозитории](https://releases.aspose.com/java/repo/com/aspose/). Чтобы использовать [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) в Maven‑проекте, добавьте два элемента в ваш *pom.xml*.
 
-1. **Specify Maven Repository Configuration**
+1. **Объявите Maven‑репозиторий Aspose.**
 
-   Укажите конфигурацию/расположение репозитория Aspose Maven в вашем pom.xml следующим образом:
-``` xml
-<repositories>
-    <repository>
-        <id>AsposeJavaAPI</id>
-        <name>Aspose Java API</name>
-        <url>https://releases.aspose.com/java/repo/</url>
-    </repository>
-</repositories>
+   ```xml
+   <repositories>
+       <repository>
+           <id>AsposeJavaAPI</id>
+           <name>Aspose Java API</name>
+           <url>https://releases.aspose.com/java/repo/</url>
+       </repository>
+   </repositories>
+   ```
+
+2. **Добавьте зависимость Aspose.Slides for Java.**
+
+   ```xml
+   <dependencies>
+       <dependency>
+           <groupId>com.aspose</groupId>
+           <artifactId>aspose-slides</artifactId>
+           <version>26.9</version>
+           <classifier>jdk16</classifier>
+       </dependency>
+   </dependencies>
+   ```
+
+Классификатор `jdk16` обязателен: он выбирает сборку библиотеки для Java SE. Замените `26.9` на последнюю версию, указанную в [репозитории](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Репозиторий публикует файл контрольной суммы SHA‑1 рядом с каждым JAR, который Maven проверяет при загрузке библиотеки.
+
+### **Проверка установки**
+
+Чтобы проверить настройку в новом проекте:
+
+1. Создайте папку для проекта и сохраните в неё этот *pom.xml*:
+
+   ```xml
+   <project xmlns="http://maven.apache.org/POM/4.0.0">
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>com.example</groupId>
+       <artifactId>hello-slides</artifactId>
+       <version>1.0</version>
+
+       <properties>
+           <maven.compiler.release>11</maven.compiler.release>
+           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+           <exec.mainClass>HelloSlides</exec.mainClass>
+       </properties>
+
+       <repositories>
+           <repository>
+               <id>AsposeJavaAPI</id>
+               <name>Aspose Java API</name>
+               <url>https://releases.aspose.com/java/repo/</url>
+           </repository>
+       </repositories>
+
+       <dependencies>
+           <dependency>
+               <groupId>com.aspose</groupId>
+               <artifactId>aspose-slides</artifactId>
+               <version>26.9</version>
+               <classifier>jdk16</classifier>
+           </dependency>
+       </dependencies>
+
+       <build>
+           <plugins>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <version>3.15.0</version>
+               </plugin>
+           </plugins>
+       </build>
+   </project>
+   ```
+
+   Помимо репозитория и зависимости, этот *pom.xml* задаёт Java‑release для компиляции, указывает класс, который запускает `mvn exec:java`, и фиксирует плагин компилятора, поскольку старый плагин, используемый по умолчанию в некоторых установках Maven, игнорирует параметр `maven.compiler.release`.
+
+2. Сохраните первый пример из раздела [Create Presentations](/slides/ru/java/create-presentation/) как *src/main/java/HelloSlides.java*.
+
+3. В папке проекта выполните:
+
+   ```bash
+   mvn compile exec:java
+   ```
+
+Maven загрузит Aspose.Slides for Java, скомпилирует программу и запустит её. Программа сохранит *new_presentation.pptx* в папке проекта.
+
+## **Использование JAR‑файла без Maven**
+
+1. Скачайте *aspose-slides-26.9-jdk16.jar* из [папки версии](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.9/) в репозитории. Для другой версии откройте соответствующую папку в [репозитории](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) и скачайте файл, оканчивающийся на *-jdk16.jar*.
+2. Сохраните первый пример из раздела [Create Presentations](/slides/ru/java/create-presentation/) как *HelloSlides.java* в той же папке, что и JAR‑файл.
+3. В этой папке выполните:
+
+   ```bash
+   java -cp aspose-slides-26.9-jdk16.jar HelloSlides.java
+   ```
+
+JDK скомпилирует и запустит единственный исходный файл, а программа сохранит *new_presentation.pptx* в папке. В своём приложении добавьте JAR‑файл в путь к классам вашего инструмента сборки или IDE.
+
+## **Linux**
+
+Aspose.Slides for Java использует поддержку шрифтов Java, которая в Linux требует библиотеку fontconfig и как минимум один установленный шрифт. Без них сохранение презентации завершается ошибкой «Fontconfig head is null, check your fonts or fonts configuration». Минимальные серверные и контейнерные образы могут не содержать ни того, ни другого; например, официальный образ контейнера Ubuntu не имеет ни того, ни другого.
+
+В Debian и Ubuntu эта команда устанавливает JDK, Maven, fontconfig и шрифты DejaVu:
+
+```bash
+sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig fonts-dejavu-core
 ```
 
-2. **Define Aspose.Slides for Java API Dependency**
+Шрифты, используемые в ваших презентациях, или подходящие их заменители, также должны быть установлены, чтобы текст отображался корректно.
 
-   Определите зависимость API Aspose.Slides for Java в вашем pom.xml таким образом:
-``` xml
-<dependencies>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>jdk16</classifier>
-    </dependency>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>javadoc</classifier>
-    </dependency>
-</dependencies>
-```
+## **FAQ**
 
+### Как можно проверить, что Aspose.Slides интегрирован корректно?
 
-Затем зависимость Aspose.Slides for Java будет определена в вашем Maven-проекте.
+Соберите проект, создайте пустой [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создаётся без исключений, библиотека успешно интегрирована.
 
-## **Часто задаваемые вопросы**
+### Как ограничить потребление памяти при обработке больших презентаций?
 
-**Как проверить, что Aspose.Slides интегрирован правильно?**
+Увеличивайте лимиты памяти JVM только настолько, насколько это необходимо, и вызывайте [dispose](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#dispose--) для каждого экземпляра [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) в блоке `finally`, чтобы быстро освобождать кэш. Это предотвращает ошибки «out‑of‑memory» и делает общее использование памяти предсказуемым при пакетных операциях.
 
-Соберите ваш проект, создайте пустой объект [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создан без исключений, библиотека успешно интегрирована.
+### Можно ли исключить ненужные форматы экспорта, чтобы уменьшить окончательный размер JAR?
 
-**Как ограничить потребление памяти при обработке больших презентаций?**
-
-Увеличивайте ограничения памяти JVM только до необходимого уровня и закрывайте каждый экземпляр [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) в блоке `finally`, чтобы сразу освобождать кеш. Это предотвращает ошибки out-of-memory и сохраняет предсказуемое общее потребление памяти во время пакетных операций.
-
-**Можно ли исключить нежелательные форматы экспорта, чтобы уменьшить конечный размер JAR?**
-
-Текущие версии Aspose.Slides поставляются как единая монолитная библиотека, поэтому отключить отдельные экспортеры, такие как PDF или SVG, во время сборки нельзя.
+Текущие выпуски Aspose.Slides поставляются как единственная монолитная библиотека, поэтому отключить отдельные экспортеры, такие как PDF или SVG, во время сборки нельзя.

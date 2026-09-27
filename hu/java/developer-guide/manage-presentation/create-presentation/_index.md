@@ -18,41 +18,52 @@ keywords:
 - bemutató
 - Java
 - Aspose.Slides
-description: "Készítsen bemutatókat Java-ban az Aspose.Slides segítségével - állítson elő PPT, PPTX és ODP fájlokat, élvezze az OpenDocument támogatást, és mentse őket programozottan a megbízható eredményekért."
+description: "Készítsen bemutatókat Java-ban az Aspose.Slides használatával – állítson elő PPT, PPTX és ODP fájlokat, élvezze az OpenDocument támogatást, és mentse őket programozottan a megbízható eredmények érdekében."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan hozhatunk létre egy bemutatót az Aspose.Slides-ban, hogyan adhatunk egyszerű tartalmat egy diára, és hogyan menthetjük el az eredményt fájlként. Emellett ismerteti, hogyan hozhatunk létre és menthetünk egy új bemutatót, hogyan nyithatunk meg egy meglévő, támogatott formátumú bemutatót, és hogyan menthetjük át egy másik formátumba. Továbbá a cikk egy rövid GYIK-ot tartalmaz a formátumokra, sablonokra, dia méretezésre, egységekre, memóriahasználatra, szálkezelésre, licencelésre, digitális aláírásokra és VBA támogatásra vonatkozó gyakori kérdésekkel.
+Ez a cikk bemutatja, hogyan hozhat létre bemutatót az Aspose.Slides-ban, hogyan adhat hozzá szöveges alakzatot az első diájához, és hogyan mentheti az eredményt PPTX fájlként. Egy meglévő bemutató megnyitásához és egy másik formátumba mentéséhez lásd [Open Presentations](/slides/hu/java/open-presentation/) és [Save Presentations](/slides/hu/java/save-presentation/). A végén található rövid FAQ (Gyakran Ismételt Kérdések) a formátumokra, sablonokra, dia méretezésre, mértékegységekre, memóriahasználatra, szálkezelésre, licencelésre, digitális aláírásokra és VBA támogatásra vonatkozó gyakori kérdéseket tárgyalja.
+
+Mielőtt elkezdené, adja hozzá az Aspose.Slides for Java-t a projektjéhez az Aspose Maven tárolójából. A Maven beállításhoz és a Linuxhoz szükséges további információkért lásd [Installation](/slides/hu/java/installation/).
 
 ## **Bemutató létrehozása**
 
-A PowerPoint-fájl üresen való létrehozása az Aspose.Slides for Java-ban olyan egyszerű, mint a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály példányosítása. A konstruktor automatikusan egy üres előadást ad egyetlen diával, így azonnal rendelkezünk egy vászonnal formák, szöveg, diagramok vagy egyéb, az alkalmazásunk által igényelt tartalom elhelyezéséhez. Miután módosítjuk azt a diát – vagy újakat adunk hozzá – az eredményt elmenthetjük PPTX, régi PPT vagy akár OpenDocument formátumban is. Az alábbi rövid kódrészlet szemlélteti ezt a munkafolyamatot egy egyszerű alakzat első diára való hozzáadásával.
+PowerPoint fájl létrehozása a semmiből az Aspose.Slides for Java-ban egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály példányával kezdődik. A konstruktor egy üres bemutatót biztosít egyetlen diával, amely készen áll alakzatokra, szövegre, diagramokra vagy bármilyen egyéb tartalomra, amelyre az alkalmazásának szüksége van. Miután módosítja azt a diát, vagy újakat ad hozzá, elmentheti az eredményt PPTX, régi PPT vagy OpenDocument formátumokba.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be a dia hivatkozását az indexe alapján.
-1. Adjunk hozzá egy `Cloud` típusú [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) objektumot az `addAutoShape` metódussal, amely a `Shapes` gyűjtemény része.
-1. Adjunk szöveget az automatikus alakzathoz.
-1. Mentse el a módosított bemutatót PPTX fájlként.
+A bemutató létrehozásához és egy szöveges alakzat hozzáadásához az első diához kövesse az alábbi lépéseket:
 
-Az alábbi példában egy felhő alakzat kerül hozzáadásra a bemutató első diájához.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztályból. Egy új bemutató már tartalmaz egy üres diát.
+2. Szerezze meg azt a diát a 0 indexével a [getSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getSlides--) által visszaadott gyűjteményből.
+3. Adjon hozzá egy `Cloud` típusú [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) alakzatot az [addAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) metódussal, és állítsa be a szövegét a [setText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#setText-java.lang.String-) metódussal.
+4. Mentse a bemutatót PPTX fájlként a [save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódussal.
+
+Az alábbi példa egy teljes program. A [Installation](/slides/hu/java/installation/) Maven projektben mentse el *src/main/java/HelloSlides.java* néven, és futtassa a `mvn compile exec:java` parancsot.
 
 ```java
-// Példányosítsa a Presentation osztályt, amely egy bemutatófájlt képvisel.
-Presentation presentation = new Presentation();
-try {
-    // Szerezze meg az első diát.
-    ISlide slide = presentation.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Adjon hozzá egy Cloud típusú automatikus alakzatot.
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
-    autoShape.getTextFrame().setText("Hello, Aspose!");
+public class HelloSlides {
+    public static void main(String[] args) {
+        // Hozzon létre egy bemutatót. Már tartalmaz egy üres diát.
+        Presentation presentation = new Presentation();
+        try {
+            // Az első diát kapjuk meg.
+            ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Mentse a bemutatót PPTX fájlként.
-    presentation.save("new_presentation.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+            // Adjunk hozzá egy felhő alakzatot, és tegyük bele a szöveget.
+            IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
+            autoShape.getTextFrame().setText("Hello, Aspose!");
+
+            // Mentse a bemutatót PPTX fájlként.
+            presentation.save("new_presentation.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
+
+A felhő bal felső sarkának koordinátái 20 pont a bal szélétől és 20 pont a felső szélétől a dián, az alakzat szélessége 200 pont, magassága 80 pont. A program *new_presentation.pptx*-t ment egy diával, amely a felhőt és a szövegét tartalmazza. Licenc nélkül az Aspose.Slides minden mentett diára egy értékelési vízjelet helyez, lásd [Licensing](/slides/hu/java/licensing/).
 
 Az eredmény:
 
@@ -60,38 +71,38 @@ Az eredmény:
 
 ## **GYIK**
 
-**Milyen formátumokba menthetem el az új bemutatót?**
+### Milyen formátumokba menthetem az új bemutatót?
 
-Elmenthet a [PPTX, PPT és ODP](/slides/hu/java/save-presentation/) formátumokba, valamint exportálhat [PDF](/slides/hu/java/convert-powerpoint-to-pdf/), [XPS](/slides/hu/java/convert-powerpoint-to-xps/), [HTML](/slides/hu/java/convert-powerpoint-to-html/), [SVG](/slides/hu/java/convert-powerpoint-to-png/) és [képek](/slides/hu/java/convert-powerpoint-to-png/) formátumokba, többek között.
+Menthet [PPTX, PPT, and ODP](/slides/hu/java/save-presentation/) formátumokba, és exportálhat [PDF](/slides/hu/java/convert-powerpoint-to-pdf/), [XPS](/slides/hu/java/convert-powerpoint-to-xps/), [HTML](/slides/hu/java/convert-powerpoint-to-html/), [SVG](/slides/hu/java/render-a-slide-as-an-svg-image/) és [images](/slides/hu/java/convert-powerpoint-to-png/) formátumokba, többek között.
 
-**Kiindulhatok sablonból (POTX/POTM), és menthetem regu­lá­ris PPTX‑ként?**
+### Kezdhetek egy sablonból (POTX/POTM), és menthetem szabályos PPTX-ként?
 
-Igen. Töltse be a sablont, és mentse el a kívánt formátumba; a POTX/POTM/PPTM és hasonló formátumok [támogatottak](/slides/hu/java/supported-file-formats/).
+Igen. Töltse be a sablont, és mentse a kívánt formátumba; a POTX/POTM/PPTM és hasonló formátumok [are supported](/slides/hu/java/supported-file-formats/).
 
-**Hogyan szabályozhatom a dia méretét/méretarányát bemutató létrehozásakor?**
+### Hogyan szabályozhatom a dia méretét/méretarányát a bemutató létrehozásakor?
 
-Állítsa be a [slide size](/slides/hu/java/slide-size/)‑t (beleértve az előre definiált 4:3 és 16:9 arányokat vagy egyéni méreteket), és válassza ki, hogyan skálázódjon a tartalom.
+Állítsa be a [slide size](/slides/hu/java/slide-size/) (beleértve az előre definiált 4:3 és 16:9 beállításokat vagy egyedi méreteket), és válassza ki, hogyan méreteződjön a tartalom.
 
-**Milyen egységben mérik a méreteket és a koordinátákat?**
+### Milyen mértékegységben vannak megadva a méretek és koordináták?
 
 Pontban: 1 hüvelyk = 72 egység.
 
-**Hogyan kezeljem a nagyon nagy bemutatókat (számos médiafájllal) a memóriahasználat csökkentése érdekében?**
+### Hogyan kezeljem a nagyon nagy bemutatókat (sok médiafájl) a memóriahasználat csökkentése érdekében?
 
-Használjon [BLOB management strategies](/slides/hu/java/manage-blob/)‑t, korlátozza a memóriában tárolt adatot átmeneti fájlokkal, és részesítse előnyben a fájl‑alapú munkafolyamatokat a kizárólag memóriában történő adatfolyamok helyett.
+Használja a [BLOB management strategies](/slides/hu/java/manage-blob/), korlátozza a memóriában tárolást ideiglenes fájlok használatával, és részesítse előnyben a fájl alapú munkafolyamatokat a kizárólag memóriában lévő adatfolyamok helyett.
 
-**Létrehozhatok vagy menthetek bemutatókat párhuzamosan?**
+### Létrehozhatok/menthetek bemutatókat párhuzamosan?
 
-Nem működtethet ugyanazon [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) példányt több [thread](/slides/hu/java/multithreading/)‑ből. Futtasson külön, elszigetelt példányokat szálanként vagy folyamatként.
+Nem működtethet egyetlen [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) példányt több [multiple threads](/slides/hu/java/multithreading/) szálról. Futtasson külön, elszigetelt példányokat szálanként vagy folyamatként.
 
-**Hogyan távolíthatom el a próbaverzió vízjelet és korlátozásait?**
+### Hogyan távolíthatom el a próba vízjelet és a korlátozásokat?
 
-[Apply a license](/slides/hu/java/licensing/) egyszer a folyamatban. A licenc XML‑nek módosítatlanul kell maradnia, és a licenc beállítást szinkronizálni kell, ha több szál is használja.
+[Apply a license](/slides/hu/java/licensing/) egyszer a folyamatban. A licenc XML‑nek módosítatlanul kell maradnia, és a licenc beállítást szinkronizálni kell, ha több szál is részt vesz.
 
-**Digitálisan aláírhatom a létrehozott PPTX‑et?**
+### Digitálisan aláírhatom a létrehozott PPTX‑et?
 
-Igen. A [Digital signatures](/slides/hu/java/digital-signature-in-powerpoint/) (létrehozás és ellenőrzés) támogatott a bemutatókhoz.
+Igen. A [Digital signatures](/slides/hu/java/digital-signature-in-powerpoint/) (hozzáadás és ellenőrzés) támogatott a bemutatókhoz.
 
-**Támogatottak a makrók (VBA) a létrehozott bemutatókban?**
+### Támogatottak a makrók (VBA) a létrehozott bemutatókban?
 
-Igen. [Create/edit VBA projects](/slides/hu/java/presentation-via-vba/)‑t végezhet, és menthet makró‑engedélyezett fájlokat, például PPTM/PPSM.
+Igen. Készíthet/szerkeszthet [VBA projects](/slides/hu/java/presentation-via-vba/) és menthet makró‑engedélyezett fájlokat, például PPTM/PPSM formátumban.

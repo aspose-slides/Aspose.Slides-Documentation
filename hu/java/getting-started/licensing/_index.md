@@ -8,124 +8,127 @@ keywords:
 - ideiglenes licenc
 - licenc beállítása
 - licenc használata
-- licenc ellenőrzése
-- licenc fájl
-- értékelő verzió
+- licenc érvényesítése
+- licencfájl
+- kiértékelési verzió
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Alkalmazza, kezelje és hibaelhárítsa a licenceket az Aspose.Slides for Java-ban. Biztosítsa a megszakítás nélküli hozzáférést a teljes funkciókhoz lépésről lépésre útmutatónk segítségével."
+description: "Alkalmazza, kezelje és hibakeresse a licenceket az Aspose.Slides for Java-ban. Biztosítsa a megszakítás nélküli hozzáférést a teljes funkcionalitáshoz lépésről lépésre útmutatónkkal."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides használható értékelő módban vagy érvényes licencel. Az értékelő verzió ugyanazt a funkcionalitást nyújtja, mint a licencelt verzió, de értékelő vízjelet ad a prezentációk megnyitásakor vagy mentésekor, és korlátozza a szöveg kinyerését egy diára.
+Aspose.Slides használható kiértékelési módban vagy érvényes licenccel. A kiértékelési verzió ugyanazt a funkcionalitást biztosítja, mint a licencelt verzió, de minden mentett prezentáció minden diájára kiértékelési vízjelet helyez, és a kódból az API-n keresztül olvasott szöveget rövidíti.
 
-Ez a cikk bemutatja, hogyan működik a licencelés az Aspose.Slides-ben, és hogyan lehet licencet alkalmazni a könyvtár használata előtt. Egy licencet betölthet fájlból, streame-ből vagy beágyazott erőforrásból a `License` osztály használatával. A cikk azt is megmutatja, hogyan lehet ellenőrizni, hogy a licenc helyesen lett-e alkalmazva.
+Ez a cikk elmagyarázza, hogyan működik a licencelés az Aspose.Slides-ben, és hogyan lehet licencet alkalmazni a könyvtár használata előtt. A licenc betölthető fájlból, streame-ből vagy beágyazott erőforrásból a `License` osztály segítségével. A cikk bemutatja, hogyan ellenőrizhetjük, hogy a licenc helyesen lett-e alkalmazva.
 
-## **Az Aspose.Slides értékelése**
+## **Aspose.Slides kiértékelése**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
 
-Letöltheti az **Aspose.Slides for Java** értékelő verzióját a [letöltési oldalról](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Az értékelő verzió ugyanazokat a funkciókat biztosítja, mint a termék licencelt változata. Az értékelő csomag megegyezik a megvásárolt csomaggal. Az értékelő verzió egyszerűen licencelté válik, miután néhány kódsort hozzáad (a licenc alkalmazásához).
+Letöltheti a **Aspose.Slides for Java** kiértékelési verzióját a [letöltési oldalról](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). A kiértékelési verzió ugyanazokat a funkciókat kínálja, mint a termék licencelt változata. A kiértékelési csomag megegyezik a megvásárolt csomaggal. A kiértékelési verzió egyszerűen licencszerűvé válik, ha néhány kódsort hozzáad (a licenc alkalmazásához).
 
-Ha elégedett az **Aspose.Slides** értékelésével, [vásárolhat licencet](https://purchase.aspose.com/buy). Javasoljuk, hogy tekintse át a különböző előfizetési típusokat. Ha kérdése van, vegye fel a kapcsolatot az Aspose értékesítési csapatával.
+Miután megelégedett a **Aspose.Slides** kiértékelésével, [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/hu/java/). Javasoljuk, hogy tekintse át a különböző előfizetéstípusokat. Kérdései esetén forduljon az Aspose értékesítési csapatához.
 
-Minden Aspose licenc egy éves előfizetést tartalmaz ingyenes frissítésekhez az új verziókra vagy a előfizetési időszakban kiadott javításokra. A licencelt termékek (vagy akár az értékelő verziók) felhasználói ingyenes és korlátlan műszaki támogatást kapnak.
+Minden Aspose licenc egyéves előfizetést tartalmaz ingyenes frissítésekhez új verziókra vagy a feliratkozási időszakban kiadott hibajavításokhoz. A licencelt termékek (vagy akár a kiértékelési verziók) felhasználói ingyenes és korlátlan technikai támogatást kapnak.
 
 {{% /alert %}} 
 
-**Az értékelő verzió korlátozásai**
+**Kiértékelési verzió korlátozásai**
 
-* Noha az Aspose.Slides értékelő verziója (licenc nélkül) a teljes termékfunkcionalitást biztosítja, a megnyitás és mentés műveletek során egy értékelő vízjelet helyez a dokumentum tetejére. 
-* Szöveg kinyerésekor a prezentáció diákból csak egy diára korlátozódik.
+* A kiértékelési verzió (licenc nélkül) teljes funkciókészletet biztosít, de minden mentett prezentáció minden diájára kiértékelési vízjel szövegdobozt helyez.
+* A kód által az API-n keresztül olvasott szöveg, beleértve a frissen beállított szöveget is, az első néhány karakterre van csonkolva, majd egy figyelmeztetés a kiértékelési korlátozásról követi. A kód által írt szöveg teljes egészében mentésre kerül.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
 
-Az Aspose.Slides korlátozások nélküli teszteléséhez kérhet egy **30 napos ideiglenes licencet**. További információkért tekintse meg a [Hogyan kérhet ideiglenes licencet](https://purchase.aspose.com/temporary-license) oldalt.
+A korlátozások nélküli teszteléshez kérhet **30 napos ideiglenes licencet**. További információkért tekintse meg a [Hogyan kérhet ideiglenes licencet](https://purchase.aspose.com/temporary-license) oldalt.
 
 {{% /alert %}}
 
 ## **Licencelés az Aspose.Slides-ben**
 
-* Az értékelő verzió licencelté válik, miután megvásárol egy licencet és néhány kódsort hozzáad (a licenc alkalmazásához).
-* A licenc egy egyszerű szöveges XML fájl, amely részleteket tartalmaz, például a termék neve, a licencelt fejlesztők száma, az előfizetés lejárati dátuma stb.
-* A licencfájlt digitálisan aláírják, ezért nem szabad módosítani. Még egy véletlen sorvége hozzáadása is érvényteleníti a fájlt.
-* Az Aspose.Slides for Java általában a következő helyeken keresi a licencet:
+* A kiértékelési verzió licencszerűvé válik, ha licencet vásárol, és néhány kódsort hozzáad (a licenc alkalmazásához).
+* A licenc egy egyszerű szöveges XML fájl, amely tartalmazza a termék nevét, a licencelt fejlesztők számát, az előfizetés lejárati dátumát stb.
+* A licencfájl digitálisan alá van írva, ezért nem módosítható. Még egy felesleges sortörés is érvényteleníti.
+* Az Aspose.Slides for Java általában az alábbi helyeken keresi a licencet:
   * Kifejezett útvonal
-  * Az Aspose.Slides.jar fájlt tartalmazó mappa
-* Az értékelő verzióval járó korlátozások elkerülése érdekében licencet kell beállítania a **Aspose.Slides** használata előtt. A licencet csak egyszer kell beállítani alkalmazásonként vagy folyamatként.
+  * Az Aspose.Slides.jar-t tartalmazó mappa
+* A kiértékelési verzióhoz kapcsolódó korlátozások elkerüléséhez be kell állítania egy licencet a **Aspose.Slides** használata előtt. Egy licencet csak egyszer kell beállítani alkalmazásonként vagy folyamatonként.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
 
-Érdemes lehet megnézni a [Metered Licensing](/slides/hu/java/metered-licensing/) oldalt.
+Érdemes megnézni a [Mérték szerinti licencelés](/slides/hu/java/metered-licensing/) oldalt.
 
 {{% /alert %}} 
+
 
 ## **Licenc alkalmazása**
 
 A licenc betölthető **fájlból** vagy **streame-ből**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Megjegyzés" %}}
 
-Az Aspose.Slides a [License](https://reference.aspose.com/slides/hu/java/com.aspose.slides/License) osztályt biztosítja a licencelési műveletekhez.
+Az Aspose.Slides a licencelési műveletekhez a [License](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/) osztályt biztosítja.
 
 {{% /alert %}} 
 
-{{% alert color="warning" %}}
+{{% alert color="warning" title="Figyelmeztetés" %}}
 
-Az új licencek csak a 21.4 vagy annál újabb verzióval aktiválhatják az Aspose.Slides-t. A korábbi verziók más licencelési rendszert használnak, és nem fogadják el ezeket a licenceket.
+Az új licencek csak a 21.4-es vagy újabb verzióval aktiválhatók. A korábbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
 
 {{% /alert %}}
 
 ### **Fájl**
 
-A licenc beállításának legegyszerűbb módja, ha a licencfájlt az Aspose.Slides.jar vagy az alkalmazás jar fájlját tartalmazó mappában helyezi el.
+A legegyszerűbb licenc beállítási mód, ha a licencfájlt az Aspose.Slides.jar-t vagy az alkalmazás jar-ját tartalmazó mappában helyezi el.
 
-Ez a Java kód bemutatja, hogyan állítsa be a licencfájlt:
+Ez a Java kód megmutatja, hogyan állíts be egy licencfájlt:
 
 ``` java
 // Példányosítja a License osztályt
 com.aspose.slides.License license = new com.aspose.slides.License();
 
-// Beállítja a licencfájl elérési útvonalát
+// Beállítja a licencfájl útvonalát
 license.setLicense("Aspose.Slides.Java.lic");
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Figyelmeztetés" %}}
 
-Ha a licencfájlt más könyvtárba helyezi, a [SetLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/License#setLicense-java.lang.String-) metódus meghívásakor a megadott kifejezett útvonal végén lévő licencfájl neve meg kell, hogy egyezzen a saját licencfájljával.
+Ha a licencfájlt másik könyvtárba helyezi, a [setLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/#setLicense-java.lang.String-) metódus hívásakor a megadott útvonal végén szereplő fájlnévnek meg kell egyeznie a licencfájl nevével.
 
-Például megváltoztathatja a licencfájl nevét *Aspose.Slides.Java.lic.xml*-re. Ezután a kódban a [SetLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/License#setLicense-java.lang.String-) metódusnak a fájl elérési útvonalát (amely *Aspose.Slides.Java.lic.xml*-re végződik) kell átadnia.
+Például megváltoztathatja a licencfájl nevét *Aspose.Slides.Java.lic.xml*-re. Ezután a kódban a [setLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/#setLicense-java.lang.String-) metódusnak a *Aspose.Slides.Java.lic.xml*-re végződő útvonalat kell átadnia.
 
 {{% /alert %}}
 
-### **Áram**
+### **Stream**
 
-Licencet betölthet egy streame-ből. Ez a Java kód bemutatja, hogyan alkalmazzon licencet egy streame-ből:
+Licenc betölthető streame-ből is. Ez a Java kód azt mutatja, hogyan alkalmazzunk licencet streame-ből:
 
 ``` java
 // Példányosítja a License osztályt
 com.aspose.slides.License license = new com.aspose.slides.License();
 
-// Beállítja a licencet egy streamen keresztül
+// Beállítja a licencet streame-ből
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 ```
 
 ### **PHP/Java Bridge**
 
-Ha Az Aspose.Slides for PHP-t Java-n keresztül használja, licencet állíthat be egy PHP/Java hídon keresztül. Ez a híd lehetővé teszi, hogy Java osztályokat használjon PHP szintaxisban. További információért tekintse meg a [License in PHP](/slides/hu/php-java/licensing/) oldalt.
+Ha a Aspose.Slides for PHP-t Java-n keresztül használja, licencet állíthat be egy PHP/Java hídon keresztül. Ez a híd lehetővé teszi, hogy Java osztályokat PHP szintaxisban használjon. További információkért lásd a [Licenc PHP-ben](/slides/hu/php-java/licensing/) oldalt.
 
 ## **Licenc ellenőrzése**
 
-Az ellenőrzéshez, hogy a licenc helyesen lett-e beállítva, validálhatja azt. Ez a Java kód bemutatja, hogyan validáljon egy licencet:
+Annak ellenőrzéséhez, hogy a licenc helyesen lett-e beállítva, ellenőrizheti azt. Ez a Java kód megmutatja, hogyan validálhat egy licencet:
 
 ```java
+import com.aspose.slides.*;
+
 License license = new License();
 license.setLicense("Aspose.Slides.Java.lic");
 
-if (License.isLicensed()) 
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }
@@ -133,18 +136,18 @@ if (License.isLicensed())
 
 ## **Szálbiztonság**
 
-{{% alert title="Megjegyzés" color="warning" %}} 
+{{% alert color="warning" title="Figyelmeztetés" %}}
 
-A [SetLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/License#setLicense-java.io.InputStream-) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szálból kell meghívni, érdemes szinkronizációs primitíveket (például egy lock-ot) használni a problémák elkerülése érdekében. 
+A [setLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szálból kell hívni, érdemes szinkronizációs primitíveket (például zárat) használni a problémák elkerülése érdekében.
 
 {{% /alert %}}
 
 ## **GYIK**
 
-**Alkalmazhatom a licencet egy teljesen offline környezetben (nincs internetkapcsolat)?**
+### Alkalmazhatom a licencet teljesen offline környezetben (nincs internetkapcsolat)?
 
-Igen. A licenc ellenőrzése helyben, a licencfájl használatával történik; internetkapcsolat nem szükséges.
+Igen. A licenc ellenőrzése helyben, a licencfájllal történik; internetkapcsolat nem szükséges.
 
-**Mi történik, ha az egyéves előfizetés lejár? Megszűnik a könyvtár működése?**
+### Mi történik, amikor az egyéves előfizetés lejár?
 
-Nem. A licenc örökös: továbbra is használhatja a feliratkozás lejárta előtti kiadott verziókat; csak megújítás nélkül nem lesz jogosult az újabb kiadások használatára.
+Nem. A licenc örökéletű: a feliratkozási dátum előtt kiadott verziókat továbbra is használhatja; csak a újabb kiadásokhoz megújítás szükséges.

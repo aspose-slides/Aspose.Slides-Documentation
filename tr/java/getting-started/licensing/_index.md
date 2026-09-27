@@ -6,9 +6,9 @@ url: /tr/java/licensing/
 keywords:
 - lisans
 - geçici lisans
-- lisans ayarla
-- lisans kullan
-- lisans doğrula
+- lisansı ayarla
+- lisansı kullan
+- lisansı doğrula
 - lisans dosyası
 - değerlendirme sürümü
 - PowerPoint
@@ -16,64 +16,61 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java’da lisansları uygulayın, yönetin ve sorunlarını giderin. Adım adım lisanslama rehberimizle tam özelliklere kesintisiz erişimi sağlayın."
+description: "Aspose.Slides for Java'da lisansları uygulayın, yönetin ve sorun giderin. Adım adım lisanslama kılavuzumuzla tam özelliklere kesintisiz erişimi sağlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, değerlendirme modunda veya geçerli bir lisansla kullanılabilir. Değerlendirme sürümü, lisanslı sürümle aynı işlevselliği sağlasa da sunumlar açıldığında veya kaydedildiğinde bir değerlendirme filigranı ekler ve metin çıkarımını bir slaytla sınırlı tutar.
+Aspose.Slides, değerlendirme modunda veya geçerli bir lisansla kullanılabilir. Değerlendirme sürümü, lisanslı sürümle aynı işlevselliği sağlar, ancak kaydettiği her sunumun her slaytına bir değerlendirme filigranı ekler ve API üzerinden kodunuzun okuduğu metni keser.
 
-Bu makale, Aspose.Slides’da lisanslamanın nasıl çalıştığını ve kitaplığı kullanmadan önce nasıl lisans uygulanacağını açıklar. Bir lisans, `License` sınıfı kullanılarak bir dosyadan, akıştan veya gömülü kaynaktan yüklenebilir. Makale ayrıca bir lisansın doğru şekilde uygulanıp uygulanmadığını nasıl doğrulayacağınızı gösterir.
+Bu makale, Aspose.Slides'te lisanslamanın nasıl çalıştığını ve kütüphaneyi kullanmadan önce lisansın nasıl uygulanacağını açıklar. Bir lisans, `License` sınıfı kullanılarak dosya, akış veya gömülü kaynak aracılığıyla yüklenebilir. Makale ayrıca, bir lisansın doğru şekilde uygulanıp uygulanmadığını doğrulamanın yollarını gösterir.
 
 ## **Aspose.Slides'ı Değerlendirin**
 
-{{% alert color="primary" %}} 
-Aspose.Slides for Java’nın değerlendirme sürümünü, [download page](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) üzerinden indirebilirsiniz. Değerlendirme sürümü, ürünün lisanslı sürümüyle aynı işlevselliği sağlar. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde basitçe lisanslı hâle gelir.
+{{% alert color="info" title="Note" %}}
+**Aspose.Slides for Java**'ın değerlendirme sürümünü [indirme sayfasından](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) indirebilirsiniz. Değerlendirme sürümü, ürünün lisanslı sürümüyle aynı işlevleri sağlar. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, birkaç satır kod ekleyerek (lisansı uygulamak için) lisanslı hâle gelir.
 
-**Aspose.Slides** değerlendirmesinden memnun kaldığınızda bir [purchase a license](https://purchase.aspose.com/buy) alabilirsiniz. Çeşitli abonelik türlerini incelemenizi öneririz. Sorularınız varsa Aspose satış ekibiyle iletişime geçin.
+**Aspose.Slides**'ı değerlendirmeden memnun kaldıktan sonra bir [lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/java/). Farklı abonelik tiplerini gözden geçirmenizi öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
 
-Her Aspose lisansı, abonelik süresi içinde yeni sürümler veya hata düzeltmeleri için ücretsiz yükseltmeler sağlayan bir yıllık abonelikle birlikte gelir. Lisanslı ürün (veya değerlendirme sürümü) kullanan kullanıcılar ücretsiz ve sınırsız teknik destek alır.
+Her Aspose lisansı, abonelik süresi içinde yayınlanan yeni sürümlere veya düzeltmelere ücretsiz yükseltmeler için bir yıllık abonelik içerir. Lisanslı ürünleri (veya hatta değerlendirme sürümlerini) kullanan kullanıcılar ücretsiz ve sınırsız teknik destek alır.
 {{% /alert %}} 
 
 **Değerlendirme sürümü sınırlamaları**
 
-* Lisans belirtilmemiş Aspose.Slides değerlendirme sürümü tam ürün işlevselliği sağlasa da, açma ve kaydetme işlemlerinde belgenin en üstüne bir değerlendirme filigranı ekler. 
-* Sunum slaytlarından metin çıkarırken sadece bir slaytla sınırlısınız.
+* Lisans belirtilmeyen değerlendirme sürümü, tam ürün işlevselliği sağlar, ancak kaydettiği her sunumun her slaytına bir değerlendirme filigranı metin kutusu ekler.
+* API üzerinden kodunuzun okuduğu metin, yeni ayarladığı metin dahil, ilk birkaç karakterine kesilir ve ardından değerlendirme sınırlamasıyla ilgili bir uyarı eklenir. Kodunuzun yazdığı metin ise tam olarak kaydedilir.
 
-{{% alert color="primary" %}} 
-Sınırlamaları olmadan Aspose.Slides’ı denemek isterseniz **30-Day Temporary License** talep edebilirsiniz. Daha fazla bilgi için [How to get a Temporary License](https://purchase.aspose.com/temporary-license) sayfasına bakın.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides'ı sınırlama olmadan test etmek için **30 Günlük Geçici Lisans** isteyebilirsiniz. Daha fazla bilgi için [Geçici Lisans Nasıl Alınır](https://purchase.aspose.com/temporary-license) sayfasına bakın.
 {{% /alert %}}
 
-## **Aspose.Slides'da Lisanslama**
+## **Aspose.Slides'te Lisanslama**
 
-* Değerlendirme sürümü, bir lisans satın alıp birkaç satır kod ekledikten sonra lisanslı hâle gelir (lisansı uygulamak için).
-* Lisans, ürün adı, lisanslı geliştirici sayısı, abonelik son tarih vb. bilgileri içeren düz metin XML dosyasıdır. 
-* Lisans dosyası dijital olarak imzalıdır; dosyayı değiştirmeniz yasaktır. Dosyanın içeriğine istem dışı bir satır sonu eklenmesi bile lisansı geçersiz kılar.
-* Aspose.Slides for Java genellikle lisansı şu konumlardan arar:
+* Bir değerlendirme sürümü, lisans satın alındıktan ve birkaç satır kod eklenerek (lisansı uygulamak için) lisanslı hâle gelir.
+* Lisans, ürün adı, lisanslı geliştirici sayısı, abonelik bitiş tarihi gibi ayrıntıları içeren düz metin XML dosyasıdır.
+* Lisans dosyası dijital olarak imzalanmıştır, bu nedenle dosyayı değiştirmemelisiniz. Dosyanın içeriğine yanlışlıkla ekstra bir satır sonu eklenmesi bile lisansı geçersiz kılar.
+* Aspose.Slides for Java genellikle lisansı şu konumlarda arar:
   * Açık bir yol
-  * Aspose.Slides.jar dosyasının bulunduğu klasör
-* Değerlendirme sürümünün sınırlamalarından kaçınmak için **Aspose.Slides** kullanmadan önce bir lisans ayarlamanız gerekir. Bir uygulama veya işlem başına yalnızca bir kez lisans ayarlamanız yeterlidir.
-
-{{% alert color="primary" %}} 
-[Metered Licensing](/slides/tr/java/metered-licensing/) sayfasına göz atmak isteyebilirsiniz.
+  * Aspose.Slides.jar içeren klasör
+* Değerlendirme sürümüne ilişkin sınırlamalardan kaçınmak için **Aspose.Slides**'ı kullanmadan önce bir lisans ayarlamanız gerekir. Lisansı yalnızca uygulama veya süreç başına bir kez ayarlamanız yeterlidir.
+{{% alert color="info" title="Note" %}}
+[Ölçülü Lisanslama](/slides/tr/java/metered-licensing/) sayfasına bakmak isteyebilirsiniz.
 {{% /alert %}} 
 
-## **Lisansı Uygulama**
+## **Lisans Uygulama**
 
-Bir lisans **dosya** veya **akış** üzerinden yüklenebilir.
+Bir lisans **dosyadan** veya **akıştan** (stream) yüklenebilir.
 
-{{% alert color="primary" %}}
-Aspose.Slides, lisanslama işlemleri için [License](https://reference.aspose.com/slides/tr/java/com.aspose.slides/License) sınıfını sağlar.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides, lisansleme işlemleri için [License](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/) sınıfını sağlar.
 {{% /alert %}} 
 
-{{% alert color="warning" %}}
-Yeni lisanslar yalnızca 21.4 ve sonraki sürümlerle Aspose.Slides’ı etkinleştirebilir. Daha eski sürümler farklı bir lisanslama sistemi kullanır ve bu lisansları tanımaz.
+{{% alert color="warning" title="Warning" %}}
+Yeni lisanslar, Aspose.Slides'ı yalnızca 21.4 veya sonraki sürümlerde etkinleştirebilir. Daha eski sürümler farklı bir lisanslama sistemi kullanır ve bu lisansları tanımaz.
 {{% /alert %}}
 
 ### **Dosya**
 
-Lisans ayarlamanın en kolay yöntemi, lisans dosyasını Aspose.Slides.jar’ın bulunduğu klasöre veya uygulamanızın jar’ına yerleştirmektir.
-
-Bu Java kodu, bir lisans dosyasının nasıl ayarlanacağını gösterir:
+Lisans ayarlamanın en kolay yöntemi, lisans dosyasını Aspose.Slides.jar içeren klasöre veya uygulamanızın jar dosyasına yerleştirmenizi gerektirir.
 
 ``` java
 // Lisans sınıfını örnekler
@@ -83,37 +80,39 @@ com.aspose.slides.License license = new com.aspose.slides.License();
 license.setLicense("Aspose.Slides.Java.lic");
 ```
 
-{{% alert color="warning" %}} 
-Lisans dosyasını farklı bir dizine koyarsanız, [SetLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/License#setLicense-java.lang.String-) metodunu çağırdığınızda, belirtilen açık yolun sonundaki lisans dosyası adı lisans dosyanızla aynı olmalıdır.
+{{% alert color="warning" title="Warning" %}}
+Lisans dosyasını farklı bir dizine koyarsanız, [setLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/#setLicense-java.lang.String-) metodunu çağırdığınızda, belirtilen yolun sonundaki lisans dosyası adı, lisans dosyanızın adıyla aynı olmalıdır.
 
-Örneğin, lisans dosyasının adını *Aspose.Slides.Java.lic.xml* olarak değiştirebilirsiniz. Ardından kodunuzda, dosyanın yolunu ( *Aspose.Slides.Java.lic.xml* ile biten ) [SetLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/License#setLicense-java.lang.String-) metoduna geçirmeniz gerekir.
+Örneğin, lisans dosyası adını *Aspose.Slides.Java.lic.xml* olarak değiştirebilirsiniz. Ardından, kodunuzda [setLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/#setLicense-java.lang.String-) metoduna dosyanın yolunu (*Aspose.Slides.Java.lic.xml* ile biten) geçirmeniz gerekir.
 {{% /alert %}}
 
 ### **Akış**
 
-Bir lisansı akıştan yükleyebilirsiniz. Bu Java kodu, bir akıştan lisans uygulamanın nasıl yapılacağını gösterir:
+Bir lisansı akıştan (stream) yükleyebilirsiniz. Bu Java kodu, bir akıştan lisans nasıl uygulanır gösterir:
 
 ``` java
-// Lisans sınıfını oluşturur
+// Lisans sınıfını örnekler
 com.aspose.slides.License license = new com.aspose.slides.License();
 
 // Lisansı bir akış üzerinden ayarlar
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 ```
 
-### **PHP/Java Köprüsü**
+### **PHP/Java Bridge**
 
-Java üzerinden PHP için Aspose.Slides kullanıyorsanız, bir PHP/Java köprüsü aracılığıyla lisans ayarlayabilirsiniz. Bu köprü, Java sınıflarını PHP sözdiziminde kullanmanıza izin verir. Daha fazla bilgi için [License in PHP](/slides/tr/php-java/licensing/) sayfasına bakın.
+Java üzerinden PHP için Aspose.Slides kullanıyorsanız, bir PHP/Java köprüsü aracılığıyla lisans ayarlayabilirsiniz. Bu köprü, Java sınıflarını PHP sözdiziminde kullanmanıza olanak tanır. Daha fazla bilgi için [License in PHP](/slides/tr/php-java/licensing/) sayfasına bakın.
 
 ## **Lisansı Doğrulama**
 
-Bir lisansın doğru şekilde ayarlanıp ayarlanmadığını kontrol etmek için doğrulama yapabilirsiniz. Bu Java kodu, bir lisansın nasıl doğrulanacağını gösterir:
+Bir lisansın doğru şekilde ayarlanıp ayarlanmadığını kontrol etmek için doğrulayabilirsiniz. Bu Java kodu, bir lisansı nasıl doğrulayacağınızı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 License license = new License();
 license.setLicense("Aspose.Slides.Java.lic");
 
-if (License.isLicensed()) 
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }
@@ -121,16 +120,16 @@ if (License.isLicensed())
 
 ## **İş Parçacığı Güvenliği**
 
-{{% alert title="Note" color="warning" %}} 
-[SetLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/License#setLicense-java.io.InputStream-) metodu iş parçacığı güvenli değildir. Bu metodun aynı anda birçok iş parçacığından çağrılması gerekiyorsa, sorunları önlemek için bir kilit gibi senkronizasyon ilkelileri kullanmak isteyebilirsiniz. 
+{{% alert color="warning" title="Warning" %}}
+[setLicense](https://reference.aspose.com/slides/tr/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) metodu iş parçacığı güvenli değildir. Bu metodun birçok iş parçacığından aynı anda çağrılması gerekiyorsa, sorunları önlemek için senkronizasyon primitifleri (örneğin bir kilit) kullanmak isteyebilirsiniz.
 {{% /alert %}}
 
-## **SSS**
+## **FAQ**
 
-**Lisansı tamamen çevrim dışı bir ortamda (internet erişimi olmadan) uygulayabilir miyim?**
+### Lisansı tamamen çevrim dışı bir ortamda (internet bağlantısı olmadan) uygulayabilir miyim?
 
-Evet. Lisans doğrulaması, lisans dosyası kullanılarak yerel olarak gerçekleştirilir; internet bağlantısı gerekmez.
+Evet. Lisans doğrulaması, lisans dosyası kullanılarak yerel olarak yapılır; internet bağlantısı gerekmez.
 
-**Bir yıllık abonelik süresi dolduğunda ne olur? Kütüphane çalışmayı durdurur mu?**
+### Bir yıllık abonelik süresi dolduğunda ne olur? Kütüphane çalışmayı durdurur mu?
 
-Hayır. Lisans süresizdir: abonelik bitiş tarihinizden önce yayınlanan sürümleri kullanmaya devam edebilirsiniz; ancak yenileme yapmadan daha yeni sürümleri kullanma hakkınız olmaz.
+Hayır. Lisans süresizdir: abonelik bitiş tarihinizden önce yayınlanan sürümleri kullanmaya devam edebilirsiniz; ancak yenilerini yenilemeden kullanamazsınız.

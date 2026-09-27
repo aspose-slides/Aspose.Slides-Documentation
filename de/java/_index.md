@@ -1,36 +1,168 @@
----  
-title: Aspose.Slides für Java  
-second_title: Aspose.Slides for Java
-description: Aspose.Slides für Java ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für Java bietet viele Schlüsselmerkmale wie die Verwaltung von Text, Formen und das Exportieren von Folien in SVG, PDF und andere Formate.  
-type: docs  
-weight: 20  
-url: /de/java/  
-is_root: true  
----  
+---
+title: Aspose.Slides für Java
+second_title: Aspose.Slides für Java
+type: docs
+weight: 20
+url: /de/java/
+keywords:
+- Dokumentation
+- Präsentationsverarbeitung
+- Präsentationskonvertierung
+- PowerPoint
+- OpenDocument
+- Java
+- Aspose.Slides
+description: "Beginnen Sie hier: Installieren Sie Aspose.Slides für Java, erstellen Sie eine erste Präsentation und finden Sie die Anleitungen für gängige Aufgaben, die API-Referenz und den Support."
+is_root: true
+---
+<img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-{{% alert color="primary" %}}  
+Aspose.Slides for Java ist eine Klassenbibliothek zum Erstellen, Lesen, Bearbeiten und Konvertieren von PowerPoint- und OpenDocument-Präsentationen in Java‑Anwendungen, ohne Microsoft PowerPoint.
 
-![Aspose.Slides für Java Produktlogo](home_1.png)  
+Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makro‑aktivierter und Vorlagen‑Varianten, und exportiert nach PDF, XPS, HTML, SVG, TIFF, Markdown und Bildern.
 
-**Willkommen bei Aspose.Slides für Java!**  
+<div style="clear:both"></div>
 
-Aspose.Slides für Java ist eine Microsoft PowerPoint®-Management-API, die es Java-Anwendungen ermöglicht, PowerPoint®-Dokumente ohne Microsoft PowerPoint® zu lesen und zu schreiben. Aspose.Slides für Java ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für Java bietet viele Schlüsselmerkmale wie die Verwaltung von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien und das Exportieren von Folien in SVG, PDF und andere Formate.  
+------
 
-{{% /alert %}}  
+<div class="row">
+<div class="col-md-4">
+<p><b>Loslegen</b></p>
+<hr>
+<p>ERSTE SCHRITTE</p>
+<ul>
+<li><a href="/slides/de/java/installation/">Installation</a></li>
+<li><a href="/slides/de/java/create-presentation/">Erste Präsentation erstellen</a></li>
+<li><a href="/slides/de/java/getting-started/">Einstiegshandbuch</a></li>
+</ul>
+<p>EVALUIEREN</p>
+<ul>
+<li><a href="/slides/de/java/supported-file-formats/">Unterstützte Dateiformate</a></li>
+<li><a href="/slides/de/java/evaluate-aspose-slides/">Einschränkungen der Testversion</a></li>
+<li><a href="/slides/de/java/licensing/">Lizenzierung</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Erstellen mit Slides</b></p>
+<hr>
+<p>ALLGEMEINE AUFGABEN</p>
+<ul>
+<li><a href="/slides/de/java/open-presentation/">Eine Präsentation öffnen</a></li>
+<li><a href="/slides/de/java/save-presentation/">Eine Präsentation speichern</a></li>
+<li><a href="/slides/de/java/convert-powerpoint-to-pdf/">In PDF konvertieren</a></li>
+<li><a href="/slides/de/java/convert-slide/">Folien als Bilder rendern</a></li>
+<li><a href="/slides/de/java/manage-text/">Text und Formen bearbeiten</a></li>
+</ul>
+<p>ARBEITSABLÄUFE</p>
+<ul>
+<li><a href="/slides/de/java/powerpoint-charts/">Diagramme</a></li>
+<li><a href="/slides/de/java/powerpoint-animation/">Animationen</a></li>
+<li><a href="/slides/de/java/manage-media-files/">Audio und Video</a></li>
+<li><a href="/slides/de/java/presentation-design/">Folien-Design</a></li>
+<li><a href="/slides/de/java/merge-presentation/">Präsentationen zusammenführen</a></li>
+</ul>
+<p>BEISPIELE</p>
+<ul>
+<li><a href="/slides/de/java/examples/">Beispiele nach Folienelement</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-Java">Beispiele auf GitHub</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Referenz &amp; Support</b></p>
+<hr>
+<p>REFERENZ</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/de/java/">API-Referenz</a></li>
+<li><a href="https://releases.aspose.com/slides/de/java/release-notes/">Versionshinweise</a></li>
+<li><a href="/slides/de/java/known-issues/">Bekannte Probleme</a></li>
+<li><a href="https://releases.aspose.com/slides/de/java/">Download</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/de/11">Kostenloses Support-Forum</a></li>
+<li><a href="https://helpdesk.aspose.com/">Kostenpflichtiger Support-Helpdesk</a></li>
+</ul>
+</div>
+</div>
 
-## **Aspose.Slides für Java Ressourcen**  
+------
 
-Das sind Links zu nützlichen Ressourcen:  
+## **Ihre erste Präsentation**
 
-- [Aspose.Slides für Java Online-Dokumentation](/slides/de/java/)  
-- [Aspose.Slides für Java Funktionen](/slides/de/java/features-overview/)  
-- [Aspose.Slides für Java Einschränkungen](/slides/de/java/known-issues/)  
-- [Aspose.Slides für Java Versionshinweise](https://releases.aspose.com/slides/java/release-notes/)  
-- [Aspose.Slides für Java Produktseite](https://products.aspose.com/slides/java/)  
-- [Aspose.Slides für Java herunterladen](https://releases.aspose.com/slides/java/)  
-- [Aspose.Slides für Java Maven-Repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)  
-- [Aspose.Slides für Java aus dem Maven-Repository installieren](/slides/de/java/installation/)  
-- [Aspose.Slides für Java API-Referenzhandbuch](https://reference.aspose.com/slides/java)  
-- [Beispiele aus einem GitHub-Repository herunterladen](https://github.com/aspose-slides/Aspose.Slides-for-Java)  
-- [Aspose.Slides für Java Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)  
-- [Aspose.Slides für Java Bezahlt Support-Hilfecenter](https://helpdesk.aspose.com/)  
+Aspose.Slides for Java wird im eigenen Maven‑Repository von Aspose veröffentlicht, nicht im Maven Central. Erstellen Sie einen Ordner für ein Maven‑Projekt und speichern Sie diese *pom.xml* darin. Sie deklariert das Repository, fügt die Bibliothek hinzu und nennt die auszuführende Klasse:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>hello-slides</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <exec.mainClass>HelloSlides</exec.mainClass>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://releases.aspose.com/java/repo/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-slides</artifactId>
+            <version>26.9</version>
+            <classifier>jdk16</classifier>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+Speichern Sie diesen Code als *src/main/java/HelloSlides.java*:
+
+```java
+import com.aspose.slides.*;
+
+public class HelloSlides {
+    public static void main(String[] args) {
+        // Erstelle eine Präsentation. Sie enthält bereits eine leere Folie.
+        Presentation presentation = new Presentation();
+        try {
+            // Hole die erste Folie.
+            ISlide slide = presentation.getSlides().get_Item(0);
+
+            // Füge eine Wolkenform hinzu und setze Text hinein.
+            IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
+            autoShape.getTextFrame().setText("Hello, Aspose!");
+
+            // Speichere die Präsentation als PPTX-Datei.
+            presentation.save("new_presentation.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Dann, mit installiertem JDK 11 oder höher und Apache Maven, führen Sie diesen Befehl im Projektordner aus:
+
+```bash
+mvn compile exec:java
+```
+
+Das Programm speichert *new_presentation.pptx* im Projektordner, mit einer Folie, die eine Wolkenform mit Text enthält. Unter Linux müssen fontconfig und mindestens eine Schriftart installiert sein; siehe [Installation](/slides/de/java/installation/#linux). Ohne Lizenz enthält die gespeicherte Datei ein Evaluations‑Wasserzeichen — siehe [Lizenzierung](/slides/de/java/licensing/). Weitere Möglichkeiten zum Erstellen und Befüllen einer Präsentation finden Sie unter [Präsentationen erstellen](/slides/de/java/create-presentation/).
