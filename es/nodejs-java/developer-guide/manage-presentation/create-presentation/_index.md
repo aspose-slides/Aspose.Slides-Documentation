@@ -31,11 +31,11 @@ Antes de comenzar, instala el paquete `aspose.slides.via.java` desde npm, junto 
 
 Para crear una presentación y colocar un cuadro de texto en su primera diapositiva, sigue estos pasos:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/). Una nueva presentación ya contiene una diapositiva vacía.
-1. Obtén esa diapositiva de la [colección de diapositivas](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/getslides/) por su índice, 0.
-1. Añade un rectángulo con el método [addAutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/addautoshape/) y establece su texto con [setText](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/settext/).
-1. Guarda la presentación como archivo PPTX con el método [save](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/save/).
-1. Libera la presentación con el método [dispose](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/dispose/) y finaliza el proceso.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Una nueva presentación ya contiene una diapositiva vacía.
+1. Obtén esa diapositiva de la [colección de diapositivas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) por su índice, 0.
+1. Añade un rectángulo con el método [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) y establece su texto con [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Guarda la presentación como archivo PPTX con el método [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Libera la presentación con el método [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) y finaliza el proceso.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Utiliza [estrategias de gestión de BLOB](/slides/es/nodejs-java/manage-blob/), 
 
 ### ¿Puedo crear/guardar presentaciones en paralelo?
 
-No puedes operar sobre la misma instancia de [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/) desde [múltiples hilos](/slides/es/nodejs-java/multithreading/). Ejecuta instancias separadas e aisladas por hilo o proceso.
+No puedes operar sobre la misma instancia de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) desde [múltiples hilos](/slides/es/nodejs-java/multithreading/). Ejecuta instancias separadas e aisladas por hilo o proceso.
 
 ### ¿Cómo elimino la marca de agua de prueba y sus limitaciones?
 
