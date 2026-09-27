@@ -26,9 +26,9 @@ description: "تعلم كيفية استيراد محتوى PDF وHTML إلى ع
 ---
 ## **مقدمة**
 
-يمكن لـ Aspose.Slides للـ Python عبر Java تحويل صفحات PDF أو محتوى HTML إلى شرائح PowerPoint بدون الحاجة إلى Microsoft PowerPoint. توفر الفئة [SlideCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/) الطريقة [addFromPdf](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#addFromPdf) و[addFromHtml](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#addFromHtml) لإضافة المحتوى المستورد إلى عرض تقديمي.
+يمكن لـ Aspose.Slides للـ Python عبر Java تحويل صفحات PDF أو محتوى HTML إلى شرائح PowerPoint بدون الحاجة إلى Microsoft PowerPoint. توفر الفئة [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) الطريقة [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) و[addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) لإضافة المحتوى المستورد إلى عرض تقديمي.
 
-للحصول على مزيد من التحكم في وضعية HTML، يمكن لـ [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#insertFromHtml) إدراج الشرائح المُولدة عند فهرس في المجموعة أو البدء بملء المساحة المتاحة على شريحة موجودة. يتم تقسيم HTML الطويل تلقائيًا عبر شرائح إضافية، ويمكن توفير المصدر كسلسلة نصية أو تدفق، كما يمكن تحميل الأصول الخارجية عبر [ExternalResourceResolver](https://reference.aspose.com/slides/ar/python-java/aspose.slides/externalresourceresolver/) باستخدام URI أساسي. تُعرّف المصفوفة المُرجعة من [Slide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/) الشرائح المتأثرة والجديدة.
+للحصول على مزيد من التحكم في وضعية HTML، يمكن لـ [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) إدراج الشرائح المُولدة عند فهرس في المجموعة أو البدء بملء المساحة المتاحة على شريحة موجودة. يتم تقسيم HTML الطويل تلقائيًا عبر شرائح إضافية، ويمكن توفير المصدر كسلسلة نصية أو تدفق، كما يمكن تحميل الأصول الخارجية عبر [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) باستخدام URI أساسي. تُعرّف المصفوفة المُرجعة من [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) الشرائح المتأثرة والجديدة.
 
 ## **استيراد من PDF**
 
@@ -36,9 +36,9 @@ description: "تعلم كيفية استيراد محتوى PDF وHTML إلى ع
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. أنشئ كائنًا جديدًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
-2. استدعِ [addFromPdf](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#addFromPdf) مع مسار ملف PDF.
-3. استدعِ [save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveformat/#Pptx) لكتابة العرض التقديمي إلى ملف PPTX.
+1. أنشئ كائنًا جديدًا من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. استدعِ [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) مع مسار ملف PDF.
+3. استدعِ [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) لكتابة العرض التقديمي إلى ملف PPTX.
 
 المثال التالي بلغة Python يستورد مستند PDF ويحفظ الشرائح المُولدة كعرض PowerPoint:
 
@@ -59,19 +59,19 @@ finally:
     presentation.dispose()
 ```
 
-تظل الشريحة الفارغة الافتراضية موجودة في العرض لأن عملية الاستيراد تُضيف شرائح. لإبقاء الصفحات المستوردة فقط، قم بمسح مجموعة الشرائح باستخدام [SlideCollection.clear](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#clear) قبل الاستيراد.
+تظل الشريحة الفارغة الافتراضية موجودة في العرض لأن عملية الاستيراد تُضيف شرائح. لإبقاء الصفحات المستوردة فقط، قم بمسح مجموعة الشرائح باستخدام [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) قبل الاستيراد.
 
-طريقة [addFromPdf](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#addFromPdf) تُعيد الشرائح التي تُضيفها، وهذا مفيد عندما تحتاج إلى معالجة الشرائح المستوردة فقط.
+طريقة [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) تُعيد الشرائح التي تُضيفها، وهذا مفيد عندما تحتاج إلى معالجة الشرائح المستوردة فقط.
 
-{{% alert title="Tip" color="success" %}}جرّب تطبيق الويب المجاني [PDF to PowerPoint](https://products.aspose.app/slides/ar/import/pdf-to-powerpoint) لتشاهد سير عمل التحويل عمليًا.{{% /alert %}}
+{{% alert title="Tip" color="success" %}}جرّب تطبيق الويب المجاني [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) لتشاهد سير عمل التحويل عمليًا.{{% /alert %}}
 
 ## **استيراد من HTML**
 
 يمكن لـ Aspose.Slides أيضًا إنشاء شرائح من مستند HTML. يمكن توفير المصدر كنص HTML أو تدفق. الخطوات التالية تستخدم تدفق ملف:
 
-1. أنشئ كائنًا جديدًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
-2. افتح ملف HTML للقراءة ومرّر التدفق إلى [addFromHtml](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#addFromHtml).
-3. استدعِ [save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveformat/#Pptx) لكتابة النتيجة إلى ملف PPTX.
+1. أنشئ كائنًا جديدًا من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. افتح ملف HTML للقراءة ومرّر التدفق إلى [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml).
+3. استدعِ [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) لكتابة النتيجة إلى ملف PPTX.
 
 المثال التالي بلغة Python يستورد مستند HTML ويحفظ الشرائح المُولدة كعرض PowerPoint:
 
@@ -99,14 +99,14 @@ finally:
 
 ## **إدراج محتوى HTML**
 
-استخدم [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#insertFromHtml) عندما يجب وضع الشرائح التي تم توليدها من HTML في موضع محدد بدلاً من إضافتها في النهاية. الفهرس يبدأ من الصفر ويحدد الموضع الذي يبدأ فيه الاستيراد.
+استخدم [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) عندما يجب وضع الشرائح التي تم توليدها من HTML في موضع محدد بدلاً من إضافتها في النهاية. الفهرس يبدأ من الصفر ويحدد الموضع الذي يبدأ فيه الاستيراد.
 
 المعامل `useSlideWithIndexAsStart` يتحكم في كيفية استخدام المستورد لهذا الموضع:
 
 - عندما يكون `False`، ينشئ المستورد شرائح جديدة عند الفهرس المحدد ويُزاح الشرائح التي تليه.
 - عندما يكون `True`، يبدأ المستورد بوضع المحتوى في المساحة المتاحة على الشريحة الموجودة عند ذلك الفهرس. إذا لم يتسع HTML، يقوم Aspose.Slides بتقسيمه تلقائيًا ويُدرج شرائح إضافية مباشرة بعد الشريحة الابتدائية.
 
-طريقة [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#insertFromHtml) تُعيد مصفوفة من كائنات [Slide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/). عندما يبدأ الإدراج على شرائح جديدة، كل عنصر مُرجع يُنشأ حديثًا. عندما تُستخدم شريحة موجودة كنقطة بدء، تشمل المصفوفة تلك الشريحة المتأثرة متبوعة بأي شرائح تجاوز جديدة. يمكنك فحص هذه المصفوفة بدلاً من حساب النطاق المتأثر من عدد شرائح العرض.
+طريقة [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) تُعيد مصفوفة من كائنات [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). عندما يبدأ الإدراج على شرائح جديدة، كل عنصر مُرجع يُنشأ حديثًا. عندما تُستخدم شريحة موجودة كنقطة بدء، تشمل المصفوفة تلك الشريحة المتأثرة متبوعة بأي شرائح تجاوز جديدة. يمكنك فحص هذه المصفوفة بدلاً من حساب النطاق المتأثر من عدد شرائح العرض.
 
 ### **إدراج HTML كشرائح جديدة**
 
@@ -143,7 +143,7 @@ finally:
 
 المثال التالي يُزوّد HTML عبر تدفق. يحتفظ بشكل عنوان على الشريحة النموذجية الموجودة، يبدأ الاستيراد أسفل المنطقة المشغولة، ويسمح للجسم الطويل بالمتابعة إلى شرائح جديدة.
 
-يتضمن HTML أيضًا عنوان صورة نسبي. يحصل [ExternalResourceResolver](https://reference.aspose.com/slides/ar/python-java/aspose.slides/externalresourceresolver/) على المورد، بينما يُخبر الـ URI الأساسي المستورد كيفية حل `images/logo.png`. في هذا المثال، يُتوقع وجود الملف في `html-assets/images/logo.png`.
+يتضمن HTML أيضًا عنوان صورة نسبي. يحصل [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) على المورد، بينما يُخبر الـ URI الأساسي المستورد كيفية حل `images/logo.png`. في هذا المثال، يُتوقع وجود الملف في `html-assets/images/logo.png`.
 
 ```python
 from pathlib import Path
@@ -193,6 +193,6 @@ finally:
 
 **هل يمكن لـ Aspose.Slides اكتشاف الجداول عند استيراد PDF؟**
 
-نعم. أنشئ كائنًا من الفئة [PdfImportOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfimportoptions/)، استدعِ [setDetectTables](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfimportoptions/#setDetectTables) مع `True`، ومرّر الخيارات إلى [addFromPdf](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidecollection/#addFromPdf). تعتمد جودة التعرف على الجداول على بنية وتعقيد PDF المصدر.
+نعم. أنشئ كائنًا من الفئة [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/)، استدعِ [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables) مع `True`، ومرّر الخيارات إلى [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf). تعتمد جودة التعرف على الجداول على بنية وتعقيد PDF المصدر.
 
 {{% alert title="Note" color="info" %}}بعد استيراد HTML، يمكنك أيضًا تصدير الشرائح إلى [images](/slides/ar/python-java/convert-powerpoint-to-png/)، [TIFF](/slides/ar/python-java/convert-powerpoint-to-tiff/)، أو [SVG](/slides/ar/python-java/render-a-slide-as-an-svg-image/).{{% /alert %}}

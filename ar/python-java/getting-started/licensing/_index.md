@@ -17,7 +17,7 @@ description: "تطبيق ترخيص من ملف أو من بايتات أو تر
 
 يمكن تشغيل Aspose.Slides for Python via Java في وضع التقييم أو باستخدام ترخيص. في وضع التقييم، يضيف صندوق نص علامة مائية للتقييم إلى كل شريحة في كل عرض تقديمي يتم حفظه ويقص النص الذي يقرأه الكود من العروض التقديمية. تُوضح هذه المقالة كيفية تطبيق ترخيص من ملف أو من بايتات وكيفية تكوين الترخيص القائم على العد.
 
-لخيارات الشراء، راجع [Pricing Information](https://purchase.aspose.com/pricing/slides/ar/family). للأسئلة العامة حول الترخيص والشراء، راجع [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
+لخيارات الشراء، راجع [Pricing Information](https://purchase.aspose.com/pricing/slides/family). للأسئلة العامة حول الترخيص والشراء، راجع [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
 
 للتعرف على قيود التقييم وكيفية طلب ترخيص مؤقت، راجع [Evaluate Aspose.Slides](/slides/ar/python-java/evaluate-aspose-slides/). يُطبق الترخيص المؤقت بنفس طريقة ملف الترخيص المشترى.
 
@@ -29,7 +29,7 @@ description: "تطبيق ترخيص من ملف أو من بايتات أو تر
 لا تقم بتعديل ملف الترخيص. حتى سطر فارغ إضافي يمكن أن يُبطل التوقيع الرقمي.
 {{% /alert %}}
 
-طبّق الترخيص مرة واحدة لكل تطبيق أو عملية، قبل إنشاء العروض التقديمية أو تنفيذ عمليات Aspose.Slides أخرى. لاستخدام ملف الترخيص، استخدم الفئة [License](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/). يستخدم الترخيص القائم على العد زوج مفاتيح عام وخاص بدلًا من ملف الترخيص.
+طبّق الترخيص مرة واحدة لكل تطبيق أو عملية، قبل إنشاء العروض التقديمية أو تنفيذ عمليات Aspose.Slides أخرى. لاستخدام ملف الترخيص، استخدم الفئة [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). يستخدم الترخيص القائم على العد زوج مفاتيح عام وخاص بدلًا من ملف الترخيص.
 
 ## **Apply a License**
 
@@ -37,7 +37,7 @@ description: "تطبيق ترخيص من ملف أو من بايتات أو تر
 
 ### **Apply a License from a File**
 
-مرّر مسار ملف الترخيص إلى [License.setLicense](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/#setLicense). استبدل `Aspose.Slides.lic` بالمسار إلى ملف الترخيص الخاص بك.
+مرّر مسار ملف الترخيص إلى [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). استبدل `Aspose.Slides.lic` بالمسار إلى ملف الترخيص الخاص بك.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 استخدم الاسم الكامل للملف، بما في ذلك الامتداد. على سبيل المثال، إذا كان الملف اسمه `Aspose.Slides.lic.xml`، أضف `.xml` إلى المسار. يضمن المسار المطلق عدم الغموض بشأن دليل العمل الخاص بالتطبيق.
 
-يستخدم المثال [License.isLicensed](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/#isLicensed) للتحقق مما إذا تم تطبيق الترخيص.
+يستخدم المثال [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) للتحقق مما إذا تم تطبيق الترخيص.
 
 ### **Apply a License from Bytes**
 
-استخدم [License.setLicenseFromBytes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/#setLicenseFromBytes) عندما يكون الترخيص متوفرًا كـ Python bytes. يقرأ المثال التالي الملف في وضعية binary ويغلقه قبل تطبيق الترخيص.
+استخدم [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) عندما يكون الترخيص متوفرًا كـ Python bytes. يقرأ المثال التالي الملف في وضعية binary ويغلقه قبل تطبيق الترخيص.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ finally:
 
 ## **Apply a Metered License**
 
-يقوم الترخيص القائم على العد بفوترة الاستخدام وفقًا لاستهلاك الـ API. بعد الحصول على ترخيص عد، طبّق المفاتيح العامة والخاصة باستخدام [Metered.setMeteredKey](https://reference.aspose.com/slides/ar/python-java/aspose.slides/metered/#setMeteredKey). أنشئ كائن [Metered](https://reference.aspose.com/slides/ar/python-java/aspose.slides/metered/) وطبّق المفاتيح مرة واحدة عند بدء تشغيل التطبيق.
+يقوم الترخيص القائم على العد بفوترة الاستخدام وفقًا لاستهلاك الـ API. بعد الحصول على ترخيص عد، طبّق المفاتيح العامة والخاصة باستخدام [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). أنشئ كائن [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) وطبّق المفاتيح مرة واحدة عند بدء تشغيل التطبيق.
 
 يقرأ المثال التالي المفاتيح من المتغيرين البيئيين `ASPOSE_METERED_PUBLIC_KEY` و `ASPOSE_METERED_PRIVATE_KEY`. اضبط المتغيرين قبل تشغيل البرنامج النصي.
 

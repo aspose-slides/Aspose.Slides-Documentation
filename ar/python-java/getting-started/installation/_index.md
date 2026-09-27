@@ -66,7 +66,7 @@ python -m pip install JPype1 aspose-slides-java
 
 ## **التثبيت من أرشيف ZIP**
 
-يمكنك أيضًا استخدام المكتبة من [Aspose.Slides downloads page](https://releases.aspose.com/slides/ar/python-java/):
+يمكنك أيضًا استخدام المكتبة من [Aspose.Slides downloads page](https://releases.aspose.com/slides/python-java/):
 
 1. ثبت Python وJava كما هو موضح في [المتطلبات المسبقة](#prerequisites).
 2. أنشئ وفعل بيئة افتراضية باستخدام التعليمات السابقة.

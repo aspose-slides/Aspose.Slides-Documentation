@@ -77,14 +77,14 @@ Aspose.Slides for Python via Java هي مكتبة لإنشاء وقراءة وت
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/python-java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/python-java/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/python-java/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/python-java/">تنزيل</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">تنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
 </ul>
 </div>

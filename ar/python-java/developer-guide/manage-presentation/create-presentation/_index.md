@@ -29,13 +29,13 @@ description: "إنشاء عروض تقديمية في Python عبر Java باس�
 
 ## **إنشاء عرض تقديمي**
 
-إنشاء ملف PowerPoint من الصفر في Aspose.Slides للـ Python عبر Java سهل مثل إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/). يقوم المُنشئ تلقائيًا بتوفير مجموعة فارغة تحتوي على شريحة واحدة، مما يمنحك لوحة رسم فورية للأشكال والنصوص والمخططات أو أي محتوى آخر تحتاجه تطبيقاتك. بعد تعديل تلك الشريحة—أو إضافة شرائح جديدة—يمكنك حفظ النتيجة كـ PPTX أو PPT التقليدي أو حتى تنسيقات OpenDocument. يوضح نموذج الشيفرة القصير أدناه هذا سير العمل بإضافة شكل بسيط إلى الشريحة الأولى.
+إنشاء ملف PowerPoint من الصفر في Aspose.Slides للـ Python عبر Java سهل مثل إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). يقوم المُنشئ تلقائيًا بتوفير مجموعة فارغة تحتوي على شريحة واحدة، مما يمنحك لوحة رسم فورية للأشكال والنصوص والمخططات أو أي محتوى آخر تحتاجه تطبيقاتك. بعد تعديل تلك الشريحة—أو إضافة شرائح جديدة—يمكنك حفظ النتيجة كـ PPTX أو PPT التقليدي أو حتى تنسيقات OpenDocument. يوضح نموذج الشيفرة القصير أدناه هذا سير العمل بإضافة شكل بسيط إلى الشريحة الأولى.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. الحصول على الشريحة الأولى حسب فهرسها، 0.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) من النوع [ShapeType.Cloud](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapetype/#Cloud) باستخدام [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. تعيين نص الشكل باستخدام [TextFrame.setText](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframe/#setText).
-1. حفظ العرض التقديمي باستخدام [Presentation.save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveformat/#Pptx).
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) من النوع [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) باستخدام [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. تعيين نص الشكل باستخدام [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. حفظ العرض التقديمي باستخدام [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 المثال التالي يبدأ آلة الافتراضية لجافا (JVM) إذا لم تكن قيد التشغيل، ويضيف شكل سحابة بنص إلى الشريحة الأولى، ثم يحفظ العرض التقديمي. احفظه كـ *create_presentation.py*:
 
