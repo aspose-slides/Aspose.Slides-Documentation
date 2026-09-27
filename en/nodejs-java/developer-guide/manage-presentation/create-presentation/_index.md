@@ -24,43 +24,48 @@ description: "Create presentations with Aspose.Slides—produce PPT, PPTX, and O
 
 ## **Overview**
 
-This article shows how to create a presentation in Aspose.Slides, add simple content to a slide, and save the result as a file.
+This article shows how to create a presentation in Aspose.Slides, add a text box to its first slide, and save the result as a file.
 
-## **Create PowerPoint Presentation**
+Before you begin, install the `aspose.slides.via.java` package from npm, together with the JDK, Python, and C++ build tools it needs. See [Installation](/slides/nodejs-java/installation/).
 
-To add a simple plain line to a selected slide of the presentation, please follow the steps below:
+## **Create a PowerPoint Presentation**
 
-1. Create an instance of Presentation class.
-1. Obtain the reference of a slide by using its Index.
-1. Add an AutoShape of Line type using addAutoShape method exposed by Shapes object.
-1. Write the modified presentation as a PPTX file.
+To create a presentation and put a text box on its first slide, follow these steps:
 
-In the example given below, we have added a line to the first slide of the presentation.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class. A new presentation already contains one empty slide.
+1. Get that slide from the [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) by its index, 0.
+1. Add a rectangle with the [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) method and set its text with [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Save the presentation as a PPTX file with the [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) method.
+1. Release the presentation with the [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) method, and end the process.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const asposeSlides = require("aspose.slides.via.java");
 
-// Instantiate a Presentation object that represents a presentation file
-var pres = new aspose.slides.Presentation();
+const presentation = new asposeSlides.Presentation();
 try {
-    // Get the first slide
-    var slide = pres.getSlides().get_Item(0);
-    // Add an autoshape of type line
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// Aspose.Slides runs in a Java virtual machine that keeps Node.js running, so end the process explicitly.
+process.exit(0);
 ```
+
+The rectangle's top-left corner is 50 points from the left edge and 50 points from the top edge of the slide, and the rectangle is 400 points wide and 100 points high. Save the code as *hello.js* in your project folder and run `node hello.js`: it saves *hello.pptx*, with one slide holding that rectangle and its text, in the current folder.
+
+Aspose.Slides runs in a Java virtual machine that the `java` package starts inside the Node.js process. That virtual machine keeps Node.js from exiting on its own after the script finishes, so the example ends with `process.exit(0)`.
+
+Without a license, Aspose.Slides also adds an evaluation watermark to every slide it saves; see [Licensing](/slides/nodejs-java/licensing/).
 
 ## **FAQ**
 
 ### What formats can I save a new presentation to?
 
-You can save to [PPTX, PPT, and ODP](/slides/nodejs-java/save-presentation/), and export to [PDF](/slides/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/nodejs-java/convert-powerpoint-to-png/), and [images](/slides/nodejs-java/convert-powerpoint-to-png/), among others.
+You can save to [PPTX, PPT, and ODP](/slides/nodejs-java/save-presentation/), and export to [PDF](/slides/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/nodejs-java/render-a-slide-as-an-svg-image/), and [images](/slides/nodejs-java/convert-powerpoint-to-png/), among others.
 
 ### Can I start from a template (POTX/POTM) and save as a regular PPTX?
 

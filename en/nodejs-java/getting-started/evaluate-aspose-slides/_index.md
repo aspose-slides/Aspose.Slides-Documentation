@@ -22,14 +22,11 @@ description: "Evaluate Aspose.Slides for Node.js via Java and explore API featur
 
 ## **Aspose.Slides Evaluation**
 
-You can easily download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to apply the license. 
+You can download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package; it becomes licensed after you add a few lines of code to apply the license. To install it, see [Installation](/slides/nodejs-java/installation/).
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save. You are also limited to one slide when extracting texts from presentation slides.
+Without a license, Aspose.Slides provides its full functionality in evaluation mode, with two limitations: it adds an evaluation watermark text box to every slide of each presentation it saves, and text longer than five characters that your code reads from a presentation is cut to its first five characters, followed by `... text has been truncated due to evaluation version limitation.` Text of five characters or fewer is returned unchanged, and text that your code writes is saved in full. Each save adds a watermark, so a presentation that is opened and saved again in evaluation mode carries one watermark per save on every slide.
 
-
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 If you want to test Aspose.Slides without evaluation version limitations, you can request a **30 Day Temporary License**. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) for more information.
 
@@ -39,7 +36,7 @@ If you want to test Aspose.Slides without evaluation version limitations, you ca
 
 ### Can I test multiple presentations in parallel across different threads in evaluation mode?
 
-Yes. You can process different documents in parallel; you should not share the same presentation object [across threads](/slides/net/multithreading/). Evaluation mode does not affect this.
+Yes. You can process different documents in parallel; you should not share the same presentation object [across threads](/slides/nodejs-java/multithreading/). Evaluation mode does not affect this.
 
 ### Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?
 
@@ -47,7 +44,7 @@ No. Aspose.Slides is a standalone engine and does not require PowerPoint install
 
 ### Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?
 
-Yes. The [converters](/slides/net/convert-presentation/) work; the output will include a watermark.
+Yes. The [converters](/slides/nodejs-java/convert-presentation/) work; the output will include a watermark.
 
 ### Can I use a temporary license for load testing without a watermark?
 
