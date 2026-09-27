@@ -22,19 +22,18 @@ description: "Create PowerPoint presentations in Python with Aspose.Slides—pro
 
 ## **Overview**
 
-Aspose.Slides for Python lets you build a brand‑new presentation file entirely in code. This article shows the core workflow—creating a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object, grabbing the first slide, injecting a simple shape, and persisting the result—so you can see how little setup is required to generate a presentation without Microsoft Office. Because the same API writes PPT, PPTX, and ODP files, you can target both traditional PowerPoint and OpenDocument formats from a single code base. Aspose.Slides is suited to desktop, web, or server environments, giving your Python application an efficient starting point for adding richer content such as text, images, or charts once the initial slide deck is in place.
+This article shows how to create a presentation with Aspose.Slides for Python via .NET, add a shape with text to its first slide, and save the result as a PPTX file. The same API also saves presentations as PPT and ODP, so you can target both PowerPoint and OpenDocument formats from one code base, without Microsoft Office. A short FAQ at the end covers common questions about formats, templates, slide sizing, units, memory usage, threading, licensing, digital signatures, and VBA support.
+
+Before you begin, install the package from PyPI with `pip install aspose.slides`. See [Installation](/slides/python-net/installation/) for the libraries that Linux and macOS also need, and for the virtual environment that the system Python of Debian and Ubuntu requires.
 
 ## **Create a Presentation**
 
-Creating a PowerPoint file from scratch in Aspose.Slides for Python is as direct as instantiating the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class. The constructor automatically supplies a blank deck with a single slide, giving you an immediate canvas for shapes, text, charts, or any other content your application needs. Once you modify that slide—or add new ones—you can persist the result to PPTX, legacy PPT, or even OpenDocument formats. The short code sample below illustrates this workflow by adding a simple shape onto the first slide.
+To create a presentation and put a shape with text on its first slide, follow these steps:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Get a reference to the slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) object of `CLOUD` type using the `add_auto_shape` method exposed by the `shapes` collection.
-1. Add text to the auto-shape.
-1. Save the modified presentation as a PPTX file.
-
-In the example below, a cloud shape is added to the first slide of the presentation.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class. A new presentation already contains one empty slide.
+1. Get that slide from the [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection by its index, 0.
+1. Add a cloud-shaped [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) with the [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) method of the slide's [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) collection, and set its [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+1. Save the presentation as a PPTX file with the [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) method.
 
 ```py
 import aspose.slides as slides
@@ -52,6 +51,8 @@ with slides.Presentation() as presentation:
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+The cloud's top-left corner is 20 points from the left edge and 20 points from the top edge of the slide, and the cloud is 200 points wide and 80 points high. The `with` statement releases the presentation's resources when the block ends. The script saves *new_presentation.pptx* in the current folder, with one slide that holds the cloud and its text. Without a license, Aspose.Slides also adds an evaluation watermark to every slide it saves; see [Licensing](/slides/python-net/licensing/).
+
 The result:
 
 ![The new presentation](new_presentation.png)
@@ -60,7 +61,7 @@ The result:
 
 ### What formats can I save a new presentation to?
 
-You can save to [PPTX, PPT, and ODP](/slides/python-net/save-presentation/), and export to [PDF](/slides/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/python-net/convert-powerpoint-to-xps/), [HTML](/slides/python-net/convert-powerpoint-to-html/), [SVG](/slides/python-net/convert-powerpoint-to-png/), and [images](/slides/python-net/convert-powerpoint-to-png/), among others.
+You can save to [PPTX, PPT, and ODP](/slides/python-net/save-presentation/), and export to [PDF](/slides/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/python-net/convert-powerpoint-to-xps/), [HTML](/slides/python-net/convert-powerpoint-to-html/), [SVG](/slides/python-net/render-a-slide-as-an-svg-image/), and [images](/slides/python-net/convert-powerpoint-to-png/), among others.
 
 ### Can I start from a template (POTX/POTM) and save as a regular PPTX?
 

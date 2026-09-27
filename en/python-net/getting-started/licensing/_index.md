@@ -18,22 +18,22 @@ description: "Learn how to apply, manage, and troubleshoot licenses in Aspose.Sl
 
 ## **Overview**
 
-Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark when presentations are opened or saved and limits text extraction to one slide.
+Aspose.Slides can be used in evaluation mode or with a valid license. The evaluation version provides the same functionality as the licensed version, but it adds an evaluation watermark to every slide of each presentation it saves and truncates text that your code reads from presentations.
 
 ## **Evaluate Aspose.Slides**
 
 You can download an evaluation version of **Aspose.Slides for Python via .NET** from its [download page](https://pypi.org/project/Aspose.Slides/). The evaluation version provides the same features as the licensed product. The evaluation package is identical to the purchased package and becomes licensed after you add a few lines of code to apply the license.
 
-When you’re satisfied with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy). We recommend reviewing the available subscription options. If you have questions, contact the Aspose sales team.
+When you’re satisfied with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/pricing/slides/python-net/). We recommend reviewing the available subscription options. If you have questions, contact the Aspose sales team.
 
 Every Aspose license includes a one-year subscription with free upgrades to new versions and fixes released during that period. Both licensed and evaluation users receive free, unlimited technical support.
 
 **Limitations of the Evaluation Version**
 
-* While the Aspose.Slides evaluation version (when no license is applied) provides full functionality, it adds an evaluation watermark at the top of the document whenever you open or save it.
-* When extracting text from a presentation, you are limited to one slide.
+* The evaluation version (when no license is applied) provides full functionality, but it adds an evaluation watermark text box to every slide of each presentation it saves.
+* Text that your code reads from a presentation is truncated to its first few characters, followed by a notice about the evaluation limitation. Text that your code writes is saved in full.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 To test Aspose.Slides without limitations, you can request a **30-day Temporary License**. See the [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) page for details.
 
@@ -44,12 +44,10 @@ To test Aspose.Slides without limitations, you can request a **30-day Temporary 
 * An evaluation version becomes licensed after you purchase a license and add a couple of lines of code to apply it.
 * The license is a plain-text XML file that contains details such as the product name, the number of developers it covers, the subscription expiry date, and so on.
 * The license file is digitally signed, so you must not modify it. Even adding a single line break will invalidate it.
-* Aspose.Slides for Python via .NET typically looks for the license in these locations:
-  * An explicit path you provide
-  * The folder that contains the Python script that calls Aspose.Slides for Python via .NET
+* Aspose.Slides for Python via .NET looks for the license at the path you pass to it. A relative path, or a file name without a path, is resolved against the current working directory, which is not necessarily the folder that contains your Python script.
 * To avoid the evaluation limitations, set the license before using Aspose.Slides. You only need to set it once per application or process.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 You may also want to review [Metered Licensing](/slides/python-net/metered-licensing/).
 
@@ -57,15 +55,15 @@ You may also want to review [Metered Licensing](/slides/python-net/metered-licen
 
 ## **Applying a License**
 
-A license can be loaded from a **file**, **stream**, or **embedded resource**. 
+A license can be loaded from a **file** or a **stream**.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Aspose.Slides provides the [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) class to handle licensing.
 
 {{% /alert %}}
 
-{{% alert color="warning" %}}
+{{% alert color="warning" title="Warning" %}}
 
 New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier versions use a different licensing system and will not recognize these licenses.
 
@@ -73,7 +71,7 @@ New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier
 
 ### **File**
 
-The easiest way to set a license is to place the license file in the same folder as the component’s DLL and specify only the file name (without a path).
+The simplest way to set a license is to pass the path of the license file to the [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) method. If you pass only the file name, as in the example below, Aspose.Slides looks for the file in the current working directory.
 
 The following Python code shows how to set the license file:
 
@@ -87,11 +85,11 @@ license = slides.License()
 license.set_license("Aspose.Slides.lic")
 ```
 
-{{% alert color="warning" %}}
+{{% alert color="warning" title="Warning" %}}
 
-If you place the license file in a different directory, when you call [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str), the file name at the end of the explicit path must match your license file’s name.
+If you place the license file in a different directory, when you call [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str), the file name at the end of the explicit path must match your license file’s name.
 
-For example, you can rename the license file to *Aspose.Slides.lic.xml*. Then, in your code, pass the full path to that file (ending with Aspose.Slides.lic.xml) to the [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) method.
+For example, you can rename the license file to *Aspose.Slides.lic.xml*. Then, in your code, pass the full path to that file (ending with Aspose.Slides.lic.xml) to the [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) method.
 
 {{% /alert %}}
 
@@ -127,9 +125,9 @@ if license.is_licensed():
 
 ## **Thread Safety**
 
-{{% alert title="Note" color="warning" %}}
+{{% alert color="warning" title="Warning" %}}
 
-The [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/) methods are not thread-safe. If it needs to be called concurrently from multiple threads, use synchronization primitives (e.g., `threading.Lock`) to avoid issues.
+The [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) method is not thread-safe. If you need to call it concurrently from multiple threads, use a synchronization primitive, such as `threading.Lock`, to avoid issues.
 
 {{% /alert %}}
 
