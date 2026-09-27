@@ -17,7 +17,7 @@ description: "Aspose.Slides for Python via Java में फ़ाइल‑आ�
 
 Aspose.Slides for Python via Java मूल्यांकन मोड में या लाइसेंस के साथ चल सकता है। मूल्यांकन मोड में, यह प्रत्येक प्रस्तुति को सहेजते समय प्रत्येक स्लाइड में एक मूल्यांकन वाटरमार्क टेक्स्ट बॉक्स जोड़ता है और आपके कोड द्वारा प्रस्तुतियों से पढ़े गए टेक्स्ट को काट देता है। यह लेख फ़ाइल या बाइट्स से लाइसेंस लागू करने और मीटर लाइसेंसिंग को कॉन्फ़िगर करने के तरीके को समझाता है।
 
-For purchase options, see [मूल्य जानकारी](https://purchase.aspose.com/pricing/slides/hi/family). For general licensing and purchasing questions, see [क्रय नीतियां और अक्सर पूछे जाने वाले प्रश्न](https://purchase.aspose.com/policies).
+For purchase options, see [मूल्य जानकारी](https://purchase.aspose.com/pricing/slides/family). For general licensing and purchasing questions, see [क्रय नीतियां और अक्सर पूछे जाने वाले प्रश्न](https://purchase.aspose.com/policies).
 
 For evaluation limitations and how to request a temporary license, see [Aspose.Slides का मूल्यांकन करें](/slides/hi/python-java/evaluate-aspose-slides/). Apply a temporary license in the same way as a purchased license file.
 
@@ -25,7 +25,7 @@ For evaluation limitations and how to request a temporary license, see [Aspose.S
 लाइसेंस फ़ाइल को संपादित न करें। अतिरिक्त लाइन ब्रेक भी उसकी डिजिटल सिग्नेचर को अमान्य कर सकता है।
 {{% /alert %}}
 
-Apply the license once per application or process, before creating presentations or performing other Aspose.Slides operations. For a license file, use the [License](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/) class. Metered licensing uses a public and private key pair instead of a license file.
+Apply the license once per application or process, before creating presentations or performing other Aspose.Slides operations. For a license file, use the [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/) class. Metered licensing uses a public and private key pair instead of a license file.
 
 ## **लाइसेंस लागू करना**
 
@@ -33,7 +33,7 @@ The following examples assume that Aspose.Slides for Python via Java and its pre
 
 ### **फ़ाइल से लाइसेंस लागू करना**
 
-Pass the license file path to [License.setLicense](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/#setLicense). Replace `Aspose.Slides.lic` with the path to your license file.
+Pass the license file path to [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Replace `Aspose.Slides.lic` with the path to your license file.
 
 ```python
 from pathlib import Path
@@ -60,11 +60,11 @@ finally:
 
 Use the exact file name, including its extension. For example, if the file is named `Aspose.Slides.lic.xml`, include `.xml` in the path. An absolute path avoids ambiguity about the application's working directory.
 
-The example uses [License.isLicensed](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/#isLicensed) to check whether the license has been applied.
+The example uses [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) to check whether the license has been applied.
 
 ### **बाइट्स से लाइसेंस लागू करना**
 
-Use [License.setLicenseFromBytes](https://reference.aspose.com/slides/hi/python-java/aspose.slides/license/#setLicenseFromBytes) when the license is available as Python bytes. The following example reads the file in binary mode and closes it before applying the license.
+Use [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) when the license is available as Python bytes. The following example reads the file in binary mode and closes it before applying the license.
 
 ```python
 from pathlib import Path
@@ -96,7 +96,7 @@ Keep the original bytes unchanged. Do not decode, reformat, or otherwise modify 
 
 ## **मीटर लाइसेंस लागू करना**
 
-Metered licensing bills you according to API usage. After obtaining a metered license, apply its public and private keys with [Metered.setMeteredKey](https://reference.aspose.com/slides/hi/python-java/aspose.slides/metered/#setMeteredKey). Initialize the [Metered](https://reference.aspose.com/slides/hi/python-java/aspose.slides/metered/) object and apply the keys once at application startup.
+Metered licensing bills you according to API usage. After obtaining a metered license, apply its public and private keys with [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). Initialize the [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) object and apply the keys once at application startup.
 
 The following example reads the keys from the `ASPOSE_METERED_PUBLIC_KEY` and `ASPOSE_METERED_PRIVATE_KEY` environment variables. Set both variables before running the script.
 

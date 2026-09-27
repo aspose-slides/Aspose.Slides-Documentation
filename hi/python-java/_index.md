@@ -77,14 +77,14 @@ Aspose.Slides for Python via Java एक लाइब्रेरी है ज�
 <hr>
 <p>संदर्भ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hi/python-java/">API संदर्भ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/python-java/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API संदर्भ</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">रिलीज़ नोट्स</a></li>
 <li><a href="/slides/hi/python-java/known-issues/">ज्ञात समस्याएँ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/python-java/">डाउनलोड</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">डाउनलोड</a></li>
 </ul>
 <p>समर्थन</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">नि:शुल्क समर्थन फ़ोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">नि:शुल्क समर्थन फ़ोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">भुगतान समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>
