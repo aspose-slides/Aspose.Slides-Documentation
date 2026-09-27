@@ -100,7 +100,7 @@ Om *hello.pptx* visas i projektmappen fungerar installationen. Den Java‑virtue
 Paketet finns också som ett ZIP‑arkiv med samma innehåll som npm‑paketet. För att installera det från arkivet:
 
 1. Installera förutsättningarna för ditt operativsystem, enligt beskrivningen ovan.
-2. Ladda ner arkivet från [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/sv/nodejs-java/).
+2. Ladda ner arkivet från [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/).
 3. Skapa en projektmapp:
 
     ```bash

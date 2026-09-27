@@ -41,7 +41,7 @@ Om du vill testa Aspose.Slides utan begränsningarna i utvärderingsversionen ka
 {{% /alert %}}
 
 ## **Om licensen**
-Du kan enkelt ladda ner en utvärderingsversion av Aspose.Slides för Node.js via Java från dess [nedladdningssida](https://releases.aspose.com/slides/sv/nodejs-java/). Utvärderingsversionen har samma funktioner som den licensierade versionen, med begränsningarna beskrivna ovan. Dessutom blir utvärderingsversionen licensierad efter att du köpt en licens och lagt till några kodrader för att applicera licensen.
+Du kan enkelt ladda ner en utvärderingsversion av Aspose.Slides för Node.js via Java från dess [nedladdningssida](https://releases.aspose.com/slides/nodejs-java/). Utvärderingsversionen har samma funktioner som den licensierade versionen, med begränsningarna beskrivna ovan. Dessutom blir utvärderingsversionen licensierad efter att du köpt en licens och lagt till några kodrader för att applicera licensen.
 
 Licensen är en klartext‑XML‑fil som innehåller detaljer såsom produktnamn, antal utvecklare den är licensierad för, prenumerationsutgångsdatum med mera. Filen är digitalt signerad, så ändra inte filen. Även ett oavsiktligt extra radbrytning i filens innehåll gör den ogiltig.
 
@@ -61,7 +61,7 @@ Du måste ange licensen:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Du kan hitta prisinformation på sidan ["Prisuppgifter"](https://purchase.aspose.com/pricing/slides/sv/family).
+Du kan hitta prisinformation på sidan ["Prisuppgifter"](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Inställning av licens i Aspose.Slides för Node.js via Java**
@@ -93,10 +93,10 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-När du anropar setLicense‑metoden ska licensnamnet vara detsamma som ditt licensfilnamn. Till exempel kan du ändra licensfilens namn till "Aspose.Slides.lic.xml". Därefter måste du i din kod skicka det nya licensnamnet (Aspose.Slides.lic.xml) till setLicense‑metoden. Om filen saknas eller inte innehåller en giltig licens, kastar [setLicense](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/license/setlicense/) ett undantag som avslutar skriptet med ett fel.
+När du anropar setLicense‑metoden ska licensnamnet vara detsamma som ditt licensfilnamn. Till exempel kan du ändra licensfilens namn till "Aspose.Slides.lic.xml". Därefter måste du i din kod skicka det nya licensnamnet (Aspose.Slides.lic.xml) till setLicense‑metoden. Om filen saknas eller inte innehåller en giltig licens, kastar [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) ett undantag som avslutar skriptet med ett fel.
 
 #### **Applicera en licens från en ström**
-För att applicera en licens från en ström, skicka [License](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/license/)‑objektet och en läsbar ström till den statiska metoden [setLicenseFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/license/setlicense/). Strömmen läses asynkront, och callbacken får ett fel om strömmen inte innehåller en giltig licens:
+För att applicera en licens från en ström, skicka [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/)‑objektet och en läsbar ström till den statiska metoden [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/). Strömmen läses asynkront, och callbacken får ett fel om strömmen inte innehåller en giltig licens:
 
 **Node.js**
 

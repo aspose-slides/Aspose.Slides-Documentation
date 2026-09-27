@@ -31,11 +31,11 @@ Innan du börjar, installera paketet `aspose.slides.via.java` från npm, tillsam
 
 För att skapa en presentation och placera en textruta på dess första bild, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.
-1. Hämta den bilden från [slide collection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getslides/) med dess index 0.
-1. Lägg till en rektangel med metoden [addAutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/addautoshape/) och sätt dess text med [setText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/settext/).
-1. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/save/).
-1. Frigör presentationen med metoden [dispose](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/dispose/) och avsluta processen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.
+1. Hämta den bilden från [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) med dess index 0.
+1. Lägg till en rektangel med metoden [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) och sätt dess text med [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Frigör presentationen med metoden [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) och avsluta processen.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Använd [BLOB management strategies](/slides/sv/nodejs-java/manage-blob/), begr�
 
 ### Kan jag skapa/spara presentationer parallellt?
 
-Du kan inte arbeta på samma [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) instans från [multiple threads](/slides/sv/nodejs-java/multithreading/). Kör separata, isolerade instanser per tråd eller process.
+Du kan inte arbeta på samma [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instans från [multiple threads](/slides/sv/nodejs-java/multithreading/). Kör separata, isolerade instanser per tråd eller process.
 
 ### Hur tar jag bort utvärderingsvattenstämpeln och begränsningarna?
 
