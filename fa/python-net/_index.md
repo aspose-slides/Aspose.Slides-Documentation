@@ -79,13 +79,13 @@ Aspose.Slides for Python via .NET یک کتابخانه پایتون برای ا
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fa/python-net/">مستندات API</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/python-net/release-notes/">یادداشت‌های انتشار</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/python-net/">دانلود</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">مستندات API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">دانلود</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">دستگاه پشتیبانی پولی</a></li>
 </ul>
 </div>

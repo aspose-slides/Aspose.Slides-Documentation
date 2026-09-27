@@ -23,7 +23,7 @@ Aspose.Slides می‌تواند در حالت ارزیابی یا با یک لا
 
 می‌توانید نسخه ارزیابی **Aspose.Slides for Python via .NET** را از [صفحه دانلود](https://pypi.org/project/Aspose.Slides/) دریافت کنید. نسخه ارزیابی همان ویژگی‌های محصول لایسنس‌دار را فراهم می‌کند. بسته ارزیابی دقیقاً مشابه بسته خریداری‌شده است و پس از افزودن چند خط کد برای اعمال لایسنس، لایسنس‌دار می‌شود.
 
-وقتی از ارزیابی **Aspose.Slides** رضایت یافتید، می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/fa/python-net/). توصیه می‌کنیم گزینه‌های اشتراک موجود را بررسی کنید. اگر سؤالی دارید، با تیم فروش Aspose تماس بگیرید.
+وقتی از ارزیابی **Aspose.Slides** رضایت یافتید، می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/python-net/). توصیه می‌کنیم گزینه‌های اشتراک موجود را بررسی کنید. اگر سؤالی دارید، با تیم فروش Aspose تماس بگیرید.
 
 هر لایسنس Aspose شامل یک اشتراک یک‌ساله با ارتقاءهای رایگان به نسخه‌های جدید و اصلاحاتی است که در طول آن دوره منتشر می‌شوند. هم کاربران لایسنس‌دار و هم کاربران ارزیابی، پشتیبانی فنی رایگان و نامحدود دریافت می‌کنند.
 
@@ -53,7 +53,7 @@ Aspose.Slides می‌تواند در حالت ارزیابی یا با یک لا
 لایسنس می‌تواند از **فایل** یا **جریان** بارگذاری شود.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides کلاس [License](https://reference.aspose.com/slides/fa/python-net/aspose.slides/license/) را برای مدیریت لایسنس فراهم می‌کند.
+Aspose.Slides کلاس [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) را برای مدیریت لایسنس فراهم می‌کند.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ Aspose.Slides کلاس [License](https://reference.aspose.com/slides/fa/python-n
 
 ### **فایل**
 
-ساده‌ترین روش برای تنظیم لایسنس، عبور مسیر فایل لایسنس به متد [set_license](https://reference.aspose.com/slides/fa/python-net/aspose.slides/license/set_license/) است. اگر فقط نام فایل را عبور دهید، همان‌طور که در مثال زیر آمده است، Aspose.Slides فایل را در پوشه کاری جاری جستجو می‌کند.
+ساده‌ترین روش برای تنظیم لایسنس، عبور مسیر فایل لایسنس به متد [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) است. اگر فقط نام فایل را عبور دهید، همان‌طور که در مثال زیر آمده است، Aspose.Slides فایل را در پوشه کاری جاری جستجو می‌کند.
 
 کد پایتون زیر نحوه تنظیم فایل لایسنس را نشان می‌دهد:
 ```py
@@ -76,9 +76,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-اگر فایل لایسنس را در یک دایرکتوری متفاوت قرار دهید، هنگام فراخوانی [License.set_license](https://reference.aspose.com/slides/fa/python-net/aspose.slides/license/set_license/#str)، نام فایل در انتهای مسیر صریح باید با نام فایل لایسنس شما مطابقت داشته باشد.
+اگر فایل لایسنس را در یک دایرکتوری متفاوت قرار دهید، هنگام فراخوانی [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)، نام فایل در انتهای مسیر صریح باید با نام فایل لایسنس شما مطابقت داشته باشد.
 
-برای مثال، می‌توانید فایل لایسنس را به *Aspose.Slides.lic.xml* تغییر نام دهید. سپس در کد خود، مسیر کامل به آن فایل (که با Aspose.Slides.lic.xml پایان می‌یابد) را به متد [License.set_license](https://reference.aspose.com/slides/fa/python-net/aspose.slides/license/set_license/#str) بدهید.
+برای مثال، می‌توانید فایل لایسنس را به *Aspose.Slides.lic.xml* تغییر نام دهید. سپس در کد خود، مسیر کامل به آن فایل (که با Aspose.Slides.lic.xml پایان می‌یابد) را به متد [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) بدهید.
 {{% /alert %}}
 
 ### **جریان**
@@ -112,7 +112,7 @@ if license.is_licensed():
 ## **ایمنی در میان‌ریسمان‌ها**
 
 {{% alert color="warning" title="Warning" %}}
-متد [License.set_license](https://reference.aspose.com/slides/fa/python-net/aspose.slides/license/set_license/) ایمنی بین‌ریسمانی ندارد. اگر نیاز دارید که آن را به‌صورت همزمان از چندین ریسمان فراخوانی کنید، از یک سازوکار هم‌زمانی مانند `threading.Lock` استفاده کنید تا از بروز مشکلات جلوگیری کنید.
+متد [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) ایمنی بین‌ریسمانی ندارد. اگر نیاز دارید که آن را به‌صورت همزمان از چندین ریسمان فراخوانی کنید، از یک سازوکار هم‌زمانی مانند `threading.Lock` استفاده کنید تا از بروز مشکلات جلوگیری کنید.
 {{% /alert %}}
 
 ## **FAQ**

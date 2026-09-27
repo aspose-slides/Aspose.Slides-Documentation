@@ -29,10 +29,10 @@ description: "ایجاد ارائه‌های پاورپوینت در پایتو�
 
 برای ایجاد یک ارائه و قرار دادن یک شکل متنی روی اسلاید اول آن، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید از پیش شامل یک اسلاید خالی است.
-2. آن اسلاید را از مجموعه [slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/slides/fa/) با اندیس 0 دریافت کنید.
-3. با استفاده از متد [add_auto_shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_auto_shape/) مجموعهٔ [shapes](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/shapes/) اسلاید، یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) به شکل ابر اضافه کنید و متن آن را با استفاده از [text](https://reference.aspose.com/slides/fa/python-net/aspose.slides/textframe/text/) تنظیم کنید.
-4. ارائه را به عنوان فایل PPTX با متد [save](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/save/) ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید از پیش شامل یک اسلاید خالی است.
+2. آن اسلاید را از مجموعه [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) با اندیس 0 دریافت کنید.
+3. با استفاده از متد [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) مجموعهٔ [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) اسلاید، یک [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) به شکل ابر اضافه کنید و متن آن را با استفاده از [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/) تنظیم کنید.
+4. ارائه را به عنوان فایل PPTX با متد [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) ذخیره کنید.
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### آیا می‌توانم ارائه‌ها را به‌صورت موازی ایجاد/ذخیره کنم؟
 
-نمی‌توانید روی همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) از [multiple threads](/slides/fa/python-net/multithreading/) کار کنید. برای هر ریسه یا فرآیند، نمونه‌های جداگانه و ایزوله اجرا کنید.
+نمی‌توانید روی همان نمونهٔ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) از [multiple threads](/slides/fa/python-net/multithreading/) کار کنید. برای هر ریسه یا فرآیند، نمونه‌های جداگانه و ایزوله اجرا کنید.
 
 ### چگونه می‌توانم واترمارک نسخه آزمایشی و محدودیت‌ها را حذف کنم؟
 
