@@ -23,7 +23,7 @@ description: "Μάθετε πώς να εφαρμόζετε, διαχειρίζ�
 
 Μπορείτε να κατεβάσετε μια έκδοση αξιολόγησης του **Aspose.Slides for Python via .NET** από τη [σελίδα λήψης](https://pypi.org/project/Aspose.Slides/). Η έκδοση αξιολόγησης παρέχει τις ίδιες δυνατότητες με το αδειοδοτημένο προϊόν. Το πακέτο αξιολόγησης είναι πανομοιότυπο με το αγορασμένο πακέτο και γίνεται αδειοδοτημένο αφού προσθέσετε μερικές γραμμές κώδικα για την εφαρμογή της άδειας.
 
-Όταν είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε άδεια](https://purchase.aspose.com/pricing/slides/el/python-net/). Συνιστούμε να εξετάσετε τις διαθέσιμες επιλογές συνδρομής. Αν έχετε ερωτήσεις, επικοινωνήστε με την ομάδα πωλήσεων της Aspose.
+Όταν είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε άδεια](https://purchase.aspose.com/pricing/slides/python-net/). Συνιστούμε να εξετάσετε τις διαθέσιμες επιλογές συνδρομής. Αν έχετε ερωτήσεις, επικοινωνήστε με την ομάδα πωλήσεων της Aspose.
 
 Κάθε άδεια Aspose περιλαμβάνει ετήσια συνδρομή με δωρεάν αναβαθμίσεις σε νέες εκδόσεις και διορθώσεις που κυκλοφορούν κατά την περίοδο αυτή. Τanto οι χρήστες αδειοδοτημένοι όσο και οι χρήστες αξιολόγησης λαμβάνουν δωρεάν, απεριόριστη τεχνική υποστήριξη.
 
@@ -53,7 +53,7 @@ description: "Μάθετε πώς να εφαρμόζετε, διαχειρίζ�
 Μια άδεια μπορεί να φορτωθεί από **αρχείο** ή **ροή**.
 
 {{% alert color="info" title="Σημείωση" %}}
-Το Aspose.Slides παρέχει την κλάση [License](https://reference.aspose.com/slides/el/python-net/aspose.slides/license/) για τη διαχείριση αδειοδότησης.
+Το Aspose.Slides παρέχει την κλάση [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) για τη διαχείριση αδειοδότησης.
 {{% /alert %}}
 
 {{% alert color="warning" title="Προειδοποίηση" %}}
@@ -62,7 +62,7 @@ description: "Μάθετε πώς να εφαρμόζετε, διαχειρίζ�
 
 ### **Αρχείο**
 
-Ο πιο απλός τρόπος για να ορίσετε μια άδεια είναι να περάσετε τη διαδρομή του αρχείου άδειας στη μέθοδο [set_license](https://reference.aspose.com/slides/el/python-net/aspose.slides/license/set_license/). Αν περάσετε μόνο το όνομα του αρχείου, όπως στο παρακάτω παράδειγμα, το Aspose.Slides αναζητά το αρχείο στον τρέχοντα κατάλογο εργασίας.
+Ο πιο απλός τρόπος για να ορίσετε μια άδεια είναι να περάσετε τη διαδρομή του αρχείου άδειας στη μέθοδο [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/). Αν περάσετε μόνο το όνομα του αρχείου, όπως στο παρακάτω παράδειγμα, το Aspose.Slides αναζητά το αρχείο στον τρέχοντα κατάλογο εργασίας.
 
 Ο ακόλουθος κώδικας Python δείχνει πώς να ορίσετε το αρχείο άδειας:
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Προειδοποίηση" %}}
-Αν τοποθετήσετε το αρχείο άδειας σε διαφορετικό φάκελο, όταν καλέσετε τη μέθοδο [License.set_license](https://reference.aspose.com/slides/el/python-net/aspose.slides/license/set_license/#str), το όνομα αρχείου στο τέλος της ρητής διαδρομής πρέπει να ταιριάζει με το όνομα του αρχείου άδειάς σας.
+Αν τοποθετήσετε το αρχείο άδειας σε διαφορετικό φάκελο, όταν καλέσετε τη μέθοδο [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str), το όνομα αρχείου στο τέλος της ρητής διαδρομής πρέπει να ταιριάζει με το όνομα του αρχείου άδειάς σας.
 
-Για παράδειγμα, μπορείτε να μετονομάσετε το αρχείο άδειας σε *Aspose.Slides.lic.xml*. Στη συνέχεια, στον κώδικά σας, περάστε την πλήρη διαδρομή προς αυτό το αρχείο (τελειώνοντας με Aspose.Slides.lic.xml) στη μέθοδο [License.set_license](https://reference.aspose.com/slides/el/python-net/aspose.slides/license/set_license/#str).
+Για παράδειγμα, μπορείτε να μετονομάσετε το αρχείο άδειας σε *Aspose.Slides.lic.xml*. Στη συνέχεια, στον κώδικά σας, περάστε την πλήρη διαδρομή προς αυτό το αρχείο (τελειώνοντας με Aspose.Slides.lic.xml) στη μέθοδο [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str).
 {{% /alert %}}
 
 ### **Ροή**
@@ -115,7 +115,7 @@ if license.is_licensed():
 ## **Ασφάλεια Πολυνηματικότητας**
 
 {{% alert color="warning" title="Προειδοποίηση" %}}
-Η μέθοδος [License.set_license](https://reference.aspose.com/slides/el/python-net/aspose.slides/license/set_license/) δεν είναι ασφαλής για χρήση από πολλαπλά νήματα ταυτόχρονα. Εάν πρέπει να την καλέσετε ταυτόχρονα από πολλαπλά νήματα, χρησιμοποιήστε ένα primitive συγχρονισμού, όπως `threading.Lock`, για να αποφύγετε προβλήματα.
+Η μέθοδος [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) δεν είναι ασφαλής για χρήση από πολλαπλά νήματα ταυτόχρονα. Εάν πρέπει να την καλέσετε ταυτόχρονα από πολλαπλά νήματα, χρησιμοποιήστε ένα primitive συγχρονισμού, όπως `threading.Lock`, για να αποφύγετε προβλήματα.
 {{% /alert %}}
 
 ## **Συχνές Ερωτήσεις**

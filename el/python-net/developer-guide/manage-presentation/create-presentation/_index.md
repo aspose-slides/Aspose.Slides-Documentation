@@ -29,10 +29,10 @@ description: "Δημιουργήστε παρουσιάσεις PowerPoint σε 
 
 Για να δημιουργήσετε μια παρουσίαση και να τοποθετήσετε ένα σχήμα με κείμενο στην πρώτη της διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/). Μια νέα παρουσίαση περιέχει ήδη μια κενή διαφάνεια.
-1. Αποκτήστε αυτήν τη διαφάνεια από τη συλλογή [slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/slides/el/) με βάση το δείκτη της, 0.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) σε σχήμα σύννεφου με τη μέθοδο [add_auto_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_auto_shape/) της συλλογής [shapes](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/shapes/) της διαφάνειας και ορίστε το [text](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/text/).
-1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [save](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/save/).
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Μια νέα παρουσίαση περιέχει ήδη μια κενή διαφάνεια.
+1. Αποκτήστε αυτήν τη διαφάνεια από τη συλλογή [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) με βάση το δείκτη της, 0.
+1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) σε σχήμα σύννεφου με τη μέθοδο [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) της συλλογής [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) της διαφάνειας και ορίστε το [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### Μπορώ να δημιουργήσω/αποθηκεύσω παρουσιάσεις παράλληλα;
 
-Δεν μπορείτε να λειτουργήσετε στην ίδια [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) παρουσία από [πολλαπλά νήματα](/slides/el/python-net/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες παρουσίες ανά νήμα ή διεργασία.
+Δεν μπορείτε να λειτουργήσετε στην ίδια [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) παρουσία από [πολλαπλά νήματα](/slides/el/python-net/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες παρουσίες ανά νήμα ή διεργασία.
 
 ### Πώς αφαιρώ το υδατογράφημα δοκιμής και τους περιορισμούς;
 
