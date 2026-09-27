@@ -61,7 +61,7 @@ description: "اعمال، مدیریت و رفع اشکال مجوزها در A
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-می‌توانید اطلاعات قیمت‌گذاری را در صفحه [«اطلاعات قیمت‌گذاری»](https://purchase.aspose.com/pricing/slides/fa/family) پیدا کنید.
+می‌توانید اطلاعات قیمت‌گذاری را در صفحه [«اطلاعات قیمت‌گذاری»](https://purchase.aspose.com/pricing/slides/family) پیدا کنید.
 {{% /alert %}}
 
 ### **تنظیم لایسنس در Aspose.Slides برای PHP از طریق Java**

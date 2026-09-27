@@ -30,10 +30,10 @@ description: "ایجاد ارائه‌ها با Aspose.Slides برای PHP از 
 
 برای ایجاد یک ارائه و قرار دادن یک جعبه متن در اولین اسلاید آن، این مراحل را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید از پیش شامل یک اسلاید خالی است.
-2. اسلاید را از مجموعه‌ای که توسط [Presentation::getSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/getslides/) برگردانده می‌شود، با اندیس 0 دریافت کنید.
-3. یک مستطیل با استفاده از متد [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/addautoshape/) اضافه کنید و متن آن را با [TextFrame::setText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/textframe/settext/) تنظیم کنید.
-4. ارائه را به عنوان یک فایل PPTX با متد [Presentation::save](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/save/) ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید از پیش شامل یک اسلاید خالی است.
+2. اسلاید را از مجموعه‌ای که توسط [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) برگردانده می‌شود، با اندیس 0 دریافت کنید.
+3. یک مستطیل با استفاده از متد [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) اضافه کنید و متن آن را با [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/) تنظیم کنید.
+4. ارائه را به عنوان یک فایل PPTX با متد [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) ذخیره کنید.
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides فایل‌ها را داخل Tomcat می‌خواند و می‌�
 
 ## **ایجاد و ذخیره یک ارائه**
 
-برای ایجاد یک ارائه خالی و ذخیره آن، یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید و آن را در هر قالبی از شمارش [SaveFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/saveformat/) ذخیره کنید. نتیجه یک ارائه با یک اسلاید خالی است.
+برای ایجاد یک ارائه خالی و ذخیره آن، یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ایجاد کنید و آن را در هر قالبی از شمارش [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) ذخیره کنید. نتیجه یک ارائه با یک اسلاید خالی است.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **باز کردن و ذخیره یک ارائه**
 
-برای تبدیل یک ارائه از یک قالب به قالب دیگر، آن را با عبور مسیر به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) باز کنید، سپس در قالب هدف ذخیره کنید. Aspose.Slides قالب ورودی را، مانند PPT، PPTX یا ODP، از خود فایل تشخیص می‌دهد.
+برای تبدیل یک ارائه از یک قالب به قالب دیگر، آن را با عبور مسیر به سازندهٔ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) باز کنید، سپس در قالب هدف ذخیره کنید. Aspose.Slides قالب ورودی را، مانند PPT، PPTX یا ODP، از خود فایل تشخیص می‌دهد.
 
 مثال زیر انتظار دارد یک ارائهٔ OpenDocument به نام *Sample.odp* در کنار اسکریپت باشد و آن را به صورت PPTX ذخیره می‌کند.
 
