@@ -27,10 +27,10 @@ Antes de começar, instale o pacote do PyPI com `pip install aspose.slides`. Con
 
 ## **Criar uma Apresentação**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.
-1. Obtenha esse slide da coleção de [slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/slides/pt/) pelo índice 0.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) em forma de nuvem usando o método [add_auto_shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/add_auto_shape/) da coleção de [shapes](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slide/shapes/) do slide, e defina seu [text](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/text/).
-1. Salve a apresentação como um arquivo PPTX usando o método [save](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/save/).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.
+1. Obtenha esse slide da coleção de [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) pelo índice 0.
+1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) em forma de nuvem usando o método [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) da coleção de [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) do slide, e defina seu [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+1. Salve a apresentação como um arquivo PPTX usando o método [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -78,7 +78,7 @@ Use [BLOB management strategies](/slides/pt/python-net/manage-blob/), limite o a
 
 ### Posso criar/salvar apresentações em paralelo?
 
-Não é possível operar na mesma instância de [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) a partir de [várias threads](/slides/pt/python-net/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
+Não é possível operar na mesma instância de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) a partir de [várias threads](/slides/pt/python-net/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
 
 ### Como remover a marca d'água de avaliação e as limitações?
 
