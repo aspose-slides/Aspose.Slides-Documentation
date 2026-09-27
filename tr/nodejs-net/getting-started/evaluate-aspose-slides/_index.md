@@ -2,7 +2,7 @@
 title: Aspose.Slides'i Değerlendirme
 type: docs
 weight: 120
-url: /tr/nodejs-java/evaluate-aspose-slides/
+url: /tr/nodejs-net/evaluate-aspose-slides/
 ---
 Aspose.Slides değerlendirme sürümünü kolayca indirebilirsiniz. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç kod satırı ekledikten sonra basitçe lisanslı hâle gelir.
 

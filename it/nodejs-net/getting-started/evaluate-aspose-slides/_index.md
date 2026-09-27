@@ -2,7 +2,7 @@
 title: Valuta Aspose.Slides
 type: docs
 weight: 120
-url: /it/nodejs-java/evaluate-aspose-slides/
+url: /it/nodejs-net/evaluate-aspose-slides/
 ---
 Puoi scaricare facilmente Aspose.Slides per la valutazione. Il pacchetto di valutazione è lo stesso del pacchetto acquistato. La versione di valutazione diventa semplicemente licenziata dopo aver aggiunto alcune righe di codice per applicare la licenza. 
 

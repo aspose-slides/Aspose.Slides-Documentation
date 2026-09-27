@@ -2,7 +2,7 @@
 title: Αξιολόγηση Aspose.Slides
 type: docs
 weight: 120
-url: /el/nodejs-java/evaluate-aspose-slides/
+url: /el/nodejs-net/evaluate-aspose-slides/
 ---
 Μπορείτε εύκολα να κατεβάσετε το Aspose.Slides για αξιολόγηση. Το πακέτο αξιολόγησης είναι το ίδιο με το αγορασμένο πακέτο. Η έκδοση αξιολόγησης γίνεται απλώς αδειοδοτημένη αφού προσθέσετε μερικές γραμμές κώδικα για την εφαρμογή της άδειας. 
 

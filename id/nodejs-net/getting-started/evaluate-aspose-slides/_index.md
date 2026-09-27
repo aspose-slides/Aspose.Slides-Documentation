@@ -2,7 +2,7 @@
 title: Evaluasi Aspose.Slides
 type: docs
 weight: 120
-url: /id/nodejs-java/evaluate-aspose-slides/
+url: /id/nodejs-net/evaluate-aspose-slides/
 ---
 Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi. 
 

@@ -2,7 +2,7 @@
 title: Utvärdera Aspose.Slides
 type: docs
 weight: 120
-url: /sv/nodejs-java/evaluate-aspose-slides/
+url: /sv/nodejs-net/evaluate-aspose-slides/
 ---
 Du kan enkelt ladda ner Aspose.Slides för utvärdering. Utvärderingspaketet är detsamma som det köpta paketet. Utvärderingsversionen blir helt enkelt licensierad efter att du har lagt till några rader kod för att tillämpa licensen. 
 

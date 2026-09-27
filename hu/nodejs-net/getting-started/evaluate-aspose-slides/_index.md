@@ -2,7 +2,7 @@
 title: Az Aspose.Slides értékelése
 type: docs
 weight: 120
-url: /hu/nodejs-java/evaluate-aspose-slides/
+url: /hu/nodejs-net/evaluate-aspose-slides/
 ---
 Az Aspose.Slides könnyedén letölthető értékelés céljából. Az értékelő csomag megegyezik a megvásárolt csomaggal. Az értékelő verzió egyszerűen licencszerűvé válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
 

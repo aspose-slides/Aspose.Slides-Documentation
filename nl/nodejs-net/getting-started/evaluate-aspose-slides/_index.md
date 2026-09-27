@@ -2,7 +2,7 @@
 title: Evaluatie van Aspose.Slides
 type: docs
 weight: 120
-url: /nl/nodejs-java/evaluate-aspose-slides/
+url: /nl/nodejs-net/evaluate-aspose-slides/
 ---
 U kunt Aspose.Slides eenvoudig downloaden voor evaluatie. Het evaluatiepakket is hetzelfde als het gekochte pakket. De evaluatieversie wordt simpelweg gelicentieerd zodra u enkele regels code toevoegt om de licentie toe te passen. 
 

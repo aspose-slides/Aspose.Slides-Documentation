@@ -2,7 +2,7 @@
 title: ประเมิน Aspose.Slides
 type: docs
 weight: 120
-url: /th/nodejs-java/evaluate-aspose-slides/
+url: /th/nodejs-net/evaluate-aspose-slides/
 ---
 คุณสามารถดาวน์โหลด Aspose.Slides เพื่อทำการประเมินได้อย่างง่ายดาย. แพ็กเกจประเมินมีลักษณะเดียวกับแพ็กเกจที่ซื้อ. เวอร์ชันประเมินจะกลายเป็นลิขสิทธิ์โดยง่ายหลังจากคุณใส่โค้ดไม่กี่บรรทัดเพื่อเปิดใช้งานใบอนุญาต. 
 

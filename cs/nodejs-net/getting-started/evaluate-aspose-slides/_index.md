@@ -2,7 +2,7 @@
 title: Vyhodnotit Aspose.Slides
 type: docs
 weight: 120
-url: /cs/nodejs-java/evaluate-aspose-slides/
+url: /cs/nodejs-net/evaluate-aspose-slides/
 ---
 Jednoduše si můžete stáhnout Aspose.Slides k vyzkoušení. Vyhodnocovací balíček je stejný jako zakoupený balíček. Vyhodnocovací verze se po přidání několika řádků kódu pro aplikaci licence jednoduše stane licencovanou.
 

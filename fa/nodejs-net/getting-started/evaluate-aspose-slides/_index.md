@@ -2,7 +2,7 @@
 title: ارزیابی Aspose.Slides
 type: docs
 weight: 120
-url: /fa/nodejs-java/evaluate-aspose-slides/
+url: /fa/nodejs-net/evaluate-aspose-slides/
 ---
 می‌توانید به‌راحتی Aspose.Slides را برای ارزیابی دانلود کنید. بسته ارزیابی همان بسته خریداری‌شده است. نسخه ارزیابی پس از افزودن چند خط کد برای اعمال لایسنس به سادگی لایسنس‌دار می‌شود.
 

@@ -2,7 +2,7 @@
 title: Đánh giá Aspose.Slides
 type: docs
 weight: 120
-url: /vi/nodejs-java/evaluate-aspose-slides/
+url: /vi/nodejs-net/evaluate-aspose-slides/
 ---
 Bạn có thể dễ dàng tải xuống Aspose.Slides để đánh giá. Gói đánh giá giống hệt gói đã mua. Phiên bản đánh giá chỉ cần thêm một vài dòng mã để áp dụng giấy phép là sẽ trở thành có giấy phép. 
 

@@ -2,7 +2,7 @@
 title: 評估 Aspose.Slides
 type: docs
 weight: 120
-url: /zh-hant/nodejs-java/evaluate-aspose-slides/
+url: /zh-hant/nodejs-net/evaluate-aspose-slides/
 ---
 您可以輕鬆下載 Aspose.Slides 以進行評估。評估版套件與購買版套件相同。只要加入幾行程式碼以套用授權，評估版即可直接變為授權版。
 
