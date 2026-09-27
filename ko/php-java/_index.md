@@ -71,14 +71,14 @@ Aspose.Slides for PHP via Java는 Microsoft PowerPoint 또는 Office Automation 
 <hr>
 <p>참조</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ko/php-java/">API 참조</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/php-java/release-notes/">릴리스 노트</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">API 참조</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">릴리스 노트</a></li>
 <li><a href="/slides/ko/php-java/known-issues/">알려진 문제</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/php-java/">다운로드</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">다운로드</a></li>
 </ul>
 <p>지원</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">무료 지원 포럼</a></li>
 <li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
 </ul>
 </div>

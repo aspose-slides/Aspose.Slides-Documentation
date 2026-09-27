@@ -30,10 +30,10 @@ description: "Aspose.Slides for PHP via Java를 사용하여 프레젠테이션�
 
 프레젠테이션을 만들고 첫 번째 슬라이드에 텍스트 상자를 배치하려면 다음 단계를 따르십시오:
 
-1. 새로운 프레젠테이션은 이미 빈 슬라이드 하나를 포함하고 있습니다. [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 클래스를 인스턴스화합니다.
-2. [Presentation::getSlides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/getslides/)가 반환하는 컬렉션에서 인덱스 0으로 해당 슬라이드를 가져옵니다.
-3. [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapecollection/addautoshape/) 메서드를 사용하여 사각형을 추가하고, [TextFrame::setText](https://reference.aspose.com/slides/ko/php-java/aspose.slides/textframe/settext/)으로 텍스트를 설정합니다.
-4. [Presentation::save](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/save/) 메서드로 프레젠테이션을 PPTX 파일로 저장합니다.
+1. 새로운 프레젠테이션은 이미 빈 슬라이드 하나를 포함하고 있습니다. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 클래스를 인스턴스화합니다.
+2. [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/)가 반환하는 컬렉션에서 인덱스 0으로 해당 슬라이드를 가져옵니다.
+3. [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) 메서드를 사용하여 사각형을 추가하고, [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/)으로 텍스트를 설정합니다.
+4. [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) 메서드로 프레젠테이션을 PPTX 파일로 저장합니다.
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides는 PHP 프로세스가 아니라 Tomcat 내부에서 파일을 읽
 
 ## **프레젠테이션 만들기 및 저장**
 
-빈 프레젠테이션을 만들고 저장하려면 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 클래스를 인스턴스화한 다음 [SaveFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/saveformat/) 열거형의 원하는 형식으로 저장합니다. 결과는 빈 슬라이드 하나를 포함한 프레젠테이션입니다.
+빈 프레젠테이션을 만들고 저장하려면 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 클래스를 인스턴스화한 다음 [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) 열거형의 원하는 형식으로 저장합니다. 결과는 빈 슬라이드 하나를 포함한 프레젠테이션입니다.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **프레젠테이션 열기 및 저장**
 
-프레젠테이션을 한 형식에서 다른 형식으로 변환하려면 파일 경로를 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 생성자에 전달하여 열고, 원하는 대상 형식으로 저장합니다. Aspose.Slides는 파일 자체에서 PPT, PPTX, ODP와 같은 입력 형식을 자동으로 감지합니다.
+프레젠테이션을 한 형식에서 다른 형식으로 변환하려면 파일 경로를 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 생성자에 전달하여 열고, 원하는 대상 형식으로 저장합니다. Aspose.Slides는 파일 자체에서 PPT, PPTX, ODP와 같은 입력 형식을 자동으로 감지합니다.
 
 아래 예제는 스크립트 옆에 있는 *Sample.odp*라는 OpenDocument 프레젠테이션을 기대하며 이를 PPTX 형식으로 저장합니다.
 
@@ -127,7 +127,7 @@ try {
 
 ### 프레젠테이션을 병렬로 생성/저장할 수 있나요?
 
-동일한 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 인스턴스를 [다중 스레드](/slides/ko/php-java/multithreading/)에서 동시에 사용할 수 없습니다. 스레드 또는 프로세스당 별도의 독립 인스턴스를 실행하십시오.
+동일한 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 인스턴스를 [다중 스레드](/slides/ko/php-java/multithreading/)에서 동시에 사용할 수 없습니다. 스레드 또는 프로세스당 별도의 독립 인스턴스를 실행하십시오.
 
 ### 평가용 워터마크 및 제한을 제거하려면 어떻게 합니까?
 

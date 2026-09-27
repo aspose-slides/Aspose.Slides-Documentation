@@ -154,7 +154,7 @@ PHP가 Tomcat에서 `Java.inc`를 로드하지 못했습니다. 오류 메시지
 
 **대용량 프레젠테이션을 처리할 때 메모리 사용량을 어떻게 제한할 수 있나요?**
 
-JVM 메모리 제한을 필요한 수준으로만 높이고, `finally` 블록에서 각 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 인스턴스를 닫아 캐시를 즉시 해제하십시오. 이렇게 하면 메모리 부족 오류를 방지하고 배치 작업 중 메모리 사용량을 예측 가능하게 유지할 수 있습니다.
+JVM 메모리 제한을 필요한 수준으로만 높이고, `finally` 블록에서 각 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 인스턴스를 닫아 캐시를 즉시 해제하십시오. 이렇게 하면 메모리 부족 오류를 방지하고 배치 작업 중 메모리 사용량을 예측 가능하게 유지할 수 있습니다.
 
 **불필요한 내보내기 형식을 제외해 최종 JAR 크기를 줄일 수 있나요?**
 
