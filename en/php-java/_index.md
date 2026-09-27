@@ -12,41 +12,109 @@ keywords:
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides is a Microsoft PowerPoint® management API that enables PHP applications to read and write PowerPoint® documents without using Microsoft PowerPoint®."
+description: "Start here: install Aspose.Slides for PHP via Java, create a first presentation, and find the guides for common tasks, the API reference and support."
 is_root: true
 ---
 
-{{% alert color="info" %}}
+<img src="aspose_slides-for-php-via-java.png" alt="Aspose.Slides for PHP via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Welcome to Aspose.Slides for PHP via Java**
+Aspose.Slides for PHP via Java is a class library for creating, reading, editing and converting PowerPoint and OpenDocument presentations in PHP applications, without Microsoft PowerPoint or Office Automation.
 
-![Aspose.Slides for PHP via Java Product Logo](aspose_slides-for-php-via-java.png)
+It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and template variants, and exports to PDF, XPS, HTML, SVG, TIFF, Markdown and images.
 
-Aspose.Slides for PHP via Java is a class library that enables your applications to read and write PowerPoint® documents without using Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Aspose.Slides for PHP via Java is the first and only component that provides the functionality to manage PowerPoint® documents.
+------
 
-Aspose.Slides for PHP via Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
+<div class="row">
+<div class="col-md-4">
+<p><b>Get Started</b></p>
+<hr>
+<p>GETTING STARTED</p>
+<ul>
+<li><a href="/slides/php-java/installation/">Installation</a></li>
+<li><a href="/slides/php-java/create-presentation/">Create your first presentation</a></li>
+<li><a href="/slides/php-java/getting-started/">Getting started guide</a></li>
+</ul>
+<p>EVALUATE</p>
+<ul>
+<li><a href="/slides/php-java/supported-file-formats/">Supported file formats</a></li>
+<li><a href="/slides/php-java/evaluate-aspose-slides/">Trial limitations</a></li>
+<li><a href="/slides/php-java/licensing/">Licensing</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Build with Slides</b></p>
+<hr>
+<p>COMMON TASKS</p>
+<ul>
+<li><a href="/slides/php-java/open-presentation/">Open a presentation</a></li>
+<li><a href="/slides/php-java/save-presentation/">Save a presentation</a></li>
+<li><a href="/slides/php-java/convert-powerpoint-to-pdf/">Convert to PDF</a></li>
+<li><a href="/slides/php-java/convert-slide/">Render slides as images</a></li>
+<li><a href="/slides/php-java/manage-text/">Edit text and shapes</a></li>
+</ul>
+<p>SLIDES WORKFLOWS</p>
+<ul>
+<li><a href="/slides/php-java/powerpoint-charts/">Charts</a></li>
+<li><a href="/slides/php-java/powerpoint-animation/">Animations</a></li>
+<li><a href="/slides/php-java/manage-media-files/">Audio and video</a></li>
+<li><a href="/slides/php-java/presentation-design/">Slide design</a></li>
+<li><a href="/slides/php-java/merge-presentation/">Merge presentations</a></li>
+</ul>
+<p>EXAMPLES</p>
+<ul>
+<li><a href="/slides/php-java/examples/">Examples by slide element</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Reference &amp; Support</b></p>
+<hr>
+<p>REFERENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/php-java/">API reference</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Release notes</a></li>
+<li><a href="/slides/php-java/known-issues/">Known issues</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">Download</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/11">Free support forum</a></li>
+<li><a href="https://helpdesk.aspose.com/">Paid support helpdesk</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Aspose.Slides for PHP via Java Resources
+## **Your first presentation**
 
-{{% alert color="info" %}}
+Aspose.Slides for PHP via Java runs on Java inside Apache Tomcat, and your PHP scripts reach it through PHP/Java Bridge. [Installation](/slides/php-java/installation/) sets up PHP 8.3 or earlier, Java, Tomcat and the bridge, and then installs the package from Packagist in a project folder:
 
-Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter documentation and API reference.
+```bash
+composer require aspose/slides
+```
 
-{{% /alert %}}
+Then copy the package's JAR file into the bridge and restart Tomcat, as in step 4 of [Install on Linux](/slides/php-java/installation/#install-on-linux) or step 6 of [Install on Windows](/slides/php-java/installation/#install-on-windows). With Tomcat running, save this script as *hello.php* in the project folder and run `php hello.php`:
 
-These are links to useful to resources:
+```php
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once(__DIR__ . "/vendor/aspose/slides/lib/aspose.slides.php");
 
-- [Aspose.Slides for PHP via Java Online Documentation](/slides/php-java/)
-- [Aspose.Slides for PHP via Java Features](/slides/php-java/features-overview/)
-- [Aspose.Slides for PHP via Java Limitations and API Differences](/slides/php-java/limitations-and-api-differences/)
-- [Aspose.Slides for PHP via Java Release Notes](https://releases.aspose.com/slides/php-java/release-notes/)
-- [Aspose.Slides for PHP via Java Product Page](https://products.aspose.com/slides/php-java/)
-- [Download Aspose.Slides for PHP via Java Package](https://releases.aspose.com/slides/php-java/)
-- [Install Aspose.Slides for PHP via Java](/slides/php-java/installation/)
-- [Aspose.Slides for PHP via Java API Reference](https://reference.aspose.com/slides/php-java/)
-- [Aspose.Slides for PHP via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides for PHP via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    $shape->getTextFrame()->setText("Hello, Aspose.Slides!");
+    $presentation->save(__DIR__ . "/hello.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The script saves *hello.pptx* next to itself, with one slide holding a text box. Without a license, the saved file carries an evaluation watermark — see [Licensing](/slides/php-java/licensing/). For more ways to create and fill a presentation, see [Create Presentations](/slides/php-java/create-presentation/).
