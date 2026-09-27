@@ -17,7 +17,7 @@ description: "Aspose.Slides for Python via Java でファイル、バイトベ�
 
 Aspose.Slides for Python via Java は評価モードまたはライセンスモードで実行できます。評価モードでは、保存する各プレゼンテーションのすべてのスライドに評価用透かしテキストボックスが追加され、プレゼンテーションからコードが読み取るテキストが切り捨てられます。この記事では、ファイルまたはバイト配列からライセンスを適用する方法と、メーター制ライセンスの構成方法について説明します。
 
-購入オプションについては、[価格情報](https://purchase.aspose.com/pricing/slides/ja/family)をご覧ください。一般的なライセンスおよび購入に関する質問は、[購入ポリシーと FAQ](https://purchase.aspose.com/policies)をご参照ください。
+購入オプションについては、[価格情報](https://purchase.aspose.com/pricing/slides/family)をご覧ください。一般的なライセンスおよび購入に関する質問は、[購入ポリシーと FAQ](https://purchase.aspose.com/policies)をご参照ください。
 
 評価の制限と一時ライセンスの取得方法については、[Aspose.Slides の評価](/slides/ja/python-java/evaluate-aspose-slides/)をご覧ください。購入したライセンス ファイルと同じ方法で一時ライセンスを適用します。
 
@@ -29,7 +29,7 @@ Aspose.Slides for Python via Java は評価モードまたはライセンスモ�
 ライセンス ファイルを編集しないでください。余分な改行でもデジタル署名が無効になる可能性があります。
 {{% /alert %}}
 
-プレゼンテーションを作成したり、その他の Aspose.Slides 操作を行う前に、アプリケーションまたはプロセスごとに一度だけライセンスを適用してください。ライセンス ファイルを使用する場合は、[License](https://reference.aspose.com/slides/ja/python-java/aspose.slides/license/) クラスを使用します。メーター制ライセンスはライセンス ファイルの代わりに公開鍵と秘密鍵のペアを使用します。
+プレゼンテーションを作成したり、その他の Aspose.Slides 操作を行う前に、アプリケーションまたはプロセスごとに一度だけライセンスを適用してください。ライセンス ファイルを使用する場合は、[License](https://reference.aspose.com/slides/python-java/aspose.slides/license/) クラスを使用します。メーター制ライセンスはライセンス ファイルの代わりに公開鍵と秘密鍵のペアを使用します。
 
 ## **ライセンスを適用する**
 
@@ -37,7 +37,7 @@ Aspose.Slides for Python via Java は評価モードまたはライセンスモ�
 
 ### **ファイルからライセンスを適用する**
 
-[License.setLicense](https://reference.aspose.com/slides/ja/python-java/aspose.slides/license/#setLicense) にライセンス ファイルのパスを渡します。`Aspose.Slides.lic` を実際のライセンス ファイルのパスに置き換えてください。
+[License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense) にライセンス ファイルのパスを渡します。`Aspose.Slides.lic` を実際のライセンス ファイルのパスに置き換えてください。
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 拡張子を含めた正確なファイル名を使用してください。たとえばファイル名が `Aspose.Slides.lic.xml` の場合、パスに `.xml` を含めます。絶対パスを使用すると、アプリケーションの作業ディレクトリに関する曖昧さを回避できます。
 
-この例では、[License.isLicensed](https://reference.aspose.com/slides/ja/python-java/aspose.slides/license/#isLicensed) を使用してライセンスが適用されたかどうかを確認しています。
+この例では、[License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) を使用してライセンスが適用されたかどうかを確認しています。
 
 ### **バイト配列からライセンスを適用する**
 
-ライセンスが Python のバイト列として利用可能な場合は、[License.setLicenseFromBytes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/license/#setLicenseFromBytes) を使用します。以下の例はバイナリ モードでファイルを読み取り、ライセンスを適用する前に閉じています。
+ライセンスが Python のバイト列として利用可能な場合は、[License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) を使用します。以下の例はバイナリ モードでファイルを読み取り、ライセンスを適用する前に閉じています。
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ finally:
 
 ## **メーター制ライセンスを適用する**
 
-メーター制ライセンスは API 使用量に応じて課金されます。メーター制ライセンスを取得したら、[Metered.setMeteredKey](https://reference.aspose.com/slides/ja/python-java/aspose.slides/metered/#setMeteredKey) を使用して公開鍵と秘密鍵を適用します。[Metered](https://reference.aspose.com/slides/ja/python-java/aspose.slides/metered/) オブジェクトを初期化し、アプリケーション起動時にキーを一度だけ設定してください。
+メーター制ライセンスは API 使用量に応じて課金されます。メーター制ライセンスを取得したら、[Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey) を使用して公開鍵と秘密鍵を適用します。[Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) オブジェクトを初期化し、アプリケーション起動時にキーを一度だけ設定してください。
 
 以下の例は、`ASPOSE_METERED_PUBLIC_KEY` と `ASPOSE_METERED_PRIVATE_KEY` 環境変数からキーを読み取ります。スクリプト実行前に両方の変数を設定してください。
 

@@ -77,14 +77,14 @@ PPT、PPTX、PPS、POT、ODP をマクロ有効版やテンプレート版を含
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ja/python-java/">API リファレンス</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/python-java/release-notes/">リリースノート</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">リリースノート</a></li>
 <li><a href="/slides/ja/python-java/known-issues/">既知の問題</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/python-java/">ダウンロード</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">ダウンロード</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートデスク</a></li>
 </ul>
 </div>

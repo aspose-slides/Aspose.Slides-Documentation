@@ -26,9 +26,9 @@ description: "Aspose.Slides を使用して、Python via Java で PDF および 
 ---
 ## **はじめに**
 
-Aspose.Slides for Python via Java を使用すると、Microsoft PowerPoint を使用せずに PDF ページや HTML コンテンツを PowerPoint スライドに変換できます。SlideCollection クラスは、インポートしたコンテンツをプレゼンテーションに追加するための [addFromPdf](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#addFromPdf) と [addFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#addFromHtml) を提供します。
+Aspose.Slides for Python via Java を使用すると、Microsoft PowerPoint を使用せずに PDF ページや HTML コンテンツを PowerPoint スライドに変換できます。SlideCollection クラスは、インポートしたコンテンツをプレゼンテーションに追加するための [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) と [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) を提供します。
 
-HTML の配置をより細かく制御したい場合は、[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#insertFromHtml) を使用して、コレクションのインデックスにスライドを挿入したり、既存スライド上の空き領域に埋め込みを開始したりできます。長い HTML は自動的に追加スライドにページ分割され、ソースは文字列またはストリームで提供でき、外部リソースはベース URI を使用して [ExternalResourceResolver](https://reference.aspose.com/slides/ja/python-java/aspose.slides/externalresourceresolver/) で読み込めます。返される [Slide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/) 配列は、影響を受けたスライドと新しく作成されたスライドを示します。
+HTML の配置をより細かく制御したい場合は、[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) を使用して、コレクションのインデックスにスライドを挿入したり、既存スライド上の空き領域に埋め込みを開始したりできます。長い HTML は自動的に追加スライドにページ分割され、ソースは文字列またはストリームで提供でき、外部リソースはベース URI を使用して [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) で読み込めます。返される [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) 配列は、影響を受けたスライドと新しく作成されたスライドを示します。
 
 ## **PDF からのインポート**
 
@@ -36,9 +36,9 @@ PDF ドキュメントを PowerPoint プレゼンテーションに変換する�
 
 ![pdf-to-powerpoint](pdf-to-powerpoint.png){: style="zoom: 50%;" }
 
-1. 新しい [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) オブジェクトを作成します。  
-2. PDF ファイルへのパスを指定して [addFromPdf](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#addFromPdf) を呼び出します。  
-3. [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveformat/#Pptx) を指定して [save](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#save) を実行し、プレゼンテーションを PPTX ファイルに書き出します。
+1. 新しい [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) オブジェクトを作成します。  
+2. PDF ファイルへのパスを指定して [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) を呼び出します。  
+3. [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) を指定して [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) を実行し、プレゼンテーションを PPTX ファイルに書き出します。
 
 以下の Python サンプルは PDF ドキュメントをインポートし、生成されたスライドを PowerPoint プレゼンテーションとして保存します。
 
@@ -59,21 +59,21 @@ finally:
     presentation.dispose()
 ```
 
-インポートはスライドを追加する形で行われるため、デフォルトの空白スライドはプレゼンテーションに残ります。インポートしたページだけを残したい場合は、インポート前に [SlideCollection.clear](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#clear) でスライドコレクションをクリアしてください。
+インポートはスライドを追加する形で行われるため、デフォルトの空白スライドはプレゼンテーションに残ります。インポートしたページだけを残したい場合は、インポート前に [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) でスライドコレクションをクリアしてください。
 
-[addFromPdf](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#addFromPdf) メソッドは追加されたスライドを返すので、インポートされたスライドだけを処理したいときに便利です。
+[addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) メソッドは追加されたスライドを返すので、インポートされたスライドだけを処理したいときに便利です。
 
 {{% alert title="Tip" color="success" %}}
-無料の [PDF から PowerPoint へ](https://products.aspose.app/slides/ja/import/pdf-to-powerpoint) Web アプリを使って、この変換ワークフローを実際に試してみてください。
+無料の [PDF から PowerPoint へ](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web アプリを使って、この変換ワークフローを実際に試してみてください。
 {{% /alert %}}
 
 ## **HTML からのインポート**
 
 Aspose.Slides は HTML ドキュメントからスライドを作成することもできます。ソースは HTML テキストまたはストリームとして提供できます。以下の手順はファイルストリームを使用した例です。
 
-1. 新しい [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) オブジェクトを作成します。  
-2. HTML ファイルを読み取り用に開き、ストリームを [addFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#addFromHtml) に渡します。  
-3. [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveformat/#Pptx) を指定して [save](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#save) を実行し、結果を PPTX ファイルに書き出します。
+1. 新しい [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) オブジェクトを作成します。  
+2. HTML ファイルを読み取り用に開き、ストリームを [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) に渡します。  
+3. [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) を指定して [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) を実行し、結果を PPTX ファイルに書き出します。
 
 以下の Python サンプルは HTML ドキュメントをインポートし、生成されたスライドを PowerPoint プレゼンテーションとして保存します。
 
@@ -101,14 +101,14 @@ finally:
 
 ## **HTML コンテンツの挿入**
 
-HTML で生成されたスライドを末尾に追加するのではなく、特定の位置に配置する必要がある場合は、[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#insertFromHtml) を使用します。インデックスは 0 ベースで、インポート開始位置を示します。
+HTML で生成されたスライドを末尾に追加するのではなく、特定の位置に配置する必要がある場合は、[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) を使用します。インデックスは 0 ベースで、インポート開始位置を示します。
 
 `useSlideWithIndexAsStart` 引数はインポーターがその位置をどのように使用するかを制御します。
 
 - `False` の場合、指定したインデックスに新しいスライドを作成し、その後に続くスライドをシフトします。  
 - `True` の場合、指定したインデックスの既存スライド上の空き領域にコンテンツの配置を開始します。HTML が収まりきらない場合、Aspose.Slides は自動的にページ分割し、開始スライドの直後に追加スライドを挿入します。
 
-[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#insertFromHtml) は [Slide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/) オブジェクトの配列を返します。挿入が新しいスライド上で開始された場合、返されるすべての項目は新規作成されたスライドです。既存スライドを開始位置として使用した場合、配列にはその影響を受けたスライドが最初に含まれ、続いてオーバーフロー分の新しいスライドが続きます。この配列を調べることで、プレゼンテーションのスライド数から影響範囲を計算する必要がなくなります。
+[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) は [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) オブジェクトの配列を返します。挿入が新しいスライド上で開始された場合、返されるすべての項目は新規作成されたスライドです。既存スライドを開始位置として使用した場合、配列にはその影響を受けたスライドが最初に含まれ、続いてオーバーフロー分の新しいスライドが続きます。この配列を調べることで、プレゼンテーションのスライド数から影響範囲を計算する必要がなくなります。
 
 ### **HTML を新しいスライドとして挿入**
 
@@ -197,7 +197,7 @@ finally:
 
 **PDF をインポートする際に Aspose.Slides は表を検出できますか？**
 
-はい。`PdfImportOptions` オブジェクトを作成し、`setDetectTables` を `True` で呼び出してから、そのオプションを [addFromPdf](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidecollection/#addFromPdf) に渡します。表認識の精度は元の PDF の構造と複雑さに依存します。
+はい。`PdfImportOptions` オブジェクトを作成し、`setDetectTables` を `True` で呼び出してから、そのオプションを [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) に渡します。表認識の精度は元の PDF の構造と複雑さに依存します。
 
 {{% alert title="Note" color="info" %}}
 HTML をインポートした後、スライドを [画像](/slides/ja/python-java/convert-powerpoint-to-png/)、[TIFF](/slides/ja/python-java/convert-powerpoint-to-tiff/)、または [SVG](/slides/ja/python-java/render-a-slide-as-an-svg-image/) にエクスポートすることもできます。

@@ -29,13 +29,13 @@ description: "Aspose.Slides を使用して Python via Java でプレゼンテ�
 
 ## **プレゼンテーションの作成**
 
-Aspose.Slides for Python via Java で最初から PowerPoint ファイルを作成するのは、[Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスをインスタンス化するだけです。コンストラクターは自動的に 1 枚のスライドを含む空のデッキを提供し、シェイプ、テキスト、チャート、またはアプリケーションが必要とする任意のコンテンツ用のキャンバスがすぐに利用できます。そのスライドを変更するか新しいスライドを追加した後、結果を PPTX、従来の PPT、あるいは OpenDocument 形式に保存できます。以下の短いコードサンプルは、最初のスライドにシンプルなシェイプを追加するワークフローを示しています。
+Aspose.Slides for Python via Java で最初から PowerPoint ファイルを作成するのは、[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) クラスをインスタンス化するだけです。コンストラクターは自動的に 1 枚のスライドを含む空のデッキを提供し、シェイプ、テキスト、チャート、またはアプリケーションが必要とする任意のコンテンツ用のキャンバスがすぐに利用できます。そのスライドを変更するか新しいスライドを追加した後、結果を PPTX、従来の PPT、あるいは OpenDocument 形式に保存できます。以下の短いコードサンプルは、最初のスライドにシンプルなシェイプを追加するワークフローを示しています。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックス 0 で最初のスライドを取得します。
-1. [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#addAutoShape) を使用して、タイプが [ShapeType.Cloud](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapetype/#Cloud) の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
-1. [TextFrame.setText](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/#setText) でシェイプのテキストを設定します。
-1. [Presentation.save](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#save) と [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveformat/#Pptx) を使用してプレゼンテーションを保存します。
+1. [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) を使用して、タイプが [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) の [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) を追加します。
+1. [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) でシェイプのテキストを設定します。
+1. [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) と [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) を使用してプレゼンテーションを保存します。
 
 以下の例は、Java 仮想マシン (JVM) が起動していない場合に起動し、最初のスライドにテキスト付きの雲シェイプを追加し、プレゼンテーションを保存します。*create_presentation.py* として保存してください：
 
