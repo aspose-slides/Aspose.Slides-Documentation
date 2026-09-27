@@ -23,7 +23,7 @@ Aspose.Slides kan worden gebruikt in evaluatiemodus of met een geldige licentie.
 
 U kunt een evaluatieversie van **Aspose.Slides for Python via .NET** downloaden van de [downloadpagina](https://pypi.org/project/Aspose.Slides/). De evaluatieversie biedt dezelfde functies als het gelicentieerde product. Het evaluatiepakket is identiek aan het aangeschafte pakket en wordt gelicentieerd nadat u een paar regels code heeft toegevoegd om de licentie toe te passen.
 
-Wanneer u tevreden bent met uw evaluatie van **Aspose.Slides**, kunt u een [licentie aanschaffen](https://purchase.aspose.com/pricing/slides/nl/python-net/). We raden aan de beschikbare abonnementsopties te bekijken. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
+Wanneer u tevreden bent met uw evaluatie van **Aspose.Slides**, kunt u een [licentie aanschaffen](https://purchase.aspose.com/pricing/slides/python-net/). We raden aan de beschikbare abonnementsopties te bekijken. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
 
 Elke Aspose-licentie omvat een abonnement van één jaar met gratis upgrades naar nieuwe versies en correcties die gedurende die periode worden uitgebracht. Zowel gelicentieerde als evaluatiegebruikers ontvangen gratis, onbeperkte technische ondersteuning.
 
@@ -53,7 +53,7 @@ U kunt ook de [Metered licenties](/slides/nl/python-net/metered-licensing/) beki
 Een licentie kan worden geladen vanuit een **bestand** of een **stream**.
 
 {{% alert color="info" title="Opmerking" %}}
-Aspose.Slides biedt de klasse [License](https://reference.aspose.com/slides/nl/python-net/aspose.slides/license/) om licenties te beheren.
+Aspose.Slides biedt de klasse [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) om licenties te beheren.
 {{% /alert %}}
 
 {{% alert color="warning" title="Waarschuwing" %}}
@@ -62,7 +62,7 @@ Nieuwe licenties kunnen Aspose.Slides alleen activeren met versie 21.4 of later.
 
 ### **Bestand**
 
-De eenvoudigste manier om een licentie in te stellen is het pad van het licentiebestand door te geven aan de [set_license](https://reference.aspose.com/slides/nl/python-net/aspose.slides/license/set_license/)‑methode. Als u alleen de bestandsnaam opgeeft, zoals in het voorbeeld hieronder, zoekt Aspose.Slides het bestand in de huidige werkmap.
+De eenvoudigste manier om een licentie in te stellen is het pad van het licentiebestand door te geven aan de [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/)‑methode. Als u alleen de bestandsnaam opgeeft, zoals in het voorbeeld hieronder, zoekt Aspose.Slides het bestand in de huidige werkmap.
 
 ```py
 import aspose.slides as slides
@@ -75,9 +75,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Waarschuwing" %}}
-Als u het licentiebestand in een andere map plaatst, moet bij het aanroepen van [License.set_license](https://reference.aspose.com/slides/nl/python-net/aspose.slides/license/set_license/#str) de bestandsnaam aan het einde van het expliciete pad overeenkomen met de naam van uw licentiebestand.
+Als u het licentiebestand in een andere map plaatst, moet bij het aanroepen van [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) de bestandsnaam aan het einde van het expliciete pad overeenkomen met de naam van uw licentiebestand.
 
-U kunt bijvoorbeeld het licentiebestand hernoemen naar *Aspose.Slides.lic.xml*. Geef vervolgens in uw code het volledige pad naar dat bestand (dat eindigt op Aspose.Slides.lic.xml) door aan de [License.set_license](https://reference.aspose.com/slides/nl/python-net/aspose.slides/license/set_license/#str)‑methode.
+U kunt bijvoorbeeld het licentiebestand hernoemen naar *Aspose.Slides.lic.xml*. Geef vervolgens in uw code het volledige pad naar dat bestand (dat eindigt op Aspose.Slides.lic.xml) door aan de [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)‑methode.
 {{% /alert %}}
 
 ### **Stream**
@@ -113,7 +113,7 @@ if license.is_licensed():
 ## **Threadveiligheid**
 
 {{% alert color="warning" title="Waarschuwing" %}}
-De [License.set_license](https://reference.aspose.com/slides/nl/python-net/aspose.slides/license/set_license/)‑methode is niet thread‑veilig. Als u deze gelijktijdig vanuit meerdere threads moet aanroepen, gebruik dan een synchronisatie‑primitive, zoals `threading.Lock`, om problemen te voorkomen.
+De [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/)‑methode is niet thread‑veilig. Als u deze gelijktijdig vanuit meerdere threads moet aanroepen, gebruik dan een synchronisatie‑primitive, zoals `threading.Lock`, om problemen te voorkomen.
 {{% /alert %}}
 
 ## **FAQ**

@@ -79,13 +79,13 @@ Hij laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 <hr>
 <p>REFERENTIE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/nl/python-net/">API‑referentie</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/python-net/release-notes/">Release‑notities</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/python-net/">Download</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">API‑referentie</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Release‑notities</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">Download</a></li>
 </ul>
 <p>ONDERSTEUNING</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/nl/11">Gratis ondersteuningsforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
 </ul>
 </div>

@@ -29,10 +29,10 @@ Voordat u begint, installeert u het pakket vanaf PyPI met `pip install aspose.sl
 
 Om een presentatie te maken en een vorm met tekst op de eerste dia te plaatsen, volgt u deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
-1. Haal die dia op uit de [slides](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/slides/nl/)‑collectie op index 0.  
-1. Voeg een wolk‑vormige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe met de [add_auto_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_auto_shape/)‑methode van de [shapes](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/shapes/)‑collectie van de dia, en stel de [text](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/text/) in.  
-1. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/save/)‑methode.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
+1. Haal die dia op uit de [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/)‑collectie op index 0.  
+1. Voeg een wolk‑vormige [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) toe met de [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/)‑methode van de [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/)‑collectie van de dia, en stel de [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/) in.  
+1. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/)‑methode.
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Gebruik [BLOB management strategies](/slides/nl/python-net/manage-blob/), beperk
 
 ### Kan ik presentaties parallel maken/opslaan?
 
-U kunt niet opereren op dezelfde [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑instantie vanuit [multiple threads](/slides/nl/python-net/multithreading/). Gebruik aparte, geïsoleerde instanties per thread of proces.
+U kunt niet opereren op dezelfde [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑instantie vanuit [multiple threads](/slides/nl/python-net/multithreading/). Gebruik aparte, geïsoleerde instanties per thread of proces.
 
 ### Hoe verwijder ik het proef‑watermerk en de beperkingen?
 
