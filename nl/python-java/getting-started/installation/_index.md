@@ -66,7 +66,7 @@ Om een bestaande Aspose.Slides‑installatie bij te werken, voert u `python -m p
 
 ## **Installeren vanuit een ZIP‑archief**
 
-U kunt de bibliotheek ook gebruiken vanaf de [Aspose.Slides downloadpagina](https://releases.aspose.com/slides/nl/python-java/):
+U kunt de bibliotheek ook gebruiken vanaf de [Aspose.Slides downloadpagina](https://releases.aspose.com/slides/python-java/):
 
 1. Installeer Python en Java zoals beschreven in [Prerequisites](#prerequisites).
 2. Maak een virtuele omgeving aan en activeer deze met behulp van de bovenstaande instructies.

@@ -29,13 +29,13 @@ Voordat u begint, installeert u Python, een JDK, JPype en Aspose.Slides for Pyth
 
 ## **Maak een presentatie**
 
-Een PowerPoint‑bestand vanaf nul maken in Aspose.Slides for Python via Java is net zo eenvoudig als het instantieren van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse. De constructor levert automatisch een lege deck met één dia, waardoor u meteen een canvas krijgt voor vormen, tekst, grafieken of andere inhoud die uw toepassing nodig heeft. Zodra u die dia wijzigt — of nieuwe toevoegt — kunt u het resultaat opslaan als PPTX, legacy PPT of zelfs OpenDocument‑formaten. Het korte code‑voorbeeld hieronder illustreert deze werkstroom door een eenvoudige vorm aan de eerste dia toe te voegen.
+Een PowerPoint‑bestand vanaf nul maken in Aspose.Slides for Python via Java is net zo eenvoudig als het instantieren van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse. De constructor levert automatisch een lege deck met één dia, waardoor u meteen een canvas krijgt voor vormen, tekst, grafieken of andere inhoud die uw toepassing nodig heeft. Zodra u die dia wijzigt — of nieuwe toevoegt — kunt u het resultaat opslaan als PPTX, legacy PPT of zelfs OpenDocument‑formaten. Het korte code‑voorbeeld hieronder illustreert deze werkstroom door een eenvoudige vorm aan de eerste dia toe te voegen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.  
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) klasse.  
 2. Haal de eerste dia op met zijn index 0.  
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) van het type [ShapeType.Cloud](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapetype/#Cloud) toe met [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#addAutoShape).  
-4. Stel de tekst van de vorm in met [TextFrame.setText](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/#setText).  
-5. Sla de presentatie op met [Presentation.save](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#save) en [SaveFormat.Pptx](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveformat/#Pptx).
+3. Voeg een [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) van het type [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) toe met [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).  
+4. Stel de tekst van de vorm in met [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).  
+5. Sla de presentatie op met [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) en [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 Het volgende voorbeeld start de Java Virtual Machine (JVM) indien deze nog niet draait, voegt een wolk‑vorm met tekst toe aan de eerste dia en slaat de presentatie op. Sla het op als *create_presentation.py*:
 
