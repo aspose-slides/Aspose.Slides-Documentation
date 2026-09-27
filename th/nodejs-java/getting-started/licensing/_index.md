@@ -41,7 +41,7 @@ description: "ใช้ จัดการ และแก้ไขปัญห�
 {{% /alert %}}
 
 ## **เกี่ยวกับการออกใบอนุญาต**
-คุณสามารถดาวน์โหลดเวอร์ชันประเมินของ Aspose.Slides สำหรับ Node.js ผ่าน Java ได้อย่างง่ายดายจาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/nodejs-java/). เวอร์ชันประเมินมีคุณสมบัติเช่นเดียวกับเวอร์ชันที่มีใบอนุญาต โดยมีข้อจำกัดตามที่อธิบายข้างต้น นอกจากนี้ เวอร์ชันประเมินจะกลายเป็นมีใบอนุญาตหลังจากคุณซื้อใบอนุญาตและเพิ่มโค้ดไม่กี่บรรทัดเพื่อใช้ใบอนุญาต
+คุณสามารถดาวน์โหลดเวอร์ชันประเมินของ Aspose.Slides สำหรับ Node.js ผ่าน Java ได้อย่างง่ายดายจาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/nodejs-java/). เวอร์ชันประเมินมีคุณสมบัติเช่นเดียวกับเวอร์ชันที่มีใบอนุญาต โดยมีข้อจำกัดตามที่อธิบายข้างต้น นอกจากนี้ เวอร์ชันประเมินจะกลายเป็นมีใบอนุญาตหลังจากคุณซื้อใบอนุญาตและเพิ่มโค้ดไม่กี่บรรทัดเพื่อใช้ใบอนุญาต
 
 ใบอนุญาตเป็นไฟล์ XML แบบข้อความธรรมดาซึ่งบรรจุรายละเอียดเช่น ชื่อผลิตภัณฑ์ จำนวนผู้พัฒนาที่ได้รับใบอนุญาต วันที่หมดอายุการสมัครสมาชิก เป็นต้น ไฟล์นี้มีลายเซ็นดิจิทัล ดังนั้นห้ามแก้ไขไฟล์ แม้แต่การเพิ่มบรรทัดว่างโดยบังเอิญในเนื้อหาไฟล์ก็จะทำให้ไฟล์ใช้ไม่ได้
 
@@ -62,7 +62,7 @@ description: "ใช้ จัดการ และแก้ไขปัญห�
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-คุณสามารถค้นหาข้อมูลราคาได้ที่หน้า [“ข้อมูลราคา”](https://purchase.aspose.com/pricing/slides/th/family)
+คุณสามารถค้นหาข้อมูลราคาได้ที่หน้า [“ข้อมูลราคา”](https://purchase.aspose.com/pricing/slides/family)
 {{% /alert %}}
 
 ### **การตั้งค่าใบอนุญาตใน Aspose.Slides สำหรับ Node.js ผ่าน Java**
@@ -91,11 +91,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-เมื่อเรียกเมธอด setLicense ชื่อใบอนุญาตควรตรงกับชื่อไฟล์ใบอนุญาตของคุณ ตัวอย่างเช่น คุณสามารถเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น "Aspose.Slides.lic.xml" จากนั้นในโค้ดของคุณต้องส่งชื่อใบอนุญาตใหม่ (Aspose.Slides.lic.xml) ไปยังเมธอด setLicense หากไฟล์หายหรือไม่มีใบอนุญาตที่ถูกต้อง, [setLicense](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/license/setlicense/) จะโยนข้อยกเว้นซึ่งทำให้สคริปต์หยุดทำงานพร้อมข้อผิดพลาด
+เมื่อเรียกเมธอด setLicense ชื่อใบอนุญาตควรตรงกับชื่อไฟล์ใบอนุญาตของคุณ ตัวอย่างเช่น คุณสามารถเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น "Aspose.Slides.lic.xml" จากนั้นในโค้ดของคุณต้องส่งชื่อใบอนุญาตใหม่ (Aspose.Slides.lic.xml) ไปยังเมธอด setLicense หากไฟล์หายหรือไม่มีใบอนุญาตที่ถูกต้อง, [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) จะโยนข้อยกเว้นซึ่งทำให้สคริปต์หยุดทำงานพร้อมข้อผิดพลาด
 
 #### **การใช้ใบอนุญาตจากสตรีม**
 
-เพื่อใช้ใบอนุญาตจากสตรีม ให้ส่งอ็อบเจกต์ [License](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/license/) และสตรีมที่อ่านได้ไปยังเมธอดสแตติก [setLicenseFromStream](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/license/setlicense/) สตรีมจะถูกอ่านแบบอะซิงโครนัส และคอลแบ็คจะรับข้อผิดพลาดหากสตรีมไม่มีใบอนุญาตที่ถูกต้อง:
+เพื่อใช้ใบอนุญาตจากสตรีม ให้ส่งอ็อบเจกต์ [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) และสตรีมที่อ่านได้ไปยังเมธอดสแตติก [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) สตรีมจะถูกอ่านแบบอะซิงโครนัส และคอลแบ็คจะรับข้อผิดพลาดหากสตรีมไม่มีใบอนุญาตที่ถูกต้อง:
 
 **Node.js**
 

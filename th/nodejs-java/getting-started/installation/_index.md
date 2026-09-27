@@ -100,7 +100,7 @@ node hello.js
 แพ็คเกจนี้มีให้ดาวน์โหลดเป็นไฟล์ ZIP ซึ่งมีเนื้อหาเดียวกับแพ็คเกจ npm เพื่อให้ติดตั้งจากไฟล์ ZIP ให้ทำตามขั้นตอน:
 
 1. ติดตั้งข้อกำหนดเบื้องต้นตามระบบปฏิบัติการของคุณเช่นในขั้นตอนข้างต้น
-1. ดาวน์โหลดไฟล์จาก [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/th/nodejs-java/)
+1. ดาวน์โหลดไฟล์จาก [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/)
 1. สร้างโฟลเดอร์โครงการ:
 
     ```bash

@@ -31,11 +31,11 @@ description: "สร้างงานนำเสนอด้วย Aspose.Slid
 
 เพื่อสร้างงานนำเสนอและใส่กล่องข้อความบนสไลด์แรก, ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) . งานนำเสนอใหม่จะมีสไลด์ว่างหนึ่งสไลด์อยู่แล้ว.
-2. ดึงสไลด์นั้นจาก [slide collection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getslides/) ตามดัชนีของมัน, 0.
-3. เพิ่มรูปสี่เหลี่ยมโดยใช้เมธอด [addAutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/addautoshape/) แล้วตั้งค่าข้อความด้วย [setText](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/settext/).
-4. บันทึกงานนำเสนอเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/save/).
-5. ปลดปล่อยงานนำเสนอด้วยเมธอด [dispose](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/dispose/), และสิ้นสุดกระบวนการ.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) . งานนำเสนอใหม่จะมีสไลด์ว่างหนึ่งสไลด์อยู่แล้ว.
+2. ดึงสไลด์นั้นจาก [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) ตามดัชนีของมัน, 0.
+3. เพิ่มรูปสี่เหลี่ยมโดยใช้เมธอด [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) แล้วตั้งค่าข้อความด้วย [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+4. บันทึกงานนำเสนอเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+5. ปลดปล่อยงานนำเสนอด้วยเมธอด [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/), และสิ้นสุดกระบวนการ.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Aspose.Slides ทำงานในเครื่องเสมือน Java 
 
 ### ฉันสามารถสร้าง/บันทึกงานนำเสนอแบบขนานได้หรือไม่?
 
-คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) เดียวกันจาก [multiple threads](/slides/th/nodejs-java/multithreading/) ได้. ให้เรียกใช้อินสแตนซ์แยกกันและแยกจากกันต่อแต่ละเธรดหรือกระบวนการ.
+คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) เดียวกันจาก [multiple threads](/slides/th/nodejs-java/multithreading/) ได้. ให้เรียกใช้อินสแตนซ์แยกกันและแยกจากกันต่อแต่ละเธรดหรือกระบวนการ.
 
 ### ฉันจะลบลายน้ำทดลองและข้อจำกัดออกได้อย่างไร?
 
