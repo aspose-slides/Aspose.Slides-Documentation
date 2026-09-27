@@ -27,9 +27,9 @@ Tento článek vysvětluje, jak funguje licencování v Aspose.Slides a jak apli
 ## **Vyzkoušejte Aspose.Slides**
 
 {{% alert color="info" title="Poznámka" %}}
-Můžete si stáhnout hodnotící verzi **Aspose.Slides for C++** z [její stránky ke stažení na NuGet](https://www.nuget.org/packages/Aspose.Slides.Cpp/) nebo, jako balíček ZIP, z [stránky ke stažení](https://releases.aspose.com/slides/cs/cpp/). Hodnotící verze nabízí stejnou funkčnost jako licencovaný produkt. Ve skutečnosti je hodnotící balíček totožný s zakoupeným – stačí přidat několik řádků kódu pro aplikaci licence a stane se licencovaným.
+Můžete si stáhnout hodnotící verzi **Aspose.Slides for C++** z [její stránky ke stažení na NuGet](https://www.nuget.org/packages/Aspose.Slides.Cpp/) nebo, jako balíček ZIP, z [stránky ke stažení](https://releases.aspose.com/slides/cpp/). Hodnotící verze nabízí stejnou funkčnost jako licencovaný produkt. Ve skutečnosti je hodnotící balíček totožný s zakoupeným – stačí přidat několik řádků kódu pro aplikaci licence a stane se licencovaným.
 
-Jakmile budete spokojeni s hodnocením **Aspose.Slides**, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cs/cpp/). Doporučujeme projít dostupné typy předplatného. Pokud máte jakékoli dotazy, neváhejte kontaktovat prodejní tým Aspose.
+Jakmile budete spokojeni s hodnocením **Aspose.Slides**, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cpp/). Doporučujeme projít dostupné typy předplatného. Pokud máte jakékoli dotazy, neváhejte kontaktovat prodejní tým Aspose.
 
 Každá licence Aspose zahrnuje roční předplatné na bezplatné aktualizace, včetně nových verzí a opravy chyb vydávaných během tohoto období. Ať už používáte licencovanou nebo hodnotící verzi, získáte bezplatnou a neomezenou technickou podporu.
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Pro testování Aspose.Slides bez omezení můžete požádat o **30denní doča
 Licenci lze načíst ze **souboru** nebo **proudu**.
 
 {{% alert color="info" title="Poznámka" %}}
-Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/) pro operace s licencemi.
+Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) pro operace s licencemi.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Varování" %}}
@@ -85,17 +85,17 @@ int main()
 }
 ```
 
-Pokud je licence platná, [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) vrátí a program skončí bez výstupu; od té chvíle Aspose.Slides funguje bez omezení hodnocení. Pokud soubor není v pracovním adresáři, metoda vyhodí [FileNotFoundException](https://reference.aspose.com/slides/cs/cpp/system.io/filenotfoundexception/) s hláškou *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Příklad výjimku neobsluhuje, takže program se zastaví.
+Pokud je licence platná, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) vrátí a program skončí bez výstupu; od té chvíle Aspose.Slides funguje bez omezení hodnocení. Pokud soubor není v pracovním adresáři, metoda vyhodí [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) s hláškou *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Příklad výjimku neobsluhuje, takže program se zastaví.
 
 {{% alert color="warning" title="Varování" %}}
-Pokud umístíte soubor licence do jiného adresáře, pak při volání metody [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) musí název souboru na konci zadané explicitní cesty přesně odpovídat názvu vašeho souboru licence.
+Pokud umístíte soubor licence do jiného adresáře, pak při volání metody [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) musí název souboru na konci zadané explicitní cesty přesně odpovídat názvu vašeho souboru licence.
 
-Například pokud přejmenujete soubor licence na *Aspose.Slides.lic.xml*, musíte do metody [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) v kódu předat úplnou cestu končící *Aspose.Slides.lic.xml*.
+Například pokud přejmenujete soubor licence na *Aspose.Slides.lic.xml*, musíte do metody [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) v kódu předat úplnou cestu končící *Aspose.Slides.lic.xml*.
 {{% /alert %}}
 
 ### **Proud**
 
-Načtěte licenci z proudu, když váš program neuchovává licenci jako soubor, který lze pojmenovat, například při čtení licence z databáze. [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) přijímá libovolný [Stream](https://reference.aspose.com/slides/cs/cpp/system.io/stream/) obsahující licenci. Pro stručnost příkladu následující C++ kód otevře *Aspose.Slides.lic* v pracovním adresáři pomocí [File::OpenRead](https://reference.aspose.com/slides/cs/cpp/system.io/file/openread/) a aplikuje licenci z tohoto proudu:
+Načtěte licenci z proudu, když váš program neuchovává licenci jako soubor, který lze pojmenovat, například při čtení licence z databáze. [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) přijímá libovolný [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) obsahující licenci. Pro stručnost příkladu následující C++ kód otevře *Aspose.Slides.lic* v pracovním adresáři pomocí [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) a aplikuje licenci z tohoto proudu:
 ```c++
 #include <Util/License.h>
 #include <system/io/file.h>
@@ -115,11 +115,11 @@ int main()
 }
 ```
 
-Platná licence dává stejný výsledek jako v příkladu se souborem. Pokud soubor neexistuje, [File::OpenRead](https://reference.aspose.com/slides/cs/cpp/system.io/file/openread/) vyhodí [FileNotFoundException](https://reference.aspose.com/slides/cs/cpp/system.io/filenotfoundexception/) před aplikací licence a program se zastaví.
+Platná licence dává stejný výsledek jako v příkladu se souborem. Pokud soubor neexistuje, [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) vyhodí [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) před aplikací licence a program se zastaví.
 
 ## **Ověření licence**
 
-Pro kontrolu, zda byla licence správně nastavená, zavolejte [License::IsLicensed](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/islicensed/). Vrátí `true` pouze po aplikaci platné licence a `false` předtím. Následující C++ kód aplikuje soubor licence z pracovního adresáře a poté jej zkontroluje:
+Pro kontrolu, zda byla licence správně nastavená, zavolejte [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/). Vrátí `true` pouze po aplikaci platné licence a `false` předtím. Následující C++ kód aplikuje soubor licence z pracovního adresáře a poté jej zkontroluje:
 ```c++
 #include <Util/License.h>
 #include <system/console.h>
@@ -142,12 +142,12 @@ int main()
 }
 ```
 
-S platnou licencí program vypíše *License is good!*. Pokud soubor chybí nebo není licenčním souborem, [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) vyhodí výjimku před kontrolou a program se zastaví bez výstupu. Pokud je soubor licencí, jejíž podpis neodpovídá, například protože byl upraven, SetLicense vrátí bez chyby, ale `IsLicensed` vrátí `false`, takže se nic nevyprintuje a Aspose.Slides zůstane v režimu hodnocení.
+S platnou licencí program vypíše *License is good!*. Pokud soubor chybí nebo není licenčním souborem, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) vyhodí výjimku před kontrolou a program se zastaví bez výstupu. Pokud je soubor licencí, jejíž podpis neodpovídá, například protože byl upraven, SetLicense vrátí bez chyby, ale `IsLicensed` vrátí `false`, takže se nic nevyprintuje a Aspose.Slides zůstane v režimu hodnocení.
 
 ## **Bezpečnost vláken**
 
 {{% alert color="warning" title="Varování" %}}
-Metoda [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) není **thread-safe**. Pokud potřebujete tuto metodu volat souběžně z více vláken, doporučuje se použít synchronizační primitiva (například zámek) k prevenci možných problémů.
+Metoda [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) není **thread-safe**. Pokud potřebujete tuto metodu volat souběžně z více vláken, doporučuje se použít synchronizační primitiva (například zámek) k prevenci možných problémů.
 {{% /alert %}}
 
 ## **FAQ**

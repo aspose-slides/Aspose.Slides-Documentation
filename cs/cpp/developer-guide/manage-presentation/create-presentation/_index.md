@@ -30,10 +30,10 @@ Než začnete, přidejte Aspose.Slides do svého projektu: z NuGet ve Visual Stu
 
 Chcete‑li vytvořit prezentaci a umístit textové pole na její první snímek, postupujte podle těchto kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) . Nová prezentace již obsahuje jeden prázdný snímek.  
-2. Získejte tento snímek pomocí metody [Presentation::get_Slide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_slide/) a jeho index 0.  
-3. Přidejte obdélník pomocí metody [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addautoshape/) a nastavte jeho text metodou [ITextFrame::set_Text](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/set_text/) .  
-4. Uložte prezentaci jako soubor PPTX metodou [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) . Nová prezentace již obsahuje jeden prázdný snímek.  
+2. Získejte tento snímek pomocí metody [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) a jeho index 0.  
+3. Přidejte obdélník pomocí metody [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) a nastavte jeho text metodou [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) .  
+4. Uložte prezentaci jako soubor PPTX metodou [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) .
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Použijte [BLOB management strategies](/slides/cs/cpp/manage-blob/), omezte úlo
 
 ### Mohu vytvářet/ukládat prezentace paralelně?
 
-Nemůžete operovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) z [multiple threads](/slides/cs/cpp/multithreading/). Spusťte samostatné, izolované instance na každém vlákně nebo procesu.
+Nemůžete operovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) z [multiple threads](/slides/cs/cpp/multithreading/). Spusťte samostatné, izolované instance na každém vlákně nebo procesu.
 
 ### Jak odstranit zkušební vodotisk a omezení?
 

@@ -36,7 +36,7 @@ Ve Windows přidejte balíček NuGet do projektu Visual Studio C++. Balíček ta
 
 Vyberte balíček podle platformy, pro kterou sestavujete: **Aspose.Slides.Cpp** pro x64 a **Aspose.Slides.Cpp.x86** pro Win32 (x86). Balíček Aspose.Slides.Cpp se nepoužije pro sestavení Win32, takže kompilátor nemůže najít jeho hlavičky.
 
-Windows ZIP balíček je také k dispozici na [download page](https://releases.aspose.com/slides/cs/cpp/).
+Windows ZIP balíček je také k dispozici na [download page](https://releases.aspose.com/slides/cpp/).
 
 ### **Metoda 1: Instalace nebo aktualizace Aspose.Slides přes správce balíčků NuGet**
 
@@ -100,7 +100,7 @@ Na Linuxu použijte Linux ZIP balíček s CMake. Obsahuje knihovnu Aspose.Slides
    cd hello-slides
    ```
 
-3. Stáhněte Linux ZIP (**Aspose.Slides for C++ Linux**) ze [download page](https://releases.aspose.com/slides/cs/cpp/) do složky projektu a rozbalte jej do podsložky *aspose-slides-cpp*:
+3. Stáhněte Linux ZIP (**Aspose.Slides for C++ Linux**) ze [download page](https://releases.aspose.com/slides/cpp/) do složky projektu a rozbalte jej do podsložky *aspose-slides-cpp*:
 
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp
