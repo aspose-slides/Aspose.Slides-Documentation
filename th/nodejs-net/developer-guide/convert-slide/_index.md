@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET เรนเดอร์สไลด์จา
 ตัวอย่างคาดว่าจะมีพรีเซนเทชันชื่อ `sample.pptx` ในโฟลเดอร์โปรเจกต์ที่คุณตั้งค่าไว้ใน [Installation](/slides/th/nodejs-net/installation/). พรีเซนเทชัน PowerPoint ใดก็ได้สามารถใช้ได้ บันทึกแต่ละตัวอย่างเป็นไฟล์ `.js` ในโฟลเดอร์โปรเจกต์และเรียกใช้จากโฟลเดอร์นั้นด้วย `node`
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET ไม่มี API reference ของตัวเอง มันเป็นการสะท้อน API ของ Aspose.Slides for .NET ด้วยชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะนำไปสู่คลาสและสมาชิกที่สอดคล้องกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/th/net/).
+Aspose.Slides for Node.js via .NET ไม่มี API reference ของตัวเอง มันเป็นการสะท้อน API ของ Aspose.Slides for .NET ด้วยชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะนำไปสู่คลาสและสมาชิกที่สอดคล้องกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 เพื่อแปลงสไลด์เป็นภาพ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. เปิดพรีเซนเทชันด้วยคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/presentation/)
-2. ดึงสไลด์จากคอลเลกชัน [slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/slides/th/) ด้วย `get(index)` โดยดัชนีเริ่มที่ 0
-3. เรนเดอร์สไลด์ด้วย `getImageWithScale` หรือ `getImageWithImageSize` ในเอกสารอ้างอิง .NET API ทั้งสองเป็น overload ของ [Slide.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/slide/getimage/) พวกมันจะคืนออบเจ็กต์รูปภาพที่สอดคล้องกับ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/)
-4. บันทึกภาพด้วยเมธอด [save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/save/) และค่า [ImageFormat](https://reference.aspose.com/slides/th/net/aspose.slides/imageformat/) จากนั้นเรียกเมธอด `dispose`
+1. เปิดพรีเซนเทชันด้วยคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/)
+2. ดึงสไลด์จากคอลเลกชัน [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) ด้วย `get(index)` โดยดัชนีเริ่มที่ 0
+3. เรนเดอร์สไลด์ด้วย `getImageWithScale` หรือ `getImageWithImageSize` ในเอกสารอ้างอิง .NET API ทั้งสองเป็น overload ของ [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) พวกมันจะคืนออบเจ็กต์รูปภาพที่สอดคล้องกับ [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/)
+4. บันทึกภาพด้วยเมธอด [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) และค่า [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) จากนั้นเรียกเมธอด `dispose`
 
 ## **แปลงทุกสไลด์เป็นภาพ PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-สคริปต์จะเขียนไฟล์หนึ่งไฟล์ต่อสไลด์ เช่น `slide_1.png`, `slide_2.png` เป็นต้น เริ่มนับจาก 1 สำหรับพรีเซนเทชันอัตราส่วน 16:9 ที่มีสไลด์ขนาด 960 × 540 จุด ภาพแต่ละภาพจะเป็น 1920 × 1080 พิกเซล สไลด์ที่ซ่อนก็จะถูกเรนเดอร์เช่นกัน; หากต้องการข้ามสไลด์ที่ซ่อน ให้ตรวจสอบคุณสมบัติ [hidden](https://reference.aspose.com/slides/th/net/aspose.slides/slide/hidden/) ของสไลด์ แต่ละภาพจะถูกทำลายในบล็อก `finally` ของมันเอง ซึ่งทำให้ปล่อยทรัพยากรก่อนสไลด์ต่อไปจะถูกเรนเดอร์ หากไม่มีลิขสิทธิ์ ภาพจะมีลายน้ำการประเมินผล; ดูที่ [Licensing](/slides/th/nodejs-net/licensing/)
+สคริปต์จะเขียนไฟล์หนึ่งไฟล์ต่อสไลด์ เช่น `slide_1.png`, `slide_2.png` เป็นต้น เริ่มนับจาก 1 สำหรับพรีเซนเทชันอัตราส่วน 16:9 ที่มีสไลด์ขนาด 960 × 540 จุด ภาพแต่ละภาพจะเป็น 1920 × 1080 พิกเซล สไลด์ที่ซ่อนก็จะถูกเรนเดอร์เช่นกัน; หากต้องการข้ามสไลด์ที่ซ่อน ให้ตรวจสอบคุณสมบัติ [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) ของสไลด์ แต่ละภาพจะถูกทำลายในบล็อก `finally` ของมันเอง ซึ่งทำให้ปล่อยทรัพยากรก่อนสไลด์ต่อไปจะถูกเรนเดอร์ หากไม่มีลิขสิทธิ์ ภาพจะมีลายน้ำการประเมินผล; ดูที่ [Licensing](/slides/th/nodejs-net/licensing/)
 
 ## **แปลงสไลด์เป็นภาพขนาดที่กำหนด**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-คุณสมบัติ [slideSize.size](https://reference.aspose.com/slides/th/net/aspose.slides/slidesize/size/) คืนค่าความกว้างและความสูงของสไลด์เป็นจุด สำหรับพรีเซนเทชันอัตราส่วน 16:9 สคริปต์จะแสดง `Saved a 1280 x 720 image` และเขียนไฟล์ `slide_1_1280px.png`; สำหรับพรีเซนเทชันอัตราส่วน 4:3 ภาพจะเป็น 1280 × 960 พิกเซล
+คุณสมบัติ [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) คืนค่าความกว้างและความสูงของสไลด์เป็นจุด สำหรับพรีเซนเทชันอัตราส่วน 16:9 สคริปต์จะแสดง `Saved a 1280 x 720 image` และเขียนไฟล์ `slide_1_1280px.png`; สำหรับพรีเซนเทชันอัตราส่วน 4:3 ภาพจะเป็น 1280 × 960 พิกเซล
 
 ## **คำถามที่พบบ่อย**
 

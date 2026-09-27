@@ -27,17 +27,17 @@ description: "สร้างงานนำเสนอ PowerPoint ด้วย
 ตัวอย่างต้องใช้โครงการที่ตั้งค่าไว้ตามที่อธิบายใน [การติดตั้ง](/slides/th/nodejs-net/installation/). บันทึกแต่ละตัวอย่างเป็นไฟล์ `.js` ในโฟลเดอร์โครงการและเรียกใช้จากโฟลเดอร์นั้นด้วย `node`, ตัวอย่างเช่น `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides สำหรับ Node.js ผ่าน .NET ไม่มีเอกสารอ้างอิง API ของตัวเอง มันทำการสะท้อน API ของ Aspose.Slides สำหรับ .NET โดยใช้ชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะนำไปสู่คลาสและสมาชิกที่ตรงกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/th/net/).
+Aspose.Slides สำหรับ Node.js ผ่าน .NET ไม่มีเอกสารอ้างอิง API ของตัวเอง มันทำการสะท้อน API ของ Aspose.Slides สำหรับ .NET โดยใช้ชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะนำไปสู่คลาสและสมาชิกที่ตรงกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **สร้างงานนำเสนอพร้อมกล่องข้อความ**
 
 เพื่อสร้างงานนำเสนอและใส่กล่องข้อความบนสไลด์แรก ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) คลาสใหม่จะมีสไลด์ว่างหนึ่งสไลด์อยู่แล้ว.
-2. รับสไลด์นั้นจากคอลเลกชัน [slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/slides/th/) คอลเลกชันนี้อ่านด้วย `get(index)` และดัชนีเริ่มจาก 0.
-3. เพิ่มสี่เหลี่ยมด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/shapecollection/addautoshape/) และตั้งค่า [text](https://reference.aspose.com/slides/th/net/aspose.slides/textframe/text/) ของ [textFrame](https://reference.aspose.com/slides/th/net/aspose.slides/autoshape/textframe/).
-4. บันทึกงานนำเสนอด้วยเมธอด [save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) และค่า `SaveFormat.Pptx`.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) คลาสใหม่จะมีสไลด์ว่างหนึ่งสไลด์อยู่แล้ว.
+2. รับสไลด์นั้นจากคอลเลกชัน [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) คอลเลกชันนี้อ่านด้วย `get(index)` และดัชนีเริ่มจาก 0.
+3. เพิ่มสี่เหลี่ยมด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) และตั้งค่า [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) ของ [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).
+4. บันทึกงานนำเสนอด้วยเมธอด [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) และค่า `SaveFormat.Pptx`.
 5. เรียก `dispose` ในบล็อค `finally` เพื่อปล่อยทรัพยากร .NET ที่สนับสนุนงานนำเสนอ.
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **เพิ่มสไลด์**
 
-งานนำเสนอใหม่มีสไลด์หนึ่งสไลด์ หากต้องการเพิ่มสไลด์เพิ่มเติม ให้ส่งสไลด์เลเอาต์ไปยังเมธอด [addEmptySlide](https://reference.aspose.com/slides/th/net/aspose.slides/slidecollection/addemptyslide/) ของคอลเลกชัน `slides`. เมธอด [getByType](https://reference.aspose.com/slides/th/net/aspose.slides/layoutslidecollection/getbytype/) ของคอลเลกชัน [layoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/layoutslides/) จะคืนค่าเลเอาต์แรกของ [SlideLayoutType](https://reference.aspose.com/slides/th/net/aspose.slides/slidelayouttype/) ที่กำหนด.
+งานนำเสนอใหม่มีสไลด์หนึ่งสไลด์ หากต้องการเพิ่มสไลด์เพิ่มเติม ให้ส่งสไลด์เลเอาต์ไปยังเมธอด [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) ของคอลเลกชัน `slides`. เมธอด [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) ของคอลเลกชัน [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) จะคืนค่าเลเอาต์แรกของ [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) ที่กำหนด.
 
 ตัวอย่างต่อไปนี้จะเพิ่มสไลด์สองสไลด์โดยใช้เลเอาต์ Blank:
 
@@ -86,7 +86,7 @@ try {
 
 ## **ตั้งค่าขนาดสไลด์**
 
-งานนำเสนอใหม่ใช้สไลด์ขนาด 4:3 ที่มีขนาด 720 × 540 จุด (10 × 7.5 นิ้ว). หากต้องการสร้างสไลด์ widescreen แทน ให้เรียกเมธอด [setSize](https://reference.aspose.com/slides/th/net/aspose.slides/slidesize/setsize/) ของ [slideSize](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/slidesize/) ของงานนำเสนอพร้อมค่าประเภท [SlideSizeType](https://reference.aspose.com/slides/th/net/aspose.slides/slidesizetype/) และค่าประเภท [SlideSizeScaleType](https://reference.aspose.com/slides/th/net/aspose.slides/slidesizescaletype/). ประเภทสเกลบอกให้ Aspose.Slides ทำอย่างไรกับรูปร่างที่อยู่บนสไลด์แล้ว; `DoNotScale` จะคงรูปแบบเดิม ซึ่งเป็นตัวเลือกที่ถูกต้องสำหรับงานนำเสนอที่ยังไม่มีเนื้อหา.
+งานนำเสนอใหม่ใช้สไลด์ขนาด 4:3 ที่มีขนาด 720 × 540 จุด (10 × 7.5 นิ้ว). หากต้องการสร้างสไลด์ widescreen แทน ให้เรียกเมธอด [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) ของ [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) ของงานนำเสนอพร้อมค่าประเภท [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) และค่าประเภท [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). ประเภทสเกลบอกให้ Aspose.Slides ทำอย่างไรกับรูปร่างที่อยู่บนสไลด์แล้ว; `DoNotScale` จะคงรูปแบบเดิม ซึ่งเป็นตัวเลือกที่ถูกต้องสำหรับงานนำเสนอที่ยังไม่มีเนื้อหา.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ try {
 
 **ฉันสามารถบันทึกงานนำเสนอใหม่เป็นรูปแบบใดได้บ้าง?**
 
-ค่าที่ใดก็ได้จาก enumeration [SaveFormat](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveformat/), ตัวอย่างเช่น `SaveFormat.Ppt` สำหรับ PowerPoint 97–2003, `SaveFormat.Odp` สำหรับ OpenDocument, หรือ `SaveFormat.Pdf`. สำหรับการส่งออกเป็น PDF ดูที่ [Convert PowerPoint to PDF](/slides/th/nodejs-net/convert-powerpoint-to-pdf/).
+ค่าที่ใดก็ได้จาก enumeration [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), ตัวอย่างเช่น `SaveFormat.Ppt` สำหรับ PowerPoint 97–2003, `SaveFormat.Odp` สำหรับ OpenDocument, หรือ `SaveFormat.Pdf`. สำหรับการส่งออกเป็น PDF ดูที่ [Convert PowerPoint to PDF](/slides/th/nodejs-net/convert-powerpoint-to-pdf/).
 
 **ทำไมงานนำเสนอที่บันทึกจึงมีข้อความ "Evaluation only"?**
 

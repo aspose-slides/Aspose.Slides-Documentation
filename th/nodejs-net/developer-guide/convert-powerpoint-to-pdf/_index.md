@@ -22,20 +22,20 @@ description: "แปลงการนำเสนอ PPTX, PPT และ ODP �
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Node.js via .NET จะแปลงการนำเสนอ PowerPoint และ OpenDocument เป็น PDF โดยไม่ต้องใช้ Microsoft PowerPoint. ทุกสไลด์ที่มองเห็นได้จะกลายเป็นหนึ่งหน้า PDF ที่มีขนาดเท่ากับสไลด์เดิม และข้อความจะยังคงสามารถเลือกและค้นหาได้. บทความนี้แสดงการแปลงตามค่าเริ่มต้นและการแปลงเป็น PDF/A ด้วย [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET จะแปลงการนำเสนอ PowerPoint และ OpenDocument เป็น PDF โดยไม่ต้องใช้ Microsoft PowerPoint. ทุกสไลด์ที่มองเห็นได้จะกลายเป็นหนึ่งหน้า PDF ที่มีขนาดเท่ากับสไลด์เดิม และข้อความจะยังคงสามารถเลือกและค้นหาได้. บทความนี้แสดงการแปลงตามค่าเริ่มต้นและการแปลงเป็น PDF/A ด้วย [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ตัวอย่างต้องการไฟล์การนำเสนอชื่อ `sample.pptx` ในโฟลเดอร์โปรเจ็กต์ที่คุณตั้งค่าใน [การติดตั้ง](/slides/th/nodejs-net/installation/). การนำเสนอ PowerPoint ใดก็ได้จะใช้ได้. บันทึกแต่ละตัวอย่างเป็นไฟล์ `.js` ในโฟลเดอร์โปรเจ็กต์และเรียกใช้งานจากโฟลเดอร์นั้นด้วย `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET ไม่มีเอกสารอ้างอิง API ของตนเอง. มันทำสำเนา API ของ Aspose.Slides for .NET ด้วยชื่อแบบ camelCase, ดังนั้นลิงก์ API ในบทความนี้จะชี้ไปยังคลาสและสมาชิกที่ตรงกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/th/net/).
+Aspose.Slides for Node.js via .NET ไม่มีเอกสารอ้างอิง API ของตนเอง. มันทำสำเนา API ของ Aspose.Slides for .NET ด้วยชื่อแบบ camelCase, ดังนั้นลิงก์ API ในบทความนี้จะชี้ไปยังคลาสและสมาชิกที่ตรงกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **แปลงการนำเสนอเป็น PDF**
 
 เพื่อแปลงการนำเสนอเป็น PDF, ทำตามขั้นตอนต่อไปนี้:
 
-1. เปิดการนำเสนอโดยส่งพาธของไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/presentation/). โค้ดเดียวกันทำงานกับไฟล์ PPTX, PPT, และ ODP.
-2. เรียกใช้เมธอด [save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) พร้อมพาธผลลัพธ์และ `SaveFormat.Pdf`.
+1. เปิดการนำเสนอโดยส่งพาธของไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). โค้ดเดียวกันทำงานกับไฟล์ PPTX, PPT, และ ODP.
+2. เรียกใช้เมธอด [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) พร้อมพาธผลลัพธ์และ `SaveFormat.Pdf`.
 3. เรียก `dispose` ในบล็อก `finally` เพื่อปล่อยทรัพยากร .NET ที่รองรับการนำเสนอ.
 
 ```javascript
@@ -54,7 +54,7 @@ try {
 
 ## **แปลงการนำเสนอเป็น PDF/A**
 
-เพื่อควบคุมผลลัพธ์, ส่งอ็อบเจ็กต์ [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/) เป็นอาร์กิวเมนต์ที่สามของ `save`. ตัวอย่างต่อไปนี้ตั้งค่าคุณสมบัติ [compliance](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/compliance/) เป็น `PdfCompliance.PdfA2b`, ซึ่งจะสร้างไฟล์ PDF/A-2b. PDF/A เป็นมาตรฐาน ISO สำหรับการจัดเก็บระยะยาว: อีกหนึ่งข้อกำหนดคือ ต้องฝังฟอนต์ทั้งหมดที่เอกสารใช้ไว้ในไฟล์.
+เพื่อควบคุมผลลัพธ์, ส่งอ็อบเจ็กต์ [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) เป็นอาร์กิวเมนต์ที่สามของ `save`. ตัวอย่างต่อไปนี้ตั้งค่าคุณสมบัติ [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) เป็น `PdfCompliance.PdfA2b`, ซึ่งจะสร้างไฟล์ PDF/A-2b. PDF/A เป็นมาตรฐาน ISO สำหรับการจัดเก็บระยะยาว: อีกหนึ่งข้อกำหนดคือ ต้องฝังฟอนต์ทั้งหมดที่เอกสารใช้ไว้ในไฟล์.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-สคริปต์จะเขียนไฟล์ `sample-pdfa.pdf` พร้อมหน้าที่เหมือนกับการแปลงตามค่าเริ่มต้น. เพื่อยืนยันว่าไฟล์ตรงตามมาตรฐาน, ตรวจสอบด้วยตัวตรวจสอบ PDF/A อย่างเช่น [veraPDF](https://verapdf.org/). ค่าอื่น ๆ ของ [PdfCompliance](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfcompliance/) จะเลือกมาตรฐานอื่น ๆ เช่น `PdfA1b`, `PdfA2a`, หรือ `PdfUa` สำหรับการเข้าถึงได้.
+สคริปต์จะเขียนไฟล์ `sample-pdfa.pdf` พร้อมหน้าที่เหมือนกับการแปลงตามค่าเริ่มต้น. เพื่อยืนยันว่าไฟล์ตรงตามมาตรฐาน, ตรวจสอบด้วยตัวตรวจสอบ PDF/A อย่างเช่น [veraPDF](https://verapdf.org/). ค่าอื่น ๆ ของ [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) จะเลือกมาตรฐานอื่น ๆ เช่น `PdfA1b`, `PdfA2a`, หรือ `PdfUa` สำหรับการเข้าถึงได้.
 
 ## **คำถามที่พบบ่อย**
 
 **ฉันจะรวมสไลด์ที่ซ่อนอยู่ใน PDF ได้อย่างไร?**
 
-โดยค่าเริ่มต้นสไลด์ที่ซ่อนจะถูกข้าม. ตั้งค่าคุณสมบัติ [showHiddenSlides](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/showhiddenslides/) ของ `PdfOptions` เป็น `true` แล้วส่ง options ไปยัง `save`.
+โดยค่าเริ่มต้นสไลด์ที่ซ่อนจะถูกข้าม. ตั้งค่าคุณสมบัติ [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) ของ `PdfOptions` เป็น `true` แล้วส่ง options ไปยัง `save`.
 
 **ฉันสามารถปกป้อง PDF ด้วยรหัสผ่านได้หรือไม่?**
 
-ใช่. ตั้งค่าคุณสมบัติ [password](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/password/) ของ `PdfOptions` ก่อนเรียก `save`. โปรแกรมอ่าน PDF จะขอรหัสผ่านนั้นก่อนเปิดไฟล์.
+ใช่. ตั้งค่าคุณสมบัติ [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) ของ `PdfOptions` ก่อนเรียก `save`. โปรแกรมอ่าน PDF จะขอรหัสผ่านนั้นก่อนเปิดไฟล์.
 
 **ฉันสามารถแปลงเฉพาะบางสไลด์ได้หรือไม่?**
 

@@ -58,13 +58,13 @@ Aspose.Slides for Node.js via .NET เป็นไลบรารีสำหร
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/th/net/">เอกสารอ้างอิง API .NET</a></li>
-<li><a href="https://releases.aspose.com/slides/th/nodejs-net/release-notes/">บันทึกการเผยแพร่</a></li>
-<li><a href="https://releases.aspose.com/slides/th/nodejs-net/">ดาวน์โหลด</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">เอกสารอ้างอิง API .NET</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">บันทึกการเผยแพร่</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">ดาวน์โหลด</a></li>
 </ul>
 <p>การสนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบชำระเงิน</a></li>
 </ul>
 </div>

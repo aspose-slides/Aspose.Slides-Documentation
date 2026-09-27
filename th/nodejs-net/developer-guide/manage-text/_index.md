@@ -31,12 +31,12 @@ description: "เพิ่มกล่องข้อความลงในส
 ตัวอย่างต้องการให้ตั้งค่าโครงการตามที่อธิบายไว้ใน [Installation](/slides/th/nodejs-net/installation/). บันทึกแต่ละตัวอย่างเป็นไฟล์ `.js` ในโฟลเดอร์โครงการและเรียกใช้จากโฟลเดอร์นั้นด้วย `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides สำหรับ Node.js ผ่าน .NET ไม่มีเอกสารอ้างอิง API ของตนเอง มันเป็นการสังเคราะห์ API ของ Aspose.Slides สำหรับ .NET ด้วยชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะแสดงคลาสและสมาชิกที่สอดคล้องใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/th/net/).
+Aspose.Slides สำหรับ Node.js ผ่าน .NET ไม่มีเอกสารอ้างอิง API ของตนเอง มันเป็นการสังเคราะห์ API ของ Aspose.Slides สำหรับ .NET ด้วยชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะแสดงคลาสและสมาชิกที่สอดคล้องใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **เพิ่มกล่องข้อความ**
 
-เพื่อเพิ่มกล่องข้อความ ให้เพิ่มรูปร่างอัตโนมัติลงในสไลด์ด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/shapecollection/addautoshape/) และใส่ข้อความด้วยเมธอด [addTextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/autoshape/addtextframe/). ตัวอย่างต่อไปนี้เพิ่มสี่เหลี่ยมลงในสไลด์แรกของพรีเซนเทชันใหม่และบันทึกพรีเซนเทชันเป็น `text-box.pptx`:
+เพื่อเพิ่มกล่องข้อความ ให้เพิ่มรูปร่างอัตโนมัติลงในสไลด์ด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) และใส่ข้อความด้วยเมธอด [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). ตัวอย่างต่อไปนี้เพิ่มสี่เหลี่ยมลงในสไลด์แรกของพรีเซนเทชันใหม่และบันทึกพรีเซนเทชันเป็น `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **เปลี่ยนข้อความและการจัดรูปแบบของมัน**
 
-ตัวอย่างต่อไปนี้เปิดไฟล์ `text-box.pptx` ซึ่งสร้างจากตัวอย่างก่อนหน้าและดึงรูปร่างแรกบนสไลด์แรก รูปร่างเช่นรูปภาพและตารางไม่มีกรอบข้อความดังนั้นตัวอย่างจะตรวจสอบว่ารูปร่างเป็น [AutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/autoshape/) ก่อนที่จะใช้ [textFrame](https://reference.aspose.com/slides/th/net/aspose.slides/autoshape/textframe/) ของรูปร่างนั้น แล้วทำตามขั้นตอนต่อไปนี้:
+ตัวอย่างต่อไปนี้เปิดไฟล์ `text-box.pptx` ซึ่งสร้างจากตัวอย่างก่อนหน้าและดึงรูปร่างแรกบนสไลด์แรก รูปร่างเช่นรูปภาพและตารางไม่มีกรอบข้อความดังนั้นตัวอย่างจะตรวจสอบว่ารูปร่างเป็น [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) ก่อนที่จะใช้ [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) ของรูปร่างนั้น แล้วทำตามขั้นตอนต่อไปนี้:
 
-1. มันแทนที่ข้อความโดยใช้คุณสมบัติ [text](https://reference.aspose.com/slides/th/net/aspose.slides/textframe/text/) ของกรอบข้อความ หลังจากนั้นกรอบข้อความจะมีหนึ่งย่อหน้าที่มีหนึ่งส่วน
-1. มันดึงส่วนนั้นจากคอลเลกชัน [paragraphs](https://reference.aspose.com/slides/th/net/aspose.slides/textframe/paragraphs/) และ [portions](https://reference.aspose.com/slides/th/net/aspose.slides/paragraph/portions/) แล้วอ่าน [portionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/portion/portionformat/) ของมัน
-1. มันกำหนดค่า [fontHeight](https://reference.aspose.com/slides/th/net/aspose.slides/baseportionformat/fontheight/), ขนาดแบบอักษรเป็นพอยต์, และ [fontBold](https://reference.aspose.com/slides/th/net/aspose.slides/baseportionformat/fontbold/), ซึ่งรับค่า [NullableBool](https://reference.aspose.com/slides/th/net/aspose.slides/nullablebool/)
+1. มันแทนที่ข้อความโดยใช้คุณสมบัติ [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) ของกรอบข้อความ หลังจากนั้นกรอบข้อความจะมีหนึ่งย่อหน้าที่มีหนึ่งส่วน
+1. มันดึงส่วนนั้นจากคอลเลกชัน [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) และ [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) แล้วอ่าน [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/) ของมัน
+1. มันกำหนดค่า [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), ขนาดแบบอักษรเป็นพอยต์, และ [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), ซึ่งรับค่า [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

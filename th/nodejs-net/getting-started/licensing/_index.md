@@ -10,7 +10,7 @@ url: /th/nodejs-net/licensing/
 Aspose.Slides for Node.js via .NET เป็นแพ็กเกจ npm ชุดเดียวที่ใช้ได้ทั้งการประเมินและการใช้งานจริง หากไม่มีไลเซนส์ จะทำงานในโหมดประเมิน หลังจากที่คุณซื้อไลเซนส์หรือรับไลเซนส์ชั่วคราวฟรี 30 วัน คุณสามารถนำไปใช้ได้ด้วยโค้ดเพียงไม่กี่บรรทัด และข้อจำกัดของโหมดประเมินจะไม่ถูกใช้งานอีกต่อไป
 
 {{% alert color="info" title="Note" %}}
-นโยบายทั่วไปเกี่ยวกับวิธีการประเมิน ไลเซนส์ และการซื้อผลิตภัณฑ์ของ Aspose ได้ถูกรวบรวมใน [Purchase Policies and FAQ](https://purchase.aspose.com/policies). ราคาต่างๆ จะระบุในหน้า [Pricing Information](https://purchase.aspose.com/pricing/slides/th/family).
+นโยบายทั่วไปเกี่ยวกับวิธีการประเมิน ไลเซนส์ และการซื้อผลิตภัณฑ์ของ Aspose ได้ถูกรวบรวมใน [Purchase Policies and FAQ](https://purchase.aspose.com/policies). ราคาต่างๆ จะระบุในหน้า [Pricing Information](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ## **ข้อจำกัดของเวอร์ชันประเมิน**
@@ -53,4 +53,4 @@ try {
 
 หากไม่พบไฟล์หรือไฟล์ไม่เป็นไลเซนส์ที่ถูกต้อง `setLicense` จะโยนข้อผิดพลาดและ Aspose.Slides จะอยู่ในโหมดประเมิน สคริปต์จะจับข้อผิดพลาดและพิมพ์ข้อความของมัน สำหรับกรณีไฟล์หาย ข้อความจะเริ่มด้วย `License "Aspose.Slides.lic" doesn't exist or access is restricted.` และแสดงรายการทุกตำแหน่งที่ได้ทำการค้นหา
 
-ในแพ็กเกจนี้ไลเซนส์จะถูกนำไปใช้จากไฟล์เท่านั้น `License` ไม่รับสตรีมและแพ็กเกจไม่เปิดเผยการออกใบอนุญาตแบบตามการใช้งาน สำหรับคลาสที่แพ็กเกจหุ้มอยู่ โปรดดูที่ [License](https://reference.aspose.com/slides/th/net/aspose.slides/license/) ในเอกสารอ้างอิง API ของ Aspose.Slides for .NET
+ในแพ็กเกจนี้ไลเซนส์จะถูกนำไปใช้จากไฟล์เท่านั้น `License` ไม่รับสตรีมและแพ็กเกจไม่เปิดเผยการออกใบอนุญาตแบบตามการใช้งาน สำหรับคลาสที่แพ็กเกจหุ้มอยู่ โปรดดูที่ [License](https://reference.aspose.com/slides/net/aspose.slides/license/) ในเอกสารอ้างอิง API ของ Aspose.Slides for .NET

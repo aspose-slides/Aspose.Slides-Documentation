@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 ระหว่างการติดตั้ง, แพ็กเกจจะคัดลอกไลบรารีการวาดภาพแบบดิบของมัน (ไฟล์ที่มีชื่อ `aspose.slides.drawing.capi`) ไปยังโฟลเดอร์โปรเจ็กต์, อยู่ข้างๆ `package.json`
 
-แพ็กเกจนี้ยังเผยแพร่เป็นไฟล์ ZIP ที่ [releases.aspose.com](https://releases.aspose.com/slides/th/nodejs-net/) บทความนี้ครอบคลุมการติดตั้งจาก npm เท่านั้น
+แพ็กเกจนี้ยังเผยแพร่เป็นไฟล์ ZIP ที่ [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/) บทความนี้ครอบคลุมการติดตั้งจาก npm เท่านั้น
 
 ## **กู้คืนการขึ้นอยู่ของ .NET**
 
@@ -154,7 +154,7 @@ node hello.js
 รันสคริปต์ของคุณจากโฟลเดอร์โปรเจ็กต์, โฟลเดอร์ที่มี `package.json`. เส้นทางแบบสัมพันธ์เช่น `hello.pptx` จะอ้างอิงจากโฟลเดอร์ปัจจุบัน, และบนบางเครื่องสคริปต์ที่เริ่มจากโฟลเดอร์อื่นอาจไม่สามารถสร้างงานนำเสนอได้
 {{% /alert %}}
 
-JavaScript API สะท้อน Aspose.Slides for .NET: คลาสคงชื่อ .NET, คุณสมบัติและเมธอดใช้ camelCase (`Slides` กลายเป็น `slides`, `AddAutoShape` กลายเป็น `addAutoShape`), และรายการคอล렉ชันอ่านด้วย `get(index)`. ไม่มีเอกสารอ้างอิง API แยกสำหรับแพ็กเกจนี้, ดังนั้นให้ใช้ [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/th/net/) เพื่อดูรายละเอียดคลาสและสมาชิก, เช่น [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) และ [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/shapecollection/addautoshape/)
+JavaScript API สะท้อน Aspose.Slides for .NET: คลาสคงชื่อ .NET, คุณสมบัติและเมธอดใช้ camelCase (`Slides` กลายเป็น `slides`, `AddAutoShape` กลายเป็น `addAutoShape`), และรายการคอล렉ชันอ่านด้วย `get(index)`. ไม่มีเอกสารอ้างอิง API แยกสำหรับแพ็กเกจนี้, ดังนั้นให้ใช้ [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) เพื่อดูรายละเอียดคลาสและสมาชิก, เช่น [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) และ [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)
 
 ## **คำถามที่พบบ่อย**
 

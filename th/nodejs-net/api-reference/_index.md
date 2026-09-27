@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET ถูกบันทึกใ�
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Node.js via .NET ไม่มีเอกสารอ้างอิง API ของตัวเอง แพ็กเกจนี้เปิดเผยคลาสของ Aspose.Slides for .NET ให้กับ JavaScript ด้วยชื่อเดียวกัน แต่สมาชิกใช้รูปแบบ camelCase ดังนั้น[Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/th/net/) จะอธิบายคลาส สมาชิก และ enumeration ของมัน
+Aspose.Slides for Node.js via .NET ไม่มีเอกสารอ้างอิง API ของตัวเอง แพ็กเกจนี้เปิดเผยคลาสของ Aspose.Slides for .NET ให้กับ JavaScript ด้วยชื่อเดียวกัน แต่สมาชิกใช้รูปแบบ camelCase ดังนั้น[Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) จะอธิบายคลาส สมาชิก และ enumeration ของมัน
 
 ## **แปลงชื่อ .NET เป็น JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 สคริปต์จะเขียนไฟล์ `slide.png` และ `slide.pdf` ไปยังโฟลเดอร์ปัจจุบัน ทั้งสองไฟล์จะแสดงสี่เหลี่ยมผืนผ้าพร้อมข้อความ หากไม่มีลิขสิทธิ์ จะมีสลับน้ำประดับการประเมิน; ดูที่[Licensing](/slides/th/nodejs-net/licensing/).
 
-สำหรับรายละเอียดของสมาชิกที่ใช้ในที่นี้ ดูที่[Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/th/net/aspose.slides/textframe/text/) และ[Slide.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/slide/getimage/) ในเอกสารอ้างอิง API ของ Aspose.Slides for .NET
+สำหรับรายละเอียดของสมาชิกที่ใช้ในที่นี้ ดูที่[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) และ[Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) ในเอกสารอ้างอิง API ของ Aspose.Slides for .NET

@@ -29,12 +29,12 @@ Aspose.Slides สำหรับ Node.js ผ่าน .NET เปิดไฟล
 ตัวอย่างเหล่านี้คาดว่ามีพรีเซนเทชันชื่อ `sample.pptx` อยู่ในโฟลเดอร์โปรเจคที่คุณตั้งค่าไว้ใน [Installation](/slides/th/nodejs-net/installation/). พรีเซนเทชัน PowerPoint ใดก็ได้ทำงานได้ บันทึกแต่ละตัวอย่างเป็นไฟล์ `.js` ในโฟลเดอร์โปรเจคและรันจากโฟลเดอร์นั้นด้วย `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js ผ่าน .NET ไม่มีเอกสารอ้างอิง API ของตนเอง มันสะท้อน API ของ Aspose.Slides for .NET ด้วยชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะนำไปสู่คลาสและสมาชิกที่ตรงกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/th/net/).
+Aspose.Slides for Node.js ผ่าน .NET ไม่มีเอกสารอ้างอิง API ของตนเอง มันสะท้อน API ของ Aspose.Slides for .NET ด้วยชื่อแบบ camelCase ดังนั้นลิงก์ API ในบทความนี้จะนำไปสู่คลาสและสมาชิกที่ตรงกันใน [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **เปิดพรีเซนเทชันจากไฟล์**
 
-เพื่อเปิดพรีเซนเทชัน ให้ส่งเส้นทางของไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/presentation/). Aspose.Slides ตรวจจับรูปแบบจากเนื้อหาไฟล์แทนที่จะตรวจจากส่วนขยาย ดังนั้นโค้ดเดียวกันจึงเปิดไฟล์ PPTX, PPT, และ ODP ได้ เส้นทางสัมพันธ์จะถูกแก้ไขตามไดเรกทอรีทำงานปัจจุบัน ซึ่งคือโฟลเดอร์โปรเจคเมื่อคุณเรียกสคริปต์จากที่นั่น
+เพื่อเปิดพรีเซนเทชัน ให้ส่งเส้นทางของไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Aspose.Slides ตรวจจับรูปแบบจากเนื้อหาไฟล์แทนที่จะตรวจจากส่วนขยาย ดังนั้นโค้ดเดียวกันจึงเปิดไฟล์ PPTX, PPT, และ ODP ได้ เส้นทางสัมพันธ์จะถูกแก้ไขตามไดเรกทอรีทำงานปัจจุบัน ซึ่งคือโฟลเดอร์โปรเจคเมื่อคุณเรียกสคริปต์จากที่นั่น
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-สคริปต์จะพิมพ์จำนวนสไลด์ใน `sample.pptx` เช่น `Slide count: 9`. คุณสมบัติ `count` ของคอลเลกชัน [slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/slides/th/) รวมสไลด์ที่ซ่อนอยู่ด้วย เรียก `dispose` ในบล็อก `finally` ตามที่แสดง เพื่อให้ทรัพยากร .NET ที่อยู่เบื้องหลังพรีเซนเทชันถูกปล่อยแม้โค้ดของคุณจะล้มเหลว
+สคริปต์จะพิมพ์จำนวนสไลด์ใน `sample.pptx` เช่น `Slide count: 9`. คุณสมบัติ `count` ของคอลเลกชัน [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) รวมสไลด์ที่ซ่อนอยู่ด้วย เรียก `dispose` ในบล็อก `finally` ตามที่แสดง เพื่อให้ทรัพยากร .NET ที่อยู่เบื้องหลังพรีเซนเทชันถูกปล่อยแม้โค้ดของคุณจะล้มเหลว
 
 ## **เปิดพรีเซนเทชันจาก Buffer**
 
@@ -71,7 +71,7 @@ try {
 
 ## **บันทึกพรีเซนเทชันในรูปแบบอื่น**
 
-เพื่อแปลงพรีเซนเทชันเป็นรูปแบบพรีเซนเทชันอื่น ให้เปิดมันและบันทึกด้วยค่า [SaveFormat](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveformat/) ที่ต่างกัน ตัวอย่างต่อไปนี้พิมพ์รูปแบบที่ Aspose.Slides ตรวจพบ ซึ่งเป็นค่าที่คุณสมบัติ [sourceFormat](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/sourceformat/) คืนค่า และบันทึกพรีเซนเทชันเป็นพรีเซนเทชัน OpenDocument:
+เพื่อแปลงพรีเซนเทชันเป็นรูปแบบพรีเซนเทชันอื่น ให้เปิดมันและบันทึกด้วยค่า [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) ที่ต่างกัน ตัวอย่างต่อไปนี้พิมพ์รูปแบบที่ Aspose.Slides ตรวจพบ ซึ่งเป็นค่าที่คุณสมบัติ [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) คืนค่า และบันทึกพรีเซนเทชันเป็นพรีเซนเทชัน OpenDocument:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **ฉันจะเปิดพรีเซนเทชันที่มีการป้องกันด้วยรหัสผ่านได้อย่างไร?**
 
-สร้างอ็อบเจ็กต์ [LoadOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/) ตั้งค่าคุณสมบัติ [password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/) ของมัน และส่งอ็อบเจ็กต์เป็นอาร์กิวเมนต์คอนสตรัคเตอร์ตัวที่สาม: `new Presentation("protected.pptx", null, loadOptions)`. หากไม่มีรหัสผ่านที่ถูกต้อง คอนสตรัคเตอร์จะโยนข้อผิดพลาด
+สร้างอ็อบเจ็กต์ [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ตั้งค่าคุณสมบัติ [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) ของมัน และส่งอ็อบเจ็กต์เป็นอาร์กิวเมนต์คอนสตรัคเตอร์ตัวที่สาม: `new Presentation("protected.pptx", null, loadOptions)`. หากไม่มีรหัสผ่านที่ถูกต้อง คอนสตรัคเตอร์จะโยนข้อผิดพลาด
 
 **ทำไมคอนสตรัคเตอร์ถึงโยน `Error` ที่มีข้อความว่าง?**
 
