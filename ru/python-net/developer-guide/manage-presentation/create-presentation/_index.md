@@ -29,10 +29,10 @@ description: "Создавайте презентации PowerPoint на Python
 
 Чтобы создать презентацию и разместить форму с текстом на её первом слайде, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
-2. Получите этот слайд из коллекции [slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/slides/ru/) по индексу 0.
-3. Добавьте облакообразную [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) с помощью метода [add_auto_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapecollection/add_auto_shape/) коллекции [shapes](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/shapes/) слайда и установите её [text](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/text/).
-4. Сохраните презентацию в файл PPTX с помощью метода [save](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/save/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
+2. Получите этот слайд из коллекции [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) по индексу 0.
+3. Добавьте облакообразную [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) с помощью метода [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) коллекции [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) слайда и установите её [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+4. Сохраните презентацию в файл PPTX с помощью метода [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### Можно ли создавать/сохранять презентации параллельно?
 
-Вы не можете работать с тем же экземпляром [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/python-net/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
+Вы не можете работать с тем же экземпляром [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/python-net/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
 
 ### Как удалить пробный водяной знак и ограничения?
 

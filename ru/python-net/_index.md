@@ -79,13 +79,13 @@ Aspose.Slides for Python via .NET — это библиотека Python для 
 <hr>
 <p>СПРАВКА</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ru/python-net/">Справочник API</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/python-net/release-notes/">Примечания к выпуску</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/python-net/">Скачать</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">Справочник API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
 </ul>
 </div>
