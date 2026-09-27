@@ -16,7 +16,7 @@ description: "Apply a file, byte-based, or metered license in Aspose.Slides for 
 
 ## **Overview**
 
-Aspose.Slides for Python via Java can run in evaluation mode or with a license. This article explains how to apply a license from a file or bytes and how to configure metered licensing.
+Aspose.Slides for Python via Java can run in evaluation mode or with a license. In evaluation mode, it adds an evaluation watermark text box to every slide of each presentation it saves and truncates text that your code reads from presentations. This article explains how to apply a license from a file or bytes and how to configure metered licensing.
 
 For purchase options, see [Pricing Information](https://purchase.aspose.com/pricing/slides/family). For general licensing and purchasing questions, see [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
 

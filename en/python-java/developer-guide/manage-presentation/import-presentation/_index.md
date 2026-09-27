@@ -206,6 +206,6 @@ Yes. Create a [PdfImportOptions](https://reference.aspose.com/slides/python-java
 
 {{% alert title="Note" color="info" %}}
 
-After importing HTML, you can also export the slides to [images](/slides/python-java/convert-powerpoint-to-png/), [TIFF](/slides/python-java/convert-powerpoint-to-tiff/), or [SVG](/slides/python-java/render-slide-as-svg/).
+After importing HTML, you can also export the slides to [images](/slides/python-java/convert-powerpoint-to-png/), [TIFF](/slides/python-java/convert-powerpoint-to-tiff/), or [SVG](/slides/python-java/render-a-slide-as-an-svg-image/).
 
 {{% /alert %}}

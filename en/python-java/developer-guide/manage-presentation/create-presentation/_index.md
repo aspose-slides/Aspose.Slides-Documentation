@@ -26,17 +26,19 @@ description: "Create presentations in Python via Java with Aspose.Slides—produ
 
 This article shows how to create a presentation with Aspose.Slides for Python via Java, add a shape with text to the first slide, and save the result as a PPTX file. The FAQ covers output formats, templates, slide sizing, memory usage, threading, licensing, digital signatures, and VBA support.
 
+Before you begin, install Python, a JDK, JPype, and Aspose.Slides for Python via Java. See [Installation](/slides/python-java/installation/) for the steps on Windows, Linux, and macOS.
+
 ## **Create a Presentation**
 
 Creating a PowerPoint file from scratch in Aspose.Slides for Python via Java is as straightforward as instantiating the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class. The constructor automatically supplies a blank deck with a single slide, giving you an immediate canvas for shapes, text, charts, or any other content your application needs. Once you modify that slide—or add new ones—you can persist the result to PPTX, legacy PPT, or even OpenDocument formats. The short code sample below illustrates this workflow by adding a simple shape onto the first slide.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get the first slide by its index.
+1. Get the first slide by its index, 0.
 1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) of type [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) using [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
 1. Set the shape's text using [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
 1. Save the presentation using [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) with [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
-The following example requires Aspose.Slides for Python via Java and a compatible Java runtime. It starts the JVM if it is not already running, adds a cloud shape to the first slide, and saves the presentation:
+The following example starts the Java Virtual Machine (JVM) if it is not already running, adds a cloud shape with text to the first slide, and saves the presentation. Save it as *create_presentation.py*:
 
 ```python
 import jpype
@@ -63,6 +65,14 @@ finally:
     presentation.dispose()
 ```
 
+Run the script in the environment where you installed the packages:
+
+```sh
+python create_presentation.py
+```
+
+The cloud's top-left corner is 20 points from the left and top edges of the slide, and the cloud is 200 points wide and 80 points high. The script saves *new_presentation.pptx* in the current working directory, with one slide that holds the cloud and its text. The JVM keeps running until the Python process exits; see [Limitations and API Differences](/slides/python-java/limitations-and-api-differences/#import-the-library). Without a license, Aspose.Slides also adds an evaluation watermark text box to every slide it saves; see [Licensing](/slides/python-java/licensing/).
+
 The result:
 
 ![The new presentation](new_presentation.png)
@@ -71,7 +81,7 @@ The result:
 
 **What formats can I save a new presentation to?**
 
-You can save to [PPTX, PPT, and ODP](/slides/python-java/save-presentation/), and export to [PDF](/slides/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/python-java/convert-powerpoint-to-xps/), [HTML](/slides/python-java/convert-powerpoint-to-html/), [SVG](/slides/python-java/render-slide-as-svg/), and [images](/slides/python-java/convert-powerpoint-to-png/), among others.
+You can save to [PPTX, PPT, and ODP](/slides/python-java/save-presentation/), and export to [PDF](/slides/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/python-java/convert-powerpoint-to-xps/), [HTML](/slides/python-java/convert-powerpoint-to-html/), [SVG](/slides/python-java/render-a-slide-as-an-svg-image/), and [images](/slides/python-java/convert-powerpoint-to-png/), among others.
 
 **Can I start from a template (POTX/POTM) and save as a regular PPTX?**
 

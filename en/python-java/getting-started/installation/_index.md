@@ -74,7 +74,7 @@ You can also use the library from the [Aspose.Slides downloads page](https://rel
 3. Install JPype with `python -m pip install JPype1`.
 4. Download and extract the Aspose.Slides for Python via Java ZIP archive.
 5. Locate the extracted `asposeslides` package directory. Keep its contents, including the `lib` directory and JAR file, together.
-6. Place `example.py` from the next section alongside the `asposeslides` directory so that Python can import the package.
+6. Place `example.py` from the next section alongside the `asposeslides` directory so that Python can import the package. The archive already has its own `example.py` next to `asposeslides`; replace it with the one below.
 
 ## **Verify the Installation**
 
