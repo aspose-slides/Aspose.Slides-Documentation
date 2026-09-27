@@ -29,13 +29,13 @@ Bevor Sie beginnen, installieren Sie Python, ein JDK, JPype und Aspose.Slides f�
 
 ## **Präsentation erstellen**
 
-Eine PowerPoint‑Datei von Grund auf in Aspose.Slides für Python via Java zu erstellen ist so einfach wie das Instanziieren der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/). Der Konstruktor liefert automatisch ein leeres Deck mit einer einzigen Folie, sodass Sie sofort Formen, Text, Diagramme oder anderen Inhalt hinzufügen können, den Ihre Anwendung benötigt. Sobald Sie diese Folie geändert – oder neue hinzugefügt – können Sie das Ergebnis als PPTX, altes PPT oder sogar im OpenDocument‑Format speichern. Der kurze Code‑Beispiel unten veranschaulicht diesen Ablauf, indem er eine einfache Form auf die erste Folie legt.
+Eine PowerPoint‑Datei von Grund auf in Aspose.Slides für Python via Java zu erstellen ist so einfach wie das Instanziieren der Klasse [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Der Konstruktor liefert automatisch ein leeres Deck mit einer einzigen Folie, sodass Sie sofort Formen, Text, Diagramme oder anderen Inhalt hinzufügen können, den Ihre Anwendung benötigt. Sobald Sie diese Folie geändert – oder neue hinzugefügt – können Sie das Ergebnis als PPTX, altes PPT oder sogar im OpenDocument‑Format speichern. Der kurze Code‑Beispiel unten veranschaulicht diesen Ablauf, indem er eine einfache Form auf die erste Folie legt.
 
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/).
+1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Rufen Sie die erste Folie über ihren Index 0 ab.
-1. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) vom Typ [ShapeType.Cloud](https://reference.aspose.com/slides/de/python-java/aspose.slides/shapetype/#Cloud) mithilfe von [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shapecollection/#addAutoShape) hinzu.
-1. Setzen Sie den Text der Form mit [TextFrame.setText](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/#setText).
-1. Speichern Sie die Präsentation mit [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save) und [SaveFormat.Pptx](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/#Pptx).
+1. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) vom Typ [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) mithilfe von [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) hinzu.
+1. Setzen Sie den Text der Form mit [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Speichern Sie die Präsentation mit [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) und [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 Das folgende Beispiel startet die Java Virtual Machine (JVM), falls sie noch nicht läuft, fügt der ersten Folie ein Wolken‑Shape mit Text hinzu und speichert die Präsentation. Speichern Sie es als *create_presentation.py*:
 
@@ -100,7 +100,7 @@ Verwenden Sie [BLOB‑Verwaltungsstrategien](/slides/de/python-java/manage-blob/
 
 **Kann ich Präsentationen parallel erstellen/speichern?**
 
-Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/)‑Instanz aus [mehreren Threads](/slides/de/python-java/multithreading/) gleichzeitig verwenden. Starten Sie separate, isolierte Instanzen pro Thread oder Prozess.
+Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑Instanz aus [mehreren Threads](/slides/de/python-java/multithreading/) gleichzeitig verwenden. Starten Sie separate, isolierte Instanzen pro Thread oder Prozess.
 
 **Wie entferne ich das Test‑Wasserzeichen und die Einschränkungen?**
 

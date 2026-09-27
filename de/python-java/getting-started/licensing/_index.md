@@ -17,7 +17,7 @@ description: "Wenden Sie eine Datei-, bytebasierte oder nutzungsbasierte Lizenz 
 
 Aspose.Slides für Python via Java kann im Evaluierungsmodus oder mit einer Lizenz ausgeführt werden. Im Evaluierungsmodus fügt es jeder Folie jeder Präsentation, die es speichert, ein Wasserzeichen‑Textfeld hinzu und kürzt Text, den Ihr Code aus Präsentationen liest. Dieser Artikel erklärt, wie man eine Lizenz aus einer Datei oder aus Bytes anwendet und wie man die nutzungsbasierte Lizenzierung konfiguriert.
 
-Für Kaufoptionen siehe [Preisgestaltung](https://purchase.aspose.com/pricing/slides/de/family). Für allgemeine Lizenz‑ und Kauffragen siehe [Kaufbedingungen und FAQ](https://purchase.aspose.com/policies).
+Für Kaufoptionen siehe [Preisgestaltung](https://purchase.aspose.com/pricing/slides/family). Für allgemeine Lizenz‑ und Kauffragen siehe [Kaufbedingungen und FAQ](https://purchase.aspose.com/policies).
 
 Für Evaluierungsbeschränkungen und wie man eine temporäre Lizenz anfordert, siehe [Aspose.Slides evaluieren](/slides/de/python-java/evaluate-aspose-slides/). Wenden Sie eine temporäre Lizenz auf dieselbe Weise an wie eine gekaufte Lizenzdatei.
 
@@ -29,7 +29,7 @@ Eine Lizenzdatei enthält Informationen wie den Produktnamen, die Anzahl lizenzi
 Bearbeiten Sie die Lizenzdatei nicht. Auch ein zusätzliches Zeilenumbruch kann die digitale Signatur ungültig machen.
 {{% /alert %}}
 
-Wenden Sie die Lizenz einmal pro Anwendung oder Prozess an, bevor Sie Präsentationen erstellen oder andere Aspose.Slides‑Operationen durchführen. Für eine Lizenzdatei verwenden Sie die Klasse [License](https://reference.aspose.com/slides/de/python-java/aspose.slides/license/). Die nutzungsbasierte Lizenzierung verwendet ein öffentliches und privates Schlüsselpaar anstelle einer Lizenzdatei.
+Wenden Sie die Lizenz einmal pro Anwendung oder Prozess an, bevor Sie Präsentationen erstellen oder andere Aspose.Slides‑Operationen durchführen. Für eine Lizenzdatei verwenden Sie die Klasse [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). Die nutzungsbasierte Lizenzierung verwendet ein öffentliches und privates Schlüsselpaar anstelle einer Lizenzdatei.
 
 ## **Lizenz anwenden**
 
@@ -37,7 +37,7 @@ Die folgenden Beispiele gehen davon aus, dass Aspose.Slides für Python via Java
 
 ### **Lizenz aus einer Datei anwenden**
 
-Übergeben Sie den Pfad zur Lizenzdatei an [License.setLicense](https://reference.aspose.com/slides/de/python-java/aspose.slides/license/#setLicense). Ersetzen Sie `Aspose.Slides.lic` durch den Pfad zu Ihrer Lizenzdatei.
+Übergeben Sie den Pfad zur Lizenzdatei an [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Ersetzen Sie `Aspose.Slides.lic` durch den Pfad zu Ihrer Lizenzdatei.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Verwenden Sie den genauen Dateinamen inklusive seiner Erweiterung. Zum Beispiel, wenn die Datei `Aspose.Slides.lic.xml` heißt, fügen Sie `.xml` zum Pfad hinzu. Ein absoluter Pfad vermeidet Mehrdeutigkeiten bezüglich des Arbeitsverzeichnisses der Anwendung.
 
-Das Beispiel verwendet [License.isLicensed](https://reference.aspose.com/slides/de/python-java/aspose.slides/license/#isLicensed), um zu prüfen, ob die Lizenz angewendet wurde.
+Das Beispiel verwendet [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed), um zu prüfen, ob die Lizenz angewendet wurde.
 
 ### **Lizenz aus Bytes anwenden**
 
-Verwenden Sie [License.setLicenseFromBytes](https://reference.aspose.com/slides/de/python-java/aspose.slides/license/#setLicenseFromBytes), wenn die Lizenz als Python‑Bytes vorliegt. Das folgende Beispiel liest die Datei im Binärmodus und schließt sie, bevor die Lizenz angewendet wird.
+Verwenden Sie [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes), wenn die Lizenz als Python‑Bytes vorliegt. Das folgende Beispiel liest die Datei im Binärmodus und schließt sie, bevor die Lizenz angewendet wird.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ Behalten Sie die originalen Bytes unverändert bei. Dekodieren, formatieren Sie 
 
 ## **Nutzungsbasierte Lizenz anwenden**
 
-Bei der nutzungsbasierten Lizenzierung werden Ihnen die API‑Nutzung berechnet. Nachdem Sie eine nutzungsbasierte Lizenz erhalten haben, wenden Sie deren öffentlichen und privaten Schlüssel mit [Metered.setMeteredKey](https://reference.aspose.com/slides/de/python-java/aspose.slides/metered/#setMeteredKey) an. Initialisieren Sie das Objekt [Metered](https://reference.aspose.com/slides/de/python-java/aspose.slides/metered/) und wenden Sie die Schlüssel einmal beim Anwendungsstart an.
+Bei der nutzungsbasierten Lizenzierung werden Ihnen die API‑Nutzung berechnet. Nachdem Sie eine nutzungsbasierte Lizenz erhalten haben, wenden Sie deren öffentlichen und privaten Schlüssel mit [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey) an. Initialisieren Sie das Objekt [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) und wenden Sie die Schlüssel einmal beim Anwendungsstart an.
 
 Das folgende Beispiel liest die Schlüssel aus den Umgebungsvariablen `ASPOSE_METERED_PUBLIC_KEY` und `ASPOSE_METERED_PRIVATE_KEY`. Setzen Sie beide Variablen, bevor Sie das Skript ausführen.
 

@@ -77,14 +77,14 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makro‑akt
 <hr>
 <p>REFERENZ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/de/python-java/">API‑Referenz</a></li>
-<li><a href="https://releases.aspose.com/slides/de/python-java/release-notes/">Versionshinweise</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API‑Referenz</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Versionshinweise</a></li>
 <li><a href="/slides/de/python-java/known-issues/">Bekannte Probleme</a></li>
-<li><a href="https://releases.aspose.com/slides/de/python-java/">Herunterladen</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Herunterladen</a></li>
 </ul>
 <p>UNTERSTÜTZUNG</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/de/11">Kostenloses Support‑Forum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Kostenloses Support‑Forum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Bezahlter Support‑Helpdesk</a></li>
 </ul>
 </div>
