@@ -7,7 +7,7 @@ description: "Aspose.Slides för Node.js via .NET dokumenteras av Aspose.Slides 
 ---
 ## **Översikt**
 
-Aspose.Slides för Node.js via .NET har ingen egen API‑referens. Paketet exponerar klasserna i Aspose.Slides för .NET till JavaScript under samma namn, med camelCase‑medlemmar, så [Aspose.Slides för .NET API‑referens](https://reference.aspose.com/slides/sv/net/) dokumenterar dess klasser, medlemmar och uppräkningar.
+Aspose.Slides för Node.js via .NET har ingen egen API‑referens. Paketet exponerar klasserna i Aspose.Slides för .NET till JavaScript under samma namn, med camelCase‑medlemmar, så [Aspose.Slides för .NET API‑referens](https://reference.aspose.com/slides/net/) dokumenterar dess klasser, medlemmar och uppräkningar.
 
 ## **Mappa .NET‑namn till JavaScript**
 
@@ -52,4 +52,4 @@ try {
 
 Skriptet skriver `slide.png` och `slide.pdf` till den aktuella mappen. Båda visar rektangeln med dess text. Utan licens visar de också ett evaluerings‑vattenstämpel; se [Licensiering](/slides/sv/nodejs-net/licensing/).
 
-För detaljer om de medlemmar som används här, se [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/sv/net/aspose.slides/textframe/text/) och [Slide.GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/slide/getimage/) i Aspose.Slides för .NET API‑referensen.
+För detaljer om de medlemmar som används här, se [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) och [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) i Aspose.Slides för .NET API‑referensen.

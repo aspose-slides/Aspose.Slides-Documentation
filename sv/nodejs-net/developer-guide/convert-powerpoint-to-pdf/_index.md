@@ -22,20 +22,20 @@ description: "Konvertera PPTX-, PPT- och ODP-presentationer till PDF i JavaScrip
 ---
 ## **Översikt**
 
-Aspose.Slides for Node.js via .NET konverterar PowerPoint- och OpenDocument-presentationer till PDF utan Microsoft PowerPoint. Varje synlig bild blir en PDF-sida med samma storlek som bilden, och texten förblir markerbar och sökbar. Denna artikel visar standardkonverteringen och en konvertering till PDF/A med [PdfOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET konverterar PowerPoint- och OpenDocument-presentationer till PDF utan Microsoft PowerPoint. Varje synlig bild blir en PDF-sida med samma storlek som bilden, och texten förblir markerbar och sökbar. Denna artikel visar standardkonverteringen och en konvertering till PDF/A med [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 Exemplen förutsätter en presentation med namnet `sample.pptx` i projektmappen som du har skapat i [Installation](/slides/sv/nodejs-net/installation/). Vilken PowerPoint-presentation som helst fungerar. Spara varje exempel som en `.js`-fil i projektmappen och kör den från den mappen med `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides for .NET API med camelCase-namn, så API-länkarna i den här artikeln leder till de matchande klasserna och medlemmarna i [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/sv/net/).
+Aspose.Slides for Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides for .NET API med camelCase-namn, så API-länkarna i den här artikeln leder till de matchande klasserna och medlemmarna i [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Konvertera en presentation till PDF**
 
 För att konvertera en presentation till PDF, följ dessa steg:
 
-1. Öppna presentationen genom att skicka dess sökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/presentation/). Samma kod fungerar för PPTX-, PPT- och ODP‑filer.
-2. Anropa metoden [save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) med utsökvägen och `SaveFormat.Pdf`.
+1. Öppna presentationen genom att skicka dess sökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Samma kod fungerar för PPTX-, PPT- och ODP‑filer.
+2. Anropa metoden [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) med utsökvägen och `SaveFormat.Pdf`.
 3. Anropa `dispose` i ett `finally`‑block för att frigöra .NET‑resurserna som stödjer presentationen.
 
 ```javascript
@@ -54,7 +54,7 @@ Skriptet skriver `sample.pdf` till projektmappen. Konverteringen använder stand
 
 ## **Konvertera en presentation till PDF/A**
 
-För att styra utdata, skicka ett [PdfOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pdfoptions/)‑objekt som det tredje argumentet till `save`. Följande exempel sätter egenskapen [compliance](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pdfoptions/compliance/) till `PdfCompliance.PdfA2b`, vilket producerar en PDF/A-2b‑fil. PDF/A är ISO‑standarden för långtidsarkivering: bland annat kräver den att varje teckensnitt som dokumentet använder är inbäddat i filen.
+För att styra utdata, skicka ett [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)‑objekt som det tredje argumentet till `save`. Följande exempel sätter egenskapen [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) till `PdfCompliance.PdfA2b`, vilket producerar en PDF/A-2b‑fil. PDF/A är ISO‑standarden för långtidsarkivering: bland annat kräver den att varje teckensnitt som dokumentet använder är inbäddat i filen.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-Skriptet skriver `sample-pdfa.pdf` med samma sidor som standardkonverteringen. För att bekräfta att en fil uppfyller standarden, kontrollera den med en PDF/A‑validator såsom [veraPDF](https://verapdf.org/). Andra värden för [PdfCompliance](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pdfcompliance/) väljer andra standarder, som `PdfA1b`, `PdfA2a` eller `PdfUa` för åtkomst.
+Skriptet skriver `sample-pdfa.pdf` med samma sidor som standardkonverteringen. För att bekräfta att en fil uppfyller standarden, kontrollera den med en PDF/A‑validator såsom [veraPDF](https://verapdf.org/). Andra värden för [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) väljer andra standarder, som `PdfA1b`, `PdfA2a` eller `PdfUa` för åtkomst.
 
 ## **Vanliga frågor**
 
 **Hur inkluderar jag dolda bilder i PDF:en?**
 
-Dolda bilder hoppas över som standard. Sätt egenskapen [showHiddenSlides](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pdfoptions/showhiddenslides/) på `PdfOptions` till `true` och skicka alternativen till `save`.
+Dolda bilder hoppas över som standard. Sätt egenskapen [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) på `PdfOptions` till `true` och skicka alternativen till `save`.
 
 **Kan jag skydda PDF:en med ett lösenord?**
 
-Ja. Sätt egenskapen [password](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pdfoptions/password/) på `PdfOptions` innan du anropar `save`. PDF‑läsare frågar då efter lösenordet innan de öppnar filen.
+Ja. Sätt egenskapen [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) på `PdfOptions` innan du anropar `save`. PDF‑läsare frågar då efter lösenordet innan de öppnar filen.
 
 **Kan jag konvertera endast några av bilderna?**
 

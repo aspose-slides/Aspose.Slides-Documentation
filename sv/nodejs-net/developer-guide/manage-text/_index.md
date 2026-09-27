@@ -31,12 +31,12 @@ Den här artikeln lägger till en textruta på en bild och sparar presentationen
 Exemplen kräver ett projekt uppsatt enligt beskrivningen i [Installation](/slides/sv/nodejs-net/installation/). Spara varje exempel som en `.js`-fil i projektmappen och kör den från den mappen med `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides för Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides för .NET API med camelCase-namn, så API-länkarna i den här artikeln leder till motsvarande klasser och medlemmar i [Aspose.Slides för .NET API-referensen](https://reference.aspose.com/slides/sv/net/).
+Aspose.Slides för Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides för .NET API med camelCase-namn, så API-länkarna i den här artikeln leder till motsvarande klasser och medlemmar i [Aspose.Slides för .NET API-referensen](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Lägg till en textruta**
 
-För att lägga till en textruta, lägg till en autoform på en bild med metoden [addAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/shapecollection/addautoshape/) och ge den text med metoden [addTextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/autoshape/addtextframe/). Följande exempel lägger till en rektangel på den första bilden i en ny presentation och sparar presentationen som `text-box.pptx`:
+För att lägga till en textruta, lägg till en autoform på en bild med metoden [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) och ge den text med metoden [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). Följande exempel lägger till en rektangel på den första bilden i en ny presentation och sparar presentationen som `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ Bilden i `text-box.pptx` innehåller en rektangel, 500 punkter bred och 80 punkt
 
 ## **Ändra texten och dess formatering**
 
-Följande exempel öppnar `text-box.pptx`, som föregående exempel skapade, och hämtar den första formen på den första bilden. Former såsom bilder och tabeller har ingen textram, så exemplet kontrollerar att formen är en [AutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/autoshape/) innan den använder formens [textFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/autoshape/textframe/). Därefter gör den följande:
+Följande exempel öppnar `text-box.pptx`, som föregående exempel skapade, och hämtar den första formen på den första bilden. Former såsom bilder och tabeller har ingen textram, så exemplet kontrollerar att formen är en [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) innan den använder formens [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/). Därefter gör den följande:
 
-1. Den ersätter texten via [text](https://reference.aspose.com/slides/sv/net/aspose.slides/textframe/text/)-egenskapen i textramen. Därefter innehåller textramen ett stycke med en del.
-2. Den hämtar den delen från samlingarna [paragraphs](https://reference.aspose.com/slides/sv/net/aspose.slides/textframe/paragraphs/) och [portions](https://reference.aspose.com/slides/sv/net/aspose.slides/paragraph/portions/) och läser dess [portionFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/portion/portionformat/).
-3. Den anger [fontHeight](https://reference.aspose.com/slides/sv/net/aspose.slides/baseportionformat/fontheight/), teckenstorleken i punkter, och [fontBold](https://reference.aspose.com/slides/sv/net/aspose.slides/baseportionformat/fontbold/), som tar ett [NullableBool](https://reference.aspose.com/slides/sv/net/aspose.slides/nullablebool/)-värde.
+1. Den ersätter texten via [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/)-egenskapen i textramen. Därefter innehåller textramen ett stycke med en del.
+2. Den hämtar den delen från samlingarna [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) och [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) och läser dess [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).
+3. Den anger [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), teckenstorleken i punkter, och [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), som tar ett [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)-värde.
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

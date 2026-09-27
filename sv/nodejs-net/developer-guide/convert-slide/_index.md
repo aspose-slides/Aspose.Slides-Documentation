@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET renderar bilder från PowerPoint- och OpenDoc
 Exemplen förväntar sig en presentation med namnet `sample.pptx` i projektmappen som du konfigurerade i [Installation](/slides/sv/nodejs-net/installation/). Vilken PowerPoint-presentation som helst fungerar. Spara varje exempel som en `.js`-fil i projektmappen och kör den från den mappen med `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides for .NET API med camelCase-namn, så API-länkarna i den här artikeln leder till de matchande klasserna och medlemmarna i [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/sv/net/).
+Aspose.Slides for Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides for .NET API med camelCase-namn, så API-länkarna i den här artikeln leder till de matchande klasserna och medlemmarna i [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 För att konvertera en slide till en bild, följ dessa steg:
 
-1. Öppna presentationen med konstruktorn [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/presentation/).
-2. Hämta en slide från samlingen [slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/slides/sv/) med `get(index)`. Index börjar på 0.
-3. Rendera sliden med `getImageWithScale` eller `getImageWithImageSize`. I .NET API-referensen är båda överlagringar av [Slide.GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/slide/getimage/). De returnerar ett bildobjekt som motsvarar [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/).
-4. Spara bilden med dess [save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/save/)‑metod och ett [ImageFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/imageformat/)‑värde, och anropa sedan dess `dispose`‑metod.
+1. Öppna presentationen med konstruktorn [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+2. Hämta en slide från samlingen [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) med `get(index)`. Index börjar på 0.
+3. Rendera sliden med `getImageWithScale` eller `getImageWithImageSize`. I .NET API-referensen är båda överlagringar av [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). De returnerar ett bildobjekt som motsvarar [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+4. Spara bilden med dess [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/)‑metod och ett [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/)‑värde, och anropa sedan dess `dispose`‑metod.
 
 ## **Konvertera varje slide till en PNG-bild**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Skriptet skriver en fil per slide, `slide_1.png`, `slide_2.png` och så vidare, numrerade från 1. För en 16:9‑presentation med slides på 960 × 540 punkter blir varje bild 1920 × 1080 pixlar. Dolda slides renderas också; för att hoppa över dem, kontrollera slidens egendom [hidden](https://reference.aspose.com/slides/sv/net/aspose.slides/slide/hidden/). Varje bild frigörs i sin egen `finally`‑block, vilket släpper den innan nästa slide renderas. Utan licens visar bilderna även ett utvärderingsvattenmärke; se [Licensing](/slides/sv/nodejs-net/licensing/).
+Skriptet skriver en fil per slide, `slide_1.png`, `slide_2.png` och så vidare, numrerade från 1. För en 16:9‑presentation med slides på 960 × 540 punkter blir varje bild 1920 × 1080 pixlar. Dolda slides renderas också; för att hoppa över dem, kontrollera slidens egendom [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/). Varje bild frigörs i sin egen `finally`‑block, vilket släpper den innan nästa slide renderas. Utan licens visar bilderna även ett utvärderingsvattenmärke; se [Licensing](/slides/sv/nodejs-net/licensing/).
 
 ## **Konvertera en slide till en bild med given storlek**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-Egenskapen [slideSize.size](https://reference.aspose.com/slides/sv/net/aspose.slides/slidesize/size/) returnerar slidens bredd och höjd i punkter. För en 16:9‑presentation skriver skriptet ut `Saved a 1280 x 720 image` och skapar `slide_1_1280px.png`; för en 4:3‑presentation blir bilden 1280 × 960 pixlar.
+Egenskapen [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) returnerar slidens bredd och höjd i punkter. För en 16:9‑presentation skriver skriptet ut `Saved a 1280 x 720 image` och skapar `slide_1_1280px.png`; för en 4:3‑presentation blir bilden 1280 × 960 pixlar.
 
 ## **FAQ**
 

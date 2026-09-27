@@ -10,7 +10,7 @@ url: /sv/nodejs-net/licensing/
 Aspose.Slides för Node.js via .NET är ett npm-paket för både utvärdering och produktion. Utan en licens kör det i utvärderingsläge. När du köper en licens, eller får en gratis 30-dagars tillfällig licens, applicerar du den med några rader kod, och utvärderingsbegränsningarna gäller inte längre.
 
 {{% alert color="info" title="Note" %}}
-Allmänna riktlinjer för hur man utvärderar, licensierar och köper Aspose‑produkter finns samlade i [Köpriktlinjer och FAQ](https://purchase.aspose.com/policies). Priserna finns på sidan [Prisinformation](https://purchase.aspose.com/pricing/slides/sv/family).
+Allmänna riktlinjer för hur man utvärderar, licensierar och köper Aspose‑produkter finns samlade i [Köpriktlinjer och FAQ](https://purchase.aspose.com/policies). Priserna finns på sidan [Prisinformation](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ## **Begränsningar för utvärderingsversionen**
@@ -53,4 +53,4 @@ Ett filnamn eller en relativ sökväg löses mot den aktuella mappen, den du kö
 
 Om filen inte kan hittas, eller inte är en giltig licens, kastar `setLicense` ett fel, och Aspose.Slides förblir i utvärderingsläge. Skriptet fångar felet och skriver ut dess meddelande. För en saknad fil börjar meddelandet med `License "Aspose.Slides.lic" doesn't exist or access is restricted.` och listar alla platser som söktes.
 
-I detta paket appliceras en licens enbart från en fil. `License` accepterar inte en ström, och paketet exponerar inte metered‑licensiering. För klassen som paketet omsluter, se [License](https://reference.aspose.com/slides/sv/net/aspose.slides/license/) i Aspose.Slides för .NET API‑referensen.
+I detta paket appliceras en licens enbart från en fil. `License` accepterar inte en ström, och paketet exponerar inte metered‑licensiering. För klassen som paketet omsluter, se [License](https://reference.aspose.com/slides/net/aspose.slides/license/) i Aspose.Slides för .NET API‑referensen.

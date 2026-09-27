@@ -58,13 +58,13 @@ Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makroaktiverade och
 <hr>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/sv/net/">.NET API‑referens</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/nodejs-net/release-notes/">Versionsanteckningar</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/nodejs-net/">Ladda ner</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">.NET API‑referens</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Versionsanteckningar</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">Ladda ner</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/sv/11">Forum för gratis support</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum för gratis support</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betald support helpdesk</a></li>
 </ul>
 </div>

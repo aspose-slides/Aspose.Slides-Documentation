@@ -29,12 +29,12 @@ Aspose.Slides för Node.js via .NET öppnar PowerPoint- och OpenDocument-present
 Exemplen förutsätter en presentation med namnet `sample.pptx` i projektmappen som du har konfigurerat i [Installation](/slides/sv/nodejs-net/installation/). Vilken PowerPoint-presentation som helst fungerar. Spara varje exempel som en `.js`-fil i projektmappen och kör den från den mappen med `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides för Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides för .NET API med camelCase-namn, så API-länkarna i den här artikeln pekar på motsvarande klasser och medlemmar i [Aspose.Slides för .NET API-referensen](https://reference.aspose.com/slides/sv/net/).
+Aspose.Slides för Node.js via .NET har ingen egen API-referens. Den speglar Aspose.Slides för .NET API med camelCase-namn, så API-länkarna i den här artikeln pekar på motsvarande klasser och medlemmar i [Aspose.Slides för .NET API-referensen](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Öppna en presentation från en fil**
 
-För att öppna en presentation, skicka dess sökväg till [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/presentation/)-konstruktorn. Aspose.Slides upptäcker formatet från filens innehåll snarare än från filändelsen, så samma kod öppnar PPTX-, PPT- och ODP-filer. En relativ sökväg löses upp mot den aktuella arbetskatalogen, vilket är projektmappen när du kör skriptet därifrån.
+För att öppna en presentation, skicka dess sökväg till [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/)-konstruktorn. Aspose.Slides upptäcker formatet från filens innehåll snarare än från filändelsen, så samma kod öppnar PPTX-, PPT- och ODP-filer. En relativ sökväg löses upp mot den aktuella arbetskatalogen, vilket är projektmappen när du kör skriptet därifrån.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Skriptet skriver ut antalet bildspel i `sample.pptx`, till exempel `Slide count: 9`. `count`-egenskapen i [slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/slides/sv/)-samlingen inkluderar dolda bildspel. Anropa `dispose` i ett `finally`-block, som visas, så att .NET-resurserna bakom presentationen frigörs även om din kod misslyckas.
+Skriptet skriver ut antalet bildspel i `sample.pptx`, till exempel `Slide count: 9`. `count`-egenskapen i [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)-samlingen inkluderar dolda bildspel. Anropa `dispose` i ett `finally`-block, som visas, så att .NET-resurserna bakom presentationen frigörs även om din kod misslyckas.
 
 ## **Öppna en presentation från en buffer**
 
@@ -71,7 +71,7 @@ Skriptet skriver ut samma bildspelsantal som i föregående exempel. Det andra a
 
 ## **Spara en presentation i ett annat format**
 
-För att konvertera en presentation till ett annat presentationsformat, öppna den och spara den med ett annat [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/)-värde. Följande exempel skriver ut det format som Aspose.Slides upptäckte, vilket egenskapen [sourceFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/sourceformat/) returnerar, och sparar presentationen som en OpenDocument-presentation:
+För att konvertera en presentation till ett annat presentationsformat, öppna den och spara den med ett annat [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)-värde. Följande exempel skriver ut det format som Aspose.Slides upptäckte, vilket egenskapen [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) returnerar, och sparar presentationen som en OpenDocument-presentation:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ Skriptet skriver ut `Source format: Pptx` och skapar `sample.odp`, som innehåll
 
 **Hur öppnar jag en lösenordsskyddad presentation?**
 
-Skapa ett [LoadOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/)-objekt, sätt dess [password](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/password/)-egenskap, och skicka objektet som det tredje konstruktörsargumentet: `new Presentation("protected.pptx", null, loadOptions)`. Utan rätt lösenord kastar konstruktorn ett fel.
+Skapa ett [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)-objekt, sätt dess [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/)-egenskap, och skicka objektet som det tredje konstruktörsargumentet: `new Presentation("protected.pptx", null, loadOptions)`. Utan rätt lösenord kastar konstruktorn ett fel.
 
 **Varför kastar konstruktorn ett `Error` med ett tomt meddelande?**
 

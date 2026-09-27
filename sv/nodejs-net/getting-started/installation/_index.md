@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 Under installationen kopierar paketet sina inhemska ritningsbibliotek (filerna vars namn innehåller `aspose.slides.drawing.capi`) till projektmappen, bredvid `package.json`.
 
-Paketet publiceras också som ett ZIP‑arkiv på [releases.aspose.com](https://releases.aspose.com/slides/sv/nodejs-net/). Denna artikel behandlar endast installation från npm.
+Paketet publiceras också som ett ZIP‑arkiv på [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/). Denna artikel behandlar endast installation från npm.
 
 ## **Återställ .NET‑beroenden**
 
@@ -154,7 +154,7 @@ Skriptet skriver ut `Saved hello.pptx`. Öppna `hello.pptx` för att se en bild 
 Kör dina skript från projektmappen, den som innehåller `package.json`. Relativa sökvägar som `hello.pptx` löses mot den aktuella mappen, och på vissa maskiner kan ett skript som startas från en annan mapp inte skapa en presentation.
 {{% /alert %}}
 
-JavaScript‑API:n speglar Aspose.Slides för .NET: klasser behåller sina .NET‑namn, egenskaper och metoder använder camelCase (`Slides` blir `slides`, `AddAutoShape` blir `addAutoShape`), och samlingsobjekt läses med `get(index)`. Det finns ingen separat API‑referens för detta paket, så använd [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/sv/net/) för klass‑ och medlemsdetaljer, till exempel [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/shapecollection/addautoshape/).
+JavaScript‑API:n speglar Aspose.Slides för .NET: klasser behåller sina .NET‑namn, egenskaper och metoder använder camelCase (`Slides` blir `slides`, `AddAutoShape` blir `addAutoShape`), och samlingsobjekt läses med `get(index)`. Det finns ingen separat API‑referens för detta paket, så använd [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) för klass‑ och medlemsdetaljer, till exempel [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) och [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **FAQ**
 
