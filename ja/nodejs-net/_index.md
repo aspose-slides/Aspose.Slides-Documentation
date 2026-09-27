@@ -58,13 +58,13 @@ PPT、PPTX、PPS、POT、ODP を読み書きでき、マクロ対応やテンプ
 <hr>
 <p>リファレンス</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ja/net/">.NET API リファレンス</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/nodejs-net/release-notes/">リリースノート</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/nodejs-net/">ダウンロード</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">.NET API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">リリースノート</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートデスク</a></li>
 </ul>
 </div>

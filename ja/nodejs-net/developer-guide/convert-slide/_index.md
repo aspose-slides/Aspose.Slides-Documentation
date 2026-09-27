@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET は、PowerPoint および OpenDocument プ�
 例では、[Installation](/slides/ja/nodejs-net/installation/) で設定したプロジェクト フォルダーに `sample.pptx` という名前のプレゼンテーションがあることを想定しています。任意の PowerPoint プレゼンテーションで構いません。各例をプロジェクト フォルダーに `.js` ファイルとして保存し、そのフォルダーで `node` を実行します。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。camelCase 名で Aspose.Slides for .NET API を鏡像化しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ja/net/) の該当クラスとメンバーに続きます。
+Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。camelCase 名で Aspose.Slides for .NET API を鏡像化しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) の該当クラスとメンバーに続きます。
 {{% /alert %}}
 
 スライドを画像に変換するには、次の手順に従います。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/presentation/) コンストラクタでプレゼンテーションを開きます。
-1. `get(index)` で [slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) コレクションからスライドを取得します。インデックスは 0 から始まります。
-1. `getImageWithScale` または `getImageWithImageSize` でスライドをレンダリングします。.NET API リファレンスでは、両方とも [Slide.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/slide/getimage/) のオーバーロードです。これらは [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) に対応する画像オブジェクトを返します。
-1. 画像を [save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/save/) メソッドと [ImageFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/imageformat/) 値で保存し、続いて `dispose` メソッドを呼び出します。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) コンストラクタでプレゼンテーションを開きます。
+1. `get(index)` で [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) コレクションからスライドを取得します。インデックスは 0 から始まります。
+1. `getImageWithScale` または `getImageWithImageSize` でスライドをレンダリングします。.NET API リファレンスでは、両方とも [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) のオーバーロードです。これらは [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) に対応する画像オブジェクトを返します。
+1. 画像を [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) メソッドと [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 値で保存し、続いて `dispose` メソッドを呼び出します。
 
 ## **すべてのスライドを PNG 画像に変換**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-スクリプトはスライドごとに 1 つのファイル、`slide_1.png`、`slide_2.png` などを作成し、1 から番号付けします。スライドが 960 × 540 ポイントの 16:9 プレゼンテーションの場合、各画像は 1920 × 1080 ピクセルになります。非表示スライドもレンダリングされます。スキップするにはスライドの [hidden](https://reference.aspose.com/slides/ja/net/aspose.slides/slide/hidden/) プロパティを確認してください。各画像はそれぞれの `finally` ブロックで破棄され、次のスライドがレンダリングされる前に解放されます。ライセンスがない場合、画像には評価版の透かしが表示されます。[Licensing](/slides/ja/nodejs-net/licensing/) を参照してください。
+スクリプトはスライドごとに 1 つのファイル、`slide_1.png`、`slide_2.png` などを作成し、1 から番号付けします。スライドが 960 × 540 ポイントの 16:9 プレゼンテーションの場合、各画像は 1920 × 1080 ピクセルになります。非表示スライドもレンダリングされます。スキップするにはスライドの [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) プロパティを確認してください。各画像はそれぞれの `finally` ブロックで破棄され、次のスライドがレンダリングされる前に解放されます。ライセンスがない場合、画像には評価版の透かしが表示されます。[Licensing](/slides/ja/nodejs-net/licensing/) を参照してください。
 
 ## **指定サイズの画像にスライドを変換**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-[slideSize.size](https://reference.aspose.com/slides/ja/net/aspose.slides/slidesize/size/) プロパティはスライドの幅と高さをポイントで返します。16:9 のプレゼンテーションでは、スクリプトは `Saved a 1280 x 720 image` と出力し、`slide_1_1280px.png` を作成します。4:3 のプレゼンテーションでは、画像は 1280 × 960 ピクセルになります。
+[slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) プロパティはスライドの幅と高さをポイントで返します。16:9 のプレゼンテーションでは、スクリプトは `Saved a 1280 x 720 image` と出力し、`slide_1_1280px.png` を作成します。4:3 のプレゼンテーションでは、画像は 1280 × 960 ピクセルになります。
 
 ## **FAQ**
 

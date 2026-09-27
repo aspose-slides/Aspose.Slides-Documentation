@@ -22,20 +22,20 @@ description: "Aspose.Slides for Node.js via .NET を使用して JavaScript で 
 ---
 ## **概要**
 
-Aspose.Slides for Node.js via .NET は、Microsoft PowerPoint を使用せずに PowerPoint および OpenDocument のプレゼンテーションを PDF に変換します。表示されている各スライドはスライドと同じサイズの PDF ページとなり、テキストは選択可能で検索可能です。この記事では、デフォルトの変換と [PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) を使用した PDF/A への変換を紹介します。
+Aspose.Slides for Node.js via .NET は、Microsoft PowerPoint を使用せずに PowerPoint および OpenDocument のプレゼンテーションを PDF に変換します。表示されている各スライドはスライドと同じサイズの PDF ページとなり、テキストは選択可能で検索可能です。この記事では、デフォルトの変換と [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) を使用した PDF/A への変換を紹介します。
 
 例では、[Installation](/slides/ja/nodejs-net/installation/) で設定したプロジェクトフォルダーに `sample.pptx` という名前のプレゼンテーションがあることを想定しています。任意の PowerPoint プレゼンテーションで構いません。各例をプロジェクトフォルダーに `.js` ファイルとして保存し、そのフォルダーで `node` コマンドを実行してください。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。camelCase の名前で Aspose.Slides for .NET API を鏡像化しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ja/net/) の対応するクラスやメンバーへ導きます。
+Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。camelCase の名前で Aspose.Slides for .NET API を鏡像化しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) の対応するクラスやメンバーへ導きます。
 {{% /alert %}}
 
 ## **プレゼンテーションをPDFに変換**
 
 プレゼンテーションを PDF に変換する手順は次のとおりです。
 
-1. プレゼンテーションのパスを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/presentation/) コンストラクターに渡して開きます。このコードは PPTX、PPT、ODP ファイルすべてで動作します。
-1. 出力パスと `SaveFormat.Pdf` を指定して [save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) メソッドを呼び出します。
+1. プレゼンテーションのパスを [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) コンストラクターに渡して開きます。このコードは PPTX、PPT、ODP ファイルすべてで動作します。
+1. 出力パスと `SaveFormat.Pdf` を指定して [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) メソッドを呼び出します。
 1. `finally` ブロック内で `dispose` を呼び出し、プレゼンテーションを支える .NET リソースを解放します。
 
 ```javascript
@@ -54,7 +54,7 @@ try {
 
 ## **プレゼンテーションをPDF/Aに変換**
 
-出力を制御するには、`save` の第3引数に [PdfOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/) オブジェクトを渡します。以下の例では、[compliance](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/compliance/) プロパティを `PdfCompliance.PdfA2b` に設定し、PDF/A-2b ファイルを生成しています。PDF/A は長期保存用の ISO 標準で、ドキュメントで使用されるすべてのフォントをファイルに埋め込むことが求められます。
+出力を制御するには、`save` の第3引数に [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) オブジェクトを渡します。以下の例では、[compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) プロパティを `PdfCompliance.PdfA2b` に設定し、PDF/A-2b ファイルを生成しています。PDF/A は長期保存用の ISO 標準で、ドキュメントで使用されるすべてのフォントをファイルに埋め込むことが求められます。
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-スクリプトはデフォルト変換と同じページ構成で `sample-pdfa.pdf` を書き込みます。ファイルが標準に準拠しているか確認するには、[veraPDF](https://verapdf.org/) などの PDF/A バリデータで検証してください。他の [PdfCompliance](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfcompliance/) 値を使用すると、`PdfA1b`、`PdfA2a`、アクセシビリティ向けの `PdfUa` など、別の標準を選択できます。
+スクリプトはデフォルト変換と同じページ構成で `sample-pdfa.pdf` を書き込みます。ファイルが標準に準拠しているか確認するには、[veraPDF](https://verapdf.org/) などの PDF/A バリデータで検証してください。他の [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) 値を使用すると、`PdfA1b`、`PdfA2a`、アクセシビリティ向けの `PdfUa` など、別の標準を選択できます。
 
 ## **FAQ**
 
 **PDF に非表示スライドを含めるにはどうすればよいですか？**
 
-非表示スライドはデフォルトでスキップされます。`PdfOptions` の [showHiddenSlides](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/showhiddenslides/) プロパティを `true` に設定し、オプションを `save` に渡してください。
+非表示スライドはデフォルトでスキップされます。`PdfOptions` の [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) プロパティを `true` に設定し、オプションを `save` に渡してください。
 
 **PDF にパスワード保護を設定できますか？**
 
-はい。`PdfOptions` の [password](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/password/) プロパティを `save` を呼び出す前に設定します。PDF リーダーはファイルを開く際にパスワードの入力を求めます。
+はい。`PdfOptions` の [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) プロパティを `save` を呼び出す前に設定します。PDF リーダーはファイルを開く際にパスワードの入力を求めます。
 
 **一部のスライドだけを変換できますか？**
 

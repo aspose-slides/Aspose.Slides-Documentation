@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 インストール中に、パッケージはネイティブ描画ライブラリ（名前に `aspose.slides.drawing.capi` を含むファイル）を `package.json` と同じフォルダーにコピーします。
 
-パッケージは [releases.aspose.com](https://releases.aspose.com/slides/ja/nodejs-net/) でも ZIP アーカイブとして公開されていますが、この記事では npm からのインストールのみを扱います。
+パッケージは [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/) でも ZIP アーカイブとして公開されていますが、この記事では npm からのインストールのみを扱います。
 
 ## **.NET 依存関係の復元**
 
@@ -154,7 +154,7 @@ node hello.js
 スクリプトは `package.json` があるプロジェクト フォルダーから実行してください。`hello.pptx` のような相対パスはカレント フォルダーを基準に解決され、別のフォルダーから開始したスクリプトはプレゼンテーションを作成できないことがあります。
 {{% /alert %}}
 
-JavaScript API は Aspose.Slides for .NET を鏡像化しています。クラス名は .NET 名のままで、プロパティとメソッドは camelCase になります（例: `Slides` は `slides`、`AddAutoShape` は `addAutoShape`）。コレクション アイテムは `get(index)` で取得します。このパッケージ用の別個の API リファレンスはありませんので、クラスやメンバーの詳細は [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ja/net/)（例: [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) と [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/shapecollection/addautoshape/)）をご利用ください。
+JavaScript API は Aspose.Slides for .NET を鏡像化しています。クラス名は .NET 名のままで、プロパティとメソッドは camelCase になります（例: `Slides` は `slides`、`AddAutoShape` は `addAutoShape`）。コレクション アイテムは `get(index)` で取得します。このパッケージ用の別個の API リファレンスはありませんので、クラスやメンバーの詳細は [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)（例: [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) と [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)）をご利用ください。
 
 ## **FAQ**
 

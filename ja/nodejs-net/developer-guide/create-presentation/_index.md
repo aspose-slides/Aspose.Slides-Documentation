@@ -27,17 +27,17 @@ description: "Aspose.Slides for Node.js via .NET を使用して JavaScript で 
 例を実行するには、[インストール](/slides/ja/nodejs-net/installation/) に記載された手順でプロジェクトを設定する必要があります。各例をプロジェクト フォルダー内に `.js` ファイルとして保存し、そのフォルダーで `node` を使用して実行します。例: `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。CamelCase の名前で Aspose.Slides for .NET API をミラーリングしているため、本記事の API リンクは [Aspose.Slides for .NET API リファレンス](https://reference.aspose.com/slides/ja/net/) の該当クラスとメンバーにリンクしています。
+Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。CamelCase の名前で Aspose.Slides for .NET API をミラーリングしているため、本記事の API リンクは [Aspose.Slides for .NET API リファレンス](https://reference.aspose.com/slides/net/) の該当クラスとメンバーにリンクしています。
 {{% /alert %}}
 
 ## **テキスト ボックス付きプレゼンテーションの作成**
 
 プレゼンテーションを作成し、最初のスライドにテキスト ボックスを配置するには、次の手順に従います。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションには既に空のスライドが 1 枚含まれています。
-1. [slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) コレクションからそのスライドを取得します。このパッケージのコレクションは `get(index)` で取得し、インデックスは 0 から始まります。
-1. [addAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/shapecollection/addautoshape/) メソッドで長方形を追加し、その [textFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/autoshape/textframe/) の [text](https://reference.aspose.com/slides/ja/net/aspose.slides/textframe/text/) を設定します。
-1. [save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) メソッドと `SaveFormat.Pptx` 値を使用してプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションには既に空のスライドが 1 枚含まれています。
+1. [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) コレクションからそのスライドを取得します。このパッケージのコレクションは `get(index)` で取得し、インデックスは 0 から始まります。
+1. [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) メソッドで長方形を追加し、その [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) の [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) を設定します。
+1. [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) メソッドと `SaveFormat.Pptx` 値を使用してプレゼンテーションを保存します。
 1. `finally` ブロック内で `dispose` を呼び出し、プレゼンテーションを支える .NET リソースを解放します。
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **スライドの追加**
 
-新しいプレゼンテーションにはスライドが 1 枚あります。さらにスライドを追加するには、`slides` コレクションの [addEmptySlide](https://reference.aspose.com/slides/ja/net/aspose.slides/slidecollection/addemptyslide/) メソッドにレイアウト スライドを渡します。[layoutSlides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/layoutslides/) コレクションの [getByType](https://reference.aspose.com/slides/ja/net/aspose.slides/layoutslidecollection/getbytype/) メソッドは、指定した [SlideLayoutType](https://reference.aspose.com/slides/ja/net/aspose.slides/slidelayouttype/) の最初のレイアウトを返します。
+新しいプレゼンテーションにはスライドが 1 枚あります。さらにスライドを追加するには、`slides` コレクションの [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) メソッドにレイアウト スライドを渡します。[layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) コレクションの [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) メソッドは、指定した [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) の最初のレイアウトを返します。
 
 以下の例は Blank レイアウトのスライドを 2 枚追加します。
 
@@ -86,7 +86,7 @@ try {
 
 ## **スライド サイズの設定**
 
-新しいプレゼンテーションは 4:3 スライド（720 × 540 ポイント、10 × 7.5 インチ）を使用します。ワイドスクリーン スライドにするには、プレゼンテーションの [slideSize](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slidesize/) の [setSize](https://reference.aspose.com/slides/ja/net/aspose.slides/slidesize/setsize/) メソッドに [SlideSizeType](https://reference.aspose.com/slides/ja/net/aspose.slides/slidesizetype/) と [SlideSizeScaleType](https://reference.aspose.com/slides/ja/net/aspose.slides/slidesizescaletype/) の値を渡します。スケール タイプは既存のシェイプの取り扱いを指定します。`DoNotScale` はシェイプをそのままにします。これはコンテンツがまだないプレゼンテーションに適した選択です。
+新しいプレゼンテーションは 4:3 スライド（720 × 540 ポイント、10 × 7.5 インチ）を使用します。ワイドスクリーン スライドにするには、プレゼンテーションの [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) の [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) メソッドに [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) と [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) の値を渡します。スケール タイプは既存のシェイプの取り扱いを指定します。`DoNotScale` はシェイプをそのままにします。これはコンテンツがまだないプレゼンテーションに適した選択です。
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ try {
 
 **新しいプレゼンテーションはどの形式で保存できますか？**
 
-[SaveFormat](https://reference.aspose.com/slides/ja/net/aspose.slides.export/saveformat/) 列挙体の任意の値を使用できます。例: PowerPoint 97–2003 用の `SaveFormat.Ppt`、OpenDocument 用の `SaveFormat.Odp`、または `SaveFormat.Pdf`。PDF 出力については [PowerPoint を PDF に変換](/slides/ja/nodejs-net/convert-powerpoint-to-pdf/) を参照してください。
+[SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 列挙体の任意の値を使用できます。例: PowerPoint 97–2003 用の `SaveFormat.Ppt`、OpenDocument 用の `SaveFormat.Odp`、または `SaveFormat.Pdf`。PDF 出力については [PowerPoint を PDF に変換](/slides/ja/nodejs-net/convert-powerpoint-to-pdf/) を参照してください。
 
 **保存されたプレゼンテーションに「Evaluation only」テキストが含まれるのはなぜですか？**
 

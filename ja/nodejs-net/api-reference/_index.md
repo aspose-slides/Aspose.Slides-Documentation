@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET は、Aspose.Slides for .NET AP
 ---
 ## **概要**
 
-Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。このパッケージは Aspose.Slides for .NET のクラスを同じ名前で JavaScript に公開し、メンバー名は camelCase です。そのため、[Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ja/net/) がクラス、メンバー、列挙体を文書化しています。
+Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。このパッケージは Aspose.Slides for .NET のクラスを同じ名前で JavaScript に公開し、メンバー名は camelCase です。そのため、[Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) がクラス、メンバー、列挙体を文書化しています。
 
 ## **.NET の名前を JavaScript にマッピング**
 
@@ -54,4 +54,4 @@ try {
 
 スクリプトは `slide.png` と `slide.pdf` を現在のフォルダーに書き出します。どちらも矩形とそのテキストを表示します。ライセンスがない場合、評価用の透かしが表示されます。詳細は [Licensing](/slides/ja/nodejs-net/licensing/) を参照ください。
 
-ここで使用されているメンバーの詳細は、Aspose.Slides for .NET API リファレンスの [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/)、[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/shapecollection/addautoshape/)、[TextFrame.Text](https://reference.aspose.com/slides/ja/net/aspose.slides/textframe/text/) および [Slide.GetImage](https://reference.aspose.com/slides/ja/net/aspose.slides/slide/getimage/) を参照してください。
+ここで使用されているメンバーの詳細は、Aspose.Slides for .NET API リファレンスの [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)、[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)、[TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) および [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) を参照してください。

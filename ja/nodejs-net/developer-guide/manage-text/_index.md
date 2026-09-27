@@ -31,12 +31,12 @@ Aspose.Slidesでは、スライド上のテキストはシェイプに属しま�
 例を実行するには、[Installation](/slides/ja/nodejs-net/installation/) に記載されたとおりにプロジェクトを設定する必要があります。各例をプロジェクトフォルダー内に `.js` ファイルとして保存し、そのフォルダーから `node` で実行します。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。camelCase 名で Aspose.Slides for .NET API をミラ―しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ja/net/) の該当クラスやメンバーへ誘導します。
+Aspose.Slides for Node.js via .NET には独自の API リファレンスがありません。camelCase 名で Aspose.Slides for .NET API をミラ―しているため、この記事の API リンクは [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) の該当クラスやメンバーへ誘導します。
 {{% /alert %}}
 
 ## **Add a Text Box**
 
-テキストボックスを追加するには、[addAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/shapecollection/addautoshape/) メソッドでスライドにオートシェイプを追加し、[addTextFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/autoshape/addtextframe/) メソッドでテキストを設定します。次の例は新しいプレゼンテーションの最初のスライドに矩形を追加し、プレゼンテーションを `text-box.pptx` として保存します：
+テキストボックスを追加するには、[addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) メソッドでスライドにオートシェイプを追加し、[addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) メソッドでテキストを設定します。次の例は新しいプレゼンテーションの最初のスライドに矩形を追加し、プレゼンテーションを `text-box.pptx` として保存します：
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **Change the Text and Its Formatting**
 
-以下の例は前の例で作成した `text-box.pptx` を開き、最初のスライド上の最初のシェイプを取得します。画像やテーブルなどのシェイプにはテキストフレームがないため、例ではシェイプが [AutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/autoshape/) であることを確認してからシェイプの [textFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/autoshape/textframe/) を使用します。その後、次の操作を行います：
+以下の例は前の例で作成した `text-box.pptx` を開き、最初のスライド上の最初のシェイプを取得します。画像やテーブルなどのシェイプにはテキストフレームがないため、例ではシェイプが [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) であることを確認してからシェイプの [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) を使用します。その後、次の操作を行います：
 
-1. テキストフレームの [text](https://reference.aspose.com/slides/ja/net/aspose.slides/textframe/text/) プロパティを使用してテキストを置き換えます。その結果、テキストフレームには 1 つの段落が 1 つのポーションとして含まれます。  
-2. そのポーションを [paragraphs](https://reference.aspose.com/slides/ja/net/aspose.slides/textframe/paragraphs/) と [portions](https://reference.aspose.com/slides/ja/net/aspose.slides/paragraph/portions/) コレクションから取得し、[portionFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/portion/portionformat/) を読み取ります。  
-3. [fontHeight](https://reference.aspose.com/slides/ja/net/aspose.slides/baseportionformat/fontheight/)（ポイント単位のフォントサイズ）と、[fontBold](https://reference.aspose.com/slides/ja/net/aspose.slides/baseportionformat/fontbold/)（[NullableBool](https://reference.aspose.com/slides/ja/net/aspose.slides/nullablebool/) 値を受け取る）を設定します。
+1. テキストフレームの [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) プロパティを使用してテキストを置き換えます。その結果、テキストフレームには 1 つの段落が 1 つのポーションとして含まれます。  
+2. そのポーションを [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) と [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) コレクションから取得し、[portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/) を読み取ります。  
+3. [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)（ポイント単位のフォントサイズ）と、[fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/)（[NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) 値を受け取る）を設定します。
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

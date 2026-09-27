@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET は評価版と本番版の両方に対応し
 
 {{% alert color="info" title="Note" %}}
 
-Aspose 製品の評価、ライセンス取得、購入に関する一般的なポリシーは [購入ポリシーとFAQ](https://purchase.aspose.com/policies) にまとめられています。価格は [価格情報](https://purchase.aspose.com/pricing/slides/ja/family) ページに掲載されています。
+Aspose 製品の評価、ライセンス取得、購入に関する一般的なポリシーは [購入ポリシーとFAQ](https://purchase.aspose.com/policies) にまとめられています。価格は [価格情報](https://purchase.aspose.com/pricing/slides/family) ページに掲載されています。
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ try {
 
 ファイルが見つからない、または無効なライセンスの場合、`setLicense` はエラーをスローし、Aspose.Slides は評価モードのままになります。スクリプトはエラーを捕捉し、メッセージを出力します。ファイルが存在しない場合のメッセージは `License "Aspose.Slides.lic" doesn't exist or access is restricted.` で始まり、検索されたすべての場所が列挙されます。
 
-このパッケージでは、ライセンスはファイルからのみ適用できます。`License` はストリームを受け付けず、メーター制ライセンスも公開されていません。パッケージがラップしているクラスについては、Aspose.Slides for .NET API リファレンスの [License](https://reference.aspose.com/slides/ja/net/aspose.slides/license/) を参照してください。
+このパッケージでは、ライセンスはファイルからのみ適用できます。`License` はストリームを受け付けず、メーター制ライセンスも公開されていません。パッケージがラップしているクラスについては、Aspose.Slides for .NET API リファレンスの [License](https://reference.aspose.com/slides/net/aspose.slides/license/) を参照してください。
