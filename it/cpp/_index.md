@@ -72,14 +72,14 @@ Carica e salva PPT, PPTX, PPS, POT e ODP, incluse le varianti con macro e i mode
 <hr>
 <p>RIFERIMENTO</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/it/cpp/">Riferimento API</a></li>
-<li><a href="https://releases.aspose.com/slides/it/cpp/release-notes/">Note di rilascio</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">Riferimento API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Note di rilascio</a></li>
 <li><a href="/slides/it/cpp/known-issues/">Problemi noti</a></li>
-<li><a href="https://releases.aspose.com/slides/it/cpp/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Download</a></li>
 </ul>
 <p>SUPPORTO</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/it/11">Forum di supporto gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum di supporto gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk di supporto a pagamento</a></li>
 </ul>
 </div>

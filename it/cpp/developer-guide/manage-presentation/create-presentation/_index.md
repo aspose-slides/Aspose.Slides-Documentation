@@ -30,10 +30,10 @@ Prima di iniziare, aggiungi Aspose.Slides al tuo progetto: da NuGet in un proget
 
 Per creare una presentazione e inserire una casella di testo nella sua prima diapositiva, segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
-1. Recupera quella diapositiva con il metodo [Presentation::get_Slide](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_slide/) e il suo indice, 0.
-1. Aggiungi un rettangolo con il metodo [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/addautoshape/) e imposta il suo testo con il metodo [ITextFrame::set_Text](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/set_text/).
-1. Salva la presentazione come file PPTX con il metodo [Presentation::Save](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/save/).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
+1. Recupera quella diapositiva con il metodo [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) e il suo indice, 0.
+1. Aggiungi un rettangolo con il metodo [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) e imposta il suo testo con il metodo [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+1. Salva la presentazione come file PPTX con il metodo [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Usa le [strategie di gestione BLOB](/slides/it/cpp/manage-blob/), limita la memo
 
 ### Posso creare / salvare presentazioni in parallelo?
 
-Non puoi operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) da [thread multipli](/slides/it/cpp/multithreading/). Esegui istanze separate e isolate per thread o processo.
+Non puoi operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) da [thread multipli](/slides/it/cpp/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
 ### Come rimuovere il watermark di prova e le limitazioni?
 
