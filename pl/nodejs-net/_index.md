@@ -58,13 +58,13 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT i ODP, w tym wer
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/pl/net/">Referencja API .NET</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/nodejs-net/release-notes/">Notatki z wersji</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/nodejs-net/">Pobierz</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Referencja API .NET</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Notatki z wersji</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">Pobierz</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pl/11">Darmowe forum wsparcia</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Darmowe forum wsparcia</a></li>
 <li><a href="https://helpdesk.aspose.com/">Płatna pomoc techniczna</a></li>
 </ul>
 </div>

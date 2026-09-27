@@ -31,12 +31,12 @@ Ten artykuł dodaje pole tekstowe do slajdu i zapisuje prezentację. Następnie 
 Przykłady wymagają projektu skonfigurowanego zgodnie z opisem w [Installation](/slides/pl/nodejs-net/installation/). Zapisz każdy przykład jako plik `.js` w folderze projektu i uruchom go z tego folderu poleceniem `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides dla Node.js via .NET nie posiada własnej dokumentacji API. Odzwierciedla API Aspose.Slides dla .NET przy użyciu nazw w stylu camelCase, więc linki do API w tym artykule prowadzą do odpowiadających klas i członków w [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/pl/net/).
+Aspose.Slides dla Node.js via .NET nie posiada własnej dokumentacji API. Odzwierciedla API Aspose.Slides dla .NET przy użyciu nazw w stylu camelCase, więc linki do API w tym artykule prowadzą do odpowiadających klas i członków w [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Dodaj pole tekstowe**
 
-Aby dodać pole tekstowe, dodaj automatyczny kształt do slajdu metodą [addAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/shapecollection/addautoshape/) i nadaj mu tekst metodą [addTextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/addtextframe/). Poniższy przykład dodaje prostokąt do pierwszego slajdu nowej prezentacji i zapisuje prezentację jako `text-box.pptx`:
+Aby dodać pole tekstowe, dodaj automatyczny kształt do slajdu metodą [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) i nadaj mu tekst metodą [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). Poniższy przykład dodaje prostokąt do pierwszego slajdu nowej prezentacji i zapisuje prezentację jako `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ Slajd w `text-box.pptx` zawiera prostokąt o szerokości 500 punktów i wysokoś
 
 ## **Zmień tekst i jego formatowanie**
 
-Poniższy przykład otwiera `text-box.pptx`, utworzony w poprzednim przykładzie, i pobiera pierwszy kształt na pierwszym slajdzie. Kształty takie jak obrazy i tabele nie mają ramki tekstowej, więc przykład sprawdza, czy kształt jest [AutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/) zanim użyje jego [textFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/textframe/). Następnie wykonuje następujące czynności:
+Poniższy przykład otwiera `text-box.pptx`, utworzony w poprzednim przykładzie, i pobiera pierwszy kształt na pierwszym slajdzie. Kształty takie jak obrazy i tabele nie mają ramki tekstowej, więc przykład sprawdza, czy kształt jest [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) zanim użyje jego [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/). Następnie wykonuje następujące czynności:
 
-1. Zastępuje tekst poprzez właściwość [text](https://reference.aspose.com/slides/pl/net/aspose.slides/textframe/text/) ramki tekstowej. Po tym ramka tekstowa zawiera jeden akapit z jednym fragmentem.  
-2. Pobiera ten fragment z kolekcji [paragraphs](https://reference.aspose.com/slides/pl/net/aspose.slides/textframe/paragraphs/) i [portions](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraph/portions/) oraz odczytuje jego [portionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/portion/portionformat/).  
-3. Ustawia [fontHeight](https://reference.aspose.com/slides/pl/net/aspose.slides/baseportionformat/fontheight/), rozmiar czcionki w punktach, oraz [fontBold](https://reference.aspose.com/slides/pl/net/aspose.slides/baseportionformat/fontbold/), które przyjmuje wartość [NullableBool](https://reference.aspose.com/slides/pl/net/aspose.slides/nullablebool/).
+1. Zastępuje tekst poprzez właściwość [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) ramki tekstowej. Po tym ramka tekstowa zawiera jeden akapit z jednym fragmentem.  
+2. Pobiera ten fragment z kolekcji [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) i [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) oraz odczytuje jego [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).  
+3. Ustawia [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), rozmiar czcionki w punktach, oraz [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), które przyjmuje wartość [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

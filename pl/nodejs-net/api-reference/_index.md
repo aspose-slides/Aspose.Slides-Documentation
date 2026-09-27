@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET jest udokumentowany w dokumenta
 ---
 ## **Przegląd**
 
-Aspose.Slides for Node.js via .NET nie posiada własnej dokumentacji API. Pakiet udostępnia klasy Aspose.Slides for .NET w JavaScript pod takimi samymi nazwami, z członkami w stylu camelCase, więc [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/pl/net/) opisuje jego klasy, członków i wyliczenia.
+Aspose.Slides for Node.js via .NET nie posiada własnej dokumentacji API. Pakiet udostępnia klasy Aspose.Slides for .NET w JavaScript pod takimi samymi nazwami, z członkami w stylu camelCase, więc [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) opisuje jego klasy, członków i wyliczenia.
 
 ## **Mapowanie nazw .NET na JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Skrypt zapisuje `slide.png` i `slide.pdf` w bieżącym folderze. Oba pliki pokazują prostokąt z tekstem. Bez licencji wyświetlają także znak wodny oceny; zobacz [Licensing](/slides/pl/nodejs-net/licensing/).
 
-Po szczegółowe informacje o użytych członkach znajdziesz w [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/pl/net/aspose.slides/textframe/text/) oraz [Slide.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/slide/getimage/) w dokumentacji Aspose.Slides for .NET API reference.
+Po szczegółowe informacje o użytych członkach znajdziesz w [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) oraz [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) w dokumentacji Aspose.Slides for .NET API reference.

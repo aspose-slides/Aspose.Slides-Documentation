@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 Podczas instalacji pakiet kopiuje swoje natywne biblioteki rysujące (pliki, których nazwy zawierają `aspose.slides.drawing.capi`) do folderu projektu, obok `package.json`.
 
-Pakiet jest również udostępniany jako archiwum ZIP na [releases.aspose.com](https://releases.aspose.com/slides/pl/nodejs-net/). Ten artykuł opisuje instalację wyłącznie z npm.
+Pakiet jest również udostępniany jako archiwum ZIP na [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/). Ten artykuł opisuje instalację wyłącznie z npm.
 
 ## **Przywrócenie zależności .NET**
 
@@ -154,7 +154,7 @@ Skrypt wypisuje `Saved hello.pptx`. Otwórz `hello.pptx`, aby zobaczyć jeden sl
 Uruchamiaj swoje skrypty z folderu projektu, tego który zawiera `package.json`. Ścieżki względne, takie jak `hello.pptx`, są rozwiązywane względem bieżącego folderu, a na niektórych maszynach skrypt uruchomiony z innego folderu nie może utworzyć prezentacji.
 {{% /alert %}}
 
-JavaScript API odzwierciedla Aspose.Slides for .NET: klasy zachowują swoje nazwy .NET, właściwości i metody używają camelCase (`Slides` staje się `slides`, `AddAutoShape` staje się `addAutoShape`), a elementy kolekcji odczytuje się za pomocą `get(index)`. Nie istnieje osobna dokumentacja API dla tego pakietu, więc używaj [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/pl/net/) do szczegółów klas i członków, np. [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/shapecollection/addautoshape/).
+JavaScript API odzwierciedla Aspose.Slides for .NET: klasy zachowują swoje nazwy .NET, właściwości i metody używają camelCase (`Slides` staje się `slides`, `AddAutoShape` staje się `addAutoShape`), a elementy kolekcji odczytuje się za pomocą `get(index)`. Nie istnieje osobna dokumentacja API dla tego pakietu, więc używaj [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) do szczegółów klas i członków, np. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) i [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **FAQ**
 

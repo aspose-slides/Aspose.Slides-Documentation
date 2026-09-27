@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET otwiera prezentacje PowerPoint i OpenDocument
 Przykłady zakładają, że w folderze projektu znajduje się prezentacja o nazwie `sample.pptx`, którą utworzyłeś w [Installation](/slides/pl/nodejs-net/installation/). Każda prezentacja PowerPoint się sprawdzi. Zapisz każdy przykład jako plik `.js` w folderze projektu i uruchom go z tego folderu poleceniem `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET nie posiada własnej dokumentacji API. Odzwierciedla API Aspose.Slides for .NET z nazwami w stylu camelCase, więc odnośniki do API w tym artykule prowadzą do odpowiednich klas i członków w [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/pl/net/).
+Aspose.Slides for Node.js via .NET nie posiada własnej dokumentacji API. Odzwierciedla API Aspose.Slides for .NET z nazwami w stylu camelCase, więc odnośniki do API w tym artykule prowadzą do odpowiednich klas i członków w [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Otwórz prezentację z pliku**
 
-Aby otworzyć prezentację, przekaż jej ścieżkę do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/presentation/). Aspose.Slides wykrywa format na podstawie zawartości pliku, a nie jego rozszerzenia, więc ten sam kod otwiera pliki PPTX, PPT i ODP. Ścieżka względna jest rozwiązywana względem bieżącego katalogu roboczego, którym jest katalog projektu, gdy uruchamiasz skrypt z tego miejsca.
+Aby otworzyć prezentację, przekaż jej ścieżkę do konstruktora [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Aspose.Slides wykrywa format na podstawie zawartości pliku, a nie jego rozszerzenia, więc ten sam kod otwiera pliki PPTX, PPT i ODP. Ścieżka względna jest rozwiązywana względem bieżącego katalogu roboczego, którym jest katalog projektu, gdy uruchamiasz skrypt z tego miejsca.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Skrypt wypisuje liczbę slajdów w `sample.pptx`, np. `Slide count: 9`. Właściwość `count` kolekcji [slides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/slides/pl/) obejmuje także ukryte slajdy. Wywołaj `dispose` w bloku `finally`, jak pokazano, aby zasoby .NET powiązane z prezentacją zostały zwolnione, nawet jeśli kod zakończy się błędem.
+Skrypt wypisuje liczbę slajdów w `sample.pptx`, np. `Slide count: 9`. Właściwość `count` kolekcji [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) obejmuje także ukryte slajdy. Wywołaj `dispose` w bloku `finally`, jak pokazano, aby zasoby .NET powiązane z prezentacją zostały zwolnione, nawet jeśli kod zakończy się błędem.
 
 ## **Otwórz prezentację z bufora**
 
@@ -71,7 +71,7 @@ Skrypt wypisuje tę samą liczbę slajdów co poprzedni przykład. Drugi argumen
 
 ## **Zapisz prezentację w innym formacie**
 
-Aby przekonwertować prezentację na inny format, otwórz ją i zapisz z inną wartością [SaveFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/). Poniższy przykład wypisuje format wykryty przez Aspose.Slides, zwracany przez właściwość [sourceFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/sourceformat/), i zapisuje prezentację jako dokument OpenDocument:
+Aby przekonwertować prezentację na inny format, otwórz ją i zapisz z inną wartością [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). Poniższy przykład wypisuje format wykryty przez Aspose.Slides, zwracany przez właściwość [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/), i zapisuje prezentację jako dokument OpenDocument:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ Skrypt wypisuje `Source format: Pptx` i tworzy plik `sample.odp`, który zawiera
 
 **Jak otworzyć prezentację zabezpieczoną hasłem?**
 
-Utwórz obiekt [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/), ustaw jego właściwość [password](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/password/) i przekaż obiekt jako trzeci argument konstruktora: `new Presentation("protected.pptx", null, loadOptions)`. Bez poprawnego hasła konstruktor zgłasza błąd.
+Utwórz obiekt [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), ustaw jego właściwość [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) i przekaż obiekt jako trzeci argument konstruktora: `new Presentation("protected.pptx", null, loadOptions)`. Bez poprawnego hasła konstruktor zgłasza błąd.
 
 **Dlaczego konstruktor zgłasza `Error` z pustą wiadomością?**
 

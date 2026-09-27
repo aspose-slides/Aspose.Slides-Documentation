@@ -27,17 +27,17 @@ Ten artykuł pokazuje, jak utworzyć prezentację przy użyciu Aspose.Slides for
 Przykłady wymagają projektu skonfigurowanego zgodnie z opisem w [Instalacja](/slides/pl/nodejs-net/installation/). Zapisz każdy przykład jako plik `.js` w katalogu projektu i uruchom go z tego katalogu poleceniem `node`, na przykład `node create-presentation.js`.
 
 {{% alert color="info" title="Uwaga" %}}
-Aspose.Slides for Node.js via .NET nie posiada własnej dokumentacji API. Odzwierciedla API Aspose.Slides for .NET, używając nazw w stylu camelCase, więc linki API w tym artykule prowadzą do odpowiadających klas i członków w [dokumentacji API Aspose.Slides for .NET](https://reference.aspose.com/slides/pl/net/).
+Aspose.Slides for Node.js via .NET nie posiada własnej dokumentacji API. Odzwierciedla API Aspose.Slides for .NET, używając nazw w stylu camelCase, więc linki API w tym artykule prowadzą do odpowiadających klas i członków w [dokumentacji API Aspose.Slides for .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Utworzenie prezentacji z polem tekstowym**
 
 Aby utworzyć prezentację i umieścić pole tekstowe na jej pierwszym slajdzie, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). Nowa prezentacja zawiera już jeden pusty slajd.  
-1. Pobierz ten slajd z kolekcji [slides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/slides/pl/). Kolekcje w tym pakiecie odczytuje się metodą `get(index)`, a indeksy zaczynają się od 0.  
-1. Dodaj prostokąt metodą [addAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/shapecollection/addautoshape/) i ustaw [text](https://reference.aspose.com/slides/pl/net/aspose.slides/textframe/text/) jego [textFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/textframe/).  
-1. Zapisz prezentację metodą [save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) i wartością `SaveFormat.Pptx`.  
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Nowa prezentacja zawiera już jeden pusty slajd.  
+1. Pobierz ten slajd z kolekcji [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). Kolekcje w tym pakiecie odczytuje się metodą `get(index)`, a indeksy zaczynają się od 0.  
+1. Dodaj prostokąt metodą [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) i ustaw [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) jego [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).  
+1. Zapisz prezentację metodą [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) i wartością `SaveFormat.Pptx`.  
 1. Wywołaj `dispose` w bloku `finally`, aby zwolnić zasoby .NET powiązane z prezentacją.
 
 ```javascript
@@ -62,7 +62,7 @@ Skrypt zapisuje `new-presentation.pptx` w katalogu projektu. Plik zawiera jeden 
 
 ## **Dodawanie slajdów**
 
-Nowa prezentacja ma jeden slajd. Aby dodać kolejne, przekaż slajd układu do metody [addEmptySlide](https://reference.aspose.com/slides/pl/net/aspose.slides/slidecollection/addemptyslide/) kolekcji `slides`. Metoda [getByType](https://reference.aspose.com/slides/pl/net/aspose.slides/layoutslidecollection/getbytype/) kolekcji [layoutSlides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/layoutslides/) zwraca pierwszy układ określonego typu [SlideLayoutType](https://reference.aspose.com/slides/pl/net/aspose.slides/slidelayouttype/).
+Nowa prezentacja ma jeden slajd. Aby dodać kolejne, przekaż slajd układu do metody [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) kolekcji `slides`. Metoda [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) kolekcji [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) zwraca pierwszy układ określonego typu [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 Poniższy przykład dodaje dwa slajdy z układem Blank:
 
@@ -86,7 +86,7 @@ Skrypt wyświetla `Slide count: 3` i zapisuje `three-slides.pptx`. Nowe slajdy s
 
 ## **Ustawienie rozmiaru slajdu**
 
-Nowa prezentacja używa slajdów 4:3 o wymiarach 720 × 540 punktów (10 × 7,5 cala). Aby zamiast tego utworzyć slajdy szerokokątne, wywołaj metodę [setSize](https://reference.aspose.com/slides/pl/net/aspose.slides/slidesize/setsize/) obiektu [slideSize](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/slidesize/) prezentacji, podając wartość [SlideSizeType](https://reference.aspose.com/slides/pl/net/aspose.slides/slidesizetype/) oraz wartość [SlideSizeScaleType](https://reference.aspose.com/slides/pl/net/aspose.slides/slidesizescaletype/). Typ skalowania określa, co Aspose.Slides ma zrobić z istniejącymi już kształtami; `DoNotScale` pozostawia je bez zmian, co jest właściwym wyborem dla prezentacji, w której jeszcze nie ma treści.
+Nowa prezentacja używa slajdów 4:3 o wymiarach 720 × 540 punktów (10 × 7,5 cala). Aby zamiast tego utworzyć slajdy szerokokątne, wywołaj metodę [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) obiektu [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) prezentacji, podając wartość [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) oraz wartość [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). Typ skalowania określa, co Aspose.Slides ma zrobić z istniejącymi już kształtami; `DoNotScale` pozostawia je bez zmian, co jest właściwym wyborem dla prezentacji, w której jeszcze nie ma treści.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ W punktach. Jeden cal to 72 punkty, więc domyślny slajd 4:3 ma wymiary 720 × 
 
 **Do jakich formatów mogę zapisać nową prezentację?**
 
-Do dowolnej wartości z enumeracji [SaveFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/), na przykład `SaveFormat.Ppt` dla PowerPoint 97–2003, `SaveFormat.Odp` dla OpenDocument lub `SaveFormat.Pdf`. Informacje o konwersji do PDF znajdziesz w artykule [Konwertowanie PowerPoint na PDF](/slides/pl/nodejs-net/convert-powerpoint-to-pdf/).
+Do dowolnej wartości z enumeracji [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), na przykład `SaveFormat.Ppt` dla PowerPoint 97–2003, `SaveFormat.Odp` dla OpenDocument lub `SaveFormat.Pdf`. Informacje o konwersji do PDF znajdziesz w artykule [Konwertowanie PowerPoint na PDF](/slides/pl/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Dlaczego zapisana prezentacja zawiera tekst „Evaluation only”?**
 
