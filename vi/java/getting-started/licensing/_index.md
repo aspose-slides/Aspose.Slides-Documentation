@@ -30,7 +30,7 @@ Bài viết này giải thích cách giấy phép hoạt động trong Aspose.Sl
 
 Bạn có thể tải phiên bản đánh giá của **Aspose.Slides for Java** từ [trang tải xuống](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Phiên bản đánh giá cung cấp cùng các chức năng như phiên bản có giấy phép của sản phẩm. Gói đánh giá giống hệt gói mua. Phiên bản đánh giá sẽ trở thành có giấy phép sau khi bạn thêm một vài dòng mã để áp dụng giấy phép.
 
-Khi bạn đã hài lòng với quá trình đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/vi/java/). Chúng tôi khuyên bạn nên xem xét các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội ngũ bán hàng của Aspose.
+Khi bạn đã hài lòng với quá trình đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/java/). Chúng tôi khuyên bạn nên xem xét các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội ngũ bán hàng của Aspose.
 
 Mỗi giấy phép Aspose đi kèm với một năm đăng ký để nâng cấp miễn phí lên các phiên bản mới hoặc các bản sửa lỗi phát hành trong thời gian đăng ký. Người dùng có sản phẩm có giấy phép (hoặc ngay cả phiên bản đánh giá) nhận được hỗ trợ kỹ thuật miễn phí và không giới hạn.
 
@@ -70,7 +70,7 @@ Giấy phép có thể được tải từ **tệp** hoặc **luồng**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/vi/java/com.aspose.slides/license/) để thực hiện các thao tác liên quan tới giấy phép.
+Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) để thực hiện các thao tác liên quan tới giấy phép.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Nếu bạn đặt tệp giấy phép ở một thư mục khác, khi gọi phương pháp [setLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/license/#setLicense-java.lang.String-) thì tên tệp giấy phép ở cuối đường dẫn đã chỉ định phải trùng với tên tệp giấy phép của bạn.
+Nếu bạn đặt tệp giấy phép ở một thư mục khác, khi gọi phương pháp [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) thì tên tệp giấy phép ở cuối đường dẫn đã chỉ định phải trùng với tên tệp giấy phép của bạn.
 
-Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.Java.lic.xml*. Sau đó, trong mã, bạn phải truyền đường dẫn đến tệp (kết thúc bằng *Aspose.Slides.Java.lic.xml*) cho phương pháp [setLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.Java.lic.xml*. Sau đó, trong mã, bạn phải truyền đường dẫn đến tệp (kết thúc bằng *Aspose.Slides.Java.lic.xml*) cho phương pháp [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-Phương pháp [setLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) không an toàn khi được gọi đồng thời từ nhiều luồng. Nếu phương pháp này cần được gọi đồng thời từ nhiều luồng, bạn có thể muốn sử dụng các primitive đồng bộ (như lock) để tránh vấn đề.
+Phương pháp [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) không an toàn khi được gọi đồng thời từ nhiều luồng. Nếu phương pháp này cần được gọi đồng thời từ nhiều luồng, bạn có thể muốn sử dụng các primitive đồng bộ (như lock) để tránh vấn đề.
 
 {{% /alert %}}
 

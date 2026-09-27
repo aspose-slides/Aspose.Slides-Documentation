@@ -28,14 +28,14 @@ Trước khi bắt đầu, thêm Aspose.Slides for Java vào dự án của bạ
 
 ## **Tạo một Bản trình chiếu**
 
-Việc tạo một file PowerPoint từ đầu trong Aspose.Slides for Java bắt đầu bằng một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/). Hàm khởi tạo cung cấp một bản trình chiếu trống với một slide duy nhất, sẵn sàng cho các hình dạng, văn bản, biểu đồ hoặc bất kỳ nội dung nào khác mà ứng dụng của bạn cần. Sau khi bạn chỉnh sửa slide đó, hoặc thêm các slide mới, bạn có thể lưu kết quả dưới dạng PPTX, PPT cũ, hoặc định dạng OpenDocument.
+Việc tạo một file PowerPoint từ đầu trong Aspose.Slides for Java bắt đầu bằng một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Hàm khởi tạo cung cấp một bản trình chiếu trống với một slide duy nhất, sẵn sàng cho các hình dạng, văn bản, biểu đồ hoặc bất kỳ nội dung nào khác mà ứng dụng của bạn cần. Sau khi bạn chỉnh sửa slide đó, hoặc thêm các slide mới, bạn có thể lưu kết quả dưới dạng PPTX, PPT cũ, hoặc định dạng OpenDocument.
 
 Để tạo một bản trình chiếu và đặt một hình dạng có văn bản lên slide đầu tiên, thực hiện các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/). Một bản trình chiếu mới đã chứa sẵn một slide trống.
-2. Lấy slide đó theo chỉ mục 0 từ bộ sưu tập mà phương thức [getSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlides--) trả về.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) loại `Cloud` bằng phương thức [addAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), và đặt văn bản cho nó bằng [setText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
-4. Lưu bản trình chiếu dưới dạng file PPTX bằng phương thức [save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Một bản trình chiếu mới đã chứa sẵn một slide trống.
+2. Lấy slide đó theo chỉ mục 0 từ bộ sưu tập mà phương thức [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) trả về.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) loại `Cloud` bằng phương thức [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), và đặt văn bản cho nó bằng [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
+4. Lưu bản trình chiếu dưới dạng file PPTX bằng phương thức [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 Ví dụ dưới đây là một chương trình hoàn chỉnh. Trong dự án Maven từ [Installation](/slides/vi/java/installation/), lưu nó dưới *src/main/java/HelloSlides.java* và chạy `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ Sử dụng [các chiến lược quản lý BLOB](/slides/vi/java/manage-blob/)
 
 ### Tôi có thể tạo/lưu các bản trình chiếu song song không?
 
-Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/java/multithreading/). Hãy chạy các thể hiện riêng biệt, cách ly cho mỗi luồng hoặc quy trình.
+Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/java/multithreading/). Hãy chạy các thể hiện riêng biệt, cách ly cho mỗi luồng hoặc quy trình.
 
 ### Làm sao để loại bỏ dấu bản quyền dùng thử và các giới hạn?
 

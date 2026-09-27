@@ -22,7 +22,7 @@ description: "Đánh giá Aspose.Slides cho Java và khám phá các tính năng
 
 Bạn có thể tải xuống Aspose.Slides để đánh giá. Bản tải xuống đánh giá giống với bản mua; nó sẽ được cấp phép sau khi bạn thêm một vài dòng mã để áp dụng giấy phép.
 
-Nếu không có giấy phép, Aspose.Slides cung cấp đầy đủ chức năng ở chế độ đánh giá, nhưng có hai hạn chế: nó sẽ thêm một hộp văn bản watermark đánh giá vào mỗi slide của mỗi bản trình bày khi lưu, và văn bản mà mã của bạn đọc qua API, bao gồm cả văn bản vừa được đặt, sẽ bị cắt ngắn chỉ còn một vài ký tự đầu, sau đó có thông báo về hạn chế đánh giá. Văn bản mà mã của bạn ghi sẽ được lưu đầy đủ. Phương thức [getPresentationText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) , được dùng để trích xuất văn bản mà không tải toàn bộ bản trình bày, chỉ trả về các thông báo đánh giá và không có văn bản slide.
+Nếu không có giấy phép, Aspose.Slides cung cấp đầy đủ chức năng ở chế độ đánh giá, nhưng có hai hạn chế: nó sẽ thêm một hộp văn bản watermark đánh giá vào mỗi slide của mỗi bản trình bày khi lưu, và văn bản mà mã của bạn đọc qua API, bao gồm cả văn bản vừa được đặt, sẽ bị cắt ngắn chỉ còn một vài ký tự đầu, sau đó có thông báo về hạn chế đánh giá. Văn bản mà mã của bạn ghi sẽ được lưu đầy đủ. Phương thức [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) , được dùng để trích xuất văn bản mà không tải toàn bộ bản trình bày, chỉ trả về các thông báo đánh giá và không có văn bản slide.
 
 ![Một slide với watermark đánh giá](evaluate-aspose-slides_1.png)
 

@@ -72,14 +72,14 @@ Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP,
 <hr>
 <p>THAM CHIẾU</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/vi/java/">Tham chiếu API</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/java/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">Tham chiếu API</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">Ghi chú phát hành</a></li>
 <li><a href="/slides/vi/java/known-issues/">Vấn đề đã biết</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/java/">Tải xuống</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Hỗ trợ trả phí</a></li>
 </ul>
 </div>

@@ -149,11 +149,11 @@ Các phông chữ được sử dụng trong trình chiếu của bạn, hoặc 
 
 ### Làm sao tôi có thể xác minh rằng Aspose.Slides đã được tích hợp đúng?
 
-Xây dựng dự án của bạn, tạo một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) trống và lưu nó với một tên mới. Nếu tệp được tạo mà không ném ngoại lệ, thư viện đã được tích hợp thành công.
+Xây dựng dự án của bạn, tạo một [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) trống và lưu nó với một tên mới. Nếu tệp được tạo mà không ném ngoại lệ, thư viện đã được tích hợp thành công.
 
 ### Làm sao tôi có thể giới hạn việc tiêu thụ bộ nhớ khi xử lý các trình chiếu lớn?
 
-Tăng giới hạn bộ nhớ JVM chỉ lên mức cần thiết, và gọi [dispose](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#dispose--) trên mỗi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) trong một khối `finally` để giải phóng bộ nhớ đệm kịp thời. Điều này ngăn lỗi hết bộ nhớ và giữ cho việc sử dụng bộ nhớ tổng thể dự đoán được trong các hoạt động batch.
+Tăng giới hạn bộ nhớ JVM chỉ lên mức cần thiết, và gọi [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) trên mỗi đối tượng [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) trong một khối `finally` để giải phóng bộ nhớ đệm kịp thời. Điều này ngăn lỗi hết bộ nhớ và giữ cho việc sử dụng bộ nhớ tổng thể dự đoán được trong các hoạt động batch.
 
 ### Tôi có thể loại bỏ các định dạng xuất không mong muốn để giảm kích thước JAR cuối cùng không?
 
