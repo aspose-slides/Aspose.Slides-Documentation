@@ -30,10 +30,10 @@ Antes de comenzar, agregue Aspose.Slides a su proyecto: desde NuGet en un proyec
 
 Para crear una presentación y colocar un cuadro de texto en su primera diapositiva, siga estos pasos:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/). Una nueva presentación ya contiene una diapositiva vacía.
-1. Obtenga esa diapositiva con el método [Presentation::get_Slide](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/get_slide/) y su índice, 0.
-1. Añada un rectángulo con el método [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishapecollection/addautoshape/) y establezca su texto con el método [ITextFrame::set_Text](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/set_text/).
-1. Guarde la presentación como un archivo PPTX con el método [Presentation::Save](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/save/).
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Una nueva presentación ya contiene una diapositiva vacía.
+1. Obtenga esa diapositiva con el método [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) y su índice, 0.
+1. Añada un rectángulo con el método [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) y establezca su texto con el método [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+1. Guarde la presentación como un archivo PPTX con el método [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Utilice [estrategias de gestión de BLOB](/slides/es/cpp/manage-blob/), limite e
 
 ### ¿Puedo crear/guardar presentaciones en paralelo?
 
-No puede operar sobre la misma instancia de [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/) desde [varios hilos](/slides/es/cpp/multithreading/). Ejecute instancias separadas e aisladas por hilo o proceso.
+No puede operar sobre la misma instancia de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) desde [varios hilos](/slides/es/cpp/multithreading/). Ejecute instancias separadas e aisladas por hilo o proceso.
 
 ### ¿Cómo elimino la marca de agua de prueba y las limitaciones?
 

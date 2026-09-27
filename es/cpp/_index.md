@@ -72,14 +72,14 @@ Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas las variantes con m
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/es/cpp/">Referencia de la API</a></li>
-<li><a href="https://releases.aspose.com/slides/es/cpp/release-notes/">Notas de la versión</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">Referencia de la API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Notas de la versión</a></li>
 <li><a href="/slides/es/cpp/known-issues/">Problemas conocidos</a></li>
-<li><a href="https://releases.aspose.com/slides/es/cpp/">Descarga</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Descarga</a></li>
 </ul>
 <p>SOporte</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/es/11">Foro de soporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Foro de soporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk de soporte pago</a></li>
 </ul>
 </div>
