@@ -30,10 +30,10 @@ description: "إنشاء عروض تقديمية باستخدام Aspose.Slides 
 
 لإنشاء عرض تقديمي ووضع صندوق نص على شريحته الأولى، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) . يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.
-2. احصل على تلك الشريحة من المجموعة التي تُرجعها [Presentation::getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/getslides/)، باستخدام فهرسها 0.
-3. أضف مستطيلًا باستخدام الطريقة [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addautoshape/)، واضبط نصه باستخدام [TextFrame::setText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/settext/).
-4. احفظ العرض التقديمي كملف PPTX باستخدام الطريقة [Presentation::save](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/save/) .
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) . يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة من المجموعة التي تُرجعها [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/)، باستخدام فهرسها 0.
+3. أضف مستطيلًا باستخدام الطريقة [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/)، واضبط نصه باستخدام [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+4. احفظ العرض التقديمي كملف PPTX باستخدام الطريقة [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) .
 
 ```php
 <?php
@@ -63,7 +63,7 @@ try {
 
 ## **إنشاء وحفظ عرض تقديمي**
 
-لإنشاء عرض تقديمي فارغ وحفظه، أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) ، واحفظه بأي تنسيق من تعداد [SaveFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/saveformat/) . النتيجة هي عرض تقديمي يحتوي على شريحة فارغة واحدة.
+لإنشاء عرض تقديمي فارغ وحفظه، أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ، واحفظه بأي تنسيق من تعداد [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) . النتيجة هي عرض تقديمي يحتوي على شريحة فارغة واحدة.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **فتح وحفظ عرض تقديمي**
 
-لتحويل عرض تقديمي من تنسيق إلى آخر، افتحه بتمرير مساره إلى مكتّب [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) ، ثم احفظه بالتنسيق الهدف. يكتشف Aspose.Slides تنسيق الإدخال، مثل PPT أو PPTX أو ODP، من الملف نفسه.
+لتحويل عرض تقديمي من تنسيق إلى آخر، افتحه بتمرير مساره إلى مكتّب [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ، ثم احفظه بالتنسيق الهدف. يكتشف Aspose.Slides تنسيق الإدخال، مثل PPT أو PPTX أو ODP، من الملف نفسه.
 
 يتوقع المثال أدناه وجود عرض تقديمي OpenDocument باسم *Sample.odp* بجوار السكريبت ويحفظه كـ PPTX.
 
@@ -127,7 +127,7 @@ try {
 
 ### هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازٍ؟
 
-لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/php-java/multithreading/). شغّل مث-instances منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/php-java/multithreading/). شغّل مث-instances منفصلة ومعزولة لكل خيط أو عملية.
 
 ### كيف يمكنني إزالة علامة التجربة المائية والقيود؟
 

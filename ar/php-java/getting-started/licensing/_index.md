@@ -70,7 +70,7 @@ description: "تطبيق وإدارة واستكشاف مشكلات التراخ
 
 {{% alert color="info" title="ملاحظة" %}}
 
-يمكنك العثور على معلومات التسعير في صفحة [“معلومات التسعير”](https://purchase.aspose.com/pricing/slides/ar/family).
+يمكنك العثور على معلومات التسعير في صفحة [“معلومات التسعير”](https://purchase.aspose.com/pricing/slides/family).
 
 {{% /alert %}}
 

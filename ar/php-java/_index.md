@@ -71,14 +71,14 @@ Aspose.Slides for PHP عبر Java هي مكتبة فئات لإنشاء وقرا
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/php-java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/php-java/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/php-java/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/php-java/">تحميل</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">تحميل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
 </ul>
 </div>
