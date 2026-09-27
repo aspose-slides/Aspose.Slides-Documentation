@@ -79,13 +79,13 @@ Elle charge et enregistre les fichiers PPT, PPTX, PPS, POT et ODP, y compris les
 <hr>
 <p>RÉFÉRENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fr/python-net/">Référence API</a></li>
-<li><a href="https://releases.aspose.com/slides/fr/python-net/release-notes/">Notes de version</a></li>
-<li><a href="https://releases.aspose.com/slides/fr/python-net/">Téléchargement</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">Référence API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Notes de version</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">Téléchargement</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum d'assistance gratuit</a></li>
 <li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
 </ul>
 </div>
