@@ -3,145 +3,181 @@ title: التثبيت
 type: docs
 weight: 70
 url: /ar/nodejs-net/installation/
-keySlides: "تحميل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، ويندوز، macOS، لينكس، Javascript، Node.js"
-description: "تثبيت Aspose.Slides لـ Node.js عبر .NET على ويندوز أو لينكس أو macOS"
+keywords:
+- تنزيل Aspose.Slides
+- تثبيت Aspose.Slides
+- تثبيت Aspose.Slides
+- ويندوز
+- ماك أو إس
+- لينكس
+- جافا سكريبت
+- Node.js
+description: "تثبيت Aspose.Slides لـ Node.js عبر .NET من npm على Windows أو Linux: المتطلبات السابقة، تجاوز edge-js، استعادة NuGet مرة واحدة، وأول برنامج ينشئ عرضًا تقديميًا."
 ---
+## **نظرة عامة**
 
-Aspose.Slides لـ Node.js عبر .NET هو واجهة برمجة تطبيقات مستقلة عن النظام الأساسي ويمكن استخدامها على أي نظام أساسي (ويندوز، لينكس وMacOS) حيث تم تثبيت `Node.js` وجسر `edge-js`.
+Aspose.Slides for Node.js via .NET هو حزمة npm `aspose.slides.via.net`. تقوم بتشغيل مكتبة Aspose.Slides .NET داخل Node.js عبر جسر [edge-js](https://github.com/agracio/edge-js)، لذا فإن التثبيت الناجح يتطلب كلًا من Node.js و .NET.
 
-## **التثبيت من NPM**
+تأخذك هذه المقالة من جهاز نظيف إلى أول برنامج يُنشئ عرضًا تقديميًا. هناك أربع خطوات: إنشاء مشروع مع تجاوز edge-js، تثبيت الحزمة من npm، استعادة تبعيات .NET الخاصة بالحزمة مرة واحدة، وتشغيل السكريبت من مجلد المشروع.
 
-يمكنك بسهولة تثبيت Aspose.Slides لـ Node.js عبر .NET من [NPM](https://www.npmjs.com/) من خلال هذا الأمر:
+## **المتطلبات السابقة**
+
+- **Node.js 22 أو 24 LTS**، بنية x64، من [nodejs.org](https://nodejs.org/en/download).
+- **.NET SDK 8 أو أحدث**، من [dotnet.microsoft.com](https://dotnet.microsoft.com/download). وقت تشغيل .NET وحده غير كافٍ: خطوة الاستعادة أدناه تحتاج إلى SDK، وكذلك الجسر عندما يتم تشغيل السكريبت. نفّذ `dotnet --list-sdks` للتحقق من الإصدارات المثبتة.
+- **على Linux فقط**:
+  - أدوات البناء `python3`، `make` و `g++`، لأن npm يُجمّع edge-js أثناء التثبيت على Linux؛
+  - مكتبة fontconfig، التي تُحمّلها مكتبة الرسم الأصلية لـ Aspose.Slides.
+
+  على Debian، هذه الحزم هي `python3`، `make`، `g++` و `libfontconfig1`.
+
+تم اختبار الخطوات في هذه المقالة على المنصات التالية:
+
+| المنصة | النتيجة |
+|---|---|
+| Windows x64 مع Node.js 22 أو 24 | يعمل. تم الاختبار مع تثبيت Microsoft Visual C++ Redistributable. |
+| Linux x64 مع Node.js 22 أو 24، حيث يكون نظام OpenSSL هو نفسه الذي بُني في Node.js، مثل Debian 13 | يعمل. |
+| Linux حيث تختلف نسختا OpenSSL، مثل Debian 12 | يتعطل Node.js بخطأ تقسيم عندما يتم إنشاء عرض تقديمي. |
+| macOS | غير مُتحقق منه. |
+
+على Linux، قارِن النسختين قبل البدء. الأمر الأول يطبع نسخة OpenSSL المدمجة في Node.js؛ الثاني يطبع نسخة النظام. استخدم نظامًا يبدأ بالرقمين الرئيسي والفرعي نفسه، مثل `3.5`:
+
+```sh
+node -p process.versions.openssl
+openssl version
 ```
-$ npm install aspose.slides.via.net
+
+إذا لم يُعثر على أمر `openssl`، ثبّت حزمة `openssl` أولاً.
+
+## **إنشاء مشروع**
+
+أنشئ مجلدًا لمشروعك، بادر بتهيئته، وأضف تجاوزًا يُخبر npm أي نسخة من edge-js تُثبت:
+
+```sh
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm pkg set overrides.edge-js=26.1.0
 ```
-إذا واجهت أي مشكلة أثناء عملية التثبيت، يرجى الرجوع إلى https://www.npmjs.com/package/edge-js.
 
-## **التثبيت من ملف ZIP**
+تطلب الحزمة نسخة قديمة من edge-js تُوقف فيها الثنائيات المسبقة البناء لـ Windows عند Node.js 20، لذا بدون التجاوز سيتوقف السكريبت الأول على Windows مع الرسالة "The edge module has not been pre-compiled for node.js version". يكتب الأمر التجاوز إلى قسم `overrides` في `package.json`؛ أضفه قبل تثبيت الحزمة.
 
-لتثبيت واستخدام Aspose.Slides لـ Node.js عبر .NET من ملف ZIP، اتبع هذه التعليمات بدلاً من ذلك:
+## **تثبيت الحزمة**
 
-### **ويندوز**
+ثبّت Aspose.Slides for Node.js via .NET من npm:
 
-1. قم بتثبيت .NET6 أو أعلى.
-1. قم بتثبيت Node.js (https://nodejs.org/en/download/) وأضف node.exe إلى `PATH`.
-1. قم بتثبيت edge-js.
+```sh
+npm install aspose.slides.via.net
 ```
-$ mkdir aspose.slides.nodejs.net
 
-$ cd aspose.slides.nodejs.net
+أثناء التثبيت، تنسخ الحزمة مكتبات الرسم الأصلية (الملفات التي تحتوي أسماؤها على `aspose.slides.drawing.capi`) إلى مجلد المشروع، بجانب `package.json`.
 
-$ npm install -g edge-js
+تُنشر الحزمة أيضًا كأرشيف ZIP على [releases.aspose.com](https://releases.aspose.com/slides/ar/nodejs-net/). تغطي هذه المقالة التثبيت من npm فقط.
+
+## **استعادة تبعيات .NET**
+
+تحتوي الحزمة على تجميعات Aspose.Slides .NET، لكن ليس الـ 20 حزمة NuGet التي تعتمد عليها هذه التجميعات. في وقت التشغيل، يبحث .NET عنها في ذاكرة تخزين NuGet: `%USERPROFILE%\.nuget\packages` على Windows، `~/.nuget/packages` على Linux، أو المجلد المحدد في متغيّر البيئة `NUGET_PACKAGES`. إذا كانت مفقودة، يتوقف السكريبت الأول مع الرسالة "assembly specified in the dependencies manifest was not found".
+
+لملء التخزين المؤقت، أنشئ مجلدًا باسم `deps` في مجلد المشروع واحفظ الملف التالي فيه باسم `deps.csproj`. كل عنصر `PackageDownload` يُنزّل حزمة بنسختها المحددة بين القوسين؛ لا يتم بناء شيء.
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageDownload Include="Humanizer.Core" Version="[2.14.1]" />
+    <PackageDownload Include="Microsoft.Bcl.AsyncInterfaces" Version="[6.0.0]" />
+    <PackageDownload Include="Microsoft.CodeAnalysis.Common" Version="[4.5.0]" />
+    <PackageDownload Include="Microsoft.CodeAnalysis.CSharp" Version="[4.5.0]" />
+    <PackageDownload Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[4.5.0]" />
+    <PackageDownload Include="Microsoft.CodeAnalysis.VisualBasic" Version="[4.5.0]" />
+    <PackageDownload Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces" Version="[4.5.0]" />
+    <PackageDownload Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="[4.5.0]" />
+    <PackageDownload Include="Microsoft.DotNet.InternalAbstractions" Version="[1.0.0]" />
+    <PackageDownload Include="Microsoft.Extensions.DependencyModel" Version="[7.0.0]" />
+    <PackageDownload Include="Newtonsoft.Json" Version="[13.0.3]" />
+    <PackageDownload Include="System.Composition.AttributedModel" Version="[6.0.0]" />
+    <PackageDownload Include="System.Composition.Convention" Version="[6.0.0]" />
+    <PackageDownload Include="System.Composition.Hosting" Version="[6.0.0]" />
+    <PackageDownload Include="System.Composition.Runtime" Version="[6.0.0]" />
+    <PackageDownload Include="System.Composition.TypedParts" Version="[6.0.0]" />
+    <PackageDownload Include="System.IO.Pipelines" Version="[6.0.3]" />
+    <PackageDownload Include="System.Reflection.Metadata" Version="[6.0.1]" />
+    <PackageDownload Include="System.Text.Encodings.Web" Version="[7.0.0]" />
+    <PackageDownload Include="System.Text.Json" Version="[7.0.0]" />
+  </ItemGroup>
+</Project>
 ```
-6. [تحميل Aspose.Slides لـ Node.js عبر .NET](https://releases.aspose.com/slides/nodejs-net/) واستخراجه إلى `aspose.slides.nodejs/node_modules/aspose.slides.via.net`.
-7. أنشئ ملفًا باسم `hello.js` في مجلد `aspose.slides.nodejs.net` باستخدام الكود النموذجي التالي:
+
+ثم استرجعها من مجلد المشروع:
+
+```sh
+dotnet restore deps/deps.csproj
+```
+
+تحتاج إلى هذه الخطوة مرة واحدة لكل جهاز، وليس لكل مشروع: تُبقى الحزم في ذاكرة تخزين NuGet، وتستفيد منها المشاريع اللاحقة على نفس الجهاز. بعد الاستعادة، يمكنك حذف مجلد `deps`.
+
+## **تشغيل أول برنامج**
+
+أنشئ ملفًا باسم `hello.js` في مجلد المشروع بالكود التالي. يُنشئ عرضًا تقديميًا، يُضيف مستطيلًا بالنص "Hello, World!" إلى الشريحة الأولى، ويحفظ النتيجة باسم `hello.pptx`:
 
 ```javascript
-// استيراد وحدة Aspose.Slides لمعالجة ملفات PowerPoint
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { Presentation, ShapeType, SaveFormat } = asposeSlides;
 
-// إضافة الفئات الضرورية من asposeSlides
-const { Presentation, SaveFormat, PdfOptions } = asposeSlides;
+// عرض تقديمي جديد يحتوي على شريحة فارغة واحدة.
+const presentation = new Presentation();
+try {
+    const slide = presentation.slides.get(0);
 
-const fs = require('fs');
-if (!fs.existsSync("out")) fs.mkdirSync("out");
+    // الموضع والحجم بوحدات النقاط (1/72 بوصة): x, y, العرض, الارتفاع.
+    const rectangle = slide.shapes.addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    rectangle.addTextFrame("Hello, World!");
 
-// إنشاء وتخزين عرض تقديمي فارغ لتوضيح الوظيفة الأساسية
-function createEmptyPresentation() {
-	
-    // تهيئة عرض تقديمي جديد فارغ
-    var emptyPresentation = new Presentation();
-    
-    // حفظ العرض التقديمي الفارغ بتنسيق PPTX
-    emptyPresentation.save("out/emptyPresentation.pptx", SaveFormat.Pptx);
-    
-    // تحرير الموارد المرتبطة بالعرض التقديمي
-    emptyPresentation.dispose();
+    presentation.save("hello.pptx", SaveFormat.Pptx);
+    console.log("Saved hello.pptx");
+} finally {
+    // تحرير الكائن .NET الذي يدعم العرض التقديمي.
+    presentation.dispose();
 }
-
-createEmptyPresentation(); // تنفيذ الدالة لإنشاء عرض تقديمي فارغ
 ```
 
-8. الآن قم بتشغيل `node hello.js` في موجه الأوامر لتشغيله.
+شغّله من مجلد المشروع:
 
-### **لينيكس**
-
-1. قم بتثبيت .NET6 أو أعلى.
-1. قم بتثبيت Node.js (https://nodejs.org/en/download/) وأضف node.exe إلى `PATH`.
-1. قم بتثبيت edge-js.
-```
-$ mkdir aspose.slides.nodejs.net
-
-$ cd aspose.slides.nodejs.net
-
-$ npm install edge-js
-```
-5. [تحميل Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-net/) واستخراجه إلى `aspose.slides.nodejs/node_modules/aspose.slides.via.net`.
-6. أنشئ ملف اختبار باسم `hello.js` باستخدام هذا الكود النموذجي في مجلد `aspose.slides.nodejs.net`:
-
-```javascript
-// استيراد وحدة Aspose.Slides لمعالجة ملفات PowerPoint
-const asposeSlides = require('aspose.slides.via.net');
-
-// إضافة الفئات الضرورية من asposeSlides
-const { Presentation, SaveFormat, PdfOptions } = asposeSlides;
-
-const fs = require('fs');
-if (!fs.existsSync("out")) fs.mkdirSync("out");
-
-// إنشاء وتخزين عرض تقديمي فارغ لتوضيح الوظيفة الأساسية
-function createEmptyPresentation() {
-	
-    // تهيئة عرض تقديمي جديد فارغ
-    var emptyPresentation = new Presentation();
-    
-    // حفظ العرض التقديمي الفارغ بتنسيق PPTX
-    emptyPresentation.save("out/emptyPresentation.pptx", SaveFormat.Pptx);
-    
-    // تحرير الموارد المرتبطة بالعرض التقديمي
-    emptyPresentation.dispose();
-}
-
-createEmptyPresentation(); // تنفيذ الدالة لإنشاء عرض تقديمي فارغ
-```
-7. الآن قم بتشغيل `node hello.js` في موجه الأوامر لتشغيله.
-
-### **ماك**
-
-1. قم بتثبيت .NET6 أو أعلى.
-1. قم بتثبيت Node.js (https://nodejs.org/en/download/) وأضف node.exe إلى `PATH`.
-1. قم بتثبيت edge-js.
-
-$ mkdir aspose.slides.nodejs.net
- 
-$ cd aspose.slides.nodejs.net
- 
-$ npm install edge-js
+```sh
+node hello.js
 ```
 
-```javascript
-// استيراد وحدة Aspose.Slides لمعالجة ملفات PowerPoint
-const asposeSlides = require('aspose.slides.via.net');
+يُظهر السكريبت النص `Saved hello.pptx`. افتح `hello.pptx` لترى شريحة واحدة بها مستطيل مملوء يحتوي على النص. بدون ترخيص، يُضيف Aspose.Slides أيضًا علامة مائية للتقييم؛ طالع [Evaluate Aspose.Slides](/slides/ar/nodejs-net/evaluate-aspose-slides/) و[Licensing](/slides/ar/nodejs-net/licensing/).
 
-// إضافة الفئات الضرورية من asposeSlides
-const { Presentation, SaveFormat, PdfOptions } = asposeSlides;
+{{% alert color="info" title="Note" %}}
+شغّل سكريبتاتك من مجلد المشروع، ذلك الذي يحتوي على `package.json`. تُحل المسارات النسبية مثل `hello.pptx` بالنسبة للمجلد الحالي، وعلى بعض الأجهزة قد لا يتمكن سكريبت بدأ من مجلد مختلف من إنشاء عرض تقديمي.
+{{% /alert %}}
 
-const fs = require('fs');
-if (!fs.existsSync("out")) fs.mkdirSync("out");
+تُطابق واجهة برمجة JavaScript واجهة Aspose.Slides for .NET: تحتفظ الفئات بأسمائها في .NET، وتستخدم الخصائص والطرق camelCase (`Slides` تصبح `slides`، `AddAutoShape` تصبح `addAutoShape`)، وتُقرأ عناصر المجموعات عبر `get(index)`. لا توجد وثيقة API منفصلة لهذه الحزمة، لذا استخدم [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ar/net/) لتفاصيل الفئات والأعضاء، مثل [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) و[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/shapecollection/addautoshape/).
 
-// إنشاء وتخزين عرض تقديمي فارغ لتوضيح الوظيفة الأساسية
-function createEmptyPresentation() {
-	
-    // تهيئة عرض تقديمي جديد فارغ
-    var emptyPresentation = new Presentation();
-    
-    // حفظ العرض التقديمي الفارغ بتنسيق PPTX
-    emptyPresentation.save("out/emptyPresentation.pptx", SaveFormat.Pptx);
-    
-    // تحرير الموارد المرتبطة بالعرض التقديمي
-    emptyPresentation.dispose();
-}
+## **الأسئلة الشائعة**
 
-createEmptyPresentation(); // تنفيذ الدالة لإنشاء عرض تقديمي فارغ
-```
-9. الآن قم بتشغيل `node hello.js` في موجه الأوامر لتشغيله.
+**ماذا يعني الخطأ "The edge module has not been pre-compiled for node.js version"؟**
+
+قام npm بتثبيت نسخة edge-js القديمة التي طلبتها الحزمة. أضف التجاوز من [إنشاء مشروع](#create-a-project) وشغّل `npm install` مرة أخرى.
+
+**ماذا يعني الخطأ "assembly specified in the dependencies manifest was not found"؟**
+
+تبعيات .NET غير موجودة في ذاكرة تخزين NuGet. يُظهر نفس التشغيل أيضًا "edge.initializeClrFunc is not a function". اتبع [استعادة تبعيات .NET](#restore-the-net-dependencies) مرة واحدة، ثم شغّل السكريبت مرة أخرى.
+
+**ماذا يعني الخطأ "The edge native module is not available" على Linux؟**
+
+لم يتم تجميع edge-js أثناء `npm install`، على سبيل المثال لأن `python3` أو `make` أو `g++` كانت مفقودة. لا يُبلغ npm عن ذلك كخطأ. ثبّت أدوات البناء، ثم شغّل `npm rebuild edge-js` في مجلد المشروع.
+
+**لماذا تفشل عملية إنشاء عرض تقديمي بخطأ فارغ "Error"؟**
+
+على Linux، تأكد من تثبيت مكتبة fontconfig (`libfontconfig1` على Debian)؛ بدونها لا يمكن لمكتبة الرسم الأصلية التحميل. على أي نظام، تأكد أيضًا من تشغيل السكريبت من مجلد المشروع.
+
+**لماذا يتعطل Node.js بخطأ تقسيم على Linux؟**
+
+نظام OpenSSL الخاص بالنظام وOpenSSL المدمج في Node.js من سلاسل إصدارات مختلفة. قارنهما كما هو موضح في [المتطلبات السابقة](#prerequisites) واستخدم توزيعة أو بنية Node.js حيث تتطابق الإصدارات.
+
+**هل أحتاج إلى تكرار استعادة NuGet لكل مشروع؟**
+
+لا. الاستعادة تملأ ذاكرة تخزين NuGet لحساب المستخدم الخاص بك، وتستخدمها كل المشاريع على ذلك الجهاز.

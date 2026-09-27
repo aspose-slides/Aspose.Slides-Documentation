@@ -1,98 +1,60 @@
 ---
-title: 许可信息
-description: "Aspose.Slides for Node.js via .NET 提供不同的购买计划，或提供免费试用和 30 天临时许可证以供评估，遵循许可和订阅政策。"
+title: 许可
+description: "将许可证文件应用于 Aspose.Slides for Node.js via .NET，了解评估版的限制，并获取免费 30 天的临时许可证用于测试。"
 type: docs
 weight: 80
 url: /zh/nodejs-net/licensing/
 ---
+## **概述**
 
-有时，为获得最佳评估结果，可能需要动手实践。因此，Aspose.Slides 提供不同的购买计划，同时也提供免费试用和 30 天临时许可证以供评估。
+Aspose.Slides for Node.js via .NET 是一个用于评估和生产的 npm 包。未获取许可证时，它以评估模式运行。购买许可证或获取免费 30 天临时许可证后，只需几行代码即可应用，评估限制将不再生效。
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-请注意，有一些一般政策和实践指导您如何评估、正确许可和购买我们的产品。您可以在 ["购买政策和常见问题"](https://purchase.aspose.com/policies) 部分找到它们。
+关于如何评估、授权和购买 Aspose 产品的一般政策已收集在[Purchase Policies and FAQ](https://purchase.aspose.com/policies)。价格列在[Pricing Information](https://purchase.aspose.com/pricing/slides/zh/family)页面。
 
 {{% /alert %}}
 
-## **评估 Aspose.Slides**
-您可以轻松下载 Aspose.Slides 进行评估。评估包与购买的包相同。评估版本在您添加几行代码以应用许可证后，便会变为已许可版本。
+## **评估版限制**
 
-## **评估版本限制**
-Aspose.Slides 的评估版本（未指定许可证）提供完整的产品功能，但在打开和保存文档时，会在文档顶部插入评估水印。您在从演示文稿中提取文本时也仅限于一张幻灯片。
+评估版提供产品的全部功能，但有两项限制：
 
-{{% alert color="primary" %}} 
+- **水印。** 您保存的每个演示文稿的每张幻灯片都会出现评估水印：幻灯片中部的锁定文本框，显示“Evaluation only”。相同的水印也会出现在 PDF、XPS 和 HTML 导出以及幻灯片图像上。
+- **截断文本。** 从文本框、段落或片段读取的文本会被截断为前五个字符，后跟提示“… 文本因评估版限制而被截断”。Markdown 和 HTML5 导出也会以相同方式截断。您写入的文本会完整保存。
 
-如果您想在没有评估版本限制的情况下测试 Aspose.Slides，可以申请 **30 天临时许可证**。有关更多信息，请参阅 [如何获取临时许可证？](https://purchase.aspose.com/temporary-license)。
+[评估 Aspose.Slides](/slides/zh/nodejs-net/evaluate-aspose-slides/) 详细描述了这两项限制，并提供了演示脚本。
 
-{{% /alert %}} 
+{{% alert color="success" title="Tip" %}}
+
+若想在不受评估限制的情况下测试 Aspose.Slides，可申请免费 **30 天临时许可证**。详情请参见[How to get a Temporary License?](https://purchase.aspose.com/temporary-license)。
+
+{{% /alert %}}
 
 ## **关于许可证**
-您可以轻松从其 [下载页面](https://releases.aspose.com/slides/nodejs-net/) 下载 Aspose.Slides 的评估版本。评估版本提供与 Aspose.Slides 的已许可版本绝对相同的功能。此外，评估版本在您购买许可证并添加几行代码以应用许可证后便会变为已许可版本。
 
-许可证是一个纯文本 XML 文件，其中包含产品名称、许可给的开发者数量、订阅到期日期等详细信息。该文件是经过数字签名的，因此请勿修改该文件。即使不小心向文件内容中添加额外的换行符也会使其无效。
+许可证是一个纯文本 XML 文件，包含产品名称、授权的开发者数量以及订阅到期日期等信息。文件已数字签名，请勿修改：即使误添加一行换行也会导致失效。
 
-为了避免与评估版本相关的限制，您需要在使用 **Aspose.Slides** 之前设置许可证。每个应用程序或进程只需设置一次许可证。
+## **应用许可证**
 
-## 已购买许可证
+使用 `License` 类的 `setLicense` 方法应用许可证。请在创建任何 `Presentation` 对象之前，于进程中调用一次。再次调用不会有害，但会重复已完成的工作。
 
-购买后，您需要应用许可证文件或流。
-
-{{% alert color="primary" %}}
-
-您需要设置许可证：
-* 每个应用程序域仅设置一次
-* 在使用任何其他 Aspose.Slides 类之前
-
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-
-您可以在 [“定价信息”](https://purchase.aspose.com/pricing/slides/family) 页面找到定价信息。
-
-{{% /alert %}}
-
-### **在 Aspose.Slides for Node.js via .NET 中设置许可证**
-
-许可证可以从以下位置应用：
-
-* 显式路径
-* 流
-* 作为计量许可证 – 一种新的许可机制
-
-{{% alert color="primary" %}}
-
-使用 **setLicense** 方法为组件设置许可证。
-
-虽然多次调用 **setLicense** 不会造成危害，但会浪费资源（处理器）。
-
-{{% /alert %}}
-
-#### **使用文件应用许可证**
-
-以下代码片段用于设置许可证文件：
-
-**Node.js**
+下面的脚本演示了如何从名为 `Aspose.Slides.lic` 的文件中应用许可证。将文件名替换为您许可证文件的名称或完整路径；文件名可以任意。
 
 ```javascript
-// 导入用于 PowerPoint 文件操作的 Aspose.Slides 模块
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { License } = asposeSlides;
 
-// 此函数设置 Aspose.Slides 库的许可证
-function setupAsposeSlidesLicense() {
-	
-    // 从 Aspose.Slides 模块初始化许可证类
-    var license = new asposeSlides.License();
-    
-    // 从文件应用许可证
-    // 将 "your_license_file.lic" 替换为您实际许可证文件的路径
-    license.setLicense("your_license_file.lic");
+const license = new License();
+try {
+    license.setLicense("Aspose.Slides.lic");
+    console.log("License applied.");
+} catch (error) {
+    console.log("License not applied:", error.message);
 }
-
-// 执行函数以设置 Aspose.Slides 的许可证
-setupAsposeSlidesLicense();
 ```
-{{% alert color="primary" %}}
 
-在调用 setLicense 方法时，许可证名称应与您的许可证文件名称相同。例如，您可以将许可证文件名称更改为 "Aspose.Slides.lic.xml"。然后，在您的代码中，您必须将新的许可证名称（Aspose.Slides.lic.xml）传递给 setLicense 方法。
+文件名或相对路径会相对于当前文件夹（即运行 `node` 的目录）解析。请将许可证文件放在项目文件夹中并在该目录下运行脚本，或使用完整路径。
 
-{{% /alert %}}
+如果找不到文件或文件不是有效的许可证，`setLicense` 会抛出错误，Aspose.Slides 将保持评估模式。脚本会捕获错误并打印其信息。对于缺失的文件，信息以 `License "Aspose.Slides.lic" doesn't exist or access is restricted.` 开头，并列出已搜索的所有位置。
+
+在此包中，许可证仅能从文件加载。`License` 不接受流，且包未公开计量授权。有关该包封装的类，请参见 Aspose.Slides for .NET API 参考中的[License](https://reference.aspose.com/slides/zh/net/aspose.slides/license/)。

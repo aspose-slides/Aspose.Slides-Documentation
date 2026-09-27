@@ -1,89 +1,60 @@
 ---
 title: Lisensi
-description: "Aspose.Slides untuk Node.js via .NET menyediakan berbagai rencana pembelian atau menawarkan Free Trial dan Lisensi Sementara 30 hari untuk evaluasi menggunakan kebijakan Lisensi dan Langganan."
+description: "Terapkan file lisensi ke Aspose.Slides untuk Node.js via .NET, lihat apa batasan versi evaluasi, dan dapatkan lisensi sementara gratis selama 30 hari untuk pengujian."
 type: docs
 weight: 80
 url: /id/nodejs-net/licensing/
 ---
-Kadang‑kadang, untuk hasil evaluasi yang terbaik, pendekatan langsung mungkin diperlukan. Karena itu, Aspose.Slides menyediakan berbagai rencana pembelian serta menawarkan Free Trial dan 30‑day Temporary License untuk evaluasi.
+## **Gambaran Umum**
 
-{{% alert color="primary" %}}
-Perhatikan bahwa ada sejumlah kebijakan dan praktik umum yang membimbing Anda tentang cara mengevaluasi, melisensikan dengan tepat, dan membeli produk kami. Anda dapat menemukan mereka di bagian ["Purchase Policies and FAQ"](https://purchase.aspose.com/policies).
+Aspose.Slides untuk Node.js via .NET adalah satu paket npm untuk evaluasi maupun produksi. Tanpa lisensi, paket ini berjalan dalam mode evaluasi. Setelah Anda membeli lisensi, atau mendapatkan lisensi sementara gratis selama 30 hari, Anda menerapkannya dengan beberapa baris kode, dan batasan evaluasi tidak lagi berlaku.
+
+{{% alert color="info" title="Note" %}}
+
+Kebijakan umum tentang cara mengevaluasi, melisensikan, dan membeli produk Aspose dikumpulkan dalam [Kebijakan Pembelian dan FAQ](https://purchase.aspose.com/policies). Harga terdaftar pada [Informasi Harga](https://purchase.aspose.com/pricing/slides/id/family) halaman.
+
 {{% /alert %}}
 
-## **Evaluate Aspose.Slides**
-Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi akan menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
+## **Batasan Versi Evaluasi**
 
-## **Evaluation Version Limitation**
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan fungsionalitas penuh produk, namun menambahkan watermark evaluasi di bagian atas dokumen saat dibuka dan disimpan. Anda juga dibatasi satu slide ketika mengekstrak teks dari slide presentasi.
+Versi evaluasi menyediakan semua fungsionalitas produk, dengan dua batasan:
 
-{{% alert color="primary" %}} 
-Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat meminta **30 Day Temporary License**. Silakan lihat [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
-{{% /alert %}} 
+- **Watermark.** Setiap slide dari setiap presentasi yang Anda simpan mendapatkan watermark evaluasi: sebuah kotak teks terkunci di tengah slide yang menampilkan "Evaluation only." Watermark yang sama juga diterapkan pada ekspor PDF, XPS, dan HTML serta pada gambar slide.
+- **Truncated text.** Teks yang kode Anda baca kembali dari bingkai teks, paragraf, atau bagian dipotong menjadi lima karakter pertama, diikuti dengan pemberitahuan "... text has been truncated due to evaluation version limitation." Ekspor Markdown dan HTML5 dipotong dengan cara yang sama. Teks yang kode Anda tulis disimpan secara lengkap.
 
-## **About the License**
-Anda dapat dengan mudah mengunduh versi evaluasi Aspose.Slides untuk Node.js via .NET dari [halaman unduhan](https://releases.aspose.com/slides/id/nodejs-net/). Versi evaluasi memberikan **kemampuan yang sama persis** dengan versi berlisensi Aspose.Slides. Lebih jauh, versi evaluasi akan menjadi berlisensi setelah Anda membeli lisensi dan menambahkan beberapa baris kode untuk menerapkan lisensi.
+[Evaluasi Aspose.Slides](/slides/id/nodejs-net/evaluate-aspose-slides/) menjelaskan kedua batasan secara detail dan menyertakan skrip yang menampilkannya.
 
-Lisensi adalah file XML teks biasa yang berisi detail seperti nama produk, jumlah pengembang yang dilisensikan, tanggal kedaluwarsa langganan, dan sebagainya. File ini ditandatangani secara digital, jadi jangan memodifikasi file tersebut. Bahkan penambahan baris kosong secara tidak sengaja pada isi file akan membuatnya tidak valid.
+{{% alert color="success" title="Tip" %}}
 
-Untuk menghindari batasan yang terkait dengan versi evaluasi, Anda harus mengatur lisensi sebelum menggunakan **Aspose.Slides**. Anda hanya perlu mengatur lisensi satu kali per aplikasi atau proses.
+Untuk menguji Aspose.Slides tanpa batasan evaluasi, minta lisensi sementara gratis **30-day temporary license**. Lihat [Cara Mendapatkan Lisensi Sementara?](https://purchase.aspose.com/temporary-license) untuk detail.
 
-## Purchased License
-
-Setelah pembelian, Anda perlu menerapkan file atau aliran lisensi. 
-
-{{% alert color="primary" %}}
-Anda perlu mengatur lisensi:
-* hanya sekali per domain aplikasi
-* sebelum menggunakan kelas Aspose.Slides lainnya
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Anda dapat menemukan informasi harga pada halaman [“Pricing Information”](https://purchase.aspose.com/pricing/slides/id/family).
-{{% /alert %}}
+## **Tentang Lisensi**
 
-### **Setting a License in Aspose.Slides for Node.js via .NET**
+Lisensi adalah file XML teks biasa yang berisi detail seperti nama produk, jumlah pengembang yang dilisensikan, dan tanggal kedaluwarsa berlangganan. File ini ditandatangani secara digital, jadi jangan mengubahnya: bahkan satu baris kosong tambahan yang ditambahkan secara tidak sengaja akan membuatnya tidak valid.
 
-Lisensi dapat diterapkan dari lokasi berikut:
+## **Menerapkan Lisensi**
 
-* Jalur eksplisit
-* Stream
-* Sebagai Metered License – mekanisme lisensi baru
+Terapkan lisensi dengan metode `setLicense` pada kelas `License`. Panggil sekali per proses, sebelum Anda membuat objek `Presentation` apa pun. Memanggilnya lagi tidak menyebabkan masalah, tetapi akan mengulangi pekerjaan yang sudah dilakukan.
 
-{{% alert color="primary" %}}
-Gunakan metode **setLicense** untuk melisensikan sebuah komponen.
-
-Meskipun pemanggilan berulang pada **setLicense** tidak merusak, hal ini membuang sumber daya (prosesor).
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Lisensi baru dapat mengaktifkan Aspose.Slides hanya pada versi 21.4 atau yang lebih baru. Versi sebelumnya menggunakan sistem lisensi yang berbeda dan tidak akan mengenali lisensi ini.
-{{% /alert %}}
-
-#### **Applying a License Using a File**
-
-Cuplikan kode ini digunakan untuk mengatur file lisensi:
-
-**Node.js**
+Skrip berikut menerapkan lisensi dari file bernama `Aspose.Slides.lic`. Ganti nama tersebut dengan nama atau jalur lengkap file lisensi Anda; file dapat memiliki nama apa saja.
 
 ```javascript
-// Import modul Aspose.Slides untuk manipulasi file PowerPoint
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { License } = asposeSlides;
 
-// Fungsi ini menyiapkan pustaka Aspose.Slides dengan lisensi
-function setupAsposeSlidesLicense() {
-	
-    // Inisialisasi kelas License dari modul Aspose.Slides
-    var license = new asposeSlides.License();
-    
-    // Terapkan lisensi dari file
-    // Ganti "your_license_file.lic" dengan jalur ke file lisensi Anda yang sebenarnya
-    license.setLicense("your_license_file.lic");
+const license = new License();
+try {
+    license.setLicense("Aspose.Slides.lic");
+    console.log("License applied.");
+} catch (error) {
+    console.log("License not applied:", error.message);
 }
-
-// Jalankan fungsi untuk menyiapkan lisensi Aspose.Slides
-setupAsposeSlidesLicense();
 ```
-{{% alert color="primary" %}}
-Saat memanggil metode setLicense, nama lisensi harus sama dengan nama file lisensi Anda. Misalnya, Anda dapat mengubah nama file lisensi menjadi "Aspose.Slides.lic.xml". Kemudian, dalam kode Anda, Anda harus memberikan nama lisensi baru (Aspose.Slides.lic.xml) ke metode setLicense.
-{{% /alert %}}
+
+Nama file atau jalur relatif akan diselesaikan berdasarkan folder saat ini, yaitu folder tempat Anda menjalankan `node`. Simpan file lisensi di folder proyek Anda dan jalankan skrip dari sana, atau berikan jalur lengkap.
+
+Jika file tidak dapat ditemukan, atau bukan lisensi yang sah, `setLicense` akan melemparkan error, dan Aspose.Slides tetap berada dalam mode evaluasi. Skrip menangkapi error tersebut dan mencetak pesannya. Untuk file yang hilang, pesan dimulai dengan `License "Aspose.Slides.lic" doesn't exist or access is restricted.` dan mencantumkan setiap lokasi yang dicari.
+
+Dalam paket ini, lisensi hanya diterapkan dari file. `License` tidak menerima stream, dan paket tidak mengekspos lisensi berbasis meteran. Untuk kelas yang dibungkus paket ini, lihat [Lisensi](https://reference.aspose.com/slides/id/net/aspose.slides/license/) dalam referensi API Aspose.Slides untuk .NET.

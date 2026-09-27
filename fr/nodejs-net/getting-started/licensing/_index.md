@@ -1,98 +1,54 @@
 ---
 title: Licence
-description: "Aspose.Slides pour Node.js via .NET propose différents plans d'achat ou offre un essai gratuit et une licence temporaire de 30 jours pour évaluation utilisant les politiques de Licence et d'Abonnement."
+description: "Appliquez un fichier de licence à Aspose.Slides pour Node.js via .NET, découvrez les limites de la version d'évaluation et obtenez une licence temporaire gratuite de 30 jours pour les tests."
 type: docs
 weight: 80
 url: /fr/nodejs-net/licensing/
 ---
+## **Vue d'ensemble**
 
-Parfois, pour obtenir les meilleurs résultats d'évaluation, une approche pratique peut être nécessaire. Pour cette raison, Aspose.Slides propose différents plans d'achat et offre également un essai gratuit ainsi qu'une licence temporaire de 30 jours pour évaluation.
+Aspose.Slides for Node.js via .NET est un paquet npm à la fois pour l'évaluation et la production. Sans licence, il fonctionne en mode d'évaluation. Après avoir acheté une licence, ou obtenu une licence temporaire gratuite de 30 jours, vous l'appliquez avec quelques lignes de code, et les limitations d'évaluation ne s'appliquent plus.
 
-{{% alert color="primary" %}}
-
-Notez qu'il existe un certain nombre de politiques et de pratiques générales qui vous orientent sur la manière d'évaluer, de licencier correctement et d'acheter nos produits. Vous pouvez les trouver dans la section ["Politiques d'Achat et FAQ"](https://purchase.aspose.com/policies).
-
+{{% alert color="info" title="Note" %}}
+Les politiques générales sur la façon d'évaluer, de licencier et d'acheter les produits Aspose sont regroupées dans [Politiques d'achat et FAQ](https://purchase.aspose.com/policies). Les prix sont indiqués sur la page [Informations tarifaires](https://purchase.aspose.com/pricing/slides/fr/family).
 {{% /alert %}}
 
-## **Évaluer Aspose.Slides**
-Vous pouvez facilement télécharger Aspose.Slides pour une évaluation. Le package d'évaluation est le même que le package acheté. La version d'évaluation devient simplement sous licence après que vous ayez ajouté quelques lignes de code pour appliquer la licence.
+## **Limitations de la version d'évaluation**
 
-## **Limitation de la Version d'Évaluation**
-La version d'évaluation d'Aspose.Slides (sans licence spécifiée) offre l'ensemble des fonctionnalités du produit, mais elle insère un filigrane d'évaluation en haut du document à l'ouverture et à l'enregistrement. Vous êtes également limité à une diapositive lors de l'extraction de textes à partir de diapositives de présentation.
+- **Filigrane.** Chaque diapositive de chaque présentation que vous enregistrez obtient un filigrane d'évaluation : une zone de texte verrouillée au centre de la diapositive qui indique « Évaluation uniquement ». Le même filigrane est appliqué aux exportations PDF, XPS et HTML ainsi qu'aux images de diapositives.
+- **Texte tronqué.** Le texte que votre code lit depuis un cadre de texte, un paragraphe ou une portion est limité aux cinq premiers caractères, suivi de la mention « ... text has been truncated due to evaluation version limitation. ». Les exportations Markdown et HTML5 sont tronquées de la même façon. Le texte que votre code écrit est enregistré en entier.
 
-{{% alert color="primary" %}} 
+[Évaluer Aspose.Slides](/slides/fr/nodejs-net/evaluate-aspose-slides/) décrit les deux limitations en détail et comprend un script qui les montre.
 
-Si vous souhaitez tester Aspose.Slides sans les limitations de la version d'évaluation, vous pouvez demander une **Licence Temporaire de 30 Jours**. Veuillez consulter [Comment obtenir une Licence Temporaire ?](https://purchase.aspose.com/temporary-license) pour plus d'informations.
-
-{{% /alert %}} 
-
-## **À propos de la Licence**
-Vous pouvez facilement télécharger une version d'évaluation d'Aspose.Slides pour Node.js via .NET depuis sa [page de téléchargement](https://releases.aspose.com/slides/nodejs-net/). La version d'évaluation offre absolument **les mêmes capacités** que la version sous licence d'Aspose.Slides. De plus, la version d'évaluation devient simplement sous licence après que vous ayez acheté une licence et ajouté quelques lignes de code pour appliquer la licence.
-
-La licence est un fichier XML en texte brut qui contient des détails tels que le nom du produit, le nombre de développeurs pour lesquels elle est sous licence, la date d'expiration de l'abonnement, etc. Le fichier est numériquement signé, donc ne modifiez pas le fichier. Même l'ajout involontaire d'un saut de ligne supplémentaire dans le contenu du fichier l'invalidera.
-
-Pour éviter les limitations associées à la version d'évaluation, vous devez définir une licence avant d'utiliser **Aspose.Slides**. Vous n'êtes tenu de définir une licence qu'une seule fois par application ou processus.
-
-## Licence Achetiée
-
-Après achat, vous devez appliquer le fichier ou le flux de licence. 
-
-{{% alert color="primary" %}}
-
-Vous devez définir la licence :
-* une seule fois par domaine d'application
-* avant d'utiliser d'autres classes Aspose.Slides
-
+{{% alert color="success" title="Tip" %}}
+Pour tester Aspose.Slides sans les limitations d'évaluation, demandez une **licence temporaire gratuite de 30 jours**. Voir [Comment obtenir une licence temporaire ?](https://purchase.aspose.com/temporary-license) pour plus de détails.
 {{% /alert %}}
 
-{{% alert color="primary" %}}
+## **À propos de la licence**
 
-Vous pouvez trouver des informations sur les prix sur la page [“Informations sur les Prix”](https://purchase.aspose.com/pricing/slides/family).
+La licence est un fichier XML texte brut contenant des détails tels que le nom du produit, le nombre de développeurs auxquels elle est accordée et la date d'expiration de l'abonnement. Le fichier est signé numériquement, donc ne le modifiez pas : même une rupture de ligne supplémentaire ajoutée par erreur l'invalide.
 
-{{% /alert %}}
+## **Appliquer une licence**
 
-### **Définir une Licence dans Aspose.Slides pour Node.js via .NET**
+Appliquez la licence avec la méthode `setLicense` de la classe `License`. Appelez‑la une fois par processus, avant de créer tout objet `Presentation`. La rappeler ne cause aucun problème, mais cela répète un travail déjà effectué.
 
-Les licences peuvent être appliquées depuis ces emplacements :
-
-* Chemin explicite
-* Flux
-* En tant que Licence Mesurée – un nouveau mécanisme de licence
-
-{{% alert color="primary" %}}
-
-Utilisez la méthode **setLicense** pour licencier un composant.
-
-Bien que plusieurs appels à **setLicense** ne soient pas nuisibles, ils sont une perte de ressources (processeur).
-
-{{% /alert %}}
-
-#### **Appliquer une Licence à l'aide d'un Fichier**
-
-Ce extrait de code est utilisé pour définir un fichier de licence :
-
-**Node.js**
+Le script suivant applique une licence à partir d'un fichier nommé `Aspose.Slides.lic`. Remplacez le nom par le nom ou le chemin complet de votre fichier de licence ; le fichier peut porter n'importe quel nom.
 
 ```javascript
-// Importer le module Aspose.Slides pour la manipulation de fichiers PowerPoint
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { License } = asposeSlides;
 
-// Cette fonction configure la bibliothèque Aspose.Slides avec une licence
-function setupAsposeSlidesLicense() {
-
-    // Initialiser la classe License du module Aspose.Slides
-    var license = new asposeSlides.License();
-
-    // Appliquer la licence depuis un fichier
-    // Remplacez "votre_fichier_de_licence.lic" par le chemin de votre fichier de licence réel
-    license.setLicense("votre_fichier_de_licence.lic");
+const license = new License();
+try {
+    license.setLicense("Aspose.Slides.lic");
+    console.log("License applied.");
+} catch (error) {
+    console.log("License not applied:", error.message);
 }
-
-// Exécuter la fonction pour configurer la licence pour Aspose.Slides
-setupAsposeSlidesLicense();
 ```
-{{% alert color="primary" %}}
 
-Lors de l'appel de la méthode setLicense, le nom de la licence doit être le même que celui de votre fichier de licence. Par exemple, vous pouvez changer le nom du fichier de licence en "Aspose.Slides.lic.xml". Ensuite, dans votre code, vous devez passer le nouveau nom de licence (Aspose.Slides.lic.xml) à la méthode setLicense.
+Un nom de fichier ou un chemin relatif est résolu par rapport au dossier courant, celui depuis lequel vous lancez `node`. Conservez le fichier de licence dans le dossier de votre projet et exécutez vos scripts depuis ce dossier, ou fournissez le chemin complet.
 
-{{% /alert %}}
+Si le fichier est introuvable ou n'est pas une licence valide, `setLicense` lève une erreur, et Aspose.Slides reste en mode d'évaluation. Le script intercepte l'erreur et affiche son message. Pour un fichier manquant, le message commence par `License "Aspose.Slides.lic" doesn't exist or access is restricted.` et répertorie chaque emplacement qui a été recherché.
+
+Dans ce paquet, une licence n'est appliquée qu'à partir d'un fichier. `License` n'accepte pas de flux, et le paquet n'expose pas de licence à la consommation. Pour la classe encapsulée par le paquet, voir [License](https://reference.aspose.com/slides/fr/net/aspose.slides/license/) dans la référence API Aspose.Slides for .NET.
