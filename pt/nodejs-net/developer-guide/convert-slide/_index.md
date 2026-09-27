@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET renderiza slides de apresentações PowerPoin
 Os exemplos esperam uma apresentação chamada `sample.pptx` na pasta do projeto que você configurou em [Installation](/slides/pt/nodejs-net/installation/). Qualquer apresentação PowerPoint serve. Salve cada exemplo como um arquivo `.js` na pasta do projeto e execute‑o a partir dessa pasta com `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ele espelha a API do Aspose.Slides para .NET com nomes em camelCase, portanto os links de API neste artigo levam às classes e membros correspondentes na [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/pt/net/).
+Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ele espelha a API do Aspose.Slides para .NET com nomes em camelCase, portanto os links de API neste artigo levam às classes e membros correspondentes na [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 Para converter um slide em uma imagem, siga estas etapas:
 
-1. Abra a apresentação com o construtor [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/presentation/).
-1. Obtenha um slide da coleção [slides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/slides/pt/) com `get(index)`. Os índices começam em 0.
-1. Renderize o slide com `getImageWithScale` ou `getImageWithImageSize`. Na referência da API .NET, ambos são sobrecargas de [Slide.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/slide/getimage/). Eles retornam um objeto de imagem que corresponde a [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/).
-1. Salve a imagem com seu método [save](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/save/) e um valor [ImageFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/imageformat/), e então chame seu método `dispose`.
+1. Abra a apresentação com o construtor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+1. Obtenha um slide da coleção [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) com `get(index)`. Os índices começam em 0.
+1. Renderize o slide com `getImageWithScale` ou `getImageWithImageSize`. Na referência da API .NET, ambos são sobrecargas de [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Eles retornam um objeto de imagem que corresponde a [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+1. Salve a imagem com seu método [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) e um valor [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), e então chame seu método `dispose`.
 
 ## **Converter Cada Slide em uma Imagem PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-O script grava um arquivo por slide, `slide_1.png`, `slide_2.png` e assim por diante, numerados a partir de 1. Para uma apresentação 16:9 com slides de 960 × 540 pontos, cada imagem tem 1920 × 1080 pixels. Slides ocultos também são renderizados; para ignorá‑los, verifique a propriedade [hidden](https://reference.aspose.com/slides/pt/net/aspose.slides/slide/hidden/) do slide. Cada imagem é descartada em seu próprio bloco `finally`, que a libera antes que o próximo slide seja renderizado. Sem licença, as imagens também exibem uma marca d'água de avaliação; veja [Licensing](/slides/pt/nodejs-net/licensing/).
+O script grava um arquivo por slide, `slide_1.png`, `slide_2.png` e assim por diante, numerados a partir de 1. Para uma apresentação 16:9 com slides de 960 × 540 pontos, cada imagem tem 1920 × 1080 pixels. Slides ocultos também são renderizados; para ignorá‑los, verifique a propriedade [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) do slide. Cada imagem é descartada em seu próprio bloco `finally`, que a libera antes que o próximo slide seja renderizado. Sem licença, as imagens também exibem uma marca d'água de avaliação; veja [Licensing](/slides/pt/nodejs-net/licensing/).
 
 ## **Converter um Slide em uma Imagem com um Tamanho Específico**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-A propriedade [slideSize.size](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesize/size/) retorna a largura e a altura do slide em pontos. Para uma apresentação 16:9, o script exibe `Saved a 1280 x 720 image` e grava `slide_1_1280px.png`; para uma apresentação 4:3, a imagem tem 1280 × 960 pixels.
+A propriedade [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) retorna a largura e a altura do slide em pontos. Para uma apresentação 16:9, o script exibe `Saved a 1280 x 720 image` e grava `slide_1_1280px.png`; para uma apresentação 4:3, a imagem tem 1280 × 960 pixels.
 
 ## **FAQ**
 

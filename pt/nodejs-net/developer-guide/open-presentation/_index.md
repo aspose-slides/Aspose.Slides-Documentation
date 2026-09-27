@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET abre apresentações PowerPoint e OpenDocumen
 Os exemplos esperam uma apresentação chamada `sample.pptx` na pasta do projeto que você configurou em [Instalação](/slides/pt/nodejs-net/installation/). Qualquer apresentação PowerPoint serve. Salve cada exemplo como um arquivo `.js` na pasta do projeto e execute‑o a partir dessa pasta com `node`.
 
 {{% alert color="info" title="Nota" %}}
-Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ela espelha a API do Aspose.Slides for .NET com nomes camelCase, portanto os links de API neste artigo levam às classes e membros correspondentes na [referência da API do Aspose.Slides for .NET](https://reference.aspose.com/slides/pt/net/).
+Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ela espelha a API do Aspose.Slides for .NET com nomes camelCase, portanto os links de API neste artigo levam às classes e membros correspondentes na [referência da API do Aspose.Slides for .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Abrir uma Apresentação a partir de um Arquivo**
 
-Para abrir uma apresentação, passe seu caminho ao construtor [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/presentation/). Aspose.Slides detecta o formato a partir do conteúdo do arquivo em vez da extensão, portanto o mesmo código abre arquivos PPTX, PPT e ODP. Um caminho relativo é resolvido em relação ao diretório de trabalho atual, que é a pasta do projeto quando você executa o script a partir dela.
+Para abrir uma apresentação, passe seu caminho ao construtor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Aspose.Slides detecta o formato a partir do conteúdo do arquivo em vez da extensão, portanto o mesmo código abre arquivos PPTX, PPT e ODP. Um caminho relativo é resolvido em relação ao diretório de trabalho atual, que é a pasta do projeto quando você executa o script a partir dela.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-O script imprime o número de slides em `sample.pptx`, por exemplo `Slide count: 9`. A propriedade `count` da coleção de [slides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/slides/pt/) inclui slides ocultos. Chame `dispose` em um bloco `finally`, como mostrado, para que os recursos .NET por trás da apresentação sejam liberados mesmo que seu código falhe.
+O script imprime o número de slides em `sample.pptx`, por exemplo `Slide count: 9`. A propriedade `count` da coleção de [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) inclui slides ocultos. Chame `dispose` em um bloco `finally`, como mostrado, para que os recursos .NET por trás da apresentação sejam liberados mesmo que seu código falhe.
 
 ## **Abrir uma Apresentação a partir de um Buffer**
 
@@ -71,7 +71,7 @@ O script imprime a mesma contagem de slides do exemplo anterior. O segundo argum
 
 ## **Salvar uma Apresentação em Outro Formato**
 
-Para converter uma apresentação para outro formato de apresentação, abra‑a e salve‑a com um valor diferente de [SaveFormat](https://reference.aspose.com/slides/pt/net/aspose.slides.export/saveformat/). O exemplo a seguir imprime o formato que o Aspose.Slides detectou, que a propriedade [sourceFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/sourceformat/) retorna, e salva a apresentação como uma apresentação OpenDocument:
+Para converter uma apresentação para outro formato de apresentação, abra‑a e salve‑a com um valor diferente de [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). O exemplo a seguir imprime o formato que o Aspose.Slides detectou, que a propriedade [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) retorna, e salva a apresentação como uma apresentação OpenDocument:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ O script imprime `Source format: Pptx` e grava `sample.odp`, que contém os mesm
 
 **Como abrir uma apresentação protegida por senha?**
 
-Crie um objeto [LoadOptions](https://reference.aspose.com/slides/pt/net/aspose.slides/loadoptions/), defina sua propriedade [password](https://reference.aspose.com/slides/pt/net/aspose.slides/loadoptions/password/) e passe o objeto como terceiro argumento do construtor: `new Presentation("protected.pptx", null, loadOptions)`. Sem a senha correta, o construtor lança um erro.
+Crie um objeto [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), defina sua propriedade [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) e passe o objeto como terceiro argumento do construtor: `new Presentation("protected.pptx", null, loadOptions)`. Sem a senha correta, o construtor lança um erro.
 
 **Por que o construtor lança um `Error` com mensagem vazia?**
 

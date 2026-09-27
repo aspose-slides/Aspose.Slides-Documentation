@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET é documentado pela referência
 ---
 ## **Visão geral**
 
-Aspose.Slides for Node.js via .NET não tem sua própria referência de API. O pacote expõe as classes do Aspose.Slides for .NET para JavaScript com os mesmos nomes, com nomes de membros em camelCase, de modo que a [Referência de API do Aspose.Slides para .NET](https://reference.aspose.com/slides/pt/net/) documenta suas classes, membros e enumerações.
+Aspose.Slides for Node.js via .NET não tem sua própria referência de API. O pacote expõe as classes do Aspose.Slides for .NET para JavaScript com os mesmos nomes, com nomes de membros em camelCase, de modo que a [Referência de API do Aspose.Slides para .NET](https://reference.aspose.com/slides/net/) documenta suas classes, membros e enumerações.
 
 ## **Mapeamento de Nomes .NET para JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 O script grava `slide.png` e `slide.pdf` na pasta atual. Ambos exibem o retângulo com seu texto. Sem uma licença, eles também exibem uma marca d'água de avaliação; veja [Licenciamento](/slides/pt/nodejs-net/licensing/).
 
-Para detalhes sobre os membros usados aqui, veja [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/pt/net/aspose.slides/textframe/text/) e [Slide.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/slide/getimage/) na referência de API do Aspose.Slides para .NET.
+Para detalhes sobre os membros usados aqui, veja [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) e [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) na referência de API do Aspose.Slides para .NET.

@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET é um pacote npm tanto para avaliação quant
 
 {{% alert color="info" title="Note" %}}
 
-Políticas gerais sobre como avaliar, licenciar e comprar produtos Aspose são reunidas em [Políticas de Compra e FAQ](https://purchase.aspose.com/policies). Os preços estão listados na [Informações de Preços](https://purchase.aspose.com/pricing/slides/pt/family).
+Políticas gerais sobre como avaliar, licenciar e comprar produtos Aspose são reunidas em [Políticas de Compra e FAQ](https://purchase.aspose.com/policies). Os preços estão listados na [Informações de Preços](https://purchase.aspose.com/pricing/slides/family).
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ Um nome de arquivo ou caminho relativo é resolvido em relação à pasta atual,
 
 Se o arquivo não for encontrado, ou não for uma licença válida, `setLicense` lança um erro, e Aspose.Slides permanece no modo de avaliação. O script captura o erro e imprime sua mensagem. Para um arquivo ausente, a mensagem começa com `License "Aspose.Slides.lic" doesn't exist or access is restricted.` e lista todas as localizações pesquisadas.
 
-Neste pacote, a licença é aplicada apenas a partir de um arquivo. `License` não aceita um stream, e o pacote não expõe licenciamento por medição. Para a classe que o pacote encapsula, consulte [License](https://reference.aspose.com/slides/pt/net/aspose.slides/license/) na referência da API Aspose.Slides for .NET.
+Neste pacote, a licença é aplicada apenas a partir de um arquivo. `License` não aceita um stream, e o pacote não expõe licenciamento por medição. Para a classe que o pacote encapsula, consulte [License](https://reference.aspose.com/slides/net/aspose.slides/license/) na referência da API Aspose.Slides for .NET.

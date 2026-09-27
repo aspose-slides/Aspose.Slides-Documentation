@@ -31,12 +31,12 @@ Este artigo adiciona uma caixa de texto a um slide e salva a apresentação. Em 
 Os exemplos requerem um projeto configurado como descrito em [Instalação](/slides/pt/nodejs-net/installation/). Salve cada exemplo como um arquivo `.js` na pasta do projeto e execute‑o a partir dessa pasta com `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ele espelha a API do Aspose.Slides for .NET com nomes camelCase, então os links de API neste artigo apontam para as classes e membros correspondentes na [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/pt/net/).
+Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ele espelha a API do Aspose.Slides for .NET com nomes camelCase, então os links de API neste artigo apontam para as classes e membros correspondentes na [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Adicionar uma caixa de texto**
 
-Para adicionar uma caixa de texto, adicione uma autoforma a um slide usando o método [addAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/shapecollection/addautoshape/) e atribua texto a ela com o método [addTextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/autoshape/addtextframe/). O exemplo a seguir adiciona um retângulo ao primeiro slide de uma nova apresentação e salva a apresentação como `text-box.pptx`:
+Para adicionar uma caixa de texto, adicione uma autoforma a um slide usando o método [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) e atribua texto a ela com o método [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). O exemplo a seguir adiciona um retângulo ao primeiro slide de uma nova apresentação e salva a apresentação como `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ O slide em `text-box.pptx` contém um retângulo, 500 pontos de largura e 80 pon
 
 ## **Alterar o texto e sua formatação**
 
-O exemplo a seguir abre `text-box.pptx`, que o exemplo anterior criou, e obtém a primeira forma no primeiro slide. Formas como imagens e tabelas não possuem caixa de texto, portanto o exemplo verifica se a forma é uma [AutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/autoshape/) antes de usar a [textFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/autoshape/textframe/) da forma. Em seguida, ele realiza o seguinte:
+O exemplo a seguir abre `text-box.pptx`, que o exemplo anterior criou, e obtém a primeira forma no primeiro slide. Formas como imagens e tabelas não possuem caixa de texto, portanto o exemplo verifica se a forma é uma [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) antes de usar a [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) da forma. Em seguida, ele realiza o seguinte:
 
-1. Ele substitui o texto através da propriedade [text](https://reference.aspose.com/slides/pt/net/aspose.slides/textframe/text/) da caixa de texto. Após isso, a caixa de texto contém um parágrafo com uma única porção.  
-2. Ele obtém essa porção das coleções [paragraphs](https://reference.aspose.com/slides/pt/net/aspose.slides/textframe/paragraphs/) e [portions](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraph/portions/), e lê seu [portionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/portion/portionformat/).  
-3. Ele define [fontHeight](https://reference.aspose.com/slides/pt/net/aspose.slides/baseportionformat/fontheight/), o tamanho da fonte em pontos, e [fontBold](https://reference.aspose.com/slides/pt/net/aspose.slides/baseportionformat/fontbold/), que aceita um valor [NullableBool](https://reference.aspose.com/slides/pt/net/aspose.slides/nullablebool/).
+1. Ele substitui o texto através da propriedade [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) da caixa de texto. Após isso, a caixa de texto contém um parágrafo com uma única porção.  
+2. Ele obtém essa porção das coleções [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) e [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/), e lê seu [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).  
+3. Ele define [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), o tamanho da fonte em pontos, e [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), que aceita um valor [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

@@ -27,17 +27,17 @@ Este artigo mostra como criar uma apresentação com Aspose.Slides for Node.js v
 Os exemplos requerem um projeto configurado conforme descrito em [Instalação](/slides/pt/nodejs-net/installation/). Salve cada exemplo como um arquivo `.js` na pasta do projeto e execute‑o a partir dessa pasta com `node`, por exemplo `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ele reflete a API do Aspose.Slides for .NET com nomes camelCase, portanto os links de API neste artigo apontam para as classes e membros correspondentes na [referência da API do Aspose.Slides for .NET](https://reference.aspose.com/slides/pt/net/).
+Aspose.Slides for Node.js via .NET não possui sua própria referência de API. Ele reflete a API do Aspose.Slides for .NET com nomes camelCase, portanto os links de API neste artigo apontam para as classes e membros correspondentes na [referência da API do Aspose.Slides for .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Criar uma apresentação com uma caixa de texto**
 
 Para criar uma apresentação e colocar uma caixa de texto no seu primeiro slide, siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
-2. Obtenha esse slide da coleção [slides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/slides/pt/). As coleções neste pacote são lidas com `get(index)`, e os índices começam em 0.  
-3. Adicione um retângulo com o método [addAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/shapecollection/addautoshape/) e defina o [text](https://reference.aspose.com/slides/pt/net/aspose.slides/textframe/text/) de seu [textFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/autoshape/textframe/).  
-4. Salve a apresentação com o método [save](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/save/) e o valor `SaveFormat.Pptx`.  
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
+2. Obtenha esse slide da coleção [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). As coleções neste pacote são lidas com `get(index)`, e os índices começam em 0.  
+3. Adicione um retângulo com o método [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) e defina o [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) de seu [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).  
+4. Salve a apresentação com o método [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) e o valor `SaveFormat.Pptx`.  
 5. Chame `dispose` em um bloco `finally` para liberar os recursos .NET que sustentam a apresentação.  
 
 ```javascript
@@ -62,7 +62,7 @@ O script grava `new-presentation.pptx` na pasta do projeto. O arquivo tem um sli
 
 ## **Adicionar slides**
 
-Uma nova apresentação tem um slide. Para adicionar mais, passe um slide de layout ao método [addEmptySlide](https://reference.aspose.com/slides/pt/net/aspose.slides/slidecollection/addemptyslide/) da coleção `slides`. O método [getByType](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutslidecollection/getbytype/) da coleção [layoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/layoutslides/) retorna o primeiro layout de um determinado [SlideLayoutType](https://reference.aspose.com/slides/pt/net/aspose.slides/slidelayouttype/).
+Uma nova apresentação tem um slide. Para adicionar mais, passe um slide de layout ao método [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) da coleção `slides`. O método [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) da coleção [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) retorna o primeiro layout de um determinado [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 O exemplo a seguir adiciona dois slides com o layout Blank:
 
@@ -86,7 +86,7 @@ O script exibe `Slide count: 3` e grava `three-slides.pptx`. Os novos slides sã
 
 ## **Definir o tamanho do slide**
 
-Uma nova apresentação utiliza slides 4:3 que possuem 720 × 540 pontos (10 × 7,5 polegadas). Para criar slides widescreen, chame o método [setSize](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesize/setsize/) do [slideSize](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/slidesize/) da apresentação, passando um valor [SlideSizeType](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesizetype/) e um valor [SlideSizeScaleType](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesizescaletype/). O tipo de escala indica ao Aspose.Slides o que fazer com as formas já presentes nos slides; `DoNotScale` as mantém como estão, sendo a escolha correta para uma apresentação que ainda não tem conteúdo.
+Uma nova apresentação utiliza slides 4:3 que possuem 720 × 540 pontos (10 × 7,5 polegadas). Para criar slides widescreen, chame o método [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) do [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) da apresentação, passando um valor [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) e um valor [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). O tipo de escala indica ao Aspose.Slides o que fazer com as formas já presentes nos slides; `DoNotScale` as mantém como estão, sendo a escolha correta para uma apresentação que ainda não tem conteúdo.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ Em pontos. Uma polegada equivale a 72 pontos, portanto o slide padrão 4:3 tem 7
 
 **Em quais formatos posso salvar uma nova apresentação?**
 
-Qualquer valor da enumeração [SaveFormat](https://reference.aspose.com/slides/pt/net/aspose.slides.export/saveformat/), por exemplo `SaveFormat.Ppt` para PowerPoint 97–2003, `SaveFormat.Odp` para OpenDocument ou `SaveFormat.Pdf`. Para saída em PDF, veja [Convert PowerPoint to PDF](/slides/pt/nodejs-net/convert-powerpoint-to-pdf/).
+Qualquer valor da enumeração [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), por exemplo `SaveFormat.Ppt` para PowerPoint 97–2003, `SaveFormat.Odp` para OpenDocument ou `SaveFormat.Pdf`. Para saída em PDF, veja [Convert PowerPoint to PDF](/slides/pt/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Por que a apresentação salva contém o texto "Evaluation only"?**
 
