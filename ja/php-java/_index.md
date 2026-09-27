@@ -71,14 +71,14 @@ PPT、PPTX、PPS、POT、ODP をロードおよび保存でき、マクロ対応
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ja/php-java/">API リファレンス</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/php-java/release-notes/">リリースノート</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">リリースノート</a></li>
 <li><a href="/slides/ja/php-java/known-issues/">既知の問題</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/php-java/">ダウンロード</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">ダウンロード</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートヘルプデスク</a></li>
 </ul>
 </div>

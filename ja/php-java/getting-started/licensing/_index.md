@@ -61,7 +61,7 @@ Aspose.Slides for PHP via Java の評価版は、[ダウンロードページ](h
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-価格情報は[価格情報](https://purchase.aspose.com/pricing/slides/ja/family)ページで確認できます。
+価格情報は[価格情報](https://purchase.aspose.com/pricing/slides/family)ページで確認できます。
 {{% /alert %}}
 
 ### **Aspose.Slides for PHP via Java でのライセンス設定**

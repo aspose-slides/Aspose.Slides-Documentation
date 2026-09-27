@@ -31,14 +31,14 @@ description: "Aspose.Slides for PHP via Java を使用してプレゼンテー�
 プレゼンテーションを作成し、最初のスライドにテキスト ボックスを配置するには、次の手順に従います：
 
 1. Presentation クラスのインスタンスを作成します。新しいプレゼンテーションにはすでに空のスライドが 1 枚含まれています。  
-   [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/)
-2. インデックス 0 で、[Presentation::getSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/getslides/) が返すコレクションからそのスライドを取得します。  
-   [Presentation::getSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/getslides/)
-3. [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addautoshape/) メソッドで矩形を追加し、[TextFrame::setText](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/settext/) でテキストを設定します。  
-   [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addautoshape/)  
-   [TextFrame::setText](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/settext/)
-4. [Presentation::save](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/save/) メソッドでプレゼンテーションを PPTX ファイルとして保存します。  
-   [Presentation::save](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/save/)
+   [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+2. インデックス 0 で、[Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) が返すコレクションからそのスライドを取得します。  
+   [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/)
+3. [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) メソッドで矩形を追加し、[TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/) でテキストを設定します。  
+   [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/)  
+   [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/)
+4. [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) メソッドでプレゼンテーションを PPTX ファイルとして保存します。  
+   [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/)
 
 ```php
 <?php
@@ -68,7 +68,7 @@ Aspose.Slides は PHP プロセスではなく Tomcat 内でファイルの読�
 
 ## **プレゼンテーションの作成と保存**
 
-空のプレゼンテーションを作成して保存するには、[Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、[SaveFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/saveformat/) 列挙体の任意の形式で保存します。結果として、空のスライドが 1 枚含まれるプレゼンテーションが得られます。
+空のプレゼンテーションを作成して保存するには、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、[SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) 列挙体の任意の形式で保存します。結果として、空のスライドが 1 枚含まれるプレゼンテーションが得られます。
 
 ```php
 <?php
@@ -88,7 +88,7 @@ try {
 
 ## **プレゼンテーションの開き方と保存**
 
-プレゼンテーションを別の形式に変換するには、パスを [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) コンストラクタに渡して開き、目的の形式で保存します。Aspose.Slides はファイル自体から PPT、PPTX、ODP などの入力形式を検出します。
+プレゼンテーションを別の形式に変換するには、パスを [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) コンストラクタに渡して開き、目的の形式で保存します。Aspose.Slides はファイル自体から PPT、PPTX、ODP などの入力形式を検出します。
 
 以下の例は、スクリプトの隣にある *Sample.odp* という名前の OpenDocument プレゼンテーションを対象とし、PPTX として保存します。
 
@@ -132,7 +132,7 @@ try {
 
 ### プレゼンテーションを並行して作成/保存できますか？
 
-同じ [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) インスタンスに対して [multiple threads](/slides/ja/php-java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに個別のインスタンスを実行してください。
+同じ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) インスタンスに対して [multiple threads](/slides/ja/php-java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに個別のインスタンスを実行してください。
 
 ### 評価版の透かしと制限を削除するには？
 
