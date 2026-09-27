@@ -21,13 +21,14 @@ description: "Evaluate Aspose.Slides for C++ and explore API features for PowerP
 
 ## **Aspose.Slides Evaluation**
 
-You can easily download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download. The evaluation version simply becomes licensed when you add a few lines of code to apply the license.
+You can download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package; it becomes licensed after you add a few lines of code to apply the license, as shown in [Licensing](/slides/cpp/licensing/).
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save, and limits to one slide when extracting the text from presentation slides.
+Without a license, Aspose.Slides provides its full functionality in evaluation mode, with two limitations:
 
-![todo:image_alt_text](evaluate-aspose.slides-001.png)
+* It adds one evaluation watermark text box to the middle of every slide of each presentation it saves. Opening a presentation adds no watermark, but a watermark saved earlier is loaded as a shape on its slide. So if you open a presentation that was saved in evaluation mode and save it again, each slide has two watermarks.
+* Text that your code reads from a presentation is truncated to its first few characters, followed by a notice about the evaluation limitation. This applies to every slide, and also to text that your code has just set. Text that your code writes is saved in full.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
