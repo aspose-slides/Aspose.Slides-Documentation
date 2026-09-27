@@ -30,10 +30,10 @@ Zanim rozpoczniesz, dodaj Aspose.Slides do swojego projektu: z NuGet w projekcie
 
 Aby utworzyć prezentację i umieścić na jej pierwszym slajdzie pole tekstowe, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.
-2. Pobierz ten slajd za pomocą metody [Presentation::get_Slide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_slide/) i jego indeksu, 0.
-3. Dodaj prostokąt przy użyciu metody [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addautoshape/) i ustaw jego tekst metodą [ITextFrame::set_Text](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/set_text/).
-4. Zapisz prezentację jako plik PPTX przy użyciu metody [Presentation::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save/).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.
+2. Pobierz ten slajd za pomocą metody [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) i jego indeksu, 0.
+3. Dodaj prostokąt przy użyciu metody [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) i ustaw jego tekst metodą [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+4. Zapisz prezentację jako plik PPTX przy użyciu metody [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Użyj [BLOB management strategies](/slides/pl/cpp/manage-blob/), ogranicz przech
 
 ### Czy mogę tworzyć/zapisywać prezentacje równolegle?
 
-Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) z [wielu wątków](/slides/pl/cpp/multithreading/). Uruchom oddzielne, izolowane instancje na każdy wątek lub proces.
+Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) z [wielu wątków](/slides/pl/cpp/multithreading/). Uruchom oddzielne, izolowane instancje na każdy wątek lub proces.
 
 ### Jak usunąć znak wodny wersji próbnej i ograniczenia?
 

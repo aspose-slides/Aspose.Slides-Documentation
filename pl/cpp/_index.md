@@ -72,14 +72,14 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym 
 <hr>
 <p>REFERENCJA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/pl/cpp/">Dokumentacja API</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/cpp/release-notes/">Informacje o wydaniu</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">Dokumentacja API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Informacje o wydaniu</a></li>
 <li><a href="/slides/pl/cpp/known-issues/">Znane problemy</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/cpp/">Pobierz</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Pobierz</a></li>
 </ul>
 <p>WSPARCIE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pl/11">Darmowe forum wsparcia</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Darmowe forum wsparcia</a></li>
 <li><a href="https://helpdesk.aspose.com/">Płatny helpdesk wsparcia</a></li>
 </ul>
 </div>
