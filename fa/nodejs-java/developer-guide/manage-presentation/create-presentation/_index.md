@@ -31,11 +31,11 @@ description: "ایجاد ارائه‌ها با Aspose.Slides—تولید فا�
 
 برای ایجاد یک ارائه و قرار دادن یک جعبهٔ متن بر روی اسلاید اول آن، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید قبلاً شامل یک اسلاید خالی است.
-2. آن اسلاید را از [slide collection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getslides/) با اندیس 0 دریافت کنید.
-3. یک مستطیل را با متد [addAutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/addautoshape/) اضافه کنید و متن آن را با [setText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/settext/) تنظیم کنید.
-4. ارائه را به‌عنوان فایل PPTX با متد [save](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/save/) ذخیره کنید.
-5. ارائه را با متد [dispose](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/dispose/) آزاد کنید و فرآیند را خاتمه دهید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید قبلاً شامل یک اسلاید خالی است.
+2. آن اسلاید را از [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) با اندیس 0 دریافت کنید.
+3. یک مستطیل را با متد [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) اضافه کنید و متن آن را با [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/) تنظیم کنید.
+4. ارائه را به‌عنوان فایل PPTX با متد [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) ذخیره کنید.
+5. ارائه را با متد [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) آزاد کنید و فرآیند را خاتمه دهید.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Aspose.Slides در یک ماشین مجازی جاوا اجرا می‌شود ک
 
 ### آیا می‌توانم ارائه‌ها را به‌صورت موازی ایجاد/ذخیره کنم؟
 
-نمی‌توانید بر روی همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) از [multiple threads](/slides/fa/nodejs-java/multithreading/) عمل کنید. برای هر رشته یا فرآیند، نمونه‌های جداگانه و ایزوله اجرا کنید.
+نمی‌توانید بر روی همان نمونهٔ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) از [multiple threads](/slides/fa/nodejs-java/multithreading/) عمل کنید. برای هر رشته یا فرآیند، نمونه‌های جداگانه و ایزوله اجرا کنید.
 
 ### چگونه می‌توانم watermark آزمایشی و محدودیت‌ها را حذف کنم؟
 

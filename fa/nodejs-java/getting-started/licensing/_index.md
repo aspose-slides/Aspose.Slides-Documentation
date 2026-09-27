@@ -41,7 +41,7 @@ description: "اعمال، مدیریت و رفع مشکلات مربوط به �
 {{% /alert %}}
 
 ## **درباره مجوز**
-می‌توانید به راحتی نسخه ارزیابی Aspose.Slides برای Node.js از طریق Java را از [صفحه دانلود](https://releases.aspose.com/slides/fa/nodejs-java/) دریافت کنید. نسخه ارزیابی همان ویژگی‌های نسخه دارای مجوز را دارد، به‌جز محدودیت‌های توضیح داده شده در بالا. علاوه بر این، پس از خرید مجوز و افزودن چند خط کد برای اعمال مجوز، نسخه ارزیابی به سادگی مجوزدار می‌شود.
+می‌توانید به راحتی نسخه ارزیابی Aspose.Slides برای Node.js از طریق Java را از [صفحه دانلود](https://releases.aspose.com/slides/nodejs-java/) دریافت کنید. نسخه ارزیابی همان ویژگی‌های نسخه دارای مجوز را دارد، به‌جز محدودیت‌های توضیح داده شده در بالا. علاوه بر این، پس از خرید مجوز و افزودن چند خط کد برای اعمال مجوز، نسخه ارزیابی به سادگی مجوزدار می‌شود.
 
 مجوز یک فایل XML متنی ساده است که جزئیاتی نظیر نام محصول، تعداد توسعه‌دگرانی که برای آنها مجوز دارد، تاریخ انقضای اشتراک و غیره را شامل می‌شود. این فایل به‌صورت دیجیتال امضا شده است، بنابراین آن را تغییر ندهید. حتی افزودن ناخواسته یک خط جدید به محتوای فایل آن را نامعتبر می‌کند.
 
@@ -62,7 +62,7 @@ description: "اعمال، مدیریت و رفع مشکلات مربوط به �
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-می‌توانید اطلاعات قیمت‌گذاری را در صفحه [“Pricing Information”](https://purchase.aspose.com/pricing/slides/fa/family) پیدا کنید.
+می‌توانید اطلاعات قیمت‌گذاری را در صفحه [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family) پیدا کنید.
 {{% /alert %}}
 
 ### **تنظیم مجوز در Aspose.Slides برای Node.js از طریق Java**
@@ -96,11 +96,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-در هنگام فراخوانی متد setLicense، نام مجوز باید همانند نام فایل مجوز شما باشد. برای مثال می‌توانید نام فایل مجوز را به "Aspose.Slides.lic.xml" تغییر دهید. سپس در کد خود باید نام جدید مجوز (Aspose.Slides.lic.xml) را به متد setLicense پاس دهید. اگر فایل موجود نباشد یا شامل مجوز معتبر نباشد، [setLicense](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/license/setlicense/) یک استثنا پرتاب می‌کند که اسکریپت را با خطا پایان می‌دهد.
+در هنگام فراخوانی متد setLicense، نام مجوز باید همانند نام فایل مجوز شما باشد. برای مثال می‌توانید نام فایل مجوز را به "Aspose.Slides.lic.xml" تغییر دهید. سپس در کد خود باید نام جدید مجوز (Aspose.Slides.lic.xml) را به متد setLicense پاس دهید. اگر فایل موجود نباشد یا شامل مجوز معتبر نباشد، [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) یک استثنا پرتاب می‌کند که اسکریپت را با خطا پایان می‌دهد.
 
 #### **اعمال مجوز از یک جریان**
 
-برای اعمال مجوز از یک جریان، شیء [License](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/license/) و یک جریان قابل خواندن را به متد ایستاتیک [setLicenseFromStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/license/setlicense/) پاس دهید. جریان به‌صورت ناهمزمان خوانده می‌شود و اگر جریان شامل مجوز معتبر نباشد، کال‌بک یک خطا دریافت می‌کند:
+برای اعمال مجوز از یک جریان، شیء [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) و یک جریان قابل خواندن را به متد ایستاتیک [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) پاس دهید. جریان به‌صورت ناهمزمان خوانده می‌شود و اگر جریان شامل مجوز معتبر نباشد، کال‌بک یک خطا دریافت می‌کند:
 
 **Node.js**
 

@@ -100,7 +100,7 @@ node hello.js
 این بسته همچنین به صورت آرشیو ZIP با محتوای مشابه بستهٔ npm موجود است. برای نصب از این آرشیو:
 
 1. پیش‌نیازهای سیستم‌عامل خود را همانند بخش فوق نصب کنید.  
-2. آرشیو را از [صفحهٔ دانلود Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/fa/nodejs-java/) دریافت کنید.  
+2. آرشیو را از [صفحهٔ دانلود Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/nodejs-java/) دریافت کنید.  
 3. یک پوشهٔ پروژه ایجاد کنید:
 
     ```bash

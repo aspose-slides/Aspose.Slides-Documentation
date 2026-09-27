@@ -72,14 +72,14 @@ Aspose.Slides for Node.js via Java کتابخانه‌ای برای ایجاد،
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fa/nodejs-java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/nodejs-java/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">یادداشت‌های انتشار</a></li>
 <li><a href="/slides/fa/nodejs-java/known-issues/">مسائل شناخته‌شده</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/nodejs-java/">دانلود</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">دانلود</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">میز پشتیبانی تجاری</a></li>
 </ul>
 </div>
