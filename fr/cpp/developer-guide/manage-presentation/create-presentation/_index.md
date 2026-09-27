@@ -30,10 +30,10 @@ Avant de commencer, ajoutez Aspose.Slides à votre projet : depuis NuGet dans un
 
 Pour créer une présentation et placer une zone de texte sur sa première diapositive, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.
-1. Récupérez cette diapositive avec la méthode [Presentation::get_Slide](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/get_slide/) et son indice, 0.
-1. Ajoutez un rectangle avec la méthode [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ishapecollection/addautoshape/), et définissez son texte avec la méthode [ITextFrame::set_Text](https://reference.aspose.com/slides/fr/cpp/aspose.slides/itextframe/set_text/).
-1. Enregistrez la présentation au format PPTX avec la méthode [Presentation::Save](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/save/).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.
+1. Récupérez cette diapositive avec la méthode [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) et son indice, 0.
+1. Ajoutez un rectangle avec la méthode [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/), et définissez son texte avec la méthode [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+1. Enregistrez la présentation au format PPTX avec la méthode [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Utilisez les [stratégies de gestion des BLOB](/slides/fr/cpp/manage-blob/), lim
 
 ### Puis-je créer/enregistrer des présentations en parallèle ?
 
-Vous ne pouvez pas manipuler la même instance de [Presentation](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/) depuis [multiple threads](/slides/fr/cpp/multithreading/). Exécutez des instances séparées et isolées par thread ou processus.
+Vous ne pouvez pas manipuler la même instance de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) depuis [multiple threads](/slides/fr/cpp/multithreading/). Exécutez des instances séparées et isolées par thread ou processus.
 
 ### Comment supprimer le filigrane d'évaluation et les limitations ?
 

@@ -26,7 +26,7 @@ Aspose.Slides for C++ est distribué sous deux formes :
 | Forme | Utilisation | Où l'obtenir |
 |---|---|---|
 | Packages NuGet : [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64 bits) et [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32 bits) | Projets Visual Studio C++ sous Windows | NuGet |
-| Packages ZIP pour Windows, Linux et macOS | Constructions sans NuGet, comme les projets CMake | La [page de téléchargement](https://releases.aspose.com/slides/fr/cpp/) |
+| Packages ZIP pour Windows, Linux et macOS | Constructions sans NuGet, comme les projets CMake | La [page de téléchargement](https://releases.aspose.com/slides/cpp/) |
 
 Cet article montre comment installer le package NuGet dans Visual Studio sous Windows et comment utiliser le package ZIP avec CMake sous Linux. Les deux voies se terminent par le même contrôle : compiler et exécuter le premier exemple dans [Créer des présentations](/slides/fr/cpp/create-presentation/).
 
@@ -36,7 +36,7 @@ Sous Windows, ajoutez le package NuGet à un projet Visual Studio C++. Le packag
 
 Choisissez le package en fonction de la plateforme ciblée : **Aspose.Slides.Cpp** pour x64, et **Aspose.Slides.Cpp.x86** pour Win32 (x86). Le package Aspose.Slides.Cpp n'est pas appliqué à une construction Win32, de sorte que le compilateur ne trouve pas ses en‑têtes dans ce cas.
 
-Un package ZIP Windows est également disponible depuis la [page de téléchargement](https://releases.aspose.com/slides/fr/cpp/).
+Un package ZIP Windows est également disponible depuis la [page de téléchargement](https://releases.aspose.com/slides/cpp/).
 
 ### **Méthode 1 : installer ou mettre à jour Aspose.Slides depuis le gestionnaire de packages NuGet**
 
@@ -100,7 +100,7 @@ Sous Linux, utilisez le package ZIP Linux avec CMake. Il contient la bibliothèq
    cd hello-slides
    ```
 
-3. Téléchargez le ZIP Linux (**Aspose.Slides for C++ Linux**) depuis la [page de téléchargement](https://releases.aspose.com/slides/fr/cpp/) dans le dossier du projet, puis décompressez‑le dans le sous‑dossier *aspose-slides-cpp* :
+3. Téléchargez le ZIP Linux (**Aspose.Slides for C++ Linux**) depuis la [page de téléchargement](https://releases.aspose.com/slides/cpp/) dans le dossier du projet, puis décompressez‑le dans le sous‑dossier *aspose-slides-cpp* :
 
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp
