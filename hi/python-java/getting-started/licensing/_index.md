@@ -21,6 +21,10 @@ For purchase options, see [मूल्य जानकारी](https://purcha
 
 For evaluation limitations and how to request a temporary license, see [Aspose.Slides का मूल्यांकन करें](/slides/hi/python-java/evaluate-aspose-slides/). Apply a temporary license in the same way as a purchased license file.
 
+## **लाइसेंस के बारे में**
+
+लाइसेंस फ़ाइल में उत्पाद का नाम, लाइसेंस प्राप्त डेवलपर्स की संख्या और सदस्यता समाप्ति तिथि जैसी जानकारी होती है। यह फ़ाइल डिजिटल रूप से हस्ताक्षरित XML है।
+
 {{% alert color="warning" title="चेतावनी" %}}
 लाइसेंस फ़ाइल को संपादित न करें। अतिरिक्त लाइन ब्रेक भी उसकी डिजिटल सिग्नेचर को अमान्य कर सकता है।
 {{% /alert %}}
