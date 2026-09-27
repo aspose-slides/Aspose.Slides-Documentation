@@ -1,14 +1,14 @@
 ---
-title: Vyzkoušení Aspose.Slides
+title: Vyhodnocení Aspose.Slides
 type: docs
 weight: 120
 url: /cs/nodejs-java/evaluate-aspose-slides/
 keywords:
-- vyzkoušet Aspose.Slides
 - vyhodnocení Aspose.Slides
-- vyhodnocovací verze
+- Aspose.Slides vyhodnocení
+- verze vyhodnocení
 - plná funkčnost
-- vyhodnocovací vodotisk
+- vodoznak vyhodnocení
 - zakoupit Aspose.Slides
 - omezení
 - PowerPoint
@@ -17,37 +17,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Vyzkoušejte Aspose.Slides pro Node.js pomocí Java a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) – spusťte svou bezplatnou zkušební verzi."
+description: "Vyhodnoťte Aspose.Slides pro Node.js přes Java a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) – zahajte svou bezplatnou zkušební verzi."
 ---
-## **Vyzkoušení Aspose.Slides**
+## **Aspose.Slides Vyhodnocení**
 
-Můžete snadno stáhnout Aspose.Slides pro vyzkoušení. Vyhodnocovací balíček je stejný jako zakoupený balíček. Vyhodnocovací verze se jednoduše stane licencovanou poté, co přidáte několik řádků kódu pro použití licence. 
+Můžete si stáhnout Aspose.Slides pro vyzkoušení. Vyhodnocovací balíček je stejný jako zakoupený balíček; po přidání několika řádků kódu pro použití licence se stane licencovaným. Pro instalaci viz [Instalace](/slides/cs/nodejs-java/installation/).
 
-Vyhodnocovací verze Aspose.Slides (bez specifikované licence) poskytuje plnou funkčnost produktu, ale vkládá vodotisk pro vyhodnocení v horní části dokumentu při otevření a uložení. Při extrahování textu z prezentací jste také omezeni na jeden snímek.
+Bez licence poskytuje Aspose.Slides svou plnou funkčnost v režimu zkušební verze, se dvěma omezeními: přidá vodoznak s textem vyhodnocení na každou snímek každé prezentace, kterou uloží, a text delší než pět znaků, který váš kód načte z prezentace, je oříznut na prvních pět znaků, následovaných `... text has been truncated due to evaluation version limitation.` Text o délce pěti znaků nebo méně je vrácen beze změny a text, který váš kód zapíše, je uložen v plné délce. Každé uložení přidá vodoznak, takže prezentace, která je otevřena a znovu uložena v režimu zkušební verze, nese jeden vodoznak na každém snímku při každém uložení.
 
+{{% alert color="info" title="Note" %}}
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Pokud chcete testovat Aspose.Slides bez omezení vyhodnocovací verze, můžete požádat o **30denní dočasnou licenci**. Další informace naleznete v [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license). 
+Pokud chcete testovat Aspose.Slides bez omezení verze zkušební, můžete požádat o **30denní dočasnou licenci**. Další informace najdete v článku [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license).
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Mohu testovat více prezentací paralelně napříč různými vlákny v režimu vyhodnocování?**
+### Můžu testovat více prezentací paralelně napříč různými vlákny v režimu zkušební verze?
 
-Ano. Můžete zpracovávat různé dokumenty paralelně; neměli byste sdílet stejný objekt prezentace [napříč vlákny](/slides/cs/net/multithreading/). Režim vyhodnocování na to nemá vliv.
+Ano. Můžete zpracovávat různé dokumenty paralelně; neměli byste sdílet stejný objekt prezentace [napříč vlákny](/slides/cs/nodejs-java/multithreading/). Režim zkušební verze na to nemá vliv.
 
-**Potřebuji nainstalovat Microsoft PowerPoint, abych mohl vyhodnocovat knihovnu na serveru nebo v CI?**
+### Musím instalovat Microsoft PowerPoint, abych knihovnu otestoval na serveru nebo v CI?
 
-Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani při vyhodnocování, ani v produkci.
+Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani pro vyhodnocení, ani pro produkci.
 
-**Mohu plně otestovat konverzi PPT/PPTX do PDF a obrázků v režimu vyhodnocování?**
+### Můžu plně testovat konverzi PPT/PPTX do PDF a obrázků v režimu zkušební verze?
 
-Ano. [Konvertory](/slides/cs/net/convert-presentation/) fungují; výstup bude obsahovat vodotisk.
+Ano. [Konvertory](/slides/cs/nodejs-java/convert-presentation/) fungují; výstup bude obsahovat vodoznak.
 
-**Mohu použít dočasnou licenci pro zatěžovací testování bez vodotisku?**
+### Můžu použít dočasnou licenci pro zatěžovací testy bez vodoznaku?
 
-Ano. 30denní dočasná licence odstraňuje omezení režimu vyhodnocování a umožňuje testování bez vodotisku.
+Ano. 30denní dočasná licence odstraňuje omezení režimu zkušební verze a umožňuje testování bez vodoznaku.

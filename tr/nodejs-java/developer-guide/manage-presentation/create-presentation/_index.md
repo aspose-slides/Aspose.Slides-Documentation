@@ -1,5 +1,5 @@
 ---
-title: JavaScript ile Sunumlar Oluşturma
+title: JavaScript ile Sunum Oluşturma
 linktitle: Sunum Oluştur
 type: docs
 weight: 10
@@ -19,73 +19,81 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides ile sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinden yararlanın ve güvenilir sonuçlar için programlı olarak kaydedin."
+description: "Aspose.Slides ile sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinden yararlanın ve güvenilir sonuçlar için bunları programlı olarak kaydedin."
 ---
-## **Genel Bakış**
+## **Overview**
 
-Bu makale, Aspose.Slides ile bir sunum oluşturmayı, bir slayta basit içerik eklemeyi ve sonucu bir dosya olarak kaydetmeyi göstermektedir.
+Bu makale Aspose.Slides'te bir sunum oluşturmayı, ilk slaytına bir metin kutusu eklemeyi ve sonucu bir dosya olarak kaydetmeyi gösterir.
 
-## **PowerPoint Sunumu Oluşturma**
+Başlamadan önce, npm üzerinden `aspose.slides.via.java` paketini, ihtiyacı olan JDK, Python ve C++ derleme araçlarıyla birlikte kurun. Bakınız [Installation](/slides/tr/nodejs-java/installation/).
 
-Sunumdaki seçilen bir slayta basit bir düz çizgi eklemek için aşağıdaki adımları izleyin:
+## **Create a PowerPoint Presentation**
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını, indeksini kullanarak alın.
-3. Shapes nesnesinin sunduğu addAutoShape yöntemiyle Line tipinde bir AutoShape ekleyin.
-4. Değiştirilen sunumu bir PPTX dosyası olarak yazın.
+Bir sunum oluşturup ilk slaytına bir metin kutusu eklemek için şu adımları izleyin:
 
-Aşağıdaki örnekte, sunumun ilk slaytına bir çizgi ekledik.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
+2. O slaytı, [slide collection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/getslides/) üzerinden indeksine göre alın, 0.  
+3. [addAutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/addautoshape/) yöntemiyle bir dikdörtgen ekleyin ve metnini [setText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/settext/) ile ayarlayın.  
+4. Sunumu, [save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/save/) yöntemiyle bir PPTX dosyası olarak kaydedin.  
+5. Sunumu, [dispose](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/dispose/) yöntemiyle serbest bırakın ve işlemi sonlandırın.
 
 ```javascript
-// Bir sunum dosyasını temsil eden Presentation nesnesini oluşturun
-var pres = new aspose.slides.Presentation();
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
 try {
-    // İlk slaytı alın
-    var slide = pres.getSlides().get_Item(0);
-    // Çizgi tipinde bir autoshape ekleyin
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// Aspose.Slides bir Java sanal makinesinde çalışır ve Node.js'in çalışmasını sürdürür, bu yüzden işlemi açıkça sonlandırın.
+process.exit(0);
 ```
 
-## **SSS**
+Dikdörtgenin sol üst köşesi slaytın sol kenarından ve üst kenarından 50 puan uzakta, genişliği 400 puan ve yüksekliği 100 puandır. Kodu proje klasörünüzde *hello.js* olarak kaydedin ve `node hello.js` komutunu çalıştırın: mevcut klasöre *hello.pptx* dosyasını kaydeder; bu dosya bir slayt içerir ve içinde bu dikdörtgen ve metni barındırır.
 
-**Yeni bir sunumu hangi formatlarda kaydedebilirim?**
+Aspose.Slides, Node.js sürecinin içinde `java` paketi tarafından başlatılan bir Java sanal makinesinde çalışır. Bu sanal makine, betik tamamlandığında Node.js'in otomatik olarak çıkmasını engeller, bu yüzden örnek `process.exit(0)` ile sonlanır.
 
-Sunumu [PPTX, PPT ve ODP](/slides/tr/nodejs-java/save-presentation/) formatlarında kaydedebilir ve [PDF](/slides/tr/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/tr/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/tr/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/tr/nodejs-java/convert-powerpoint-to-png/) ve [görseller](/slides/tr/nodejs-java/convert-powerpoint-to-png/) gibi formatlara dışa aktarabilirsiniz.
+Lisans olmadan Aspose.Slides, kaydettiği her slayta bir değerlendirme filigranı ekler; bkz. [Licensing](/slides/tr/nodejs-java/licensing/).
 
-**Bir şablondan (POTX/POTM) başlayıp normal bir PPTX olarak kaydedebilir miyim?**
+## **FAQ**
 
-Evet. Şablonu yükleyin ve istenen formata kaydedin; POTX/POTM/PPTM ve benzeri formatlar [desteklenir](/slides/tr/nodejs-java/supported-file-formats/).
+### What formats can I save a new presentation to?
 
-**Sunum oluştururken slayt boyutunu/en boy oranını nasıl kontrol ederim?**
+Sunumu [PPTX, PPT, and ODP](/slides/tr/nodejs-java/save-presentation/) formatlarında kaydedebilir ve [PDF](/slides/tr/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/tr/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/tr/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/tr/nodejs-java/render-a-slide-as-an-svg-image/) ve [images](/slides/tr/nodejs-java/convert-powerpoint-to-png/) gibi formatlara dışa aktarabilirsiniz.
 
-[Slayt boyutunu](/slides/tr/nodejs-java/slide-size/) ayarlayın (4:3 ve 16:9 gibi ön ayarlar veya özel boyutlar dahil) ve içeriğin nasıl ölçekleneceğini seçin.
+### Can I start from a template (POTX/POTM) and save as a regular PPTX?
 
-**Boyutlar ve koordinatlar hangi birimlerde ölçülür?**
+Evet. Şablonu yükleyin ve istediğiniz formata kaydedin; POTX/POTM/PPTM ve benzeri formatlar [are supported](/slides/tr/nodejs-java/supported-file-formats/).
 
-Puan (point) cinsinden: 1 inç 72 birime eşittir.
+### How do I control slide size/aspect ratio when creating a presentation?
 
-**Bellek kullanımını azaltmak için çok büyük (birçok medya dosyası içeren) sunumları nasıl yönetebilirim?**
+[slide size](/slides/tr/nodejs-java/slide-size/) ayarlayın (4:3 ve 16:9 gibi ön ayarlar ya da özel boyutlar) ve içeriğin nasıl ölçekleneceğini seçin.
 
-[BLOB yönetim stratejilerini](/slides/tr/nodejs-java/manage-blob/) kullanın, geçici dosyalar aracılığıyla bellek içi depolamayı sınırlayın ve tamamen bellek içi akışlar yerine dosya tabanlı iş akışlarını tercih edin.
+### In what units are sizes and coordinates measured?
 
-**Sunumları paralel olarak oluşturabilir/kaydedebilir miyim?**
+Puan cinsinden: 1 inç 72 birime eşittir.
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) örneği üzerinde [birden fazla iş parçacığından](/slides/tr/nodejs-java/multithreading/) işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı ve izole örnekler çalıştırın.
+### How do I handle very large presentations (with many media files) to reduce memory usage?
 
-**Deneme filigranı ve sınırlamaları nasıl kaldırırım?**
+[BLOB management strategies](/slides/tr/nodejs-java/manage-blob/) kullanın, geçici dosyalar aracılığıyla bellek içi depolamayı sınırlayın ve tamamen bellek içi akışlar yerine dosya tabanlı iş akışlarını tercih edin.
 
-İşlem başına bir kez [lisans uygulayın](/slides/tr/nodejs-java/licensing/). Lisans XML'i değiştirilmemeli ve birden fazla iş parçacığı varsa lisans kurulumu senkronize edilmelidir.
+### Can I create/save presentations in parallel?
 
-**Oluşturduğum PPTX'i dijital olarak imzalayabilir miyim?**
+Aynı [Presentation](/slides/tr/nodejs-java/aspose.slides/presentation/) örneğini birden çok [multiple threads](/slides/tr/nodejs-java/multithreading/) üzerinden çalıştıramazsınız. Her iş parçacığı ya da süreç için ayrı, izole örnekler çalıştırın.
 
-Evet. Sunumlar için [dijital imzalar](/slides/tr/nodejs-java/digital-signature-in-powerpoint/) (ekleme ve doğrulama) desteklenir.
+### How do I remove the trial watermark and limitations?
 
-**Oluşturulan sunumlarda makrolar (VBA) destekleniyor mu?**
+Her süreçte bir kez [Apply a license](/slides/tr/nodejs-java/licensing/) uygulayın. Lisans XML dosyası değiştirilmeden kalmalı ve birden çok iş parçacığı kullanıyorsanız lisans kurulumu senkronize edilmelidir.
 
-Evet. [VBA projeleri oluşturup/düzenleyebilir](/slides/tr/nodejs-java/presentation-via-vba/) ve PPTM/PPSM gibi makro etkin dosyaları kaydedebilirsiniz.
+### Can I digitally sign the PPTX I create?
+
+Evet. [Digital signatures](/slides/tr/nodejs-java/digital-signature-in-powerpoint/) (ekleme ve doğrulama) sunumlar için desteklenir.
+
+### Are macros (VBA) supported in created presentations?
+
+Evet. [create/edit VBA projects](/slides/tr/nodejs-java/presentation-via-vba/) yapabilir ve PPTM/PPSM gibi makro‑etkin dosyaları kaydedebilirsiniz.

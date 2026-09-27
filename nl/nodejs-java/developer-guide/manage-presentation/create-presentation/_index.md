@@ -19,73 +19,81 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Maak presentaties met Aspose.Slides—maak PPT-, PPTX- en ODP-bestanden, profiteer van OpenDocument-ondersteuning, en sla ze programmatisch op voor betrouwbare resultaten."
+description: "Maak presentaties met Aspose.Slides—produceer PPT-, PPTX- en ODP-bestanden, profiteer van OpenDocument-ondersteuning en sla ze programmeermatig op voor betrouwbare resultaten."
 ---
 ## **Overzicht**
 
-Dit artikel toont hoe u een presentatie maakt in Aspose.Slides, eenvoudige inhoud aan een dia toevoegt en het resultaat opslaat als een bestand.
+Dit artikel laat zien hoe u een presentatie maakt in Aspose.Slides, een tekstvak toevoegt aan de eerste dia en het resultaat opslaat als bestand.
 
-## **PowerPoint‑presentatie maken**
+Voordat u begint, installeert u het `aspose.slides.via.java`‑pakket via npm, samen met de JDK, Python en C++‑build‑tools die het nodig heeft. Zie [Installation](/slides/nl/nodejs-java/installation/).
 
-Om een eenvoudige rechte lijn toe te voegen aan een geselecteerde dia van de presentatie, volgt u de onderstaande stappen:
+## **Een PowerPoint‑presentatie maken**
 
-1. Maak een instantie van de klasse Presentation.
-1. Verkrijg de referentie van een dia via de index.
-1. Voeg een AutoShape van het type Lijn toe met de addAutoShape‑methode van het Shapes‑object.
-1. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
+Om een presentatie te maken en een tekstvak op de eerste dia te plaatsen, volgt u deze stappen:
 
-In het onderstaande voorbeeld hebben we een lijn toegevoegd aan de eerste dia van de presentatie.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.
+1. Haal die dia op uit de [slide collection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/getslides/) via zijn index, 0.
+1. Voeg een rechthoek toe met de [addAutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/addautoshape/)‑methode en stel de tekst in met [setText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/settext/).
+1. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/save/)‑methode.
+1. Vrijwaar de presentatie met de [dispose](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/dispose/)‑methode en beëindig het proces.
 
 ```javascript
-// Instantiseer een Presentation-object dat een presentatiebestand vertegenwoordigt
-var pres = new aspose.slides.Presentation();
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
 try {
-    // Haal de eerste dia op
-    var slide = pres.getSlides().get_Item(0);
-    // Voeg een autoshape van type lijn toe
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// Aspose.Slides draait in een Java virtual machine die Node.js draaiende houdt, dus beëindig het proces expliciet.
+process.exit(0);
 ```
 
-## **Veelgestelde vragen**
+De linkerbovenhoek van de rechthoek bevindt zich 50 points van de linkerrand en 50 points van de bovenkant van de dia, en de rechthoek is 400 points breed en 100 points hoog. Sla de code op als *hello.js* in uw projectmap en voer `node hello.js` uit: dit slaat *hello.pptx* op, met één dia die die rechthoek en de bijbehorende tekst bevat, in de huidige map.
 
-**In welke formaten kan ik een nieuwe presentatie opslaan?**
+Aspose.Slides draait in een Java‑virtual machine die het `java`‑pakket start binnen het Node.js‑proces. Die virtual machine voorkomt dat Node.js vanzelf afsluit nadat het script is voltooid, zodat het voorbeeld eindigt met `process.exit(0)`.
 
-U kunt opslaan als [PPTX, PPT en ODP](/slides/nl/nodejs-java/save-presentation/), en exporteren naar [PDF](/slides/nl/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/nl/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/nl/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/nl/nodejs-java/convert-powerpoint-to-png/), en [afbeeldingen](/slides/nl/nodejs-java/convert-powerpoint-to-png/), onder andere.
+Zonder licentie voegt Aspose.Slides ook een evaluatiewatermerk toe aan elke dia die wordt opgeslagen; zie [Licensing](/slides/nl/nodejs-java/licensing/).
 
-**Kan ik beginnen vanuit een sjabloon (POTX/POTM) en opslaan als een normale PPTX?**
+## **FAQ**
 
-Ja. Laad het sjabloon en sla op in het gewenste formaat; POTX/POTM/PPTM en soortgelijke formaten [worden ondersteund](/slides/nl/nodejs-java/supported-file-formats/).
+### In welke formaten kan ik een nieuwe presentatie opslaan?
 
-**Hoe kan ik de dia‑grootte/beeldverhouding regelen bij het maken van een presentatie?**
+U kunt opslaan als [PPTX, PPT en ODP](/slides/nl/nodejs-java/save-presentation/), en exporteren naar [PDF](/slides/nl/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/nl/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/nl/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/nl/nodejs-java/render-a-slide-as-an-svg-image/) en [images](/slides/nl/nodejs-java/convert-powerpoint-to-png/), onder andere.
 
-Stel de [dia‑grootte](/slides/nl/nodejs-java/slide-size/) in (inclusief voorgedefinieerde maten zoals 4:3 en 16:9 of aangepaste afmetingen) en kies hoe de inhoud moet worden geschaald.
+### Kan ik beginnen met een sjabloon (POTX/POTM) en opslaan als een reguliere PPTX?
 
-**In welke eenheden worden afmetingen en coördinaten gemeten?**
+Ja. Laad het sjabloon en sla op in het gewenste formaat; POTX/POTM/PPTM en vergelijkbare formaten [are supported](/slides/nl/nodejs-java/supported-file-formats/).
 
-In punten: 1 inch is gelijk aan 72 eenheden.
+### Hoe kan ik de dia‑grootte/beeldverhouding regelen bij het maken van een presentatie?
 
-**Hoe ga ik om met zeer grote presentaties (met veel mediabestanden) om het geheugenverbruik te verminderen?**
+Stel de [slide size](/slides/nl/nodejs-java/slide-size/) in (inclusief presets zoals 4:3 en 16:9 of aangepaste afmetingen) en kies hoe de inhoud moet schalen.
 
-Gebruik [BLOB‑beheersstrategieën](/slides/nl/nodejs-java/manage-blob/), beperk het in‑memory geheugen door tijdelijke bestanden te gebruiken, en geef de voorkeur aan bestandsgebaseerde workflows boven uitsluitend in‑memory streams.
+### In welke eenheden worden afmetingen en coördinaten gemeten?
 
-**Kan ik presentaties parallel maken/op slaan?**
+In points: 1 inch equals 72 units.
 
-U kunt niet dezelfde [Presentatie](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/) instantie vanuit [meerdere threads](/slides/nl/nodejs-java/multithreading/) bewerken. Start aparte, geïsoleerde instanties per thread of proces.
+### Hoe ga ik om met zeer grote presentaties (met veel mediabestanden) om het geheugenverbruik te verminderen?
 
-**Hoe verwijder ik het proefversie‑watermerk en de beperkingen?**
+Gebruik [BLOB management strategies](/slides/nl/nodejs-java/manage-blob/), beperk de in‑memory opslag door tijdelijke bestanden te gebruiken, en geef de voorkeur aan bestand‑gebaseerde werkstromen boven puur in‑memory streams.
 
-[Pas een licentie toe](/slides/nl/nodejs-java/licensing/) één keer per proces. Het licentie‑XML‑bestand moet ongewijzigd blijven en de licentie‑configuratie moet gesynchroniseerd worden als er meerdere threads actief zijn.
+### Kan ik presentaties tegelijk maken/opslaan?
 
-**Kan ik de PPTX die ik maak digitaal ondertekenen?**
+U kunt niet werken op dezelfde [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑instantie vanuit [multiple threads](/slides/nl/nodejs-java/multithreading/). Start afzonderlijke, geïsoleerde instanties per thread of proces.
 
-Ja. [Digitale handtekeningen](/slides/nl/nodejs-java/digital-signature-in-powerpoint/) (toevoegen en verifiëren) worden ondersteund voor presentaties.
+### Hoe verwijder ik het proef‑watermerk en de beperkingen?
 
-**Worden macro’s (VBA) ondersteund in gemaakte presentaties?**
+[Apply a license](/slides/nl/nodejs-java/licensing/) één keer per proces. De licentie‑XML moet ongewijzigd blijven, en de licentie‑instelling moet gesynchroniseerd worden als meerdere threads betrokken zijn.
 
-Ja. U kunt [VBA‑projecten maken/bewerken](/slides/nl/nodejs-java/presentation-via-vba/) en macro‑ingeschakelde bestanden opslaan, zoals PPTM/PPSM.
+### Kan ik de PPTX die ik maak digitaal ondertekenen?
+
+Ja. [Digital signatures](/slides/nl/nodejs-java/digital-signature-in-powerpoint/) (toevoegen en verifiëren) worden ondersteund voor presentaties.
+
+### Worden macro's (VBA) ondersteund in gemaakte presentaties?
+
+Ja. U kunt [create/edit VBA projects](/slides/nl/nodejs-java/presentation-via-vba/) en macro‑ingeschakelde bestanden zoals PPTM/PPSM opslaan.

@@ -11,123 +11,125 @@ keywords:
 - 라이선스 검증
 - 라이선스 파일
 - 평가 버전
-- 파워포인트
-- 오픈도큐먼트
-- 프레젠테이션
+- PowerPoint
+- OpenDocument
+- 프리젠테이션
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js에서 라이선스를 적용, 관리 및 문제 해결합니다. 단계별 라이선스 안내서를 통해 전체 기능에 중단 없이 접근하세요."
+description: "Aspose.Slides for Node.js에서 라이선스를 적용하고 관리하며 문제를 해결합니다. 단계별 라이선스 가이드를 통해 전체 기능을 중단 없이 사용할 수 있습니다."
 ---
 ## **소개**
 
-때때로 최상의 평가 결과를 얻기 위해 직접 체험하는 접근 방식을 필요로 할 수 있습니다. 이러한 이유로 Aspose.Slides는 다양한 구매 플랜을 제공하며 평가를 위한 무료 체험 및 30일 임시 라이선스를 제공합니​다.
+때때로 최상의 평가 결과를 얻기 위해서는 직접 체험하는 접근 방식이 필요할 수 있습니다. 이러한 이유로 Aspose.Slides는 다양한 구매 플랜을 제공하며 평가를 위해 무료 체험 및 30일 임시 라이선스를 제공합니다.
 
-{{% alert color="primary" %}}
-구매를 평가하고, 적절히 라이선스를 적용하며, 제품을 구매하는 방법을 안내하는 일반 정책 및 관행이 여러 가지 있습니다. 이를 ["구매 정책 및 FAQ"](https://purchase.aspose.com/policies) 섹션에서 확인할 수 있습니다.
+{{% alert color="info" title="Note" %}}
+제품을 평가하고, 적절히 라이선스를 적용하며, 구매하는 방법을 안내하는 일반 정책 및 관행이 다수 있습니다. 해당 내용은 ["구매 정책 및 FAQ"](https://purchase.aspose.com/policies) 섹션에서 확인할 수 있습니다.
 {{% /alert %}}
 
 ## **Aspose.Slides 평가**
-
-평가용으로 Aspose.Slides를 쉽게 다운로드할 수 있습니다. 평가 패키지는 구매 패키지와 동일합니다. 평가 버전은 라이선스를 적용하는 몇 줄의 코드를 추가하면 라이선스가 적용된 버전으로 전환됩니다.
+Aspose.Slides를 쉽게 다운로드하여 평가할 수 있습니다. 평가용 패키지는 구매한 패키지와 동일합니다. 평가 버전은 라이선스를 적용하는 몇 줄의 코드를 추가하면 라이선스가 적용된 상태가 됩니다.
 
 ## **평가 버전 제한**
+Aspose.Slides의 평가 버전(라이선스 미지정)은 전체 제품 기능을 제공하지만 두 가지 제한이 있습니다:
 
-라이선스가 지정되지 않은 Aspose.Slides 평가 버전은 전체 제품 기능을 제공하지만, 열기 및 저장 시 문서 상단에 평가 워터마크를 삽입합니다. 또한 프레젠테이션 슬라이드에서 텍스트를 추출할 때 한 슬라이드로 제한됩니다.
+* 저장하는 각 프레젠테이션의 모든 슬라이드에 평가 워터마크 텍스트 상자를 추가합니다.
+* 프레젠테이션에서 코드를 통해 읽어오는 텍스트가 다섯 글자를 초과하면 처음 다섯 글자만 반환되고 뒤에 `... text has been truncated due to evaluation version limitation.` 가 붙습니다. 다섯 글자 이하의 텍스트는 그대로 반환되며, 코드가 쓰는 텍스트는 전체가 저장됩니다.
 
-{{% alert color="primary" %}} 
-평가 버전 제한 없이 Aspose.Slides를 테스트하려면 **30일 임시 라이선스**를 요청할 수 있습니다. 자세한 내용은 [임시 라이선스를 받는 방법?](https://purchase.aspose.com/temporary-license) 을 참조하십시오.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+평가 버전 제한 없이 Aspose.Slides를 테스트하려면 **30 Day Temporary License**를 요청할 수 있습니다. 자세한 내용은 [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) 를 참고하세요.
+{{% /alert %}}
 
-## **라이선스 정보**
+## **라이선스에 대하여**
+Aspose.Slides for Node.js via Java의 [download page](https://releases.aspose.com/slides/ko/nodejs-java/)에서 평가 버전을 쉽게 다운로드할 수 있습니다. 평가 버전은 라이선스된 버전과 동일한 기능을 제공하지만 위에서 설명한 제한이 있습니다. 또한 라이선스를 구매하고 몇 줄의 코드를 추가하면 평가 버전이 라이선스된 상태가 됩니다.
 
-Aspose.Slides for Node.js via Java의 [다운로드 페이지](https://releases.aspose.com/slides/ko/nodejs-java/)에서 평가 버전을 쉽게 다운로드할 수 있습니다. 평가 버전은 Aspose.Slides 정식 라이선스 버전과 **동일한 기능**을 제공합니다. 또한 라이선스를 구매하고 몇 줄의 코드를 추가하면 평가 버전이 바로 라이선스가 적용된 버전이 됩니다.
+라이선스는 제품 이름, 라이선스를 부여받은 개발자 수, 구독 만료 날짜 등과 같은 세부 정보를 포함한 일반 텍스트 XML 파일입니다. 파일은 디지털 서명되어 있으므로 수정하면 안 됩니다. 파일 내용에 실수로 줄 바꿈을 추가하는 것만으로도 라이선스가 무효화됩니다.
 
-라이선스는 제품 이름, 라이선스 대상 개발자 수, 구독 만료 날짜 등과 같은 정보를 포함한 일반 텍스트 XML 파일입니다. 파일은 디지털 서명되어 있으므로 수정해서는 안 됩니다. 파일 내용에 한 줄의 개행이라도 추가하면 무효화됩니다.
+평가 버전의 제한을 피하려면 **Aspose.Slides**를 사용하기 전에 라이선스를 설정해야 합니다. 애플리케이션 또는 프로세스당 한 번만 라이선스를 설정하면 됩니다.
 
-평가 버전과 관련된 제한을 피하려면 **Aspose.Slides**를 사용하기 전에 라이선스를 설정해야 합니다. 애플리케이션 또는 프로세스당 라이선스는 한 번만 설정하면 됩니다.
+{{% alert color="info" title="Note" %}}
+다음의 [Metered Licensing](/slides/ko/nodejs-java/metered-licensing/)을 확인하고 싶을 수 있습니다.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
-[사용량 기반 라이선스](https://docs.aspose.com/slides/ko/nodejs-java/metered-licensing/) 를 확인하시기 바랍니다.
-{{% /alert %}} 
+## **구매한 라이선스**
 
-## **구매된 라이선스**
+구매 후에는 라이선스 파일이나 스트림을 적용해야 합니다.
 
-구매 후에는 라이선스 파일 또는 스트림을 적용해야 합니다.
-
-{{% alert color="primary" %}}
-라이선스 설정:
-* 애플리케이션 도메인당 한 번만
+{{% alert color="info" title="Note" %}}
+라이선스를 설정해야 합니다:
+* 프로세스당 한 번만
 * 다른 Aspose.Slides 클래스를 사용하기 전에
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-가격 정보는 [“가격 정보”](https://purchase.aspose.com/pricing/slides/ko/family) 페이지에서 확인할 수 있습니다.
+{{% alert color="info" title="Note" %}}
+가격 정보는 ["Pricing Information"](https://purchase.aspose.com/pricing/slides/ko/family) 페이지에서 확인할 수 있습니다.
 {{% /alert %}}
 
 ### **Node.js via Java에서 Aspose.Slides 라이선스 설정**
 
 라이선스는 다음 위치에서 적용할 수 있습니다:
-* 명시적 경로
-* 스트림
-* 사용량 기반 라이선스 – 새로운 라이선스 메커니즘
 
-{{% alert color="primary" %}}
+* 명시적인 경로
+* 스트림
+* Metered License로 – 새로운 라이선스 메커니즘
+
+{{% alert color="info" title="Note" %}}
 **setLicense** 메서드를 사용하여 구성 요소에 라이선스를 적용합니다.
 
-**setLicense**를 여러 번 호출해도 문제는 없지만, 리소스(프로세서)를 낭비하게 됩니다.
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-새 라이선스는 버전 21.4 이상에서만 Aspose.Slides를 활성화할 수 있습니다. 이전 버전은 다른 라이선스 시스템을 사용하므로 이 라이선스를 인식하지 못합니다.
+**setLicense**를 여러 번 호출해도 문제가 되지는 않지만, 리소스(프로세서)를 낭비하게 됩니다.
 {{% /alert %}}
 
 #### **파일을 사용한 라이선스 적용**
 
-다음 코드 스니펫은 라이선스 파일을 설정하는 예시입니다:
+이 코드 스니펫은 라이선스 파일을 설정하는 데 사용됩니다:
 
 **Node.js**
 
 ```javascript
-var aspose = aspose || {};
+const asposeSlides = require("aspose.slides.via.java");
 
-aspose.slides = require("aspose.slides.via.java");
-
-var license = new aspose.slides.License();
+const license = new asposeSlides.License();
 license.setLicense("Aspose.Slides.lic");
+console.log("The license was applied.");
+
+// Aspose.Slides는 Node.js를 계속 실행 상태로 유지하는 Java 가상 머신에서 동작하므로 프로세스를 명시적으로 종료하십시오.
+process.exit(0);
 ```
 
-setLicense 메서드를 호출할 때, 라이선스 이름은 라이선스 파일 이름과 동일해야 합니다. 예를 들어, 라이선스 파일 이름을 "Aspose.Slides.lic.xml" 로 변경할 수 있습니다. 그런 다음 코드에서 새 라이선스 이름(Aspose.Slides.lic.xml)을 setLicense 메서드에 전달해야 합니다.
+setLicense 메서드를 호출할 때 라이선스 이름은 라이선스 파일 이름과 동일해야 합니다. 예를 들어 라이선스 파일 이름을 "Aspose.Slides.lic.xml"로 변경할 수 있습니다. 그런 다음 코드에서 새로운 라이선스 이름(Aspose.Slides.lic.xml)을 setLicense 메서드에 전달해야 합니다. 파일이 없거나 유효한 라이선스를 포함하지 않으면 [setLicense](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/license/setlicense/)가 예외를 발생시켜 스크립트가 오류와 함께 종료됩니다.
 
-#### **스트림을 사용한 라이선스 적용**
+#### **스트림에서 라이선스 적용**
 
-다음 코드 스니펫은 스트림에서 라이선스를 적용하는 예시입니다:
+스트림에서 라이선스를 적용하려면 [License](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/license/) 객체와 읽기 가능한 스트림을 정적 [setLicenseFromStream](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/license/setlicense/) 메서드에 전달합니다. 스트림은 비동기적으로 읽히며, 스트림에 유효한 라이선스가 없을 경우 콜백에 오류가 전달됩니다:
 
 **Node.js**
 
 ```javascript
-var aspose = aspose || {};
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
 
-aspose.slides = require("aspose.slides.via.java");
+const license = new asposeSlides.License();
+const readStream = fs.createReadStream("Aspose.Slides.lic");
+asposeSlides.License.setLicenseFromStream(license, readStream, function (error) {
+    if (error) {
+        console.error("The license was not applied:", error.message);
+    } else {
+        console.log("The license was applied.");
+    }
 
-var license = new aspose.slides.License();
-
-var fs = require("fs");
-
-var readStream = fs.createReadStream("Aspose.Slides.lic");
-
-license.setLicense(readStream, function(err, list) {
-    if(err) { 
-        console.error(err); return; 
-    }});
+    // Aspose.Slides는 Node.js를 계속 실행 상태로 유지하는 Java 가상 머신에서 동작하므로 프로세스를 명시적으로 종료하십시오.
+    process.exit(0);
+});
 ```
 
-## **자주 묻는 질문**
+스트림 전체를 읽은 직후, 콜백이 실행되기 바로 전에 라이선스가 적용되므로 콜백 내에서 다른 Aspose.Slides 작업을 시작하십시오.
 
-**완전히 오프라인 환경(인터넷 접속 없음)에서도 라이선스를 적용할 수 있나요?**
+두 샘플 모두 작업이 끝나면 `process.exit(0)`을 호출합니다. 이는 Aspose.Slides를 실행하는 Java 가상 머신이 Node.js를 계속 실행 상태로 유지하기 때문입니다. 애플리케이션에서는 프로세스를 종료하지 말고 Aspose.Slides 코드를 계속 진행하십시오.
 
-예. 라이선스 검증은 라이선스 파일을 사용해 로컬에서 수행되므로 인터넷 연결이 필요하지 않습니다.
+## **FAQ**
 
-**1년 구독이 만료되면 어떻게 되나요? 라이브러리가 작동을 멈추나요?**
+### 완전히 오프라인 환경(인터넷 연결 없음)에서도 라이선스를 적용할 수 있습니까?
+예. 라이선스 검증은 라이선스 파일을 사용하여 로컬에서 수행되며, 인터넷 연결이 필요하지 않습니다.
 
-아니요. 라이선스는 영구적이며, 구독 종료일 이전에 출시된 버전은 계속 사용할 수 있습니다. 다만, 갱신하지 않으면 최신 릴리스를 사용할 수 없습니다.
+### 1년 구독이 만료되면 어떻게 됩니까? 라이브러리가 작동을 멈출까요?
+아니오. 라이선스는 영구적이며, 구독 종료일 이전에 출시된 버전은 계속 사용할 수 있습니다. 다만 갱신하지 않는 한 최신 릴리스를 사용할 수 없습니다.

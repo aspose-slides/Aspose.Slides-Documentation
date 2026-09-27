@@ -19,73 +19,81 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Crea presentazioni con Aspose.Slides—produci file PPT, PPTX e ODP, beneficia del supporto OpenDocument e salvali programmaticamente per risultati affidabili."
+description: "Crea presentazioni con Aspose.Slides—produci file PPT, PPTX e ODP, sfrutta il supporto OpenDocument e salvali programmaticamente per risultati affidabili."
 ---
 ## **Panoramica**
 
-Questo articolo mostra come creare una presentazione in Aspose.Slides, aggiungere contenuti semplici a una diapositiva e salvare il risultato in un file.
+Questo articolo mostra come creare una presentazione in Aspose.Slides, aggiungere una casella di testo alla sua prima diapositiva e salvare il risultato in un file.
 
-## **Crea presentazione PowerPoint**
+Prima di iniziare, installa il pacchetto `aspose.slides.via.java` da npm, insieme al JDK, a Python e agli strumenti di compilazione C++ necessari. Vedi [Installazione](/slides/it/nodejs-java/installation/).
 
-Per aggiungere una semplice linea retta a una diapositiva selezionata della presentazione, seguire i passaggi seguenti:
+## **Creare una presentazione PowerPoint**
 
-1. Creare un'istanza della classe Presentation.
-1. Ottenere il riferimento di una diapositiva usando il suo Index.
-1. Aggiungere un AutoShape di tipo Linea utilizzando il metodo addAutoShape esposto dall'oggetto Shapes.
-1. Scrivere la presentazione modificata come file PPTX.
+Per creare una presentazione e inserire una casella di testo nella sua prima diapositiva, segui questi passaggi:
 
-Nell'esempio riportato di seguito, è stata aggiunta una linea alla prima diapositiva della presentazione.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
+1. Recupera quella diapositiva dalla [slide collection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/getslides/) mediante il suo indice, 0.
+1. Aggiungi un rettangolo con il metodo [addAutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/addautoshape/) e imposta il suo testo con [setText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/settext/).
+1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/save/).
+1. Rilascia la presentazione con il metodo [dispose](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/dispose/) e termina il processo.
 
 ```javascript
-// Istanziare un oggetto Presentation che rappresenta un file di presentazione
-var pres = new aspose.slides.Presentation();
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
 try {
-    // Ottieni la prima diapositiva
-    var slide = pres.getSlides().get_Item(0);
-    // Aggiungi un autoshape di tipo linea
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// Aspose.Slides viene eseguito in una macchina virtuale Java che mantiene Node.js in esecuzione, quindi termina esplicitamente il processo.
+process.exit(0);
 ```
+
+L'angolo in alto a sinistra del rettangolo è a 50 punti dal bordo sinistro e a 50 punti dal bordo superiore della diapositiva, e il rettangolo è largo 400 punti e alto 100 punti. Salva il codice come *hello.js* nella cartella del progetto ed esegui `node hello.js`: salva *hello.pptx*, con una diapositiva contenente quel rettangolo e il suo testo, nella cartella corrente.
+
+Aspose.Slides viene eseguito in una macchina virtuale Java che il pacchetto `java` avvia all'interno del processo Node.js. Questa macchina virtuale impedisce a Node.js di terminare autonomamente al termine dello script, quindi l'esempio termina con `process.exit(0)`.
+
+Senza una licenza, Aspose.Slides aggiunge anche una filigrana di valutazione a ogni diapositiva salvata; vedi [Licenza](/slides/it/nodejs-java/licensing/).
 
 ## **FAQ**
 
-**Quali formati posso utilizzare per salvare una nuova presentazione?**
+### In quali formati posso salvare una nuova presentazione?
 
-È possibile salvare in [PPTX, PPT e ODP](/slides/it/nodejs-java/save-presentation/), ed esportare in [PDF](/slides/it/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/it/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/it/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/it/nodejs-java/convert-powerpoint-to-png/), e [immagini](/slides/it/nodejs-java/convert-powerpoint-to-png/), tra gli altri.
+Puoi salvare in [PPTX, PPT e ODP](/slides/it/nodejs-java/save-presentation/), ed esportare in [PDF](/slides/it/nodejs-java/convert-powerpoint-to-pdf/), [XPS](/slides/it/nodejs-java/convert-powerpoint-to-xps/), [HTML](/slides/it/nodejs-java/convert-powerpoint-to-html/), [SVG](/slides/it/nodejs-java/render-a-slide-as-an-svg-image/), e [immagini](/slides/it/nodejs-java/convert-powerpoint-to-png/), tra gli altri.
 
-**Posso partire da un modello (POTX/POTM) e salvarlo come normale PPTX?**
+### Posso partire da un modello (POTX/POTM) e salvare come un PPTX regolare?
 
-Sì. Caricare il modello e salvarlo nel formato desiderato; i formati POTX/POTM/PPTM e simili [sono supportati](/slides/it/nodejs-java/supported-file-formats/).
+Sì. Carica il modello e salva nel formato desiderato; i formati POTX/POTM/PPTM e simili [sono supportati](/slides/it/nodejs-java/supported-file-formats/).
 
-**Come controllo la dimensione/rapporto d'aspetto della diapositiva quando creo una presentazione?**
+### Come controllo le dimensioni/rapporto d'aspetto delle diapositive quando creo una presentazione?
 
-Impostare la [slide size](/slides/it/nodejs-java/slide-size/) (inclusi preset come 4:3 e 16:9 o dimensioni personalizzate) e scegliere come il contenuto deve essere scalato.
+Imposta le [dimensioni della diapositiva](/slides/it/nodejs-java/slide-size/) (incluse le impostazioni predefinite come 4:3 e 16:9 o dimensioni personalizzate) e scegli come il contenuto deve essere scalato.
 
-**In quali unità sono misurate le dimensioni e le coordinate?**
+### In quali unità sono misurate le dimensioni e le coordinate?
 
-In punti: 1 pollice equivale a 72 unità.
+In punti: 1 pollice corrisponde a 72 unità.
 
-**Come gestire presentazioni molto grandi (con molti file multimediali) per ridurre l'utilizzo di memoria?**
+### Come gestisco presentazioni molto grandi (con molti file multimediali) per ridurre l'uso della memoria?
 
-Utilizzare le [BLOB management strategies](/slides/it/nodejs-java/manage-blob/), limitare l'archiviazione in memoria sfruttando file temporanei e preferire flussi basati su file rispetto a flussi puramente in memoria.
+Utilizza le [strategie di gestione BLOB](/slides/it/nodejs-java/manage-blob/), limita l'archiviazione in memoria sfruttando file temporanei e preferisci i flussi basati su file rispetto a quelli puramente in memoria.
 
-**È possibile creare/salvare presentazioni in parallelo?**
+### Posso creare/salvare presentazioni in parallelo?
 
-Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) da [multiple threads](/slides/it/nodejs-java/multithreading/). Eseguire istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) da [thread multipli](/slides/it/nodejs-java/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
-**Come rimuovere la filigrana di prova e le limitazioni?**
+### Come rimuovo la filigrana di prova e le limitazioni?
 
-[Apply a license](/slides/it/nodejs-java/licensing/) una volta per processo. L'XML della licenza deve rimanere invariato e la configurazione della licenza dovrebbe essere sincronizzata se più thread sono coinvolti.
+[Applica una licenza](/slides/it/nodejs-java/licensing/) una volta per processo. Il file XML della licenza deve rimanere invariato e la configurazione della licenza dovrebbe essere sincronizzata se sono coinvolti più thread.
 
-**Posso firmare digitalmente il PPTX che creo?**
+### Posso firmare digitalmente il PPTX che creo?
 
-Sì. Le [Digital signatures](/slides/it/nodejs-java/digital-signature-in-powerpoint/) (aggiunta e verifica) sono supportate per le presentazioni.
+Sì. Le [Firme digitali](/slides/it/nodejs-java/digital-signature-in-powerpoint/) (creazione e verifica) sono supportate per le presentazioni.
 
-**Le macro (VBA) sono supportate nelle presentazioni create?**
+### Le macro (VBA) sono supportate nelle presentazioni create?
 
-Sì. È possibile [create/edit VBA projects](/slides/it/nodejs-java/presentation-via-vba/) e salvare file abilitati alle macro come PPTM/PPSM.
+Sì. Puoi [creare/modificare progetti VBA](/slides/it/nodejs-java/presentation-via-vba/) e salvare file abilitati alle macro, come PPTM/PPSM.

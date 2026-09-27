@@ -4,186 +4,128 @@ type: docs
 weight: 70
 url: /hu/nodejs-java/installation/
 keywords:
-- Aspose.Slides telepítése
-- Aspose.Slides letöltése
-- Aspose.Slides használata
-- Aspose.Slides telepítés
-- Windows
-- Linux
-- macOS
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Ismerje meg, hogyan telepítheti gyorsan az Aspose.Slides-et. Lépésről lépésre útmutató, rendszerkövetelmények és kódminták — kezdjen el még ma PowerPoint-prezentációkkal dolgozni!"
+  - Aspose.Slides telepítése
+  - Aspose.Slides letöltése
+  - Aspose.Slides használata
+  - Aspose.Slides telepítése
+  - Windows
+  - Linux
+  - macOS
+  - PowerPoint
+  - OpenDocument
+  - prezentáció
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Telepítse az Aspose.Slides for Node.js via Java csomagot npm‑ről Windows, Linux és macOS rendszereken: a szükséges JDK, Python és C++ build eszközök, az npm parancs, valamint egy első szkript az instaláció ellenőrzéséhez."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Az Aspose.Slides for Node.js via Java egy platformfüggetlen API, és bármilyen platformon (Windows, Linux és macOS) használható, ahol a `Node.js` és a [`java`](https://www.npmjs.com/package/java) bridge telepítve van.
+Ez a cikk bemutatja, hogyan telepíthető az Aspose.Slides for Node.js via Java Windows, Linux és macOS operációs rendszereken, valamint hogyan ellenőrizhető, hogy a telepítés működik-e.
 
-## **Telepítés NPM-ből**
+Az Aspose.Slides for Node.js via Java a `aspose.slides.via.java` csomagként érhető el az npm-en. A [`java`](https://github.com/joeferner/node-java) csomag segítségével egy Java virtuális gépen futtatja az Aspose.Slides-t; ez egy natív Node.js kiegészítő, amelyet az npm a telepítés során a számítógépen fordít le. Ezért a telepítéshez a Node.js-en kívül a következőkre is szükség van:
 
-Az Aspose.Slides for Node.js via Java könnyen telepíthető a [NPM](https://www.npmjs.com/) oldalról.
+- **Java Development Kit (JDK) 8 vagy újabb.** A Java futtatókörnyezet önmagában nem elegendő: a fordításhoz a JDK fejlécfájljaira van szükség.
+- **Python 3**, amelyet a [node-gyp](https://github.com/nodejs/node-gyp) build eszköz használ.
+- **C++ build eszközkészlet** az operációs rendszerhez.
 
-1. Hozzon létre egy új mappát, és indítson egy új projektet a következő paranccsal:
-	```
-	$ npm init
-	```
-	
-2. Töltse ki a cím és verzió mezőket (hagyja a többi mezőt az alapértelmezett értékekkel).
-
-3. Telepítse az Aspose.Slides for Node.js via Java-t a következő paranccsal:
-	```
-	$ npm install aspose.slides.via.java
-	```
-
-Ha a telepítés során bármilyen problémába ütközik, kérjük, tekintse meg ezt a [cikket](/slides/hu/nodejs-java/troubleshooting-installation/).
-
-**Használati példa**:
-
-Hozzon létre egy `hello.js` nevű fájlt a projekt mappájában, és adja hozzá a következő mintakódot:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-## **Telepítés ZIP archívumból**
-
-Az Aspose.Slides for Node.js via Java ZIP archívumból történő telepítéséhez és használatához kövesse inkább az alábbi utasításokat:
+## **A követelmények telepítése**
 
 ### **Windows**
 
-1. Telepítse a JDK8-at, és állítsa be a `JAVA_HOME` környezeti változót.  
-1. Telepítse a Node.js-t (https://nodejs.org/en/download/), és adja hozzá a node.exe-t a `PATH`-hoz.  
-1. Telepítse a node-gyp-et.  
-1. Telepítse a Windows Build Tools-t.  
-1. Telepítse a [`java`](https://www.npmjs.com/package/java) bridge-t, és futtassa a következő parancsokat a Parancssorban rendszergazdaként:
-	```bash
-	$ mkdir aspose.slides.nodejs
-
-	$ cd aspose.slides.nodejs
-
-	$ npm install -g node-gyp
-
-	$ npm install --global --production windows-build-tools
-
-	$ npm install java
-	```
-6. [Töltse le az Aspose.Slides for Node.js via Java-t](https://releases.aspose.com/slides/hu/nodejs-java/) és csomagolja ki a `aspose.slides.nodejs/node_modules/aspose.slides.via.java` mappába.  
-7. Hozzon létre egy `hello.js` nevű fájlt az `aspose.slides.nodejs` mappában a következő mintakód használatával:
-	```javascript
-	var aspose = aspose || {};
-
-	aspose.slides = require("aspose.slides.via.java");
-
-	var pres = new aspose.slides.Presentation();
-
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-	console.log("Done");
-	```
-8. Most futtassa a `node hello.js` parancsot a parancssorban.
+1. Telepítse a [Node.js](https://nodejs.org/en/download) 20 vagy újabb verzióját.  
+1. Telepítsen egy JDK‑t, például az [Eclipse Temurin](https://adoptium.net/) verziót, és állítsa be a `JAVA_HOME` környezeti változót a telepítési mappára. A build a `JAVA_HOME` által mutatott JDK‑t használja.  
+1. Telepítse a [Python 3](https://www.python.org/downloads/) verziót.  
+1. Telepítse a [Build Tools for Visual Studio 2022](https://aka.ms/vs/17/release/vs_BuildTools.exe) csomagot a **Desktop development with C++** munkaterülettel. Hagyja a munkaterület alapértelmezett összetevőit, amelyek tartalmazzák a **MSVC v143 – VS 2022 C++ x64/x86 build tools** és a **Windows 11 SDK** elemeket. A Visual Studio 2026 nem működik: a `java` csomag által lefordított node‑gyp verzió nem ismeri fel azt.
 
 ### **Linux**
 
-1. Telepítse a Node.js-t (https://nodejs.org/en/download/).  
-1. Telepítse a Linuxra szánt JDK8-at, és állítsa be a `JAVA_HOME` környezeti változót.  
-1. Telepítse a python 2.x-et.  
-1. Telepítse a [`java`](https://www.npmjs.com/package/java) bridge-t. A következő parancsokat futtathatja a terminálban:
-	```bash
-	$ mkdir aspose.slides.nodejs
+Telepítse a Node.js 20 vagy újabb verzióját a [nodejs.org](https://nodejs.org/en/download) oldalról vagy a disztribúciója csomagforrásából. Ezután telepítsen egy JDK‑t, a Python 3‑at és a C++ build eszközöket. Debian és Ubuntu rendszerek esetén:
 
-	$ cd aspose.slides.nodejs
+```bash
+sudo apt-get update
+sudo apt-get install -y default-jdk python3 build-essential
+```
 
-	$ npm install java
-	```
-5. [Töltse le az Aspose.Slides for Node.js via Java-t](https://releases.aspose.com/slides/hu/nodejs-java/) és csomagolja ki a `aspose.slides.nodejs/node_modules/aspose.slides.via.java` mappába.  
-6. Hozzon létre egy `hello.js` nevű tesztfájlt ezzel a mintakóddal az `aspose.slides.nodejs` mappában:
-	```javascript
-	var aspose = aspose || {};
+Linuxon a build automatikusan megtalálja a telepített JDK‑t további konfiguráció nélkül. Ha több JDK van telepítve, állítsa be a `JAVA_HOME` változót arra, amelyet használni szeretne.
 
-	aspose.slides = require("aspose.slides.via.java");
+### **macOS**
 
-	var pres = new aspose.slides.Presentation();
+Telepítse a Node.js 20 vagy újabb verzióját, egy JDK‑t, valamint az Xcode Command Line Tools‑t, amelyek tartalmazzák a Python 3‑at és a C++ fordítót. A macOS‑specifikus megjegyzéseket a [Telepítés hibakeresése](/slides/hu/nodejs-java/troubleshooting-installation/) oldalon találja.
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+## **Telepítés npm‑ből**
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Hozzon létre egy projektmappát, és telepítse a csomagot:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-	console.log("Done");
-	```
-7. Most futtassa a `node hello.js` parancsot a parancssorban.
+Az npm letölti az Aspose.Slides‑t, és lefordítja a `java` hidat, ami néhány percet vehet igénybe. Ha a fordítás sikertelen, tekintse meg a [Telepítés hibakeresése](/slides/hu/nodejs-java/troubleshooting-installation/) oldalt.
 
-### **Mac**
+## **A telepítés ellenőrzése**
 
-1. Telepítse a Node.js-t (https://nodejs.org/en/download/).  
-1. Telepítse a Mac-re szánt JDK8-at, és állítsa be a `JAVA_HOME` környezeti változót.  
-1. Módosítsa a JVMCapabilities szekciót a `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` fájlban root jogosultsággal. A `jdk1.8.x_xxx.jdk` a JDK verziójától függ. Így nézzen ki:
-	```xml
-	<key>JavaVM</key>
-		<dict>
-			<key>JVMCapabilities</key>
-			<array>
-					<string>JNI</string>
-					<string>BundledApp</string>
-					<string>CommandLine</string>
-			</array>
-	```
-4. Telepítse a python 2.x-et (ha még nincs telepítve).  
-5. Telepítse az Xcode Command Line Tools-t.  
-6. Telepítse a [`java`](https://www.npmjs.com/package/java) bridge-t. Az alábbi parancsokat futtathatja a terminálban:
-	```bash
-	$ mkdir aspose.slides.nodejs
-	 
-	$ cd aspose.slides.nodejs
-	 
-	$ npm install java
-	```
-7. Töltse le az Aspose.Slides for Node.js via Java-t, és csomagolja ki a `aspose.slides.nodejs/node_modules/aspose.slides.via.java` mappába.  
-8. Hozzon létre egy `hello.js` nevű tesztfájlt ezzel a mintakóddal az `aspose.slides.nodejs` mappában:
-	```javascript
-	var aspose = aspose || {};
+Hozzon létre egy *hello.js* nevű fájlt a projektmappában a következő kóddal. A kód létrehoz egy prezentációt, szövegdobozt ad az első diára, és *hello.pptx* néven menti el az eredményt:
 
-	aspose.slides = require("aspose.slides.via.java");
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-	var pres = new aspose.slides.Presentation();
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+// Az Aspose.Slides egy Java virtuális gépen fut, ami a Node.js futását fenntartja, ezért a folyamatot kifejezetten le kell állítani.
+process.exit(0);
+```
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Futtassa a szkriptet:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+```bash
+node hello.js
+```
 
-	console.log("Done");
-	```
-9. Most futtassa a `node hello.js` parancsot a parancssorban.
+Ha a *hello.pptx* megjelenik a projektmappában, a telepítés sikeres. A Java virtuális gép, amely az Aspose.Slides‑t futtatja, megakadályozza, hogy a Node.js önmagától kilépjen, ezért a szkript a `process.exit(0)` utasítással fejeződik be. A [Prezentációk létrehozása](/slides/hu/nodejs-java/create-presentation/) rész magyarázza a kódot.
 
-{{% alert color="primary" %}}
-Kérjük, használja a következő [cikket](https://docs.aspose.com/slides/hu/nodejs-java/troubleshooting-installation/), ha összeállítási hibákkal találkozik az Aspose.Slides for Node.js via Java telepítése során.
-{{% /alert %}}
+## **Telepítés ZIP‑archívumból**
+
+A csomag ZIP‑archívumként is elérhető, ugyanazzal a tartalommal, mint az npm csomag. A telepítés az archívumból a következőképpen történik:
+
+1. Telepítse a fenti operációs rendszeréhez szükséges előfeltételeket.  
+1. Töltse le az archívumot az [Aspose.Slides for Node.js via Java letöltési oldaláról](https://releases.aspose.com/slides/hu/nodejs-java/).  
+1. Hozzon létre egy projektmappát:
+
+    ```bash
+    mkdir hello-slides
+    cd hello-slides
+    npm init -y
+    ```
+
+1. Csomagolja ki az archívumot a projektmappán belül egy *aspose.slides.via.java* nevű almappába, úgy, hogy az archívum *package.json* fájlja a *hello-slides/aspose.slides.via.java/package.json* helyen legyen.  
+1. Telepítse a csomagot ebből a mappából:
+
+    ```bash
+    npm install ./aspose.slides.via.java
+    ```
+
+    Az npm telepíti a csomag által használt `java` hidat, és lefordítja, akárcsak az npm csomag esetén.
+
+1. Ellenőrizze a telepítést a [A telepítés ellenőrzése](#check-the-installation) szakaszban leírtak szerint.
 
 ## **GYIK**
 
-**Van ingyenes verzió vagy próbaidőkorlát?**
+**Van ingyenes változat vagy próbaidőkorlát?**
 
-Igen, alapértelmezés szerint az Aspose.Slides értékelési módban fut, amely vízjelet helyez el, és egyéb korlátozások is lehetnek. A korlátozások eltávolításához alkalmazzon érvényes [licencet](/slides/hu/nodejs-java/licensing/).
+Igen. Licenc nélkül az Aspose.Slides értékelő módban fut: minden mentett diára vizuális vízjelet helyez, valamint a bemeneti prezentációkból beolvasott szöveget csonkolja. Ezeknek a korlátozásoknak a feloldásához alkalmazzon érvényes [licencet](/slides/hu/nodejs-java/licensing/).
+
+**Miért nem lép ki a szkript a futás befejezése után?**
+
+A `java` csomag egy Java virtuális gépet indít a Node.js folyamaton belül, és ez a virtuális gép tartja a folyamatot futásban. Hívja meg a `process.exit`-t, amikor a szkript befejezte a munkáját.

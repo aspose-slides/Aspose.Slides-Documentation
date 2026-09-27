@@ -8,191 +8,124 @@ keywords:
 - تنزيل Aspose.Slides
 - استخدام Aspose.Slides
 - تثبيت Aspose.Slides
-- Windows
-- Linux
-- macOS
+- ويندوز
+- لينكس
+- ماك أو إس
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم كيف تُثبّت Aspose.Slides بسرعة. دليل خطوة بخطوة، متطلبات النظام، وعينات من الشيفرة — ابدأ العمل مع عروض PowerPoint التقديمية اليوم!"
+description: "تثبيت Aspose.Slides لـ Node.js عبر Java من npm على ويندوز، لينكس، وماك أو إس: JDK، Python، وأدوات بناء C++ المطلوبة، أمر npm، وسكريبت أول للتحقق من التثبيت."
 ---
+## **نظرة عامة**
 
-Aspose.Slides لـ Node.js عبر Java هو واجهة برمجة تطبيقات غير مرتبطة بمنصة محددة ويمكن استخدامها على أي منصة (Windows، Linux وMacOS) حيث يتم تثبيت `Node.js` وجسر [`java`](https://www.npmjs.com/package/java).
+تشرح هذه المقالة كيفية تثبيت Aspose.Slides for Node.js via Java على Windows وLinux وmacOS، وكيفية التحقق من أن التثبيت يعمل.
 
-## **التثبيت من NPM**
+يتم توزيع Aspose.Slides for Node.js via Java كحزمة `aspose.slides.via.java` على npm. تعمل الحزمة على تشغيل Aspose.Slides داخل آلة افتراضية Java عبر حزمة [`java`](https://github.com/joeferner/node-java)، وهي إضافة أصلية لـ Node.js يقوم npm بتجميعها على جهازك أثناء التثبيت. لهذا السبب تحتاج عملية التثبيت، إلى جانب Node.js:
 
-يمكنك بسهولة تثبيت Aspose.Slides لـ Node.js عبر Java من [NPM](https://www.npmjs.com/).
+- **مجموعة تطوير جافا (JDK) الإصدار 8 أو أحدث.** لا يكفي وجود بيئة تشغيل جافا فقط: تحتاج عملية البناء إلى ملفات رؤوس JDK.
+- **Python 3**، الذي يستخدمه أداة البناء [node-gyp](https://github.com/nodejs/node-gyp).
+- **سلسلة أدوات بناء C++** الخاصة بنظام التشغيل الخاص بك.
 
-1. أنشئ مجلدًا جديدًا وابدأ مشروعًا جديدًا باستخدام الأمر التالي:
-```
-$ npm init
-```
-
-	
-2. أدخل قيمتي العنوان والإصدار (اترك باقي الحقول بقيمها الافتراضية).
-
-3. ثبّت Aspose.Slides لـ Node.js عبر Java باستخدام الأمر التالي:
-```
-	$ npm install aspose.slides.via.java
-```
-
-
-إذا واجهت أي مشكلة أثناء عملية التثبيت، يرجى الرجوع إلى هذا [المقال](/slides/ar/nodejs-java/troubleshooting-installation/).
-
-**مثال على الاستخدام**:
-
-أنشئ ملفًا باسم `hello.js` في مجلد المشروع وأضف الكود التجريبي التالي:
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-
-## **التثبيت من أرشيف ZIP**
-
-لتثبيت واستخدام Aspose.Slides لـ Node.js عبر Java من أرشيف ZIP، اتبع التعليمات التالية بدلًا من ذلك:
+## **تثبيت المتطلبات المسبقة**
 
 ### **Windows**
 
-1. ثبّت JDK8 وقم بتكوين متغيّر البيئة `JAVA_HOME`.
-1. ثبّت Node.js (https://nodejs.org/en/download/) وأضف node.exe إلى `PATH`.
-1. ثبّت node-gyp.
-1. ثبّت Windows Build Tools.
-1. ثبّت جسر [`java`](https://www.npmjs.com/package/java) وقم بتنفيذ الأوامر التالية في موجه الأوامر كمسؤول:
-	```bash
-	$ mkdir aspose.slides.nodejs
-
-	$ cd aspose.slides.nodejs
-
-	$ npm install -g node-gyp
-
-	$ npm install --global --production windows-build-tools
-
-	$ npm install java
-	```
-
-6. [حمّل Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/) واستخرجها إلى `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-7. أنشئ ملفًا باسم `hello.js` في مجلد `aspose.slides.nodejs` باستخدام الكود التجريبي التالي:
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-
-8. الآن شغّل `node hello.js` في موجه الأوامر لتشغيله.
+1. قم بتثبيت [Node.js](https://nodejs.org/en/download) الإصدار 20 أو أحدث.  
+2. قم بتثبيت JDK، مثال ذلك [Eclipse Temurin](https://adoptium.net/)، وضع متغير البيئة `JAVA_HOME` إلى مجلد التثبيت. يستخدم البناء JDK الذي يشير إليه `JAVA_HOME`.  
+3. قم بتثبيت [Python 3](https://www.python.org/downloads/).  
+4. قم بتثبيت [Build Tools for Visual Studio 2022](https://aka.ms/vs/17/release/vs_BuildTools.exe) مع مجموعة العمل **Desktop development with C++**. احتفظ بالمكونات الافتراضية لمجموعة العمل، والتي تشمل **MSVC v143 - VS 2022 C++ x64/x86 build tools** و **Windows 11 SDK**. لا يعمل Visual Studio 2026: إصدار node-gyp الذي تُجمع به حزمة `java` لا يتعرف عليه.
 
 ### **Linux**
 
-1. ثبّت Node.js (https://nodejs.org/en/download/).
-1. ثبّت JDK8 لـ Linux وقم بتكوين متغيّر البيئة `JAVA_HOME`.
-1. ثبّت python 2.x
-1. ثبّت جسر [`java`](https://www.npmjs.com/package/java). يمكنك تشغيل الأوامر التالية في الطرفية:
-	```bash
-	$ mkdir aspose.slides.nodejs
+قم بتثبيت Node.js 20 أو أحدث من [nodejs.org](https://nodejs.org/en/download) أو من مصدر حزم توزيعتك. ثم ثبّث JDK، Python 3، وأدوات بناء C++. على Debian وUbuntu:
 
-	$ cd aspose.slides.nodejs
+```bash
+sudo apt-get update
+sudo apt-get install -y default-jdk python3 build-essential
+```
 
-	$ npm install java
-	```
+في Linux، يجد البناء JDK المثبت تلقائيًا دون مزيد من الإعداد. إذا تم تثبيت عدة إصدارات من JDK، عيّن `JAVA_HOME` إلى الإصدار الذي تريد استخدامه.
 
-5. [حمّل Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/) واستخرجها إلى `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-6. أنشئ ملف اختبار باسم `hello.js` باستخدام هذا الكود التجريبي في مجلد `aspose.slides.nodejs`:
+### **macOS**
+
+قم بتثبيت Node.js 20 أو أحدث، JDK، وأدوات سطر أوامر Xcode، التي تتضمن Python 3 ومترجم C++. راجع [Troubleshooting Installation](/slides/ar/nodejs-java/troubleshooting-installation/) للحصول على ملاحظات خاصة بنظام macOS.
+
+## **التثبيت من npm**
+
+أنشئ مجلد مشروع وقم بتثبيت الحزمة:
+
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
+
+يقوم npm بتنزيل Aspose.Slides وتجميع جسر `java`، وقد يستغرق ذلك بضع دقائق. إذا فشل التجميع، راجع [Troubleshooting Installation](/slides/ar/nodejs-java/troubleshooting-installation/).
+
+## **التحقق من التثبيت**
+
+أنشئ ملفًا باسم *hello.js* داخل مجلد المشروع بالمحتوى التالي. يُنشئ الملف عرضًا تقديميًا، يضيف مربع نص إلى الشريحة الأولى، ويحفظ النتيجة كملف *hello.pptx*:
+
 ```javascript
-var aspose = aspose || {};
+const asposeSlides = require("aspose.slides.via.java");
 
-aspose.slides = require("aspose.slides.via.java");
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
+// Aspose.Slides يعمل داخل آلة افتراضية Java تبقي Node.js قيد التشغيل، لذلك يجب إنهاء العملية بشكل صريح.
+process.exit(0);
 ```
 
-7. الآن شغّل `node hello.js` في موجه الأوامر لتشغيله.
+شغّل السكريبت:
 
-### **Mac**
-
-1. ثبّت Node.js (https://nodejs.org/en/download/).
-1. ثبّت JDK8 لـ Mac وقم بتكوين متغيّر البيئة `JAVA_HOME`.
-1. عدّل قسم JVMCapabilities في `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` بامتيازات الجذر. يعتمد `jdk1.8.x_xxx.jdk` على إصدار JDK الخاص بك. اجعل المحتوى كما يلي:
-```xml
-<key>JavaVM</key>
-	<dict>
-		<key>JVMCapabilities</key>
-		<array>
-				<string>JNI</string>
-				<string>BundledApp</string>
-				<string>CommandLine</string>
-		</array>
+```bash
+node hello.js
 ```
 
-4. ثبّت python 2.x (إذا لم يكن مثبتًا).
-5. ثبّت أدوات سطر أوامر Xcode.
-6. ثبّت جسر [`java`](https://www.npmjs.com/package/java). يمكنك تشغيل الأوامر التالية في الطرفية:
-	```bash
-	$ mkdir aspose.slides.nodejs
-	 
-	$ cd aspose.slides.nodejs
-	 
-	$ npm install java
-	```
+إذا ظهر ملف *hello.pptx* في مجلد المشروع، فإن التثبيت يعمل. تحتفظ آلة Java الافتراضية التي تشغّل Aspose.Slides بـ Node.js من الخروج تلقائيًا، لذا ينتهي السكريبت بـ `process.exit(0)`. يوضح [Create Presentations](/slides/ar/nodejs-java/create-presentation/) الكود.
 
-7. حمّل Aspose.Slides لـ Node.js عبر Java واستخرجها إلى `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-8. أنشئ ملف اختبار باسم `hello.js` باستخدام هذا الكود التجريبي في مجلد `aspose.slides.nodejs`:
-```javascript
-var aspose = aspose || {};
+## **التثبيت من أرشيف ZIP**
 
-aspose.slides = require("aspose.slides.via.java");
+الحزمة متوفرة أيضًا كأرشيف ZIP يحتوي على نفس محتوى حزمة npm. لتثبيتها من الأرشيف:
 
-var pres = new aspose.slides.Presentation();
+1. قم بتثبيت المتطلبات المسبقة لنظام تشغيلك كما هو موضح أعلاه.  
+2. نزّل الأرشيف من صفحة تحميل [Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/ar/nodejs-java/).  
+3. أنشئ مجلد مشروع:
 
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ```bash
+    mkdir hello-slides
+    cd hello-slides
+    npm init -y
+    ```
 
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+4. استخرج الأرشيف إلى مجلد فرعي باسم *aspose.slides.via.java* داخل مجلد المشروع، بحيث يكون ملف *package.json* الخاص بالأرشيف في المسار *hello-slides/aspose.slides.via.java/package.json*.  
+5. قم بتثبيت الحزمة من هذا المجلد:
 
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+    ```bash
+    npm install ./aspose.slides.via.java
+    ```
 
-console.log("Done");
-```
+    يقوم npm بتثبيت جسر `java` الذي تعتمد عليه الحزمة ويجمعه، كما يفعل مع حزمة npm.
 
-9. الآن شغّل `node hello.js` في موجه الأوامر لتشغيله.
+6. تحقق من التثبيت كما هو موضح في [Check the Installation](#check-the-installation).
 
-{{% alert color="primary" %}}
-يرجى استخدام هذا [المقال](https://docs.aspose.com/slides/nodejs-java/troubleshooting-installation/) إذا واجهت أخطاء تجميع أثناء تثبيت Aspose.Slides لـ Node.js عبر Java.
-{{% /alert %}}
+## **FAQ**
 
-## **الأسئلة المتكررة**
+**هل هناك نسخة مجانية أو حدود تجريبية؟**
 
-**هل هناك نسخة مجانية أو حد تجريبي؟**
+نعم. بدون ترخيص، يعمل Aspose.Slides في وضع التقييم: يضيف علامة مائية تقييم إلى كل شريحة يتم حفظها ويقتطع النص المقروء من العروض التقديمية. لإزالة هذه القيود، طبّق ترخيصًا صالحًا [license](/slides/ar/nodejs-java/licensing/).
 
-نعم، بشكلٍ افتراضي يعمل Aspose.Slides في وضع التقييم، مما يضيف علامات مائية وقد يكون له قيود أخرى. لإزالة القيود، تحتاج إلى تطبيق [ترخيص](/slides/ar/nodejs-java/licensing/) صالح.
+**لماذا لا ينتهي السكريبت تلقائيًا بعد الانتهاء؟**
+
+تبدأ حزمة `java` آلة Java افتراضية داخل عملية Node.js، وتظل تلك الآلة تبقي العملية تعمل. استدعِ `process.exit` عندما ينتهي السكريبت من أداء مهمته.

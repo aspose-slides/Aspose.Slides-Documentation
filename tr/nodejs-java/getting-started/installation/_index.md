@@ -4,9 +4,9 @@ type: docs
 weight: 70
 url: /tr/nodejs-java/installation/
 keywords:
-- Aspose.Slides'i kur
-- Aspose.Slides'i indir
-- Aspose.Slides'i kullan
+- Aspose.Slides’i kur
+- Aspose.Slides’i indir
+- Aspose.Slides’i kullan
 - Aspose.Slides kurulumu
 - Windows
 - Linux
@@ -17,174 +17,115 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides'i hızlıca nasıl kuracağınızı öğrenin. Adım adım kılavuz, sistem gereksinimleri ve kod örnekleri — bugün PowerPoint sunumlarıyla çalışmaya başlayın!"
+description: "Windows, Linux ve macOS üzerinde npm'den Java aracılığıyla Node.js için Aspose.Slides'i kurun: ihtiyaç duyduğu JDK, Python ve C++ derleme araçları, npm komutu ve kurulumu kontrol etmek için ilk betik."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Aspose.Slides for Node.js via Java platformdan bağımsız bir API'dir ve `Node.js` ve [`java`](https://www.npmjs.com/package/java) köprüsü yüklü olduğu herhangi bir platformda (Windows, Linux ve macOS) kullanılabilir.
+Bu makale, Aspose.Slides for Node.js via Java'nin Windows, Linux ve macOS üzerinde nasıl kurulacağını ve kurulumun çalıştığını nasıl kontrol edeceğinizi açıklar.
 
-## **NPM'den Yükleme**
+Aspose.Slides for Node.js via Java, npm üzerinde `aspose.slides.via.java` paketi olarak dağıtılır. [`java`](https://github.com/joeferner/node-java) paketi aracılığıyla Aspose.Slides'i bir Java sanal makinesinde çalıştırır; bu, npm'nin kurulum sırasında bilgisayarınızda derlediği yerel bir Node.js eklentisidir. Bu nedenle kurulum, Node.js'in yanı sıra şunları da gerektirir:
 
-Aspose.Slides for Node.js via Java'i kolayca [NPM](https://www.npmjs.com/) üzerinden yükleyebilirsiniz.
+- **Java Development Kit (JDK) 8 veya üzeri.** Tek bir Java çalışma zamanı yeterli değildir: derleme JDK'nin başlık dosyalarına ihtiyaç duyar.
+- **Python 3**, derleme aracı [node-gyp](https://github.com/nodejs/node-gyp) tarafından kullanılır.
+- **İşletim sisteminiz için bir C++ derleme araç zinciri**.
 
-1. Yeni bir klasör oluşturun ve aşağıdaki komutu kullanarak yeni bir proje başlatın:
-	```
-	$ npm init
-	```
-	
-2. Fill in the title and version fields (leave the remaining fields with their default values).
-
-3. Install Aspose.Slides for Node.js via Java using the following command:
-	```
-	$ npm install aspose.slides.via.java
-	```
-
-If you encounter any problem during the installation process, please refer to this [article](/slides/tr/nodejs-java/troubleshooting-installation/).
-
-**Usage Example**:
-
-Create a file named `hello.js` in your project folder and add the following sample code:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-## **ZIP arşivinden Yükleme**
-
-Aspose.Slides for Node.js via Java'i bir ZIP arşivinden yüklemek ve kullanmak için aşağıdaki talimatları izleyin:
+## **Gereksinimleri Yükleyin**
 
 ### **Windows**
 
-1. JDK8'i kurun ve `JAVA_HOME` ortam değişkenini yapılandırın.
-1. Node.js (https://nodejs.org/en/download/) kurun ve node.exe dosyasını `PATH` değişkenine ekleyin.
-1. node-gyp'i kurun.
-1. Windows Build Tools'u kurun.
-1. [`java`](https://www.npmjs.com/package/java) köprüsünü kurun ve bu komutları Yönetici olarak bir Komut İstemi'nde çalıştırın:
-	```bash
-	$ mkdir aspose.slides.nodejs
-
-	$ cd aspose.slides.nodejs
-
-	$ npm install -g node-gyp
-
-	$ npm install --global --production windows-build-tools
-
-	$ npm install java
-	```
-6. [Aspose.Slides for Node.js via Java'i indirin](https://releases.aspose.com/slides/tr/nodejs-java/) ve `aspose.slides.nodejs/node_modules/aspose.slides.via.java` konumuna çıkarın.
-7. Aşağıdaki örnek kodu kullanarak `aspose.slides.nodejs` klasöründe `hello.js` adlı bir dosya oluşturun:
-	```javascript
-	var aspose = aspose || {};
-
-	aspose.slides = require("aspose.slides.via.java");
-
-	var pres = new aspose.slides.Presentation();
-
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-	console.log("Done");
-	```
-8. Şimdi `node hello.js` komut satırında çalıştırın.
+1. Node.js 20 veya üzerini [Node.js](https://nodejs.org/en/download) sitesinden yükleyin.
+2. Örneğin [Eclipse Temurin](https://adoptium.net/) gibi bir JDK yükleyin ve `JAVA_HOME` ortam değişkenini kurulum klasörüne ayarlayın. Derleme, `JAVA_HOME`'un işaret ettiği JDK'yi kullanır.
+3. [Python 3](https://www.python.org/downloads/) yükleyin.
+4. [Build Tools for Visual Studio 2022](https://aka.ms/vs/17/release/vs_BuildTools.exe) paketini **Desktop development with C++** iş yüküyle yükleyin. İş yükünün varsayılan bileşenlerini (örneğin **MSVC v143 - VS 2022 C++ x64/x86 build tools** ve **Windows 11 SDK**) koruyun. Visual Studio 2026 çalışmaz: `java` paketinin derlediği node-gyp sürümü bunu tanımaz.
 
 ### **Linux**
 
-1. Node.js (https://nodejs.org/en/download/) kurun.
-1. Linux için JDK8'i kurun ve `JAVA_HOME` ortam değişkenini yapılandırın.
-1. python 2.x kurun.
-1. [`java`](https://www.npmjs.com/package/java) köprüsünü kurun. Terminalde aşağıdaki komutları çalıştırabilirsiniz:
-	```bash
-	$ mkdir aspose.slides.nodejs
+Node.js 20 veya üzerini [nodejs.org](https://nodejs.org/en/download) adresinden ya da dağıtımınızın paket kaynağından yükleyin. Ardından bir JDK, Python 3 ve C++ derleme araçlarını kurun. Debian ve Ubuntu için:
 
-	$ cd aspose.slides.nodejs
+```bash
+sudo apt-get update
+sudo apt-get install -y default-jdk python3 build-essential
+```
 
-	$ npm install java
-	```
-5. [Aspose.Slides for Node.js via Java'i indirin](https://releases.aspose.com/slides/tr/nodejs-java/) ve `aspose.slides.nodejs/node_modules/aspose.slides.via.java` konumuna çıkarın.
-6. `aspose.slides.nodejs` klasöründe aşağıdaki örnek kodu kullanarak `hello.js` adlı bir test dosyası oluşturun:
-	```javascript
-	var aspose = aspose || {};
+Linux'ta, derleme kurulu JDK'yı ek bir yapılandırma olmadan bulur. Birden fazla JDK yüklüyse, kullanmak istediğiniz JDK'yı `JAVA_HOME` değişkenine ayarlayın.
 
-	aspose.slides = require("aspose.slides.via.java");
+### **macOS**
 
-	var pres = new aspose.slides.Presentation();
+Node.js 20 veya üzerini, bir JDK'yı ve Python 3 ile C++ derleyicisini içeren Xcode Command Line Tools'u kurun. macOS'a özgü notlar için [Troubleshooting Installation](/slides/tr/nodejs-java/troubleshooting-installation/) sayfasına bakın.
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+## **npm'den Yükleme**
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Bir proje klasörü oluşturun ve paketi kurun:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-	console.log("Done");
-	```
-7. Şimdi `node hello.js` komut satırında çalıştırın.
+npm, Aspose.Slides'ı indirir ve birkaç dakika sürebilen `java` köprüsünü derler. Derleme başarısız olursa, [Troubleshooting Installation](/slides/tr/nodejs-java/troubleshooting-installation/) sayfasına bakın.
 
-### **Mac**
+## **Kurulumu Kontrol Et**
 
-1. Node.js (https://nodejs.org/en/download/) kurun.
-1. Mac için JDK8'i kurun ve `JAVA_HOME` ortam değişkenini yapılandırın.
-1. `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` içindeki JVMCapabilities bölümünü root yetkisiyle değiştirin. `jdk1.8.x_xxx.jdk` kısmı jdk sürümünüze bağlıdır. Aşağıdaki gibi görünmelidir:
-	```xml
-	<key>JavaVM</key>
-		<dict>
-			<key>JVMCapabilities</key>
-			<array>
-					<string>JNI</string>
-					<string>BundledApp</string>
-					<string>CommandLine</string>
-			</array>
-	```
-4. python 2.x kurun (yüklü değilse).
-5. Xcode Command Line Tools'u kurun.
-6. [`java`](https://www.npmjs.com/package/java) köprüsünü kurun. Terminalde aşağıdaki komutları çalıştırabilirsiniz:
-	```bash
-	$ mkdir aspose.slides.nodejs
-	 
-	$ cd aspose.slides.nodejs
-	 
-	$ npm install java
-	```
-7. Aspose.Slides for Node.js via Java'i indirin ve `aspose.slides.nodejs/node_modules/aspose.slides.via.java` klasörüne çıkarın.
-8. Aşağıdaki örnek kodu kullanarak `aspose.slides.nodejs` klasöründe `hello.js` adlı bir test dosyası oluşturun:
-	```javascript
-	var aspose = aspose || {};
+Proje klasöründe *hello.js* adlı bir dosya oluşturun ve aşağıdaki kodu ekleyin. Bu kod bir sunum oluşturur, ilk slaytına bir metin kutusu ekler ve sonucu *hello.pptx* olarak kaydeder:
 
-	aspose.slides = require("aspose.slides.via.java");
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-	var pres = new aspose.slides.Presentation();
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+// Aspose.Slides, Node.js'in çalışmasını sürdüren bir Java sanal makinesinde çalışır, bu yüzden süreci açıkça sonlandırın.
+process.exit(0);
+```
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Betik çalıştırın:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+```bash
+node hello.js
+```
 
-	console.log("Done");
-	```
-9. Şimdi `node hello.js` komut satırında çalıştırın.
+*hello.pptx* proje klasöründe görünüyorsa kurulum çalışıyor demektir. Aspose.Slides'ı çalıştıran Java sanal makinesi, Node.js'in kendi kendine çıkmasını engeller; bu yüzden betik `process.exit(0)` ile sonlandırılır. Kodu açıklayan sayfaya bakın: [Create Presentations](/slides/tr/nodejs-java/create-presentation/).
 
+## **ZIP Arşivinden Yükleme**
 
-{{% alert color="primary" %}}
-Aspose.Slides for Node.js via Java kurulum sırasında derleme hatalarıyla karşılaşırsanız lütfen aşağıdaki [makaleyi](https://docs.aspose.com/slides/tr/nodejs-java/troubleshooting-installation/) kullanın.
-{{% /alert %}}
+Paket ayrıca npm paketiyle aynı içeriğe sahip bir ZIP arşivi olarak da sunulur. Arşivden yüklemek için:
 
-## **SSS**
+1. Yukarıda açıklandığı gibi işletim sisteminiz için gereksinimleri kurun.
+2. Arşivi [Aspose.Slides for Node.js via Java indirme sayfasından](https://releases.aspose.com/slides/tr/nodejs-java/) indirin.
+3. Bir proje klasörü oluşturun:
+
+    ```bash
+    mkdir hello-slides
+    cd hello-slides
+    npm init -y
+    ```
+
+4. Arşivi proje klasörünün içinde *aspose.slides.via.java* adlı bir alt klasöre çıkarın; böylece arşivin *package.json* dosyası *hello-slides/aspose.slides.via.java/package.json* yolunda olur.
+5. Paketi o klasörden kurun:
+
+    ```bash
+    npm install ./aspose.slides.via.java
+    ```
+
+    npm, paketin bağımlı olduğu `java` köprüsünü kurar ve npm paketinde olduğu gibi derler.
+
+6. [Kurulumu Kontrol Et](#check-the-installation) bölümünde açıklandığı gibi kurulumu kontrol edin.
+
+## **FAQ**
 
 **Ücretsiz bir sürüm veya deneme sınırlaması var mı?**
 
-Evet, varsayılan olarak Aspose.Slides değerlendirme modunda çalışır; bu mod filigran ekler ve diğer sınırlamalara sahip olabilir. Kısıtlamaları kaldırmak için geçerli bir [lisans](/slides/tr/nodejs-java/licensing/) uygulamanız gerekir.
+Evet. Lisans olmadan Aspose.Slides değerlendirme modunda çalışır: kaydettiği her slayta bir değerlendirme filigranı ekler ve sunumlardan okunan metni kısaltır. Bu sınırlamaları kaldırmak için geçerli bir [license](/slides/tr/nodejs-java/licensing/) uygulayın.
+
+**Betik tamamlandıktan sonra neden çıkmıyor?**
+
+`java` paketi, Node.js süreci içinde bir Java sanal makinesi başlatır ve bu sanal makine sürecin çalışmasını sürdürür. Betiğiniz işi bittiğinde `process.exit` çağırın.

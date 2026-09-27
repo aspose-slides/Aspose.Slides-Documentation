@@ -1,52 +1,120 @@
 ---
-title: "Aspose.Slides cho Node.js qua Java"
-second_title: Aspose.Slides for Node.js
+title: Aspose.Slides cho Node.js qua Java
+second_title: Aspose.Slides cho Node.js
 type: docs
 weight: 47
 url: /vi/nodejs-java/
 keywords:
-- "tài liệu"
-- "xử lý bài thuyết trình"
-- "chuyển đổi bài thuyết trình"
-- "PowerPoint"
-- "OpenDocument"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Aspose.Slides là API quản lý Microsoft PowerPoint® cho phép các ứng dụng đọc và ghi tài liệu PowerPoint® mà không cần sử dụng Microsoft PowerPoint®."
+- tài liệu
+- xử lý bài thuyết trình
+- chuyển đổi bài thuyết trình
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Bắt đầu tại đây: cài đặt Aspose.Slides cho Node.js qua Java, tạo một bài thuyết trình đầu tiên, và tìm các hướng dẫn cho các nhiệm vụ phổ biến, tham khảo API và hỗ trợ."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides cho Node.js qua Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Chào mừng đến với Aspose.Slides for Node.js via Java**
+Aspose.Slides cho Node.js qua Java là một thư viện để tạo, đọc, chỉnh sửa và chuyển đổi các bài thuyết trình PowerPoint và OpenDocument trong các ứng dụng Node.js, mà không cần Microsoft PowerPoint.
 
-![Logo Sản phẩm Aspose.Slides for Node.js via Java](aspose_slides-for-nodejs-via-java.png)
+Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP, bao gồm các phiên bản hỗ trợ macro và mẫu, và xuất ra PDF, XPS, HTML, SVG, TIFF, Markdown và hình ảnh.
 
-Aspose.Slides for Node.js via Java là một thư viện lớp cho phép ứng dụng của bạn đọc và ghi tài liệu PowerPoint® mà không cần sử dụng Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Aspose.Slides for Node.js via Java là thành phần đầu tiên và duy nhất cung cấp chức năng quản lý tài liệu PowerPoint®.
+------
 
-Aspose.Slides for Node.js via Java cung cấp nhiều tính năng then chốt như quản lý văn bản, hình dạng, bảng & hoạt hình, thêm âm thanh và video vào các slide, xem trước slide, xuất slide sang định dạng SVG, PDF và nhiều hơn nữa.
+<div class="row">
+<div class="col-md-4">
+<p><b>Bắt đầu</b></p>
+<hr>
+<p>BẮT ĐẦU</p>
+<ul>
+<li><a href="/slides/vi/nodejs-java/installation/">Cài đặt</a></li>
+<li><a href="/slides/vi/nodejs-java/create-presentation/">Tạo bài thuyết trình đầu tiên của bạn</a></li>
+<li><a href="/slides/vi/nodejs-java/getting-started/">Hướng dẫn bắt đầu</a></li>
+</ul>
+<p>ĐÁNH GIÁ</p>
+<ul>
+<li><a href="/slides/vi/nodejs-java/supported-file-formats/">Định dạng tệp được hỗ trợ</a></li>
+<li><a href="/slides/vi/nodejs-java/evaluate-aspose-slides/">Giới hạn dùng thử</a></li>
+<li><a href="/slides/vi/nodejs-java/licensing/">Giấy phép</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Xây dựng với Slides</b></p>
+<hr>
+<p>CÔNG VIỆC THƯỜNG</p>
+<ul>
+<li><a href="/slides/vi/nodejs-java/open-presentation/">Mở một bài thuyết trình</a></li>
+<li><a href="/slides/vi/nodejs-java/save-presentation/">Lưu một bài thuyết trình</a></li>
+<li><a href="/slides/vi/nodejs-java/convert-powerpoint-to-pdf/">Chuyển đổi sang PDF</a></li>
+<li><a href="/slides/vi/nodejs-java/convert-slide/">Kết xuất các slide dưới dạng hình ảnh</a></li>
+<li><a href="/slides/vi/nodejs-java/manage-text/">Chỉnh sửa văn bản và hình dạng</a></li>
+</ul>
+<p>QUY TRÌNH SLIDE</p>
+<ul>
+<li><a href="/slides/vi/nodejs-java/powerpoint-charts/">Biểu đồ</a></li>
+<li><a href="/slides/vi/nodejs-java/powerpoint-animation/">Hoạt ảnh</a></li>
+<li><a href="/slides/vi/nodejs-java/manage-media-files/">Âm thanh và video</a></li>
+<li><a href="/slides/vi/nodejs-java/presentation-design/">Thiết kế slide</a></li>
+<li><a href="/slides/vi/nodejs-java/merge-presentation/">Hợp nhất các bài thuyết trình</a></li>
+</ul>
+<p>VÍ DỤ</p>
+<ul>
+<li><a href="/slides/vi/nodejs-java/examples/">Ví dụ theo phần tử slide</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Tham khảo &amp; Hỗ trợ</b></p>
+<hr>
+<p>THAM KHẢO</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/vi/nodejs-java/">Tham khảo API</a></li>
+<li><a href="https://releases.aspose.com/slides/vi/nodejs-java/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="/slides/vi/nodejs-java/known-issues/">Vấn đề đã biết</a></li>
+<li><a href="https://releases.aspose.com/slides/vi/nodejs-java/">Tải xuống</a></li>
+</ul>
+<p>HỖ TRỢ</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://helpdesk.aspose.com/">Trợ giúp hỗ trợ trả phí</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Tài nguyên Aspose.Slides for Node.js via Java
+## **Bài thuyết trình đầu tiên của bạn**
 
-{{% alert color="primary" %}}
+Ngoài Node.js 20 trở lên, gói này yêu cầu một Java Development Kit (JDK), Python và một chuỗi công cụ xây dựng C++, vì npm biên dịch cầu nối `java` trong quá trình cài đặt. Xem [Cài đặt](/slides/vi/nodejs-java/installation/) để biết các bước trên mỗi hệ điều hành. Sau đó tạo một dự án và cài đặt gói từ npm:
 
-Aspose.Slides for Node.js via Java được chuyển đổi từ Aspose.Slides for Java, vì vậy bạn có thể sử dụng tài liệu và tham chiếu API của phiên bản này.
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-{{% /alert %}}
+Lưu đoạn mã này dưới dạng *hello.js* trong thư mục dự án:
 
-Đây là các liên kết tới các tài nguyên hữu ích:
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-- [Tài liệu trực tuyến Aspose.Slides for Node.js via Java](/slides/vi/nodejs-java/developer-guide/)
-- [Tính năng Aspose.Slides for Node.js via Java](/slides/vi/nodejs-java/features-overview/)
-- [Giới hạn và khác biệt API của Aspose.Slides for Node.js via Java](/slides/vi/nodejs-java/limitations-and-api-differences/)
-- [Ghi chú phát hành Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/vi/nodejs-java/release-notes/)
-- [Trang sản phẩm Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/vi/nodejs-java/)
-- [Tải về gói Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/vi/nodejs-java/)
-- [Cài đặt Aspose.Slides for Node.js via Java](/slides/vi/nodejs-java/installation/)
-- [Tham chiếu API Aspose.Slides for Node.js via Java](https://reference.aspose.com/slides/vi/nodejs-java/)
-- [Diễn đàn hỗ trợ miễn phí Aspose.Slides for Node.js via Java](https://forum.aspose.com/c/slides/vi/)
-- [Trung tâm hỗ trợ trả phí Aspose.Slides for Node.js via Java](https://helpdesk.aspose.com/)
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+// Aspose.Slides chạy trong một máy ảo Java giữ cho Node.js tiếp tục chạy, vì vậy hãy kết thúc tiến trình một cách rõ ràng.
+process.exit(0);
+```
+
+Chạy nó bằng `node hello.js`. Kịch bản sẽ lưu *hello.pptx* với một slide chứa hộp văn bản. Nếu không có giấy phép, tệp đã lưu sẽ có dấu bản quyền đánh dấu — xem [Giấy phép](/slides/vi/nodejs-java/licensing/). Để biết thêm cách tạo và điền nội dung cho một bài thuyết trình, xem [Tạo bài thuyết trình](/slides/vi/nodejs-java/create-presentation/).

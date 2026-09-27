@@ -8,189 +8,124 @@ keywords:
 - ดาวน์โหลด Aspose.Slides
 - ใช้ Aspose.Slides
 - การติดตั้ง Aspose.Slides
-- Windows
-- Linux
+- วินโดวส์
+- ลินุกซ์
 - macOS
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Node.js
-- JavaScript
+- จาวาสคริปต์
 - Aspose.Slides
-description: "เรียนรู้วิธีการติดตั้ง Aspose.Slides อย่างรวดเร็ว คู่มือทีละขั้นตอน ข้อกำหนดของระบบ และตัวอย่างโค้ด — เริ่มทำงานกับการนำเสนอ PowerPoint วันนี้!"
+description: "ติดตั้ง Aspose.Slides สำหรับ Node.js ผ่าน Java จาก npm บน Windows, Linux, และ macOS: JDK, Python, และเครื่องมือการสร้าง C++ ที่จำเป็น, คำสั่ง npm, และสคริปต์แรกเพื่อตรวจสอบการติดตั้ง."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-Aspose.Slides for Node.js via Java เป็น API ที่ไม่ขึ้นกับแพลตฟอร์มและสามารถใช้ได้บนแพลตฟอร์มใดก็ได้ (Windows, Linux และ MacOS) ที่มีการติดตั้ง `Node.js` และสะพาน [`java`](https://www.npmjs.com/package/java) 
+บทความนี้อธิบายวิธีการติดตั้ง Aspose.Slides for Node.js via Java บน Windows, Linux, และ macOS รวมถึงวิธีตรวจสอบว่าการติดตั้งทำงานได้หรือไม่
 
-## **ติดตั้งจาก NPM**
+Aspose.Slides for Node.js via Java จะจัดจำหน่ายเป็นแพ็คเกจ `aspose.slides.via.java` บน npm ซึ่งทำงานโดยรัน Aspose.Slides ในเครื่องเสมือน Java ผ่านแพ็คเกจ [`java`](https://github.com/joeferner/node-java) ซึ่งเป็นส่วนเสริมของ Node.js ที่ npm จะคอมไพล์บนเครื่องของคุณระหว่างการติดตั้ง นั่นคือเหตุผลที่การติดตั้งต้องการสิ่งต่อไปนี้ นอกเหนือจาก Node.js:
 
-คุณสามารถติดตั้ง Aspose.Slides for Node.js via Java ได้อย่างง่ายดายจาก [NPM](https://www.npmjs.com/).
+- **Java Development Kit (JDK) 8 หรือใหม่กว่า**. เพียงแค่ Java runtime ไม่เพียงพอ: การสร้างต้องใช้ไฟล์หัวของ JDK
+- **Python 3** ซึ่งเครื่องมือสร้าง [node-gyp](https://github.com/nodejs/node-gyp) ใช้
+- **ชุดเครื่องมือการสร้าง C++** สำหรับระบบปฏิบัติการของคุณ
 
-1. สร้างโฟลเดอร์ใหม่และเริ่มโครงการใหม่โดยใช้คำสั่งต่อไปนี้:
-	```
-	$ npm init
-	```
-	
-2. กรอกช่องชื่อเรื่องและเวอร์ชัน (ปล่อยช่องที่เหลือไว้ด้วยค่าเริ่มต้น)
-
-3. ติดตั้ง Aspose.Slides for Node.js via Java โดยใช้คำสั่งต่อไปนี้:
-	```
-	$ npm install aspose.slides.via.java
-	```
-
-หากคุณพบปัญหาใด ๆ ระหว่างกระบวนการติดตั้ง โปรดดูบทความนี้ [article](/slides/th/nodejs-java/troubleshooting-installation/).
-
-**ตัวอย่างการใช้งาน**:
-
-สร้างไฟล์ชื่อ `hello.js` ในโฟลเดอร์โครงการของคุณและเพิ่มโค้ดตัวอย่างต่อไปนี้:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-## **ติดตั้งจากไฟล์ ZIP**
-
-เพื่อทำการติดตั้งและใช้ Aspose.Slides for Node.js via Java จากไฟล์ ZIP ให้ทำตามขั้นตอนต่อไปนี้:
+## **การติดตั้งข้อกำหนดเบื้องต้น**
 
 ### **Windows**
 
-1. ติดตั้ง JDK8 และกำหนดค่าตัวแปรสภาพแวดล้อม `JAVA_HOME`  
-2. ติดตั้ง Node.js (https://nodejs.org/en/download/) และเพิ่ม node.exe ไปยัง `PATH`  
-3. ติดตั้ง node-gyp  
-4. ติดตั้ง Windows Build Tools  
-5. ติดตั้ง [`java`](https://www.npmjs.com/package/java) bridge และรันคำสั่งเหล่านี้ใน Command Prompt ในฐานะผู้ดูแลระบบ:
-	```bash
-	$ mkdir aspose.slides.nodejs
-
-	$ cd aspose.slides.nodejs
-
-	$ npm install -g node-gyp
-
-	$ npm install --global --production windows-build-tools
-
-	$ npm install java
-	```
-6. [Download Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/th/nodejs-java/) and extract it to `aspose.slides.nodejs/node_modules/aspose.slides.via.java`  
-7. สร้างไฟล์ชื่อ `hello.js` ในโฟลเดอร์ `aspose.slides.nodejs` โดยใช้โค้ดตัวอย่างต่อไปนี้:
-
-	```javascript
-	var aspose = aspose || {};
-
-	aspose.slides = require("aspose.slides.via.java");
-
-	var pres = new aspose.slides.Presentation();
-
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-	console.log("Done");
-	```
-
-8. ตอนนี้ให้รัน `node hello.js` ที่ command prompt เพื่อทำงาน
+1. ติดตั้ง [Node.js](https://nodejs.org/en/download) เวอร์ชัน 20 หรือใหม่กว่า
+1. ติดตั้ง JDK เช่น [Eclipse Temurin](https://adoptium.net/) และตั้งค่าตัวแปรสภาพแวดล้อม `JAVA_HOME` ให้ชี้ไปยังโฟลเดอร์การติดตั้ง ตัวสร้างใช้ JDK ที่ `JAVA_HOME` ชี้ถึง
+1. ติดตั้ง [Python 3](https://www.python.org/downloads/)
+1. ติดตั้ง [Build Tools for Visual Studio 2022](https://aka.ms/vs/17/release/vs_BuildTools.exe) พร้อมเวิร์กโหลด **Desktop development with C++** คงส่วนประกอบเริ่มต้นของเวิร์กโหลด ซึ่งรวม **MSVC v143 - VS 2022 C++ x64/x86 build tools** และ **Windows 11 SDK** Visual Studio 2026 ไม่ทำงาน: เวอร์ชัน node-gyp ที่แพ็คเกจ `java` คอมไพล์ด้วยไม่รองรับ
 
 ### **Linux**
 
-1. ติดตั้ง Node.js (https://nodejs.org/en/download/)  
-2. ติดตั้ง JDK8 สำหรับ Linux และกำหนดค่าตัวแปรสภาพแวดล้อม `JAVA_HOME`  
-3. ติดตั้ง python 2.x  
-4. ติดตั้ง [`java`](https://www.npmjs.com/package/java) bridge คุณสามารถรันคำสั่งเหล่านี้ใน terminal:
-	```bash
-	$ mkdir aspose.slides.nodejs
+ติดตั้ง Node.js เวอร์ชัน 20 หรือใหม่กว่าจาก [nodejs.org](https://nodejs.org/en/download) หรือแหล่งแพ็คเกจของดิสจิวิชันของคุณ แล้วติดตั้ง JDK, Python 3, และชุดเครื่องมือ C++ สำหรับ Linux และ Ubuntu:
 
-	$ cd aspose.slides.nodejs
+```bash
+sudo apt-get update
+sudo apt-get install -y default-jdk python3 build-essential
+```
 
-	$ npm install java
-	```
-5. [Download Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/th/nodejs-java/) and extract it to `aspose.slides.nodejs/node_modules/aspose.slides.via.java`  
-6. สร้างไฟล์ทดสอบชื่อ `hello.js` โดยใช้โค้ดตัวอย่างนี้ในโฟลเดอร์ `aspose.slides.nodejs`:
+บน Linux ตัวสร้างจะค้นหา JDK ที่ติดตั้งไว้โดยอัตโนมัติ หากมีหลาย JDK ให้ตั้งค่า `JAVA_HOME` เป็น JDK ที่ต้องการใช้
 
-	```javascript
-	var aspose = aspose || {};
+### **macOS**
 
-	aspose.slides = require("aspose.slides.via.java");
+ติดตั้ง Node.js เวอร์ชัน 20 หรือใหม่กว่า, JDK, และ Xcode Command Line Tools ซึ่งรวม Python 3 และคอมไพเลอร์ C++ ดู [Troubleshooting Installation](/slides/th/nodejs-java/troubleshooting-installation/) สำหรับหมายเหตุเฉพาะ macOS
 
-	var pres = new aspose.slides.Presentation();
+## **การติดตั้งจาก npm**
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+สร้างโฟลเดอร์โครงการและติดตั้งแพ็คเกจ:
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+npm จะดาวน์โหลด Aspose.Slides และคอมไพล์สะพาน `java` ซึ่งอาจใช้เวลาหลายนาที หากการคอมไพล์ล้มเหลว ให้ดูที่ [Troubleshooting Installation](/slides/th/nodejs-java/troubleshooting-installation/)
 
-	console.log("Done");
-	```
-7. ตอนนี้ให้รัน `node hello.js` ที่ command prompt เพื่อทำงาน
+## **ตรวจสอบการติดตั้ง**
 
-### **Mac**
+สร้างไฟล์ชื่อ *hello.js* ในโฟลเดอร์โครงการด้วยโค้ดต่อไปนี้ ไฟล์นี้จะสร้างพรีเซนเทชัน, เพิ่มกล่องข้อความในสไลด์แรก, แล้วบันทึกเป็น *hello.pptx*:
 
-1. ติดตั้ง Node.js (https://nodejs.org/en/download/)  
-2. ติดตั้ง JDK8 สำหรับ Mac และกำหนดค่าตัวแปรสภาพแวดล้อม `JAVA_HOME`  
-3. แก้ไขส่วน JVMCapabilities ใน `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` ด้วยสิทธิ์ราก `jdk1.8.x_xxx.jdk` ขึ้นอยู่กับเวอร์ชันของคุณ ให้มีลักษณะดังนี้:
-	```xml
-	<key>JavaVM</key>
-		<dict>
-			<key>JVMCapabilities</key>
-			<array>
-					<string>JNI</string>
-					<string>BundledApp</string>
-					<string>CommandLine</string>
-			</array>
-	```
-4. ติดตั้ง python 2.x (หากยังไม่ได้ติดตั้ง)  
-5. ติดตั้ง Xcode Command Line Tools  
-6. ติดตั้ง [`java`](https://www.npmjs.com/package/java) bridge คุณสามารถรันคำสั่งด้านล่างนี้ใน terminal:
-	```bash
-	$ mkdir aspose.slides.nodejs
-	 
-	$ cd aspose.slides.nodejs
-	 
-	$ npm install java
-	```
-7. ดาวน์โหลด Aspose.Slides for Node.js via Java และแตกไฟล์ลงใน `aspose.slides.nodejs/node_modules/aspose.slides.via.java`  
-8. สร้างไฟล์ทดสอบชื่อ `hello.js` โดยใช้โค้ดตัวอย่างนี้ในโฟลเดอร์ `aspose.slides.nodejs`:
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-	```javascript
-	var aspose = aspose || {};
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-	aspose.slides = require("aspose.slides.via.java");
+// Aspose.Slides ทำงานอยู่ในเครื่องเสมือน Java ที่ทำให้ Node.js ทำงานต่ออยู่ ดังนั้นจึงต้องจบกระบวนการอย่างชัดเจน.
+process.exit(0);
+```
 
-	var pres = new aspose.slides.Presentation();
+เรียกสคริปต์:
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+```bash
+node hello.js
+```
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+หากพบไฟล์ *hello.pptx* ในโฟลเดอร์โครงการ การติดตั้งทำงานได้สำเร็จ เครื่องเสมือน Java ที่รัน Aspose.Slides จะทำให้ Node.js ไม่ออกจากการทำงานโดยอัตโนมัติ จึงต้องจบสคริปต์ด้วย `process.exit(0)` ดูรายละเอียดโค้ดที่ [Create Presentations](/slides/th/nodejs-java/create-presentation/)
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+## **การติดตั้งจากไฟล์ ZIP**
 
-	console.log("Done");
-	```
-9. ตอนนี้ให้รัน `node hello.js` ที่ command prompt เพื่อทำงาน
+แพ็คเกจนี้มีให้ดาวน์โหลดเป็นไฟล์ ZIP ซึ่งมีเนื้อหาเดียวกับแพ็คเกจ npm เพื่อให้ติดตั้งจากไฟล์ ZIP ให้ทำตามขั้นตอน:
 
+1. ติดตั้งข้อกำหนดเบื้องต้นตามระบบปฏิบัติการของคุณเช่นในขั้นตอนข้างต้น
+1. ดาวน์โหลดไฟล์จาก [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/th/nodejs-java/)
+1. สร้างโฟลเดอร์โครงการ:
 
-{{% alert color="primary" %}}
+    ```bash
+    mkdir hello-slides
+    cd hello-slides
+    npm init -y
+    ```
 
-กรุณาใช้ [article](https://docs.aspose.com/slides/th/nodejs-java/troubleshooting-installation/) นี้หากคุณพบข้อผิดพลาดการคอมไพล์ระหว่างการติดตั้ง Aspose.Slides for Node.js via Java
+1. แตกไฟล์ ZIP ลงในโฟลเดอร์ย่อยชื่อ *aspose.slides.via.java* ภายในโฟลเดอร์โครงการ เพื่อให้ไฟล์ *package.json* ของไฟล์ ZIP อยู่ที่ *hello-slides/aspose.slides.via.java/package.json*
+1. ติดตั้งแพ็คเกจจากโฟลเดอร์นั้น:
 
-{{% /alert %}}
+    ```bash
+    npm install ./aspose.slides.via.java
+    ```
 
-## **FAQ**
+    npm จะติดตั้งสะพาน `java` ที่แพ็คเกจพึ่งพาและคอมไพล์เช่นเดียวกับแพ็คเกจ npm
 
-**มีรุ่นฟรีหรือข้อจำกัดการทดลองใช้ฟรีหรือไม่?**
+1. ตรวจสอบการติดตั้งตามที่อธิบายใน [Check the Installation](#check-the-installation)
 
-ใช่, โดยค่าเริ่มต้น Aspose.Slides จะทำงานในโหมดประเมินผล ซึ่งจะแสดงลายน้ำและอาจมีข้อจำกัดอื่น ๆ เพื่อเอาข้อจำกัดออก คุณต้องใช้ [license](/slides/th/nodejs-java/licensing/) ที่ถูกต้อง.
+## **คำถามที่พบบ่อย**
+
+**มีรุ่นฟรีหรือข้อจำกัดการทดลองใช้งานหรือไม่?**
+
+ใช่ หากไม่มีไลเซนส์ Aspose.Slides จะทำงานในโหมดประเมินผล: จะเพิ่มลายน้ำการประเมินผลในทุกสไลด์ที่บันทึกและตัดข้อความจากพรีเซนเทชันออก เพื่อกำจัดข้อจำกัดเหล่านี้ให้ใช้ [license](/slides/th/nodejs-java/licensing/) ที่ถูกต้อง
+
+**ทำไมสคริปต์ของฉันไม่หยุดทำงานหลังจากเสร็จสิ้น?**
+
+แพ็คเกจ `java` จะเริ่มเครื่องเสมือน Java ภายในกระบวนการ Node.js และเครื่องเสมือนนั้นทำให้กระบวนการยังคงทำงานอยู่ ให้เรียก `process.exit` เมื่อสคริปต์ทำงานเสร็จแล้ว

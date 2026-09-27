@@ -17,177 +17,115 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aprenda a instalar rapidamente o Aspose.Slides. Guia passo a passo, requisitos de sistema e exemplos de código — comece a trabalhar com apresentações PowerPoint hoje!"
+description: "Instale o Aspose.Slides para Node.js via Java a partir do npm no Windows, Linux e macOS: o JDK, Python e as ferramentas de compilação C++ que ele precisa, o comando npm e um primeiro script para verificar a instalação."
 ---
-## **Introdução**
+## **Visão geral**
 
-Aspose.Slides for Node.js via Java é uma API independente de plataforma e pode ser usada em qualquer plataforma (Windows, Linux e macOS) onde `Node.js` e a ponte [`java`](https://www.npmjs.com/package/java) estejam instalados.
+Este artigo explica como instalar o Aspose.Slides for Node.js via Java no Windows, Linux e macOS, e como verificar se a instalação funciona.
 
-## **Instalar via NPM**
+O Aspose.Slides for Node.js via Java é distribuído como o pacote `aspose.slides.via.java` no npm. Ele executa o Aspose.Slides em uma máquina virtual Java através do pacote [`java`](https://github.com/joeferner/node-java), um addon nativo do Node.js que o npm compila no seu computador durante a instalação. Por isso a instalação necessita, além do Node.js:
 
-Você pode instalar facilmente Aspose.Slides for Node.js via Java a partir do [NPM](https://www.npmjs.com/).
+- **Um Kit de Desenvolvimento Java (JDK) 8 ou posterior.** Apenas o runtime Java não é suficiente: a compilação precisa dos arquivos de cabeçalho do JDK.
+- **Python 3**, que a ferramenta de compilação [node-gyp](https://github.com/nodejs/node-gyp) usa.
+- **Uma cadeia de ferramentas de compilação C++** para o seu sistema operacional.
 
-1. Crie uma nova pasta e inicie um novo projeto usando o seguinte comando:
-	```
-	$ npm init
-	```
-	
-2. Preencha os campos de título e versão (deixe os demais campos com seus valores padrão).
-
-3. Instale Aspose.Slides for Node.js via Java usando o seguinte comando:
-	```
-	$ npm install aspose.slides.via.java
-	```
-
-Se encontrar algum problema durante o processo de instalação, consulte este [artigo](/slides/pt/nodejs-java/troubleshooting-installation/).
-
-**Exemplo de Uso**:
-
-Crie um arquivo chamado `hello.js` na pasta do seu projeto e adicione o seguinte código de exemplo:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-## **Instalar a partir de arquivo ZIP**
-
-Para instalar e usar Aspose.Slides for Node.js via Java a partir de um arquivo ZIP, siga estas instruções:
+## **Instalar os pré‑requisitos**
 
 ### **Windows**
 
-1. Instale o JDK8 e configure a variável de ambiente `JAVA_HOME`.
-1. Instale o Node.js (https://nodejs.org/en/download/) e adicione node.exe ao `PATH`.
-1. Instale o node-gyp.
-1. Instale o Windows Build Tools.
-1. Instale a ponte [`java`](https://www.npmjs.com/package/java) e execute estes comandos no Prompt de Comando como administrador:
-	```bash
-	$ mkdir aspose.slides.nodejs
-
-	$ cd aspose.slides.nodejs
-
-	$ npm install -g node-gyp
-
-	$ npm install --global --production windows-build-tools
-
-	$ npm install java
-	```
-6. [Baixe Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/pt/nodejs-java/) e extraia-o para `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-7. Crie um arquivo chamado `hello.js` na pasta `aspose.slides.nodejs` usando o seguinte código de exemplo:
-
-	```javascript
-	var aspose = aspose || {};
-
-	aspose.slides = require("aspose.slides.via.java");
-
-	var pres = new aspose.slides.Presentation();
-
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-	console.log("Done");
-	```
-
-8. Agora execute `node hello.js` no prompt de comando para rodá-lo.
+1. Instale o [Node.js](https://nodejs.org/en/download) 20 ou posterior.
+2. Instale um JDK, por exemplo o [Eclipse Temurin](https://adoptium.net/), e configure a variável de ambiente `JAVA_HOME` apontando para sua pasta de instalação. A compilação usa o JDK ao qual `JAVA_HOME` aponta.
+3. Instale o [Python 3](https://www.python.org/downloads/).
+4. Instale o [Build Tools for Visual Studio 2022](https://aka.ms/vs/17/release/vs_BuildTools.exe) com a carga de trabalho **Desktop development with C++**. Mantenha os componentes padrão da carga de trabalho, que incluem **MSVC v143 - VS 2022 C++ x64/x86 build tools** e o **Windows 11 SDK**. O Visual Studio 2026 não funciona: a versão do node-gyp que o pacote `java` compila não o reconhece.
 
 ### **Linux**
 
-1. Instale o Node.js (https://nodejs.org/en/download/).
-1. Instale o JDK8 para Linux e configure a variável de ambiente `JAVA_HOME`.
-1. Instale o python 2.x
-1. Instale a ponte [`java`](https://www.npmjs.com/package/java). Você pode executar esses comandos no terminal:
-	```bash
-	$ mkdir aspose.slides.nodejs
+Instale o Node.js 20 ou posterior a partir de [nodejs.org](https://nodejs.org/en/download) ou da fonte de pacotes da sua distribuição. Em seguida, instale um JDK, Python 3 e as ferramentas de compilação C++. No Debian e Ubuntu:
 
-	$ cd aspose.slides.nodejs
+```bash
+sudo apt-get update
+sudo apt-get install -y default-jdk python3 build-essential
+```
 
-	$ npm install java
-	```
-5. [Baixe Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/pt/nodejs-java/) e extraia-o para `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-6. Crie um arquivo de teste chamado `hello.js` usando este código de exemplo na pasta `aspose.slides.nodejs`:
+No Linux, a compilação encontra o JDK instalado sem necessidade de configuração adicional. Se vários JDKs estiverem instalados, defina `JAVA_HOME` para aquele que deseja usar.
 
-	```javascript
-	var aspose = aspose || {};
+### **macOS**
 
-	aspose.slides = require("aspose.slides.via.java");
+Instale o Node.js 20 ou posterior, um JDK e as Ferramentas de Linha de Comando do Xcode, que incluem Python 3 e o compilador C++. Veja [Troubleshooting Installation](/slides/pt/nodejs-java/troubleshooting-installation/) para notas específicas do macOS.
 
-	var pres = new aspose.slides.Presentation();
+## **Instalar via npm**
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+Crie uma pasta de projeto e instale o pacote:
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+npm baixa o Aspose.Slides e compila a ponte `java`, o que pode levar alguns minutos. Se a compilação falhar, consulte [Troubleshooting Installation](/slides/pt/nodejs-java/troubleshooting-installation/).
 
-	console.log("Done");
-	```
-7. Agora execute `node hello.js` no prompt de comando para rodá-lo.
+## **Verificar a instalação**
 
-### **Mac**
+Crie um arquivo chamado *hello.js* na pasta do projeto com o seguinte código. Ele cria uma apresentação, adiciona uma caixa de texto ao seu primeiro slide e salva o resultado como *hello.pptx*:
 
-1. Instale o Node.js (https://nodejs.org/en/download/).
-1. Instale o JDK8 para Mac e configure a variável de ambiente `JAVA_HOME`.
-1. Modifique a seção JVMCapabilities em `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` com privilégio de superusuário. `jdk1.8.x_xxx.jdk` depende da sua versão do jdk. Deixe assim:
-	```xml
-	<key>JavaVM</key>
-		<dict>
-			<key>JVMCapabilities</key>
-			<array>
-					<string>JNI</string>
-					<string>BundledApp</string>
-					<string>CommandLine</string>
-			</array>
-	```
-4. Instale o python 2.x (se ainda não estiver instalado).
-5. Instale as Xcode Command Line Tools.
-6. Instale a ponte [`java`](https://www.npmjs.com/package/java). Você pode executar os comandos abaixo no terminal:
-	```bash
-	$ mkdir aspose.slides.nodejs
-	 
-	$ cd aspose.slides.nodejs
-	 
-	$ npm install java
-	```
-7. Baixe Aspose.Slides for Node.js via Java e extraia-o em `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-8. Crie um arquivo de teste chamado `hello.js` usando este código de exemplo na pasta `aspose.slides.nodejs`:
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-	```javascript
-	var aspose = aspose || {};
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-	aspose.slides = require("aspose.slides.via.java");
+// Aspose.Slides executa em uma máquina virtual Java que mantém o Node.js em execução, portanto encerre o processo explicitamente.
+process.exit(0);
+```
 
-	var pres = new aspose.slides.Presentation();
+Execute o script:
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+```bash
+node hello.js
+```
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Se *hello.pptx* aparecer na pasta do projeto, a instalação funciona. A máquina virtual Java que executa o Aspose.Slides impede que o Node.js encerre por conta própria, por isso o script termina com `process.exit(0)`. [Create Presentations](/slides/pt/nodejs-java/create-presentation/) explica o código.
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+## **Instalar a partir de um arquivo ZIP**
 
-	console.log("Done");
-	```
-9. Agora execute `node hello.js` no prompt de comando para rodá-lo.
+O pacote também está disponível como um arquivo ZIP com o mesmo conteúdo do pacote npm. Para instalá‑lo a partir do arquivo:
 
-{{% alert color="primary" %}}
-Por favor, use o seguinte [artigo](https://docs.aspose.com/slides/pt/nodejs-java/troubleshooting-installation/) se encontrar erros de compilação durante a instalação do Aspose.Slides for Node.js via Java.
-{{% /alert %}}
+1. Instale os pré‑requisitos para o seu sistema operacional, conforme descrito acima.
+2. Baixe o arquivo da [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/pt/nodejs-java/).
+3. Crie uma pasta de projeto:
 
-## **Perguntas Frequentes**
+    ```bash
+    mkdir hello-slides
+    cd hello-slides
+    npm init -y
+    ```
+
+4. Extraia o arquivo para uma subpasta chamada *aspose.slides.via.java* dentro da pasta do projeto, de modo que o *package.json* do arquivo fique em *hello-slides/aspose.slides.via.java/package.json*.
+5. Instale o pacote a partir dessa pasta:
+
+    ```bash
+    npm install ./aspose.slides.via.java
+    ```
+
+    npm instala a ponte `java` da qual o pacote depende e a compila, como faz para o pacote npm.
+
+6. Verifique a instalação conforme descrito em [Check the Installation](#check-the-installation).
+
+## **FAQ**
 
 **Existe uma versão gratuita ou limitação de avaliação?**
 
-Sim, por padrão, o Aspose.Slides funciona em modo de avaliação, o que adiciona marcas d'água e pode ter outras limitações. Para remover as restrições, você precisa aplicar uma [licença](/slides/pt/nodejs-java/licensing/) válida.
+Sim. Sem uma licença, o Aspose.Slides funciona em modo de avaliação: ele adiciona uma marca d'água de avaliação a cada slide que salva e trunca o texto lido das apresentações. Para remover essas limitações, aplique uma [license](/slides/pt/nodejs-java/licensing/) válida.
+
+**Por que meu script não sai depois de terminar?**
+
+O pacote `java` inicia uma máquina virtual Java dentro do processo Node.js, e essa máquina virtual mantém o processo em execução. Chame `process.exit` quando seu script terminar o trabalho.

@@ -1,44 +1,120 @@
 ---
 title: Aspose.Slides for Node.js via Java
 second_title: Aspose.Slides for Node.js
-description: Aspose.Slides for Node.js via Java 提供了许多关键功能，例如管理文本、形状、表格和动画，向幻灯片添加音频和视频，预览幻灯片，以及将幻灯片导出为 SVG、PDF 格式等。
 type: docs
 weight: 47
 url: /zh/nodejs-java/
+keywords:
+- 文档
+- 演示文稿处理
+- 演示文稿转换
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "从这里开始：安装 Aspose.Slides for Node.js via Java，创建第一个演示文稿，并查找常见任务指南、API 参考和支持。"
 is_root: true
 ---
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-{{% alert color="primary" %}}
+Aspose.Slides for Node.js via Java 是一个库，用于在 Node.js 应用程序中创建、读取、编辑和转换 PowerPoint 和 OpenDocument 演示文稿，无需 Microsoft PowerPoint。
 
-**欢迎使用 Aspose.Slides for Node.js via Java**
+它可以加载和保存 PPT、PPTX、PPS、POT 和 ODP，包括启用宏和模板的变体，并导出为 PDF、XPS、HTML、SVG、TIFF、Markdown 和图像。
 
-![Aspose.Slides for Node.js via Java 产品徽标](aspose_slides-for-nodejs-via-java.png)
+<div style="clear:both"></div>
 
-Aspose.Slides for Node.js via Java 是一个类库，允许您的应用程序在不使用 Microsoft PowerPoint® 的情况下读取和写入 PowerPoint® 文档。
+------
 
-Aspose.Slides for Node.js via Java 是第一个也是唯一一个提供管理 PowerPoint® 文档功能的组件。
+<div class="row">
+<div class="col-md-4">
+<p><b>入门</b></p>
+<hr>
+<p>快速入门</p>
+<ul>
+<li><a href="/slides/zh/nodejs-java/installation/">安装</a></li>
+<li><a href="/slides/zh/nodejs-java/create-presentation/">创建您的第一个演示文稿</a></li>
+<li><a href="/slides/zh/nodejs-java/getting-started/">入门指南</a></li>
+</ul>
+<p>评估</p>
+<ul>
+<li><a href="/slides/zh/nodejs-java/supported-file-formats/">支持的文件格式</a></li>
+<li><a href="/slides/zh/nodejs-java/evaluate-aspose-slides/">试用限制</a></li>
+<li><a href="/slides/zh/nodejs-java/licensing/">授权</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>使用 Slides 构建</b></p>
+<hr>
+<p>常见任务</p>
+<ul>
+<li><a href="/slides/zh/nodejs-java/open-presentation/">打开演示文稿</a></li>
+<li><a href="/slides/zh/nodejs-java/save-presentation/">保存演示文稿</a></li>
+<li><a href="/slides/zh/nodejs-java/convert-powerpoint-to-pdf/">转换为 PDF</a></li>
+<li><a href="/slides/zh/nodejs-java/convert-slide/">将幻灯片渲染为图像</a></li>
+<li><a href="/slides/zh/nodejs-java/manage-text/">编辑文本和形状</a></li>
+</ul>
+<p>Slides 工作流</p>
+<ul>
+<li><a href="/slides/zh/nodejs-java/powerpoint-charts/">图表</a></li>
+<li><a href="/slides/zh/nodejs-java/powerpoint-animation/">动画</a></li>
+<li><a href="/slides/zh/nodejs-java/manage-media-files/">音频和视频</a></li>
+<li><a href="/slides/zh/nodejs-java/presentation-design/">幻灯片设计</a></li>
+<li><a href="/slides/zh/nodejs-java/merge-presentation/">合并演示文稿</a></li>
+</ul>
+<p>示例</p>
+<ul>
+<li><a href="/slides/zh/nodejs-java/examples/">按幻灯片元素分类的示例</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>参考与支持</b></p>
+<hr>
+<p>参考</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/zh/nodejs-java/">API 参考</a></li>
+<li><a href="https://releases.aspose.com/slides/zh/nodejs-java/release-notes/">发行说明</a></li>
+<li><a href="/slides/zh/nodejs-java/known-issues/">已知问题</a></li>
+<li><a href="https://releases.aspose.com/slides/zh/nodejs-java/">下载</a></li>
+</ul>
+<p>支持</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://helpdesk.aspose.com/">付费支持帮助台</a></li>
+</ul>
+</div>
+</div>
 
-Aspose.Slides for Node.js via Java 提供了许多关键功能，例如管理文本、形状、表格和动画，向幻灯片添加音频和视频，预览幻灯片，以及将幻灯片导出为 SVG、PDF 格式等。
+------
 
-{{% /alert %}}
+## **您的第一个演示文稿**
 
-## Aspose.Slides for Node.js via Java 资源
+除了 Node.js 20 或更高版本之外，该包还需要 Java 开发工具包（JDK）、Python 和 C++ 构建工具链，因为 npm 在安装期间会编译其 `java` 桥接。请参阅[Installation](/slides/zh/nodejs-java/installation/)了解各操作系统的步骤。然后创建项目并从 npm 安装此包：
 
-{{% alert color="primary" %}}
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-Aspose.Slides for Node.js via Java 移植自 Aspose.Slides for Java，因此您可以使用后者的文档和 API 参考。
+将以下代码保存为项目文件夹中的 *hello.js*：
 
-{{% /alert %}}
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-这些是有用资源的链接：
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-- [Aspose.Slides for Node.js via Java 在线文档](/slides/zh/java/developer-guide/)
-- [Aspose.Slides for Node.js via Java 特性](/slides/zh/nodejs-java/features-overview/)
-- [Aspose.Slides for Node.js via Java 限制和 API 差异](/slides/zh/nodejs-java/limitations-and-api-differences/)
-- [Aspose.Slides for Node.js via Java 发布说明](https://releases.aspose.com/slides/nodejs-java/release-notes/)
-- [Aspose.Slides for Node.js via Java 产品页面](https://products.aspose.com/slides/nodejs-java/)
-- [下载 Aspose.Slides for Node.js via Java 包](https://releases.aspose.com/slides/nodejs-java/)
-- [安装 Aspose.Slides for Node.js via Java](/slides/zh/nodejs-java/installation/)
-- [Aspose.Slides for Node.js via Java API 参考](https://reference.aspose.com/slides/nodejs-java/)
-- [Aspose.Slides for Node.js via Java 免费支持论坛](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides for Node.js via Java 付费支持帮助台](https://helpdesk.aspose.com/)
+// Aspose.Slides 在 Java 虚拟机中运行，该虚拟机会保持 Node.js 持续运行，因此需要显式结束进程。
+process.exit(0);
+```
+
+使用 `node hello.js` 运行它。脚本会保存一个包含文本框的单张幻灯片的 *hello.pptx*。如果没有许可证，保存的文件会带有评估水印——请参阅[Licensing](/slides/zh/nodejs-java/licensing/)。有关创建和填充演示文稿的更多方法，请参阅[Create Presentations](/slides/zh/nodejs-java/create-presentation/)。

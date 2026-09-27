@@ -4,9 +4,9 @@ type: docs
 weight: 70
 url: /id/nodejs-java/installation/
 keywords:
-- menginstal Aspose.Slides
-- mengunduh Aspose.Slides
-- menggunakan Aspose.Slides
+- instal Aspose.Slides
+- unduh Aspose.Slides
+- gunakan Aspose.Slides
 - instalasi Aspose.Slides
 - Windows
 - Linux
@@ -17,178 +17,114 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pelajari cara menginstal Aspose.Slides dengan cepat. Panduan langkah demi langkah, persyaratan sistem, dan contoh kode — mulai bekerja dengan presentasi PowerPoint hari ini!"
+description: "Instal Aspose.Slides untuk Node.js via Java dari npm pada Windows, Linux, dan macOS: JDK, Python, dan alat build C++ yang dibutuhkan, perintah npm, serta skrip pertama untuk memeriksa instalasi."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Aspose.Slides for Node.js via Java adalah API yang independen platform dan dapat digunakan pada platform apa pun (Windows, Linux, dan MacOS) di mana `Node.js` dan [`java`](https://www.npmjs.com/package/java) bridge telah terpasang.
+Artikel ini menjelaskan cara menginstal Aspose.Slides for Node.js via Java pada Windows, Linux, dan macOS, serta cara memeriksa bahwa instalasi berhasil.
 
-## **Instal dari NPM**
+Aspose.Slides for Node.js via Java didistribusikan sebagai paket `aspose.slides.via.java` di npm. Paket ini menjalankan Aspose.Slides di dalam mesin virtual Java melalui paket [`java`](https://github.com/joeferner/node-java), sebuah addon native Node.js yang dikompilasi npm di komputer Anda selama instalasi. Karena itu, selain Node.js, instalasi memerlukan:
 
-Anda dapat dengan mudah menginstal Aspose.Slides for Node.js via Java dari [NPM](https://www.npmjs.com/).
+- **Java Development Kit (JDK) 8 atau yang lebih baru.** Runtime Java saja tidak cukup: proses build memerlukan file header JDK.
+- **Python 3**, yang digunakan oleh alat build [node-gyp](https://github.com/nodejs/node-gyp).
+- **Toolchain build C++** untuk sistem operasi Anda.
 
-1. Buat folder baru dan inisialisasi proyek baru menggunakan perintah berikut:
-	```
-	$ npm init
-```
-	
-2. Isi bidang judul dan versi (biarkan bidang lainnya dengan nilai default).
-
-3. Instal Aspose.Slides for Node.js via Java menggunakan perintah berikut:
-	```
-	$ npm install aspose.slides.via.java
-```
-
-Jika Anda mengalami masalah selama proses instalasi, silakan lihat [artikel](/slides/id/nodejs-java/troubleshooting-installation/).
-
-**Contoh Penggunaan**:
-
-Buat file bernama `hello.js` di folder proyek Anda dan tambahkan kode contoh berikut:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-## **Instal dari arsip ZIP**
-
-Untuk menginstal dan menggunakan Aspose.Slides for Node.js via Java dari arsip ZIP, ikuti instruksi berikut ini:
+## **Instal Prasyarat**
 
 ### **Windows**
 
-1. Instal JDK8 dan konfigurasikan variabel lingkungan `JAVA_HOME`.
-1. Instal Node.js (https://nodejs.org/en/download/) dan tambahkan node.exe ke `PATH`.
-1. Instal node-gyp.
-1. Instal Windows Build Tools.
-1. Instal [`java`](https://www.npmjs.com/package/java) bridge dan jalankan perintah berikut di Command Prompt sebagai administrator:
-	```bash
-	$ mkdir aspose.slides.nodejs
-
-	$ cd aspose.slides.nodejs
-
-	$ npm install -g node-gyp
-
-	$ npm install --global --production windows-build-tools
-
-	$ npm install java
-```
-6. [Download Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/id/nodejs-java/) dan ekstrak ke `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-7. Buat file bernama `hello.js` di folder `aspose.slides.nodejs` menggunakan kode contoh berikut:
-
-	```javascript
-	var aspose = aspose || {};
-
-	aspose.slides = require("aspose.slides.via.java");
-
-	var pres = new aspose.slides.Presentation();
-
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-	console.log("Done");
-```
-
-8. Sekarang jalankan `node hello.js` di command prompt untuk mengeksekusinya.
+1. Instal [Node.js](https://nodejs.org/en/download) 20 atau yang lebih baru.  
+2. Instal JDK, misalnya [Eclipse Temurin](https://adoptium.net/), dan atur variabel lingkungan `JAVA_HOME` ke folder instalasinya. Build menggunakan JDK yang ditunjuk oleh `JAVA_HOME`.  
+3. Instal [Python 3](https://www.python.org/downloads/).  
+4. Instal [Build Tools for Visual Studio 2022](https://aka.ms/vs/17/release/vs_BuildTools.exe) dengan workload **Desktop development with C++**. Pertahankan komponen default workload, yang mencakup **MSVC v143 - VS 2022 C++ x64/x86 build tools** dan **Windows 11 SDK**. Visual Studio 2026 tidak berfungsi: versi node-gyp yang dikompilasi oleh paket `java` tidak mengenalinya.
 
 ### **Linux**
 
-1. Instal Node.js (https://nodejs.org/en/download/).
-1. Instal JDK8 untuk Linux dan konfigurasikan variabel lingkungan `JAVA_HOME`.
-1. Instal python 2.x
-1. Instal [`java`](https://www.npmjs.com/package/java) bridge. Anda dapat menjalankan perintah berikut di terminal:
-	```bash
-	$ mkdir aspose.slides.nodejs
+Instal Node.js 20 atau yang lebih baru dari [nodejs.org](https://nodejs.org/en/download) atau sumber paket distribusi Anda. Kemudian instal JDK, Python 3, dan toolchain build C++. Pada Debian dan Ubuntu:
 
-	$ cd aspose.slides.nodejs
-
-	$ npm install java
+```bash
+sudo apt-get update
+sudo apt-get install -y default-jdk python3 build-essential
 ```
-5. [Download Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/id/nodejs-java/) dan ekstrak ke `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-6. Buat file uji bernama `hello.js` menggunakan kode contoh ini di folder `aspose.slides.nodejs`:
 
-	```javascript
-	var aspose = aspose || {};
+Di Linux, build secara otomatis menemukan JDK yang terpasang tanpa konfigurasi tambahan. Jika beberapa JDK terpasang, atur `JAVA_HOME` ke JDK yang ingin Anda gunakan.
 
-	aspose.slides = require("aspose.slides.via.java");
+### **macOS**
 
-	var pres = new aspose.slides.Presentation();
+Instal Node.js 20 atau yang lebih baru, JDK, dan Xcode Command Line Tools, yang mencakup Python 3 serta kompiler C++. Lihat [Troubleshooting Installation](/slides/id/nodejs-java/troubleshooting-installation/) untuk catatan khusus macOS.
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+## **Instal dari npm**
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Buat folder proyek dan instal paket:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-	console.log("Done");
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
 ```
-7. Sekarang jalankan `node hello.js` di command prompt untuk mengeksekusinya.
 
-### **Mac**
+npm mengunduh Aspose.Slides dan mengompilasi bridge `java`, yang dapat memakan waktu beberapa menit. Jika kompilasi gagal, lihat [Troubleshooting Installation](/slides/id/nodejs-java/troubleshooting-installation/).
 
-1. Instal Node.js (https://nodejs.org/en/download/).
-1. Instal JDK8 untuk Mac dan konfigurasikan variabel lingkungan `JAVA_HOME`.
-1. Modifikasi bagian JVMCapabilities di `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` dengan hak istimewa root. `jdk1.8.x_xxx.jdk` tergantung pada versi jdk Anda. Jadikan seperti ini:
-	```xml
-	<key>JavaVM</key>
-		<dict>
-			<key>JVMCapabilities</key>
-			<array>
-					<string>JNI</string>
-					<string>BundledApp</string>
-					<string>CommandLine</string>
-			</array>
-	```
-4. Instal python 2.x (jika belum terpasang).
-5. Instal Xcode Command Line Tools.
-6. Instal [`java`](https://www.npmjs.com/package/java) bridge. Anda dapat menjalankan perintah berikut di terminal:
-	```bash
-	$ mkdir aspose.slides.nodejs
-	 
-	$ cd aspose.slides.nodejs
-	 
-	$ npm install java
+## **Periksa Instalasi**
+
+Buat file bernama *hello.js* di folder proyek dengan kode berikut. Kode ini membuat presentasi, menambahkan kotak teks ke slide pertama, dan menyimpan hasilnya sebagai *hello.pptx*:
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+// Aspose.Slides berjalan di dalam mesin virtual Java yang membuat Node.js tetap berjalan, jadi akhiri proses secara eksplisit.
+process.exit(0);
 ```
-7. Unduh Aspose.Slides for Node.js via Java dan ekstrak ke `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-8. Buat file uji bernama `hello.js` menggunakan kode contoh ini di folder `aspose.slides.nodejs`:
 
-	```javascript
-	var aspose = aspose || {};
+Jalankan skrip:
 
-	aspose.slides = require("aspose.slides.via.java");
+```bash
+node hello.js
+```
 
-	var pres = new aspose.slides.Presentation();
+Jika *hello.pptx* muncul di folder proyek, instalasi berhasil. Mesin virtual Java yang menjalankan Aspose.Slides mencegah Node.js keluar dengan sendirinya, sehingga skrip diakhiri dengan `process.exit(0)`. [Create Presentations](/slides/id/nodejs-java/create-presentation/) menjelaskan kode tersebut.
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+## **Instal dari Arsip ZIP**
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Paket ini juga tersedia sebagai arsip ZIP dengan isi yang sama dengan paket npm. Untuk menginstalnya dari arsip:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+1. Instal prasyarat untuk sistem operasi Anda, seperti dijelaskan di atas.  
+2. Unduh arsip dari [halaman unduhan Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/id/nodejs-java/).  
+3. Buat folder proyek:
 
-	console.log("Done");
-	```
-9. Sekarang jalankan `node hello.js` di command prompt untuk mengeksekusinya.
+    ```bash
+    mkdir hello-slides
+    cd hello-slides
+    npm init -y
+    ```
 
+4. Ekstrak arsip ke subfolder bernama *aspose.slides.via.java* di dalam folder proyek, sehingga *package.json* arsip berada di *hello-slides/aspose.slides.via.java/package.json*.  
+5. Instal paket dari folder tersebut:
 
-{{% alert color="primary" %}}
-Silakan gunakan [artikel](https://docs.aspose.com/slides/id/nodejs-java/troubleshooting-installation/) berikut jika Anda mengalami kesalahan kompilasi selama instalasi Aspose.Slides for Node.js via Java.
-{{% /alert %}}
+    ```bash
+    npm install ./aspose.slides.via.java
+    ```
+
+    npm menginstal bridge `java` yang menjadi dependensi paket dan mengompilasinya, sama seperti pada paket npm.  
+6. Periksa instalasi seperti dijelaskan di [Periksa Instalasi](#check-the-installation).
 
 ## **FAQ**
 
-**Apakah ada versi gratis atau batasan percobaan?**
+**Apakah ada versi gratis atau batasan trial?**
 
-Ya, secara default Aspose.Slides berjalan dalam mode evaluasi, yang menambahkan watermark dan mungkin memiliki batasan lain. Untuk menghapus pembatasan, Anda perlu menerapkan [lisensi](/slides/id/nodejs-java/licensing/) yang valid.
+Ya. Tanpa lisensi, Aspose.Slides berjalan dalam mode evaluasi: menambahkan watermark evaluasi pada setiap slide yang disimpan dan memotong teks yang dibaca dari presentasi. Untuk menghilangkan batasan ini, terapkan [lisensi](/slides/id/nodejs-java/licensing/) yang valid.
+
+**Mengapa skrip saya tidak keluar setelah selesai?**
+
+Paket `java` memulai mesin virtual Java di dalam proses Node.js, dan mesin virtual tersebut menjaga proses tetap berjalan. Panggil `process.exit` ketika skrip Anda telah menyelesaikan pekerjaannya.

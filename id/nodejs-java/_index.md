@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides untuk Node.js via Java
-second_title: Aspose.Slides for Node.js
+second_title: Aspose.Slides untuk Node.js
 type: docs
 weight: 47
 url: /id/nodejs-java/
@@ -13,40 +13,108 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®."
+description: "Mulai di sini: install Aspose.Slides untuk Node.js via Java, buat presentasi pertama, dan temukan panduan untuk tugas umum, referensi API, dan dukungan."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Selamat datang di Aspose.Slides untuk Node.js via Java**
+Aspose.Slides for Node.js via Java adalah pustaka untuk membuat, membaca, menyunting, dan mengonversi presentasi PowerPoint serta OpenDocument dalam aplikasi Node.js, tanpa Microsoft PowerPoint.
 
-![Logo Produk Aspose.Slides untuk Node.js via Java](aspose_slides-for-nodejs-via-java.png)
+Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendukung makro dan templat, serta mengekspor ke PDF, XPS, HTML, SVG, TIFF, Markdown, dan gambar.
 
-Aspose.Slides untuk Node.js via Java adalah pustaka kelas yang memungkinkan aplikasi Anda membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®.
+<div style="clear:both"></div>
 
-Aspose.Slides untuk Node.js via Java adalah komponen pertama dan satu-satunya yang menyediakan fungsi untuk mengelola dokumen PowerPoint®.
+------
 
-Aspose.Slides untuk Node.js via Java menyediakan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio dan video ke slide, meninjau slide, mengekspor slide ke format SVG, PDF, dan lainnya.
+<div class="row">
+<div class="col-md-4">
+<p><b>Mulai</b></p>
+<hr>
+<p>MEMULAI</p>
+<ul>
+<li><a href="/slides/id/nodejs-java/installation/">Instalasi</a></li>
+<li><a href="/slides/id/nodejs-java/create-presentation/">Buat presentasi pertama Anda</a></li>
+<li><a href="/slides/id/nodejs-java/getting-started/">Panduan memulai</a></li>
+</ul>
+<p>EVALUASI</p>
+<ul>
+<li><a href="/slides/id/nodejs-java/supported-file-formats/">Format file yang didukung</a></li>
+<li><a href="/slides/id/nodejs-java/evaluate-aspose-slides/">Batasan percobaan</a></li>
+<li><a href="/slides/id/nodejs-java/licensing/">Lisensi</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Bangun dengan Slides</b></p>
+<hr>
+<p>TUGAS UMUM</p>
+<ul>
+<li><a href="/slides/id/nodejs-java/open-presentation/">Buka presentasi</a></li>
+<li><a href="/slides/id/nodejs-java/save-presentation/">Simpan presentasi</a></li>
+<li><a href="/slides/id/nodejs-java/convert-powerpoint-to-pdf/">Konversi ke PDF</a></li>
+<li><a href="/slides/id/nodejs-java/convert-slide/">Render slide sebagai gambar</a></li>
+<li><a href="/slides/id/nodejs-java/manage-text/">Edit teks dan bentuk</a></li>
+</ul>
+<p>ALUR KERJA SLIDES</p>
+<ul>
+<li><a href="/slides/id/nodejs-java/powerpoint-charts/">Diagram</a></li>
+<li><a href="/slides/id/nodejs-java/powerpoint-animation/">Animasi</a></li>
+<li><a href="/slides/id/nodejs-java/manage-media-files/">Audio dan video</a></li>
+<li><a href="/slides/id/nodejs-java/presentation-design/">Desain slide</a></li>
+<li><a href="/slides/id/nodejs-java/merge-presentation/">Gabungkan presentasi</a></li>
+</ul>
+<p>CONTOH</p>
+<ul>
+<li><a href="/slides/id/nodejs-java/examples/">Contoh berdasarkan elemen slide</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Referensi &amp; Dukungan</b></p>
+<hr>
+<p>REFERENSI</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/id/nodejs-java/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/id/nodejs-java/release-notes/">Catatan rilis</a></li>
+<li><a href="/slides/id/nodejs-java/known-issues/">Masalah yang diketahui</a></li>
+<li><a href="https://releases.aspose.com/slides/id/nodejs-java/">Unduh</a></li>
+</ul>
+<p>DUKUNGAN</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Sumber Daya Aspose.Slides untuk Node.js via Java
+## **Presentasi pertama Anda**
 
-{{% alert color="primary" %}}
+Selain Node.js 20 atau lebih baru, paket ini memerlukan Java Development Kit (JDK), Python, dan toolchain build C++, karena npm mengompilasi jembatan `java`‑nya selama instalasi. Lihat [Instalasi](/slides/id/nodejs-java/installation/) untuk langkah‑langkah pada tiap sistem operasi. Kemudian buat proyek dan instal paket dari npm:
 
-Aspose.Slides untuk Node.js via Java dipindahkan dari Aspose.Slides untuk Java, sehingga Anda dapat menggunakan dokumentasi dan referensi API yang terakhir.
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-{{% /alert %}}
+Simpan kode ini sebagai *hello.js* di folder proyek:
 
-Berikut ini adalah tautan ke sumber daya yang berguna:
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-- [Dokumentasi Online Aspose.Slides untuk Node.js via Java](/slides/id/nodejs-java/developer-guide/)
-- [Fitur Aspose.Slides untuk Node.js via Java](/slides/id/nodejs-java/features-overview/)
-- [Keterbatasan dan Perbedaan API Aspose.Slides untuk Node.js via Java](/slides/id/nodejs-java/limitations-and-api-differences/)
-- [Catatan Rilis Aspose.Slides untuk Node.js via Java](https://releases.aspose.com/slides/id/nodejs-java/release-notes/)
-- [Halaman Produk Aspose.Slides untuk Node.js via Java](https://products.aspose.com/slides/id/nodejs-java/)
-- [Unduh Paket Aspose.Slides untuk Node.js via Java](https://releases.aspose.com/slides/id/nodejs-java/)
-- [Instal Aspose.Slides untuk Node.js via Java](/slides/id/nodejs-java/installation/)
-- [Referensi API Aspose.Slides untuk Node.js via Java](https://reference.aspose.com/slides/id/nodejs-java/)
-- [Forum Dukungan Gratis Aspose.Slides untuk Node.js via Java](https://forum.aspose.com/c/slides/id/)
-- [Helpdesk Dukungan Berbayar Aspose.Slides untuk Node.js via Java](https://helpdesk.aspose.com/)
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+// Aspose.Slides berjalan di mesin virtual Java yang menjaga Node.js tetap berjalan, jadi hentikan proses secara eksplisit.
+process.exit(0);
+```
+
+Jalankan dengan `node hello.js`. Skrip ini menyimpan *hello.pptx* dengan satu slide yang berisi kotak teks. Tanpa lisensi, file yang disimpan memiliki watermark evaluasi — lihat [Lisensi](/slides/id/nodejs-java/licensing/). Untuk cara lain membuat dan mengisi presentasi, lihat [Buat Presentasi](/slides/id/nodejs-java/create-presentation/).

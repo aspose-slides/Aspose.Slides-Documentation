@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides Değerlendirmesi
+title: Aspose.Slides'ı Değerlendirin
 type: docs
 weight: 120
 url: /tr/nodejs-java/evaluate-aspose-slides/
@@ -9,7 +9,7 @@ keywords:
 - değerlendirme sürümü
 - tam işlevsellik
 - değerlendirme filigranı
-- Aspose.Slides satın alma
+- Aspose.Slides satın al
 - sınırlama
 - PowerPoint
 - OpenDocument
@@ -17,36 +17,32 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides'ı Node.js için Java aracılığıyla değerlendirin ve PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumları için API özelliklerini keşfedin—ücretsiz denemenize başlayın."
+description: "Node.js için Java üzerinden Aspose.Slides'ı değerlendirin ve PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumları için API özelliklerini keşfedin—ücretsiz denemenize başlayın."
 ---
-## **Aspose.Slides Değerlendirmesi**
+## **Aspose.Slides Değerlendirme**
 
-Aspose.Slides'ı değerlendirme amacıyla kolayca indirebilirsiniz. Değerlendirme paketi, satın alınan paketle aynı olur. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod ekledikten sonra lisanslı hâle gelir. 
+Aspose.Slides’ı değerlendirme amaçlı olarak indirebilirsiniz. Değerlendirme paketi, satın alınan paketle aynı; lisansı etkinleştirmek için birkaç satır kod ekledikten sonra lisanslı hâle gelir. Kurulum için, [Installation](/slides/tr/nodejs-java/installation/) sayfasına bakın.
 
-Aspose.Slides'in değerlendirme sürümü (lisans belirtilmemiş) tam ürün işlevselliği sağlar, ancak belge açıldığında ve kaydedildiğinde belgenin üst kısmına bir değerlendirme filigranı ekler. Sunum slaytlarından metin çıkarırken bir slaytla da sınırlı olursunuz.
+Lisans olmadan, Aspose.Slides değerlendirme modunda tam işlevselliğini sağlar, ancak iki sınırlamaya sahiptir: kaydettiği her sunumun her slaytına bir değerlendirme filigranı metin kutusu ekler ve kodunuzun bir sunumdan okuduğu beş karakterden uzun metin, ilk beş karakterine kesilir, ardından `... text has been truncated due to evaluation version limitation.` ifadesi eklenir. Beş karakter veya daha kısa metin değişmeden döndürülür ve kodunuzun yazdığı metin tam olarak kaydedilir. Her kaydetme bir filigran ekler, bu nedenle değerlendirme modunda açılıp yeniden kaydedilen bir sunum, her slaytta kaydetme başına bir filigran taşır.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Değerlendirme sürümü sınırlamaları olmadan Aspose.Slides'ı test etmek istiyorsanız, **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) adresine bakınız.
-
+{{% alert color="info" title="Note" %}}
+Eğer Aspose.Slides’ı değerlendirme sürümü sınırlamaları olmadan test etmek isterseniz, **30 Günlük Geçici Lisans** isteyebilirsiniz. Daha fazla bilgi için lütfen [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) adresine bakın.
 {{% /alert %}}
 
 ## **SSS**
 
-**Değerlendirme modunda farklı iş parçacıklarında birden fazla sunumu paralel olarak test edebilir miyim?**
+### Değerlendirme modunda farklı iş parçacıklarında paralel olarak birden çok sunumu test edebilir miyim?
 
-Evet. Farklı belgeleri paralel olarak işleyebilirsiniz; aynı sunum nesnesini [iş parçacıkları arasında](/slides/tr/net/multithreading/) paylaşmamalısınız. Değerlendirme modu buna etki etmez.
+Evet. Farklı belgeleri paralel olarak işleyebilirsiniz; aynı sunum nesnesini [across threads](/slides/tr/nodejs-java/multithreading/) içinde paylaşmamalısınız. Değerlendirme modu bunu etkilemez.
 
-**Sunucuda veya CI sürecinde kütüphaneyi değerlendirmek için Microsoft PowerPoint'i kurmam gerekiyor mu?**
+### Sunucuda veya CI’da kütüphaneyi değerlendirmek için Microsoft PowerPoint yüklemem gerekiyor mu?
 
-Hayır. Aspose.Slides bağımsız bir motor olup, değerlendirme ya da üretim ortamında PowerPoint kurulmasını gerektirmez.
+Hayır. Aspose.Slides bağımsız bir motor olup, değerlendirme ya da üretim aşamasında PowerPoint'in kurulu olmasını gerektirmez.
 
-**Değerlendirme modunda PPT/PPTX'i PDF ve görüntülere dönüştürmeyi tamamen test edebilir miyim?**
+### Değerlendirme modunda PPT/PPTX'ten PDF ve görüntülere dönüşümü tamamen test edebilir miyim?
 
-Evet. [Dönüştürücüler](/slides/tr/net/convert-presentation/) çalışır; çıktıda bir filigran bulunur.
+Evet. [converters](/slides/tr/nodejs-java/convert-presentation/) çalışır; çıktı bir filigran içerecektir.
 
-**Yük testi sırasında filigran olmadan geçici lisans kullanabilir miyim?**
+### Filigransız yük testi için geçici bir lisans kullanabilir miyim?
 
-Evet. 30 günlük geçici lisans, değerlendirme modu sınırlamalarını kaldırır ve filigransız test yapmanıza olanak tanır.
+Evet. 30 günlük geçici bir lisans, değerlendirme modu sınırlamalarını kaldırır ve filigran olmadan test yapmanıza olanak tanır.

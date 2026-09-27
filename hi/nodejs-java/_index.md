@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides Node.js के लिए Java के माध्यम से
-second_title: "Aspose.Slides Node.js के लिए .NET दस्तावेज़ीकरण"
+title: Aspose.Slides for Node.js via Java
+second_title: Aspose.Slides for Node.js
 type: docs
 weight: 47
 url: /hi/nodejs-java/
@@ -13,40 +13,108 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides एक Microsoft PowerPoint® प्रबंधन API है जो अनुप्रयोगों को Microsoft PowerPoint® का उपयोग किए बिना PowerPoint® दस्तावेज़ पढ़ने और लिखने में सक्षम बनाता है।"
+description: "यहाँ से शुरू करें: Aspose.Slides for Node.js via Java स्थापित करें, पहला प्रस्तुति बनाएँ, और सामान्य कार्यों, API रेफ़रेंस और समर्थन के लिए गाइड खोजें।"
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="aspose_slides-for-nodejs-via-java.png" alt="Aspose.Slides for Node.js via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Aspose.Slides for Node.js via Java में आपका स्वागत है**
+Aspose.Slides for Node.js via Java एक लाइब्रेरी है जो Node.js एप्लिकेशन में PowerPoint और OpenDocument प्रस्तुतियों को बनाने, पढ़ने, संपादित करने और रूपांतरित करने की सुविधा देती है, बिना Microsoft PowerPoint की आवश्यकता के।
 
-![Aspose.Slides for Node.js via Java उत्पाद लोगो](aspose_slides-for-nodejs-via-java.png)
+यह PPT, PPTX, PPS, POT और ODP फाइलें लोड और सेव करती है, जिसमें मैक्रो-सक्षम और टेम्पलेट संस्करण शामिल हैं, और PDF, XPS, HTML, SVG, TIFF, Markdown तथा इमेजेज़ में निर्यात करती है।
 
-Aspose.Slides for Node.js via Java एक क्लास लाइब्रेरी है जो आपके अनुप्रयोगों को Microsoft PowerPoint® का उपयोग किए बिना PowerPoint® दस्तावेज़ पढ़ने और लिखने में सक्षम बनाती है।
+<div style="clear:both"></div>
 
-Aspose.Slides for Node.js via Java पहला और एकमात्र घटक है जो PowerPoint® दस्तावेज़ों को प्रबंधित करने की कार्यक्षमता प्रदान करता है।
+------
 
-Aspose.Slides for Node.js via Java कई प्रमुख सुविधाएँ प्रदान करता है, जैसे कि पाठ, आकार, तालिकाएँ और एनिमेशन का प्रबंधन, स्लाइड्स में ऑडियो और वीडियो जोड़ना, स्लाइड्स का पूर्वावलोकन, स्लाइड्स को SVG, PDF प्रारूप में निर्यात करना और अधिक।
+<div class="row">
+<div class="col-md-4">
+<p><b>Get Started</b></p>
+<hr>
+<p>GETTING STARTED</p>
+<ul>
+<li><a href="/slides/hi/nodejs-java/installation/">इंस्टॉलेशन</a></li>
+<li><a href="/slides/hi/nodejs-java/create-presentation/">अपना पहला प्रस्तुतिकरण बनाएं</a></li>
+<li><a href="/slides/hi/nodejs-java/getting-started/">शुरुआत गाइड</a></li>
+</ul>
+<p>EVALUATE</p>
+<ul>
+<li><a href="/slides/hi/nodejs-java/supported-file-formats/">समर्थित फ़ाइल स्वरूप</a></li>
+<li><a href="/slides/hi/nodejs-java/evaluate-aspose-slides/">ट्रायल सीमाएँ</a></li>
+<li><a href="/slides/hi/nodejs-java/licensing/">लाइसेंसिंग</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Build with Slides</b></p>
+<hr>
+<p>COMMON TASKS</p>
+<ul>
+<li><a href="/slides/hi/nodejs-java/open-presentation/">प्रस्तुतिकरण खोलें</a></li>
+<li><a href="/slides/hi/nodejs-java/save-presentation/">प्रस्तुतिकरण सहेजें</a></li>
+<li><a href="/slides/hi/nodejs-java/convert-powerpoint-to-pdf/">PDF में रूपांतरित करें</a></li>
+<li><a href="/slides/hi/nodejs-java/convert-slide/">स्लाइड को छवियों के रूप में रेंडर करें</a></li>
+<li><a href="/slides/hi/nodejs-java/manage-text/">टेक्स्ट और शैप्स संपादित करें</a></li>
+</ul>
+<p>SLIDES WORKFLOWS</p>
+<ul>
+<li><a href="/slides/hi/nodejs-java/powerpoint-charts/">चार्ट्स</a></li>
+<li><a href="/slides/hi/nodejs-java/powerpoint-animation/">एनीमेशन</a></li>
+<li><a href="/slides/hi/nodejs-java/manage-media-files/">ऑडियो और वीडियो</a></li>
+<li><a href="/slides/hi/nodejs-java/presentation-design/">स्लाइड डिज़ाइन</a></li>
+<li><a href="/slides/hi/nodejs-java/merge-presentation/">प्रस्तुतिकरण मिलाएँ</a></li>
+</ul>
+<p>EXAMPLES</p>
+<ul>
+<li><a href="/slides/hi/nodejs-java/examples/">स्लाइड तत्व द्वारा उदाहरण</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Reference &amp; Support</b></p>
+<hr>
+<p>REFERENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/hi/nodejs-java/">API रेफ़रेंस</a></li>
+<li><a href="https://releases.aspose.com/slides/hi/nodejs-java/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="/slides/hi/nodejs-java/known-issues/">ज्ञात समस्याएँ</a></li>
+<li><a href="https://releases.aspose.com/slides/hi/nodejs-java/">डाउनलोड</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/hi/11">मुफ़्त सपोर्ट फ़ोरम</a></li>
+<li><a href="https://helpdesk.aspose.com/">पेड सपोर्ट हेल्पडेस्क</a></li>
+</ul>
+</div>
+</div>
 
-{{% /alert %}}
+------
 
-## Aspose.Slides for Node.js via Java संसाधन
+## **Your first presentation**
 
-{{% alert color="primary" %}}
+Node.js 20 या उससे नए संस्करण के साथ, पैकेज को Java Development Kit (JDK), Python और C++ बिल्ड टूलचेन की आवश्यकता होती है, क्योंकि npm इंस्टॉलेशन के दौरान इसका `java` ब्रिज कंपाइल करता है। प्रत्येक ऑपरेटिंग सिस्टम पर चरणों के लिए देखें [Installation](/slides/hi/nodejs-java/installation/)। फिर एक प्रोजेक्ट बनाएं और npm से पैकेज इंस्टॉल करें:
 
-Aspose.Slides for Node.js via Java, Aspose.Slides for Java से पोर्ट किया गया है, इसलिए आप बाद की दस्तावेज़ीकरण और API रेफ़रेंस का उपयोग कर सकते हैं।
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-{{% /alert %}}
+इस कोड को प्रोजेक्ट फ़ोल्डर में *hello.js* के रूप में सहेजें:
 
-These are links to useful to resources:
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-- [Aspose.Slides for Node.js via Java ऑनलाइन दस्तावेज़ीकरण](/slides/hi/nodejs-java/developer-guide/)
-- [Aspose.Slides for Node.js via Java सुविधाएँ](/slides/hi/nodejs-java/features-overview/)
-- [Aspose.Slides for Node.js via Java सीमाएँ और API अंतर](/slides/hi/nodejs-java/limitations-and-api-differences/)
-- [Aspose.Slides for Node.js via Java रिलीज़ नोट्स](https://releases.aspose.com/slides/hi/nodejs-java/release-notes/)
-- [Aspose.Slides for Node.js via Java उत्पाद पृष्ठ](https://products.aspose.com/slides/hi/nodejs-java/)
-- [Aspose.Slides for Node.js via Java पैकेज डाउनलोड करें](https://releases.aspose.com/slides/hi/nodejs-java/)
-- [Aspose.Slides for Node.js via Java स्थापित करें](/slides/hi/nodejs-java/installation/)
-- [Aspose.Slides for Node.js via Java API रेफ़रेंस](https://reference.aspose.com/slides/hi/nodejs-java/)
-- [Aspose.Slides for Node.js via Java मुफ्त समर्थन फ़ोरम](https://forum.aspose.com/c/slides/hi/)
-- [Aspose.Slides for Node.js via Java भुगतान किया गया समर्थन हेल्पडेस्क](https://helpdesk.aspose.com/)
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+// Aspose.Slides एक Java वर्चुअल मशीन में चलता है जो Node.js को चलाते रहता है, इसलिए प्रक्रिया को स्पष्ट रूप से समाप्त करें।
+process.exit(0);
+```
+
+इसे `node hello.js` के साथ चलाएँ। स्क्रिप्ट *hello.pptx* को एक स्लाइड के साथ सहेजती है जिसमें एक टेक्स्ट बॉक्स होता है। बिना लाइसेंस के, सहेजी गई फ़ाइल में मूल्यांकन वॉटरमार्क होता है — देखें [Licensing](/slides/hi/nodejs-java/licensing/)। प्रस्तुतिकरण बनाने और उसे भरने के अधिक तरीकों के लिए देखें [Create Presentations](/slides/hi/nodejs-java/create-presentation/).

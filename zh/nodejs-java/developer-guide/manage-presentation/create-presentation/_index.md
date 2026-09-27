@@ -1,74 +1,99 @@
 ---
-title: 用 JavaScript 创建 PowerPoint 演示文稿
+title: 在 JavaScript 中创建演示文稿
 linktitle: 创建演示文稿
 type: docs
 weight: 10
 url: /zh/nodejs-java/create-presentation/
-keywords: 用 JavaScript 创建 PPT, 用 JavaScript 创建 PPT 演示文稿, 用 JavaScript 创建 PPTX
-description: 学习如何使用 JavaScript 从头创建 PowerPoint 演示文稿，例如 PPT、PPTX。
+keywords:
+- 创建演示文稿
+- 新建演示文稿
+- 创建 PPT
+- 新建 PPT
+- 创建 PPTX
+- 新建 PPTX
+- 创建 ODP
+- 新建 ODP
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "使用 Aspose.Slides 创建演示文稿—生成 PPT、PPTX 和 ODP 文件，支持 OpenDocument，程序化保存以获得可靠的结果。"
 ---
+## **概述**
+
+本文展示了如何在 Aspose.Slides 中创建演示文稿、在其首张幻灯片上添加文本框，并将结果保存为文件。
+
+在开始之前，使用 npm 安装 `aspose.slides.via.java` 包，并安装其所需的 JDK、Python 和 C++ 构建工具。参见[Installation](/slides/zh/nodejs-java/installation/)。
 
 ## **创建 PowerPoint 演示文稿**
 
-要向演示文稿的选定幻灯片添加一条简单的直线，请按以下步骤操作：
+要创建演示文稿并在其首张幻灯片上放置文本框，请按以下步骤操作：
 
-1. 创建 Presentation 类的实例。
-1. 通过其 Index 获取幻灯片的引用。
-1. 使用 Shapes 对象公开的 addAutoShape 方法添加 Line 类型的 AutoShape。
-1. 将修改后的演示文稿写入为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。新演示文稿默认包含一张空白幻灯片。  
+2. 通过索引 0 从[slide collection](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/getslides/)中获取该幻灯片。  
+3. 使用 [addAutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/addautoshape/) 方法添加矩形，并使用 [setText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/settext/) 设置其文本。  
+4. 使用 [save](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。  
+5. 使用 [dispose](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/dispose/) 方法释放演示文稿，并结束进程。
 
-在下面的示例中，我们向演示文稿的第一张幻灯片添加了一条直线。
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 对象
-var pres = new aspose.slides.Presentation();
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
 try {
-    // 获取第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加类型为线的自动形状
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// Aspose.Slides 在 Java 虚拟机中运行，该虚拟机会保持 Node.js 继续运行，因此需要显式结束进程。
+process.exit(0);
 ```
 
+矩形的左上角距离幻灯片左边缘 50 点，距离顶部 50 点，宽度为 400 点，高度为 100 点。将代码保存为 *hello.js* 并放入项目文件夹，然后运行 `node hello.js`：它会在当前文件夹生成 *hello.pptx*，其中包含一张带有该矩形及其文本的幻灯片。
+
+Aspose.Slides 在 `java` 包启动的 Java 虚拟机中运行，该虚拟机位于 Node.js 进程内部。虚拟机会阻止 Node.js 在脚本结束后自动退出，因此示例以 `process.exit(0)` 结束。
+
+如果没有许可证，Aspose.Slides 还会在每张保存的幻灯片上添加评估水印；参见[Licensing](/slides/zh/nodejs-java/licensing/)。
 
 ## **常见问题**
 
-**我可以将新演示文稿保存为何种格式？**
+### 我可以将新演示文稿保存为何种格式？
 
-您可以保存为 [PPTX, PPT, and ODP](/slides/zh/nodejs-java/save-presentation/)，并导出为 [PDF](/slides/zh/nodejs-java/convert-powerpoint-to-pdf/)、[XPS](/slides/zh/nodejs-java/convert-powerpoint-to-xps/)、[HTML](/slides/zh/nodejs-java/convert-powerpoint-to-html/)、[SVG](/slides/zh/nodejs-java/convert-powerpoint-to-png/) 和 [images](/slides/zh/nodejs-java/convert-powerpoint-to-png/)，等等。
+您可以保存为 [PPTX、PPT 和 ODP](/slides/zh/nodejs-java/save-presentation/)，并导出为 [PDF](/slides/zh/nodejs-java/convert-powerpoint-to-pdf/)、[XPS](/slides/zh/nodejs-java/convert-powerpoint-to-xps/)、[HTML](/slides/zh/nodejs-java/convert-powerpoint-to-html/)、[SVG](/slides/zh/nodejs-java/render-a-slide-as-an-svg-image/) 和 [images](/slides/zh/nodejs-java/convert-powerpoint-to-png/) 等格式。
 
-**我可以从模板（POTX/POTM）开始并保存为普通 PPTX 吗？**
+### 能否从模板（POTX/POTM）开始并保存为普通 PPTX？
 
-可以。加载模板并保存为所需格式；POTX/POTM/PPTM 等类似格式 [受支持](/slides/zh/nodejs-java/supported-file-formats/)。
+可以。加载模板后保存为所需格式；POTX、POTM、PPTM 等类似格式[受支持](/slides/zh/nodejs-java/supported-file-formats/)。
 
-**创建演示文稿时，如何控制幻灯片尺寸/宽高比？**
+### 创建演示文稿时如何控制幻灯片大小/宽高比？
 
-设置 [slide size](/slides/zh/nodejs-java/slide-size/)（包括 4:3、16:9 等预设或自定义尺寸），并选择内容的缩放方式。
+设置[slide size](/slides/zh/nodejs-java/slide-size/)（包括 4:3、16:9 等预设或自定义尺寸），并选择内容的缩放方式。
 
-**尺寸和坐标使用何种单位？**
+### 大小和坐标使用何种单位？
 
-使用点（point）：1 英寸等于 72 单位。
+使用点（points）：1 英寸等于 72 点。
 
-**如何处理包含大量媒体文件的超大型演示文稿以降低内存使用？**
+### 如何处理包含大量媒体文件的超大型演示文稿以降低内存使用？
 
-使用 [BLOB management strategies](/slides/zh/nodejs-java/manage-blob/)，通过利用临时文件限制内存中存储，并优先使用基于文件的工作流而非纯内存流。
+使用[BLOB 管理策略](/slides/zh/nodejs-java/manage-blob/)，通过临时文件限制内存存储，并倾向于基于文件的工作流而非纯内存流。
 
-**我可以并行创建/保存演示文稿吗？**
+### 能否并行创建/保存演示文稿？
 
-不能在 [multiple threads](/slides/zh/nodejs-java/multithreading/) 中对同一 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 实例进行操作。请为每个线程或进程运行独立的实例。
+不能在[multiple threads](/slides/zh/nodejs-java/multithreading/)中对同一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 实例进行操作。请为每个线程或进程使用独立的实例。
 
-**如何移除试用版水印和限制？**
+### 如何去除试用水印和限制？
 
-[Apply a license](/slides/zh/nodejs-java/licensing/) 每个进程一次。许可 XML 必须保持未修改，如果涉及多个线程，许可设置应同步进行。
+在每个进程中[Apply a license](/slides/zh/nodejs-java/licensing/)。许可证 XML 必须保持原样，且在多线程环境下应同步许可证设置。
 
-**我可以对创建的 PPTX 进行数字签名吗？**
+### 能否对创建的 PPTX 进行数字签名？
 
-可以。[Digital signatures](/slides/zh/nodejs-java/digital-signature-in-powerpoint/)（添加和验证）在演示文稿中受支持。
+可以。支持[Digital signatures](/slides/zh/nodejs-java/digital-signature-in-powerpoint/)（添加和验证）用于演示文稿。
 
-**在创建的演示文稿中是否支持宏（VBA）？**
+### 创建的演示文稿是否支持宏（VBA）？
 
-可以。您可以 [create/edit VBA projects](/slides/zh/nodejs-java/presentation-via-vba/) 并保存为支持宏的文件，例如 PPTM/PPSM。
+支持。您可以[create/edit VBA projects](/slides/zh/nodejs-java/presentation-via-vba/)并保存为支持宏的文件，如 PPTM、PPSM。
