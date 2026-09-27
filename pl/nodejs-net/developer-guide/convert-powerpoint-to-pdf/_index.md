@@ -22,7 +22,7 @@ description: "Konwertuj prezentacje PPTX, PPT i ODP do PDF w JavaScript przy uż
 ---
 ## **Przegląd**
 
-Aspose.Slides for Node.js via .NET konwertuje prezentacje PowerPoint i OpenDocument do PDF bez Microsoft PowerPoint. Każdy widoczny slajd staje się jedną stroną PDF o tym samym rozmiarze co slajd, a tekst pozostaje wybieralny i przeszukiwalny. Ten artykuł pokazuje domyślną konwersję oraz konwersję do PDF/A przy użyciu [PdfOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET konwertuje prezentacje PowerPoint i OpenDocument do PDF bez Microsoft PowerPoint. Każdy widoczny slajd staje się jedną stroną PDF o tym samym rozmiarze co slajd, a tekst pozostaje wybieralny i przeszukiwalny. Ten artykuł pokazuje domyślną konwersję oraz konwersję do PDF/A przy użyciu [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 Przykłady zakładają, że w katalogu projektu znajduje się prezentacja o nazwie `sample.pptx`, którą utworzyłeś w sekcji [Instalacja](/slides/pl/nodejs-net/installation/). Każda prezentacja PowerPoint będzie działać. Zapisz każdy przykład jako plik `.js` w katalogu projektu i uruchom go z tego katalogu za pomocą `node`.
 
@@ -34,8 +34,8 @@ Aspose.Slides for Node.js via .NET nie posiada własnej dokumentacji API. Odzwie
 
 Aby skonwertować prezentację do PDF, wykonaj następujące kroki:
 
-1. Otwórz prezentację, przekazując jej ścieżkę do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/presentation/) . Ten sam kod działa dla plików PPTX, PPT i ODP.
-1. Wywołaj metodę [save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) , podając ścieżkę wyjściową oraz `SaveFormat.Pdf`.
+1. Otwórz prezentację, przekazując jej ścieżkę do konstruktora [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) . Ten sam kod działa dla plików PPTX, PPT i ODP.
+1. Wywołaj metodę [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) , podając ścieżkę wyjściową oraz `SaveFormat.Pdf`.
 1. Wywołaj `dispose` w bloku `finally`, aby zwolnić zasoby .NET używane przez prezentację.
 
 ```javascript
@@ -54,7 +54,7 @@ Skrypt zapisuje `sample.pdf` w katalogu projektu. Konwersja używa ustawień dom
 
 ## **Konwertuj prezentację do PDF/A**
 
-Aby kontrolować wynik, przekaż obiekt [PdfOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/) jako trzeci argument metody `save`. Poniższy przykład ustawia właściwość [compliance](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/compliance/) na `PdfCompliance.PdfA2b`, co generuje plik PDF/A-2b. PDF/A jest standardem ISO dla długoterminowego archiwizowania: między innymi wymaga, aby każda czcionka używana w dokumencie była osadzona w pliku.
+Aby kontrolować wynik, przekaż obiekt [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) jako trzeci argument metody `save`. Poniższy przykład ustawia właściwość [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) na `PdfCompliance.PdfA2b`, co generuje plik PDF/A-2b. PDF/A jest standardem ISO dla długoterminowego archiwizowania: między innymi wymaga, aby każda czcionka używana w dokumencie była osadzona w pliku.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-Skrypt zapisuje `sample-pdfa.pdf` z taką samą liczbą stron jak domyślna konwersja. Aby potwierdzić, że plik spełnia standard, sprawdź go przy użyciu walidatora PDF/A, takiego jak [veraPDF](https://verapdf.org/). Inne wartości [PdfCompliance](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfcompliance/) wybierają inne standardy, np. `PdfA1b`, `PdfA2a` lub `PdfUa` dla dostępności.
+Skrypt zapisuje `sample-pdfa.pdf` z taką samą liczbą stron jak domyślna konwersja. Aby potwierdzić, że plik spełnia standard, sprawdź go przy użyciu walidatora PDF/A, takiego jak [veraPDF](https://verapdf.org/). Inne wartości [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) wybierają inne standardy, np. `PdfA1b`, `PdfA2a` lub `PdfUa` dla dostępności.
 
 ## **FAQ**
 
 **Jak uwzględnić ukryte slajdy w pliku PDF?**
 
-Ukryte slajdy są pomijane domyślnie. Ustaw właściwość [showHiddenSlides](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/showhiddenslides/) obiektu `PdfOptions` na `true` i przekaż opcje do metody `save`.
+Ukryte slajdy są pomijane domyślnie. Ustaw właściwość [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) obiektu `PdfOptions` na `true` i przekaż opcje do metody `save`.
 
 **Czy mogę zabezpieczyć PDF hasłem?**
 
-Tak. Ustaw właściwość [password](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/password/) obiektu `PdfOptions` przed wywołaniem `save`. Czytniki PDF poproszą wtedy o podanie hasła przed otwarciem pliku.
+Tak. Ustaw właściwość [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) obiektu `PdfOptions` przed wywołaniem `save`. Czytniki PDF poproszą wtedy o podanie hasła przed otwarciem pliku.
 
 **Czy mogę konwertować tylko wybrane slajdy?**
 
