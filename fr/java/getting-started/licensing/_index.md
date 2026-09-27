@@ -30,7 +30,7 @@ Cet article explique comment fonctionne la licence dans Aspose.Slides et comment
 
 Vous pouvez télécharger une version d'évaluation d'**Aspose.Slides for Java** depuis sa [page de téléchargement](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). La version d'évaluation fournit les mêmes fonctionnalités que la version sous licence du produit. Le package d'évaluation est identique au package acheté. La version d'évaluation devient simplement sous licence après avoir ajouté quelques lignes de code (pour appliquer la licence).
 
-Une fois que vous êtes satisfait de votre évaluation d'**Aspose.Slides**, vous pouvez [acheter une licence](https://purchase.aspose.com/pricing/slides/fr/java/). Nous vous recommandons de parcourir les différents types d'abonnement. Si vous avez des questions, contactez l'équipe commerciale d'Aspose.
+Une fois que vous êtes satisfait de votre évaluation d'**Aspose.Slides**, vous pouvez [acheter une licence](https://purchase.aspose.com/pricing/slides/java/). Nous vous recommandons de parcourir les différents types d'abonnement. Si vous avez des questions, contactez l'équipe commerciale d'Aspose.
 
 Chaque licence Aspose comprend un abonnement d'un an pour des mises à jour gratuites vers de nouvelles versions ou des correctifs publiés pendant la période d'abonnement. Les utilisateurs de produits sous licence (ou même les versions d'évaluation) bénéficient d'un support technique gratuit et illimité.
 
@@ -70,7 +70,7 @@ Une licence peut être chargée à partir d'un **fichier** ou d'un **flux**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides fournit la classe [License](https://reference.aspose.com/slides/fr/java/com.aspose.slides/license/) pour les opérations de licence.
+Aspose.Slides fournit la classe [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) pour les opérations de licence.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Si vous placez le fichier de licence dans un répertoire différent, lorsque vous appelez la méthode [setLicense](https://reference.aspose.com/slides/fr/java/com.aspose.slides/license/#setLicense-java.lang.String-), le nom du fichier de licence à la fin du chemin spécifié doit être identique à celui de votre fichier de licence.
+Si vous placez le fichier de licence dans un répertoire différent, lorsque vous appelez la méthode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-), le nom du fichier de licence à la fin du chemin spécifié doit être identique à celui de votre fichier de licence.
 
-Par exemple, vous pouvez changer le nom du fichier de licence en *Aspose.Slides.Java.lic.xml*. Ensuite, dans votre code, vous devez transmettre le chemin vers le fichier (se terminant par *Aspose.Slides.Java.lic.xml*) à la méthode [setLicense](https://reference.aspose.com/slides/fr/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Par exemple, vous pouvez changer le nom du fichier de licence en *Aspose.Slides.Java.lic.xml*. Ensuite, dans votre code, vous devez transmettre le chemin vers le fichier (se terminant par *Aspose.Slides.Java.lic.xml*) à la méthode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-La méthode [setLicense](https://reference.aspose.com/slides/fr/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) n'est pas sécurisée pour les threads. Si cette méthode doit être appelée simultanément depuis de nombreux threads, vous voudrez peut‑être utiliser des primitives de synchronisation (comme un verrou) pour éviter les problèmes.
+La méthode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) n'est pas sécurisée pour les threads. Si cette méthode doit être appelée simultanément depuis de nombreux threads, vous voudrez peut‑être utiliser des primitives de synchronisation (comme un verrou) pour éviter les problèmes.
 
 {{% /alert %}}
 

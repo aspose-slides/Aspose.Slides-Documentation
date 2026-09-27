@@ -28,14 +28,14 @@ Avant de commencer, ajoutez Aspose.Slides for Java à votre projet depuis le ré
 
 ## **Créer une présentation**
 
-Créer un fichier PowerPoint à partir de zéro dans Aspose.Slides for Java commence par une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/). Le constructeur fournit une présentation vierge avec une seule diapositive, prête pour des formes, du texte, des graphiques ou tout autre contenu dont votre application a besoin. Une fois que vous avez modifié cette diapositive ou ajouté de nouvelles, vous pouvez enregistrer le résultat aux formats PPTX, PPT legacy ou OpenDocument.
+Créer un fichier PowerPoint à partir de zéro dans Aspose.Slides for Java commence par une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Le constructeur fournit une présentation vierge avec une seule diapositive, prête pour des formes, du texte, des graphiques ou tout autre contenu dont votre application a besoin. Une fois que vous avez modifié cette diapositive ou ajouté de nouvelles, vous pouvez enregistrer le résultat aux formats PPTX, PPT legacy ou OpenDocument.
 
 Pour créer une présentation et placer une forme avec du texte sur sa première diapositive, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.  
-2. Récupérez cette diapositive par son index 0, à partir de la collection renvoyée par [getSlides](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/#getSlides--).  
-3. Ajoutez un [IAutoShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iautoshape/) de type `Cloud` à l'aide de la méthode [addAutoShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), et définissez son texte avec [setText](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Enregistrez la présentation au format PPTX avec la méthode [save](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.  
+2. Récupérez cette diapositive par son index 0, à partir de la collection renvoyée par [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--).  
+3. Ajoutez un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) de type `Cloud` à l'aide de la méthode [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), et définissez son texte avec [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Enregistrez la présentation au format PPTX avec la méthode [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 L'exemple ci‑dessous est un programme complet. Dans le projet Maven provenant de [Installation](/slides/fr/java/installation/), enregistrez‑le sous *src/main/java/HelloSlides.java* et exécutez `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ Utilisez les [stratégies de gestion des BLOB](/slides/fr/java/manage-blob/), li
 
 ### Puis‑je créer/enregistrer des présentations en parallèle ?
 
-Vous ne pouvez pas exploiter la même instance de [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/java/multithreading/). Exécutez des instances distinctes et isolées par thread ou processus.
+Vous ne pouvez pas exploiter la même instance de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/java/multithreading/). Exécutez des instances distinctes et isolées par thread ou processus.
 
 ### Comment supprimer le filigrane d'évaluation et les limitations ?
 
