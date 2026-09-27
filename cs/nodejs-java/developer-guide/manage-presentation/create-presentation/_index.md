@@ -31,11 +31,11 @@ Před začátkem nainstalujte balíček `aspose.slides.via.java` z npm spolu s J
 
 Chcete-li vytvořit prezentaci a umístit textové pole na její první snímek, postupujte podle těchto kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
-2. Získejte tento snímek ze [kolekce snímků](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getslides/) podle jeho indexu 0.
-3. Přidejte obdélník pomocí metody [addAutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/addautoshape/) a nastavte jeho text pomocí [setText](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/settext/).
-4. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/save/).
-5. Uvolněte prezentaci pomocí metody [dispose](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/dispose/), a ukončete proces.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
+2. Získejte tento snímek ze [kolekce snímků](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) podle jeho indexu 0.
+3. Přidejte obdélník pomocí metody [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) a nastavte jeho text pomocí [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+4. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+5. Uvolněte prezentaci pomocí metody [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/), a ukončete proces.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Použijte [BLOB management strategies](/slides/cs/nodejs-java/manage-blob/), ome
 
 ### Mohu vytvářet/ukládat prezentace paralelně?
 
-Nelze operovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) z [více vláken](/slides/cs/nodejs-java/multithreading/). Spusťte oddělené, izolované instance pro každý vlákno nebo proces.
+Nelze operovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) z [více vláken](/slides/cs/nodejs-java/multithreading/). Spusťte oddělené, izolované instance pro každý vlákno nebo proces.
 
 ### Jak mohu odstranit zkušební vodoznak a omezení?
 

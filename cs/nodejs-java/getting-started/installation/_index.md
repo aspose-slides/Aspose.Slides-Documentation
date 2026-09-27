@@ -100,7 +100,7 @@ Pokud se soubor *hello.pptx* objeví v projektové složce, instalace funguje. V
 Balíček je také k dispozici jako ZIP archiv se stejným obsahem jako npm balíček. Pro instalaci z archivu:
 
 1. Nainstalujte předpoklady pro svůj operační systém, jak je popsáno výše.  
-1. Stáhněte archiv ze [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/cs/nodejs-java/).  
+1. Stáhněte archiv ze [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/).  
 1. Vytvořte projektovou složku:
 
     ```bash

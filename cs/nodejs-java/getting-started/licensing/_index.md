@@ -40,7 +40,7 @@ Pokud chcete testovat Aspose.Slides bez omezení hodnotící verze, můžete po�
 {{% /alert %}}
 
 ## **O licenci**
-Lze snadno stáhnout hodnotící verzi Aspose.Slides pro Node.js prostřednictvím Java z její [stahovací stránky](https://releases.aspose.com/slides/cs/nodejs-java/). Hodnotící verze má stejné funkce jako licencovaná verze, s výše popsanými omezeními. Navíc se hodnotící verze po zakoupení licence a přidání několika řádků kódu pro použití licence jednoduše stane licencovanou.
+Lze snadno stáhnout hodnotící verzi Aspose.Slides pro Node.js prostřednictvím Java z její [stahovací stránky](https://releases.aspose.com/slides/nodejs-java/). Hodnotící verze má stejné funkce jako licencovaná verze, s výše popsanými omezeními. Navíc se hodnotící verze po zakoupení licence a přidání několika řádků kódu pro použití licence jednoduše stane licencovanou.
 
 Licence je soubor ve formátu prostého textového XML, který obsahuje informace jako název produktu, počet vývojářů, pro které je licence určena, datum vypršení předplatného a podobně. Soubor je digitálně podepsán, proto jej nechte nezměněný. I neúmyslné přidání dalšího konce řádku do obsahu souboru jej zneplatní.
 
@@ -60,7 +60,7 @@ Licence je potřeba nastavit:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Informace o cenách najdete na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/cs/family).
+Informace o cenách najdete na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Nastavení licence v Aspose.Slides pro Node.js prostřednictvím Java**
@@ -91,10 +91,10 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-Při volání metody setLicense by název licence měl být stejný jako název vašeho souboru licence. Například můžete změnit název souboru licence na "Aspose.Slides.lic.xml". Pak ve svém kódu musíte předat nový název licence (Aspose.Slides.lic.xml) metodě setLicense. Pokud soubor chybí nebo neobsahuje platnou licenci, [setLicense](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/license/setlicense/) vyvolá výjimku, která ukončí skript s chybou.
+Při volání metody setLicense by název licence měl být stejný jako název vašeho souboru licence. Například můžete změnit název souboru licence na "Aspose.Slides.lic.xml". Pak ve svém kódu musíte předat nový název licence (Aspose.Slides.lic.xml) metodě setLicense. Pokud soubor chybí nebo neobsahuje platnou licenci, [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) vyvolá výjimku, která ukončí skript s chybou.
 
 #### **Použití licence ze streamu**
-Pro použití licence ze streamu předáte objekt [License](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/license/) a čitelný stream statické metodě [setLicenseFromStream](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/license/setlicense/). Stream je čten asynchronně a callback obdrží chybu, pokud stream neobsahuje platnou licenci:
+Pro použití licence ze streamu předáte objekt [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) a čitelný stream statické metodě [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/). Stream je čten asynchronně a callback obdrží chybu, pokud stream neobsahuje platnou licenci:
 
 **Node.js**
 
