@@ -30,10 +30,10 @@ Voordat u begint, voegt u Aspose.Slides toe aan uw project: via NuGet in een Vis
 
 Om een presentatie te maken en een tekstvak op de eerste dia te plaatsen, volgt u deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.
-2. Haal die dia op met de [Presentation::get_Slide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_slide/)‑methode en zijn index, 0.
-3. Voeg een rechthoek toe met de [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addautoshape/)‑methode, en stel de tekst in met de [ITextFrame::set_Text](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/set_text/)‑methode.
-4. Sla de presentatie op als een PPTX‑bestand met de [Presentation::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/save/)‑methode.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.
+2. Haal die dia op met de [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/)‑methode en zijn index, 0.
+3. Voeg een rechthoek toe met de [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/)‑methode, en stel de tekst in met de [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/)‑methode.
+4. Sla de presentatie op als een PPTX‑bestand met de [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/)‑methode.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Gebruik [BLOB management strategies](/slides/nl/cpp/manage-blob/), beperk de ops
 
 ### Kan ik presentaties parallel maken/opslaan?
 
-U kunt niet dezelfde [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑instantie gebruiken vanuit [multiple threads](/slides/nl/cpp/multithreading/). Gebruik aparte, geïsoleerde instanties per thread of proces.
+U kunt niet dezelfde [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑instantie gebruiken vanuit [multiple threads](/slides/nl/cpp/multithreading/). Gebruik aparte, geïsoleerde instanties per thread of proces.
 
 ### Hoe verwijder ik het proefwatermerk en de beperkingen?
 

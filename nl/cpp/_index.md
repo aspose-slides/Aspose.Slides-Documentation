@@ -72,14 +72,14 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 <hr>
 <p>REFERENTIE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/nl/cpp/">API‑referentie</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/cpp/release-notes/">Release‑notities</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API‑referentie</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Release‑notities</a></li>
 <li><a href="/slides/nl/cpp/known-issues/">Bekende problemen</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/cpp/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/nl/11">Gratis ondersteuningsforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
 </ul>
 </div>
