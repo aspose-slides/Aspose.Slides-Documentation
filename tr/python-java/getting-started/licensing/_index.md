@@ -17,7 +17,7 @@ description: "Aspose.Slides for Python via Java’da dosya, bayt tabanlı veya �
 
 Aspose.Slides for Python via Java, değerlendirme modunda ya da bir lisans ile çalıştırılabilir. Değerlendirme modunda, kaydettiği her sunumun her slaytına bir değerlendirme filigranı metin kutusu ekler ve kodunuzun sunumlardan okuduğu metni kısaltır. Bu makale, bir lisansı dosyadan ya da baytlardan nasıl uygulayacağınızı ve ölçülen lisanslamayı nasıl yapılandıracağınızı açıklar.
 
-Satın alma seçenekleri için [Pricing Information](https://purchase.aspose.com/pricing/slides/tr/family) sayfasına bakın. Genel lisanslama ve satın alma soruları için [Purchase Policies and FAQ](https://purchase.aspose.com/policies) sayfasını ziyaret edin.
+Satın alma seçenekleri için [Pricing Information](https://purchase.aspose.com/pricing/slides/family) sayfasına bakın. Genel lisanslama ve satın alma soruları için [Purchase Policies and FAQ](https://purchase.aspose.com/policies) sayfasını ziyaret edin.
 
 Değerlendirme sınırlamaları ve geçici bir lisans talep etme hakkında bilgi için [Evaluate Aspose.Slides](/slides/tr/python-java/evaluate-aspose-slides/) sayfasına bakın. Geçici bir lisansı, satın alınmış bir lisans dosyası gibi aynı şekilde uygulayın.
 
@@ -29,7 +29,7 @@ Bir lisans dosyası, ürün adı, lisanslı geliştirici sayısı ve abonelik so
 Lisans dosyasını düzenlemeyin. Fazladan bir satır sonu bile dijital imzasını geçersiz kılabilir.
 {{% /alert %}}
 
-Lisansı, sunumları oluşturmadan ya da diğer Aspose.Slides işlemlerini yapmadan önce, uygulama ya da işlem başına bir kez uygulayın. Lisans dosyası için [License](https://reference.aspose.com/slides/tr/python-java/aspose.slides/license/) sınıfını kullanın. Ölçülen lisanslama, lisans dosyası yerine bir açık ve gizli anahtar çifti kullanır.
+Lisansı, sunumları oluşturmadan ya da diğer Aspose.Slides işlemlerini yapmadan önce, uygulama ya da işlem başına bir kez uygulayın. Lisans dosyası için [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/) sınıfını kullanın. Ölçülen lisanslama, lisans dosyası yerine bir açık ve gizli anahtar çifti kullanır.
 
 ## **Lisansı Uygula**
 
@@ -37,7 +37,7 @@ Aşağıdaki örnekler, Aspose.Slides for Python via Java ve önkoşullarının 
 
 ### **Dosyadan Lisans Uygula**
 
-Lisans dosyası yolunu [License.setLicense](https://reference.aspose.com/slides/tr/python-java/aspose.slides/license/#setLicense) yöntemine aktarın. `Aspose.Slides.lic` ifadesini lisans dosyanızın yolu ile değiştirin.
+Lisans dosyası yolunu [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense) yöntemine aktarın. `Aspose.Slides.lic` ifadesini lisans dosyanızın yolu ile değiştirin.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Dosya adını uzantısı ile birlikte tam olarak kullanın. Örneğin dosyanın adı `Aspose.Slides.lic.xml` ise, yolda `.xml` uzantısını da ekleyin. Tam bir yol, uygulamanın çalışma dizini hakkındaki belirsizliği ortadan kaldırır.
 
-Örnek, lisansın uygulanıp uygulanmadığını kontrol etmek için [License.isLicensed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/license/#isLicensed) metodunu kullanır.
+Örnek, lisansın uygulanıp uygulanmadığını kontrol etmek için [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) metodunu kullanır.
 
 ### **Baytlardan Lisans Uygula**
 
-Lisans Python baytları olarak mevcutsa, [License.setLicenseFromBytes](https://reference.aspose.com/slides/tr/python-java/aspose.slides/license/#setLicenseFromBytes) yöntemini kullanın. Aşağıdaki örnek, dosyayı ikili modda okur ve lisansı uygulamadan önce kapatır.
+Lisans Python baytları olarak mevcutsa, [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) yöntemini kullanın. Aşağıdaki örnek, dosyayı ikili modda okur ve lisansı uygulamadan önce kapatır.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ Orijinal baytları değiştirmeyin. Lisans içeriğini uygulamadan önce çözü
 
 ## **Ölçülen Lisans Uygula**
 
-Ölçülen lisanslama, API kullanımınıza göre faturalandırır. Ölçülen bir lisans elde ettikten sonra, açık ve gizli anahtarlarını [Metered.setMeteredKey](https://reference.aspose.com/slides/tr/python-java/aspose.slides/metered/#setMeteredKey) ile uygulayın. [Metered](https://reference.aspose.com/slides/tr/python-java/aspose.slides/metered/) nesnesini başlatın ve anahtarları uygulama başlatıldığında bir kez ayarlayın.
+Ölçülen lisanslama, API kullanımınıza göre faturalandırır. Ölçülen bir lisans elde ettikten sonra, açık ve gizli anahtarlarını [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey) ile uygulayın. [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) nesnesini başlatın ve anahtarları uygulama başlatıldığında bir kez ayarlayın.
 
 Aşağıdaki örnek, `ASPOSE_METERED_PUBLIC_KEY` ve `ASPOSE_METERED_PRIVATE_KEY` ortam değişkenlerinden anahtarları okur. Betiği çalıştırmadan önce her iki değişkeni de ayarlayın.
 

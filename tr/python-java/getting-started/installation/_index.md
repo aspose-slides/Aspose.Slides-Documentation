@@ -66,7 +66,7 @@ Mevcut bir Aspose.Slides kurulumunu güncellemek için aynı ortamda `python -m 
 
 ## **ZIP Arşivinden Kurulum**
 
-Kütüphaneyi ayrıca [Aspose.Slides indirme sayfasından](https://releases.aspose.com/slides/tr/python-java/) da kullanabilirsiniz:
+Kütüphaneyi ayrıca [Aspose.Slides indirme sayfasından](https://releases.aspose.com/slides/python-java/) da kullanabilirsiniz:
 
 1. Python ve Java'yı [Önkoşullar](#prerequisites) bölümünde açıklandığı gibi kurun.
 2. Yukarıdaki talimatları izleyerek bir sanal ortam oluşturun ve etkinleştirin.

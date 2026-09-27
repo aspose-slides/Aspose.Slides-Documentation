@@ -77,14 +77,14 @@ PPT, PPTX, PPS, POT ve ODP formatlarını, makro etkin ve şablon çeşitlerini 
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/tr/python-java/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/python-java/release-notes/">Sürüm notları</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/python-java/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/python-java/">İndir</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmet masası</a></li>
 </ul>
 </div>

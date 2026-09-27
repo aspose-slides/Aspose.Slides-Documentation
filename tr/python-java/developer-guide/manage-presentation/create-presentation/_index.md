@@ -100,7 +100,7 @@ Bellek kullanımını azaltmak için [BLOB yönetim stratejilerini](/slides/tr/p
 
 **Sunumları paralel olarak oluşturup/kaydedebilir miyim?**
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği üzerinde [birden fazla iş parçacığı](/slides/tr/python-java/multithreading/) işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole edilmiş örnekler çalıştırın.
+Aynı [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) örneği üzerinde [birden fazla iş parçacığı](/slides/tr/python-java/multithreading/) işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole edilmiş örnekler çalıştırın.
 
 **Deneme filigranını ve sınırlamaları nasıl kaldırabilirim?**
 
