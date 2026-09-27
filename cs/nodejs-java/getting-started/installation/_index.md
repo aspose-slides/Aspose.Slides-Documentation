@@ -6,7 +6,7 @@ url: /cs/nodejs-java/installation/
 keywords:
 - instalovat Aspose.Slides
 - stáhnout Aspose.Slides
-- používat Aspose.Slides
+- použít Aspose.Slides
 - instalace Aspose.Slides
 - Windows
 - Linux
@@ -17,173 +17,114 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zjistěte, jak rychle nainstalovat Aspose.Slides. Průvodce krok za krokem, systémové požadavky a ukázkové kódy — začněte ještě dnes pracovat s prezentacemi PowerPoint!"
+description: "Instalujte Aspose.Slides pro Node.js prostřednictvím Java z npm na Windows, Linuxu a macOS: JDK, Python a nástroje pro sestavení C++, které jsou potřeba, příkaz npm a první skript pro ověření instalace."
 ---
-## **Úvod**
+## **Přehled**
 
-Aspose.Slides pro Node.js prostřednictvím Java je platformně nezávislé API a může být použito na jakékoli platformě (Windows, Linux a macOS), kde jsou nainstalovány `Node.js` a most [`java`](https://www.npmjs.com/package/java) bridge.
+Tento článek vysvětluje, jak nainstalovat Aspose.Slides pro Node.js prostřednictvím Java na Windows, Linux a macOS a jak ověřit, že instalace funguje.
 
-## **Instalace z NPM**
+Aspose.Slides pro Node.js prostřednictvím Java je distribuováno jako balíček `aspose.slides.via.java` na npm. Spouští Aspose.Slides ve virtuálním stroji Java pomocí balíčku[`java`](https://github.com/joeferner/node-java), nativního doplňku Node.js, který npm během instalace zkompiluje ve vašem počítači. Proto instalace kromě Node.js vyžaduje:
 
-Můžete snadno nainstalovat Aspose.Slides pro Node.js prostřednictvím Java z [NPM](https://www.npmjs.com/).
+- **Java Development Kit (JDK) 8 nebo novější.** Pouze Java runtime nestačí: kompilace vyžaduje hlavičkové soubory JDK.
+- **Python 3**, který používá nástroj pro sestavení [node-gyp](https://github.com/nodejs/node-gyp).
+- **Sada nástrojů pro sestavení C++** pro váš operační systém.
 
-1. Vytvořte nový adresář a inicializujte nový projekt pomocí následujícího příkazu:
-	```
-	$ npm init
-	```
-	
-2. Vyplňte pole název a verze (zbytek polí ponechte s výchozími hodnotami).
-
-3. Nainstalujte Aspose.Slides pro Node.js prostřednictvím Java pomocí následujícího příkazu:
-	```
-	$ npm install aspose.slides.via.java
-	```
-
-Pokud během instalačního procesu narazíte na jakýkoli problém, podívejte se na tento [článek](/slides/cs/nodejs-java/troubleshooting-installation/).
-
-**Ukázka použití**:
-
-Vytvořte soubor s názvem `hello.js` ve složce projektu a přidejte následující ukázkový kód:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
-
-var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-console.log("Done");
-```
-
-## **Instalace ze ZIP archivu**
-
-Pro instalaci a použití Aspose.Slides pro Node.js prostřednictvím Java ze ZIP archivu postupujte podle následujících pokynů:
+## **Instalace předpokladů**
 
 ### **Windows**
 
-1. Nainstalujte JDK8 a nakonfigurujte proměnnou prostředí `JAVA_HOME`.
-1. Nainstalujte Node.js (https://nodejs.org/en/download/) a přidejte node.exe do `PATH`.
-1. Nainstalujte node-gyp.
-1. Nainstalujte Windows Build Tools.
-1. Nainstalujte most [`java`](https://www.npmjs.com/package/java) bridge a spusťte následující příkazy v příkazovém řádku jako administrátor:
-	```bash
-	$ mkdir aspose.slides.nodejs
-
-	$ cd aspose.slides.nodejs
-
-	$ npm install -g node-gyp
-
-	$ npm install --global --production windows-build-tools
-
-	$ npm install java
-	```
-6. [Stáhněte Aspose.Slides pro Node.js prostřednictvím Java](https://releases.aspose.com/slides/cs/nodejs-java/) a rozbalte jej do `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-7. Vytvořte soubor s názvem `hello.js` ve složce `aspose.slides.nodejs` pomocí následujícího ukázkového kódu:
-	```javascript
-	var aspose = aspose || {};
-
-	aspose.slides = require("aspose.slides.via.java");
-
-	var pres = new aspose.slides.Presentation();
-
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
-
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
-
-	console.log("Done");
-	```
-8. Nyní spusťte `node hello.js` v příkazovém řádku.
+1. Nainstalujte [Node.js](https://nodejs.org/en/download) 20 nebo novější.  
+1. Nainstalujte JDK, například [Eclipse Temurin](https://adoptium.net/), a nastavte proměnnou prostředí `JAVA_HOME` na jeho instalační složku. Kompilace používá JDK, na kterou ukazuje `JAVA_HOME`.  
+1. Nainstalujte [Python 3](https://www.python.org/downloads/).  
+1. Nainstalujte [Build Tools for Visual Studio 2022](https://aka.ms/vs/17/release/vs_BuildTools.exe) s pracovním zatížením **Desktop development with C++**. Zachovejte výchozí komponenty pracovního zatížení, které zahrnují **MSVC v143 – VS 2022 C++ x64/x86 build tools** a **Windows 11 SDK**. Visual Studio 2026 nefunguje: verze node-gyp, kterou kompiluje balíček `java`, ji nepozná.
 
 ### **Linux**
 
-1. Nainstalujte Node.js (https://nodejs.org/en/download/).
-1. Nainstalujte JDK8 pro Linux a nakonfigurujte proměnnou prostředí `JAVA_HOME`.
-1. Nainstalujte python 2.x
-1. Nainstalujte most [`java`](https://www.npmjs.com/package/java). Můžete spustit následující příkazy v terminálu:
-	```bash
-	$ mkdir aspose.slides.nodejs
+Nainstalujte Node.js 20 nebo novější z [nodejs.org](https://nodejs.org/en/download) nebo z repozitáře vaší distribuce. Poté nainstalujte JDK, Python 3 a nástroje pro sestavení C++. Na Debianu a Ubuntu:
 
-	$ cd aspose.slides.nodejs
+```bash
+sudo apt-get update
+sudo apt-get install -y default-jdk python3 build-essential
+```
 
-	$ npm install java
-	```
-5. [Stáhněte Aspose.Slides pro Node.js prostřednictvím Java](https://releases.aspose.com/slides/cs/nodejs-java/) a rozbalte jej do `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-6. Vytvořte testovací soubor s názvem `hello.js` pomocí tohoto ukázkového kódu ve složce `aspose.slides.nodejs`:
-	```javascript
-	var aspose = aspose || {};
+Na Linuxu kompilace najde nainstalované JDK bez další konfigurace. Pokud je nainstalováno více JDK, nastavte `JAVA_HOME` na to, které chcete použít.
 
-	aspose.slides = require("aspose.slides.via.java");
+### **macOS**
 
-	var pres = new aspose.slides.Presentation();
+Nainstalujte Node.js 20 nebo novější, JDK a Xcode Command Line Tools, které obsahují Python 3 a kompilátor C++. Podívejte se na [Troubleshooting Installation](/slides/cs/nodejs-java/troubleshooting-installation/) pro specifické poznámky k macOS.
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+## **Instalace z npm**
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Vytvořte projektovou složku a nainstalujte balíček:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+```bash
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm install aspose.slides.via.java
+```
 
-	console.log("Done");
-	```
-7. Nyní spusťte `node hello.js` v příkazovém řádku.
+npm stáhne Aspose.Slides a zkompiluje most `java`, což může trvat několik minut. Pokud kompilace selže, podívejte se na [Troubleshooting Installation](/slides/cs/nodejs-java/troubleshooting-installation/).
 
-### **Mac**
+## **Ověření instalace**
 
-1. Nainstalujte Node.js (https://nodejs.org/en/download/).
-1. Nainstalujte JDK8 pro Mac a nakonfigurujte proměnnou prostředí `JAVA_HOME`.
-1. Upravte sekci JVMCapabilities v `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` s oprávněním root. `jdk1.8.x_xxx.jdk` závisí na verzi vašeho JDK. Výsledek by měl vypadat takto:
-	```xml
-	<key>JavaVM</key>
-		<dict>
-			<key>JVMCapabilities</key>
-			<array>
-					<string>JNI</string>
-					<string>BundledApp</string>
-					<string>CommandLine</string>
-			</array>
-	```
-4. Nainstalujte python 2.x (pokud není nainstalován).
-5. Nainstalujte Xcode Command Line Tools.
-6. Nainstalujte most [`java`](https://www.npmjs.com/package/java). Můžete spustit následující příkazy v terminálu:
-	```bash
-	$ mkdir aspose.slides.nodejs
-	 
-	$ cd aspose.slides.nodejs
-	 
-	$ npm install java
-	```
-7. Stáhněte Aspose.Slides pro Node.js prostřednictvím Java a rozbalte jej do `aspose.slides.nodejs/node_modules/aspose.slides.via.java`.
-8. Vytvořte testovací soubor s názvem `hello.js` pomocí tohoto ukázkového kódu ve složce `aspose.slides.nodejs`:
-	```javascript
-	var aspose = aspose || {};
+Vytvořte soubor s názvem *hello.js* v projektové složce s následujícím kódem. Vytvoří prezentaci, přidá textové pole na první snímek a výsledek uloží jako *hello.pptx*:
 
-	aspose.slides = require("aspose.slides.via.java");
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
 
-	var pres = new aspose.slides.Presentation();
+const presentation = new asposeSlides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-	var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+// Aspose.Slides běží ve virtuálním stroji Java, který udržuje Node.js běžet, takže proces ukončete explicitně.
+process.exit(0);
+```
 
-	slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading");
+Spusťte skript:
 
-	pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
+```bash
+node hello.js
+```
 
-	console.log("Done");
-	```
-9. Nyní spusťte `node hello.js` v příkazovém řádku.
+Pokud se soubor *hello.pptx* objeví v projektové složce, instalace funguje. Virtuální stroj Java, který spouští Aspose.Slides, zabraňuje Node.js ukončit se samostatně, proto skript končí `process.exit(0)`. [Create Presentations](/slides/cs/nodejs-java/create-presentation/) vysvětluje kód.
 
-{{% alert color="primary" %}}
-Použijte následující [článek](https://docs.aspose.com/slides/cs/nodejs-java/troubleshooting-installation/), pokud narazíte na chyby při kompilaci během instalace Aspose.Slides pro Node.js prostřednictvím Java.
-{{% /alert %}}
+## **Instalace ze ZIP archivu**
 
-## **Často kladené otázky**
+Balíček je také k dispozici jako ZIP archiv se stejným obsahem jako npm balíček. Pro instalaci z archivu:
 
-**Existuje bezplatná verze nebo omezení zkušební doby?**
+1. Nainstalujte předpoklady pro svůj operační systém, jak je popsáno výše.  
+1. Stáhněte archiv ze [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/cs/nodejs-java/).  
+1. Vytvořte projektovou složku:
 
-Ano, ve výchozím nastavení Aspose.Slides běží v evaluačním režimu, který přidává vodotisk a může mít další omezení. Pro odstranění omezení musíte použít platnou [licenci](/slides/cs/nodejs-java/licensing/).
+    ```bash
+    mkdir hello-slides
+    cd hello-slides
+    npm init -y
+    ```
+
+1. Rozbalte archiv do podsložky pojmenované *aspose.slides.via.java* uvnitř projektové složky, aby soubor *package.json* z archivu byl v *hello-slides/aspose.slides.via.java/package.json*.  
+1. Nainstalujte balíček z této složky:
+
+    ```bash
+    npm install ./aspose.slides.via.java
+    ```
+
+    npm nainstaluje most `java`, na kterém balíček závisí, a zkompiluje jej, stejně jako u npm balíčku.  
+1. Ověřte instalaci podle popisu v [Check the Installation](#check-the-installation).
+
+## **FAQ**
+
+**Existuje bezplatná verze nebo omezení zkušební verze?**
+
+**Ano.** Bez licence běží Aspose.Slides v evaluačním režimu: přidává na každý uložený snímek vodoznak hodnocení a ořezává text načtený z prezentací. Pro odstranění těchto omezení použijte platnou [licenci](/slides/cs/nodejs-java/licensing/).
+
+**Proč se můj skript neukončí po dokončení?**
+
+Balíček `java` spustí ve procesu Node.js virtuální stroj Java a tento stroj udržuje proces v chodu. Zavolejte `process.exit`, až skript dokončí svou práci.

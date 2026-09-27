@@ -5,9 +5,9 @@ weight: 80
 url: /sv/nodejs-java/licensing/
 keywords:
 - licens
-- tillfällig licens
+- temporär licens
 - ange licens
-- använd licens
+- använda licens
 - validera licens
 - licensfil
 - utvärderingsversion
@@ -17,115 +17,115 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Applicera, hantera och felsöka licenser i Aspose.Slides för Node.js. Säkerställ oavbruten åtkomst till alla funktioner med vår steg-for-steg guide för licensiering."
+description: "Applicera, hantera och felsöka licenser i Aspose.Slides för Node.js. Säkerställ oavbruten åtkomst till alla funktioner med vår steg-för-steg-licensguide."
 ---
 ## **Introduktion**
 
-Ibland kan en praktisk metod behövas för att uppnå bästa utvärderingsresultat. Av den anledningen erbjuder Aspose.Slides olika köpalternativ samt en gratis provperiod och en 30‑dagars tillfällig licens för utvärdering.
+Ibland kan en praktisk metod behövas för att uppnå bästa utvärderingsresultat. Av den anledningen erbjuder Aspose.Slides olika köpalternativ samt en gratis provperiod och en 30‑dagars temporär licens för utvärdering.
 
-{{% alert color="primary" %}}
-Observera att det finns ett antal allmänna policys och praxis som guidar dig i hur du utvärderar, licensierar korrekt och köper våra produkter. Du kan hitta dem i avsnittet ["Köppolicys och FAQ"](https://purchase.aspose.com/policies).
+{{% alert color="info" title="Note" %}}
+Observera att det finns ett antal allmänna policyer och praxis som vägleder dig kring hur du utvärderar, licensierar korrekt och köper våra produkter. Du kan hitta dem i avsnittet ["Köppolicyer och FAQ"](https://purchase.aspose.com/policies).
 {{% /alert %}}
 
 ## **Utvärdera Aspose.Slides**
-Du kan enkelt ladda ner Aspose.Slides för utvärdering. Utvärderingspaketet är identiskt med det köpta paketet. Utvärderingsversionen blir licensierad så snart du lägger till några kodrader för att aktivera licensen. 
+Du kan enkelt ladda ner Aspose.Slides för utvärdering. Utvärderingspaketet är detsamma som det köpta paketet. Utvärderingsversionen blir helt enkelt licensierad efter att du har lagt till några kodrader för att applicera licensen. 
 
 ## **Begränsningar i utvärderingsversionen**
-Utvärderingsversionen av Aspose.Slides (utan angiven licens) erbjuder hela produktens funktionalitet, men den placerar ett utvärderingsvattenstämpel högst upp i dokumentet vid öppning och sparning. Du är också begränsad till en bild när du extraherar text från presentationsbilder.
+Utvärderingsversionen av Aspose.Slides (utan specificerad licens) erbjuder hela produktens funktionalitet, med två begränsningar:
 
-{{% alert color="primary" %}} 
-Om du vill testa Aspose.Slides utan begränsningarna i utvärderingsversionen kan du begära en **30‑dagars tillfällig licens**. Se gärna [Hur får jag en tillfällig licens?](https://purchase.aspose.com/temporary-license) för mer information.
-{{% /alert %}} 
+* Den lägger till en utvärderingsvattenstämpel textbox på varje bild i varje presentation den sparar.
+* Text som är längre än fem tecken som din kod läser från en presentation trunkeras till de första fem tecknen, följt av `... text has been truncated due to evaluation version limitation.` Text med fem tecken eller färre returneras oförändrad, och text som din kod skriver sparas i sin helhet.
+
+{{% alert color="info" title="Note" %}}
+Om du vill testa Aspose.Slides utan begränsningarna i utvärderingsversionen kan du begära en **30‑dagars temporär licens**. Se [Hur får man en temporär licens?](https://purchase.aspose.com/temporary-license) för mer information.
+{{% /alert %}}
 
 ## **Om licensen**
-Du kan enkelt ladda ner en utvärderingsversion av Aspose.Slides för Node.js via Java från dess [nedladdningssida](https://releases.aspose.com/slides/sv/nodejs-java/). Utvärderingsversionen erbjuder exakt **samma funktioner** som den licensierade versionen av Aspose.Slides. Dessutom blir utvärderingsversionen licensierad så snart du köper en licens och lägger till ett par kodrader för att aktivera licensen.
+Du kan enkelt ladda ner en utvärderingsversion av Aspose.Slides för Node.js via Java från dess [nedladdningssida](https://releases.aspose.com/slides/sv/nodejs-java/). Utvärderingsversionen har samma funktioner som den licensierade versionen, med begränsningarna beskrivna ovan. Dessutom blir utvärderingsversionen licensierad efter att du köpt en licens och lagt till några kodrader för att applicera licensen.
 
-Licensen är en ren-text XML‑fil som innehåller uppgifter såsom produktnamn, antal utvecklare den är licensierad för, abonnemangets utgångsdatum med mera. Filen är digitalt signerad, så den får inte ändras. Även ett oavsiktligt extra radbryt i filens innehåll gör den ogiltig.
+Licensen är en klartext‑XML‑fil som innehåller detaljer såsom produktnamn, antal utvecklare den är licensierad för, prenumerationsutgångsdatum med mera. Filen är digitalt signerad, så ändra inte filen. Även ett oavsiktligt extra radbrytning i filens innehåll gör den ogiltig.
 
-För att undvika begränsningarna i utvärderingsversionen måste du ange en licens innan du använder **Aspose.Slides**. Du behöver bara ange licensen en gång per applikation eller process.
+För att undvika begränsningarna som är förknippade med utvärderingsversionen måste du ange en licens innan du använder **Aspose.Slides**. Du behöver bara ange licensen en gång per applikation eller process.
 
-{{% alert color="primary" %}} 
-Du kanske vill titta på [Metered Licensing](https://docs.aspose.com/slides/sv/nodejs-java/metered-licensing/).
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Du kanske vill se [Metered Licensing](/slides/sv/nodejs-java/metered-licensing/).
+{{% /alert %}}
 
 ## **Köpt licens**
+Efter köp måste du applicera licensfilen eller strömmen. 
 
-Efter köpet måste du tillämpa licensfilen eller strömmen. 
-
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 Du måste ange licensen:
-* endast en gång per applikationsdomän
+* endast en gång per process
 * innan du använder någon annan Aspose.Slides‑klass
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Du kan hitta prisinformation på sidan [“Pricing Information”](https://purchase.aspose.com/pricing/slides/sv/family).
+{{% alert color="info" title="Note" %}}
+Du kan hitta prisinformation på sidan ["Prisuppgifter"](https://purchase.aspose.com/pricing/slides/sv/family).
 {{% /alert %}}
 
-### **Ange en licens i Aspose.Slides för Node.js via Java**
-
-Licenser kan tillämpas från följande platser:
+### **Inställning av licens i Aspose.Slides för Node.js via Java**
+Licenser kan appliceras från följande platser:
 
 * Explicit sökväg
 * Ström
-* Som en Metered‑licens – en ny licensieringsmekanism
+* Som en Metered License – en ny licensmekanism
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 Använd metoden **setLicense** för att licensiera en komponent.
 
-Även om flera anrop av **setLicense** inte är skadliga, är de ett onödigt resursutnyttjande (processor).
+Även om flera anrop till **setLicense** inte är skadliga, är de ett slöseri med resurser (processor).
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-Nya licenser kan endast aktivera Aspose.Slides med version 21.4 eller senare. Äldre versioner använder ett annat licenssystem och kommer inte att känna igen dessa licenser.
-{{% /alert %}}
-
-#### **Tillämpa en licens med en fil**
-
-Denna kodsnutt används för att ange en licensfil:
+#### **Applicera en licens med en fil**
+Det här kodsnutten används för att ange en licensfil:
 
 **Node.js**
 
 ```javascript
-var aspose = aspose || {};
+const asposeSlides = require("aspose.slides.via.java");
 
-aspose.slides = require("aspose.slides.via.java");
-
-var license = new aspose.slides.License();
+const license = new asposeSlides.License();
 license.setLicense("Aspose.Slides.lic");
+console.log("The license was applied.");
+
+// Aspose.Slides körs i en Java-virtuell maskin som håller Node.js igång, så avsluta processen explicit.
+process.exit(0);
 ```
 
-När du anropar setLicense‑metoden ska licensnamnet vara detsamma som ditt licensfilnamn. Till exempel kan du byta licensfilens namn till "Aspose.Slides.lic.xml". Därefter måste du i din kod skicka det nya licensnamnet (Aspose.Slides.lic.xml) till setLicense‑metoden.
+När du anropar setLicense‑metoden ska licensnamnet vara detsamma som ditt licensfilnamn. Till exempel kan du ändra licensfilens namn till "Aspose.Slides.lic.xml". Därefter måste du i din kod skicka det nya licensnamnet (Aspose.Slides.lic.xml) till setLicense‑metoden. Om filen saknas eller inte innehåller en giltig licens, kastar [setLicense](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/license/setlicense/) ett undantag som avslutar skriptet med ett fel.
 
-#### **Tillämpa en licens från en ström**
-
-Denna kodsnutt används för att tillämpa en licens från en ström:
+#### **Applicera en licens från en ström**
+För att applicera en licens från en ström, skicka [License](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/license/)‑objektet och en läsbar ström till den statiska metoden [setLicenseFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/license/setlicense/). Strömmen läses asynkront, och callbacken får ett fel om strömmen inte innehåller en giltig licens:
 
 **Node.js**
 
 ```javascript
-var aspose = aspose || {};
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
 
-aspose.slides = require("aspose.slides.via.java");
+const license = new asposeSlides.License();
+const readStream = fs.createReadStream("Aspose.Slides.lic");
+asposeSlides.License.setLicenseFromStream(license, readStream, function (error) {
+    if (error) {
+        console.error("The license was not applied:", error.message);
+    } else {
+        console.log("The license was applied.");
+    }
 
-var license = new aspose.slides.License();
-
-var fs = require("fs");
-
-var readStream = fs.createReadStream("Aspose.Slides.lic");
-
-license.setLicense(readStream, function(err, list) {
-    if(err) { 
-        console.error(err); return; 
-    }});
+    // Aspose.Slides körs i en Java-virtuell maskin som håller Node.js igång, så avsluta processen explicit.
+    process.exit(0);
+});
 ```
 
-## **Vanliga frågor**
+Licensen appliceras när hela strömmen har lästs, precis innan callbacken körs, så starta annat Aspose.Slides‑arbete från callbacken.
 
-**Kan jag tillämpa licensen i en helt offline-miljö (ingen internetåtkomst)?**
+Båda exemplen anropar `process.exit(0)` när de är färdiga, eftersom Java‑virtuell maskin som kör Aspose.Slides håller Node.js igång. I en applikation fortsätt med din Aspose.Slides‑kod i stället för att avsluta processen.
 
-Ja. Licensvalidering sker lokalt med licensfilen; ingen internetanslutning krävs.
+## **FAQ**
 
-**Vad händer när ettårsprenumerationen löper ut? Slutar biblioteket att fungera?**
+### Kan jag applicera licensen i en helt offline-miljö (ingen internetåtkomst)?
+Ja. Licensvalidering utförs lokalt med licensfilen; ingen internetanslutning krävs.
 
-Nej. Licensen är evig: du kan fortsätta använda versioner som släppts innan ditt abonnemangs slutdatum; du får dock inte använda nyare versioner utan att förnya.
+### Vad händer när ettårsabonnemanget löper ut? Kommer biblioteket att sluta fungera?
+Nej. Licensen är evig: du kan fortsätta använda versioner som släppts innan ditt abonnemangs slutdatum; du kommer bara inte att vara behörig att använda nyare releaser utan förnyelse.

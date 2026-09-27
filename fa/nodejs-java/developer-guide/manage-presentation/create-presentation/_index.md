@@ -1,6 +1,6 @@
 ---
-title: ایجاد ارائه‌ها در JavaScript
-linktitle: ایجاد ارائه
+title: ساخت ارائه‌ها در جاوا اسکریپت
+linktitle: ساخت ارائه
 type: docs
 weight: 10
 url: /fa/nodejs-java/create-presentation/
@@ -17,75 +17,83 @@ keywords:
 - OpenDocument
 - ارائه
 - Node.js
-- JavaScript
+- جاوا اسکریپت
 - Aspose.Slides
-description: "ارائه‌ها را با Aspose.Slides ایجاد کنید—فایل‌های PPT، PPTX و ODP تولید کنید، از پشتیبانی OpenDocument بهره‌مند شوید و آن‌ها را به‌صورت برنامه‌نویسی ذخیره کنید تا نتایج قابل اطمینان داشته باشید."
+description: "ایجاد ارائه‌ها با Aspose.Slides—تولید فایل‌های PPT، PPTX و ODP، بهره‌مندی از پشتیبانی OpenDocument، و ذخیره برنامه‌نویسی‌شده آن‌ها برای نتایج قابل اطمینان."
 ---
-## **نمای کلی**
+## **مروری کلی**
 
-این مقاله نشان می‌دهد چگونه یک ارائه در Aspose.Slides ایجاد کنیم، محتوای ساده‌ای به یک اسلاید اضافه کنیم، و نتیجه را به عنوان یک فایل ذخیره کنیم.
+این مقاله نشان می‌دهد چگونه یک ارائه در Aspose.Slides ایجاد کنید، یک جعبه متن به اسلاید اول آن اضافه کنید و نتیجه را به‌صورت یک فایل ذخیره کنید.
 
-## **ایجاد ارائه PowerPoint**
+قبل از شروع، بسته `aspose.slides.via.java` را از npm نصب کنید، به همراه JDK، Python و ابزارهای ساخت C++ که نیاز دارد. برای توضیحات بیشتر به [Installation](/slides/fa/nodejs-java/installation/) مراجعه کنید.
 
-برای افزودن یک خط ساده صاف به اسلاید انتخاب شده‌ی ارائه، لطفاً مراحل زیر را دنبال کنید:
+## **ایجاد یک ارائهٔ پاورپوینت**
 
-1. یک نمونه از کلاس Presentation ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از Index آن به دست آورید.
-1. یک AutoShape از نوع Line را با استفاده از متد addAutoShape که توسط شیء Shapes ارائه می‌شود، اضافه کنید.
-1. ارائه‌ی تغییر یافته را به عنوان یک فایل PPTX بنویسید.
+برای ایجاد یک ارائه و قرار دادن یک جعبهٔ متن بر روی اسلاید اول آن، مراحل زیر را دنبال کنید:
 
-در مثال زیر، ما یک خط را به اولین اسلاید ارائه اضافه کرده‌ایم.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید قبلاً شامل یک اسلاید خالی است.
+2. آن اسلاید را از [slide collection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getslides/) با اندیس 0 دریافت کنید.
+3. یک مستطیل را با متد [addAutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/addautoshape/) اضافه کنید و متن آن را با [setText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/settext/) تنظیم کنید.
+4. ارائه را به‌عنوان فایل PPTX با متد [save](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/save/) ذخیره کنید.
+5. ارائه را با متد [dispose](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/dispose/) آزاد کنید و فرآیند را خاتمه دهید.
 
 ```javascript
-// یک شی Presentation ایجاد کنید که نمایانگر یک فایل ارائه است
-var pres = new aspose.slides.Presentation();
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
 try {
-    // دریافت اولین اسلاید
-    var slide = pres.getSlides().get_Item(0);
-    // افزودن یک AutoShape از نوع خط
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// Aspose.Slides در یک ماشین مجازی جاوا اجرا می‌شود که Node.js را در حال اجرا نگه می‌دارد، بنابراین فرآیند را به صراحت پایان دهید.
+process.exit(0);
 ```
 
-## **سؤالات متداول**
+گوشهٔ بالا‑چپ مستطیل ۵۰ پوینت از لبهٔ چپ و ۵۰ پوینت از لبهٔ بالای اسلاید فاصله دارد و مستطیل عرض ۴۰۰ پوینت و ارتفاع ۱۰۰ پوینت دارد. کد را به‌نام *hello.js* در پوشهٔ پروژهٔ خود ذخیره کنید و `node hello.js` را اجرا کنید: این دستور *hello.pptx* را ذخیره می‌کند که شامل یک اسلاید حاوی آن مستطیل و متن آن است، در پوشهٔ فعلی.
 
-**چه فرمت‌هایی را می‌توانم برای ذخیره یک ارائه جدید استفاده کنم؟**
+Aspose.Slides در یک ماشین مجازی جاوا اجرا می‌شود که بستهٔ `java` داخل فرآیند Node.js آن را راه‌اندازی می‌کند. این ماشین مجازی باعث می‌شود Node.js پس از اتمام اسکریپت به‌طور خودکار خارج نشود، بنابراین مثال با `process.exit(0)` پایان می‌یابد.
 
-می‌توانید به فرمت‌های [PPTX, PPT, and ODP](/slides/fa/nodejs-java/save-presentation/) ذخیره کنید و به فرمت‌های [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/)، [XPS](/slides/fa/nodejs-java/convert-powerpoint-to-xps/)، [HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/)، [SVG](/slides/fa/nodejs-java/convert-powerpoint-to-png/) و [images](/slides/fa/nodejs-java/convert-powerpoint-to-png/) و غیره صادر کنید.
+بدون لایسنس، Aspose.Slides همچنین یک watermark ارزیابی را به هر اسلایدی که ذخیره می‌کند اضافه می‌کند؛ به [Licensing](/slides/fa/nodejs-java/licensing/) مراجعه کنید.
 
-**آیا می‌توانم از یک قالب (POTX/POTM) شروع کنم و به عنوان یک PPTX معمولی ذخیره کنم؟**
+## **سوالات متداول**
 
-بله. قالب را بارگذاری کنید و به فرمت مورد نظر ذخیره کنید؛ POTX/POTM/PPTM و فرمت‌های مشابه [پشتیبانی می‌شوند](/slides/fa/nodejs-java/supported-file-formats/).
+### کدام قالب‌ها را می‌توانم برای ذخیرهٔ یک ارائهٔ جدید استفاده کنم؟
 
-**چگونه می‌توانم اندازه/نسبت ابعاد اسلاید را هنگام ایجاد یک ارائه کنترل کنم؟**
+می‌توانید به قالب‌های [PPTX, PPT, and ODP](/slides/fa/nodejs-java/save-presentation/) ذخیره کنید و به قالب‌های [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/)، [XPS](/slides/fa/nodejs-java/convert-powerpoint-to-xps/)، [HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/)، [SVG](/slides/fa/nodejs-java/render-a-slide-as-an-svg-image/) و [images](/slides/fa/nodejs-java/convert-powerpoint-to-png/) (و دیگران) صادر کنید.
 
-اندازه [اندازه اسلاید](/slides/fa/nodejs-java/slide-size/) (شامل پیش‌تنظیم‌های 4:3 و 16:9 یا ابعاد سفارشی) و نحوهٔ مقیاس‌بندی محتوا را انتخاب کنید.
+### آیا می‌توانم از یک الگو (POTX/POTM) شروع کرده و به‌صورت PPTX معمولی ذخیره کنم؟
 
-**اندازه‌ها و مختصات به چه واحدی اندازه‌گیری می‌شوند؟**
+بله. الگو را بارگذاری کنید و به قالب موردنظر ذخیره کنید؛ قالب‌های POTX/POTM/PPTM و قالب‌های مشابه [پشتیبانی می‌شوند](/slides/fa/nodejs-java/supported-file-formats/).
 
-در پوینت: 1 اینچ برابر با 72 واحد است.
+### چگونه می‌توانم اندازهٔ اسلاید/نسبت تصویر را هنگام ایجاد یک ارائه کنترل کنم؟
 
-**چگونه می‌توانم ارائه‌های بسیار بزرگ (با فایل‌های رسانه‌ای متعدد) را برای کاهش استفاده از حافظه مدیریت کنم؟**
+اندازه اسلاید را تنظیم کنید [اندازه اسلاید](/slides/fa/nodejs-java/slide-size/) (شامل پیش‌تنظیم‌های ۴:۳ و ۱۶:۹ یا ابعاد سفارشی) و نحوهٔ مقیاس‌بندی محتوا را انتخاب کنید.
 
-از [استراتژی‌های مدیریت BLOB](/slides/fa/nodejs-java/manage-blob/) استفاده کنید، ذخیره‌سازی در حافظه را با بهره‌گیری از فایل‌های موقت محدود کنید و نسبت به جریان‌های صرفاً حافظه‌ای، گردش کار مبتنی بر فایل را ترجیح بدهید.
+### اندازه‌ها و مختصات به چه واحدی اندازه‌گیری می‌شوند؟
 
-**آیا می‌توانم ارائه‌ها را به صورت موازی ایجاد/ذخیره کنم؟**
+در واحد پوینت: ۱ اینچ معادل ۷۲ واحد است.
 
-نمی‌توانید بر روی همان نمونهٔ [ارائه](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) از [چندین رشته](/slides/fa/nodejs-java/multithreading/) کار کنید. برای هر رشته یا فرآیند، نمونه‌های جداگانه و ایزوله‌ای اجرا کنید.
+### چگونه می‌توانم ارائه‌های بسیار بزرگ (با تعداد زیادی فایل رسانه) را برای کاهش مصرف حافظه مدیریت کنم؟
 
-**چگونه واترمارک و محدودیت‌های نسخه آزمایشی را حذف کنم؟**
+از [BLOB management strategies](/slides/fa/nodejs-java/manage-blob/) استفاده کنید، ذخیره‌سازی در حافظه را با بهره‌گیری از فایل‌های موقت محدود کنید و به‌جای جریان‌های صرفاً در‑حافظه، گردش کار مبتنی بر فایل را ترجیح دهید.
 
-[اعمال یک لایسنس](/slides/fa/nodejs-java/licensing/) یک بار برای هر فرآیند. XML لایسنس باید بدون تغییر باقی بماند و تنظیم لایسنس باید در صورت حضور چندین رشته همگام‌سازی شود.
+### آیا می‌توانم ارائه‌ها را به‌صورت موازی ایجاد/ذخیره کنم؟
 
-**آیا می‌توانم PPTX ای که ایجاد می‌کنم را به صورت دیجیتال امضا کنم؟**
+نمی‌توانید بر روی همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) از [multiple threads](/slides/fa/nodejs-java/multithreading/) عمل کنید. برای هر رشته یا فرآیند، نمونه‌های جداگانه و ایزوله اجرا کنید.
 
-بله. [امضای دیجیتال](/slides/fa/nodejs-java/digital-signature-in-powerpoint/) (اضافه کردن و تأیید) برای ارائه‌ها پشتیبانی می‌شود.
+### چگونه می‌توانم watermark آزمایشی و محدودیت‌ها را حذف کنم؟
 
-**آیا ماکروها (VBA) در ارائه‌های ایجاد شده پشتیبانی می‌شوند؟**
+[اعمال لایسنس](/slides/fa/nodejs-java/licensing/) را یک‌بار برای هر فرآیند اعمال کنید. XML لایسنس باید بدون تغییر باقی بماند و تنظیم لایسنس در صورت وجود چندین رشته باید هم‌زمانی شود.
 
-بله. می‌توانید [ایجاد/ویرایش پروژه‌های VBA](/slides/fa/nodejs-java/presentation-via-vba/) کنید و فایل‌های دارای ماکرو مانند PPTM/PPSM را ذخیره کنید.
+### آیا می‌توانم فایل PPTX ایجاد شده را دیجیتally امضا کنم؟
+
+بله. [Digital signatures](/slides/fa/nodejs-java/digital-signature-in-powerpoint/) (افزودن و تأیید) برای ارائه‌ها پشتیبانی می‌شود.
+
+### آیا ماکروها (VBA) در ارائه‌های ایجاد شده پشتیبانی می‌شوند؟
+
+بله. می‌توانید [create/edit VBA projects](/slides/fa/nodejs-java/presentation-via-vba/) را انجام دهید و فایل‌های دارای ماکرو مانند PPTM/PPSM را ذخیره کنید.

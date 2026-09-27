@@ -1,74 +1,99 @@
 ---
-title: JavaScript で PowerPoint プレゼンテーションを作成する
+title: JavaScriptでプレゼンテーションを作成する
 linktitle: プレゼンテーションを作成
 type: docs
 weight: 10
 url: /ja/nodejs-java/create-presentation/
-keywords: ppt作成 java, pptプレゼンテーション作成, pptx作成 java
-description: JavaScript を使用して、PPT や PPTX などの PowerPoint プレゼンテーションをゼロから作成する方法を学びます。
+keywords:
+- プレゼンテーションを作成
+- 新しいプレゼンテーション
+- PPTを作成
+- 新しいPPT
+- PPTXを作成
+- 新しいPPTX
+- ODPを作成
+- 新しいODP
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides を使用してプレゼンテーションを作成し、PPT、PPTX、ODP ファイルを生成し、OpenDocument のサポートを活用し、プログラムで保存して確実な結果を得られます。"
 ---
+## **概要**
+
+このガイドでは、Aspose.Slidesでプレゼンテーションを作成し、最初のスライドにテキストボックスを追加し、結果をファイルとして保存する方法を示します。
+
+開始する前に、npmから `aspose.slides.via.java` パッケージをインストールし、必要な JDK、Python、C++ ビルドツールもインストールしてください。詳細は[Installation](/slides/ja/nodejs-java/installation/)をご覧ください。
 
 ## **PowerPoint プレゼンテーションの作成**
 
-プレゼンテーションの選択したスライドにシンプルな直線を追加するには、以下の手順に従ってください：
+プレゼンテーションを作成し、最初のスライドにテキストボックスを配置するには、以下の手順に従います：
 
-1. Presentation クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. Shapes オブジェクトが公開する addAutoShape メソッドで Line タイプの AutoShape を追加します。
-1. 変更されたプレゼンテーションを書き出して PPTX ファイルにします。
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションには既に空のスライドが1枚含まれています。
+1. [slide collection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getslides/) からインデックス0でそのスライドを取得します。
+1. [addAutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shapecollection/addautoshape/) メソッドで矩形を追加し、[setText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/settext/) でテキストを設定します。
+1. [save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/save/) メソッドを使用してプレゼンテーションを PPTX ファイルとして保存します。
+1. [dispose](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/dispose/) メソッドでプレゼンテーションを解放し、プロセスを終了します。
 
-以下の例では、プレゼンテーションの最初のスライドに直線を追加しています。
 ```javascript
-// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
-var pres = new aspose.slides.Presentation();
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
 try {
-    // 最初のスライドを取得します
-    var slide = pres.getSlides().get_Item(0);
-    // ラインタイプのオートシェイプを追加します
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// Aspose.Slides は Node.js を継続させる Java 仮想マシン上で実行されるため、プロセスを明示的に終了します。
+process.exit(0);
 ```
 
+矩形の左上隅はスライドの左端から50ポイント、上端から50ポイントの位置にあり、幅が400ポイント、高さが100ポイントです。コードをプロジェクトフォルダーに *hello.js* として保存し、`node hello.js` を実行します。これにより現在のフォルダーに *hello.pptx* が作成され、1枚のスライドに矩形とそのテキストが含まれます。
 
-## **FAQ**
+Aspose.Slides は、`java` パッケージが Node.js プロセス内で起動する Java 仮想マシン上で実行されます。その仮想マシンにより、スクリプト完了後に Node.js が自動的に終了しないようになるため、サンプルは `process.exit(0)` で終了します。
 
-**新しいプレゼンテーションを保存できる形式は何ですか？**
+ライセンスがない場合、Aspose.Slides は保存するすべてのスライドに評価用の透かしを追加します。詳細は[Licensing](/slides/ja/nodejs-java/licensing/)をご覧ください。
 
-[PPTX、PPT、ODP](/slides/ja/nodejs-java/save-presentation/) に保存でき、[PDF](/slides/ja/nodejs-java/convert-powerpoint-to-pdf/)、[XPS](/slides/ja/nodejs-java/convert-powerpoint-to-xps/)、[HTML](/slides/ja/nodejs-java/convert-powerpoint-to-html/)、[SVG](/slides/ja/nodejs-java/convert-powerpoint-to-png/)、および[画像](/slides/ja/nodejs-java/convert-powerpoint-to-png/) にエクスポートできます。
+## **よくある質問**
 
-**テンプレート (POTX/POTM) から開始して、通常の PPTX として保存できますか？**
+### 新しいプレゼンテーションを保存できる形式は何ですか？
 
-はい。テンプレートをロードし、目的の形式に保存します。POTX/POTM/PPTM などの形式は[サポートされています](/slides/ja/nodejs-java/supported-file-formats/)。
+保存は [PPTX、PPT、ODP](/slides/ja/nodejs-java/save-presentation/) が可能で、[PDF](/slides/ja/nodejs-java/convert-powerpoint-to-pdf/)、[XPS](/slides/ja/nodejs-java/convert-powerpoint-to-xps/)、[HTML](/slides/ja/nodejs-java/convert-powerpoint-to-html/)、[SVG](/slides/ja/nodejs-java/render-a-slide-as-an-svg-image/) および [画像](/slides/ja/nodejs-java/convert-powerpoint-to-png/) などにもエクスポートできます。
 
-**プレゼンテーション作成時にスライドサイズ/アスペクト比をどのように制御しますか？**
+### テンプレート (POTX/POTM) から開始し、通常の PPTX として保存できますか？
 
-[スライド サイズ](/slides/ja/nodejs-java/slide-size/) を設定します（4:3 や 16:9 のプリセットやカスタム寸法を含む）。コンテンツのスケーリング方法も選択できます。
+はい。テンプレートを読み込み、目的の形式で保存できます。POTX、POTM、PPTM などの形式は[サポートされています](/slides/ja/nodejs-java/supported-file-formats/)。
 
-**サイズと座標の単位は何ですか？**
+### プレゼンテーション作成時にスライドサイズやアスペクト比を制御するには？
 
-ポイントで表します。1 インチは 72 ユニットです。
+[slide size](/slides/ja/nodejs-java/slide-size/) を設定します（4:3 や 16:9 などのプリセットまたはカスタムサイズ）。コンテンツのスケーリング方法も選択できます。
 
-**非常に大きなプレゼンテーション（多数のメディアファイル）でメモリ使用量を削減するにはどうすればよいですか？**
+### サイズや座標の単位は何ですか？
 
-[BLOB 管理戦略](/slides/ja/nodejs-java/manage-blob/) を使用し、一時ファイルを活用してメモリ内ストレージを制限し、純粋なメモリストリームよりもファイルベースのワークフローを優先します。
+ポイント単位です。1 インチは 72 ポイントに相当します。
 
-**プレゼンテーションを並列に作成/保存できますか？**
+### メディアファイルが多数ある大規模なプレゼンテーションのメモリ使用量を削減するには？
 
-同じ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/nodejs-java/multithreading/)から操作することはできません。スレッドまたはプロセスごとに個別のインスタンスを実行してください。
+[BLOB 管理戦略](/slides/ja/nodejs-java/manage-blob/) を使用し、テンポラリファイルを活用してメモリ内保存を制限し、純粋なメモリストリームよりもファイルベースのワークフローを優先してください。
 
-**トライアル透かしと制限を削除するにはどうすればよいですか？**
+### プレゼンテーションを並列で作成/保存できますか？
 
-プロセスごとに1回[ライセンスを適用](/slides/ja/nodejs-java/licensing/)してください。ライセンス XML は変更せず、複数スレッドが関与する場合はライセンス設定を同期させる必要があります。
+同じ [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスに対して [複数のスレッド](/slides/ja/nodejs-java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに別々のインスタンスを実行してください。
 
-**作成した PPTX にデジタル署名を付けられますか？**
+### 試用版の透かしや制限を解除するには？
 
-はい。[デジタル署名](/slides/ja/nodejs-java/digital-signature-in-powerpoint/)（追加と検証）はプレゼンテーションでサポートされています。
+プロセスごとに一度だけ[ライセンスを適用](/slides/ja/nodejs-java/licensing/)してください。ライセンス XML は変更せず、複数スレッドが関与する場合はライセンス設定を同期させる必要があります。
 
-**作成したプレゼンテーションでマクロ（VBA）はサポートされていますか？**
+### 作成した PPTX にデジタル署名できますか？
 
-はい。[VBA プロジェクトの作成/編集](/slides/ja/nodejs-java/presentation-via-vba/) が可能で、PPTM/PPSM などのマクロ対応ファイルとして保存できます。
+はい。[デジタル署名](/slides/ja/nodejs-java/digital-signature-in-powerpoint/)（追加および検証）はプレゼンテーションでサポートされています。
+
+### 作成したプレゼンテーションでマクロ (VBA) はサポートされていますか？
+
+はい。[VBA プロジェクトの作成/編集](/slides/ja/nodejs-java/presentation-via-vba/) が可能で、PPTM や PPSM といったマクロ有効ファイルとして保存できます。

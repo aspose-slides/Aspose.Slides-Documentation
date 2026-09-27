@@ -5,11 +5,11 @@ weight: 120
 url: /id/nodejs-java/evaluate-aspose-slides/
 keywords:
 - evaluasi Aspose.Slides
-- evaluasi Aspose.Slides
+- Evaluasi Aspose.Slides
 - versi evaluasi
-- fungsionalitas penuh
+- fungsi penuh
 - watermark evaluasi
-- membeli Aspose.Slides
+- beli Aspose.Slides
 - batasan
 - PowerPoint
 - OpenDocument
@@ -17,36 +17,32 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Evaluasi Aspose.Slides untuk Node.js melalui Java dan jelajahi fitur API untuk presentasi PowerPoint (PPT, PPTX) dan OpenDocument (ODP)—mulai percobaan gratis Anda."
+description: "Evaluasi Aspose.Slides untuk Node.js melalui Java dan jelajahi fitur API untuk presentasi PowerPoint (PPT, PPTX) dan OpenDocument (ODP) - mulai percobaan gratis Anda."
 ---
 ## **Evaluasi Aspose.Slides**
 
-Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi akan menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi. 
+Anda dapat mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli; paket tersebut menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi. Untuk menginstalnya, lihat [Instalasi](/slides/id/nodejs-java/installation/).
 
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan fungsionalitas penuh produk, tetapi menyisipkan watermark evaluasi di bagian atas dokumen saat dibuka dan disimpan. Anda juga dibatasi hanya satu slide saat mengekstrak teks dari slide presentasi.
+Tanpa lisensi, Aspose.Slides menyediakan seluruh fungsionalitasnya dalam mode evaluasi, dengan dua batasan: ia menambahkan kotak teks watermark evaluasi pada setiap slide dari setiap presentasi yang disimpan, dan teks yang lebih panjang dari lima karakter yang dibaca kode Anda dari sebuah presentasi dipotong menjadi lima karakter pertama, diikuti oleh `... text has been truncated due to evaluation version limitation.` Teks dengan lima karakter atau kurang dikembalikan tanpa perubahan, dan teks yang ditulis kode Anda disimpan secara lengkap. Setiap penyimpanan menambahkan watermark, sehingga sebuah presentasi yang dibuka dan disimpan kembali dalam mode evaluasi membawa satu watermark per penyimpanan pada setiap slide.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat meminta **Lisensi Sementara 30 Hari**. Silakan lihat [Cara mendapatkan Lisensi Sementara?](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
-
+{{% alert color="info" title="Note" %}}
+Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat meminta **30 Day Temporary License**. Silakan lihat [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah saya dapat menguji beberapa presentasi secara paralel di thread yang berbeda dalam mode evaluasi?**
+### Can I test multiple presentations in parallel across different threads in evaluation mode?
 
-Ya. Anda dapat memproses dokumen yang berbeda secara paralel; Anda tidak boleh berbagi objek presentasi yang sama [di antara thread](/slides/id/net/multithreading/). Mode evaluasi tidak memengaruhi hal ini.
+Ya. Anda dapat memproses dokumen yang berbeda secara paralel; Anda tidak boleh berbagi objek presentasi yang sama [across threads](/slides/id/nodejs-java/multithreading/). Mode evaluasi tidak mempengaruhi hal ini.
 
-**Apakah saya perlu menginstal Microsoft PowerPoint untuk mengevaluasi pustaka di server atau dalam CI?**
+### Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?
 
-Tidak. Aspose.Slides adalah mesin mandiri dan tidak memerlukan PowerPoint terpasang, baik untuk evaluasi maupun produksi.
+Tidak. Aspose.Slides adalah mesin mandiri dan tidak memerlukan PowerPoint terinstal baik untuk evaluasi maupun produksi.
 
-**Apakah saya dapat menguji sepenuhnya konversi PPT/PPTX ke PDF dan gambar dalam mode evaluasi?**
+### Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?
 
-Ya. [Konverter](/slides/id/net/convert-presentation/) berfungsi; output akan menyertakan watermark.
+Ya. [converters](/slides/id/nodejs-java/convert-presentation/) berfungsi; outputnya akan menyertakan watermark.
 
-**Apakah saya dapat menggunakan lisensi sementara untuk pengujian beban tanpa watermark?**
+### Can I use a temporary license for load testing without a watermark?
 
-Ya. Lisensi sementara selama 30 hari menghilangkan batasan mode evaluasi dan memungkinkan pengujian tanpa watermark.
+Ya. Lisensi sementara selama 30 hari menghapus batasan mode evaluasi dan memungkinkan pengujian tanpa watermark.

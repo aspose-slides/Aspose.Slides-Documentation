@@ -1,75 +1,99 @@
 ---
-title: إنشاء عرض PowerPoint باستخدام JavaScript
+title: إنشاء عروض تقديمية بلغة JavaScript
 linktitle: إنشاء عرض تقديمي
 type: docs
 weight: 10
 url: /ar/nodejs-java/create-presentation/
-keywords: إنشاء ppt java, إنشاء ppt presentation, إنشاء pptx java
-description: تعلم كيفية إنشاء عروض PowerPoint مثل PPT و PPTX باستخدام JavaScript من الصفر.
+keywords:
+- إنشاء عرض تقديمي
+- عرض تقديمي جديد
+- إنشاء PPT
+- PPT جديد
+- إنشاء PPTX
+- PPTX جديد
+- إنشاء ODP
+- ODP جديد
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "إنشاء عروض تقديمية باستخدام Aspose.Slides — إنشاء ملفات PPT و PPTX و ODP، الاستفادة من دعم OpenDocument، وحفظها برمجيًا للحصول على نتائج موثوقة."
 ---
+## **نظرة عامة**
+
+توضح هذه المقالة كيفية إنشاء عرض تقديمي في Aspose.Slides، وإضافة مربع نص إلى شريحته الأولى، وحفظ النتيجة كملف.
+
+قبل البدء، قم بتثبيت حزمة `aspose.slides.via.java` من npm، إلى جانب JDK وPython وأدوات البناء لـ C++ التي يحتاجها. راجع [التثبيت](/slides/ar/nodejs-java/installation/).
 
 ## **إنشاء عرض PowerPoint**
 
-لإضافة خط بسيط ومستوٍ إلى شريحة مختارة من العرض، يرجى اتباع الخطوات أدناه:
+لإنشاء عرض تقديمي ووضع مربع نص على شريحته الأولى، اتبع الخطوات التالية:
 
-1. إنشاء مثال من الفئة Presentation.
-1. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-1. إضافة AutoShape من نوع خط باستخدام الطريقة addAutoShape التي توفرها كائن Shapes.
-1. كتابة العرض المعدل كملف PPTX.
+1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/). يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة من [مجموعة الشرائح](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslides/) باستخدام فهرستها، 0.
+3. أضف مستطيلاً باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/addautoshape/) ثم عيّن نصه باستخدام [setText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/settext/).
+4. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/save/).
+5. حرّر العرض التقديمي باستخدام طريقة [dispose](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/dispose/)، ثم أنهِ العملية.
 
-في المثال الموضح أدناه، قمنا بإضافة خط إلى الشريحة الأولى من العرض.
 ```javascript
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
-var pres = new aspose.slides.Presentation();
+const asposeSlides = require("aspose.slides.via.java");
+
+const presentation = new asposeSlides.Presentation();
 try {
-    // احصل على الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة AutoShape من النوع خط
-    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save("hello.pptx", asposeSlides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+
+// تعمل Aspose.Slides في آلة افتراضية Java تبقي Node.js قيد التشغيل، لذلك يجب إنهاء العملية صراحةً.
+process.exit(0);
 ```
 
+زاوية المستطيل العلوية اليسرى تبعد 50 نقطة عن الحافة اليسرى و50 نقطة عن الحافة العليا للشريحة، وعرض المستطيل 400 نقطة وارتفاعه 100 نقطة. احفظ الكود كملف *hello.js* في مجلد مشروعك وشغّله باستخدام `node hello.js`: سيقوم بحفظ *hello.pptx*، مع شريحة واحدة تحتوي على ذلك المستطيل ونصه، في المجلد الحالي.
+
+يعمل Aspose.Slides داخل آلة افتراضية Java التي يبدأها حزمة `java` داخل عملية Node.js. تبقي تلك الآلة الافتراضية Node.js من الخروج تلقائيًا بعد انتهاء النص البرمجي، لذلك ينتهي المثال بـ `process.exit(0)`.
+
+بدون ترخيص، يضيف Aspose.Slides أيضًا علامة مائية تقييم على كل شريحة يحفظها؛ راجع [الترخيص](/slides/ar/nodejs-java/licensing/).
 
 ## **الأسئلة الشائعة**
 
-**ما هي الصيغ التي يمكنني حفظ عرض تقديمي جديد بها؟**
+### ما الصيغ التي يمكنني حفظ عرض تقديمي جديد إليها؟
 
-يمكنك حفظ إلى [PPTX, PPT, and ODP](/slides/ar/nodejs-java/save-presentation/)، وتصدير إلى [PDF](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/nodejs-java/convert-powerpoint-to-xps/)، [HTML](/slides/ar/nodejs-java/convert-powerpoint-to-html/)، [SVG](/slides/ar/nodejs-java/convert-powerpoint-to-png/)، و[images](/slides/ar/nodejs-java/convert-powerpoint-to-png/)، من بين أخرى.
+يمكنك الحفظ إلى [PPTX و PPT و ODP](/slides/ar/nodejs-java/save-presentation/)، وتصدير إلى [PDF](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/nodejs-java/convert-powerpoint-to-xps/)، [HTML](/slides/ar/nodejs-java/convert-powerpoint-to-html/)، [SVG](/slides/ar/nodejs-java/render-a-slide-as-an-svg-image/)، و[الصور](/slides/ar/nodejs-java/convert-powerpoint-to-png/)، من بين أمور أخرى.
 
-**هل يمكنني البدء من قالب (POTX/POTM) وحفظه كملف PPTX عادي؟**
+### هل يمكنني البدء من قالب (POTX/POTM) ثم حفظه كـ PPTX عادي؟
 
-نعم. احمِل القالب واحفظه بالصيغة المطلوبة؛ الصيغ POTX/POTM/PPTM وغيرها من الصيغ المشابهة [are supported](/slides/ar/nodejs-java/supported-file-formats/).
+نعم. حمّل القالب واحفظه بالصيغ المطلوبة؛ صيغ POTX/POTM/PPTM وما شابهها [مدعومة](/slides/ar/nodejs-java/supported-file-formats/).
 
-**كيف يمكنني التحكم في حجم الشريحة/نسبة العرض إلى الارتفاع عند إنشاء عرض تقديمي؟**
+### كيف يمكنني التحكم في حجم الشريحة/نسبة العرض إلى الارتفاع عند إنشاء عرض تقديمي؟
 
-قم بضبط [slide size](/slides/ar/nodejs-java/slide-size/) (بما في ذلك الخيارات المسبقة مثل 4:3 و16:9 أو الأبعاد المخصصة) واختر طريقة تكبير المحتوى.
+حدد [حجم الشريحة](/slides/ar/nodejs-java/slide-size/) (بما في ذلك القوالب مثل 4:3 و16:9 أو الأبعاد المخصصة) واختر كيفية ضبط المحتوى.
 
-**بأي وحدات يتم قياس الأحجام والإحداثيات؟**
+### بأي وحدات تُقاس الأحجام والإحداثيات؟
 
-بالنقاط: البوصة الواحدة تساوي 72 وحدة.
+بالنقاط: 1 بوصة يساوي 72 وحدة.
 
-**كيف يمكنني التعامل مع عروض تقديمية كبيرة جدًا (مع الكثير من ملفات الوسائط) لتقليل استخدام الذاكرة؟**
+### كيف أتعامل مع عروض تقديمية كبيرة جدًا (مع العديد من ملفات الوسائط) لتقليل استهلاك الذاكرة؟
 
-استخدم [BLOB management strategies](/slides/ar/nodejs-java/manage-blob/)، واقتصّر على التخزين في الذاكرة عبر الاستفادة من الملفات المؤقتة، وفضّل سير عمل قائم على الملفات بدلاً من تدفقات الذاكرة الصرفة.
+استخدم [استراتيجيات إدارة BLOB](/slides/ar/nodejs-java/manage-blob/)، قلل التخزين في الذاكرة عبر الاستفادة من الملفات المؤقتة، وفضّل سير عمل قائم على الملفات بدلاً من التدفقات في الذاكرة فقط.
 
-**هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟**
+### هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟
 
-لا يمكنك التعامل مع نفس كائن [Presentation](
-https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) من [multiple threads](/slides/ar/nodejs-java/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك التعامل مع نفس مثيل [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/nodejs-java/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
 
-**كيف يمكنني إزالة علامة التجربة المائية والقيود؟**
+### كيف أزيل علامة المائية التجريبية والقيود؟
 
-[Apply a license](/slides/ar/nodejs-java/licensing/) مرة واحدة لكل عملية. يجب أن يبقى ملف الترخيص XML دون تعديل، ويجب مزامنة إعداد الترخيص إذا شاركت خيوط متعددة.
+[طبق ترخيصًا](/slides/ar/nodejs-java/licensing/) مرة واحدة لكل عملية. يجب أن يبقى ملف XML للترخيص دون تعديل، ويجب مزامنة إعداد الترخيص إذا كانت هناك عدة خيوط.
 
-**هل يمكنني توقيع الـ PPTX الذي أنشئه رقمياً؟**
+### هل يمكنني توقيع PPTX رقمياً؟
 
-نعم. [Digital signatures](/slides/ar/nodejs-java/digital-signature-in-powerpoint/) (الإضافة والتحقق) مدعومة للعروض التقديمية.
+نعم. [التوقيعات الرقمية](/slides/ar/nodejs-java/digital-signature-in-powerpoint/) (الإضافة والتحقق) مدعومة للعرض التقديمي.
 
-**هل تدعم الماكرو (VBA) في العروض التي تم إنشاؤها؟**
+### هل تدعم الماكرو (VBA) في العروض التقديمية التي تم إنشاؤها؟
 
-نعم. يمكنك [create/edit VBA projects](/slides/ar/nodejs-java/presentation-via-vba/) وحفظ ملفات تمكين الماكرو مثل PPTM/PPSM.
+نعم. يمكنك [إنشاء/تحرير مشروعات VBA](/slides/ar/nodejs-java/presentation-via-vba/) وحفظ ملفات ممكنة للماكرو مثل PPTM/PPSM.
