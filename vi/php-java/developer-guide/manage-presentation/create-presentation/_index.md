@@ -28,10 +28,10 @@ Trước khi bắt đầu, cài đặt Aspose.Slides cho PHP thông qua Java b�
 
 ## **Tạo bản trình chiếu PowerPoint**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/). Một bản trình chiếu mới đã chứa sẵn một slide trống.  
-1. Lấy slide đó từ bộ sưu tập trả về bởi [Presentation::getSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/getslides/), bằng chỉ số 0.  
-1. Thêm một hình chữ nhật bằng phương thức [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addautoshape/) và đặt văn bản bằng [TextFrame::setText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/settext/).  
-1. Lưu bản trình chiếu dưới dạng file PPTX bằng phương thức [Presentation::save](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/save/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Một bản trình chiếu mới đã chứa sẵn một slide trống.  
+1. Lấy slide đó từ bộ sưu tập trả về bởi [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), bằng chỉ số 0.  
+1. Thêm một hình chữ nhật bằng phương thức [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) và đặt văn bản bằng [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).  
+1. Lưu bản trình chiếu dưới dạng file PPTX bằng phương thức [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -61,7 +61,7 @@ Aspose.Slides đọc và ghi các file bên trong Tomcat, không phải trong ti
 
 ## **Tạo và lưu một bản trình chiếu**
 
-Để tạo một bản trình chiếu trống và lưu nó, tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) và lưu nó ở bất kỳ định dạng nào của enumeration [SaveFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/saveformat/). Kết quả là một bản trình chiếu có một slide trống.
+Để tạo một bản trình chiếu trống và lưu nó, tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và lưu nó ở bất kỳ định dạng nào của enumeration [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). Kết quả là một bản trình chiếu có một slide trống.
 
 ```php
 <?php
@@ -81,7 +81,7 @@ try {
 
 ## **Mở và lưu một bản trình chiếu**
 
-Để chuyển đổi một bản trình chiếu từ định dạng này sang định dạng khác, mở nó bằng cách truyền đường dẫn vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/), sau đó lưu nó ở định dạng mục tiêu. Aspose.Slides tự động phát hiện định dạng đầu vào, như PPT, PPTX hoặc ODP, từ chính file.
+Để chuyển đổi một bản trình chiếu từ định dạng này sang định dạng khác, mở nó bằng cách truyền đường dẫn vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), sau đó lưu nó ở định dạng mục tiêu. Aspose.Slides tự động phát hiện định dạng đầu vào, như PPT, PPTX hoặc ODP, từ chính file.
 
 Ví dụ dưới đây giả sử có một bản trình chiếu OpenDocument tên *Sample.odp* nằm cạnh script và lưu nó dưới dạng PPTX.
 
@@ -125,7 +125,7 @@ Sử dụng [chiến lược quản lý BLOB](/slides/vi/php-java/manage-blob/),
 
 ### Tôi có thể tạo/lưu các bản trình chiếu song song không?
 
-Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/php-java/multithreading/). Hãy chạy các thể hiện riêng biệt, cô lập cho mỗi luồng hoặc tiến trình.
+Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/php-java/multithreading/). Hãy chạy các thể hiện riêng biệt, cô lập cho mỗi luồng hoặc tiến trình.
 
 ### Làm sao để loại bỏ dấu mạ dùng thử và các hạn chế?
 

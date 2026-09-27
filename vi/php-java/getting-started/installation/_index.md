@@ -154,7 +154,7 @@ PHP không thể tải `Java.inc` từ Tomcat. Nếu thông báo trước đó c
 
 **Làm sao tôi có thể giới hạn tiêu thụ bộ nhớ khi xử lý các bản trình chiếu lớn?**
 
-Tăng giới hạn bộ nhớ JVM chỉ lên mức cần thiết, và đóng mỗi đối tượng [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) trong khối `finally` để giải phóng bộ nhớ cache kịp thời. Điều này ngăn lỗi hết bộ nhớ và giữ mức tiêu thụ bộ nhớ tổng thể ổn định trong các thao tác batch.
+Tăng giới hạn bộ nhớ JVM chỉ lên mức cần thiết, và đóng mỗi đối tượng [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) trong khối `finally` để giải phóng bộ nhớ cache kịp thời. Điều này ngăn lỗi hết bộ nhớ và giữ mức tiêu thụ bộ nhớ tổng thể ổn định trong các thao tác batch.
 
 **Tôi có thể loại bỏ các định dạng xuất không cần thiết để giảm kích thước JAR cuối cùng không?**
 

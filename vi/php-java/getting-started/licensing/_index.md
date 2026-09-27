@@ -61,7 +61,7 @@ Bạn cần thiết lập giấy phép:
 {{% /alert %}}
 
 {{% alert color="info" title="Lưu ý" %}}
-Bạn có thể tìm thông tin giá trên trang [“Thông tin giá”](https://purchase.aspose.com/pricing/slides/vi/family).
+Bạn có thể tìm thông tin giá trên trang [“Thông tin giá”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Cài đặt giấy phép trong Aspose.Slides cho PHP qua Java**
