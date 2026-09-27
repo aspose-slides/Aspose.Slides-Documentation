@@ -7,7 +7,7 @@ description: "Aspose.Slides برای Node.js از طریق .NET توسط مرج�
 ---
 ## **نمای کلی**
 
-Aspose.Slides برای Node.js از طریق .NET مرجع API مخصوص خود را ندارد. این بسته کلاس‌های Aspose.Slides برای .NET را تحت همان نام‌ها به JavaScript عرضه می‌کند و نام اعضا به camelCase تبدیل می‌شود، بنابراین [مرجع API Aspose.Slides برای .NET](https://reference.aspose.com/slides/fa/net/) کلاس‌ها، اعضا و enumerationها را مستند می‌کند.
+Aspose.Slides برای Node.js از طریق .NET مرجع API مخصوص خود را ندارد. این بسته کلاس‌های Aspose.Slides برای .NET را تحت همان نام‌ها به JavaScript عرضه می‌کند و نام اعضا به camelCase تبدیل می‌شود، بنابراین [مرجع API Aspose.Slides برای .NET](https://reference.aspose.com/slides/net/) کلاس‌ها، اعضا و enumerationها را مستند می‌کند.
 
 ## **نگاشت نام‌های .NET به JavaScript**
 
