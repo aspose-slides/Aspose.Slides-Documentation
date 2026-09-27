@@ -27,17 +27,17 @@ description: "إنشاء عروض PowerPoint في JavaScript باستخدام As
 تحتاج الأمثلة إلى إعداد مشروع كما هو موضح في [Installation](/slides/ar/nodejs-net/installation/). احفظ كل مثال كملف `.js` في مجلد المشروع وشغله من ذلك المجلد باستخدام `node`، على سبيل المثال `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-ليس لدى Aspose.Slides لـ Node.js عبر .NET مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides لـ .NET بأسماء camelCase، لذا فإن الروابط في هذا المقال تؤدي إلى الفئات والأعضاء المطابقة في [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ar/net/).
+ليس لدى Aspose.Slides لـ Node.js عبر .NET مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides لـ .NET بأسماء camelCase، لذا فإن الروابط في هذا المقال تؤدي إلى الفئات والأعضاء المطابقة في [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **إنشاء عرض تقديمي مع مربع نص**
 
 لإنشاء عرض تقديمي ووضع مربع نص على الشريحة الأولى، اتبع الخطوات التالية:
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/). يحتوي العرض الجديد بالفعل على شريحة فارغة واحدة.  
-2. احصل على تلك الشريحة من مجموعة [slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/). تُقرأ المجموعات في هذه الحزمة باستخدام `get(index)`، وتبدأ الفهارس من 0.  
-3. أضف مستطيلاً باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/shapecollection/addautoshape/) واضبط [text](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/text/) الخاص بـ [textFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/textframe/).  
-4. احفظ العرض باستخدام طريقة [save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/) والقيمة `SaveFormat.Pptx`.  
+1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). يحتوي العرض الجديد بالفعل على شريحة فارغة واحدة.  
+2. احصل على تلك الشريحة من مجموعة [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). تُقرأ المجموعات في هذه الحزمة باستخدام `get(index)`، وتبدأ الفهارس من 0.  
+3. أضف مستطيلاً باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) واضبط [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) الخاص بـ [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).  
+4. احفظ العرض باستخدام طريقة [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) والقيمة `SaveFormat.Pptx`.  
 5. استدعِ `dispose` داخل كتلة `finally` لتحرير موارد .NET التي تدعم العرض.
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **إضافة شرائح**
 
-يحتوي العرض الجديد على شريحة واحدة. لإضافة المزيد، مرّر شريحة تخطيط إلى طريقة [addEmptySlide](https://reference.aspose.com/slides/ar/net/aspose.slides/slidecollection/addemptyslide/) لمجموعة `slides`. تُعيد طريقة [getByType](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutslidecollection/getbytype/) لمجموعة [layoutSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/layoutslides/) أول تخطيط من نوع معين من [SlideLayoutType](https://reference.aspose.com/slides/ar/net/aspose.slides/slidelayouttype/).
+يحتوي العرض الجديد على شريحة واحدة. لإضافة المزيد، مرّر شريحة تخطيط إلى طريقة [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) لمجموعة `slides`. تُعيد طريقة [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) لمجموعة [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) أول تخطيط من نوع معين من [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 المثال التالي يضيف شريحتين بتخطيط Blank:
 
@@ -86,7 +86,7 @@ try {
 
 ## **تعيين حجم الشريحة**
 
-يستخدم العرض الجديد شرائح بنسبة 4:3 بحجم 720 × 540 نقطة (10 × 7.5 بوصة). لإنشاء شرائح widescreen بدلاً من ذلك، استدعِ طريقة [setSize](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesize/setsize/) لخاصية [slideSize](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slidesize/) في العرض مع قيمة من نوع [SlideSizeType](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesizetype/) وقيمة من نوع [SlideSizeScaleType](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesizescaletype/). تُحدد نوعية المقياس ما يجب على Aspose.Slides القيام به مع الأشكال الموجودة بالفعل على الشرائح؛ `DoNotScale` يتركها كما هي، وهو الاختيار الصحيح لعرض لا يحتوي على محتوى بعد.
+يستخدم العرض الجديد شرائح بنسبة 4:3 بحجم 720 × 540 نقطة (10 × 7.5 بوصة). لإنشاء شرائح widescreen بدلاً من ذلك، استدعِ طريقة [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) لخاصية [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) في العرض مع قيمة من نوع [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) وقيمة من نوع [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). تُحدد نوعية المقياس ما يجب على Aspose.Slides القيام به مع الأشكال الموجودة بالفعل على الشرائح؛ `DoNotScale` يتركها كما هي، وهو الاختيار الصحيح لعرض لا يحتوي على محتوى بعد.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -112,7 +112,7 @@ try {
 بالنقاط. البوصة الواحدة تساوي 72 نقطة، لذا فإن الشريحة الافتراضية 4:3 هي 720 × 540 نقطة، وشريحة widescreen 16:9 هي 960 × 540 نقطة.
 
 **ما الصيغ التي يمكنني حفظ عرض تقديمي جديد بها؟**  
-أي قيمة من تعداد [SaveFormat](https://reference.aspose.com/slides/ar/net/aspose.slides.export/saveformat/)، على سبيل المثال `SaveFormat.Ppt` لبرنامج PowerPoint 97–2003، `SaveFormat.Odp` لملف OpenDocument، أو `SaveFormat.Pdf`. للحصول على إخراج PDF، راجع [Convert PowerPoint to PDF](/slides/ar/nodejs-net/convert-powerpoint-to-pdf/).
+أي قيمة من تعداد [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)، على سبيل المثال `SaveFormat.Ppt` لبرنامج PowerPoint 97–2003، `SaveFormat.Odp` لملف OpenDocument، أو `SaveFormat.Pdf`. للحصول على إخراج PDF، راجع [Convert PowerPoint to PDF](/slides/ar/nodejs-net/convert-powerpoint-to-pdf/).
 
 **لماذا يحتوي العرض المحفوظ على النص "Evaluation only"؟**  
 بدون ترخيص، يضيف Aspose.Slides علامة مائية للتقييم إلى الشرائح التي يحفظها. قم بتطبيق ترخيص كما هو موضح في [Licensing](/slides/ar/nodejs-net/licensing/) لإزالتها.

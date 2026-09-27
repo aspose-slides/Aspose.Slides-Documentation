@@ -7,7 +7,7 @@ description: "تم توثيق Aspose.Slides for Node.js عبر .NET بواسطة
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Node.js via .NET لا يمتلك مرجع API خاص به. الحزمة تعرض فئات Aspose.Slides for .NET إلى JavaScript تحت نفس الأسماء، مع أسماء أعضاء بصيغة camelCase، لذا فإن [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ar/net/) يوثق فئاته، أعضائه وتعداداته.
+Aspose.Slides for Node.js via .NET لا يمتلك مرجع API خاص به. الحزمة تعرض فئات Aspose.Slides for .NET إلى JavaScript تحت نفس الأسماء، مع أسماء أعضاء بصيغة camelCase، لذا فإن [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) يوثق فئاته، أعضائه وتعداداته.
 
 ## **تخطيط أسماء .NET إلى JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 النص البرمجي يكتب `slide.png` و`slide.pdf` إلى المجلد الحالي. كلاهما يعرض المستطيل مع نصه. بدون ترخيص، سيظهران أيضًا علامة مائية توضيحية؛ راجع [Licensing](/slides/ar/nodejs-net/licensing/).
 
-لمزيد من التفاصيل حول الأعضاء المستخدمة هنا، راجع [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/)، [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/shapecollection/addautoshape/)، [TextFrame.Text](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/text/) و[Slide.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/slide/getimage/) في مرجع API الخاص بـ Aspose.Slides for .NET.
+لمزيد من التفاصيل حول الأعضاء المستخدمة هنا، راجع [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)، [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)، [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) و[Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) في مرجع API الخاص بـ Aspose.Slides for .NET.

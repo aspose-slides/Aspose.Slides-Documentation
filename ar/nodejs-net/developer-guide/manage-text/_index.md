@@ -31,12 +31,12 @@ description: "إضافة مربع نص إلى شريحة، ثم تغيير نص�
 تحتاج الأمثلة إلى مشروع تم إعداده كما هو موضح في [Installation](/slides/ar/nodejs-net/installation/). احفظ كل مثال كملف `.js` في مجلد المشروع وشغّله من ذلك المجلد باستخدام `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js عبر .NET لا يحتوي على مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides for .NET بأسماء camelCase، لذا توجه روابط API في هذه المقالة إلى الفئات والأعضاء المطابقة في [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ar/net/).
+Aspose.Slides for Node.js عبر .NET لا يحتوي على مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides for .NET بأسماء camelCase، لذا توجه روابط API في هذه المقالة إلى الفئات والأعضاء المطابقة في [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **إضافة مربع نص**
 
-لإضافة مربع نص، أضف شكلاً تلقائيًا إلى شريحة باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/shapecollection/addautoshape/) ومنحه نصًا باستخدام طريقة [addTextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/addtextframe/). المثال التالي يضيف مستطيلًا إلى الشريحة الأولى من عرض تقديمي جديد ويحفظ العرض باسم `text-box.pptx`:
+لإضافة مربع نص، أضف شكلاً تلقائيًا إلى شريحة باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) ومنحه نصًا باستخدام طريقة [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). المثال التالي يضيف مستطيلًا إلى الشريحة الأولى من عرض تقديمي جديد ويحفظ العرض باسم `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **تغيير النص وتنسيقه**
 
-يفتح المثال التالي ملف `text-box.pptx`، الذي أنشأه المثال السابق، ويحصل على الشكل الأول في الشريحة الأولى. الأشكال مثل الصور والجداول لا تملك إطار نص، لذا يتحقق المثال من أن الشكل هو [AutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/) قبل أن يستخدم [textFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/textframe/) الخاص بالشكل. ثم يقوم بما يلي:
+يفتح المثال التالي ملف `text-box.pptx`، الذي أنشأه المثال السابق، ويحصل على الشكل الأول في الشريحة الأولى. الأشكال مثل الصور والجداول لا تملك إطار نص، لذا يتحقق المثال من أن الشكل هو [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) قبل أن يستخدم [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) الخاص بالشكل. ثم يقوم بما يلي:
 
-1. يستبدل النص عبر خاصية [text](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/text/) لإطار النص. بعد ذلك يحتوي إطار النص على فقرة واحدة مع جزء واحد.
-2. يحصل على ذلك الجزء من مجموعتي [paragraphs](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/paragraphs/) و[portions](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraph/portions/) ويقرأ [portionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/portion/portionformat/) الخاص به.
-3. يعيّن [fontHeight](https://reference.aspose.com/slides/ar/net/aspose.slides/baseportionformat/fontheight/)، حجم الخط بالنقاط، و[fontBold](https://reference.aspose.com/slides/ar/net/aspose.slides/baseportionformat/fontbold/)، التي تأخذ قيمة [NullableBool](https://reference.aspose.com/slides/ar/net/aspose.slides/nullablebool/).
+1. يستبدل النص عبر خاصية [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) لإطار النص. بعد ذلك يحتوي إطار النص على فقرة واحدة مع جزء واحد.
+2. يحصل على ذلك الجزء من مجموعتي [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) و[portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) ويقرأ [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/) الخاص به.
+3. يعيّن [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)، حجم الخط بالنقاط، و[fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/)، التي تأخذ قيمة [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

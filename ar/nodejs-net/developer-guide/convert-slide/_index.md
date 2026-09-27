@@ -26,15 +26,15 @@ Aspose.Slides for Node.js عبر .NET يحول الشرائح من عروض Powe
 يتوقع الأمثلة وجود عرض تقديمي باسم `sample.pptx` في مجلد المشروع الذي قمت بإعداده في [التثبيت](/slides/ar/nodejs-net/installation/). أي عرض PowerPoint صالح. احفظ كل مثال كملف `.js` في مجلد المشروع وشغله من ذلك المجلد باستخدام `node`.
 
 {{% alert color="info" title="Note" %}}
-لا يحتوي Aspose.Slides for Node.js عبر .NET على مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides for .NET بأسماء camelCase، لذا فإن روابط API في هذا المقال تؤدي إلى الفئات والأعضاء المطابقة في [مرجع API الخاص بـ Aspose.Slides for .NET](https://reference.aspose.com/slides/ar/net/).
+لا يحتوي Aspose.Slides for Node.js عبر .NET على مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides for .NET بأسماء camelCase، لذا فإن روابط API في هذا المقال تؤدي إلى الفئات والأعضاء المطابقة في [مرجع API الخاص بـ Aspose.Slides for .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 لتحويل شريحة إلى صورة، اتبع الخطوات التالية:
 
-1. افتح العرض التقديمي باستخدام مُنشئ [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/presentation/).
-2. احصل على شريحة من مجموعة [الشرائح](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) باستخدام `get(index)`. تبدأ الفهارس من 0.
-3. صوّر الشريحة باستخدام `getImageWithScale` أو `getImageWithImageSize`. في مرجع API الخاص بـ .NET، كلاهما إصدارات متراكبة من [Slide.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/slide/getimage/). تُعيد كائن صورة يتطابق مع [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/).
-4. احفظ الصورة باستخدام طريقة [save](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/save/) وقيمة من نوع [ImageFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/imageformat/)، ثم استدعِ طريقة `dispose` الخاصة بها.
+1. افتح العرض التقديمي باستخدام مُنشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+2. احصل على شريحة من مجموعة [الشرائح](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) باستخدام `get(index)`. تبدأ الفهارس من 0.
+3. صوّر الشريحة باستخدام `getImageWithScale` أو `getImageWithImageSize`. في مرجع API الخاص بـ .NET، كلاهما إصدارات متراكبة من [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). تُعيد كائن صورة يتطابق مع [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+4. احفظ الصورة باستخدام طريقة [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) وقيمة من نوع [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/)، ثم استدعِ طريقة `dispose` الخاصة بها.
 
 ## **تحويل كل شريحة إلى صورة PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-يكتب السكريبت ملفًا واحدًا لكل شريحة، `slide_1.png`، `slide_2.png`، وهكذا، مرقمةً من 1. بالنسبة لعرض تقديمي بنسبة 16:9 مع شرائح بحجم 960 × 540 نقطة، تكون كل صورة 1920 × 1080 بكسل. يتم تصيير الشرائح المخفية أيضًا؛ لتخطيها، تحقق من خاصية [مخفي](https://reference.aspose.com/slides/ar/net/aspose.slides/slide/hidden/) للشريحة. يتم تحرير كل صورة في كتلة `finally` خاصة بها، مما يحررها قبل تصيير الشريحة التالية. بدون ترخيص، تظهر علامة مائية توضيحية على الصور؛ راجع [التراخيص](/slides/ar/nodejs-net/licensing/).
+يكتب السكريبت ملفًا واحدًا لكل شريحة، `slide_1.png`، `slide_2.png`، وهكذا، مرقمةً من 1. بالنسبة لعرض تقديمي بنسبة 16:9 مع شرائح بحجم 960 × 540 نقطة، تكون كل صورة 1920 × 1080 بكسل. يتم تصيير الشرائح المخفية أيضًا؛ لتخطيها، تحقق من خاصية [مخفي](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) للشريحة. يتم تحرير كل صورة في كتلة `finally` خاصة بها، مما يحررها قبل تصيير الشريحة التالية. بدون ترخيص، تظهر علامة مائية توضيحية على الصور؛ راجع [التراخيص](/slides/ar/nodejs-net/licensing/).
 
 ## **تحويل شريحة إلى صورة بحجم محدد**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-خاصية [slideSize.size](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesize/size/) تُعيد عرض وارتفاع الشريحة بالنقاط. بالنسبة لعرض تقديمي بنسبة 16:9، يطبع السكريبت `Saved a 1280 x 720 image` ويكتب `slide_1_1280px.png`؛ بالنسبة لعرض 4:3، تكون الصورة 1280 × 960 بكسل.
+خاصية [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) تُعيد عرض وارتفاع الشريحة بالنقاط. بالنسبة لعرض تقديمي بنسبة 16:9، يطبع السكريبت `Saved a 1280 x 720 image` ويكتب `slide_1_1280px.png`؛ بالنسبة لعرض 4:3، تكون الصورة 1280 × 960 بكسل.
 
 ## **الأسئلة الشائعة**
 

@@ -10,7 +10,7 @@ url: /ar/nodejs-net/licensing/
 Aspose.Slides for Node.js عبر .NET هو حزمة npm واحدة للتقييم والإنتاج معًا. بدون ترخيص، يعمل في وضع التقييم. بعد شرائك لترخيص، أو الحصول على ترخيص مؤقت مجاني لمدة 30 يومًا، تقوم بتطبيقه ببضع سطر من الشفرة، ولن تُطبق قيود التقييم بعد ذلك.
 
 {{% alert color="info" title="Note" %}}
-سياسات عامة حول كيفية تقييم وترخيص وشراء منتجات Aspose مُجمّعة في [Purchase Policies and FAQ](https://purchase.aspose.com/policies). الأسعار مُدرجة في صفحة [Pricing Information](https://purchase.aspose.com/pricing/slides/ar/family).
+سياسات عامة حول كيفية تقييم وترخيص وشراء منتجات Aspose مُجمّعة في [Purchase Policies and FAQ](https://purchase.aspose.com/policies). الأسعار مُدرجة في صفحة [Pricing Information](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ## **قيود إصدار التقييم**
@@ -53,4 +53,4 @@ try {
 
 إذا تعذر العثور على الملف، أو لم يكن ترخيصًا صالحًا، ترمي `setLicense` خطأ، وتظل Aspose.Slides في وضع التقييم. يلتقط البرنامج النصي الخطأ ويطبع رسالته. في حالة ملف مفقود، تبدأ الرسالة بـ `License "Aspose.Slides.lic" doesn't exist or access is restricted.` وتُدرج كل المواقع التي تم البحث فيها.
 
-في هذه الحزمة، يُطبق الترخيص من ملف فقط. لا تقبل `License` تدفقًا، ولا تُظهر الحزمة الترخيص القائم على العداد. للاطلاع على الفئة التي تغلفها الحزمة، راجع [License](https://reference.aspose.com/slides/ar/net/aspose.slides/license/) في مرجع API الخاص بـ Aspose.Slides for .NET.
+في هذه الحزمة، يُطبق الترخيص من ملف فقط. لا تقبل `License` تدفقًا، ولا تُظهر الحزمة الترخيص القائم على العداد. للاطلاع على الفئة التي تغلفها الحزمة، راجع [License](https://reference.aspose.com/slides/net/aspose.slides/license/) في مرجع API الخاص بـ Aspose.Slides for .NET.

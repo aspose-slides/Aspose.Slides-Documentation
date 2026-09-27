@@ -29,12 +29,12 @@ description: "فتح عروض PPTX وPPT وODP في JavaScript باستخدام 
 تتوقع الأمثلة عرضًا باسم `sample.pptx` في مجلد المشروع الذي قمت بإعداده في [التثبيت](/slides/ar/nodejs-net/installation/). أي عرض PowerPoint سيعمل. احفظ كل مثال كملف `.js` في مجلد المشروع وشغله من ذلك المجلد باستخدام `node`.
 
 {{% alert color="info" title="Note" %}}
-لا يحتوي Aspose.Slides لـ Node.js عبر .NET على مرجع API خاص به. إنه يطابق API الخاص بـ Aspose.Slides لـ .NET بأسماء camelCase، لذا فإن روابط API في هذه المقالة توجه إلى الفئات والأعضاء المطابقة في [مرجع API لـ Aspose.Slides لـ .NET](https://reference.aspose.com/slides/ar/net/).
+لا يحتوي Aspose.Slides لـ Node.js عبر .NET على مرجع API خاص به. إنه يطابق API الخاص بـ Aspose.Slides لـ .NET بأسماء camelCase، لذا فإن روابط API في هذه المقالة توجه إلى الفئات والأعضاء المطابقة في [مرجع API لـ Aspose.Slides لـ .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **فتح عرض من ملف**
 
-لفتح عرض، مرّر مساره إلى المُنشئ [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/presentation/). يكتشف Aspose.Slides التنسيق من محتوى الملف بدلاً من الامتداد، لذا يفتح نفس الكود ملفات PPTX وPPT وODP. يتم حل المسار النسبي بالنسبة إلى دليل العمل الحالي، وهو مجلد المشروع عندما تشغّل النص البرمجي من هناك.
+لفتح عرض، مرّر مساره إلى المُنشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). يكتشف Aspose.Slides التنسيق من محتوى الملف بدلاً من الامتداد، لذا يفتح نفس الكود ملفات PPTX وPPT وODP. يتم حل المسار النسبي بالنسبة إلى دليل العمل الحالي، وهو مجلد المشروع عندما تشغّل النص البرمجي من هناك.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-يطبع النص البرمجي عدد الشرائح في `sample.pptx`، على سبيل المثال `Slide count: 9`. خاصية `count` لمجموعة [slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) تشمل الشرائح المخفية. استدعِ `dispose` داخل كتلة `finally`، كما هو موضح، حتى يتم تحرير موارد .NET وراء العرض حتى إذا فشل الكود.
+يطبع النص البرمجي عدد الشرائح في `sample.pptx`، على سبيل المثال `Slide count: 9`. خاصية `count` لمجموعة [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) تشمل الشرائح المخفية. استدعِ `dispose` داخل كتلة `finally`، كما هو موضح، حتى يتم تحرير موارد .NET وراء العرض حتى إذا فشل الكود.
 
 ## **فتح عرض من Buffer**
 
@@ -71,7 +71,7 @@ try {
 
 ## **حفظ عرض بتنسيق آخر**
 
-لتحويل عرض إلى تنسيق عرض آخر، افتحه واحفظه بقيمة مختلفة من [SaveFormat](https://reference.aspose.com/slides/ar/net/aspose.slides.export/saveformat/). المثال التالي يطبع التنسيق الذي كشفه Aspose.Slides، والذي تُرجعه خاصية [sourceFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/sourceformat/)، ويحفظ العرض كعرض OpenDocument:
+لتحويل عرض إلى تنسيق عرض آخر، افتحه واحفظه بقيمة مختلفة من [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). المثال التالي يطبع التنسيق الذي كشفه Aspose.Slides، والذي تُرجعه خاصية [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/)، ويحفظ العرض كعرض OpenDocument:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **كيف يمكنني فتح عرض محمي بكلمة مرور؟**
 
-أنشئ كائنًا من [LoadOptions](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/)، عيّن خاصية [password](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/password/) الخاصة به، ومرّر الكائن كثالث معطى للمُنشئ: `new Presentation("protected.pptx", null, loadOptions)`. بدون كلمة المرور الصحيحة، يُطلق المُنشئ خطأ.
+أنشئ كائنًا من [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)، عيّن خاصية [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) الخاصة به، ومرّر الكائن كثالث معطى للمُنشئ: `new Presentation("protected.pptx", null, loadOptions)`. بدون كلمة المرور الصحيحة، يُطلق المُنشئ خطأ.
 
 **لماذا يطرح المُنشئ `Error` برسالة فارغة؟**
 

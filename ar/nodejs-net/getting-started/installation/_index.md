@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 أثناء التثبيت، تنسخ الحزمة مكتبات الرسم الأصلية (الملفات التي تحتوي أسماؤها على `aspose.slides.drawing.capi`) إلى مجلد المشروع، بجانب `package.json`.
 
-تُنشر الحزمة أيضًا كأرشيف ZIP على [releases.aspose.com](https://releases.aspose.com/slides/ar/nodejs-net/). تغطي هذه المقالة التثبيت من npm فقط.
+تُنشر الحزمة أيضًا كأرشيف ZIP على [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/). تغطي هذه المقالة التثبيت من npm فقط.
 
 ## **استعادة تبعيات .NET**
 
@@ -154,7 +154,7 @@ node hello.js
 شغّل سكريبتاتك من مجلد المشروع، ذلك الذي يحتوي على `package.json`. تُحل المسارات النسبية مثل `hello.pptx` بالنسبة للمجلد الحالي، وعلى بعض الأجهزة قد لا يتمكن سكريبت بدأ من مجلد مختلف من إنشاء عرض تقديمي.
 {{% /alert %}}
 
-تُطابق واجهة برمجة JavaScript واجهة Aspose.Slides for .NET: تحتفظ الفئات بأسمائها في .NET، وتستخدم الخصائص والطرق camelCase (`Slides` تصبح `slides`، `AddAutoShape` تصبح `addAutoShape`)، وتُقرأ عناصر المجموعات عبر `get(index)`. لا توجد وثيقة API منفصلة لهذه الحزمة، لذا استخدم [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ar/net/) لتفاصيل الفئات والأعضاء، مثل [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) و[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/shapecollection/addautoshape/).
+تُطابق واجهة برمجة JavaScript واجهة Aspose.Slides for .NET: تحتفظ الفئات بأسمائها في .NET، وتستخدم الخصائص والطرق camelCase (`Slides` تصبح `slides`، `AddAutoShape` تصبح `addAutoShape`)، وتُقرأ عناصر المجموعات عبر `get(index)`. لا توجد وثيقة API منفصلة لهذه الحزمة، لذا استخدم [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) لتفاصيل الفئات والأعضاء، مثل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) و[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **الأسئلة الشائعة**
 

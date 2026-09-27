@@ -22,20 +22,20 @@ description: "تحويل عروض PPTX وPPT وODP إلى PDF باستخدام J
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Node.js via .NET يحول عروض PowerPoint وOpenDocument إلى PDF دون الحاجة إلى Microsoft PowerPoint. كل شريحة مرئية تصبح صفحة PDF واحدة بحجم الشريحة نفسه، ويظل النص قابلًا للتحديد والبحث. تُظهر هذه المقالة التحويل الافتراضي وتحويلًا إلى PDF/A باستخدام [PdfOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET يحول عروض PowerPoint وOpenDocument إلى PDF دون الحاجة إلى Microsoft PowerPoint. كل شريحة مرئية تصبح صفحة PDF واحدة بحجم الشريحة نفسه، ويظل النص قابلًا للتحديد والبحث. تُظهر هذه المقالة التحويل الافتراضي وتحويلًا إلى PDF/A باستخدام [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 الأمثلة تتوقع وجود عرض تقديمي باسم `sample.pptx` في مجلد المشروع الذي قمت بإعداده في [Installation](/slides/ar/nodejs-net/installation/). يمكن استخدام أي عرض PowerPoint. احفظ كل مثال كملف `.js` في مجلد المشروع وشغله من ذلك المجلد باستخدام `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET لا يمتلك مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides for .NET بأسماء camelCase، لذا روابط API في هذه المقالة تُوجه إلى الفئات والأعضاء المقابلة في [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ar/net/).
+Aspose.Slides for Node.js via .NET لا يمتلك مرجع API خاص به. فهو يعكس API الخاص بـ Aspose.Slides for .NET بأسماء camelCase، لذا روابط API في هذه المقالة تُوجه إلى الفئات والأعضاء المقابلة في [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **تحويل عرض تقديمي إلى PDF**
 
 لتحويل عرض تقديمي إلى PDF، اتبع الخطوات التالية:
 
-1. افتح العرض التقديمي بتمرير مساره إلى المُنشئ [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/presentation/). نفس الكود يعمل مع ملفات PPTX وPPT وODP.
-1. استدعِ طريقة [save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/) مع مسار الإخراج و`SaveFormat.Pdf`.
+1. افتح العرض التقديمي بتمرير مساره إلى المُنشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). نفس الكود يعمل مع ملفات PPTX وPPT وODP.
+1. استدعِ طريقة [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) مع مسار الإخراج و`SaveFormat.Pdf`.
 1. استدعِ `dispose` داخل كتلة `finally` لتحرير موارد .NET التي تدعم العرض التقديمي.
 
 ```javascript
@@ -54,7 +54,7 @@ try {
 
 ## **تحويل عرض تقديمي إلى PDF/A**
 
-للتحكم في المخرجات، مرّر كائن [PdfOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/) كالمعامل الثالث في `save`. المثال التالي يضبط الخاصية [compliance](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/compliance/) إلى `PdfCompliance.PdfA2b`، مما يُنتج ملف PDF/A-2b. PDF/A هو المعيار ISO للأرشفة طويلة الأمد: من بين قواعد أخرى، يتطلب تضمين كل خط يستخدمه المستند داخل الملف.
+للتحكم في المخرجات، مرّر كائن [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) كالمعامل الثالث في `save`. المثال التالي يضبط الخاصية [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) إلى `PdfCompliance.PdfA2b`، مما يُنتج ملف PDF/A-2b. PDF/A هو المعيار ISO للأرشفة طويلة الأمد: من بين قواعد أخرى، يتطلب تضمين كل خط يستخدمه المستند داخل الملف.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-النص البرمجي يكتب `sample-pdfa.pdf` بنفس الصفحات التي ينتجها التحويل الافتراضي. لتأكيد أن الملف يطابق المعيار، افحصه باستخدام أداة تحقق PDF/A مثل [veraPDF](https://verapdf.org/). قيم أخرى من [PdfCompliance](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfcompliance/) تختار معايير أخرى، مثل `PdfA1b` أو `PdfA2a` أو `PdfUa` لإمكانية الوصول.
+النص البرمجي يكتب `sample-pdfa.pdf` بنفس الصفحات التي ينتجها التحويل الافتراضي. لتأكيد أن الملف يطابق المعيار، افحصه باستخدام أداة تحقق PDF/A مثل [veraPDF](https://verapdf.org/). قيم أخرى من [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) تختار معايير أخرى، مثل `PdfA1b` أو `PdfA2a` أو `PdfUa` لإمكانية الوصول.
 
 ## **FAQ**
 
 **كيف يمكنني تضمين الشرائح المخفية في PDF؟**
 
-الشرائح المخفية تُتخطى بشكل افتراضي. اضبط خاصية [showHiddenSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/showhiddenslides/) لـ `PdfOptions` إلى `true` ومرّر الخيارات إلى `save`.
+الشرائح المخفية تُتخطى بشكل افتراضي. اضبط خاصية [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) لـ `PdfOptions` إلى `true` ومرّر الخيارات إلى `save`.
 
 **هل يمكنني حماية PDF بكلمة مرور؟**
 
-نعم. اضبط خاصية [password](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/password/) لـ `PdfOptions` قبل استدعاء `save`. ثم يطلب قارئ PDF كلمة المرور قبل فتح الملف.
+نعم. اضبط خاصية [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) لـ `PdfOptions` قبل استدعاء `save`. ثم يطلب قارئ PDF كلمة المرور قبل فتح الملف.
 
 **هل يمكنني تحويل بعض الشرائح فقط؟**
 

@@ -58,13 +58,13 @@ Aspose.Slides for Node.js via .NET هي مكتبة لإنشاء وقراءة و�
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/net/">مرجع API لـ .NET</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/nodejs-net/release-notes/">ملاحظات الإصدار</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/nodejs-net/">تحميل</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">مرجع API لـ .NET</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">تحميل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى دعم مجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى دعم مجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب مساعدة الدعم المدفوع</a></li>
 </ul>
 </div>
