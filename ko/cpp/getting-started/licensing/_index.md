@@ -27,9 +27,9 @@ Aspose.Slides는 평가 모드 또는 유효한 라이선스로 사용할 수 �
 ## **Aspose.Slides 평가**
 
 {{% alert color="info" title="Note" %}}
-평가 버전인 **Aspose.Slides for C++**를 [NuGet 다운로드 페이지](https://www.nuget.org/packages/Aspose.Slides.Cpp/)에서 또는 ZIP 패키지로 [다운로드 페이지](https://releases.aspose.com/slides/ko/cpp/)에서 다운로드할 수 있습니다. 평가 버전은 라이선스 제품과 동일한 기능을 제공합니다. 사실, 평가 패키지는 구매한 패키지와 동일하며, 라이선스를 적용하는 몇 줄의 코드를 추가하면 라이선스가 적용됩니다.
+평가 버전인 **Aspose.Slides for C++**를 [NuGet 다운로드 페이지](https://www.nuget.org/packages/Aspose.Slides.Cpp/)에서 또는 ZIP 패키지로 [다운로드 페이지](https://releases.aspose.com/slides/cpp/)에서 다운로드할 수 있습니다. 평가 버전은 라이선스 제품과 동일한 기능을 제공합니다. 사실, 평가 패키지는 구매한 패키지와 동일하며, 라이선스를 적용하는 몇 줄의 코드를 추가하면 라이선스가 적용됩니다.
 
-Aspose.Slides 평가에 만족하면 [라이선스를 구매](https://purchase.aspose.com/pricing/slides/ko/cpp/)할 수 있습니다. 사용 가능한 구독 유형을 검토하시기 바랍니다. 질문이 있으면 언제든지 Aspose 영업팀에 문의하세요.
+Aspose.Slides 평가에 만족하면 [라이선스를 구매](https://purchase.aspose.com/pricing/slides/cpp/)할 수 있습니다. 사용 가능한 구독 유형을 검토하시기 바랍니다. 질문이 있으면 언제든지 Aspose 영업팀에 문의하세요.
 
 모든 Aspose 라이선스에는 해당 기간 동안 출시되는 새로운 버전 및 버그 수정 등 무료 업그레이드를 위한 1년 구독이 포함됩니다. 라이선스 버전이든 평가 버전이든 무료이며 무제한의 기술 지원을 받을 수 있습니다.
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Aspose.Slides 평가에 만족하면 [라이선스를 구매](https://purchase.a
 라이선스는 **파일** 또는 **스트림**에서 로드할 수 있습니다.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides는 라이선스 작업을 위한 [License](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/) 클래스를 제공합니다.
+Aspose.Slides는 라이선스 작업을 위한 [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) 클래스를 제공합니다.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -86,17 +86,17 @@ int main()
 }
 ```
 
-라이선스가 유효하면 [License::SetLicense](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/setlicense/)가 반환되고 프로그램은 출력 없이 종료됩니다; 이후 Aspose.Slides는 평가 제한 없이 작동합니다. 파일이 작업 디렉터리에 없으면 메서드는 [FileNotFoundException](https://reference.aspose.com/slides/ko/cpp/system.io/filenotfoundexception/)을 발생시키며 메시지는 *License "Aspose.Slides.lic" doesn't exist or access is restricted* 입니다. 예제는 예외를 처리하지 않으므로 프로그램이 중단됩니다.
+라이선스가 유효하면 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/)가 반환되고 프로그램은 출력 없이 종료됩니다; 이후 Aspose.Slides는 평가 제한 없이 작동합니다. 파일이 작업 디렉터리에 없으면 메서드는 [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/)을 발생시키며 메시지는 *License "Aspose.Slides.lic" doesn't exist or access is restricted* 입니다. 예제는 예외를 처리하지 않으므로 프로그램이 중단됩니다.
 
 {{% alert color="warning" title="Warning" %}}
-라이선스 파일을 다른 디렉터리에 두는 경우 [License::SetLicense](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/setlicense/) 메서드를 호출할 때 지정한 전체 경로의 파일 이름이 라이선스 파일 이름과 정확히 일치해야 합니다.
+라이선스 파일을 다른 디렉터리에 두는 경우 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 메서드를 호출할 때 지정한 전체 경로의 파일 이름이 라이선스 파일 이름과 정확히 일치해야 합니다.
 
-예를 들어, 라이선스 파일 이름을 *Aspose.Slides.lic.xml*으로 바꾸면 코드에서 [License::SetLicense](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/setlicense/) 메서드에 *Aspose.Slides.lic.xml* 로 끝나는 전체 경로를 전달해야 합니다.
+예를 들어, 라이선스 파일 이름을 *Aspose.Slides.lic.xml*으로 바꾸면 코드에서 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 메서드에 *Aspose.Slides.lic.xml* 로 끝나는 전체 경로를 전달해야 합니다.
 {{% /alert %}}
 
 ### **스트림**
 
-프로그램이 파일 형태로 라이선스를 보관하지 않을 때, 예를 들어 데이터베이스에서 라이선스를 읽는 경우 스트림에서 라이선스를 로드합니다. [License::SetLicense](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/setlicense/)는 라이선스를 포함하는 任意의 [Stream](https://reference.aspose.com/slides/ko/cpp/system.io/stream/)을 허용합니다. 예제를 간단히 하기 위해 다음 C++ 코드는 작업 디렉터리의 *Aspose.Slides.lic*를 [File::OpenRead](https://reference.aspose.com/slides/ko/cpp/system.io/file/openread/)로 열어 해당 스트림에서 라이선스를 적용합니다:
+프로그램이 파일 형태로 라이선스를 보관하지 않을 때, 예를 들어 데이터베이스에서 라이선스를 읽는 경우 스트림에서 라이선스를 로드합니다. [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/)는 라이선스를 포함하는 任意의 [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/)을 허용합니다. 예제를 간단히 하기 위해 다음 C++ 코드는 작업 디렉터리의 *Aspose.Slides.lic*를 [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/)로 열어 해당 스트림에서 라이선스를 적용합니다:
 
 ```c++
 #include <Util/License.h>
@@ -117,11 +117,11 @@ int main()
 }
 ```
 
-유효한 라이선스는 파일 예제와 동일한 결과를 제공합니다. 파일이 존재하지 않으면 [File::OpenRead](https://reference.aspose.com/slides/ko/cpp/system.io/file/openread/)이 라이선스가 적용되기 전에 [FileNotFoundException](https://reference.aspose.com/slides/ko/cpp/system.io/filenotfoundexception/)을 발생시키고 프로그램이 중단됩니다.
+유효한 라이선스는 파일 예제와 동일한 결과를 제공합니다. 파일이 존재하지 않으면 [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/)이 라이선스가 적용되기 전에 [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/)을 발생시키고 프로그램이 중단됩니다.
 
 ## **라이선스 검증**
 
-라이선스가 올바르게 설정되었는지 확인하려면 [License::IsLicensed](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/islicensed/)을 호출합니다. 유효한 라이선스가 적용된 경우에만 `true`를 반환하고, 그 이전에는 `false`를 반환합니다. 다음 C++ 코드는 작업 디렉터리의 라이선스 파일을 적용한 뒤 이를 확인합니다:
+라이선스가 올바르게 설정되었는지 확인하려면 [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/)을 호출합니다. 유효한 라이선스가 적용된 경우에만 `true`를 반환하고, 그 이전에는 `false`를 반환합니다. 다음 C++ 코드는 작업 디렉터리의 라이선스 파일을 적용한 뒤 이를 확인합니다:
 
 ```c++
 #include <Util/License.h>
@@ -145,12 +145,12 @@ int main()
 }
 ```
 
-유효한 라이선스가 있으면 프로그램은 *License is good!*을 출력합니다. 파일이 없거나 라이선스 파일이 아니면 [License::SetLicense](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/setlicense/)가 검사 전에 예외를 발생시켜 아무 출력도 없이 프로그램이 중단됩니다. 파일이 서명이 일치하지 않는 라이선스(예: 편집된 경우)라면 SetLicense는 오류 없이 반환되지만 `IsLicensed`는 `false`를 반환하므로 아무 것도 출력되지 않으며 Aspose.Slides는 평가 모드에 머무릅니다.
+유효한 라이선스가 있으면 프로그램은 *License is good!*을 출력합니다. 파일이 없거나 라이선스 파일이 아니면 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/)가 검사 전에 예외를 발생시켜 아무 출력도 없이 프로그램이 중단됩니다. 파일이 서명이 일치하지 않는 라이선스(예: 편집된 경우)라면 SetLicense는 오류 없이 반환되지만 `IsLicensed`는 `false`를 반환하므로 아무 것도 출력되지 않으며 Aspose.Slides는 평가 모드에 머무릅니다.
 
 ## **스레드 안전성**
 
 {{% alert color="warning" title="Warning" %}}
-[License::SetLicense](https://reference.aspose.com/slides/ko/cpp/aspose.slides/license/setlicense/) 메서드는 **스레드 안전하지** 않습니다. 여러 스레드에서 동시에 이 메서드를 호출해야 하는 경우 잠금과 같은 동기화 프리미티브를 사용하여 문제를 방지하는 것이 권장됩니다.
+[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 메서드는 **스레드 안전하지** 않습니다. 여러 스레드에서 동시에 이 메서드를 호출해야 하는 경우 잠금과 같은 동기화 프리미티브를 사용하여 문제를 방지하는 것이 권장됩니다.
 {{% /alert %}}
 
 ## **FAQ**

@@ -72,14 +72,14 @@ Aspose.Slides for C++은 Microsoft PowerPoint 또는 Office Automation 없이 Po
 <hr>
 <p>참조</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ko/cpp/">API 레퍼런스</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/cpp/release-notes/">릴리스 노트</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API 레퍼런스</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">릴리스 노트</a></li>
 <li><a href="/slides/ko/cpp/known-issues/">알려진 문제</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/cpp/">다운로드</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">다운로드</a></li>
 </ul>
 <p>지원</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">무료 지원 포럼</a></li>
 <li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
 </ul>
 </div>

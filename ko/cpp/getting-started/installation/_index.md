@@ -26,7 +26,7 @@ Aspose.Slides for C++ 은 두 가지 형태로 제공됩니다:
 | 형태 | 사용 대상 | 구입 위치 |
 |---|---|---|
 | NuGet 패키지: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64-bit) 및 [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32-bit) | Windows 용 Visual Studio C++ 프로젝트 | NuGet |
-| Windows, Linux, macOS 용 ZIP 패키지 | NuGet 없이 빌드하는 경우(예: CMake 프로젝트) | [다운로드 페이지](https://releases.aspose.com/slides/ko/cpp/) |
+| Windows, Linux, macOS 용 ZIP 패키지 | NuGet 없이 빌드하는 경우(예: CMake 프로젝트) | [다운로드 페이지](https://releases.aspose.com/slides/cpp/) |
 
 이 문서에서는 Windows 에서 Visual Studio 로 NuGet 패키지를 설치하는 방법과 Linux 에서 CMake 로 ZIP 패키지를 사용하는 방법을 보여줍니다. 두 경로 모두 동일한 확인 절차로 끝납니다: [프레젠테이션 만들기](/slides/ko/cpp/create-presentation/) 에 있는 첫 번째 예제를 빌드하고 실행합니다.
 
@@ -36,7 +36,7 @@ Windows 에서는 NuGet 패키지를 Visual Studio C++ 프로젝트에 추가합
 
 빌드하려는 플랫폼에 맞는 패키지를 선택합니다: x64 용은 **Aspose.Slides.Cpp**, Win32(x86) 용은 **Aspose.Slides.Cpp.x86**. Aspose.Slides.Cpp 패키지는 Win32 빌드에 적용되지 않으므로 해당 환경에서는 헤더를 찾을 수 없습니다.
 
-Windows 용 ZIP 패키지는 [다운로드 페이지](https://releases.aspose.com/slides/ko/cpp/)에서도 제공됩니다.
+Windows 용 ZIP 패키지는 [다운로드 페이지](https://releases.aspose.com/slides/cpp/)에서도 제공됩니다.
 
 ### **방법 1: NuGet 패키지 관리자에서 Aspose.Slides 설치 또는 업데이트**
 
@@ -100,7 +100,7 @@ Linux 에서는 CMake 로 Linux ZIP 패키지를 사용합니다. 패키지에�
    cd hello-slides
    ```
 
-3. [다운로드 페이지](https://releases.aspose.com/slides/ko/cpp/)에서 Linux ZIP (**Aspose.Slides for C++ Linux**) 을 프로젝트 폴더로 다운로드하고, *aspose-slides-cpp* 하위 폴더에 압축을 풉니다:
+3. [다운로드 페이지](https://releases.aspose.com/slides/cpp/)에서 Linux ZIP (**Aspose.Slides for C++ Linux**) 을 프로젝트 폴더로 다운로드하고, *aspose-slides-cpp* 하위 폴더에 압축을 풉니다:
 
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp

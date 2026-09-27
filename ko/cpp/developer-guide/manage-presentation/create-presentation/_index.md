@@ -30,10 +30,10 @@ description: "Aspose.Slides를 사용하여 C++에서 프레젠테이션을 만�
 
 프레젠테이션을 만들고 첫 번째 슬라이드에 텍스트 상자를 추가하려면 다음 단계에 따라 진행하십시오:
 
-1. 새로운 [Presentation](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/) 클래스 인스턴스를 생성합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
-2. [Presentation::get_Slide](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/get_slide/) 메서드와 인덱스 0을 사용하여 해당 슬라이드를 가져옵니다.
-3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishapecollection/addautoshape/) 메서드를 사용하여 사각형을 추가하고, [ITextFrame::set_Text](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/set_text/) 메서드로 텍스트를 설정합니다.
-4. [Presentation::Save](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/save/) 메서드를 사용하여 프레젠테이션을 PPTX 파일로 저장합니다.
+1. 새로운 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 클래스 인스턴스를 생성합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
+2. [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) 메서드와 인덱스 0을 사용하여 해당 슬라이드를 가져옵니다.
+3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) 메서드를 사용하여 사각형을 추가하고, [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) 메서드로 텍스트를 설정합니다.
+4. [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) 메서드를 사용하여 프레젠테이션을 PPTX 파일로 저장합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### 프레젠테이션을 병렬로 생성/저장할 수 있나요?
 
-같은 [Presentation](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/) 인스턴스를 [여러 스레드](/slides/ko/cpp/multithreading/)에서 동시에 사용할 수 없습니다. 스레드 또는 프로세스당 별도의 독립 인스턴스를 실행하십시오。
+같은 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 인스턴스를 [여러 스레드](/slides/ko/cpp/multithreading/)에서 동시에 사용할 수 없습니다. 스레드 또는 프로세스당 별도의 독립 인스턴스를 실행하십시오。
 
 ### 평가용 워터마크와 제한을 제거하려면 어떻게 해야 하나요?
 
