@@ -30,10 +30,10 @@ description: "C++ で Aspose.Slides を使用してプレゼンテーション�
 
 プレゼンテーションを作成し、最初のスライドにテキストボックスを配置するには、以下の手順に従ってください:
 
-1. [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションにはすでに空のスライドが 1 枚含まれています。
-2. [Presentation::get_Slide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_slide/) メソッドを使用してそのスライドを取得し、インデックスは 0 です。
-3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/addautoshape/) メソッドで矩形を追加し、[ITextFrame::set_Text](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframe/set_text/) メソッドでテキストを設定します。
-4. [Presentation::Save](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/save/) メソッドを使用してプレゼンテーションを PPTX ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションにはすでに空のスライドが 1 枚含まれています。
+2. [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) メソッドを使用してそのスライドを取得し、インデックスは 0 です。
+3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) メソッドで矩形を追加し、[ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) メソッドでテキストを設定します。
+4. [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) メソッドを使用してプレゼンテーションを PPTX ファイルとして保存します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### プレゼンテーションを並列で作成/保存できますか？
 
-同じ [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/cpp/multithreading/)から操作することはできません。各スレッドまたはプロセスごとに別々の独立したインスタンスを実行してください。
+同じ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/cpp/multithreading/)から操作することはできません。各スレッドまたはプロセスごとに別々の独立したインスタンスを実行してください。
 
 ### 試用版の透かしと制限を削除するには？
 

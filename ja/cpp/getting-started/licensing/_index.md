@@ -28,9 +28,9 @@ Aspose.Slides は評価モードまたは有効なライセンスで使用でき
 
 {{% alert color="info" title="Note" %}}
 
-**Aspose.Slides for C++** の評価版は、[NuGet ダウンロードページ](https://www.nuget.org/packages/Aspose.Slides.Cpp/)から、または ZIP パッケージとして[ダウンロードページ](https://releases.aspose.com/slides/ja/cpp/)から取得できます。評価版はライセンス製品と同等の機能を提供します。実際、評価パッケージは購入版と同一で、ライセンスを適用する数行のコードを追加するとライセンス版になります。
+**Aspose.Slides for C++** の評価版は、[NuGet ダウンロードページ](https://www.nuget.org/packages/Aspose.Slides.Cpp/)から、または ZIP パッケージとして[ダウンロードページ](https://releases.aspose.com/slides/cpp/)から取得できます。評価版はライセンス製品と同等の機能を提供します。実際、評価パッケージは購入版と同一で、ライセンスを適用する数行のコードを追加するとライセンス版になります。
 
-**Aspose.Slides** の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/ja/cpp/)できます。利用可能なサブスクリプションタイプをご確認ください。ご質問がある場合は、Aspose の営業チームまでお問い合わせください。
+**Aspose.Slides** の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/cpp/)できます。利用可能なサブスクリプションタイプをご確認ください。ご質問がある場合は、Aspose の営業チームまでお問い合わせください。
 
 すべての Aspose ライセンスには、1 年間の無料アップグレード（期間中にリリースされる新バージョンとバグ修正を含む）サブスクリプションが含まれます。ライセンス版でも評価版でも、無料で無制限の技術サポートが受けられます。
 
@@ -61,7 +61,7 @@ Aspose.Slides は評価モードまたは有効なライセンスで使用でき
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides は、ライセンス操作用に[License](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/)クラスを提供しています。
+Aspose.Slides は、ライセンス操作用に[License](https://reference.aspose.com/slides/cpp/aspose.slides/license/)クラスを提供しています。
 
 {{% /alert %}} 
 
@@ -94,19 +94,19 @@ int main()
 }
 ```
 
-ライセンスが有効な場合、[License::SetLicense](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/setlicense/) は例外をスローせずに戻り、プログラムは何も出力せずに終了します。その後、Aspose.Slides は評価制限なしで動作します。ファイルが作業ディレクトリにない場合、メソッドは[FileNotFoundException](https://reference.aspose.com/slides/ja/cpp/system.io/filenotfoundexception/) をスローし、メッセージは *License "Aspose.Slides.lic" doesn't exist or access is restricted* となります。この例では例外を捕捉していないため、プログラムは停止します。
+ライセンスが有効な場合、[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) は例外をスローせずに戻り、プログラムは何も出力せずに終了します。その後、Aspose.Slides は評価制限なしで動作します。ファイルが作業ディレクトリにない場合、メソッドは[FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) をスローし、メッセージは *License "Aspose.Slides.lic" doesn't exist or access is restricted* となります。この例では例外を捕捉していないため、プログラムは停止します。
 
 {{% alert color="warning" title="Warning" %}}
 
-ライセンス ファイルを別のディレクトリに置く場合、[License::SetLicense](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/setlicense/) メソッドに渡す完全パスの最後のファイル名は、ライセンス ファイルの名前と完全に一致している必要があります。
+ライセンス ファイルを別のディレクトリに置く場合、[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) メソッドに渡す完全パスの最後のファイル名は、ライセンス ファイルの名前と完全に一致している必要があります。
 
-たとえば、ライセンス ファイル名を *Aspose.Slides.lic.xml* に変更した場合、コード内で [License::SetLicense](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/setlicense/) に渡すパスは *Aspose.Slides.lic.xml* で終わるフルパスでなければなりません。
+たとえば、ライセンス ファイル名を *Aspose.Slides.lic.xml* に変更した場合、コード内で [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) に渡すパスは *Aspose.Slides.lic.xml* で終わるフルパスでなければなりません。
 
 {{% /alert %}}
 
 ### **ストリーム**
 
-ライセンスをファイルとして保持せず、たとえばデータベースから読み込む場合は、ストリームからロードします。[License::SetLicense](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/setlicense/) はライセンスを含む任意の [Stream](https://reference.aspose.com/slides/ja/cpp/system.io/stream/) を受け付けます。例を簡潔にするため、以下の C++ コードは作業ディレクトリの *Aspose.Slides.lic* を [File::OpenRead](https://reference.aspose.com/slides/ja/cpp/system.io/file/openread/) で開き、そのストリームからライセンスを適用します。
+ライセンスをファイルとして保持せず、たとえばデータベースから読み込む場合は、ストリームからロードします。[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) はライセンスを含む任意の [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) を受け付けます。例を簡潔にするため、以下の C++ コードは作業ディレクトリの *Aspose.Slides.lic* を [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) で開き、そのストリームからライセンスを適用します。
 
 ```c++
 #include <Util/License.h>
@@ -127,11 +127,11 @@ int main()
 }
 ```
 
-有効なライセンスはファイル例と同じ結果になります。ファイルが存在しない場合、[File::OpenRead](https://reference.aspose.com/slides/ja/cpp/system.io/file/openread/) が [FileNotFoundException](https://reference.aspose.com/slides/ja/cpp/system.io/filenotfoundexception/) をスローし、ライセンスは適用されずにプログラムは停止します。
+有効なライセンスはファイル例と同じ結果になります。ファイルが存在しない場合、[File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) が [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) をスローし、ライセンスは適用されずにプログラムは停止します。
 
 ## **ライセンスの検証**
 
-ライセンスが正しく設定されたか確認するには、[License::IsLicensed](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/islicensed/) を呼び出します。有効なライセンスが適用された後にのみ `true` を返し、それ以前は `false` を返します。以下の C++ コードは作業ディレクトリのライセンス ファイルを適用し、続いて検証します。
+ライセンスが正しく設定されたか確認するには、[License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/) を呼び出します。有効なライセンスが適用された後にのみ `true` を返し、それ以前は `false` を返します。以下の C++ コードは作業ディレクトリのライセンス ファイルを適用し、続いて検証します。
 
 ```c++
 #include <Util/License.h>
@@ -155,13 +155,13 @@ int main()
 }
 ```
 
-有効なライセンスがある場合、プログラムは *License is good!* と出力します。ファイルが不存在またはライセンス ファイルでない場合、[License::SetLicense](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/setlicense/) が例外をスローし、チェック前にプログラムは何も出力せずに停止します。署名が一致しないライセンス（例：編集された場合）では、SetLicense はエラーなしで戻りますが `IsLicensed` は `false` を返すため、何も出力されず Aspose.Slides は評価モードのままです。
+有効なライセンスがある場合、プログラムは *License is good!* と出力します。ファイルが不存在またはライセンス ファイルでない場合、[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) が例外をスローし、チェック前にプログラムは何も出力せずに停止します。署名が一致しないライセンス（例：編集された場合）では、SetLicense はエラーなしで戻りますが `IsLicensed` は `false` を返すため、何も出力されず Aspose.Slides は評価モードのままです。
 
 ## **スレッド安全性**
 
 {{% alert color="warning" title="Warning" %}}
 
-[License::SetLicense](https://reference.aspose.com/slides/ja/cpp/aspose.slides/license/setlicense/) メソッドは **スレッドセーフではありません**。複数スレッドから同時に呼び出す必要がある場合は、ロックなどの同期プリミティブを使用して問題を回避することを推奨します。
+[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) メソッドは **スレッドセーフではありません**。複数スレッドから同時に呼び出す必要がある場合は、ロックなどの同期プリミティブを使用して問題を回避することを推奨します。
 
 {{% /alert %}}
 

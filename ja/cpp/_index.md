@@ -72,14 +72,14 @@ Aspose.Slides for C++ は、Microsoft PowerPoint や Office Automation を使用
 <hr>
 <p>リファレンス</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ja/cpp/">API リファレンス</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/cpp/release-notes/">リリースノート</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">リリースノート</a></li>
 <li><a href="/slides/ja/cpp/known-issues/">既知の問題</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/cpp/">ダウンロード</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートヘルプデスク</a></li>
 </ul>
 </div>
