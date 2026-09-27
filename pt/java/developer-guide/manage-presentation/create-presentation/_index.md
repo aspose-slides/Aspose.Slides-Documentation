@@ -28,14 +28,14 @@ Antes de começar, adicione o Aspose.Slides for Java ao seu projeto a partir do 
 
 ## **Criar uma apresentação**
 
-Criar um arquivo PowerPoint do zero no Aspose.Slides for Java começa com uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/). O construtor fornece uma apresentação em branco com um único slide, pronto para formas, texto, gráficos ou qualquer outro conteúdo que sua aplicação necessite. Depois de modificar esse slide ou adicionar novos, você pode salvar o resultado em formatos PPTX, PPT (legado) ou OpenDocument.
+Criar um arquivo PowerPoint do zero no Aspose.Slides for Java começa com uma instância da classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). O construtor fornece uma apresentação em branco com um único slide, pronto para formas, texto, gráficos ou qualquer outro conteúdo que sua aplicação necessite. Depois de modificar esse slide ou adicionar novos, você pode salvar o resultado em formatos PPTX, PPT (legado) ou OpenDocument.
 
 Para criar uma apresentação e colocar uma forma com texto em seu primeiro slide, siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
-2. Obtenha esse slide pelo seu índice, 0, a partir da coleção que [getSlides](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#getSlides--) retorna.  
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iautoshape/) do tipo `Cloud` usando o método [addAutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) e defina seu texto com [setText](https://reference.aspose.com/slides/pt/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Salve a apresentação como um arquivo PPTX usando o método [save](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
+2. Obtenha esse slide pelo seu índice, 0, a partir da coleção que [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) retorna.  
+3. Adicione um [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do tipo `Cloud` usando o método [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) e defina seu texto com [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Salve a apresentação como um arquivo PPTX usando o método [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 O exemplo abaixo é um programa completo. No projeto Maven de [Installation](/slides/pt/java/installation/), salve‑o como *src/main/java/HelloSlides.java* e execute `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ Use [BLOB management strategies](/slides/pt/java/manage-blob/), limite o armazen
 
 ### Posso criar/salvar apresentações em paralelo?
 
-Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) a partir de [multiple threads](/slides/pt/java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
+Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) a partir de [multiple threads](/slides/pt/java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
 
 ### Como remover a marca d'água da avaliação e as limitações?
 
