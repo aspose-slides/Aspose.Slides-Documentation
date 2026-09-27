@@ -31,11 +31,11 @@ description: "إنشاء عروض تقديمية باستخدام Aspose.Slides 
 
 لإنشاء عرض تقديمي ووضع مربع نص على شريحته الأولى، اتبع الخطوات التالية:
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/). يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.
-2. احصل على تلك الشريحة من [مجموعة الشرائح](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslides/) باستخدام فهرستها، 0.
-3. أضف مستطيلاً باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/addautoshape/) ثم عيّن نصه باستخدام [setText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/settext/).
-4. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/save/).
-5. حرّر العرض التقديمي باستخدام طريقة [dispose](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/dispose/)، ثم أنهِ العملية.
+1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة من [مجموعة الشرائح](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) باستخدام فهرستها، 0.
+3. أضف مستطيلاً باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) ثم عيّن نصه باستخدام [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+4. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+5. حرّر العرض التقديمي باستخدام طريقة [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/)، ثم أنهِ العملية.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ process.exit(0);
 
 ### هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟
 
-لا يمكنك التعامل مع نفس مثيل [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/nodejs-java/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك التعامل مع نفس مثيل [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/nodejs-java/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
 
 ### كيف أزيل علامة المائية التجريبية والقيود؟
 

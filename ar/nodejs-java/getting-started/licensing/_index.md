@@ -41,7 +41,7 @@ description: "تطبيق وإدارة وحل المشكلات المتعلقة �
 {{% /alert %}}
 
 ## **حول الترخيص**
-يمكنك بسهولة تنزيل نسخة تقييم من Aspose.Slides لـ Node.js عبر Java من [صفحة التحميل](https://releases.aspose.com/slides/ar/nodejs-java/). نسخة التقييم تحتوي على نفس الميزات مثل النسخة المرخصة، مع القيود المذكورة أعلاه. علاوة على ذلك، تصبح نسخة التقييم مرخصة بمجرد شرائك رخصة وإضافة بضع أسطر من الشيفرة لتطبيق الترخيص.
+يمكنك بسهولة تنزيل نسخة تقييم من Aspose.Slides لـ Node.js عبر Java من [صفحة التحميل](https://releases.aspose.com/slides/nodejs-java/). نسخة التقييم تحتوي على نفس الميزات مثل النسخة المرخصة، مع القيود المذكورة أعلاه. علاوة على ذلك، تصبح نسخة التقييم مرخصة بمجرد شرائك رخصة وإضافة بضع أسطر من الشيفرة لتطبيق الترخيص.
 
 الترخيص هو ملف XML نصي بسيط يحتوي على تفاصيل مثل اسم المنتج، عدد المطورين المرخص لهم، تاريخ انتهاء الاشتراك، وما إلى ذلك. الملف موقع رقمياً، لذا لا تقم بتعديل الملف. حتى إضافة سطر فارغ غير مقصودة إلى محتوى الملف سيجعل الترخيص غير صالح.
 
@@ -61,7 +61,7 @@ description: "تطبيق وإدارة وحل المشكلات المتعلقة �
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-يمكنك العثور على معلومات الأسعار في صفحة [معلومات التسعير](https://purchase.aspose.com/pricing/slides/ar/family).
+يمكنك العثور على معلومات الأسعار في صفحة [معلومات التسعير](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **ضبط الترخيص في Aspose.Slides لـ Node.js عبر Java**
@@ -94,11 +94,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-عند استدعاء طريقة setLicense، يجب أن يكون اسم الترخيص هو نفسه كما هو في ملف الترخيص الخاص بك. على سبيل المثال، يمكنك تغيير اسم ملف الترخيص إلى "Aspose.Slides.lic.xml". ثم، في الشيفرة، عليك تمرير الاسم الجديد (Aspose.Slides.lic.xml) إلى طريقة setLicense. إذا كان الملف مفقودًا أو لا يحتوي على ترخيص صالح، فإن [setLicense](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/license/setlicense/) يطرح استثناءً، وينهي البرنامج النصي بخطأ.
+عند استدعاء طريقة setLicense، يجب أن يكون اسم الترخيص هو نفسه كما هو في ملف الترخيص الخاص بك. على سبيل المثال، يمكنك تغيير اسم ملف الترخيص إلى "Aspose.Slides.lic.xml". ثم، في الشيفرة، عليك تمرير الاسم الجديد (Aspose.Slides.lic.xml) إلى طريقة setLicense. إذا كان الملف مفقودًا أو لا يحتوي على ترخيص صالح، فإن [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) يطرح استثناءً، وينهي البرنامج النصي بخطأ.
 
 #### **تطبيق الترخيص من تدفق**
 
-لتطبيق ترخيص من تدفق، مرّر كائن [License](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/license/) وتدفق قابل للقراءة إلى الطريقة الساكنة [setLicenseFromStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/license/setlicense/). يُقرأ التدفق بشكل غير متزامن، ويتلقى الاستدعاء الرجعي خطأ إذا لم يحتوي التدفق على ترخيص صالح:
+لتطبيق ترخيص من تدفق، مرّر كائن [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) وتدفق قابل للقراءة إلى الطريقة الساكنة [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/). يُقرأ التدفق بشكل غير متزامن، ويتلقى الاستدعاء الرجعي خطأ إذا لم يحتوي التدفق على ترخيص صالح:
 
 **Node.js**
 

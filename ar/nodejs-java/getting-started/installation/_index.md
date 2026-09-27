@@ -100,7 +100,7 @@ node hello.js
 الحزمة متوفرة أيضًا كأرشيف ZIP يحتوي على نفس محتوى حزمة npm. لتثبيتها من الأرشيف:
 
 1. قم بتثبيت المتطلبات المسبقة لنظام تشغيلك كما هو موضح أعلاه.  
-2. نزّل الأرشيف من صفحة تحميل [Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/ar/nodejs-java/).  
+2. نزّل الأرشيف من صفحة تحميل [Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/nodejs-java/).  
 3. أنشئ مجلد مشروع:
 
     ```bash
