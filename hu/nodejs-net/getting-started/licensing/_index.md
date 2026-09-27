@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET egy npm csomag, amelyet értékelésre és te
 
 {{% alert color="info" title="Note" %}}
 
-Az Aspose termékek értékelésével, licencelésével és megvásárlásával kapcsolatos általános irányelvek a [Vásárlási irányelvek és GYIK](https://purchase.aspose.com/policies) oldalon gyűjtve vannak. Az árak a [Ár információk](https://purchase.aspose.com/pricing/slides/hu/family) oldalon vannak feltüntetve.
+Az Aspose termékek értékelésével, licencelésével és megvásárlásával kapcsolatos általános irányelvek a [Vásárlási irányelvek és GYIK](https://purchase.aspose.com/policies) oldalon gyűjtve vannak. Az árak a [Ár információk](https://purchase.aspose.com/pricing/slides/family) oldalon vannak feltüntetve.
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ A fájlnév vagy relatív útvonal a jelenlegi mappához viszonyítva kerül fel
 
 Ha a fájl nem található, vagy nem érvényes licenc, a `setLicense` hibát dob, és az Aspose.Slides értékelő módban marad. A szkript elkapja a hibát és kiírja az üzenetét. Hiányzó fájl esetén az üzenet a `License "Aspose.Slides.lic" doesn't exist or access is restricted.` szöveggel kezdődik, és felsorolja az összes keresett helyet.
 
-Ebben a csomagban a licenc csak fájlból alkalmazható. A `License` nem fogad adatfolyamot, és a csomag nem biztosít mérés alapú licencet. A csomag által becsomagolt osztályról lásd a [License](https://reference.aspose.com/slides/hu/net/aspose.slides/license/) oldalt az Aspose.Slides for .NET API referenciaiban.
+Ebben a csomagban a licenc csak fájlból alkalmazható. A `License` nem fogad adatfolyamot, és a csomag nem biztosít mérés alapú licencet. A csomag által becsomagolt osztályról lásd a [License](https://reference.aspose.com/slides/net/aspose.slides/license/) oldalt az Aspose.Slides for .NET API referenciaiban.

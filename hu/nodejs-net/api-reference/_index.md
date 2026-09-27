@@ -7,7 +7,7 @@ description: "Az Aspose.Slides for Node.js via .NET dokumentációja az Aspose.S
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Node.js via .NET saját API-referenciával nem rendelkezik. A csomag az Aspose.Slides for .NET osztályait ugyanazokkal a nevekkel, camelCase tagnevekkel teszi elérhetővé a JavaScript számára, így a [Aspose.Slides for .NET API-referencia](https://reference.aspose.com/slides/hu/net/) dokumentálja az osztályait, tagjait és felsorolásait.
+Az Aspose.Slides for Node.js via .NET saját API-referenciával nem rendelkezik. A csomag az Aspose.Slides for .NET osztályait ugyanazokkal a nevekkel, camelCase tagnevekkel teszi elérhetővé a JavaScript számára, így a [Aspose.Slides for .NET API-referencia](https://reference.aspose.com/slides/net/) dokumentálja az osztályait, tagjait és felsorolásait.
 
 ## **.NET nevek leképezése JavaScript-re**
 
@@ -54,4 +54,4 @@ try {
 
 A szkript a `slide.png` és `slide.pdf` fájlokat írja az aktuális mappába. Mindkettő a szöveges téglalapot jeleníti meg. Licenc nélkül egy értékelési vízjelet is tartalmaznak; lásd a [Licenc](/slides/hu/nodejs-net/licensing/) részt.
 
-A felhasznált tagok részleteiért lásd a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/text/) és a [Slide.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/slide/getimage/) hivatkozást az Aspose.Slides for .NET API-referenciában.
+A felhasznált tagok részleteiért lásd a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) és a [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) hivatkozást az Aspose.Slides for .NET API-referenciában.

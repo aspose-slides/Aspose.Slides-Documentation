@@ -27,17 +27,17 @@ Ez a cikk bemutatja, hogyan hozhatunk létre egy prezentációt az Aspose.Slides
 A példákhoz szükséges egy projekt, amelyet a [Installation](/slides/hu/nodejs-net/installation/) oldal leírása szerint kell beállítani. Minden példát mentsen `.js` fájlként a projekt mappájába, és futtassa onnan a `node` paranccsal, például `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides for Node.js via .NET nem rendelkezik saját API hivatkozással. Az Aspose.Slides for .NET API-t tükrözi camelCase nevekkel, ezért ebben a cikkben szereplő API hivatkozások a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hu/net/) megfelelő osztályaira és tagjaira mutatnak.
+Az Aspose.Slides for Node.js via .NET nem rendelkezik saját API hivatkozással. Az Aspose.Slides for .NET API-t tükrözi camelCase nevekkel, ezért ebben a cikkben szereplő API hivatkozások a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) megfelelő osztályaira és tagjaira mutatnak.
 {{% /alert %}}
 
 ## **Prezentáció létrehozása szövegdobozzal**
 
 Egy prezentáció létrehozásához és szövegdoboz hozzáadásához az első diára kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból. Egy új prezentáció már tartalmaz egy üres diát.
-2. Szerezze meg ezt a diát a [slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slides/hu/) gyűjteményből. A gyűjtemények ebben a csomagban `get(index)`‑el olvashatók, és az indexelés 0‑tól indul.
-3. Adjunk hozzá egy téglalapot a [addAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/shapecollection/addautoshape/) metódussal, és állítsuk be a [text](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/text/) értékét a [textFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/textframe/) tulajdonságában.
-4. Mentsük el a prezentációt a [save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódussal és a `SaveFormat.Pptx` értékkel.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) osztályból. Egy új prezentáció már tartalmaz egy üres diát.
+2. Szerezze meg ezt a diát a [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) gyűjteményből. A gyűjtemények ebben a csomagban `get(index)`‑el olvashatók, és az indexelés 0‑tól indul.
+3. Adjunk hozzá egy téglalapot a [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) metódussal, és állítsuk be a [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) értékét a [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) tulajdonságában.
+4. Mentsük el a prezentációt a [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódussal és a `SaveFormat.Pptx` értékkel.
 5. Hívja meg a `dispose`‑t egy `finally` blokkban a prezentációt támogató .NET erőforrások felszabadításához.
 
 ```javascript
@@ -62,7 +62,7 @@ A szkript a `new-presentation.pptx` fájlt a projekt mappájába írja. A fájl 
 
 ## **Diák hozzáadása**
 
-Egy új prezentáció egyetlen diát tartalmaz. További diák hozzáadásához adjon át egy elrendezési diát a `slides` gyűjtemény [addEmptySlide](https://reference.aspose.com/slides/hu/net/aspose.slides/slidecollection/addemptyslide/) metódusának. A [layoutSlides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/layoutslides/) gyűjtemény [getByType](https://reference.aspose.com/slides/hu/net/aspose.slides/layoutslidecollection/getbytype/) metódusa visszaadja az első olyan elrendezést, amely megfelel a megadott [SlideLayoutType](https://reference.aspose.com/slides/hu/net/aspose.slides/slidelayouttype/) értéknek.
+Egy új prezentáció egyetlen diát tartalmaz. További diák hozzáadásához adjon át egy elrendezési diát a `slides` gyűjtemény [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) metódusának. A [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) gyűjtemény [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) metódusa visszaadja az első olyan elrendezést, amely megfelel a megadott [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) értéknek.
 
 Az alábbi példa két diát ad hozzá a Blank elrendezéssel:
 
@@ -86,7 +86,7 @@ A szkript kiírja, hogy `Slide count: 3`, és létrehozza a `three-slides.pptx` 
 
 ## **Dia méretének beállítása**
 
-Egy új prezentáció 4:3 méretű diát használ, amely 720 × 540 pont (10 × 7,5 hüvelyk). Szélesvásznú diák létrehozásához hívja meg a prezentáció [slideSize](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slidesize/) tulajdonságának a [setSize](https://reference.aspose.com/slides/hu/net/aspose.slides/slidesize/setsize/) metódusát egy [SlideSizeType](https://reference.aspose.com/slides/hu/net/aspose.slides/slidesizetype/) és egy [SlideSizeScaleType](https://reference.aspose.com/slides/hu/net/aspose.slides/slidesizescaletype/) értékkel. A méretezési típus azt határozza meg, hogy az Aspose.Slides mit tegyen a már a diákon lévő alakzatokkal; a `DoNotScale` változat változatlanul hagyja őket, ami a még tartalom nélküli prezentációk esetén a helyes választás.
+Egy új prezentáció 4:3 méretű diát használ, amely 720 × 540 pont (10 × 7,5 hüvelyk). Szélesvásznú diák létrehozásához hívja meg a prezentáció [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) tulajdonságának a [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) metódusát egy [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) és egy [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) értékkel. A méretezési típus azt határozza meg, hogy az Aspose.Slides mit tegyen a már a diákon lévő alakzatokkal; a `DoNotScale` változat változatlanul hagyja őket, ami a még tartalom nélküli prezentációk esetén a helyes választás.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ Pontban. Egy hüvelyk 72 pont, így az alapértelmezett 4:3 dia 720 × 540 pont,
 
 **Milyen formátumokba menthetem el az új prezentációt?**
 
-A [SaveFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) enumeráció bármely értékét használhatja, például `SaveFormat.Ppt` a PowerPoint 97–2003‑hoz, `SaveFormat.Odp` az OpenDocument-hez, vagy `SaveFormat.Pdf`‑t. A PDF kimenethez lásd a [Convert PowerPoint to PDF](/slides/hu/nodejs-net/convert-powerpoint-to-pdf/) oldalt.
+A [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) enumeráció bármely értékét használhatja, például `SaveFormat.Ppt` a PowerPoint 97–2003‑hoz, `SaveFormat.Odp` az OpenDocument-hez, vagy `SaveFormat.Pdf`‑t. A PDF kimenethez lásd a [Convert PowerPoint to PDF](/slides/hu/nodejs-net/convert-powerpoint-to-pdf/) oldalt.
 
 **Miért tartalmaz a mentett prezentáció "Evaluation only" szöveget?**
 

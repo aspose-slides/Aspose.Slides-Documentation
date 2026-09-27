@@ -31,12 +31,12 @@ Ez a cikk egy szövegdobozt ad egy diához, elmenti a bemutatót, majd megnyitja
 A példákhoz egy olyan projektre van szükség, ahogy a [Installation](/slides/hu/nodejs-net/installation/) oldal leírja. Minden példát mentse `.js` fájlként a projekt mappájába, és futtassa a mappából a `node` paranccsal.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides for Node.js via .NET nem rendelkezik saját API‑referenciával. Az Aspose.Slides for .NET API-t camelCase elnevezésekkel tükrözi, ezért a cikkben szereplő API‑linkek a megfelelő osztályokhoz és tagokhoz vezetnek a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hu/net/) oldalon.
+Az Aspose.Slides for Node.js via .NET nem rendelkezik saját API‑referenciával. Az Aspose.Slides for .NET API-t camelCase elnevezésekkel tükrözi, ezért a cikkben szereplő API‑linkek a megfelelő osztályokhoz és tagokhoz vezetnek a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) oldalon.
 {{% /alert %}}
 
 ## **Szövegdoboz hozzáadása**
 
-Egy szövegdoboz hozzáadásához egy automatikus alakzatot kell a diára helyezni a [addAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/shapecollection/addautoshape/) metódussal, és szöveget adni neki az [addTextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/addtextframe/) metódussal. Az alábbi példa egy téglalapot ad az új bemutató első diájához, majd a bemutatót `text-box.pptx` néven menti:
+Egy szövegdoboz hozzáadásához egy automatikus alakzatot kell a diára helyezni a [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) metódussal, és szöveget adni neki az [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) metódussal. Az alábbi példa egy téglalapot ad az új bemutató első diájához, majd a bemutatót `text-box.pptx` néven menti:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ A `text-box.pptx` diájában egy 500 pont széles és 80 pont magas téglalap ta
 
 ## **A szöveg és formázásának módosítása**
 
-Az alábbi példa megnyitja a `text-box.pptx` fájlt, amelyet az előző példa hozott létre, és lekéri az első dián az első alakzatot. Képek és táblázatok például nem rendelkeznek szövegkerettel, ezért a példa ellenőrzi, hogy az alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/)‑e, mielőtt a shape [textFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/textframe/)‑t használja. Ezután a következőket hajtja végre:
+Az alábbi példa megnyitja a `text-box.pptx` fájlt, amelyet az előző példa hozott létre, és lekéri az első dián az első alakzatot. Képek és táblázatok például nem rendelkeznek szövegkerettel, ezért a példa ellenőrzi, hogy az alakzat egy [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)‑e, mielőtt a shape [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/)‑t használja. Ezután a következőket hajtja végre:
 
-1. A szövegkeret [text](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/text/) tulajdonságán keresztül cseréli a szöveget. Ezután a szövegkeret egy bekezdést és egy szakaszt tartalmaz.
-2. A [paragraphs](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/paragraphs/) és [portions](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/portions/) gyűjteményekből lekéri azt a szakaszt, és elolvassa a [portionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/portion/portionformat/)‑ját.
-3. Beállítja a [fontHeight](https://reference.aspose.com/slides/hu/net/aspose.slides/baseportionformat/fontheight/)‑t (a betűméret pontban) és a [fontBold](https://reference.aspose.com/slides/hu/net/aspose.slides/baseportionformat/fontbold/)‑t, amely egy [NullableBool](https://reference.aspose.com/slides/hu/net/aspose.slides/nullablebool/) értéket vesz fel.
+1. A szövegkeret [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) tulajdonságán keresztül cseréli a szöveget. Ezután a szövegkeret egy bekezdést és egy szakaszt tartalmaz.
+2. A [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) és [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) gyűjteményekből lekéri azt a szakaszt, és elolvassa a [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/)‑ját.
+3. Beállítja a [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)‑t (a betűméret pontban) és a [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/)‑t, amely egy [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) értéket vesz fel.
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

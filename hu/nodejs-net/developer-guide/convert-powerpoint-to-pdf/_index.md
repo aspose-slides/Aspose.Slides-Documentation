@@ -22,20 +22,20 @@ description: "Konvertálja a PPTX, PPT és ODP bemutatókat PDF-be JavaScript ha
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Node.js via .NET a PowerPoint és OpenDocument bemutatókat PDF formátumba konvertál a Microsoft PowerPoint nélkül. Minden látható dia egy PDF-oldallá válik, amely mérete megegyezik a diáéval, és a szöveg kijelölhető és kereshető marad. Ez a cikk bemutatja az alapértelmezett konverziót, valamint egy PDF/A konverziót a [PdfOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/pdfoptions/) segítségével.
+Az Aspose.Slides for Node.js via .NET a PowerPoint és OpenDocument bemutatókat PDF formátumba konvertál a Microsoft PowerPoint nélkül. Minden látható dia egy PDF-oldallá válik, amely mérete megegyezik a diáéval, és a szöveg kijelölhető és kereshető marad. Ez a cikk bemutatja az alapértelmezett konverziót, valamint egy PDF/A konverziót a [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) segítségével.
 
 A példák egy `sample.pptx` nevű bemutatót várnak a projekt mappájában, amelyet a [Installation](/slides/hu/nodejs-net/installation/) részben állít be. Bármilyen PowerPoint bemutató megfelelő. Mentse el minden példát `.js` fájlként a projekt mappájába, és futtassa azt a mappából a `node` paranccsal.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides for Node.js via .NET saját API-referenciával nem rendelkezik. A Aspose.Slides for .NET API-t tükrözi camelCase nevekkel, így ebben a cikkben szereplő API hivatkozások a megfelelő osztályokra és tagokra mutatnak a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hu/net/) oldalán.
+Az Aspose.Slides for Node.js via .NET saját API-referenciával nem rendelkezik. A Aspose.Slides for .NET API-t tükrözi camelCase nevekkel, így ebben a cikkben szereplő API hivatkozások a megfelelő osztályokra és tagokra mutatnak a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) oldalán.
 {{% /alert %}}
 
 ## **Bemutató konvertálása PDF-be**
 
 A bemutató PDF-be konvertálásához kövesse az alábbi lépéseket:
 
-1. Nyissa meg a bemutatót a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/presentation/) konstruktorának átadva. Ugyanez a kód működik PPTX, PPT és ODP fájlok esetén.
-2. Hívja meg a [save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódust a kimeneti útvonallal és a `SaveFormat.Pdf` értékkel.
+1. Nyissa meg a bemutatót a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) konstruktorának átadva. Ugyanez a kód működik PPTX, PPT és ODP fájlok esetén.
+2. Hívja meg a [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódust a kimeneti útvonallal és a `SaveFormat.Pdf` értékkel.
 3. Hívja meg a `dispose` metódust egy `finally` blokkban a bemutató hátterét képező .NET erőforrások felszabadításához.
 
 ```javascript
@@ -54,7 +54,7 @@ A szkript a `sample.pdf` fájlt a projekt mappájába írja. A konverzió az ala
 
 ## **Bemutató konvertálása PDF/A-ba**
 
-A kimenet szabályozásához adjon át egy [PdfOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/pdfoptions/) objektumot a `save` harmadik argumentumaként. A következő példa a [compliance](https://reference.aspose.com/slides/hu/net/aspose.slides.export/pdfoptions/compliance/) tulajdonságot `PdfCompliance.PdfA2b`-re állítja, amely PDF/A-2b fájlt eredményez. A PDF/A az ISO szabvány a hosszú távú archiváláshoz: többek között előírja, hogy a dokumentum által használt minden betűtípust be kell ágyazni a fájlba.
+A kimenet szabályozásához adjon át egy [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) objektumot a `save` harmadik argumentumaként. A következő példa a [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) tulajdonságot `PdfCompliance.PdfA2b`-re állítja, amely PDF/A-2b fájlt eredményez. A PDF/A az ISO szabvány a hosszú távú archiváláshoz: többek között előírja, hogy a dokumentum által használt minden betűtípust be kell ágyazni a fájlba.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-A szkript a `sample-pdfa.pdf` fájlt ugyanazzal a lapok számával hozza létre, mint az alapértelmezett konverzió. Annak ellenőrzéséhez, hogy a fájl megfelel-e a szabványnak, ellenőrizze egy PDF/A validátorral, például a [veraPDF](https://verapdf.org/) segítségével. Más [PdfCompliance](https://reference.aspose.com/slides/hu/net/aspose.slides.export/pdfcompliance/) értékek más szabványokat választanak, például `PdfA1b`, `PdfA2a`, vagy a hozzáférhetőséghez a `PdfUa`-t.
+A szkript a `sample-pdfa.pdf` fájlt ugyanazzal a lapok számával hozza létre, mint az alapértelmezett konverzió. Annak ellenőrzéséhez, hogy a fájl megfelel-e a szabványnak, ellenőrizze egy PDF/A validátorral, például a [veraPDF](https://verapdf.org/) segítségével. Más [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) értékek más szabványokat választanak, például `PdfA1b`, `PdfA2a`, vagy a hozzáférhetőséghez a `PdfUa`-t.
 
 ## **GYIK**
 
 **Hogyan tudom a rejtett diákot is belefoglalni a PDF-be?**
 
-A rejtett diák alapértelmezés szerint kihagyásra kerülnek. Állítsa a `PdfOptions` [showHiddenSlides](https://reference.aspose.com/slides/hu/net/aspose.slides.export/pdfoptions/showhiddenslides/) tulajdonságát `true` értékre, és adja át az opciókat a `save` metódusnak.
+A rejtett diák alapértelmezés szerint kihagyásra kerülnek. Állítsa a `PdfOptions` [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) tulajdonságát `true` értékre, és adja át az opciókat a `save` metódusnak.
 
 **Lehet a PDF-et jelszóval védeni?**
 
-Igen. A `save` meghívása előtt állítsa be a `PdfOptions` [password](https://reference.aspose.com/slides/hu/net/aspose.slides.export/pdfoptions/password/) tulajdonságát. A PDF-olvasók ekkor a fájl megnyitása előtt kérik a jelszót.
+Igen. A `save` meghívása előtt állítsa be a `PdfOptions` [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) tulajdonságát. A PDF-olvasók ekkor a fájl megnyitása előtt kérik a jelszót.
 
 **Csak bizonyos diákot konvertálhatok?**
 

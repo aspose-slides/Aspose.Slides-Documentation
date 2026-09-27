@@ -29,12 +29,12 @@ Az Aspose.Slides for Node.js via .NET megnyitja a PowerPoint és OpenDocument be
 A példák egy `sample.pptx` nevű bemutatót várnak a projekt mappában, amit a [Installation](/slides/hu/nodejs-net/installation/) lépésben állítottál be. Bármely PowerPoint bemutató megfelel. Mentsd minden példát egy `.js` fájlba a projekt mappában, és futtasd a mappából a `node` paranccsal.
 
 {{% alert color="info" title="Megjegyzés" %}}
-Az Aspose.Slides for Node.js via .NET-nek nincs saját API-referenciája. A .NET Aspose.Slides API-ját tükrözi camelCase nevekkel, ezért ebben a cikkben szereplő API linkek a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hu/net/) megfelelő osztályaira és tagjaira mutatnak.
+Az Aspose.Slides for Node.js via .NET-nek nincs saját API-referenciája. A .NET Aspose.Slides API-ját tükrözi camelCase nevekkel, ezért ebben a cikkben szereplő API linkek a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) megfelelő osztályaira és tagjaira mutatnak.
 {{% /alert %}}
 
 ## **Prezentáció megnyitása fájlból**
 
-Egy prezentáció megnyitásához add meg az elérési útját a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/presentation/) konstruktorának. Az Aspose.Slides a formátumot a fájl tartalmából, nem a kiterjesztésből határozza meg, ezért ugyanaz a kód képes megnyitni PPTX, PPT és ODP fájlokat. A relatív útvonal a jelenlegi munkakönyvtárhoz képest kerül feloldásra, amely a szkript onnan való futtatásakor a projekt mappa.
+Egy prezentáció megnyitásához add meg az elérési útját a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) konstruktorának. Az Aspose.Slides a formátumot a fájl tartalmából, nem a kiterjesztésből határozza meg, ezért ugyanaz a kód képes megnyitni PPTX, PPT és ODP fájlokat. A relatív útvonal a jelenlegi munkakönyvtárhoz képest kerül feloldásra, amely a szkript onnan való futtatásakor a projekt mappa.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-A szkript kiírja a `sample.pptx` diáinak számát, például `Slide count: 9`. A [slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slides/hu/) gyűjtemény `count` tulajdonsága a rejtett diákot is bele számolja. Hívd meg a `dispose` metódust egy `finally` blokkban, ahogy itt látható, hogy a prezentáció mögötti .NET erőforrások felszabaduljanak még akkor is, ha a kód hibát dob.
+A szkript kiírja a `sample.pptx` diáinak számát, például `Slide count: 9`. A [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) gyűjtemény `count` tulajdonsága a rejtett diákot is bele számolja. Hívd meg a `dispose` metódust egy `finally` blokkban, ahogy itt látható, hogy a prezentáció mögötti .NET erőforrások felszabaduljanak még akkor is, ha a kód hibát dob.
 
 ## **Prezentáció megnyitása Bufferből**
 
@@ -71,7 +71,7 @@ A szkript ugyanazt a diák számát írja ki, mint az előző példában. A más
 
 ## **Prezentáció mentése más formátumban**
 
-Egy prezentáció másik formátumba konvertálásához nyisd meg, majd mentsd el egy eltérő [SaveFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) értékkel. A következő példa kiírja azt a formátumot, amelyet az Aspose.Slides felismer, a [sourceFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/sourceformat/) tulajdonság visszaadja, és az prezentációt OpenDocument prezentációként menti:
+Egy prezentáció másik formátumba konvertálásához nyisd meg, majd mentsd el egy eltérő [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) értékkel. A következő példa kiírja azt a formátumot, amelyet az Aspose.Slides felismer, a [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) tulajdonság visszaadja, és az prezentációt OpenDocument prezentációként menti:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ A szkript kiírja a `Source format: Pptx` üzenetet, és létrehozza a `sample.o
 
 **Hogyan nyithatok meg jelszóval védett prezentációt?**
 
-Hozz létre egy [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/) objektumot, állítsd be a [password](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/password/) tulajdonságát, majd add meg az objektumot a konstruktor harmadik argumentumaként: `new Presentation("protected.pptx", null, loadOptions)`. Helyes jelszó hiányában a konstruktor hibát dob.
+Hozz létre egy [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) objektumot, állítsd be a [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) tulajdonságát, majd add meg az objektumot a konstruktor harmadik argumentumaként: `new Presentation("protected.pptx", null, loadOptions)`. Helyes jelszó hiányában a konstruktor hibát dob.
 
 **Miért dob a konstruktor egy üres üzenetű `Error`‑t?**
 

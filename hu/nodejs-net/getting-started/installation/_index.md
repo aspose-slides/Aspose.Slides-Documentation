@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 A telepítés során a csomag a natív rajzkönyvtárakat (azok a fájlok, amelyek nevében `aspose.slides.drawing.capi` szerepel) a projekt mappájába másolja, a `package.json` mellé.
 
-A csomag ZIP‑archívumként is elérhető a [releases.aspose.com](https://releases.aspose.com/slides/hu/nodejs-net/) oldalon. Ez a cikk csak az npm‑es telepítést tárgyalja.
+A csomag ZIP‑archívumként is elérhető a [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/) oldalon. Ez a cikk csak az npm‑es telepítést tárgyalja.
 
 ## **A .NET függőségek helyreállítása**
 
@@ -154,7 +154,7 @@ A script kiírja a `Saved hello.pptx` üzenetet. Nyissa meg a `hello.pptx`‑t, 
 Futtassa a scriptjeit a projektmappából, azaz abból, amelyik a `package.json`‑t tartalmazza. A relatív útvonalak, például a `hello.pptx`, az aktuális mappához viszonyítva vannak feloldva, és néhány gépen egy másik mappából indított script nem képes prezentációt létrehozni.
 {{% /alert %}}
 
-A JavaScript API tükrözi az Aspose.Slides for .NET API‑t: az osztályok megtartják .NET nevüket, a tulajdonságok és metódusok camelCase formátumúak (`Slides` → `slides`, `AddAutoShape` → `addAutoShape`), a gyűjteményelemeket `get(index)`‑szel lehet beolvasni. Nincs külön API‑referencia ehhez a csomaghoz, ezért használja az [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hu/net/) oldalt az osztály‑ és tag‑részletekhez, például a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) és a [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/shapecollection/addautoshape/) oldalt.
+A JavaScript API tükrözi az Aspose.Slides for .NET API‑t: az osztályok megtartják .NET nevüket, a tulajdonságok és metódusok camelCase formátumúak (`Slides` → `slides`, `AddAutoShape` → `addAutoShape`), a gyűjteményelemeket `get(index)`‑szel lehet beolvasni. Nincs külön API‑referencia ehhez a csomaghoz, ezért használja az [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) oldalt az osztály‑ és tag‑részletekhez, például a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) és a [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) oldalt.
 
 ## **GYIK**
 

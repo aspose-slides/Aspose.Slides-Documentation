@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET diavetítéseket renderel PowerPoint és Open
 A példák egy `sample.pptx` nevű prezentációt várnak a projekt mappában, amelyet az [Installation](/slides/hu/nodejs-net/installation/) útmutató szerint állított be. Bármely PowerPoint prezentáció megfelelő. Mentsd el minden példát `.js` fájlként a projekt mappába, és futtasd onnan a `node` paranccal.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides for Node.js via .NET saját API-referenciával nem rendelkezik. A .NET API-t camelCase nevekkel tükrözi, ezért a cikkben található API hivatkozások a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/hu/net/) megfelelő osztályaira és tagjaira mutatnak.
+Az Aspose.Slides for Node.js via .NET saját API-referenciával nem rendelkezik. A .NET API-t camelCase nevekkel tükrözi, ezért a cikkben található API hivatkozások a [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) megfelelő osztályaira és tagjaira mutatnak.
 {{% /alert %}}
 
 Egy dia képévé konvertálásához kövesd az alábbi lépéseket:
 
-1. Nyisd meg a prezentációt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/presentation/) konstruktorral.  
-1. Szerezz be egy diát a [slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slides/hu/) gyűjteményből a `get(index)` metódussal. Az indexelés 0‑tól kezdődik.  
-1. Rendereld a diát `getImageWithScale` vagy `getImageWithImageSize` segítségével. A .NET API referenciában mindkettő a [Slide.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/slide/getimage/) túlterhelt változata. Egy kép objektumot ad vissza, amely a [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) megfelelője.  
-1. Mentsd el a képet a saját [save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/save/) metódusával és egy [ImageFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/imageformat/) értékkel, majd hívd meg a `dispose` metódusát.
+1. Nyisd meg a prezentációt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) konstruktorral.  
+1. Szerezz be egy diát a [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) gyűjteményből a `get(index)` metódussal. Az indexelés 0‑tól kezdődik.  
+1. Rendereld a diát `getImageWithScale` vagy `getImageWithImageSize` segítségével. A .NET API referenciában mindkettő a [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) túlterhelt változata. Egy kép objektumot ad vissza, amely a [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) megfelelője.  
+1. Mentsd el a képet a saját [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) metódusával és egy [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) értékkel, majd hívd meg a `dispose` metódusát.
 
 ## **Minden dia konvertálása PNG képpé**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-A szkript minden diához egy fájlt ír, `slide_1.png`, `slide_2.png` stb., a számok 1‑től indulnak. Egy 16:9‑es prezentáció esetén, ahol a diák 960 × 540 pont méretűek, minden kép 1920 × 1080 pixel lesz. A rejtett diák is renderelődnek; elhagyásukhoz ellenőrizd a dia [hidden](https://reference.aspose.com/slides/hu/net/aspose.slides/slide/hidden/) tulajdonságát. Minden képet a saját `finally` blokkjában `dispose`-olnak, így felszabadul, mielőtt a következő dia renderelődne. Licenc nélkül a képek értékelő vízjelet is tartalmaznak; lásd a [Licensing](/slides/hu/nodejs-net/licensing/) oldalt.
+A szkript minden diához egy fájlt ír, `slide_1.png`, `slide_2.png` stb., a számok 1‑től indulnak. Egy 16:9‑es prezentáció esetén, ahol a diák 960 × 540 pont méretűek, minden kép 1920 × 1080 pixel lesz. A rejtett diák is renderelődnek; elhagyásukhoz ellenőrizd a dia [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) tulajdonságát. Minden képet a saját `finally` blokkjában `dispose`-olnak, így felszabadul, mielőtt a következő dia renderelődne. Licenc nélkül a képek értékelő vízjelet is tartalmaznak; lásd a [Licensing](/slides/hu/nodejs-net/licensing/) oldalt.
 
 ## **Dia konvertálása adott méretű képpé**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-A [slideSize.size](https://reference.aspose.com/slides/hu/net/aspose.slides/slidesize/size/) tulajdonság a dia szélességét és magasságát pontban adja vissza. Egy 16:9‑es prezentáció esetén a szkript kiírja, hogy `Saved a 1280 x 720 image`, és a fájl `slide_1_1280px.png` néven kerül mentésre; egy 4:3‑as prezentáció esetén a kép 1280 × 960 pixel lesz.
+A [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) tulajdonság a dia szélességét és magasságát pontban adja vissza. Egy 16:9‑es prezentáció esetén a szkript kiírja, hogy `Saved a 1280 x 720 image`, és a fájl `slide_1_1280px.png` néven kerül mentésre; egy 4:3‑as prezentáció esetén a kép 1280 × 960 pixel lesz.
 
 ## **GYIK**
 
