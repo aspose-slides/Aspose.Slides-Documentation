@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### Πώς μπορώ να επαληθεύσω ότι το Aspose.Slides ενσωματώθηκε σωστά;
 
-Δομήστε το έργο σας, δημιουργήστε ένα κενό [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) και αποθηκεύστε το με νέο όνομα. Εάν το αρχείο δημιουργηθεί χωρίς να πετάξει εξαιρέσεις, η βιβλιοθήκη έχει ενσωματωθεί επιτυχώς.
+Δομήστε το έργο σας, δημιουργήστε ένα κενό [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) και αποθηκεύστε το με νέο όνομα. Εάν το αρχείο δημιουργηθεί χωρίς να πετάξει εξαιρέσεις, η βιβλιοθήκη έχει ενσωματωθεί επιτυχώς.
 
 ### Πώς μπορώ να περιορίσω την κατανάλωση μνήμης κατά την επεξεργασία μεγάλων παρουσιάσεων;
 
-Αυξήστε τα όρια μνήμης του JVM μόνο όσο χρειάζεται, και καλέστε το [dispose](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#dispose--) σε κάθε αντικείμενο [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) μέσα σε μπλοκ `finally` για να απελευθερώσετε την κρυφή μνήμη αμέσως. Αυτό αποτρέπει σφάλματα έλλειψης μνήμης και διατηρεί τη συνολική χρήση μνήμης προβλέψιμη κατά τις λειτουργίες δέσμης.
+Αυξήστε τα όρια μνήμης του JVM μόνο όσο χρειάζεται, και καλέστε το [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) σε κάθε αντικείμενο [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) μέσα σε μπλοκ `finally` για να απελευθερώσετε την κρυφή μνήμη αμέσως. Αυτό αποτρέπει σφάλματα έλλειψης μνήμης και διατηρεί τη συνολική χρήση μνήμης προβλέψιμη κατά τις λειτουργίες δέσμης.
 
 ### Μπορώ να εξακριβώσω ανεπιθύμητες μορφές εξαγωγής ώστε να μειώσω το τελικό μέγεθος του JAR;
 

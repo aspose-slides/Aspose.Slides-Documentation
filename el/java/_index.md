@@ -72,14 +72,14 @@ is_root: true
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/el/java/">Αναφορά API</a></li>
-<li><a href="https://releases.aspose.com/slides/el/java/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">Αναφορά API</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">Σημειώσεις έκδοσης</a></li>
 <li><a href="/slides/el/java/known-issues/">Γνωστά προβλήματα</a></li>
-<li><a href="https://releases.aspose.com/slides/el/java/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Υποστήριξη με πληρωμή</a></li>
 </ul>
 </div>

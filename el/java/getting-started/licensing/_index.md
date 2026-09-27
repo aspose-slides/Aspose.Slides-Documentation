@@ -30,7 +30,7 @@ Aspose.Slides μπορεί να χρησιμοποιηθεί σε λειτουρ
 
 Μπορείτε να κατεβάσετε μια έκδοση αξιολόγησης του **Aspose.Slides for Java** από τη [σελίδα λήψης](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Η έκδοση αξιολόγησης παρέχει τις ίδιες λειτουργίες με την άδεια έκδοση του προϊόντος. Το πακέτο αξιολόγησης είναι το ίδιο με το πακέτο που αγοράζεται. Η έκδοση αξιολόγησης απλώς γίνεται άδεια μετά την προσθήκη μερικών γραμμών κώδικα (για την εφαρμογή της άδειας).
 
-Μόλις είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/pricing/slides/el/java/). Σας συνιστούμε να περάσετε από τους διαφορετικούς τύπους συνδρομής. Εάν έχετε ερωτήσεις, επικοινωνήστε με την ομάδα πωλήσεων της Aspose.
+Μόλις είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/pricing/slides/java/). Σας συνιστούμε να περάσετε από τους διαφορετικούς τύπους συνδρομής. Εάν έχετε ερωτήσεις, επικοινωνήστε με την ομάδα πωλήσεων της Aspose.
 
 Κάθε άδεια Aspose συνοδεύεται από ετήσια συνδρομή για δωρεάν αναβαθμίσεις σε νέες εκδόσεις ή διορθώσεις που κυκλοφορούν εντός της περιόδου συνδρομής. Οι χρήστες με αδειοδοτημένα προϊόντα (ή ακόμη και εκδόσεις αξιολόγησης) λαμβάνουν δωρεάν και απεριόριστη τεχνική υποστήριξη.
 
@@ -70,7 +70,7 @@ Aspose.Slides μπορεί να χρησιμοποιηθεί σε λειτουρ
 
 {{% alert color="info" title="Σημείωση" %}}
 
-Το Aspose.Slides παρέχει την κλάση [License](https://reference.aspose.com/slides/el/java/com.aspose.slides/license/) για λειτουργίες αδειοδότησης.
+Το Aspose.Slides παρέχει την κλάση [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) για λειτουργίες αδειοδότησης.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Προειδοποίηση" %}}
 
-Εάν τοποθετήσετε το αρχείο άδειας σε διαφορετικό κατάλογο, όταν καλέσετε τη μέθοδο [setLicense](https://reference.aspose.com/slides/el/java/com.aspose.slides/license/#setLicense-java.lang.String-) το όνομα του αρχείου άδειας στο τέλος της καθορισμένης διαδρομής πρέπει να είναι το ίδιο με το όνομα του αρχείου άδειας σας.
+Εάν τοποθετήσετε το αρχείο άδειας σε διαφορετικό κατάλογο, όταν καλέσετε τη μέθοδο [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) το όνομα του αρχείου άδειας στο τέλος της καθορισμένης διαδρομής πρέπει να είναι το ίδιο με το όνομα του αρχείου άδειας σας.
 
-Για παράδειγμα, μπορείτε να αλλάξετε το όνομα του αρχείου άδειας σε *Aspose.Slides.Java.lic.xml*. Στη συνέχεια, στον κώδικά σας, πρέπει να περάσετε τη διαδρομή προς το αρχείο (τελειώνοντας με *Aspose.Slides.Java.lic.xml*) στη μέθοδο [setLicense](https://reference.aspose.com/slides/el/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Για παράδειγμα, μπορείτε να αλλάξετε το όνομα του αρχείου άδειας σε *Aspose.Slides.Java.lic.xml*. Στη συνέχεια, στον κώδικά σας, πρέπει να περάσετε τη διαδρομή προς το αρχείο (τελειώνοντας με *Aspose.Slides.Java.lic.xml*) στη μέθοδο [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Προειδοποίηση" %}}
 
-Η μέθοδος [setLicense](https://reference.aspose.com/slides/el/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) δεν είναι ασφαλής για νήματα. Εάν αυτή η μέθοδος πρέπει να κληθεί ταυτόχρονα από πολλά νήματα, ίσως θελήσετε να χρησιμοποιήσετε πρωτόκολλα συγχρονισμού (όπως κλείδωμα) για να αποφύγετε προβλήματα.
+Η μέθοδος [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) δεν είναι ασφαλής για νήματα. Εάν αυτή η μέθοδος πρέπει να κληθεί ταυτόχρονα από πολλά νήματα, ίσως θελήσετε να χρησιμοποιήσετε πρωτόκολλα συγχρονισμού (όπως κλείδωμα) για να αποφύγετε προβλήματα.
 
 {{% /alert %}}
 
