@@ -22,20 +22,20 @@ description: "Конвертировать презентации PPTX, PPT и O
 ---
 ## **Обзор**
 
-Aspose.Slides for Node.js via .NET преобразует презентации PowerPoint и OpenDocument в PDF без Microsoft PowerPoint. Каждый видимый слайд становится одной страницей PDF того же размера, что и слайд, и текст остаётся выделяемым и поисковым. В этой статье показаны конвертация по умолчанию и конвертация в PDF/A с [PdfOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET преобразует презентации PowerPoint и OpenDocument в PDF без Microsoft PowerPoint. Каждый видимый слайд становится одной страницей PDF того же размера, что и слайд, и текст остаётся выделяемым и поисковым. В этой статье показаны конвертация по умолчанию и конвертация в PDF/A с [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 В примерах ожидается презентация с именем `sample.pptx` в папке проекта, которую вы создали согласно [Installation](/slides/ru/nodejs-net/installation/). Подойдёт любая презентация PowerPoint. Сохраните каждый пример как файл `.js` в папке проекта и запустите его из этой папки командой `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он отражает API Aspose.Slides for .NET с именами в стиле camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в справке [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ru/net/).
+Aspose.Slides for Node.js via .NET не имеет собственной справки по API. Он отражает API Aspose.Slides for .NET с именами в стиле camelCase, поэтому ссылки на API в этой статье ведут к соответствующим классам и членам в справке [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Конвертировать презентацию в PDF**
 
 Чтобы конвертировать презентацию в PDF, выполните следующие действия:
 
-1. Откройте презентацию, передав её путь конструктору [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/presentation/). Тот же код работает с файлами PPTX, PPT и ODP.
-2. Вызовите метод [save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/) с путём вывода и `SaveFormat.Pdf`.
+1. Откройте презентацию, передав её путь конструктору [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Тот же код работает с файлами PPTX, PPT и ODP.
+2. Вызовите метод [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) с путём вывода и `SaveFormat.Pdf`.
 3. Вызовите `dispose` в блоке `finally`, чтобы освободить ресурсы .NET, поддерживающие презентацию.
 
 ```javascript
@@ -54,7 +54,7 @@ try {
 
 ## **Конвертировать презентацию в PDF/A**
 
-Чтобы управлять выводом, передайте объект [PdfOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/) в качестве третьего аргумента метода `save`. В следующем примере свойству [compliance](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/compliance/) присваивается значение `PdfCompliance.PdfA2b`, что приводит к созданию файла PDF/A-2b. PDF/A — это стандарт ISO для долговременного архивирования: среди прочих требований он требует встраивание в файл всех шрифтов, используемых документом.
+Чтобы управлять выводом, передайте объект [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) в качестве третьего аргумента метода `save`. В следующем примере свойству [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) присваивается значение `PdfCompliance.PdfA2b`, что приводит к созданию файла PDF/A-2b. PDF/A — это стандарт ISO для долговременного архивирования: среди прочих требований он требует встраивание в файл всех шрифтов, используемых документом.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,7 +71,7 @@ try {
 }
 ```
 
-Скрипт записывает `sample-pdfa.pdf` с теми же страницами, что и при конвертации по умолчанию. Чтобы убедиться, что файл соответствует стандарту, проверьте его с помощью валидатора PDF/A, например [veraPDF](https://verapdf.org/). Другие значения [PdfCompliance](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfcompliance/) выбирают другие стандарты, такие как `PdfA1b`, `PdfA2a` или `PdfUa` для доступности.
+Скрипт записывает `sample-pdfa.pdf` с теми же страницами, что и при конвертации по умолчанию. Чтобы убедиться, что файл соответствует стандарту, проверьте его с помощью валидатора PDF/A, например [veraPDF](https://verapdf.org/). Другие значения [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) выбирают другие стандарты, такие как `PdfA1b`, `PdfA2a` или `PdfUa` для доступности.
 
 ## **Часто задаваемые вопросы**
 
