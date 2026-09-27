@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET 可以從檔案路徑或 Node.js `Buffer` 開
 範例假設專案資料夾中有一個名為 `sample.pptx` 的簡報，該資料夾已在[安裝](/slides/zh-hant/nodejs-net/installation/)中設定。任何 PowerPoint 簡報皆可使用。將每個範例存為 `.js` 檔案於專案資料夾，並以 `node` 從該資料夾執行。
 
 {{% alert color="info" title="注意" %}}
-Aspose.Slides for Node.js via .NET 沒有自己的 API 參考文件。它以 camelCase 名稱鏡像 Aspose.Slides for .NET API，因此本文中的 API 連結會指向[Aspose.Slides for .NET API 參考](https://reference.aspose.com/slides/zh-hant/net/) 中相對應的類別與成員。
+Aspose.Slides for Node.js via .NET 沒有自己的 API 參考文件。它以 camelCase 名稱鏡像 Aspose.Slides for .NET API，因此本文中的 API 連結會指向[Aspose.Slides for .NET API 參考](https://reference.aspose.com/slides/net/) 中相對應的類別與成員。
 {{% /alert %}}
 
 ## **從檔案開啟簡報**
 
-要開啟簡報，只需將其路徑傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/presentation/) 建構函式。Aspose.Slides 會根據檔案內容而非副檔名偵測格式，因此相同程式碼可開啟 PPTX、PPT 與 ODP 檔案。相對路徑會以目前工作目錄為基礎解析，當您在專案資料夾執行腳本時，工作目錄即為該資料夾。
+要開啟簡報，只需將其路徑傳遞給 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 建構函式。Aspose.Slides 會根據檔案內容而非副檔名偵測格式，因此相同程式碼可開啟 PPTX、PPT 與 ODP 檔案。相對路徑會以目前工作目錄為基礎解析，當您在專案資料夾執行腳本時，工作目錄即為該資料夾。
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-腳本會印出 `sample.pptx` 的投影片數，例如 `Slide count: 9`。[slides](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/slides/zh-hant/) 集合的 `count` 屬性會包含隱藏投影片。請如範例所示在 `finally` 區塊中呼叫 `dispose`，以確保即使程式碼發生錯誤，簡報背後的 .NET 資源也會被釋放。
+腳本會印出 `sample.pptx` 的投影片數，例如 `Slide count: 9`。[slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合的 `count` 屬性會包含隱藏投影片。請如範例所示在 `finally` 區塊中呼叫 `dispose`，以確保即使程式碼發生錯誤，簡報背後的 .NET 資源也會被釋放。
 
 ## **從緩衝區開啟簡報**
 
@@ -71,7 +71,7 @@ try {
 
 ## **將簡報另存為其他格式**
 
-若要將簡報轉換為其他簡報格式，只需開啟它並以不同的 [SaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/saveformat/) 值儲存。以下範例會印出 Aspose.Slides 偵測到的格式（由 `sourceFormat` 屬性返回），並將簡報儲存為 OpenDocument 簡報：
+若要將簡報轉換為其他簡報格式，只需開啟它並以不同的 [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 值儲存。以下範例會印出 Aspose.Slides 偵測到的格式（由 `sourceFormat` 屬性返回），並將簡報儲存為 OpenDocument 簡報：
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **如何開啟受密碼保護的簡報？**
 
-建立一個 [LoadOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/) 物件，設定其 `password` 屬性，並將該物件作為第三個建構函式參數傳入：`new Presentation("protected.pptx", null, loadOptions)`。若密碼不正確，建構函式會拋出錯誤。
+建立一個 [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) 物件，設定其 `password` 屬性，並將該物件作為第三個建構函式參數傳入：`new Presentation("protected.pptx", null, loadOptions)`。若密碼不正確，建構函式會拋出錯誤。
 
 **為何建構函式會拋出訊息為空的 `Error`？**
 
