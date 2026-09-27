@@ -149,11 +149,11 @@ Die in Ihren Präsentationen verwendeten Schriften bzw. passende Ersatzschriften
 
 ### Wie kann ich überprüfen, dass Aspose.Slides korrekt integriert ist?
 
-Bauen Sie Ihr Projekt, instanziieren Sie ein leeres [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) und speichern Sie es unter einem neuen Namen. Wenn die Datei ohne Ausnahmefehler erstellt wird, wurde die Bibliothek erfolgreich integriert.
+Bauen Sie Ihr Projekt, instanziieren Sie ein leeres [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) und speichern Sie es unter einem neuen Namen. Wenn die Datei ohne Ausnahmefehler erstellt wird, wurde die Bibliothek erfolgreich integriert.
 
 ### Wie kann ich den Speicherverbrauch bei der Verarbeitung großer Präsentationen begrenzen?
 
-Erhöhen Sie die JVM‑Speichergrenzen nur so hoch wie nötig und rufen Sie [dispose](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#dispose--) für jede [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)-Instanz in einem `finally`‑Block auf, um den Cache sofort freizugeben. Das verhindert Out‑Of‑Memory‑Fehler und hält die Gesamtspeichernutzung während Batch‑Operationen vorhersehbar.
+Erhöhen Sie die JVM‑Speichergrenzen nur so hoch wie nötig und rufen Sie [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) für jede [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)-Instanz in einem `finally`‑Block auf, um den Cache sofort freizugeben. Das verhindert Out‑Of‑Memory‑Fehler und hält die Gesamtspeichernutzung während Batch‑Operationen vorhersehbar.
 
 ### Kann ich unerwünschte Exportformate ausschließen, um die finale JAR‑Größe zu reduzieren?
 

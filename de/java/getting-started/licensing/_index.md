@@ -29,7 +29,7 @@ Dieser Artikel erklärt, wie die Lizenzierung in Aspose.Slides funktioniert und 
 {{% alert color="info" title="Note" %}}
 Sie können eine Evaluierungsversion von **Aspose.Slides for Java** von seiner [Downloadseite](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) herunterladen. Die Evaluierungsversion bietet dieselben Funktionen wie die lizenzierte Version des Produkts. Das Evaluierungspaket entspricht dem erworbenen Paket. Die Evaluierungsversion wird einfach lizenziert, nachdem Sie ein paar Codezeilen hinzugefügt haben (um die Lizenz anzuwenden).
 
-Wenn Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie [eine Lizenz kaufen](https://purchase.aspose.com/pricing/slides/de/java/). Wir empfehlen Ihnen, die verschiedenen Abonnementtypen zu prüfen. Bei Fragen kontaktieren Sie das Vertriebsteam von Aspose.
+Wenn Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie [eine Lizenz kaufen](https://purchase.aspose.com/pricing/slides/java/). Wir empfehlen Ihnen, die verschiedenen Abonnementtypen zu prüfen. Bei Fragen kontaktieren Sie das Vertriebsteam von Aspose.
 
 Jede Aspose-Lizenz enthält ein einjähriges Abonnement für kostenlose Upgrades auf neue Versionen oder Fehlerbehebungen, die innerhalb des Abonnementzeitraums veröffentlicht werden. Benutzer mit lizenzierten Produkten (oder sogar Evaluierungsversionen) erhalten freien und unbegrenzten technischen Support.
 {{% /alert %}} 
@@ -62,7 +62,7 @@ Vielleicht möchten Sie sich [Nutzungsbasierte Lizenzierung](/slides/de/java/met
 Eine Lizenz kann aus einer **Datei** oder einem **Stream** geladen werden.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides stellt die Klasse [License](https://reference.aspose.com/slides/de/java/com.aspose.slides/license/) für Lizenzvorgänge bereit.
+Aspose.Slides stellt die Klasse [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) für Lizenzvorgänge bereit.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -82,9 +82,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf der Methode [setLicense](https://reference.aspose.com/slides/de/java/com.aspose.slides/license/#setLicense-java.lang.String-) der Dateiname der Lizenz am Ende des angegebenen Pfads mit Ihrem Lizenzdateinamen übereinstimmen.
+Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf der Methode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) der Dateiname der Lizenz am Ende des angegebenen Pfads mit Ihrem Lizenzdateinamen übereinstimmen.
 
-Beispielsweise können Sie den Lizenzdateinamen in *Aspose.Slides.Java.lic.xml* ändern. Anschließend müssen Sie in Ihrem Code den Pfad zur Datei (beginnend mit *Aspose.Slides.Java.lic.xml*) an die Methode [setLicense](https://reference.aspose.com/slides/de/java/com.aspose.slides/license/#setLicense-java.lang.String-) übergeben.
+Beispielsweise können Sie den Lizenzdateinamen in *Aspose.Slides.Java.lic.xml* ändern. Anschließend müssen Sie in Ihrem Code den Pfad zur Datei (beginnend mit *Aspose.Slides.Java.lic.xml*) an die Methode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) übergeben.
 {{% /alert %}}
 
 ### **Stream**
@@ -122,7 +122,7 @@ if (license.isLicensed())
 ## **Thread‑Sicherheit**
 
 {{% alert color="warning" title="Warning" %}}
-Die Methode [setLicense](https://reference.aspose.com/slides/de/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) ist nicht thread‑sicher. Wenn diese Methode gleichzeitig von vielen Threads aufgerufen werden muss, sollten Sie Synchronisations‑Primitive (wie ein Lock) verwenden, um Probleme zu vermeiden.
+Die Methode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) ist nicht thread‑sicher. Wenn diese Methode gleichzeitig von vielen Threads aufgerufen werden muss, sollten Sie Synchronisations‑Primitive (wie ein Lock) verwenden, um Probleme zu vermeiden.
 {{% /alert %}}
 
 ## **FAQ**
