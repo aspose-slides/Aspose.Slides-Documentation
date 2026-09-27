@@ -27,9 +27,9 @@ Bu makale, Aspose.Slides'te lisanslamanın nasıl çalıştığını ve kütüph
 ## **Aspose.Slides'ı Değerlendirin**
 
 {{% alert color="info" title="Note" %}}
-**Aspose.Slides for C++**'ın değerlendirme sürümünü [NuGet indirme sayfasından](https://www.nuget.org/packages/Aspose.Slides.Cpp/) veya ZIP paketi olarak [indirme sayfasından](https://releases.aspose.com/slides/tr/cpp/) indirebilirsiniz. Değerlendirme sürümü, lisanslı ürünle aynı işlevselliği sunar. Aslında, değerlendirme paketi satın alınan paketle aynıdır—lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
+**Aspose.Slides for C++**'ın değerlendirme sürümünü [NuGet indirme sayfasından](https://www.nuget.org/packages/Aspose.Slides.Cpp/) veya ZIP paketi olarak [indirme sayfasından](https://releases.aspose.com/slides/cpp/) indirebilirsiniz. Değerlendirme sürümü, lisanslı ürünle aynı işlevselliği sunar. Aslında, değerlendirme paketi satın alınan paketle aynıdır—lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
   
-Değerlendirme sürecinizden memnun kalırsanız, bir [lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/cpp/). Mevcut abonelik türlerini incelemenizi tavsiye ederiz. Herhangi bir sorunuz olursa, Aspose satış ekibiyle iletişime geçmekten çekinmeyin.
+Değerlendirme sürecinizden memnun kalırsanız, bir [lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/cpp/). Mevcut abonelik türlerini incelemenizi tavsiye ederiz. Herhangi bir sorunuz olursa, Aspose satış ekibiyle iletişime geçmekten çekinmeyin.
 
 Her Aspose lisansı, yeni sürümler ve bu süre içinde yayınlanan hata düzeltmeleri dahil olmak üzere ücretsiz yükseltmeler için bir yıllık abonelik içerir. Lisanslı veya değerlendirme sürümünü kullanıyor olsanız da ücretsiz ve sınırsız teknik destek alırsınız.
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Sınırlamalar olmadan Aspose.Slides'ı test etmek için **30 Günlük Geçici L
 Bir lisans **dosyadan** veya **akıştan** yüklenebilir.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides, lisans işlemleri için [License](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/) sınıfını sağlar.
+Aspose.Slides, lisans işlemleri için [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) sınıfını sağlar.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -86,17 +86,17 @@ int main()
 }
 ```
 
-Lisans geçerli ise, [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) geri döner ve program hiçbir çıktı üretmeden sonlanır; bundan sonra Aspose.Slides, değerlendirme sınırlamaları olmadan çalışır. Dosya çalışma dizininde yoksa, yöntem [FileNotFoundException](https://reference.aspose.com/slides/tr/cpp/system.io/filenotfoundexception/) ile "*License \"Aspose.Slides.lic\" doesn't exist or access is restricted*" mesajını atar. Örnek istisna yönetimi yapmadığı için program durur.
+Lisans geçerli ise, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) geri döner ve program hiçbir çıktı üretmeden sonlanır; bundan sonra Aspose.Slides, değerlendirme sınırlamaları olmadan çalışır. Dosya çalışma dizininde yoksa, yöntem [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) ile "*License \"Aspose.Slides.lic\" doesn't exist or access is restricted*" mesajını atar. Örnek istisna yönetimi yapmadığı için program durur.
 
 {{% alert color="warning" title="Warning" %}}
-Lisans dosyasını farklı bir dizine koyarsanız, [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemini çağırırken belirtilen açık yolun sonundaki dosya adı, lisans dosyanızın adıyla tam olarak eşleşmelidir.
+Lisans dosyasını farklı bir dizine koyarsanız, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) yöntemini çağırırken belirtilen açık yolun sonundaki dosya adı, lisans dosyanızın adıyla tam olarak eşleşmelidir.
 
-Örneğin, lisans dosyanızın adını *Aspose.Slides.lic.xml* olarak değiştirirseniz, kodunuzdaki [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemine *Aspose.Slides.lic.xml* ile biten tam yolu geçirmeniz gerekir.
+Örneğin, lisans dosyanızın adını *Aspose.Slides.lic.xml* olarak değiştirirseniz, kodunuzdaki [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) yöntemine *Aspose.Slides.lic.xml* ile biten tam yolu geçirmeniz gerekir.
 {{% /alert %}}
 
 ### **Akış**
 
-Programınız lisansı bir dosya olarak tutmuyorsa, örneğin lisansı bir veritabanından okuduysa, lisansı bir akıştan yükleyin. [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) lisansı içeren herhangi bir [Stream](https://reference.aspose.com/slides/tr/cpp/system.io/stream/) kabul eder. Örneği kısa tutmak için aşağıdaki C++ kodu, çalışma dizinindeki *Aspose.Slides.lic* dosyasını [File::OpenRead](https://reference.aspose.com/slides/tr/cpp/system.io/file/openread/) ile açar ve lisansı o akıştan uygular:
+Programınız lisansı bir dosya olarak tutmuyorsa, örneğin lisansı bir veritabanından okuduysa, lisansı bir akıştan yükleyin. [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) lisansı içeren herhangi bir [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) kabul eder. Örneği kısa tutmak için aşağıdaki C++ kodu, çalışma dizinindeki *Aspose.Slides.lic* dosyasını [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) ile açar ve lisansı o akıştan uygular:
 
 ```c++
 #include <Util/License.h>
@@ -117,11 +117,11 @@ int main()
 }
 ```
 
-Geçerli bir lisans, dosya örneğiyle aynı sonucu verir. Dosya mevcut değilse, [File::OpenRead](https://reference.aspose.com/slides/tr/cpp/system.io/file/openread/) lisans uygulanmadan önce bir [FileNotFoundException](https://reference.aspose.com/slides/tr/cpp/system.io/filenotfoundexception/) atar ve program durur.
+Geçerli bir lisans, dosya örneğiyle aynı sonucu verir. Dosya mevcut değilse, [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) lisans uygulanmadan önce bir [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) atar ve program durur.
 
 ## **Bir Lisansı Doğrulama**
 
-Bir lisansın doğru şekilde ayarlanıp ayarlanmadığını kontrol etmek için [License::IsLicensed](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/islicensed/) yöntemini çağırın. Geçerli bir lisans uygulandıktan sonra `true`, öncesinde `false` döner. Aşağıdaki C++ kodu, çalışma dizinindeki lisans dosyasını uygular ve ardından doğrular:
+Bir lisansın doğru şekilde ayarlanıp ayarlanmadığını kontrol etmek için [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/) yöntemini çağırın. Geçerli bir lisans uygulandıktan sonra `true`, öncesinde `false` döner. Aşağıdaki C++ kodu, çalışma dizinindeki lisans dosyasını uygular ve ardından doğrular:
 
 ```c++
 #include <Util/License.h>
@@ -145,12 +145,12 @@ int main()
 }
 ```
 
-Geçerli bir lisansla program "*License is good!*" mesajını yazdırır. Dosya eksik ya da lisans dosyası değilse, [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) kontrol öncesinde bir istisna atar ve program hiçbir şey yazdırmadan durur. Dosya bir lisans ancak imzası eşleşmiyorsa (örneğin düzenlendiyse), SetLicense hata vermeden döner ancak `IsLicensed` `false` döner; bu durumda hiçbir şey yazdırılmaz ve Aspose.Slides değerlendirme modunda kalır.
+Geçerli bir lisansla program "*License is good!*" mesajını yazdırır. Dosya eksik ya da lisans dosyası değilse, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) kontrol öncesinde bir istisna atar ve program hiçbir şey yazdırmadan durur. Dosya bir lisans ancak imzası eşleşmiyorsa (örneğin düzenlendiyse), SetLicense hata vermeden döner ancak `IsLicensed` `false` döner; bu durumda hiçbir şey yazdırılmaz ve Aspose.Slides değerlendirme modunda kalır.
 
 ## **Thread Güvenliği**
 
 {{% alert color="warning" title="Warning" %}}
-[License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemi **thread-safe değildir**. Bu yöntemi birden fazla iş parçacığından aynı anda çağırmanız gerekiyorsa, olası sorunları önlemek için bir kilit gibi senkronizasyon ilkelileri kullanmanız önerilir.
+[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) yöntemi **thread-safe değildir**. Bu yöntemi birden fazla iş parçacığından aynı anda çağırmanız gerekiyorsa, olası sorunları önlemek için bir kilit gibi senkronizasyon ilkelileri kullanmanız önerilir.
 {{% /alert %}}
 
 ## **SSS**

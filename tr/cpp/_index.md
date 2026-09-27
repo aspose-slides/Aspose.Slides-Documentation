@@ -72,14 +72,14 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 <hr>
 <p>REFERANSLAR</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/tr/cpp/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/cpp/release-notes/">Sürüm notları</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/cpp/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/cpp/">İndir</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmet masası</a></li>
 </ul>
 </div>

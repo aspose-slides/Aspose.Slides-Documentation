@@ -26,7 +26,7 @@ Aspose.Slides for C++ iki biçimde dağıtılır:
 | Form | Ne İçin Kullanılır | Nereden Alınır |
 |---|---|---|
 | NuGet paketleri: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64‑bit) ve [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32‑bit) | Windows üzerindeki Visual Studio C++ projeleri | NuGet |
-| Windows, Linux ve macOS için ZIP paketleri | NuGet kullanılmadan yapılan derlemeler, örneğin CMake projeleri | [indirme sayfası](https://releases.aspose.com/slides/tr/cpp/) |
+| Windows, Linux ve macOS için ZIP paketleri | NuGet kullanılmadan yapılan derlemeler, örneğin CMake projeleri | [indirme sayfası](https://releases.aspose.com/slides/cpp/) |
 
 Bu makale, Windows'ta Visual Studio’da NuGet paketinin nasıl kurulacağını ve Linux’da CMake ile ZIP paketinin nasıl kullanılacağını gösterir. Her iki yol da aynı kontrol ile sona erer: [Sunum Oluşturma](/slides/tr/cpp/create-presentation/) bölümündeki ilk örneği derleyip çalıştırın.
 
@@ -36,7 +36,7 @@ Windows'ta, NuGet paketini bir Visual Studio C++ projesine ekleyin. Paket ayrıc
 
 Derleme platformunuza göre paketi seçin: x64 için **Aspose.Slides.Cpp**, Win32 (x86) için **Aspose.Slides.Cpp.x86**. Aspose.Slides.Cpp paketi Win32 derlemesinde uygulanmaz; bu yüzden derleyici o platformda başlık dosyalarını bulamaz.
 
-Ayrıca bir Windows ZIP paketi de [indirme sayfasından](https://releases.aspose.com/slides/tr/cpp/) temin edilebilir.
+Ayrıca bir Windows ZIP paketi de [indirme sayfasından](https://releases.aspose.com/slides/cpp/) temin edilebilir.
 
 ### **Yöntem 1: NuGet Paket Yöneticisi ile Aspose.Slides'ı Yükleyin veya Güncelleyin**
 
@@ -100,7 +100,7 @@ Linux'ta, CMake ile Linux ZIP paketini kullanın. Paket, Aspose.Slides kütüpha
    cd hello-slides
    ```
 
-3. [indirme sayfasından](https://releases.aspose.com/slides/tr/cpp/) Linux ZIP (**Aspose.Slides for C++ Linux**) paketini proje klasörüne indirin ve *aspose-slides-cpp* alt klasörüne unzipleyin:
+3. [indirme sayfasından](https://releases.aspose.com/slides/cpp/) Linux ZIP (**Aspose.Slides for C++ Linux**) paketini proje klasörüne indirin ve *aspose-slides-cpp* alt klasörüne unzipleyin:
 
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp

@@ -30,10 +30,10 @@ Başlamadan önce, Aspose.Slides'ı projenize ekleyin: Windows'ta Visual Studio 
 
 Bir sunum oluşturmak ve ilk slaytına bir metin kutusu eklemek için aşağıdaki adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
-2. Bu slaytı [Presentation::get_Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slide/) metodu ve indeks 0 ile alın.  
-3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addautoshape/) metodu ile bir dikdörtgen ekleyin ve metnini [ITextFrame::set_Text](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/set_text/) metodu ile ayarlayın.  
-4. Sunumu PPTX dosyası olarak [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metodu ile kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
+2. Bu slaytı [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) metodu ve indeks 0 ile alın.  
+3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) metodu ile bir dikdörtgen ekleyin ve metnini [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) metodu ile ayarlayın.  
+4. Sunumu PPTX dosyası olarak [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) metodu ile kaydedin.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Puan cinsinden: 1 inç 72 birime eşittir.
 
 ### Sunumları paralel olarak oluşturabilir/kaydedebilirim?
 
-Aynı [Presentation]([https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/]) örneği üzerinde [birden çok iş parçacığından](/slides/tr/cpp/multithreading/) çalışamazsınız. Her iş parçacığı veya süreç için ayrı, izole edilmiş örnekler çalıştırın.
+Aynı [Presentation]([https://reference.aspose.com/slides/cpp/aspose.slides/presentation/]) örneği üzerinde [birden çok iş parçacığından](/slides/tr/cpp/multithreading/) çalışamazsınız. Her iş parçacığı veya süreç için ayrı, izole edilmiş örnekler çalıştırın.
 
 ### Deneme filigranını ve sınırlamaları nasıl kaldırabilirim?
 
