@@ -30,10 +30,10 @@ description: "إنشاء عروض تقديمية في C++ باستخدام Aspos
 
 لإنشاء عرض تقديمي ووضع صندوق نص على الشريحة الأولى، اتبع الخطوات التالية:
 
-1. إنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). يحتوي العرض التقديمي الجديد على شريحة فارغة واحدة.
-2. احصل على تلك الشريحة باستخدام الطريقة [Presentation::get_Slide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slide/) ومؤشرها 0.
-3. أضف مستطيلًا باستخدام الطريقة [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addautoshape/)، وقم بتعيين نصه باستخدام الطريقة [ITextFrame::set_Text](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/set_text/).
-4. احفظ العرض التقديمي كملف PPTX باستخدام الطريقة [Presentation::Save](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/save/).
+1. إنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). يحتوي العرض التقديمي الجديد على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة باستخدام الطريقة [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) ومؤشرها 0.
+3. أضف مستطيلًا باستخدام الطريقة [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/)، وقم بتعيين نصه باستخدام الطريقة [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+4. احفظ العرض التقديمي كملف PPTX باستخدام الطريقة [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### هل يمكنني إنشاء/حفظ العروض التقديمية بشكل متوازي؟
 
-لا يمكنك العمل على نفس [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/cpp/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك العمل على نفس [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/cpp/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
 
 ### كيف يمكنني إزالة علامة المائية التجريبية والقيود؟
 

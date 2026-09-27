@@ -27,9 +27,9 @@ description: "تطبيق وإدارة واستكشاف أخطاء الترخيص
 ## **تقييم Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-يمكنك تنزيل نسخة تقييمية من **Aspose.Slides for C++** من [صفحة تنزيل NuGet الخاصة به](https://www.nuget.org/packages/Aspose.Slides.Cpp/) أو، كحزمة ZIP، من [صفحة التنزيل](https://releases.aspose.com/slides/ar/cpp/). تقدم نسخة التقييم نفس الوظائف التي يقدمها المنتج المرخص. في الواقع، حزمة التقييم مطابقة تمامًا للنسخة المشتراة—فقط تصبح مرخصة بمجرد إضافة بعض الأسطر البرمجية لتطبيق الترخيص.
+يمكنك تنزيل نسخة تقييمية من **Aspose.Slides for C++** من [صفحة تنزيل NuGet الخاصة به](https://www.nuget.org/packages/Aspose.Slides.Cpp/) أو، كحزمة ZIP، من [صفحة التنزيل](https://releases.aspose.com/slides/cpp/). تقدم نسخة التقييم نفس الوظائف التي يقدمها المنتج المرخص. في الواقع، حزمة التقييم مطابقة تمامًا للنسخة المشتراة—فقط تصبح مرخصة بمجرد إضافة بعض الأسطر البرمجية لتطبيق الترخيص.
 
-بمجرد أن تكون راضيًا عن تقييمك لـ **Aspose.Slides**، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/ar/cpp/). نوصي بمراجعة أنواع الاشتراك المتاحة. إذا كان لديك أي أسئلة، لا تتردد في الاتصال بفريق مبيعات Aspose.
+بمجرد أن تكون راضيًا عن تقييمك لـ **Aspose.Slides**، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/cpp/). نوصي بمراجعة أنواع الاشتراك المتاحة. إذا كان لديك أي أسئلة، لا تتردد في الاتصال بفريق مبيعات Aspose.
 
 كل ترخيص من Aspose يتضمن اشتراكًا لمدة عام واحد للحصول على ترقيات مجانية، بما في ذلك الإصدارات الجديدة وإصلاحات الأخطاء التي تُصدر خلال تلك الفترة. سواء كنت تستخدم نسخة مرخصة أو نسخة تقييمية، ستحصل على دعم فني مجاني غير محدود.
 {{% /alert %}} 
@@ -56,7 +56,7 @@ description: "تطبيق وإدارة واستكشاف أخطاء الترخيص
 يمكن تحميل الترخيص من **ملف** أو **تدفق**.
 
 {{% alert color="info" title="Note" %}}
-توفر Aspose.Slides الفئة [License](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/) لعمليات الترخيص.
+توفر Aspose.Slides الفئة [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) لعمليات الترخيص.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -86,17 +86,17 @@ int main()
 }
 ```
 
-إذا كان الترخيص صالحًا، فإن [License::SetLicense](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/setlicense/) يرجع ويُنهي البرنامج دون أي إخراج؛ من الآن فصاعدًا، يعمل Aspose.Slides بدون قيود التقييم. إذا لم يكن الملف في دليل العمل، تُلقي الطريقة استثناءً من نوع [FileNotFoundException](https://reference.aspose.com/slides/ar/cpp/system.io/filenotfoundexception/) بالرسالة *License "Aspose.Slides.lic" doesn't exist or access is restricted*. المثال لا يتعامل مع الاستثناء، لذا يتوقف البرنامج.
+إذا كان الترخيص صالحًا، فإن [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) يرجع ويُنهي البرنامج دون أي إخراج؛ من الآن فصاعدًا، يعمل Aspose.Slides بدون قيود التقييم. إذا لم يكن الملف في دليل العمل، تُلقي الطريقة استثناءً من نوع [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) بالرسالة *License "Aspose.Slides.lic" doesn't exist or access is restricted*. المثال لا يتعامل مع الاستثناء، لذا يتوقف البرنامج.
 
 {{% alert color="warning" title="Warning" %}}
-إذا وضعت ملف الترخيص في دليل مختلف، فعند استدعاء طريقة [License::SetLicense](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/setlicense/) يجب أن يتطابق اسم الملف في نهاية المسار المحدد تمامًا مع اسم ملف الترخيص لديك.
+إذا وضعت ملف الترخيص في دليل مختلف، فعند استدعاء طريقة [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) يجب أن يتطابق اسم الملف في نهاية المسار المحدد تمامًا مع اسم ملف الترخيص لديك.
 
-على سبيل المثال، إذا أعدت تسمية ملف الترخيص إلى *Aspose.Slides.lic.xml*، يجب تمرير المسار الكامل المنتهي بـ *Aspose.Slides.lic.xml* إلى طريقة [License::SetLicense](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/setlicense/) في الكود.
+على سبيل المثال، إذا أعدت تسمية ملف الترخيص إلى *Aspose.Slides.lic.xml*، يجب تمرير المسار الكامل المنتهي بـ *Aspose.Slides.lic.xml* إلى طريقة [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) في الكود.
 {{% /alert %}}
 
 ### **تدفق**
 
-حمل ترخيص من تدفق عندما لا يحتفظ برنامجك بالترخيص كملف يمكن تسميته، على سبيل المثال عندما يقرأ الترخيص من قاعدة بيانات. تقبل [License::SetLicense](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/setlicense/) أي [Stream](https://reference.aspose.com/slides/ar/cpp/system.io/stream/) يحتوي على الترخيص. لتقليل طول المثال، يفتح الكود C++ التالي *Aspose.Slides.lic* في دليل العمل باستخدام [File::OpenRead](https://reference.aspose.com/slides/ar/cpp/system.io/file/openread/) ويطبق الترخيص من ذلك التدفق:
+حمل ترخيص من تدفق عندما لا يحتفظ برنامجك بالترخيص كملف يمكن تسميته، على سبيل المثال عندما يقرأ الترخيص من قاعدة بيانات. تقبل [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) أي [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) يحتوي على الترخيص. لتقليل طول المثال، يفتح الكود C++ التالي *Aspose.Slides.lic* في دليل العمل باستخدام [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) ويطبق الترخيص من ذلك التدفق:
 
 ```c++
 #include <Util/License.h>
@@ -117,11 +117,11 @@ int main()
 }
 ```
 
-ترخيص صالح يعطي النتيجة نفسها كما في مثال الملف. إذا كان الملف غير موجود، تُلقي [File::OpenRead](https://reference.aspose.com/slides/ar/cpp/system.io/file/openread/) استثناءً من نوع [FileNotFoundException](https://reference.aspose.com/slides/ar/cpp/system.io/filenotfoundexception/) قبل تطبيق الترخيص، ويتوقف البرنامج.
+ترخيص صالح يعطي النتيجة نفسها كما في مثال الملف. إذا كان الملف غير موجود، تُلقي [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) استثناءً من نوع [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) قبل تطبيق الترخيص، ويتوقف البرنامج.
 
 ## **التحقق من الترخيص**
 
-للتحقق مما إذا تم تعيين ترخيص بشكل صحيح، استدعِ [License::IsLicensed](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/islicensed/). تُعيد `true` فقط بعد تطبيق ترخيص صالح، وتُعيد `false` قبل ذلك. الكود C++ التالي يطبق ملف الترخيص من دليل العمل ثم يتحقق منه:
+للتحقق مما إذا تم تعيين ترخيص بشكل صحيح، استدعِ [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/). تُعيد `true` فقط بعد تطبيق ترخيص صالح، وتُعيد `false` قبل ذلك. الكود C++ التالي يطبق ملف الترخيص من دليل العمل ثم يتحقق منه:
 
 ```c++
 #include <Util/License.h>
@@ -145,12 +145,12 @@ int main()
 }
 ```
 
-مع ترخيص صالح، يطبع البرنامج *License is good!* . إذا كان الملف مفقودًا أو ليس ملف ترخيص، تُلقي [License::SetLicense](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/setlicense/) استثناءً قبل الفحص، ويتوقف البرنامج دون طباعة أي شيء. إذا كان الملف ترخيصًا توقيعه لا يتطابق، على سبيل المثال لأنه تم تحريره، تُعيد SetLicense دون خطأ لكن `IsLicensed` تُعيد `false`، لذا لا يُطبع شيء ويظل Aspose.Slides في وضع التقييم.
+مع ترخيص صالح، يطبع البرنامج *License is good!* . إذا كان الملف مفقودًا أو ليس ملف ترخيص، تُلقي [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) استثناءً قبل الفحص، ويتوقف البرنامج دون طباعة أي شيء. إذا كان الملف ترخيصًا توقيعه لا يتطابق، على سبيل المثال لأنه تم تحريره، تُعيد SetLicense دون خطأ لكن `IsLicensed` تُعيد `false`، لذا لا يُطبع شيء ويظل Aspose.Slides في وضع التقييم.
 
 ## **سلامة الخيوط**
 
 {{% alert color="warning" title="Warning" %}}
-طريقة [License::SetLicense](https://reference.aspose.com/slides/ar/cpp/aspose.slides/license/setlicense/) **ليست آمنة في بيئات متعددة الخيوط**. إذا احتجت إلى استدعاء هذه الطريقة من خيوط متعددة في آنٍ واحد، يُنصح باستخدام آليات التزامن (مثل القفل) لتجنب المشكلات المحتملة.
+طريقة [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) **ليست آمنة في بيئات متعددة الخيوط**. إذا احتجت إلى استدعاء هذه الطريقة من خيوط متعددة في آنٍ واحد، يُنصح باستخدام آليات التزامن (مثل القفل) لتجنب المشكلات المحتملة.
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**

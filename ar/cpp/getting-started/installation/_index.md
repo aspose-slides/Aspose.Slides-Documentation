@@ -26,7 +26,7 @@ description: "قم بتثبيت Aspose.Slides للغة C++ على نظام Windo
 | النموذج | استخدامه لـ | مكان الحصول عليه |
 |---|---|---|
 | حزم NuGet: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64‑بت) و [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32‑بت) | مشاريع Visual Studio C++ على نظام Windows | NuGet |
-| حزم ZIP لأنظمة Windows و Linux و macOS | بناءات بدون NuGet، مثل مشاريع CMake | [صفحة التحميل](https://releases.aspose.com/slides/ar/cpp/) |
+| حزم ZIP لأنظمة Windows و Linux و macOS | بناءات بدون NuGet، مثل مشاريع CMake | [صفحة التحميل](https://releases.aspose.com/slides/cpp/) |
 
 توضح هذه المقالة كيفية تثبيت حزمة NuGet في Visual Studio على نظام Windows وكيفية استخدام حزمة ZIP مع CMake على نظام Linux. كلا الطريقتين تنتهيان بنفس الفحص: بناء وتشغيل المثال الأول في [Create Presentations](/slides/ar/cpp/create-presentation/).
 
@@ -36,7 +36,7 @@ description: "قم بتثبيت Aspose.Slides للغة C++ على نظام Windo
 
 اختر الحزمة بحسب النظام الأساسي الذي تبني له: **Aspose.Slides.Cpp** للـ x64، و **Aspose.Slides.Cpp.x86** للـ Win32 (x86). حزمة Aspose.Slides.Cpp غير مطبقة على بناء Win32، لذا لا يستطيع المترجم العثور على رؤوسها هناك.
 
-حزمة ZIP لنظام Windows متاحة أيضاً من [صفحة التحميل](https://releases.aspose.com/slides/ar/cpp/).
+حزمة ZIP لنظام Windows متاحة أيضاً من [صفحة التحميل](https://releases.aspose.com/slides/cpp/).
 
 ### **Method 1: Install or Update Aspose.Slides from the NuGet Package Manager**
 
@@ -100,7 +100,7 @@ description: "قم بتثبيت Aspose.Slides للغة C++ على نظام Windo
    cd hello-slides
    ```
 
-3. قم بتحميل ملف ZIP الخاص بـ Linux (**Aspose.Slides for C++ Linux**) من [صفحة التحميل](https://releases.aspose.com/slides/ar/cpp/) إلى مجلد المشروع، ثم فك ضغطه في المجلد الفرعي *aspose-slides-cpp*:
+3. قم بتحميل ملف ZIP الخاص بـ Linux (**Aspose.Slides for C++ Linux**) من [صفحة التحميل](https://releases.aspose.com/slides/cpp/) إلى مجلد المشروع، ثم فك ضغطه في المجلد الفرعي *aspose-slides-cpp*:
 
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp

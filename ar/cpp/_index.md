@@ -72,14 +72,14 @@ Aspose.Slides for C++ هي مكتبة C++ أصلية لإنشاء، قراءة،
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/cpp/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/cpp/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/cpp/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/cpp/">التنزيل</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">التنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
 </ul>
 </div>
