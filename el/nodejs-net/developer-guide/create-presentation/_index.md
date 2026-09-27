@@ -27,15 +27,15 @@ description: "Δημιουργήστε παρουσιάσεις PowerPoint σε 
 Τα παραδείγματα απαιτούν ένα έργο ρυθμισμένο όπως περιγράφεται στην [Installation](/slides/el/nodejs-net/installation/). Αποθηκεύστε κάθε παράδειγμα ως αρχείο `.js` στον φάκελο του έργου και εκτελέστε το από αυτόν το φάκελο με `node`, για παράδειγμα `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Το Aspose.Slides for Node.js μέσω .NET δεν διαθέτει δική του αναφορά API. Αντιγράφει το API του Aspose.Slides for .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/el/net/).
+Το Aspose.Slides for Node.js μέσω .NET δεν διαθέτει δική του αναφορά API. Αντιγράφει το API του Aspose.Slides for .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Δημιουργία παρουσίασης με πλαίσιο κειμένου**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.  
-2. Αποκτήστε αυτή τη διαφάνεια από τη συλλογή [slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/). Οι συλλογές σε αυτό το πακέτο διαβάζονται με `get(index)`, και οι δείκτες αρχίζουν από 0.  
-3. Προσθέστε ένα ορθογώνιο με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/shapecollection/addautoshape/) και ορίστε το [text](https://reference.aspose.com/slides/el/net/aspose.slides/textframe/text/) του [textFrame](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/textframe/).  
-4. Αποθηκεύστε την παρουσίαση με τη μέθοδο [save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/) και την τιμή `SaveFormat.Pptx`.  
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.  
+2. Αποκτήστε αυτή τη διαφάνεια από τη συλλογή [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). Οι συλλογές σε αυτό το πακέτο διαβάζονται με `get(index)`, και οι δείκτες αρχίζουν από 0.  
+3. Προσθέστε ένα ορθογώνιο με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) και ορίστε το [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) του [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).  
+4. Αποθηκεύστε την παρουσίαση με τη μέθοδο [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) και την τιμή `SaveFormat.Pptx`.  
 5. Καλέστε τη `dispose` σε ένα μπλοκ `finally` για να απελευθερώσετε τους πόρους .NET που υποστηρίζουν την παρουσίαση.
 
 ```javascript
@@ -60,7 +60,7 @@ try {
 
 ## **Προσθήκη διαφανειών**
 
-Μια νέα παρουσίαση έχει μία διαφάνεια. Για να προσθέσετε περισσότερες, περάστε μια διαφάνεια διάταξης στη μέθοδο [addEmptySlide](https://reference.aspose.com/slides/el/net/aspose.slides/slidecollection/addemptyslide/) της συλλογής `slides`. Η μέθοδος [getByType](https://reference.aspose.com/slides/el/net/aspose.slides/layoutslidecollection/getbytype/) της συλλογής [layoutSlides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/layoutslides/) επιστρέφει την πρώτη διάταξη ενός δεδομένου [SlideLayoutType](https://reference.aspose.com/slides/el/net/aspose.slides/slidelayouttype/).
+Μια νέα παρουσίαση έχει μία διαφάνεια. Για να προσθέσετε περισσότερες, περάστε μια διαφάνεια διάταξης στη μέθοδο [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) της συλλογής `slides`. Η μέθοδος [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) της συλλογής [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) επιστρέφει την πρώτη διάταξη ενός δεδομένου [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 Το παρακάτω παράδειγμα προσθέτει δύο διαφάνειες με τη διάταξη Blank:
 
@@ -84,7 +84,7 @@ try {
 
 ## **Ορισμός μεγέθους διαφάνειας**
 
-Μία νέα παρουσίαση χρησιμοποιεί διαφάνειες 4:3 με 720 × 540 points (10 × 7.5 ίντσες). Για να δημιουργήσετε πλατιές (widescreen) διαφάνειες, καλέστε τη μέθοδο [setSize](https://reference.aspose.com/slides/el/net/aspose.slides/slidesize/setsize/) της [slideSize](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slidesize/) της παρουσίασης με μια τιμή [SlideSizeType](https://reference.aspose.com/slides/el/net/aspose.slides/slidesizetype/) και μια τιμή [SlideSizeScaleType](https://reference.aspose.com/slides/el/net/aspose.slides/slidesizescaletype/). Ο τύπος κλίμακας λέει στο Aspose.Slides τι να κάνει με τα σχήματα που ήδη υπάρχουν στις διαφάνειες· `DoNotScale` τα αφήνει όπως είναι, κάτι που είναι η σωστή επιλογή για μια παρουσίαση που δεν έχει ακόμη περιεχόμενο.
+Μία νέα παρουσίαση χρησιμοποιεί διαφάνειες 4:3 με 720 × 540 points (10 × 7.5 ίντσες). Για να δημιουργήσετε πλατιές (widescreen) διαφάνειες, καλέστε τη μέθοδο [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) της [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) της παρουσίασης με μια τιμή [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) και μια τιμή [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). Ο τύπος κλίμακας λέει στο Aspose.Slides τι να κάνει με τα σχήματα που ήδη υπάρχουν στις διαφάνειες· `DoNotScale` τα αφήνει όπως είναι, κάτι που είναι η σωστή επιλογή για μια παρουσίαση που δεν έχει ακόμη περιεχόμενο.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -112,7 +112,7 @@ try {
 
 **Σε ποιες μορφές μπορώ να αποθηκεύσω μια νέα παρουσίαση;**
 
-Οποιαδήποτε τιμή της απαρίθμησης [SaveFormat](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveformat/), για παράδειγμα `SaveFormat.Ppt` για PowerPoint 97–2003, `SaveFormat.Odp` για OpenDocument ή `SaveFormat.Pdf`. Για έξοδο PDF, δείτε [Convert PowerPoint to PDF](/slides/el/nodejs-net/convert-powerpoint-to-pdf/).
+Οποιαδήποτε τιμή της απαρίθμησης [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), για παράδειγμα `SaveFormat.Ppt` για PowerPoint 97–2003, `SaveFormat.Odp` για OpenDocument ή `SaveFormat.Pdf`. Για έξοδο PDF, δείτε [Convert PowerPoint to PDF](/slides/el/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Γιατί η αποθηκευμένη παρουσίαση περιέχει το κείμενο "Evaluation only";**
 

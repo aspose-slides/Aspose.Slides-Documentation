@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 Κατά την εγκατάσταση, το πακέτο αντιγράφει τις εγγενείς βιβλιοθήκες σχεδίασης (τα αρχεία των οποίων τα ονόματα περιέχουν `aspose.slides.drawing.capi`) στον φάκελο του έργου, δίπλα στο `package.json`.
 
-Το πακέτο δημοσιεύεται επίσης ως αρχείο ZIP στον ιστότοπο [releases.aspose.com](https://releases.aspose.com/slides/el/nodejs-net/). Το άρθρο αυτό καλύπτει μόνο την εγκατάσταση μέσω npm.
+Το πακέτο δημοσιεύεται επίσης ως αρχείο ZIP στον ιστότοπο [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/). Το άρθρο αυτό καλύπτει μόνο την εγκατάσταση μέσω npm.
 
 ## **Αποκατάσταση των Εξαρτήσεων .NET**
 
@@ -154,7 +154,7 @@ node hello.js
 Εκτελείτε τα scripts από το φάκελο του έργου, αυτόν που περιέχει το `package.json`. Οι σχετικές διαδρομές όπως `hello.pptx` λυγίζονται σε σχέση με τον τρέχοντα φάκελο, και σε ορισμένα μηχανήματα ένα script που ξεκινά από διαφορετικό φάκελο δεν μπορεί να δημιουργήσει παρουσίαση.
 {{% /alert %}}
 
-Το JavaScript API αντικατοπτρίζει το Aspose.Slides για .NET: οι κλάσεις διατηρούν τα ονόματά τους στο .NET, οι ιδιότητες και οι μέθοδοι χρησιμοποιούν camelCase (`Slides` γίνεται `slides`, `AddAutoShape` γίνεται `addAutoShape`), και τα στοιχεία συλλογής ανακτώνται με `get(index)`. Δεν υπάρχει ξεχωριστό API reference για αυτό το πακέτο, οπότε χρησιμοποιήστε το [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/el/net/) για λεπτομέρειες κλάσεων και μελών, π.χ. [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/shapecollection/addautoshape/).
+Το JavaScript API αντικατοπτρίζει το Aspose.Slides για .NET: οι κλάσεις διατηρούν τα ονόματά τους στο .NET, οι ιδιότητες και οι μέθοδοι χρησιμοποιούν camelCase (`Slides` γίνεται `slides`, `AddAutoShape` γίνεται `addAutoShape`), και τα στοιχεία συλλογής ανακτώνται με `get(index)`. Δεν υπάρχει ξεχωριστό API reference για αυτό το πακέτο, οπότε χρησιμοποιήστε το [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) για λεπτομέρειες κλάσεων και μελών, π.χ. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) και [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **Συχνές Ερωτήσεις**
 

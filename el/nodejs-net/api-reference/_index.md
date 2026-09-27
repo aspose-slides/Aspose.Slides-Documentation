@@ -7,7 +7,7 @@ description: "Το Aspose.Slides for Node.js via .NET τεκμηριώνεται
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Node.js via .NET δεν διαθέτει δική του αναφορά API. Το πακέτο εκθέτει τις κλάσεις του Aspose.Slides for .NET στο JavaScript με τα ίδια ονόματα, με ονόματα μελών σε camelCase, έτσι η [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/el/net/) τεκμηριώνει τις κλάσεις, τα μέλη και τις απαριθμήσεις.
+Το Aspose.Slides for Node.js via .NET δεν διαθέτει δική του αναφορά API. Το πακέτο εκθέτει τις κλάσεις του Aspose.Slides for .NET στο JavaScript με τα ίδια ονόματα, με ονόματα μελών σε camelCase, έτσι η [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) τεκμηριώνει τις κλάσεις, τα μέλη και τις απαριθμήσεις.
 
 ## **Αντιστοίχηση ονομάτων .NET σε JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Το script γράφει τα αρχεία `slide.png` και `slide.pdf` στον τρέχοντα φάκελο. Και τα δύο εμφανίζουν το ορθογώνιο με το κείμενό του. Χωρίς άδεια, εμφανίζουν επίσης υδατογράφημα αξιολόγησης· δείτε την [Licensing](/slides/el/nodejs-net/licensing/).
 
-Για λεπτομέρειες σχετικά με τα μέλη που χρησιμοποιούνται εδώ, δείτε το [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/), το [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/shapecollection/addautoshape/), το [TextFrame.Text](https://reference.aspose.com/slides/el/net/aspose.slides/textframe/text/) και το [Slide.GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/slide/getimage/) στην αναφορά API του Aspose.Slides for .NET.
+Για λεπτομέρειες σχετικά με τα μέλη που χρησιμοποιούνται εδώ, δείτε το [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), το [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), το [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) και το [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) στην αναφορά API του Aspose.Slides for .NET.

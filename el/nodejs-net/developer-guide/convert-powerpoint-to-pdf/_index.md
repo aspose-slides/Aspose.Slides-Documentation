@@ -22,20 +22,20 @@ description: "Μετατροπή παρουσιάσεων PPTX, PPT και ODP �
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides για Node.js μέσω .NET μετατρέπει παρουσιάσεις PowerPoint και OpenDocument σε PDF χωρίς το Microsoft PowerPoint. Κάθε ορατή διαφάνεια γίνεται μια σελίδα PDF του ίδιου μεγέθους με τη διαφάνεια, και το κείμενο παραμένει επιλέξιμο και αναζητήσιμο. Αυτό το άρθρο παρουσιάζει τη μετατροπή προεπιλογής και μια μετατροπή σε PDF/A με [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/).
+Το Aspose.Slides για Node.js μέσω .NET μετατρέπει παρουσιάσεις PowerPoint και OpenDocument σε PDF χωρίς το Microsoft PowerPoint. Κάθε ορατή διαφάνεια γίνεται μια σελίδα PDF του ίδιου μεγέθους με τη διαφάνεια, και το κείμενο παραμένει επιλέξιμο και αναζητήσιμο. Αυτό το άρθρο παρουσιάζει τη μετατροπή προεπιλογής και μια μετατροπή σε PDF/A με [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 Τα παραδείγματα αναμένουν μια παρουσίαση με όνομα `sample.pptx` στον φάκελο του έργου που έχετε ρυθμίσει στην [Installation](/slides/el/nodejs-net/installation/). Οποιαδήποτε παρουσίαση PowerPoint είναι αποδεκτή. Αποθηκεύστε κάθε παράδειγμα ως αρχείο `.js` στον φάκελο του έργου και εκτελέστε το από αυτόν τον φάκελο με `node`.
 
 {{% alert color="info" title="Note" %}}
-Το Aspose.Slides για Node.js μέσω .NET δεν έχει τη δική του αναφορά API. Αντιγράφει το API του Aspose.Slides για .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/el/net/).
+Το Aspose.Slides για Node.js μέσω .NET δεν έχει τη δική του αναφορά API. Αντιγράφει το API του Aspose.Slides για .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Μετατροπή Παρουσίασης σε PDF**
 
 Για να μετατρέψετε μια παρουσίαση σε PDF, ακολουθήστε τα παρακάτω βήματα:
 
-1. Ανοίξτε την παρουσίαση περνώντας τη διαδρομή της στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/presentation/). Η ίδια κώδικας λειτουργεί για αρχεία PPTX, PPT και ODP.  
-1. Καλέστε τη μέθοδο [save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/) με τη διαδρομή εξόδου και `SaveFormat.Pdf`.  
+1. Ανοίξτε την παρουσίαση περνώντας τη διαδρομή της στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Η ίδια κώδικας λειτουργεί για αρχεία PPTX, PPT και ODP.  
+1. Καλέστε τη μέθοδο [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) με τη διαδρομή εξόδου και `SaveFormat.Pdf`.  
 1. Καλέστε το `dispose` σε ένα μπλοκ `finally` για να απελευθερώσετε τους πόρους .NET που υποστηρίζουν την παρουσίαση.
 
 ```javascript
@@ -54,7 +54,7 @@ try {
 
 ## **Μετατροπή Παρουσίασης σε PDF/A**
 
-Για να ελέγξετε την έξοδο, περάστε ένα αντικείμενο [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) ως τρίτο όρισμα της `save`. Το παρακάτω παράδειγμα ορίζει την ιδιότητα [compliance](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/compliance/) σε `PdfCompliance.PdfA2b`, η οποία παράγει ένα αρχείο PDF/A-2b. Το PDF/A είναι το πρότυπο ISO για μακροπρόθεσμη αρχειοθέτηση: μεταξύ άλλων κανόνων, απαιτεί κάθε γραμματοσειρά που χρησιμοποιεί το έγγραφο να ενσωματώνεται στο αρχείο.
+Για να ελέγξετε την έξοδο, περάστε ένα αντικείμενο [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) ως τρίτο όρισμα της `save`. Το παρακάτω παράδειγμα ορίζει την ιδιότητα [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) σε `PdfCompliance.PdfA2b`, η οποία παράγει ένα αρχείο PDF/A-2b. Το PDF/A είναι το πρότυπο ISO για μακροπρόθεσμη αρχειοθέτηση: μεταξύ άλλων κανόνων, απαιτεί κάθε γραμματοσειρά που χρησιμοποιεί το έγγραφο να ενσωματώνεται στο αρχείο.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-Το script γράφει το `sample-pdfa.pdf` με τις ίδιες σελίδες όπως η προεπιλεγμένη μετατροπή. Για να επιβεβαιώσετε ότι ένα αρχείο συμμορφώνεται με το πρότυπο, ελέγξτε το με έναν ελεγκτή PDF/A όπως το [veraPDF](https://verapdf.org/). Άλλες τιμές του [PdfCompliance](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfcompliance/) επιλέγουν άλλα πρότυπα, όπως `PdfA1b`, `PdfA2a` ή `PdfUa` για προσβασιμότητα.
+Το script γράφει το `sample-pdfa.pdf` με τις ίδιες σελίδες όπως η προεπιλεγμένη μετατροπή. Για να επιβεβαιώσετε ότι ένα αρχείο συμμορφώνεται με το πρότυπο, ελέγξτε το με έναν ελεγκτή PDF/A όπως το [veraPDF](https://verapdf.org/). Άλλες τιμές του [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) επιλέγουν άλλα πρότυπα, όπως `PdfA1b`, `PdfA2a` ή `PdfUa` για προσβασιμότητα.
 
 ## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να συμπεριλάβω κρυφές διαφάνειες στο PDF;**
 
-Οι κρυφές διαφάνειες παραλείπονται εξ ορισμού. Ορίστε την ιδιότητα [showHiddenSlides](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/showhiddenslides/) του `PdfOptions` σε `true` και περάστε τις επιλογές στη `save`.
+Οι κρυφές διαφάνειες παραλείπονται εξ ορισμού. Ορίστε την ιδιότητα [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) του `PdfOptions` σε `true` και περάστε τις επιλογές στη `save`.
 
 **Μπορώ να προστατεύσω το PDF με κωδικό πρόσβασης;**
 
-Ναι. Ορίστε την ιδιότητα [password](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/password/) του `PdfOptions` πριν καλέσετε τη `save`. Οι αναγνώστες PDF στη συνέχεια ζητούν αυτόν τον κωδικό πριν ανοίξουν το αρχείο.
+Ναι. Ορίστε την ιδιότητα [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) του `PdfOptions` πριν καλέσετε τη `save`. Οι αναγνώστες PDF στη συνέχεια ζητούν αυτόν τον κωδικό πριν ανοίξουν το αρχείο.
 
 **Μπορώ να μετατρέψω μόνο ορισμένες διαφάνειες;**
 

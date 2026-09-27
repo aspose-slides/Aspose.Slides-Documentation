@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET ανοίγει παρουσιάσεις Power
 Τα παραδείγματα προϋποθέτουν μια παρουσίαση με όνομα `sample.pptx` στο φάκελο του έργου που έχετε ρυθμίσει στην [Εγκατάσταση](/slides/el/nodejs-net/installation/). Οποιαδήποτε παρουσίαση PowerPoint αρκεί. Αποθηκεύστε κάθε παράδειγμα ως αρχείο `.js` στο φάκελο του έργου και τρέξτε το από εκεί με `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET δεν διαθέτει ξεχωριστή τεκμηρίωση API. Αντιγράφει το API του Aspose.Slides for .NET με ονόματα camelCase, οπότε οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [αναφορά API Aspose.Slides για .NET](https://reference.aspose.com/slides/el/net/).
+Aspose.Slides for Node.js via .NET δεν διαθέτει ξεχωριστή τεκμηρίωση API. Αντιγράφει το API του Aspose.Slides for .NET με ονόματα camelCase, οπότε οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [αναφορά API Aspose.Slides για .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Άνοιγμα Παρουσίασης από Αρχείο**
 
-Για να ανοίξετε μια παρουσίαση, περάστε τη διαδρομή της στο κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/presentation/). Το Aspose.Slides εντοπίζει τη μορφή από το περιεχόμενο του αρχείου αντί από την επέκταση, έτσι ο ίδιος κώδικας ανοίγει αρχεία PPTX, PPT και ODP. Μια σχετική διαδρομή λύνεται σε σχέση με τον τρέχοντα φάκελο εργασίας, που είναι ο φάκελος του έργου όταν εκτελείτε το σενάριο από εκεί.
+Για να ανοίξετε μια παρουσίαση, περάστε τη διαδρομή της στο κατασκευαστή [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Το Aspose.Slides εντοπίζει τη μορφή από το περιεχόμενο του αρχείου αντί από την επέκταση, έτσι ο ίδιος κώδικας ανοίγει αρχεία PPTX, PPT και ODP. Μια σχετική διαδρομή λύνεται σε σχέση με τον τρέχοντα φάκελο εργασίας, που είναι ο φάκελος του έργου όταν εκτελείτε το σενάριο από εκεί.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Το σενάριο εκτυπώνει τον αριθμό των διαφανειών στο `sample.pptx`, για παράδειγμα `Slide count: 9`. Η ιδιότητα `count` της συλλογής των [slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) περιλαμβάνει κρυμμένες διαφάνειες. Καλέστε `dispose` σε ένα μπλοκ `finally`, όπως φαίνεται, ώστε οι πόροι .NET που βρίσκονται πίσω από την παρουσίαση να απελευθερωθούν ακόμη και αν ο κώδικάς σας αποτύχει.
+Το σενάριο εκτυπώνει τον αριθμό των διαφανειών στο `sample.pptx`, για παράδειγμα `Slide count: 9`. Η ιδιότητα `count` της συλλογής των [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) περιλαμβάνει κρυμμένες διαφάνειες. Καλέστε `dispose` σε ένα μπλοκ `finally`, όπως φαίνεται, ώστε οι πόροι .NET που βρίσκονται πίσω από την παρουσίαση να απελευθερωθούν ακόμη και αν ο κώδικάς σας αποτύχει.
 
 ## **Άνοιγμα Παρουσίασης από Buffer**
 
@@ -71,7 +71,7 @@ try {
 
 ## **Αποθήκευση Παρουσίασης σε Άλλη Μορφή**
 
-Για να μετατρέψετε μια παρουσίαση σε άλλη μορφή παρουσίασης, ανοίξτε την και αποθηκεύστε τη με διαφορετική τιμή του [SaveFormat](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveformat/). Το παρακάτω παράδειγμα εκτυπώνει τη μορφή που ανίχνευσε το Aspose.Slides, η οποία επιστρέφεται από την ιδιότητα [sourceFormat](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/sourceformat/), και αποθηκεύει την παρουσίαση ως παρουσίαση OpenDocument:
+Για να μετατρέψετε μια παρουσίαση σε άλλη μορφή παρουσίασης, ανοίξτε την και αποθηκεύστε τη με διαφορετική τιμή του [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). Το παρακάτω παράδειγμα εκτυπώνει τη μορφή που ανίχνευσε το Aspose.Slides, η οποία επιστρέφεται από την ιδιότητα [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/), και αποθηκεύει την παρουσίαση ως παρουσίαση OpenDocument:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ try {
 
 **Πώς ανοίγω μια παρουσίαση με προστασία κωδικού πρόσβασης;**
 
-Δημιουργήστε ένα αντικείμενο [LoadOptions](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/), ορίστε την ιδιότητα [password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/) του, και περάστε το αντικείμενο ως τρίτο όρισμα του κατασκευαστή: `new Presentation("protected.pptx", null, loadOptions)`. Χωρίς τον σωστό κωδικό, ο κατασκευαστής ρίχνει σφάλμα.
+Δημιουργήστε ένα αντικείμενο [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), ορίστε την ιδιότητα [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) του, και περάστε το αντικείμενο ως τρίτο όρισμα του κατασκευαστή: `new Presentation("protected.pptx", null, loadOptions)`. Χωρίς τον σωστό κωδικό, ο κατασκευαστής ρίχνει σφάλμα.
 
 **Γιατί ο κατασκευαστής ρίχνει ένα `Error` με κενό μήνυμα;**
 

@@ -26,15 +26,15 @@ description: "Απόδοση διαφανειών από παρουσιάσει�
 Τα παραδείγματα αναμένουν μια παρουσίαση με όνομα `sample.pptx` στο φάκελο του έργου που έχετε ρυθμίσει στην [Εγκατάσταση](/slides/el/nodejs-net/installation/). Οποιαδήποτε παρουσίαση PowerPoint είναι αποδεκτή. Αποθηκεύστε κάθε παράδειγμα ως αρχείο `.js` στο φάκελο του έργου και εκτελέστε το από αυτόν το φάκελο με `node`.
 
 {{% alert color="info" title="Σημείωση" %}}
-Το Aspose.Slides for Node.js μέσω .NET δεν διαθέτει δική του τεκμηρίωση API. Αντιγράφει το API του Aspose.Slides for .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/el/net/).
+Το Aspose.Slides for Node.js μέσω .NET δεν διαθέτει δική του τεκμηρίωση API. Αντιγράφει το API του Aspose.Slides for .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 Για να μετατρέψετε μια διαφάνεια σε εικόνα, ακολουθήστε τα παρακάτω βήματα:
 
-1. Ανοίξτε την παρουσίαση με τον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/presentation/).
-1. Πάρτε μια διαφάνεια από τη συλλογή [slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) με `get(index)`. Οι δείκτες αρχίζουν από 0.
-1. Αποδώστε τη διαφάνεια με `getImageWithScale` ή `getImageWithImageSize`. Στην τεκμηρίωση .NET API, και οι δύο είναι υπερφορτώσεις του [Slide.GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/slide/getimage/). Επιστρέφουν ένα αντικείμενο εικόνας που αντιστοιχεί στο [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/).
-1. Αποθηκεύστε την εικόνα με τη μέθοδο [save](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/save/) και μια τιμή [ImageFormat](https://reference.aspose.com/slides/el/net/aspose.slides/imageformat/), και κατόπιν καλέστε τη μέθοδο `dispose`.
+1. Ανοίξτε την παρουσίαση με τον κατασκευαστή [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+1. Πάρτε μια διαφάνεια από τη συλλογή [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) με `get(index)`. Οι δείκτες αρχίζουν από 0.
+1. Αποδώστε τη διαφάνεια με `getImageWithScale` ή `getImageWithImageSize`. Στην τεκμηρίωση .NET API, και οι δύο είναι υπερφορτώσεις του [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Επιστρέφουν ένα αντικείμενο εικόνας που αντιστοιχεί στο [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+1. Αποθηκεύστε την εικόνα με τη μέθοδο [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) και μια τιμή [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), και κατόπιν καλέστε τη μέθοδο `dispose`.
 
 ## **Μετατροπή ΌΛΩΝ ΤΩΝ ΔΙΑΦΑΝΕΙΩΝ σε Εικόνα PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Το script δημιουργεί ένα αρχείο ανά διαφάνεια, `slide_1.png`, `slide_2.png`, κ.λπ., αριθμημένα από το 1. Για μια παρουσίαση 16:9 με διαφάνειες των 960 × 540 σημείων, κάθε εικόνα είναι 1920 × 1080 εικονοστοιχεία. Οι κρυμμένες διαφάνειες αποδίδονται επίσης· για να τις παραλείψετε, ελέγξτε την ιδιότητα [hidden](https://reference.aspose.com/slides/el/net/aspose.slides/slide/hidden/) της διαφάνειας. Κάθε εικόνα απελευθερώνεται στο δικό της μπλοκ `finally`, το οποίο την απελευθερώνει πριν αποδοθεί η επόμενη διαφάνεια. Χωρίς άδεια, οι εικόνες εμφανίζουν επίσης υδατογράφημα αξιολόγησης· δείτε την [Αδειοδότηση](/slides/el/nodejs-net/licensing/).
+Το script δημιουργεί ένα αρχείο ανά διαφάνεια, `slide_1.png`, `slide_2.png`, κ.λπ., αριθμημένα από το 1. Για μια παρουσίαση 16:9 με διαφάνειες των 960 × 540 σημείων, κάθε εικόνα είναι 1920 × 1080 εικονοστοιχεία. Οι κρυμμένες διαφάνειες αποδίδονται επίσης· για να τις παραλείψετε, ελέγξτε την ιδιότητα [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) της διαφάνειας. Κάθε εικόνα απελευθερώνεται στο δικό της μπλοκ `finally`, το οποίο την απελευθερώνει πριν αποδοθεί η επόμενη διαφάνεια. Χωρίς άδεια, οι εικόνες εμφανίζουν επίσης υδατογράφημα αξιολόγησης· δείτε την [Αδειοδότηση](/slides/el/nodejs-net/licensing/).
 
 ## **Μετατροπή Μιας Διαφάνειας σε Εικόνα Δοσμένου Μεγέθους**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-Η ιδιότητα [slideSize.size](https://reference.aspose.com/slides/el/net/aspose.slides/slidesize/size/) επιστρέφει το πλάτος και το ύψος της διαφάνειας σε σημεία. Για μια παρουσίαση 16:9, το script εκτυπώνει `Saved a 1280 x 720 image` και γράφει `slide_1_1280px.png`; για μια παρουσίαση 4:3, η εικόνα είναι 1280 × 960 εικονοστοιχεία.
+Η ιδιότητα [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) επιστρέφει το πλάτος και το ύψος της διαφάνειας σε σημεία. Για μια παρουσίαση 16:9, το script εκτυπώνει `Saved a 1280 x 720 image` και γράφει `slide_1_1280px.png`; για μια παρουσίαση 4:3, η εικόνα είναι 1280 × 960 εικονοστοιχεία.
 
 ## **Συχνές Ερωτήσεις**
 

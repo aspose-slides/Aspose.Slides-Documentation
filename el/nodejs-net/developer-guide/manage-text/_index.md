@@ -31,12 +31,12 @@ description: "Προσθέστε ένα πλαίσιο κειμένου σε μ�
 Τα παραδείγματα απαιτούν ένα έργο ρυθμισμένο όπως περιγράφεται στην [Εγκατάσταση](/slides/el/nodejs-net/installation/). Αποθηκεύστε κάθε παράδειγμα ως αρχείο `.js` στον φάκελο του έργου και εκτελέστε το από αυτόν το φάκελο με την εντολή `node`.
 
 {{% alert color="info" title="Note" %}}
-Το Aspose.Slides για Node.js μέσω .NET δεν διαθέτει δική του αναφορά API. Αντιγράφει το API του Aspose.Slides για .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Αναφορά API του Aspose.Slides για .NET](https://reference.aspose.com/slides/el/net/).
+Το Aspose.Slides για Node.js μέσω .NET δεν διαθέτει δική του αναφορά API. Αντιγράφει το API του Aspose.Slides για .NET με ονόματα camelCase, έτσι οι σύνδεσμοι API σε αυτό το άρθρο οδηγούν στις αντίστοιχες κλάσεις και μέλη στην [Αναφορά API του Aspose.Slides για .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Προσθήκη πλαισίου κειμένου**
 
-Για να προσθέσετε ένα πλαίσιο κειμένου, προσθέστε ένα αυτόματο σχήμα σε μια διαφάνεια με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/shapecollection/addautoshape/) και δώστε του κείμενο με τη μέθοδο [addTextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/addtextframe/). Το παρακάτω παράδειγμα προσθέτει ένα ορθογώνιο στην πρώτη διαφάνεια μιας νέας παρουσίασης και αποθηκεύει την παρουσίαση ως `text-box.pptx`:
+Για να προσθέσετε ένα πλαίσιο κειμένου, προσθέστε ένα αυτόματο σχήμα σε μια διαφάνεια με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) και δώστε του κείμενο με τη μέθοδο [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). Το παρακάτω παράδειγμα προσθέτει ένα ορθογώνιο στην πρώτη διαφάνεια μιας νέας παρουσίασης και αποθηκεύει την παρουσίαση ως `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **Αλλαγή του κειμένου και της μορφοποίησής του**
 
-Το παρακάτω παράδειγμα ανοίγει το `text-box.pptx`, το οποίο δημιούργησε το προηγούμενο παράδειγμα, και λαμβάνει το πρώτο σχήμα στην πρώτη διαφάνεια. Σχήματα όπως εικόνες και πίνακες δεν διαθέτουν πλαίσιο κειμένου, έτσι το παράδειγμα ελέγχει ότι το σχήμα είναι ένα [AutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/) πριν χρησιμοποιήσει το [textFrame](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/textframe/) του σχήματος. Στη συνέχεια, κάνει τα εξής:
+Το παρακάτω παράδειγμα ανοίγει το `text-box.pptx`, το οποίο δημιούργησε το προηγούμενο παράδειγμα, και λαμβάνει το πρώτο σχήμα στην πρώτη διαφάνεια. Σχήματα όπως εικόνες και πίνακες δεν διαθέτουν πλαίσιο κειμένου, έτσι το παράδειγμα ελέγχει ότι το σχήμα είναι ένα [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) πριν χρησιμοποιήσει το [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) του σχήματος. Στη συνέχεια, κάνει τα εξής:
 
-1. Αντικαθιστά το κείμενο μέσω της ιδιότητας [text](https://reference.aspose.com/slides/el/net/aspose.slides/textframe/text/) του πλαισίου κειμένου. Μετά από αυτό, το πλαίσιο κειμένου περιέχει μία παράγραφο με ένα τμήμα.
-2. Αποκτά αυτό το τμήμα από τις συλλογές [paragraphs](https://reference.aspose.com/slides/el/net/aspose.slides/textframe/paragraphs/) και [portions](https://reference.aspose.com/slides/el/net/aspose.slides/paragraph/portions/) και διαβάζει το [portionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/portion/portionformat/).
-3. Ορίζει το [fontHeight](https://reference.aspose.com/slides/el/net/aspose.slides/baseportionformat/fontheight/), το μέγεθος γραμματοσειράς σε σημεία, και το [fontBold](https://reference.aspose.com/slides/el/net/aspose.slides/baseportionformat/fontbold/), το οποίο δέχεται μια τιμή [NullableBool](https://reference.aspose.com/slides/el/net/aspose.slides/nullablebool/).
+1. Αντικαθιστά το κείμενο μέσω της ιδιότητας [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) του πλαισίου κειμένου. Μετά από αυτό, το πλαίσιο κειμένου περιέχει μία παράγραφο με ένα τμήμα.
+2. Αποκτά αυτό το τμήμα από τις συλλογές [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) και [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) και διαβάζει το [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).
+3. Ορίζει το [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), το μέγεθος γραμματοσειράς σε σημεία, και το [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), το οποίο δέχεται μια τιμή [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");
