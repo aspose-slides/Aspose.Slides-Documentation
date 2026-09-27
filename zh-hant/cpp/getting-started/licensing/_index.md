@@ -28,9 +28,9 @@ Aspose.Slides 可在評估模式或使用有效授權的情況下使用。評估
 
 {{% alert color="info" title="Note" %}}
 
-您可以從 [其 NuGet 下載頁面](https://www.nuget.org/packages/Aspose.Slides.Cpp/) 或以 ZIP 套件形式，從[下載頁面](https://releases.aspose.com/slides/zh-hant/cpp/)下載 **Aspose.Slides for C++** 的評估版。評估版提供與授權產品相同的功能。事實上，評估套件與購買版完全相同——只要在程式碼中加入幾行以套用授權，即可變成授權版本。
+您可以從 [其 NuGet 下載頁面](https://www.nuget.org/packages/Aspose.Slides.Cpp/) 或以 ZIP 套件形式，從[下載頁面](https://releases.aspose.com/slides/cpp/)下載 **Aspose.Slides for C++** 的評估版。評估版提供與授權產品相同的功能。事實上，評估套件與購買版完全相同——只要在程式碼中加入幾行以套用授權，即可變成授權版本。
 
-當您對 **Aspose.Slides** 的評估滿意後，可前往 [購買授權](https://purchase.aspose.com/pricing/slides/zh-hant/cpp/)。我們建議先檢視可用的訂閱類型。如有任何問題，請隨時聯繫 Aspose 銷售團隊。
+當您對 **Aspose.Slides** 的評估滿意後，可前往 [購買授權](https://purchase.aspose.com/pricing/slides/cpp/)。我們建議先檢視可用的訂閱類型。如有任何問題，請隨時聯繫 Aspose 銷售團隊。
 
 每份 Aspose 授權皆包含一年的免費升級訂閱，期間內可取得新版本與錯誤修正。無論使用授權版或評估版，皆可獲得免費且無限制的技術支援。
 
@@ -61,7 +61,7 @@ Aspose.Slides 可在評估模式或使用有效授權的情況下使用。評估
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides 提供用於授權操作的 [License](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/) 類別。
+Aspose.Slides 提供用於授權操作的 [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) 類別。
 
 {{% /alert %}} 
 
@@ -94,19 +94,19 @@ int main()
 }
 ```
 
-如果授權有效，[License::SetLicense](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/setlicense/) 會返回且程式不會有任何輸出；此後 Aspose.Slides 將不受評估限制。若檔案不在工作目錄，該方法會拋出 [FileNotFoundException](https://reference.aspose.com/slides/zh-hant/cpp/system.io/filenotfoundexception/) ，訊息為 *License "Aspose.Slides.lic" doesn't exist or access is restricted*。此範例未處理例外，因此程式會停止。
+如果授權有效，[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 會返回且程式不會有任何輸出；此後 Aspose.Slides 將不受評估限制。若檔案不在工作目錄，該方法會拋出 [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) ，訊息為 *License "Aspose.Slides.lic" doesn't exist or access is restricted*。此範例未處理例外，因此程式會停止。
 
 {{% alert color="warning" title="Warning" %}}
 
-如果將授權檔放在其他目錄，呼叫 [License::SetLicense](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/setlicense/) 方法時，指定的完整路徑最後的檔名必須與授權檔案名稱完全相符。
+如果將授權檔放在其他目錄，呼叫 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 方法時，指定的完整路徑最後的檔名必須與授權檔案名稱完全相符。
 
-例如，若將授權檔重新命名為 *Aspose.Slides.lic.xml*，必須以結尾為 *Aspose.Slides.lic.xml* 的完整路徑傳遞給 [License::SetLicense](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/setlicense/) 方法。
+例如，若將授權檔重新命名為 *Aspose.Slides.lic.xml*，必須以結尾為 *Aspose.Slides.lic.xml* 的完整路徑傳遞給 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 方法。
 
 {{% /alert %}}
 
 ### **串流**
 
-當程式不以可命名的檔案形式保存授權（例如從資料庫讀取授權）時，可從串流載入授權。[License::SetLicense](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/setlicense/) 接受任何包含授權的 [Stream](https://reference.aspose.com/slides/zh-hant/cpp/system.io/stream/)。為讓範例保持簡潔，以下 C++ 程式碼使用 [File::OpenRead](https://reference.aspose.com/slides/zh-hant/cpp/system.io/file/openread/) 開啟工作目錄中的 *Aspose.Slides.lic*，並從該串流套用授權：
+當程式不以可命名的檔案形式保存授權（例如從資料庫讀取授權）時，可從串流載入授權。[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 接受任何包含授權的 [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/)。為讓範例保持簡潔，以下 C++ 程式碼使用 [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) 開啟工作目錄中的 *Aspose.Slides.lic*，並從該串流套用授權：
 
 ```c++
 #include <Util/License.h>
@@ -127,11 +127,11 @@ int main()
 }
 ```
 
-有效的授權會產生與檔案範例相同的結果。若檔案不存在，[File::OpenRead](https://reference.aspose.com/slides/zh-hant/cpp/system.io/file/openread/) 會在授權套用前拋出 [FileNotFoundException](https://reference.aspose.com/slides/zh-hant/cpp/system.io/filenotfoundexception/)，程式會停止。
+有效的授權會產生與檔案範例相同的結果。若檔案不存在，[File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) 會在授權套用前拋出 [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/)，程式會停止。
 
 ## **驗證授權**
 
-要檢查授權是否正確設定，呼叫 [License::IsLicensed](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/islicensed/)。只有在成功套用有效授權後才會回傳 `true`，否則回傳 `false`。以下 C++ 程式碼從工作目錄套用授權檔，然後檢查結果：
+要檢查授權是否正確設定，呼叫 [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/)。只有在成功套用有效授權後才會回傳 `true`，否則回傳 `false`。以下 C++ 程式碼從工作目錄套用授權檔，然後檢查結果：
 
 ```c++
 #include <Util/License.h>
@@ -155,13 +155,13 @@ int main()
 }
 ```
 
-若授權有效，程式會印出 *License is good!*。若檔案遺失或不是授權檔，[License::SetLicense](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/setlicense/) 會在檢查前拋出例外，程式會在未印出任何內容的情況下停止。若檔案為授權檔但簽章不符（例如被編輯），SetLicense 會在不發生錯誤的情況下返回，但 `IsLicensed` 會回傳 `false`，因此不會印出任何訊息，Aspose.Slides 仍處於評估模式。
+若授權有效，程式會印出 *License is good!*。若檔案遺失或不是授權檔，[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 會在檢查前拋出例外，程式會在未印出任何內容的情況下停止。若檔案為授權檔但簽章不符（例如被編輯），SetLicense 會在不發生錯誤的情況下返回，但 `IsLicensed` 會回傳 `false`，因此不會印出任何訊息，Aspose.Slides 仍處於評估模式。
 
 ## **執行緒安全性**
 
 {{% alert color="warning" title="Warning" %}}
 
-[License::SetLicense](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/license/setlicense/) 方法 **不具執行緒安全性**。如果需要同時從多個執行緒呼叫此方法，建議使用同步原語（例如鎖）以防止潛在問題。
+[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 方法 **不具執行緒安全性**。如果需要同時從多個執行緒呼叫此方法，建議使用同步原語（例如鎖）以防止潛在問題。
 
 {{% /alert %}}
 

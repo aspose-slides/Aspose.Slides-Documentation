@@ -30,10 +30,10 @@ description: "使用 Aspose.Slides 在 C++ 中建立簡報——產生 PPT、PPT
 
 若要建立簡報並在第一張投影片上放置文字方塊，請依照以下步驟操作：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。新簡報已預設包含一張空白投影片。
-1. 使用 [Presentation::get_Slide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_slide/) 方法取得該投影片，索引值為 0。
-1. 使用 [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/addautoshape/) 方法新增矩形，並以 [ITextFrame::set_Text](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/set_text/) 方法設定其文字。
-1. 使用 [Presentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 類別的實例。新簡報已預設包含一張空白投影片。
+1. 使用 [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) 方法取得該投影片，索引值為 0。
+1. 使用 [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) 方法新增矩形，並以 [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) 方法設定其文字。
+1. 使用 [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### 我可以平行建立/儲存簡報嗎？
 
-您無法在[多執行緒](/slides/zh-hant/cpp/multithreading/)中同時操作同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 實例。請在每個執行緒或行程中使用獨立的實例。
+您無法在[多執行緒](/slides/zh-hant/cpp/multithreading/)中同時操作同一個 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 實例。請在每個執行緒或行程中使用獨立的實例。
 
 ### 如何移除試用版水印與限制？
 

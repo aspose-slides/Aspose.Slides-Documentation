@@ -72,14 +72,14 @@ Aspose.Slides for C++ 是一套原生 C++ 函式庫，可用於建立、讀取�
 <hr>
 <p>參考</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh-hant/cpp/">API 參考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/cpp/release-notes/">發行說明</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API 參考</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">發行說明</a></li>
 <li><a href="/slides/zh-hant/cpp/known-issues/">已知問題</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/cpp/">下載</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">下載</a></li>
 </ul>
 <p>支援</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">免費支援論壇</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免費支援論壇</a></li>
 <li><a href="https://helpdesk.aspose.com/">付費支援服務台</a></li>
 </ul>
 </div>
