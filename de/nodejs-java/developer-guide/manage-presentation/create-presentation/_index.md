@@ -31,11 +31,11 @@ Bevor Sie beginnen, installieren Sie das npm‑Paket `aspose.slides.via.java` zu
 
 Um eine Präsentation zu erstellen und ein Textfeld auf die erste Folie zu setzen, folgen Sie diesen Schritten:
 
-1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/). Eine neue Präsentation enthält bereits eine leere Folie.
-1. Holen Sie diese Folie aus der [Folien‑Sammlung](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getslides/) über ihren Index 0.
-1. Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie dessen Text mit [setText](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframe/settext/).
-1. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [save](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/save/).
-1. Geben Sie die Präsentation mit der Methode [dispose](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/dispose/) frei und beenden Sie den Vorgang.
+1. Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Eine neue Präsentation enthält bereits eine leere Folie.
+1. Holen Sie diese Folie aus der [Folien‑Sammlung](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) über ihren Index 0.
+1. Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie dessen Text mit [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Geben Sie die Präsentation mit der Methode [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) frei und beenden Sie den Vorgang.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Verwenden Sie [BLOB‑Verwaltungsstrategien](/slides/de/nodejs-java/manage-blob/
 
 ### Kann ich Präsentationen parallel erstellen/speichern?
 
-Sie können nicht gleichzeitig auf dieselbe [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Instanz von [mehreren Threads](/slides/de/nodejs-java/multithreading/) zugreifen. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
+Sie können nicht gleichzeitig auf dieselbe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Instanz von [mehreren Threads](/slides/de/nodejs-java/multithreading/) zugreifen. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
 
 ### Wie entferne ich das Test‑Wasserzeichen und die Einschränkungen?
 

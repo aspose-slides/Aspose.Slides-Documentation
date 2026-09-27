@@ -100,7 +100,7 @@ Wenn *hello.pptx* im Projektordner erscheint, funktioniert die Installation. Die
 Das Paket ist auch als ZIP‑Archiv mit dem selben Inhalt wie das npm‑Paket verfügbar. So installieren Sie es aus dem Archiv:
 
 1. Installieren Sie die Voraussetzungen für Ihr Betriebssystem, wie oben beschrieben.  
-2. Laden Sie das Archiv von der [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/de/nodejs-java/) herunter.  
+2. Laden Sie das Archiv von der [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/) herunter.  
 3. Erstellen Sie einen Projektordner:
 
     ```bash
