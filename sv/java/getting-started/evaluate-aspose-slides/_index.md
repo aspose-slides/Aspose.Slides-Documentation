@@ -22,7 +22,7 @@ description: "Utvärdera Aspose.Slides för Java och utforska API-funktioner fö
 
 Du kan ladda ner Aspose.Slides för utvärdering. Utvärderingsnedladdningen är densamma som den köpta nedladdningen; den blir licensierad efter att du har lagt till några kodrader för att tillämpa licensen.
 
-Utan en licens erbjuder Aspose.Slides sin fulla funktionalitet i utvärderingsläge, med två begränsningar: den lägger till en vattenstämpel med texten “utvärdering” i varje bild i varje presentation den sparar, och text som din kod läser via API:et, inklusive text som just har satts, trunkeras till de första tecknen, följt av ett meddelande om utvärderingsbegränsningen. Text som din kod skriver sparas i sin helhet. Metoden [getPresentationText](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) som extraherar text utan att ladda hela presentationen returnerar endast utvärderingsmeddelanden och ingen bildtext.
+Utan en licens erbjuder Aspose.Slides sin fulla funktionalitet i utvärderingsläge, med två begränsningar: den lägger till en vattenstämpel med texten “utvärdering” i varje bild i varje presentation den sparar, och text som din kod läser via API:et, inklusive text som just har satts, trunkeras till de första tecknen, följt av ett meddelande om utvärderingsbegränsningen. Text som din kod skriver sparas i sin helhet. Metoden [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) som extraherar text utan att ladda hela presentationen returnerar endast utvärderingsmeddelanden och ingen bildtext.
 
 ![En bild med utvärderingsvattenstämpeln](evaluate-aspose-slides_1.png)
 

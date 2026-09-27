@@ -72,14 +72,14 @@ Det läser och sparar PPT, PPTX, PPS, POT och ODP, inklusive makroaktiverade och
 <hr>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/sv/java/">API-referens</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/java/release-notes/">Versionsanteckningar</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">API-referens</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">Versionsanteckningar</a></li>
 <li><a href="/slides/sv/java/known-issues/">Kända problem</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/java/">Ladda ner</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">Ladda ner</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/sv/11">Gratis supportforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis supportforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betald supporthelpdesk</a></li>
 </ul>
 </div>

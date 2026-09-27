@@ -30,7 +30,7 @@ Den här artikeln förklarar hur licensiering fungerar i Aspose.Slides och hur d
 
 Du kan ladda ner en utvärderingsversion av **Aspose.Slides for Java** från dess [nedladdningssida](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Utvärderingsversionen erbjuder samma funktioner som den licensierade versionen av produkten. Utvärderingspaketet är samma som det köpta paketet. Utvärderingsversionen blir helt enkelt licensierad efter att du har lagt till några rader kod (för att tillämpa licensen).
 
-När du är nöjd med din utvärdering av **Aspose.Slides**, kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/sv/java/). Vi rekommenderar att du går igenom de olika prenumerationstyperna. Om du har frågor, kontakta Aspose försäljningsteam.
+När du är nöjd med din utvärdering av **Aspose.Slides**, kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/java/). Vi rekommenderar att du går igenom de olika prenumerationstyperna. Om du har frågor, kontakta Aspose försäljningsteam.
 
 Varje Aspose-licens kommer med ett ettårsabonnemang för gratis uppgraderingar till nya versioner eller korrigeringar som släpps under prenumerationsperioden. Användare med licensierade produkter (eller även utvärderingsversioner) får gratis och obegränsad teknisk support.
 
@@ -69,7 +69,7 @@ En licens kan laddas från en **fil** eller **ström**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides tillhandahåller klassen [Licens](https://reference.aspose.com/slides/sv/java/com.aspose.slides/license/) för licensieringsoperationer.
+Aspose.Slides tillhandahåller klassen [Licens](https://reference.aspose.com/slides/java/com.aspose.slides/license/) för licensieringsoperationer.
 
 {{% /alert %}}
 
@@ -95,9 +95,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Om du placerar licensfilen i en annan katalog, när du anropar metoden [setLicense](https://reference.aspose.com/slides/sv/java/com.aspose.slides/license/#setLicense-java.lang.String-) måste licensfilens namn i slutet av den angivna sökvägen vara exakt samma som ditt licensfilnamn.
+Om du placerar licensfilen i en annan katalog, när du anropar metoden [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) måste licensfilens namn i slutet av den angivna sökvägen vara exakt samma som ditt licensfilnamn.
 
-Till exempel kan du ändra licensfilens namn till *Aspose.Slides.Java.lic.xml*. Då måste du i din kod skicka sökvägen till filen (slutande med *Aspose.Slides.Java.lic.xml*) till metoden [setLicense](https://reference.aspose.com/slides/sv/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Till exempel kan du ändra licensfilens namn till *Aspose.Slides.Java.lic.xml*. Då måste du i din kod skicka sökvägen till filen (slutande med *Aspose.Slides.Java.lic.xml*) till metoden [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -137,7 +137,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-Metoden [setLicense](https://reference.aspose.com/slides/sv/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) är inte trådsäker. Om den här metoden måste anropas samtidigt från många trådar kan du vilja använda synkroniseringsprimitiver (som en lås) för att undvika problem.
+Metoden [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) är inte trådsäker. Om den här metoden måste anropas samtidigt från många trådar kan du vilja använda synkroniseringsprimitiver (som en lås) för att undvika problem.
 
 {{% /alert %}}
 

@@ -28,14 +28,14 @@ Innan du börjar, lägg till Aspose.Slides for Java i ditt projekt från Asposes
 
 ## **Skapa en presentation**
 
-Att skapa en PowerPoint‑fil från början i Aspose.Slides for Java börjar med en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/). Konstruktorn levererar en tom presentation med en enda bild, redo för former, text, diagram eller annat innehåll som din applikation behöver. När du har ändrat den bilden eller lagt till nya kan du spara resultatet i PPTX-, äldre PPT- eller OpenDocument‑format.
+Att skapa en PowerPoint‑fil från början i Aspose.Slides for Java börjar med en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Konstruktorn levererar en tom presentation med en enda bild, redo för former, text, diagram eller annat innehåll som din applikation behöver. När du har ändrat den bilden eller lagt till nya kan du spara resultatet i PPTX-, äldre PPT- eller OpenDocument‑format.
 
 För att skapa en presentation och placera en form med text på dess första bild, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.  
-2. Hämta den bilden med index 0 från samlingen som [getSlides](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getSlides--) returnerar.  
-3. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) av typen `Cloud` med metoden [addAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), och sätt dess text med [setText](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.  
+2. Hämta den bilden med index 0 från samlingen som [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) returnerar.  
+3. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) av typen `Cloud` med metoden [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), och sätt dess text med [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 Exemplet nedanför är ett komplett program. I Maven‑projektet från [Installation](/slides/sv/java/installation/), spara det som *src/main/java/HelloSlides.java* och kör `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ Använd [BLOB‑hanteringsstrategier](/slides/sv/java/manage-blob/), begränsa l
 
 ### Kan jag skapa/spara presentationer parallellt?
 
-Du kan inte arbeta på samma [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/java/multithreading/). Kör separata, isolerade instanser per tråd eller process.
+Du kan inte arbeta på samma [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/java/multithreading/). Kör separata, isolerade instanser per tråd eller process.
 
 ### Hur tar jag bort provvattensmärket och begränsningarna?
 

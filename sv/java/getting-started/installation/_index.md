@@ -151,11 +151,11 @@ Teckensnitten som används i dina presentationer, eller lämpliga ersättningar,
 
 ### Hur kan jag verifiera att Aspose.Slides är korrekt integrerat?
 
-Bygg ditt projekt, skapa en tom [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) och spara den under ett nytt namn. Om filen skapas utan att kasta undantag har biblioteket integrerats framgångsrikt.
+Bygg ditt projekt, skapa en tom [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) och spara den under ett nytt namn. Om filen skapas utan att kasta undantag har biblioteket integrerats framgångsrikt.
 
 ### Hur kan jag begränsa minnesförbrukningen när jag bearbetar stora presentationer?
 
-Höj JVM-minnesgränserna bara så högt som behövs, och anropa [dispose](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#dispose--) på varje [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/)-instans i ett `finally`-block för att frigöra cachen omedelbart. Detta förhindrar out-of-memory-fel och håller det totala minnesbruket förutsägbart under batch-operationer.
+Höj JVM-minnesgränserna bara så högt som behövs, och anropa [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) på varje [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)-instans i ett `finally`-block för att frigöra cachen omedelbart. Detta förhindrar out-of-memory-fel och håller det totala minnesbruket förutsägbart under batch-operationer.
 
 ### Kan jag exkludera oönskade exportformat för att minska den slutliga JAR-storleken?
 
