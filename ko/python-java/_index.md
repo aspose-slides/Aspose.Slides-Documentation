@@ -77,14 +77,14 @@ Aspose.Slides for Python via Java는 Microsoft PowerPoint 없이 Python 응용 �
 <hr>
 <p>참조</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ko/python-java/">API 참조</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/python-java/release-notes/">릴리즈 노트</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API 참조</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">릴리즈 노트</a></li>
 <li><a href="/slides/ko/python-java/known-issues/">알려진 문제</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/python-java/">다운로드</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">다운로드</a></li>
 </ul>
 <p>지원</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">무료 지원 포럼</a></li>
 <li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
 </ul>
 </div>

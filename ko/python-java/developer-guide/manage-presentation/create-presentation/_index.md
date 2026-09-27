@@ -29,13 +29,13 @@ description: "Aspose.Slides를 사용하여 Python via Java에서 프레젠테�
 
 ## **프레젠테이션 만들기**
 
-Aspose.Slides for Python via Java에서 처음부터 PowerPoint 파일을 만드는 과정은 [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스를 인스턴스화하는 것만큼 간단합니다. 생성자는 자동으로 하나의 슬라이드가 포함된 빈 덱을 제공하므로 도형, 텍스트, 차트 또는 애플리케이션에서 필요한 기타 콘텐츠를 바로 추가할 수 있습니다. 해당 슬라이드를 수정하거나 새 슬라이드를 추가하면 결과를 PPTX, 기존 PPT 또는 OpenDocument 형식으로 저장할 수 있습니다. 아래의 짧은 코드 예제는 첫 번째 슬라이드에 간단한 도형을 추가하는 작업 흐름을 보여줍니다.
+Aspose.Slides for Python via Java에서 처음부터 PowerPoint 파일을 만드는 과정은 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 클래스를 인스턴스화하는 것만큼 간단합니다. 생성자는 자동으로 하나의 슬라이드가 포함된 빈 덱을 제공하므로 도형, 텍스트, 차트 또는 애플리케이션에서 필요한 기타 콘텐츠를 바로 추가할 수 있습니다. 해당 슬라이드를 수정하거나 새 슬라이드를 추가하면 결과를 PPTX, 기존 PPT 또는 OpenDocument 형식으로 저장할 수 있습니다. 아래의 짧은 코드 예제는 첫 번째 슬라이드에 간단한 도형을 추가하는 작업 흐름을 보여줍니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 1. 인덱스 0을 사용하여 첫 번째 슬라이드를 가져옵니다.
-1. [AutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/autoshape/)을 [ShapeType.Cloud](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapetype/#Cloud) 유형으로 추가하고, [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapecollection/#addAutoShape)를 사용합니다.
-1. [TextFrame.setText](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/#setText)를 사용하여 도형의 텍스트를 설정합니다.
-1. [Presentation.save](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/#save)와 [SaveFormat.Pptx](https://reference.aspose.com/slides/ko/python-java/aspose.slides/saveformat/#Pptx)를 사용하여 프레젠테이션을 저장합니다.
+1. [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)을 [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) 유형으로 추가하고, [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape)를 사용합니다.
+1. [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText)를 사용하여 도형의 텍스트를 설정합니다.
+1. [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)와 [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx)를 사용하여 프레젠테이션을 저장합니다.
 
 다음 예제는 Java Virtual Machine (JVM)이 아직 실행 중이 아닌 경우 시작하고, 첫 번째 슬라이드에 텍스트가 포함된 클라우드 도형을 추가한 뒤 프레젠테이션을 저장합니다. 파일명을 *create_presentation.py* 로 저장합니다:
 

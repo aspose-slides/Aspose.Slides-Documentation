@@ -17,7 +17,7 @@ description: "Aspose.Slides for Python via Java에서 파일 기반, 바이트 �
 
 Aspose.Slides for Python via Java은 평가 모드 또는 라이선스 모드로 실행할 수 있습니다. 평가 모드에서는 저장하는 각 프레젠테이션의 모든 슬라이드에 평가 워터마크 텍스트 상자를 추가하고, 프레젠테이션에서 읽어오는 텍스트를 잘라냅니다. 이 문서에서는 파일 또는 바이트에서 라이선스를 적용하는 방법과 계량형 라이선스를 구성하는 방법을 설명합니다.
 
-구매 옵션은 [Pricing Information](https://purchase.aspose.com/pricing/slides/ko/family) 를 참조하십시오. 일반적인 라이선스 및 구매 관련 질문은 [Purchase Policies and FAQ](https://purchase.aspose.com/policies) 를 확인하세요.
+구매 옵션은 [Pricing Information](https://purchase.aspose.com/pricing/slides/family) 를 참조하십시오. 일반적인 라이선스 및 구매 관련 질문은 [Purchase Policies and FAQ](https://purchase.aspose.com/policies) 를 확인하세요.
 
 평가 제한 사항 및 임시 라이선스를 요청하는 방법은 [Evaluate Aspose.Slides](/slides/ko/python-java/evaluate-aspose-slides/) 를 참고하십시오. 임시 라이선스는 구매한 라이선스 파일과 같은 방식으로 적용합니다.
 
@@ -29,7 +29,7 @@ Aspose.Slides for Python via Java은 평가 모드 또는 라이선스 모드로
 라이선스 파일을 편집하지 마세요. 한 줄이라도 추가하면 디지털 서명이 무효화될 수 있습니다.
 {{% /alert %}}
 
-프레젠테이션을 만들거나 Aspose.Slides 작업을 수행하기 전에 애플리케이션 또는 프로세스당 한 번 라이선스를 적용하십시오. 파일 기반 라이선스의 경우 [License](https://reference.aspose.com/slides/ko/python-java/aspose.slides/license/) 클래스를 사용합니다. 계량형 라이선스는 라이선스 파일 대신 공개키와 비밀키 쌍을 사용합니다.
+프레젠테이션을 만들거나 Aspose.Slides 작업을 수행하기 전에 애플리케이션 또는 프로세스당 한 번 라이선스를 적용하십시오. 파일 기반 라이선스의 경우 [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/) 클래스를 사용합니다. 계량형 라이선스는 라이선스 파일 대신 공개키와 비밀키 쌍을 사용합니다.
 
 ## **라이선스 적용**
 
@@ -37,7 +37,7 @@ Aspose.Slides for Python via Java은 평가 모드 또는 라이선스 모드로
 
 ### **파일에서 라이선스 적용**
 
-[License.setLicense](https://reference.aspose.com/slides/ko/python-java/aspose.slides/license/#setLicense) 에 라이선스 파일 경로를 전달합니다. `Aspose.Slides.lic` 을 실제 라이선스 파일 경로로 바꾸세요.
+[License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense) 에 라이선스 파일 경로를 전달합니다. `Aspose.Slides.lic` 을 실제 라이선스 파일 경로로 바꾸세요.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 확장자를 포함한 정확한 파일 이름을 사용하십시오. 예를 들어 파일 이름이 `Aspose.Slides.lic.xml` 인 경우 경로에 `.xml` 을 포함해야 합니다. 절대 경로를 사용하면 애플리케이션 작업 디렉터리와 관련된 모호성을 피할 수 있습니다.
 
-예제에서는 [License.isLicensed](https://reference.aspose.com/slides/ko/python-java/aspose.slides/license/#isLicensed) 를 사용해 라이선스가 적용됐는지 확인합니다.
+예제에서는 [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) 를 사용해 라이선스가 적용됐는지 확인합니다.
 
 ### **바이트에서 라이선스 적용**
 
-라이선스가 Python 바이트 형태로 제공되는 경우 [License.setLicenseFromBytes](https://reference.aspose.com/slides/ko/python-java/aspose.slides/license/#setLicenseFromBytes) 를 사용합니다. 아래 예제는 파일을 바이너리 모드로 읽은 뒤 닫고 라이선스를 적용합니다.
+라이선스가 Python 바이트 형태로 제공되는 경우 [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) 를 사용합니다. 아래 예제는 파일을 바이너리 모드로 읽은 뒤 닫고 라이선스를 적용합니다.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ finally:
 
 ## **계량형 라이선스 적용**
 
-계량형 라이선스는 API 사용량에 따라 비용을 청구합니다. 계량형 라이선스를 얻은 후에는 [Metered.setMeteredKey](https://reference.aspose.com/slides/ko/python-java/aspose.slides/metered/#setMeteredKey) 로 공개키와 비밀키를 설정합니다. [Metered](https://reference.aspose.com/slides/ko/python-java/aspose.slides/metered/) 객체를 초기화하고 애플리케이션 시작 시 한 번 키를 적용하십시오.
+계량형 라이선스는 API 사용량에 따라 비용을 청구합니다. 계량형 라이선스를 얻은 후에는 [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey) 로 공개키와 비밀키를 설정합니다. [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) 객체를 초기화하고 애플리케이션 시작 시 한 번 키를 적용하십시오.
 
 아래 예제는 `ASPOSE_METERED_PUBLIC_KEY` 와 `ASPOSE_METERED_PRIVATE_KEY` 환경 변수에서 키를 읽습니다. 스크립트를 실행하기 전에 두 변수를 모두 설정하세요.
 

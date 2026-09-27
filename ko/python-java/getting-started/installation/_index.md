@@ -66,7 +66,7 @@ To update an existing Aspose.Slides installation, run `python -m pip install --u
 
 ## **ZIP 아카이브에서 설치**
 
-다음 [Aspose.Slides 다운로드 페이지](https://releases.aspose.com/slides/ko/python-java/)에서 라이브러리를 사용할 수도 있습니다:
+다음 [Aspose.Slides 다운로드 페이지](https://releases.aspose.com/slides/python-java/)에서 라이브러리를 사용할 수도 있습니다:
 
 1. 전제 조건([Prerequisites](#prerequisites)에서 설명한 대로)에서 Python과 Java를 설치하십시오.
 2. 위 지침을 사용하여 가상 환경을 생성하고 활성화하십시오.
