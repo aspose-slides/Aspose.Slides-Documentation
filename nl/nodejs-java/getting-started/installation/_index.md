@@ -100,7 +100,7 @@ Als *hello.pptx* in de projectmap verschijnt, werkt de installatie. De Java‑vi
 Het pakket is ook beschikbaar als een ZIP‑archief met dezelfde inhoud als het npm‑pakket. Om het vanuit het archief te installeren:
 
 1. Installeer de vereisten voor uw besturingssysteem, zoals hierboven beschreven.  
-1. Download het archief vanaf de [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nl/nodejs-java/).  
+1. Download het archief vanaf de [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/).  
 1. Maak een projectmap aan:
 
     ```bash

@@ -72,14 +72,14 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ondersteunde
 <hr>
 <p>REFERENTIE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/nl/nodejs-java/">API-referentie</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/nodejs-java/release-notes/">Release‑opmerkingen</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">API-referentie</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Release‑opmerkingen</a></li>
 <li><a href="/slides/nl/nodejs-java/known-issues/">Bekende problemen</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/nodejs-java/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">Download</a></li>
 </ul>
 <p>ONDERSTEUNING</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/nl/11">Gratis ondersteuningsforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
 </ul>
 </div>

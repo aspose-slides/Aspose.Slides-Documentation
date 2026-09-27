@@ -31,11 +31,11 @@ Voordat u begint, installeert u het `aspose.slides.via.java`‑pakket via npm, s
 
 Om een presentatie te maken en een tekstvak op de eerste dia te plaatsen, volgt u deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.
-1. Haal die dia op uit de [slide collection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/getslides/) via zijn index, 0.
-1. Voeg een rechthoek toe met de [addAutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/addautoshape/)‑methode en stel de tekst in met [setText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/settext/).
-1. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/save/)‑methode.
-1. Vrijwaar de presentatie met de [dispose](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/dispose/)‑methode en beëindig het proces.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.
+1. Haal die dia op uit de [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) via zijn index, 0.
+1. Voeg een rechthoek toe met de [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/)‑methode en stel de tekst in met [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/)‑methode.
+1. Vrijwaar de presentatie met de [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/)‑methode en beëindig het proces.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Gebruik [BLOB management strategies](/slides/nl/nodejs-java/manage-blob/), beper
 
 ### Kan ik presentaties tegelijk maken/opslaan?
 
-U kunt niet werken op dezelfde [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑instantie vanuit [multiple threads](/slides/nl/nodejs-java/multithreading/). Start afzonderlijke, geïsoleerde instanties per thread of proces.
+U kunt niet werken op dezelfde [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑instantie vanuit [multiple threads](/slides/nl/nodejs-java/multithreading/). Start afzonderlijke, geïsoleerde instanties per thread of proces.
 
 ### Hoe verwijder ik het proef‑watermerk en de beperkingen?
 

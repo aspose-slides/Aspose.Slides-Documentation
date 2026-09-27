@@ -41,7 +41,7 @@ Als u Aspose.Slides wilt testen zonder de beperkingen van de evaluatieversie, ku
 {{% /alert %}}
 
 ## **Over de licentie**
-U kunt eenvoudig een evaluatieversie van Aspose.Slides voor Node.js via Java downloaden vanaf de [downloadpagina](https://releases.aspose.com/slides/nl/nodejs-java/). De evaluatieversie heeft dezelfde functionaliteit als de gelicentieerde versie, met de hierboven beschreven beperkingen. Bovendien wordt de evaluatieversie gewoon gelicentieerd zodra u een licentie aanschaft en een paar regels code toevoegt om de licentie toe te passen.
+U kunt eenvoudig een evaluatieversie van Aspose.Slides voor Node.js via Java downloaden vanaf de [downloadpagina](https://releases.aspose.com/slides/nodejs-java/). De evaluatieversie heeft dezelfde functionaliteit als de gelicentieerde versie, met de hierboven beschreven beperkingen. Bovendien wordt de evaluatieversie gewoon gelicentieerd zodra u een licentie aanschaft en een paar regels code toevoegt om de licentie toe te passen.
 
 De licentie is een platte‑tekst XML‑bestand dat details bevat zoals de productnaam, het aantal ontwikkelaars waarvoor het gelicentieerd is, de vervaldatum van het abonnement, enzovoort. Het bestand is digitaal ondertekend, dus wijzig het bestand niet. Zelfs een onbedoelde extra regeleinde in de inhoud van het bestand maakt het ongeldig.
 
@@ -61,7 +61,7 @@ U moet de licentie instellen:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-U kunt prijsinformatie vinden op de [Prijzinformatie](https://purchase.aspose.com/pricing/slides/nl/family) pagina.
+U kunt prijsinformatie vinden op de [Prijzinformatie](https://purchase.aspose.com/pricing/slides/family) pagina.
 {{% /alert %}}
 
 ### **Instellen van een licentie in Aspose.Slides voor Node.js via Java**
@@ -93,10 +93,10 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-Bij het aanroepen van de setLicense‑methode moet de licentienaam gelijk zijn aan die van uw licentiebestand. U kunt bijvoorbeeld de bestandsnaam van het licentiebestand wijzigen in "Aspose.Slides.lic.xml". Vervolgens moet u in uw code de nieuwe licentienaam (Aspose.Slides.lic.xml) doorgeven aan de setLicense‑methode. Als het bestand ontbreekt of geen geldige licentie bevat, werpt [setLicense](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/license/setlicense/) een uitzondering die het script met een fout beëindigt.
+Bij het aanroepen van de setLicense‑methode moet de licentienaam gelijk zijn aan die van uw licentiebestand. U kunt bijvoorbeeld de bestandsnaam van het licentiebestand wijzigen in "Aspose.Slides.lic.xml". Vervolgens moet u in uw code de nieuwe licentienaam (Aspose.Slides.lic.xml) doorgeven aan de setLicense‑methode. Als het bestand ontbreekt of geen geldige licentie bevat, werpt [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) een uitzondering die het script met een fout beëindigt.
 
 #### **Licentie toepassen vanuit een stream**
-Om een licentie vanuit een stream toe te passen, geeft u het [License](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/license/)‑object en een leesbare stream door aan de statische [setLicenseFromStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/license/setlicense/)‑methode. De stream wordt asynchroon gelezen, en de callback ontvangt een fout als de stream geen geldige licentie bevat:
+Om een licentie vanuit een stream toe te passen, geeft u het [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/)‑object en een leesbare stream door aan de statische [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/)‑methode. De stream wordt asynchroon gelezen, en de callback ontvangt een fout als de stream geen geldige licentie bevat:
 
 **Node.js**
 
