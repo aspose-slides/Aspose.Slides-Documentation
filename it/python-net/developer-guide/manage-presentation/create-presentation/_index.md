@@ -29,10 +29,10 @@ Prima di iniziare, installa il pacchetto da PyPI con `pip install aspose.slides`
 
 Per creare una presentazione e inserire una forma con testo nella sua prima diapositiva, segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) . Una nuova presentazione contiene già una diapositiva vuota.  
-1. Recupera quella diapositiva dalla collezione [slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/slides/it/) per indice, 0.  
-1. Aggiungi una nuvola a forma di [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) con il metodo [add_auto_shape](https://reference.aspose.com/slides/it/python-net/aspose.slides/shapecollection/add_auto_shape/) della collezione [shapes](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/shapes/) della diapositiva, e imposta il suo [text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/text/).  
-1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/save/) .
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) . Una nuova presentazione contiene già una diapositiva vuota.  
+1. Recupera quella diapositiva dalla collezione [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) per indice, 0.  
+1. Aggiungi una nuvola a forma di [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) con il metodo [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) della collezione [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) della diapositiva, e imposta il suo [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).  
+1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) .
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Usa [BLOB management strategies](/slides/it/python-net/manage-blob/), limita lo 
 
 ### Posso creare/salvare presentazioni in parallelo?
 
-Non è possibile operare sulla stessa [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) da [più thread](/slides/it/python-net/multithreading/). Esegui istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) da [più thread](/slides/it/python-net/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
 ### Come rimuovere la filigrana di valutazione e le limitazioni?
 
