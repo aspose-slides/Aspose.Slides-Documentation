@@ -23,7 +23,7 @@ Aspose.Slides kann im Evaluierungsmodus oder mit einer gültigen Lizenz verwende
 
 Sie können eine Evaluierungsversion von **Aspose.Slides for Python via .NET** von seiner [download page](https://pypi.org/project/Aspose.Slides/) herunterladen. Die Evaluierungsversion bietet dieselben Funktionen wie das lizenzierte Produkt. Das Evaluierungspaket ist identisch mit dem erworbenen Paket und wird lizenziert, nachdem Sie ein paar Codezeilen hinzugefügt haben, um die Lizenz anzuwenden.
 
-Wenn Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie eine [purchase a license](https://purchase.aspose.com/pricing/slides/de/python-net/) erwerben. Wir empfehlen, die verfügbaren Abonnementoptionen zu prüfen. Bei Fragen kontaktieren Sie das Aspose‑Verkaufsteam.
+Wenn Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie eine [purchase a license](https://purchase.aspose.com/pricing/slides/python-net/) erwerben. Wir empfehlen, die verfügbaren Abonnementoptionen zu prüfen. Bei Fragen kontaktieren Sie das Aspose‑Verkaufsteam.
 
 Jede Aspose‑Lizenz beinhaltet ein einjähriges Abonnement mit kostenlosen Upgrades auf neue Versionen und Fehlerbehebungen, die während dieses Zeitraums veröffentlicht werden. Sowohl lizenzierte als auch Evaluierungsnutzer erhalten kostenlosen, unbegrenzten technischen Support.
 
@@ -58,7 +58,7 @@ Eine Lizenz kann aus einer **Datei** oder einem **Stream** geladen werden.
 
 {{% alert color="info" title="Hinweis" %}}
 
-Aspose.Slides stellt die [License](https://reference.aspose.com/slides/de/python-net/aspose.slides/license/)‑Klasse zur Lizenzverwaltung bereit.
+Aspose.Slides stellt die [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/)‑Klasse zur Lizenzverwaltung bereit.
 
 {{% /alert %}}
 
@@ -70,7 +70,7 @@ Neue Lizenzen können Aspose.Slides nur mit Version 21.4 oder höher aktivieren.
 
 ### **Datei**
 
-Der einfachste Weg, eine Lizenz zu setzen, besteht darin, den Pfad der Licenzdatei an die [set_license](https://reference.aspose.com/slides/de/python-net/aspose.slides/license/set_license/)‑Methode zu übergeben. Wenn Sie nur den Dateinamen übergeben, wie im Beispiel unten, sucht Aspose.Slides die Datei im aktuellen Arbeitsverzeichnis.
+Der einfachste Weg, eine Lizenz zu setzen, besteht darin, den Pfad der Licenzdatei an die [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/)‑Methode zu übergeben. Wenn Sie nur den Dateinamen übergeben, wie im Beispiel unten, sucht Aspose.Slides die Datei im aktuellen Arbeitsverzeichnis.
 
 Der folgende Python‑Code zeigt, wie die Lizenzdatei gesetzt wird:
 
@@ -86,9 +86,9 @@ license.set_license("Aspose.Slides.lic")
 
 {{% alert color="warning" title="Warnung" %}}
 
-Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf von [License.set_license](https://reference.aspose.com/slides/de/python-net/aspose.slides/license/set_license/#str) der Dateiname am Ende des expliziten Pfads exakt dem Namen Ihrer Lizenzdatei entsprechen.
+Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf von [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) der Dateiname am Ende des expliziten Pfads exakt dem Namen Ihrer Lizenzdatei entsprechen.
 
-Beispielsweise können Sie die Lizenzdatei in *Aspose.Slides.lic.xml* umbenennen. Dann übergeben Sie in Ihrem Code den vollständigen Pfad zu dieser Datei (endend mit Aspose.Slides.lic.xml) an die [License.set_license](https://reference.aspose.com/slides/de/python-net/aspose.slides/license/set_license/#str)‑Methode.
+Beispielsweise können Sie die Lizenzdatei in *Aspose.Slides.lic.xml* umbenennen. Dann übergeben Sie in Ihrem Code den vollständigen Pfad zu dieser Datei (endend mit Aspose.Slides.lic.xml) an die [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)‑Methode.
 
 {{% /alert %}}
 
@@ -127,7 +127,7 @@ if license.is_licensed():
 
 {{% alert color="warning" title="Warnung" %}}
 
-Die Methode [License.set_license](https://reference.aspose.com/slides/de/python-net/aspose.slides/license/set_license/) ist nicht thread‑sicher. Wenn Sie sie gleichzeitig aus mehreren Threads aufrufen müssen, verwenden Sie ein Synchronisations‑Primitive wie `threading.Lock`, um Probleme zu vermeiden.
+Die Methode [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) ist nicht thread‑sicher. Wenn Sie sie gleichzeitig aus mehreren Threads aufrufen müssen, verwenden Sie ein Synchronisations‑Primitive wie `threading.Lock`, um Probleme zu vermeiden.
 
 {{% /alert %}}
 

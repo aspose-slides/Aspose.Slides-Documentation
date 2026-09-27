@@ -29,10 +29,10 @@ Bevor Sie beginnen, installieren Sie das Paket von PyPI mit `pip install aspose.
 
 Um eine Präsentation zu erstellen und ein Shape mit Text auf der ersten Folie zu platzieren, gehen Sie folgendermaßen vor:
 
-1. Erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse. Eine neue Präsentation enthält bereits eine leere Folie.
-2. Holen Sie diese Folie aus der [slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/slides/de/)‑Kollektion über den Index 0.
-3. Fügen Sie der [shapes](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/shapes/)‑Kollektion der Folie ein wolkenförmiges [AutoShape](https://reference.aspose.com/slides/de/python-net/aspose.slides/autoshape/) mit der Methode [add_auto_shape](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/add_auto_shape/) hinzu und setzen Sie dessen [text](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/text/).
-4. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [save](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/save/).
+1. Erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse. Eine neue Präsentation enthält bereits eine leere Folie.
+2. Holen Sie diese Folie aus der [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/)‑Kollektion über den Index 0.
+3. Fügen Sie der [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/)‑Kollektion der Folie ein wolkenförmiges [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mit der Methode [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) hinzu und setzen Sie dessen [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+4. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Verwenden Sie [BLOB management strategies](/slides/de/python-net/manage-blob/), 
 
 ### Kann ich Präsentationen parallel erstellen/speichern?
 
-Sie dürfen nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Instanz aus [multiple threads](/slides/de/python-net/multithreading/) bedienen. Nutzen Sie separate, isolierte Instanzen pro Thread oder Prozess.
+Sie dürfen nicht dieselbe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Instanz aus [multiple threads](/slides/de/python-net/multithreading/) bedienen. Nutzen Sie separate, isolierte Instanzen pro Thread oder Prozess.
 
 ### Wie entferne ich das Test‑Wasserzeichen und die Einschränkungen?
 
