@@ -30,10 +30,10 @@ description: "Aspose.Slides के साथ C++ में प्रस्तु
 
 एक प्रस्तुति बनाने और उसकी पहली स्लाइड पर टेक्स्ट बॉक्स रखने के लिए, निम्न चरणों का पालन करें:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
-2. उस स्लाइड को [Presentation::get_Slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_slide/) मेथड और उसके सूचकांक, 0, से प्राप्त करें।
-3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addautoshape/) मेथड से एक आयत जोड़ें, और उसके टेक्स्ट को [ITextFrame::set_Text](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/set_text/) मेथड से सेट करें।
-4. [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड से प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
+2. उस स्लाइड को [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) मेथड और उसके सूचकांक, 0, से प्राप्त करें।
+3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) मेथड से एक आयत जोड़ें, और उसके टेक्स्ट को [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) मेथड से सेट करें।
+4. [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) मेथड से प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### क्या मैं प्रस्तुतियों को समानांतर में बना/सहेज सकता हूँ?
 
-आप एक ही [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) इंस्टेंस को [multiple threads](/slides/hi/cpp/multithreading/) से संचालित नहीं कर सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग, अलग‑थलग इंस्टेंस चलाएँ।
+आप एक ही [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) इंस्टेंस को [multiple threads](/slides/hi/cpp/multithreading/) से संचालित नहीं कर सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग, अलग‑थलग इंस्टेंस चलाएँ।
 
 ### ट्रायल वॉटरमार्क और सीमाओं को कैसे हटाएँ?
 

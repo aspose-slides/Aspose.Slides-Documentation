@@ -72,14 +72,14 @@ Aspose.Slides for C++ एक मूल C++ लाइब्रेरी है �
 <hr>
 <p>संदर्भ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hi/cpp/">API संदर्भ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/cpp/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API संदर्भ</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">रिलीज़ नोट्स</a></li>
 <li><a href="/slides/hi/cpp/known-issues/">ज्ञात समस्याएँ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/cpp/">डाउनलोड</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">डाउनलोड</a></li>
 </ul>
 <p>समर्थन</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">नि:शुल्क सहायता फोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">नि:शुल्क सहायता फोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">भुगतान आधारित सहायता डेस्क</a></li>
 </ul>
 </div>
