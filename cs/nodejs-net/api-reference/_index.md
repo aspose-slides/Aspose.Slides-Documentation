@@ -7,7 +7,7 @@ description: "Aspose.Slides pro Node.js přes .NET je dokumentováno pomocí ref
 ---
 ## **Přehled**
 
-Aspose.Slides for Node.js via .NET nemá vlastní referenci API. Balíček zpřístupňuje třídy Aspose.Slides pro .NET v JavaScriptu pod stejnými názvy, s názvy členů v camelCase, takže [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/cs/net/) dokumentuje jeho třídy, členy a výčty.
+Aspose.Slides for Node.js via .NET nemá vlastní referenci API. Balíček zpřístupňuje třídy Aspose.Slides pro .NET v JavaScriptu pod stejnými názvy, s názvy členů v camelCase, takže [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) dokumentuje jeho třídy, členy a výčty.
 
 ## **Mapování názvů .NET na JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Skript zapíše `slide.png` a `slide.pdf` do aktuálního adresáře. Oba zobrazí obdélník s jeho textem. Bez licence také zobrazí vodotisk hodnocení; viz [Licensing](/slides/cs/nodejs-net/licensing/).
 
-Podrobnosti o zde použitých členech najdete v [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/cs/net/aspose.slides/textframe/text/) a [Slide.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/slide/getimage/) v referenci API Aspose.Slides pro .NET.
+Podrobnosti o zde použitých členech najdete v [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) a [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) v referenci API Aspose.Slides pro .NET.

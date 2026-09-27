@@ -10,7 +10,7 @@ url: /cs/nodejs-net/licensing/
 Aspose.Slides for Node.js via .NET je jeden npm balíček jak pro hodnocení, tak pro produkci. Bez licence běží v režimu hodnocení. Po zakoupení licence nebo získání bezplatné 30‑denní dočasné licence ji použijete pomocí několika řádků kódu a omezení hodnocení již neplatí.
 
 {{% alert color="info" title="Note" %}}
-Obecné zásady, jak hodnotit, licencovat a nakupovat produkty Aspose, jsou shromážděny v [Zásady nákupu a FAQ](https://purchase.aspose.com/policies). Ceny jsou uvedeny na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/cs/family).
+Obecné zásady, jak hodnotit, licencovat a nakupovat produkty Aspose, jsou shromážděny v [Zásady nákupu a FAQ](https://purchase.aspose.com/policies). Ceny jsou uvedeny na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ## **Omezení verze hodnocení**
@@ -53,4 +53,4 @@ Název souboru nebo relativní cesta jsou vyhodnoceny vůči aktuální složce,
 
 Pokud soubor nelze najít nebo není platnou licencí, `setLicense` vyhodí chybu a Aspose.Slides zůstane v režimu hodnocení. Skript chybu zachytí a vypíše její zprávu. Pro chybějící soubor zpráva začíná `License "Aspose.Slides.lic" doesn't exist or access is restricted.` a uvádí každé místo, kde bylo hledáno.
 
-V tomto balíčku se licence používá pouze ze souboru. `License` nepřijímá proud a balíček neumožňuje metrické licencování. Pro třídu, kterou balíček obaluje, viz [License](https://reference.aspose.com/slides/cs/net/aspose.slides/license/) v dokumentaci API Aspose.Slides pro .NET.
+V tomto balíčku se licence používá pouze ze souboru. `License` nepřijímá proud a balíček neumožňuje metrické licencování. Pro třídu, kterou balíček obaluje, viz [License](https://reference.aspose.com/slides/net/aspose.slides/license/) v dokumentaci API Aspose.Slides pro .NET.

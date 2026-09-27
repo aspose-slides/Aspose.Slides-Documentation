@@ -58,13 +58,13 @@ Načítá a ukládá PPT, PPTX, PPS, POT a ODP, včetně variant s makry a šabl
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/cs/net/">Reference .NET API</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/nodejs-net/release-notes/">Poznámky k vydání</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/nodejs-net/">Ke stažení</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Reference .NET API</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Poznámky k vydání</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">Ke stažení</a></li>
 </ul>
 <p>PODPOŘA</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/cs/11">Fórum bezplatné podpory</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Fórum bezplatné podpory</a></li>
 <li><a href="https://helpdesk.aspose.com/">Placená podpora (helpdesk)</a></li>
 </ul>
 </div>

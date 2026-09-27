@@ -31,12 +31,12 @@ Tento článek přidá textové pole na snímek a uloží prezentaci. Poté otev
 Příklady vyžadují projekt nastavený podle pokynů v [Installation](/slides/cs/nodejs-net/installation/). Uložte každý příklad jako soubor `.js` do složky projektu a spusťte jej z této složky pomocí `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET nemá vlastní referenci API. Zrcadlí API Aspose.Slides pro .NET s názvy ve stylu camelCase, takže odkazy na API v tomto článku vedou na odpovídající třídy a členy v [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/cs/net/).
+Aspose.Slides for Node.js via .NET nemá vlastní referenci API. Zrcadlí API Aspose.Slides pro .NET s názvy ve stylu camelCase, takže odkazy na API v tomto článku vedou na odpovídající třídy a členy v [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Přidání textového pole**
 
-Chcete-li přidat textové pole, přidejte automatický tvar na snímek pomocí metody [addAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/shapecollection/addautoshape/) a přiřaďte mu text pomocí metody [addTextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/addtextframe/). Následující příklad přidá obdélník na první snímek nové prezentace a uloží prezentaci jako `text-box.pptx`:
+Chcete-li přidat textové pole, přidejte automatický tvar na snímek pomocí metody [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) a přiřaďte mu text pomocí metody [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). Následující příklad přidá obdélník na první snímek nové prezentace a uloží prezentaci jako `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ Snímek v souboru `text-box.pptx` obsahuje obdélník široký 500 bodů a vysok
 
 ## **Změna textu a jeho formátování**
 
-Následující příklad otevře `text-box.pptx`, který vytvořil předchozí příklad, a získá první tvar na prvním snímku. Tvary jako obrázky a tabulky nemají textový rámeček, proto příklad kontroluje, že tvar je [AutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/) předtím, než použije [textFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/textframe/) tvaru. Poté provede následující:
+Následující příklad otevře `text-box.pptx`, který vytvořil předchozí příklad, a získá první tvar na prvním snímku. Tvary jako obrázky a tabulky nemají textový rámeček, proto příklad kontroluje, že tvar je [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) předtím, než použije [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) tvaru. Poté provede následující:
 
-1. Prostřednictvím vlastnosti [text](https://reference.aspose.com/slides/cs/net/aspose.slides/textframe/text/) nahradí text. Po té textový rámeček obsahuje jeden odstavec s jednou částí.
-2. Získá tuto část ze sbírek [paragraphs](https://reference.aspose.com/slides/cs/net/aspose.slides/textframe/paragraphs/) a [portions](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraph/portions/) a přečte její [portionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/portion/portionformat/).
-3. Nastaví [fontHeight](https://reference.aspose.com/slides/cs/net/aspose.slides/baseportionformat/fontheight/), velikost písma v bodech, a [fontBold](https://reference.aspose.com/slides/cs/net/aspose.slides/baseportionformat/fontbold/), která přijímá hodnotu [NullableBool](https://reference.aspose.com/slides/cs/net/aspose.slides/nullablebool/).
+1. Prostřednictvím vlastnosti [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) nahradí text. Po té textový rámeček obsahuje jeden odstavec s jednou částí.
+2. Získá tuto část ze sbírek [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) a [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) a přečte její [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).
+3. Nastaví [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), velikost písma v bodech, a [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), která přijímá hodnotu [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

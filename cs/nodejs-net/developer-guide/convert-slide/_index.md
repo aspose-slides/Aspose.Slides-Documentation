@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET vykresluje snímky z prezentací PowerPoint a
 Ukázky očekávají prezentaci pojmenovanou `sample.pptx` ve složce projektu, kterou jste vytvořili v [Installation](/slides/cs/nodejs-net/installation/). Lze použít libovolnou prezentaci PowerPoint. Uložte každou ukázku jako soubor s příponou `.js` do složky projektu a spusťte ji z této složky pomocí `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET nemá vlastní referenci API. Zrcadlí API Aspose.Slides pro .NET s názvy ve stylu camelCase, takže odkazy na API v tomto článku vedou na odpovídající třídy a členy v [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/cs/net/).
+Aspose.Slides for Node.js via .NET nemá vlastní referenci API. Zrcadlí API Aspose.Slides pro .NET s názvy ve stylu camelCase, takže odkazy na API v tomto článku vedou na odpovídající třídy a členy v [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 Pro převod snímku na obrázek postupujte podle následujících kroků:
 
-1. Otevřete prezentaci pomocí konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/presentation/).
-1. Získáte snímek ze sbírky [slides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/slides/cs/) metodou `get(index)`. Indexy začínají od 0.
-1. Vykreslete snímek pomocí `getImageWithScale` nebo `getImageWithImageSize`. V referenci .NET API jsou oba přetížení metody [Slide.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/slide/getimage/). Vrací objekt obrázku odpovídající typu [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/).
-1. Uložte obrázek pomocí jeho metody [save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/) a hodnoty [ImageFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/imageformat/), a poté zavolejte jeho metodu `dispose`.
+1. Otevřete prezentaci pomocí konstruktoru [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+1. Získáte snímek ze sbírky [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) metodou `get(index)`. Indexy začínají od 0.
+1. Vykreslete snímek pomocí `getImageWithScale` nebo `getImageWithImageSize`. V referenci .NET API jsou oba přetížení metody [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Vrací objekt obrázku odpovídající typu [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+1. Uložte obrázek pomocí jeho metody [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) a hodnoty [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), a poté zavolejte jeho metodu `dispose`.
 
 ## **Převést každý snímek na PNG obrázek**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Skript zapíše jeden soubor na snímek, např. `slide_1.png`, `slide_2.png` a tak dále, číslované od 1. Pro prezentaci 16:9 se snímky o rozměrech 960 × 540 bodů vytvoří obrázky o rozměrech 1920 × 1080 pixelů. Skryté snímky jsou také vykresleny; pro jejich přeskočení zkontrolujte vlastnost [hidden](https://reference.aspose.com/slides/cs/net/aspose.slides/slide/hidden/) snímku. Každý obrázek je uvolněn ve svém vlastním bloku `finally`, což ho uvolní před vykreslením dalšího snímku. Bez licence se na obrázcích také objeví vodoznak evaluace; viz [Licensing](/slides/cs/nodejs-net/licensing/).
+Skript zapíše jeden soubor na snímek, např. `slide_1.png`, `slide_2.png` a tak dále, číslované od 1. Pro prezentaci 16:9 se snímky o rozměrech 960 × 540 bodů vytvoří obrázky o rozměrech 1920 × 1080 pixelů. Skryté snímky jsou také vykresleny; pro jejich přeskočení zkontrolujte vlastnost [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) snímku. Každý obrázek je uvolněn ve svém vlastním bloku `finally`, což ho uvolní před vykreslením dalšího snímku. Bez licence se na obrázcích také objeví vodoznak evaluace; viz [Licensing](/slides/cs/nodejs-net/licensing/).
 
 ## **Převést snímek na obrázek o dané velikosti**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-Vlastnost [slideSize.size](https://reference.aspose.com/slides/cs/net/aspose.slides/slidesize/size/) vrací šířku a výšku snímku v bodech. Pro prezentaci 16:9 skript vypíše `Saved a 1280 x 720 image` a vytvoří soubor `slide_1_1280px.png`; pro prezentaci 4:3 má obrázek rozměry 1280 × 960 pixelů.
+Vlastnost [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) vrací šířku a výšku snímku v bodech. Pro prezentaci 16:9 skript vypíše `Saved a 1280 x 720 image` a vytvoří soubor `slide_1_1280px.png`; pro prezentaci 4:3 má obrázek rozměry 1280 × 960 pixelů.
 
 ## **FAQ**
 
