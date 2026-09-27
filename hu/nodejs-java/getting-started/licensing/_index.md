@@ -40,7 +40,7 @@ Ha az Aspose.Slides-et az értékelő verzió korlátozása nélkül szeretné t
 {{% /alert %}}
 
 ## **A licencről**
-Az Aspose.Slides Node.js (Java) értékelő verziója könnyen letölthető a [letöltési oldalról](https://releases.aspose.com/slides/hu/nodejs-java/). Az értékelő verzió ugyanazokkal a funkciókkal rendelkezik, mint a licencelt verzió, a fent leírt korlátozásokkal. Továbbá az értékelő verzió egyszerűen licencelté válik, miután megvásárol egy licencet és néhány kódsort hozzáad a licenc alkalmazásához.
+Az Aspose.Slides Node.js (Java) értékelő verziója könnyen letölthető a [letöltési oldalról](https://releases.aspose.com/slides/nodejs-java/). Az értékelő verzió ugyanazokkal a funkciókkal rendelkezik, mint a licencelt verzió, a fent leírt korlátozásokkal. Továbbá az értékelő verzió egyszerűen licencelté válik, miután megvásárol egy licencet és néhány kódsort hozzáad a licenc alkalmazásához.
 
 A licenc egy egyszerű szöveges XML fájl, amely tartalmazza például a termék nevét, a licencelt fejlesztők számát, az előfizetés lejárati dátumát stb. A fájl digitálisan alá van írva, ezért ne módosítsa. Még egy véletlen sorvége hozzáadása is érvényteleníti.
 
@@ -60,7 +60,7 @@ A licencet a következőképpen kell beállítani:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Az árazási információk a [“Pricing Information”](https://purchase.aspose.com/pricing/slides/hu/family) oldalon érhetők el.
+Az árazási információk a [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family) oldalon érhetők el.
 {{% /alert %}}
 
 ### **Licenc beállítása az Aspose.Slides Node.js (Java) verzióban**
@@ -91,10 +91,10 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-A setLicense metódus meghívásakor a licenc neve meg kell, hogy egyezzen a licencfájl nevével. Például megváltoztathatja a licencfájl nevét "Aspose.Slides.lic.xml"-re. Ezután a kódban az új licencnevet (Aspose.Slides.lic.xml) kell átadni a setLicense metódusnak. Ha a fájl hiányzik vagy nem tartalmaz érvényes licencet, a [setLicense](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/license/setlicense/) kivételt dob, ami hibával befejezi a szkriptet.
+A setLicense metódus meghívásakor a licenc neve meg kell, hogy egyezzen a licencfájl nevével. Például megváltoztathatja a licencfájl nevét "Aspose.Slides.lic.xml"-re. Ezután a kódban az új licencnevet (Aspose.Slides.lic.xml) kell átadni a setLicense metódusnak. Ha a fájl hiányzik vagy nem tartalmaz érvényes licencet, a [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) kivételt dob, ami hibával befejezi a szkriptet.
 
 #### **Licenc alkalmazása adatfolyamból**
-Licenc adatfolyamból történő alkalmazásához adja át a [License](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/license/) objektumot és egy olvasható adatfolyamot a statikus [setLicenseFromStream](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/license/setlicense/) metódusnak. Az adatfolyam aszinkron módon olvasódik, és a visszahívás hibát kap, ha az adatfolyam nem tartalmaz érvényes licencet:
+Licenc adatfolyamból történő alkalmazásához adja át a [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) objektumot és egy olvasható adatfolyamot a statikus [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) metódusnak. Az adatfolyam aszinkron módon olvasódik, és a visszahívás hibát kap, ha az adatfolyam nem tartalmaz érvényes licencet:
 
 **Node.js**
 

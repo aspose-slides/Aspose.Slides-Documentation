@@ -72,14 +72,14 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP formátumokat, beleértve a mak
 <hr>
 <p>REFERNCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hu/nodejs-java/">API referencia</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/nodejs-java/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">API referencia</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Kiadási megjegyzések</a></li>
 <li><a href="/slides/hu/nodejs-java/known-issues/">Ismert problémák</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/nodejs-java/">Letöltés</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>

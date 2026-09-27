@@ -31,11 +31,11 @@ Mielőtt elkezdené, telepítse a `aspose.slides.via.java` csomagot az npm-ről,
 
 A bemutató létrehozásához és egy szövegdoboz elhelyezéséhez az első diára, kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból. Egy új bemutató már tartalmaz egy üres diát.  
-2. Szerezze meg azt a diát a [slide collection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getslides/) gyűjteményből az indexével, 0.  
-3. Adjon hozzá egy téglalapot a [addAutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/addautoshape/) metódussal, és állítsa be a szövegét a [setText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/settext/) segítségével.  
-4. Mentse a bemutatót PPTX fájlként a [save](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/save/) metódus segítségével.  
-5. Szabadítsa fel a bemutatót a [dispose](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/dispose/) metódussal, és fejezze be a folyamatot.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból. Egy új bemutató már tartalmaz egy üres diát.  
+2. Szerezze meg azt a diát a [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) gyűjteményből az indexével, 0.  
+3. Adjon hozzá egy téglalapot a [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) metódussal, és állítsa be a szövegét a [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/) segítségével.  
+4. Mentse a bemutatót PPTX fájlként a [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) metódus segítségével.  
+5. Szabadítsa fel a bemutatót a [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) metódussal, és fejezze be a folyamatot.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Használja a [BLOB‑kezelési stratégiákat](/slides/hu/nodejs-java/manage-blo
 
 ### Létrehozhatok/menthetek bemutatókat párhuzamosan?
 
-Nem lehet ugyanazon a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) példányon műveleteket végrehajtani [több szál](/slides/hu/nodejs-java/multithreading/) esetén. Futtasson külön, elszigetelt példányokat szálanként vagy folyamatanként.
+Nem lehet ugyanazon a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) példányon műveleteket végrehajtani [több szál](/slides/hu/nodejs-java/multithreading/) esetén. Futtasson külön, elszigetelt példányokat szálanként vagy folyamatanként.
 
 ### Hogyan távolíthatom el a próba vízjelet és korlátozásokat?
 

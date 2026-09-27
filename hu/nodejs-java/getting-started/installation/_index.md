@@ -100,7 +100,7 @@ Ha a *hello.pptx* megjelenik a projektmappában, a telepítés sikeres. A Java v
 A csomag ZIP‑archívumként is elérhető, ugyanazzal a tartalommal, mint az npm csomag. A telepítés az archívumból a következőképpen történik:
 
 1. Telepítse a fenti operációs rendszeréhez szükséges előfeltételeket.  
-1. Töltse le az archívumot az [Aspose.Slides for Node.js via Java letöltési oldaláról](https://releases.aspose.com/slides/hu/nodejs-java/).  
+1. Töltse le az archívumot az [Aspose.Slides for Node.js via Java letöltési oldaláról](https://releases.aspose.com/slides/nodejs-java/).  
 1. Hozzon létre egy projektmappát:
 
     ```bash
