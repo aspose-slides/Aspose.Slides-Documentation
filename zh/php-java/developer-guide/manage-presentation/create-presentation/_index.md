@@ -30,10 +30,10 @@ description: "使用 Aspose.Slides for PHP via Java 创建演示文稿——可�
 
 要创建演示文稿并在其第一张幻灯片上放置文本框，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类的实例。新演示文稿已经包含一张空幻灯片。
-2. 通过索引 0，从 [Presentation::getSlides](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/getslides/) 返回的集合中获取该幻灯片。
-3. 使用 [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapecollection/addautoshape/) 方法添加一个矩形，并使用 [TextFrame::setText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/settext/) 设置其文本。
-4. 使用 [Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。新演示文稿已经包含一张空幻灯片。
+2. 通过索引 0，从 [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) 返回的集合中获取该幻灯片。
+3. 使用 [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) 方法添加一个矩形，并使用 [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/) 设置其文本。
+4. 使用 [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides 在 Tomcat 内部读取和写入文件，而不是在 PHP 进程�
 
 ## **创建并保存演示文稿**
 
-要创建空演示文稿并保存，实例化 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类并使用 [SaveFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/) 枚举中的任意格式保存。结果是一个包含一张空幻灯片的演示文稿。
+要创建空演示文稿并保存，实例化 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类并使用 [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) 枚举中的任意格式保存。结果是一个包含一张空幻灯片的演示文稿。
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **打开并保存演示文稿**
 
-要将演示文稿从一种格式转换为另一种格式，先将文件路径传递给 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 构造函数打开，然后以目标格式保存。Aspose.Slides 会从文件本身检测输入格式，如 PPT、PPTX 或 ODP。
+要将演示文稿从一种格式转换为另一种格式，先将文件路径传递给 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 构造函数打开，然后以目标格式保存。Aspose.Slides 会从文件本身检测输入格式，如 PPT、PPTX 或 ODP。
 
 下面的示例假设脚本旁有名为 *Sample.odp* 的 OpenDocument 演示文稿，并将其保存为 PPTX。
 
@@ -127,7 +127,7 @@ try {
 
 ### 我可以并行创建/保存演示文稿吗？
 
-不能在 [multiple threads](/slides/zh/php-java/multithreading/) 中操作同一个 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 实例。请为每个线程或进程运行独立的实例。
+不能在 [multiple threads](/slides/zh/php-java/multithreading/) 中操作同一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 实例。请为每个线程或进程运行独立的实例。
 
 ### 如何去除试用水印和限制？
 

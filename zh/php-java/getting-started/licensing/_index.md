@@ -61,7 +61,7 @@ description: "在 Aspose.Slides for PHP via Java 中应用、管理和排除许�
 {{% /alert %}}
 
 {{% alert color="info" title="注意" %}}
-定价信息请参阅[“定价信息”](https://purchase.aspose.com/pricing/slides/zh/family)页面。
+定价信息请参阅[“定价信息”](https://purchase.aspose.com/pricing/slides/family)页面。
 {{% /alert %}}
 
 ### **在 Aspose.Slides for PHP via Java 中设置许可证**

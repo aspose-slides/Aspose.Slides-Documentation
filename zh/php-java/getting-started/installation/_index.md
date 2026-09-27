@@ -154,7 +154,7 @@ PHP 无法从 Tomcat 加载 `Java.inc`。如果前面的提示信息显示 `http
 
 **在处理大型演示文稿时，如何限制内存消耗？**
 
-仅在需要时提升 JVM 内存上限，并在 `finally` 块中关闭每个 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 实例，以及时释放缓存。这样可防止内存不足错误，并在批处理操作期间保持整体内存使用的可预测性。
+仅在需要时提升 JVM 内存上限，并在 `finally` 块中关闭每个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 实例，以及时释放缓存。这样可防止内存不足错误，并在批处理操作期间保持整体内存使用的可预测性。
 
 **我能排除不需要的导出格式以减小最终 JAR 大小吗？**
 
