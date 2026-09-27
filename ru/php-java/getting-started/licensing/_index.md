@@ -61,7 +61,7 @@ description: "Применяйте, управляйте и устраняйте
 {{% /alert %}}
 
 {{% alert color="info" title="Примечание" %}}
-Информацию о ценах можно найти на странице [Информация о ценах](https://purchase.aspose.com/pricing/slides/ru/family).
+Информацию о ценах можно найти на странице [Информация о ценах](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Установка лицензии в Aspose.Slides для PHP через Java**

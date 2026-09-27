@@ -71,14 +71,14 @@ Aspose.Slides for PHP via Java — это библиотека классов д
 <hr>
 <p>Справка</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ru/php-java/">Справочник API</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/php-java/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">Справочник API</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/php-java/known-issues/">Известные проблемы</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/php-java/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">Скачать</a></li>
 </ul>
 <p>Поддержка</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платный сервис поддержки</a></li>
 </ul>
 </div>

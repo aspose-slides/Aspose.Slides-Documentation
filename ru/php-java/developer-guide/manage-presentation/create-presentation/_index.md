@@ -30,10 +30,10 @@ description: "Создавайте презентации с помощью Aspo
 
 Чтобы создать презентацию и разместить текстовое поле на её первом слайде, выполните следующие действия:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
-2. Получите этот слайд из коллекции, возвращаемой [Presentation::getSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/getslides/), по индексу 0.
-3. Добавьте прямоугольник с помощью метода [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/addautoshape/) и задайте его текст с помощью [TextFrame::setText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/textframe/settext/).
-4. Сохраните презентацию как файл PPTX с помощью метода [Presentation::save](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/save/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
+2. Получите этот слайд из коллекции, возвращаемой [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), по индексу 0.
+3. Добавьте прямоугольник с помощью метода [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) и задайте его текст с помощью [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+4. Сохраните презентацию как файл PPTX с помощью метода [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides читает и записывает файлы внутри Tomca
 
 ## **Создание и сохранение презентации**
 
-Чтобы создать пустую презентацию и сохранить её, создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) и сохраните её в любом формате из перечисления [SaveFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/saveformat/). В результате будет презентация с одним пустым слайдом.
+Чтобы создать пустую презентацию и сохранить её, создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и сохраните её в любом формате из перечисления [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). В результате будет презентация с одним пустым слайдом.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Открытие и сохранение презентации**
 
-Чтобы преобразовать презентацию из одного формата в другой, откройте её, передав путь к файлу конструктору [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), затем сохраните в целевом формате. Aspose.Slides определяет входной формат, такой как PPT, PPTX или ODP, по самому файлу.
+Чтобы преобразовать презентацию из одного формата в другой, откройте её, передав путь к файлу конструктору [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), затем сохраните в целевом формате. Aspose.Slides определяет входной формат, такой как PPT, PPTX или ODP, по самому файлу.
 
 Пример ниже ожидает наличие презентации OpenDocument с именем *Sample.odp* рядом со скриптом и сохраняет её как PPTX.
 
@@ -127,7 +127,7 @@ try {
 
 ### Могу ли я создавать/сохранять презентации параллельно?
 
-Вы не можете работать с тем же экземпляром [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) из [multiple threads](/slides/ru/php-java/multithreading/). Запускайте отдельные изолированные экземпляры для каждого потока или процесса.
+Вы не можете работать с тем же экземпляром [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) из [multiple threads](/slides/ru/php-java/multithreading/). Запускайте отдельные изолированные экземпляры для каждого потока или процесса.
 
 ### Как удалить пробный водяной знак и ограничения?
 
