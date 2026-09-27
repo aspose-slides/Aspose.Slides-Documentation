@@ -79,13 +79,13 @@ Carga y guarda archivos PPT, PPTX, PPS, POT y ODP, incluidas variantes con macro
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/es/python-net/">Referencia de API</a></li>
-<li><a href="https://releases.aspose.com/slides/es/python-net/release-notes/">Notas de la versión</a></li>
-<li><a href="https://releases.aspose.com/slides/es/python-net/">Descargar</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">Referencia de API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Notas de la versión</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">Descargar</a></li>
 </ul>
 <p>SOPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/es/11">Foro de soporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Foro de soporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Mesa de ayuda de soporte pago</a></li>
 </ul>
 </div>
