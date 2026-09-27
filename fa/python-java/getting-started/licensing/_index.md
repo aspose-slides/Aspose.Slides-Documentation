@@ -17,7 +17,7 @@ description: "یک لایسنس فایل‑محور، مبتنی بر بایت �
 
 Aspose.Slides for Python via Java می‌تواند در حالت ارزیابی یا با لایسنس اجرا شود. در حالت ارزیابی، یک جعبه متن واترمارک ارزیابی به هر اسلاید از هر ارائه‌ای که ذخیره می‌کند اضافه می‌کند و متنی که کد شما از ارائه‌ها می‌خواند را کوتاه می‌کند. این مقاله توضیح می‌دهد چگونه لایسنس را از فایل یا بایت‌ها اعمال کنید و چگونه لایسنس متری را پیکربندی کنید.
 
-برای گزینه‌های خرید، به [اطلاعات قیمت‌گذاری](https://purchase.aspose.com/pricing/slides/fa/family) مراجعه کنید. برای سؤالات عمومی درباره لایسنس و خرید، به [سیاست‌های خرید و سؤالات متداول](https://purchase.aspose.com/policies) نگاه کنید.
+برای گزینه‌های خرید، به [اطلاعات قیمت‌گذاری](https://purchase.aspose.com/pricing/slides/family) مراجعه کنید. برای سؤالات عمومی درباره لایسنس و خرید، به [سیاست‌های خرید و سؤالات متداول](https://purchase.aspose.com/policies) نگاه کنید.
 
 برای محدودیت‌های ارزیابی و نحوه درخواست لایسنس موقت، به [ارزیابی Aspose.Slides](/slides/fa/python-java/evaluate-aspose-slides/) مراجعه کنید. یک لایسنس موقت را به همان روش یک فایل لایسنس خریداری‌شده اعمال کنید.
 
@@ -29,7 +29,7 @@ Aspose.Slides for Python via Java می‌تواند در حالت ارزیابی
 لایسنس را ویرایش نکنید. حتی یک خط خالی اضافه می‌تواند امضای دیجیتال آن را نامعتبر کند.
 {{% /alert %}}
 
-لایسنس را یک‌بار برای هر برنامه یا فرآیند، قبل از ایجاد ارائه‌ها یا انجام سایر عملیات Aspose.Slides اعمال کنید. برای یک فایل لایسنس، از کلاس [License](https://reference.aspose.com/slides/fa/python-java/aspose.slides/license/) استفاده کنید. لایسنس متری به جای فایل لایسنس از یک جفت کلید عمومی و خصوصی استفاده می‌کند.
+لایسنس را یک‌بار برای هر برنامه یا فرآیند، قبل از ایجاد ارائه‌ها یا انجام سایر عملیات Aspose.Slides اعمال کنید. برای یک فایل لایسنس، از کلاس [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/) استفاده کنید. لایسنس متری به جای فایل لایسنس از یک جفت کلید عمومی و خصوصی استفاده می‌کند.
 
 ## **اعمال لایسنس**
 
@@ -37,7 +37,7 @@ Aspose.Slides for Python via Java می‌تواند در حالت ارزیابی
 
 ### **اعمال لایسنس از فایل**
 
-مسیر فایل لایسنس را به [License.setLicense](https://reference.aspose.com/slides/fa/python-java/aspose.slides/license/#setLicense) بدهید. `Aspose.Slides.lic` را با مسیر فایل لایسنس خود جایگزین کنید.
+مسیر فایل لایسنس را به [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense) بدهید. `Aspose.Slides.lic` را با مسیر فایل لایسنس خود جایگزین کنید.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 از نام دقیق فایل، به همراه پسوند آن استفاده کنید. برای مثال، اگر فایل با نام `Aspose.Slides.lic.xml` باشد، `.xml` را در مسیر بگنجانید. مسیر مطلق از ابهام دربارهٔ پوشه کاری برنامه جلوگیری می‌کند.
 
-مثال از [License.isLicensed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/license/#isLicensed) برای بررسی اینکه آیا لایسنس اعمال شده است، استفاده می‌کند.
+مثال از [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) برای بررسی اینکه آیا لایسنس اعمال شده است، استفاده می‌کند.
 
 ### **اعمال لایسنس از بایت‌ها**
 
-از [License.setLicenseFromBytes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/license/#setLicenseFromBytes) زمانی که لایسنس به صورت بایت‌های پایتون موجود است، استفاده کنید. مثال زیر فایل را در حالت باینری می‌خواند و قبل از اعمال لایسنس آن را می‌بندد.
+از [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) زمانی که لایسنس به صورت بایت‌های پایتون موجود است، استفاده کنید. مثال زیر فایل را در حالت باینری می‌خواند و قبل از اعمال لایسنس آن را می‌بندد.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ finally:
 
 ## **اعمال لایسنس متری**
 
-لایسنس متری بر اساس استفاده از API به شما هزینه می‌گیرد. پس از دریافت لایسنس متری، کلیدهای عمومی و خصوصی آن را با [Metered.setMeteredKey](https://reference.aspose.com/slides/fa/python-java/aspose.slides/metered/#setMeteredKey) اعمال کنید. شیء [Metered](https://reference.aspose.com/slides/fa/python-java/aspose.slides/metered/) را مقداردهی اولیه کنید و کلیدها را یک‌بار در هنگام شروع برنامه اعمال کنید.
+لایسنس متری بر اساس استفاده از API به شما هزینه می‌گیرد. پس از دریافت لایسنس متری، کلیدهای عمومی و خصوصی آن را با [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey) اعمال کنید. شیء [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) را مقداردهی اولیه کنید و کلیدها را یک‌بار در هنگام شروع برنامه اعمال کنید.
 
 مثال زیر کلیدها را از متغیرهای محیطی `ASPOSE_METERED_PUBLIC_KEY` و `ASPOSE_METERED_PRIVATE_KEY` می‌خواند. قبل از اجرای اسکریپت، هر دو متغیر را تنظیم کنید.
 

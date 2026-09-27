@@ -29,13 +29,13 @@ description: "ایجاد ارائه‌ها در پایتون از طریق جا�
 
 ## **ایجاد یک ارائه**
 
-ساخت یک فایل PowerPoint از ابتدا در Aspose.Slides for Python via Java به آسانیِ نمونه‌سازی کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) است. سازنده به‌طور خودکار یک دک خالی با یک اسلاید می‌سازد و بوم فوری برای اضافه‌کردن شکل‌ها، متن، نمودارها یا هر محتوای دیگری که برنامه‌تان نیاز دارد، فراهم می‌کند. پس از تغییر آن اسلاید یا افزودن اسلایدهای جدید می‌توانید نتیجه را به PPTX، PPT قدیمی یا حتی قالب‌های OpenDocument ذخیره کنید. نمونه کد کوتاه زیر این فرآیند را با افزودن یک شکل ساده به اسلاید اول نشان می‌دهد.
+ساخت یک فایل PowerPoint از ابتدا در Aspose.Slides for Python via Java به آسانیِ نمونه‌سازی کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) است. سازنده به‌طور خودکار یک دک خالی با یک اسلاید می‌سازد و بوم فوری برای اضافه‌کردن شکل‌ها، متن، نمودارها یا هر محتوای دیگری که برنامه‌تان نیاز دارد، فراهم می‌کند. پس از تغییر آن اسلاید یا افزودن اسلایدهای جدید می‌توانید نتیجه را به PPTX، PPT قدیمی یا حتی قالب‌های OpenDocument ذخیره کنید. نمونه کد کوتاه زیر این فرآیند را با افزودن یک شکل ساده به اسلاید اول نشان می‌دهد.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
 1. اسلاید اول را با شاخص 0 دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) از نوع [ShapeType.Cloud](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapetype/#Cloud) با استفاده از [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapecollection/#addAutoShape) اضافه کنید.
-1. متن شکل را با [TextFrame.setText](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/#setText) تنظیم کنید.
-1. ارائه را با [Presentation.save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) و [SaveFormat.Pptx](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/#Pptx) ذخیره کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) از نوع [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) با استفاده از [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) اضافه کنید.
+1. متن شکل را با [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) تنظیم کنید.
+1. ارائه را با [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) و [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) ذخیره کنید.
 
 مثال زیر JVM را در صورت عدم اجرا راه‌اندازی می‌کند، یک شکل ابری با متن به اسلاید اول اضافه می‌کند و ارائه را ذخیره می‌نماید. آن را به نام *create_presentation.py* ذخیره کنید:
 
@@ -100,7 +100,7 @@ python create_presentation.py
 
 **آیا می‌توانم ارائه‌ها را به صورت موازی ایجاد/ذخیره کنم؟**
 
-نمی‌توانید به همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) از [چندین نخ](/slides/fa/python-java/multithreading/) دسترسی داشته باشید. برای هر نخ یا پردازش یک نمونهٔ جداگانه ایجاد کنید.
+نمی‌توانید به همان نمونهٔ [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) از [چندین نخ](/slides/fa/python-java/multithreading/) دسترسی داشته باشید. برای هر نخ یا پردازش یک نمونهٔ جداگانه ایجاد کنید.
 
 **چگونه می‌توانم علامت آب‌نشان آزمایشی و محدودیت‌ها را حذف کنم؟**
 

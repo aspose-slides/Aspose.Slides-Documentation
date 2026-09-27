@@ -77,14 +77,14 @@ Aspose.Slides for Python via Java یک کتابخانه برای ایجاد، خ
 <hr>
 <p>منابع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fa/python-java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/python-java/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">یادداشت‌های انتشار</a></li>
 <li><a href="/slides/fa/python-java/known-issues/">مشکلات شناخته‌شده</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/python-java/">دریافت</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">دریافت</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">پشتیبانی پولی</a></li>
 </ul>
 </div>

@@ -26,9 +26,9 @@ description: یاد بگیرید چگونه محتوای PDF و HTML را به �
 ---
 ## **معرفی**
 
-Aspose.Slides for Python via Java می‌تواند صفحات PDF یا محتوای HTML را بدون نیاز به Microsoft PowerPoint به اسلایدهای پاورپوینت تبدیل کند. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/) متدهای [addFromPdf](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#addFromPdf) و [addFromHtml](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#addFromHtml) را برای افزودن محتوای وارد شده به یک ارائه فراهم می‌کند.
+Aspose.Slides for Python via Java می‌تواند صفحات PDF یا محتوای HTML را بدون نیاز به Microsoft PowerPoint به اسلایدهای پاورپوینت تبدیل کند. کلاس [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) متدهای [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) و [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) را برای افزودن محتوای وارد شده به یک ارائه فراهم می‌کند.
 
-برای کنترل بیشتر بر مکان HTML، متد [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#insertFromHtml) می‌تواند اسلایدهای تولید شده را در یک ایندکس مجموعه قرار دهد یا فضای موجود در اسلاید فعلی را پر کند. HTML طولانی به‌صورت خودکار در اسلایدهای اضافه صفحه‌بندی می‌شود، منبع می‌تواند به‌صورت رشته یا جریان ارائه شود، و منابع خارجی می‌توانند از طریق [ExternalResourceResolver](https://reference.aspose.com/slides/fa/python-java/aspose.slides/externalresourceresolver/) با یک URI پایه بارگذاری شوند. آرایهٔ بازگرداندهٔ [Slide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/) اسلایدهای تحت تأثیر و تازهٔ ایجادشده را شناسایی می‌کند.
+برای کنترل بیشتر بر مکان HTML، متد [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) می‌تواند اسلایدهای تولید شده را در یک ایندکس مجموعه قرار دهد یا فضای موجود در اسلاید فعلی را پر کند. HTML طولانی به‌صورت خودکار در اسلایدهای اضافه صفحه‌بندی می‌شود، منبع می‌تواند به‌صورت رشته یا جریان ارائه شود، و منابع خارجی می‌توانند از طریق [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) با یک URI پایه بارگذاری شوند. آرایهٔ بازگرداندهٔ [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) اسلایدهای تحت تأثیر و تازهٔ ایجادشده را شناسایی می‌کند.
 
 ## **وارد کردن از PDF**
 
@@ -36,9 +36,9 @@ Aspose.Slides for Python via Java می‌تواند صفحات PDF یا محتو
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. یک شیء جدید از [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-2. متد [addFromPdf](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#addFromPdf) را با مسیر فایل PDF صدا بزنید.
-3. متد [save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) را با [SaveFormat.Pptx](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/#Pptx) فراخوانی کنید تا ارائه در یک فایل PPTX نوشته شود.
+1. یک شیء جدید از [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. متد [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) را با مسیر فایل PDF صدا بزنید.
+3. متد [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) را با [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) فراخوانی کنید تا ارائه در یک فایل PPTX نوشته شود.
 
 مثال پایتون زیر یک سند PDF را وارد کرده و اسلایدهای تولید شده را به‌عنوان ارائهٔ پاورپوینت ذخیره می‌کند:
 
@@ -59,21 +59,21 @@ finally:
     presentation.dispose()
 ```
 
-اسلاید خالی پیش‌فرض در ارائه باقی می‌ماند زیرا وارد کردن اسلایدها را اضافه می‌کند. برای نگه داشتن فقط صفحات وارد شده، پیش از وارد کردن، مجموعه اسلایدها را با [SlideCollection.clear](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#clear) خالی کنید.
+اسلاید خالی پیش‌فرض در ارائه باقی می‌ماند زیرا وارد کردن اسلایدها را اضافه می‌کند. برای نگه داشتن فقط صفحات وارد شده، پیش از وارد کردن، مجموعه اسلایدها را با [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) خالی کنید.
 
-متد [addFromPdf](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#addFromPdf) اسلایدهایی را که اضافه می‌کند باز می‌گرداند؛ این برای پردازش فقط اسلایدهای وارد شده مفید است.
+متد [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) اسلایدهایی را که اضافه می‌کند باز می‌گرداند؛ این برای پردازش فقط اسلایدهای وارد شده مفید است.
 
 {{% alert title="Tip" color="success" %}}
-سعی کنید از برنامهٔ وب رایگان [PDF to PowerPoint](https://products.aspose.app/slides/fa/import/pdf-to-powerpoint) برای مشاهدهٔ این گردش کار تبدیل استفاده کنید.
+سعی کنید از برنامهٔ وب رایگان [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) برای مشاهدهٔ این گردش کار تبدیل استفاده کنید.
 {{% /alert %}}
 
 ## **وارد کردن از HTML**
 
 Aspose.Slides همچنین می‌تواند اسلایدها را از یک سند HTML ایجاد کند. منبع می‌تواند به‌صورت متن HTML یا جریان ارائه شود. مراحل زیر از یک جریان فایل استفاده می‌کند:
 
-1. یک شیء جدید از [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-2. فایل HTML را برای خواندن باز کنید و جریان را به [addFromHtml](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#addFromHtml) پاس دهید.
-3. متد [save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) را با [SaveFormat.Pptx](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/#Pptx) فراخوانی کنید تا نتیجه در یک فایل PPTX نوشته شود.
+1. یک شیء جدید از [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید.
+2. فایل HTML را برای خواندن باز کنید و جریان را به [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) پاس دهید.
+3. متد [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) را با [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) فراخوانی کنید تا نتیجه در یک فایل PPTX نوشته شود.
 
 مثال پایتون زیر یک سند HTML را وارد کرده و اسلایدهای تولید شده را به‌عنوان ارائهٔ پاورپوینت ذخیره می‌کند:
 
@@ -101,14 +101,14 @@ finally:
 
 ## **درج محتوای HTML**
 
-از [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#insertFromHtml) استفاده کنید زمانی که اسلایدهای تولید شده از HTML باید در موقعیتی خاص قرار گیرند نه اینکه به‌صورت پیوسته اضافه شوند. ایندکس صفر مبنا است و موقعیتی را که وارد کردن از آن شروع می‌شود تعیین می‌کند.
+از [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) استفاده کنید زمانی که اسلایدهای تولید شده از HTML باید در موقعیتی خاص قرار گیرند نه اینکه به‌صورت پیوسته اضافه شوند. ایندکس صفر مبنا است و موقعیتی را که وارد کردن از آن شروع می‌شود تعیین می‌کند.
 
 پارامتر `useSlideWithIndexAsStart` نحوهٔ استفادهٔ واردکننده از آن موقعیت را کنترل می‌کند:
 
 - وقتی مقدار آن `False` باشد، واردکننده اسلایدهای جدیدی در ایندکس مشخص ایجاد می‌کند و اسلایدهای پس از آن را جابجا می‌سازد.
 - وقتی مقدار آن `True` باشد، واردکننده محتوا را در فضای موجود اسلاید فعلی در آن ایندکس قرار می‌دهد. اگر HTML جا نگیرد، Aspose.Slides به‌طور خودکار آن را صفحه‌بندی کرده و اسلایدهای اضافی را بلافاصله پس از اسلاید شروع وارد می‌کند.
 
-متد [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#insertFromHtml) آرایه‌ای از اشیای [Slide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/) برمی‌گرداند. وقتی درج روی اسلایدهای جدید شروع می‌شود، هر آیتم بازگشتی تازهٔ ساخته شده است. وقتی یک اسلاید موجود به‌عنوان نقطهٔ شروع استفاده می‌شود، آرایه شامل آن اسلاید تحت تأثیر و سپس هر اسلاید اضافهٔ سرریز است. می‌توانید این آرایه را بررسی کنید به‌جای محاسبهٔ بازهٔ تحت تأثیر بر اساس تعداد اسلایدهای ارائه.
+متد [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) آرایه‌ای از اشیای [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) برمی‌گرداند. وقتی درج روی اسلایدهای جدید شروع می‌شود، هر آیتم بازگشتی تازهٔ ساخته شده است. وقتی یک اسلاید موجود به‌عنوان نقطهٔ شروع استفاده می‌شود، آرایه شامل آن اسلاید تحت تأثیر و سپس هر اسلاید اضافهٔ سرریز است. می‌توانید این آرایه را بررسی کنید به‌جای محاسبهٔ بازهٔ تحت تأثیر بر اساس تعداد اسلایدهای ارائه.
 
 ### **درج HTML به‌صورت اسلایدهای جدید**
 
@@ -145,7 +145,7 @@ finally:
 
 مثال بعدی HTML را از طریق یک جریان می‌گیرد. یک شکل سرصفحه را روی اسلاید الگوی موجود حفظ می‌کند، وارد کردن را زیر ناحیه اشغال‌شده آغاز می‌کند و اجازه می‌دهد متن طولانی به اسلایدهای جدید ادامه یابد.
 
-HTML همچنین شامل یک URL تصویر نسبی است. یک [ExternalResourceResolver](https://reference.aspose.com/slides/fa/python-java/aspose.slides/externalresourceresolver/) منبع را دریافت می‌کند، در حالی که URI پایه به واردکننده می‌گوید چگونه `images/logo.png` را حل کند. در این مثال، انتظار می‌رود این فایل در `html-assets/images/logo.png` موجود باشد.
+HTML همچنین شامل یک URL تصویر نسبی است. یک [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) منبع را دریافت می‌کند، در حالی که URI پایه به واردکننده می‌گوید چگونه `images/logo.png` را حل کند. در این مثال، انتظار می‌رود این فایل در `html-assets/images/logo.png` موجود باشد.
 
 ```python
 from pathlib import Path
@@ -197,7 +197,7 @@ finally:
 
 **آیا Aspose.Slides می‌تواند جدول‌ها را هنگام وارد کردن PDF تشخیص دهد؟**
 
-بله. یک شیء [PdfImportOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pdfimportoptions/) ایجاد کنید، متد [setDetectTables](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pdfimportoptions/#setDetectTables) را با `True` فراخوانی کنید و گزینه‌ها را به [addFromPdf](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slidecollection/#addFromPdf) پاس دهید. کیفیت شناسایی جدول‌ها به ساختار و پیچیدگی PDF منبع بستگی دارد.
+بله. یک شیء [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/) ایجاد کنید، متد [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables) را با `True` فراخوانی کنید و گزینه‌ها را به [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) پاس دهید. کیفیت شناسایی جدول‌ها به ساختار و پیچیدگی PDF منبع بستگی دارد.
 
 {{% alert title="Note" color="info" %}}
 پس از وارد کردن HTML، می‌توانید اسلایدها را به [images](/slides/fa/python-java/convert-powerpoint-to-png/)، [TIFF](/slides/fa/python-java/convert-powerpoint-to-tiff/)، یا [SVG](/slides/fa/python-java/render-a-slide-as-an-svg-image/) نیز صادر کنید.
