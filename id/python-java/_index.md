@@ -77,14 +77,14 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/id/python-java/">Referensi API</a></li>
-<li><a href="https://releases.aspose.com/slides/id/python-java/release-notes/">Catatan rilis</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/python-java/known-issues/">Masalah yang diketahui</a></li>
-<li><a href="https://releases.aspose.com/slides/id/python-java/">Unduh</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>

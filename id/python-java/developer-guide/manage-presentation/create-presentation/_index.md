@@ -29,13 +29,13 @@ Sebelum memulai, instal Python, JDK, JPype, dan Aspose.Slides untuk Python via J
 
 ## **Buat Presentasi**
 
-Membuat file PowerPoint dari awal di Aspose.Slides untuk Python via Java semudah menginstansiasi kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) . Konstruktor secara otomatis menyediakan dek kosong dengan satu slide, memberi Anda kanvas langsung untuk bentuk, teks, diagram, atau konten lain yang dibutuhkan aplikasi Anda. Setelah Anda memodifikasi slide tersebut—atau menambahkan yang baru—Anda dapat menyimpan hasilnya ke format PPTX, PPT lama, atau bahkan format OpenDocument. Contoh kode singkat di bawah ini menggambarkan alur kerja ini dengan menambahkan bentuk sederhana ke slide pertama.
+Membuat file PowerPoint dari awal di Aspose.Slides untuk Python via Java semudah menginstansiasi kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) . Konstruktor secara otomatis menyediakan dek kosong dengan satu slide, memberi Anda kanvas langsung untuk bentuk, teks, diagram, atau konten lain yang dibutuhkan aplikasi Anda. Setelah Anda memodifikasi slide tersebut—atau menambahkan yang baru—Anda dapat menyimpan hasilnya ke format PPTX, PPT lama, atau bahkan format OpenDocument. Contoh kode singkat di bawah ini menggambarkan alur kerja ini dengan menambahkan bentuk sederhana ke slide pertama.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 1. Dapatkan slide pertama dengan indeksnya, 0.
-1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/) dengan tipe [ShapeType.Cloud](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapetype/#Cloud) menggunakan [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addAutoShape) .
-1. Atur teks bentuk menggunakan [TextFrame.setText](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframe/#setText) .
-1. Simpan presentasi menggunakan [Presentation.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveformat/#Pptx) .
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) dengan tipe [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) menggunakan [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) .
+1. Atur teks bentuk menggunakan [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) .
+1. Simpan presentasi menggunakan [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) .
 
 Contoh berikut memulai Java Virtual Machine (JVM) jika belum berjalan, menambahkan bentuk awan dengan teks ke slide pertama, dan menyimpan presentasi. Simpan sebagai *create_presentation.py*:
 
@@ -100,7 +100,7 @@ Gunakan [strategi manajemen BLOB](/slides/id/python-java/manage-blob/), batasi p
 
 **Bisakah saya membuat/menyimpan presentasi secara paralel?**
 
-Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/python-java/multithreading/). Jalankan instance terpisah yang terisolasi per thread atau proses.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/python-java/multithreading/). Jalankan instance terpisah yang terisolasi per thread atau proses.
 
 **Bagaimana cara menghapus watermark percobaan dan batasan?**
 

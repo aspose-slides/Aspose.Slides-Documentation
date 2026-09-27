@@ -66,7 +66,7 @@ Untuk memperbarui instalasi Aspose.Slides yang ada, jalankan `python -m pip inst
 
 ## **Instal dari Arsip ZIP**
 
-Anda juga dapat menggunakan pustaka dari [halaman unduhan Aspose.Slides](https://releases.aspose.com/slides/id/python-java/):
+Anda juga dapat menggunakan pustaka dari [halaman unduhan Aspose.Slides](https://releases.aspose.com/slides/python-java/):
 
 1. Instal Python dan Java seperti yang dijelaskan di [Prasyarat](#prerequisites).
 2. Buat dan aktifkan lingkungan virtual menggunakan instruksi di atas.

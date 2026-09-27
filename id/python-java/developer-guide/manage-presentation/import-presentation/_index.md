@@ -26,9 +26,9 @@ description: "Pelajari cara mengimpor konten PDF dan HTML ke presentasi PowerPoi
 ---
 ## **Pendahuluan**
 
-Aspose.Slides untuk Python via Java dapat mengubah halaman PDF atau konten HTML menjadi slide PowerPoint tanpa Microsoft PowerPoint. Kelas [SlideCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/) menyediakan [addFromPdf](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#addFromPdf) dan [addFromHtml](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#addFromHtml) untuk menambahkan konten yang diimpor ke presentasi.
+Aspose.Slides untuk Python via Java dapat mengubah halaman PDF atau konten HTML menjadi slide PowerPoint tanpa Microsoft PowerPoint. Kelas [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) menyediakan [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) dan [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) untuk menambahkan konten yang diimpor ke presentasi.
 
-Untuk kontrol yang lebih besar atas penempatan HTML, [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#insertFromHtml) dapat menyisipkan slide yang dihasilkan pada indeks koleksi atau mulai mengisi ruang yang tersedia pada slide yang ada. HTML yang panjang dipaginasi secara otomatis ke slide tambahan, sumber dapat diberikan sebagai string atau stream, dan aset eksternal dapat dimuat melalui [ExternalResourceResolver](https://reference.aspose.com/slides/id/python-java/aspose.slides/externalresourceresolver/) dengan URI dasar. Array [Slide](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/) yang dikembalikan mengidentifikasi slide yang terpengaruh dan yang baru dibuat.
+Untuk kontrol yang lebih besar atas penempatan HTML, [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) dapat menyisipkan slide yang dihasilkan pada indeks koleksi atau mulai mengisi ruang yang tersedia pada slide yang ada. HTML yang panjang dipaginasi secara otomatis ke slide tambahan, sumber dapat diberikan sebagai string atau stream, dan aset eksternal dapat dimuat melalui [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) dengan URI dasar. Array [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) yang dikembalikan mengidentifikasi slide yang terpengaruh dan yang baru dibuat.
 
 ## **Impor dari PDF**
 
@@ -36,9 +36,9 @@ Untuk mengonversi dokumen PDF menjadi presentasi PowerPoint, impor kontennya ke 
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. Buat objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) baru.  
-2. Panggil [addFromPdf](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#addFromPdf) dengan jalur ke file PDF.  
-3. Panggil [save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveformat/#Pptx) untuk menulis presentasi ke file PPTX.
+1. Buat objek [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) baru.  
+2. Panggil [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) dengan jalur ke file PDF.  
+3. Panggil [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) untuk menulis presentasi ke file PPTX.
 
 Contoh Python berikut mengimpor dokumen PDF dan menyimpan slide yang dihasilkan sebagai presentasi PowerPoint:
 
@@ -59,21 +59,21 @@ finally:
     presentation.dispose()
 ```
 
-Slide kosong standar tetap ada dalam presentasi karena proses impor menambahkan slide. Untuk mempertahankan hanya halaman yang diimpor, bersihkan koleksi slide dengan [SlideCollection.clear](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#clear) sebelum mengimpor.
+Slide kosong standar tetap ada dalam presentasi karena proses impor menambahkan slide. Untuk mempertahankan hanya halaman yang diimpor, bersihkan koleksi slide dengan [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) sebelum mengimpor.
 
-Metode [addFromPdf](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#addFromPdf) mengembalikan slide yang ditambahkan, yang berguna bila Anda hanya perlu memproses slide yang diimpor.
+Metode [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) mengembalikan slide yang ditambahkan, yang berguna bila Anda hanya perlu memproses slide yang diimpor.
 
 {{% alert title="Tip" color="success" %}}
-Coba aplikasi web gratis [PDF to PowerPoint](https://products.aspose.app/slides/id/import/pdf-to-powerpoint) untuk melihat alur kerja konversi ini beraksi.
+Coba aplikasi web gratis [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) untuk melihat alur kerja konversi ini beraksi.
 {{% /alert %}}
 
 ## **Impor dari HTML**
 
 Aspose.Slides juga dapat membuat slide dari dokumen HTML. Sumber dapat diberikan sebagai teks HTML atau stream. Langkah-langkah berikut menggunakan stream file:
 
-1. Buat objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) baru.  
-2. Buka file HTML untuk dibaca dan berikan stream ke [addFromHtml](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#addFromHtml).  
-3. Panggil [save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveformat/#Pptx) untuk menulis hasilnya ke file PPTX.
+1. Buat objek [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) baru.  
+2. Buka file HTML untuk dibaca dan berikan stream ke [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml).  
+3. Panggil [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) untuk menulis hasilnya ke file PPTX.
 
 Contoh Python berikut mengimpor dokumen HTML dan menyimpan slide yang dihasilkan sebagai presentasi PowerPoint:
 
@@ -101,14 +101,14 @@ finally:
 
 ## **Sisipkan Konten HTML**
 
-Gunakan [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#insertFromHtml) ketika slide yang dihasilkan dari HTML harus ditempatkan pada posisi tertentu alih‑alih ditambahkan di akhir. Indeks bersifat zero‑based dan mengidentifikasi posisi tempat impor dimulai.
+Gunakan [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) ketika slide yang dihasilkan dari HTML harus ditempatkan pada posisi tertentu alih‑alih ditambahkan di akhir. Indeks bersifat zero‑based dan mengidentifikasi posisi tempat impor dimulai.
 
 Argumen `useSlideWithIndexAsStart` mengontrol cara pengimpor menggunakan posisi tersebut:
 
 - Ketika `False`, pengimpor membuat slide baru pada indeks yang ditentukan dan menggeser slide yang mengikutinya.  
 - Ketika `True`, pengimpor mulai menempatkan konten di ruang yang tersedia pada slide yang ada pada indeks itu. Jika HTML tidak muat, Aspose.Slides memaginasi secara otomatis dan menyisipkan slide tambahan tepat setelah slide awal.
 
-[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#insertFromHtml) mengembalikan array objek [Slide](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/). Saat penyisipan dimulai pada slide baru, setiap item yang dikembalikan adalah slide yang baru dibuat. Jika slide yang ada digunakan sebagai titik mulai, array mencakup slide yang terpengaruh tersebut diikuti oleh slide overflow baru apa pun. Anda dapat memeriksa array ini alih‑alih menghitung rentang yang terpengaruh dari jumlah slide presentasi.
+[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) mengembalikan array objek [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Saat penyisipan dimulai pada slide baru, setiap item yang dikembalikan adalah slide yang baru dibuat. Jika slide yang ada digunakan sebagai titik mulai, array mencakup slide yang terpengaruh tersebut diikuti oleh slide overflow baru apa pun. Anda dapat memeriksa array ini alih‑alih menghitung rentang yang terpengaruh dari jumlah slide presentasi.
 
 ### **Sisipkan HTML sebagai Slide Baru**
 
@@ -145,7 +145,7 @@ finally:
 
 Contoh berikut memberi HTML melalui stream. Ia mempertahankan bentuk header pada slide templat yang ada, memulai impor di bawah area yang ditempati, dan membiarkan isi panjang berlanjut ke slide baru.
 
-HTML juga berisi URL gambar relatif. [ExternalResourceResolver](https://reference.aspose.com/slides/id/python-java/aspose.slides/externalresourceresolver/) mengambil sumber daya tersebut, sementara URI dasar memberi tahu pengimpor cara menyelesaikan `images/logo.png`. Dalam contoh ini, file tersebut diharapkan berada di `html-assets/images/logo.png`.
+HTML juga berisi URL gambar relatif. [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) mengambil sumber daya tersebut, sementara URI dasar memberi tahu pengimpor cara menyelesaikan `images/logo.png`. Dalam contoh ini, file tersebut diharapkan berada di `html-assets/images/logo.png`.
 
 ```python
 from pathlib import Path
@@ -197,7 +197,7 @@ Resolver sumber daya eksternal yang tidak dibatasi dapat membaca sumber daya lok
 
 **Apakah Aspose.Slides dapat mendeteksi tabel saat mengimpor PDF?**
 
-Ya. Buat objek [PdfImportOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfimportoptions/), panggil [setDetectTables](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfimportoptions/#setDetectTables) dengan `True`, dan berikan opsi tersebut ke [addFromPdf](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidecollection/#addFromPdf). Kualitas pengenalan tabel tergantung pada struktur dan kompleksitas PDF sumber.
+Ya. Buat objek [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/), panggil [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables) dengan `True`, dan berikan opsi tersebut ke [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf). Kualitas pengenalan tabel tergantung pada struktur dan kompleksitas PDF sumber.
 
 {{% alert title="Catatan" color="info" %}}
 Setelah mengimpor HTML, Anda juga dapat mengekspor slide ke [gambar](/slides/id/python-java/convert-powerpoint-to-png/), [TIFF](/slides/id/python-java/convert-powerpoint-to-tiff/), atau [SVG](/slides/id/python-java/render-a-slide-as-an-svg-image/).

@@ -17,7 +17,7 @@ description: "Terapkan lisensi berbentuk file, berbasis byte, atau berbasis mete
 
 Aspose.Slides for Python via Java dapat dijalankan dalam mode evaluasi atau dengan lisensi. Dalam mode evaluasi, ia menambahkan kotak teks watermark evaluasi ke setiap slide dari setiap presentasi yang disimpan dan memotong teks yang dibaca kode Anda dari presentasi. Artikel ini menjelaskan cara menerapkan lisensi dari file atau byte serta cara mengonfigurasi lisensi berbasis meter.
 
-Untuk opsi pembelian, lihat [Informasi Harga](https://purchase.aspose.com/pricing/slides/id/family). Untuk pertanyaan umum tentang lisensi dan pembelian, lihat [Kebijakan Pembelian dan FAQ](https://purchase.aspose.com/policies).
+Untuk opsi pembelian, lihat [Informasi Harga](https://purchase.aspose.com/pricing/slides/family). Untuk pertanyaan umum tentang lisensi dan pembelian, lihat [Kebijakan Pembelian dan FAQ](https://purchase.aspose.com/policies).
 
 Untuk batasan evaluasi dan cara meminta lisensi sementara, lihat [Evaluasi Aspose.Slides](/slides/id/python-java/evaluate-aspose-slides/). Terapkan lisensi sementara dengan cara yang sama seperti file lisensi yang dibeli.
 
@@ -31,7 +31,7 @@ Jangan mengedit file lisensi. Bahkan satu baris kosong tambahan dapat membuat ta
 
 {{% /alert %}}
 
-Terapkan lisensi sekali per aplikasi atau proses, sebelum membuat presentasi atau melakukan operasi Aspose.Slides lainnya. Untuk file lisensi, gunakan kelas [License](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/). Lisensi berbasis meter menggunakan pasangan kunci publik dan privat alih-alih file lisensi.
+Terapkan lisensi sekali per aplikasi atau proses, sebelum membuat presentasi atau melakukan operasi Aspose.Slides lainnya. Untuk file lisensi, gunakan kelas [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). Lisensi berbasis meter menggunakan pasangan kunci publik dan privat alih-alih file lisensi.
 
 ## **Menerapkan Lisensi**
 
@@ -39,7 +39,7 @@ Contoh berikut mengasumsikan bahwa Aspose.Slides for Python via Java dan prasyar
 
 ### **Menerapkan Lisensi dari File**
 
-Berikan jalur file lisensi ke [License.setLicense](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/#setLicense). Ganti `Aspose.Slides.lic` dengan jalur ke file lisensi Anda.
+Berikan jalur file lisensi ke [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Ganti `Aspose.Slides.lic` dengan jalur ke file lisensi Anda.
 
 ```python
 from pathlib import Path
@@ -66,11 +66,11 @@ finally:
 
 Gunakan nama file yang tepat, termasuk ekstensinya. Misalnya, jika file bernama `Aspose.Slides.lic.xml`, sertakan `.xml` dalam jalur. Jalur absolut menghindari ambiguitas tentang direktori kerja aplikasi.
 
-Contoh ini menggunakan [License.isLicensed](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/#isLicensed) untuk memeriksa apakah lisensi telah diterapkan.
+Contoh ini menggunakan [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) untuk memeriksa apakah lisensi telah diterapkan.
 
 ### **Menerapkan Lisensi dari Byte**
 
-Gunakan [License.setLicenseFromBytes](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/#setLicenseFromBytes) ketika lisensi tersedia sebagai byte Python. Contoh berikut membaca file dalam mode biner dan menutupnya sebelum menerapkan lisensi.
+Gunakan [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) ketika lisensi tersedia sebagai byte Python. Contoh berikut membaca file dalam mode biner dan menutupnya sebelum menerapkan lisensi.
 
 ```python
 from pathlib import Path
@@ -102,7 +102,7 @@ Pertahankan byte asal tidak berubah. Jangan mendekode, memformat ulang, atau men
 
 ## **Menerapkan Lisensi Berbasis Meter**
 
-Lisensi berbasis meter menagih Anda berdasarkan penggunaan API. Setelah memperoleh lisensi berbasis meter, terapkan kunci publik dan privatnya dengan [Metered.setMeteredKey](https://reference.aspose.com/slides/id/python-java/aspose.slides/metered/#setMeteredKey). Inisialisasi objek [Metered](https://reference.aspose.com/slides/id/python-java/aspose.slides/metered/) dan terapkan kunci sekali saat aplikasi dimulai.
+Lisensi berbasis meter menagih Anda berdasarkan penggunaan API. Setelah memperoleh lisensi berbasis meter, terapkan kunci publik dan privatnya dengan [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). Inisialisasi objek [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) dan terapkan kunci sekali saat aplikasi dimulai.
 
 Contoh berikut membaca kunci dari variabel lingkungan `ASPOSE_METERED_PUBLIC_KEY` dan `ASPOSE_METERED_PRIVATE_KEY`. Tetapkan kedua variabel sebelum menjalankan skrip.
 
