@@ -29,10 +29,10 @@ description: "使用 Aspose.Slides 在 Python 中创建 PowerPoint 演示文稿�
 
 要创建演示文稿并在其第一张幻灯片上放置带文本的形状，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。新的演示文稿已经包含一个空幻灯片。
-1. 通过索引 0 从 [slides](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/slides/zh/) 集合中获取该幻灯片。
-1. 使用幻灯片的 [shapes](https://reference.aspose.com/slides/zh/python-net/aspose.slides/slide/shapes/) 集合的 [add_auto_shape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/add_auto_shape/) 方法添加一个云形的 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)，并设置其 [text](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/text/)。
-1. 使用 [save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。新的演示文稿已经包含一个空幻灯片。
+1. 通过索引 0 从 [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) 集合中获取该幻灯片。
+1. 使用幻灯片的 [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) 集合的 [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) 方法添加一个云形的 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)，并设置其 [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/)。
+1. 使用 [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### 我可以并行创建/保存演示文稿吗？
 
-不能在[多个线程](/slides/zh/python-net/multithreading/)中对同一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 实例进行操作。请为每个线程或进程运行独立的实例。
+不能在[多个线程](/slides/zh/python-net/multithreading/)中对同一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 实例进行操作。请为每个线程或进程运行独立的实例。
 
 ### 如何移除试用水印和限制？
 

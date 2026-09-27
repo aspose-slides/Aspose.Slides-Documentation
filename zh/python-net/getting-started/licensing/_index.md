@@ -23,7 +23,7 @@ Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。
 
 您可以从其[下载页面](https://pypi.org/project/Aspose.Slides/)下载 **Aspose.Slides for Python via .NET** 的评估版。评估版提供与授权产品相同的功能。评估包与购买的包完全相同，添加几行代码以应用许可证后即可获得授权。
 
-当您对 **Aspose.Slides** 的评估满意后，您可以[购买许可证](https://purchase.aspose.com/pricing/slides/zh/python-net/)。我们建议查看可用的订阅选项。如有疑问，请联系 Aspose 销售团队。
+当您对 **Aspose.Slides** 的评估满意后，您可以[购买许可证](https://purchase.aspose.com/pricing/slides/python-net/)。我们建议查看可用的订阅选项。如有疑问，请联系 Aspose 销售团队。
 
 每个 Aspose 许可证均包含一年订阅期，在此期间可免费升级到新版本并获取修复。授权用户和评估用户均可获得免费、无限的技术支持。
 
@@ -53,7 +53,7 @@ Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。
 许可证可以从**文件**或**流**加载。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides 提供用于处理授权的[License](https://reference.aspose.com/slides/zh/python-net/aspose.slides/license/)类。
+Aspose.Slides 提供用于处理授权的[License](https://reference.aspose.com/slides/python-net/aspose.slides/license/)类。
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ Aspose.Slides 提供用于处理授权的[License](https://reference.aspose.com/
 
 ### **文件**
 
-设置许可证的最简单方法是将许可证文件的路径传递给[set_license](https://reference.aspose.com/slides/zh/python-net/aspose.slides/license/set_license/)方法。如果仅传递文件名，如下例所示，Aspose.Slides 会在当前工作目录中查找该文件。
+设置许可证的最简单方法是将许可证文件的路径传递给[set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/)方法。如果仅传递文件名，如下例所示，Aspose.Slides 会在当前工作目录中查找该文件。
 
 以下 Python 代码展示了如何设置许可证文件：
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-如果您将许可证文件放在不同的目录中，当调用[License.set_license](https://reference.aspose.com/slides/zh/python-net/aspose.slides/license/set_license/#str)时，显式路径末尾的文件名必须与许可证文件的名称匹配。
+如果您将许可证文件放在不同的目录中，当调用[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)时，显式路径末尾的文件名必须与许可证文件的名称匹配。
 
-例如，您可以将许可证文件重命名为 *Aspose.Slides.lic.xml*。然后，在代码中，将该文件的完整路径（以 Aspose.Slides.lic.xml 结尾）传递给[License.set_license](https://reference.aspose.com/slides/zh/python-net/aspose.slides/license/set_license/#str)方法。
+例如，您可以将许可证文件重命名为 *Aspose.Slides.lic.xml*。然后，在代码中，将该文件的完整路径（以 Aspose.Slides.lic.xml 结尾）传递给[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)方法。
 {{% /alert %}}
 
 ### **流**

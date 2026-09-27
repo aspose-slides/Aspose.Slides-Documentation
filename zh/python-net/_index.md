@@ -79,13 +79,13 @@ Aspose.Slides for Python via .NET 是一个 Python 库，可用于创建、读�
 <hr>
 <p>参考</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh/python-net/">API 参考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/python-net/release-notes/">发行说明</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/python-net/">下载</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">API 参考</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">发行说明</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">下载</a></li>
 </ul>
 <p>支持</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免费支持论坛</a></li>
 <li><a href="https://helpdesk.aspose.com/">付费支持帮助台</a></li>
 </ul>
 </div>
