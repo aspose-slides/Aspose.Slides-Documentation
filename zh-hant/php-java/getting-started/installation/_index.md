@@ -154,7 +154,7 @@ PHP 無法從 Tomcat 載入 `Java.inc`。如果錯誤訊息指出 `http://` 包�
 
 **如何在處理大型簡報時限制記憶體消耗？**
 
-僅將 JVM 記憶體上限調高至必要的程度，並在 `finally` 區塊中關閉每個 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 例項，以即時釋放快取。這可防止記憶體不足錯誤，並在批次作業期間維持可預測的記憶體使用量。
+僅將 JVM 記憶體上限調高至必要的程度，並在 `finally` 區塊中關閉每個 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 例項，以即時釋放快取。這可防止記憶體不足錯誤，並在批次作業期間維持可預測的記憶體使用量。
 
 **能否排除不需要的匯出格式以縮減最終 JAR 檔案大小？**
 

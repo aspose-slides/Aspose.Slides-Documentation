@@ -71,14 +71,14 @@ Aspose.Slides for PHP via Java 是一個類別庫，用於在 PHP 應用程式�
 <hr>
 <p>參考</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh-hant/php-java/">API 參考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/php-java/release-notes/">版本說明</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">API 參考</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">版本說明</a></li>
 <li><a href="/slides/zh-hant/php-java/known-issues/">已知問題</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/php-java/">下載</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">下載</a></li>
 </ul>
 <p>支援</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">免費技術論壇</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免費技術論壇</a></li>
 <li><a href="https://helpdesk.aspose.com/">付費支援服務台</a></li>
 </ul>
 </div>

@@ -30,10 +30,10 @@ description: "使用 Aspose.Slides for PHP via Java 建立簡報 — 程式化�
 
 若要建立簡報並在其第一張投影片上放置文字方塊，請依照以下步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。新的簡報已預設包含一張空白投影片。
-2. 透過其索引 0，從 [Presentation::getSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/getslides/) 回傳的集合中取得該投影片。
-3. 使用 [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/addautoshape/) 方法加入矩形，並以 [TextFrame::setText](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/settext/) 設定其文字。
-4. 使用 [Presentation::save](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例。新的簡報已預設包含一張空白投影片。
+2. 透過其索引 0，從 [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) 回傳的集合中取得該投影片。
+3. 使用 [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) 方法加入矩形，並以 [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/) 設定其文字。
+4. 使用 [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides 於 Tomcat 內部讀寫檔案，而非在 PHP 程序中執行，�
 
 ## **建立與儲存簡報**
 
-若要建立空白簡報並儲存它，請建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例，並以 [SaveFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/saveformat/) 列舉中的任意格式儲存。結果會得到一個包含一張空白投影片的簡報。
+若要建立空白簡報並儲存它，請建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例，並以 [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) 列舉中的任意格式儲存。結果會得到一個包含一張空白投影片的簡報。
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **開啟並儲存簡報**
 
-若要將簡報從一種格式轉換為另一種格式，請將檔案路徑傳入 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 建構式以開啟，然後以目標格式儲存。Aspose.Slides 會從檔案本身偵測輸入格式（如 PPT、PPTX 或 ODP）。
+若要將簡報從一種格式轉換為另一種格式，請將檔案路徑傳入 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 建構式以開啟，然後以目標格式儲存。Aspose.Slides 會從檔案本身偵測輸入格式（如 PPT、PPTX 或 ODP）。
 
 以下範例假設腳本旁有一個名為 *Sample.odp* 的 OpenDocument 簡報，並將其儲存為 PPTX。
 
@@ -127,7 +127,7 @@ try {
 
 ### 可以平行建立/儲存簡報嗎？
 
-您無法在 [multiple threads](/slides/zh-hant/php-java/multithreading/) 中同時操作同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/)。請為每個執行緒或行程執行獨立的實例。
+您無法在 [multiple threads](/slides/zh-hant/php-java/multithreading/) 中同時操作同一個 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)。請為每個執行緒或行程執行獨立的實例。
 
 ### 如何移除試用版水印與限制？
 

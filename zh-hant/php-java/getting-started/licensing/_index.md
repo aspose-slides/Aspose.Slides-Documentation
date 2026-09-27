@@ -61,7 +61,7 @@ Aspose.Slides 的評估版（未指定授權）提供完整產品功能，但有
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-您可以在[“Pricing Information”](https://purchase.aspose.com/pricing/slides/zh-hant/family)頁面找到定價資訊。
+您可以在[“Pricing Information”](https://purchase.aspose.com/pricing/slides/family)頁面找到定價資訊。
 {{% /alert %}}
 
 ### **在 Aspose.Slides for PHP via Java 中設定授權**
