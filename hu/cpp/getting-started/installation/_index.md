@@ -26,7 +26,7 @@ Az Aspose.Slides for C++ két formában érhető el:
 | Formátum | Használati cél | Hol szerezhető be |
 |---|---|---|
 | NuGet csomagok: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64-bit) és [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32-bit) | Visual Studio C++ projektek Windows rendszeren | NuGet |
-| ZIP csomagok Windows, Linux és macOS számára | Építések NuGet nélkül, például CMake projektek | A [letöltési oldal](https://releases.aspose.com/slides/hu/cpp/) |
+| ZIP csomagok Windows, Linux és macOS számára | Építések NuGet nélkül, például CMake projektek | A [letöltési oldal](https://releases.aspose.com/slides/cpp/) |
 
 Ez a cikk bemutatja, hogyan telepítsük a NuGet csomagot a Visual Studio-ban Windows rendszeren, valamint hogyan használjuk a ZIP csomagot CMake‑el Linuxon. Mindkét út ugyanazzal az ellenőrzéssel végződik: építsük és futtassuk az első példát a [Create Presentations](/slides/hu/cpp/create-presentation/) oldalon.
 
@@ -36,7 +36,7 @@ Windows rendszeren adja hozzá a NuGet csomagot egy Visual Studio C++ projekthez
 
 A csomagot a célplatform szerint válassza: **Aspose.Slides.Cpp** x64‑hez, és **Aspose.Slides.Cpp.x86** Win32‑hez (x86). Az Aspose.Slides.Cpp csomag nem alkalmazható Win32 buildhez, ezért a fordító nem találja a fejléceit.
 
-A Windows ZIP csomag is elérhető a [letöltési oldalon](https://releases.aspose.com/slides/hu/cpp/).
+A Windows ZIP csomag is elérhető a [letöltési oldalon](https://releases.aspose.com/slides/cpp/).
 
 ### **1. módszer: Az Aspose.Slides telepítése vagy frissítése a NuGet csomagkezelőből**
 
@@ -98,7 +98,7 @@ Linuxon a Linux ZIP csomagot használja CMake‑kel. Ez tartalmazza az Aspose.Sl
    cd hello-slides
    ```
 
-3. Töltse le a Linux ZIP-et (**Aspose.Slides for C++ Linux**) a [letöltési oldalról](https://releases.aspose.com/slides/hu/cpp/), a projekt mappába, majd csomagolja ki az *aspose-slides-cpp* almappába:  
+3. Töltse le a Linux ZIP-et (**Aspose.Slides for C++ Linux**) a [letöltési oldalról](https://releases.aspose.com/slides/cpp/), a projekt mappába, majd csomagolja ki az *aspose-slides-cpp* almappába:  
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp
    ```

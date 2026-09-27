@@ -27,9 +27,9 @@ Ez a cikk ismerteti, hogyan működik a licencelés az Aspose.Slides-ban, és ho
 ## **Az Aspose.Slides értékelése**
 
 {{% alert color="info" title="Note" %}}
-Letöltheti a **Aspose.Slides for C++** értékelő verzióját a [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.Cpp/) vagy ZIP csomagként a [download page](https://releases.aspose.com/slides/hu/cpp/) oldalról. Az értékelő verzió ugyanazt a funkcionalitást kínálja, mint a licencelt termék. Valójában az értékelő csomag azonos a megvásárolt verzióval – egyszerűen licencelté válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
+Letöltheti a **Aspose.Slides for C++** értékelő verzióját a [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.Cpp/) vagy ZIP csomagként a [download page](https://releases.aspose.com/slides/cpp/) oldalról. Az értékelő verzió ugyanazt a funkcionalitást kínálja, mint a licencelt termék. Valójában az értékelő csomag azonos a megvásárolt verzióval – egyszerűen licencelté válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
 
-Miután elégedett az **Aspose.Slides** értékelésével, [purchase a license](https://purchase.aspose.com/pricing/slides/hu/cpp/). Ajánljuk, hogy tekintse át a rendelkezésre álló előfizetéstípusokat. Ha kérdése van, forduljon nyugodtan az Aspose értékesítési csapatához.
+Miután elégedett az **Aspose.Slides** értékelésével, [purchase a license](https://purchase.aspose.com/pricing/slides/cpp/). Ajánljuk, hogy tekintse át a rendelkezésre álló előfizetéstípusokat. Ha kérdése van, forduljon nyugodtan az Aspose értékesítési csapatához.
 
 Minden Aspose licenc egyéves előfizetést tartalmaz ingyenes frissítésekhez, beleértve az adott időszakban kiadott új verziókat és hibajavításokat. Legyen szó licencelt vagy értékelő verzióról, ingyenes és korlátlan technikai támogatást kap.
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Az Aspose.Slides korlátozások nélküli teszteléséhez kérhet egy **30 napos
 A licenc **fájlból** vagy **áramról** tölthető be.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides a [License](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/) osztályt biztosítja a licencelési műveletekhez.
+Az Aspose.Slides a [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) osztályt biztosítja a licencelési műveletekhez.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -86,17 +86,17 @@ int main()
 }
 ```
 
-Ha a licenc érvényes, a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) visszatér, és a program kimenet nélkül befejeződik; ezután az Aspose.Slides a értékelő korlátozások nélkül működik. Ha a fájl nincs a munkakönyvtárban, a metódus egy [FileNotFoundException](https://reference.aspose.com/slides/hu/cpp/system.io/filenotfoundexception/) kivételt dob a *License "Aspose.Slides.lic" doesn't exist or access is restricted* üzenettel. A példa nem kezeli a kivételt, ezért a program leáll.
+Ha a licenc érvényes, a [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) visszatér, és a program kimenet nélkül befejeződik; ezután az Aspose.Slides a értékelő korlátozások nélkül működik. Ha a fájl nincs a munkakönyvtárban, a metódus egy [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) kivételt dob a *License "Aspose.Slides.lic" doesn't exist or access is restricted* üzenettel. A példa nem kezeli a kivételt, ezért a program leáll.
 
 {{% alert color="warning" title="Warning" %}}
-Ha a licencfájlt másik könyvtárba helyezi, akkor a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódusának meghívásakor a megadott kifejezett út végén lévő fájlnévnek pontosan meg kell egyeznie a licencfájl nevével.
+Ha a licencfájlt másik könyvtárba helyezi, akkor a [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) metódusának meghívásakor a megadott kifejezett út végén lévő fájlnévnek pontosan meg kell egyeznie a licencfájl nevével.
 
-Például, ha a licencfájlt *Aspose.Slides.lic.xml*-re nevezte át, a teljes útnak *Aspose.Slides.lic.xml*-re kell végződnie a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódus meghívásakor a kódban.
+Például, ha a licencfájlt *Aspose.Slides.lic.xml*-re nevezte át, a teljes útnak *Aspose.Slides.lic.xml*-re kell végződnie a [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) metódus meghívásakor a kódban.
 {{% /alert %}}
 
 ### **Áram**
 
-Töltsön be egy licencet egy áramról, ha a program nem tárolja a licencet fájlként, például adatbázisból olvasva. A [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) bármely [Stream](https://reference.aspose.com/slides/hu/cpp/system.io/stream/) objektumot elfogad, amely a licencet tartalmazza. A példát röviden tartva, a következő C++ kód megnyitja a *Aspose.Slides.lic*-et a munkakönyvtárban a [File::OpenRead](https://reference.aspose.com/slides/hu/cpp/system.io/file/openread/) segítségével, és az áramról alkalmazza a licencet:
+Töltsön be egy licencet egy áramról, ha a program nem tárolja a licencet fájlként, például adatbázisból olvasva. A [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) bármely [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) objektumot elfogad, amely a licencet tartalmazza. A példát röviden tartva, a következő C++ kód megnyitja a *Aspose.Slides.lic*-et a munkakönyvtárban a [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) segítségével, és az áramról alkalmazza a licencet:
 
 ```c++
 #include <Util/License.h>
@@ -117,11 +117,11 @@ int main()
 }
 ```
 
-Érvényes licenc ugyanazt az eredményt adja, mint a fájl példa. Ha a fájl nem létezik, a [File::OpenRead](https://reference.aspose.com/slides/hu/cpp/system.io/file/openread/) egy [FileNotFoundException](https://reference.aspose.com/slides/hu/cpp/system.io/filenotfoundexception/) kivételt dob, mielőtt a licenc alkalmazásra kerülne, és a program leáll.
+Érvényes licenc ugyanazt az eredményt adja, mint a fájl példa. Ha a fájl nem létezik, a [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) egy [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) kivételt dob, mielőtt a licenc alkalmazásra kerülne, és a program leáll.
 
 ## **Licenc ellenőrzése**
 
-Annak ellenőrzéséhez, hogy a licenc megfelelően be van-e állítva, hívja a [License::IsLicensed](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/islicensed/) metódust. `true` értéket ad csak akkor, ha egy érvényes licenc lett alkalmazva, egyébként `false`. A következő C++ kód a licencfájlt a munkakönyvtárból alkalmazza, majd ellenőrzi:
+Annak ellenőrzéséhez, hogy a licenc megfelelően be van-e állítva, hívja a [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/) metódust. `true` értéket ad csak akkor, ha egy érvényes licenc lett alkalmazva, egyébként `false`. A következő C++ kód a licencfájlt a munkakönyvtárból alkalmazza, majd ellenőrzi:
 
 ```c++
 #include <Util/License.h>
@@ -145,12 +145,12 @@ int main()
 }
 ```
 
-Érvényes licenc esetén a program kiírja *License is good!* üzenetet. Ha a fájl hiányzik vagy nem licencfájl, a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) kivételt dob a ellenőrzés előtt, és a program leáll anélkül, hogy bármit nyomtatna. Ha a fájl olyan licenc, amelynek aláírása nem egyezik (például szerkesztés miatt), a SetLicense hibamentesen visszatér, de az `IsLicensed` `false` értéket ad, így semmi sem jelenik meg, és az Aspose.Slides értékelő módban marad.
+Érvényes licenc esetén a program kiírja *License is good!* üzenetet. Ha a fájl hiányzik vagy nem licencfájl, a [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) kivételt dob a ellenőrzés előtt, és a program leáll anélkül, hogy bármit nyomtatna. Ha a fájl olyan licenc, amelynek aláírása nem egyezik (például szerkesztés miatt), a SetLicense hibamentesen visszatér, de az `IsLicensed` `false` értéket ad, így semmi sem jelenik meg, és az Aspose.Slides értékelő módban marad.
 
 ## **Szálbiztonság**
 
 {{% alert color="warning" title="Warning" %}}
-A [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódus **nem szálbiztos**. Ha több szálból kell egyszerre meghívni ezt a metódust, ajánlott szinkronizációs primitíveket (például zárat) használni a lehetséges problémák elkerülése érdekében.
+A [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) metódus **nem szálbiztos**. Ha több szálból kell egyszerre meghívni ezt a metódust, ajánlott szinkronizációs primitíveket (például zárat) használni a lehetséges problémák elkerülése érdekében.
 {{% /alert %}}
 
 ## **GYIK**

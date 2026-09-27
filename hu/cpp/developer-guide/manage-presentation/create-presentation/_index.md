@@ -28,10 +28,10 @@ Mielőtt elkezdené, adja hozzá az Aspose.Slides‑t a projektjéhez: NuGet‑b
 
 ## **PowerPoint bemutató létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályból. Egy új bemutató már tartalmaz egy üres diát.  
-2. Szerezze meg azt a diát a [Presentation::get_Slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slide/) metódussal, valamint annak indexét, 0.  
-3. Adjon hozzá egy téglalapot a [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addautoshape/) metódussal, és állítsa be a szövegét a [ITextFrame::set_Text](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/set_text/) metódussal.  
-4. Mentse a bemutatót PPTX fájlként a [Presentation::Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/save/) metódussal.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztályból. Egy új bemutató már tartalmaz egy üres diát.  
+2. Szerezze meg azt a diát a [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) metódussal, valamint annak indexét, 0.  
+3. Adjon hozzá egy téglalapot a [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) metódussal, és állítsa be a szövegét a [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) metódussal.  
+4. Mentse a bemutatót PPTX fájlként a [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) metódussal.
 
 ```cpp
 #include <DOM/Presentation.h>
