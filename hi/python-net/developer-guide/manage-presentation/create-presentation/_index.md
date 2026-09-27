@@ -29,10 +29,10 @@ description: "Aspose.Slides के साथ Python में PowerPoint प्�
 
 प्रस्तुति बनाने और उसकी पहली स्लाइड में टेक्स्ट वाला आकार (shape) रखने के लिए, निम्नलिखित चरणों का पालन करें:
 
-1. एक नया [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएं। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
-2. उस स्लाइड को उसके इंडेक्स 0 द्वारा [slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/slides/hi/) संग्रह से प्राप्त करें।
-3. स्लाइड की [shapes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/shapes/) संग्रह की [add_auto_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_auto_shape/) विधि से एक बादल-आकृति वाला [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें, और उसका [text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/text/) सेट करें।
-4. प्रस्तुति को [save](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/save/) विधि से PPTX फ़ाइल के रूप में सहेजें।
+1. एक नया [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएं। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
+2. उस स्लाइड को उसके इंडेक्स 0 द्वारा [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) संग्रह से प्राप्त करें।
+3. स्लाइड की [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) संग्रह की [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) विधि से एक बादल-आकृति वाला [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) जोड़ें, और उसका [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/) सेट करें।
+4. प्रस्तुति को [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) विधि से PPTX फ़ाइल के रूप में सहेजें।
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### क्या मैं प्रस्तुतियों को समानांतर में बना/सहेज सकता हूँ?
 
-आप उसी [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) इंस्टेंस पर [एकाधिक थ्रेड](/slides/hi/python-net/multithreading/) से संचालन नहीं कर सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग, अलगाव वाले इंस्टेंस चलाएँ।
+आप उसी [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) इंस्टेंस पर [एकाधिक थ्रेड](/slides/hi/python-net/multithreading/) से संचालन नहीं कर सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग, अलगाव वाले इंस्टेंस चलाएँ।
 
 ### परीक्षण वाटरमार्क और सीमाओं को कैसे हटाऊँ?
 

@@ -23,7 +23,7 @@ Aspose.Slides को मूल्यांकन मोड में या व�
 
 आप **Aspose.Slides for Python via .NET** का मूल्यांकन संस्करण इसकी [download page](https://pypi.org/project/Aspose.Slides/) से डाउनलोड कर सकते हैं। मूल्यांकन संस्करण लाइसेंस प्राप्त उत्पाद के समान सुविधाएँ प्रदान करता है। मूल्यांकन पैकेज खरीदे गए पैकेज के समान होता है और लाइसेंस लागू करने के लिए कुछ पंक्तियों का कोड जोड़ने के बाद लाइसेंस प्राप्त हो जाता है।
 
-जब आप **Aspose.Slides** के मूल्यांकन से संतुष्ट हो जाएँ, तो आप एक लाइसेंस [purchase a license](https://purchase.aspose.com/pricing/slides/hi/python-net/) कर सकते हैं। हम उपलब्ध सब्सक्रिप्शन विकल्पों की समीक्षा करने की सलाह देते हैं। यदि आपके कोई प्रश्न हैं, तो Aspose बिक्री टीम से संपर्क करें।
+जब आप **Aspose.Slides** के मूल्यांकन से संतुष्ट हो जाएँ, तो आप एक लाइसेंस [purchase a license](https://purchase.aspose.com/pricing/slides/python-net/) कर सकते हैं। हम उपलब्ध सब्सक्रिप्शन विकल्पों की समीक्षा करने की सलाह देते हैं। यदि आपके कोई प्रश्न हैं, तो Aspose बिक्री टीम से संपर्क करें।
 
 प्रत्येक Aspose लाइसेंस में एक वर्ष की सब्सक्रिप्शन शामिल होती है, जिसमें नई संस्करणों और उस अवधि के दौरान जारी किए गए फिक्सेज़ के मुफ्त अपग्रेड शामिल होते हैं। लाइसेंस प्राप्त और मूल्यांकन दोनों उपयोगकर्ता मुफ्त, असीमित तकनीकी समर्थन प्राप्त करते हैं।
 
@@ -53,7 +53,7 @@ Aspose.Slides को मूल्यांकन मोड में या व�
 लाइसेंस को **फ़ाइल** या **स्ट्रीम** से लोड किया जा सकता है।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides लाइसेंसिंग को संभालने के लिए [License](https://reference.aspose.com/slides/hi/python-net/aspose.slides/license/) क्लास प्रदान करता है।
+Aspose.Slides लाइसेंसिंग को संभालने के लिए [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) क्लास प्रदान करता है।
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ Aspose.Slides लाइसेंसिंग को संभालने के
 
 ### **फ़ाइल**
 
-लाइसेंस सेट करने का सबसे आसान तरीका लाइसेंस फ़ाइल के पथ को [set_license](https://reference.aspose.com/slides/hi/python-net/aspose.slides/license/set_license/) मेथड को पास करना है। यदि आप केवल फ़ाइलनाम पास करते हैं, जैसा कि नीचे के उदाहरण में है, तो Aspose.Slides वर्तमान कार्य निर्देशिका में फ़ाइल खोजता है।
+लाइसेंस सेट करने का सबसे आसान तरीका लाइसेंस फ़ाइल के पथ को [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) मेथड को पास करना है। यदि आप केवल फ़ाइलनाम पास करते हैं, जैसा कि नीचे के उदाहरण में है, तो Aspose.Slides वर्तमान कार्य निर्देशिका में फ़ाइल खोजता है।
 
 निम्नलिखित Python कोड यह दिखाता है कि लाइसेंस फ़ाइल कैसे सेट करें:
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-यदि आप लाइसेंस फ़ाइल को किसी अलग निर्देशिका में रखते हैं, तो जब आप [License.set_license](https://reference.aspose.com/slides/hi/python-net/aspose.slides/license/set_license/#str) को कॉल करते हैं, तो स्पष्ट पथ के अंत में फ़ाइलनाम आपका लाइसेंस फ़ाइल का नाम होना चाहिए।
+यदि आप लाइसेंस फ़ाइल को किसी अलग निर्देशिका में रखते हैं, तो जब आप [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) को कॉल करते हैं, तो स्पष्ट पथ के अंत में फ़ाइलनाम आपका लाइसेंस फ़ाइल का नाम होना चाहिए।
 
-उदाहरण के लिए, आप लाइसेंस फ़ाइल का नाम *Aspose.Slides.lic.xml* रख सकते हैं। फिर, अपने कोड में उस फ़ाइल का पूर्ण पथ (Aspose.Slides.lic.xml पर समाप्त) [License.set_license](https://reference.aspose.com/slides/hi/python-net/aspose.slides/license/set_license/#str) मेथड को पास करें।
+उदाहरण के लिए, आप लाइसेंस फ़ाइल का नाम *Aspose.Slides.lic.xml* रख सकते हैं। फिर, अपने कोड में उस फ़ाइल का पूर्ण पथ (Aspose.Slides.lic.xml पर समाप्त) [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) मेथड को पास करें।
 {{% /alert %}}
 
 ### **स्ट्रीम**
@@ -115,7 +115,7 @@ if license.is_licensed():
 ## **थ्रेड सुरक्षा**
 
 {{% alert color="warning" title="Warning" %}}
-[License.set_license](https://reference.aspose.com/slides/hi/python-net/aspose.slides/license/set_license/) मेथड थ्रेड‑सेफ़ नहीं है। यदि आपको इसे कई थ्रेड्स से एक साथ कॉल करने की आवश्यकता है, तो `threading.Lock` जैसे समन्वय प्रिमिटिव का उपयोग करके समस्याओं से बचें।
+[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) मेथड थ्रेड‑सेफ़ नहीं है। यदि आपको इसे कई थ्रेड्स से एक साथ कॉल करने की आवश्यकता है, तो `threading.Lock` जैसे समन्वय प्रिमिटिव का उपयोग करके समस्याओं से बचें।
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
