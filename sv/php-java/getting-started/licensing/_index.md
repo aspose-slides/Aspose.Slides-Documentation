@@ -61,7 +61,7 @@ Du måste ange licensen:
 {{% /alert %}}
 
 {{% alert color="info" title="Obs" %}}
-Du kan hitta prisinformation på sidan [Prisinformation](https://purchase.aspose.com/pricing/slides/sv/family).
+Du kan hitta prisinformation på sidan [Prisinformation](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Ange en licens i Aspose.Slides för PHP via Java**

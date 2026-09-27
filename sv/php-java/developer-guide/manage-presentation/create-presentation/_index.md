@@ -30,10 +30,10 @@ Innan du börjar, installera Aspose.Slides för PHP via Java med Composer och st
 
 För att skapa en presentation och lägga till en textruta på dess första bild, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.  
-2. Hämta den bilden från samlingen som returneras av [Presentation::getSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/getslides/), genom dess index, 0.  
-3. Lägg till en rektangel med metoden [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addautoshape/) och sätt dess text med [TextFrame::setText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/settext/).  
-4. Spara presentationen som en PPTX‑fil med metoden [Presentation::save](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/save/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.  
+2. Hämta den bilden från samlingen som returneras av [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), genom dess index, 0.  
+3. Lägg till en rektangel med metoden [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) och sätt dess text med [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).  
+4. Spara presentationen som en PPTX‑fil med metoden [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides läser och skriver filer inuti Tomcat, inte i din PHP‑process, s
 
 ## **Skapa och spara en presentation**
 
-För att skapa en tom presentation och spara den, skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) och spara den i valfritt format från [SaveFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/saveformat/)-enumerationen. Resultatet är en presentation med en tom bild.
+För att skapa en tom presentation och spara den, skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) och spara den i valfritt format från [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/)-enumerationen. Resultatet är en presentation med en tom bild.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Öppna och spara en presentation**
 
-För att konvertera en presentation från ett format till ett annat, öppna den genom att skicka dess sökväg till [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/)-konstruktorn och spara den sedan i målformatet. Aspose.Slides identifierar indataformatet, såsom PPT, PPTX eller ODP, från själva filen.
+För att konvertera en presentation från ett format till ett annat, öppna den genom att skicka dess sökväg till [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)-konstruktorn och spara den sedan i målformatet. Aspose.Slides identifierar indataformatet, såsom PPT, PPTX eller ODP, från själva filen.
 
 Exemplet nedan förutsätter en OpenDocument-presentation med namnet *Sample.odp* bredvid skriptet och sparar den som PPTX.
 

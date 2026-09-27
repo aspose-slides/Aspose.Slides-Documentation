@@ -152,7 +152,7 @@ PHP kunde inte läsa in `Java.inc` från Tomcat. Om meddelandet före detta säg
 
 **Hur kan jag begränsa minnesförbrukningen när jag bearbetar stora presentationer?**
 
-Öka JVM‑minnesgränsen bara så mycket som behövs, och stäng varje [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/)‑instans i ett `finally`‑block för att snabbt frigöra cachen. Detta förhindrar out‑of‑memory‑fel och håller den totala minnesanvändningen förutsägbar under batch‑operationer.
+Öka JVM‑minnesgränsen bara så mycket som behövs, och stäng varje [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑instans i ett `finally`‑block för att snabbt frigöra cachen. Detta förhindrar out‑of‑memory‑fel och håller den totala minnesanvändningen förutsägbar under batch‑operationer.
 
 **Kan jag utesluta oönskade exportformat för att minska den slutgiltiga JAR‑storleken?**
 
