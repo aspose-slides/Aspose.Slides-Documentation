@@ -29,13 +29,13 @@ Antes de comenzar, instala Python, un JDK, JPype y Aspose.Slides for Python via 
 
 ## **Crear una presentación**
 
-Crear un archivo PowerPoint desde cero en Aspose.Slides for Python via Java es tan sencillo como instanciar la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/). El constructor proporciona automáticamente una presentación en blanco con una única diapositiva, dándote un lienzo inmediato para formas, texto, gráficos o cualquier otro contenido que necesite tu aplicación. Una vez que modifiques esa diapositiva —o añadas nuevas— puedes guardar el resultado en formato PPTX, PPT heredado o incluso en formatos OpenDocument. El breve ejemplo de código a continuación ilustra este flujo de trabajo añadiendo una forma sencilla a la primera diapositiva.
+Crear un archivo PowerPoint desde cero en Aspose.Slides for Python via Java es tan sencillo como instanciar la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). El constructor proporciona automáticamente una presentación en blanco con una única diapositiva, dándote un lienzo inmediato para formas, texto, gráficos o cualquier otro contenido que necesite tu aplicación. Una vez que modifiques esa diapositiva —o añadas nuevas— puedes guardar el resultado en formato PPTX, PPT heredado o incluso en formatos OpenDocument. El breve ejemplo de código a continuación ilustra este flujo de trabajo añadiendo una forma sencilla a la primera diapositiva.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/).
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Obtén la primera diapositiva por su índice, 0.
-1. Añade un [AutoShape](https://reference.aspose.com/slides/es/python-java/aspose.slides/autoshape/) de tipo [ShapeType.Cloud](https://reference.aspose.com/slides/es/python-java/aspose.slides/shapetype/#Cloud) utilizando [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/es/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Establece el texto de la forma usando [TextFrame.setText](https://reference.aspose.com/slides/es/python-java/aspose.slides/textframe/#setText).
-1. Guarda la presentación usando [Presentation.save](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#save) con [SaveFormat.Pptx](https://reference.aspose.com/slides/es/python-java/aspose.slides/saveformat/#Pptx).
+1. Añade un [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) de tipo [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) utilizando [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Establece el texto de la forma usando [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Guarda la presentación usando [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) con [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 El siguiente ejemplo inicia la Máquina Virtual Java (JVM) si aún no está en ejecución, añade una forma de nube con texto a la primera diapositiva y guarda la presentación. Guárdalo como *create_presentation.py*:
 

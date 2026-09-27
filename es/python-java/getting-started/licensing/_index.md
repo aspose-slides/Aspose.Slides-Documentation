@@ -17,7 +17,7 @@ description: "Aplicar una licencia desde archivo, basada en bytes o medida en As
 
 Aspose.Slides for Python via Java puede ejecutarse en modo de evaluación o con una licencia. En modo de evaluación, añade un cuadro de texto de marca de agua de evaluación a cada diapositiva de cada presentación que guarda y trunca el texto que su código lee de las presentaciones. Este artículo explica cómo aplicar una licencia desde un archivo o desde bytes y cómo configurar la licencia medida.
 
-Para opciones de compra, consulte [Pricing Information](https://purchase.aspose.com/pricing/slides/es/family). Para preguntas generales sobre licencias y compras, consulte [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
+Para opciones de compra, consulte [Pricing Information](https://purchase.aspose.com/pricing/slides/family). Para preguntas generales sobre licencias y compras, consulte [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
 
 Para conocer las limitaciones de evaluación y cómo solicitar una licencia temporal, consulte [Evaluate Aspose.Slides](/slides/es/python-java/evaluate-aspose-slides/). Aplique una licencia temporal del mismo modo que un archivo de licencia comprado.
 
@@ -29,7 +29,7 @@ Un archivo de licencia contiene información como el nombre del producto, el nú
 No edite el archivo de licencia. Incluso un salto de línea adicional puede invalidar su firma digital.
 {{% /alert %}}
 
-Aplique la licencia una vez por aplicación o proceso, antes de crear presentaciones o realizar otras operaciones de Aspose.Slides. Para un archivo de licencia, utilice la clase [License](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/). La licencia medida utiliza un par de claves pública y privada en lugar de un archivo de licencia.
+Aplique la licencia una vez por aplicación o proceso, antes de crear presentaciones o realizar otras operaciones de Aspose.Slides. Para un archivo de licencia, utilice la clase [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). La licencia medida utiliza un par de claves pública y privada en lugar de un archivo de licencia.
 
 ## **Aplicar una licencia**
 
@@ -37,7 +37,7 @@ Los siguientes ejemplos asumen que Aspose.Slides for Python via Java y sus requi
 
 ### **Aplicar una licencia desde un archivo**
 
-Pase la ruta del archivo de licencia a [License.setLicense](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/#setLicense). Reemplace `Aspose.Slides.lic` por la ruta a su archivo de licencia.
+Pase la ruta del archivo de licencia a [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Reemplace `Aspose.Slides.lic` por la ruta a su archivo de licencia.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Utilice el nombre exacto del archivo, incluida su extensión. Por ejemplo, si el archivo se llama `Aspose.Slides.lic.xml`, incluya `.xml` en la ruta. Una ruta absoluta evita ambigüedades sobre el directorio de trabajo de la aplicación.
 
-El ejemplo usa [License.isLicensed](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/#isLicensed) para comprobar si la licencia se ha aplicado.
+El ejemplo usa [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) para comprobar si la licencia se ha aplicado.
 
 ### **Aplicar una licencia desde bytes**
 
-Use [License.setLicenseFromBytes](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/#setLicenseFromBytes) cuando la licencia esté disponible como bytes de Python. El siguiente ejemplo lee el archivo en modo binario y lo cierra antes de aplicar la licencia.
+Use [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) cuando la licencia esté disponible como bytes de Python. El siguiente ejemplo lee el archivo en modo binario y lo cierra antes de aplicar la licencia.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ Mantenga los bytes originales sin cambios. No decodifique, reformatee ni modifiq
 
 ## **Aplicar una licencia medida**
 
-La licencia medida le factura según el uso de la API. Después de obtener una licencia medida, aplique sus claves pública y privada con [Metered.setMeteredKey](https://reference.aspose.com/slides/es/python-java/aspose.slides/metered/#setMeteredKey). Inicialice el objeto [Metered](https://reference.aspose.com/slides/es/python-java/aspose.slides/metered/) y aplique las claves una vez al iniciar la aplicación.
+La licencia medida le factura según el uso de la API. Después de obtener una licencia medida, aplique sus claves pública y privada con [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). Inicialice el objeto [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) y aplique las claves una vez al iniciar la aplicación.
 
 El siguiente ejemplo lee las claves de las variables de entorno `ASPOSE_METERED_PUBLIC_KEY` y `ASPOSE_METERED_PRIVATE_KEY`. Defina ambas variables antes de ejecutar el script.
 
