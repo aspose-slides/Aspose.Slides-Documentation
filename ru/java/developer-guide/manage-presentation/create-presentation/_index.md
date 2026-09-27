@@ -28,14 +28,14 @@ description: "Создавайте презентации на Java с помо�
 
 ## **Создание презентации**
 
-Создание файла PowerPoint с нуля в Aspose.Slides for Java начинается с создания экземпляра класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). Конструктор возвращает пустую презентацию с одним слайдом, готовым для форм, текста, диаграмм или любого другого контента, необходимого вашему приложению. После изменения этого слайда или добавления новых вы можете сохранить результат в форматы PPTX, устаревший PPT или OpenDocument.
+Создание файла PowerPoint с нуля в Aspose.Slides for Java начинается с создания экземпляра класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Конструктор возвращает пустую презентацию с одним слайдом, готовым для форм, текста, диаграмм или любого другого контента, необходимого вашему приложению. После изменения этого слайда или добавления новых вы можете сохранить результат в форматы PPTX, устаревший PPT или OpenDocument.
 
 Чтобы создать презентацию и поместить форму с текстом на её первый слайд, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). В новой презентации уже есть один пустой слайд.  
-2. Получите этот слайд по индексу 0 из коллекции, которую возвращает метод [getSlides](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getSlides--).  
-3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) типа `Cloud` с помощью метода [addAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), и задайте его текст с помощью [setText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Сохраните презентацию как файл PPTX с помощью метода [save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). В новой презентации уже есть один пустой слайд.  
+2. Получите этот слайд по индексу 0 из коллекции, которую возвращает метод [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--).  
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) типа `Cloud` с помощью метода [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), и задайте его текст с помощью [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Сохраните презентацию как файл PPTX с помощью метода [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 Ниже приведён полный пример программы. В Maven‑проекте из раздела [Установка](/slides/ru/java/installation/) сохраните его как *src/main/java/HelloSlides.java* и запустите `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ public class HelloSlides {
 
 ### Можно ли создавать/сохранять презентации параллельно?
 
-Нельзя работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) из [нескольких потоков](/slides/ru/java/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
+Нельзя работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) из [нескольких потоков](/slides/ru/java/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
 
 ### Как удалить пробный водяной знак и ограничения?
 

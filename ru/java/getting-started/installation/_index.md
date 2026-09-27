@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### Как можно проверить, что Aspose.Slides интегрирован корректно?
 
-Соберите проект, создайте пустой [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создаётся без исключений, библиотека успешно интегрирована.
+Соберите проект, создайте пустой [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создаётся без исключений, библиотека успешно интегрирована.
 
 ### Как ограничить потребление памяти при обработке больших презентаций?
 
-Увеличивайте лимиты памяти JVM только настолько, насколько это необходимо, и вызывайте [dispose](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#dispose--) для каждого экземпляра [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) в блоке `finally`, чтобы быстро освобождать кэш. Это предотвращает ошибки «out‑of‑memory» и делает общее использование памяти предсказуемым при пакетных операциях.
+Увеличивайте лимиты памяти JVM только настолько, насколько это необходимо, и вызывайте [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) для каждого экземпляра [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) в блоке `finally`, чтобы быстро освобождать кэш. Это предотвращает ошибки «out‑of‑memory» и делает общее использование памяти предсказуемым при пакетных операциях.
 
 ### Можно ли исключить ненужные форматы экспорта, чтобы уменьшить окончательный размер JAR?
 

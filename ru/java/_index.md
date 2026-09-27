@@ -72,14 +72,14 @@ Aspose.Slides for Java — это библиотека классов для с�
 <hr>
 <p>СПРАВОЧНИК</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ru/java/">Справочник API</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/java/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">Справочник API</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/java/known-issues/">Известные проблемы</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/java/">Загрузить</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">Загрузить</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
 </ul>
 </div>

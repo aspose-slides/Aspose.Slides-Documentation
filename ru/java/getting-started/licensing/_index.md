@@ -29,7 +29,7 @@ Aspose.Slides можно использовать в режиме оценки �
 {{% alert color="info" title="Note" %}}
 Вы можете скачать оценочную версию **Aspose.Slides for Java** со своей [страницы загрузки](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Оценочная версия предоставляет такие же функции, как лицензированная версия продукта. Оценочный пакет совпадает с приобретённым пакетом. Оценочная версия просто становится лицензированной после того, как вы добавите несколько строк кода (для применения лицензии).
 
-Когда вы будете довольны оценкой **Aspose.Slides**, вы можете [приобрести лицензию](https://purchase.aspose.com/pricing/slides/ru/java/). Мы рекомендуем ознакомиться с различными типами подписки. Если у вас есть вопросы, свяжитесь с командой продаж Aspose.
+Когда вы будете довольны оценкой **Aspose.Slides**, вы можете [приобрести лицензию](https://purchase.aspose.com/pricing/slides/java/). Мы рекомендуем ознакомиться с различными типами подписки. Если у вас есть вопросы, свяжитесь с командой продаж Aspose.
 
 Каждая лицензия Aspose поставляется с годовой подпиской, включающей бесплатные обновления до новых версий или исправлений, выпущенных в течение периода подписки. Пользователи с лицензированными продуктами (или даже оценочными версиями) получают бесплатную и неограниченную техническую поддержку.
 {{% /alert %}} 
@@ -62,7 +62,7 @@ Aspose.Slides можно использовать в режиме оценки �
 Лицензию можно загрузить из **файла** или **потока**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides предоставляет класс [License](https://reference.aspose.com/slides/ru/java/com.aspose.slides/license/) для операций с лицензированием.
+Aspose.Slides предоставляет класс [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) для операций с лицензированием.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -84,9 +84,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Если вы разместите файл лицензии в другой директории, при вызове метода [setLicense](https://reference.aspose.com/slides/ru/java/com.aspose.slides/license/#setLicense-java.lang.String-) имя файла лицензии в конце указанного пути должно совпадать с именем вашего файла лицензии.
+Если вы разместите файл лицензии в другой директории, при вызове метода [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) имя файла лицензии в конце указанного пути должно совпадать с именем вашего файла лицензии.
 
-Например, вы можете изменить имя файла лицензии на *Aspose.Slides.Java.lic.xml*. Затем в коде вам нужно передать путь к файлу (заканчивающийся на *Aspose.Slides.Java.lic.xml*) в метод [setLicense](https://reference.aspose.com/slides/ru/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Например, вы можете изменить имя файла лицензии на *Aspose.Slides.Java.lic.xml*. Затем в коде вам нужно передать путь к файлу (заканчивающийся на *Aspose.Slides.Java.lic.xml*) в метод [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 {{% /alert %}}
 
 ### **Поток**
@@ -124,7 +124,7 @@ if (license.isLicensed())
 ## **Безопасность потоков**
 
 {{% alert color="warning" title="Warning" %}}
-Метод [setLicense](https://reference.aspose.com/slides/ru/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) не является потокобезопасным. Если этот метод должен вызываться одновременно из множества потоков, рекомендуется использовать примитивы синхронизации (например, блокировку), чтобы избежать проблем.
+Метод [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) не является потокобезопасным. Если этот метод должен вызываться одновременно из множества потоков, рекомендуется использовать примитивы синхронизации (например, блокировку), чтобы избежать проблем.
 {{% /alert %}}
 
 ## **FAQ**
