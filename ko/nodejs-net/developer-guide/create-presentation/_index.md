@@ -27,17 +27,17 @@ description: "Aspose.Slides for Node.js via .NET를 사용하여 JavaScript로 P
 예제들은 [Installation](/slides/ko/nodejs-net/installation/)에 설명된 대로 프로젝트를 설정해야 합니다. 각 예제를 프로젝트 폴더에 `.js` 파일로 저장하고 해당 폴더에서 `node`를 사용해 실행하십시오. 예: `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET에는 자체 API 레퍼런스가 없습니다. camelCase 이름을 사용하여 Aspose.Slides for .NET API를 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ko/net/)에 있는 해당 클래스와 멤버로 연결됩니다.
+Aspose.Slides for Node.js via .NET에는 자체 API 레퍼런스가 없습니다. camelCase 이름을 사용하여 Aspose.Slides for .NET API를 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)에 있는 해당 클래스와 멤버로 연결됩니다.
 {{% /alert %}}
 
 ## **텍스트 상자가 포함된 프레젠테이션 만들기**
 
 프레젠테이션을 만들고 첫 번째 슬라이드에 텍스트 상자를 넣으려면 다음 단계를 따르세요:
 
-1. 새 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다. 새로운 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
-2. [slides](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/slides/ko/) 컬렉션에서 해당 슬라이드를 가져옵니다. 이 패키지의 컬렉션은 `get(index)` 로 읽으며, 인덱스는 0부터 시작합니다.
-3. [addAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/shapecollection/addautoshape/) 메서드로 사각형을 추가하고, 해당 [textFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/textframe/)의 [text](https://reference.aspose.com/slides/ko/net/aspose.slides/textframe/text/)를 설정합니다.
-4. [save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/) 메서드와 `SaveFormat.Pptx` 값을 사용하여 프레젠테이션을 저장합니다.
+1. 새 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다. 새로운 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
+2. [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 컬렉션에서 해당 슬라이드를 가져옵니다. 이 패키지의 컬렉션은 `get(index)` 로 읽으며, 인덱스는 0부터 시작합니다.
+3. [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) 메서드로 사각형을 추가하고, 해당 [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/)의 [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/)를 설정합니다.
+4. [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 메서드와 `SaveFormat.Pptx` 값을 사용하여 프레젠테이션을 저장합니다.
 5. `finally` 블록에서 `dispose`를 호출하여 프레젠테이션을 지원하는 .NET 리소스를 해제합니다.
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **슬라이드 추가**
 
-새 프레젠테이션에는 슬라이드가 하나 있습니다. 더 추가하려면 `slides` 컬렉션의 [addEmptySlide](https://reference.aspose.com/slides/ko/net/aspose.slides/slidecollection/addemptyslide/) 메서드에 레이아웃 슬라이드를 전달합니다. [layoutSlides](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/layoutslides/) 컬렉션의 [getByType](https://reference.aspose.com/slides/ko/net/aspose.slides/layoutslidecollection/getbytype/) 메서드는 지정된 [SlideLayoutType](https://reference.aspose.com/slides/ko/net/aspose.slides/slidelayouttype/)의 첫 번째 레이아웃을 반환합니다.
+새 프레젠테이션에는 슬라이드가 하나 있습니다. 더 추가하려면 `slides` 컬렉션의 [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) 메서드에 레이아웃 슬라이드를 전달합니다. [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) 컬렉션의 [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) 메서드는 지정된 [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/)의 첫 번째 레이아웃을 반환합니다.
 
 다음 예제는 Blank 레이아웃을 사용하여 두 개의 슬라이드를 추가합니다:
 
@@ -86,7 +86,7 @@ try {
 
 ## **슬라이드 크기 설정**
 
-새 프레젠테이션은 4:3 슬라이드(720 × 540 포인트, 10 × 7.5 인치)를 사용합니다. 와이드스크린 슬라이드를 만들려면 프레젠테이션의 [slideSize](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/slidesize/)에 대해 [setSize](https://reference.aspose.com/slides/ko/net/aspose.slides/slidesize/setsize/) 메서드를 호출하고, [SlideSizeType](https://reference.aspose.com/slides/ko/net/aspose.slides/slidesizetype/) 값과 [SlideSizeScaleType](https://reference.aspose.com/slides/ko/net/aspose.slides/slidesizescaletype/) 값을 지정합니다. 스케일 유형은 이미 슬라이드에 존재하는 도형을 어떻게 처리할지 Aspose.Slides에 알려줍니다; `DoNotScale`은 도형을 그대로 두어 아직 내용이 없는 프레젠테이션에 적합합니다.
+새 프레젠테이션은 4:3 슬라이드(720 × 540 포인트, 10 × 7.5 인치)를 사용합니다. 와이드스크린 슬라이드를 만들려면 프레젠테이션의 [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/)에 대해 [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) 메서드를 호출하고, [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) 값과 [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) 값을 지정합니다. 스케일 유형은 이미 슬라이드에 존재하는 도형을 어떻게 처리할지 Aspose.Slides에 알려줍니다; `DoNotScale`은 도형을 그대로 두어 아직 내용이 없는 프레젠테이션에 적합합니다.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -112,7 +112,7 @@ try {
 포인트 단위입니다. 1인치는 72 포인트이므로 기본 4:3 슬라이드는 720 × 540 포인트이고, 16:9 와이드스크린 슬라이드는 960 × 540 포인트입니다.
 
 **새 프레젠테이션을 어떤 형식으로 저장할 수 있나요?**  
-[SaveFormat](https://reference.aspose.com/slides/ko/net/aspose.slides.export/saveformat/) 열거형의 모든 값을 사용할 수 있습니다. 예를 들어 PowerPoint 97–2003용 `SaveFormat.Ppt`, OpenDocument용 `SaveFormat.Odp`, 또는 `SaveFormat.Pdf` 등이 있습니다. PDF 출력에 대해서는 [Convert PowerPoint to PDF](/slides/ko/nodejs-net/convert-powerpoint-to-pdf/)을 참고하십시오.
+[SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 열거형의 모든 값을 사용할 수 있습니다. 예를 들어 PowerPoint 97–2003용 `SaveFormat.Ppt`, OpenDocument용 `SaveFormat.Odp`, 또는 `SaveFormat.Pdf` 등이 있습니다. PDF 출력에 대해서는 [Convert PowerPoint to PDF](/slides/ko/nodejs-net/convert-powerpoint-to-pdf/)을 참고하십시오.
 
 **저장된 프레젠테이션에 "Evaluation only" 텍스트가 포함된 이유는 무엇인가요?**  
 라이선스가 없을 경우 Aspose.Slides는 저장된 슬라이드에 평가 워터마크를 추가합니다. 워터마크를 제거하려면 [Licensing](/slides/ko/nodejs-net/licensing/)에 설명된 대로 라이선스를 적용하십시오.

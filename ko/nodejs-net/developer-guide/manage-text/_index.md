@@ -31,12 +31,12 @@ Aspose.Slides에서 슬라이드의 텍스트는 도형에 속합니다. 사각�
 예제는 [설치](/slides/ko/nodejs-net/installation/)에 설명된 대로 프로젝트를 설정해야 합니다. 각 예제를 프로젝트 폴더에 `.js` 파일로 저장하고 해당 폴더에서 `node`로 실행합니다.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET에는 자체 API 참조가 없습니다. camelCase 이름을 사용하는 Aspose.Slides for .NET API를 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ko/net/)의 해당 클래스 및 멤버로 연결됩니다.
+Aspose.Slides for Node.js via .NET에는 자체 API 참조가 없습니다. camelCase 이름을 사용하는 Aspose.Slides for .NET API를 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)의 해당 클래스 및 멤버로 연결됩니다.
 {{% /alert %}}
 
 ## **텍스트 상자 추가**
 
-텍스트 상자를 추가하려면 [addAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/shapecollection/addautoshape/) 메서드로 슬라이드에 자동 도형을 추가하고, [addTextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/addtextframe/) 메서드로 텍스트를 지정합니다. 다음 예제는 새 프레젠테이션의 첫 번째 슬라이드에 사각형을 추가하고 프레젠테이션을 `text-box.pptx` 파일로 저장합니다.
+텍스트 상자를 추가하려면 [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) 메서드로 슬라이드에 자동 도형을 추가하고, [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) 메서드로 텍스트를 지정합니다. 다음 예제는 새 프레젠테이션의 첫 번째 슬라이드에 사각형을 추가하고 프레젠테이션을 `text-box.pptx` 파일로 저장합니다.
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **텍스트 및 서식 변경**
 
-다음 예제는 이전 예제가 만든 `text-box.pptx`를 열어 첫 번째 슬라이드의 첫 번째 도형을 가져옵니다. 사진이나 표와 같은 도형에는 텍스트 프레임이 없으므로, 예제에서는 도형이 [AutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/)인지 확인한 후 도형의 [textFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/textframe/)을 사용합니다. 그 후 다음 작업을 수행합니다.
+다음 예제는 이전 예제가 만든 `text-box.pptx`를 열어 첫 번째 슬라이드의 첫 번째 도형을 가져옵니다. 사진이나 표와 같은 도형에는 텍스트 프레임이 없으므로, 예제에서는 도형이 [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)인지 확인한 후 도형의 [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/)을 사용합니다. 그 후 다음 작업을 수행합니다.
 
-1. 텍스트 프레임의 [text](https://reference.aspose.com/slides/ko/net/aspose.slides/textframe/text/) 속성을 통해 텍스트를 교체합니다. 이후 텍스트 프레임에는 하나의 단락과 하나의 포션이 포함됩니다.
-1. [paragraphs](https://reference.aspose.com/slides/ko/net/aspose.slides/textframe/paragraphs/) 및 [portions](https://reference.aspose.com/slides/ko/net/aspose.slides/paragraph/portions/) 컬렉션에서 해당 포션을 가져와 [portionFormat](https://reference.aspose.com/slides/ko/net/aspose.slides/portion/portionformat/)을 읽습니다.
-1. [fontHeight](https://reference.aspose.com/slides/ko/net/aspose.slides/baseportionformat/fontheight/) (포인트 단위 글꼴 크기)와 [fontBold](https://reference.aspose.com/slides/ko/net/aspose.slides/baseportionformat/fontbold/) (값이 [NullableBool](https://reference.aspose.com/slides/ko/net/aspose.slides/nullablebool/)인 속성)을 설정합니다.
+1. 텍스트 프레임의 [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) 속성을 통해 텍스트를 교체합니다. 이후 텍스트 프레임에는 하나의 단락과 하나의 포션이 포함됩니다.
+1. [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) 및 [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) 컬렉션에서 해당 포션을 가져와 [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/)을 읽습니다.
+1. [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) (포인트 단위 글꼴 크기)와 [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/) (값이 [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)인 속성)을 설정합니다.
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

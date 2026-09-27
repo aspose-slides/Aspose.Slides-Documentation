@@ -58,13 +58,13 @@ PPT, PPTX, PPS, POT 및 ODP 파일을 매크로 사용 가능 및 템플릿 변�
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ko/net/">.NET API 참조</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/nodejs-net/release-notes/">릴리스 노트</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/nodejs-net/">다운로드</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">.NET API 참조</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">릴리스 노트</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">다운로드</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">무료 지원 포럼</a></li>
 <li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
 </ul>
 </div>

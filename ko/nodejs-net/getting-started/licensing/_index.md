@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET은 평가와 프로덕션 모두에 사용할
 
 {{% alert color="info" title="참고" %}}
 
-Aspose 제품을 평가, 라이선스 및 구매하는 일반 정책은 [Purchase Policies and FAQ](https://purchase.aspose.com/policies)에서 확인할 수 있습니다. 가격은 [Pricing Information](https://purchase.aspose.com/pricing/slides/ko/family) 페이지에 나와 있습니다.
+Aspose 제품을 평가, 라이선스 및 구매하는 일반 정책은 [Purchase Policies and FAQ](https://purchase.aspose.com/policies)에서 확인할 수 있습니다. 가격은 [Pricing Information](https://purchase.aspose.com/pricing/slides/family) 페이지에 나와 있습니다.
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ try {
 
 파일을 찾을 수 없거나 유효한 라이선스가 아닌 경우 `setLicense`는 오류를 발생시키고 Aspose.Slides는 평가 모드로 유지됩니다. 스크립트는 오류를 잡아 메시지를 출력합니다. 파일이 없을 경우 메시지는 `License "Aspose.Slides.lic" doesn't exist or access is restricted.` 로 시작하고 검색된 모든 위치를 나열합니다.
 
-이 패키지는 파일에서만 라이선스를 적용합니다. `License`는 스트림을 받지 않으며, 패키지는 계량형 라이선스를 제공하지 않습니다. 패키지가 감싸는 클래스에 대한 자세한 내용은 Aspose.Slides for .NET API 참조의 [License](https://reference.aspose.com/slides/ko/net/aspose.slides/license/)를 확인하십시오.
+이 패키지는 파일에서만 라이선스를 적용합니다. `License`는 스트림을 받지 않으며, 패키지는 계량형 라이선스를 제공하지 않습니다. 패키지가 감싸는 클래스에 대한 자세한 내용은 Aspose.Slides for .NET API 참조의 [License](https://reference.aspose.com/slides/net/aspose.slides/license/)를 확인하십시오.

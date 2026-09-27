@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET은 PowerPoint 및 OpenDocument 프레젠테�
 예제는 프로젝트 폴더에 `sample.pptx`라는 이름의 프레젠테이션이 있다고 가정합니다. 이 프레젠테이션은 [Installation](/slides/ko/nodejs-net/installation/)에서 설정한 프로젝트 폴더에 있어야 합니다. 어떤 PowerPoint 프레젠테이션이든 사용할 수 있습니다. 각 예제를 프로젝트 폴더에 `.js` 파일로 저장하고 해당 폴더에서 `node` 명령으로 실행하십시오.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET에는 자체 API 레퍼런스가 없습니다. 이 제품은 Aspose.Slides for .NET API를 camelCase 이름으로 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ko/net/)의 해당 클래스와 멤버로 연결됩니다.
+Aspose.Slides for Node.js via .NET에는 자체 API 레퍼런스가 없습니다. 이 제품은 Aspose.Slides for .NET API를 camelCase 이름으로 그대로 반영하므로, 이 문서의 API 링크는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)의 해당 클래스와 멤버로 연결됩니다.
 {{% /alert %}}
 
 슬라이드를 이미지로 변환하려면 다음 단계를 따르세요:
 
-1. [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/presentation/) 생성자를 사용해 프레젠테이션을 엽니다.
-2. `get(index)`를 사용해 [slides](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/slides/ko/) 컬렉션에서 슬라이드를 가져옵니다. 인덱스는 0부터 시작합니다.
-3. `getImageWithScale` 또는 `getImageWithImageSize`로 슬라이드를 렌더링합니다. .NET API 레퍼런스에서는 두 메서드 모두 [Slide.GetImage](https://reference.aspose.com/slides/ko/net/aspose.slides/slide/getimage/)의 오버로드이며, [IImage](https://reference.aspose.com/slides/ko/net/aspose.slides/iimage/) 객체를 반환합니다.
-4. 이미지의 [save](https://reference.aspose.com/slides/ko/net/aspose.slides/iimage/save/) 메서드와 [ImageFormat](https://reference.aspose.com/slides/ko/net/aspose.slides/imageformat/) 값을 사용해 저장한 뒤, `dispose` 메서드로 해제합니다.
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 생성자를 사용해 프레젠테이션을 엽니다.
+2. `get(index)`를 사용해 [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 컬렉션에서 슬라이드를 가져옵니다. 인덱스는 0부터 시작합니다.
+3. `getImageWithScale` 또는 `getImageWithImageSize`로 슬라이드를 렌더링합니다. .NET API 레퍼런스에서는 두 메서드 모두 [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/)의 오버로드이며, [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) 객체를 반환합니다.
+4. 이미지의 [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) 메서드와 [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 값을 사용해 저장한 뒤, `dispose` 메서드로 해제합니다.
 
 ## **모든 슬라이드를 PNG 이미지로 변환**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-스크립트는 슬라이드마다 하나의 파일을 작성합니다(`slide_1.png`, `slide_2.png` 등). 파일 번호는 1부터 시작합니다. 960 × 540 포인트 슬라이드를 가진 16:9 프레젠테이션의 경우 각 이미지 크기는 1920 × 1080 픽셀입니다. 숨김 슬라이드도 렌더링되며, 이를 건너뛰려면 슬라이드의 [hidden](https://reference.aspose.com/slides/ko/net/aspose.slides/slide/hidden/) 속성을 확인하세요. 각 이미지는 자체 `finally` 블록에서 해제되어 다음 슬라이드가 렌더링되기 전에 메모리가 해제됩니다. 라이선스가 없으면 이미지에 평가용 워터마크가 표시됩니다. 자세한 내용은 [Licensing](/slides/ko/nodejs-net/licensing/)를 참조하세요.
+스크립트는 슬라이드마다 하나의 파일을 작성합니다(`slide_1.png`, `slide_2.png` 등). 파일 번호는 1부터 시작합니다. 960 × 540 포인트 슬라이드를 가진 16:9 프레젠테이션의 경우 각 이미지 크기는 1920 × 1080 픽셀입니다. 숨김 슬라이드도 렌더링되며, 이를 건너뛰려면 슬라이드의 [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) 속성을 확인하세요. 각 이미지는 자체 `finally` 블록에서 해제되어 다음 슬라이드가 렌더링되기 전에 메모리가 해제됩니다. 라이선스가 없으면 이미지에 평가용 워터마크가 표시됩니다. 자세한 내용은 [Licensing](/slides/ko/nodejs-net/licensing/)를 참조하세요.
 
 ## **지정 크기의 이미지로 슬라이드 변환**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-[slideSize.size](https://reference.aspose.com/slides/ko/net/aspose.slides/slidesize/size/) 속성은 슬라이드의 너비와 높이를 포인트 단위로 반환합니다. 16:9 프레젠테이션의 경우 스크립트는 `Saved a 1280 x 720 image`를 출력하고 `slide_1_1280px.png` 파일을 생성합니다. 4:3 프레젠테이션에서는 이미지가 1280 × 960 픽셀이 됩니다.
+[slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) 속성은 슬라이드의 너비와 높이를 포인트 단위로 반환합니다. 16:9 프레젠테이션의 경우 스크립트는 `Saved a 1280 x 720 image`를 출력하고 `slide_1_1280px.png` 파일을 생성합니다. 4:3 프레젠테이션에서는 이미지가 1280 × 960 픽셀이 됩니다.
 
 ## **FAQ**
 

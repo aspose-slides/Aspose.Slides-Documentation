@@ -70,7 +70,7 @@ npm install aspose.slides.via.net
 
 설치 중에 패키지는 네이티브 드로잉 라이브러리(파일 이름에 `aspose.slides.drawing.capi`가 포함된 파일)를 `package.json` 옆의 프로젝트 폴더에 복사합니다.
 
-패키지는 [releases.aspose.com](https://releases.aspose.com/slides/ko/nodejs-net/)에서도 ZIP 아카이브로 제공됩니다. 이 문서는 npm을 통한 설치만 다룹니다.
+패키지는 [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/)에서도 ZIP 아카이브로 제공됩니다. 이 문서는 npm을 통한 설치만 다룹니다.
 
 ## **.NET 종속성 복원**
 
@@ -153,7 +153,7 @@ node hello.js
 스크립트를 실행할 때는 `package.json`이 포함된 프로젝트 폴더에서 실행하십시오. `hello.pptx`와 같은 상대 경로는 현재 폴더를 기준으로 해석되며, 일부 머신에서는 다른 폴더에서 시작된 스크립트가 프레젠테이션을 만들 수 없습니다.
 {{% /alert %}}
 
-JavaScript API는 Aspose.Slides for .NET을 그대로 반영합니다: 클래스는 .NET 이름을 유지하고, 속성과 메서드는 camelCase(`Slides`는 `slides`, `AddAutoShape`는 `addAutoShape`)를 사용하며, 컬렉션 항목은 `get(index)`로 읽습니다. 이 패키지에 별도의 API 레퍼런스는 없으며, 클래스 및 멤버 상세는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ko/net/)를 활용하십시오. 예: [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 및 [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/shapecollection/addautoshape/).
+JavaScript API는 Aspose.Slides for .NET을 그대로 반영합니다: 클래스는 .NET 이름을 유지하고, 속성과 메서드는 camelCase(`Slides`는 `slides`, `AddAutoShape`는 `addAutoShape`)를 사용하며, 컬렉션 항목은 `get(index)`로 읽습니다. 이 패키지에 별도의 API 레퍼런스는 없으며, 클래스 및 멤버 상세는 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)를 활용하십시오. 예: [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 및 [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **FAQ**
 

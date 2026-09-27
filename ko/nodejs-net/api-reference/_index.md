@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET은 Aspose.Slides for .NET API �
 ---
 ## **개요**
 
-Aspose.Slides for Node.js via .NET은 자체 API 참조가 없습니다. 이 패키지는 Aspose.Slides for .NET의 클래스를 동일한 이름으로 JavaScript에 노출하며, 멤버 이름은 camelCase로 변환됩니다. 따라서 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/ko/net/)에서 해당 클래스, 멤버 및 열거형을 문서화하고 있습니다.
+Aspose.Slides for Node.js via .NET은 자체 API 참조가 없습니다. 이 패키지는 Aspose.Slides for .NET의 클래스를 동일한 이름으로 JavaScript에 노출하며, 멤버 이름은 camelCase로 변환됩니다. 따라서 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)에서 해당 클래스, 멤버 및 열거형을 문서화하고 있습니다.
 
 ## **.NET 이름을 JavaScript에 매핑**
 
@@ -52,4 +52,4 @@ try {
 
 스크립트는 현재 폴더에 `slide.png`와 `slide.pdf`를 작성합니다. 두 파일 모두 텍스트가 포함된 사각형을 보여줍니다. 라이선스가 없으면 평가 워터마크가 표시됩니다; [Licensing](/slides/ko/nodejs-net/licensing/)을 참조하십시오.
 
-여기서 사용된 멤버에 대한 자세한 내용은 Aspose.Slides for .NET API 참조의 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/ko/net/aspose.slides/textframe/text/) 및 [Slide.GetImage](https://reference.aspose.com/slides/ko/net/aspose.slides/slide/getimage/)를 참조하십시오.
+여기서 사용된 멤버에 대한 자세한 내용은 Aspose.Slides for .NET API 참조의 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) 및 [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/)를 참조하십시오.
