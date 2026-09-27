@@ -23,7 +23,7 @@ Aspose.Slides có thể được sử dụng ở chế độ đánh giá hoặc 
 
 Bạn có thể tải phiên bản đánh giá của **Aspose.Slides for Python via .NET** từ [trang tải xuống](https://pypi.org/project/Aspose.Slides/). Phiên bản đánh giá cung cấp các tính năng giống như sản phẩm có giấy phép. Gói đánh giá giống hệt gói đã mua và sẽ được cấp phép sau khi bạn thêm một vài dòng mã để áp dụng giấy phép.
 
-Khi bạn đã hài lòng với việc đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/vi/python-net/). Chúng tôi khuyên bạn nên xem xét các tùy chọn đăng ký có sẵn. Nếu có thắc mắc, hãy liên hệ với đội ngũ bán hàng của Aspose.
+Khi bạn đã hài lòng với việc đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/python-net/). Chúng tôi khuyên bạn nên xem xét các tùy chọn đăng ký có sẵn. Nếu có thắc mắc, hãy liên hệ với đội ngũ bán hàng của Aspose.
 
 Mỗi giấy phép Aspose bao gồm một đăng ký một năm với các bản nâng cấp miễn phí đến các phiên bản mới và các bản sửa lỗi được phát hành trong khoảng thời gian đó. Cả người dùng có giấy phép và người dùng đánh giá đều nhận được hỗ trợ kỹ thuật miễn phí và không giới hạn.
 
@@ -58,7 +58,7 @@ Giấy phép có thể được tải từ **tệp** hoặc **luồng**.
 
 {{% alert color="info" title="Lưu ý" %}}
 
-Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/vi/python-net/aspose.slides/license/) để xử lý việc cấp phép.
+Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) để xử lý việc cấp phép.
 
 {{% /alert %}}
 
@@ -70,7 +70,7 @@ Giấy phép mới chỉ có thể kích hoạt Aspose.Slides với phiên bản
 
 ### **Tệp**
 
-Cách đơn giản nhất để thiết lập giấy phép là truyền đường dẫn của tệp giấy phép vào phương thức [set_license](https://reference.aspose.com/slides/vi/python-net/aspose.slides/license/set_license/). Nếu bạn chỉ truyền tên tệp, như trong ví dụ bên dưới, Aspose.Slides sẽ tìm tệp trong thư mục làm việc hiện tại.
+Cách đơn giản nhất để thiết lập giấy phép là truyền đường dẫn của tệp giấy phép vào phương thức [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/). Nếu bạn chỉ truyền tên tệp, như trong ví dụ bên dưới, Aspose.Slides sẽ tìm tệp trong thư mục làm việc hiện tại.
 
 Đoạn mã Python sau cho thấy cách thiết lập tệp giấy phép:
 
@@ -86,9 +86,9 @@ license.set_license("Aspose.Slides.lic")
 
 {{% alert color="warning" title="Cảnh báo" %}}
 
-Nếu bạn đặt tệp giấy phép trong một thư mục khác, khi gọi [License.set_license](https://reference.aspose.com/slides/vi/python-net/aspose.slides/license/set_license/#str), tên tệp ở cuối đường dẫn tuyệt đối phải trùng khớp với tên tệp giấy phép của bạn.
+Nếu bạn đặt tệp giấy phép trong một thư mục khác, khi gọi [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str), tên tệp ở cuối đường dẫn tuyệt đối phải trùng khớp với tên tệp giấy phép của bạn.
 
-Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.lic.xml*. Sau đó, trong mã của bạn, truyền đường dẫn đầy đủ tới tệp đó (kết thúc bằng Aspose.Slides.lic.xml) vào phương thức [License.set_license](https://reference.aspose.com/slides/vi/python-net/aspose.slides/license/set_license/#str).
+Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.lic.xml*. Sau đó, trong mã của bạn, truyền đường dẫn đầy đủ tới tệp đó (kết thúc bằng Aspose.Slides.lic.xml) vào phương thức [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str).
 
 {{% /alert %}}
 
@@ -126,7 +126,7 @@ if license.is_licensed():
 
 {{% alert color="warning" title="Cảnh báo" %}}
 
-Phương thức [License.set_license](https://reference.aspose.com/slides/vi/python-net/aspose.slides/license/set_license/) không an toàn đa luồng. Nếu bạn cần gọi nó đồng thời từ nhiều luồng, hãy sử dụng một primitive đồng bộ, chẳng hạn `threading.Lock`, để tránh các vấn đề.
+Phương thức [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) không an toàn đa luồng. Nếu bạn cần gọi nó đồng thời từ nhiều luồng, hãy sử dụng một primitive đồng bộ, chẳng hạn `threading.Lock`, để tránh các vấn đề.
 
 {{% /alert %}}
 

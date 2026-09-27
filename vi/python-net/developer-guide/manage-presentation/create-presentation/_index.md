@@ -27,10 +27,10 @@ Bài viết này cho thấy cách tạo một bản thuyết trình bằng Aspos
 
 Để tạo một bản thuyết trình và đặt một hình dạng có văn bản trên slide đầu tiên, hãy thực hiện các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/). Một bản thuyết trình mới đã chứa sẵn một slide trống.
-2. Lấy slide đó từ bộ sưu tập [slides](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/slides/vi/) bằng chỉ số 0.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) dạng đám mây bằng phương thức [add_auto_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_auto_shape/) của bộ sưu tập [shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slide/shapes/) của slide, và đặt [text](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/text/) của nó.
-4. Lưu bản thuyết trình dưới dạng tệp PPTX bằng phương thức [save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/save/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Một bản thuyết trình mới đã chứa sẵn một slide trống.
+2. Lấy slide đó từ bộ sưu tập [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) bằng chỉ số 0.
+3. Thêm một [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) dạng đám mây bằng phương thức [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) của bộ sưu tập [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) của slide, và đặt [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/) của nó.
+4. Lưu bản thuyết trình dưới dạng tệp PPTX bằng phương thức [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -78,7 +78,7 @@ Sử dụng [BLOB management strategies](/slides/vi/python-net/manage-blob/), gi
 
 ### Tôi có thể tạo/lưu bản thuyết trình song song không?
 
-Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) từ [multiple threads](/slides/vi/python-net/multithreading/). Hãy chạy các thể hiện riêng biệt, cô lập cho mỗi luồng hoặc tiến trình.
+Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) từ [multiple threads](/slides/vi/python-net/multithreading/). Hãy chạy các thể hiện riêng biệt, cô lập cho mỗi luồng hoặc tiến trình.
 
 ### Làm sao tôi loại bỏ watermark dùng thử và các hạn chế?
 
