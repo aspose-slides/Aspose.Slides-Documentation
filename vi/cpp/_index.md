@@ -72,14 +72,14 @@ Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP,
 <hr>
 <p>THAM KHẢO</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/vi/cpp/">Tham khảo API</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/cpp/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">Tham khảo API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Ghi chú phát hành</a></li>
 <li><a href="/slides/vi/cpp/known-issues/">Các vấn đề đã biết</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/cpp/">Tải xuống</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Trung tâm hỗ trợ trả phí</a></li>
 </ul>
 </div>

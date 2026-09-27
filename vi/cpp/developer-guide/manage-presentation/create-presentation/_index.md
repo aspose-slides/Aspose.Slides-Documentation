@@ -30,10 +30,10 @@ Trước khi bắt đầu, thêm Aspose.Slides vào dự án của bạn: qua Nu
 
 Để tạo một bài thuyết trình và đặt hộp văn bản trên slide đầu tiên, thực hiện các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/). Một bài thuyết trình mới đã chứa sẵn một slide trống.
-1. Lấy slide đó bằng phương thức [Presentation::get_Slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/get_slide/) và chỉ số của nó, 0.
-1. Thêm một hình chữ nhật bằng phương thức [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addautoshape/), và đặt văn bản cho nó bằng phương thức [ITextFrame::set_Text](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/set_text/).
-1. Lưu bài thuyết trình thành tệp PPTX bằng phương thức [Presentation::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/save/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Một bài thuyết trình mới đã chứa sẵn một slide trống.
+1. Lấy slide đó bằng phương thức [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) và chỉ số của nó, 0.
+1. Thêm một hình chữ nhật bằng phương thức [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/), và đặt văn bản cho nó bằng phương thức [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+1. Lưu bài thuyết trình thành tệp PPTX bằng phương thức [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Sử dụng [chiến lược quản lý BLOB](/slides/vi/cpp/manage-blob/), gi�
 
 ### Tôi có thể tạo/lưu các bài thuyết trình song song không?
 
-Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/cpp/multithreading/). Chạy các thể hiện riêng biệt, cách ly cho mỗi luồng hoặc tiến trình.
+Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/cpp/multithreading/). Chạy các thể hiện riêng biệt, cách ly cho mỗi luồng hoặc tiến trình.
 
 ### Làm sao loại bỏ dấu bản quyền dùng thử và các giới hạn?
 

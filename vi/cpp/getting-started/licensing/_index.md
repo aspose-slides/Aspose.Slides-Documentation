@@ -27,9 +27,9 @@ Bài viết này giải thích cách giấy phép hoạt động trong Aspose.Sl
 ## **Đánh giá Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-Bạn có thể tải xuống phiên bản đánh giá của **Aspose.Slides for C++** từ [trang tải xuống NuGet của nó](https://www.nuget.org/packages/Aspose.Slides.Cpp/) hoặc, dưới dạng gói ZIP, từ [trang tải xuống](https://releases.aspose.com/slides/vi/cpp/). Phiên bản đánh giá cung cấp cùng chức năng như sản phẩm có giấy phép. Thực tế, gói đánh giá giống hệt với bản mua—chỉ cần thêm vài dòng mã để áp dụng giấy phép là nó sẽ hoạt động như bản có giấy phép.
+Bạn có thể tải xuống phiên bản đánh giá của **Aspose.Slides for C++** từ [trang tải xuống NuGet của nó](https://www.nuget.org/packages/Aspose.Slides.Cpp/) hoặc, dưới dạng gói ZIP, từ [trang tải xuống](https://releases.aspose.com/slides/cpp/). Phiên bản đánh giá cung cấp cùng chức năng như sản phẩm có giấy phép. Thực tế, gói đánh giá giống hệt với bản mua—chỉ cần thêm vài dòng mã để áp dụng giấy phép là nó sẽ hoạt động như bản có giấy phép.
 
-Khi bạn đã hài lòng với quá trình đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/vi/cpp/). Chúng tôi khuyến nghị xem xét các loại đăng ký có sẵn. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với đội ngũ bán hàng của Aspose.
+Khi bạn đã hài lòng với quá trình đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/cpp/). Chúng tôi khuyến nghị xem xét các loại đăng ký có sẵn. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với đội ngũ bán hàng của Aspose.
 Mỗi giấy phép Aspose bao gồm một năm đăng ký để nâng cấp miễn phí, bao gồm các phiên bản mới và bản sửa lỗi được phát hành trong khoảng thời gian đó. Dù bạn đang sử dụng phiên bản có giấy phép hay phiên bản đánh giá, bạn vẫn nhận được hỗ trợ kỹ thuật không giới hạn và miễn phí.
 {{% /alert %}} 
 
@@ -55,7 +55,7 @@ Mỗi giấy phép Aspose bao gồm một năm đăng ký để nâng cấp mi�
 Giấy phép có thể được tải từ **tệp** hoặc **luồng**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/) để thực hiện các thao tác liên quan đến giấy phép.
+Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) để thực hiện các thao tác liên quan đến giấy phép.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,17 +85,17 @@ int main()
 }
 ```
 
-Nếu giấy phép hợp lệ, [License::SetLicense](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/setlicense/) sẽ trả về và chương trình kết thúc mà không xuất ra gì; từ đó, Aspose.Slides hoạt động mà không có các hạn chế đánh giá. Nếu tệp không có trong thư mục làm việc, phương thức sẽ ném một [FileNotFoundException](https://reference.aspose.com/slides/vi/cpp/system.io/filenotfoundexception/) với thông điệp *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Ví dụ không xử lý ngoại lệ, vì vậy chương trình dừng lại.
+Nếu giấy phép hợp lệ, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) sẽ trả về và chương trình kết thúc mà không xuất ra gì; từ đó, Aspose.Slides hoạt động mà không có các hạn chế đánh giá. Nếu tệp không có trong thư mục làm việc, phương thức sẽ ném một [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) với thông điệp *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Ví dụ không xử lý ngoại lệ, vì vậy chương trình dừng lại.
 
 {{% alert color="warning" title="Warning" %}}
-Nếu bạn đặt tệp giấy phép vào thư mục khác, khi gọi phương thức [License::SetLicense](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/setlicense/), tên tệp ở cuối đường dẫn đầy đủ phải khớp chính xác với tên tệp giấy phép của bạn.
+Nếu bạn đặt tệp giấy phép vào thư mục khác, khi gọi phương thức [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/), tên tệp ở cuối đường dẫn đầy đủ phải khớp chính xác với tên tệp giấy phép của bạn.
 
-Ví dụ, nếu bạn đổi tên tệp giấy phép thành *Aspose.Slides.lic.xml*, bạn phải truyền đường dẫn đầy đủ kết thúc bằng *Aspose.Slides.lic.xml* tới phương thức [License::SetLicense](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/setlicense/) trong mã của bạn.
+Ví dụ, nếu bạn đổi tên tệp giấy phép thành *Aspose.Slides.lic.xml*, bạn phải truyền đường dẫn đầy đủ kết thúc bằng *Aspose.Slides.lic.xml* tới phương thức [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) trong mã của bạn.
 {{% /alert %}}
 
 ### **Luồng**
 
-Tải giấy phép từ một luồng khi chương trình của bạn không giữ giấy phép dưới dạng tệp có thể đặt tên, ví dụ, khi nó đọc giấy phép từ cơ sở dữ liệu. [License::SetLicense](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/setlicense/) chấp nhận bất kỳ [Stream](https://reference.aspose.com/slides/vi/cpp/system.io/stream/) nào chứa giấy phép. Để giữ ví dụ ngắn gọn, mã C++ sau mở *Aspose.Slides.lic* trong thư mục làm việc bằng [File::OpenRead](https://reference.aspose.com/slides/vi/cpp/system.io/file/openread/) và áp dụng giấy phép từ luồng đó:
+Tải giấy phép từ một luồng khi chương trình của bạn không giữ giấy phép dưới dạng tệp có thể đặt tên, ví dụ, khi nó đọc giấy phép từ cơ sở dữ liệu. [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) chấp nhận bất kỳ [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) nào chứa giấy phép. Để giữ ví dụ ngắn gọn, mã C++ sau mở *Aspose.Slides.lic* trong thư mục làm việc bằng [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) và áp dụng giấy phép từ luồng đó:
 
 ```c++
 #include <Util/License.h>
@@ -116,11 +116,11 @@ int main()
 }
 ```
 
-Giấy phép hợp lệ cho kết quả giống như ví dụ tệp. Nếu tệp không tồn tại, [File::OpenRead](https://reference.aspose.com/slides/vi/cpp/system.io/file/openread/) sẽ ném một [FileNotFoundException](https://reference.aspose.com/slides/vi/cpp/system.io/filenotfoundexception/) trước khi giấy phép được áp dụng, và chương trình dừng lại.
+Giấy phép hợp lệ cho kết quả giống như ví dụ tệp. Nếu tệp không tồn tại, [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) sẽ ném một [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) trước khi giấy phép được áp dụng, và chương trình dừng lại.
 
 ## **Xác thực Giấy phép**
 
-Để kiểm tra liệu giấy phép đã được thiết lập đúng chưa, gọi [License::IsLicensed](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/islicensed/). Nó sẽ trả về `true` chỉ sau khi một giấy phép hợp lệ đã được áp dụng, và `false` trước đó. Mã C++ sau áp dụng tệp giấy phép từ thư mục làm việc và sau đó kiểm tra nó:
+Để kiểm tra liệu giấy phép đã được thiết lập đúng chưa, gọi [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/). Nó sẽ trả về `true` chỉ sau khi một giấy phép hợp lệ đã được áp dụng, và `false` trước đó. Mã C++ sau áp dụng tệp giấy phép từ thư mục làm việc và sau đó kiểm tra nó:
 
 ```c++
 #include <Util/License.h>
@@ -144,12 +144,12 @@ int main()
 }
 ```
 
-Với giấy phép hợp lệ, chương trình in *License is good!*. Nếu tệp bị thiếu hoặc không phải là tệp giấy phép, [License::SetLicense](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/setlicense/) sẽ ném ngoại lệ trước khi kiểm tra, và chương trình dừng lại mà không in gì. Nếu tệp là giấy phép nhưng chữ ký không khớp, ví dụ vì đã được chỉnh sửa, SetLicense sẽ trả về mà không có lỗi nhưng `IsLicensed` sẽ trả về `false`, vì vậy không có gì được in và Aspose.Slides vẫn ở chế độ đánh giá.
+Với giấy phép hợp lệ, chương trình in *License is good!*. Nếu tệp bị thiếu hoặc không phải là tệp giấy phép, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) sẽ ném ngoại lệ trước khi kiểm tra, và chương trình dừng lại mà không in gì. Nếu tệp là giấy phép nhưng chữ ký không khớp, ví dụ vì đã được chỉnh sửa, SetLicense sẽ trả về mà không có lỗi nhưng `IsLicensed` sẽ trả về `false`, vì vậy không có gì được in và Aspose.Slides vẫn ở chế độ đánh giá.
 
 ## **An toàn đa luồng**
 
 {{% alert color="warning" title="Warning" %}}
-Phương thức [License::SetLicense](https://reference.aspose.com/slides/vi/cpp/aspose.slides/license/setlicense/) **không an toàn đa luồng**. Nếu bạn cần gọi phương thức này từ nhiều luồng đồng thời, nên sử dụng các primitive đồng bộ (như lock) để ngăn ngừa các vấn đề tiềm ẩn.
+Phương thức [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) **không an toàn đa luồng**. Nếu bạn cần gọi phương thức này từ nhiều luồng đồng thời, nên sử dụng các primitive đồng bộ (như lock) để ngăn ngừa các vấn đề tiềm ẩn.
 {{% /alert %}}
 
 ## **Câu hỏi thường gặp**

@@ -26,7 +26,7 @@ Aspose.Slides cho C++ được phân phối dưới hai hình thức:
 | Hình thức | Sử dụng cho | Nơi tải |
 |---|---|---|
 | Gói NuGet: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64-bit) và [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32-bit) | Dự án Visual Studio C++ trên Windows | NuGet |
-| Gói ZIP cho Windows, Linux và macOS | Các bản dựng không dùng NuGet, như dự án CMake | Trang [trang tải xuống](https://releases.aspose.com/slides/vi/cpp/) |
+| Gói ZIP cho Windows, Linux và macOS | Các bản dựng không dùng NuGet, như dự án CMake | Trang [trang tải xuống](https://releases.aspose.com/slides/cpp/) |
 
 Bài viết này hướng dẫn cách cài đặt gói NuGet trong Visual Studio trên Windows và cách sử dụng gói ZIP với CMake trên Linux. Cả hai cách đều kết thúc bằng cùng một bước kiểm tra: biên dịch và chạy ví dụ đầu tiên trong [Tạo Bài Trình Chiếu](/slides/vi/cpp/create-presentation/).
 
@@ -36,7 +36,7 @@ Trên Windows, thêm gói NuGet vào một dự án Visual Studio C++. Gói này
 
 Chọn gói dựa trên nền tảng bạn biên dịch: **Aspose.Slides.Cpp** cho x64, và **Aspose.Slides.Cpp.x86** cho Win32 (x86). Gói Aspose.Slides.Cpp không được áp dụng cho bản dựng Win32, vì vậy trình biên dịch không thể tìm thấy các tiêu đề của nó ở đó.
 
-Một gói ZIP cho Windows cũng có sẵn tại [trang tải xuống](https://releases.aspose.com/slides/vi/cpp/).
+Một gói ZIP cho Windows cũng có sẵn tại [trang tải xuống](https://releases.aspose.com/slides/cpp/).
 
 ### **Phương pháp 1: Cài đặt hoặc Cập nhật Aspose.Slides từ Trình quản lý Gói NuGet**
 
@@ -96,7 +96,7 @@ Trên Linux, sử dụng gói ZIP Linux cùng với CMake. Gói này chứa thư
    mkdir hello-slides
    cd hello-slides
    ```
-3. Tải xuống gói ZIP Linux (**Aspose.Slides for C++ Linux**) từ [trang tải xuống](https://releases.aspose.com/slides/vi/cpp/) vào thư mục dự án, và giải nén vào thư mục con *aspose-slides-cpp*:
+3. Tải xuống gói ZIP Linux (**Aspose.Slides for C++ Linux**) từ [trang tải xuống](https://releases.aspose.com/slides/cpp/) vào thư mục dự án, và giải nén vào thư mục con *aspose-slides-cpp*:
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp
    ```
