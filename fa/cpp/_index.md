@@ -72,14 +72,14 @@ Aspose.Slides for C++ یک کتابخانه بومی C++ برای ایجاد، �
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fa/cpp/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/cpp/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">یادداشت‌های انتشار</a></li>
 <li><a href="/slides/fa/cpp/known-issues/">مشکلات شناخته‌شده</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/cpp/">دانلود</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">دانلود</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">پشتیبانی پولی</a></li>
 </ul>
 </div>

@@ -30,10 +30,10 @@ description: "با Aspose.Slides در C++ ارائه‌ها را ایجاد کن
 
 برای ایجاد یک ارائه و قرار دادن یک جعبه متن در اسلاید اول آن، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید از پیش حاوی یک اسلاید خالی است.
-2. آن اسلاید را با متد [Presentation::get_Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_slide/) و شاخص آن، 0، دریافت کنید.
-3. یک مستطیل را با متد [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addautoshape/) اضافه کنید و متن آن را با متد [ITextFrame::set_Text](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/set_text/) تنظیم کنید.
-4. ارائه را به‌عنوان فایل PPTX با متد [Presentation::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/save/) ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید از پیش حاوی یک اسلاید خالی است.
+2. آن اسلاید را با متد [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) و شاخص آن، 0، دریافت کنید.
+3. یک مستطیل را با متد [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) اضافه کنید و متن آن را با متد [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) تنظیم کنید.
+4. ارائه را به‌عنوان فایل PPTX با متد [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ذخیره کنید.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### آیا می‌توانم ارائه‌ها را به‌صورت موازی ایجاد/ذخیره کنم؟
 
-نمی‌توانید از همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) از [چندین رشته](/slides/fa/cpp/multithreading/) استفاده کنید. برای هر رشته یا فرآیند یک نمونهٔ جداگانه و ایزوله راه‌اندازی کنید.
+نمی‌توانید از همان نمونهٔ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) از [چندین رشته](/slides/fa/cpp/multithreading/) استفاده کنید. برای هر رشته یا فرآیند یک نمونهٔ جداگانه و ایزوله راه‌اندازی کنید.
 
 ### چگونه واترمارک آزمایشی و محدودیت‌ها را حذف کنم؟
 

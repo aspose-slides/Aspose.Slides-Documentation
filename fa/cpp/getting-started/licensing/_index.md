@@ -27,9 +27,9 @@ Aspose.Slides می‌تواند در حالت ارزیابی یا با یک لا
 ## **ارزیابی Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-شما می‌توانید یک نسخه ارزیابی از **Aspose.Slides for C++** را از [صفحه دانلود NuGet آن](https://www.nuget.org/packages/Aspose.Slides.Cpp/) یا به صورت بسته ZIP، از [صفحه دانلود](https://releases.aspose.com/slides/fa/cpp/) دریافت کنید. نسخه ارزیابی همان عملکرد محصول لایسنس‌دار را ارائه می‌دهد. در واقع، بسته ارزیابی دقیقا مشابه نسخه خریداری شده است—فقط پس از افزودن چند خط کد برای اعمال لایسنس، به‌صورت لایسنس‌دار در می‌آید.
+شما می‌توانید یک نسخه ارزیابی از **Aspose.Slides for C++** را از [صفحه دانلود NuGet آن](https://www.nuget.org/packages/Aspose.Slides.Cpp/) یا به صورت بسته ZIP، از [صفحه دانلود](https://releases.aspose.com/slides/cpp/) دریافت کنید. نسخه ارزیابی همان عملکرد محصول لایسنس‌دار را ارائه می‌دهد. در واقع، بسته ارزیابی دقیقا مشابه نسخه خریداری شده است—فقط پس از افزودن چند خط کد برای اعمال لایسنس، به‌صورت لایسنس‌دار در می‌آید.
 
-پس از اینکه از ارزیابی **Aspose.Slides** راضی شدید، می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/fa/cpp/). ما توصیه می‌کنیم انواع اشتراک‌های موجود را بررسی کنید. اگر سوالی دارید، می‌توانید با تیم فروش Aspose تماس بگیرید.
+پس از اینکه از ارزیابی **Aspose.Slides** راضی شدید، می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/cpp/). ما توصیه می‌کنیم انواع اشتراک‌های موجود را بررسی کنید. اگر سوالی دارید، می‌توانید با تیم فروش Aspose تماس بگیرید.
 
 هر لایسنس Aspose شامل یک اشتراک یک‌ساله برای ارتقاءهای رایگان است، شامل نسخه‌های جدید و رفع باگ‌های منتشر شده در طول آن دوره. چه از نسخه لایسنس‌دار و چه از نسخه ارزیابی استفاده کنید، پشتیبانی فنی رایگان و نامحدود دریافت می‌کنید.
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Aspose.Slides می‌تواند در حالت ارزیابی یا با یک لا
 یک لایسنس می‌تواند از **فایل** یا **جریان** بارگذاری شود.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides کلاس [License](https://reference.aspose.com/slides/fa/cpp/aspose.slides/license/) را برای عملیات لایسنس‌گذاری فراهم می‌کند.
+Aspose.Slides کلاس [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) را برای عملیات لایسنس‌گذاری فراهم می‌کند.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,7 +85,7 @@ int main()
 }
 ```
 
-اگر لایسنس معتبر باشد، [License::SetLicense](https://reference.aspose.com/slides/fa/cpp/aspose.slides/license/setlicense/) باز می‌گردد و برنامه بدون خروجی پایان می‌یابد؛ از آن پس Aspose.Slides بدون محدودیت‌های ارزیابی کار می‌کند. اگر فایل در دایرکتوری کاری موجود نباشد، متد یک [FileNotFoundException](https://reference.aspose.com/slides/fa/cpp/system.io/filenotfoundexception/) با پیام *License "Aspose.Slides.lic" doesn't exist or access is restricted* پرتاب می‌کند. مثال استثنا را مدیریت نمی‌کند، بنابراین برنامه متوقف می‌شود.
+اگر لایسنس معتبر باشد، [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) باز می‌گردد و برنامه بدون خروجی پایان می‌یابد؛ از آن پس Aspose.Slides بدون محدودیت‌های ارزیابی کار می‌کند. اگر فایل در دایرکتوری کاری موجود نباشد، متد یک [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) با پیام *License "Aspose.Slides.lic" doesn't exist or access is restricted* پرتاب می‌کند. مثال استثنا را مدیریت نمی‌کند، بنابراین برنامه متوقف می‌شود.
 
 {{% alert color="warning" title="Warning" %}}
 اگر فایل لایسنس را در دایرکتوری متفاوتی قرار دهید، هنگام فراخوانی متد [License::SetLicense]، نام فایل در انتهای مسیر صریح مشخص شده باید دقیقاً با نام فایل لایسنس شما مطابقت داشته باشد.
