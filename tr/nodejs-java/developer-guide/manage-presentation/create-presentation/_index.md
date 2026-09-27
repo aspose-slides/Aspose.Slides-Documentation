@@ -31,11 +31,11 @@ Başlamadan önce, npm üzerinden `aspose.slides.via.java` paketini, ihtiyacı o
 
 Bir sunum oluşturup ilk slaytına bir metin kutusu eklemek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
-2. O slaytı, [slide collection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/getslides/) üzerinden indeksine göre alın, 0.  
-3. [addAutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/addautoshape/) yöntemiyle bir dikdörtgen ekleyin ve metnini [setText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/settext/) ile ayarlayın.  
-4. Sunumu, [save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/save/) yöntemiyle bir PPTX dosyası olarak kaydedin.  
-5. Sunumu, [dispose](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/dispose/) yöntemiyle serbest bırakın ve işlemi sonlandırın.
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
+2. O slaytı, [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) üzerinden indeksine göre alın, 0.  
+3. [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) yöntemiyle bir dikdörtgen ekleyin ve metnini [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/) ile ayarlayın.  
+4. Sunumu, [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) yöntemiyle bir PPTX dosyası olarak kaydedin.  
+5. Sunumu, [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) yöntemiyle serbest bırakın ve işlemi sonlandırın.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");

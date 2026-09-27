@@ -41,7 +41,7 @@ Aspose.Slides'i değerlendirme sürümü sınırlamaları olmadan test etmek ist
 {{% /alert %}}
 
 ## **Lisans Hakkında**
-Aspose.Slides'in Node.js (Java üzerinden) değerlendirme sürümünü [indirme sayfasından](https://releases.aspose.com/slides/tr/nodejs-java/) kolayca indirebilirsiniz. Değerlendirme sürümü, lisanslı sürümle aynı özelliklere sahiptir, ancak yukarıda açıklanan sınırlamalara tabidir. Ayrıca, lisans satın alıp lisansı uygulamak için birkaç satır kod eklediğinizde değerlendirme sürümü basitçe lisanslı hale gelir.
+Aspose.Slides'in Node.js (Java üzerinden) değerlendirme sürümünü [indirme sayfasından](https://releases.aspose.com/slides/nodejs-java/) kolayca indirebilirsiniz. Değerlendirme sürümü, lisanslı sürümle aynı özelliklere sahiptir, ancak yukarıda açıklanan sınırlamalara tabidir. Ayrıca, lisans satın alıp lisansı uygulamak için birkaç satır kod eklediğinizde değerlendirme sürümü basitçe lisanslı hale gelir.
 
 Lisans, ürün adı, lisanslanan geliştirici sayısı, abonelik son tarih gibi bilgileri içeren düz metin bir XML dosyasıdır. Dosya dijital olarak imzalanmıştır, bu yüzden dosyayı değiştirmeyin. Dosyanın içeriğine istemeden ekstra bir satır sonu eklenmesi bile lisansı geçersiz kılar.
 
@@ -61,7 +61,7 @@ Lisansı ayarlamanız gerekir:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Fiyatlandırma bilgilerini [“Fiyat Bilgileri”](https://purchase.aspose.com/pricing/slides/tr/family) sayfasında bulabilirsiniz.
+Fiyatlandırma bilgilerini [“Fiyat Bilgileri”](https://purchase.aspose.com/pricing/slides/family) sayfasında bulabilirsiniz.
 {{% /alert %}}
 
 ### **Node.js (Java) için Aspose.Slides'te Lisans Ayarlama**
@@ -93,10 +93,10 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-setLicense metodunu çağırdığınızda, lisans adının lisans dosyanızın adıyla aynı olması gerekir. Örneğin, lisans dosyasının adını "Aspose.Slides.lic.xml" olarak değiştirebilirsiniz. Ardından, kodunuzda yeni lisans adını (Aspose.Slides.lic.xml) setLicense metoduna geçirmeniz gerekir. Dosya eksikse veya geçerli bir lisans içermiyorsa, [setLicense](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/license/setlicense/) bir istisna fırlatır ve script hata ile sonlanır.
+setLicense metodunu çağırdığınızda, lisans adının lisans dosyanızın adıyla aynı olması gerekir. Örneğin, lisans dosyasının adını "Aspose.Slides.lic.xml" olarak değiştirebilirsiniz. Ardından, kodunuzda yeni lisans adını (Aspose.Slides.lic.xml) setLicense metoduna geçirmeniz gerekir. Dosya eksikse veya geçerli bir lisans içermiyorsa, [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) bir istisna fırlatır ve script hata ile sonlanır.
 
 #### **Akıştan Lisans Uygulama**
-Bir akıştan lisans uygulamak için, [License](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/license/) nesnesini ve okunabilir bir akışı statik [setLicenseFromStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/license/setlicense/) metoduna aktarın. Akış asenkron olarak okunur ve geri arama, akış geçerli bir lisans içermiyorsa bir hata alır:
+Bir akıştan lisans uygulamak için, [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) nesnesini ve okunabilir bir akışı statik [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) metoduna aktarın. Akış asenkron olarak okunur ve geri arama, akış geçerli bir lisans içermiyorsa bir hata alır:
 
 **Node.js**
 

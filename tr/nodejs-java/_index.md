@@ -72,14 +72,14 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro etkin ve şablon varyantları da
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/tr/nodejs-java/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/nodejs-java/release-notes/">Sürüm notları</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/nodejs-java/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/nodejs-java/">İndir</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek masası</a></li>
 </ul>
 </div>

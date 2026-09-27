@@ -100,7 +100,7 @@ node hello.js
 Paket ayrıca npm paketiyle aynı içeriğe sahip bir ZIP arşivi olarak da sunulur. Arşivden yüklemek için:
 
 1. Yukarıda açıklandığı gibi işletim sisteminiz için gereksinimleri kurun.
-2. Arşivi [Aspose.Slides for Node.js via Java indirme sayfasından](https://releases.aspose.com/slides/tr/nodejs-java/) indirin.
+2. Arşivi [Aspose.Slides for Node.js via Java indirme sayfasından](https://releases.aspose.com/slides/nodejs-java/) indirin.
 3. Bir proje klasörü oluşturun:
 
     ```bash
