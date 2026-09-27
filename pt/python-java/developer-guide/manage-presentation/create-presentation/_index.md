@@ -29,13 +29,13 @@ Antes de começar, instale Python, um JDK, JPype e Aspose.Slides for Python via 
 
 ## **Criar uma Apresentação**
 
-Criar um arquivo PowerPoint do zero em Aspose.Slides for Python via Java é tão simples quanto instanciar a classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/). O construtor fornece automaticamente um deck em branco com um único slide, oferecendo uma tela imediata para formas, texto, gráficos ou qualquer outro conteúdo que sua aplicação necessite. Depois de modificar esse slide — ou adicionar novos — você pode persistir o resultado em PPTX, PPT legado ou até formatos OpenDocument. O pequeno exemplo de código abaixo ilustra este fluxo adicionando uma forma simples ao primeiro slide.
+Criar um arquivo PowerPoint do zero em Aspose.Slides for Python via Java é tão simples quanto instanciar a classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). O construtor fornece automaticamente um deck em branco com um único slide, oferecendo uma tela imediata para formas, texto, gráficos ou qualquer outro conteúdo que sua aplicação necessite. Depois de modificar esse slide — ou adicionar novos — você pode persistir o resultado em PPTX, PPT legado ou até formatos OpenDocument. O pequeno exemplo de código abaixo ilustra este fluxo adicionando uma forma simples ao primeiro slide.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Obtenha o primeiro slide pelo seu índice, 0.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/python-java/aspose.slides/autoshape/) do tipo [ShapeType.Cloud](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapetype/#Cloud) usando [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Defina o texto da forma usando [TextFrame.setText](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframe/#setText).
-1. Salve a apresentação usando [Presentation.save](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#save) com [SaveFormat.Pptx](https://reference.aspose.com/slides/pt/python-java/aspose.slides/saveformat/#Pptx).
+1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) do tipo [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) usando [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Defina o texto da forma usando [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Salve a apresentação usando [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) com [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 O exemplo a seguir inicia a Java Virtual Machine (JVM) se ainda não estiver em execução, adiciona uma forma de nuvem com texto ao primeiro slide e salva a apresentação. Salve-o como *create_presentation.py*:
 
@@ -100,7 +100,7 @@ Use [estratégias de gerenciamento de BLOB](/slides/pt/python-java/manage-blob/)
 
 **Posso criar/salvar apresentações em paralelo?**
 
-Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) a partir de [múltiplas threads](/slides/pt/python-java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
+Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) a partir de [múltiplas threads](/slides/pt/python-java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
 
 **Como removo a marca d'água de avaliação e as limitações?**
 

@@ -66,7 +66,7 @@ Para atualizar uma instalação existente do Aspose.Slides, execute `python -m p
 
 ## **Instalar a partir de um Arquivo ZIP**
 
-Você também pode usar a biblioteca a partir da [página de downloads do Aspose.Slides](https://releases.aspose.com/slides/pt/python-java/):
+Você também pode usar a biblioteca a partir da [página de downloads do Aspose.Slides](https://releases.aspose.com/slides/python-java/):
 
 1. Instale o Python e o Java conforme descrito em [Pré-requisitos](#prerequisites).
 2. Crie e ative um ambiente virtual usando as instruções acima.
