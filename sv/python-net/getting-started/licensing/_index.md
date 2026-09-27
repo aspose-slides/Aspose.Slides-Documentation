@@ -13,104 +13,93 @@ keywords:
 - utvärderingsversion
 - Python
 - Aspose.Slides
-description: "Lär dig hur du tillämpar, hanterar och felsöker licenser i Aspose.Slides för Python via .NET. Säkerställ oavbruten åtkomst till alla funktioner med vår steg-för-steg-guide för licensiering."
+description: "Lär dig hur du applicerar, hanterar och felsöker licenser i Aspose.Slides för Python via .NET. Säkerställ oavbruten åtkomst till alla funktioner med vår steg-för-steg-guide för licensiering."
 ---
 ## **Översikt**
 
-Aspose.Slides kan användas i utvärderingsläge eller med en giltig licens. Utvärderingsversionen ger samma funktionalitet som den licensierade versionen, men den lägger till ett vattenstämpel för utvärdering när presentationer öppnas eller sparas och begränsar textutdragning till en bild.
+Aspose.Slides kan användas i evalueringsläge eller med en giltig licens. Evalueringsversionen ger samma funktionalitet som den licensierade versionen, men den lägger till ett utvärderingsvattenstämpel på varje bild i varje presentation som den sparar och trunkerar text som din kod läser från presentationer.
 
 ## **Utvärdera Aspose.Slides**
 
-Du kan ladda ner en utvärderingsversion av **Aspose.Slides for Python via .NET** från dess [nedladdningssida](https://pypi.org/project/Aspose.Slides/). Utvärderingsversionen ger samma funktioner som den licensierade produkten. Utvärderingspaketet är identiskt med det köpta paketet och blir licensierat efter att du lagt till några kodrader för att applicera licensen.
+Du kan ladda ner en evalueringsversion av **Aspose.Slides for Python via .NET** från dess [nedladdningssida](https://pypi.org/project/Aspose.Slides/). Evalueringsversionen ger samma funktioner som den licensierade produkten. Evalueringspaketet är identiskt med det köpta paketet och blir licensierat efter att du har lagt till några kodrader för att applicera licensen.
 
-När du är nöjd med din utvärdering av **Aspose.Slides**, kan du [köpa en licens](https://purchase.aspose.com/buy). Vi rekommenderar att du granskar de tillgängliga prenumerationsalternativen. Om du har frågor, kontakta Aspose försäljningsteam.
+När du är nöjd med din utvärdering av **Aspose.Slides**, kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/sv/python-net/). Vi rekommenderar att du går igenom de tillgängliga prenumerationsalternativen. Om du har frågor, kontakta Asposes försäljningsteam.
 
-Varje Aspose-licens inkluderar ett ettårigt abonnemang med gratis uppgraderingar till nya versioner och korrigeringar som släpps under den perioden. Både licensierade och utvärderande användare får gratis, obegränsad teknisk support.
+Varje Aspose-licens inkluderar ett ettårigt abonnemang med gratis uppgraderingar till nya versioner och korrigeringar som släpps under den perioden. Både licensierade och evalueringsanvändare får gratis, obegränsad teknisk support.
 
-**Begränsningar i utvärderingsversionen**
+**Begränsningar i evalueringsversionen**
 
-* Medan Aspose.Slides utvärderingsversion (när ingen licens har tillämpats) ger full funktionalitet, lägger den till ett vattenstämpel för utvärdering högst upp i dokumentet varje gång du öppnar eller sparar det.
-* Vid textutdragning från en presentation är du begränsad till en bild.
+* Evalueringsversionen (när ingen licens har tillämpats) erbjuder full funktionalitet, men den lägger till en evalueringsvattenstämpel i en textruta på varje bild i varje presentation som den sparar.
+* Text som din kod läser från en presentation trunkeras till de första några tecknen, följt av ett meddelande om evalueringsbegränsningen. Text som din kod skriver sparas i sin helhet.
 
-{{% alert color="primary" %}}
-
-För att testa Aspose.Slides utan begränsningar kan du begära en **30‑dagars tillfällig licens**. Se sidan [Hur man får en temporär licens](https://purchase.aspose.com/temporary-license) för detaljer.
-
+{{% alert color="info" title="Obs" %}}
+För att testa Aspose.Slides utan begränsningar kan du begära en **30‑dagars tillfällig licens**. Se sidan [Hur man får en tillfällig licens](https://purchase.aspose.com/temporary-license) för detaljer.
 {{% /alert %}}
 
 ## **Licensiering i Aspose.Slides**
 
-* En utvärderingsversion blir licensierad efter att du köpt en licens och lagt till ett par kodrader för att tillämpa den.
-* Licensen är en rentext‑XML‑fil som innehåller detaljer såsom produktnamn, antal utvecklare den omfattar, prenumerationens utgångsdatum med mera.
+* En evalueringsversion blir licensierad efter att du köpt en licens och lagt till ett par kodrader för att applicera den.
+* Licensen är en ren text‑XML‑fil som innehåller detaljer såsom produktnamn, antalet utvecklare den täcker, abonnemangets utgångsdatum osv.
 * Licensfilen är digitalt signerad, så du får inte ändra den. Även ett enda radbrytning gör den ogiltig.
-* Aspose.Slides for Python via .NET söker vanligtvis efter licensen på följande platser:
-  * En explicit sökväg som du anger
-  * Mappen som innehåller Python‑skriptet som anropar Aspose.Slides for Python via .NET
-* För att undvika utvärderingsbegränsningarna, sätt licensen innan du använder Aspose.Slides. Du behöver bara göra det en gång per applikation eller process.
+* Aspose.Slides for Python via .NET söker efter licensen på den sökväg du anger. En relativ sökväg eller ett filnamn utan sökväg löses mot den aktuella arbetskatalogen, som inte nödvändigtvis är mappen som innehåller ditt Python‑skript.
+* För att undvika evalueringsbegränsningarna, sätt licensen innan du använder Aspose.Slides. Du behöver bara sätta den en gång per applikation eller process.
 
-{{% alert color="primary" %}}
-
-Du kanske också vill granska [Metered Licensing](/slides/sv/python-net/metered-licensing/).
-
+{{% alert color="info" title="Obs" %}}
+Du kan också vilja granska [Metered Licensing](/slides/sv/python-net/metered-licensing/).
 {{% /alert %}}
 
 ## **Applicera en licens**
 
-En licens kan läsas in från en **fil**, **ström** eller **inbäddad resurs**. 
+En licens kan läsas in från en **fil** eller en **ström**.
 
-{{% alert color="primary" %}}
-
+{{% alert color="info" title="Obs" %}}
 Aspose.Slides tillhandahåller klassen [License](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/) för att hantera licensiering.
-
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-
+{{% alert color="warning" title="Varning" %}}
 Nya licenser kan aktivera Aspose.Slides endast med version 21.4 eller senare. Tidigare versioner använder ett annat licenssystem och kommer inte att känna igen dessa licenser.
-
 {{% /alert %}}
 
 ### **Fil**
 
-Det enklaste sättet att sätta en licens är att placera licensfilen i samma mapp som komponentens DLL och ange endast filnamnet (utan någon sökväg).
+Det enklaste sättet att ange en licens är att skicka sökvägen till licensfilen till metoden [set_license](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/set_license/). Om du bara anger filnamnet, som i exemplet nedan, söker Aspose.Slides efter filen i den aktuella arbetskatalogen.
 
-Följande Python‑kod visar hur du ställer in licensfilen:
+Följande Python‑kod visar hur du anger licensfilen:
 
 ```py
 import aspose.slides as slides
 
-# Skapar en instans av License-klassen.
+# Instansierar License-klassen. 
 license = slides.License()
 
 # Anger sökvägen till licensfilen.
 license.set_license("Aspose.Slides.lic")
 ```
 
-{{% alert color="warning" %}}
+{{% alert color="warning" title="Varning" %}}
+Om du placerar licensfilen i en annan katalog, måste filnamnet i slutet av den explicita sökvägen matcha licensfilens namn när du anropar [License.set_license](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/set_license/#str).
 
-Om du placerar licensfilen i en annan katalog, när du anropar [License.set_license()](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/set_license/#str), måste filnamnet i slutet av den explicita sökvägen matcha licensfilens namn.
-
-Till exempel kan du byta namn på licensfilen till *Aspose.Slides.lic.xml*. Då, i din kod, skicka hela sökvägen till den filen (som slutar med Aspose.Slides.lic.xml) till metoden [License.set_license()](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/set_license/#str).
-
+Till exempel kan du döpa om licensfilen till *Aspose.Slides.lic.xml*. Sedan, i din kod, ange den fullständiga sökvägen till den filen (slutande med Aspose.Slides.lic.xml) till metoden [License.set_license](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/set_license/#str).
 {{% /alert %}}
 
 ### **Ström**
 
-Du kan läsa in en licens från en ström. Följande Python‑exempel visar hur du tillämpar en licens från en ström:
+Du kan läsa in en licens från en ström. Följande Python‑exempel visar hur du applicerar en licens från en ström:
 
 ```py
 import aspose.slides as slides
 
-# Skapar en instans av License-klassen.
+# Instansierar License-klassen.
 license = slides.License()
 
-# Anger licensen från en ström.
-license.set_license(stream)
+# Sätter licensen från en ström.
+with open("Aspose.Slides.lic", "rb") as stream:
+    license.set_license(stream)
 ```
 
 ## **Validera en licens**
 
-För att verifiera att licensen har tillämpats korrekt kan du validera den. Följande Python‑kod demonstrerar hur du validerar en licens:
+För att verifiera att licensen har applicerats korrekt kan du validera den. Följande Python‑kod demonstrerar hur du validerar en licens:
 
 ```py
 import aspose.slides as slides
@@ -125,18 +114,16 @@ if license.is_licensed():
 
 ## **Trådsäkerhet**
 
-{{% alert title="Obs" color="warning" %}}
-
-Metoderna [License.set_license](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/) är inte trådsäkra. Om de behöver anropas samtidigt från flera trådar, använd synkroniseringsprimitiver (t.ex. `threading.Lock`) för att undvika problem.
-
+{{% alert color="warning" title="Varning" %}}
+Metoden [License.set_license](https://reference.aspose.com/slides/sv/python-net/aspose.slides/license/set_license/) är inte trådsäker. Om du behöver anropa den parallellt från flera trådar, använd en synkroniseringsprimitive, såsom `threading.Lock`, för att undvika problem.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan jag tillämpa licensen i en helt offline‑miljö (utan internetuppkoppling)?**
+### Kan jag applicera licensen i en helt offline‑miljö (ingen internetåtkomst)?
 
-Ja. Licensvalidering utförs lokalt med licensfilen; ingen internetanslutning krävs.
+Ja. Licensvalidering sker lokalt med licensfilen; ingen internetanslutning krävs.
 
-**Vad händer när det ettåriga abonnemanget löper ut? Slutar biblioteket att fungera?**
+### Vad händer när det ettåriga abonnemanget löper ut? Slutar biblioteket fungera?
 
-Nej. Licensen är livslång: du kan fortsätta använda versioner som släppts innan ditt abonnemangs slutdatum; du kommer bara inte att kunna använda nyare utgåvor utan förnyelse.
+Nej. Licensen är evig: du kan fortsätta använda versioner som släppts före ditt abonnemangs slutdatum; du kommer bara inte att kunna använda nyare releaser utan att förnya.

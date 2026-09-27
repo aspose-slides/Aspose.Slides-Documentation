@@ -17,39 +17,40 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Vytvářejte prezentace PowerPoint v Pythonu pomocí Aspose.Slides — vytvářejte soubory PPT, PPTX a ODP, využívejte podporu OpenDocument a ukládejte je programově pro spolehlivé výsledky."
+description: "Vytvořte prezentace PowerPoint v Pythonu pomocí Aspose.Slides—vytvářejte soubory PPT, PPTX a ODP, využijte podporu OpenDocument a ukládejte je programově pro spolehlivé výsledky."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Python vám umožňuje vytvořit zcela nový soubor prezentace výhradně pomocí kódu. Tento článek ukazuje základní postup – vytvoření objektu [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) , získání první snímku, vložení jednoduchého tvaru a uložení výsledku – takže můžete vidět, jak málo nastavení je potřeba k vytvoření prezentace bez Microsoft Office. Protože stejné API zapisuje soubory PPT, PPTX i ODP, můžete cílit jak na tradiční PowerPoint, tak na formáty OpenDocument z jedné kódové základny. Aspose.Slides je vhodný pro desktopové, webové i serverové prostředí, což vaší Python aplikaci poskytuje efektivní výchozí bod pro přidání bohatšího obsahu, jako je text, obrázky nebo grafy, jakmile je vytvořena počáteční sada snímků.
+Tento článek ukazuje, jak vytvořit prezentaci s Aspose.Slides pro Python přes .NET, přidat tvar s textem na její první snímek a uložit výsledek jako soubor PPTX. Stejné API také ukládá prezentace jako PPT a ODP, takže můžete cílit na formáty PowerPoint i OpenDocument z jednoho kódu, bez Microsoft Office. Krátké FAQ na konci pokrývá běžné otázky o formátech, šablonách, velikosti snímků, jednotkách, využití paměti, vláknech, licencování, digitálních podpisech a podpoře VBA.
 
-## **Vytvoření prezentace**
+Než začnete, nainstalujte balíček z PyPI pomocí `pip install aspose.slides`. Viz [Instalace](/slides/cs/python-net/installation/) pro knihovny, které také potřebují Linux a macOS, a pro virtuální prostředí, které vyžaduje systémový Python v Debianu a Ubuntu.
 
-Vytvoření souboru PowerPoint od nuly v Aspose.Slides pro Python je tak jednoduché, jako vytvoření instance třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/). Konstruktor automaticky poskytne prázdnou prezentaci s jedním snímkem, což vám dává okamžitou plochu pro tvary, text, grafy nebo jakýkoli jiný obsah, který vaše aplikace potřebuje. Po úpravě tohoto snímku – nebo přidání nových – můžete výsledek uložit jako PPTX, starší PPT nebo dokonce formáty OpenDocument. Níže uvedený krátký ukázkový kód ilustruje tento postup přidáním jednoduchého tvaru na první snímek.
+## **Vytvořit prezentaci**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte objekt [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) typu `CLOUD` pomocí metody `add_auto_shape` zveřejněné kolekcí `shapes`.
-4. Přidejte text do auto‑shape.
-5. Uložte upravenou prezentaci jako soubor PPTX.
+Chcete-li vytvořit prezentaci a umístit tvar s textem na její první snímek, postupujte podle těchto kroků:
 
-V níže uvedeném příkladu je na první snímek prezentace přidán tvar oblaku.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
+2. Získejte tento snímek ze sbírky [slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/slides/cs/) pomocí jeho indexu 0.
+3. Přidejte oblačný [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) pomocí metody [add_auto_shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_auto_shape/) ze sbírky [shapes](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/shapes/) snímku a nastavte jeho [text](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/text/).
+4. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
 
 # Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 with slides.Presentation() as presentation:
-    # Získejte první snímek.
+    # Získat první snímek.
     slide = presentation.slides[0]
 
-    # Přidejte auto‑tvar typu CLOUD.
+    # Přidat automatický tvar typu CLOUD.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
     auto_shape.text_frame.text = "Hello, Aspose!"
 
-    # Uložte prezentaci jako soubor PPTX.
+    # Uložit prezentaci jako soubor PPTX.
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+Lehý roh obláčku je 20 bodů od levého okraje a 20 bodů od horního okraje snímku a obláček je široký 200 bodů a vysoký 80 bodů. Výraz `with` uvolní prostředky prezentace po ukončení bloku. Skript uloží *new_presentation.pptx* do aktuální složky, s jedním snímkem, který obsahuje obláček a jeho text. Bez licence Aspose.Slides také přidává evaluační vodoznak na každý uložený snímek; viz [Licencování](/slides/cs/python-net/licensing/).
 
 Výsledek:
 
@@ -57,38 +58,38 @@ Výsledek:
 
 ## **Často kladené otázky**
 
-**Do jakých formátů mohu uložit novou prezentaci?**
+### Do jakých formátů mohu uložit novou prezentaci?
 
-Můžete uložit do [PPTX, PPT a ODP](/slides/cs/python-net/save-presentation/) a exportovat do [PDF](/slides/cs/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/cs/python-net/convert-powerpoint-to-xps/), [HTML](/slides/cs/python-net/convert-powerpoint-to-html/), [SVG](/slides/cs/python-net/convert-powerpoint-to-png/) a [obrázků](/slides/cs/python-net/convert-powerpoint-to-png/), a další.
+Můžete uložit do [PPTX, PPT a ODP](/slides/cs/python-net/save-presentation/), a exportovat do [PDF](/slides/cs/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/cs/python-net/convert-powerpoint-to-xps/), [HTML](/slides/cs/python-net/convert-powerpoint-to-html/), [SVG](/slides/cs/python-net/render-a-slide-as-an-svg-image/) a [obrázky](/slides/cs/python-net/convert-powerpoint-to-png/), mezi jinými.
 
-**Mohu začít ze šablony (POTX/POTM) a uložit jako běžný PPTX?**
+### Mohu začít ze šablony (POTX/POTM) a uložit jako běžný PPTX?
 
 Ano. Načtěte šablonu a uložte do požadovaného formátu; formáty POTX/POTM/PPTM a podobné [jsou podporovány](/slides/cs/python-net/supported-file-formats/).
 
-**Jak mohu nastavit velikost a poměr stran snímku při vytváření prezentace?**
+### Jak mohu kontrolovat velikost snímku/poměr stran při vytváření prezentace?
 
-Nastavte [velikost snímku](/slides/cs/python-net/slide-size/) (včetně předvoleb jako 4:3 a 16:9 nebo vlastních rozměrů) a zvolte, jak se má obsah škálovat.
+Nastavte [velikost snímku](/slides/cs/python-net/slide-size/) (včetně předvoleb jako 4:3 a 16:9 nebo vlastních rozměrů) a vyberte, jak by měl být obsah měněn.
 
-**V jakých jednotkách jsou měřeny velikosti a souřadnice?**
+### V jakých jednotkách se měří velikosti a souřadnice?
 
 V bodech: 1 palec odpovídá 72 jednotkám.
 
-**Jak zvládnout velmi velké prezentace (s mnoha mediálními soubory) a snížit využití paměti?**
+### Jak zacházet s velmi velkými prezentacemi (s mnoha mediálními soubory) pro snížení spotřeby paměti?
 
-Použijte [strategie správy BLOB](/slides/cs/python-net/manage-blob/), omezte úložiště v paměti pomocí dočasných souborů a upřednostňujte pracovní postupy založené na souborech před čistě paměťovými streamy.
+Použijte [strategie správy BLOB](/slides/cs/python-net/manage-blob/), omezte úložiště v paměti využitím dočasných souborů a upřednostněte workflow založené na souborech před čistě paměťovými proudy.
 
-**Mohu vytvářet/ukládat prezentace paralelně?**
+### Mohu vytvářet/ukládat prezentace paralelně?
 
-Nelze operovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) z [více vláken](/slides/cs/python-net/multithreading/). Spusťte samostatné, izolované instance pro každé vlákno nebo proces.
+Nelze operovat na stejné instanci [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) z [více vláken](/slides/cs/python-net/multithreading/). Spusťte samostatné, izolované instance na každé vlákno nebo proces.
 
-**Jak odstranit vodotisk a omezení z trial verze?**
+### Jak odstranit zkušební vodoznak a omezení?
 
-[Aplikujte licenci](/slides/cs/python-net/licensing/) jednou na proces. Licenční XML soubor musí zůstat nezměněn a nastavení licence by mělo být synchronizováno, pokud jsou zapojena více vláken.
+[Aplikujte licenci](/slides/cs/python-net/licensing/) jednou na proces. XML licence musí zůstat nezměněný a nastavení licence by mělo být synchronizováno, pokud se zapojují více vláken.
 
-**Mohu digitálně podepsat PPTX, který vytvořím?**
+### Mohu digitálně podepsat PPTX, který vytvořím?
 
-Ano. [Digitální podpisy](/slides/cs/python-net/digital-signature-in-powerpoint/) (přidávání a ověřování) jsou pro prezentace podporovány.
+Ano. [Digitální podpisy](/slides/cs/python-net/digital-signature-in-powerpoint/) (přidávání a ověřování) jsou podporovány pro prezentace.
 
-**Jsou v vytvořených prezentacích podporována makra (VBA)?**
+### Jsou makra (VBA) podporována ve vytvořených prezentacích?
 
-Ano. Můžete [vytvářet/editovat VBA projekty](/slides/cs/python-net/presentation-via-vba/) a ukládat soubory s povolenými makry, například PPTM/PPSM.
+Ano. Můžete [vytvářet/editovat VBA projekty](/slides/cs/python-net/presentation-via-vba/) a uložit soubory s makry jako PPTM/PPSM.

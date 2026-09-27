@@ -1,5 +1,5 @@
 ---
-title: إنشاء عروض تقديمية في Python
+title: إنشاء عروض تقديمية في بايثون
 linktitle: إنشاء عرض تقديمي
 type: docs
 weight: 10
@@ -17,28 +17,27 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "إنشاء عروض PowerPoint في Python باستخدام Aspose.Slides — إنتاج ملفات PPT و PPTX و ODP، الاستفادة من دعم OpenDocument، وحفظها برمجيًا للحصول على نتائج موثوقة."
+description: "إنشاء عروض PowerPoint في بايثون باستخدام Aspose.Slides—إنشاء ملفات PPT و PPTX و ODP، الاستفادة من دعم OpenDocument، وحفظها برمجياً للحصول على نتائج موثوقة."
 ---
-
 ## **نظرة عامة**
 
-تتيح لك Aspose.Slides for Python إنشاء ملف عرض تقديمي جديد بالكامل باستخدام الكود. تُظهر هذه المقالة سير العمل الأساسي — إنشاء كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) ، الحصول على الشريحة الأولى ، إدراج شكل بسيط ، وحفظ النتيجة — لتتمكن من رؤية مدى قلة الإعداد المطلوب لتوليد عرض تقديمي بدون Microsoft Office. نظرًا لأن نفس API يكتب ملفات PPT و PPTX و ODP ، يمكنك استهداف كل من تنسيقات PowerPoint التقليدية و OpenDocument من قاعدة شفرة واحدة. تُناسب Aspose.Slides بيئات سطح المكتب أو الويب أو الخادم، مما يمنح تطبيق Python الخاص بك نقطة انطلاق فعالة لإضافة محتوى أغنى مثل النصوص أو الصور أو المخططات بمجرد أن يكون مجموعة الشرائح الأولية جاهزة.
+توضح هذه المقالة كيفية إنشاء عرض تقديمي باستخدام Aspose.Slides لـ Python عبر .NET، وإضافة شكل يحتوي على نص إلى الشريحة الأولى، وحفظ النتيجة كملف PPTX. كما أن نفس API يحفظ العروض التقديمية كـ PPT و ODP، بحيث يمكنك استهداف صيغ PowerPoint و OpenDocument من قاعدة شفرة واحدة، دون الحاجة إلى Microsoft Office. يغطي قسم الأسئلة المتداولة القصير في النهاية الأسئلة الشائعة حول الصيغ والقوالب وحجم الشرائح والوحدات واستهلاك الذاكرة وخيوط التنفيذ والترخيص والتوقيعات الرقمية ودعم VBA.
+
+قبل البدء، قم بتثبيت الحزمة من PyPI باستخدام `pip install aspose.slides`. راجع [التثبيت](/slides/ar/python-net/installation/) للحصول على المكتبات التي يحتاجها Linux و macOS أيضًا، وللحصول على البيئة الافتراضية التي يتطلبها Python نظام Debian و Ubuntu.
 
 ## **إنشاء عرض تقديمي**
 
-إنشاء ملف PowerPoint من الصفر في Aspose.Slides for Python بسيط كاستدعاء فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). يقوم المُنشئ تلقائيًا بتوفير مجموعة فارغة بشريحة واحدة، مما يمنحك لوحة رسم فورية للأشكال أو النصوص أو المخططات أو أي محتوى آخر تحتاجه تطبيقاتك. بمجرد تعديل تلك الشريحة — أو إضافة شرائح جديدة — يمكنك حفظ النتيجة كملف PPTX أو PPT القديم أو حتى تنسيقات OpenDocument. يوضح المثال القصير أدناه هذا سير العمل بإضافة شكل بسيط إلى الشريحة الأولى.
+لإنشاء عرض تقديمي ووضع شكل يحتوي على نص على الشريحة الأولى، اتبع الخطوات التالية:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع إلى الشريحة حسب فهرسها.
-1. أضف كائن [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) من النوع `CLOUD` باستخدام طريقة `add_auto_shape` التي توفرها مجموعة `shapes`.
-1. أضف نصًا إلى الشكل التلقائي.
-1. احفظ العرض التقديمي المعدل كملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) . يحتوي عرض تقديمي جديد بالفعل على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة من مجموعة [slides](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/slides/ar/) باستخدام الفهرس 0.
+3. أضف شكلًا سحابيًا من النوع [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) باستخدام طريقة [add_auto_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_auto_shape/) لمجموعة [shapes](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/shapes/) الخاصة بالشريحة، ثم عيّن خاصية [text](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/text/).
+4. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/save/).
 
-في المثال أدناه، يتم إضافة شكل سحابة إلى الشريحة الأولى من العرض التقديمي.
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن الفئة Presentation التي تمثل ملف عرض تقديمي.
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 with slides.Presentation() as presentation:
     # الحصول على الشريحة الأولى.
     slide = presentation.slides[0]
@@ -51,6 +50,7 @@ with slides.Presentation() as presentation:
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+زاوية السحابة العلوية اليسرى تبعد 20 نقطة عن الحافة اليسرى و20 نقطة عن الحافة العلوية للشريحة، وعرض السحابة 200 نقطة وارتفاعها 80 نقطة. يحرر بيان `with` موارد العرض التقديمي عند انتهاء الكتلة. يحفظ البرنامج النصي *new_presentation.pptx* في المجلد الحالي، مع شريحة واحدة تحتوي على السحابة ونصها. بدون ترخيص، يضيف Aspose.Slides علامة مائية تقييمية إلى كل شريحة يتم حفظها؛ راجع [الترخيص](/slides/ar/python-net/licensing/).
 
 النتيجة:
 
@@ -58,38 +58,38 @@ with slides.Presentation() as presentation:
 
 ## **الأسئلة الشائعة**
 
-**ما هي الصيغ التي يمكنني حفظ عرض تقديمي جديد بها؟**
+### ما الصيغ التي يمكنني حفظ عرض تقديمي جديد إليها؟
 
-يمكنك الحفظ إلى [PPTX, PPT, and ODP](/slides/ar/python-net/save-presentation/)، والتصدير إلى [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/python-net/convert-powerpoint-to-xps/)، [HTML](/slides/ar/python-net/convert-powerpoint-to-html/)، [SVG](/slides/ar/python-net/convert-powerpoint-to-png/)، و[الصور](/slides/ar/python-net/convert-powerpoint-to-png/)، من بين أخرى.
+يمكنك حفظ العرض إلى [PPTX, PPT, و ODP](/slides/ar/python-net/save-presentation/)، وتصديره إلى [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/python-net/convert-powerpoint-to-xps/), [HTML](/slides/ar/python-net/convert-powerpoint-to-html/), [SVG](/slides/ar/python-net/render-a-slide-as-an-svg-image/), و[images](/slides/ar/python-net/convert-powerpoint-to-png/)، من بين أخرى.
 
-**هل يمكنني البدء من قالب (POTX/POTM) وحفظه كـ PPTX عادي؟**
+### هل يمكنني البدء من قالب (POTX/POTM) وحفظه كملف PPTX عادي؟
 
-نعم. حمّل القالب واحفظه بالصيغة المطلوبة؛ تُدعم صيغ POTX/POTM/PPTM وما شابهها [/slides/python-net/supported-file-formats/].
+نعم. حمّل القالب واحفظه بالصيغة المطلوبة؛ الصيغ POTX/POTM/PPTM وغيرها [مدعومة](/slides/ar/python-net/supported-file-formats/).
 
-**كيف يمكنني التحكم في حجم الشريحة/نسبة العرض إلى الارتفاع عند إنشاء عرض تقديمي؟**
+### كيف يمكنني التحكم في حجم الشريحة/نسبة الأبعاد عند إنشاء عرض تقديمي؟
 
-حدد [حجم الشريحة](/slides/ar/python-net/slide-size/) (بما فيها الإعدادات المسبقة مثل 4:3 و 16:9 أو الأبعاد المخصصة) واختر طريقة تكبير المحتوى.
+حدد [حجم الشريحة](/slides/ar/python-net/slide-size/) (بما في ذلك القوالب مثل 4:3 و 16:9 أو أبعاد مخصصة) واختر كيفية مقياس المحتوى.
 
-**بأي وحدات تُقاس الأحجام والإحداثيات؟**
+### بأي وحدات يتم قياس الأحجام والإحداثيات؟
 
-بوحدات النقاط: إنش واحد يساوي 72 وحدة.
+بالنقاط: 1 بوصة يساوي 72 وحدة.
 
-**كيف أتعامل مع عروض تقديمية كبيرة جدًا (مع العديد من ملفات الوسائط) لتقليل استهلاك الذاكرة؟**
+### كيف أتعامل مع عروض تقديمية كبيرة جدًا (مع العديد من ملفات الوسائط) لتقليل استهلاك الذاكرة؟
 
-استخدم [استراتيجيات إدارة BLOB](/slides/ar/python-net/manage-blob/)، وحدّ التخزين في الذاكرة باستخدام الملفات المؤقتة، وفضّل سير عمل يعتمد على الملفات بدلاً من التدفقات الداخلية فقط.
+استخدم [BLOB management strategies](/slides/ar/python-net/manage-blob/)، حدّ التخزين في الذاكرة باستخدام ملفات مؤقتة، وفضّل سير عمل قائم على الملفات بدلاً من التدفقات التي تظل في الذاكرة فقط.
 
-**هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟**
+### هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟
 
-لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/python-net/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) من [multiple threads](/slides/ar/python-net/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
 
-**كيف أزيل علامة مائية التجربة والقيود؟**
+### كيف يمكنني إزالة علامة التجربة المائية والقيود؟
 
-[قم بتطبيق ترخيص](/slides/ar/python-net/licensing/) مرة واحدة لكل عملية. يجب ألا يتغير ملف XML للترخيص، ويجب مزامنة إعداد الترخيص إذا كانت هناك خيوط متعددة.
+[Apply a license](/slides/ar/python-net/licensing/) مرة واحدة لكل عملية. يجب أن يظل ملف ترخيص XML بدون تعديل، ويجب مزامنة إعداد الترخيص إذا كانت هناك عدة خيوط.
 
-**هل يمكنني توقيع PPTX رقمياً؟**
+### هل يمكنني توقيع ملف PPTX الذي أنشئه رقميًا؟
 
-نعم. تدعم [التوقيعات الرقمية](/slides/ar/python-net/digital-signature-in-powerpoint/) (الإضافة والتحقق) للعرض التقديمي.
+نعم. [Digital signatures](/slides/ar/python-net/digital-signature-in-powerpoint/) (الإضافة والتحقق) مدعومة للعروض التقديمية.
 
-**هل تدعم العروض التقديمية التي تم إنشاؤها وحدات ماكرو (VBA)؟**
+### هل تدعم الماكرو (VBA) في العروض التقديمية التي تم إنشاؤها؟
 
-نعم. يمكنك [إنشاء/تحرير مشاريع VBA](/slides/ar/python-net/presentation-via-vba/) وحفظ ملفات تدعم الماكرو مثل PPTM/PPSM.
+نعم. يمكنك [create/edit VBA projects](/slides/ar/python-net/presentation-via-vba/) وحفظ ملفات مفعلة للماكرو مثل PPTM/PPSM.

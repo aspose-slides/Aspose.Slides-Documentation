@@ -1,12 +1,12 @@
 ---
-title: สร้างงานนำเสนอใน Python
-linktitle: สร้างงานนำเสนอ
+title: สร้างพรีเซนเทชันใน Python
+linktitle: สร้างพรีเซนเทชัน
 type: docs
 weight: 10
 url: /th/python-net/create-presentation/
 keywords:
-- สร้างงานนำเสนอ
-- งานนำเสนอใหม่
+- สร้างพรีเซนเทชัน
+- พรีเซนเทชันใหม่
 - สร้าง PPT
 - PPT ใหม่
 - สร้าง PPTX
@@ -17,78 +17,79 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "สร้างงานนำเสนอ PowerPoint ด้วย Python และ Aspose.Slides - สร้างไฟล์ PPT, PPTX และ ODP, ใช้ประโยชน์จากการสนับสนุน OpenDocument, และบันทึกโดยโปรแกรมเพื่อผลลัพธ์ที่เชื่อถือได้."
+description: "สร้างพรีเซนเทชัน PowerPoint ด้วย Python และ Aspose.Slides—ผลิตไฟล์ PPT, PPTX และ ODP, รับประโยชน์จากการสนับสนุน OpenDocument, และบันทึกอย่างโปรแกรมเมติกเพื่อผลลัพธ์ที่เชื่อถือได้."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Python ให้คุณสร้างไฟล์งานนำเสนอใหม่ทั้งหมดด้วยโค้ด บทความนี้แสดงกระบวนการหลัก—การสร้างออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) , ดึงสไลด์แรก, ใส่รูปทรงง่าย ๆ, และบันทึกผลลัพธ์—เพื่อให้คุณเห็นว่าต้องตั้งค่าสิ่งใดน้อยแค่ไหนในการสร้างงานนำเสนอโดยไม่ต้องใช้ Microsoft Office เนื่องจาก APIเดียวกันสามารถเขียนไฟล์ PPT, PPTX, และ ODP คุณจึงสามารถทำงานกับรูปแบบ PowerPoint แบบดั้งเดิมและ OpenDocument จากโค้ดเดียว Aspose.Slides เหมาะสำหรับสภาพแวดล้อมเดสก์ท็อป, เว็บ หรือเซิร์ฟเวอร์ ทำให้แอปพลิเคชัน Python ของคุณมีจุดเริ่มต้นที่มีประสิทธิภาพสำหรับการเพิ่มเนื้อหาที่หลากหลายเช่นข้อความ, รูปภาพ หรือแผนภูมิเพิ่มเมื่อชุดสไลด์เริ่มต้นพร้อมใช้งาน.
+บทความนี้แสดงวิธีการสร้างพรีเซนเทชันด้วย Aspose.Slides สำหรับ Python ผ่าน .NET, เพิ่มรูปทรงที่มีข้อความไปยังสไลด์แรก, และบันทึกผลลัพธ์เป็นไฟล์ PPTX. API เดียวกันยังสามารถบันทึกพรีเซนเทชันเป็น PPT และ ODP, ดังนั้นคุณสามารถรองรับทั้งรูปแบบ PowerPoint และ OpenDocument จากฐานโค้ดเดียวโดยไม่ต้องใช้ Microsoft Office. ส่วน FAQ สั้น ๆ ที่ท้ายบทความครอบคลุมคำถามทั่วไปเกี่ยวกับรูปแบบ, แม่แบบ, ขนาดสไลด์, หน่วยวัด, การใช้หน่วยความจำ, การทำงานหลายเธรด, การให้ลิขสิทธิ์, ลายเซ็นดิจิทัล, และการสนับสนุน VBA.
 
-## **สร้างงานนำเสนอ**
+ก่อนเริ่ม, ให้ติดตั้งแพ็กเกจจาก PyPI ด้วย `pip install aspose.slides`. ดูที่ [การติดตั้ง](/slides/th/python-net/installation/) สำหรับไลบรารีที่ Linux และ macOS ต้องการ, และสำหรับสภาพแวดล้อมเสมือนที่ Python ของระบบบน Debian และ Ubuntu ต้องการ.
 
-การสร้างไฟล์ PowerPoint จากศูนย์ใน Aspose.Slides for Python ทำได้โดยการสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) ตัวสร้างออบเจ็กต์โดยอัตโนมัติให้เด็คว่างที่มีสไลด์เดียว ทำให้คุณมีผนังสีทันทีสำหรับรูปทรง, ข้อความ, แผนภูมิ หรือเนื้อหาอื่น ๆ ที่แอปพลิเคชันของคุณต้องการ เมื่อตัดแก้สไลด์นั้นหรือเพิ่มสไลด์ใหม่ คุณสามารถบันทึกผลลัพธ์เป็นไฟล์ PPTX, PPT เก่า หรือแม้แต่รูปแบบ OpenDocument ตัวอย่างโค้ดสั้นด้านล่างแสดงกระบวนการนี้โดยการเพิ่มรูปทรงง่าย ๆ ลงบนสไลด์แรก
+## **สร้างพรีเซนเทชัน**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-2. รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน  
-3. เพิ่มออบเจ็กต์ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ชนิด `CLOUD` ด้วยเมธอด `add_auto_shape` ที่เปิดให้ใช้จากคอลเลกชัน `shapes`  
-4. เพิ่มข้อความลงในออโต้ชเปิล  
-5. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+เพื่อสร้างพรีเซนเทชันและวางรูปทรงที่มีข้อความบนสไลด์แรก, ปฏิบัติตามขั้นตอนต่อไปนี้:
 
-ในตัวอย่างด้านล่าง รูปแบบเมฆถูกเพิ่มไปยังสไลด์แรกของงานนำเสนอ
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/). พรีเซนเทชันใหม่จะมีสไลด์ว่างหนึ่งสไลด์อยู่แล้ว.
+2. ดึงสไลด์นั้นจากคอลเลกชัน [slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slides/th/) โดยใช้ดัชนี 0.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปร่างเมฆโดยใช้เมธอด [add_auto_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_auto_shape/) ของคอลเลกชัน [shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/shapes/) ของสไลด์, และตั้งค่า [text](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/text/).
+4. บันทึกพรีเซนเทชันเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ.
+# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 with slides.Presentation() as presentation:
-    # ดึงสไลด์แรก.
+    # ดึงสไลด์แรก
     slide = presentation.slides[0]
 
-    # เพิ่ม auto-shape ชนิด CLOUD.
+    # เพิ่ม auto-shape ประเภท CLOUD
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.CLOUD, 20, 20, 200, 80)
     auto_shape.text_frame.text = "Hello, Aspose!"
 
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
+    # บันทึกพรีเซนเทชันเป็นไฟล์ PPTX
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+มุมซ้ายบนของเมฆห่างจากขอบซ้ายของสไลด์ 20 จุด และห่างจากขอบบนของสไลด์ 20 จุด, และเมฆมีความกว้าง 200 จุด และความสูง 80 จุด. คำสั่ง `with` จะปล่อยทรัพยากรของพรีเซนเทชันเมื่อบล็อกสิ้นสุด. สคริปต์บันทึก *new_presentation.pptx* ไปยังโฟลเดอร์ปัจจุบัน, โดยมีสไลด์หนึ่งสไลด์ที่บรรจุเมฆและข้อความของมัน. หากไม่มีลิขสิทธิ์, Aspose.Slides จะเพิ่มลายน้ำการประเมินผลในทุกสไลด์ที่บันทึก; ดูที่ [การให้ลิขสิทธิ์](/slides/th/python-net/licensing/).
+
 ผลลัพธ์:
 
-![งานนำเสนอใหม่](new_presentation.png)
+![การนำเสนอใหม่](new_presentation.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถบันทึกงานนำเสนอใหม่เป็นรูปแบบใดได้บ้าง?**
+### รูปแบบใดบ้างที่ฉันสามารถบันทึกพรีเซนเทชันใหม่เป็นได้?
 
-You can save to [PPTX, PPT และ ODP](/slides/th/python-net/save-presentation/), and export to [PDF](/slides/th/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/th/python-net/convert-powerpoint-to-xps/), [HTML](/slides/th/python-net/convert-powerpoint-to-html/), [SVG](/slides/th/python-net/convert-powerpoint-to-png/), and [รูปภาพ](/slides/th/python-net/convert-powerpoint-to-png/), among others.
+คุณสามารถบันทึกเป็น [PPTX, PPT, และ ODP](/slides/th/python-net/save-presentation/) และส่งออกเป็น [PDF](/slides/th/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/th/python-net/convert-powerpoint-to-xps/), [HTML](/slides/th/python-net/convert-powerpoint-to-html/), [SVG](/slides/th/python-net/render-a-slide-as-an-svg-image/), และ [images](/slides/th/python-net/convert-powerpoint-to-png/) เป็นต้น.
 
-**ฉันสามารถเริ่มจากเทมเพลต (POTX/POTM) แล้วบันทึกเป็น PPTX ปกติได้หรือไม่?**
+### ฉันสามารถเริ่มจากเทมเพลต (POTX/POTM) แล้วบันทึกเป็น PPTX ปกติได้หรือไม่?
 
-ใช่ โหลดเทมเพลตและบันทึกเป็นรูปแบบที่ต้องการ; รูปแบบ POTX/POTM/PPTM และรูปแบบคล้ายกัน [ได้รับการสนับสนุน](/slides/th/python-net/supported-file-formats/).
+ได้. โหลดเทมเพลตแล้วบันทึกเป็นรูปแบบที่ต้องการ; รูปแบบ POTX/POTM/PPTM และรูปแบบคล้ายกัน [ได้รับการสนับสนุน](/slides/th/python-net/supported-file-formats/).
 
-**ฉันจะควบคุมขนาดสไลด์/อัตราส่วนภาพเมื่อสร้างงานนำเสนอได้อย่างไร?**
+### ฉันจะควบคุมขนาด/อัตราส่วนของสไลด์เมื่อสร้างพรีเซนเทชันได้อย่างไร?
 
-Set the [ขนาดสไลด์](/slides/th/python-net/slide-size/) (including presets like 4:3 and 16:9 or custom dimensions) and choose how content should scale.
+ตั้งค่า [slide size](/slides/th/python-net/slide-size/) (รวมถึงค่าที่กำหนดล่วงหน้าเช่น 4:3 และ 16:9 หรือขนาดที่กำหนดเอง) และเลือกวิธีการสเกลเนื้อหา.
 
-**ขนาดและพิกัดวัดเป็นหน่วยอะไร?**
+### ขนาดและพิกัดวัดเป็นหน่วยอะไร?
 
-เป็นหน่วยพอยต์: 1 นิ้วเท่ากับ 72 หน่วย.
+เป็นหน่วยจุด: 1 นิ้วเท่ากับ 72 หน่วย.
 
-**ฉันจะจัดการกับงานนำเสนอขนาดใหญ่มาก (ที่มีไฟล์สื่อจำนวนมาก) เพื่อลดการใช้หน่วยความจำได้อย่างไร?**
+### ฉันจะจัดการพรีเซนเทชันขนาดใหญ่มาก (ที่มีไฟล์สื่อหลายไฟล์) เพื่อลดการใช้หน่วยความจำได้อย่างไร?
 
-Use [กลยุทธ์การจัดการ BLOB](/slides/th/python-net/manage-blob/), limit in-memory storage by leveraging temporary files, and prefer file-based workflows over purely in-memory streams.
+ใช้ [BLOB management strategies](/slides/th/python-net/manage-blob/), จำกัดการจัดเก็บในหน่วยความจำโดยใช้ไฟล์ชั่วคราว, และเลือกใช้กระบวนการทำงานแบบไฟล์แทนสตรีมในหน่วยความจำเท่านั้น.
 
-**ฉันสามารถสร้าง/บันทึกงานนำเสนอแบบขนานได้หรือไม่?**
+### ฉันสามารถสร้าง/บันทึกพรีเซนเทชันแบบขนานได้หรือไม่?
 
-You cannot operate on the same [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) instance from [หลายเธรด](/slides/th/python-net/multithreading/). Run separate, isolated instances per thread or process.
+คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) เดียวกันจาก [multiple threads](/slides/th/python-net/multithreading/) ได้. ให้เรียกใช้อินสแตนซ์แยกจากกันต่อแต่ละเธรดหรือโพรเซส.
 
-**ฉันจะลบลายน้ำและข้อจำกัดของรุ่นทดลองได้อย่างไร?**
+### ฉันจะลบลายน้ำทดลองและข้อจำกัดออกได้อย่างไร?
 
-[ใช้ใบอนุญาต](/slides/th/python-net/licensing/) once per process. The license XML must remain unmodified, and the license setup should be synchronized if multiple threads are involved.
+[Apply a license](/slides/th/python-net/licensing/) ครั้งหนึ่งต่อกระบวนการ. ไฟล์ XML ของลิขสิทธิ์ต้องไม่ถูกแก้ไข, และการตั้งค่าลิขสิทธิ์ควรทำให้สอดคล้องกันหากมีหลายเธรดที่เกี่ยวข้อง.
 
-**ฉันสามารถลงลายเซ็นดิจิทัลให้กับ PPTX ที่สร้างได้หรือไม่?**
+### ฉันสามารถลงลายเซ็นดิจิทัลให้กับ PPTX ที่สร้างได้หรือไม่?
 
-Yes. [ลายเซ็นดิจิทัล](/slides/th/python-net/digital-signature-in-powerpoint/) (adding and verifying) are supported for presentations.
+ได้. [Digital signatures](/slides/th/python-net/digital-signature-in-powerpoint/) (การเพิ่มและการตรวจสอบ) ได้รับการสนับสนุนสำหรับพรีเซนเทชัน.
 
-**การทำแมโคร (VBA) ได้รับการสนับสนุนในงานนำเสนอที่สร้างหรือไม่?**
+### แมโคร (VBA) ถูกสนับสนุนในพรีเซนเทชันที่สร้างหรือไม่?
 
-Yes. You can [สร้าง/แก้ไขโครงการ VBA](/slides/th/python-net/presentation-via-vba/) and save macro-enabled files such as PPTM/PPSM.
+ได้. คุณสามารถ [create/edit VBA projects](/slides/th/python-net/presentation-via-vba/) และบันทึกไฟล์ที่เปิดใช้งานแมโครเช่น PPTM/PPSM.

@@ -7,38 +7,37 @@ url: /pl/python-net/create-presentation/
 keywords:
 - tworzenie prezentacji
 - nowa prezentacja
-- tworzenie PPT
+- utwórz PPT
 - nowy PPT
-- tworzenie PPTX
+- utwórz PPTX
 - nowy PPTX
-- tworzenie ODP
+- utwórz ODP
 - nowy ODP
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Twórz prezentacje PowerPoint w Pythonie przy użyciu Aspose.Slides — twórz pliki PPT, PPTX i ODP, korzystaj ze wsparcia OpenDocument i zapisuj je programowo, aby uzyskać niezawodne wyniki."
+description: "Twórz prezentacje PowerPoint w języku Python przy użyciu Aspose.Slides — twórz pliki PPT, PPTX i ODP, korzystaj z obsługi OpenDocument i zapisuj je programowo, aby uzyskać niezawodne wyniki."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python umożliwia tworzenie nowego pliku prezentacji w całości przy użyciu kodu. Ten artykuł przedstawia podstawowy przepływ pracy — tworzenie obiektu [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), pobieranie pierwszego slajdu, wstawianie prostego kształtu i zapisywanie wyniku — aby pokazać, jak mało ustawień jest potrzebnych do wygenerowania prezentacji bez Microsoft Office. Ponieważ to samo API zapisuje pliki PPT, PPTX i ODP, możesz obsługiwać zarówno tradycyjne formaty PowerPoint, jak i OpenDocument z jednej bazy kodu. Aspose.Slides nadaje się do środowisk desktopowych, internetowych lub serwerowych, dając aplikacji Python efektywny punkt wyjścia do dodawania bogatszej zawartości, takiej jak tekst, obrazy czy wykresy, po utworzeniu początkowego zestawu slajdów.
+Ten artykuł pokazuje, jak utworzyć prezentację przy użyciu Aspose.Slides dla Pythona poprzez .NET, dodać kształt z tekstem do jej pierwszego slajdu oraz zapisać wynik jako plik PPTX. To samo API umożliwia zapisywanie prezentacji jako PPT i ODP, więc można obsługiwać zarówno formaty PowerPoint, jak i OpenDocument z jednej bazy kodu, bez Microsoft Office. Krótkie FAQ na końcu obejmuje typowe pytania dotyczące formatów, szablonów, rozmiaru slajdów, jednostek, zużycia pamięci, wątkowości, licencjonowania, podpisów cyfrowych i obsługi VBA.
 
-## **Utworzenie prezentacji**
+Przed rozpoczęciem zainstaluj pakiet z PyPI za pomocą `pip install aspose.slides`. Zobacz [Instalacja](/slides/pl/python-net/installation/) aby dowiedzieć się, jakie biblioteki są również potrzebne w systemach Linux i macOS oraz o wirtualnym środowisku wymaganym przez systemowy Python w Debianie i Ubuntu.
 
-Tworzenie pliku PowerPoint od podstaw w Aspose.Slides for Python jest tak proste, jak zainicjowanie klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/). Konstruktor automatycznie dostarcza pustą prezentację z jednym slajdem, dając natychmiastowe płótno dla kształtów, tekstu, wykresów lub dowolnej innej zawartości, której potrzebuje Twoja aplikacja. Po zmodyfikowaniu tego slajdu — lub dodaniu nowych — możesz zapisać wynik jako PPTX, starszy PPT lub nawet w formacie OpenDocument. Krótkie przykładowe wycinki kodu poniżej ilustrują ten przepływ, dodając prosty kształt do pierwszego slajdu.
+## **Utwórz prezentację**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Pobierz odwołanie do slajdu według jego indeksu.
-1. Dodaj obiekt [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) typu `CLOUD` przy użyciu metody `add_auto_shape` udostępnionej kolekcji `shapes`.
-1. Dodaj tekst do automatycznego kształtu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Aby utworzyć prezentację i umieścić kształt z tekstem na jej pierwszym slajdzie, wykonaj następujące kroki:
 
-W przykładowym kodzie poniżej do pierwszego slajdu prezentacji dodano kształt chmury.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.
+2. Pobierz ten slajd z kolekcji [slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/slides/pl/) według indeksu 0.
+3. Dodaj chmurowy [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) przy użyciu metody [add_auto_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/add_auto_shape/) kolekcji [shapes](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/shapes/) slajdu i ustaw jego [text](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/text/).
+4. Zapisz prezentację jako plik PPTX przy użyciu metody [save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
+# Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 with slides.Presentation() as presentation:
     # Pobierz pierwszy slajd.
     slide = presentation.slides[0]
@@ -51,44 +50,46 @@ with slides.Presentation() as presentation:
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Lewy górny róg chmury znajduje się 20 punktów od lewej krawędzi i 20 punktów od górnej krawędzi slajdu, a chmura ma 200 punktów szerokości i 80 punktów wysokości. Instrukcja `with` zwalnia zasoby prezentacji po zakończeniu bloku. Skrypt zapisuje *new_presentation.pptx* w bieżącym folderze, z jednym slajdem zawierającym chmurę i jej tekst. Bez licencji Aspose.Slides również dodaje znak wodny oceny do każdego zapisanego slajdu; zobacz [Licencjonowanie](/slides/pl/python-net/licensing/).
+
 Wynik:
 
 ![Nowa prezentacja](new_presentation.png)
 
 ## **FAQ**
 
-**Jakie formaty mogę zapisać dla nowej prezentacji?**
+### Jakie formaty mogę zapisać nową prezentację?
 
-Możesz zapisać w formatach [PPTX, PPT i ODP](/slides/pl/python-net/save-presentation/), a także eksportować do [PDF](/slides/pl/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/pl/python-net/convert-powerpoint-to-xps/), [HTML](/slides/pl/python-net/convert-powerpoint-to-html/), [SVG](/slides/pl/python-net/convert-powerpoint-to-png/) i [obrazów](/slides/pl/python-net/convert-powerpoint-to-png/), oraz innych.
+Możesz zapisać w formatach [PPTX, PPT i ODP](/slides/pl/python-net/save-presentation/), a także eksportować do [PDF](/slides/pl/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/pl/python-net/convert-powerpoint-to-xps/), [HTML](/slides/pl/python-net/convert-powerpoint-to-html/), [SVG](/slides/pl/python-net/render-a-slide-as-an-svg-image/) oraz [obrazów](/slides/pl/python-net/convert-powerpoint-to-png/), i innych.
 
-**Czy mogę rozpocząć od szablonu (POTX/POTM) i zapisać jako zwykły PPTX?**
+### Czy mogę rozpocząć od szablonu (POTX/POTM) i zapisać jako zwykły PPTX?
 
 Tak. Załaduj szablon i zapisz w żądanym formacie; formaty POTX/POTM/PPTM i podobne [są obsługiwane](/slides/pl/python-net/supported-file-formats/).
 
-**Jak kontrolować rozmiar slajdu/ proporcje przy tworzeniu prezentacji?**
+### Jak kontrolować rozmiar/slup proporcje slajdu przy tworzeniu prezentacji?
 
-Ustaw [rozmiar slajdu](/slides/pl/python-net/slide-size/) (w tym gotowe ustawienia, takie jak 4:3 i 16:9 lub własne wymiary) i wybierz, w jaki sposób treść ma być skalowana.
+Ustaw [slide size](/slides/pl/python-net/slide-size/) (w tym predefiniowane 4:3 i 16:9 lub własne wymiary) i wybierz, jak treść ma być skalowana.
 
-**W jakich jednostkach mierzone są rozmiary i współrzędne?**
+### W jakich jednostkach mierzone są rozmiary i współrzędne?
 
-W punktach: 1 cal to 72 jednostki.
+W punktach: 1 cal = 72 jednostki.
 
-**Jak radzić sobie z bardzo dużymi prezentacjami (z wieloma plikami multimedialnymi), aby zmniejszyć zużycie pamięci?**
+### Jak radzić sobie z bardzo dużymi prezentacjami (z wieloma plikami multimedialnymi), aby zmniejszyć zużycie pamięci?
 
-Korzystaj ze [strategii zarządzania BLOB](/slides/pl/python-net/manage-blob/), ograniczaj przechowywanie w pamięci, wykorzystując pliki tymczasowe, i preferuj przepływy oparte na plikach zamiast wyłącznie strumieni w pamięci.
+Użyj [strategii zarządzania BLOB](/slides/pl/python-net/manage-blob/), ogranicz przechowywanie w pamięci, wykorzystując pliki tymczasowe, i preferuj przepływy pracy oparte na plikach zamiast wyłącznie pamięciowych strumieni.
 
-**Czy mogę tworzyć/zapisywać prezentacje równolegle?**
+### Czy mogę tworzyć/zapisywać prezentacje równocześnie?
 
 Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) z [wielu wątków](/slides/pl/python-net/multithreading/). Uruchom oddzielne, izolowane instancje na każdy wątek lub proces.
 
-**Jak usunąć znak wodny wersji próbnej i ograniczenia?**
+### Jak usunąć znak wodny wersji próbnej i ograniczenia?
 
-[Zastosuj licencję](/slides/pl/python-net/licensing/) raz na proces. XML licencji musi pozostać niezmieniony, a konfigurację licencji należy synchronizować, jeśli używane są wielowątkowe operacje.
+[Zastosuj licencję](/slides/pl/python-net/licensing/) raz na proces. Plik XML licencji musi pozostać niezmieniony, a konfiguracja licencji powinna być zsynchronizowana, jeśli używane są wiele wątków.
 
-**Czy mogę cyfrowo podpisać utworzony PPTX?**
+### Czy mogę cyfrowo podpisać tworzony przeze mnie PPTX?
 
-Tak. [Podpisy cyfrowe](/slides/pl/python-net/digital-signature-in-powerpoint/) (dodawanie i weryfikacja) są obsługiwane dla prezentacji.
+Tak. [Podpisy cyfrowe](/slides/pl/python-net/digital-signature-in-powerpoint/) (dodawanie i weryfikacja) są obsługiwane w prezentacjach.
 
-**Czy makra (VBA) są obsługiwane w tworzonych prezentacjach?**
+### Czy makra (VBA) są obsługiwane w tworzonych prezentacjach?
 
 Tak. Możesz [tworzyć/edytować projekty VBA](/slides/pl/python-net/presentation-via-vba/) i zapisywać pliki z włączonymi makrami, takie jak PPTM/PPSM.

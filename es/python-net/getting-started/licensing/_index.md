@@ -13,65 +13,59 @@ keywords:
 - versión de evaluación
 - Python
 - Aspose.Slides
-description: "Aprenda cómo aplicar, gestionar y solucionar problemas de licencias en Aspose.Slides para Python a través de .NET. Garantice un acceso ininterrumpido a todas las funciones con nuestra guía paso a paso de licenciamiento."
+description: "Aprenda cómo aplicar, gestionar y solucionar problemas de licencias en Aspose.Slides para Python a través de .NET. Garantice un acceso ininterrumpido a todas las funciones con nuestra guía paso a paso sobre licenciamiento."
 ---
+## **Visión general**
+
+Aspose.Slides puede usarse en modo de evaluación o con una licencia válida. La versión de evaluación proporciona la misma funcionalidad que la versión con licencia, pero añade una marca de agua de evaluación a cada diapositiva de cada presentación que guarda y trunca el texto que su código lee de las presentaciones.
 
 ## **Evaluar Aspose.Slides**
 
-Puede descargar una versión de evaluación de **Aspose.Slides for Python via .NET** desde su [página de descarga](https://pypi.org/project/Aspose.Slides/). La versión de evaluación ofrece las mismas funciones que el producto con licencia. El paquete de evaluación es idéntico al paquete adquirido y se licencia después de agregar unas pocas líneas de código para aplicar la licencia.
+Puede descargar una versión de evaluación de **Aspose.Slides for Python via .NET** desde su [página de descarga](https://pypi.org/project/Aspose.Slides/). La versión de evaluación proporciona las mismas características que el producto con licencia. El paquete de evaluación es idéntico al paquete adquirido y se licencia después de añadir unas cuantas líneas de código para aplicar la licencia.
 
-Cuando esté satisfecho con su evaluación de **Aspose.Slides**, puede [comprar una licencia](https://purchase.aspose.com/buy). Le recomendamos revisar las opciones de suscripción disponibles. Si tiene preguntas, contacte al equipo de ventas de Aspose.
+Cuando esté satisfecho con su evaluación de **Aspose.Slides**, puede [adquirir una licencia](https://purchase.aspose.com/pricing/slides/es/python-net/). Recomendamos revisar las opciones de suscripción disponibles. Si tiene preguntas, contacte al equipo de ventas de Aspose.
 
-Cada licencia de Aspose incluye una suscripción de un año con actualizaciones gratuitas a nuevas versiones y correcciones lanzadas durante ese período. Tanto los usuarios con licencia como los de evaluación reciben soporte técnico gratuito e ilimitado.
+Cada licencia de Aspose incluye una suscripción de un año con actualizaciones gratuitas a nuevas versiones y correcciones publicadas durante ese periodo. Tanto los usuarios con licencia como los de evaluación reciben soporte técnico gratuito e ilimitado.
 
 **Limitaciones de la versión de evaluación**
 
-* Aunque la versión de evaluación de Aspose.Slides (cuando no se aplica una licencia) proporciona funcionalidad completa, agrega una marca de agua de evaluación en la parte superior del documento cada vez que lo abre o lo guarda.
-* Al extraer texto de una presentación, está limitado a una diapositiva.
+* La versión de evaluación (cuando no se aplica ninguna licencia) ofrece la funcionalidad completa, pero añade un cuadro de texto con marca de agua de evaluación a cada diapositiva de cada presentación que guarda.
+* El texto que su código lee de una presentación se trunca a sus primeros caracteres, seguido de un aviso sobre la limitación de evaluación. El texto que su código escribe se guarda completo.
 
-{{% alert color="primary" %}}
-
-Para probar Aspose.Slides sin limitaciones, puede solicitar una **licencia temporal de 30 días**. Consulte la página [Cómo obtener una licencia temporal](https://purchase.aspose.com/temporary-license) para más detalles.
-
+{{% alert color="info" title="Note" %}}
+Para probar Aspose.Slides sin limitaciones, puede solicitar una **Licencia temporal de 30 días**. Consulte la página [Cómo obtener una licencia temporal](https://purchase.aspose.com/temporary-license) para obtener más detalles.
 {{% /alert %}}
 
 ## **Licenciamiento en Aspose.Slides**
 
-* Una versión de evaluación se licencia después de comprar una licencia y agregar un par de líneas de código para aplicarla.
+* Una versión de evaluación se licencia después de adquirir una licencia y añadir un par de líneas de código para aplicarla.
 * La licencia es un archivo XML de texto plano que contiene detalles como el nombre del producto, el número de desarrolladores que cubre, la fecha de expiración de la suscripción, etc.
-* El archivo de licencia está firmado digitalmente, por lo que no debe modificarse. Incluso agregar un solo salto de línea lo invalidará.
-* Aspose.Slides for Python via .NET normalmente busca la licencia en estas ubicaciones:
-  * Una ruta explícita que usted proporcione
-  * La carpeta que contiene el script de Python que llama a Aspose.Slides for Python via .NET
-* Para evitar las limitaciones de evaluación, establezca la licencia antes de usar Aspose.Slides. Solo necesita establecerla una vez por aplicación o proceso.
+* El archivo de licencia está firmado digitalmente, por lo que no debe modificarlo. Incluso añadir un salto de línea invalidará la licencia.
+* Aspose.Slides for Python via .NET busca la licencia en la ruta que le indique. Una ruta relativa, o un nombre de archivo sin ruta, se resuelve respecto al directorio de trabajo actual, que no es necesariamente la carpeta que contiene su script Python.
+* Para evitar las limitaciones de la versión de evaluación, establezca la licencia antes de usar Aspose.Slides. Solo necesita configurarla una vez por aplicación o proceso.
 
-{{% alert color="primary" %}}
-
-También puede revisar [Licenciamiento por consumo](/slides/es/python-net/metered-licensing/).
-
+{{% alert color="info" title="Note" %}}
+También puede que desee revisar [Licenciamiento por consumo](/slides/es/python-net/metered-licensing/).
 {{% /alert %}}
 
 ## **Aplicar una licencia**
 
-Una licencia puede cargarse desde un **archivo**, **stream** o **recurso incrustado**. 
+Una licencia puede cargarse desde un **archivo** o un **flujo**.
 
-{{% alert color="primary" %}}
-
-Aspose.Slides proporciona la clase [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) para gestionar la licenciamiento.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides proporciona la clase [License](https://reference.aspose.com/slides/es/python-net/aspose.slides/license/) para gestionar la licencia.
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-
+{{% alert color="warning" title="Warning" %}}
 Las licencias nuevas pueden activar Aspose.Slides solo con la versión 21.4 o posterior. Las versiones anteriores utilizan un sistema de licenciamiento diferente y no reconocerán estas licencias.
-
 {{% /alert %}}
 
 ### **Archivo**
 
-La forma más sencilla de establecer una licencia es colocar el archivo de licencia en la misma carpeta que el DLL del componente y especificar solo el nombre del archivo (sin ruta).
+La forma más sencilla de establecer una licencia es pasar la ruta del archivo de licencia al método [set_license](https://reference.aspose.com/slides/es/python-net/aspose.slides/license/set_license/). Si pasa solo el nombre del archivo, como en el ejemplo siguiente, Aspose.Slides busca el archivo en el directorio de trabajo actual.
 
 El siguiente código Python muestra cómo establecer el archivo de licencia:
+
 ```py
 import aspose.slides as slides
 
@@ -82,58 +76,54 @@ license = slides.License()
 license.set_license("Aspose.Slides.lic")
 ```
 
+{{% alert color="warning" title="Warning" %}}
+Si coloca el archivo de licencia en un directorio diferente, al llamar a [License.set_license](https://reference.aspose.com/slides/es/python-net/aspose.slides/license/set_license/#str), el nombre del archivo al final de la ruta explícita debe coincidir con el nombre de su archivo de licencia.
 
-{{% alert color="warning" %}}
-
-Si coloca el archivo de licencia en un directorio diferente, al llamar a [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str), el nombre del archivo al final de la ruta explícita debe coincidir con el nombre de su archivo de licencia.
-
-Por ejemplo, puede renombrar el archivo de licencia a *Aspose.Slides.lic.xml*. Luego, en su código, pase la ruta completa a ese archivo (terminando con Aspose.Slides.lic.xml) al método [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str).
-
+Por ejemplo, puede renombrar el archivo de licencia a *Aspose.Slides.lic.xml*. Entonces, en su código, pase la ruta completa a ese archivo (terminando con Aspose.Slides.lic.xml) al método [License.set_license](https://reference.aspose.com/slides/es/python-net/aspose.slides/license/set_license/#str).
 {{% /alert %}}
 
-### **Stream**
+### **Flujo**
 
-Puede cargar una licencia desde un stream. El siguiente ejemplo Python muestra cómo aplicar una licencia desde un stream:
+Puede cargar una licencia desde un flujo. El siguiente ejemplo en Python muestra cómo aplicar una licencia desde un flujo:
+
 ```py
 import aspose.slides as slides
 
 # Instancia la clase License.
 license = slides.License()
 
-# Establece la licencia desde un stream.
-license.set_license(stream)
+# Establece la licencia desde un flujo.
+with open("Aspose.Slides.lic", "rb") as stream:
+    license.set_license(stream)
 ```
-
 
 ## **Validar una licencia**
 
-Para verificar que la licencia se ha aplicado correctamente, puede validarla. El siguiente código Python demuestra cómo validar una licencia:
+Para verificar que la licencia se ha aplicado correctamente, puede validarla. El siguiente código Python muestra cómo validar una licencia:
+
 ```py
 import aspose.slides as slides
 
 license = slides.License()
 
-license.set_license("Aspuse.Slides.lic")
+license.set_license("Aspose.Slides.lic")
 
 if license.is_licensed():
     print("License is good!")
 ```
 
+## **Seguridad de subprocesos**
 
-## **Seguridad en hilos**
-
-{{% alert title="Note" color="warning" %}}
-
-Los métodos [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/) no son seguros para hilos. Si deben llamarse concurrentemente desde varios hilos, use primitivas de sincronización (p. ej., `threading.Lock`) para evitar problemas.
-
+{{% alert color="warning" title="Warning" %}}
+El método [License.set_license](https://reference.aspose.com/slides/es/python-net/aspose.slides/license/set_license/) no es seguro para subprocesos. Si necesita llamarlo simultáneamente desde varios subprocesos, use un elemento de sincronización, como `threading.Lock`, para evitar problemas.
 {{% /alert %}}
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Puedo aplicar la licencia en un entorno totalmente offline (sin acceso a internet)?**
+### ¿Puedo aplicar la licencia en un entorno completamente offline (sin acceso a internet)?
 
-Sí. La validación de la licencia se realiza localmente usando el archivo de licencia; no se requiere conexión a internet.
+Sí. La validación de la licencia se realiza localmente usando el archivo de licencia; no se necesita conexión a internet.
 
-**¿Qué ocurre después de que expira la suscripción de un año? ¿La biblioteca dejará de funcionar?**
+### ¿Qué ocurre después de que expire la suscripción de un año? ¿Dejará de funcionar la biblioteca?
 
-No. La licencia es perpetua: puede seguir usando las versiones lanzadas antes de la fecha de fin de su suscripción; simplemente no podrá usar versiones más recientes sin renovar.
+No. La licencia es perpetua: puede seguir usando las versiones lanzadas antes de la fecha de finalización de su suscripción; simplemente no podrá usar versiones más recientes sin renovar.

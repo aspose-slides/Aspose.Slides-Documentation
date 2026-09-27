@@ -1,11 +1,11 @@
 ---
-title: Aspose.Slides Değerlendirmesi
+title: Aspose.Slides Değerlendirme
 type: docs
 weight: 120
 url: /tr/python-net/evaluate-aspose-slides/
 keywords:
-- Aspose.Slides'ı değerlendirin
-- Aspose.Slides değerlendirmesi
+- Aspose.Slides değerlendirme
+- Aspose.Slides değerlendirme
 - değerlendirme sürümü
 - tam işlevsellik
 - değerlendirme filigranı
@@ -16,30 +16,32 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides'ı .NET üzerinden Python için değerlendirin ve PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumları için API özelliklerini keşfedin—ücretsiz denemenize başlayın."
+description: "Python için .NET üzerinden Aspose.Slides'ı değerlendirin ve PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumları için API özelliklerini keşfedin—ücretsiz denemenize başlayın."
 ---
 ## **Aspose.Slides Değerlendirmesi**
 
-Aspose.Slides'ı kolayca değerlendirme amaçlı indirebilirsiniz. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde basitçe lisanslı hâle gelir.  
+Aspose.Slides'ı değerlendirme amaçlı olarak indirebilirsiniz. Değerlendirme paketi, satın alınan paketle aynıdır; lisansı uygulamak için birkaç satır kod ekledikten sonra lisanslı hale gelir.
 
-Aspose.Slides'ın (lisans belirtilmemiş) değerlendirme sürümü tam ürün işlevselliği sağlar, ancak belgeyi açtığınızda ve kaydettiğinizde belgenin üst kısmına bir değerlendirme filigranı ekler. Sunum slaytlarından metin çıkartırken ayrıca tek bir slaytla sınırlısınız.
+Lisans olmadan, Aspose.Slides değerlendirme modunda tam işlevselliğini sağlar, iki sınırlama ile: kaydettiği her sunumun her slaytına bir değerlendirme filigranı metin kutusu ekler ve kodunuzun bir sunumdan okuduğu metin, ilk birkaç karakterine kesilir, ardından değerlendirme sınırlaması hakkında bir uyarı eklenir. Kodunuzun yazdığı metin ise tam olarak kaydedilir.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-Aspose.Slides'ı değerlendirme sürümü sınırlamaları olmadan test etmek istiyorsanız, **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) adresine bakınız. 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides'ı değerlendirme sürümü sınırlamaları olmadan test etmek istiyorsanız, **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) adresine bakın.
 {{% /alert %}}
 
 ## **SSS**
 
-**Değerlendirme modunda farklı iş parçacıklarında birden fazla sunumu paralel olarak test edebilir miyim?**  
-Evet. Farklı belgeleri paralel olarak işleyebilirsiniz; aynı sunum nesnesini [iş parçacıkları arasında](/slides/tr/python-net/multithreading/) paylaşmamalısınız. Değerlendirme modu bunu etkilemez.  
+### Değerlendirme modunda farklı iş parçacıklarında birden fazla sunumu paralel olarak test edebilir miyim?
 
-**Kütüphaneyi bir sunucuda veya CI'de değerlendirmek için Microsoft PowerPoint'i kurmam gerekir mi?**  
-Hayır. Aspose.Slides bağımsız bir motor olup, değerlendirme veya üretim için PowerPoint'in kurulmasını gerektirmez.  
+Evet. Farklı belgeleri paralel olarak işleyebilirsiniz; aynı sunum nesnesini [across threads](/slides/tr/python-net/multithreading/) ile paylaşmamalısınız. Değerlendirme modu bu durumu etkilemez.
 
-**Değerlendirme modunda PPT/PPTX'i PDF ve görüntülere dönüşümünü tam olarak test edebilir miyim?**  
-Evet. [Dönüştürücüler](/slides/tr/python-net/convert-presentation/) çalışır; çıktı bir filigran içerecektir.  
+### Sunucuda veya CI'de kütüphaneyi değerlendirmek için Microsoft PowerPoint'i kurmam gerekiyor mu?
 
-**Filigran olmadan yük testi için geçici bir lisans kullanabilir miyim?**  
-Evet. 30 günlük geçici bir lisans, değerlendirme modu sınırlamalarını kaldırır ve filigran olmadan test yapmanıza izin verir.
+Hayır. Aspose.Slides bağımsız bir motor olup, değerlendirme ya da üretim için PowerPoint'in kurulu olmasını gerektirmez.
+
+### Değerlendirme modunda PPT/PPTX'ten PDF ve görüntülere dönüşümü tamamen test edebilir miyim?
+
+Evet. [converters](/slides/tr/python-net/convert-presentation/) çalışır; çıktı bir filigran içerecektir.
+
+### Filigran olmadan yük testi için geçici bir lisans kullanabilir miyim?
+
+Evet. 30 günlük geçici bir lisans, değerlendirme modu sınırlamalarını ortadan kaldırır ve filigran olmadan test yapmanıza izin verir.

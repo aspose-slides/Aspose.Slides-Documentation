@@ -6,46 +6,42 @@ url: /hu/python-net/evaluate-aspose-slides/
 keywords:
 - Aspose.Slides értékelése
 - Aspose.Slides értékelés
-- értékelő verzió
+- értékelési verzió
 - teljes funkcionalitás
-- értékelő vízjel
-- Aspose.Slides vásárlása
+- értékelési vízjel
+- Aspose.Slides megvásárlása
 - korlátozás
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Értékelje az Aspose.Slides-t a Pythonhoz .NET-en keresztül, és fedezze fel az API funkciókat a PowerPoint (PPT, PPTX) és az OpenDocument (ODP) prezentációkhoz - kezdje el ingyenes próbaverzióját."
+description: "Értékelje az Aspose.Slides-t Pythonhoz .NET-en keresztül, és ismerje meg az API funkciókat PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkhoz — kezdje el ingyenes próbaverzióját."
 ---
-## **Aspose.Slides Értékelés**
+## **Aspose.Slides értékelés**
 
-Az Aspose.Slides könnyen letölthető értékelés céljából. Az értékelő csomag megegyezik a megvásárolt csomaggal. Az értékelő verzió egyszerűen licencessé válik, ha néhány sor kóddal alkalmazza a licencet.
+Letöltheti az Aspose.Slides-t értékeléshez. Az értékelési csomag megegyezik a megvásárolt csomaggal; néhány kódsor hozzáadásával aktiválja a licencet.
 
-Az Aspose.Slides értékelő verziója (licenc megadása nélkül) teljes funkcionalitást nyújt, azonban nyitáskor és mentéskor értékelő vízjelet helyez a dokumentum tetejére. Emellett csak egy diára van korlátozva a szöveg kivonása a prezentáció diákból.
+Licenc nélkül az Aspose.Slides teljes funkcionalitását nyújtja értékelési módban, két korláttal: minden mentett prezentáció minden diájához egy értékelési vízjel szövegdobozt ad, és a kód által a prezentációból olvasott szöveg az első néhány karakterre van csonkítva, ezt egy az értékelés korlátozásáról szóló megjegyzés követi. A kód által írt szöveg teljes egészében mentésre kerül.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Ha az Aspose.Slides-t az értékelő verzió korlátozása nélkül szeretné tesztelni, kérhet egy **30 napos ideiglenes licencet**. További információért tekintse meg a [Hogyan lehet ideiglenes licencet kapni?](https://purchase.aspose.com/temporary-license) oldalt.
-
+{{% alert color="info" title="Note" %}}
+Ha az Aspose.Slides-t az értékelési verzió korlátozása nélkül szeretné tesztelni, kérhet egy **30 napos ideiglenes licencet**. További információért tekintse meg a [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) oldalt.
 {{% /alert %}}
 
-## **GYIK**
+## **FAQ**
 
-**Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelő módban?**
+### Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelési módban?
 
-Igen. Különböző dokumentumokat feldolgozhat párhuzamosan; nem szabad ugyanazt a prezentációobjektumot [szálakon keresztül](/slides/hu/python-net/multithreading/) megosztani. Az értékelő mód nem befolyásolja ezt.
+Igen. Különböző dokumentumokat párhuzamosan feldolgozhat; nem szabad ugyanazt a prezentációobjektumot megosztani [across threads](/slides/hu/python-net/multithreading/). Az értékelési mód nem befolyásolja ezt.
 
-**Szükséges-e a Microsoft PowerPoint telepítése a könyvtár értékeléséhez szerveren vagy CI környezetben?**
+### Szükségem van a Microsoft PowerPoint telepítésére a könyvtár értékeléséhez egy szerveren vagy CI környezetben?
 
-Nem. Az Aspose.Slides egy önálló motor, és sem értékeléshez, sem termeléshez nem igényel telepített PowerPointot.
+Nem. Az Aspose.Slides egy önálló motor, és nem igényli a PowerPoint telepítését sem értékelés, sem produkció során.
 
-**Teljesen tesztelhetem a PPT/PPTX PDF- és képre konvertálását értékelő módban?**
+### Teljesen tesztelhetem a PPT/PPTX konvertálását PDF-re és képekre értékelési módban?
 
-Igen. A [konvertáló eszközök](/slides/hu/python-net/convert-presentation/) működnek; a kimenet vízjelet tartalmaz.
+Igen. A [converters](/slides/hu/python-net/convert-presentation/) működik; a kimenet vízjelet tartalmazni fog.
 
-**Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?**
+### Használhatok ideiglenes licencet terhelésvizsgálathoz vízjel nélkül?
 
-Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelő mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.
+Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelési mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.

@@ -8,130 +8,92 @@ keywords:
 - Aspose.Slides kur
 - Aspose.Slides kullan
 - Aspose.Slides kurulumu
+- pip
+- PyPI
 - Windows
+- Linux
 - macOS
 - Python
-description: "Aspose.Slides for Python via .NET'i hızlı bir şekilde nasıl kuracağınızı öğrenin. Adım adım kılavuz, sistem gereksinimleri ve kod örnekleri — bugün PowerPoint sunumlarıyla çalışmaya başlayın!"
+description: "Aspose.Slides for Python via .NET'i PyPI'dan pip ile Windows, Linux ve macOS üzerinde kurun ve Linux ile macOS'un ihtiyaç duyduğu yerel kütüphaneleri yükleyin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python via .NET paketi, tüm gerekli .NET kütüphanelerini içinde barındırır; bu da .NET'i ayrı olarak kurmanıza gerek olmadığı anlamına gelir. Bu, kurulum sürecini basitleştirir ve geliştiricilerin sunumlarla hemen çalışmaya başlamasını sağlar. Ancak, işletim sisteminize veya ortamınıza bağlı olarak .NET'in ihtiyaç duyduğu bazı platform‑spesifik bağımlılıkları hâlâ kurmanız gerekebilir. Ayrıca, paketinin tam uyumluluğu ve düzgün çalışması için belirli sistem gereksinimlerinin karşılanması gerekir.
+Bu makale, Aspose.Slides for Python via .NET'in Windows, Linux ve macOS üzerinde nasıl kurulacağını açıklar. Paket, [PyPI](https://pypi.org/project/aspose.slides/) üzerinden yayınlanır ve pip ile kurulur. Kullanılan .NET çalışma zamanını içerdiği için .NET kurmanıza gerek yoktur. Linux ve macOS üzerinde bu çalışma zamanı, işletim sisteminin içermediği yerel kütüphanelere ihtiyaç duyar; aşağıdaki bölümler bu kütüphaneleri listeler.
+
+Aspose.Slides for Python via .NET, Python 3.5‑den 3.14‑e kadar destekler. PyPI, Windows (32‑bit ve 64‑bit), Linux (x86_64 ve ARM64) ve macOS (Intel ve Apple silicon) için paketler sunar.
 
 ## **Windows**
 
-**Sistem Gereksinimleri**
+Windows üzerinde paketi pip ile kurun. Başka bir kütüphane gerekmez.
 
-Makinenizin özelliklerinin [sistem gereksinimlerini](/slides/tr/python-net/system-requirements/) karşılayıp karşılamadığını kontrol edin ve doğrulayın.
-
-### **Aspose.Slides'ı Yükleyin**
-
-`pip`, Windows üzerinde [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) paketini indirmek ve kurmak için en kolay yoldur.
-
-Aspose.Slides'ı yüklemek için aşağıdaki komutu çalıştırın:
-
-```sh
-pip install aspose-slides
+```bash
+pip install aspose.slides
 ```
 
-**Aspose.Slides Kullanımı**
+## **Linux**
 
-Aşağıdaki kodu çalıştırarak Aspose.Slides kurulumunuzu test edin ve bir PowerPoint sunumu oluşturun:
+Linux'ta, paket içinde bulunan .NET çalışma zamanı iki kütüphane gerektirir:
 
-```python
-# Aspose.Slides for Python via .NET modülünü içe aktar.
-import aspose.slides as slides
+- **libgdiplus**, Windows GDI+ grafik API'sinin bir uygulamasıdır. Bu olmadan bir sunumu kaydetme işlemi `The type initializer for 'Gdip' threw an exception` hatasıyla başarısız olur.
+- **ICU** (International Components for Unicode). Bu olmadan Python süreci, ilk Aspose.Slides çağrısında `Couldn't find a valid ICU package installed on the system` mesajıyla sonlanır.
 
-# Sunum dosyasını temsil eden Presentation sınıfını örnekle.
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
+Debian ve Ubuntu'da her ikisini de apt ile kurun:
+
+```bash
+sudo apt-get update && sudo apt-get install -y libgdiplus libicu76
 ```
+
+ICU paketinin adı sürümünü içerir: Debian 13 için `libicu76` paketidir. Debian 12'de `libicu72`, Ubuntu 24.04'te ise `libicu74` kurun. Sisteminizdeki adı öğrenmek için şu komutu çalıştırın:
+
+```bash
+apt-cache search --names-only '^libicu[0-9]+$'
+```
+
+Ardından paketi sanal ortama kurun. Mevcut Debian ve Ubuntu sürümlerinde, sistem Python'u sanal ortam dışı `pip install` yapılmasına izin vermez ve `externally-managed-environment` hatası verir.
+
+```bash
+sudo apt-get install -y python3-venv
+python3 -m venv .venv
+. .venv/bin/activate
+pip install aspose.slides
+```
+
+Aynı sanal ortamı etkinleştirerek betiklerinizi çalıştırın. Dağıtımınızın yönetmediği bir Python kullanıyorsanız (örn. resmi `python` Docker görüntülerindeki Python), sanal ortam olmadan da `pip install aspose.slides` komutunu çalıştırabilirsiniz.
+
+Sunumlarınızda kullanılan yazı tipleri veya uygun alternatifler, slaytları PDF ya da görüntüye dönüştürürken metnin doğru render edilmesi için sistemde kurulu olmalıdır.
 
 ## **macOS**
 
-**Sistem Gereksinimleri**
+macOS üzerindeki kurulumu henüz doğrulamıyoruz. macOS'ta Aspose.Slides aşağıdaki önkoşullara ihtiyaç duyar:
 
-Makinenizin özelliklerinin [sistem gereksinimlerini](/slides/tr/python-net/system-requirements/) karşılayıp karşılamadığını kontrol edin ve doğrulayın.
+- **Shared library'li Python**, yani `--enable-shared` yapılandırma seçeneğiyle derlenmiş Python. Python'u [pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos) ile kuruyorsanız, bir Python sürümü kurarken `PYTHON_CONFIGURE_OPTS` ortam değişkenini `--enable-shared` olarak ayarlayın.
+- **Sistem kütüphane dizininde libpython kütüphanesi**. pyenv ile kurulan Python, libpython kütüphanesini (ör. *libpython3.9.dylib*) *~/.pyenv/versions* altında tutar; bu dosyaya */usr/local/lib* içinde bir sembolik bağ oluşturun.
+- **libgdiplus**, Windows GDI+ grafik API'sinin bir uygulamasıdır. Homebrew, bunu `mono-libgdiplus` paketi olarak sunar.
 
-### **Önkoşullar**
+Ardından paketi pip ile kurun.
 
-**Paylaşımlı Kütüphanelerle Python**
+## **Kurulumu Kontrol Et**
 
-macOS'ta Python kurulumu için birkaç yöntem vardır, ancak [pyenv aracı](https://github.com/pyenv/pyenv#homebrew-in-macos)'nı kullanmanızı şiddetle öneririz.
+Kurulumu kontrol etmek için, [Sunum Oluşturma](/slides/tr/python-net/create-presentation/) sayfasındaki ilk örneği *hello.py* olarak kaydedin ve `python hello.py` komutunu çalıştırın. *new_presentation.pptx* dosyası geçerli klasöre kaydedilir.
 
-**pyenv**'i kurup yapılandırdıktan sonra, Terminal uygulamasında aşağıdaki komutları çalıştırarak paylaşımlı kütüphaneleri olan Python'u yükleyin:
+## **Güncelleme**
 
-1. Python'u kurun:
+Mevcut bir kurulumu en son sürüme yükseltmek için, paketin kurulu olduğu ortamda aşağıdaki komutu çalıştırın:
 
-```sh
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install --verbose 3.9.13
-```
-
-2. Global Python sürümü olarak ayarlayın:
-
-```sh
-pyenv global 3.9.13
-```
-
-3. Kabuk‑özgü Python sürümü olarak ayarlayın:
-
-```sh
-pyenv shell 3.9.13
-```
-
-4. libpython kütüphanesi için bir sembolik bağlantı oluşturun:
-
-```sh
-ln -s /Users/<username>/.pyenv/versions/3.9.13/lib/libpython3.9.dylib /usr/local/lib/libpython3.9.dylib
-```
-
-Not: Python 3.5 veya üzeri gereklidir. Burada yalnızca örnek olarak 3.9.13 sürümü kullanılmıştır.
-
-**libgdiplus Kütüphanesini Yükleyin**
-
-**libgdiplus** kütüphanesi, macOS ve Linux için .NET'in grafik işlevselliği için güvendiği Windows GDI+ uygulamasıdır.
-Bu kütüphaneyi macOS'ta kurmak için aşağıdaki komutu çalıştırın:
-
-```sh
-brew install mono-libgdiplus
-```
-
-### **Aspose.Slides'ı Yükleyin**
-
-`pip`, macOS üzerinde [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) paketini indirmek ve kurmak için en kolay yoldur.
-
-Aspose.Slides'ı yüklemek için aşağıdaki komutu çalıştırın:
-
-```sh
-pip install aspose-slides
-```
-
-**Aspose.Slides Kullanımı**
-
-Aşağıdaki kodu çalıştırarak Aspose.Slides kurulumunuzu test edin ve bir PowerPoint sunumu oluşturun:
-
-```python
-# Aspose.Slides for Python via .NET modülünü içe aktar.
-import aspose.slides as slides
-
-# Sunum dosyasını temsil eden Presentation sınıfını örnekle.
-with slides.Presentation() as presentation:    
-    slide = presentation.slides[0]
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 20, 20, 300, 200)
-    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
+```bash
+pip install --upgrade aspose.slides
 ```
 
 ## **SSS**
 
-**Aspose.Slides'ı sanal bir ortamda kurabilir miyim?**
+**Aspose.Slides'ı bir sanal ortamda kurabilir miyim?**
 
-Evet, `pip` kullanarak herhangi bir Python sanal ortamına kurabilirsiniz. Ortamın, işletim sisteminize bağlı olarak gerekli yerel bağımlılıklara erişimi olduğundan emin olun.
+Evet. Pip ile herhangi bir Python sanal ortamına kurabilirsiniz. Linux ve macOS için gereken yerel kütüphaneler sistemde kurulur, sanal ortam içinde değildir.
 
 **Aspose.Slides'ı Docker konteynerlerinde kullanabilir miyim?**
 
-Evet, ancak Docker imajınızın gerekli yerel kütüphaneleri (**libgdiplus**, font paketleri vb.) ve doğru Python sürümünü içerdiğinden emin olmanız gerekir.
+Evet. Görüntü, bir Linux sistemindeki aynı yerel kütüphaneleri – libgdiplus ve ICU – ve sunumlarınızın kullandığı yazı tiplerini içermelidir.
 
 **Ücretsiz bir sürüm veya deneme sınırlaması var mı?**
 
-Evet, varsayılan olarak Aspose.Slides değerlendirme modunda çalışır; bu modda filigran eklenir ve başka sınırlamalar olabilir. Kısıtlamaları kaldırmak için geçerli bir [lisans](/slides/tr/python-net/licensing/) uygulamanız gerekir.
+Evet. Lisans olmadan Aspose.Slides değerlendirme modunda çalışır: kaydedilen her slayta bir değerlendirme filigranı ekler ve sunumlardan okunan metni kısaltır. Bu sınırlamaları kaldırmak için geçerli bir [lisans](/slides/tr/python-net/licensing/) uygulayın.

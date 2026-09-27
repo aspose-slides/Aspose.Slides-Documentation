@@ -6,35 +6,34 @@ weight: 10
 url: /zh/python-net/create-presentation/
 keywords:
 - 创建演示文稿
-- 新建演示文稿
+- 新演示文稿
 - 创建 PPT
-- 新建 PPT
+- 新 PPT
 - 创建 PPTX
-- 新建 PPTX
+- 新 PPTX
 - 创建 ODP
-- 新建 ODP
+- 新 ODP
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 Python 中创建 PowerPoint 演示文稿——生成 PPT、PPTX 和 ODP 文件，受益于 OpenDocument 支持，并可通过编程方式保存，确保可靠的结果。"
+description: "使用 Aspose.Slides 在 Python 中创建 PowerPoint 演示文稿——生成 PPT、PPTX 和 ODP 文件，受益于 OpenDocument 支持，并通过编程方式保存，以获得可靠的结果。"
 ---
-
 ## **概述**
 
-Aspose.Slides for Python 让您可以完全通过代码构建全新的演示文稿文件。本文展示核心工作流——创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象，获取第一张幻灯片，注入一个简单的形状，并持久化结果——从而让您看到生成演示文稿所需的最少设置，无需 Microsoft Office。由于相同的 API 可写入 PPT、PPTX 和 ODP 文件，您可以使用单一代码库针对传统 PowerPoint 和 OpenDocument 格式。Aspose.Slides 适用于桌面、Web 或服务器环境，为您的 Python 应用提供高效的起点，以在初始幻灯片集就位后添加更丰富的内容，如文本、图像或图表。
+本文介绍如何使用 Aspose.Slides for Python via .NET 创建演示文稿，在其第一张幻灯片上添加带文本的形状，并将结果保存为 PPTX 文件。相同的 API 也可以将演示文稿保存为 PPT 和 ODP，因此您可以在同一代码库中针对 PowerPoint 和 OpenDocument 格式，而无需 Microsoft Office。文末的简短 FAQ 覆盖了有关格式、模板、幻灯片大小、单位、内存使用、线程、授权、数字签名和 VBA 支持的常见问题。
+
+在开始之前，请使用 `pip install aspose.slides` 从 PyPI 安装该包。请参阅[安装](/slides/zh/python-net/installation/)了解 Linux 和 macOS 需要的库，以及 Debian 和 Ubuntu 的系统 Python 所需的虚拟环境。
 
 ## **创建演示文稿**
 
-在 Aspose.Slides for Python 中从头创建 PowerPoint 文件就像实例化 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类一样直接。构造函数会自动提供一个仅含单张幻灯片的空白文稿，为形状、文本、图表或任何其他内容提供即时画布。修改该幻灯片或添加新幻灯片后，您可以将结果持久化为 PPTX、旧版 PPT，甚至 OpenDocument 格式。下面的简短代码示例演示了通过在第一张幻灯片上添加一个简单形状的工作流。
+要创建演示文稿并在其第一张幻灯片上放置带文本的形状，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 使用 `shapes` 集合公开的 `add_auto_shape` 方法，添加类型为 `CLOUD` 的 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) 对象。  
-4. 向自动形状添加文本。  
-5. 将修改后的演示文稿保存为 PPTX 文件。
+1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。新的演示文稿已经包含一个空幻灯片。
+1. 通过索引 0 从 [slides](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/slides/zh/) 集合中获取该幻灯片。
+1. 使用幻灯片的 [shapes](https://reference.aspose.com/slides/zh/python-net/aspose.slides/slide/shapes/) 集合的 [add_auto_shape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/add_auto_shape/) 方法添加一个云形的 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)，并设置其 [text](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/text/)。
+1. 使用 [save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/save/) 方法将演示文稿保存为 PPTX 文件。
 
-下面的示例在演示文稿的第一张幻灯片上添加了一个云形状。
 ```py
 import aspose.slides as slides
 
@@ -51,45 +50,46 @@ with slides.Presentation() as presentation:
     presentation.save("new_presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+云形的左上角距幻灯片左边缘 20 点，距顶部边缘 20 点，云形宽 200 点，高 80 点。`with` 语句在代码块结束时释放演示文稿的资源。脚本将在当前文件夹中保存 *new_presentation.pptx*，其中包含一个包含云形及其文本的幻灯片。未授权时，Aspose.Slides 会在每个保存的幻灯片上添加评估水印；请参阅[授权](/slides/zh/python-net/licensing/)。
 
 结果：
 
-![新演示文稿](new_presentation.png)
+![新的演示文稿](new_presentation.png)
 
 ## **常见问题**
 
-**我可以将新演示文稿保存为何种格式？**
+### 可以将新演示文稿保存为何种格式？
 
-您可以保存为 [PPTX, PPT, and ODP](/slides/zh/python-net/save-presentation/)，并导出为 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)、[XPS](/slides/zh/python-net/convert-powerpoint-to-xps/)、[HTML](/slides/zh/python-net/convert-powerpoint-to-html/)、[SVG](/slides/zh/python-net/convert-powerpoint-to-png/) 和 [images](/slides/zh/python-net/convert-powerpoint-to-png/)，等等。
+您可以保存为 [PPTX、PPT 和 ODP](/slides/zh/python-net/save-presentation/)，并导出为 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)、[XPS](/slides/zh/python-net/convert-powerpoint-to-xps/)、[HTML](/slides/zh/python-net/convert-powerpoint-to-html/)、[SVG](/slides/zh/python-net/render-a-slide-as-an-svg-image/) 和 [图像](/slides/zh/python-net/convert-powerpoint-to-png/)，等等。
 
-**我可以从模板 (POTX/POTM) 开始并保存为普通 PPTX 吗？**
+### 我可以从模板 (POTX/POTM) 开始并保存为普通 PPTX 吗？
 
-可以。加载模板后保存为所需格式；POTX/POTM/PPTM 等类似格式 [受支持](/slides/zh/python-net/supported-file-formats/)。
+可以。加载模板并保存为所需格式；POTX/POTM/PPTM 等格式均[受支持](/slides/zh/python-net/supported-file-formats/)。
 
-**在创建演示文稿时，如何控制幻灯片尺寸/宽高比？**
+### 创建演示文稿时，如何控制幻灯片大小/宽高比？
 
-设置 [slide size](/slides/zh/python-net/slide-size/)（包括 4:3、16:9 等预设或自定义尺寸），并选择内容的缩放方式。
+设置[幻灯片大小](/slides/zh/python-net/slide-size/)（包括 4:3、16:9 等预设或自定义尺寸），并选择内容的缩放方式。
 
-**尺寸和坐标使用什么单位？**
+### 尺寸和坐标使用什么单位？
 
-使用点（points）：1 英寸等于 72 单位。
+使用点（point）作为单位：1 英寸等于 72 点。
 
-**我该如何处理包含大量媒体文件的超大型演示文稿以降低内存使用？**
+### 如何处理包含大量媒体文件的超大演示文稿以降低内存使用？
 
-使用 [BLOB management strategies](/slides/zh/python-net/manage-blob/)，通过临时文件限制内存存储，并倾向于基于文件的工作流而非纯内存流。
+使用[BLOB 管理策略](/slides/zh/python-net/manage-blob/)，通过使用临时文件限制内存存储，并倾向于基于文件的工作流而非纯内存流。
 
-**我可以并行创建/保存演示文稿吗？**
+### 我可以并行创建/保存演示文稿吗？
 
-不能在 [多个线程](/slides/zh/python-net/multithreading/) 中操作同一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 实例。请在每个线程或进程中运行独立的实例。
+不能在[多个线程](/slides/zh/python-net/multithreading/)中对同一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 实例进行操作。请为每个线程或进程运行独立的实例。
 
-**我该如何去除试用水印和限制？**
+### 如何移除试用水印和限制？
 
-在每个进程中 [应用许可证](/slides/zh/python-net/licensing/)。许可证 XML 必须保持未修改，如果涉及多个线程，许可证设置应同步进行。
+[为进程应用许可证](/slides/zh/python-net/licensing/)一次。许可证 XML 必须保持未被修改，如果涉及多个线程，则应同步许可证设置。
 
-**我可以对创建的 PPTX 进行数字签名吗？**
+### 我可以对创建的 PPTX 进行数字签名吗？
 
-可以。支持演示文稿的 [数字签名](/slides/zh/python-net/digital-signature-in-powerpoint/)（添加和验证）。
+可以。[数字签名](/slides/zh/python-net/digital-signature-in-powerpoint/)（添加和验证）在演示文稿中受支持。
 
-**在创建的演示文稿中是否支持宏（VBA）？**
+### 创建的演示文稿是否支持宏 (VBA)？
 
-支持。您可以 [创建/编辑 VBA 项目](/slides/zh/python-net/presentation-via-vba/) 并保存为支持宏的文件，如 PPTM/PPSM。
+可以。您可以[创建/编辑 VBA 项目](/slides/zh/python-net/presentation-via-vba/)，并保存如 PPTM/PPSM 等宏启用文件。
