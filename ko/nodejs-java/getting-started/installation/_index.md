@@ -100,7 +100,7 @@ node hello.js
 패키지는 npm 패키지와 동일한 내용을 가진 ZIP 아카이브 형태로도 제공됩니다. 아카이브에서 설치하려면:
 
 1. 위에 설명된 대로 운영 체제에 맞는 사전 요구 사항을 설치합니다.
-2. [Aspose.Slides for Node.js via Java 다운로드 페이지](https://releases.aspose.com/slides/ko/nodejs-java/)에서 아카이브를 다운로드합니다.
+2. [Aspose.Slides for Node.js via Java 다운로드 페이지](https://releases.aspose.com/slides/nodejs-java/)에서 아카이브를 다운로드합니다.
 3. 프로젝트 폴더를 만듭니다:
 
     ```bash

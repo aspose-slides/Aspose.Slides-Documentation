@@ -41,7 +41,7 @@ Aspose.Slides의 평가 버전(라이선스 미지정)은 전체 제품 기능�
 {{% /alert %}}
 
 ## **라이선스에 대하여**
-Aspose.Slides for Node.js via Java의 [download page](https://releases.aspose.com/slides/ko/nodejs-java/)에서 평가 버전을 쉽게 다운로드할 수 있습니다. 평가 버전은 라이선스된 버전과 동일한 기능을 제공하지만 위에서 설명한 제한이 있습니다. 또한 라이선스를 구매하고 몇 줄의 코드를 추가하면 평가 버전이 라이선스된 상태가 됩니다.
+Aspose.Slides for Node.js via Java의 [download page](https://releases.aspose.com/slides/nodejs-java/)에서 평가 버전을 쉽게 다운로드할 수 있습니다. 평가 버전은 라이선스된 버전과 동일한 기능을 제공하지만 위에서 설명한 제한이 있습니다. 또한 라이선스를 구매하고 몇 줄의 코드를 추가하면 평가 버전이 라이선스된 상태가 됩니다.
 
 라이선스는 제품 이름, 라이선스를 부여받은 개발자 수, 구독 만료 날짜 등과 같은 세부 정보를 포함한 일반 텍스트 XML 파일입니다. 파일은 디지털 서명되어 있으므로 수정하면 안 됩니다. 파일 내용에 실수로 줄 바꿈을 추가하는 것만으로도 라이선스가 무효화됩니다.
 
@@ -62,7 +62,7 @@ Aspose.Slides for Node.js via Java의 [download page](https://releases.aspose.co
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-가격 정보는 ["Pricing Information"](https://purchase.aspose.com/pricing/slides/ko/family) 페이지에서 확인할 수 있습니다.
+가격 정보는 ["Pricing Information"](https://purchase.aspose.com/pricing/slides/family) 페이지에서 확인할 수 있습니다.
 {{% /alert %}}
 
 ### **Node.js via Java에서 Aspose.Slides 라이선스 설정**
@@ -96,11 +96,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-setLicense 메서드를 호출할 때 라이선스 이름은 라이선스 파일 이름과 동일해야 합니다. 예를 들어 라이선스 파일 이름을 "Aspose.Slides.lic.xml"로 변경할 수 있습니다. 그런 다음 코드에서 새로운 라이선스 이름(Aspose.Slides.lic.xml)을 setLicense 메서드에 전달해야 합니다. 파일이 없거나 유효한 라이선스를 포함하지 않으면 [setLicense](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/license/setlicense/)가 예외를 발생시켜 스크립트가 오류와 함께 종료됩니다.
+setLicense 메서드를 호출할 때 라이선스 이름은 라이선스 파일 이름과 동일해야 합니다. 예를 들어 라이선스 파일 이름을 "Aspose.Slides.lic.xml"로 변경할 수 있습니다. 그런 다음 코드에서 새로운 라이선스 이름(Aspose.Slides.lic.xml)을 setLicense 메서드에 전달해야 합니다. 파일이 없거나 유효한 라이선스를 포함하지 않으면 [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/)가 예외를 발생시켜 스크립트가 오류와 함께 종료됩니다.
 
 #### **스트림에서 라이선스 적용**
 
-스트림에서 라이선스를 적용하려면 [License](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/license/) 객체와 읽기 가능한 스트림을 정적 [setLicenseFromStream](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/license/setlicense/) 메서드에 전달합니다. 스트림은 비동기적으로 읽히며, 스트림에 유효한 라이선스가 없을 경우 콜백에 오류가 전달됩니다:
+스트림에서 라이선스를 적용하려면 [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) 객체와 읽기 가능한 스트림을 정적 [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) 메서드에 전달합니다. 스트림은 비동기적으로 읽히며, 스트림에 유효한 라이선스가 없을 경우 콜백에 오류가 전달됩니다:
 
 **Node.js**
 
