@@ -26,7 +26,7 @@ Aspose.Slides for C++ распространяется в двух формах:
 | Форма | Для чего использовать | Где получить |
 |---|---|---|
 | NuGet packages: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64-bit) and [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32-bit) | C++ проекты Visual Studio в Windows | NuGet |
-| ZIP‑пакеты для Windows, Linux и macOS | Сборки без NuGet, например проекты CMake | The [страница загрузки](https://releases.aspose.com/slides/ru/cpp/) |
+| ZIP‑пакеты для Windows, Linux и macOS | Сборки без NuGet, например проекты CMake | The [страница загрузки](https://releases.aspose.com/slides/cpp/) |
 
 В этой статье показано, как установить пакет NuGet в Visual Studio на Windows и как использовать ZIP‑пакет с CMake в Linux. Оба пути завершаются одинаковой проверкой: собрать и запустить первый пример в [Создание презентаций](/slides/ru/cpp/create-presentation/).
 
@@ -36,7 +36,7 @@ Aspose.Slides for C++ распространяется в двух формах:
 
 Выберите пакет в зависимости от платформы сборки: **Aspose.Slides.Cpp** для x64 и **Aspose.Slides.Cpp.x86** для Win32 (x86). Пакет Aspose.Slides.Cpp не применяется к сборке Win32, поэтому компилятор не может найти его заголовочные файлы.
 
-ZIP‑пакет для Windows также доступен на [странице загрузки](https://releases.aspose.com/slides/ru/cpp/).
+ZIP‑пакет для Windows также доступен на [странице загрузки](https://releases.aspose.com/slides/cpp/).
 
 ### **Метод 1: Установка или обновление Aspose.Slides через менеджер пакетов NuGet**
 
@@ -98,7 +98,7 @@ ZIP‑пакет для Windows также доступен на [страниц
    cd hello-slides
    ```
 
-3. Скачайте Linux‑ZIP (**Aspose.Slides for C++ Linux**) со [страницы загрузки](https://releases.aspose.com/slides/ru/cpp/) в папку проекта и распакуйте его в подпапку *aspose-slides-cpp*:  
+3. Скачайте Linux‑ZIP (**Aspose.Slides for C++ Linux**) со [страницы загрузки](https://releases.aspose.com/slides/cpp/) в папку проекта и распакуйте его в подпапку *aspose-slides-cpp*:  
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp
    ```

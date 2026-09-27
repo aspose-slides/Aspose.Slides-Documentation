@@ -30,10 +30,10 @@ description: "Создавайте презентации на C++ с помощ
 
 Чтобы создать презентацию и поместить текстовое поле на её первый слайд, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
-2. Получите этот слайд с помощью метода [Presentation::get_Slide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_slide/) и его индекс, 0.
-3. Добавьте прямоугольник с помощью метода [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapecollection/addautoshape/) и задайте его текст через метод [ITextFrame::set_Text](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframe/set_text/).
-4. Сохраните презентацию как файл PPTX с помощью метода [Presentation::Save](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/save/).
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
+2. Получите этот слайд с помощью метода [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) и его индекс, 0.
+3. Добавьте прямоугольник с помощью метода [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) и задайте его текст через метод [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+4. Сохраните презентацию как файл PPTX с помощью метода [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### Могу ли я создавать/сохранять презентации параллельно?
 
-Вы не можете работать с тем же экземпляром [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/cpp/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
+Вы не можете работать с тем же экземпляром [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/cpp/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
 
 ### Как удалить пробный водяной знак и ограничения?
 
