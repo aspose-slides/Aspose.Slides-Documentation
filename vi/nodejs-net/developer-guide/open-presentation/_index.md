@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET mở các bài thuyết trình PowerPoint và
 Các ví dụ yêu cầu có một bài thuyết trình tên `sample.pptx` trong thư mục dự án mà bạn đã thiết lập trong [Cài đặt](/slides/vi/nodejs-net/installation/). Bất kỳ bài thuyết trình PowerPoint nào cũng được. Lưu mỗi ví dụ dưới dạng tệp `.js` trong thư mục dự án và chạy nó từ thư mục đó bằng `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET không có tài liệu tham khảo API riêng. Nó phản chiếu API của Aspose.Slides for .NET với các tên camelCase, vì vậy các liên kết API trong bài viết này dẫn tới các lớp và thành viên tương ứng trong [tham khảo API Aspose.Slides for .NET](https://reference.aspose.com/slides/vi/net/).
+Aspose.Slides for Node.js via .NET không có tài liệu tham khảo API riêng. Nó phản chiếu API của Aspose.Slides for .NET với các tên camelCase, vì vậy các liên kết API trong bài viết này dẫn tới các lớp và thành viên tương ứng trong [tham khảo API Aspose.Slides for .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Mở một Bài Thuyết Trình Từ Tệp**
 
-Để mở một bài thuyết trình, truyền đường dẫn của nó vào constructor [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/presentation/). Aspose.Slides xác định định dạng dựa trên nội dung tệp chứ không phải dựa vào phần mở rộng, vì vậy cùng một đoạn mã có thể mở các tệp PPTX, PPT và ODP. Đường dẫn tương đối được giải quyết dựa trên thư mục làm việc hiện tại, tức là thư mục dự án khi bạn chạy script từ đó.
+Để mở một bài thuyết trình, truyền đường dẫn của nó vào constructor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Aspose.Slides xác định định dạng dựa trên nội dung tệp chứ không phải dựa vào phần mở rộng, vì vậy cùng một đoạn mã có thể mở các tệp PPTX, PPT và ODP. Đường dẫn tương đối được giải quyết dựa trên thư mục làm việc hiện tại, tức là thư mục dự án khi bạn chạy script từ đó.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Script in ra số slide trong `sample.pptx`, ví dụ `Slide count: 9`. Thuộc tính `count` của bộ sưu tập [slides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/slides/vi/) bao gồm cả các slide ẩn. Gọi `dispose` trong một khối `finally`, như trong ví dụ, để giải phóng các tài nguyên .NET phía sau bài thuyết trình ngay cả khi mã của bạn gặp lỗi.
+Script in ra số slide trong `sample.pptx`, ví dụ `Slide count: 9`. Thuộc tính `count` của bộ sưu tập [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) bao gồm cả các slide ẩn. Gọi `dispose` trong một khối `finally`, như trong ví dụ, để giải phóng các tài nguyên .NET phía sau bài thuyết trình ngay cả khi mã của bạn gặp lỗi.
 
 ## **Mở một Bài Thuyết Trình Từ Buffer**
 
@@ -71,7 +71,7 @@ Script in ra cùng số slide như ví dụ trước. Đối số thứ hai ph�
 
 ## **Lưu một Bài Thuyết Trình Sang Định Dạng Khác**
 
-Để chuyển đổi một bài thuyết trình sang định dạng khác, mở nó và lưu với một giá trị [SaveFormat](https://reference.aspose.com/slides/vi/net/aspose.slides.export/saveformat/) khác. Ví dụ dưới đây in ra định dạng mà Aspose.Slides đã phát hiện (thuộc tính [sourceFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/sourceformat/)) và lưu bài thuyết trình dưới dạng OpenDocument:
+Để chuyển đổi một bài thuyết trình sang định dạng khác, mở nó và lưu với một giá trị [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) khác. Ví dụ dưới đây in ra định dạng mà Aspose.Slides đã phát hiện (thuộc tính [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/)) và lưu bài thuyết trình dưới dạng OpenDocument:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ Script in `Source format: Pptx` và tạo `sample.odp`, chứa các slide giốn
 
 **Làm thế nào để mở một bài thuyết trình được bảo vệ bằng mật khẩu?**
 
-Tạo một đối tượng [LoadOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/), đặt thuộc tính [password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/) của nó, và truyền đối tượng này làm đối số thứ ba của constructor: `new Presentation("protected.pptx", null, loadOptions)`. Nếu không có mật khẩu đúng, constructor sẽ ném lỗi.
+Tạo một đối tượng [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), đặt thuộc tính [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) của nó, và truyền đối tượng này làm đối số thứ ba của constructor: `new Presentation("protected.pptx", null, loadOptions)`. Nếu không có mật khẩu đúng, constructor sẽ ném lỗi.
 
 **Tại sao constructor ném `Error` mà không có thông báo?**
 

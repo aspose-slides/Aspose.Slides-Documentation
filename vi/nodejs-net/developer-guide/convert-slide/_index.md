@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET renders slides from PowerPoint and OpenDocume
 The examples expect a presentation named `sample.pptx` in the project folder that you set up in [Cài đặt](/slides/vi/nodejs-net/installation/). Any PowerPoint presentation will do. Save each example as a `.js` file in the project folder and run it from that folder with `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET không có tài liệu tham khảo API riêng. Nó phản chiếu API Aspose.Slides cho .NET với các tên camelCase, vì vậy các liên kết API trong bài viết này dẫn tới các lớp và thành viên tương ứng trong [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/vi/net/).
+Aspose.Slides for Node.js via .NET không có tài liệu tham khảo API riêng. Nó phản chiếu API Aspose.Slides cho .NET với các tên camelCase, vì vậy các liên kết API trong bài viết này dẫn tới các lớp và thành viên tương ứng trong [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 To convert a slide to an image, follow these steps:
 
-1. Open the presentation with the [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/presentation/) constructor.
-1. Get a slide from the [slides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/slides/vi/) collection with `get(index)`. Indexes start at 0.
-1. Render the slide with `getImageWithScale` or `getImageWithImageSize`. In the .NET API reference, both are overloads of [Slide.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/slide/getimage/). They return an image object that corresponds to [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/).
-1. Save the image with its [save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/save/) method and an [ImageFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/imageformat/) value, and then call its `dispose` method.
+1. Open the presentation with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) constructor.
+1. Get a slide from the [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection with `get(index)`. Indexes start at 0.
+1. Render the slide with `getImageWithScale` or `getImageWithImageSize`. In the .NET API reference, both are overloads of [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). They return an image object that corresponds to [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+1. Save the image with its [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) method and an [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) value, and then call its `dispose` method.
 
 ## **Chuyển Đổi Mỗi Slide Thành Ảnh PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-The script writes one file per slide, `slide_1.png`, `slide_2.png`, and so on, numbered from 1. For a 16:9 presentation with slides of 960 × 540 points, each image is 1920 × 1080 pixels. Hidden slides are rendered too; to skip them, check the slide's [hidden](https://reference.aspose.com/slides/vi/net/aspose.slides/slide/hidden/) property. Each image is disposed in its own `finally` block, which releases it before the next slide is rendered. Without a license, the images also show an evaluation watermark; see [Licensing](/slides/vi/nodejs-net/licensing/).
+The script writes one file per slide, `slide_1.png`, `slide_2.png`, and so on, numbered from 1. For a 16:9 presentation with slides of 960 × 540 points, each image is 1920 × 1080 pixels. Hidden slides are rendered too; to skip them, check the slide's [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) property. Each image is disposed in its own `finally` block, which releases it before the next slide is rendered. Without a license, the images also show an evaluation watermark; see [Licensing](/slides/vi/nodejs-net/licensing/).
 
 ## **Chuyển Đổi Slide Thành Ảnh Có Kích Thước Xác Định**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-The [slideSize.size](https://reference.aspose.com/slides/vi/net/aspose.slides/slidesize/size/) property returns the slide width and height in points. For a 16:9 presentation, the script prints `Saved a 1280 x 720 image` and writes `slide_1_1280px.png`; for a 4:3 presentation, the image is 1280 × 960 pixels.
+The [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) property returns the slide width and height in points. For a 16:9 presentation, the script prints `Saved a 1280 x 720 image` and writes `slide_1_1280px.png`; for a 4:3 presentation, the image is 1280 × 960 pixels.
 
 ## **Câu Hỏi Thường Gặp**
 

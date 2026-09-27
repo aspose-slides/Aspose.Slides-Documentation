@@ -7,7 +7,7 @@ description: "Aspose.Slides cho Node.js qua .NET được tài liệu hoá bằn
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho Node.js qua .NET không có tài liệu API riêng. Gói này công bố các lớp của Aspose.Slides cho .NET cho JavaScript dưới cùng các tên, với các thành viên dạng camelCase, vì vậy [tài liệu API Aspose.Slides cho .NET](https://reference.aspose.com/slides/vi/net/) ghi lại các lớp, thành viên và enumeration của nó.
+Aspose.Slides cho Node.js qua .NET không có tài liệu API riêng. Gói này công bố các lớp của Aspose.Slides cho .NET cho JavaScript dưới cùng các tên, với các thành viên dạng camelCase, vì vậy [tài liệu API Aspose.Slides cho .NET](https://reference.aspose.com/slides/net/) ghi lại các lớp, thành viên và enumeration của nó.
 
 ## **Ánh xạ tên .NET sang JavaScript**
 
@@ -52,4 +52,4 @@ try {
 
 Script sẽ ghi `slide.png` và `slide.pdf` vào thư mục hiện tại. Cả hai đều hiển thị hình chữ nhật với văn bản của nó. Nếu không có giấy phép, chúng cũng sẽ hiển thị watermark đánh giá; xem [Cấp phép](/slides/vi/nodejs-net/licensing/).
 
-Để biết chi tiết về các thành viên được sử dụng ở đây, xem [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/vi/net/aspose.slides/textframe/text/) và [Slide.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/slide/getimage/) trong tài liệu API Aspose.Slides cho .NET.
+Để biết chi tiết về các thành viên được sử dụng ở đây, xem [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) và [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) trong tài liệu API Aspose.Slides cho .NET.

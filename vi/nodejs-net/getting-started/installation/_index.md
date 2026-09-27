@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 Trong quá trình cài đặt, gói sao chép các thư viện vẽ gốc (các tệp có tên chứa `aspose.slides.drawing.capi`) vào thư mục dự án, cạnh `package.json`.
 
-Gói cũng được phát hành dưới dạng file ZIP trên [releases.aspose.com](https://releases.aspose.com/slides/vi/nodejs-net/). Bài viết này chỉ đề cập tới cài đặt từ npm.
+Gói cũng được phát hành dưới dạng file ZIP trên [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/). Bài viết này chỉ đề cập tới cài đặt từ npm.
 
 ## **Khôi phục các phụ thuộc .NET**
 
@@ -154,7 +154,7 @@ Script in ra `Saved hello.pptx`. Mở `hello.pptx` để xem một slide có hì
 Chạy các script của bạn từ thư mục dự án, thư mục chứa `package.json`. Các đường dẫn tương đối như `hello.pptx` sẽ được giải quyết dựa trên thư mục hiện tại, và trên một số máy một script được khởi chạy từ thư mục khác sẽ không tạo được bản thuyết trình.
 {{% /alert %}}
 
-API JavaScript phản ánh Aspose.Slides for .NET: các lớp giữ nguyên tên .NET, thuộc tính và phương thức sử dụng camelCase (`Slides` trở thành `slides`, `AddAutoShape` trở thành `addAutoShape`), và các mục trong collection được đọc bằng `get(index)`. Không có tài liệu tham khảo API riêng cho gói này, vì vậy hãy sử dụng [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/vi/net/) để xem chi tiết lớp và thành viên, ví dụ như [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) và [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/shapecollection/addautoshape/).
+API JavaScript phản ánh Aspose.Slides for .NET: các lớp giữ nguyên tên .NET, thuộc tính và phương thức sử dụng camelCase (`Slides` trở thành `slides`, `AddAutoShape` trở thành `addAutoShape`), và các mục trong collection được đọc bằng `get(index)`. Không có tài liệu tham khảo API riêng cho gói này, vì vậy hãy sử dụng [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) để xem chi tiết lớp và thành viên, ví dụ như [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) và [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/).
 
 ## **Câu hỏi thường gặp**
 

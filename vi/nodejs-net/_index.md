@@ -58,13 +58,13 @@ Nó tải và lưu PPT, PPTX, PPS, POT và ODP, bao gồm các phiên bản có 
 <hr>
 <p>THAM KHẢO</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/vi/net/">Tham khảo API .NET</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/nodejs-net/release-notes/">Ghi chú phát hành</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/nodejs-net/">Tải xuống</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Tham khảo API .NET</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Trợ giúp hỗ trợ trả phí</a></li>
 </ul>
 </div>

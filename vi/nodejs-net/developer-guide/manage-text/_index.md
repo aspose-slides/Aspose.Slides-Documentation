@@ -31,12 +31,12 @@ Bài viết này thêm một text box vào slide và lưu bản trình chiếu. 
 Các ví dụ yêu cầu một dự án được thiết lập như mô tả trong [Cài đặt](/slides/vi/nodejs-net/installation/). Lưu mỗi ví dụ dưới dạng tệp `.js` trong thư mục dự án và chạy nó từ thư mục đó bằng `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET has no API reference of its own. It mirrors the Aspose.Slides for .NET API with camelCase names, so the API links in this article lead to the matching classes and members in the [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/vi/net/).
+Aspose.Slides for Node.js via .NET has no API reference of its own. It mirrors the Aspose.Slides for .NET API with camelCase names, so the API links in this article lead to the matching classes and members in the [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Thêm một Text Box**
 
-Để thêm một text box, thêm một auto shape vào slide bằng phương thức [addAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/shapecollection/addautoshape/) và gán cho nó văn bản bằng phương thức [addTextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/addtextframe/). Ví dụ sau đây thêm một hình chữ nhật vào slide đầu tiên của một bản trình chiếu mới và lưu bản trình chiếu dưới tên `text-box.pptx`:
+Để thêm một text box, thêm một auto shape vào slide bằng phương thức [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) và gán cho nó văn bản bằng phương thức [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). Ví dụ sau đây thêm một hình chữ nhật vào slide đầu tiên của một bản trình chiếu mới và lưu bản trình chiếu dưới tên `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ Slide trong `text-box.pptx` chứa một hình chữ nhật, rộng 500 điểm 
 
 ## **Thay đổi Văn bản và Định dạng của nó**
 
-Ví dụ sau mở `text-box.pptx`, tệp mà ví dụ trước đã tạo, và lấy shape đầu tiên trên slide đầu tiên. Các shape như hình ảnh và bảng không có text frame, vì vậy ví dụ kiểm tra shape có phải là một [AutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/) trước khi sử dụng [textFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/textframe/) của shape. Sau đó thực hiện các bước sau:
+Ví dụ sau mở `text-box.pptx`, tệp mà ví dụ trước đã tạo, và lấy shape đầu tiên trên slide đầu tiên. Các shape như hình ảnh và bảng không có text frame, vì vậy ví dụ kiểm tra shape có phải là một [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) trước khi sử dụng [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) của shape. Sau đó thực hiện các bước sau:
 
-1. Nó thay thế văn bản qua thuộc tính [text](https://reference.aspose.com/slides/vi/net/aspose.slides/textframe/text/) của text frame. Sau đó, text frame chứa một đoạn văn với một portion.
-2. Nó lấy portion đó từ các collection [paragraphs](https://reference.aspose.com/slides/vi/net/aspose.slides/textframe/paragraphs/) và [portions](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraph/portions/) và đọc [portionFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/portion/portionformat/).
-3. Nó đặt [fontHeight](https://reference.aspose.com/slides/vi/net/aspose.slides/baseportionformat/fontheight/), kích thước phông chữ tính bằng điểm, và [fontBold](https://reference.aspose.com/slides/vi/net/aspose.slides/baseportionformat/fontbold/), nhận một giá trị [NullableBool](https://reference.aspose.com/slides/vi/net/aspose.slides/nullablebool/).
+1. Nó thay thế văn bản qua thuộc tính [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) của text frame. Sau đó, text frame chứa một đoạn văn với một portion.
+2. Nó lấy portion đó từ các collection [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) và [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) và đọc [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).
+3. Nó đặt [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), kích thước phông chữ tính bằng điểm, và [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), nhận một giá trị [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

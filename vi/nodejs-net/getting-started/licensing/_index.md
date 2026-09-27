@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET là một gói npm cho cả việc đánh gi�
 
 {{% alert color="info" title="Note" %}}
 
-Chính sách chung về cách đánh giá, cấp phép và mua sản phẩm Aspose được tổng hợp trong [Purchase Policies and FAQ](https://purchase.aspose.com/policies). Giá cả được liệt kê trên trang [Pricing Information](https://purchase.aspose.com/pricing/slides/vi/family).
+Chính sách chung về cách đánh giá, cấp phép và mua sản phẩm Aspose được tổng hợp trong [Purchase Policies and FAQ](https://purchase.aspose.com/policies). Giá cả được liệt kê trên trang [Pricing Information](https://purchase.aspose.com/pricing/slides/family).
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ Tên tệp hoặc đường dẫn tương đối sẽ được giải quyết d�
 
 Nếu tệp không tìm thấy, hoặc không phải là giấy phép hợp lệ, `setLicense` sẽ ném ra lỗi, và Aspose.Slides sẽ ở chế độ dùng thử. Script sẽ bắt lỗi và in thông báo của nó. Đối với tệp bị thiếu, thông báo bắt đầu bằng `License "Aspose.Slides.lic" doesn't exist or access is restricted.` và liệt kê mọi vị trí đã được tìm kiếm.
 
-Trong gói này, giấy phép chỉ được áp dụng từ tệp. `License` không chấp nhận luồng, và gói không cung cấp giấy phép tính theo mức sử dụng. Đối với lớp mà gói đóng gói, xem [License](https://reference.aspose.com/slides/vi/net/aspose.slides/license/) trong tài liệu API Aspose.Slides cho .NET.
+Trong gói này, giấy phép chỉ được áp dụng từ tệp. `License` không chấp nhận luồng, và gói không cung cấp giấy phép tính theo mức sử dụng. Đối với lớp mà gói đóng gói, xem [License](https://reference.aspose.com/slides/net/aspose.slides/license/) trong tài liệu API Aspose.Slides cho .NET.
