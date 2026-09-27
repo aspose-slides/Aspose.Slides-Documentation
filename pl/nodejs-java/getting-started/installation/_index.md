@@ -98,7 +98,7 @@ Jeśli *hello.pptx* pojawi się w folderze projektu, instalacja działa. Maszyna
 
 Pakiet jest również dostępny jako archiwum ZIP zawierające te same pliki co pakiet npm. Aby zainstalować go z archiwum:
 1. Zainstaluj wymagania wstępne dla swojego systemu operacyjnego, jak opisano powyżej.
-2. Pobierz archiwum ze [strony pobierania Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/pl/nodejs-java/).
+2. Pobierz archiwum ze [strony pobierania Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/nodejs-java/).
 3. Utwórz folder projektu:
 
     ```bash

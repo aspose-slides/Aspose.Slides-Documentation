@@ -31,11 +31,11 @@ Przed rozpoczęciem zainstaluj pakiet `aspose.slides.via.java` z npm, wraz z wym
 
 Aby utworzyć prezentację i umieścić pole tekstowe na pierwszym slajdzie, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.
-1. Pobierz ten slajd z [kolekcji slajdów](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getslides/) według jego indeksu, 0.
-1. Dodaj prostokąt przy użyciu metody [addAutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapecollection/addautoshape/) i ustaw jego tekst metodą [setText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/settext/).
-1. Zapisz prezentację jako plik PPTX przy pomocy metody [save](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/save/).
-1. Zwolnij prezentację metodą [dispose](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/dispose/), a następnie zakończ proces.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.
+1. Pobierz ten slajd z [kolekcji slajdów](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) według jego indeksu, 0.
+1. Dodaj prostokąt przy użyciu metody [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) i ustaw jego tekst metodą [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Zapisz prezentację jako plik PPTX przy pomocy metody [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Zwolnij prezentację metodą [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/), a następnie zakończ proces.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Użyj [strategii zarządzania BLOB](/slides/pl/nodejs-java/manage-blob/), ograni
 
 ### Czy mogę tworzyć/zapisywać prezentacje równolegle?
 
-Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) z [wielu wątków](/slides/pl/nodejs-java/multithreading/). Uruchom oddzielne, izolowane instancje na każdy wątek lub proces.
+Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) z [wielu wątków](/slides/pl/nodejs-java/multithreading/). Uruchom oddzielne, izolowane instancje na każdy wątek lub proces.
 
 ### Jak usunąć znak wodny wersji próbnej i ograniczenia?
 

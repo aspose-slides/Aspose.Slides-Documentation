@@ -72,14 +72,14 @@ Aspose.Slides for Node.js via Java jest biblioteką służącą do tworzenia, od
 <hr>
 <p>REFERENCJE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/pl/nodejs-java/">Referencja API</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/nodejs-java/release-notes/">Uwagi do wydania</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">Referencja API</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Uwagi do wydania</a></li>
 <li><a href="/slides/pl/nodejs-java/known-issues/">Znane problemy</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/nodejs-java/">Pobierz</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">Pobierz</a></li>
 </ul>
 <p>WSPARCIE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pl/11">Darmowe forum wsparcia</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Darmowe forum wsparcia</a></li>
 <li><a href="https://helpdesk.aspose.com/">Płatny helpdesk wsparcia</a></li>
 </ul>
 </div>
