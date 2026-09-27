@@ -71,14 +71,14 @@ Aspose.Slides for PHP via Java एक क्लास लाइब्रेर�
 <hr>
 <p>संदर्भ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hi/php-java/">API संदर्भ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/php-java/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">API संदर्भ</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">रिलीज़ नोट्स</a></li>
 <li><a href="/slides/hi/php-java/known-issues/">ज्ञात समस्याएं</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/php-java/">डाउनलोड</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">डाउनलोड</a></li>
 </ul>
 <p>समर्थन</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">मुफ़्त समर्थन फ़ोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">मुफ़्त समर्थन फ़ोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">सशुल्क समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>

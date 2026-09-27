@@ -30,10 +30,10 @@ description: "Aspose.Slides for PHP via Java का उपयोग करके
 
 एक प्रस्तुति बनाकर उसकी पहली स्लाइड पर टेक्स्ट बॉक्स रखने के लिए निम्न चरणों का पालन करें:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएँ। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
-1. उस स्लाइड को प्राप्त करें जो [Presentation::getSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/getslides/) द्वारा लौटाए गए कलेक्शन में इंडेक्स 0 के द्वारा उपलब्ध है।
-1. [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addautoshape/) मेथड से एक आयत जोड़ें और उसके टेक्स्ट को [TextFrame::setText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/settext/) से सेट करें।
-1. प्रस्तुति को [Presentation::save](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/save/) मेथड से PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएँ। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।
+1. उस स्लाइड को प्राप्त करें जो [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) द्वारा लौटाए गए कलेक्शन में इंडेक्स 0 के द्वारा उपलब्ध है।
+1. [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) मेथड से एक आयत जोड़ें और उसके टेक्स्ट को [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/) से सेट करें।
+1. प्रस्तुति को [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) मेथड से PPTX फ़ाइल के रूप में सहेजें।
 
 ```php
 <?php
@@ -65,7 +65,7 @@ Aspose.Slides फ़ाइलों को Tomcat के भीतर पढ़�
 
 ## **एक प्रस्तुति बनाकर सहेजें**
 
-एक खाली प्रस्तुति बनाकर उसे सहेजने के लिए, [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की इंस्टेंस बनाएं और उसे [SaveFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/saveformat/) एनेमरेशन के किसी भी फ़ॉर्मेट में सहेजें। परिणामस्वरूप एक खाली स्लाइड वाली प्रस्तुति प्राप्त होगी।
+एक खाली प्रस्तुति बनाकर उसे सहेजने के लिए, [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास की इंस्टेंस बनाएं और उसे [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) एनेमरेशन के किसी भी फ़ॉर्मेट में सहेजें। परिणामस्वरूप एक खाली स्लाइड वाली प्रस्तुति प्राप्त होगी।
 
 ```php
 <?php
@@ -85,7 +85,7 @@ try {
 
 ## **एक प्रस्तुति खोलें और सहेजें**
 
-एक प्रस्तुति को एक फ़ॉर्मेट से दूसरे फ़ॉर्मेट में बदलने के लिए, उसके पाथ को [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) कंस्ट्रक्टर में पास करके खोलें, फिर लक्षित फ़ॉर्मेट में सहेजें। Aspose.Slides फ़ाइल स्वयं से इनपुट फ़ॉर्मेट (जैसे PPT, PPTX या ODP) का पता लगाता है।
+एक प्रस्तुति को एक फ़ॉर्मेट से दूसरे फ़ॉर्मेट में बदलने के लिए, उसके पाथ को [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) कंस्ट्रक्टर में पास करके खोलें, फिर लक्षित फ़ॉर्मेट में सहेजें। Aspose.Slides फ़ाइल स्वयं से इनपुट फ़ॉर्मेट (जैसे PPT, PPTX या ODP) का पता लगाता है।
 
 नीचे का उदाहरण स्क्रिप्ट के पास स्थित *Sample.odp* नामक OpenDocument प्रस्तुति को अपेक्षित करता है और उसे PPTX के रूप में सहेजता है।
 

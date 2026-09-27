@@ -61,7 +61,7 @@ Aspose.Slides (बिना निर्दिष्ट लाइसेंस �
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-आप मूल्य निर्धारण जानकारी [“Pricing Information”](https://purchase.aspose.com/pricing/slides/hi/family) पेज पर पा सकते हैं।
+आप मूल्य निर्धारण जानकारी [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family) पेज पर पा सकते हैं।
 {{% /alert %}}
 
 ### **Aspose.Slides for PHP via Java में लाइसेंस सेट करें**
