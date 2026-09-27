@@ -154,7 +154,7 @@ PHP, `Java.inc` dosyasını Tomcat'ten yükleyemedi. Hata mesajının öncesinde
 
 **Büyük sunumları işlerken bellek tüketimini nasıl sınırlayabilirim?**
 
-JVM bellek limitlerini sadece ihtiyaç duyulan kadar yükseltin ve her [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneğini bir `finally` bloğunda kapatarak önbelleği hemen serbest bırakın. Bu, bellek yetersizliği hatalarını önler ve toplu işlemler sırasında toplam bellek kullanımının öngörülebilir kalmasını sağlar.
+JVM bellek limitlerini sadece ihtiyaç duyulan kadar yükseltin ve her [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) örneğini bir `finally` bloğunda kapatarak önbelleği hemen serbest bırakın. Bu, bellek yetersizliği hatalarını önler ve toplu işlemler sırasında toplam bellek kullanımının öngörülebilir kalmasını sağlar.
 
 **İstenmeyen dışa aktarım formatlarını dışarı çıkararak son JAR boyutunu küçültebilir miyim?**
 

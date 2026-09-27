@@ -30,10 +30,10 @@ Başlamadan önce, Composer ile Java üzerinden Aspose.Slides for PHP'yi kurun v
 
 Bir sunum oluşturup ilk slaytına bir metin kutusu eklemek için şu adımları izleyin:
 
-1. **[Presentation]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
-2. **[Presentation::getSlides]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/getslides/) tarafından döndürülen koleksiyondan, indeksi 0 olan slaytı alın.  
-3. **[ShapeCollection::addAutoShape]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addautoshape/) yöntemiyle bir dikdörtgen ekleyin ve **[TextFrame::setText]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/settext/) ile metnini ayarlayın.  
-4. **[Presentation::save]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/save/) yöntemiyle sunumu bir PPTX dosyası olarak kaydedin.
+1. **[Presentation]**(https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
+2. **[Presentation::getSlides]**(https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) tarafından döndürülen koleksiyondan, indeksi 0 olan slaytı alın.  
+3. **[ShapeCollection::addAutoShape]**(https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) yöntemiyle bir dikdörtgen ekleyin ve **[TextFrame::setText]**(https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/) ile metnini ayarlayın.  
+4. **[Presentation::save]**(https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) yöntemiyle sunumu bir PPTX dosyası olarak kaydedin.
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides dosyaları Tomcat içinde okur ve yazar, PHP sürecinizde değil; 
 
 ## **Sunum Oluşturma ve Kaydetme**
 
-Boş bir sunum oluşturup kaydetmek için **[Presentation]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve **[SaveFormat]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveformat/) enum'undan istediğiniz herhangi bir formatta kaydedin. Sonuç, bir boş slayt içeren bir sunum olur.
+Boş bir sunum oluşturup kaydetmek için **[Presentation]**(https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve **[SaveFormat]**(https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) enum'undan istediğiniz herhangi bir formatta kaydedin. Sonuç, bir boş slayt içeren bir sunum olur.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Sunumu Açma ve Kaydetme**
 
-Bir sunumu bir formattan başka bir formata dönüştürmek için, yolunu **[Presentation]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yapıcısına geçirerek açın ve hedef formatta kaydedin. Aspose.Slides, dosyanın kendisinden PPT, PPTX veya ODP gibi giriş formatını algılar.
+Bir sunumu bir formattan başka bir formata dönüştürmek için, yolunu **[Presentation]**(https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) yapıcısına geçirerek açın ve hedef formatta kaydedin. Aspose.Slides, dosyanın kendisinden PPT, PPTX veya ODP gibi giriş formatını algılar.
 
 Aşağıdaki örnek, betiğin yanında bulunan *Sample.odp* adlı bir OpenDocument sunumunu PPTX olarak kaydeder.
 
@@ -127,7 +127,7 @@ Puan olarak: 1 inç 72 birime eşittir.
 
 ### Sunumları paralel olarak oluşturup/kaydedebilir miyim?
 
-Aynı **[Presentation]**(https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneğine [birden fazla iş parçacığından](/slides/tr/php-java/multithreading/) erişemezsiniz. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
+Aynı **[Presentation]**(https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) örneğine [birden fazla iş parçacığından](/slides/tr/php-java/multithreading/) erişemezsiniz. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
 
 ### Deneme filigranı ve kısıtlamaları nasıl kaldırırım?
 

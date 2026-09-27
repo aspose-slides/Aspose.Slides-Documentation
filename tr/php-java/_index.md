@@ -71,14 +71,14 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro destekli ve şablon çeşitleri 
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/tr/php-java/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/php-java/release-notes/">Sürüm notları</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/php-java/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/php-java/">İndir</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek helpdesk</a></li>
 </ul>
 </div>

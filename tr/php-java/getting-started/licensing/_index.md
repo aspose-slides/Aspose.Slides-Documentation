@@ -60,7 +60,7 @@ Lisansı ayarlamanız gerekir:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Fiyatlandırma bilgilerini [“Fiyatlandırma Bilgileri”](https://purchase.aspose.com/pricing/slides/tr/family) sayfasında bulabilirsiniz.
+Fiyatlandırma bilgilerini [“Fiyatlandırma Bilgileri”](https://purchase.aspose.com/pricing/slides/family) sayfasında bulabilirsiniz.
 {{% /alert %}}
 
 ### **Aspose.Slides for PHP via Java'da Lisans Ayarlama**
