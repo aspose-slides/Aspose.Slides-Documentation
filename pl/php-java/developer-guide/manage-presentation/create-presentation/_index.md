@@ -30,10 +30,10 @@ Przed rozpoczęciem zainstaluj Aspose.Slides for PHP via Java przy użyciu Compo
 
 Aby utworzyć prezentację i umieścić pole tekstowe na jej pierwszym slajdzie, wykonaj poniższe kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/). Nowa prezentacja zawiera już jeden pusty slajd.
-1. Uzyskaj ten slajd z kolekcji zwróconej przez [Presentation::getSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/getslides/), używając indeksu 0.
-1. Dodaj prostokąt metodą [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/addautoshape/) i ustaw jego tekst przy użyciu [TextFrame::setText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/settext/).
-1. Zapisz prezentację jako plik PPTX przy użyciu metody [Presentation::save](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/save/).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Nowa prezentacja zawiera już jeden pusty slajd.
+1. Uzyskaj ten slajd z kolekcji zwróconej przez [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), używając indeksu 0.
+1. Dodaj prostokąt metodą [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) i ustaw jego tekst przy użyciu [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+1. Zapisz prezentację jako plik PPTX przy użyciu metody [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides odczytuje i zapisuje pliki wewnątrz Tomcata, a nie w Twoim proces
 
 ## **Utworzenie i zapisanie prezentacji**
 
-Aby utworzyć pustą prezentację i zapisać ją, utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) i zapisz ją w dowolnym formacie z wyliczenia [SaveFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/saveformat/). Wynikiem jest prezentacja z jednym pustym slajdem.
+Aby utworzyć pustą prezentację i zapisać ją, utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) i zapisz ją w dowolnym formacie z wyliczenia [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). Wynikiem jest prezentacja z jednym pustym slajdem.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Otwarcie i zapisanie prezentacji**
 
-Aby przekonwertować prezentację z jednego formatu na drugi, otwórz ją, przekazując jej ścieżkę do konstruktora [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), a następnie zapisz w docelowym formacie. Aspose.Slides wykrywa format wejściowy, taki jak PPT, PPTX lub ODP, na podstawie samego pliku.
+Aby przekonwertować prezentację z jednego formatu na drugi, otwórz ją, przekazując jej ścieżkę do konstruktora [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), a następnie zapisz w docelowym formacie. Aspose.Slides wykrywa format wejściowy, taki jak PPT, PPTX lub ODP, na podstawie samego pliku.
 
 Poniższy przykład zakłada, że prezentacja OpenDocument o nazwie *Sample.odp* znajduje się obok skryptu i zapisuje ją jako PPTX.
 
@@ -127,7 +127,7 @@ Użyj [strategii zarządzania BLOB](/slides/pl/php-java/manage-blob/), ogranicz 
 
 ### Czy mogę tworzyć/zapisywać prezentacje równolegle?
 
-Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) z [wielu wątków](/slides/pl/php-java/multithreading/). Uruchamiaj oddzielne, izolowane instancje w każdym wątku lub procesie.
+Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) z [wielu wątków](/slides/pl/php-java/multithreading/). Uruchamiaj oddzielne, izolowane instancje w każdym wątku lub procesie.
 
 ### Jak usunąć znak wodny wersji próbnej i ograniczenia?
 

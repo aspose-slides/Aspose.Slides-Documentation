@@ -60,7 +60,7 @@ Musisz ustawić licencję:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Informacje o cenach znajdziesz na stronie [„Informacje o cenach”](https://purchase.aspose.com/pricing/slides/pl/family).
+Informacje o cenach znajdziesz na stronie [„Informacje o cenach”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Ustawienie licencji w Aspose.Slides dla PHP via Java**

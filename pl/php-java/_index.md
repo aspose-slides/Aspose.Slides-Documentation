@@ -71,14 +71,14 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym 
 <hr>
 <p>REFERENCJA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/pl/php-java/">Referencja API</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/php-java/release-notes/">Informacje o wydaniu</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">Referencja API</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Informacje o wydaniu</a></li>
 <li><a href="/slides/pl/php-java/known-issues/">Znane problemy</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/php-java/">Pobierz</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">Pobierz</a></li>
 </ul>
 <p>WSPARCIE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pl/11">Darmowe forum wsparcia</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Darmowe forum wsparcia</a></li>
 <li><a href="https://helpdesk.aspose.com/">Płatny helpdesk wsparcia</a></li>
 </ul>
 </div>

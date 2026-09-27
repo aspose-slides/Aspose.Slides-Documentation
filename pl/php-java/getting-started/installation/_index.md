@@ -154,7 +154,7 @@ PHP nie mógł załadować `Java.inc` z Tomcata. Jeśli poprzednia wiadomość m
 
 **Jak mogę ograniczyć zużycie pamięci przy przetwarzaniu dużych prezentacji?**
 
-Podnoś limity pamięci JVM tylko tak wysoko, jak jest to potrzebne, i zamykaj każdą instancję [Prezentacji](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) w bloku `finally`, aby szybko zwolnić pamięć podręczną. Zapobiega to błędom „out‑of‑memory” i utrzymuje przewidywalne zużycie pamięci podczas operacji wsadowych.
+Podnoś limity pamięci JVM tylko tak wysoko, jak jest to potrzebne, i zamykaj każdą instancję [Prezentacji](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) w bloku `finally`, aby szybko zwolnić pamięć podręczną. Zapobiega to błędom „out‑of‑memory” i utrzymuje przewidywalne zużycie pamięci podczas operacji wsadowych.
 
 **Czy mogę wykluczyć niepotrzebne formaty eksportu, aby zmniejszyć ostateczny rozmiar JAR?**
 
