@@ -31,11 +31,11 @@ Prima di iniziare, installa il pacchetto `aspose.slides.via.java` da npm, insiem
 
 Per creare una presentazione e inserire una casella di testo nella sua prima diapositiva, segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
-1. Recupera quella diapositiva dalla [slide collection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/getslides/) mediante il suo indice, 0.
-1. Aggiungi un rettangolo con il metodo [addAutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/addautoshape/) e imposta il suo testo con [setText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/settext/).
-1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/save/).
-1. Rilascia la presentazione con il metodo [dispose](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/dispose/) e termina il processo.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
+1. Recupera quella diapositiva dalla [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) mediante il suo indice, 0.
+1. Aggiungi un rettangolo con il metodo [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) e imposta il suo testo con [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Rilascia la presentazione con il metodo [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) e termina il processo.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Utilizza le [strategie di gestione BLOB](/slides/it/nodejs-java/manage-blob/), l
 
 ### Posso creare/salvare presentazioni in parallelo?
 
-Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) da [thread multipli](/slides/it/nodejs-java/multithreading/). Esegui istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) da [thread multipli](/slides/it/nodejs-java/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
 ### Come rimuovo la filigrana di prova e le limitazioni?
 
