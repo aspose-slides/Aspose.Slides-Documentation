@@ -31,11 +31,11 @@ description: "使用 Aspose.Slides 建立簡報——產生 PPT、PPTX 與 ODP �
 
 若要建立簡報並在第一張投影片加入文字方塊，請依照以下步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。新簡報已預先包含一張空的投影片。
-1. 透過索引 0，從[投影片集合](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/getslides/)取得該投影片。
-1. 使用[addAutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shapecollection/addautoshape/) 方法加入矩形，並以[setText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/settext/) 設定其文字。
-1. 以[save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
-1. 使用[dispose](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/dispose/) 方法釋放簡報，並結束程序。
+1. 建立 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 類別的實例。新簡報已預先包含一張空的投影片。
+1. 透過索引 0，從[投影片集合](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/)取得該投影片。
+1. 使用[addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) 方法加入矩形，並以[setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/) 設定其文字。
+1. 以[save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
+1. 使用[dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) 方法釋放簡報，並結束程序。
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Aspose.Slides 在一個由 `java` 套件於 Node.js 進程內啟動的 Java 虛�
 
 ### 我可以平行建立/儲存簡報嗎？
 
-您無法在[多執行緒](/slides/zh-hant/nodejs-java/multithreading/)中操作同一個[Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/)實例。請於每個執行緒或行程中執行獨立的實例。
+您無法在[多執行緒](/slides/zh-hant/nodejs-java/multithreading/)中操作同一個[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)實例。請於每個執行緒或行程中執行獨立的實例。
 
 ### 如何移除試用水印與限制？
 

@@ -100,7 +100,7 @@ node hello.js
 此套件亦提供與 npm 套件相同內容的 ZIP 壓縮檔。若要從壓縮檔安裝，請執行以下步驟：
 
 1. 安裝如前所述的作業系統前置條件。
-2. 從 [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/zh-hant/nodejs-java/) 下載壓縮檔。
+2. 從 [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/) 下載壓縮檔。
 3. 建立專案資料夾：
 
     ```bash

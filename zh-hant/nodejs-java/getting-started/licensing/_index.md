@@ -41,7 +41,7 @@ Aspose.Slides 的評估版本（未指定授權）提供完整的產品功能，
 {{% /alert %}}
 
 ## **關於授權**
-您可以從其[下載頁面](https://releases.aspose.com/slides/zh-hant/nodejs-java/)輕鬆下載 Aspose.Slides for Node.js via Java 的評估版本。此評估版本具備與正式授權版本相同的功能，並受到上述限制。當您購買授權並在程式碼中加入幾行設定後，評估版本即會轉為正式授權。
+您可以從其[下載頁面](https://releases.aspose.com/slides/nodejs-java/)輕鬆下載 Aspose.Slides for Node.js via Java 的評估版本。此評估版本具備與正式授權版本相同的功能，並受到上述限制。當您購買授權並在程式碼中加入幾行設定後，評估版本即會轉為正式授權。
 
 授權檔是一個純文字 XML 檔案，內含產品名稱、授權開發人員數量、訂閱到期日等資訊。檔案已經數位簽署，請勿修改檔案內容。即使不小心在檔案內容加入額外的換行，也會使其失效。
 
@@ -62,7 +62,7 @@ Aspose.Slides 的評估版本（未指定授權）提供完整的產品功能，
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-您可以在[價格資訊](https://purchase.aspose.com/pricing/slides/zh-hant/family)頁面找到定價資訊。
+您可以在[價格資訊](https://purchase.aspose.com/pricing/slides/family)頁面找到定價資訊。
 {{% /alert %}}
 
 ### **在 Aspose.Slides for Node.js via Java 中設定授權**
@@ -96,11 +96,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-呼叫 setLicense 方法時，授權名稱應與授權檔案名稱相同。例如，您可以將授權檔案名稱改為「Aspose.Slides.lic.xml」。然後，在程式碼中必須將新的授權名稱（Aspose.Slides.lic.xml）傳遞給 setLicense 方法。如果檔案遺失或不含有效授權，[setLicense](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/license/setlicense/) 會拋出例外，使腳本以錯誤結束。
+呼叫 setLicense 方法時，授權名稱應與授權檔案名稱相同。例如，您可以將授權檔案名稱改為「Aspose.Slides.lic.xml」。然後，在程式碼中必須將新的授權名稱（Aspose.Slides.lic.xml）傳遞給 setLicense 方法。如果檔案遺失或不含有效授權，[setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) 會拋出例外，使腳本以錯誤結束。
 
 #### **從串流套用授權**
 
-要從串流套用授權，請將 [License](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/license/) 物件與可讀串流傳遞給靜態 [setLicenseFromStream](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/license/setlicense/) 方法。串流會以非同步方式讀取，若串流未包含有效授權，回呼函式會收到錯誤：
+要從串流套用授權，請將 [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) 物件與可讀串流傳遞給靜態 [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) 方法。串流會以非同步方式讀取，若串流未包含有效授權，回呼函式會收到錯誤：
 
 **Node.js**
 
