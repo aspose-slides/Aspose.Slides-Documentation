@@ -64,7 +64,7 @@ finally:
 addFromPdf 方法返回它添加的幻灯片，这在只需处理导入的幻灯片时非常有用。
 
 {{% alert title="Tip" color="success" %}}
-尝试免费使用 [PDF to PowerPoint](https://products.aspose.app/slides/zh/import/pdf-to-powerpoint) Web 应用程序，亲身体验此转换工作流。
+尝试免费使用 [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web 应用程序，亲身体验此转换工作流。
 {{% /alert %}}
 
 ## **从 HTML 导入**
@@ -108,7 +108,7 @@ finally:
 - 为 `False` 时，导入器在指定索引处创建新幻灯片，并将其后的幻灯片向后移动。
 - 为 `True` 时，导入器在该索引处的现有幻灯片的可用空间中开始放置内容。如果 HTML 内容超出空间，Aspose.Slides 会自动分页，并在起始幻灯片之后立即插入额外的幻灯片。
 
-SlideCollection.insertFromHtml 返回一个 [Slide](https://reference.aspose.com/slides/zh/python-java/aspose.slides/slide/) 对象数组。当插入在新幻灯片上开始时，返回的每个项都是新创建的。当使用现有幻灯片作为起始时，数组包括受影响的幻灯片以及随后产生的溢出幻灯片。您可以检查此数组，而无需根据演示文稿的幻灯片计数来计算受影响的范围。
+SlideCollection.insertFromHtml 返回一个 [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) 对象数组。当插入在新幻灯片上开始时，返回的每个项都是新创建的。当使用现有幻灯片作为起始时，数组包括受影响的幻灯片以及随后产生的溢出幻灯片。您可以检查此数组，而无需根据演示文稿的幻灯片计数来计算受影响的范围。
 
 ### **将 HTML 作为新幻灯片插入**
 

@@ -29,13 +29,13 @@ description: "使用 Aspose.Slides 在 Python via Java 中创建演示文稿—�
 
 ## **创建演示文稿**
 
-在 Aspose.Slides for Python via Java 中从头创建 PowerPoint 文件与实例化 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类一样简单。构造函数会自动提供一张空白幻灯片，让您立即拥有用于放置形状、文本、图表或任何其他内容的画布。修改该幻灯片或添加新幻灯片后，您可以将结果持久化为 PPTX、旧版 PPT，甚至 OpenDocument 格式。下面的简短代码示例演示了在第一张幻灯片上添加一个简单形状的工作流。
+在 Aspose.Slides for Python via Java 中从头创建 PowerPoint 文件与实例化 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 类一样简单。构造函数会自动提供一张空白幻灯片，让您立即拥有用于放置形状、文本、图表或任何其他内容的画布。修改该幻灯片或添加新幻灯片后，您可以将结果持久化为 PPTX、旧版 PPT，甚至 OpenDocument 格式。下面的简短代码示例演示了在第一张幻灯片上添加一个简单形状的工作流。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。  
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 类的实例。  
 1. 通过索引 0 获取第一张幻灯片。  
-1. 使用 [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/#addAutoShape) 添加类型为 [ShapeType.Cloud](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapetype/#Cloud) 的 [AutoShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/autoshape/)。  
-1. 通过 [TextFrame.setText](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textframe/#setText) 设置形状的文本。  
-1. 使用 [Presentation.save](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/#save) 并指定 [SaveFormat.Pptx](https://reference.aspose.com/slides/zh/python-java/aspose.slides/saveformat/#Pptx) 保存演示文稿。
+1. 使用 [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) 添加类型为 [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) 的 [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)。  
+1. 通过 [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) 设置形状的文本。  
+1. 使用 [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) 并指定 [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) 保存演示文稿。
 
 下面的示例在 JVM 未启动时启动它，向第一张幻灯片添加一个带文本的云形状，并保存演示文稿。将其保存为 *create_presentation.py*：
 
@@ -100,7 +100,7 @@ python create_presentation.py
 
 **可以并行创建/保存演示文稿吗？**
 
-不能在 [多个线程](/slides/zh/python-java/multithreading/) 中操作同一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 实例。请为每个线程或进程使用独立的实例。
+不能在 [多个线程](/slides/zh/python-java/multithreading/) 中操作同一个 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 实例。请为每个线程或进程使用独立的实例。
 
 **如何移除试用水印和限制？**
 

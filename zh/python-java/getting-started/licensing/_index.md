@@ -17,7 +17,7 @@ description: "在 Aspose.Slides for Python via Java 中应用文件许可证、�
 
 Aspose.Slides for Python via Java 可以在评估模式或许可模式下运行。在评估模式下，它会在每个保存的演示文稿的每张幻灯片上添加评估水印文字框，并截断代码从演示文稿读取的文本。本文说明如何从文件或字节应用许可证以及如何配置计量授权。
 
-有关购买选项，请参阅[定价信息](https://purchase.aspose.com/pricing/slides/zh/family)。有关一般授权和购买问题，请参阅[购买政策和常见问题解答](https://purchase.aspose.com/policies)。
+有关购买选项，请参阅[定价信息](https://purchase.aspose.com/pricing/slides/family)。有关一般授权和购买问题，请参阅[购买政策和常见问题解答](https://purchase.aspose.com/policies)。
 
 有关评估限制以及如何请求临时许可证，请参阅[评估 Aspose.Slides](/slides/zh/python-java/evaluate-aspose-slides/)。临时许可证的应用方式与购买的许可证文件相同。
 
@@ -29,7 +29,7 @@ Aspose.Slides for Python via Java 可以在评估模式或许可模式下运行�
 请勿编辑许可证文件。即使多一个换行也可能使其数字签名失效。
 {{% /alert %}}
 
-在每个应用程序或进程中仅需一次应用许可证，且必须在创建演示文稿或执行其他 Aspose.Slides 操作之前进行。对于许可证文件，请使用[License](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/)类。计量授权使用公私钥对，而不是许可证文件。
+在每个应用程序或进程中仅需一次应用许可证，且必须在创建演示文稿或执行其他 Aspose.Slides 操作之前进行。对于许可证文件，请使用[License](https://reference.aspose.com/slides/python-java/aspose.slides/license/)类。计量授权使用公私钥对，而不是许可证文件。
 
 ## **应用许可证**
 
@@ -37,7 +37,7 @@ Aspose.Slides for Python via Java 可以在评估模式或许可模式下运行�
 
 ### **从文件应用许可证**
 
-将许可证文件路径传递给[License.setLicense](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/#setLicense)。将 `Aspose.Slides.lic` 替换为您的许可证文件的路径。
+将许可证文件路径传递给[License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense)。将 `Aspose.Slides.lic` 替换为您的许可证文件的路径。
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 使用完整的文件名，包括扩展名。例如，如果文件名为 `Aspose.Slides.lic.xml`，请在路径中包含 `.xml`。使用绝对路径可避免应用程序工作目录的歧义。
 
-示例使用[License.isLicensed](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/#isLicensed)来检查许可证是否已应用。
+示例使用[License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed)来检查许可证是否已应用。
 
 ### **从字节应用许可证**
 
-当许可证以 Python 字节形式提供时，请使用[License.setLicenseFromBytes](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/#setLicenseFromBytes)。以下示例以二进制模式读取文件，并在应用许可证前关闭它。
+当许可证以 Python 字节形式提供时，请使用[License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes)。以下示例以二进制模式读取文件，并在应用许可证前关闭它。
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ finally:
 
 ## **应用计量许可证**
 
-计量授权会根据 API 使用量计费。获取计量许可证后，使用[Metered.setMeteredKey](https://reference.aspose.com/slides/zh/python-java/aspose.slides/metered/#setMeteredKey)来应用其公钥和私钥。初始化[Metered](https://reference.aspose.com/slides/zh/python-java/aspose.slides/metered/)对象，并在应用启动时一次性应用这些密钥。
+计量授权会根据 API 使用量计费。获取计量许可证后，使用[Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey)来应用其公钥和私钥。初始化[Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/)对象，并在应用启动时一次性应用这些密钥。
 
 以下示例从环境变量 `ASPOSE_METERED_PUBLIC_KEY` 和 `ASPOSE_METERED_PRIVATE_KEY` 中读取密钥。请在运行脚本前设置这两个变量。
 
