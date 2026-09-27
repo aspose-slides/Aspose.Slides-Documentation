@@ -145,7 +145,7 @@ PHP tidak dapat memuat `Java.inc` dari Tomcat. Jika pesan sebelumnya menyatakan 
 
 **Bagaimana saya dapat membatasi konsumsi memori saat memproses presentasi besar?**
 
-Tingkatkan batas memori JVM hanya sebesar yang diperlukan, dan tutup setiap instance [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) dalam blok `finally` untuk segera melepaskan cache. Hal ini mencegah error out‑of‑memory dan menjaga penggunaan memori secara keseluruhan tetap dapat diprediksi selama operasi batch.
+Tingkatkan batas memori JVM hanya sebesar yang diperlukan, dan tutup setiap instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) dalam blok `finally` untuk segera melepaskan cache. Hal ini mencegah error out‑of‑memory dan menjaga penggunaan memori secara keseluruhan tetap dapat diprediksi selama operasi batch.
 
 **Apakah saya dapat mengecualikan format ekspor yang tidak diinginkan untuk memperkecil ukuran JAR akhir?**
 

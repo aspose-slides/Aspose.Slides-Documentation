@@ -61,7 +61,7 @@ Anda perlu menyetel lisensi:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Anda dapat menemukan informasi harga pada halaman [“Informasi Harga”](https://purchase.aspose.com/pricing/slides/id/family).
+Anda dapat menemukan informasi harga pada halaman [“Informasi Harga”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Menyetel Lisensi di Aspose.Slides untuk PHP via Java**
