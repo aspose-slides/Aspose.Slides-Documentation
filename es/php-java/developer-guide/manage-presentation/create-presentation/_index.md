@@ -28,10 +28,10 @@ Antes de comenzar, instale Aspose.Slides para PHP vía Java con Composer y arran
 
 ## **Crear una presentación de PowerPoint**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/). Una nueva presentación ya contiene una diapositiva vacía.
-1. Obtener esa diapositiva de la colección devuelta por [Presentation::getSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/getslides/), mediante su índice, 0.
-1. Añadir un rectángulo con el método [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shapecollection/addautoshape/) y establecer su texto con [TextFrame::setText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/settext/).
-1. Guardar la presentación como archivo PPTX con el método [Presentation::save](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/save/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Una nueva presentación ya contiene una diapositiva vacía.
+1. Obtener esa diapositiva de la colección devuelta por [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), mediante su índice, 0.
+1. Añadir un rectángulo con el método [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) y establecer su texto con [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+1. Guardar la presentación como archivo PPTX con el método [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -61,7 +61,7 @@ Aspose.Slides lee y escribe archivos dentro de Tomcat, no en su proceso PHP, por
 
 ## **Crear y guardar una presentación**
 
-Para crear una presentación vacía y guardarla, cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) y guárdala en cualquier formato de la enumeración [SaveFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/saveformat/). El resultado es una presentación con una diapositiva vacía.
+Para crear una presentación vacía y guardarla, cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y guárdala en cualquier formato de la enumeración [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). El resultado es una presentación con una diapositiva vacía.
 
 ```php
 <?php
@@ -81,7 +81,7 @@ try {
 
 ## **Abrir y guardar una presentación**
 
-Para convertir una presentación de un formato a otro, ábrala pasando su ruta al constructor [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/), y luego guárdala en el formato de destino. Aspose.Slides detecta el formato de entrada, como PPT, PPTX u ODP, a partir del propio archivo.
+Para convertir una presentación de un formato a otro, ábrala pasando su ruta al constructor [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), y luego guárdala en el formato de destino. Aspose.Slides detecta el formato de entrada, como PPT, PPTX u ODP, a partir del propio archivo.
 
 El ejemplo a continuación espera una presentación OpenDocument llamada *Sample.odp* junto al script y la guarda como PPTX.
 
@@ -125,7 +125,7 @@ Utilice [estrategias de gestión de BLOB](/slides/es/php-java/manage-blob/), lim
 
 ### ¿Puedo crear/guardar presentaciones en paralelo?
 
-No puede operar sobre la misma instancia de [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) desde [múltiples subprocesos](/slides/es/php-java/multithreading/). Ejecute instancias separadas e aisladas por subproceso o proceso.
+No puede operar sobre la misma instancia de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) desde [múltiples subprocesos](/slides/es/php-java/multithreading/). Ejecute instancias separadas e aisladas por subproceso o proceso.
 
 ### ¿Cómo elimino la marca de agua de prueba y las limitaciones?
 

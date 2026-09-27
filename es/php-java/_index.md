@@ -71,14 +71,14 @@ Carga y guarda PPT, PPTX, PPS, POT y ODP, incluidas las variantes con macros y p
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/es/php-java/">Referencia de API</a></li>
-<li><a href="https://releases.aspose.com/slides/es/php-java/release-notes/">Notas de la versión</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">Referencia de API</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Notas de la versión</a></li>
 <li><a href="/slides/es/php-java/known-issues/">Problemas conocidos</a></li>
-<li><a href="https://releases.aspose.com/slides/es/php-java/">Descarga</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">Descarga</a></li>
 </ul>
 <p>SOPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/es/11">Foro de soporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Foro de soporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Mesa de ayuda de soporte pago</a></li>
 </ul>
 </div>
