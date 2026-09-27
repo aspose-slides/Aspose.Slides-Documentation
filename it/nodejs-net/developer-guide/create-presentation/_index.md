@@ -27,17 +27,17 @@ Questo articolo mostra come creare una presentazione con Aspose.Slides for Node.
 Gli esempi richiedono un progetto configurato come descritto in [Installation](/slides/it/nodejs-net/installation/). Salva ogni esempio come file `.js` nella cartella del progetto ed eseguilo da quella cartella con `node`, ad esempio `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides per Node.js via .NET non dispone di una propria documentazione API. Rispecchia l'API di Aspose.Slides per .NET con nomi camelCase, quindi i collegamenti API in questo articolo puntano alle classi e ai membri corrispondenti nella [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/it/net/).
+Aspose.Slides per Node.js via .NET non dispone di una propria documentazione API. Rispecchia l'API di Aspose.Slides per .NET con nomi camelCase, quindi i collegamenti API in questo articolo puntano alle classi e ai membri corrispondenti nella [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Creare una presentazione con una casella di testo**
 
 Per creare una presentazione e inserire una casella di testo nella sua prima diapositiva, segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
-2. Recupera quella diapositiva dalla collezione [slides](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/slides/it/). Le collezioni in questo pacchetto si leggono con `get(index)`, e gli indici partono da 0.
-3. Aggiungi un rettangolo con il metodo [addAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/shapecollection/addautoshape/) e imposta il [text](https://reference.aspose.com/slides/it/net/aspose.slides/textframe/text/) del suo [textFrame](https://reference.aspose.com/slides/it/net/aspose.slides/autoshape/textframe/).
-4. Salva la presentazione con il metodo [save](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/save/) e il valore `SaveFormat.Pptx`.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.
+2. Recupera quella diapositiva dalla collezione [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). Le collezioni in questo pacchetto si leggono con `get(index)`, e gli indici partono da 0.
+3. Aggiungi un rettangolo con il metodo [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) e imposta il [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) del suo [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).
+4. Salva la presentazione con il metodo [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) e il valore `SaveFormat.Pptx`.
 5. Chiama `dispose` in un blocco `finally` per rilasciare le risorse .NET che supportano la presentazione.
 
 ```javascript
@@ -62,7 +62,7 @@ Lo script scrive `new-presentation.pptx` nella cartella del progetto. Il file co
 
 ## **Aggiungere diapositive**
 
-Una nuova presentazione contiene una diapositiva. Per aggiungerne altre, passa una diapositiva di layout al metodo [addEmptySlide](https://reference.aspose.com/slides/it/net/aspose.slides/slidecollection/addemptyslide/) della collezione `slides`. Il metodo [getByType](https://reference.aspose.com/slides/it/net/aspose.slides/layoutslidecollection/getbytype/) della collezione [layoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/layoutslides/) restituisce il primo layout di un determinato [SlideLayoutType](https://reference.aspose.com/slides/it/net/aspose.slides/slidelayouttype/).
+Una nuova presentazione contiene una diapositiva. Per aggiungerne altre, passa una diapositiva di layout al metodo [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) della collezione `slides`. Il metodo [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) della collezione [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) restituisce il primo layout di un determinato [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 Il seguente esempio aggiunge due diapositive con il layout Blank:
 
@@ -86,7 +86,7 @@ Lo script stampa `Slide count: 3` e scrive `three-slides.pptx`. Le nuove diaposi
 
 ## **Impostare la dimensione della diapositiva**
 
-Una nuova presentazione utilizza diapositive 4:3 che sono 720 × 540 punti (10 × 7,5 pollici). Per creare diapositive widescreen, chiama il metodo [setSize](https://reference.aspose.com/slides/it/net/aspose.slides/slidesize/setsize/) della [slideSize](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/slidesize/) della presentazione con un valore [SlideSizeType](https://reference.aspose.com/slides/it/net/aspose.slides/slidesizetype/) e un valore [SlideSizeScaleType](https://reference.aspose.com/slides/it/net/aspose.slides/slidesizescaletype/). Il tipo di scala indica ad Aspose.Slides cosa fare con le forme già presenti sulle diapositive; `DoNotScale` le lascia così come sono, scelta corretta per una presentazione che non ha ancora contenuti.
+Una nuova presentazione utilizza diapositive 4:3 che sono 720 × 540 punti (10 × 7,5 pollici). Per creare diapositive widescreen, chiama il metodo [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) della [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) della presentazione con un valore [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) e un valore [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). Il tipo di scala indica ad Aspose.Slides cosa fare con le forme già presenti sulle diapositive; `DoNotScale` le lascia così come sono, scelta corretta per una presentazione che non ha ancora contenuti.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ In punti. Un pollice è 72 punti, quindi la diapositiva predefinita 4:3 è 720 �
 
 **In quali formati posso salvare una nuova presentazione?**
 
-Qualsiasi valore dell'enumerazione [SaveFormat](https://reference.aspose.com/slides/it/net/aspose.slides.export/saveformat/), ad esempio `SaveFormat.Ppt` per PowerPoint 97–2003, `SaveFormat.Odp` per OpenDocument, o `SaveFormat.Pdf`. Per l'output PDF, vedi [Convert PowerPoint to PDF](/slides/it/nodejs-net/convert-powerpoint-to-pdf/).
+Qualsiasi valore dell'enumerazione [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), ad esempio `SaveFormat.Ppt` per PowerPoint 97–2003, `SaveFormat.Odp` per OpenDocument, o `SaveFormat.Pdf`. Per l'output PDF, vedi [Convert PowerPoint to PDF](/slides/it/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Perché la presentazione salvata contiene il testo "Evaluation only"?**
 

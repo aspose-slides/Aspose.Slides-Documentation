@@ -10,7 +10,7 @@ url: /it/nodejs-net/licensing/
 Aspose.Slides per Node.js via .NET è un pacchetto npm sia per valutazione che per produzione. Senza licenza, viene eseguito in modalità di valutazione. Dopo aver acquistato una licenza, o ottenuto una licenza temporanea gratuita di 30 giorni, la si applica con poche righe di codice e le limitazioni di valutazione non si applicano più.
 
 {{% alert color="info" title="Note" %}}
-Le politiche generali su come valutare, licenziare e acquistare i prodotti Aspose sono raccolte in [Politiche di acquisto e FAQ](https://purchase.aspose.com/policies). I prezzi sono elencati nella pagina [Informazioni sui prezzi](https://purchase.aspose.com/pricing/slides/it/family).
+Le politiche generali su come valutare, licenziare e acquistare i prodotti Aspose sono raccolte in [Politiche di acquisto e FAQ](https://purchase.aspose.com/policies). I prezzi sono elencati nella pagina [Informazioni sui prezzi](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ## **Limitazioni della versione di valutazione**
@@ -53,4 +53,4 @@ Un nome file o percorso relativo viene risolto rispetto alla cartella corrente, 
 
 Se il file non viene trovato, o non è una licenza valida, `setLicense` genera un errore e Aspose.Slides rimane in modalità di valutazione. Lo script intercetta l'errore e ne stampa il messaggio. Per un file mancante, il messaggio inizia con `License "Aspose.Slides.lic" doesn't exist or access is restricted.` e elenca ogni posizione cercata.
 
-In questo pacchetto, una licenza è applicata solo da un file. `License` non accetta uno stream e il pacchetto non espone licenze a consumo. Per la classe che il pacchetto avvolge, vedi [Licenza](https://reference.aspose.com/slides/it/net/aspose.slides/license/) nella documentazione API di Aspose.Slides per .NET.
+In questo pacchetto, una licenza è applicata solo da un file. `License` non accetta uno stream e il pacchetto non espone licenze a consumo. Per la classe che il pacchetto avvolge, vedi [Licenza](https://reference.aspose.com/slides/net/aspose.slides/license/) nella documentazione API di Aspose.Slides per .NET.

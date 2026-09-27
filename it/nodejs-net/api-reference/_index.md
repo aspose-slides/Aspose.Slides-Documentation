@@ -7,7 +7,7 @@ description: "Aspose.Slides per Node.js via .NET è documentato dal riferimento 
 ---
 ## **Panoramica**
 
-Aspose.Slides for Node.js via .NET non dispone di un proprio riferimento API. Il pacchetto espone le classi di Aspose.Slides per .NET a JavaScript con gli stessi nomi, ma con nomi dei membri in camelCase, quindi il [Riferimento API Aspose.Slides per .NET](https://reference.aspose.com/slides/it/net/) documenta classi, membri ed enumerazioni.
+Aspose.Slides for Node.js via .NET non dispone di un proprio riferimento API. Il pacchetto espone le classi di Aspose.Slides per .NET a JavaScript con gli stessi nomi, ma con nomi dei membri in camelCase, quindi il [Riferimento API Aspose.Slides per .NET](https://reference.aspose.com/slides/net/) documenta classi, membri ed enumerazioni.
 
 ## **Mappa i nomi .NET a JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Lo script scrive `slide.png` e `slide.pdf` nella cartella corrente. Entrambi mostrano il rettangolo con il suo testo. Senza licenza, mostrano anche una filigrana di valutazione; vedi [Licenza](/slides/it/nodejs-net/licensing/).
 
-Per dettagli sui membri usati qui, consulta [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/it/net/aspose.slides/textframe/text/) e [Slide.GetImage](https://reference.aspose.com/slides/it/net/aspose.slides/slide/getimage/) nel Riferimento API Aspose.Slides per .NET.
+Per dettagli sui membri usati qui, consulta [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) e [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) nel Riferimento API Aspose.Slides per .NET.
