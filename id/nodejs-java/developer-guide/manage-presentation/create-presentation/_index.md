@@ -31,11 +31,11 @@ Sebelum memulai, instal paket `aspose.slides.via.java` dari npm, bersama dengan 
 
 Untuk membuat presentasi dan menempatkan kotak teks pada slide pertama, ikuti langkah‑langkah berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.
-1. Dapatkan slide tersebut dari [slide collection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/getslides/) dengan indeks 0.
-1. Tambahkan persegi panjang dengan metode [addAutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/addautoshape/) dan atur teksnya dengan [setText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/settext/).
-1. Simpan presentasi sebagai file PPTX dengan metode [save](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/save/).
-1. Bebaskan presentasi dengan metode [dispose](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/dispose/), dan akhiri proses.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.
+1. Dapatkan slide tersebut dari [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) dengan indeks 0.
+1. Tambahkan persegi panjang dengan metode [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) dan atur teksnya dengan [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Simpan presentasi sebagai file PPTX dengan metode [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Bebaskan presentasi dengan metode [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/), dan akhiri proses.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Gunakan [BLOB management strategies](/slides/id/nodejs-java/manage-blob/), batas
 
 ### Can I create/save presentations in parallel?
 
-Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) yang sama dari [multiple threads](/slides/id/nodejs-java/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) yang sama dari [multiple threads](/slides/id/nodejs-java/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
 
 ### How do I remove the trial watermark and limitations?
 

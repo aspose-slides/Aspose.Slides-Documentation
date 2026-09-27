@@ -41,7 +41,7 @@ Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat m
 {{% /alert %}}
 
 ## **Tentang Lisensi**
-Anda dapat dengan mudah mengunduh versi evaluasi Aspose.Slides untuk Node.js via Java dari [halaman unduhan](https://releases.aspose.com/slides/id/nodejs-java/). Versi evaluasi memiliki fitur yang sama dengan versi berlisensi, dengan batasan yang dijelaskan di atas. Lebih lanjut, versi evaluasi cukup menjadi berlisensi setelah Anda membeli lisensi dan menambahkan beberapa baris kode untuk menerapkan lisensi.
+Anda dapat dengan mudah mengunduh versi evaluasi Aspose.Slides untuk Node.js via Java dari [halaman unduhan](https://releases.aspose.com/slides/nodejs-java/). Versi evaluasi memiliki fitur yang sama dengan versi berlisensi, dengan batasan yang dijelaskan di atas. Lebih lanjut, versi evaluasi cukup menjadi berlisensi setelah Anda membeli lisensi dan menambahkan beberapa baris kode untuk menerapkan lisensi.
 
 Lisensi adalah file XML teks biasa yang berisi detail seperti nama produk, jumlah pengembang yang dilisensikan, tanggal kedaluwarsa langganan, dan sebagainya. File ini ditandatangani secara digital, jadi jangan memodifikasi file. Bahkan penambahan baris baru yang tidak disengaja ke isi file akan membuatnya tidak valid.
 
@@ -61,7 +61,7 @@ Anda perlu menetapkan lisensi:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Anda dapat menemukan informasi harga di halaman [“Pricing Information”](https://purchase.aspose.com/pricing/slides/id/family).
+Anda dapat menemukan informasi harga di halaman [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Menetapkan Lisensi di Aspose.Slides untuk Node.js via Java**
@@ -93,10 +93,10 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-Saat memanggil metode setLicense, nama lisensi harus sama dengan nama file lisensi Anda. Misalnya, Anda dapat mengubah nama file lisensi menjadi "Aspose.Slides.lic.xml". Kemudian, dalam kode Anda, Anda harus memberikan nama lisensi baru (Aspose.Slides.lic.xml) ke metode setLicense. Jika file tidak ada atau tidak berisi lisensi yang valid, [setLicense](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/license/setlicense/) melemparkan pengecualian, yang mengakhiri skrip dengan error.
+Saat memanggil metode setLicense, nama lisensi harus sama dengan nama file lisensi Anda. Misalnya, Anda dapat mengubah nama file lisensi menjadi "Aspose.Slides.lic.xml". Kemudian, dalam kode Anda, Anda harus memberikan nama lisensi baru (Aspose.Slides.lic.xml) ke metode setLicense. Jika file tidak ada atau tidak berisi lisensi yang valid, [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) melemparkan pengecualian, yang mengakhiri skrip dengan error.
 
 #### **Menerapkan Lisensi dari Aliran**
-Untuk menerapkan lisensi dari aliran, berikan objek [License](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/license/) dan aliran dapat dibaca ke metode statis [setLicenseFromStream](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/license/setlicense/). Aliran dibaca secara asinkron, dan callback menerima error jika aliran tidak berisi lisensi yang valid:
+Untuk menerapkan lisensi dari aliran, berikan objek [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) dan aliran dapat dibaca ke metode statis [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/). Aliran dibaca secara asinkron, dan callback menerima error jika aliran tidak berisi lisensi yang valid:
 
 **Node.js**
 

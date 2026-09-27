@@ -72,14 +72,14 @@ Ia memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk varian yang mendu
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/id/nodejs-java/">Referensi API</a></li>
-<li><a href="https://releases.aspose.com/slides/id/nodejs-java/release-notes/">Catatan rilis</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/nodejs-java/known-issues/">Masalah yang diketahui</a></li>
-<li><a href="https://releases.aspose.com/slides/id/nodejs-java/">Unduh</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>

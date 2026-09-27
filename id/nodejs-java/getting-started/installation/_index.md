@@ -100,7 +100,7 @@ Jika *hello.pptx* muncul di folder proyek, instalasi berhasil. Mesin virtual Jav
 Paket ini juga tersedia sebagai arsip ZIP dengan isi yang sama dengan paket npm. Untuk menginstalnya dari arsip:
 
 1. Instal prasyarat untuk sistem operasi Anda, seperti dijelaskan di atas.  
-2. Unduh arsip dari [halaman unduhan Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/id/nodejs-java/).  
+2. Unduh arsip dari [halaman unduhan Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/nodejs-java/).  
 3. Buat folder proyek:
 
     ```bash
