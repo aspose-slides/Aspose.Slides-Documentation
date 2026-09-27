@@ -79,13 +79,13 @@ PPT、PPTX、PPS、POT、ODP を読み込みおよび保存でき、マクロ対
 <hr>
 <p>リファレンス</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ja/python-net/">API リファレンス</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/python-net/release-notes/">リリースノート</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/python-net/">ダウンロード</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">リリースノート</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートデスク</a></li>
 </ul>
 </div>

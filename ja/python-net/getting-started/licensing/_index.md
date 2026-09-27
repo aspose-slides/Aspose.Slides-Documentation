@@ -23,7 +23,7 @@ Aspose.Slides は評価モードまたは有効なライセンスで使用でき
 
 **Aspose.Slides for Python via .NET** の評価版は、[ダウンロードページ](https://pypi.org/project/Aspose.Slides/)から入手できます。評価版はライセンス製品と同じ機能を提供します。評価パッケージは購入版と同一で、ライセンスを適用するコードを数行追加すればライセンス化されます。
 
-**Aspose.Slides** の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/ja/python-net/)してください。利用可能なサブスクリプションオプションを確認することをお勧めします。質問がある場合は Aspose の営業チームまでお問い合わせください。
+**Aspose.Slides** の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/python-net/)してください。利用可能なサブスクリプションオプションを確認することをお勧めします。質問がある場合は Aspose の営業チームまでお問い合わせください。
 
 すべての Aspose ライセンスには、1 年間のサブスクリプションが含まれ、期間中の新バージョンや修正への無料アップグレードが提供されます。ライセンスユーザーも評価ユーザーも、無制限の無料テクニカルサポートを受けられます。
 
@@ -53,7 +53,7 @@ Aspose.Slides は評価モードまたは有効なライセンスで使用でき
 ライセンスは **ファイル** または **ストリーム** からロードできます。
 
 {{% alert color="info" title="注意" %}}
-Aspose.Slides はライセンス管理用に [License](https://reference.aspose.com/slides/ja/python-net/aspose.slides/license/) クラスを提供しています。
+Aspose.Slides はライセンス管理用に [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) クラスを提供しています。
 {{% /alert %}}
 
 {{% alert color="warning" title="警告" %}}
@@ -62,7 +62,7 @@ Aspose.Slides はライセンス管理用に [License](https://reference.aspose.
 
 ### **ファイル**
 
-最も簡単なライセンス設定方法は、[set_license](https://reference.aspose.com/slides/ja/python-net/aspose.slides/license/set_license/) メソッドにライセンスファイルのパスを渡すことです。以下の例のようにファイル名だけを渡すと、Aspose.Slides は現在の作業ディレクトリでそのファイルを探します。
+最も簡単なライセンス設定方法は、[set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) メソッドにライセンスファイルのパスを渡すことです。以下の例のようにファイル名だけを渡すと、Aspose.Slides は現在の作業ディレクトリでそのファイルを探します。
 
 以下の Python コードはライセンスファイルの設定方法を示しています。
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="警告" %}}
-ライセンスファイルを別ディレクトリに置く場合、[License.set_license](https://reference.aspose.com/slides/ja/python-net/aspose.slides/license/set_license/#str) を呼び出す際のパスの最後にあるファイル名が実際のライセンスファイル名と一致している必要があります。
+ライセンスファイルを別ディレクトリに置く場合、[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) を呼び出す際のパスの最後にあるファイル名が実際のライセンスファイル名と一致している必要があります。
 
-たとえば、ライセンスファイル名を *Aspose.Slides.lic.xml* に変更し、コード内でそのフルパス（末尾が Aspose.Slides.lic.xml）を [License.set_license](https://reference.aspose.com/slides/ja/python-net/aspose.slides/license/set_license/#str) に渡します。
+たとえば、ライセンスファイル名を *Aspose.Slides.lic.xml* に変更し、コード内でそのフルパス（末尾が Aspose.Slides.lic.xml）を [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) に渡します。
 {{% /alert %}}
 
 ### **ストリーム**
@@ -115,7 +115,7 @@ if license.is_licensed():
 ## **スレッド安全性**
 
 {{% alert color="warning" title="警告" %}}
-[License.set_license](https://reference.aspose.com/slides/ja/python-net/aspose.slides/license/set_license/) メソッドはスレッドセーフではありません。複数スレッドから同時に呼び出す必要がある場合は、`threading.Lock` などの同期プリミティブを使用して問題を回避してください。
+[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) メソッドはスレッドセーフではありません。複数スレッドから同時に呼び出す必要がある場合は、`threading.Lock` などの同期プリミティブを使用して問題を回避してください。
 {{% /alert %}}
 
 ## **FAQ**

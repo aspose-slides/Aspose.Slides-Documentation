@@ -29,10 +29,10 @@ description: "Aspose.Slides を使用して Python で PowerPoint プレゼン�
 
 プレゼンテーションを作成し、最初のスライドにテキスト付きのシェイプを配置する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションには空のスライドが 1 枚既に含まれています。  
-2. そのスライドを、インデックス 0 で [slides](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/slides/ja/) コレクションから取得します。  
-3. スライドの [shapes](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slide/shapes/) コレクションの [add_auto_shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shapecollection/add_auto_shape/) メソッドを使って、雲形の [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加し、その [text](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/text/) を設定します。  
-4. [save](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/save/) メソッドでプレゼンテーションを PPTX ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションには空のスライドが 1 枚既に含まれています。  
+2. そのスライドを、インデックス 0 で [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) コレクションから取得します。  
+3. スライドの [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) コレクションの [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) メソッドを使って、雲形の [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) を追加し、その [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/) を設定します。  
+4. [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) メソッドでプレゼンテーションを PPTX ファイルとして保存します。
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### プレゼンテーションの作成/保存を並列で行うことはできますか？
 
-同一の [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/python-net/multithreading/)から操作することはできません。スレッドまたはプロセスごとに分離されたインスタンスを実行してください。
+同一の [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/python-net/multithreading/)から操作することはできません。スレッドまたはプロセスごとに分離されたインスタンスを実行してください。
 
 ### 評価用透かしや制限を削除するには？
 
