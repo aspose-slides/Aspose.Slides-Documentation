@@ -1,87 +1,56 @@
 ---
 title: Lisanslama
-description: "Aspose.Slides for Node.js via .NET, satın alma için farklı planlar sunar ve değerlendirme için Lisanslama ve Abonelik politikalarını kullanarak Ücretsiz Deneme ve 30 günlük Geçici Lisans sağlar."
+description: "Aspose.Slides for Node.js via .NET için bir lisans dosyası uygulayın, değerlendirme sürümü sınırlamalarını görün ve test amaçlı ücretsiz 30 günlük geçici lisans alın."
 type: docs
 weight: 80
 url: /tr/nodejs-net/licensing/
 ---
-Bazen, en iyi değerlendirme sonuçları için pratik bir yaklaşım gerekebilir. Bu nedenle, Aspose.Slides farklı satın alma planları sunar ve ayrıca ücretsiz deneme ve değerlendirme için 30 günlük geçici lisans sağlar.
+## **Genel Bakış**
 
-{{% alert color="primary" %}}
-Ürünlerimizi değerlendirmenize, uygun lisanslamanıza ve satın almanıza rehberlik eden bir dizi genel politika ve uygulama olduğunu unutmayın. Bu politikaları ["Satın Alma Politikaları ve SSS"](https://purchase.aspose.com/policies) bölümünde bulabilirsiniz.
+Aspose.Slides for Node.js via .NET, değerlendirme ve üretim için tek bir npm paketidir. Lisans olmadan değerlendirme modunda çalışır. Bir lisans satın aldığınızda veya ücretsiz 30 günlük geçici bir lisans aldığınızda, birkaç satır kodla uygularsınız ve değerlendirme kısıtlamaları artık geçerli olmaz.
+
+{{% alert color="info" title="Note" %}}
+Aspose ürünlerini değerlendirme, lisanslama ve satın alma ile ilgili genel politikalar [Purchase Policies and FAQ](https://purchase.aspose.com/policies) adresinde toplanmıştır. Fiyatlar [Pricing Information](https://purchase.aspose.com/pricing/slides/tr/family) sayfasında listelenmiştir.
 {{% /alert %}}
 
-## **Aspose.Slides'ı Değerlendirin**
-Aspose.Slides'i değerlendirme amacıyla kolayca indirebilirsiniz. Değerlendirme paketi, satın alınan paketle aynı içeriktedir. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde otomatik olarak lisanslı hâle gelir.
+## **Değerlendirme Sürümü Kısıtlamaları**
 
-## **Değerlendirme Sürümü Sınırlamaları**
-Lisans belirtilmemiş Aspose.Slides değerlendirme sürümü tam ürün işlevselliğini sağlar, ancak açma ve kaydetme sırasında belgenin üst kısmına bir değerlendirme filigranı ekler. Ayrıca sunum slaytlarından metin çıkarırken yalnızca bir slaytla sınırlısınız.
+Değerlendirme sürümü, ürünün tam işlevselliğini sağlar, ancak iki kısıtlama içerir:
 
-{{% alert color="primary" %}}
-Değerlendirme sürümü sınırlamaları olmadan Aspose.Slides'i test etmek istiyorsanız **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) bölümüne bakın.
+- **Filigran.** Kaydettiğiniz her sunumdaki her slayt, bir değerlendirme filigranı alır: slaytın ortasında "Evaluation only" (Sadece Değerlendirme) yazan kilitli bir metin kutusu. Aynı filigran PDF, XPS ve HTML dışa aktarımlarda ve slayt görüntülerinde de görüntülenir.
+- **Kısaltılmış metin.** Kodunuzun bir metin çerçevesinden, paragraftan veya kısmından okuduğu metin, ilk beş karakterine kesilir ve ardından "... text has been truncated due to evaluation version limitation." uyarısı eklenir. Markdown ve HTML5 dışa aktarmaları da aynı şekilde kesilir. Kodunuzun yazdığı metin tam olarak kaydedilir.
+
+[Aspose.Slides'i Değerlendirin](/slides/tr/nodejs-net/evaluate-aspose-slides/) her iki kısıtlamayı ayrıntılı olarak açıklar ve bunları gösteren bir komut dosyası içerir.
+
+{{% alert color="success" title="Tip" %}}
+Değerlendirme kısıtlamaları olmadan Aspose.Slides'i test etmek için ücretsiz **30 günlük geçici lisans** isteyin. Ayrıntılar için [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) sayfasına bakın.
 {{% /alert %}}
 
 ## **Lisans Hakkında**
-Aspose.Slides for Node.js via .NET'in değerlendirme sürümünü [indirme sayfasından](https://releases.aspose.com/slides/tr/nodejs-net/) kolayca indirebilirsiniz. Değerlendirme sürümü, Aspose.Slides'in lisanslı sürümüyle **tamamen aynı yetenekleri** sunar. Ayrıca, bir lisans satın alıp birkaç satır kod eklediğinizde değerlendirme sürümü otomatik olarak lisanslı hâle gelir.
 
-Lisans, ürün adı, lisanslı geliştirici sayısı, abonelik son tarihi gibi ayrıntıları içeren düz metin XML dosyasıdır. Dosya dijital olarak imzalanmıştır, bu yüzden dosyayı değiştirmeyin. Dosyanın içeriğine istem dışı bir satır sonu eklemek bile lisansı geçersiz kılar.
+Lisans, ürün adı, lisanslı geliştirici sayısı ve abonelik son tarihi gibi ayrıntıları içeren düz metin XML dosyasıdır. Dosya dijital olarak imzalanmıştır, bu nedenle değiştirmeyin: yanlışlıkla eklenen ekstra bir satır sonu bile lisansı geçersiz kılar.
 
-Değerlendirme sürümüyle gelen sınırlamaları önlemek için **Aspose.Slides**'i kullanmadan önce bir lisans ayarlamanız gerekir. Lisansı yalnızca uygulama veya işlem başına bir kez ayarlamanız yeterlidir.
+## **Lisansı Uygula**
 
-## **Satın Alınan Lisans**
-Satın alım sonrasında lisans dosyasını veya akışını uygulamanız gerekir.
+Lisansı, `License` sınıfının `setLicense` yöntemiyle uygulayın. Her süreçte bir kez, herhangi bir `Presentation` nesnesi oluşturmadan önce çağırın. Tekrar çağırmak zarar vermez, ancak zaten yapılmış işi tekrar eder.
 
-{{% alert color="primary" %}}
-Lisansı ayarlamanız gerekir:
-* yalnızca bir kez uygulama alanı başına
-* Aspose.Slides'in diğer sınıflarını kullanmadan önce
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-Fiyatlandırma bilgilerini [“Fiyatlandırma Bilgileri”](https://purchase.aspose.com/pricing/slides/tr/family) sayfasında bulabilirsiniz.
-{{% /alert %}}
-
-### **Aspose.Slides for Node.js via .NET'te Lisans Ayarlama**
-
-Lisanslar şu konumlardan uygulanabilir:
-* Açık yol
-* Akış
-* Ölçümlü Lisans olarak – yeni bir lisanslama mekanizması
-
-{{% alert color="primary" %}}
-Bir bileşeni lisanslamak için **setLicense** metodunu kullanın.
-
-**setLicense**'e birden çok kez çağrı yapılması zararlı olmasa da, kaynak (işlemci) israfıdır.
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Yeni lisanslar, Aspose.Slides'i yalnızca 21.4 veya sonraki sürümlerde etkinleştirebilir. Daha eski sürümler farklı bir lisanslama sistemi kullanır ve bu lisansları tanımaz.
-{{% /alert %}}
-
-#### **Dosya Kullanarak Lisans Uygulama**
-
-Bu kod parçacığı bir lisans dosyasını ayarlamak için kullanılır:
-
-**Node.js**
+Aşağıdaki komut dosyası, `Aspose.Slides.lic` adlı bir dosyadan lisans uygular. İsmi, lisans dosyanızın adı veya tam yolu ile değiştirin; dosyanın adı ne olursa olsun olabilir.
 
 ```javascript
-// PowerPoint dosyası işleme için Aspose.Slides modülünü içe aktar
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { License } = asposeSlides;
 
-// Bu işlev Aspose.Slides kütüphanesini bir lisansla kurar
-function setupAsposeSlidesLicense() {
-	
-    // Aspose.Slides modülünden License sınıfını başlat
-    var license = new asposeSlides.License();
-    
-    // Lisansı bir dosyadan uygula
-    // "your_license_file.lic" ifadesini gerçek lisans dosyanızın yolu ile değiştirin
-    license.setLicense("your_license_file.lic");
+const license = new License();
+try {
+    license.setLicense("Aspose.Slides.lic");
+    console.log("License applied.");
+} catch (error) {
+    console.log("License not applied:", error.message);
 }
-
-// Aspose.Slides için lisansı kurmak üzere işlevi çalıştır
-setupAsposeSlidesLicense();
 ```
-{{% alert color="primary" %}}
-setLicense metodunu çağırırken, lisans adı lisans dosyanızın adıyla aynı olmalıdır. Örneğin, lisans dosyasının adını "Aspose.Slides.lic.xml" olarak değiştirebilirsiniz. Ardından, kodunuzda yeni lisans adını (Aspose.Slides.lic.xml) setLicense metoduna geçirmeniz gerekir.
-{{% /alert %}}
+
+Bir dosya adı veya göreli yol, `node` çalıştırdığınız geçerli klasöre göre çözülür. Lisans dosyasını proje klasörünüzde tutun ve komut dosyalarınızı oradan çalıştırın veya tam yolu belirtin.
+
+Dosya bulunamazsa veya geçerli bir lisans değilse, `setLicense` bir hata fırlatır ve Aspose.Slides değerlendirme modunda kalır. Komut dosyası hatayı yakalar ve mesajını görüntüler. Eksik bir dosya için mesaj, `License "Aspose.Slides.lic" doesn't exist or access is restricted.` ile başlar ve aranan tüm konumları listeler.
+
+Bu pakette, lisans yalnızca bir dosyadan uygulanır. `License` bir akışı kabul etmez ve paket ölçülü lisanslamayı ortaya koymaz. Paketin sarmaladığı sınıf için Aspose.Slides for .NET API referansındaki [License](https://reference.aspose.com/slides/tr/net/aspose.slides/license/) bölümüne bakın.

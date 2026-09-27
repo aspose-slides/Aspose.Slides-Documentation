@@ -1,44 +1,122 @@
 ---
 title: Aspose.Slides pour Node.js via .NET
-second_title: Aspose.Slides for Node.js
-description: Aspose.Slides pour Node.js via .NET fournit de nombreuses fonctionnalités clés telles que la gestion du texte, des formes, des tableaux et des animations, l'ajout de contenu audio et vidéo aux diapositives, l'aperçu des diapositives, l'exportation des diapositives au format SVG, PDF et plus encore.
+second_title: Aspose.Slides pour Node.js
 type: docs
 weight: 47
 url: /fr/nodejs-net/
+keywords:
+- documentation
+- traitement de présentations
+- conversion de présentations
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Commencez ici : installez Aspose.Slides pour Node.js via .NET, créez une première présentation et retrouvez les guides pour les tâches courantes, la licence, la référence API et le support."
 is_root: true
 ---
+<img src="aspose_slides-for-nodejs-via-net.png" alt="Aspose.Slides for Node.js via .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-{{% alert color="primary" %}}
+Aspose.Slides for Node.js via .NET est une bibliothèque permettant de créer, lire, modifier et convertir des présentations PowerPoint et OpenDocument dans des applications Node.js, sans Microsoft PowerPoint ni automatisation Office. Elle exécute Aspose.Slides for .NET via le pont edge-js, de sorte que son API JavaScript reflète l’API .NET, avec des noms de membres en camelCase.
 
-**Bienvenue dans Aspose.Slides pour Node.js via .NET**
+Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les variantes avec macros et les modèles, et exporte vers PDF, XPS, HTML, TIFF, Markdown et images.
 
-![Logo du produit Aspose.Slides pour Node.js via .NET](aspose_slides-for-nodejs-via-net.png)
+<div style="clear:both"></div>
 
-Aspose.Slides pour Node.js via .NET est une bibliothèque de classes qui permet à vos applications de lire et d'écrire des documents PowerPoint® sans utiliser Microsoft PowerPoint®.
+------
 
-Aspose.Slides pour Node.js via .NET est le premier et le seul composant qui offre la fonctionnalité de gestion des documents PowerPoint®.
+<div class="row">
+<div class="col-md-4">
+<p><b>Commencer</b></p>
+<hr>
+<p>DÉMARRAGE</p>
+<ul>
+<li><a href="/slides/fr/nodejs-net/installation/">Installation</a></li>
+<li><a href="/slides/fr/nodejs-net/create-presentation/">Créer votre première présentation</a></li>
+<li><a href="/slides/fr/nodejs-net/developer-guide/">Guide du développeur</a></li>
+</ul>
+<p>ÉVALUATION</p>
+<ul>
+<li><a href="/slides/fr/nodejs-net/evaluate-aspose-slides/">Limitations de l'essai</a></li>
+<li><a href="/slides/fr/nodejs-net/licensing/">Licence</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Créer avec Slides</b></p>
+<hr>
+<p>TÂCHES COURANTES</p>
+<ul>
+<li><a href="/slides/fr/nodejs-net/open-presentation/">Ouvrir et enregistrer une présentation</a></li>
+<li><a href="/slides/fr/nodejs-net/convert-powerpoint-to-pdf/">Convertir en PDF</a></li>
+<li><a href="/slides/fr/nodejs-net/convert-slide/">Rendre les diapositives en images</a></li>
+<li><a href="/slides/fr/nodejs-net/manage-text/">Modifier le texte</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Référence &amp; Support</b></p>
+<hr>
+<p>RÉFÉRENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/fr/net/">Référence API .NET</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/nodejs-net/release-notes/">Notes de version</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/nodejs-net/">Télécharger</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
+</ul>
+</div>
+</div>
 
-Aspose.Slides pour Node.js via .NET fournit de nombreuses fonctionnalités clés telles que la gestion du texte, des formes, des tableaux et des animations, l'ajout de contenu audio et vidéo aux diapositives, l'aperçu des diapositives, l'exportation des diapositives au format SVG, PDF et plus encore.
+------
 
-{{% /alert %}}
+## **Votre première présentation**
 
-## Ressources d'Aspose.Slides pour Node.js via .NET
+Vous avez besoin de Node.js 22 ou 24 et du .NET SDK 8 ou ultérieur ; Linux nécessite également quelques paquets système. [Installation](/slides/fr/nodejs-net/installation/) les répertorie ainsi que les plates‑formes testées. Créez un projet, ajoutez une substitution qui indique à npm quelle version d'edge-js installer, puis installez le package :
 
-{{% alert color="primary" %}}
+```sh
+mkdir hello-slides
+cd hello-slides
+npm init -y
+npm pkg set overrides.edge-js=26.1.0
+npm install aspose.slides.via.net
+```
 
-Aspose.Slides pour Node.js via .NET est porté d'Aspose.Slides pour .NET, vous pouvez donc utiliser la documentation et la référence API de ce dernier.
+Une fois par machine, restaurez les paquets .NET dont dépend la bibliothèque. Enregistrez le fichier `deps.csproj` provenant de [Restore the .NET Dependencies](/slides/fr/nodejs-net/installation/#restore-the-net-dependencies) dans un dossier `deps` à l'intérieur du dossier du projet, puis exécutez :
 
-{{% /alert %}}
+```sh
+dotnet restore deps/deps.csproj
+```
 
-Voici des liens utiles vers des ressources :
+Enregistrez ce code sous *hello.js* dans le dossier du projet :
 
-- [Documentation en ligne d'Aspose.Slides pour Node.js via .NET](/slides/fr/net/developer-guide/)
-- [Fonctionnalités d'Aspose.Slides pour Node.js via .NET](/slides/fr/nodejs-net/features-overview/)
-- [Limitations et différences d'API d'Aspose.Slides pour Node.js via .NET](/slides/fr/nodejs-net/limitations-and-api-differences/)
-- [Notes de version d'Aspose.Slides pour Node.js via .NET](https://releases.aspose.com/slides/nodejs-net/release-notes/)
-- [Page produit d'Aspose.Slides pour Node.js via .NET](https://products.aspose.com/slides/nodejs-net/)
-- [Télécharger le paquet Aspose.Slides pour Node.js via .NET](https://releases.aspose.com/slides/nodejs-net/)
-- [Installer Aspose.Slides pour Node.js via .NET](/slides/fr/nodejs-net/installation/)
-- [Référence API d'Aspose.Slides pour Node.js via .NET](https://reference.aspose.com/slides/nodejs-net/)
-- [Forum de support gratuit d'Aspose.Slides pour Node.js via .NET](https://forum.aspose.com/c/slides/11)
-- [Centre d'assistance payant d'Aspose.Slides pour Node.js via .NET](https://helpdesk.aspose.com/)
+```javascript
+const asposeSlides = require("aspose.slides.via.net");
+const { Presentation, ShapeType, SaveFormat } = asposeSlides;
+
+// Une nouvelle présentation contient une diapositive vide.
+const presentation = new Presentation();
+try {
+    const slide = presentation.slides.get(0);
+
+    // La position et la taille sont en points (1/72 pouce): x, y, largeur, hauteur.
+    const rectangle = slide.shapes.addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    rectangle.addTextFrame("Hello, World!");
+
+    presentation.save("hello.pptx", SaveFormat.Pptx);
+    console.log("Saved hello.pptx");
+} finally {
+    // Libérez l'objet .NET qui sous-tend la présentation.
+    presentation.dispose();
+}
+```
+
+Exécutez‑le depuis le dossier du projet :
+
+```sh
+node hello.js
+```
+
+Le script affiche `Saved hello.pptx` et enregistre *hello.pptx* contenant une diapositive avec un rectangle contenant le texte. Sans licence, le fichier enregistré comporte un filigrane d'évaluation — voir [Licensing](/slides/fr/nodejs-net/licensing/). Pour d'autres méthodes de création et de remplissage d'une présentation, consultez [Create a Presentation](/slides/fr/nodejs-net/create-presentation/).

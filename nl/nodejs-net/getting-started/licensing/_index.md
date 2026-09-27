@@ -1,89 +1,56 @@
 ---
 title: Licenties
-description: "Aspose.Slides voor Node.js via .NET biedt verschillende aankoopplannen of een Gratis proefversie en een tijdelijke licentie van 30 dagen voor evaluatie volgens het licentie‑ en abonnementsbeleid."
+description: "Pas een licentiebestand toe op Aspose.Slides voor Node.js via .NET, bekijk de beperkingen van de evaluatieversie, en verkrijg een gratis tijdelijke licentie van 30 dagen voor testdoeleinden."
 type: docs
 weight: 80
 url: /nl/nodejs-net/licensing/
 ---
-Soms is voor de beste evaluatieresultaten een praktische aanpak nodig. Daarom biedt Aspose.Slides verschillende aankoopplannen en ook een Gratis proefversie en een tijdelijke licentie van 30 dagen voor evaluatie.
+## **Overzicht**
 
-{{% alert color="primary" %}}
-Let op dat er verschillende algemene beleidsregels en praktijken bestaan die u gidsen bij het evalueren, correct licentiëren en aanschaffen van onze producten. U kunt ze vinden in de ["Aankoopbeleid en FAQ"](https://purchase.aspose.com/policies) sectie.
+Aspose.Slides for Node.js via .NET is één npm‑pakket voor zowel evaluatie als productie. Zonder licentie draait het in evaluatiemodus. Nadat u een licentie hebt gekocht, of een gratis tijdelijke licentie van 30 dagen hebt verkregen, past u deze toe met een paar regels code, en gelden de evaluatiebeperkingen niet meer.
+
+{{% alert color="info" title="Note" %}}
+Algemene richtlijnen over hoe u Aspose‑producten kunt evalueren, licenseren en aanschaffen, vindt u in [Purchase Policies and FAQ](https://purchase.aspose.com/policies). De prijzen staan vermeld op de pagina [Pricing Information](https://purchase.aspose.com/pricing/slides/nl/family).
 {{% /alert %}}
 
-## **Aspose.Slides evalueren**
-U kunt Aspose.Slides eenvoudig downloaden voor evaluatie. Het evaluatiepakket is hetzelfde als het aangeschafte pakket. De evaluatieversie wordt gewoon een gelicentieerde versie zodra u een paar regels code toevoegt om de licentie toe te passen. 
+## **Beperkingen van de evaluatieversie**
 
-## **Beperking van de evaluatieversie**
-De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt de volledige functionaliteit van het product, maar voegt een evaluatiewatermerk toe aan de bovenkant van het document bij openen en opslaan. Daarnaast bent u beperkt tot één dia bij het extraheren van tekst uit presentatiedia's.
+De evaluatieversie biedt de volledige functionaliteit van het product, met twee beperkingen:
 
-{{% alert color="primary" %}} 
-Als u Aspose.Slides wilt testen zonder de beperkingen van de evaluatieversie, kunt u een **30‑daagse tijdelijke licentie** aanvragen. Raadpleeg [Hoe een tijdelijke licentie verkrijgen?](https://purchase.aspose.com/temporary-license) voor meer informatie.
-{{% /alert %}} 
+- **Watermerk.** Elke dia van elke presentatie die u opslaat krijgt een evaluatiewatermerk: een vergrendeld tekstvak in het midden van de dia met de tekst "Evaluation only." Hetzelfde watermerk wordt toegepast op PDF-, XPS- en HTML‑exporten en op dia‑afbeeldingen.
+- **Afgekapt tekst.** Tekst die uw code terugleest uit een tekstframe, alinea of deel wordt teruggebracht tot de eerste vijf tekens, gevolgd door de melding "... text has been truncated due to evaluation version limitation." Markdown‑ en HTML5‑exporten worden op dezelfde manier afgekapt. De tekst die uw code schrijft, wordt volledig opgeslagen.
+
+[Evaluate Aspose.Slides](/slides/nl/nodejs-net/evaluate-aspose-slides/) beschrijft beide beperkingen in detail en bevat een script dat ze laat zien.
+
+{{% alert color="success" title="Tip" %}}
+Om Aspose.Slides te testen zonder de evaluatiebeperkingen, vraag een gratis **30‑daagse tijdelijke licentie** aan. Zie [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) voor meer details.
+{{% /alert %}}
 
 ## **Over de licentie**
-U kunt eenvoudig een evaluatieversie van Aspose.Slides voor Node.js via .NET downloaden vanaf de [downloadpagina](https://releases.aspose.com/slides/nl/nodejs-net/). De evaluatieversie biedt absoluut **dezelfde mogelijkheden** als de gelicentieerde versie van Aspose.Slides. Bovendien wordt de evaluatieversie gewoon gelicentieerd zodra u een licentie aanschaft en een paar regels code toevoegt om de licentie toe te passen.
 
-De licentie is een platte‑tekst XML‑bestand dat details bevat zoals de productnaam, het aantal ontwikkelaars waarvoor het gelicentieerd is, de vervaldatum van het abonnement, enzovoort. Het bestand is digitaal ondertekend, dus wijzig het bestand niet. Zelfs het per ongeluk toevoegen van een extra regeleinde aan de inhoud van het bestand maakt het ongeldig.
+De licentie is een platte‑tekst XML‑bestand dat gegevens bevat zoals de productnaam, het aantal ontwikkelaars waarvoor het is gelicentieerd, en de vervaldatum van het abonnement. Het bestand is digitaal ondertekend, dus wijzig het niet: zelfs een extra regeleinde dat per ongeluk wordt toegevoegd maakt het ongeldig.
 
-Om de beperkingen van de evaluatieversie te vermijden, moet u een licentie instellen voordat u **Aspose.Slides** gebruikt. U hoeft de licentie slechts één keer per applicatie of proces in te stellen.
+## **Licentie toepassen**
 
-## Aangeschafte licentie
+Pas de licentie toe met de `setLicense`‑methode van de `License`‑klasse. Roep deze één keer per proces aan, voordat u een `Presentation`‑object maakt. Een tweede oproep schaadt niets, maar leidt tot dubbel werk.
 
-Na aankoop moet u het licentiebestand of de stream toepassen. 
-
-{{% alert color="primary" %}}
-U moet de licentie instellen:
-* slechts één keer per toepassingsdomein
-* voordat u andere Aspose.Slides‑klassen gebruikt
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-U kunt prijsinformatie vinden op de [“Pricing Information”](https://purchase.aspose.com/pricing/slides/nl/family) pagina.
-{{% /alert %}}
-
-### **Een licentie instellen in Aspose.Slides voor Node.js via .NET**
-
-Licenties kunnen worden toegepast vanaf deze locaties:
-
-* Expliciet pad
-* Stream
-* Als een Metered‑licentie – een nieuw licentiemechanisme
-
-{{% alert color="primary" %}}
-Gebruik de **setLicense**‑methode om een component te licentiëren.
-
-Hoewel meerdere aanroepen van **setLicense** niet schadelijk zijn, verspillen ze wel resources (processor).
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Nieuwe licenties kunnen Aspose.Slides alleen activeren met versie 21.4 of later. Eerdere versies gebruiken een ander licentiesysteem en zullen deze licenties niet herkennen.
-{{% /alert %}}
-
-#### **Een licentie toepassen via een bestand**
-
-Dit code‑fragment wordt gebruikt om een licentiebestand in te stellen:
-
-**Node.js**
+Het volgende script past een licentie toe vanuit een bestand met de naam `Aspose.Slides.lic`. Vervang de naam door de naam of het volledige pad van uw licentiebestand; het bestand mag elke willekeurige naam hebben.
 
 ```javascript
-// Importeer de Aspose.Slides-module voor PowerPoint-bestandsmanipulatie
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { License } = asposeSlides;
 
-// Deze functie initialiseert de Aspose.Slides-bibliotheek met een licentie
-function setupAsposeSlidesLicense() {
-	
-    // Initialiseer de License-klasse vanuit de Aspose.Slides-module
-    var license = new asposeSlides.License();
-    
-    // Pas de licentie toe vanuit een bestand
-    // Vervang "your_license_file.lic" door het pad naar uw daadwerkelijke licentiebestand
-    license.setLicense("your_license_file.lic");
+const license = new License();
+try {
+    license.setLicense("Aspose.Slides.lic");
+    console.log("License applied.");
+} catch (error) {
+    console.log("License not applied:", error.message);
 }
-
-// Voer de functie uit om de licentie voor Aspose.Slides in te stellen
-setupAsposeSlidesLicense();
 ```
-{{% alert color="primary" %}}
-Wanneer u de setLicense‑methode aanroept, moet de licentienaam overeenkomen met die van uw licentiebestand. U kunt bijvoorbeeld de bestandsnaam van het licentiebestand wijzigen in "Aspose.Slides.lic.xml". Vervolgens moet u in uw code de nieuwe licentienaam (Aspose.Slides.lic.xml) doorgeven aan de setLicense‑methode.
-{{% /alert %}}
+
+Een bestandsnaam of relatieve pad wordt opgezocht ten opzichte van de huidige map, de map van waaruit u `node` uitvoert. Bewaar het licentiebestand in uw projectmap en voer uw scripts vanaf daar uit, of geef het volledige pad op.
+
+Als het bestand niet gevonden kan worden, of geen geldige licentie is, genereert `setLicense` een fout, en blijft Aspose.Slides in evaluatiemodus. Het script vangt de fout op en geeft het bijbehorende bericht weer. Bij een ontbrekend bestand begint het bericht met `License "Aspose.Slides.lic" doesn't exist or access is restricted.` en somt het elke locatie op die werd doorzocht.
+
+In dit pakket wordt een licentie uitsluitend vanuit een bestand toegepast. `License` accepteert geen stream, en het pakket biedt geen meter‑licensering aan. Voor de klasse die het pakket omsluit, zie [License](https://reference.aspose.com/slides/nl/net/aspose.slides/license/) in de Aspose.Slides for .NET API‑referentie.

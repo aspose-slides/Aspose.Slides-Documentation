@@ -1,88 +1,60 @@
 ---
 title: 授權
-description: "Aspose.Slides for Node.js via .NET 提供不同的購買方案，或提供免費試用與 30 天臨時授權以根據授權與訂閱政策進行評估。"
+description: "將授權檔案套用至 Aspose.Slides for Node.js via .NET，了解評估版的限制，並取得免費的 30 天暫時授權以進行測試。"
 type: docs
 weight: 80
 url: /zh-hant/nodejs-net/licensing/
 ---
-有時為了獲得最佳的評估結果，可能需要親自操作。為此，Aspose.Slides 提供了不同的購買方案，並且提供免費試用和 30 天臨時許可證供評估使用。
+## **概述**
 
-{{% alert color="primary" %}}
-請注意，有多項一般政策與實踐指導您如何評估、正確授權以及購買我們的產品。您可以在["購買政策與常見問題"](https://purchase.aspose.com/policies) 部分找到它們。
+Aspose.Slides for Node.js via .NET 是一個同時支援評估與正式環境的 npm 套件。未取得授權時會以評估模式執行。購買授權或取得免費的 30 天暫時授權後，只需幾行程式碼即可套用，評估限制便會解除。
+
+{{% alert color="info" title="Note" %}}
+
+有關評估、授權與購買 Aspose 產品的一般政策，請參閱 [購買政策與常見問答](https://purchase.aspose.com/policies)。價格資訊請見 [定價資訊](https://purchase.aspose.com/pricing/slides/zh-hant/family) 頁面。
+
 {{% /alert %}}
 
-## **Evaluate Aspose.Slides**
-您可以輕鬆下載 Aspose.Slides 進行評估。評估套件與購買套件相同。只要在程式碼中加入幾行以套用授權，評估版即會轉為授權版。
+## **評估版限制**
 
-## **Evaluation Version Limitation**
-Aspose.Slides 的評估版（未指定授權）提供完整的產品功能，但在開啟和儲存文件時會在文件頂部插入評估水印。從簡報投影片中擷取文字時也僅限於單一投影片。
+評估版提供完整功能，但有兩項限制：
 
-{{% alert color="primary" %}} 
-如果您想在不受評估版限制的情況下測試 Aspose.Slides，您可以申請 **30 天臨時許可證**。更多資訊請參閱[如何取得臨時許可證？](https://purchase.aspose.com/temporary-license)。
-{{% /alert %}} 
+- **浮水印。** 每個儲存的簡報投影片皆會加上評估浮水印：投影片中央的鎖定文字方塊，內容顯示「Evaluation only」。相同的浮水印也會出現在 PDF、XPS、HTML 匯出以及投影片影像上。
+- **文字截斷。** 從文字框、段落或區段讀取的文字會被截斷為前五個字元，後方接上「... text has been truncated due to evaluation version limitation.」的提示。Markdown 與 HTML5 匯出也會以相同方式截斷。程式碼寫入的文字則會完整保存。
 
-## **About the License**
-您可以輕鬆從其[下載頁面](https://releases.aspose.com/slides/zh-hant/nodejs-net/) 下載 Aspose.Slides for Node.js via .NET 的評估版。該評估版提供與授權版 **完全相同的功能**。此外，在購買授權並在程式碼中加入幾行以套用授權後，評估版即會轉為授權版。
+[評估 Aspose.Slides](/slides/zh-hant/nodejs-net/evaluate-aspose-slides/) 詳細說明了上述兩項限制，並提供示範腳本。
 
-授權是一個純文字 XML 檔案，內含產品名稱、授權開發人員人數、訂閱到期日等資訊。該檔案已經數位簽章，請勿修改檔案。即使無意中在檔案內容加入額外的換行，也會使其失效。
+{{% alert color="success" title="Tip" %}}
 
-為避免與評估版相關的限制，您需要在使用 **Aspose.Slides** 前設定授權。每個應用程式或流程只需設定一次授權。
+若想在不受評估限制的情況下測試 Aspose.Slides，可申請免費的 **30 天** 暫時授權。詳情請參閱 [如何取得暫時授權？](https://purchase.aspose.com/temporary-license)。
 
-## Purchased License
-購買後，您需要套用授權檔案或串流。 
-
-{{% alert color="primary" %}}
-您需要設定授權：
-* 每個應用程式域僅一次
-* 在使用任何其他 Aspose.Slides 類別之前
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-您可以在[“價格資訊”](https://purchase.aspose.com/pricing/slides/zh-hant/family) 頁面找到定價資訊。
-{{% /alert %}}
+## **關於授權**
 
-### **Setting a License in Aspose.Slides for Node.js via .NET**
+授權是一個純文字的 XML 檔案，內含產品名稱、授權開發人員數量與訂閱到期日等資訊。該檔案已數位簽署，請勿自行修改：即使是不小心加入的額外換行也會使授權失效。
 
-授權可從以下位置套用：
+## **套用授權**
 
-* 明確路徑
-* 串流
-* 計量授權 – 一種新授權機制
+使用 `License` 類別的 `setLicense` 方法套用授權。請在建立任何 `Presentation` 物件前於程式執行期間呼叫一次。再次呼叫不會造成問題，只是重複已完成的工作。
 
-{{% alert color="primary" %}}
-使用 **setLicense** 方法為元件授權。
-
-雖然多次呼叫 **setLicense** 不會造成傷害，但會浪費資源（處理器）。
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-新授權只能在 21.4 版或更新的 Aspose.Slides 中啟用。較早版本使用不同的授權系統，無法識別這些授權。
-{{% /alert %}}
-
-#### **Applying a License Using a File**
-
-此程式碼片段用於設定授權檔案：
-
-**Node.js**
+以下腳本示範從名為 `Aspose.Slides.lic` 的檔案套用授權。請將檔名改為您的授權檔案名稱或完整路徑；檔案名稱可自行命名。
 
 ```javascript
-// 匯入 Aspose.Slides 模組以操作 PowerPoint 檔案
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { License } = asposeSlides;
 
-// 此函式設定 Aspose.Slides 函式庫的授權
-function setupAsposeSlidesLicense() {
-	
-    // 從 Aspose.Slides 模組初始化 License 類別
-    var license = new asposeSlides.License();
-    
-    // 從檔案套用授權
-    // 將 "your_license_file.lic" 替換為實際授權檔案的路徑
-    license.setLicense("your_license_file.lic");
+const license = new License();
+try {
+    license.setLicense("Aspose.Slides.lic");
+    console.log("License applied.");
+} catch (error) {
+    console.log("License not applied:", error.message);
 }
-
-// 執行函式以設定 Aspose.Slides 的授權
-setupAsposeSlidesLicense();
 ```
-{{% alert color="primary" %}}
-呼叫 setLicense 方法時，授權名稱應與授權檔案的名稱相同。舉例來說，您可以將授權檔案名稱更改為「Aspose.Slides.lic.xml」。然後在程式碼中，必須將新授權名稱 (Aspose.Slides.lic.xml) 傳遞給 setLicense 方法。
-{{% /alert %}}
+
+檔名或相對路徑會根據當前工作目錄（執行 `node` 的資料夾）解析。請將授權檔案放於專案資料夾並從該資料夾執行腳本，或直接提供完整路徑。
+
+若無法找到檔案或檔案不是有效授權，`setLicense` 會拋出錯誤，Aspose.Slides 仍會以評估模式運作。腳本會捕捉錯誤並顯示其訊息。檔案遺失時，訊息開頭為 `License "Aspose.Slides.lic" doesn't exist or access is restricted.`，並列出所有搜尋過的路徑。
+
+在此套件中，授權僅能從檔案套用。`License` 不接受串流，套件也未提供計量授權功能。欲了解套件所封裝的類別，請參閱 Aspose.Slides for .NET API 參考中的 [License](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/license/)。

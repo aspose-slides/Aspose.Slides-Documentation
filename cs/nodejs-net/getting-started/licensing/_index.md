@@ -1,87 +1,56 @@
 ---
 title: Licencování
-description: "Aspose.Slides pro Node.js přes .NET poskytuje různé plány nákupu nebo nabízí bezplatnou zkušební verzi a 30denní dočasnou licenci pro vyhodnocení pomocí licenčních a předplatných zásad."
+description: "Použijte licenční soubor pro Aspose.Slides for Node.js via .NET, zjistěte omezení verze pro hodnocení a získejte bezplatnou 30-denní dočasnou licenci pro testování."
 type: docs
 weight: 80
 url: /cs/nodejs-net/licensing/
 ---
-Někdy je pro dosažení nejlepších hodnotících výsledků potřeba praktický přístup. Z tohoto důvodu Aspose.Slides nabízí různé nákupní plány a také poskytuje bezplatnou zkušební verzi a 30denní dočasnou licenci pro hodnocení.
+## **Přehled**
 
-{{% alert color="primary" %}}
-Všimněte si, že existuje řada obecných zásad a postupů, které vás provádějí, jak hodnotit, řádně licencovat a nakupovat naše produkty. Najdete je v sekci ["Zásady nákupu a FAQ"](https://purchase.aspose.com/policies).
+Aspose.Slides for Node.js via .NET je jeden npm balíček jak pro hodnocení, tak pro produkci. Bez licence běží v režimu hodnocení. Po zakoupení licence nebo získání bezplatné 30‑denní dočasné licence ji použijete pomocí několika řádků kódu a omezení hodnocení již neplatí.
+
+{{% alert color="info" title="Note" %}}
+Obecné zásady, jak hodnotit, licencovat a nakupovat produkty Aspose, jsou shromážděny v [Zásady nákupu a FAQ](https://purchase.aspose.com/policies). Ceny jsou uvedeny na stránce [Informace o cenách](https://purchase.aspose.com/pricing/slides/cs/family).
 {{% /alert %}}
 
-## **Testovat Aspose.Slides**
-Aspose.Slides můžete snadno stáhnout pro hodnocení. Evaluační balíček je stejný jako zakoupený balíček. Evaluační verze se jednoduše stane licencovanou po přidání několika řádků kódu k aplikaci licence. 
+## **Omezení verze hodnocení**
 
-## **Omezení evaluační verze**
-Evaluační verze Aspose.Slides (bez specifikované licence) poskytuje plnou funkcionalitu produktu, ale při otevření a uložení vloží evaluační vodoznak na horní část dokumentu. Také jste omezeni na jeden snímek při extrahování textu z prezentačních snímků.
+Verze pro hodnocení poskytuje plnou funkčnost produktu, s dvěma omezeními:
 
-{{% alert color="primary" %}} 
-Pokud chcete testovat Aspose.Slides bez omezení evaluační verze, můžete požádat o **30denní dočasnou licenci**. Další informace najdete v [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license).
-{{% /alert %}} 
+- **Watermark.** Každý snímek každé prezentace, kterou uložíte, získá hodnocený vodoznak: uzamčené textové pole uprostřed snímku s textem „Pouze pro hodnocení.“ Stejný vodoznak se vykresluje ve výstupech PDF, XPS a HTML a na obrázcích snímků.
+- **Truncated text.** Text, který váš kód načte zpět z textového rámce, odstavce nebo části, je oříznut na prvních pět znaků, následovaný upozorněním “… text has been truncated due to evaluation version limitation.” Exporty do Markdown a HTML5 jsou zkráceny stejným způsobem. Text, který váš kód zapisuje, je uložen celý.
+
+[Vyhodnotit Aspose.Slides](/slides/cs/nodejs-net/evaluate-aspose-slides/) popisuje obě omezení podrobně a obsahuje skript, který je ukazuje.
+
+{{% alert color="success" title="Tip" %}}
+Pro testování Aspose.Slides bez omezení hodnocení požádejte o bezplatnou **30‑denní dočasnou licenci**. Podrobnosti najdete v [How to get a Temporary License?](https://purchase.aspose.com/temporary-license).
+{{% /alert %}}
 
 ## **O licenci**
-Evaluační verzi Aspose.Slides pro Node.js přes .NET si můžete snadno stáhnout z [download page](https://releases.aspose.com/slides/cs/nodejs-net/). Evaluační verze poskytuje naprosto **stejné funkce** jako licencovaná verze Aspose.Slides. Navíc se evaluační verze jednoduše stane licencovanou po zakoupení licence a přidání několika řádků kódu k aplikaci licence.
 
-Licence je textový soubor XML, který obsahuje údaje jako název produktu, počet vývojářů, pro které je licence určena, datum vypršení předplatného a podobně. Soubor je digitálně podepsán, takže jej neměňte. I neúmyslné přidání dalšího řádku do obsahu souboru jej zneplatní.
+Licence je soubor XML v prostém textu, který obsahuje podrobnosti jako název produktu, počet vývojářů, pro které je licence určena, a datum vypršení předplatného. Soubor je digitálně podepsán, proto jej nechte beze změn: i zbytečný řádkový zlomak přidaný omylem ho zneplatní.
 
-Aby se předešlo omezením spojeným s evaluační verzí, je třeba nastavit licenci před použitím **Aspose.Slides**. Licence je potřeba nastavit pouze jednou na aplikaci nebo proces.
+## **Použití licence**
 
-## Zakoupená licence
+Licenci použijte metodou `setLicense` třídy `License`. Zavolejte ji jednou na proces, před tím než vytvoříte jakýkoli objekt `Presentation`. Opětovné volání neškodí, ale opakuje již provedenou práci.
 
-Po zakoupení musíte aplikovat soubor licence nebo proud. 
-
-{{% alert color="primary" %}}
-Musíte nastavit licenci:
-* pouze jednou na doménu aplikace
-* před použitím jakýchkoli dalších tříd Aspose.Slides
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-Informace o cenách najdete na stránce [“Pricing Information”](https://purchase.aspose.com/pricing/slides/cs/family).
-{{% /alert %}}
-
-### **Nastavení licence v Aspose.Slides pro Node.js přes .NET**
-Licence lze aplikovat z těchto míst:
-
-* Explicitní cesta
-* Proud
-* Jako měřená licence – nový licenční mechanismus
-
-{{% alert color="primary" %}}
-Použijte metodu **setLicense** k licencování komponenty.
-
-I když více volání **setLicense** není škodlivých, jsou zbytečnou spotřebou zdrojů (procesoru).
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Nové licence mohou aktivovat Aspose.Slides pouze ve verzi 21.4 nebo novější. Starší verze používají jiný licenční systém a tyto licence nepoznají.
-{{% /alert %}}
-
-#### **Aplikace licence pomocí souboru**
-Tento úryvek kódu slouží k nastavení souboru licence:
-
-**Node.js**
+Následující skript použije licenci ze souboru s názvem `Aspose.Slides.lic`. Nahraďte název názvem nebo úplnou cestou k vašemu licenčnímu souboru; soubor může mít libovolný název.
 
 ```javascript
-// Importujte modul Aspose.Slides pro manipulaci se soubory PowerPoint
-const asposeSlides = require('aspose.slides.via.net');
+const asposeSlides = require("aspose.slides.via.net");
+const { License } = asposeSlides;
 
-// Tato funkce nastavuje knihovnu Aspose.Slides s licencí
-function setupAsposeSlidesLicense() {
-	
-    // Inicializujte třídu License z modulu Aspose.Slides
-    var license = new asposeSlides.License();
-    
-    // Použijte licenci ze souboru
-    // Nahraďte "your_license_file.lic" cestou k vašemu skutečnému licenčnímu souboru
-    license.setLicense("your_license_file.lic");
+const license = new License();
+try {
+    license.setLicense("Aspose.Slides.lic");
+    console.log("License applied.");
+} catch (error) {
+    console.log("License not applied:", error.message);
 }
-
-// Spusťte funkci pro nastavení licence pro Aspose.Slides
-setupAsposeSlidesLicense();
 ```
-{{% alert color="primary" %}}
-Při volání metody setLicense by měl být název licence shodný s názvem vašeho licenčního souboru. Například můžete změnit název licenčního souboru na "Aspose.Slides.lic.xml". Pak ve svém kódu musíte předat nový název licence (Aspose.Slides.lic.xml) metodě setLicense.
-{{% /alert %}}
+
+Název souboru nebo relativní cesta jsou vyhodnoceny vůči aktuální složce, ze které spouštíte `node`. Uchovejte licenční soubor ve složce projektu a spouštějte skripty odtud, nebo zadejte úplnou cestu.
+
+Pokud soubor nelze najít nebo není platnou licencí, `setLicense` vyhodí chybu a Aspose.Slides zůstane v režimu hodnocení. Skript chybu zachytí a vypíše její zprávu. Pro chybějící soubor zpráva začíná `License "Aspose.Slides.lic" doesn't exist or access is restricted.` a uvádí každé místo, kde bylo hledáno.
+
+V tomto balíčku se licence používá pouze ze souboru. `License` nepřijímá proud a balíček neumožňuje metrické licencování. Pro třídu, kterou balíček obaluje, viz [License](https://reference.aspose.com/slides/cs/net/aspose.slides/license/) v dokumentaci API Aspose.Slides pro .NET.
