@@ -23,7 +23,7 @@ Aspose.Slides dapat digunakan dalam mode evaluasi atau dengan lisensi yang sah. 
 
 Anda dapat mengunduh versi evaluasi **Aspose.Slides for Python via .NET** dari [halaman unduhan](https://pypi.org/project/Aspose.Slides/). Versi evaluasi menyediakan fitur yang sama dengan produk berlisensi. Paket evaluasi identik dengan paket yang dibeli dan menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
 
-Ketika Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/id/python-net/). Kami menyarankan meninjau opsi langganan yang tersedia. Jika Anda memiliki pertanyaan, hubungi tim penjualan Aspose.
+Ketika Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/python-net/). Kami menyarankan meninjau opsi langganan yang tersedia. Jika Anda memiliki pertanyaan, hubungi tim penjualan Aspose.
 
 Setiap lisensi Aspose mencakup langganan satu tahun dengan peningkatan gratis ke versi baru dan perbaikan yang dirilis selama periode tersebut. Baik pengguna berlisensi maupun evaluasi menerima dukungan teknis gratis dan tak terbatas.
 
@@ -53,7 +53,7 @@ Anda mungkin juga ingin meninjau [Metered Licensing](/slides/id/python-net/meter
 Lisensi dapat dimuat dari sebuah **berkas** atau sebuah **stream**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/id/python-net/aspose.slides/license/) untuk menangani lisensi.
+Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) untuk menangani lisensi.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ Lisensi baru dapat mengaktifkan Aspose.Slides hanya dengan versi 21.4 atau lebih
 
 ### **Berkas**
 
-Cara paling sederhana untuk menetapkan lisensi adalah dengan memberikan jalur file lisensi ke metode [set_license](https://reference.aspose.com/slides/id/python-net/aspose.slides/license/set_license/). Jika Anda hanya memberikan nama file, seperti pada contoh di bawah, Aspose.Slides mencari file tersebut di direktori kerja saat ini.
+Cara paling sederhana untuk menetapkan lisensi adalah dengan memberikan jalur file lisensi ke metode [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/). Jika Anda hanya memberikan nama file, seperti pada contoh di bawah, Aspose.Slides mencari file tersebut di direktori kerja saat ini.
 
 Kode Python berikut menunjukkan cara menetapkan file lisensi:
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Jika Anda menempatkan file lisensi di direktori yang berbeda, ketika Anda memanggil [License.set_license](https://reference.aspose.com/slides/id/python-net/aspose.slides/license/set_license/#str), nama file di akhir jalur eksplisit harus cocok dengan nama file lisensi Anda.
+Jika Anda menempatkan file lisensi di direktori yang berbeda, ketika Anda memanggil [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str), nama file di akhir jalur eksplisit harus cocok dengan nama file lisensi Anda.
 
-Sebagai contoh, Anda dapat mengganti nama file lisensi menjadi *Aspose.Slides.lic.xml*. Kemudian, dalam kode Anda, berikan jalur lengkap ke file tersebut (berakhiran Aspose.Slides.lic.xml) ke metode [License.set_license](https://reference.aspose.com/slides/id/python-net/aspose.slides/license/set_license/#str).
+Sebagai contoh, Anda dapat mengganti nama file lisensi menjadi *Aspose.Slides.lic.xml*. Kemudian, dalam kode Anda, berikan jalur lengkap ke file tersebut (berakhiran Aspose.Slides.lic.xml) ke metode [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str).
 {{% /alert %}}
 
 ### **Stream**
@@ -115,7 +115,7 @@ if license.is_licensed():
 ## **Keamanan Thread**
 
 {{% alert color="warning" title="Warning" %}}
-Metode [License.set_license](https://reference.aspose.com/slides/id/python-net/aspose.slides/license/set_license/) tidak aman untuk thread. Jika Anda perlu memanggilnya secara bersamaan dari beberapa thread, gunakan primitif sinkronisasi, seperti `threading.Lock`, untuk menghindari masalah.
+Metode [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) tidak aman untuk thread. Jika Anda perlu memanggilnya secara bersamaan dari beberapa thread, gunakan primitif sinkronisasi, seperti `threading.Lock`, untuk menghindari masalah.
 {{% /alert %}}
 
 ## **FAQ**

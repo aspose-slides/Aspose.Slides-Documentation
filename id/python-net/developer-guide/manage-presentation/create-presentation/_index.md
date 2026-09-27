@@ -29,10 +29,10 @@ Sebelum memulai, instal paket dari PyPI dengan `pip install aspose.slides`. Liha
 
 Untuk membuat presentasi dan menempatkan bentuk dengan teks pada slide pertama, ikuti langkah-langkah berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
-2. Dapatkan slide tersebut dari koleksi [slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/slides/id/) dengan indeks 0.  
-3. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) berbentuk awan menggunakan metode [add_auto_shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_auto_shape/) pada koleksi [shapes](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/shapes/) slide, dan atur [text](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/text/)-nya.  
-4. Simpan presentasi sebagai file PPTX menggunakan metode [save](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/save/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
+2. Dapatkan slide tersebut dari koleksi [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) dengan indeks 0.  
+3. Tambahkan [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) berbentuk awan menggunakan metode [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) pada koleksi [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) slide, dan atur [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/)-nya.  
+4. Simpan presentasi sebagai file PPTX menggunakan metode [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Gunakan [strategi manajemen BLOB](/slides/id/python-net/manage-blob/), batasi pe
 
 ### Bisakah saya membuat/menyimpan presentasi secara paralel?
 
-Anda tidak dapat beroperasi pada instance [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/python-net/multithreading/). Jalankan instance terpisah yang terisolasi per thread atau proses.
+Anda tidak dapat beroperasi pada instance [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/python-net/multithreading/). Jalankan instance terpisah yang terisolasi per thread atau proses.
 
 ### Bagaimana cara menghapus watermark percobaan dan pembatasan?
 

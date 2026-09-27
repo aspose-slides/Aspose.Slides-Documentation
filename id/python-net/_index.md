@@ -79,13 +79,13 @@ Pustaka ini memuat dan menyimpan file PPT, PPTX, PPS, POT, dan ODP, termasuk var
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/id/python-net/">Referensi API</a></li>
-<li><a href="https://releases.aspose.com/slides/id/python-net/release-notes/">Catatan rilis</a></li>
-<li><a href="https://releases.aspose.com/slides/id/python-net/">Unduh</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Catatan rilis</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>
