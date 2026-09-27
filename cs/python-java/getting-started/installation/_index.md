@@ -66,7 +66,7 @@ Pro aktualizaci existující instalace Aspose.Slides spusťte `python -m pip ins
 
 ## **Instalace ze ZIP archivu**
 
-Knihovnu můžete také použít ze stránky [Aspose.Slides ke stažení](https://releases.aspose.com/slides/cs/python-java/):
+Knihovnu můžete také použít ze stránky [Aspose.Slides ke stažení](https://releases.aspose.com/slides/python-java/):
 
 1. Nainstalujte Python a Java podle popisu v [Požadavcích](#prerequisites).
 2. Vytvořte a aktivujte virtuální prostředí pomocí výše uvedených instrukcí.

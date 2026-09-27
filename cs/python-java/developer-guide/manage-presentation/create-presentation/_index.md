@@ -29,13 +29,13 @@ Než začnete, nainstalujte Python, JDK, JPype a Aspose.Slides for Python via Ja
 
 ## **Vytvoření prezentace**
 
-Vytvoření souboru PowerPoint od začátku v Aspose.Slides for Python via Java je tak jednoduché, jako vytvořit instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) . Konstruktor automaticky poskytne prázdnou prezentaci s jediným snímkem, což vám dává okamžitou plátno pro tvary, text, grafy nebo jakýkoli jiný obsah, který vaše aplikace potřebuje. Jakmile tento snímek upravíte – nebo přidáte nové – můžete výsledek uložit jako PPTX, starší PPT nebo dokonce formáty OpenDocument. Níže uvedený krátký ukázkový kód ilustruje tento postup přidáním jednoduchého tvaru na první snímek.
+Vytvoření souboru PowerPoint od začátku v Aspose.Slides for Python via Java je tak jednoduché, jako vytvořit instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) . Konstruktor automaticky poskytne prázdnou prezentaci s jediným snímkem, což vám dává okamžitou plátno pro tvary, text, grafy nebo jakýkoli jiný obsah, který vaše aplikace potřebuje. Jakmile tento snímek upravíte – nebo přidáte nové – můžete výsledek uložit jako PPTX, starší PPT nebo dokonce formáty OpenDocument. Níže uvedený krátký ukázkový kód ilustruje tento postup přidáním jednoduchého tvaru na první snímek.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 1. Získejte první snímek podle jeho indexu 0.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) typu [ShapeType.Cloud](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapetype/#Cloud) pomocí [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addAutoShape) .
-1. Nastavte text tvaru pomocí [TextFrame.setText](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/#setText) .
-1. Uložte prezentaci pomocí [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) s [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Pptx) .
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) typu [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) pomocí [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) .
+1. Nastavte text tvaru pomocí [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) .
+1. Uložte prezentaci pomocí [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) s [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) .
 
 Následující příklad spustí Java Virtual Machine (JVM), pokud již neběží, přidá tvar mraku s textem na první snímek a uloží prezentaci. Uložte jej jako *create_presentation.py*:
 
@@ -100,7 +100,7 @@ Použijte [BLOB management strategies](/slides/cs/python-java/manage-blob/), ome
 
 **Mohu vytvářet/ukládat prezentace paralelně?**
 
-Nemůžete operovat se stejnou [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) instancí z [multiple threads](/slides/cs/python-java/multithreading/). Spusťte samostatné, izolované instance pro každý vlákno nebo proces.
+Nemůžete operovat se stejnou [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) instancí z [multiple threads](/slides/cs/python-java/multithreading/). Spusťte samostatné, izolované instance pro každý vlákno nebo proces.
 
 **Jak mohu odstranit zkušební vodoznak a omezení?**
 

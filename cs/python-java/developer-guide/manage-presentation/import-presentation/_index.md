@@ -26,9 +26,9 @@ description: "Zjistěte, jak importovat obsah PDF a HTML do PowerPoint prezentac
 ---
 ## **Úvod**
 
-Aspose.Slides for Python via Java dokáže převést stránky PDF nebo obsah HTML na snímky PowerPointu bez Microsoft PowerPointu. Třída [SlideCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/) poskytuje [addFromPdf](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#addFromPdf) a [addFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#addFromHtml) pro přidání importovaného obsahu do prezentace.
+Aspose.Slides for Python via Java dokáže převést stránky PDF nebo obsah HTML na snímky PowerPointu bez Microsoft PowerPointu. Třída [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) poskytuje [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) a [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) pro přidání importovaného obsahu do prezentace.
 
-Pro větší kontrolu nad umístěním HTML může [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#insertFromHtml) vložit vygenerované snímky na index kolekce nebo začít vyplňovat dostupný prostor na existujícím snímku. Dlouhé HTML je automaticky rozděleno na další snímky, zdroj může být předán jako řetězec nebo proud a externí prostředky lze načíst pomocí [ExternalResourceResolver](https://reference.aspose.com/slides/cs/python-java/aspose.slides/externalresourceresolver/) s base URI. Vrácené pole [Slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/) identifikuje ovlivněné a nově vytvořené snímky.
+Pro větší kontrolu nad umístěním HTML může [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) vložit vygenerované snímky na index kolekce nebo začít vyplňovat dostupný prostor na existujícím snímku. Dlouhé HTML je automaticky rozděleno na další snímky, zdroj může být předán jako řetězec nebo proud a externí prostředky lze načíst pomocí [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) s base URI. Vrácené pole [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) identifikuje ovlivněné a nově vytvořené snímky.
 
 ## **Import z PDF**
 
@@ -36,9 +36,9 @@ Pro převod PDF dokumentu do PowerPoint prezentace importujte jeho obsah do kole
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. Vytvořte nový objekt [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Zavolejte [addFromPdf](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#addFromPdf) s cestou k PDF souboru.
-3. Zavolejte [save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) s [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Pptx) pro zapsání prezentace do souboru PPTX.
+1. Vytvořte nový objekt [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Zavolejte [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) s cestou k PDF souboru.
+3. Zavolejte [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) s [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) pro zapsání prezentace do souboru PPTX.
 
 Následující příklad v Pythonu importuje PDF dokument a uloží vygenerované snímky jako PowerPoint prezentaci:
 
@@ -59,21 +59,21 @@ finally:
     presentation.dispose()
 ```
 
-Výchozí prázdný snímek zůstává v prezentaci, protože import přidává snímky. Chcete-li zachovat pouze importované stránky, před importem vyprázdněte kolekci snímků pomocí [SlideCollection.clear](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#clear).
+Výchozí prázdný snímek zůstává v prezentaci, protože import přidává snímky. Chcete-li zachovat pouze importované stránky, před importem vyprázdněte kolekci snímků pomocí [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear).
 
-Metoda [addFromPdf](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#addFromPdf) vrací snímky, které přidá, což je užitečné, pokud potřebujete zpracovat jen importované snímky.
+Metoda [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) vrací snímky, které přidá, což je užitečné, pokud potřebujete zpracovat jen importované snímky.
 
 {{% alert title="Tip" color="success" %}}
-Vyzkoušejte bezplatnou webovou aplikaci [PDF do PowerPointu](https://products.aspose.app/slides/cs/import/pdf-to-powerpoint) a uvidíte tento převodní postup v praxi.
+Vyzkoušejte bezplatnou webovou aplikaci [PDF do PowerPointu](https://products.aspose.app/slides/import/pdf-to-powerpoint) a uvidíte tento převodní postup v praxi.
 {{% /alert %}}
 
 ## **Import z HTML**
 
 Aspose.Slides může také vytvářet snímky z HTML dokumentu. Zdroj může být předán jako text HTML nebo proud. Následující kroky používají souborový proud:
 
-1. Vytvořte nový objekt [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Otevřete HTML soubor pro čtení a předejte proud metodě [addFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#addFromHtml).
-3. Zavolejte [save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) s [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Pptx) pro zápis výsledku do souboru PPTX.
+1. Vytvořte nový objekt [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Otevřete HTML soubor pro čtení a předejte proud metodě [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml).
+3. Zavolejte [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) s [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) pro zápis výsledku do souboru PPTX.
 
 Následující příklad v Pythonu importuje HTML dokument a uloží vygenerované snímky jako PowerPoint prezentaci:
 
@@ -101,14 +101,14 @@ finally:
 
 ## **Vložit HTML obsah**
 
-Použijte [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#insertFromHtml), pokud je třeba umístit snímky generované z HTML na konkrétní pozici místo jejich připojení. Index je nulou založený a určuje místo, kde import začíná.
+Použijte [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml), pokud je třeba umístit snímky generované z HTML na konkrétní pozici místo jejich připojení. Index je nulou založený a určuje místo, kde import začíná.
 
 Argument `useSlideWithIndexAsStart` řídí, jak importér tuto pozici používá:
 
 - Když je `False`, importér vytvoří nové snímky na určeném indexu a posune následující snímky.
 - Když je `True`, importér začne umisťovat obsah do dostupného prostoru na existujícím snímku na tomto indexu. Pokud HTML nepasuje, Aspose.Slides jej automaticky rozčlení a vloží další snímky ihned za úvodní snímek.
 
-[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#insertFromHtml) vrací pole objektů [Slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/). Když se vkládá na nové snímky, každý vrácený prvek je nově vytvořený. Když je jako výchozí použit existující snímek, pole zahrnuje tento ovlivněný snímek a následně všechny nové přetečící snímky. Místo výpočtu ovlivněného rozsahu z celkového počtu snímků můžete prozkoumat toto pole.
+[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) vrací pole objektů [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Když se vkládá na nové snímky, každý vrácený prvek je nově vytvořený. Když je jako výchozí použit existující snímek, pole zahrnuje tento ovlivněný snímek a následně všechny nové přetečící snímky. Místo výpočtu ovlivněného rozsahu z celkového počtu snímků můžete prozkoumat toto pole.
 
 ### **Vložit HTML jako nové snímky**
 
@@ -145,7 +145,7 @@ finally:
 
 Další příklad předává HTML pomocí proudu. Zachová tvar záhlaví na existujícím šablonovém snímku, začne import pod obsazenou oblastí a nechá dlouhé tělo pokračovat na nové snímky.
 
-HTML také obsahuje relativní URL obrázku. [ExternalResourceResolver](https://reference.aspose.com/slides/cs/python-java/aspose.slides/externalresourceresolver/) získá prostředek, zatímco base URI řekne importérovi, jak vyřešit `images/logo.png`. V tomto příkladu se očekává, že soubor bude na `html-assets/images/logo.png`.
+HTML také obsahuje relativní URL obrázku. [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) získá prostředek, zatímco base URI řekne importérovi, jak vyřešit `images/logo.png`. V tomto příkladu se očekává, že soubor bude na `html-assets/images/logo.png`.
 
 ```python
 from pathlib import Path
@@ -197,7 +197,7 @@ Neomezený externí resolver prostředků může číst místní nebo síťové 
 
 **Dokáže Aspose.Slides při importu PDF detekovat tabulky?**
 
-Ano. Vytvořte objekt [PdfImportOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pdfimportoptions/), zavolejte [setDetectTables](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pdfimportoptions/#setDetectTables) s hodnotou `True` a předávejte tyto možnosti metodě [addFromPdf](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidecollection/#addFromPdf). Kvalita rozpoznání tabulek závisí na struktuře a složitosti zdrojového PDF.
+Ano. Vytvořte objekt [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/), zavolejte [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables) s hodnotou `True` a předávejte tyto možnosti metodě [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf). Kvalita rozpoznání tabulek závisí na struktuře a složitosti zdrojového PDF.
 
 {{% alert title="Note" color="info" %}}
 Po importu HTML můžete také exportovat snímky do [images](/slides/cs/python-java/convert-powerpoint-to-png/), [TIFF](/slides/cs/python-java/convert-powerpoint-to-tiff/) nebo [SVG](/slides/cs/python-java/render-a-slide-as-an-svg-image/).
