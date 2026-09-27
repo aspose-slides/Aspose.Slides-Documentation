@@ -72,14 +72,14 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivi
 <hr>
 <p>REFERENZ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/de/cpp/">API-Referenz</a></li>
-<li><a href="https://releases.aspose.com/slides/de/cpp/release-notes/">Versionshinweise</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">API-Referenz</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Versionshinweise</a></li>
 <li><a href="/slides/de/cpp/known-issues/">Bekannte Probleme</a></li>
-<li><a href="https://releases.aspose.com/slides/de/cpp/">Herunterladen</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Herunterladen</a></li>
 </ul>
 <p>UNTERSTÜTZUNG</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/de/11">Kostenloses Support-Forum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Kostenloses Support-Forum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Kostenpflichtiger Support-Helpdesk</a></li>
 </ul>
 </div>

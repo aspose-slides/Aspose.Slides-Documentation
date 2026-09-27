@@ -27,9 +27,9 @@ Dieser Artikel erklärt, wie die Lizenzierung in Aspose.Slides funktioniert und 
 ## **Aspose.Slides evaluieren**
 
 {{% alert color="info" title="Note" %}}
-Sie können eine Evaluierungsversion von **Aspose.Slides for C++** von [der NuGet-Downloadseite](https://www.nuget.org/packages/Aspose.Slides.Cpp/) oder als ZIP‑Paket von der [Downloadseite](https://releases.aspose.com/slides/de/cpp/) herunterladen. Die Evaluierungsversion bietet dieselbe Funktionalität wie das lizenzierte Produkt. Tatsächlich ist das Evaluierungspaket identisch mit dem erworbenen – es wird einfach lizenziert, sobald Sie ein paar Codezeilen hinzufügen, um die Lizenz anzuwenden.
+Sie können eine Evaluierungsversion von **Aspose.Slides for C++** von [der NuGet-Downloadseite](https://www.nuget.org/packages/Aspose.Slides.Cpp/) oder als ZIP‑Paket von der [Downloadseite](https://releases.aspose.com/slides/cpp/) herunterladen. Die Evaluierungsversion bietet dieselbe Funktionalität wie das lizenzierte Produkt. Tatsächlich ist das Evaluierungspaket identisch mit dem erworbenen – es wird einfach lizenziert, sobald Sie ein paar Codezeilen hinzufügen, um die Lizenz anzuwenden.
 
-Sobald Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie [eine Lizenz erwerben](https://purchase.aspose.com/pricing/slides/de/cpp/). Wir empfehlen, die verfügbaren Abonnementtypen zu prüfen. Bei Fragen können Sie sich gerne an das Vertriebsteam von Aspose wenden.
+Sobald Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie [eine Lizenz erwerben](https://purchase.aspose.com/pricing/slides/cpp/). Wir empfehlen, die verfügbaren Abonnementtypen zu prüfen. Bei Fragen können Sie sich gerne an das Vertriebsteam von Aspose wenden.
 
 Jede Aspose‑Lizenz beinhaltet ein einjähriges Abonnement für kostenlose Upgrades, einschließlich neuer Versionen und Bug‑Fixes, die in diesem Zeitraum veröffentlicht werden. Unabhängig davon, ob Sie eine lizenzierte oder eine Evaluierungsversion verwenden, erhalten Sie kostenlosen und unbegrenzten technischen Support.
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Um Aspose.Slides ohne Einschränkungen zu testen, können Sie eine **30‑Tage�
 Eine Lizenz kann aus einer **Datei** oder einem **Stream** geladen werden.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides stellt die Klasse [License](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/) für Lizenzierungs‑Operationen bereit.
+Aspose.Slides stellt die Klasse [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) für Lizenzierungs‑Operationen bereit.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,17 +85,17 @@ int main()
 }
 ```
 
-Wenn die Lizenz gültig ist, gibt [License::SetLicense](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/setlicense/) zurück und das Programm endet ohne Ausgabe; ab diesem Zeitpunkt funktioniert Aspose.Slides ohne die Evaluierungsbeschränkungen. Befindet sich die Datei nicht im Arbeitsverzeichnis, wirft die Methode eine [FileNotFoundException](https://reference.aspose.com/slides/de/cpp/system.io/filenotfoundexception/) mit der Meldung *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Das Beispiel behandelt die Ausnahme nicht, sodass das Programm stoppt.
+Wenn die Lizenz gültig ist, gibt [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) zurück und das Programm endet ohne Ausgabe; ab diesem Zeitpunkt funktioniert Aspose.Slides ohne die Evaluierungsbeschränkungen. Befindet sich die Datei nicht im Arbeitsverzeichnis, wirft die Methode eine [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) mit der Meldung *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Das Beispiel behandelt die Ausnahme nicht, sodass das Programm stoppt.
 
 {{% alert color="warning" title="Warning" %}}
-Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf der Methode [License::SetLicense](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/setlicense/) der Dateiname am Ende des angegebenen vollständigen Pfads exakt mit dem Namen Ihrer Lizenzdatei übereinstimmen.
+Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf der Methode [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) der Dateiname am Ende des angegebenen vollständigen Pfads exakt mit dem Namen Ihrer Lizenzdatei übereinstimmen.
 
-Beispielsweise, wenn Sie Ihre Lizenzdatei in *Aspose.Slides.lic.xml* umbenennen, müssen Sie den vollständigen Pfad, der mit *Aspose.Slides.lic.xml* endet, an die Methode [License::SetLicense](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/setlicense/) in Ihrem Code übergeben.
+Beispielsweise, wenn Sie Ihre Lizenzdatei in *Aspose.Slides.lic.xml* umbenennen, müssen Sie den vollständigen Pfad, der mit *Aspose.Slides.lic.xml* endet, an die Methode [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) in Ihrem Code übergeben.
 {{% /alert %}}
 
 ### **Stream**
 
-Laden Sie eine Lizenz aus einem Stream, wenn Ihr Programm die Lizenz nicht als Datei speichert, die es benennen kann, zum Beispiel wenn es die Lizenz aus einer Datenbank liest. [License::SetLicense](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/setlicense/) akzeptiert jeden [Stream](https://reference.aspose.com/slides/de/cpp/system.io/stream/), der die Lizenz enthält. Um das Beispiel kurz zu halten, öffnet der folgende C++‑Code *Aspose.Slides.lic* im Arbeitsverzeichnis mit [File::OpenRead](https://reference.aspose.com/slides/de/cpp/system.io/file/openread/) und wendet die Lizenz aus diesem Stream an:
+Laden Sie eine Lizenz aus einem Stream, wenn Ihr Programm die Lizenz nicht als Datei speichert, die es benennen kann, zum Beispiel wenn es die Lizenz aus einer Datenbank liest. [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) akzeptiert jeden [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/), der die Lizenz enthält. Um das Beispiel kurz zu halten, öffnet der folgende C++‑Code *Aspose.Slides.lic* im Arbeitsverzeichnis mit [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) und wendet die Lizenz aus diesem Stream an:
 ```c++
 #include <Util/License.h>
 #include <system/io/file.h>
@@ -115,11 +115,11 @@ int main()
 }
 ```
 
-Eine gültige Lizenz liefert dasselbe Ergebnis wie im Datei‑Beispiel. Existiert die Datei nicht, wirft [File::OpenRead](https://reference.aspose.com/slides/de/cpp/system.io/file/openread/) eine [FileNotFoundException](https://reference.aspose.com/slides/de/cpp/system.io/filenotfoundexception/) bevor die Lizenz angewendet wird, und das Programm stoppt.
+Eine gültige Lizenz liefert dasselbe Ergebnis wie im Datei‑Beispiel. Existiert die Datei nicht, wirft [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) eine [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) bevor die Lizenz angewendet wird, und das Programm stoppt.
 
 ## **Lizenz validieren**
 
-Um zu prüfen, ob eine Lizenz korrekt gesetzt wurde, rufen Sie [License::IsLicensed](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/islicensed/) auf. Sie gibt `true` nur zurück, nachdem eine gültige Lizenz angewendet wurde, und `false` davor. Der folgende C++‑Code wendet die Lizenzdatei aus dem Arbeitsverzeichnis an und prüft sie anschließend:
+Um zu prüfen, ob eine Lizenz korrekt gesetzt wurde, rufen Sie [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/) auf. Sie gibt `true` nur zurück, nachdem eine gültige Lizenz angewendet wurde, und `false` davor. Der folgende C++‑Code wendet die Lizenzdatei aus dem Arbeitsverzeichnis an und prüft sie anschließend:
 ```c++
 #include <Util/License.h>
 #include <system/console.h>
@@ -142,12 +142,12 @@ int main()
 }
 ```
 
-Bei einer gültigen Lizenz gibt das Programm *License is good!* aus. Fehlt die Datei oder ist keine Lizenzdatei, wirft [License::SetLicense](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/setlicense/) vor der Prüfung eine Ausnahme, und das Programm endet ohne Ausgabe. Ist die Datei eine Lizenz, deren Signatur nicht übereinstimmt, zum Beispiel weil sie bearbeitet wurde, gibt SetLicense ohne Fehler zurück, aber `IsLicensed` liefert `false`, sodass nichts ausgegeben wird und Aspose.Slides im Evaluierungsmodus bleibt.
+Bei einer gültigen Lizenz gibt das Programm *License is good!* aus. Fehlt die Datei oder ist keine Lizenzdatei, wirft [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) vor der Prüfung eine Ausnahme, und das Programm endet ohne Ausgabe. Ist die Datei eine Lizenz, deren Signatur nicht übereinstimmt, zum Beispiel weil sie bearbeitet wurde, gibt SetLicense ohne Fehler zurück, aber `IsLicensed` liefert `false`, sodass nichts ausgegeben wird und Aspose.Slides im Evaluierungsmodus bleibt.
 
 ## **Thread‑Sicherheit**
 
 {{% alert color="warning" title="Warning" %}}
-Die Methode [License::SetLicense](https://reference.aspose.com/slides/de/cpp/aspose.slides/license/setlicense/) ist **nicht thread‑sicher**. Wenn Sie diese Methode aus mehreren Threads gleichzeitig aufrufen müssen, wird empfohlen, Synchronisations‑Primitive (wie beispielsweise ein Lock) zu verwenden, um mögliche Probleme zu verhindern.
+Die Methode [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) ist **nicht thread‑sicher**. Wenn Sie diese Methode aus mehreren Threads gleichzeitig aufrufen müssen, wird empfohlen, Synchronisations‑Primitive (wie beispielsweise ein Lock) zu verwenden, um mögliche Probleme zu verhindern.
 {{% /alert %}}
 
 ## **FAQ**

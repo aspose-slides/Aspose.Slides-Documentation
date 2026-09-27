@@ -30,10 +30,10 @@ Bevor Sie beginnen, fügen Sie Aspose.Slides zu Ihrem Projekt hinzu: aus NuGet i
 
 Um eine Präsentation zu erstellen und eine Textbox auf der ersten Folie zu platzieren, folgen Sie diesen Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) Klasse. Eine neue Präsentation enthält bereits eine leere Folie.
-2. Rufen Sie diese Folie mit der Methode [Presentation::get_Slide](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slide/) und dem Index 0 ab.
-3. Fügen Sie mit der Methode [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie dessen Text mit der Methode [ITextFrame::set_Text](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/set_text/).
-4. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [Presentation::Save](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/save/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse. Eine neue Präsentation enthält bereits eine leere Folie.
+2. Rufen Sie diese Folie mit der Methode [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) und dem Index 0 ab.
+3. Fügen Sie mit der Methode [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie dessen Text mit der Methode [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+4. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Verwenden Sie [BLOB‑Verwaltungsstrategien](/slides/de/cpp/manage-blob/), begre
 
 ### Kann ich Präsentationen parallel erstellen/speichern?
 
-Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) Instanz von [mehreren Threads](/slides/de/cpp/multithreading/) aus verwenden. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
+Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Instanz von [mehreren Threads](/slides/de/cpp/multithreading/) aus verwenden. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
 
 ### Wie entferne ich das Test‑Wasserzeichen und die Beschränkungen?
 
