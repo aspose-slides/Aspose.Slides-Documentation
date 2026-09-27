@@ -77,14 +77,14 @@ Aspose.Slides for Python via Java 是一個用於在 Python 應用程式中建�
 <hr>
 <p>參考</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh-hant/python-java/">API reference</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/python-java/release-notes/">Release notes</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API reference</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Release notes</a></li>
 <li><a href="/slides/zh-hant/python-java/known-issues/">Known issues</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/python-java/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Download</a></li>
 </ul>
 <p>支援</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">Free support forum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Free support forum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Paid support helpdesk</a></li>
 </ul>
 </div>

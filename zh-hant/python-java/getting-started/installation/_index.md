@@ -66,7 +66,7 @@ python -m pip install JPype1 aspose-slides-java
 
 ## **從 ZIP 壓縮檔安裝**
 
-您也可以從 [Aspose.Slides 下載頁面](https://releases.aspose.com/slides/zh-hant/python-java/) 使用此函式庫：
+您也可以從 [Aspose.Slides 下載頁面](https://releases.aspose.com/slides/python-java/) 使用此函式庫：
 
 1. 依照[先決條件](#prerequisites)說明安裝 Python 與 Java。
 2. 使用上述說明建立並啟用虛擬環境。

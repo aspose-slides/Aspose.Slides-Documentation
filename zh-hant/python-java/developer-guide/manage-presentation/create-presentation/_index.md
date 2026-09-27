@@ -29,13 +29,13 @@ description: "使用 Aspose.Slides 在 Python（透過 Java）中建立簡報—
 
 ## **建立簡報**
 
-在 Aspose.Slides for Python via Java 中從頭建立 PowerPoint 檔案，就像實例化 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別一樣簡單。建構函式會自動提供一個只有單一投影片的空白簡報，讓您立即擁有可放置圖形、文字、圖表或任何應用程式所需內容的畫布。當您修改該投影片──或新增投影片──後，即可將結果儲存為 PPTX、舊版 PPT，甚至 OpenDocument 格式。下面的簡短程式碼範例說明了透過在第一張投影片上加入簡單圖形的工作流程。
+在 Aspose.Slides for Python via Java 中從頭建立 PowerPoint 檔案，就像實例化 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 類別一樣簡單。建構函式會自動提供一個只有單一投影片的空白簡報，讓您立即擁有可放置圖形、文字、圖表或任何應用程式所需內容的畫布。當您修改該投影片──或新增投影片──後，即可將結果儲存為 PPTX、舊版 PPT，甚至 OpenDocument 格式。下面的簡短程式碼範例說明了透過在第一張投影片上加入簡單圖形的工作流程。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
+1. 建立 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 類別的實例。
 1. 透過索引 0 取得第一張投影片。
-1. 使用 [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapecollection/#addAutoShape) 新增類型為 [ShapeType.Cloud](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapetype/#Cloud) 的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)。
-1. 使用 [TextFrame.setText](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/#setText) 設定圖形的文字。
-1. 使用 [Presentation.save](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#save) 並指定 [SaveFormat.Pptx](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/saveformat/#Pptx) 儲存簡報。
+1. 使用 [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) 新增類型為 [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) 的 [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)。
+1. 使用 [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) 設定圖形的文字。
+1. 使用 [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) 並指定 [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) 儲存簡報。
 
 以下範例會在 Java 虛擬機器 (JVM) 尚未啟動時啟動它，將帶文字的雲形圖形加入第一張投影片，並儲存簡報。將檔案儲存為 *create_presentation.py*：
 
@@ -100,7 +100,7 @@ python create_presentation.py
 
 **我可以平行建立/儲存簡報嗎？**
 
-不能在 [多執行緒](/slides/zh-hant/python-java/multithreading/) 中同時操作相同的 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 實例。請為每個執行緒或程序執行獨立的實例。
+不能在 [多執行緒](/slides/zh-hant/python-java/multithreading/) 中同時操作相同的 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 實例。請為每個執行緒或程序執行獨立的實例。
 
 **如何移除試用水印與限制？**
 
