@@ -30,7 +30,7 @@ Este artículo explica cómo funciona el licenciamiento en Aspose.Slides y cómo
 
 Puede descargar una versión de evaluación de **Aspose.Slides for Java** desde su [página de descarga](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). La versión de evaluación ofrece las mismas funcionalidades que la versión licenciada del producto. El paquete de evaluación es idéntico al paquete comprado. La versión de evaluación simplemente se convierte en licenciada después de añadir unas pocas líneas de código (para aplicar la licencia).
 
-Una vez que esté satisfecho con su evaluación de **Aspose.Slides**, puede [adquirir una licencia](https://purchase.aspose.com/pricing/slides/es/java/). Le recomendamos que revise los diferentes tipos de suscripción. Si tiene preguntas, contacte con el equipo de ventas de Aspose.
+Una vez que esté satisfecho con su evaluación de **Aspose.Slides**, puede [adquirir una licencia](https://purchase.aspose.com/pricing/slides/java/). Le recomendamos que revise los diferentes tipos de suscripción. Si tiene preguntas, contacte con el equipo de ventas de Aspose.
 
 Cada licencia de Aspose incluye una suscripción de un año para actualizaciones gratuitas a nuevas versiones o correcciones lanzadas durante el período de suscripción. Los usuarios con productos licenciados (o incluso versiones de evaluación) obtienen soporte técnico gratuito e ilimitado.
 
@@ -70,7 +70,7 @@ Una licencia puede cargarse desde un **archivo** o **stream**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides proporciona la clase [License](https://reference.aspose.com/slides/es/java/com.aspose.slides/license/) para operaciones de licenciamiento.
+Aspose.Slides proporciona la clase [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) para operaciones de licenciamiento.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Si coloca el archivo de licencia en un directorio distinto, al llamar al método [setLicense](https://reference.aspose.com/slides/es/java/com.aspose.slides/license/#setLicense-java.lang.String-) el nombre del archivo de licencia al final de la ruta especificada debe coincidir con el nombre de su archivo de licencia.
+Si coloca el archivo de licencia en un directorio distinto, al llamar al método [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) el nombre del archivo de licencia al final de la ruta especificada debe coincidir con el nombre de su archivo de licencia.
 
-Por ejemplo, puede cambiar el nombre del archivo de licencia a *Aspose.Slides.Java.lic.xml*. Entonces, en su código, debe pasar la ruta al archivo (terminando con *Aspose.Slides.Java.lic.xml*) al método [setLicense](https://reference.aspose.com/slides/es/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Por ejemplo, puede cambiar el nombre del archivo de licencia a *Aspose.Slides.Java.lic.xml*. Entonces, en su código, debe pasar la ruta al archivo (terminando con *Aspose.Slides.Java.lic.xml*) al método [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-El método [setLicense](https://reference.aspose.com/slides/es/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) no es seguro para hilos. Si este método debe llamarse simultáneamente desde varios hilos, quizás desee usar primitivas de sincronización (como un bloqueo) para evitar problemas.
+El método [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) no es seguro para hilos. Si este método debe llamarse simultáneamente desde varios hilos, quizás desee usar primitivas de sincronización (como un bloqueo) para evitar problemas.
 
 {{% /alert %}}
 

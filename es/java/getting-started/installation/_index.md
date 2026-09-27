@@ -151,11 +151,11 @@ Las fuentes utilizadas en sus presentaciones, o sustitutos adecuados, también d
 
 ### ¿Cómo puedo comprobar que Aspose.Slides está integrado correctamente?
 
-Compila su proyecto, cree una instancia de una [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) vacía y guárdela con un nuevo nombre. Si el archivo se crea sin lanzar excepciones, la biblioteca se ha integrado correctamente.
+Compila su proyecto, cree una instancia de una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) vacía y guárdela con un nuevo nombre. Si el archivo se crea sin lanzar excepciones, la biblioteca se ha integrado correctamente.
 
 ### ¿Cómo puedo limitar el consumo de memoria al procesar presentaciones grandes?
 
-Aumente los límites de memoria de la JVM solo tanto como sea necesario, y llame a [dispose](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#dispose--) en cada instancia de [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) dentro de un bloque `finally` para liberar la caché rápidamente. Esto evita errores de falta de memoria y mantiene el uso de memoria general predecible durante operaciones por lotes.
+Aumente los límites de memoria de la JVM solo tanto como sea necesario, y llame a [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) en cada instancia de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) dentro de un bloque `finally` para liberar la caché rápidamente. Esto evita errores de falta de memoria y mantiene el uso de memoria general predecible durante operaciones por lotes.
 
 ### ¿Puedo excluir formatos de exportación no deseados para reducir el tamaño final del JAR?
 
