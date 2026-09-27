@@ -29,12 +29,12 @@ Aspose.Slides for Node.js via .NET, PowerPoint ve OpenDocument sunumlarını, PP
 Örnekler, [Installation](/slides/tr/nodejs-net/installation/) bölümünde ayarladığınız proje klasöründe `sample.pptx` adlı bir sunum bekler. Herhangi bir PowerPoint sunumu uygundur. Her örneği proje klasöründe bir `.js` dosyası olarak kaydedin ve o klasörden `node` ile çalıştırın.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET'in kendi API referansı yoktur. Aspose.Slides for .NET API'sini camelCase adlarıyla yansıttığından, bu makaledeki API bağlantıları [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/tr/net/) içindeki eşleşen sınıflara ve üyelere yönlendirir.
+Aspose.Slides for Node.js via .NET'in kendi API referansı yoktur. Aspose.Slides for .NET API'sini camelCase adlarıyla yansıttığından, bu makaledeki API bağlantıları [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) içindeki eşleşen sınıflara ve üyelere yönlendirir.
 {{% /alert %}}
 
 ## **Bir Dosyadan Sunum Açma**
 
-Bir sunumu açmak için, yolunu [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/presentation/) yapıcısına geçirin. Aspose.Slides formatı uzantıdan ziyade dosya içeriğinden algılar, bu yüzden aynı kod PPTX, PPT ve ODP dosyalarını açar. Göreceli bir yol, betiği çalıştırdığınızda proje klasörü olan geçerli çalışma dizinine göre çözülür.
+Bir sunumu açmak için, yolunu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) yapıcısına geçirin. Aspose.Slides formatı uzantıdan ziyade dosya içeriğinden algılar, bu yüzden aynı kod PPTX, PPT ve ODP dosyalarını açar. Göreceli bir yol, betiği çalıştırdığınızda proje klasörü olan geçerli çalışma dizinine göre çözülür.
 
 ```javascript
 const { Presentation } = require("aspose.slides.via.net");
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-Betik, `sample.pptx` içindeki slayt sayısını, örneğin `Slide count: 9` olarak yazdırır. [slides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/slides/tr/) koleksiyonunun `count` özelliği gizli slaytları da içerir. Gösterildiği gibi bir `finally` bloğunda `dispose` çağırın, böylece sunumun arkasındaki .NET kaynakları, kodunuz başarısız olsa bile serbest bırakılır.
+Betik, `sample.pptx` içindeki slayt sayısını, örneğin `Slide count: 9` olarak yazdırır. [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) koleksiyonunun `count` özelliği gizli slaytları da içerir. Gösterildiği gibi bir `finally` bloğunda `dispose` çağırın, böylece sunumun arkasındaki .NET kaynakları, kodunuz başarısız olsa bile serbest bırakılır.
 
 ## **Buffer'dan Sunum Açma**
 
@@ -71,7 +71,7 @@ Betik, önceki örnek ile aynı slayt sayısını yazdırır. İkinci argüman b
 
 ## **Sunumu Başka Bir Formatta Kaydet**
 
-Bir sunumu başka bir sunum formatına dönüştürmek için, açın ve farklı bir [SaveFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) değeriyle kaydedin. Aşağıdaki örnek, Aspose.Slides'in algıladığı formatı ve [sourceFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/sourceformat/) özelliğinin döndürdüğü değeri yazdırır ve sunumu bir OpenDocument sunumu olarak kaydeder:
+Bir sunumu başka bir sunum formatına dönüştürmek için, açın ve farklı bir [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) değeriyle kaydedin. Aşağıdaki örnek, Aspose.Slides'in algıladığı formatı ve [sourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) özelliğinin döndürdüğü değeri yazdırır ve sunumu bir OpenDocument sunumu olarak kaydeder:
 
 ```javascript
 const { Presentation, SaveFormat } = require("aspose.slides.via.net");
@@ -91,7 +91,7 @@ Betik `Source format: Pptx` yazdırır ve aynı slaytları içeren `sample.odp` 
 
 **Şifre korumalı bir sunumu nasıl açarım?**
 
-Bir [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) nesnesi oluşturun, onun [password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) özelliğini ayarlayın ve nesneyi üçüncü yapıcı argümanı olarak geçirin: `new Presentation("protected.pptx", null, loadOptions)`. Doğru şifre olmadan, yapıcı bir hata fırlatır.
+Bir [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) nesnesi oluşturun, onun [password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) özelliğini ayarlayın ve nesneyi üçüncü yapıcı argümanı olarak geçirin: `new Presentation("protected.pptx", null, loadOptions)`. Doğru şifre olmadan, yapıcı bir hata fırlatır.
 
 **Neden yapıcı boş bir mesajla `Error` fırlatır?**
 

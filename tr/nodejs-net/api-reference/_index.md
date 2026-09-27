@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET, Aspose.Slides for .NET API ref
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Node.js via .NET'in kendine ait bir API referansı yoktur. Paket, Aspose.Slides for .NET sınıflarını aynı adlarla, camelCase üye adlarıyla JavaScript'e sunar, bu yüzden [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/tr/net/) sınıflarını, üyelerini ve enum'larını belgeler.
+Aspose.Slides for Node.js via .NET'in kendine ait bir API referansı yoktur. Paket, Aspose.Slides for .NET sınıflarını aynı adlarla, camelCase üye adlarıyla JavaScript'e sunar, bu yüzden [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) sınıflarını, üyelerini ve enum'larını belgeler.
 
 ## **.NET Adlarını JavaScript'e Eşleme**
 
@@ -54,4 +54,4 @@ try {
 
 Betik `slide.png` ve `slide.pdf` dosyalarını geçerli klasöre yazar. Her ikisi de metinli dikdörtgeni gösterir. Lisans olmadan, bir değerlendirme filigranı da gösterir; [Licensing](/slides/tr/nodejs-net/licensing/) bölümüne bakın.
 
-Burada kullanılan üyeler hakkında detaylar için Aspose.Slides for .NET API referansındaki [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/tr/net/aspose.slides/textframe/text/) ve [Slide.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/getimage/) bölümlerine bakın.
+Burada kullanılan üyeler hakkında detaylar için Aspose.Slides for .NET API referansındaki [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) ve [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) bölümlerine bakın.

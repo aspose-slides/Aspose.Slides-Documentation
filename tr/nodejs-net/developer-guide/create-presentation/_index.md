@@ -27,17 +27,17 @@ Bu makale, Aspose.Slides for Node.js via .NET ile bir sunum oluşturmayı, ilk s
 Örneklerin, [Installation](/slides/tr/nodejs-net/installation/) bölümünde açıklanan şekilde kurulan bir projeye ihtiyacı vardır. Her örneği proje klasöründe `.js` dosyası olarak kaydedin ve o klasörden `node` ile çalıştırın; örneğin `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET kendi API referansına sahip değildir. Aspose.Slides for .NET API'sini camelCase adlarla yansıttığından, bu makaledeki API bağlantıları [Aspose.Slides for .NET API referansı](https://reference.aspose.com/slides/tr/net/) içindeki eşleşen sınıflara ve üyelere yönlendirilir.
+Aspose.Slides for Node.js via .NET kendi API referansına sahip değildir. Aspose.Slides for .NET API'sini camelCase adlarla yansıttığından, bu makaledeki API bağlantıları [Aspose.Slides for .NET API referansı](https://reference.aspose.com/slides/net/) içindeki eşleşen sınıflara ve üyelere yönlendirilir.
 {{% /alert %}}
 
 ## **Metin Kutulu Sunum Oluşturma**
 
 Bir sunum oluşturup ilk slaytına bir metin kutusu eklemek için aşağıdaki adımları izleyin:
 
-1. Yeni bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı örneği oluşturun. Yeni bir sunum zaten bir boş slayt içerir.
-1. Bu slaytı [slides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/slides/tr/) koleksiyonundan alın. Bu paketteki koleksiyonlar `get(index)` ile okunur ve indeksler 0'dan başlar.
-1. [addAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/shapecollection/addautoshape/) metoduyla bir dikdörtgen ekleyin ve onun [textFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/autoshape/textframe/) içindeki [text](https://reference.aspose.com/slides/tr/net/aspose.slides/textframe/text/) öğesini ayarlayın.
-1. [save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) metodunu ve `SaveFormat.Pptx` değerini kullanarak sunumu kaydedin.
+1. Yeni bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı örneği oluşturun. Yeni bir sunum zaten bir boş slayt içerir.
+1. Bu slaytı [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) koleksiyonundan alın. Bu paketteki koleksiyonlar `get(index)` ile okunur ve indeksler 0'dan başlar.
+1. [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) metoduyla bir dikdörtgen ekleyin ve onun [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) içindeki [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) öğesini ayarlayın.
+1. [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metodunu ve `SaveFormat.Pptx` değerini kullanarak sunumu kaydedin.
 1. Sunumu destekleyen .NET kaynaklarını serbest bırakmak için `finally` bloğunda `dispose` çağırın.
 
 ```javascript
@@ -62,7 +62,7 @@ Komut dosyası `new-presentation.pptx` dosyasını proje klasörüne yazar. Dosy
 
 ## **Slayt Ekleme**
 
-Yeni bir sunum bir slayta sahiptir. Daha fazla eklemek için, `slides` koleksiyonunun [addEmptySlide](https://reference.aspose.com/slides/tr/net/aspose.slides/slidecollection/addemptyslide/) metoduna bir düzen slaytı geçirin. [layoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/layoutslides/) koleksiyonunun [getByType](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutslidecollection/getbytype/) metodu, belirtilen bir [SlideLayoutType](https://reference.aspose.com/slides/tr/net/aspose.slides/slidelayouttype/) tipinin ilk düzenini döndürür.
+Yeni bir sunum bir slayta sahiptir. Daha fazla eklemek için, `slides` koleksiyonunun [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) metoduna bir düzen slaytı geçirin. [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) koleksiyonunun [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) metodu, belirtilen bir [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) tipinin ilk düzenini döndürür.
 
 Aşağıdaki örnek, Blank (Boş) düzeniyle iki slayt ekler:
 
@@ -86,7 +86,7 @@ Komut dosyası `Slide count: 3` çıktısını verir ve `three-slides.pptx` dosy
 
 ## **Slayt Boyutunu Ayarlama**
 
-Yeni bir sunum, 720 × 540 puan (10 × 7,5 inç) ölçülerinde 4:3 slaytlar kullanır. Bunun yerine geniş ekran slaytlar oluşturmak için, sunumun [slideSize](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/slidesize/) özelliğinin [setSize](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesize/setsize/) metodunu bir [SlideSizeType](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizetype/) değeri ve bir [SlideSizeScaleType](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizescaletype/) değeri ile çağırın. Ölçek tipi, Aspose.Slides'e zaten slaytlarda bulunan şekillerle ne yapılacağını söyler; `DoNotScale` onları olduğu gibi bırakır, bu da henüz içeriği olmayan bir sunum için doğru tercihtir.
+Yeni bir sunum, 720 × 540 puan (10 × 7,5 inç) ölçülerinde 4:3 slaytlar kullanır. Bunun yerine geniş ekran slaytlar oluşturmak için, sunumun [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) özelliğinin [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) metodunu bir [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) değeri ve bir [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) değeri ile çağırın. Ölçek tipi, Aspose.Slides'e zaten slaytlarda bulunan şekillerle ne yapılacağını söyler; `DoNotScale` onları olduğu gibi bırakır, bu da henüz içeriği olmayan bir sunum için doğru tercihtir.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ Puan (point) cinsindendir. Bir inç 72 puandır, bu yüzden varsayılan 4:3 slay
 
 **Yeni bir sunumu hangi formatlarda kaydedebilirim?**
 
-[SaveFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) enumarasyonunun herhangi bir değeri, örneğin PowerPoint 97–2003 için `SaveFormat.Ppt`, OpenDocument için `SaveFormat.Odp` ya da `SaveFormat.Pdf`. PDF çıktısı için [PowerPoint'i PDF'e Dönüştür](/slides/tr/nodejs-net/convert-powerpoint-to-pdf/) bölümüne bakın.
+[SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) enumarasyonunun herhangi bir değeri, örneğin PowerPoint 97–2003 için `SaveFormat.Ppt`, OpenDocument için `SaveFormat.Odp` ya da `SaveFormat.Pdf`. PDF çıktısı için [PowerPoint'i PDF'e Dönüştür](/slides/tr/nodejs-net/convert-powerpoint-to-pdf/) bölümüne bakın.
 
 **Kaydedilen sunumda neden "Evaluation only" metni bulunuyor?**
 

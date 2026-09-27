@@ -10,7 +10,7 @@ url: /tr/nodejs-net/licensing/
 Aspose.Slides for Node.js via .NET, değerlendirme ve üretim için tek bir npm paketidir. Lisans olmadan değerlendirme modunda çalışır. Bir lisans satın aldığınızda veya ücretsiz 30 günlük geçici bir lisans aldığınızda, birkaç satır kodla uygularsınız ve değerlendirme kısıtlamaları artık geçerli olmaz.
 
 {{% alert color="info" title="Note" %}}
-Aspose ürünlerini değerlendirme, lisanslama ve satın alma ile ilgili genel politikalar [Purchase Policies and FAQ](https://purchase.aspose.com/policies) adresinde toplanmıştır. Fiyatlar [Pricing Information](https://purchase.aspose.com/pricing/slides/tr/family) sayfasında listelenmiştir.
+Aspose ürünlerini değerlendirme, lisanslama ve satın alma ile ilgili genel politikalar [Purchase Policies and FAQ](https://purchase.aspose.com/policies) adresinde toplanmıştır. Fiyatlar [Pricing Information](https://purchase.aspose.com/pricing/slides/family) sayfasında listelenmiştir.
 {{% /alert %}}
 
 ## **Değerlendirme Sürümü Kısıtlamaları**
@@ -53,4 +53,4 @@ Bir dosya adı veya göreli yol, `node` çalıştırdığınız geçerli klasör
 
 Dosya bulunamazsa veya geçerli bir lisans değilse, `setLicense` bir hata fırlatır ve Aspose.Slides değerlendirme modunda kalır. Komut dosyası hatayı yakalar ve mesajını görüntüler. Eksik bir dosya için mesaj, `License "Aspose.Slides.lic" doesn't exist or access is restricted.` ile başlar ve aranan tüm konumları listeler.
 
-Bu pakette, lisans yalnızca bir dosyadan uygulanır. `License` bir akışı kabul etmez ve paket ölçülü lisanslamayı ortaya koymaz. Paketin sarmaladığı sınıf için Aspose.Slides for .NET API referansındaki [License](https://reference.aspose.com/slides/tr/net/aspose.slides/license/) bölümüne bakın.
+Bu pakette, lisans yalnızca bir dosyadan uygulanır. `License` bir akışı kabul etmez ve paket ölçülü lisanslamayı ortaya koymaz. Paketin sarmaladığı sınıf için Aspose.Slides for .NET API referansındaki [License](https://reference.aspose.com/slides/net/aspose.slides/license/) bölümüne bakın.

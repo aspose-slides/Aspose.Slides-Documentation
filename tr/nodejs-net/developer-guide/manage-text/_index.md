@@ -31,12 +31,12 @@ Bu makale bir slayta metin kutusu ekler ve sunumu kaydeder. Ardından kaydedilen
 Örneklerin, [Kurulum](/slides/tr/nodejs-net/installation/) bölümünde anlatıldığı gibi bir proje ayarlanmasını gerektirir. Her örneği proje klasöründe `.js` dosyası olarak kaydedin ve `node` ile bu klasörden çalıştırın.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET kendi API referansına sahip değildir. .NET için Aspose.Slides API'sını camelCase adlarıyla yansıtır, bu nedenle bu makaledeki API bağlantıları [Aspose.Slides for .NET API referansı](https://reference.aspose.com/slides/tr/net/) içindeki eşleşen sınıflara ve üyelere yönlendirir.
+Aspose.Slides for Node.js via .NET kendi API referansına sahip değildir. .NET için Aspose.Slides API'sını camelCase adlarıyla yansıtır, bu nedenle bu makaledeki API bağlantıları [Aspose.Slides for .NET API referansı](https://reference.aspose.com/slides/net/) içindeki eşleşen sınıflara ve üyelere yönlendirir.
 {{% /alert %}}
 
 ## **Metin Kutusu Ekle**
 
-Bir metin kutusu eklemek için, bir slayta [addAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/shapecollection/addautoshape/) yöntemiyle bir otomatik şekil ekleyin ve [addTextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/autoshape/addtextframe/) yöntemiyle ona metin verin. Aşağıdaki örnek, yeni bir sunumun ilk slaytına bir dikdörtgen ekler ve sunumu `text-box.pptx` olarak kaydeder:
+Bir metin kutusu eklemek için, bir slayta [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) yöntemiyle bir otomatik şekil ekleyin ve [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) yöntemiyle ona metin verin. Aşağıdaki örnek, yeni bir sunumun ilk slaytına bir dikdörtgen ekler ve sunumu `text-box.pptx` olarak kaydeder:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **Metni ve Biçimlendirmesini Değiştir**
 
-Aşağıdaki örnek, önceki örneğin oluşturduğu `text-box.pptx` dosyasını açar ve ilk slayttaki ilk şekli alır. Resim ve tablo gibi şekillerin metin çerçevesi yoktur, bu yüzden örnek, şeklin [AutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/autoshape/) olduğundan emin olduktan sonra şeklin [textFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/autoshape/textframe/) özelliğini kullanır. Ardından şu adımları gerçekleştirir:
+Aşağıdaki örnek, önceki örneğin oluşturduğu `text-box.pptx` dosyasını açar ve ilk slayttaki ilk şekli alır. Resim ve tablo gibi şekillerin metin çerçevesi yoktur, bu yüzden örnek, şeklin [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) olduğundan emin olduktan sonra şeklin [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) özelliğini kullanır. Ardından şu adımları gerçekleştirir:
 
-1. Metin çerçevesinin [text](https://reference.aspose.com/slides/tr/net/aspose.slides/textframe/text/) özelliği aracılığıyla metni değiştirir. Sonuçta, metin çerçevesi bir paragraf ve bir parçacık (portion) içerir.
-2. Bu parçacığı [paragraphs](https://reference.aspose.com/slides/tr/net/aspose.slides/textframe/paragraphs/) ve [portions](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraph/portions/) koleksiyonlarından alır ve onun [portionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/portion/portionformat/) özelliğini okur.
-3. [fontHeight](https://reference.aspose.com/slides/tr/net/aspose.slides/baseportionformat/fontheight/) özelliğini, puan cinsinden yazı tipi boyutunu ayarlar ve [fontBold](https://reference.aspose.com/slides/tr/net/aspose.slides/baseportionformat/fontbold/) özelliğini, bir [NullableBool](https://reference.aspose.com/slides/tr/net/aspose.slides/nullablebool/) değeri alan şekilde ayarlar.
+1. Metin çerçevesinin [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) özelliği aracılığıyla metni değiştirir. Sonuçta, metin çerçevesi bir paragraf ve bir parçacık (portion) içerir.
+2. Bu parçacığı [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) ve [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) koleksiyonlarından alır ve onun [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/) özelliğini okur.
+3. [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) özelliğini, puan cinsinden yazı tipi boyutunu ayarlar ve [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/) özelliğini, bir [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) değeri alan şekilde ayarlar.
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

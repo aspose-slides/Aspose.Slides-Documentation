@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET, PowerPoint ve OpenDocument sunumlarından sl
 Örnekler, [Installation](/slides/tr/nodejs-net/installation/) bölümünde kurduğunuz proje klasöründe `sample.pptx` adlı bir sunum dosyası bekler. Herhangi bir PowerPoint sunumu kullanılabilir. Her örneği proje klasöründe bir `.js` dosyası olarak kaydedin ve o klasörden `node` ile çalıştırın.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET kendi API referansına sahip değildir. Aspose.Slides for .NET API'sini camelCase adlarla yansıtır, bu nedenle bu makaledeki API linkleri [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/tr/net/) adresindeki eşleşen sınıflara ve üyelere yönlendirilir.
+Aspose.Slides for Node.js via .NET kendi API referansına sahip değildir. Aspose.Slides for .NET API'sini camelCase adlarla yansıtır, bu nedenle bu makaledeki API linkleri [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) adresindeki eşleşen sınıflara ve üyelere yönlendirilir.
 {{% /alert %}}
 
 Bir slaytı görüntüye dönüştürmek için şu adımları izleyin:
 
-1. Sunumu, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/presentation/) yapıcısı ile açın.  
-2. `get(index)` ile [slides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/slides/tr/) koleksiyonundan bir slayt alın. Dizinler 0’dan başlar.  
-3. Slaytı `getImageWithScale` veya `getImageWithImageSize` ile render edin. .NET API referansında ikisi de [Slide.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/getimage/) metodunun aşırı yüklemeleridir. Bu metodlar, [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) nesnesine karşılık gelen bir görüntü nesnesi döndürür.  
-4. Görüntüyü, [save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/save/) metodu ve bir [ImageFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/) değeri ile kaydedin, ardından `dispose` metodunu çağırın.
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) yapıcısı ile açın.  
+2. `get(index)` ile [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) koleksiyonundan bir slayt alın. Dizinler 0’dan başlar.  
+3. Slaytı `getImageWithScale` veya `getImageWithImageSize` ile render edin. .NET API referansında ikisi de [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) metodunun aşırı yüklemeleridir. Bu metodlar, [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) nesnesine karşılık gelen bir görüntü nesnesi döndürür.  
+4. Görüntüyü, [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) metodu ve bir [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) değeri ile kaydedin, ardından `dispose` metodunu çağırın.
 
 ## **Her Slaytı PNG Görüntüsü Olarak Dönüştür**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Betik, her slayt için bir dosya yazar: `slide_1.png`, `slide_2.png` vb., 1’den başlayarak numaralandırılır. 960 × 540 nokta boyutundaki slaytlara sahip 16:9 bir sunum için, her görüntü 1920 × 1080 piksel olur. Gizli slaytlar da render edilir; bunları atlamak için slaytın [hidden](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/hidden/) özelliğini kontrol edin. Her görüntü, bir `finally` bloğunda dispose edilir, böylece bir sonraki slayt render edilmeden önce serbest bırakılır. Lisans olmadan, görüntüler değerlendirme filigranı gösterir; [Licensing](/slides/tr/nodejs-net/licensing/) bölümüne bakın.
+Betik, her slayt için bir dosya yazar: `slide_1.png`, `slide_2.png` vb., 1’den başlayarak numaralandırılır. 960 × 540 nokta boyutundaki slaytlara sahip 16:9 bir sunum için, her görüntü 1920 × 1080 piksel olur. Gizli slaytlar da render edilir; bunları atlamak için slaytın [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) özelliğini kontrol edin. Her görüntü, bir `finally` bloğunda dispose edilir, böylece bir sonraki slayt render edilmeden önce serbest bırakılır. Lisans olmadan, görüntüler değerlendirme filigranı gösterir; [Licensing](/slides/tr/nodejs-net/licensing/) bölümüne bakın.
 
 ## **Bir Slaytı Belirli Bir Boyutta Görüntüye Dönüştür**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-[slideSize.size](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesize/size/) özelliği slayt genişliğini ve yüksekliğini nokta cinsinden döndürür. 16:9 bir sunum için betik `Saved a 1280 x 720 image` mesajını yazdırır ve `slide_1_1280px.png` dosyasını oluşturur; 4:3 bir sunumda ise görüntü 1280 × 960 piksel olur.
+[slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) özelliği slayt genişliğini ve yüksekliğini nokta cinsinden döndürür. 16:9 bir sunum için betik `Saved a 1280 x 720 image` mesajını yazdırır ve `slide_1_1280px.png` dosyasını oluşturur; 4:3 bir sunumda ise görüntü 1280 × 960 piksel olur.
 
 ## **SSS**
 
