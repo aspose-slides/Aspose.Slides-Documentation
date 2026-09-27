@@ -41,7 +41,7 @@ Aspose.Slides の評価版（ライセンスが指定されていない）は、
 {{% /alert %}}
 
 ## **ライセンスについて**
-Node.js via Java 用の Aspose.Slides 評価版は、[ダウンロード ページ](https://releases.aspose.com/slides/ja/nodejs-java/) から簡単に取得できます。評価版はライセンス版と同じ機能を持ちますが、上記の制限があります。さらに、ライセンスを購入し、数行のコードでライセンスを適用すれば評価版は正式にライセンスが適用された状態になります。
+Node.js via Java 用の Aspose.Slides 評価版は、[ダウンロード ページ](https://releases.aspose.com/slides/nodejs-java/) から簡単に取得できます。評価版はライセンス版と同じ機能を持ちますが、上記の制限があります。さらに、ライセンスを購入し、数行のコードでライセンスを適用すれば評価版は正式にライセンスが適用された状態になります。
 
 ライセンスはプレーンテキストの XML ファイルで、製品名、ライセンス対象の開発者数、サブスクリプションの有効期限などの情報が含まれます。ファイルはデジタル署名されているため、変更しないでください。ファイル内容に余計な改行が入るだけでも無効になります。
 
@@ -61,7 +61,7 @@ Node.js via Java 用の Aspose.Slides 評価版は、[ダウンロード ペー�
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-価格情報は[“Pricing Information”](https://purchase.aspose.com/pricing/slides/ja/family)ページで確認できます。
+価格情報は[“Pricing Information”](https://purchase.aspose.com/pricing/slides/family)ページで確認できます。
 {{% /alert %}}
 
 ### **Node.js via Java 用 Aspose.Slides でのライセンス設定**
@@ -95,11 +95,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-setLicense メソッドを呼び出す際、ライセンス名はライセンスファイル名と同じである必要があります。たとえばライセンスファイル名を "Aspose.Slides.lic.xml" に変更し、コード内で新しいライセンス名 (Aspose.Slides.lic.xml) を setLicense メソッドに渡します。ファイルが存在しない、または有効なライセンスを含まない場合、[setLicense](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/license/setlicense/) は例外をスローし、スクリプトはエラーで終了します。
+setLicense メソッドを呼び出す際、ライセンス名はライセンスファイル名と同じである必要があります。たとえばライセンスファイル名を "Aspose.Slides.lic.xml" に変更し、コード内で新しいライセンス名 (Aspose.Slides.lic.xml) を setLicense メソッドに渡します。ファイルが存在しない、または有効なライセンスを含まない場合、[setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) は例外をスローし、スクリプトはエラーで終了します。
 
 #### **ストリームからのライセンス適用**
 
-ストリームからライセンスを適用するには、[License](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/license/) オブジェクトと読み取り可能なストリームを静的な [setLicenseFromStream](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/license/setlicense/) メソッドに渡します。ストリームは非同期で読み取られ、ストリームに有効なライセンスが含まれていない場合はコールバックにエラーが渡されます。
+ストリームからライセンスを適用するには、[License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) オブジェクトと読み取り可能なストリームを静的な [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) メソッドに渡します。ストリームは非同期で読み取られ、ストリームに有効なライセンスが含まれていない場合はコールバックにエラーが渡されます。
 
 **Node.js**
 

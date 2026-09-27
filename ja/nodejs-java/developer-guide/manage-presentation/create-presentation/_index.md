@@ -31,11 +31,11 @@ description: "Aspose.Slides を使用してプレゼンテーションを作成�
 
 プレゼンテーションを作成し、最初のスライドにテキストボックスを配置するには、以下の手順に従います：
 
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションには既に空のスライドが1枚含まれています。
-1. [slide collection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getslides/) からインデックス0でそのスライドを取得します。
-1. [addAutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shapecollection/addautoshape/) メソッドで矩形を追加し、[setText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/settext/) でテキストを設定します。
-1. [save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/save/) メソッドを使用してプレゼンテーションを PPTX ファイルとして保存します。
-1. [dispose](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/dispose/) メソッドでプレゼンテーションを解放し、プロセスを終了します。
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションには既に空のスライドが1枚含まれています。
+1. [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) からインデックス0でそのスライドを取得します。
+1. [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) メソッドで矩形を追加し、[setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/) でテキストを設定します。
+1. [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) メソッドを使用してプレゼンテーションを PPTX ファイルとして保存します。
+1. [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) メソッドでプレゼンテーションを解放し、プロセスを終了します。
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Aspose.Slides は、`java` パッケージが Node.js プロセス内で起動�
 
 ### プレゼンテーションを並列で作成/保存できますか？
 
-同じ [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスに対して [複数のスレッド](/slides/ja/nodejs-java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに別々のインスタンスを実行してください。
+同じ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) インスタンスに対して [複数のスレッド](/slides/ja/nodejs-java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに別々のインスタンスを実行してください。
 
 ### 試用版の透かしや制限を解除するには？
 

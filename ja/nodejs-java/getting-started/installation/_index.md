@@ -100,7 +100,7 @@ node hello.js
 このパッケージは npm パッケージと同じ内容の ZIP アーカイブとしても提供されています。アーカイブからインストールする手順は次のとおりです：
 
 1. 上記の通り、使用している OS の前提条件をインストールします。
-2. [Aspose.Slides for Node.js via Java ダウンロードページ](https://releases.aspose.com/slides/ja/nodejs-java/) からアーカイブをダウンロードします。
+2. [Aspose.Slides for Node.js via Java ダウンロードページ](https://releases.aspose.com/slides/nodejs-java/) からアーカイブをダウンロードします。
 3. プロジェクトフォルダーを作成します：
 
     ```bash
