@@ -72,14 +72,14 @@ Perpustakaan ini memuat dan menyimpan PPT, PPTX, PPS, POT, dan ODP, termasuk var
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/id/java/">Referensi API</a></li>
-<li><a href="https://releases.aspose.com/slides/id/java/release-notes/">Catatan rilis</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">Referensi API</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">Catatan rilis</a></li>
 <li><a href="/slides/id/java/known-issues/">Masalah yang diketahui</a></li>
-<li><a href="https://releases.aspose.com/slides/id/java/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">Download</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>

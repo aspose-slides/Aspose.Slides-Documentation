@@ -30,7 +30,7 @@ Artikel ini menjelaskan cara kerja lisensi di Aspose.Slides dan cara menerapkan 
 
 Anda dapat mengunduh versi evaluasi **Aspose.Slides for Java** dari [halaman unduhan](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Versi evaluasi menyediakan fungsi yang sama dengan versi berlisensi produk. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi akan menjadi berlisensi setelah Anda menambahkan beberapa baris kode (untuk menerapkan lisensi).
 
-Setelah Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/id/java/). Kami menyarankan Anda meninjau berbagai tipe langganan. Jika Anda memiliki pertanyaan, hubungi tim penjualan Aspose.
+Setelah Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/java/). Kami menyarankan Anda meninjau berbagai tipe langganan. Jika Anda memiliki pertanyaan, hubungi tim penjualan Aspose.
 
 Setiap lisensi Aspose dilengkapi dengan langganan satu tahun untuk peningkatan gratis ke versi baru atau perbaikan yang dirilis selama periode langganan. Pengguna dengan produk berlisensi (atau bahkan versi evaluasi) mendapatkan dukungan teknis gratis dan tidak terbatas.
 
@@ -69,7 +69,7 @@ Lisensi dapat dimuat dari **file** atau **stream**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/id/java/com.aspose.slides/license/) untuk operasi lisensi.
+Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) untuk operasi lisensi.
 
 {{% /alert %}} 
 
@@ -95,9 +95,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Jika Anda menempatkan file lisensi di direktori yang berbeda, saat memanggil metode [setLicense](https://reference.aspose.com/slides/id/java/com.aspose.slides/license/#setLicense-java.lang.String-) , nama file lisensi di akhir jalur yang ditentukan harus sama dengan nama file lisensi Anda.
+Jika Anda menempatkan file lisensi di direktori yang berbeda, saat memanggil metode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) , nama file lisensi di akhir jalur yang ditentukan harus sama dengan nama file lisensi Anda.
 
-Sebagai contoh, Anda dapat mengubah nama file lisensi menjadi *Aspose.Slides.Java.lic.xml*. Kemudian, dalam kode Anda, Anda harus memberikan jalur ke file (yang berakhir dengan *Aspose.Slides.Java.lic.xml*) ke metode [setLicense](https://reference.aspose.com/slides/id/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Sebagai contoh, Anda dapat mengubah nama file lisensi menjadi *Aspose.Slides.Java.lic.xml*. Kemudian, dalam kode Anda, Anda harus memberikan jalur ke file (yang berakhir dengan *Aspose.Slides.Java.lic.xml*) ke metode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -137,7 +137,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-Metode [setLicense](https://reference.aspose.com/slides/id/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) tidak thread-safe. Jika metode ini harus dipanggil secara bersamaan dari banyak thread, Anda mungkin ingin menggunakan primitif sinkronisasi (seperti lock) untuk menghindari masalah.
+Metode [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) tidak thread-safe. Jika metode ini harus dipanggil secara bersamaan dari banyak thread, Anda mungkin ingin menggunakan primitif sinkronisasi (seperti lock) untuk menghindari masalah.
 
 {{% /alert %}}
 

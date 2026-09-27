@@ -149,11 +149,11 @@ Font yang digunakan dalam presentasi Anda, atau pengganti yang cocok, juga harus
 
 ### Bagaimana saya dapat memverifikasi bahwa Aspose.Slides terintegrasi dengan benar?
 
-Buat proyek Anda, buat instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) yang kosong dan simpan dengan nama baru. Jika file dibuat tanpa melempar pengecualian, pustaka telah terintegrasi dengan sukses.
+Buat proyek Anda, buat instance [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) yang kosong dan simpan dengan nama baru. Jika file dibuat tanpa melempar pengecualian, pustaka telah terintegrasi dengan sukses.
 
 ### Bagaimana saya dapat membatasi konsumsi memori saat memproses presentasi besar?
 
-Tingkatkan batas memori JVM hanya sebesar yang diperlukan, dan panggil [dispose](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#dispose--) pada setiap instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) dalam blok `finally` untuk segera melepaskan cache. Ini mencegah error out‑of‑memory dan menjaga penggunaan memori secara keseluruhan tetap dapat diprediksi selama operasi batch.
+Tingkatkan batas memori JVM hanya sebesar yang diperlukan, dan panggil [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) pada setiap instance [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) dalam blok `finally` untuk segera melepaskan cache. Ini mencegah error out‑of‑memory dan menjaga penggunaan memori secara keseluruhan tetap dapat diprediksi selama operasi batch.
 
 ### Bisakah saya mengecualikan format ekspor yang tidak diinginkan untuk memperkecil ukuran JAR akhir?
 

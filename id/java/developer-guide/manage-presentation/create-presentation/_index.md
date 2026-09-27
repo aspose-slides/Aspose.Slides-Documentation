@@ -28,14 +28,14 @@ Sebelum memulai, tambahkan Aspose.Slides for Java ke proyek Anda dari repositori
 
 ## **Buat Presentasi**
 
-Membuat file PowerPoint dari awal di Aspose.Slides for Java dimulai dengan instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Konstruktor menyediakan presentasi kosong dengan satu slide, siap untuk bentuk, teks, diagram, atau konten lain yang dibutuhkan aplikasi Anda. Setelah Anda memodifikasi slide tersebut, atau menambahkan slide baru, Anda dapat menyimpan hasilnya ke format PPTX, PPT lama, atau OpenDocument.
+Membuat file PowerPoint dari awal di Aspose.Slides for Java dimulai dengan instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Konstruktor menyediakan presentasi kosong dengan satu slide, siap untuk bentuk, teks, diagram, atau konten lain yang dibutuhkan aplikasi Anda. Setelah Anda memodifikasi slide tersebut, atau menambahkan slide baru, Anda dapat menyimpan hasilnya ke format PPTX, PPT lama, atau OpenDocument.
 
 Untuk membuat presentasi dan menempatkan bentuk dengan teks pada slide pertama, ikuti langkah-langkah berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.
-1. Dapatkan slide tersebut dengan indeksnya, 0, dari koleksi yang dikembalikan oleh [getSlides](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getSlides--).
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/) bertipe `Cloud` dengan metode [addAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), dan atur teksnya dengan [setText](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
-1. Simpan presentasi sebagai file PPTX dengan metode [save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.
+1. Dapatkan slide tersebut dengan indeksnya, 0, dari koleksi yang dikembalikan oleh [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--).
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) bertipe `Cloud` dengan metode [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-), dan atur teksnya dengan [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
+1. Simpan presentasi sebagai file PPTX dengan metode [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 Contoh di bawah ini adalah program lengkap. Dalam proyek Maven dari [Instalasi](/slides/id/java/installation/), simpan sebagai *src/main/java/HelloSlides.java* dan jalankan `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ Gunakan [strategi manajemen BLOB](/slides/id/java/manage-blob/), batasi penyimpa
 
 ### Bisakah saya membuat/menyimpan presentasi secara paralel?
 
-Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/java/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/java/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
 
 ### Bagaimana cara menghapus watermark evaluasi dan batasan?
 
