@@ -29,13 +29,13 @@ description: "Создавайте презентации в Python через J
 
 ## **Создание презентации**
 
-Создание файла PowerPoint с нуля в Aspose.Slides for Python via Java так же просто, как создание экземпляра класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) . Конструктор автоматически предоставляет пустую презентацию с одним слайдом, давая вам сразу холст для фигур, текста, диаграмм или любого другого содержимого, необходимого вашему приложению. После изменения этого слайда — или добавления новых — вы можете сохранить результат в формат PPTX, устаревший PPT или даже OpenDocument. Приведённый ниже короткий пример кода иллюстрирует этот процесс, добавляя простую форму на первый слайд.
+Создание файла PowerPoint с нуля в Aspose.Slides for Python via Java так же просто, как создание экземпляра класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) . Конструктор автоматически предоставляет пустую презентацию с одним слайдом, давая вам сразу холст для фигур, текста, диаграмм или любого другого содержимого, необходимого вашему приложению. После изменения этого слайда — или добавления новых — вы можете сохранить результат в формат PPTX, устаревший PPT или даже OpenDocument. Приведённый ниже короткий пример кода иллюстрирует этот процесс, добавляя простую форму на первый слайд.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
 2. Получите первый слайд по индексу 0.
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) типа [ShapeType.Cloud](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shapetype/#Cloud) с помощью [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shapecollection/#addAutoShape) .
-4. Установите текст формы, используя [TextFrame.setText](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframe/#setText) .
-5. Сохраните презентацию, вызвав [Presentation.save](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#save) с параметром [SaveFormat.Pptx](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveformat/#Pptx) .
+3. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) типа [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) с помощью [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) .
+4. Установите текст формы, используя [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText) .
+5. Сохраните презентацию, вызвав [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) с параметром [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) .
 
 Следующий пример запускает Java Virtual Machine (JVM), если он ещё не запущен, добавляет форму облака с текстом на первый слайд и сохраняет презентацию. Сохраните его как *create_presentation.py*:
 
@@ -100,7 +100,7 @@ python create_presentation.py
 
 **Могу ли я создавать/сохранять презентации параллельно?**
 
-Вы не можете работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/python-java/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
+Вы не можете работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/python-java/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
 
 **Как удалить пробную водяную метку и ограничения?**
 

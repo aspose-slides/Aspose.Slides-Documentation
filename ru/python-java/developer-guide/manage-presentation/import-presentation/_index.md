@@ -26,9 +26,9 @@ description: "Узнайте, как импортировать содержим
 ---
 ## **Введение**
 
-Aspose.Slides for Python via Java может преобразовывать страницы PDF или содержимое HTML в слайды PowerPoint без Microsoft PowerPoint. Класс [SlideCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/) предоставляет [addFromPdf](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#addFromPdf) и [addFromHtml](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#addFromHtml) для добавления импортированного содержимого в презентацию.
+Aspose.Slides for Python via Java может преобразовывать страницы PDF или содержимое HTML в слайды PowerPoint без Microsoft PowerPoint. Класс [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) предоставляет [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) и [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) для добавления импортированного содержимого в презентацию.
 
-Для более точного контроля размещения HTML метод [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#insertFromHtml) может вставлять сгенерированные слайды в указанный индекс коллекции или начинать заполнять доступное пространство на существующем слайде. Длинный HTML автоматически разбивается на дополнительные слайды, источник может быть передан как строка или поток, а внешние ресурсы могут загружаться через [ExternalResourceResolver](https://reference.aspose.com/slides/ru/python-java/aspose.slides/externalresourceresolver/) с базовым URI. Возвращаемый массив [Slide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/) идентифицирует затронутые и новосозданные слайды.
+Для более точного контроля размещения HTML метод [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) может вставлять сгенерированные слайды в указанный индекс коллекции или начинать заполнять доступное пространство на существующем слайде. Длинный HTML автоматически разбивается на дополнительные слайды, источник может быть передан как строка или поток, а внешние ресурсы могут загружаться через [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) с базовым URI. Возвращаемый массив [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) идентифицирует затронутые и новосозданные слайды.
 
 ## **Импорт из PDF**
 
@@ -36,9 +36,9 @@ Aspose.Slides for Python via Java может преобразовывать ст
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. Создайте новый объект [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Вызовите [addFromPdf](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#addFromPdf) с путем к PDF‑файлу.
-3. Вызовите [save](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#save) с [SaveFormat.Pptx](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveformat/#Pptx), чтобы записать презентацию в файл PPTX.
+1. Создайте новый объект [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Вызовите [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) с путем к PDF‑файлу.
+3. Вызовите [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) с [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx), чтобы записать презентацию в файл PPTX.
 
 Следующий пример на Python импортирует PDF‑документ и сохраняет сгенерированные слайды как презентацию PowerPoint:
 
@@ -59,21 +59,21 @@ finally:
     presentation.dispose()
 ```
 
-По умолчанию в презентацию остаётся пустой слайд, потому что импорт добавляет слайды. Чтобы оставить только импортированные страницы, очистите коллекцию слайдов с помощью [SlideCollection.clear](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#clear) перед импортом.
+По умолчанию в презентацию остаётся пустой слайд, потому что импорт добавляет слайды. Чтобы оставить только импортированные страницы, очистите коллекцию слайдов с помощью [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) перед импортом.
 
-Метод [addFromPdf](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#addFromPdf) возвращает добавленные слайды, что удобно, когда нужно обрабатывать только импортированные слайды.
+Метод [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) возвращает добавленные слайды, что удобно, когда нужно обрабатывать только импортированные слайды.
 
 {{% alert title="Tip" color="success" %}}
-Попробуйте бесплатное веб‑приложение [PDF to PowerPoint](https://products.aspose.app/slides/ru/import/pdf-to-powerpoint), чтобы увидеть этот процесс конвертации в действии.
+Попробуйте бесплатное веб‑приложение [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint), чтобы увидеть этот процесс конвертации в действии.
 {{% /alert %}}
 
 ## **Импорт из HTML**
 
 Aspose.Slides также может создавать слайды из HTML‑документа. Источник может быть предоставлен как HTML‑текст или поток. Ниже приведены шаги с использованием файлового потока:
 
-1. Создайте новый объект [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Откройте HTML‑файл для чтения и передайте поток в [addFromHtml](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#addFromHtml).
-3. Вызовите [save](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#save) с [SaveFormat.Pptx](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveformat/#Pptx), чтобы записать результат в файл PPTX.
+1. Создайте новый объект [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Откройте HTML‑файл для чтения и передайте поток в [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml).
+3. Вызовите [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) с [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx), чтобы записать результат в файл PPTX.
 
 Следующий пример на Python импортирует HTML‑документ и сохраняет сгенерированные слайды как презентацию PowerPoint:
 
@@ -101,14 +101,14 @@ finally:
 
 ## **Вставка HTML‑контента**
 
-Используйте [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#insertFromHtml), когда слайды, сгенерированные из HTML, необходимо разместить в определённом месте, а не добавить в конец. Индекс начинается с нуля и указывает позицию, с которой начинается импорт.
+Используйте [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml), когда слайды, сгенерированные из HTML, необходимо разместить в определённом месте, а не добавить в конец. Индекс начинается с нуля и указывает позицию, с которой начинается импорт.
 
 Аргумент `useSlideWithIndexAsStart` определяет, как импортировщик использует эту позицию:
 
 - Когда он `False`, импортировщик создаёт новые слайды в указанном индексе и сдвигает последующие слайды.
 - Когда он `True`, импортировщик начинает размещать содержимое в доступном пространстве существующего слайда с этим индексом. Если HTML не помещается, Aspose.Slides автоматически разбивает его на несколько слайдов и вставляет дополнительные слайды сразу после начального.
 
-[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#insertFromHtml) возвращает массив объектов [Slide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/). Когда вставка начинается на новых слайдах, каждый возвращённый элемент является новым. Когда в качестве начала используется существующий слайд, массив включает этот затронутый слайд, за которым следуют новые слайды‑переполнения. Вы можете анализировать этот массив вместо расчёта затронутого диапазона по общему количеству слайдов в презентации.
+[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) возвращает массив объектов [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Когда вставка начинается на новых слайдах, каждый возвращённый элемент является новым. Когда в качестве начала используется существующий слайд, массив включает этот затронутый слайд, за которым следуют новые слайды‑переполнения. Вы можете анализировать этот массив вместо расчёта затронутого диапазона по общему количеству слайдов в презентации.
 
 ### **Вставка HTML как новых слайдов**
 
@@ -145,7 +145,7 @@ finally:
 
 Следующий пример передаёт HTML через поток. Он сохраняет форму заголовка на существующем шаблонном слайде, начинает импорт под занятым участком и позволяет длинному содержимому продолжаться на новых слайдах.
 
-HTML также содержит относительный URL изображения. [ExternalResourceResolver](https://reference.aspose.com/slides/ru/python-java/aspose.slides/externalresourceresolver/) получает ресурс, а базовый URI подсказывает импортировщику, как разрешать `images/logo.png`. В этом примере файл ожидается по пути `html-assets/images/logo.png`.
+HTML также содержит относительный URL изображения. [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) получает ресурс, а базовый URI подсказывает импортировщику, как разрешать `images/logo.png`. В этом примере файл ожидается по пути `html-assets/images/logo.png`.
 
 ```python
 from pathlib import Path
@@ -197,7 +197,7 @@ finally:
 
 **Может ли Aspose.Slides обнаруживать таблицы при импорте PDF?**
 
-Да. Создайте объект [PdfImportOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pdfimportoptions/), вызовите [setDetectTables](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pdfimportoptions/#setDetectTables) со значением `True` и передайте параметры в [addFromPdf](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidecollection/#addFromPdf). Качество распознавания таблиц зависит от структуры и сложности исходного PDF.
+Да. Создайте объект [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/), вызовите [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables) со значением `True` и передайте параметры в [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf). Качество распознавания таблиц зависит от структуры и сложности исходного PDF.
 
 {{% alert title="Note" color="info" %}}
 После импорта HTML вы также можете экспортировать слайды в [images](/slides/ru/python-java/convert-powerpoint-to-png/), [TIFF](/slides/ru/python-java/convert-powerpoint-to-tiff/) или [SVG](/slides/ru/python-java/render-a-slide-as-an-svg-image/).

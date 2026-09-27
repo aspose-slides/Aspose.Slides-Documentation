@@ -77,14 +77,14 @@ Aspose.Slides for Python via Java — это библиотека для соз�
 <hr>
 <p>СПРАВКА</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ru/python-java/">Справочник API</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/python-java/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">Справочник API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/python-java/known-issues/">Известные проблемы</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/python-java/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Форум бесплатной поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Форум бесплатной поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платный центр поддержки</a></li>
 </ul>
 </div>
