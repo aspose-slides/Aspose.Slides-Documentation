@@ -29,10 +29,10 @@ Przed rozpoczęciem zainstaluj pakiet z PyPI za pomocą `pip install aspose.slid
 
 Aby utworzyć prezentację i umieścić kształt z tekstem na jej pierwszym slajdzie, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.
-2. Pobierz ten slajd z kolekcji [slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/slides/pl/) według indeksu 0.
-3. Dodaj chmurowy [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) przy użyciu metody [add_auto_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/add_auto_shape/) kolekcji [shapes](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/shapes/) slajdu i ustaw jego [text](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/text/).
-4. Zapisz prezentację jako plik PPTX przy użyciu metody [save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.
+2. Pobierz ten slajd z kolekcji [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) według indeksu 0.
+3. Dodaj chmurowy [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) przy użyciu metody [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) kolekcji [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) slajdu i ustaw jego [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+4. Zapisz prezentację jako plik PPTX przy użyciu metody [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Użyj [strategii zarządzania BLOB](/slides/pl/python-net/manage-blob/), ogranic
 
 ### Czy mogę tworzyć/zapisywać prezentacje równocześnie?
 
-Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) z [wielu wątków](/slides/pl/python-net/multithreading/). Uruchom oddzielne, izolowane instancje na każdy wątek lub proces.
+Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) z [wielu wątków](/slides/pl/python-net/multithreading/). Uruchom oddzielne, izolowane instancje na każdy wątek lub proces.
 
 ### Jak usunąć znak wodny wersji próbnej i ograniczenia?
 
