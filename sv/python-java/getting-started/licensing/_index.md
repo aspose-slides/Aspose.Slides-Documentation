@@ -17,7 +17,7 @@ description: "Använd en licens från fil, byte-baserad eller mätbaserad i Aspo
 
 Aspose.Slides for Python via Java kan köras i utvärderingsläge eller med en licens. I utvärderingsläge lägger den till en vattenstämpel med text i varje bild i varje presentation den sparar och trunkerar text som din kod läser från presentationer. Den här artikeln förklarar hur du tillämpar en licens från en fil eller byte och hur du konfigurerar mätbaserad licensiering.
 
-För köpalternativ, se [Pricing Information](https://purchase.aspose.com/pricing/slides/sv/family). För allmänna licens- och köpförfrågningar, se [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
+För köpalternativ, se [Pricing Information](https://purchase.aspose.com/pricing/slides/family). För allmänna licens- och köpförfrågningar, se [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
 
 För begränsningar i utvärderingsläget och hur du begär en tillfällig licens, se [Evaluate Aspose.Slides](/slides/sv/python-java/evaluate-aspose-slides/). Använd en tillfällig licens på samma sätt som en köpt licensfil.
 
@@ -29,7 +29,7 @@ En licensfil innehåller information såsom produktnamn, antalet licensierade ut
 Redigera inte licensfilen. Även ett extra radbrytning kan ogiltigförklara dess digitala signatur.
 {{% /alert %}}
 
-Tillämpa licensen en gång per applikation eller process, innan du skapar presentationer eller utför andra Aspose.Slides‑operationer. För en licensfil, använd klassen [License](https://reference.aspose.com/slides/sv/python-java/aspose.slides/license/). Mätbaserad licensiering använder ett offentligt och privat nyckelpar istället för en licensfil.
+Tillämpa licensen en gång per applikation eller process, innan du skapar presentationer eller utför andra Aspose.Slides‑operationer. För en licensfil, använd klassen [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). Mätbaserad licensiering använder ett offentligt och privat nyckelpar istället för en licensfil.
 
 ## **Tillämpa en licens**
 
@@ -37,7 +37,7 @@ Följande exempel förutsätter att Aspose.Slides for Python via Java och dess f
 
 ### **Tillämpa en licens från en fil**
 
-Skicka licensfilens sökväg till [License.setLicense](https://reference.aspose.com/slides/sv/python-java/aspose.slides/license/#setLicense). Ersätt `Aspose.Slides.lic` med sökvägen till din licensfil.
+Skicka licensfilens sökväg till [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Ersätt `Aspose.Slides.lic` med sökvägen till din licensfil.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Använd exakt filnamn, inklusive filändelsen. Till exempel, om filen heter `Aspose.Slides.lic.xml`, inkludera `.xml` i sökvägen. En absolut sökväg undviker tvetydighet kring applikationens arbetskatalog.
 
-Exemplet använder [License.isLicensed](https://reference.aspose.com/slides/sv/python-java/aspose.slides/license/#isLicensed) för att kontrollera om licensen har tillämpats.
+Exemplet använder [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) för att kontrollera om licensen har tillämpats.
 
 ### **Tillämpa en licens från bytes**
 
-Använd [License.setLicenseFromBytes](https://reference.aspose.com/slides/sv/python-java/aspose.slides/license/#setLicenseFromBytes) när licensen finns tillgänglig som Python‑byte. Följande exempel läser filen i binärt läge och stänger den innan licensen tillämpas.
+Använd [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) när licensen finns tillgänglig som Python‑byte. Följande exempel läser filen i binärt läge och stänger den innan licensen tillämpas.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ Behåll de ursprungliga bytena oförändrade. Avkoda, omformatera eller på anna
 
 ## **Tillämpa en mätbaserad licens**
 
-Mätbaserad licensiering debiterar dig enligt API‑användning. Efter att ha erhållit en mätlicens, tillämpa dess offentliga och privata nycklar med [Metered.setMeteredKey](https://reference.aspose.com/slides/sv/python-java/aspose.slides/metered/#setMeteredKey). Initiera [Metered](https://reference.aspose.com/slides/sv/python-java/aspose.slides/metered/)-objektet och tillämpa nycklarna en gång vid applikationens start.
+Mätbaserad licensiering debiterar dig enligt API‑användning. Efter att ha erhållit en mätlicens, tillämpa dess offentliga och privata nycklar med [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). Initiera [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/)-objektet och tillämpa nycklarna en gång vid applikationens start.
 
 Följande exempel läser nycklarna från miljövariablerna `ASPOSE_METERED_PUBLIC_KEY` och `ASPOSE_METERED_PRIVATE_KEY`. Ange båda variablerna innan du kör skriptet.
 

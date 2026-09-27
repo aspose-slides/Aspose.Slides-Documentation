@@ -77,14 +77,14 @@ Det läser in och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktivera
 <hr>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/sv/python-java/">API‑referens</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/python-java/release-notes/">Versionsanteckningar</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API‑referens</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Versionsanteckningar</a></li>
 <li><a href="/slides/sv/python-java/known-issues/">Kända problem</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/python-java/">Ladda ner</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Ladda ner</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/sv/11">Gratis supportforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis supportforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betald support‑helpdesk</a></li>
 </ul>
 </div>

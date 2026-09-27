@@ -29,13 +29,13 @@ Innan du börjar, installera Python, ett JDK, JPype och Aspose.Slides för Pytho
 
 ## **Skapa en presentation**
 
-Att skapa en PowerPoint‑fil från grunden i Aspose.Slides för Python via Java är lika enkelt som att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/). Konstruktorn levererar automatiskt en tom presentation med en enda bild, vilket ger dig en omedelbar duk för former, text, diagram eller annat innehåll som din applikation kräver. När du har ändrat den bilden — eller lagt till nya — kan du spara resultatet som PPTX, äldre PPT eller till och med OpenDocument‑format. Kodexemplet nedan visar detta arbetsflöde genom att lägga till en enkel form på den första bilden.
+Att skapa en PowerPoint‑fil från grunden i Aspose.Slides för Python via Java är lika enkelt som att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Konstruktorn levererar automatiskt en tom presentation med en enda bild, vilket ger dig en omedelbar duk för former, text, diagram eller annat innehåll som din applikation kräver. När du har ändrat den bilden — eller lagt till nya — kan du spara resultatet som PPTX, äldre PPT eller till och med OpenDocument‑format. Kodexemplet nedan visar detta arbetsflöde genom att lägga till en enkel form på den första bilden.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Hämta den första bilden genom dess index, 0.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/) av typen [ShapeType.Cloud](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shapetype/#Cloud) med hjälp av [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Ange formens text med [TextFrame.setText](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textframe/#setText).
-1. Spara presentationen med [Presentation.save](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#save) och [SaveFormat.Pptx](https://reference.aspose.com/slides/sv/python-java/aspose.slides/saveformat/#Pptx).
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) av typen [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) med hjälp av [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Ange formens text med [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Spara presentationen med [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) och [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 Följande exempel startar Java Virtual Machine (JVM) om den inte redan körs, lägger till en molnform med text på den första bilden och sparar presentationen. Spara den som *create_presentation.py*:
 
@@ -100,7 +100,7 @@ Använd [BLOB-hanteringsstrategier](/slides/sv/python-java/manage-blob/), begrä
 
 **Kan jag skapa/spara presentationer parallellt?**
 
-Du kan inte arbeta med samma [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/python-java/multithreading/). Kör separata, isolerade instanser per tråd eller process.
+Du kan inte arbeta med samma [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/python-java/multithreading/). Kör separata, isolerade instanser per tråd eller process.
 
 **Hur tar jag bort utvärderingsvattenstämpeln och begränsningarna?**
 
