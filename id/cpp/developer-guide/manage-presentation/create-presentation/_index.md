@@ -30,10 +30,10 @@ Sebelum memulai, tambahkan Aspose.Slides ke proyek Anda: dari NuGet dalam proyek
 
 Untuk membuat presentasi dan menempatkan kotak teks pada slide pertamanya, ikuti langkah‑langkah berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) . Presentasi baru sudah berisi satu slide kosong.
-1. Dapatkan slide tersebut dengan metode [Presentation::get_Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_slide/) dan indeksnya, 0.
-1. Tambahkan persegi panjang dengan metode [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addautoshape/) , dan atur teksnya dengan metode [ITextFrame::set_Text](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/set_text/) .
-1. Simpan presentasi sebagai file PPTX dengan metode [Presentation::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) .
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) . Presentasi baru sudah berisi satu slide kosong.
+1. Dapatkan slide tersebut dengan metode [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) dan indeksnya, 0.
+1. Tambahkan persegi panjang dengan metode [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) , dan atur teksnya dengan metode [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) .
+1. Simpan presentasi sebagai file PPTX dengan metode [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) .
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Gunakan [strategi manajemen BLOB](/slides/id/cpp/manage-blob/) , batasi penyimpa
 
 ### Bisakah saya membuat/menyimpan presentasi secara paralel?
 
-Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/cpp/multithreading/) . Jalankan instance terpisah yang terisolasi per thread atau proses.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/cpp/multithreading/) . Jalankan instance terpisah yang terisolasi per thread atau proses.
 
 ### Bagaimana cara menghilangkan watermark percobaan dan batasan?
 

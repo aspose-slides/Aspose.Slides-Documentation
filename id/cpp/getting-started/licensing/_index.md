@@ -28,9 +28,9 @@ Artikel ini menjelaskan cara kerja lisensi di Aspose.Slides dan cara menerapkan 
 
 {{% alert color="info" title="Note" %}}
 
-Anda dapat mengunduh versi evaluasi **Aspose.Slides for C++** dari [halaman unduhan NuGet-nya](https://www.nuget.org/packages/Aspose.Slides.Cpp/) atau, sebagai paket ZIP, dari [halaman unduhan](https://releases.aspose.com/slides/id/cpp/). Versi evaluasi menawarkan fungsionalitas yang sama dengan produk berlisensi. Faktanya, paket evaluasi identik dengan yang dibeli—hanya menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
+Anda dapat mengunduh versi evaluasi **Aspose.Slides for C++** dari [halaman unduhan NuGet-nya](https://www.nuget.org/packages/Aspose.Slides.Cpp/) atau, sebagai paket ZIP, dari [halaman unduhan](https://releases.aspose.com/slides/cpp/). Versi evaluasi menawarkan fungsionalitas yang sama dengan produk berlisensi. Faktanya, paket evaluasi identik dengan yang dibeli—hanya menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
 
-Setelah Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/id/cpp/). Kami menyarankan meninjau jenis-jenis langganan yang tersedia. Jika Anda memiliki pertanyaan, silakan menghubungi tim penjualan Aspose.
+Setelah Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/cpp/). Kami menyarankan meninjau jenis-jenis langganan yang tersedia. Jika Anda memiliki pertanyaan, silakan menghubungi tim penjualan Aspose.
 
 Setiap lisensi Aspose mencakup langganan satu tahun untuk peningkatan gratis, termasuk versi baru dan perbaikan bug yang dirilis selama periode tersebut. Baik Anda menggunakan versi berlisensi maupun versi evaluasi, Anda memperoleh dukungan teknis gratis dan tak terbatas.
 
@@ -61,7 +61,7 @@ Lisensi dapat dimuat dari **file** atau **stream**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/) untuk operasi lisensi.
+Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) untuk operasi lisensi.
 
 {{% /alert %}} 
 
@@ -94,19 +94,19 @@ int main()
 }
 ```
 
-Jika lisensi valid, [License::SetLicense](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/setlicense/) mengembalikan kontrol dan program berakhir tanpa output; mulai saat itu, Aspose.Slides berfungsi tanpa batasan evaluasi. Jika file tidak berada di direktori kerja, metode ini melempar [FileNotFoundException](https://reference.aspose.com/slides/id/cpp/system.io/filenotfoundexception/) dengan pesan *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Contoh tidak menangani pengecualian, sehingga program berhenti.
+Jika lisensi valid, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) mengembalikan kontrol dan program berakhir tanpa output; mulai saat itu, Aspose.Slides berfungsi tanpa batasan evaluasi. Jika file tidak berada di direktori kerja, metode ini melempar [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) dengan pesan *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Contoh tidak menangani pengecualian, sehingga program berhenti.
 
 {{% alert color="warning" title="Warning" %}}
 
-Jika Anda menempatkan file lisensi di direktori lain, maka saat memanggil metode [License::SetLicense](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/setlicense/), nama file di akhir jalur eksplisit yang diberikan harus persis sama dengan nama file lisensi Anda.
+Jika Anda menempatkan file lisensi di direktori lain, maka saat memanggil metode [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/), nama file di akhir jalur eksplisit yang diberikan harus persis sama dengan nama file lisensi Anda.
 
-Sebagai contoh, jika Anda mengganti nama file lisensi menjadi *Aspose.Slides.lic.xml*, Anda harus memberikan jalur lengkap yang diakhiri dengan *Aspose.Slides.lic.xml* ke metode [License::SetLicense](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/setlicense/) dalam kode Anda.
+Sebagai contoh, jika Anda mengganti nama file lisensi menjadi *Aspose.Slides.lic.xml*, Anda harus memberikan jalur lengkap yang diakhiri dengan *Aspose.Slides.lic.xml* ke metode [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) dalam kode Anda.
 
 {{% /alert %}}
 
 ### **Stream**
 
-Muat lisensi dari stream ketika program Anda tidak menyimpan lisensi sebagai file yang dapat dinamai, misalnya ketika lisensi dibaca dari basis data. [License::SetLicense](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/setlicense/) menerima setiap [Stream](https://reference.aspose.com/slides/id/cpp/system.io/stream/) yang berisi lisensi. Untuk memperpendek contoh, kode C++ berikut membuka *Aspose.Slides.lic* di direktori kerja dengan [File::OpenRead](https://reference.aspose.com/slides/id/cpp/system.io/file/openread/) dan menerapkan lisensi dari stream tersebut:
+Muat lisensi dari stream ketika program Anda tidak menyimpan lisensi sebagai file yang dapat dinamai, misalnya ketika lisensi dibaca dari basis data. [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) menerima setiap [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) yang berisi lisensi. Untuk memperpendek contoh, kode C++ berikut membuka *Aspose.Slides.lic* di direktori kerja dengan [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) dan menerapkan lisensi dari stream tersebut:
 
 ```c++
 #include <Util/License.h>
@@ -127,11 +127,11 @@ int main()
 }
 ```
 
-Lisensi yang valid memberikan hasil yang sama seperti pada contoh file. Jika file tidak ada, [File::OpenRead](https://reference.aspose.com/slides/id/cpp/system.io/file/openread/) melempar [FileNotFoundException](https://reference.aspose.com/slides/id/cpp/system.io/filenotfoundexception/) sebelum lisensi diterapkan, dan program berhenti.
+Lisensi yang valid memberikan hasil yang sama seperti pada contoh file. Jika file tidak ada, [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) melempar [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) sebelum lisensi diterapkan, dan program berhenti.
 
 ## **Validasi Lisensi**
 
-Untuk memeriksa apakah lisensi telah diatur dengan benar, panggil [License::IsLicensed](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/islicensed/). Metode ini mengembalikan `true` hanya setelah lisensi yang sah diterapkan, dan `false` sebelum itu. Kode C++ berikut menerapkan file lisensi dari direktori kerja dan kemudian memeriksanya:
+Untuk memeriksa apakah lisensi telah diatur dengan benar, panggil [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/). Metode ini mengembalikan `true` hanya setelah lisensi yang sah diterapkan, dan `false` sebelum itu. Kode C++ berikut menerapkan file lisensi dari direktori kerja dan kemudian memeriksanya:
 
 ```c++
 #include <Util/License.h>
@@ -155,13 +155,13 @@ int main()
 }
 ```
 
-Dengan lisensi yang valid, program mencetak *License is good!*. Jika file tidak ada atau bukan file lisensi, [License::SetLicense](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/setlicense/) melempar pengecualian sebelum pemeriksaan, dan program berhenti tanpa mencetak apa pun. Jika file adalah lisensi yang tanda tangannya tidak cocok, misalnya karena telah diedit, SetLicense mengembalikan tanpa error tetapi `IsLicensed` mengembalikan `false`, sehingga tidak ada yang dicetak dan Aspose.Slides tetap dalam mode evaluasi.
+Dengan lisensi yang valid, program mencetak *License is good!*. Jika file tidak ada atau bukan file lisensi, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) melempar pengecualian sebelum pemeriksaan, dan program berhenti tanpa mencetak apa pun. Jika file adalah lisensi yang tanda tangannya tidak cocok, misalnya karena telah diedit, SetLicense mengembalikan tanpa error tetapi `IsLicensed` mengembalikan `false`, sehingga tidak ada yang dicetak dan Aspose.Slides tetap dalam mode evaluasi.
 
 ## **Keamanan Thread**
 
 {{% alert color="warning" title="Warning" %}}
 
-Metode [License::SetLicense](https://reference.aspose.com/slides/id/cpp/aspose.slides/license/setlicense/) **tidak aman untuk thread**. Jika Anda perlu memanggil metode ini dari beberapa thread secara bersamaan, disarankan menggunakan primitif sinkronisasi (seperti lock) untuk mencegah potensi masalah.
+Metode [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) **tidak aman untuk thread**. Jika Anda perlu memanggil metode ini dari beberapa thread secara bersamaan, disarankan menggunakan primitif sinkronisasi (seperti lock) untuk mencegah potensi masalah.
 
 {{% /alert %}}
 
