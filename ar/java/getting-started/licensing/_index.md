@@ -29,7 +29,7 @@ description: "تطبيق وإدارة واستكشاف أخطاء الترخيص
 {{% alert color="info" title="Note" %}}
 يمكنك تنزيل نسخة تقييم **Aspose.Slides for Java** من [صفحة التحميل](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). يوفر الإصدار التجريبي نفس وظائف المنتج المرخص. حزمة التقييم هي نفسها حزمة الشراء. يصبح الإصدار التجريبي مرخصًا بمجرد إضافة بضع أسطر من الشيفرة لتطبيق الترخيص.
 
-بمجرد أن تكون راضٍ عن تقييمك لـ **Aspose.Slides**، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/ar/java/). نوصي بالاطلاع على أنواع الاشتراكات المختلفة. إذا كان لديك أسئلة، تواصل مع فريق مبيعات Aspose.
+بمجرد أن تكون راضٍ عن تقييمك لـ **Aspose.Slides**، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/java/). نوصي بالاطلاع على أنواع الاشتراكات المختلفة. إذا كان لديك أسئلة، تواصل مع فريق مبيعات Aspose.
 
 كل ترخيص Aspose يأتي مع اشتراك سنة واحدة لتحديثات مجانية إلى الإصدارات الجديدة أو التصحيحات الصادرة خلال فترة الاشتراك. يحصل المستخدمون الذين لديهم منتجات مرخصة (أو حتى إصدارات تجريبية) على دعم فني مجاني وغير محدود.
 {{% /alert %}} 
@@ -62,7 +62,7 @@ description: "تطبيق وإدارة واستكشاف أخطاء الترخيص
 يمكن تحميل الترخيص من **ملف** أو **تدفق**.
 
 {{% alert color="info" title="Note" %}}
-توفر Aspose.Slides الفئة [License](https://reference.aspose.com/slides/ar/java/com.aspose.slides/license/) لعمليات الترخيص.
+توفر Aspose.Slides الفئة [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) لعمليات الترخيص.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -84,9 +84,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-إذا وضعت ملف الترخيص في دليل مختلف، عند استدعاء طريقة [setLicense](https://reference.aspose.com/slides/ar/java/com.aspose.slides/license/#setLicense-java.lang.String-) يجب أن يكون اسم ملف الترخيص في نهاية المسار المحدد هو نفسه اسم ملف الترخيص لديك.
+إذا وضعت ملف الترخيص في دليل مختلف، عند استدعاء طريقة [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) يجب أن يكون اسم ملف الترخيص في نهاية المسار المحدد هو نفسه اسم ملف الترخيص لديك.
 
-على سبيل المثال، يمكنك تغيير اسم ملف الترخيص إلى *Aspose.Slides.Java.lic.xml*. ثم، في الكود الخاص بك، يجب تمرير المسار إلى الملف (الذي ينتهي بـ *Aspose.Slides.Java.lic.xml*) إلى طريقة [setLicense](https://reference.aspose.com/slides/ar/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+على سبيل المثال، يمكنك تغيير اسم ملف الترخيص إلى *Aspose.Slides.Java.lic.xml*. ثم، في الكود الخاص بك، يجب تمرير المسار إلى الملف (الذي ينتهي بـ *Aspose.Slides.Java.lic.xml*) إلى طريقة [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 {{% /alert %}}
 
 ### **تدفق**
@@ -124,7 +124,7 @@ if (license.isLicensed())
 ## **سلامة الخيوط**
 
 {{% alert color="warning" title="Warning" %}}
-طريقة [setLicense](https://reference.aspose.com/slides/ar/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) غير آمنة أمام الخيوط المتعددة. إذا كان يجب استدعاء هذه الطريقة في وقت واحد من عدة خيوط، قد ترغب في استخدام آليات تزامن (مثل القفل) لتجنب المشكلات.
+طريقة [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) غير آمنة أمام الخيوط المتعددة. إذا كان يجب استدعاء هذه الطريقة في وقت واحد من عدة خيوط، قد ترغب في استخدام آليات تزامن (مثل القفل) لتجنب المشكلات.
 {{% /alert %}}
 
 ## **الأسئلة المتداولة**

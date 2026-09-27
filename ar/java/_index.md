@@ -72,14 +72,14 @@ Aspose.Slides for Java هي مكتبة فئات لإنشاء وقراءة وتع
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/java/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/java/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/java/">التنزيل</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">التنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
 </ul>
 </div>

@@ -151,11 +151,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### كيف يمكنني التحقق من دمج Aspose.Slides بشكل صحيح؟
 
-قم ببناء مشروعك، وأنشئ نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) فارغة، واحفظها باسم جديد. إذا تم إنشاء الملف دون رمي استثناءات، فقد تم دمج المكتبة بنجاح.
+قم ببناء مشروعك، وأنشئ نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) فارغة، واحفظها باسم جديد. إذا تم إنشاء الملف دون رمي استثناءات، فقد تم دمج المكتبة بنجاح.
 
 ### كيف يمكنني تقليل استهلاك الذاكرة عند معالجة عروض تقديمية كبيرة؟
 
-زد حدود ذاكرة JVM فقط إلى الحد المطلوب، واستدعِ [dispose](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#dispose--) على كل نسخة من [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) داخل كتلة `finally` لإخلاء الذاكرة بسرعة. يمنع هذا حدوث أخطاء نفاد الذاكرة ويحافظ على استهلاك الذاكرة الكلي متوقعًا أثناء عمليات الدفعات.
+زد حدود ذاكرة JVM فقط إلى الحد المطلوب، واستدعِ [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) على كل نسخة من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) داخل كتلة `finally` لإخلاء الذاكرة بسرعة. يمنع هذا حدوث أخطاء نفاد الذاكرة ويحافظ على استهلاك الذاكرة الكلي متوقعًا أثناء عمليات الدفعات.
 
 ### هل يمكنني استبعاد صيغ تصدير غير مرغوب فيها لتقليل حجم ملف JAR النهائي؟
 

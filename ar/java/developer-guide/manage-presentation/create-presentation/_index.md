@@ -28,14 +28,14 @@ description: "إنشاء عروض تقديمية في جافا باستخدام 
 
 ## **إنشاء عرض تقديمي**
 
-إنشاء ملف PowerPoint من الصفر في Aspose.Slides for Java يبدأ بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/). يوفر المُنشئ عرضًا تقديميًا فارغًا بشريحة واحدة جاهزة للأشكال، النص، المخططات أو أي محتوى آخر يحتاجه تطبيقك. بمجرد تعديل تلك الشريحة أو إضافة شُرُح جديدة، يمكنك حفظ النتيجة بتنسيق PPTX أو PPT القديم أو تنسيقات OpenDocument.
+إنشاء ملف PowerPoint من الصفر في Aspose.Slides for Java يبدأ بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). يوفر المُنشئ عرضًا تقديميًا فارغًا بشريحة واحدة جاهزة للأشكال، النص، المخططات أو أي محتوى آخر يحتاجه تطبيقك. بمجرد تعديل تلك الشريحة أو إضافة شُرُح جديدة، يمكنك حفظ النتيجة بتنسيق PPTX أو PPT القديم أو تنسيقات OpenDocument.
 
 لإنشاء عرض تقديمي ووضع شكل نصي على شريحته الأولى، اتبع الخطوات التالية:
 
-1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/). يحتوي العرض الجديد على شريحة فارغة واحدة.
-2. احصل على تلك الشريحة حسب فهرسها، 0، من المجموعة التي تُرجعها الدالة [getSlides](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getSlides--).
-3. أضف كائنًا من النوع [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iautoshape/) من نوع `Cloud` باستخدام الدالة [addAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ، واضبط النص باستخدام الدالة [setText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
-4. احفظ العرض التقديمي كملف PPTX باستخدام الدالة [save](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). يحتوي العرض الجديد على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة حسب فهرسها، 0، من المجموعة التي تُرجعها الدالة [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--).
+3. أضف كائنًا من النوع [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) من نوع `Cloud` باستخدام الدالة [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ، واضبط النص باستخدام الدالة [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).
+4. احفظ العرض التقديمي كملف PPTX باستخدام الدالة [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 البرنامج التالي مثال كامل. في مشروع Maven من [Installation](/slides/ar/java/installation/)، احفظه كملف *src/main/java/HelloSlides.java* وشغّله باستخدام الأمر `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ public class HelloSlides {
 
 ### هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟
 
-لا يمكنك التعامل مع نفس كائن [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) من [عدة خيوط](/slides/ar/java/multithreading/). أنشئ كائنات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك التعامل مع نفس كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) من [عدة خيوط](/slides/ar/java/multithreading/). أنشئ كائنات منفصلة ومعزولة لكل خيط أو عملية.
 
 ### كيف أزيل علامة الماء التجريبية والقيود؟
 
