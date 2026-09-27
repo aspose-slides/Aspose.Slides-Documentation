@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET 的文件由 Aspose.Slides for 
 ---
 ## **概觀**
 
-Aspose.Slides for Node.js via .NET 沒有自己的 API 參考文件。此套件以相同的名稱將 Aspose.Slides for .NET 的類別以 camelCase 成員名稱公開給 JavaScript，因此 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/zh-hant/net/) 會說明其類別、成員與列舉。
+Aspose.Slides for Node.js via .NET 沒有自己的 API 參考文件。此套件以相同的名稱將 Aspose.Slides for .NET 的類別以 camelCase 成員名稱公開給 JavaScript，因此 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) 會說明其類別、成員與列舉。
 
 ## **將 .NET 名稱對映至 JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 此腳本會在目前資料夾寫入 `slide.png` 與 `slide.pdf`，兩者皆會顯示帶文字的矩形。若未授權，檔案亦會顯示評估水印；詳情請參閱 [Licensing](/slides/zh-hant/nodejs-net/licensing/)。
 
-欲了解此處使用的成員，請參閱 Aspose.Slides for .NET API 參考中的 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/)、[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapecollection/addautoshape/)、[TextFrame.Text](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/text/) 以及 [Slide.GetImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slide/getimage/)。
+欲了解此處使用的成員，請參閱 Aspose.Slides for .NET API 參考中的 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)、[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)、[TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) 以及 [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/)。

@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET 會將 PowerPoint 與 OpenDocument 簡報渲�
 這些範例需要在您於 [Installation](/slides/zh-hant/nodejs-net/installation/) 中設定的專案資料夾內放置一個名為 `sample.pptx` 的簡報。任何 PowerPoint 簡報皆可使用。將每個範例另存為 `.js` 檔案於專案資料夾，並在該資料夾中使用 `node` 執行。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET 並沒有自己的 API 參考文件。它以 camelCase 名稱鏡像 Aspose.Slides for .NET 的 API，因為本文中的 API 連結會指向 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/zh-hant/net/)。
+Aspose.Slides for Node.js via .NET 並沒有自己的 API 參考文件。它以 camelCase 名稱鏡像 Aspose.Slides for .NET 的 API，因為本文中的 API 連結會指向 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)。
 {{% /alert %}}
 
 將投影片轉換為影像，請遵循以下步驟：
 
-1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/presentation/) 建構函式開啟簡報。
-2. 透過 `get(index)` 從 [slides](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/slides/zh-hant/) 集合取得投影片。索引值從 0 開始。
-3. 使用 `getImageWithScale` 或 `getImageWithImageSize` 轉換投影片。於 .NET API 參考文件中，兩者皆為 [Slide.GetImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slide/getimage/) 的多載。它們會回傳對應 [IImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimage/) 的影像物件。
-4. 使用其 [save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimage/save/) 方法與 [ImageFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imageformat/) 值儲存影像，然後呼叫 `dispose` 方法。
+1. 使用 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 建構函式開啟簡報。
+2. 透過 `get(index)` 從 [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合取得投影片。索引值從 0 開始。
+3. 使用 `getImageWithScale` 或 `getImageWithImageSize` 轉換投影片。於 .NET API 參考文件中，兩者皆為 [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) 的多載。它們會回傳對應 [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) 的影像物件。
+4. 使用其 [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) 方法與 [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 值儲存影像，然後呼叫 `dispose` 方法。
 
 ## **將每張投影片轉換為 PNG 影像**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-此腳本會為每張投影片寫入一個檔案，`slide_1.png`、`slide_2.png` 等，編號從 1 起。對於 16:9、每張投影片尺寸為 960 × 540 點的簡報，產生的影像為 1920 × 1080 像素。隱藏的投影片也會被渲染；若要跳過它們，請檢查投影片的 [hidden](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slide/hidden/) 屬性。每個影像皆在各自的 `finally` 區塊中呼叫 `dispose` 釋放，以在下一張投影片渲染前釋放資源。若未取得授權，影像會顯示評估水印；請參閱 [Licensing](/slides/zh-hant/nodejs-net/licensing/)。
+此腳本會為每張投影片寫入一個檔案，`slide_1.png`、`slide_2.png` 等，編號從 1 起。對於 16:9、每張投影片尺寸為 960 × 540 點的簡報，產生的影像為 1920 × 1080 像素。隱藏的投影片也會被渲染；若要跳過它們，請檢查投影片的 [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) 屬性。每個影像皆在各自的 `finally` 區塊中呼叫 `dispose` 釋放，以在下一張投影片渲染前釋放資源。若未取得授權，影像會顯示評估水印；請參閱 [Licensing](/slides/zh-hant/nodejs-net/licensing/)。
 
 ## **將投影片轉換為指定尺寸的影像**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-[slideSize.size](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesize/size/) 屬性會回傳投影片的寬度與高度（單位為點）。對於 16:9 的簡報，腳本會輸出 `Saved a 1280 x 720 image` 並寫入 `slide_1_1280px.png`；對於 4:3 的簡報，影像尺寸為 1280 × 960 像素。
+[slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) 屬性會回傳投影片的寬度與高度（單位為點）。對於 16:9 的簡報，腳本會輸出 `Saved a 1280 x 720 image` 並寫入 `slide_1_1280px.png`；對於 4:3 的簡報，影像尺寸為 1280 × 960 像素。
 
 ## **常見問題**
 

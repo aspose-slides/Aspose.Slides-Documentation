@@ -31,12 +31,12 @@ description: "在 JavaScript 中使用 Aspose.Slides for Node.js via .NET，於�
 範例需要依照 [Installation](/slides/zh-hant/nodejs-net/installation/) 中的說明設定專案。將每個範例儲存為 `.js` 檔案於專案資料夾，並在該資料夾使用 `node` 執行。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET 沒有自己的 API 參考文件。它以 camelCase 名稱鏡射 Aspose.Slides for .NET API，因此本文中的 API 連結會指向相對應的類別與成員於 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/zh-hant/net/)。
+Aspose.Slides for Node.js via .NET 沒有自己的 API 參考文件。它以 camelCase 名稱鏡射 Aspose.Slides for .NET API，因此本文中的 API 連結會指向相對應的類別與成員於 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/)。
 {{% /alert %}}
 
 ## **新增文字方塊**
 
-若要新增文字方塊，使用 [addAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapecollection/addautoshape/) 方法在投影片上加入自動形狀，並使用 [addTextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/autoshape/addtextframe/) 方法設定文字。以下範例會在新簡報的第一張投影片加入一個矩形，並將簡報儲存為 `text-box.pptx`：
+若要新增文字方塊，使用 [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) 方法在投影片上加入自動形狀，並使用 [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) 方法設定文字。以下範例會在新簡報的第一張投影片加入一個矩形，並將簡報儲存為 `text-box.pptx`：
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **變更文字及其格式設定**
 
-以下範例會開啟先前建立的 `text-box.pptx`，取得第一張投影片的第一個形狀。圖片與表格等形狀沒有文字框， therefore 範例會先檢查形狀是否為 [AutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/autoshape/) 再使用其 [textFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/autoshape/textframe/)。接著執行以下操作：
+以下範例會開啟先前建立的 `text-box.pptx`，取得第一張投影片的第一個形狀。圖片與表格等形狀沒有文字框， therefore 範例會先檢查形狀是否為 [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) 再使用其 [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/)。接著執行以下操作：
 
-1. 透過文字框的 [text](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/text/) 屬性取代文字。此後，文字框只包含一個段落與一個部分。
-2. 從 [paragraphs](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/paragraphs/) 與 [portions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/paragraph/portions/) 集合中取得該部分，並讀取其 [portionFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/portion/portionformat/)。
-3. 設定 [fontHeight](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseportionformat/fontheight/)，即字型點數大小；以及 [fontBold](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseportionformat/fontbold/)，其接受一個 [NullableBool](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/nullablebool/) 值。
+1. 透過文字框的 [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) 屬性取代文字。此後，文字框只包含一個段落與一個部分。
+2. 從 [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) 與 [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) 集合中取得該部分，並讀取其 [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/)。
+3. 設定 [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)，即字型點數大小；以及 [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/)，其接受一個 [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) 值。
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

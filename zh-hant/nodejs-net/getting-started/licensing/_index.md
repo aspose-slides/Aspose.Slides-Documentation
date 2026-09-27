@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET 是一個同時支援評估與正式環境的
 
 {{% alert color="info" title="Note" %}}
 
-有關評估、授權與購買 Aspose 產品的一般政策，請參閱 [購買政策與常見問答](https://purchase.aspose.com/policies)。價格資訊請見 [定價資訊](https://purchase.aspose.com/pricing/slides/zh-hant/family) 頁面。
+有關評估、授權與購買 Aspose 產品的一般政策，請參閱 [購買政策與常見問答](https://purchase.aspose.com/policies)。價格資訊請見 [定價資訊](https://purchase.aspose.com/pricing/slides/family) 頁面。
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ try {
 
 若無法找到檔案或檔案不是有效授權，`setLicense` 會拋出錯誤，Aspose.Slides 仍會以評估模式運作。腳本會捕捉錯誤並顯示其訊息。檔案遺失時，訊息開頭為 `License "Aspose.Slides.lic" doesn't exist or access is restricted.`，並列出所有搜尋過的路徑。
 
-在此套件中，授權僅能從檔案套用。`License` 不接受串流，套件也未提供計量授權功能。欲了解套件所封裝的類別，請參閱 Aspose.Slides for .NET API 參考中的 [License](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/license/)。
+在此套件中，授權僅能從檔案套用。`License` 不接受串流，套件也未提供計量授權功能。欲了解套件所封裝的類別，請參閱 Aspose.Slides for .NET API 參考中的 [License](https://reference.aspose.com/slides/net/aspose.slides/license/)。

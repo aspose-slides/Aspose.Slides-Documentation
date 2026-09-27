@@ -27,17 +27,17 @@ description: "使用 Aspose.Slides for Node.js via .NET 在 JavaScript 中建立
 這些範例需要依照[安裝](/slides/zh-hant/nodejs-net/installation/)中描述的方式建立專案。將每個範例儲存為 `.js` 檔案於專案資料夾中，並使用 `node` 從該資料夾執行，例如 `node create-presentation.js`。
 
 {{% alert color="info" title="注意" %}}
-Aspose.Slides for Node.js via .NET 本身沒有 API 參考文件。它以 camelCase 名稱鏡像 Aspose.Slides for .NET API，因此本文中的 API 連結會指向 [Aspose.Slides for .NET API 參考文件](https://reference.aspose.com/slides/zh-hant/net/)。
+Aspose.Slides for Node.js via .NET 本身沒有 API 參考文件。它以 camelCase 名稱鏡像 Aspose.Slides for .NET API，因此本文中的 API 連結會指向 [Aspose.Slides for .NET API 參考文件](https://reference.aspose.com/slides/net/)。
 {{% /alert %}}
 
 ## **建立包含文字方塊的簡報**
 
 若要建立簡報並在第一張投影片上放置文字方塊，請遵循以下步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的實例。新簡報已預先包含一張空白投影片。
-2. 從 [slides](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/slides/zh-hant/) 集合取得該投影片。此套件中的集合以 `get(index)` 讀取，且索引值從 0 開始。
-3. 使用 [addAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapecollection/addautoshape/) 方法加入矩形，並設定其 [textFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/autoshape/textframe/) 的 [text](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/text/)。
-4. 使用 [save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法，搭配 `SaveFormat.Pptx` 值，將簡報儲存。
+1. 建立 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 類別的實例。新簡報已預先包含一張空白投影片。
+2. 從 [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合取得該投影片。此套件中的集合以 `get(index)` 讀取，且索引值從 0 開始。
+3. 使用 [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) 方法加入矩形，並設定其 [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) 的 [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/)。
+4. 使用 [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法，搭配 `SaveFormat.Pptx` 值，將簡報儲存。
 5. 在 `finally` 區塊中呼叫 `dispose`，以釋放支援簡報的 .NET 資源。
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **新增投影片**
 
-新簡報僅含一張投影片。若要新增投影片，請將版面配置投影片傳遞給 `slides` 集合的 [addEmptySlide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidecollection/addemptyslide/) 方法。[layoutSlides](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/layoutslides/) 集合的 [getByType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/layoutslidecollection/getbytype/) 方法會回傳指定 [SlideLayoutType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidelayouttype/) 的第一個版面配置。
+新簡報僅含一張投影片。若要新增投影片，請將版面配置投影片傳遞給 `slides` 集合的 [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) 方法。[layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) 集合的 [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) 方法會回傳指定 [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) 的第一個版面配置。
 
 以下範例使用 Blank 版面配置新增兩張投影片：
 
@@ -86,7 +86,7 @@ try {
 
 ## **設定投影片大小**
 
-新簡報使用 4:3 投影片，尺寸為 720 × 540 點（10 × 7.5 吋）。若要改為寬螢幕投影片，請以 [SlideSizeType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesizetype/) 以及 [SlideSizeScaleType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesizescaletype/) 的值，呼叫簡報的 [slideSize](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/slidesize/) 的 [setSize](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesize/setsize/) 方法。比例類型告訴 Aspose.Slides 該如何處理已存在於投影片上的圖形；`DoNotScale` 會保持原樣，這是尚未有內容的簡報的正確選擇。
+新簡報使用 4:3 投影片，尺寸為 720 × 540 點（10 × 7.5 吋）。若要改為寬螢幕投影片，請以 [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) 以及 [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) 的值，呼叫簡報的 [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) 的 [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) 方法。比例類型告訴 Aspose.Slides 該如何處理已存在於投影片上的圖形；`DoNotScale` 會保持原樣，這是尚未有內容的簡報的正確選擇。
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ try {
 
 **我可以將新簡報儲存為哪些格式？**
 
-使用 [SaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/saveformat/) 列舉中的任意值，例如 `SaveFormat.Ppt`（PowerPoint 97–2003）、`SaveFormat.Odp`（OpenDocument）或 `SaveFormat.Pdf`。若需輸出 PDF，請參閱[將 PowerPoint 轉換為 PDF](/slides/zh-hant/nodejs-net/convert-powerpoint-to-pdf/)。
+使用 [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 列舉中的任意值，例如 `SaveFormat.Ppt`（PowerPoint 97–2003）、`SaveFormat.Odp`（OpenDocument）或 `SaveFormat.Pdf`。若需輸出 PDF，請參閱[將 PowerPoint 轉換為 PDF](/slides/zh-hant/nodejs-net/convert-powerpoint-to-pdf/)。
 
 **為何已儲存的簡報會包含「Evaluation only」文字？**
 
