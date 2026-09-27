@@ -21,13 +21,13 @@ description: "Evaluate Aspose.Slides for Java and explore API features for Power
 
 ## **Aspose.Slides Evaluation**
 
-You can easily download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download. The evaluation version simply becomes licensed when you add a few lines of code to apply the license.
+You can download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download; it becomes licensed after you add a few lines of code to apply the license.
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save, and limits to one slide when extracting the text from presentation slides.
+Without a license, Aspose.Slides provides its full functionality in evaluation mode, with two limitations: it adds an evaluation watermark text box to every slide of each presentation it saves, and text that your code reads through the API, including text it has just set, is truncated to its first few characters, followed by a notice about the evaluation limitation. Text that your code writes is saved in full. The [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) method, which extracts text without loading the whole presentation, returns only evaluation notices and no slide text.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![A slide with the evaluation watermark](evaluate-aspose-slides_1.png)
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
