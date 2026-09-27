@@ -27,9 +27,9 @@ Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。
 ## **评估 Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-您可以从[其 NuGet 下载页面](https://www.nuget.org/packages/Aspose.Slides.Cpp/)或通过 ZIP 包从[下载页面](https://releases.aspose.com/slides/zh/cpp/)下载 **Aspose.Slides for C++** 的评估版。评估版提供与授权产品相同的功能。实际上，评估包与购买的版本完全相同——只要在代码中添加几行以应用许可证，它就会变为授权版。
+您可以从[其 NuGet 下载页面](https://www.nuget.org/packages/Aspose.Slides.Cpp/)或通过 ZIP 包从[下载页面](https://releases.aspose.com/slides/cpp/)下载 **Aspose.Slides for C++** 的评估版。评估版提供与授权产品相同的功能。实际上，评估包与购买的版本完全相同——只要在代码中添加几行以应用许可证，它就会变为授权版。
 
-当您对 **Aspose.Slides** 的评估满意后，可[购买许可证](https://purchase.aspose.com/pricing/slides/zh/cpp/)。我们建议您查看可用的订阅类型。如有任何疑问，欢迎联系 Aspose 销售团队。
+当您对 **Aspose.Slides** 的评估满意后，可[购买许可证](https://purchase.aspose.com/pricing/slides/cpp/)。我们建议您查看可用的订阅类型。如有任何疑问，欢迎联系 Aspose 销售团队。
 
 每个 Aspose 许可证都包含一年免费升级订阅，期间的新版和错误修复均可免费获取。无论您使用的是授权版本还是评估版本，均可享受免费且无限制的技术支持。
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。
 可以从**文件**或**流**加载许可证。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides 提供用于授权操作的 [License](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/) 类。
+Aspose.Slides 提供用于授权操作的 [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) 类。
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -86,17 +86,17 @@ int main()
 }
 ```
 
-如果许可证有效，[License::SetLicense](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/setlicense/) 将正常返回，程序结束且不输出任何信息；此后 Aspose.Slides 将不再受到评估限制。如果文件未位于工作目录，方法会抛出 [FileNotFoundException](https://reference.aspose.com/slides/zh/cpp/system.io/filenotfoundexception/) 并显示信息 *License "Aspose.Slides.lic" doesn't exist or access is restricted*。示例未捕获此异常，程序会停止。
+如果许可证有效，[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 将正常返回，程序结束且不输出任何信息；此后 Aspose.Slides 将不再受到评估限制。如果文件未位于工作目录，方法会抛出 [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) 并显示信息 *License "Aspose.Slides.lic" doesn't exist or access is restricted*。示例未捕获此异常，程序会停止。
 
 {{% alert color="warning" title="Warning" %}}
-如果将许可证文件放在其他目录，则在调用 [License::SetLicense](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/setlicense/) 方法时，指定的完整路径末尾的文件名必须与许可证文件的实际名称完全匹配。
+如果将许可证文件放在其他目录，则在调用 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 方法时，指定的完整路径末尾的文件名必须与许可证文件的实际名称完全匹配。
 
-例如，如果将许可证文件重命名为 *Aspose.Slides.lic.xml*，则必须在代码中将完整路径以 *Aspose.Slides.lic.xml* 结尾传递给 [License::SetLicense](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/setlicense/) 方法。
+例如，如果将许可证文件重命名为 *Aspose.Slides.lic.xml*，则必须在代码中将完整路径以 *Aspose.Slides.lic.xml* 结尾传递给 [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 方法。
 {{% /alert %}}
 
 ### **流**
 
-当程序不以文件形式保存许可证（例如从数据库读取许可证）时，可从流中加载许可证。[License::SetLicense](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/setlicense/) 接受任何包含许可证的 [Stream](https://reference.aspose.com/slides/zh/cpp/system.io/stream/)。为保持示例简短，以下 C++ 代码使用 [File::OpenRead](https://reference.aspose.com/slides/zh/cpp/system.io/file/openread/) 打开工作目录中的 *Aspose.Slides.lic* 并从该流中应用许可证：
+当程序不以文件形式保存许可证（例如从数据库读取许可证）时，可从流中加载许可证。[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 接受任何包含许可证的 [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/)。为保持示例简短，以下 C++ 代码使用 [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) 打开工作目录中的 *Aspose.Slides.lic* 并从该流中应用许可证：
 
 ```c++
 #include <Util/License.h>
@@ -117,11 +117,11 @@ int main()
 }
 ```
 
-有效的许可证会产生与文件示例相同的结果。如果文件不存在，[File::OpenRead](https://reference.aspose.com/slides/zh/cpp/system.io/file/openread/) 会在应用许可证之前抛出 [FileNotFoundException](https://reference.aspose.com/slides/zh/cpp/system.io/filenotfoundexception/)，程序随即停止。
+有效的许可证会产生与文件示例相同的结果。如果文件不存在，[File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) 会在应用许可证之前抛出 [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/)，程序随即停止。
 
 ## **验证许可证**
 
-要检查许可证是否已正确设置，请调用 [License::IsLicensed](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/islicensed/)。只有在成功应用了有效许可证后它才返回 `true`，否则返回 `false`。以下 C++ 代码从工作目录应用许可证文件并随后进行检查：
+要检查许可证是否已正确设置，请调用 [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/)。只有在成功应用了有效许可证后它才返回 `true`，否则返回 `false`。以下 C++ 代码从工作目录应用许可证文件并随后进行检查：
 
 ```c++
 #include <Util/License.h>
@@ -145,12 +145,12 @@ int main()
 }
 ```
 
-使用有效许可证时，程序会打印 *License is good!*。如果文件缺失或不是许可证文件，[License::SetLicense](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/setlicense/) 会在检查之前抛出异常，程序停止且不打印任何内容。如果文件是签名不匹配的许可证（例如被编辑过），SetLicense 会在没有错误的情况下返回，但 `IsLicensed` 返回 `false`，因此不会打印任何信息，Aspose.Slides 仍处于评估模式。
+使用有效许可证时，程序会打印 *License is good!*。如果文件缺失或不是许可证文件，[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 会在检查之前抛出异常，程序停止且不打印任何内容。如果文件是签名不匹配的许可证（例如被编辑过），SetLicense 会在没有错误的情况下返回，但 `IsLicensed` 返回 `false`，因此不会打印任何信息，Aspose.Slides 仍处于评估模式。
 
 ## **线程安全性**
 
 {{% alert color="warning" title="Warning" %}}
-[License::SetLicense](https://reference.aspose.com/slides/zh/cpp/aspose.slides/license/setlicense/) 方法 **不是线程安全** 的。如果需要从多个线程同时调用此方法，建议使用同步原语（例如锁）以防止潜在问题。
+[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) 方法 **不是线程安全** 的。如果需要从多个线程同时调用此方法，建议使用同步原语（例如锁）以防止潜在问题。
 {{% /alert %}}
 
 ## **FAQ**

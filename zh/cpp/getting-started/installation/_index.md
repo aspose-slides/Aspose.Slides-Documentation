@@ -26,7 +26,7 @@ Aspose.Slides for C++ 以两种形式分发：
 | 形式 | 用途 | 获取位置 |
 |---|---|---|
 | NuGet 包： [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/)（64 位）和 [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/)（32 位） | Windows 上的 Visual Studio C++ 项目 | NuGet |
-| Windows、Linux 和 macOS 的 ZIP 包 | 不使用 NuGet 的构建，例如 CMake 项目 | [下载页面](https://releases.aspose.com/slides/zh/cpp/) |
+| Windows、Linux 和 macOS 的 ZIP 包 | 不使用 NuGet 的构建，例如 CMake 项目 | [下载页面](https://releases.aspose.com/slides/cpp/) |
 
 本文介绍如何在 Windows 上的 Visual Studio 中安装 NuGet 包，以及如何在 Linux 上使用 CMake 使用 ZIP 包。两种方式的最终步骤相同：构建并运行 [Create Presentations](/slides/zh/cpp/create-presentation/) 中的第一个示例。
 
@@ -36,7 +36,7 @@ Aspose.Slides for C++ 以两种形式分发：
 
 根据要构建的平台选择包：x64 使用 **Aspose.Slides.Cpp**，Win32 (x86) 使用 **Aspose.Slides.Cpp.x86**。Aspose.Slides.Cpp 包不适用于 Win32 构建，因此编译器在该环境中找不到其头文件。
 
-Windows ZIP 包也可在[下载页面](https://releases.aspose.com/slides/zh/cpp/)获取。
+Windows ZIP 包也可在[下载页面](https://releases.aspose.com/slides/cpp/)获取。
 
 ### **方法 1：通过 NuGet 包管理器安装或更新 Aspose.Slides**
 
@@ -100,7 +100,7 @@ Windows ZIP 包也可在[下载页面](https://releases.aspose.com/slides/zh/cpp
    cd hello-slides
    ```
 
-3. 从[下载页面](https://releases.aspose.com/slides/zh/cpp/)下载 Linux ZIP（**Aspose.Slides for C++ Linux**），保存到项目文件夹，并将其解压到 *aspose-slides-cpp* 子文件夹中：
+3. 从[下载页面](https://releases.aspose.com/slides/cpp/)下载 Linux ZIP（**Aspose.Slides for C++ Linux**），保存到项目文件夹，并将其解压到 *aspose-slides-cpp* 子文件夹中：
 
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp

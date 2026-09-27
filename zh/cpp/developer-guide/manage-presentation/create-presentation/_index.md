@@ -30,10 +30,10 @@ description: "使用 Aspose.Slides 在 C++ 中创建演示文稿——生成 PPT
 
 要创建演示文稿并在第一张幻灯片上放置文本框，请按以下步骤操作：
 
-1. 创建[Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/)类的实例。新演示文稿已经包含一个空幻灯片。
-1. 使用[Presentation::get_Slide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_slide/)方法获取该幻灯片及其索引 0。
-1. 使用[IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapecollection/addautoshape/)方法添加矩形，并使用[ITextFrame::set_Text](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/set_text/)方法设置其文本。
-1. 使用[Presentation::Save](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/save/)方法将演示文稿保存为 PPTX 文件。
+1. 创建[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)类的实例。新演示文稿已经包含一个空幻灯片。
+1. 使用[Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/)方法获取该幻灯片及其索引 0。
+1. 使用[IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/)方法添加矩形，并使用[ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/)方法设置其文本。
+1. 使用[Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/)方法将演示文稿保存为 PPTX 文件。
 
 ```cpp
 #include <DOM/Presentation.h>
