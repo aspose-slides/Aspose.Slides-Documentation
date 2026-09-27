@@ -1,5 +1,5 @@
 ---
-title: 在 Python via Java 中导入 PDF 或 HTML 演示文稿
+title: 从 PDF 或 HTML 在 Python via Java 中导入演示文稿
 linktitle: 导入演示文稿
 type: docs
 weight: 60
@@ -26,21 +26,21 @@ description: "了解如何使用 Aspose.Slides 在 Python via Java 中将 PDF �
 ---
 ## **简介**
 
-Aspose.Slides for Python via Java 可以在无需 Microsoft PowerPoint 的情况下将 PDF 页面或 HTML 内容转换为 PowerPoint 幻灯片。SlideCollection 类提供 addFromPdf 和 addFromHtml 方法，用于将导入的内容追加到演示文稿。
+Aspose.Slides for Python via Java 可以在没有 Microsoft PowerPoint 的情况下将 PDF 页面或 HTML 内容转换为 PowerPoint 幻灯片。 [SlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/) 类提供 [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) 和 [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml) 用于将导入的内容追加到演示文稿。
 
-如需更细致地控制 HTML 的放置，可使用 SlideCollection.insertFromHtml 在集合索引处插入生成的幻灯片，或在现有幻灯片上开始填充可用空间。长度较大的 HTML 会自动分页到额外的幻灯片，源可以以字符串或流的形式提供，并且可以通过带有基 URI 的 ExternalResourceResolver 加载外部资源。返回的 Slide 数组标识受影响的幻灯片以及新创建的幻灯片。
+若需更精细控制 HTML 的放置位置，可使用 [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) 在集合索引处插入生成的幻灯片，或在现有幻灯片上填充可用空间。长 HTML 会自动分页到额外的幻灯片，源可以作为字符串或流提供，外部资源可通过带基 URI 的 [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) 加载。返回的 [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) 数组标识受影响的以及新创建的幻灯片。
 
 ## **从 PDF 导入**
 
-要将 PDF 文档转换为 PowerPoint 演示文稿，请将其内容导入到幻灯片集合并将结果保存为 PPTX 文件。
+要将 PDF 文档转换为 PowerPoint 演示文稿，请将其内容导入幻灯片集合并将结果保存为 PPTX 文件。
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. 创建一个新的 Presentation 对象。
-2. 调用 addFromPdf 并提供 PDF 文件的路径。
-3. 调用 save 并使用 SaveFormat.Pptx 将演示文稿保存为 PPTX 文件。
+1. 创建一个新的 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 对象。  
+2. 使用指向 PDF 文件的路径调用 [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf)。  
+3. 使用 [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) 调用 [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) 将演示文稿写入 PPTX 文件。
 
-下面的 Python 示例导入 PDF 文档并将生成的幻灯片保存为 PowerPoint 演示文稿：
+以下 Python 示例导入 PDF 文档并将生成的幻灯片保存为 PowerPoint 演示文稿：
 
 ```python
 import jpype
@@ -59,23 +59,25 @@ finally:
     presentation.dispose()
 ```
 
-默认的空白幻灯片仍然保留在演示文稿中，因为导入操作会追加幻灯片。若只保留导入的页面，请在导入前使用 SlideCollection.clear 清除幻灯片集合。
+默认的空白幻灯片仍保留在演示文稿中，因为导入会追加幻灯片。若只保留导入的页面，可在导入前使用 [SlideCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#clear) 清空幻灯片集合。
 
-addFromPdf 方法返回它添加的幻灯片，这在只需处理导入的幻灯片时非常有用。
+[addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf) 方法返回其添加的幻灯片，这在只需处理导入的幻灯片时非常有用。
 
-{{% alert title="Tip" color="success" %}}
-尝试免费使用 [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web 应用程序，亲身体验此转换工作流。
+{{% alert title="提示" color="success" %}}
+
+尝试免费的 [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) 网络应用，体验此转换工作流。
+
 {{% /alert %}}
 
 ## **从 HTML 导入**
 
-Aspose.Slides 也可以根据 HTML 文档创建幻灯片。源可以以 HTML 文本或流的形式提供。以下步骤使用文件流：
+Aspose.Slides 还可以从 HTML 文档创建幻灯片。源可以作为 HTML 文本或流提供。以下步骤使用文件流：
 
-1. 创建一个新的 Presentation 对象。
-2. 打开 HTML 文件进行读取，并将流传递给 addFromHtml。
-3. 调用 save 并使用 SaveFormat.Pptx 将结果写入 PPTX 文件。
+1. 创建一个新的 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 对象。  
+2. 打开 HTML 文件进行读取，并将流传递给 [addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromHtml)。  
+3. 使用 [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx) 调用 [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) 将结果写入 PPTX 文件。
 
-下面的 Python 示例导入 HTML 文档并将生成的幻灯片保存为 PowerPoint 演示文稿：
+以下 Python 示例导入 HTML 文档并将生成的幻灯片保存为 PowerPoint 演示文稿：
 
 ```python
 import jpype
@@ -101,18 +103,18 @@ finally:
 
 ## **插入 HTML 内容**
 
-当必须将生成的 HTML 幻灯片放置在特定位置而不是追加时，请使用 SlideCollection.insertFromHtml。索引从零开始，标识导入开始的位置。
+当需要将 HTML 生成的幻灯片放置在特定位置而不是追加时，请使用 [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml)。索引为零基，标识导入开始的位置。
 
 `useSlideWithIndexAsStart` 参数控制导入器如何使用该位置：
 
-- 为 `False` 时，导入器在指定索引处创建新幻灯片，并将其后的幻灯片向后移动。
-- 为 `True` 时，导入器在该索引处的现有幻灯片的可用空间中开始放置内容。如果 HTML 内容超出空间，Aspose.Slides 会自动分页，并在起始幻灯片之后立即插入额外的幻灯片。
+- 为 `False` 时，导入器在指定索引处创建新幻灯片并将其后的幻灯片向后移动。  
+- 为 `True` 时，导入器在该索引的现有幻灯片的可用空间中开始放置内容。如果 HTML 内容不适合，Aspose.Slides 会自动分页并在起始幻灯片之后立即插入额外幻灯片。
 
-SlideCollection.insertFromHtml 返回一个 [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) 对象数组。当插入在新幻灯片上开始时，返回的每个项都是新创建的。当使用现有幻灯片作为起始时，数组包括受影响的幻灯片以及随后产生的溢出幻灯片。您可以检查此数组，而无需根据演示文稿的幻灯片计数来计算受影响的范围。
+[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#insertFromHtml) 返回一个 [Slide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) 对象数组。当插入在新幻灯片上开始时，返回的每个项目都是新创建的；当使用现有幻灯片作为起始时，数组包括受影响的幻灯片以及随后任何新产生的溢出幻灯片。您可以检查此数组，而无需根据演示文稿的幻灯片计数计算受影响的范围。
 
 ### **将 HTML 作为新幻灯片插入**
 
-下面的示例将 HTML 作为字符串提供，并在集合索引 `1` 处插入生成的幻灯片。传入 `False` 会保持现有幻灯片不变，仅将其向后移动以腾出空间。
+以下示例将 HTML 作为字符串提供，并在集合索引 `1` 处插入生成的幻灯片。传入 `False` 会保持现有幻灯片不变，只是将它们向后移动以腾出空间。
 
 ```python
 import jpype
@@ -143,9 +145,9 @@ finally:
 
 ### **在现有幻灯片上开始**
 
-下一个示例通过流提供 HTML。它保留模板幻灯片上的标题形状，在已占用区域下方开始导入，并让较长的正文继续到新幻灯片。
+下一个示例通过流提供 HTML。它保留模板幻灯片上的标题形状，从占用区域下方开始导入，并让长正文继续到新幻灯片。
 
-HTML 还包含相对图像 URL。ExternalResourceResolver 获取该资源，而基 URI 告诉导入器如何解析 `images/logo.png`。在本示例中，期望该文件位于 `html-assets/images/logo.png`。
+HTML 还包含相对图像 URL。一个 [ExternalResourceResolver](https://reference.aspose.com/slides/python-java/aspose.slides/externalresourceresolver/) 获取该资源，而基 URI 告诉导入器如何解析 `images/logo.png`。在本例中，该文件预计位于 `html-assets/images/logo.png`。
 
 ```python
 from pathlib import Path
@@ -189,16 +191,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert title="Warning" color="warning" %}}
-不受限制的外部资源解析器可以读取 HTML 引用的本地或网络资源。对于不可信的输入，请在导入 HTML 之前根据允许的方案、目录和主机列表对资源 URL 进行验证和清理。
+{{% alert title="警告" color="warning" %}}
+
+不受限制的外部资源解析器可以读取 HTML 引用的本地或网络资源。对于不可信的输入，请在导入 HTML 前根据允许的方案、目录和主机列表验证并清理资源 URL。
+
 {{% /alert %}}
 
 ## **常见问题**
 
-**Aspose.Slides 在导入 PDF 时能检测表格吗？**
+**Aspose.Slides 在导入 PDF 时能检测到表格吗？**
 
-可以。创建一个 PdfImportOptions 对象，使用 `True` 调用 setDetectTables，并将该选项传递给 addFromPdf。表格识别的质量取决于源 PDF 的结构和复杂程度。
+可以。创建一个 [PdfImportOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/) 对象，使用 `True` 调用 [setDetectTables](https://reference.aspose.com/slides/python-java/aspose.slides/pdfimportoptions/#setDetectTables)，并将该选项传递给 [addFromPdf](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addFromPdf)。表格识别的质量取决于源 PDF 的结构和复杂度。
 
-{{% alert title="Note" color="info" %}}
-导入 HTML 后，您还可以将幻灯片导出为 [图像](/slides/zh/python-java/convert-powerpoint-to-png/)、[TIFF](/slides/zh/python-java/convert-powerpoint-to-tiff/)，或 [SVG](/slides/zh/python-java/render-a-slide-as-an-svg-image/)。
+{{% alert title="注释" color="info" %}}
+
+导入 HTML 后，您还可以将幻灯片导出为 [images](/slides/zh/python-java/convert-powerpoint-to-png/)、[TIFF](/slides/zh/python-java/convert-powerpoint-to-tiff/) 或 [SVG](/slides/zh/python-java/render-a-slide-as-an-svg-image/)。
+
 {{% /alert %}}
