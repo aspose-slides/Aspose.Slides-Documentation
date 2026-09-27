@@ -28,14 +28,14 @@ description: "使用 Aspose.Slides 在 Java 中建立簡報——產生 PPT、PP
 
 ## **建立簡報**
 
-在 Aspose.Slides for Java 中從頭建立 PowerPoint 檔案，首先需要建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。建構式會提供一個只有單一投影片的空白簡報，您可以在其中加入圖形、文字、圖表或任何其他需要的內容。修改該投影片或新增投影片後，即可將結果儲存為 PPTX、傳統 PPT 或 OpenDocument 格式。
+在 Aspose.Slides for Java 中從頭建立 PowerPoint 檔案，首先需要建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。建構式會提供一個只有單一投影片的空白簡報，您可以在其中加入圖形、文字、圖表或任何其他需要的內容。修改該投影片或新增投影片後，即可將結果儲存為 PPTX、傳統 PPT 或 OpenDocument 格式。
 
 欲建立簡報並在第一張投影片上放置帶文字的圖形，請依照下列步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。新簡報已預設包含一張空白投影片。  
-1. 透過 [getSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getSlides--) 回傳的集合，以索引 0 取得該投影片。  
-1. 使用 [addAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 方法新增一個 `Cloud` 類型的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)，並以 [setText](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/#setText-java.lang.String-) 設定其文字。  
-1. 使用 [save](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 方法將簡報儲存為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。新簡報已預設包含一張空白投影片。  
+1. 透過 [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) 回傳的集合，以索引 0 取得該投影片。  
+1. 使用 [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 方法新增一個 `Cloud` 類型的 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)，並以 [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-) 設定其文字。  
+1. 使用 [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 方法將簡報儲存為 PPTX 檔案。
 
 以下範例為完整程式碼。在 [Installation](/slides/zh-hant/java/installation/) 的 Maven 專案中，將其儲存為 *src/main/java/HelloSlides.java*，然後執行 `mvn compile exec:java`。
 
@@ -93,7 +93,7 @@ public class HelloSlides {
 
 ### 可以平行建立/儲存簡報嗎？
 
-不可從 [multiple threads](/slides/zh-hant/java/multithreading/) 同時操作同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 實例。請在每個執行緒或行程中使用獨立的實例。
+不可從 [multiple threads](/slides/zh-hant/java/multithreading/) 同時操作同一個 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 實例。請在每個執行緒或行程中使用獨立的實例。
 
 ### 如何移除評估水印與限制？
 

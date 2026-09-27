@@ -72,14 +72,14 @@ Aspose.Slides for Java 是一個類別庫，可在 Java 應用程式中建立、
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh-hant/java/">API 參考文件</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/java/release-notes/">版本說明</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">API 參考文件</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">版本說明</a></li>
 <li><a href="/slides/zh-hant/java/known-issues/">已知問題</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/java/">下載</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">下載</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">免費支援論壇</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免費支援論壇</a></li>
 <li><a href="https://helpdesk.aspose.com/">付費支援服務台</a></li>
 </ul>
 </div>

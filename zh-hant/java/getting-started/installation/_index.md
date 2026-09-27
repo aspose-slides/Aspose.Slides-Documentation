@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### 如何驗證 Aspose.Slides 已正確整合？
 
-編譯您的專案，建立一個空的 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 並以新檔名儲存。若檔案能在未拋出例外的情況下建立，即表示函式庫已成功整合。
+編譯您的專案，建立一個空的 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 並以新檔名儲存。若檔案能在未拋出例外的情況下建立，即表示函式庫已成功整合。
 
 ### 在處理大型簡報時，如何限制記憶體消耗？
 
-只將 JVM 記憶體上限提升到必要的程度，並在 `finally` 區塊中對每個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 例項呼叫 [dispose](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#dispose--)，以即時釋放快取。此作法可防止記憶體不足錯誤，並在批次作業期間維持可預測的總記憶體使用量。
+只將 JVM 記憶體上限提升到必要的程度，並在 `finally` 區塊中對每個 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 例項呼叫 [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--)，以即時釋放快取。此作法可防止記憶體不足錯誤，並在批次作業期間維持可預測的總記憶體使用量。
 
 ### 能否排除不需要的匯出格式以縮小最終 JAR 大小？
 

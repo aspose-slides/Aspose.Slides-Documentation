@@ -29,7 +29,7 @@ Aspose.Slides 可以在評估模式或使用有效授權的情況下使用。評
 {{% alert color="info" title="Note" %}}
 您可以從其[下載頁面](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)下載 **Aspose.Slides for Java** 的評估版。評估版提供與授權版相同的功能。評估套件與購買的套件相同，只要在程式碼中加入幾行以套用授權，即可將評估版轉為授權版。
 
-當您對 **Aspose.Slides** 的評估滿意後，即可[購買授權](https://purchase.aspose.com/pricing/slides/zh-hant/java/)。我們建議您瀏覽不同的訂閱類型。如有任何問題，請聯絡 Aspose 銷售團隊。
+當您對 **Aspose.Slides** 的評估滿意後，即可[購買授權](https://purchase.aspose.com/pricing/slides/java/)。我們建議您瀏覽不同的訂閱類型。如有任何問題，請聯絡 Aspose 銷售團隊。
 
 每份 Aspose 授權皆包含一年免費升級訂閱，期間可取得新版本或修正程式。持有授權產品（甚至是評估版）的使用者皆可獲得免費且無限制的技術支援。
 {{% /alert %}} 
@@ -62,7 +62,7 @@ Aspose.Slides 可以在評估模式或使用有效授權的情況下使用。評
 授權可以從**檔案**或**串流**載入。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides 提供[License](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/license/) 類別以執行授權相關操作。
+Aspose.Slides 提供[License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) 類別以執行授權相關操作。
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -84,9 +84,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-如果您將授權檔案放在其他目錄，呼叫[setLicense](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/license/#setLicense-java.lang.String-) 方法時，指定路徑最後的檔名必須與實際授權檔案名稱相同。
+如果您將授權檔案放在其他目錄，呼叫[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) 方法時，指定路徑最後的檔名必須與實際授權檔案名稱相同。
 
-例如，您可以將授權檔案名稱改為 *Aspose.Slides.Java.lic.xml*。此時在程式碼中必須將完整路徑（以 *Aspose.Slides.Java.lic.xml* 結尾）傳遞給[setLicense](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/license/#setLicense-java.lang.String-) 方法。
+例如，您可以將授權檔案名稱改為 *Aspose.Slides.Java.lic.xml*。此時在程式碼中必須將完整路徑（以 *Aspose.Slides.Java.lic.xml* 結尾）傳遞給[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) 方法。
 {{% /alert %}}
 
 ### **串流**
@@ -124,7 +124,7 @@ if (license.isLicensed())
 ## **執行緒安全性**
 
 {{% alert color="warning" title="Warning" %}}
-[setLicense](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) 方法不是執行緒安全的。如果需要同時由多個執行緒呼叫，建議使用同步機制（例如 lock）以避免問題。
+[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) 方法不是執行緒安全的。如果需要同時由多個執行緒呼叫，建議使用同步機制（例如 lock）以避免問題。
 {{% /alert %}}
 
 ## **常見問題**

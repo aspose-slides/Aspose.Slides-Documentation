@@ -22,7 +22,7 @@ description: "評估 Java 版 Aspose.Slides，探索 PowerPoint (PPT、PPTX) 與
 
 您可以下載 Aspose.Slides 以進行評估。評估版下載與購買版下載相同；在加入少量程式碼套用授權後，即會獲得授權。
 
-未取得授權時，Aspose.Slides 在評估模式下仍提供完整功能，但有兩項限制：它會在每個保存的簡報的每張投影片上加入評估水印文字框，且透過 API 讀取的文字（包括剛設定的文字）會被截斷為前幾個字元，並附帶評估限制的通知。程式碼寫入的文字則會完整保存。`[getPresentationText](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-)` 方法在不載入完整簡報的情況下提取文字，僅回傳評估通知而不會返回投影片文字。
+未取得授權時，Aspose.Slides 在評估模式下仍提供完整功能，但有兩項限制：它會在每個保存的簡報的每張投影片上加入評估水印文字框，且透過 API 讀取的文字（包括剛設定的文字）會被截斷為前幾個字元，並附帶評估限制的通知。程式碼寫入的文字則會完整保存。`[getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-)` 方法在不載入完整簡報的情況下提取文字，僅回傳評估通知而不會返回投影片文字。
 
 ![含評估水印的投影片](evaluate-aspose-slides_1.png)
 
