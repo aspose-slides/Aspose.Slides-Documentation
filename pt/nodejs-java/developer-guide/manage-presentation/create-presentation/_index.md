@@ -31,11 +31,11 @@ Antes de começar, instale o pacote `aspose.slides.via.java` do npm, juntamente 
 
 Para criar uma apresentação e colocar uma caixa de texto em seu primeiro slide, siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
-2. Obtenha esse slide da [coleção de slides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/getslides/) pelo seu índice, 0.  
-3. Adicione um retângulo com o método [addAutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/shapecollection/addautoshape/) e defina seu texto com [setText](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/settext/).  
-4. Salve a apresentação como um arquivo PPTX usando o método [save](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/save/).  
-5. Libere a apresentação com o método [dispose](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/dispose/), e finalize o processo.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
+2. Obtenha esse slide da [coleção de slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) pelo seu índice, 0.  
+3. Adicione um retângulo com o método [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) e defina seu texto com [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).  
+4. Salve a apresentação como um arquivo PPTX usando o método [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).  
+5. Libere a apresentação com o método [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/), e finalize o processo.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Use [BLOB management strategies](/slides/pt/nodejs-java/manage-blob/), limite o 
 
 ### Posso criar/salvar apresentações em paralelo?
 
-Não é possível operar na mesma instância de [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) a partir de [várias threads](/slides/pt/nodejs-java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
+Não é possível operar na mesma instância de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a partir de [várias threads](/slides/pt/nodejs-java/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
 
 ### Como remover a marca d'água de avaliação e as limitações?
 
