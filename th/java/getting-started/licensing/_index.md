@@ -30,7 +30,7 @@ Aspose.Slides สามารถใช้ได้ในโหมดประเ
 
 คุณสามารถดาวน์โหลดรุ่นประเมินของ **Aspose.Slides for Java** ได้จาก [หน้าดาวน์โหลด](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) รุ่นประเมินให้ฟังก์ชันการทำงานเดียวกับรุ่นที่มีใบอนุญาตของผลิตภัณฑ์ แพ็คเกจประเมินเหมือนกับแพ็คเกจที่ซื้อแล้ว รุ่นประเมินจะกลายเป็นรุ่นที่มีใบอนุญาตเมื่อคุณเพิ่มบรรทัดโค้ดเล็กน้อย (เพื่อใช้ใบอนุญาต)
 
-เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** แล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/th/java/) เราแนะนำให้คุณพิจารณาประเภทการสมัครสมาชิกต่าง ๆ หากมีคำถาม ติดต่อทีมขายของ Aspose
+เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** แล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/java/) เราแนะนำให้คุณพิจารณาประเภทการสมัครสมาชิกต่าง ๆ หากมีคำถาม ติดต่อทีมขายของ Aspose
 
 ใบอนุญาตทุกใบของ Aspose มาพร้อมการสมัครสมาชิกหนึ่งปีสำหรับการอัพเกรดฟรีไปยังเวอร์ชันใหม่หรือการแก้ไขบั๊กที่เผยแพร่ภายในช่วงระยะเวลาการสมัคร สมาชิกที่มีผลิตภัณฑ์ที่ได้รับใบอนุญาต (หรือแม้แต่รุ่นประเมิน) จะได้รับการสนับสนุนทางเทคนิคฟรีและไม่จำกัด
 
@@ -70,7 +70,7 @@ Aspose.Slides สามารถใช้ได้ในโหมดประเ
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides มีคลาส [License](https://reference.aspose.com/slides/th/java/com.aspose.slides/license/) สำหรับการทำงานเกี่ยวกับใบอนุญาต
+Aspose.Slides มีคลาส [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) สำหรับการทำงานเกี่ยวกับใบอนุญาต
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียกใช้เมธอด [setLicense](https://reference.aspose.com/slides/th/java/com.aspose.slides/license/#setLicense-java.lang.String-) ชื่อไฟล์ใบอนุญาตที่อยู่ท้ายเส้นทางที่ระบุต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณ
+หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียกใช้เมธอด [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) ชื่อไฟล์ใบอนุญาตที่อยู่ท้ายเส้นทางที่ระบุต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณ
 
-เช่น คุณอาจเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.Java.lic.xml* จากนั้นในโค้ดของคุณต้องส่งเส้นทางไปยังไฟล์ (สิ้นสุดด้วย *Aspose.Slides.Java.lic.xml*) ไปยังเมธอด [setLicense](https://reference.aspose.com/slides/th/java/com.aspose.slides/license/#setLicense-java.lang.String-)
+เช่น คุณอาจเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.Java.lic.xml* จากนั้นในโค้ดของคุณต้องส่งเส้นทางไปยังไฟล์ (สิ้นสุดด้วย *Aspose.Slides.Java.lic.xml*) ไปยังเมธอด [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-)
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-เมธอด [setLicense](https://reference.aspose.com/slides/th/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) ไม่เป็น thread‑safe หากเมธอดนี้ต้องถูกเรียกพร้อมกันจากหลายเธรด คุณอาจต้องใช้กลไกการทำงานร่วมกัน (เช่น lock) เพื่อหลีกเลี่ยงปัญหา
+เมธอด [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) ไม่เป็น thread‑safe หากเมธอดนี้ต้องถูกเรียกพร้อมกันจากหลายเธรด คุณอาจต้องใช้กลไกการทำงานร่วมกัน (เช่น lock) เพื่อหลีกเลี่ยงปัญหา
 
 {{% /alert %}}
 

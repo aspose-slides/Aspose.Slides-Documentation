@@ -72,14 +72,14 @@ Aspose.Slides for Java เป็นไลบรารีคลาสสำหร
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/th/java/">อ้างอิง API</a></li>
-<li><a href="https://releases.aspose.com/slides/th/java/release-notes/">บันทึกการอัปเดต</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">อ้างอิง API</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">บันทึกการอัปเดต</a></li>
 <li><a href="/slides/th/java/known-issues/">ปัญหาที่ทราบ</a></li>
-<li><a href="https://releases.aspose.com/slides/th/java/">ดาวน์โหลด</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">ดาวน์โหลด</a></li>
 </ul>
 <p>การสนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบชำระค่าใช้จ่าย</a></li>
 </ul>
 </div>

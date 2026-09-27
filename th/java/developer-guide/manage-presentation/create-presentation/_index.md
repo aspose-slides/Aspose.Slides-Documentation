@@ -28,14 +28,14 @@ description: "สร้างการนำเสนอใน Java ด้วย
 
 ## **สร้างงานนำเสนอ**
 
-การสร้างไฟล์ PowerPoint ตั้งแต่ต้นใน Aspose.Slides for Java เริ่มต้นด้วยการสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ตัวสร้างจะให้งานนำเสนอเปล่าที่มีสไลด์เดียว, พร้อมสำหรับรูปร่าง, ข้อความ, ชาร์ต, หรือเนื้อหาอื่นใดที่แอปพลิเคชันของคุณต้องการ. เมื่อคุณแก้ไขสไลด์นั้นหรือเพิ่มสไลด์ใหม่, คุณสามารถบันทึกผลลัพธ์เป็นรูปแบบ PPTX, PPT ดั้งเดิม, หรือ OpenDocument
+การสร้างไฟล์ PowerPoint ตั้งแต่ต้นใน Aspose.Slides for Java เริ่มต้นด้วยการสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ตัวสร้างจะให้งานนำเสนอเปล่าที่มีสไลด์เดียว, พร้อมสำหรับรูปร่าง, ข้อความ, ชาร์ต, หรือเนื้อหาอื่นใดที่แอปพลิเคชันของคุณต้องการ. เมื่อคุณแก้ไขสไลด์นั้นหรือเพิ่มสไลด์ใหม่, คุณสามารถบันทึกผลลัพธ์เป็นรูปแบบ PPTX, PPT ดั้งเดิม, หรือ OpenDocument
 
 เพื่อสร้างงานนำเสนอและใส่รูปร่างที่มีข้อความบนสไลด์แรก, ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/). งานนำเสนอใหม่จะมีสไลด์เปล่าหนึ่งสไลด์อยู่แล้ว
-1. ดึงสไลด์นั้นโดยใช้ดัชนี 0 จากคอลเลกชันที่เมธอด [getSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getSlides--) คืนค่า
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ชนิด `Cloud` ด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) และกำหนดข้อความของรูปร่างด้วยเมธอด [setText](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/#setText-java.lang.String-)
-1. บันทึกงานนำเสนอเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#save-java.lang.String-int-)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). งานนำเสนอใหม่จะมีสไลด์เปล่าหนึ่งสไลด์อยู่แล้ว
+1. ดึงสไลด์นั้นโดยใช้ดัชนี 0 จากคอลเลกชันที่เมธอด [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) คืนค่า
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ชนิด `Cloud` ด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) และกำหนดข้อความของรูปร่างด้วยเมธอด [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-)
+1. บันทึกงานนำเสนอเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-)
 
 ตัวอย่างด้านล่างเป็นโปรแกรมเต็มรูปแบบ. ในโปรเจกต์ Maven จาก [การติดตั้ง](/slides/th/java/installation/), บันทึกเป็น *src/main/java/HelloSlides.java* และเรียกใช้ `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ public class HelloSlides {
 
 ### ฉันสามารถสร้าง/บันทึกงานนำเสนอแบบขนานได้หรือไม่?
 
-คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) เดียวจากหลาย [threads](/slides/th/java/multithreading/) ได้. ให้สร้างอินสแตนซ์แยกกันสำหรับแต่ละเธรดหรือแต่ละกระบวนการ
+คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) เดียวจากหลาย [threads](/slides/th/java/multithreading/) ได้. ให้สร้างอินสแตนซ์แยกกันสำหรับแต่ละเธรดหรือแต่ละกระบวนการ
 
 ### ฉันจะลบลายน้ำการทดลองและข้อจำกัดต่าง ๆ อย่างไร?
 

@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### วิธีตรวจสอบว่า Aspose.Slides ได้รวมอย่างถูกต้องหรือไม่?
 
-สร้างโครงการของคุณ ประกอบออบเจ็กต์เปล่า [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) แล้วบันทึกด้วยชื่อใหม่ หากไฟล์สร้างสำเร็จโดยไม่เกิดข้อยกเว้น หมายความว่าห้องสมุดได้รวมอย่างถูกต้องแล้ว
+สร้างโครงการของคุณ ประกอบออบเจ็กต์เปล่า [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) แล้วบันทึกด้วยชื่อใหม่ หากไฟล์สร้างสำเร็จโดยไม่เกิดข้อยกเว้น หมายความว่าห้องสมุดได้รวมอย่างถูกต้องแล้ว
 
 ### วิธีจำกัดการใช้หน่วยความจำเมื่อต้องประมวลผลการนำเสนอขนาดใหญ่?
 
-ปรับขีดจำกัดหน่วยความจำของ JVM ให้สูงเท่าที่จำเป็นเท่านั้น และเรียกใช้เมธอด [dispose](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#dispose--) บนแต่ละอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ภายในบล็อก `finally` เพื่อคืนค่าแคชโดยเร็ว วิธีนี้จะป้องกันข้อผิดพลาด out‑of‑memory และทำให้การใช้หน่วยความจำโดยรวมคาดการณ์ได้ระหว่างการดำเนินการแบบแบตช์
+ปรับขีดจำกัดหน่วยความจำของ JVM ให้สูงเท่าที่จำเป็นเท่านั้น และเรียกใช้เมธอด [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) บนแต่ละอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ภายในบล็อก `finally` เพื่อคืนค่าแคชโดยเร็ว วิธีนี้จะป้องกันข้อผิดพลาด out‑of‑memory และทำให้การใช้หน่วยความจำโดยรวมคาดการณ์ได้ระหว่างการดำเนินการแบบแบตช์
 
 ### ฉันสามารถยกเว้นรูปแบบการส่งออกที่ไม่ต้องการเพื่อลดขนาด JAR สุดท้ายได้หรือไม่?
 
