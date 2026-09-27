@@ -28,14 +28,14 @@ Voordat u begint, voegt u Aspose.Slides for Java toe aan uw project vanuit de Ma
 
 ## **Een presentatie maken**
 
-Een PowerPoint‑bestand vanaf nul maken in Aspose.Slides for Java begint met een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse. De constructor levert een lege presentatie met één dia, klaar voor vormen, tekst, grafieken of andere inhoud die uw applicatie nodig heeft. Zodra u die dia wijzigt of nieuwe toevoegt, kunt u het resultaat opslaan in PPTX, het oudere PPT‑formaat of OpenDocument‑formaten.
+Een PowerPoint‑bestand vanaf nul maken in Aspose.Slides for Java begint met een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑klasse. De constructor levert een lege presentatie met één dia, klaar voor vormen, tekst, grafieken of andere inhoud die uw applicatie nodig heeft. Zodra u die dia wijzigt of nieuwe toevoegt, kunt u het resultaat opslaan in PPTX, het oudere PPT‑formaat of OpenDocument‑formaten.
 
 Om een presentatie te maken en een vorm met tekst op de eerste dia te plaatsen, volgt u deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
-2. Haal die dia op via de index 0 uit de collectie die [getSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSlides--) retourneert.  
-3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshape/) van het type `Cloud` toe met de [addAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) methode, en stel de tekst in met [setText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) methode.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
+2. Haal die dia op via de index 0 uit de collectie die [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) retourneert.  
+3. Voeg een [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) van het type `Cloud` toe met de [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) methode, en stel de tekst in met [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) methode.
 
 Het voorbeeld hieronder is een volledig programma. In het Maven‑project van [Installatie](/slides/nl/java/installation/), sla het op als *src/main/java/HelloSlides.java* en voer `mvn compile exec:java` uit.
 

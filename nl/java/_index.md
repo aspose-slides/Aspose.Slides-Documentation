@@ -72,14 +72,14 @@ Het laadt en slaat PPT, PPTX, PPS, POT en ODP op, inclusief macro‑ingeschakeld
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/nl/java/">API-referentie</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/java/release-notes/">Release‑opmerkingen</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">API-referentie</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">Release‑opmerkingen</a></li>
 <li><a href="/slides/nl/java/known-issues/">Bekende problemen</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/java/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/nl/11">Gratis ondersteuningsforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
 </ul>
 </div>

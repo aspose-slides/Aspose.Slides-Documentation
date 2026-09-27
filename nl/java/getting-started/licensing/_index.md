@@ -29,7 +29,7 @@ Dit artikel legt uit hoe licenties werken in Aspose.Slides en hoe u een licentie
 {{% alert color="info" title="Note" %}}
 U kunt een evaluatieversie van **Aspose.Slides for Java** downloaden vanaf de [downloadpagina](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). De evaluatieversie biedt dezelfde functionaliteiten als de gelicentieerde versie van het product. Het evaluatiepakket is hetzelfde als het aangekochte pakket. De evaluatieversie wordt simpelweg gelicentieerd nadat u een paar regels code hebt toegevoegd (om de licentie toe te passen).
 
-Zodra u tevreden bent met uw evaluatie van **Aspose.Slides**, kunt u een [licentie aanschaffen](https://purchase.aspose.com/pricing/slides/nl/java/). We raden u aan de verschillende abonnementstypen te bekijken. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
+Zodra u tevreden bent met uw evaluatie van **Aspose.Slides**, kunt u een [licentie aanschaffen](https://purchase.aspose.com/pricing/slides/java/). We raden u aan de verschillende abonnementstypen te bekijken. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
 
 Elke Aspose‑licentie wordt geleverd met een eenjarenabonnement voor gratis upgrades naar nieuwe versies of correcties die binnen de abonnementsperiode worden uitgebracht. Gebruikers met gelicentieerde producten (of zelfs evaluatieversies) krijgen gratis en onbeperkte technische ondersteuning.
 {{% /alert %}} 
@@ -62,7 +62,7 @@ U wilt misschien de [Metered Licensing](/slides/nl/java/metered-licensing/) beki
 Een licentie kan worden geladen uit een **bestand** of **stream**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides biedt de [License](https://reference.aspose.com/slides/nl/java/com.aspose.slides/license/)‑klasse voor licentie‑operaties.
+Aspose.Slides biedt de [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/)‑klasse voor licentie‑operaties.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -84,9 +84,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Als u het licentiebestand in een andere map plaatst, moet bij het aanroepen van de [setLicense](https://reference.aspose.com/slides/nl/java/com.aspose.slides/license/#setLicense-java.lang.String-)‑methode de licentienaam aan het einde van het opgegeven pad overeenkomen met de naam van uw licentiebestand.
+Als u het licentiebestand in een andere map plaatst, moet bij het aanroepen van de [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-)‑methode de licentienaam aan het einde van het opgegeven pad overeenkomen met de naam van uw licentiebestand.
 
-Bijvoorbeeld, u kunt de licentienaam wijzigen naar *Aspose.Slides.Java.lic.xml*. Vervolgens moet u in uw code het pad naar het bestand (dat eindigt op *Aspose.Slides.Java.lic.xml*) doorgeven aan de [setLicense](https://reference.aspose.com/slides/nl/java/com.aspose.slides/license/#setLicense-java.lang.String-)‑methode.
+Bijvoorbeeld, u kunt de licentienaam wijzigen naar *Aspose.Slides.Java.lic.xml*. Vervolgens moet u in uw code het pad naar het bestand (dat eindigt op *Aspose.Slides.Java.lic.xml*) doorgeven aan de [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-)‑methode.
 {{% /alert %}}
 
 ### **Stream**
@@ -124,7 +124,7 @@ if (license.isLicensed())
 ## **Thread‑veiligheid**
 
 {{% alert color="warning" title="Warning" %}}
-De [setLicense](https://reference.aspose.com/slides/nl/java/com.aspose.slides/license/#setLicense-java.io.InputStream-)‑methode is niet thread‑veilig. Als deze methode gelijktijdig vanuit meerdere threads moet worden aangeroepen, wilt u mogelijk synchronisatie‑primitieven (zoals een lock) gebruiken om problemen te voorkomen.
+De [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-)‑methode is niet thread‑veilig. Als deze methode gelijktijdig vanuit meerdere threads moet worden aangeroepen, wilt u mogelijk synchronisatie‑primitieven (zoals een lock) gebruiken om problemen te voorkomen.
 {{% /alert %}}
 
 ## **FAQ**

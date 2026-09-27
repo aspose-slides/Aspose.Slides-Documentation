@@ -22,7 +22,7 @@ description: "Evalueer Aspose.Slides voor Java en ontdek API-functies voor Power
 
 U kunt Aspose.Slides downloaden voor evaluatie. De evaluatie‑download is hetzelfde als de gekochte download; hij wordt gelicentieerd nadat u enkele regels code toevoegt om de licentie toe te passen.
 
-Zonder licentie biedt Aspose.Slides zijn volledige functionaliteit in de evaluatiemodus, met twee beperkingen: het voegt een watermerk‑tekstvak toe aan elke dia van elke presentatie die het opslaat, en tekst die uw code via de API leest, inclusief tekst die het zojuist heeft ingesteld, wordt afgekapt tot de eerste paar tekens, gevolgd door een melding over de evaluatiebeperking. Tekst die uw code schrijft, wordt volledig opgeslagen. De [getPresentationText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) methode, die tekst extraheert zonder de hele presentatie te laden, geeft alleen evaluatiemeldingen terug en geen dia‑tekst.
+Zonder licentie biedt Aspose.Slides zijn volledige functionaliteit in de evaluatiemodus, met twee beperkingen: het voegt een watermerk‑tekstvak toe aan elke dia van elke presentatie die het opslaat, en tekst die uw code via de API leest, inclusief tekst die het zojuist heeft ingesteld, wordt afgekapt tot de eerste paar tekens, gevolgd door een melding over de evaluatiebeperking. Tekst die uw code schrijft, wordt volledig opgeslagen. De [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) methode, die tekst extraheert zonder de hele presentatie te laden, geeft alleen evaluatiemeldingen terug en geen dia‑tekst.
 
 ![Een dia met het evaluatiewatermerk](evaluate-aspose-slides_1.png)
 

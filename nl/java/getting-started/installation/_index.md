@@ -149,11 +149,11 @@ De lettertypen die in uw presentaties worden gebruikt, of geschikte vervangers, 
 
 ### Hoe kan ik verifiëren dat Aspose.Slides correct is geïntegreerd?
 
-Bouw uw project, maak een lege [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) aan en sla deze op onder een nieuwe naam. Als het bestand wordt aangemaakt zonder uitzonderingen, is de bibliotheek succesvol geïntegreerd.
+Bouw uw project, maak een lege [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) aan en sla deze op onder een nieuwe naam. Als het bestand wordt aangemaakt zonder uitzonderingen, is de bibliotheek succesvol geïntegreerd.
 
 ### Hoe kan ik het geheugenverbruik beperken bij het verwerken van grote presentaties?
 
-Verhoog de JVM‑geheugenlimieten alleen zoveel als nodig is, en roep [dispose](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#dispose--) aan op elke [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑instantie in een `finally`‑blok om de cache onmiddellijk vrij te geven. Dit voorkomt out‑of‑memory‑fouten en houdt het algehele geheugenverbruik voorspelbaar tijdens batch‑operaties.
+Verhoog de JVM‑geheugenlimieten alleen zoveel als nodig is, en roep [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) aan op elke [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑instantie in een `finally`‑blok om de cache onmiddellijk vrij te geven. Dit voorkomt out‑of‑memory‑fouten en houdt het algehele geheugenverbruik voorspelbaar tijdens batch‑operaties.
 
 ### Kan ik ongewenste exportformaten uitsluiten om de uiteindelijke JAR‑grootte te verkleinen?
 
