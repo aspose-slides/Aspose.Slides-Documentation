@@ -29,10 +29,10 @@ Innan du börjar, installera paketet från PyPI med `pip install aspose.slides`.
 
 För att skapa en presentation och placera en form med text på dess första bild, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.  
-2. Hämta den bilden från samlingen [slides](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/slides/sv/) med dess index, 0.  
-3. Lägg till en molnformad [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) med metoden [add_auto_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_auto_shape/) för bildens [shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slide/shapes/)‑samling, och sätt dess [text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/text/).  
-4. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/save/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.  
+2. Hämta den bilden från samlingen [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) med dess index, 0.  
+3. Lägg till en molnformad [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) med metoden [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) för bildens [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/)‑samling, och sätt dess [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).  
+4. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Använd [BLOB management strategies](/slides/sv/python-net/manage-blob/), begrä
 
 ### Kan jag skapa/spara presentationer parallellt?
 
-Du kan inte arbeta med samma [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/python-net/multithreading/). Kör separata, isolerade instanser per tråd eller process.
+Du kan inte arbeta med samma [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/python-net/multithreading/). Kör separata, isolerade instanser per tråd eller process.
 
 ### Hur tar jag bort provvattenstämpeln och begränsningarna?
 
