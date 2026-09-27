@@ -23,7 +23,7 @@ Aspose.Slides může být používán v evaluačním režimu nebo s platnou lice
 
 Evaluační verzi **Aspose.Slides for Python via .NET** si můžete stáhnout z její [stránky ke stažení](https://pypi.org/project/Aspose.Slides/). Evaluační verze poskytuje stejné funkce jako licencovaný produkt. Evaluační balíček je identický s zakoupeným balíčkem a po přidání několika řádků kódu pro aplikaci licence se stane licencovaným.
 
-Jakmile budete s vyhodnocením **Aspose.Slides** spokojeni, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cs/python-net/). Doporučujeme si prohlédnout dostupné možnosti předplatného. Pokud máte otázky, kontaktujte prodejní tým Aspose.
+Jakmile budete s vyhodnocením **Aspose.Slides** spokojeni, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/python-net/). Doporučujeme si prohlédnout dostupné možnosti předplatného. Pokud máte otázky, kontaktujte prodejní tým Aspose.
 
 Každá licence Aspose zahrnuje roční předplatné s bezplatnými aktualizacemi na nové verze a opravy vydané během tohoto období. Jak licencovaní, tak evaluační uživatelé získávají bezplatnou neomezenou technickou podporu.
 
@@ -53,7 +53,7 @@ Můžete si také přečíst [Metered Licensing](/slides/cs/python-net/metered-l
 Licence může být načtena ze **souboru** nebo **proudu**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/) pro správu licencí.
+Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) pro správu licencí.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ Nové licence mohou aktivovat Aspose.Slides pouze ve verzi 21.4 nebo novější.
 
 ### **Soubor**
 
-Nejjednodušší způsob, jak nastavit licenci, je předat cestu k licenčnímu souboru metodě [set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/). Pokud předáte pouze název souboru, jako v ukázce níže, Aspose.Slides hledá soubor v aktuálním pracovním adresáři.
+Nejjednodušší způsob, jak nastavit licenci, je předat cestu k licenčnímu souboru metodě [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/). Pokud předáte pouze název souboru, jako v ukázce níže, Aspose.Slides hledá soubor v aktuálním pracovním adresáři.
 
 Následující Python kód ukazuje, jak nastavit licenční soubor:
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Pokud umístíte licenční soubor do jiného adresáře, při volání [License.set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/#str) musí název souboru na konci explicitní cesty odpovídat názvu vašeho licenčního souboru.
+Pokud umístíte licenční soubor do jiného adresáře, při volání [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) musí název souboru na konci explicitní cesty odpovídat názvu vašeho licenčního souboru.
 
-Například můžete přejmenovat licenční soubor na *Aspose.Slides.lic.xml*. Pak ve svém kódu předáte úplnou cestu k tomuto souboru (končící na Aspose.Slides.lic.xml) metodě [License.set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/#str).
+Například můžete přejmenovat licenční soubor na *Aspose.Slides.lic.xml*. Pak ve svém kódu předáte úplnou cestu k tomuto souboru (končící na Aspose.Slides.lic.xml) metodě [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str).
 {{% /alert %}}
 
 ### **Proud**
@@ -115,7 +115,7 @@ if license.is_licensed():
 ## **Bezpečnost při více vláknech**
 
 {{% alert color="warning" title="Warning" %}}
-Metoda [License.set_license](https://reference.aspose.com/slides/cs/python-net/aspose.slides/license/set_license/) není bezpečná pro více vláken. Pokud ji potřebujete volat souběžně z více vláken, použijte synchronizační primitivum, jako je `threading.Lock`, abyste se vyhnuli problémům.
+Metoda [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) není bezpečná pro více vláken. Pokud ji potřebujete volat souběžně z více vláken, použijte synchronizační primitivum, jako je `threading.Lock`, abyste se vyhnuli problémům.
 {{% /alert %}}
 
 ## **Často kladené otázky**

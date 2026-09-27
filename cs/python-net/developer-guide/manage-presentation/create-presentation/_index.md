@@ -29,10 +29,10 @@ Než začnete, nainstalujte balíček z PyPI pomocí `pip install aspose.slides`
 
 Chcete-li vytvořit prezentaci a umístit tvar s textem na její první snímek, postupujte podle těchto kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
-2. Získejte tento snímek ze sbírky [slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/slides/cs/) pomocí jeho indexu 0.
-3. Přidejte oblačný [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) pomocí metody [add_auto_shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_auto_shape/) ze sbírky [shapes](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/shapes/) snímku a nastavte jeho [text](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/text/).
-4. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/save/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
+2. Získejte tento snímek ze sbírky [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) pomocí jeho indexu 0.
+3. Přidejte oblačný [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) pomocí metody [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) ze sbírky [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) snímku a nastavte jeho [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+4. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Použijte [strategie správy BLOB](/slides/cs/python-net/manage-blob/), omezte �
 
 ### Mohu vytvářet/ukládat prezentace paralelně?
 
-Nelze operovat na stejné instanci [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) z [více vláken](/slides/cs/python-net/multithreading/). Spusťte samostatné, izolované instance na každé vlákno nebo proces.
+Nelze operovat na stejné instanci [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) z [více vláken](/slides/cs/python-net/multithreading/). Spusťte samostatné, izolované instance na každé vlákno nebo proces.
 
 ### Jak odstranit zkušební vodoznak a omezení?
 
