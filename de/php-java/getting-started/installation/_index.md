@@ -154,7 +154,7 @@ PHP konnte `Java.inc` nicht von Tomcat laden. Wenn die Meldung davor besagt, das
 
 **Wie kann ich den Speicherverbrauch bei der Verarbeitung großer Präsentationen begrenzen?**
 
-Erhöhen Sie die JVM‑Speichergrenzen nur so weit, wie nötig, und schließen Sie jede [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Instanz in einem `finally`‑Block, um den Cache sofort freizugeben. Das verhindert Out‑of‑Memory‑Fehler und hält den Gesamtspeicherverbrauch bei Batch‑Operationen vorhersehbar.
+Erhöhen Sie die JVM‑Speichergrenzen nur so weit, wie nötig, und schließen Sie jede [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Instanz in einem `finally`‑Block, um den Cache sofort freizugeben. Das verhindert Out‑of‑Memory‑Fehler und hält den Gesamtspeicherverbrauch bei Batch‑Operationen vorhersehbar.
 
 **Kann ich unerwünschte Exportformate ausschließen, um die finale JAR‑Größe zu verkleinern?**
 

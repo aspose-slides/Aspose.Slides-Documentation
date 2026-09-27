@@ -61,7 +61,7 @@ Sie müssen die Lizenz setzen:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Preisangaben finden Sie auf der Seite [Preisinformationen](https://purchase.aspose.com/pricing/slides/de/family).
+Preisangaben finden Sie auf der Seite [Preisinformationen](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Lizenz festlegen in Aspose.Slides für PHP via Java**

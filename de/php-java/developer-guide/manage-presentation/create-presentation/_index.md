@@ -30,10 +30,10 @@ Bevor Sie beginnen, installieren Sie Aspose.Slides für PHP via Java mit Compose
 
 Um eine Präsentation zu erstellen und eine Textbox auf der ersten Folie zu platzieren, folgen Sie diesen Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse. Eine neue Präsentation enthält bereits eine leere Folie.
-2. Rufen Sie diese Folie aus der von [Presentation::getSlides](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/getslides/) zurückgegebenen Sammlung anhand ihres Index 0 ab.
-3. Fügen Sie mit der Methode [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/shapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie dessen Text mit [TextFrame::setText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/settext/).
-4. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [Presentation::save](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/save/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse. Eine neue Präsentation enthält bereits eine leere Folie.
+2. Rufen Sie diese Folie aus der von [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) zurückgegebenen Sammlung anhand ihres Index 0 ab.
+3. Fügen Sie mit der Methode [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie dessen Text mit [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+4. Speichern Sie die Präsentation als PPTX‑Datei mit der Methode [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides liest und schreibt Dateien innerhalb von Tomcat, nicht in Ihrem PH
 
 ## **Präsentation erstellen und speichern**
 
-Um eine leere Präsentation zu erstellen und zu speichern, erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse und speichern Sie sie in einem beliebigen Format der Aufzählung [SaveFormat](https://reference.aspose.com/slides/de/php-java/aspose.slides/saveformat/). Das Ergebnis ist eine Präsentation mit einer leeren Folie.
+Um eine leere Präsentation zu erstellen und zu speichern, erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse und speichern Sie sie in einem beliebigen Format der Aufzählung [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). Das Ergebnis ist eine Präsentation mit einer leeren Folie.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Präsentation öffnen und speichern**
 
-Um eine Präsentation von einem Format in ein anderes zu konvertieren, öffnen Sie sie, indem Sie ihren Pfad dem [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Konstruktor übergeben, und speichern Sie sie anschließend im Zielformat. Aspose.Slides erkennt das Eingabeformat, wie PPT, PPTX oder ODP, anhand der Datei selbst.
+Um eine Präsentation von einem Format in ein anderes zu konvertieren, öffnen Sie sie, indem Sie ihren Pfad dem [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Konstruktor übergeben, und speichern Sie sie anschließend im Zielformat. Aspose.Slides erkennt das Eingabeformat, wie PPT, PPTX oder ODP, anhand der Datei selbst.
 
 Das untenstehende Beispiel geht von einer OpenDocument‑Präsentation namens *Sample.odp* neben dem Skript aus und speichert sie als PPTX.
 
@@ -127,7 +127,7 @@ Verwenden Sie [BLOB‑Verwaltungsstrategien](/slides/de/php-java/manage-blob/), 
 
 ### Kann ich Präsentationen parallel erstellen/speichern?
 
-Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Instanz aus [mehreren Threads](/slides/de/php-java/multithreading/) gleichzeitig benutzen. Verwenden Sie separate, isolierte Instanzen pro Thread oder Prozess.
+Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Instanz aus [mehreren Threads](/slides/de/php-java/multithreading/) gleichzeitig benutzen. Verwenden Sie separate, isolierte Instanzen pro Thread oder Prozess.
 
 ### Wie entferne ich das Test‑Wasserzeichen und die Einschränkungen?
 

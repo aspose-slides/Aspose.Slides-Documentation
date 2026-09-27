@@ -71,14 +71,14 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich makroaktivi
 <hr>
 <p>REFERENZ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/de/php-java/">API-Referenz</a></li>
-<li><a href="https://releases.aspose.com/slides/de/php-java/release-notes/">Versionshinweise</a></li>
+<li><a href="https://reference.aspose.com/slides/php-java/">API-Referenz</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/release-notes/">Versionshinweise</a></li>
 <li><a href="/slides/de/php-java/known-issues/">Bekannte Probleme</a></li>
-<li><a href="https://releases.aspose.com/slides/de/php-java/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/php-java/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/de/11">Kostenloses Support-Forum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Kostenloses Support-Forum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Kostenpflichtiger Support-Helpdesk</a></li>
 </ul>
 </div>
