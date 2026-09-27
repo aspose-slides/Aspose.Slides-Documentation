@@ -29,13 +29,13 @@ Prima di iniziare, installa Python, un JDK, JPype e Aspose.Slides per Python via
 
 ## **Creare una Presentazione**
 
-Creare un file PowerPoint da zero in Aspose.Slides per Python via Java è semplice quanto istanziare la classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/). Il costruttore fornisce automaticamente un mazzo vuoto con una singola diapositiva, offrendoti una tela immediata per forme, testo, grafici o qualsiasi altro contenuto necessario alla tua applicazione. Dopo aver modificato quella diapositiva—or aggiunto nuove—puoi persistere il risultato in PPTX, PPT legacy o anche formati OpenDocument. Il breve esempio di codice sottostante illustra questo flusso aggiungendo una semplice forma sulla prima diapositiva.
+Creare un file PowerPoint da zero in Aspose.Slides per Python via Java è semplice quanto istanziare la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Il costruttore fornisce automaticamente un mazzo vuoto con una singola diapositiva, offrendoti una tela immediata per forme, testo, grafici o qualsiasi altro contenuto necessario alla tua applicazione. Dopo aver modificato quella diapositiva—or aggiunto nuove—puoi persistere il risultato in PPTX, PPT legacy o anche formati OpenDocument. Il breve esempio di codice sottostante illustra questo flusso aggiungendo una semplice forma sulla prima diapositiva.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).  
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).  
 1. Ottieni la prima diapositiva tramite il suo indice, 0.  
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/autoshape/) di tipo [ShapeType.Cloud](https://reference.aspose.com/slides/it/python-java/aspose.slides/shapetype/#Cloud) usando [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/shapecollection/#addAutoShape).  
-1. Imposta il testo della forma tramite [TextFrame.setText](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/#setText).  
-1. Salva la presentazione con [Presentation.save](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/#save) usando [SaveFormat.Pptx](https://reference.aspose.com/slides/it/python-java/aspose.slides/saveformat/#Pptx).
+1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) di tipo [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) usando [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).  
+1. Imposta il testo della forma tramite [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).  
+1. Salva la presentazione con [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) usando [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 L'esempio seguente avvia la Java Virtual Machine (JVM) se non è già in esecuzione, aggiunge una forma a nuvola con testo sulla prima diapositiva e salva la presentazione. Salvalo come *create_presentation.py*:
 
@@ -100,7 +100,7 @@ Usa le [BLOB management strategies](/slides/it/python-java/manage-blob/), limita
 
 **Posso creare/salvare presentazioni in parallelo?**
 
-Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/) da [multiple threads](/slides/it/python-java/multithreading/). Esegui istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) da [multiple threads](/slides/it/python-java/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
 **Come rimuovere la filigrana di prova e le limitazioni?**
 

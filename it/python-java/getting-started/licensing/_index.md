@@ -17,7 +17,7 @@ description: "Applica una licenza da file, basata su byte o a consumo in Aspose.
 
 Aspose.Slides per Python via Java può essere eseguito in modalità di valutazione o con una licenza. In modalità di valutazione, aggiunge una casella di testo con filigrana di valutazione a ogni diapositiva di ogni presentazione che salva e tronca il testo che il tuo codice legge dalle presentazioni. Questo articolo spiega come applicare una licenza da un file o da byte e come configurare la licenza a consumo.
 
-Per le opzioni di acquisto, vedi [Informazioni sui prezzi](https://purchase.aspose.com/pricing/slides/it/family). Per domande generali su licenze e acquisti, vedi [Politiche di acquisto e FAQ](https://purchase.aspose.com/policies).
+Per le opzioni di acquisto, vedi [Informazioni sui prezzi](https://purchase.aspose.com/pricing/slides/family). Per domande generali su licenze e acquisti, vedi [Politiche di acquisto e FAQ](https://purchase.aspose.com/policies).
 
 Per le limitazioni della valutazione e come richiedere una licenza temporanea, vedi [Valuta Aspose.Slides](/slides/it/python-java/evaluate-aspose-slides/). Applica una licenza temporanea nello stesso modo di un file di licenza acquistato.
 
@@ -29,7 +29,7 @@ Un file di licenza contiene informazioni come il nome del prodotto, il numero di
 Non modificare il file di licenza. Anche una interruzione di riga extra può invalidare la sua firma digitale.
 {{% /alert %}}
 
-Applica la licenza una volta per applicazione o processo, prima di creare presentazioni o eseguire altre operazioni di Aspose.Slides. Per un file di licenza, usa la classe [License](https://reference.aspose.com/slides/it/python-java/aspose.slides/license/). La licenza a consumo utilizza una coppia di chiavi pubblica e privata invece di un file di licenza.
+Applica la licenza una volta per applicazione o processo, prima di creare presentazioni o eseguire altre operazioni di Aspose.Slides. Per un file di licenza, usa la classe [License](https://reference.aspose.com/slides/python-java/aspose.slides/license/). La licenza a consumo utilizza una coppia di chiavi pubblica e privata invece di un file di licenza.
 
 ## **Applicare una licenza**
 
@@ -37,7 +37,7 @@ I seguenti esempi presumono che Aspose.Slides per Python via Java e i suoi prere
 
 ### **Applicare una licenza da un file**
 
-Passa il percorso del file di licenza a [License.setLicense](https://reference.aspose.com/slides/it/python-java/aspose.slides/license/#setLicense). Sostituisci `Aspose.Slides.lic` con il percorso del tuo file di licenza.
+Passa il percorso del file di licenza a [License.setLicense](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicense). Sostituisci `Aspose.Slides.lic` con il percorso del tuo file di licenza.
 
 ```python
 from pathlib import Path
@@ -64,11 +64,11 @@ finally:
 
 Usa il nome file esatto, includendo la sua estensione. Ad esempio, se il file si chiama `Aspose.Slides.lic.xml`, includi `.xml` nel percorso. Un percorso assoluto evita ambiguità sulla directory di lavoro dell'applicazione.
 
-L'esempio utilizza [License.isLicensed](https://reference.aspose.com/slides/it/python-java/aspose.slides/license/#isLicensed) per verificare se la licenza è stata applicata.
+L'esempio utilizza [License.isLicensed](https://reference.aspose.com/slides/python-java/aspose.slides/license/#isLicensed) per verificare se la licenza è stata applicata.
 
 ### **Applicare una licenza da byte**
 
-Usa [License.setLicenseFromBytes](https://reference.aspose.com/slides/it/python-java/aspose.slides/license/#setLicenseFromBytes) quando la licenza è disponibile come byte Python. Il seguente esempio legge il file in modalità binaria e lo chiude prima di applicare la licenza.
+Usa [License.setLicenseFromBytes](https://reference.aspose.com/slides/python-java/aspose.slides/license/#setLicenseFromBytes) quando la licenza è disponibile come byte Python. Il seguente esempio legge il file in modalità binaria e lo chiude prima di applicare la licenza.
 
 ```python
 from pathlib import Path
@@ -100,7 +100,7 @@ Mantieni i byte originali invariati. Non decodificare, riformattare o modificare
 
 ## **Applicare una licenza a consumo**
 
-La licenza a consumo ti fattura in base all'utilizzo dell'API. Dopo aver ottenuto una licenza a consumo, applica le sue chiavi pubblica e privata con [Metered.setMeteredKey](https://reference.aspose.com/slides/it/python-java/aspose.slides/metered/#setMeteredKey). Inizializza l'oggetto [Metered](https://reference.aspose.com/slides/it/python-java/aspose.slides/metered/) e applica le chiavi una volta all'avvio dell'applicazione.
+La licenza a consumo ti fattura in base all'utilizzo dell'API. Dopo aver ottenuto una licenza a consumo, applica le sue chiavi pubblica e privata con [Metered.setMeteredKey](https://reference.aspose.com/slides/python-java/aspose.slides/metered/#setMeteredKey). Inizializza l'oggetto [Metered](https://reference.aspose.com/slides/python-java/aspose.slides/metered/) e applica le chiavi una volta all'avvio dell'applicazione.
 
 Il seguente esempio legge le chiavi dalle variabili d'ambiente `ASPOSE_METERED_PUBLIC_KEY` e `ASPOSE_METERED_PRIVATE_KEY`. Imposta entrambe le variabili prima di eseguire lo script.
 
