@@ -60,7 +60,7 @@ Dopo l'acquisto, è necessario applicare il file o lo stream della licenza.
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Puoi trovare le informazioni sui prezzi nella pagina [“Pricing Information”](https://purchase.aspose.com/pricing/slides/it/family).
+Puoi trovare le informazioni sui prezzi nella pagina [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Imposta una Licenza in Aspose.Slides per PHP via Java**

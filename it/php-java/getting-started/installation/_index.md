@@ -154,7 +154,7 @@ PHP non è riuscito a caricare `Java.inc` da Tomcat. Se il messaggio precedente 
 
 **Come posso limitare il consumo di memoria durante l'elaborazione di presentazioni di grandi dimensioni?**
 
-Aumenta i limiti di memoria della JVM solo quanto necessario e chiudi ogni istanza di [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) in un blocco `finally` per rilasciare la cache tempestivamente. Questo previene errori di out‑of‑memory e mantiene prevedibile l'uso complessivo della memoria durante le operazioni batch.
+Aumenta i limiti di memoria della JVM solo quanto necessario e chiudi ogni istanza di [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) in un blocco `finally` per rilasciare la cache tempestivamente. Questo previene errori di out‑of‑memory e mantiene prevedibile l'uso complessivo della memoria durante le operazioni batch.
 
 **Posso escludere formati di esportazione indesiderati per ridurre la dimensione finale del JAR?**
 

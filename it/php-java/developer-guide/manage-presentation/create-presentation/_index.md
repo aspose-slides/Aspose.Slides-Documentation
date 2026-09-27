@@ -28,10 +28,10 @@ Prima di iniziare, installa Aspose.Slides per PHP via Java con Composer e avvia 
 
 ## **Crea una presentazione PowerPoint**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.  
-2. Ottieni quella diapositiva dalla collezione restituita da [Presentation::getSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/getslides/), usando il suo indice, 0.  
-3. Aggiungi un rettangolo con il metodo [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/addautoshape/) e imposta il suo testo con [TextFrame::setText](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/settext/).  
-4. Salva la presentazione come file PPTX con il metodo [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/save/).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.  
+2. Ottieni quella diapositiva dalla collezione restituita da [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), usando il suo indice, 0.  
+3. Aggiungi un rettangolo con il metodo [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) e imposta il suo testo con [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).  
+4. Salva la presentazione come file PPTX con il metodo [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -61,7 +61,7 @@ Aspose.Slides legge e scrive file all'interno di Tomcat, non nel tuo processo PH
 
 ## **Crea e salva una presentazione**
 
-Per creare una presentazione vuota e salvarla, crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) e salvala in qualsiasi formato dell'enumerazione [SaveFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/saveformat/). Il risultato è una presentazione con una diapositiva vuota.
+Per creare una presentazione vuota e salvarla, crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) e salvala in qualsiasi formato dell'enumerazione [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). Il risultato è una presentazione con una diapositiva vuota.
 
 ```php
 <?php
@@ -81,7 +81,7 @@ try {
 
 ## **Apri e salva una presentazione**
 
-Per convertire una presentazione da un formato all'altro, aprila passando il suo percorso al costruttore [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/), quindi salvala nel formato di destinazione. Aspose.Slides rileva il formato di input, come PPT, PPTX o ODP, dal file stesso.
+Per convertire una presentazione da un formato all'altro, aprila passando il suo percorso al costruttore [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), quindi salvala nel formato di destinazione. Aspose.Slides rileva il formato di input, come PPT, PPTX o ODP, dal file stesso.
 
 L'esempio seguente presume una presentazione OpenDocument denominata *Sample.odp* accanto allo script e la salva come PPTX.
 
@@ -125,7 +125,7 @@ Utilizza le [strategie di gestione BLOB](/slides/it/php-java/manage-blob/), limi
 
 ### Posso creare/salvare presentazioni in parallelo?
 
-Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) da [thread multipli](/slides/it/php-java/multithreading/). Esegui istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) da [thread multipli](/slides/it/php-java/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
 ### Come rimuovo la filigrana di prova e le limitazioni?
 
