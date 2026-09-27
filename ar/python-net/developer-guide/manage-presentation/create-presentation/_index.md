@@ -29,10 +29,10 @@ description: "إنشاء عروض PowerPoint في بايثون باستخدام 
 
 لإنشاء عرض تقديمي ووضع شكل يحتوي على نص على الشريحة الأولى، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) . يحتوي عرض تقديمي جديد بالفعل على شريحة فارغة واحدة.
-2. احصل على تلك الشريحة من مجموعة [slides](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/slides/ar/) باستخدام الفهرس 0.
-3. أضف شكلًا سحابيًا من النوع [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) باستخدام طريقة [add_auto_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_auto_shape/) لمجموعة [shapes](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/shapes/) الخاصة بالشريحة، ثم عيّن خاصية [text](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/text/).
-4. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/save/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) . يحتوي عرض تقديمي جديد بالفعل على شريحة فارغة واحدة.
+2. احصل على تلك الشريحة من مجموعة [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) باستخدام الفهرس 0.
+3. أضف شكلًا سحابيًا من النوع [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) باستخدام طريقة [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) لمجموعة [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) الخاصة بالشريحة، ثم عيّن خاصية [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/).
+4. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟
 
-لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) من [multiple threads](/slides/ar/python-net/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) من [multiple threads](/slides/ar/python-net/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
 
 ### كيف يمكنني إزالة علامة التجربة المائية والقيود؟
 

@@ -23,7 +23,7 @@ description: "تعلم كيفية تطبيق وإدارة وحل مشكلات ا
 
 يمكنك تنزيل إصدار التقييم من **Aspose.Slides for Python via .NET** من [صفحة التنزيل](https://pypi.org/project/Aspose.Slides/). يوفر إصدار التقييم نفس الميزات كالمنتج المرخص. حزمة التقييم هي نفسها حزمة الشراء وتصبح مرخصة بعد أن تضيف بضع أسطر من الشيفرة لتطبيق الترخيص.
 
-عند رضاك عن تقييمك لـ **Aspose.Slides**، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/ar/python-net/). نوصي بمراجعة خيارات الاشتراك المتاحة. إذا كان لديك أسئلة، اتصل بفريق مبيعات Aspose.
+عند رضاك عن تقييمك لـ **Aspose.Slides**، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/python-net/). نوصي بمراجعة خيارات الاشتراك المتاحة. إذا كان لديك أسئلة، اتصل بفريق مبيعات Aspose.
 
 كل ترخيص Aspose يشمل اشتراكًا لمدة سنة واحدة مع ترقيات مجانية إلى الإصدارات الجديدة وإصلاحات صادرة خلال تلك الفترة. يحصل كلٌ من المستخدمين المرخصين ومستخدمي التقييم على دعم فني مجاني غير محدود.
 
@@ -53,7 +53,7 @@ description: "تعلم كيفية تطبيق وإدارة وحل مشكلات ا
 يمكن تحميل الترخيص من **ملف** أو **تيار**.
 
 {{% alert color="info" title="Note" %}}
-يوفر Aspose.Slides فئة [License](https://reference.aspose.com/slides/ar/python-net/aspose.slides/license/) للتعامل مع الترخيص.
+يوفر Aspose.Slides فئة [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) للتعامل مع الترخيص.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ description: "تعلم كيفية تطبيق وإدارة وحل مشكلات ا
 
 ### **ملف**
 
-أبسط طريقة لتعيين الترخيص هي تمرير مسار ملف الترخيص إلى طريقة [set_license](https://reference.aspose.com/slides/ar/python-net/aspose.slides/license/set_license/). إذا قمت بتمرير اسم الملف فقط، كما في المثال أدناه، يبحث Aspose.Slides عن الملف في دليل العمل الحالي.
+أبسط طريقة لتعيين الترخيص هي تمرير مسار ملف الترخيص إلى طريقة [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/). إذا قمت بتمرير اسم الملف فقط، كما في المثال أدناه، يبحث Aspose.Slides عن الملف في دليل العمل الحالي.
 
 الكود التالي بلغة Python يوضح كيفية تعيين ملف الترخيص:
 
@@ -77,9 +77,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-إذا وضعت ملف الترخيص في دليل مختلف، عند استدعاء [License.set_license](https://reference.aspose.com/slides/ar/python-net/aspose.slides/license/set_license/#str)، يجب أن يتطابق اسم الملف في نهاية المسار الصريح مع اسم ملف الترخيص الخاص بك.
+إذا وضعت ملف الترخيص في دليل مختلف، عند استدعاء [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)، يجب أن يتطابق اسم الملف في نهاية المسار الصريح مع اسم ملف الترخيص الخاص بك.
 
-على سبيل المثال، يمكنك إعادة تسمية ملف الترخيص إلى *Aspose.Slides.lic.xml*. ثم، في الشفرة الخاصة بك، مرّر المسار الكامل إلى ذلك الملف (الذي ينتهي بـ Aspose.Slides.lic.xml) إلى طريقة [License.set_license](https://reference.aspose.com/slides/ar/python-net/aspose.slides/license/set_license/#str).
+على سبيل المثال، يمكنك إعادة تسمية ملف الترخيص إلى *Aspose.Slides.lic.xml*. ثم، في الشفرة الخاصة بك، مرّر المسار الكامل إلى ذلك الملف (الذي ينتهي بـ Aspose.Slides.lic.xml) إلى طريقة [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str).
 {{% /alert %}}
 
 ### **تيار**
@@ -115,7 +115,7 @@ if license.is_licensed():
 ## **سلامة الخيوط**
 
 {{% alert color="warning" title="Warning" %}}
-طريقة [License.set_license](https://reference.aspose.com/slides/ar/python-net/aspose.slides/license/set_license/) ليست آمنة لاستخدامها عبر خيوط متعددة. إذا كنت تحتاج إلى استدعائها بشكل متزامن من عدة خيوط، استخدم عنصر مزامنة، مثل `threading.Lock`، لتجنب المشكلات.
+طريقة [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) ليست آمنة لاستخدامها عبر خيوط متعددة. إذا كنت تحتاج إلى استدعائها بشكل متزامن من عدة خيوط، استخدم عنصر مزامنة، مثل `threading.Lock`، لتجنب المشكلات.
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**

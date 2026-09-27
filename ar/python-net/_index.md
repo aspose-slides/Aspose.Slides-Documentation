@@ -79,13 +79,13 @@ Aspose.Slides for Python via .NET هو مكتبة بايثون لإنشاء وق
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/python-net/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/python-net/release-notes/">ملاحظات الإصدار</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/python-net/">تحميل</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">تحميل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب مساعدة الدعم المدفوع</a></li>
 </ul>
 </div>
