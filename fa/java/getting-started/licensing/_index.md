@@ -30,7 +30,7 @@ Aspose.Slides را می‌توان در حالت ارزیابی یا با لای
 
 می‌توانید یک نسخه ارزیابی **Aspose.Slides for Java** را از [صفحهٔ دانلود](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) دریافت کنید. نسخه ارزیابی همان عملکردهای نسخه دارای لایسنس محصول را فراهم می‌کند. بسته ارزیابی همان بسته خریداری‌شده است. نسخه ارزیابی پس از افزودن چند خط کد (برای اعمال لایسنس) به‌صورت لایسنس شده تبدیل می‌شود.
 
-پس از این‌که از ارزیابی **Aspose.Slides** راضی شدید، می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/fa/java/). توصیه می‌شود انواع اشتراک‌های مختلف را بررسی کنید. اگر سؤال دارید، با تیم فروش Aspose تماس بگیرید.
+پس از این‌که از ارزیابی **Aspose.Slides** راضی شدید، می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/java/). توصیه می‌شود انواع اشتراک‌های مختلف را بررسی کنید. اگر سؤال دارید، با تیم فروش Aspose تماس بگیرید.
 
 هر لایسنس Aspose یک اشتراک یک‌ساله برای ارتقاءهای رایگان به نسخه‌های جدید یا اصلاحات منتشرشده در دورهٔ اشتراک ارائه می‌دهد. کاربران دارای محصولات دارای لایسنس (یا حتی نسخه‌های ارزیابی) پشتیبانی فنی رایگان و نامحدود دریافت می‌کنند.
 
@@ -70,7 +70,7 @@ Aspose.Slides را می‌توان در حالت ارزیابی یا با لای
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides کلاس [License](https://reference.aspose.com/slides/fa/java/com.aspose.slides/license/) را برای عملیات لایسنس‌گذاری ارائه می‌دهد.
+Aspose.Slides کلاس [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) را برای عملیات لایسنس‌گذاری ارائه می‌دهد.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-اگر فایل لایسنس را در مسیر دیگری قرار دهید، هنگامی که متد [setLicense](https://reference.aspose.com/slides/fa/java/com.aspose.slides/license/#setLicense-java.lang.String-) را فراخوانی می‌کنید، نام فایل لایسنس در انتهای مسیر مشخص شده باید با نام فایل لایسنس شما یکسان باشد.
+اگر فایل لایسنس را در مسیر دیگری قرار دهید، هنگامی که متد [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) را فراخوانی می‌کنید، نام فایل لایسنس در انتهای مسیر مشخص شده باید با نام فایل لایسنس شما یکسان باشد.
 
-به‌عنوان مثال می‌توانید نام فایل لایسنس را به *Aspose.Slides.Java.lic.xml* تغییر دهید. سپس در کد خود باید مسیر فایل (که با *Aspose.Slides.Java.lic.xml* پایان می‌یابد) را به متد [setLicense](https://reference.aspose.com/slides/fa/java/com.aspose.slides/license/#setLicense-java.lang.String-) پاس کنید.
+به‌عنوان مثال می‌توانید نام فایل لایسنس را به *Aspose.Slides.Java.lic.xml* تغییر دهید. سپس در کد خود باید مسیر فایل (که با *Aspose.Slides.Java.lic.xml* پایان می‌یابد) را به متد [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) پاس کنید.
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-متد [setLicense](https://reference.aspose.com/slides/fa/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) ایمن برای نخ‌ها نیست. اگر این متد باید همزمان از چندین نخ فراخوانی شود، ممکن است بخواهید از primitives همگام‌سازی (مانند قفل) برای جلوگیری از مشکلات استفاده کنید.
+متد [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) ایمن برای نخ‌ها نیست. اگر این متد باید همزمان از چندین نخ فراخوانی شود، ممکن است بخواهید از primitives همگام‌سازی (مانند قفل) برای جلوگیری از مشکلات استفاده کنید.
 
 {{% /alert %}}
 

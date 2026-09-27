@@ -72,14 +72,14 @@ Aspose.Slides for Java یک کتابخانهٔ کلاس برای ایجاد، خ
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fa/java/">مرجع API</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/java/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">مرجع API</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">یادداشت‌های انتشار</a></li>
 <li><a href="/slides/fa/java/known-issues/">مشکلات شناخته‌شده</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/java/">بارگیری</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">بارگیری</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">تالار گفت‌وگوی پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">تالار گفت‌وگوی پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">پشتیبانی با هزینه</a></li>
 </ul>
 </div>

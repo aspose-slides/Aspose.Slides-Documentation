@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### چگونه می‌توانم تأیید کنم که Aspose.Slides به‌درستی یکپارچه شده است؟
 
-پروژه‌تان را بسازید، یک شیء خالی [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) را نمونه‌سازی کنید و تحت نام جدیدی ذخیره کنید. اگر فایل بدون ایجاد استثنا ایجاد شد، کتابخانه با موفقیت یکپارچه شده است.
+پروژه‌تان را بسازید، یک شیء خالی [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) را نمونه‌سازی کنید و تحت نام جدیدی ذخیره کنید. اگر فایل بدون ایجاد استثنا ایجاد شد، کتابخانه با موفقیت یکپارچه شده است.
 
 ### چگونه می‌توانم مصرف حافظه را هنگام پردازش ارائه‌های بزرگ محدود کنم؟
 
-محدودیت‌های حافظه JVM را فقط تا حدی که نیاز است افزایش دهید و در یک بلوک `finally` بر هر نمونه [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) متد [dispose](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#dispose--) را صدا بزنید تا کش به‌سرعت آزاد شود. این کار از خطاهای کمبود حافظه جلوگیری می‌کند و استفاده کلی حافظه را در عملیات‌های دسته‌ای پیش‌بینی‌پذیر نگه می‌دارد.
+محدودیت‌های حافظه JVM را فقط تا حدی که نیاز است افزایش دهید و در یک بلوک `finally` بر هر نمونه [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) متد [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) را صدا بزنید تا کش به‌سرعت آزاد شود. این کار از خطاهای کمبود حافظه جلوگیری می‌کند و استفاده کلی حافظه را در عملیات‌های دسته‌ای پیش‌بینی‌پذیر نگه می‌دارد.
 
 ### آیا می‌توانم فرمت‌های خروجی ناخواسته را حذف کنم تا اندازه نهایی JAR کوچک‌تر شود؟
 

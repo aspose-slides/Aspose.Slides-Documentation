@@ -28,14 +28,14 @@ description: "در جاوا با Aspose.Slides ارائه‌ها را ایجاد
 
 ## **ایجاد یک ارائه**
 
-ایجاد یک فایل PowerPoint از صفر در Aspose.Slides for Java با یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) شروع می‌شود. سازنده یک ارائه خالی با یک اسلاید واحد فراهم می‌کند که برای اشکال، متن، نمودارها یا هر محتوای دیگری که برنامه شما نیاز دارد، آماده است. پس از ویرایش آن اسلاید یا افزودن اسلایدهای جدید، می‌توانید نتیجه را به قالب‌های PPTX، PPT قدیمی یا OpenDocument ذخیره کنید.
+ایجاد یک فایل PowerPoint از صفر در Aspose.Slides for Java با یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) شروع می‌شود. سازنده یک ارائه خالی با یک اسلاید واحد فراهم می‌کند که برای اشکال، متن، نمودارها یا هر محتوای دیگری که برنامه شما نیاز دارد، آماده است. پس از ویرایش آن اسلاید یا افزودن اسلایدهای جدید، می‌توانید نتیجه را به قالب‌های PPTX، PPT قدیمی یا OpenDocument ذخیره کنید.
 
 برای ایجاد یک ارائه و قرار دادن یک شکل با متن در اسلاید اول، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید قبلاً یک اسلاید خالی دارد.
-2. آن اسلاید را با اندیس 0 از مجموعه‌ای که [getSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlides--) برمی‌گرداند، دریافت کنید.
-3. یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) از نوع `Cloud` را با متد [addAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) اضافه کنید و متن آن را با متد [setText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/#setText-java.lang.String-) تنظیم کنید.
-4. ارائه را به عنوان یک فایل PPTX با متد [save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ایجاد کنید. یک ارائه جدید قبلاً یک اسلاید خالی دارد.
+2. آن اسلاید را با اندیس 0 از مجموعه‌ای که [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) برمی‌گرداند، دریافت کنید.
+3. یک شیء [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) از نوع `Cloud` را با متد [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) اضافه کنید و متن آن را با متد [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-) تنظیم کنید.
+4. ارائه را به عنوان یک فایل PPTX با متد [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ذخیره کنید.
 
 مثال زیر یک برنامه کامل است. در پروژه Maven از [Installation](/slides/fa/java/installation/)، آن را به عنوان *src/main/java/HelloSlides.java* ذخیره کنید و `mvn compile exec:java` را اجرا کنید.
 
@@ -93,7 +93,7 @@ public class HelloSlides {
 
 ### آیا می‌توانم ارائه‌ها را به صورت همزمان ایجاد/ذخیره کنم؟
 
-نمی‌توانید به یک نمونه [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) از [چندین نخ](/slides/fa/java/multithreading/) به طور همزمان عمل کنید. برای هر نخ یا فرآیند یک نمونه جداگانه و ایزوله ایجاد کنید.
+نمی‌توانید به یک نمونه [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) از [چندین نخ](/slides/fa/java/multithreading/) به طور همزمان عمل کنید. برای هر نخ یا فرآیند یک نمونه جداگانه و ایزوله ایجاد کنید.
 
 ### چگونه می‌توانم واترمارک آزمایشی و محدودیت‌ها را حذف کنم؟
 
