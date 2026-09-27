@@ -151,11 +151,11 @@ A prezentációkban használt betűtípusokat, vagy megfelelő helyettesítőket
 
 ### Hogyan ellenőrizhetem, hogy az Aspose.Slides helyesen integrálva van?
 
-Építse fel a projektet, hozzon létre egy üres [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) objektumot, és mentse el egy új néven. Ha a fájl kivétel nélkül létrejön, a könyvtár sikeresen integrálva van.
+Építse fel a projektet, hozzon létre egy üres [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) objektumot, és mentse el egy új néven. Ha a fájl kivétel nélkül létrejön, a könyvtár sikeresen integrálva van.
 
 ### Hogyan korlátozhatom a memóriafelhasználást nagy prezentációk feldolgozásakor?
 
-Növelje a JVM memóriakorlátot csak annyira, amennyire szükség van, és hívja meg a [dispose](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#dispose--) metódust minden [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) példányon egy `finally` blokkban, hogy a gyorsítótár időben felszabaduljon. Ez megakadályozza a memória‑hiány hibákat, és előre láthatóvá teszi a memóriahasználatot kötegelt műveletek során.
+Növelje a JVM memóriakorlátot csak annyira, amennyire szükség van, és hívja meg a [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) metódust minden [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) példányon egy `finally` blokkban, hogy a gyorsítótár időben felszabaduljon. Ez megakadályozza a memória‑hiány hibákat, és előre láthatóvá teszi a memóriahasználatot kötegelt műveletek során.
 
 ### Kizárhatok‑e nem kívánt exportformátumokat a végső JAR méretének csökkentése érdekében?
 

@@ -30,7 +30,7 @@ Ez a cikk elmagyarázza, hogyan működik a licencelés az Aspose.Slides-ben, é
 
 Letöltheti a **Aspose.Slides for Java** kiértékelési verzióját a [letöltési oldalról](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). A kiértékelési verzió ugyanazokat a funkciókat kínálja, mint a termék licencelt változata. A kiértékelési csomag megegyezik a megvásárolt csomaggal. A kiértékelési verzió egyszerűen licencszerűvé válik, ha néhány kódsort hozzáad (a licenc alkalmazásához).
 
-Miután megelégedett a **Aspose.Slides** kiértékelésével, [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/hu/java/). Javasoljuk, hogy tekintse át a különböző előfizetéstípusokat. Kérdései esetén forduljon az Aspose értékesítési csapatához.
+Miután megelégedett a **Aspose.Slides** kiértékelésével, [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/java/). Javasoljuk, hogy tekintse át a különböző előfizetéstípusokat. Kérdései esetén forduljon az Aspose értékesítési csapatához.
 
 Minden Aspose licenc egyéves előfizetést tartalmaz ingyenes frissítésekhez új verziókra vagy a feliratkozási időszakban kiadott hibajavításokhoz. A licencelt termékek (vagy akár a kiértékelési verziók) felhasználói ingyenes és korlátlan technikai támogatást kapnak.
 
@@ -70,7 +70,7 @@ A licenc betölthető **fájlból** vagy **streame-ből**.
 
 {{% alert color="info" title="Megjegyzés" %}}
 
-Az Aspose.Slides a licencelési műveletekhez a [License](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/) osztályt biztosítja.
+Az Aspose.Slides a licencelési műveletekhez a [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) osztályt biztosítja.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" title="Figyelmeztetés" %}}
 
-Ha a licencfájlt másik könyvtárba helyezi, a [setLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/#setLicense-java.lang.String-) metódus hívásakor a megadott útvonal végén szereplő fájlnévnek meg kell egyeznie a licencfájl nevével.
+Ha a licencfájlt másik könyvtárba helyezi, a [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) metódus hívásakor a megadott útvonal végén szereplő fájlnévnek meg kell egyeznie a licencfájl nevével.
 
-Például megváltoztathatja a licencfájl nevét *Aspose.Slides.Java.lic.xml*-re. Ezután a kódban a [setLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/#setLicense-java.lang.String-) metódusnak a *Aspose.Slides.Java.lic.xml*-re végződő útvonalat kell átadnia.
+Például megváltoztathatja a licencfájl nevét *Aspose.Slides.Java.lic.xml*-re. Ezután a kódban a [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) metódusnak a *Aspose.Slides.Java.lic.xml*-re végződő útvonalat kell átadnia.
 
 {{% /alert %}}
 
@@ -138,7 +138,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Figyelmeztetés" %}}
 
-A [setLicense](https://reference.aspose.com/slides/hu/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szálból kell hívni, érdemes szinkronizációs primitíveket (például zárat) használni a problémák elkerülése érdekében.
+A [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szálból kell hívni, érdemes szinkronizációs primitíveket (például zárat) használni a problémák elkerülése érdekében.
 
 {{% /alert %}}
 

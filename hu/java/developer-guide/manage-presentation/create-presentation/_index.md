@@ -28,14 +28,14 @@ Mielőtt elkezdené, adja hozzá az Aspose.Slides for Java-t a projektjéhez az 
 
 ## **Bemutató létrehozása**
 
-PowerPoint fájl létrehozása a semmiből az Aspose.Slides for Java-ban egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály példányával kezdődik. A konstruktor egy üres bemutatót biztosít egyetlen diával, amely készen áll alakzatokra, szövegre, diagramokra vagy bármilyen egyéb tartalomra, amelyre az alkalmazásának szüksége van. Miután módosítja azt a diát, vagy újakat ad hozzá, elmentheti az eredményt PPTX, régi PPT vagy OpenDocument formátumokba.
+PowerPoint fájl létrehozása a semmiből az Aspose.Slides for Java-ban egy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztály példányával kezdődik. A konstruktor egy üres bemutatót biztosít egyetlen diával, amely készen áll alakzatokra, szövegre, diagramokra vagy bármilyen egyéb tartalomra, amelyre az alkalmazásának szüksége van. Miután módosítja azt a diát, vagy újakat ad hozzá, elmentheti az eredményt PPTX, régi PPT vagy OpenDocument formátumokba.
 
 A bemutató létrehozásához és egy szöveges alakzat hozzáadásához az első diához kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztályból. Egy új bemutató már tartalmaz egy üres diát.
-2. Szerezze meg azt a diát a 0 indexével a [getSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getSlides--) által visszaadott gyűjteményből.
-3. Adjon hozzá egy `Cloud` típusú [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) alakzatot az [addAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) metódussal, és állítsa be a szövegét a [setText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#setText-java.lang.String-) metódussal.
-4. Mentse a bemutatót PPTX fájlként a [save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódussal.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztályból. Egy új bemutató már tartalmaz egy üres diát.
+2. Szerezze meg azt a diát a 0 indexével a [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) által visszaadott gyűjteményből.
+3. Adjon hozzá egy `Cloud` típusú [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) alakzatot az [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) metódussal, és állítsa be a szövegét a [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-) metódussal.
+4. Mentse a bemutatót PPTX fájlként a [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódussal.
 
 Az alábbi példa egy teljes program. A [Installation](/slides/hu/java/installation/) Maven projektben mentse el *src/main/java/HelloSlides.java* néven, és futtassa a `mvn compile exec:java` parancsot.
 
@@ -93,7 +93,7 @@ Használja a [BLOB management strategies](/slides/hu/java/manage-blob/), korlát
 
 ### Létrehozhatok/menthetek bemutatókat párhuzamosan?
 
-Nem működtethet egyetlen [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) példányt több [multiple threads](/slides/hu/java/multithreading/) szálról. Futtasson külön, elszigetelt példányokat szálanként vagy folyamatként.
+Nem működtethet egyetlen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) példányt több [multiple threads](/slides/hu/java/multithreading/) szálról. Futtasson külön, elszigetelt példányokat szálanként vagy folyamatként.
 
 ### Hogyan távolíthatom el a próba vízjelet és a korlátozásokat?
 

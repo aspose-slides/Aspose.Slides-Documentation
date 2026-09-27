@@ -22,7 +22,7 @@ description: "Értékelje az Aspose.Slides for Java terméket, és fedezze fel a
 
 Letöltheti az Aspose.Slides-t értékelés céljából. Az értékelő letöltés megegyezik a megvásárolt letöltéssel; a licenc alkalmazásához néhány kódsort hozzáadva licencelté válik.
 
-Licenc nélkül az Aspose.Slides teljes funkcionalitását biztosítja értékelő módban, két korláttal: minden mentett prezentáció minden diájához hozzáad egy értékelő vízjel szövegmezőt, és a kódból az API-n keresztül olvasott szöveg, beleértve a legutóbb beállított szöveget is, csak az első néhány karakterre kerül csonkolásra, melyet egy értesítés követ az értékelési korlátról. A kód által írt szöveg pedig teljes egészében mentésre kerül. A [getPresentationText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) metódus, amely a teljes prezentáció betöltése nélkül nyeri ki a szöveget, csak az értékelő értesítéseket adja vissza, és nem a dia szövegét.
+Licenc nélkül az Aspose.Slides teljes funkcionalitását biztosítja értékelő módban, két korláttal: minden mentett prezentáció minden diájához hozzáad egy értékelő vízjel szövegmezőt, és a kódból az API-n keresztül olvasott szöveg, beleértve a legutóbb beállított szöveget is, csak az első néhány karakterre kerül csonkolásra, melyet egy értesítés követ az értékelési korlátról. A kód által írt szöveg pedig teljes egészében mentésre kerül. A [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) metódus, amely a teljes prezentáció betöltése nélkül nyeri ki a szöveget, csak az értékelő értesítéseket adja vissza, és nem a dia szövegét.
 
 ![Dia az értékelő vízjellel](evaluate-aspose-slides_1.png)
 
