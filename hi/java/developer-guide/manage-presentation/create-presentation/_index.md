@@ -28,14 +28,14 @@ description: "Aspose.Slides के साथ जावा में प्रस
 
 ## **प्रस्तुति बनाएँ**
 
-Aspose.Slides for Java में शून्य से PowerPoint फ़ाइल बनाना [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास की एक इंस्टेंस से शुरू होता है। कंस्ट्रक्टर एक खाली प्रस्तुति प्रदान करता है जिसमें एक ही स्लाइड होती है, जो आकार, टेक्स्ट, चार्ट या आपके एप्लिकेशन की किसी भी अन्य सामग्री के लिए तैयार होती है। एक बार जब आप उस स्लाइड को संशोधित कर लें, या नई स्लाइडें जोड़ दें, तो आप परिणाम को PPTX, लेगेसी PPT, या OpenDocument फॉर्मेट में सहेज सकते हैं।
+Aspose.Slides for Java में शून्य से PowerPoint फ़ाइल बनाना [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास की एक इंस्टेंस से शुरू होता है। कंस्ट्रक्टर एक खाली प्रस्तुति प्रदान करता है जिसमें एक ही स्लाइड होती है, जो आकार, टेक्स्ट, चार्ट या आपके एप्लिकेशन की किसी भी अन्य सामग्री के लिए तैयार होती है। एक बार जब आप उस स्लाइड को संशोधित कर लें, या नई स्लाइडें जोड़ दें, तो आप परिणाम को PPTX, लेगेसी PPT, या OpenDocument फॉर्मेट में सहेज सकते हैं।
 
 एक प्रस्तुति बनाने और उसकी पहली स्लाइड पर टेक्स्ट वाला एक आकार रखने के लिए, निम्न चरणों का पालन करें:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएँ। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।  
-2. उस स्लाइड को उसकी इंडेक्स 0 से प्राप्त करें, जो [getSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getSlides--) द्वारा लौटाए गए कलेक्शन से मिलता है।  
-3. `Cloud` प्रकार का एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) [addAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) मेथड से जोड़ें, और उसका टेक्स्ट [setText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#setText-java.lang.String-) मेथड से सेट करें।  
-4. [save](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) मेथड से प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएँ। नई प्रस्तुति में पहले से ही एक खाली स्लाइड होती है।  
+2. उस स्लाइड को उसकी इंडेक्स 0 से प्राप्त करें, जो [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) द्वारा लौटाए गए कलेक्शन से मिलता है।  
+3. `Cloud` प्रकार का एक [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) मेथड से जोड़ें, और उसका टेक्स्ट [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-) मेथड से सेट करें।  
+4. [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) मेथड से प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
 निम्न उदाहरण एक पूर्ण प्रोग्राम है। [Installation](/slides/hi/java/installation/) में दिए गए Maven प्रोजेक्ट में इसे *src/main/java/HelloSlides.java* के रूप में सहेजें और `mvn compile exec:java` चलाएँ।
 
@@ -93,7 +93,7 @@ public class HelloSlides {
 
 ### क्या मैं प्रस्तुतियों को समानांतर में बना/सेव कर सकता हूँ?
 
-आप समान [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) इंस्टेंस को [multiple threads](/slides/hi/java/multithreading/) से नहीं चला सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग‑अलग इंस्टेंस चलाएँ।
+आप समान [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) इंस्टेंस को [multiple threads](/slides/hi/java/multithreading/) से नहीं चला सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग‑अलग इंस्टेंस चलाएँ।
 
 ### ट्रायल वॉटरमार्क और सीमाओं को कैसे हटाऊँ?
 

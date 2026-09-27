@@ -29,7 +29,7 @@ Aspose.Slides को मूल्यांकन मोड में या व�
 {{% alert color="info" title="Note" %}}
 आप **Aspose.Slides for Java** का मूल्यांकन संस्करण उसकी [डाउनलोड पृष्ठ](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) से डाउनलोड कर सकते हैं। मूल्यांकन संस्करण उत्पाद के लाइसेंस प्राप्त संस्करण के समान कार्यक्षमताएँ प्रदान करता है। मूल्यांकन पैकेज खरीदे गए पैकेज के समान ही है। मूल्यांकन संस्करण केवल कुछ पंक्तियों के कोड को जोड़ने (लाइसेंस लागू करने) के बाद लाइसेंस प्राप्त बन जाता है।
 
-एक बार जब आप **Aspose.Slides** का मूल्यांकन कर लेते हैं, तो आप [लाइसेंस खरीद सकते हैं](https://purchase.aspose.com/pricing/slides/hi/java/)। हम विभिन्न सब्सक्रिप्शन प्रकारों को देखे़ँ की सलाह देते हैं। यदि आपके कोई प्रश्न हैं, तो Aspose बिक्री टीम से संपर्क करें।
+एक बार जब आप **Aspose.Slides** का मूल्यांकन कर लेते हैं, तो आप [लाइसेंस खरीद सकते हैं](https://purchase.aspose.com/pricing/slides/java/)। हम विभिन्न सब्सक्रिप्शन प्रकारों को देखे़ँ की सलाह देते हैं। यदि आपके कोई प्रश्न हैं, तो Aspose बिक्री टीम से संपर्क करें।
 
 प्रत्येक Aspose लाइसेंस एक वर्ष की सब्सक्रिप्शन के साथ मुफ्त अपग्रेड प्रदान करता है, जिसमें सब्सक्रिप्शन अवधि के भीतर जारी किए गए नए संस्करण या फिक्स शामिल हैं। लाइसेंस प्राप्त उत्पाद (या यहाँ तक कि मूल्यांकन संस्करण) वाले उपयोगकर्ताओं को मुफ्त और असीमित तकनीकी समर्थन मिलता है।
 {{% /alert %}} 
@@ -62,7 +62,7 @@ Aspose.Slides को मूल्यांकन मोड में या व�
 एक लाइसेंस **फ़ाइल** या **स्ट्रीम** से लोड किया जा सकता है।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides लाइसेंसिंग कार्यों के लिये [License](https://reference.aspose.com/slides/hi/java/com.aspose.slides/license/) क्लास प्रदान करता है।
+Aspose.Slides लाइसेंसिंग कार्यों के लिये [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) क्लास प्रदान करता है।
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -84,9 +84,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-यदि आप लाइसेंस फ़ाइल को किसी अलग निर्देशिका में रखते हैं, तो जब आप [setLicense](https://reference.aspose.com/slides/hi/java/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को कॉल करते हैं, तो निर्दिष्ट पथ के अंत में फ़ाइल नाम आपके लाइसेंस फ़ाइल नाम के समान होना चाहिए।
+यदि आप लाइसेंस फ़ाइल को किसी अलग निर्देशिका में रखते हैं, तो जब आप [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को कॉल करते हैं, तो निर्दिष्ट पथ के अंत में फ़ाइल नाम आपके लाइसेंस फ़ाइल नाम के समान होना चाहिए।
 
-उदाहरण के लिये, आप लाइसेंस फ़ाइल नाम को *Aspose.Slides.Java.lic.xml* में बदल सकते हैं। फिर अपने कोड में आपको फ़ाइल का पथ (जो *Aspose.Slides.Java.lic.xml* पर समाप्त होता है) को [setLicense](https://reference.aspose.com/slides/hi/java/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को पास करना होगा।
+उदाहरण के लिये, आप लाइसेंस फ़ाइल नाम को *Aspose.Slides.Java.lic.xml* में बदल सकते हैं। फिर अपने कोड में आपको फ़ाइल का पथ (जो *Aspose.Slides.Java.lic.xml* पर समाप्त होता है) को [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को पास करना होगा।
 {{% /alert %}}
 
 ### **Stream**
@@ -124,7 +124,7 @@ if (license.isLicensed())
 ## **Thread Safety**
 
 {{% alert color="warning" title="Warning" %}}
-[setLicense](https://reference.aspose.com/slides/hi/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) मेथड थ्रेड‑सेफ़ नहीं है। यदि इस मेथड को कई थ्रेड्स से एक साथ कॉल किया जाना है, तो समस्याओं से बचने के लिये आप समक्रमण प्रिमेटिव्स (जैसे लॉक) का उपयोग करना चाहेंगे।
+[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) मेथड थ्रेड‑सेफ़ नहीं है। यदि इस मेथड को कई थ्रेड्स से एक साथ कॉल किया जाना है, तो समस्याओं से बचने के लिये आप समक्रमण प्रिमेटिव्स (जैसे लॉक) का उपयोग करना चाहेंगे।
 {{% /alert %}}
 
 ## **FAQ**

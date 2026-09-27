@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### Aspose.Slides को सही ढंग से एकीकृत किया गया है, यह कैसे जांचें?
 
-अपने प्रोजेक्ट को बनाएं, एक खाली [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) का इंस्टेंस बनाएं और उसे नए नाम से सहेजें। यदि फ़ाइल बिना किसी अपवाद के बन जाती है, तो लाइब्रेरी सफलतापूर्वक एकीकृत हो गई है।
+अपने प्रोजेक्ट को बनाएं, एक खाली [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) का इंस्टेंस बनाएं और उसे नए नाम से सहेजें। यदि फ़ाइल बिना किसी अपवाद के बन जाती है, तो लाइब्रेरी सफलतापूर्वक एकीकृत हो गई है।
 
 ### बड़े प्रेजेंटेशन प्रोसेस करते समय मेमोरी उपयोग को कैसे सीमित करें?
 
-JVM मेमोरी सीमाएं केवल आवश्यकतानुसार बढ़ाएँ, और प्रत्येक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) इंस्टेंस पर `finally` ब्लॉक में [dispose](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#dispose--) कॉल करें ताकि कैश तुरंत रिलीज़ हो सके। यह मेमोरी‑ओवरफ़्लो त्रुटियों को रोकता है और बैच ऑपरेशनों के दौरान कुल मेमोरी उपयोग को पूर्वानुमेय रखता है।
+JVM मेमोरी सीमाएं केवल आवश्यकतानुसार बढ़ाएँ, और प्रत्येक [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) इंस्टेंस पर `finally` ब्लॉक में [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) कॉल करें ताकि कैश तुरंत रिलीज़ हो सके। यह मेमोरी‑ओवरफ़्लो त्रुटियों को रोकता है और बैच ऑपरेशनों के दौरान कुल मेमोरी उपयोग को पूर्वानुमेय रखता है।
 
 ### अंतिम JAR आकार को छोटा करने के लिए अनचाहे एक्सपोर्ट फ़ॉर्मैट को बाहर निकाल सकता हूँ?
 

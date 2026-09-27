@@ -72,14 +72,14 @@ Aspose.Slides for Java एक क्लास लाइब्रेरी है
 <hr>
 <p>संदर्भ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hi/java/">API संदर्भ</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/java/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="https://reference.aspose.com/slides/java/">API संदर्भ</a></li>
+<li><a href="https://releases.aspose.com/slides/java/release-notes/">रिलीज़ नोट्स</a></li>
 <li><a href="/slides/hi/java/known-issues/">ज्ञात समस्याएं</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/java/">डाउनलोड</a></li>
+<li><a href="https://releases.aspose.com/slides/java/">डाउनलोड</a></li>
 </ul>
 <p>समर्थन</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">नि:शुल्क समर्थन फ़ोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">नि:शुल्क समर्थन फ़ोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">भुगतानित समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>
