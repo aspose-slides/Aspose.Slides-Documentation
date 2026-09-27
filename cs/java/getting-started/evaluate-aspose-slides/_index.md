@@ -22,7 +22,7 @@ description: "Vyzkoušejte Aspose.Slides pro Java a prozkoumejte funkce API pro 
 
 Můžete si stáhnout Aspose.Slides k vyzkoušení. Stáhnutý soubor je stejný jako zakoupený; po přidání několika řádků kódu pro nastavení licence se stane licencovaným.
 
-Bez licence poskytuje Aspose.Slides plnou funkčnost v režimu vyzkoušení, s dvěma omezeními: přidá textové pole s vodoznakem „evaluation“ na každý snímek každé prezentace, kterou uloží, a text, který váš kód načte přes API, včetně textu, který právě nastavil, je oříznut na několik prvních znaků a doplněn upozorněním o omezení vyzkoušení. Text, který váš kód zapíše, je uložen kompletně. Metoda [getPresentationText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-), která získává text bez načítání celé prezentace, vrací jen upozornění o vyzkoušení a žádný text ze snímků.
+Bez licence poskytuje Aspose.Slides plnou funkčnost v režimu vyzkoušení, s dvěma omezeními: přidá textové pole s vodoznakem „evaluation“ na každý snímek každé prezentace, kterou uloží, a text, který váš kód načte přes API, včetně textu, který právě nastavil, je oříznut na několik prvních znaků a doplněn upozorněním o omezení vyzkoušení. Text, který váš kód zapíše, je uložen kompletně. Metoda [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-), která získává text bez načítání celé prezentace, vrací jen upozornění o vyzkoušení a žádný text ze snímků.
 
 ![Snímek s vodoznakem vyzkoušení](evaluate-aspose-slides_1.png)
 

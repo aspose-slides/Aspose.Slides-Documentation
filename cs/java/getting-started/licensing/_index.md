@@ -29,7 +29,7 @@ Tento článek vysvětluje, jak funguje licencování v Aspose.Slides a jak pou�
 {{% alert color="info" title="Note" %}}
 Můžete si stáhnout evaluační verzi **Aspose.Slides for Java** z její [stahovací stránky](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Evaluační verze poskytuje stejné funkce jako licencovaná verze produktu. Evaluační balíček je stejný jako zakoupený balíček. Evaluační verze se jednoduše stane licencovanou po přidání několika řádků kódu (k použití licence).
 
-Jakmile budete spokojeni s evaluační verzí **Aspose.Slides**, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cs/java/). Doporučujeme projít různé typy předplatného. Pokud máte otázky, obraťte se na prodejní tým Aspose.
+Jakmile budete spokojeni s evaluační verzí **Aspose.Slides**, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/java/). Doporučujeme projít různé typy předplatného. Pokud máte otázky, obraťte se na prodejní tým Aspose.
 
 Každá licence Aspose obsahuje roční předplatné s bezplatnými aktualizacemi na nové verze nebo opravy vydané během období předplatného. Uživatelé s licencovanými produkty (nebo i s evaluačními verzemi) získají bezplatnou a neomezenou technickou podporu.
 {{% /alert %}} 
@@ -63,7 +63,7 @@ Možná budete chtít zobrazit [Metered Licensing](/slides/cs/java/metered-licen
 Licence může být načtena ze **souboru** nebo **proudu**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cs/java/com.aspose.slides/license/) pro operace s licencemi.
+Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) pro operace s licencemi.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,9 +85,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Pokud umístíte soubor licence do jiného adresáře, při volání metody [setLicense](https://reference.aspose.com/slides/cs/java/com.aspose.slides/license/#setLicense-java.lang.String-) musí být název souboru licence na konci zadané cesty stejný jako název vašeho souboru licence.
+Pokud umístíte soubor licence do jiného adresáře, při volání metody [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) musí být název souboru licence na konci zadané cesty stejný jako název vašeho souboru licence.
 
-Například můžete změnit název souboru licence na *Aspose.Slides.Java.lic.xml*. Poté ve vašem kódu musíte předat cestu k souboru (končící na *Aspose.Slides.Java.lic.xml*) metodě [setLicense](https://reference.aspose.com/slides/cs/java/com.aspose.slides/license/#setLicense-java.lang.String-).
+Například můžete změnit název souboru licence na *Aspose.Slides.Java.lic.xml*. Poté ve vašem kódu musíte předat cestu k souboru (končící na *Aspose.Slides.Java.lic.xml*) metodě [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-).
 {{% /alert %}}
 
 ### **Proud**
@@ -125,7 +125,7 @@ if (license.isLicensed())
 ## **Bezpečnost vlákna**
 
 {{% alert color="warning" title="Warning" %}}
-Metoda [setLicense](https://reference.aspose.com/slides/cs/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) není bezpečná pro více vláken. Pokud musí být tato metoda volána současně z více vláken, můžete použít synchronizační primitiva (např. zámek) k zabránění problémům.
+Metoda [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) není bezpečná pro více vláken. Pokud musí být tato metoda volána současně z více vláken, můžete použít synchronizační primitiva (např. zámek) k zabránění problémům.
 {{% /alert %}}
 
 ## **Často kladené otázky**

@@ -149,11 +149,11 @@ Fonty použité ve vašich prezentacích, nebo vhodné náhrady, musí být tak�
 
 ### Jak mohu ověřit, že je Aspose.Slides integrován správně?
 
-Sestavte projekt, vytvořte prázdnou [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) a uložte ji pod novým názvem. Pokud je soubor vytvořen bez vyhození výjimek, knihovna byla úspěšně integrována.
+Sestavte projekt, vytvořte prázdnou [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) a uložte ji pod novým názvem. Pokud je soubor vytvořen bez vyhození výjimek, knihovna byla úspěšně integrována.
 
 ### Jak mohu omezit spotřebu paměti při zpracování velkých prezentací?
 
-Zvyšte limity paměti JVM jen tolik, kolik je potřeba, a v `finally` bloku zavolejte [dispose](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#dispose--) na každou instanci [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/), aby se cache okamžitě uvolnila. Tím se zabrání chybám z nedostatku paměti a udržuje se předvídatelná celková spotřeba paměti během dávkových operací.
+Zvyšte limity paměti JVM jen tolik, kolik je potřeba, a v `finally` bloku zavolejte [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) na každou instanci [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), aby se cache okamžitě uvolnila. Tím se zabrání chybám z nedostatku paměti a udržuje se předvídatelná celková spotřeba paměti během dávkových operací.
 
 ### Mohu vyloučit nechtěné exportní formáty a tím zmenšit výslednou velikost JAR?
 

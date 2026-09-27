@@ -28,14 +28,14 @@ Než začnete, přidejte Aspose.Slides for Java do svého projektu z Maven repoz
 
 ## **Vytvoření prezentace**
 
-Vytvoření souboru PowerPoint od nuly v Aspose.Slides for Java začíná instancí třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Konstruktor poskytuje prázdnou prezentaci s jedním snímkem, připravenou pro tvary, text, grafy nebo jakýkoli jiný obsah, který vaše aplikace potřebuje. Po úpravě tohoto snímku nebo přidání nových můžete výsledek uložit do formátů PPTX, staršího PPT nebo OpenDocument.
+Vytvoření souboru PowerPoint od nuly v Aspose.Slides for Java začíná instancí třídy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Konstruktor poskytuje prázdnou prezentaci s jedním snímkem, připravenou pro tvary, text, grafy nebo jakýkoli jiný obsah, který vaše aplikace potřebuje. Po úpravě tohoto snímku nebo přidání nových můžete výsledek uložit do formátů PPTX, staršího PPT nebo OpenDocument.
 
 Pro vytvoření prezentace a umístění tvaru s textem na její první snímek postupujte podle následujících kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.  
-2. Získejte tento snímek podle jeho indexu 0 z kolekce vrácené metodou [getSlides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getSlides--).  
-3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/) typu `Cloud` pomocí metody [addAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) a nastavte její text metodou [setText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.  
+2. Získejte tento snímek podle jeho indexu 0 z kolekce vrácené metodou [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--).  
+3. Přidejte [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) typu `Cloud` pomocí metody [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) a nastavte její text metodou [setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-).
 
 Níže uvedený příklad je kompletní program. V Maven projektu podle [Installation](/slides/cs/java/installation/) jej uložte jako *src/main/java/HelloSlides.java* a spusťte `mvn compile exec:java`.
 
@@ -93,7 +93,7 @@ Použijte [strategie správy BLOB](/slides/cs/java/manage-blob/), omezte uklád�
 
 ### Mohu vytvářet/ukládat prezentace paralelně?
 
-Na stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) nemůžete pracovat z [více vláken](/slides/cs/java/multithreading/). Spusťte samostatné, izolované instance na každé vlákno nebo proces.
+Na stejnou instanci [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) nemůžete pracovat z [více vláken](/slides/cs/java/multithreading/). Spusťte samostatné, izolované instance na každé vlákno nebo proces.
 
 ### Jak odstranit vodotisk z hodnocení a omezení?
 
