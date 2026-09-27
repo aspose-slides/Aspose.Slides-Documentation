@@ -72,14 +72,14 @@ Ela carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 <hr>
 <p>REFERÊNCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/pt/cpp/">Referência da API</a></li>
-<li><a href="https://releases.aspose.com/slides/pt/cpp/release-notes/">Notas de lançamento</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">Referência da API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Notas de lançamento</a></li>
 <li><a href="/slides/pt/cpp/known-issues/">Problemas conhecidos</a></li>
-<li><a href="https://releases.aspose.com/slides/pt/cpp/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pt/11">Fórum de suporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Fórum de suporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk de suporte pago</a></li>
 </ul>
 </div>

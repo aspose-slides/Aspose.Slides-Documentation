@@ -30,10 +30,10 @@ Antes de começar, adicione o Aspose.Slides ao seu projeto: a partir do NuGet em
 
 Para criar uma apresentação e colocar uma caixa de texto no seu primeiro slide, siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
-2. Recupere esse slide com o método [Presentation::get_Slide](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_slide/) e seu índice, 0.  
-3. Adicione um retângulo com o método [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishapecollection/addautoshape/) e defina seu texto com o método [ITextFrame::set_Text](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/set_text/).  
-4. Salve a apresentação como um arquivo PPTX usando o método [Presentation::Save](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/save/).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Uma nova apresentação já contém um slide vazio.  
+2. Recupere esse slide com o método [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) e seu índice, 0.  
+3. Adicione um retângulo com o método [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) e defina seu texto com o método [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).  
+4. Salve a apresentação como um arquivo PPTX usando o método [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ Use as [estratégias de gerenciamento de BLOB](/slides/pt/cpp/manage-blob/), lim
 
 ### Posso criar/salvar apresentações em paralelo?
 
-Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) a partir de [múltiplas threads](/slides/pt/cpp/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
+Você não pode operar na mesma instância de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) a partir de [múltiplas threads](/slides/pt/cpp/multithreading/). Execute instâncias separadas e isoladas por thread ou processo.
 
 ### Como remover a marca d'água de avaliação e as limitações?
 
