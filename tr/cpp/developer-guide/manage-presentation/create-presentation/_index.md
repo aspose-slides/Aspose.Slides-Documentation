@@ -1,5 +1,5 @@
 ---
-title: C++ ile Sunum Oluşturma
+title: C++ ile Sunumlar Oluşturma
 linktitle: Sunum Oluştur
 type: docs
 weight: 10
@@ -18,58 +18,85 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides ile C++’ta sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinden yararlanın ve güvenilir sonuçlar için programlı olarak kaydedin."
+description: "C++ ile Aspose.Slides kullanarak sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinden yararlanın ve güvenilir sonuçlar için programlı bir şekilde kaydedin."
 ---
-## **Overview**
+## **Genel Bakış**
 
-Bu makale, Aspose.Slides ile bir sunum oluşturmayı, bir slayta basit içerik eklemeyi ve sonucu dosya olarak kaydetmeyi gösterir.
+Bu makale Aspose.Slides'ta bir sunum oluşturmanın, ilk slaytına bir metin kutusu eklemenin ve sonucu bir dosya olarak kaydetmenin nasıl yapılacağını gösterir. Sonundaki kısa SSS, formatlar, şablonlar, slayt boyutlandırma, birimler, bellek kullanımı, çoklu iş parçacığı, lisanslama, dijital imzalar ve VBA desteğiyle ilgili yaygın soruları kapsar.
 
-## **Create a PowerPoint Presentation**
-Sunumun seçili slaytına basit bir düz çizgi eklemek için aşağıdaki adımları izleyin:
+Başlamadan önce, Aspose.Slides'ı projenize ekleyin: Windows'ta Visual Studio projesinde NuGet'ten veya Linux'ta CMake ile ZIP paketinden. Bkz. [Kurulum](/slides/tr/cpp/installation/).
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-2. İndeksini kullanarak bir slaytın referansını alın.  
-3. Shapes nesnesinin sunduğu AddAutoShape yöntemiyle Çizgi türünde bir AutoShape ekleyin.  
-4. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
+## **PowerPoint Sunumu Oluşturma**
 
-Aşağıdaki örnekte, sunumun ilk slaytına bir çizgi ekledik.
+Bir sunum oluşturmak ve ilk slaytına bir metin kutusu eklemek için aşağıdaki adımları izleyin:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateNewPresentation-CreateNewPresentation.cpp" >}}
+1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
+2. Bu slaytı [Presentation::get_Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slide/) metodu ve indeks 0 ile alın.  
+3. [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addautoshape/) metodu ile bir dikdörtgen ekleyin ve metnini [ITextFrame::set_Text](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/set_text/) metodu ile ayarlayın.  
+4. Sunumu PPTX dosyası olarak [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metodu ile kaydedin.
 
-## **FAQ**
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-**What formats can I save a new presentation to?**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-[PPTX, PPT ve ODP](/slides/tr/cpp/save-presentation/) formatlarında kaydedebilir ve [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/tr/cpp/convert-powerpoint-to-xps/), [HTML](/slides/tr/cpp/convert-powerpoint-to-html/), [SVG](/slides/tr/cpp/convert-powerpoint-to-png/) ve [görseller](/slides/tr/cpp/convert-powerpoint-to-png/) gibi diğer formatlara dışa aktarabilirsiniz.
+int main()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    shape->get_TextFrame()->set_Text(u"Hello, Aspose.Slides!");
+    presentation->Save(u"hello.pptx", SaveFormat::Pptx);
+    presentation->Dispose();
+    return 0;
+}
+```
 
-**Can I start from a template (POTX/POTM) and save as a regular PPTX?**
+Dikdörtgenin sol üst köşesi slaytın sol kenarından 50 puan, üst kenarından 50 puan uzakta ve dikdörtgen 400 puan genişliğinde ve 100 puan yüksekliğindedir. Program, çalıştığı dizinde *hello.pptx* dosyasını, içinde dikdörtgen ve metni tutan bir slayt ile kaydeder. Lisans olmadan Aspose.Slides, kaydettiği her slayta bir değerlendirme filigranı ekler; bkz. [Lisanslama](/slides/tr/cpp/licensing/).
 
-Evet. Şablonu yükleyin ve istediğiniz formata kaydedin; POTX/POTM/PPTM ve benzeri formatlar [desteklenir](/slides/tr/cpp/supported-file-formats/).
+## **SSS**
 
-**How do I control slide size/aspect ratio when creating a presentation?**
+### Yeni bir sunumu hangi formatlarda kaydedebilirim?
+
+[PPTX, PPT ve ODP](/slides/tr/cpp/save-presentation/) formatlarında kaydedebilir ve ayrıca [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/tr/cpp/convert-powerpoint-to-xps/), [HTML](/slides/tr/cpp/convert-powerpoint-to-html/), [SVG](/slides/tr/cpp/render-a-slide-as-an-svg-image/) ve [görseller](/slides/tr/cpp/convert-powerpoint-to-png/) gibi diğer formatlara dışa aktarabilirsiniz.
+
+### Bir şablondan (POTX/POTM) başlayıp normal bir PPTX olarak kaydedebilir miyim?
+
+Evet. Şablonu yükleyin ve istediğiniz formatta kaydedin; POTX/POTM/PPTM ve benzeri formatlar [desteklenir](/slides/tr/cpp/supported-file-formats/).
+
+### Sunum oluştururken slayt boyutunu/çözünürlüğünü nasıl kontrol edebilirim?
 
 [Slayt boyutunu](/slides/tr/cpp/slide-size/) (4:3, 16:9 gibi ön ayarlar veya özel boyutlar) ayarlayın ve içeriğin nasıl ölçekleneceğini seçin.
 
-**In what units are sizes and coordinates measured?**
+### Büyüklükler ve koordinatlar hangi birimlerde ölçülür?
 
-Puan cinsindendir: 1 inç = 72 birim.
+Puan cinsinden: 1 inç 72 birime eşittir.
 
-**How do I handle very large presentations (with many media files) to reduce memory usage?**
+### Çok sayıda medya dosyası içeren çok büyük bir sunumu bellek kullanımını azaltmak için nasıl yönetebilirim?
 
-[BLOB yönetim stratejilerini](/slides/tr/cpp/manage-blob/) kullanın, geçici dosyalar aracılığıyla bellek içi depolamayı sınırlayın ve mümkün olduğunca dosya temelli iş akışlarını tercih edin.
+[BLOB yönetim stratejilerini](/slides/tr/cpp/manage-blob/) kullanın, geçici dosyalarla bellek içi depolamayı sınırlayın ve tamamen bellek içi akışlar yerine dosya tabanlı iş akışlarını tercih edin.
 
-**Can I create/save presentations in parallel?**
+### Sunumları paralel olarak oluşturabilir/kaydedebilirim?
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneğini [birden çok iş parçacığından](/slides/tr/cpp/multithreading/) kullanamazsınız. İş parçacığı ya da süreç başına ayrı, izole örnekler çalıştırın.
+Aynı [Presentation]([https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/]) örneği üzerinde [birden çok iş parçacığından](/slides/tr/cpp/multithreading/) çalışamazsınız. Her iş parçacığı veya süreç için ayrı, izole edilmiş örnekler çalıştırın.
 
-**How do I remove the trial watermark and limitations?**
+### Deneme filigranını ve sınırlamaları nasıl kaldırabilirim?
 
-İşlem başına bir kez [lisans uygulayın](/slides/tr/cpp/licensing/). Lisans XML’i değiştirilmemeli ve birden çok iş parçacığı kullanılıyorsa lisans ayarları senkronize edilmelidir.
+İşlem başına bir kez [bir lisans uygulayın](/slides/tr/cpp/licensing/). Lisans XML'i değiştirilmemeli ve birden çok iş parçacığı varsa lisans kurulumu senkronize edilmelidir.
 
-**Can I digitally sign the PPTX I create?**
+### Oluşturduğum PPTX'i dijital olarak imzalayabilir miyim?
 
-Evet. Sunumlar için [dijital imzalar](/slides/tr/cpp/digital-signature-in-powerpoint/) (ekleme ve doğrulama) desteklenir.
+Evet. [Dijital imzalar](/slides/tr/cpp/digital-signature-in-powerpoint/) (ekleme ve doğrulama) sunumlar için desteklenir.
 
-**Are macros (VBA) supported in created presentations?**
+### Oluşturulan sunumlarda makrolar (VBA) destekleniyor mu?
 
-Evet. [VBA projeleri oluşturup/​düzenleyebilir](/slides/tr/cpp/presentation-via-vba/) ve PPTM/PPSM gibi makro‑etkin dosyaları kaydedebilirsiniz.
+Evet. [VBA projeleri oluşturabilir/düzenleyebilirsiniz](/slides/tr/cpp/presentation-via-vba/) ve PPTM/PPSM gibi makro‑etkin dosyaları kaydedebilirsiniz.

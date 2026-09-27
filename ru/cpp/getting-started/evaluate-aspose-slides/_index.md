@@ -1,10 +1,10 @@
 ---
-title: Оценка Aspose.Slides
+title: Оценить Aspose.Slides
 type: docs
 weight: 110
 url: /ru/cpp/evaluate-aspose-slides/
 keywords:
-- оценка Aspose.Slides
+- оценить Aspose.Slides
 - оценка Aspose.Slides
 - версия оценки
 - полный функционал
@@ -18,35 +18,33 @@ keywords:
 - Aspose.Slides
 description: "Оцените Aspose.Slides для C++ и изучите возможности API для презентаций PowerPoint (PPT, PPTX) и OpenDocument (ODP) — начните бесплатную пробную версию."
 ---
+## **Оценка Aspose.Slides**
 
-## **Aspose.Slides Evaluation**
+Вы можете загрузить Aspose.Slides для оценки. Пакет оценки такой же, как и приобретённый пакет; он становится лицензированным после того, как вы добавите несколько строк кода для применения лицензии, как показано в [Лицензирование](/slides/ru/cpp/licensing/).
 
-You can easily download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download. The evaluation version simply becomes licensed when you add a few lines of code to apply the license.
+Без лицензии Aspose.Slides предоставляет весь свой функционал в режиме оценки, но с двумя ограничениями:
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save, and limits to one slide when extracting the text from presentation slides.
+* Он добавляет один текстовый блок водяного знака оценки в центр каждой слайда каждой презентации, которую сохраняет. Открытие презентации не добавляет водяной знак, но ранее сохранённый водяной знак загружается как фигура на её слайде. Поэтому, если вы открываете презентацию, сохранённую в режиме оценки, и сохраняете её снова, каждый слайд будет иметь два водяных знака.
+* Текст, который ваш код читает из презентации, обрезается до первых нескольких символов, после чего следует уведомление об ограничении оценки. Это относится ко всем слайдам, а также к тексту, который ваш код только что установил. Текст, который ваш код записывает, сохраняется полностью.
 
-![todo:image_alt_text](evaluate-aspose.slides-001.png)
-
-{{% alert color="primary" %}} 
-
-If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30‑day Temporary License. Please refer to [Как получить временную лицензию?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+Если вы хотите протестировать Aspose.Slides без ограничений версии оценки, вы также можете запросить 30‑дневную временную лицензию. Пожалуйста, обратитесь к [Как получить временную лицензию?](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Can I test multiple presentations in parallel across different threads in evaluation mode?**
+### Могу ли я тестировать несколько презентаций одновременно в разных потоках в режиме оценки?
 
-Yes. You can process different documents in parallel; you should not share the same presentation object [across threads](/slides/ru/cpp/multithreading/). Evaluation mode does not affect this.
+Да. Вы можете обрабатывать разные документы параллельно; не следует использовать один и тот же объект презентации [между потоками](/slides/ru/cpp/multithreading/). Режим оценки не влияет на это.
 
-**Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?**
+### Нужно ли устанавливать Microsoft PowerPoint для оценки библиотеки на сервере или в CI?
 
-No. Aspose.Slides is a standalone engine and does not require PowerPoint installed for either evaluation or production.
+Нет. Aspose.Slides — это автономный движок и не требует установки PowerPoint ни для оценки, ни для производства.
 
-**Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?**
+### Могу ли я полностью протестировать конвертацию PPT/PPTX в PDF и изображения в режиме оценки?
 
-Yes. The [converters](/slides/ru/cpp/convert-presentation/) work; the output will include a watermark.
+Да. [Конвертеры](/slides/ru/cpp/convert-presentation/) работают; вывод будет содержать водяной знак.
 
-**Can I use a temporary license for load testing without a watermark?**
+### Могу ли я использовать временную лицензию для нагрузочного тестирования без водяного знака?
 
-Yes. A 30‑day temporary license removes evaluation‑mode limitations and allows testing without a watermark.
+Да. 30‑дневная временная лицензия устраняет ограничения режима оценки и позволяет проводить тестирование без водяного знака.

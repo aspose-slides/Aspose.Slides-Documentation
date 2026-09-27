@@ -1,14 +1,14 @@
 ---
-title: Ocena Aspose.Slides
+title: Ewaluacja Aspose.Slides
 type: docs
 weight: 110
 url: /pl/cpp/evaluate-aspose-slides/
 keywords:
-- ocena Aspose.Slides
+- ewaluuj Aspose.Slides
 - ewaluacja Aspose.Slides
 - wersja ewaluacyjna
 - pełna funkcjonalność
-- znak wodny oceny
+- znak wodny ewaluacji
 - zakup Aspose.Slides
 - ograniczenie
 - PowerPoint
@@ -16,36 +16,37 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Oceń Aspose.Slides dla C++ i odkryj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij darmowy okres próbny."
+description: "Przetestuj Aspose.Slides dla C++ i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
 ---
-## **Ocena Aspose.Slides**
+## **Ewaluacja Aspose.Slides**
 
-Możesz łatwo pobrać Aspose.Slides do oceny. Pobranie w wersji ocennej jest takie samo jak pobranie zakupione. Wersja ocennego po prostu staje się licencjonowana po dodaniu kilku linii kodu do zastosowania licencji.
+Możesz pobrać Aspose.Slides do ewaluacji. Pakiet ewaluacyjny jest taki sam jak zakupiony; staje się licencjonowany po dodaniu kilku linii kodu, aby zastosować licencję, jak pokazano w [Licensing](/slides/pl/cpp/licensing/).
 
-Wersja ocennego Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny "evaluation" u góry dokumentu przy otwieraniu i zapisywaniu oraz ogranicza do jednego slajdu przy wyodrębnianiu tekstu z slajdów prezentacji.
+Bez licencji, Aspose.Slides udostępnia pełną funkcjonalność w trybie ewaluacji, z dwoma ograniczeniami:
 
-![todo:image_alt_text](evaluate-aspose.slides-001.png)
+* Dodaje jedną ramkę z tekstem znaku wodnego ewaluacji na środku każdego slajdu każdej prezentacji, którą zapisuje. Otwieranie prezentacji nie dodaje znaku wodnego, ale znak wodny zapisany wcześniej jest wczytywany jako kształt na jej slajdzie. Dlatego jeśli otworzysz prezentację zapisaną w trybie ewaluacji i zapiszesz ją ponownie, każdy slajd będzie miał dwa znaki wodne.
+* Tekst, który Twój kod odczytuje z prezentacji, jest obcinany do kilku pierwszych znaków, po których następuje informacja o ograniczeniu ewaluacyjnym. Dotyczy to każdego slajdu, a także tekstu, który Twój kod właśnie ustawił. Tekst, który Twój kod zapisuje, jest przechowywany w całości.
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Jeśli chcesz testować Aspose.Slides bez ograniczeń wersji ocennej, możesz również poprosić o 30-dniową tymczasową licencję. Zapoznaj się z [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
+Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz również poprosić o 30-dniową licencję tymczasową. Zapoznaj się z [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę testować wiele prezentacji równolegle w różnych wątkach w trybie oceny?**
+### Czy mogę testować wiele prezentacji równocześnie w różnych wątkach w trybie ewaluacji?
 
-Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś udostępniać tego samego obiektu prezentacji [across threads](/slides/pl/cpp/multithreading/). Tryb oceny nie ma na to wpływu.
+Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [across threads](/slides/pl/cpp/multithreading/). Tryb ewaluacji nie wpływa na to.
 
-**Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?**
+### Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?
 
-Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa ani w trybie oceny, ani w produkcji.
+Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa zarówno w ocenie, jak i w produkcji.
 
-**Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie oceny?**
+### Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie ewaluacji?
 
-Tak. [converters](/slides/pl/cpp/convert-presentation/) działają; wynik będzie zawierał znak wodny.
+Tak. [converters](/slides/pl/cpp/convert-presentation/) działają; wyjście będzie zawierało znak wodny.
 
-**Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znaku wodnego?**
+### Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znaku wodnego?
 
-Tak. 30-dniowa tymczasowa licencja usuwa ograniczenia trybu oceny i pozwala testować bez znaku wodnego.
+Tak. 30-dniowa licencja tymczasowa usuwa ograniczenia trybu ewaluacji i pozwala testować bez znaku wodnego.

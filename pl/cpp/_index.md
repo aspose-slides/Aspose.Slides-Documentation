@@ -12,30 +12,125 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: Aspose.Slides for C++ to interfejs API do zarządzania Microsoft PowerPoint® umożliwiający aplikacjom C++ odczytywanie i zapisywanie dokumentów PowerPoint® bez użycia Microsoft PowerPoint®.
+description: "Zacznij tutaj: zainstaluj Aspose.Slides for C++, utwórz pierwszą prezentację i znajdź przewodniki dotyczące typowych zadań, referencję API oraz wsparcie."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-![Aspose.Slides for C++ Product Logo](home_1.png)
+Aspose.Slides for C++ to natywna biblioteka C++ służąca do tworzenia, odczytywania, edytowania i konwertowania prezentacji PowerPoint oraz OpenDocument, bez potrzeby używania Microsoft PowerPoint ani automatyzacji Office.
 
-**Witamy w Aspose.Slides for C++**
+Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT oraz ODP, w tym wersje z makrami i szablony, oraz umożliwia eksport do formatów PDF, XPS, HTML, SVG, TIFF, Markdown i obrazów.
 
-Aspose.Slides for C++ to interfejs API do zarządzania Microsoft PowerPoint® umożliwiający aplikacjom C++ odczytywanie i zapisywanie dokumentów PowerPoint® bez użycia Microsoft PowerPoint®. Aspose.Slides for C++ jest pierwszym i jedynym komponentem, który zapewnia funkcjonalność zarządzania dokumentami PowerPoint®. Aspose.Slides for C++ oferuje wiele kluczowych funkcji, takich jak zarządzanie tekstem, kształtami, tabelami i animacjami, dodawanie dźwięku i wideo do slajdów, podgląd slajdów, eksportowanie slajdów do formatu SVG, PDF i wiele innych.
+<div style="clear:both"></div>
 
-{{% /alert %}}
+------
 
-## **Zasoby Aspose.Slides for C++**
+<div class="row">
+<div class="col-md-4">
+<p><b>Rozpocznij</b></p>
+<hr>
+<p>ROZPOCZĘCIE</p>
+<ul>
+<li><a href="/slides/pl/cpp/installation/">Instalacja</a></li>
+<li><a href="/slides/pl/cpp/create-presentation/">Utwórz swoją pierwszą prezentację</a></li>
+<li><a href="/slides/pl/cpp/getting-started/">Przewodnik wprowadzający</a></li>
+</ul>
+<p>OCENA</p>
+<ul>
+<li><a href="/slides/pl/cpp/supported-file-formats/">Obsługiwane formaty plików</a></li>
+<li><a href="/slides/pl/cpp/evaluate-aspose-slides/">Ograniczenia wersji próbnej</a></li>
+<li><a href="/slides/pl/cpp/licensing/">Licencjonowanie</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Tworzenie z Slides</b></p>
+<hr>
+<p>POPULARNE ZADANIA</p>
+<ul>
+<li><a href="/slides/pl/cpp/open-presentation/">Otwórz prezentację</a></li>
+<li><a href="/slides/pl/cpp/save-presentation/">Zapisz prezentację</a></li>
+<li><a href="/slides/pl/cpp/convert-powerpoint-to-pdf/">Konwertuj do PDF</a></li>
+<li><a href="/slides/pl/cpp/convert-slide/">Renderuj slajdy jako obrazy</a></li>
+<li><a href="/slides/pl/cpp/manage-text/">Edytuj tekst i kształty</a></li>
+</ul>
+<p>PRZEPŁYWY PRACY Z SLIDES</p>
+<ul>
+<li><a href="/slides/pl/cpp/powerpoint-charts/">Wykresy</a></li>
+<li><a href="/slides/pl/cpp/powerpoint-animation/">Animacje</a></li>
+<li><a href="/slides/pl/cpp/manage-media-files/">Audio i wideo</a></li>
+<li><a href="/slides/pl/cpp/presentation-design/">Projektowanie slajdów</a></li>
+<li><a href="/slides/pl/cpp/merge-presentation/">Scalanie prezentacji</a></li>
+</ul>
+<p>PRZYKŁADY</p>
+<ul>
+<li><a href="/slides/pl/cpp/examples/">Przykłady według elementu slajdu</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">Przykłady na GitHubie</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Referencje i wsparcie</b></p>
+<hr>
+<p>REFERENCJA</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/pl/cpp/">Dokumentacja API</a></li>
+<li><a href="https://releases.aspose.com/slides/pl/cpp/release-notes/">Informacje o wydaniu</a></li>
+<li><a href="/slides/pl/cpp/known-issues/">Znane problemy</a></li>
+<li><a href="https://releases.aspose.com/slides/pl/cpp/">Pobierz</a></li>
+</ul>
+<p>WSPARCIE</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/pl/11">Darmowe forum wsparcia</a></li>
+<li><a href="https://helpdesk.aspose.com/">Płatny helpdesk wsparcia</a></li>
+</ul>
+</div>
+</div>
 
-Poniżej znajdują się linki do przydatnych zasobów:
+------
 
-- [Dokumentacja online Aspose.Slides for C++](/slides/pl/cpp/)
-- [Funkcje Aspose.Slides for C++](/slides/pl/cpp/features-overview/)
-- [Informacje o wydaniu Aspose.Slides for C++](https://releases.aspose.com/slides/pl/cpp/release-notes/)
-- [Strona produktu Aspose.Slides for C++](https://products.aspose.com/slides/pl/cpp/)
-- [Pobierz Aspose.Slides for C++](https://releases.aspose.com/slides/pl/cpp/)
-- [Zainstaluj pakiet NuGet Aspose.Slides for C++](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [Przewodnik referencyjny API Aspose.Slides for C++](https://reference.aspose.com/slides/pl/cpp)
-- [Pobierz przykłady z repozytorium GitHub](https://github.com/aspose-slides/Aspose.Slides-for-C)
-- [Bezpłatne forum wsparcia Aspose.Slides for C++](https://forum.aspose.com/c/slides/pl/11)
-- [Płatny helpdesk wsparcia Aspose.Slides for C++](https://helpdesk.aspose.com/)
+## **Twoja pierwsza prezentacja**
+
+W systemie Windows utwórz projekt **Console App** w języku C++ w Visual Studio i zainstaluj pakiet NuGet w konsoli Package Manager (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+
+```powershell
+Install-Package Aspose.Slides.Cpp
+```
+
+W systemie Linux pobierz pakiet ZIP dla Linuksa i skonfiguruj projekt CMake opisany w sekcji [Installation](/slides/pl/cpp/installation/#linux).
+
+Następnie użyj tego kodu jako głównego pliku źródłowego programu. Tworzy on prezentację z jednym polem tekstowym i zapisuje ją:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+int main()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    shape->get_TextFrame()->set_Text(u"Hello, Aspose.Slides!");
+    presentation->Save(u"hello.pptx", SaveFormat::Pptx);
+    presentation->Dispose();
+    return 0;
+}
+```
+
+Aby uruchomić go w systemie Windows, wybierz platformę **x64** w pasku narzędzi i naciśnij **Ctrl+F5**. W systemie Linux zapisz go jako *main.cpp* w folderze projektu, a następnie zbuduj i uruchom:
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+./build/hello
+```
+
+Program zapisuje *hello.pptx* z jednym slajdem zawierającym pole tekstowe. Bez licencji zapisany plik zawiera znak wodny wersji próbnej — zobacz [Licensing](/slides/pl/cpp/licensing/). Aby dowiedzieć się o dodatkowych sposobach tworzenia i wypełniania prezentacji, zajrzyj do sekcji [Create Presentations](/slides/pl/cpp/create-presentation/).

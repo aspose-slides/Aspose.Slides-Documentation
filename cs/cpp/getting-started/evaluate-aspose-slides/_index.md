@@ -1,14 +1,14 @@
 ---
-title: Vyzkoušejte Aspose.Slides
+title: Vyhodnocení Aspose.Slides
 type: docs
 weight: 110
 url: /cs/cpp/evaluate-aspose-slides/
 keywords:
-- vyzkoušet Aspose.Slides
 - vyhodnocení Aspose.Slides
-- verze pro vyhodnocení
+- vyhodnocení Aspose.Slides
+- evaluační verze
 - plná funkčnost
-- vodoznak vyhodnocení
+- evaluační vodoznak
 - nákup Aspose.Slides
 - omezení
 - PowerPoint
@@ -16,34 +16,37 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Vyzkoušejte Aspose.Slides pro C++ a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) — zahajte svou bezplatnou zkušební verzi."
+description: "Vyhodnoťte Aspose.Slides pro C++ a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) — začněte svou bezplatnou zkušební verzí."
 ---
-## **Vyzkoušení Aspose.Slides**
+## **Aspose.Slides Evaluace**
 
-Můžete snadno stáhnout Aspose.Slides pro vyzkoušení. Stažení pro vyzkoušení je stejné jako zakoupené stažení. Verze pro vyzkoušení se jednoduše licencuje, když přidáte několik řádků kódu pro aplikaci licence.
+Můžete si stáhnout Aspose.Slides k vyzkoušení. Vyhodnocovací balíček je stejný jako zakoupený balíček; získá licenci po přidání několika řádků kódu pro aplikaci licence, jak je ukázáno v [Licencování](/slides/cs/cpp/licensing/).
 
-Verze pro vyzkoušení Aspose.Slides (bez uvedené licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení vloží vodotisk „evaluation“ do horní části dokumentu a omezí se na jeden snímek při extrakci textu z prezentačních snímků.
+Bez licence poskytuje Aspose.Slides svou plnou funkčnost v evaluačním režimu, ale s dvěma omezeními:
 
-![todo:image_alt_text](evaluate-aspose.slides-001.png)
+* Přidá jeden evaluační vodoznakový textový rámeček doprostřed každého snímku každé prezentace, kterou uloží. Otevření prezentace nepřidá vodoznak, ale vodoznak uložený dříve je načten jako tvar na snímku. Takže pokud otevřete prezentaci uloženou v evaluačním režimu a uložíte ji znovu, každý snímek bude mít dva vodoznaky.
+* Text, který váš kód načte z prezentace, je zkrácen na několik prvních znaků, následovaný upozorněním na omezení evaluační verze. Toto se týká každého snímku i textu, který váš kód právě nastavil. Text, který váš kód zapíše, je uložen celý.
 
-{{% alert color="primary" %}}
-Pokud chcete testovat Aspose.Slides bez omezení verze vyzkoušení, můžete také požádat o 30‑denní dočasnou licenci. Viz [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Note" %}}
+
+Pokud chcete testovat Aspose.Slides bez omezení evaluační verze, můžete také požádat o 30denní dočasnou licenci. Viz [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
+
 {{% /alert %}}
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Mohu testovat více prezentací paralelně napříč různými vlákny v režimu vyhodnocení?**
+### Můžu testovat více prezentací paralelně napříč různými vlákny v evaluačním režimu?
 
-Ano. Můžete zpracovávat různé dokumenty paralelně; neměli byste sdílet stejný objekt prezentace [napříč vlákny](/slides/cs/cpp/multithreading/). Režim vyhodnocení to neovlivňuje.
+Ano. Můžete zpracovávat různé dokumenty paralelně; neměli byste sdílet stejný objekt prezentace [napříč vlákny](/slides/cs/cpp/multithreading/). Evaluační režim to neovlivní.
 
-**Potřebuji nainstalovat Microsoft PowerPoint k vyhodnocení knihovny na serveru nebo v CI?**
+### Musím mít nainstalovaný Microsoft PowerPoint k vyzkoušení knihovny na serveru nebo v CI?
 
-Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani při vyhodnocení, ani v produkci.
+Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani pro vyhodnocení, ani pro produkci.
 
-**Mohu plně testovat konverzi PPT/PPTX do PDF a obrázků v režimu vyhodnocení?**
+### Můžu plně testovat konverzi PPT/PPTX do PDF a obrázků v evaluačním režimu?
 
-Ano. [Konvertory](/slides/cs/cpp/convert-presentation/) fungují; výstup bude obsahovat vodoznak.
+Ano. [konvertory](/slides/cs/cpp/convert-presentation/) fungují; výstup bude obsahovat vodoznak.
 
-**Mohu použít dočasnou licenci pro zátěžové testování bez vodoznaku?**
+### Můžu použít dočasnou licenci pro zatěžovací testy bez vodoznaku?
 
-Ano. 30‑denní dočasná licence odstraňuje omezení režimu vyhodnocení a umožňuje testování bez vodoznaku.
+Ano. 30denní dočasná licence odstraňuje omezení evaluačního režimu a umožňuje testování bez vodoznaku.

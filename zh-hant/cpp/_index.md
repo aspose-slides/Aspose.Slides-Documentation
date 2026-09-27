@@ -5,37 +5,132 @@ type: docs
 weight: 30
 url: /zh-hant/cpp/
 keywords:
-- 文件說明
+- 文件
 - 簡報處理
 - 簡報轉換
 - PowerPoint
 - OpenDocument
 - C++
 - Aspose.Slides
-description: Aspose.Slides for C++ 是一個 Microsoft PowerPoint® 管理 API，使 C++ 應用程式能在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。
+description: "從此開始：安裝 Aspose.Slides for C++，建立第一個簡報，並查找常見任務指南、API 參考與支援。"
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for C++" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-![Aspose.Slides for C++ 產品圖示](home_1.png)
+Aspose.Slides for C++ 是一套原生 C++ 函式庫，可用於建立、讀取、編輯與轉換 PowerPoint 與 OpenDocument 簡報，無需 Microsoft PowerPoint 或 Office Automation。
 
-**歡迎使用 Aspose.Slides for C++**
+它載入並儲存 PPT、PPTX、PPS、POT 與 ODP，包括支援巨集與範本變體，並匯出為 PDF、XPS、HTML、SVG、TIFF、Markdown 與影像。
 
-Aspose.Slides for C++ 是一個 Microsoft PowerPoint® 管理 API，使 C++ 應用程式能在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。Aspose.Slides for C++ 是首個也是唯一提供管理 PowerPoint® 文件功能的元件。Aspose.Slides for C++ 提供許多關鍵功能，例如管理文字、圖形、表格與動畫、向投影片加入音訊與影片、預覽投影片、將投影片匯出為 SVG、PDF 格式等。
+<div style="clear:both"></div>
 
-{{% /alert %}}
+------
 
-## **Aspose.Slides for C++ 資源**
+<div class="row">
+<div class="col-md-4">
+<p><b>開始使用</b></p>
+<hr>
+<p>入門指南</p>
+<ul>
+<li><a href="/slides/zh-hant/cpp/installation/">安裝</a></li>
+<li><a href="/slides/zh-hant/cpp/create-presentation/">建立您的第一個簡報</a></li>
+<li><a href="/slides/zh-hant/cpp/getting-started/">入門指南</a></li>
+</ul>
+<p>評估</p>
+<ul>
+<li><a href="/slides/zh-hant/cpp/supported-file-formats/">支援的檔案格式</a></li>
+<li><a href="/slides/zh-hant/cpp/evaluate-aspose-slides/">試用版限制</a></li>
+<li><a href="/slides/zh-hant/cpp/licensing/">授權</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>使用 Slides 建置</b></p>
+<hr>
+<p>常見任務</p>
+<ul>
+<li><a href="/slides/zh-hant/cpp/open-presentation/">開啟簡報</a></li>
+<li><a href="/slides/zh-hant/cpp/save-presentation/">儲存簡報</a></li>
+<li><a href="/slides/zh-hant/cpp/convert-powerpoint-to-pdf/">轉換為 PDF</a></li>
+<li><a href="/slides/zh-hant/cpp/convert-slide/">將投影片渲染為影像</a></li>
+<li><a href="/slides/zh-hant/cpp/manage-text/">編輯文字和圖形</a></li>
+</ul>
+<p>Slides 工作流程</p>
+<ul>
+<li><a href="/slides/zh-hant/cpp/powerpoint-charts/">圖表</a></li>
+<li><a href="/slides/zh-hant/cpp/powerpoint-animation/">動畫</a></li>
+<li><a href="/slides/zh-hant/cpp/manage-media-files/">音訊與影片</a></li>
+<li><a href="/slides/zh-hant/cpp/presentation-design/">投影片設計</a></li>
+<li><a href="/slides/zh-hant/cpp/merge-presentation/">合併簡報</a></li>
+</ul>
+<p>範例</p>
+<ul>
+<li><a href="/slides/zh-hant/cpp/examples/">依投影片元素的範例</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-C">GitHub 上的範例</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>參考與支援</b></p>
+<hr>
+<p>參考</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/zh-hant/cpp/">API 參考</a></li>
+<li><a href="https://releases.aspose.com/slides/zh-hant/cpp/release-notes/">發行說明</a></li>
+<li><a href="/slides/zh-hant/cpp/known-issues/">已知問題</a></li>
+<li><a href="https://releases.aspose.com/slides/zh-hant/cpp/">下載</a></li>
+</ul>
+<p>支援</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">免費支援論壇</a></li>
+<li><a href="https://helpdesk.aspose.com/">付費支援服務台</a></li>
+</ul>
+</div>
+</div>
 
-These are links to useful resources:
+------
 
-- [Aspose.Slides for C++ 線上文件](/slides/zh-hant/cpp/)
-- [Aspose.Slides for C++ 功能總覽](/slides/zh-hant/cpp/features-overview/)
-- [Aspose.Slides for C++ 發行說明](https://releases.aspose.com/slides/zh-hant/cpp/release-notes/)
-- [Aspose.Slides for C++ 產品頁面](https://products.aspose.com/slides/zh-hant/cpp/)
-- [下載 Aspose.Slides for C++](https://releases.aspose.com/slides/zh-hant/cpp/)
-- [安裝 Aspose.Slides for C++ NuGet 套件](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [Aspose.Slides for C++ API 參考指南](https://reference.aspose.com/slides/zh-hant/cpp)
-- [從 GitHub 倉庫下載範例](https://github.com/aspose-slides/Aspose.Slides-for-C)
-- [Aspose.Slides for C++ 免費支援論壇](https://forum.aspose.com/c/slides/zh-hant/11)
-- [Aspose.Slides for C++ 付費支援服務台](https://helpdesk.aspose.com/)
+## **您的第一個簡報**
+
+在 Windows 上，於 Visual Studio 建立 C++ **Console App** 專案，並在「套件管理員主控台」(**Tools** > **NuGet Package Manager** > **Package Manager Console**) 中安裝 NuGet 套件：
+
+```powershell
+Install-Package Aspose.Slides.Cpp
+```
+
+在 Linux 上，下載 Linux ZIP 套件，並依照 [Installation](/slides/zh-hant/cpp/installation/#linux) 中的說明設定 CMake 專案。
+
+然後使用以下程式碼作為您的主要原始檔。此程式會建立一個包含文字方塊的簡報並儲存：
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+int main()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    shape->get_TextFrame()->set_Text(u"Hello, Aspose.Slides!");
+    presentation->Save(u"hello.pptx", SaveFormat::Pptx);
+    presentation->Dispose();
+    return 0;
+}
+```
+
+在 Windows 執行時，於工具列選取 **x64** 平台並按下 **Ctrl+F5**。在 Linux 上，將程式碼儲存為 *main.cpp* 放置於專案資料夾，然後編譯並執行：
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+./build/hello
+```
+
+此程式會將 *hello.pptx* 儲存為一張包含文字方塊的投影片。若未取得授權，儲存的檔案會帶有評估水印——請參閱 [Licensing](/slides/zh-hant/cpp/licensing/)。欲了解更多建立與填寫簡報的方式，請參考 [Create Presentations](/slides/zh-hant/cpp/create-presentation/)。
