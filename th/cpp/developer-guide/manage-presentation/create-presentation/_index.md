@@ -30,10 +30,10 @@ description: "สร้างการนำเสนอใน C++ ด้วย 
 
 เพื่อสร้างพรีเซนเทชันและใส่กล่องข้อความบนสไลด์แรก, ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) . พรีเซนเทชันใหม่จะมีสไลด์เปล่าหนึ่งสไลด์อยู่แล้ว.
-2. ดึงสไลด์นั้นด้วยเมธอด [Presentation::get_Slide](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_slide/) และใช้ดัชนี 0.
-3. เพิ่มรูปสี่เหลี่ยมโดยใช้เมธอด [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapecollection/addautoshape/) และตั้งค่าข้อความด้วยเมธอด [ITextFrame::set_Text](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframe/set_text/).
-4. บันทึกพรีเซนเทชันเป็นไฟล์ PPTX ด้วยเมธอด [Presentation::Save](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/save/).
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) . พรีเซนเทชันใหม่จะมีสไลด์เปล่าหนึ่งสไลด์อยู่แล้ว.
+2. ดึงสไลด์นั้นด้วยเมธอด [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) และใช้ดัชนี 0.
+3. เพิ่มรูปสี่เหลี่ยมโดยใช้เมธอด [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) และตั้งค่าข้อความด้วยเมธอด [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/).
+4. บันทึกพรีเซนเทชันเป็นไฟล์ PPTX ด้วยเมธอด [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### ฉันสามารถสร้าง/บันทึกพรีเซนเทชันพร้อมกันได้หรือไม่?
 
-คุณไม่สามารถดำเนินการบนอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) เดียวจาก [หลายเธรด](/slides/th/cpp/multithreading/) ได้. ให้เรียกใช้งานอินสแตนซ์แยกที่แยกจากกันต่อแต่ละเธรดหรือกระบวนการ.
+คุณไม่สามารถดำเนินการบนอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) เดียวจาก [หลายเธรด](/slides/th/cpp/multithreading/) ได้. ให้เรียกใช้งานอินสแตนซ์แยกที่แยกจากกันต่อแต่ละเธรดหรือกระบวนการ.
 
 ### ฉันจะลบลายน้ำการทดลองและข้อจำกัดออกได้อย่างไร?
 

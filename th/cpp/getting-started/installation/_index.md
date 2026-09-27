@@ -26,7 +26,7 @@ Aspose.Slides for C++ มีให้เลือกในสองรูปแ�
 | รูปแบบ | ใช้สำหรับ | ที่มาของแพ็กเกจ |
 |---|---|---|
 | NuGet packages: [Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp/) (64‑บิต) และ [Aspose.Slides.Cpp.x86](https://www.nuget.org/packages/Aspose.Slides.Cpp.x86/) (32‑บิต) | โครงการ Visual Studio C++ บน Windows | NuGet |
-| ZIP packages สำหรับ Windows, Linux, และ macOS | การสร้างโดยไม่มี NuGet เช่น โครงการ CMake | [หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/cpp/) |
+| ZIP packages สำหรับ Windows, Linux, และ macOS | การสร้างโดยไม่มี NuGet เช่น โครงการ CMake | [หน้าดาวน์โหลด](https://releases.aspose.com/slides/cpp/) |
 
 บทความนี้แสดงวิธีการติดตั้งแพ็กเกจ NuGet ใน Visual Studio บน Windows และวิธีใช้แพ็กเกจ ZIP กับ CMake บน Linux ทั้งสองวิธีจะสรุปด้วยขั้นตอนเดียวกัน: สร้างและรันตัวอย่างแรกใน [Create Presentations](/slides/th/cpp/create-presentation/)  
 
@@ -36,7 +36,7 @@ Aspose.Slides for C++ มีให้เลือกในสองรูปแ�
 
 เลือกแพ็กเกจตามแพลตฟอร์มที่คุณสร้าง: **Aspose.Slides.Cpp** สำหรับ x64 และ **Aspose.Slides.Cpp.x86** สำหรับ Win32 (x86) แพ็กเกจ Aspose.Slides.Cpp จะไม่ถูกนำไปใช้กับการสร้าง Win32 ทำให้คอมไพเลอร์ไม่พบ Header
 
-แพ็กเกจ ZIP สำหรับ Windows มีให้ดาวน์โหลดจาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/cpp/)  
+แพ็กเกจ ZIP สำหรับ Windows มีให้ดาวน์โหลดจาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/cpp/)  
 
 ### **วิธีที่ 1: ติดตั้งหรืออัปเดต Aspose.Slides ผ่าน NuGet Package Manager**
 
@@ -100,7 +100,7 @@ Aspose.Slides for C++ มีให้เลือกในสองรูปแ�
    cd hello-slides
    ```
 
-3. ดาวน์โหลดแพ็กเกจ ZIP สำหรับ Linux (**Aspose.Slides for C++ Linux**) จาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/cpp/) ไปยังโฟลเดอร์โครงการ แล้วแตกไฟล์ลงในโฟลเดอร์ย่อย *aspose-slides-cpp*:
+3. ดาวน์โหลดแพ็กเกจ ZIP สำหรับ Linux (**Aspose.Slides for C++ Linux**) จาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/cpp/) ไปยังโฟลเดอร์โครงการ แล้วแตกไฟล์ลงในโฟลเดอร์ย่อย *aspose-slides-cpp*:
 
    ```bash
    unzip aspose-slides-cpp-linux-*.zip -d aspose-slides-cpp

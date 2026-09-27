@@ -27,9 +27,9 @@ Aspose.Slides สามารถใช้ในโหมดประเมิน
 ## **ประเมิน Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-คุณสามารถดาวน์โหลดเวอร์ชันประเมินของ **Aspose.Slides for C++** จาก [หน้าดาวน์โหลด NuGet ของมัน](https://www.nuget.org/packages/Aspose.Slides.Cpp/) หรือเป็นแพกเกจ ZIP จาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/cpp/) เวอร์ชันประเมินให้ฟังก์ชันการทำงานเดียวกับผลิตภัณฑ์ที่มีใบอนุญาต จริง ๆ แล้วแพกเกจประเมินเหมือนกับที่ซื้อ—เพียงแค่เพิ่มโค้ดไม่กี่บรรทัดเพื่อใช้ใบอนุญาตก็จะเป็นเวอร์ชันที่มีใบอนุญาตแล้ว
+คุณสามารถดาวน์โหลดเวอร์ชันประเมินของ **Aspose.Slides for C++** จาก [หน้าดาวน์โหลด NuGet ของมัน](https://www.nuget.org/packages/Aspose.Slides.Cpp/) หรือเป็นแพกเกจ ZIP จาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/cpp/) เวอร์ชันประเมินให้ฟังก์ชันการทำงานเดียวกับผลิตภัณฑ์ที่มีใบอนุญาต จริง ๆ แล้วแพกเกจประเมินเหมือนกับที่ซื้อ—เพียงแค่เพิ่มโค้ดไม่กี่บรรทัดเพื่อใช้ใบอนุญาตก็จะเป็นเวอร์ชันที่มีใบอนุญาตแล้ว
   
-เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** แล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/th/cpp/) เราแนะนำให้ทบทวนประเภทการสมัครสมาชิกที่มี หากมีคำถามใด ๆ โปรดติดต่อทีมขายของ Aspose  
+เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** แล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/cpp/) เราแนะนำให้ทบทวนประเภทการสมัครสมาชิกที่มี หากมีคำถามใด ๆ โปรดติดต่อทีมขายของ Aspose  
 
 ใบอนุญาตทุกใบของ Aspose จะรวมการสมัครสมาชิกหนึ่งปีสำหรับการอัปเกรดฟรี รวมถึงเวอร์ชันใหม่และการแก้ไขบั๊กที่ปล่อยในช่วงเวลานั้น ไม่ว่าคุณจะใช้เวอร์ชันที่มีใบอนุญาตหรือเวอร์ชันประเมิน คุณจะได้รับการสนับสนุนด้านเทคนิคฟรีและไม่จำกัดจำนวน
 {{% /alert %}} 
@@ -56,7 +56,7 @@ Aspose.Slides สามารถใช้ในโหมดประเมิน
 ใบอนุญาตสามารถโหลดจาก **ไฟล์** หรือ **สตรีม**  
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides มีคลาส [License](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/) สำหรับการดำเนินการเกี่ยวกับใบอนุญาต
+Aspose.Slides มีคลาส [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) สำหรับการดำเนินการเกี่ยวกับใบอนุญาต
 {{% /alert %}}  
 
 {{% alert color="warning" title="Warning" %}}
@@ -86,17 +86,17 @@ int main()
 }
 ```
 
-หากใบอนุญาตถูกต้อง [License::SetLicense](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/setlicense/) จะคืนค่าและโปรแกรมจบโดยไม่มีผลลัพธ์ จากนั้น Aspose.Slides จะทำงานโดยไม่มีข้อจำกัดของการประเมิน หากไฟล์ไม่อยู่ในไดเรกทอรีทำงาน วิธีนี้จะโยงข้อยกเว้น [FileNotFoundException](https://reference.aspose.com/slides/th/cpp/system.io/filenotfoundexception/) พร้อมข้อความ *License "Aspose.Slides.lic" doesn't exist or access is restricted* ตัวอย่างไม่ได้จัดการข้อยกเว้น ดังนั้นโปรแกรมจะหยุดทำงาน  
+หากใบอนุญาตถูกต้อง [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) จะคืนค่าและโปรแกรมจบโดยไม่มีผลลัพธ์ จากนั้น Aspose.Slides จะทำงานโดยไม่มีข้อจำกัดของการประเมิน หากไฟล์ไม่อยู่ในไดเรกทอรีทำงาน วิธีนี้จะโยงข้อยกเว้น [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) พร้อมข้อความ *License "Aspose.Slides.lic" doesn't exist or access is restricted* ตัวอย่างไม่ได้จัดการข้อยกเว้น ดังนั้นโปรแกรมจะหยุดทำงาน  
 
 {{% alert color="warning" title="Warning" %}}
-หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียกใช้เมธอด [License::SetLicense](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/setlicense/) ชื่อไฟล์ที่อยู่ท้ายพาธต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณอย่างสมบูรณ์  
+หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียกใช้เมธอด [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) ชื่อไฟล์ที่อยู่ท้ายพาธต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณอย่างสมบูรณ์  
 
-ตัวอย่างเช่น หากคุณเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.lic.xml* คุณต้องส่งพาธเต็มที่ลงท้ายด้วย *Aspose.Slides.lic.xml* ไปยังเมธอด [License::SetLicense](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/setlicense/) ในโค้ดของคุณ
+ตัวอย่างเช่น หากคุณเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.lic.xml* คุณต้องส่งพาธเต็มที่ลงท้ายด้วย *Aspose.Slides.lic.xml* ไปยังเมธอด [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) ในโค้ดของคุณ
 {{% /alert %}}
 
 ### **สตรีม**
 
-โหลดใบอนุญาตจากสตรีมเมื่อโปรแกรมของคุณไม่ได้เก็บใบอนุญาตเป็นไฟล์ที่สามารถระบุชื่อได้ เช่น เมื่ออ่านใบอนุญาตจากฐานข้อมูล [License::SetLicense](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/setlicense/) รับสตรีมใด ๆ [Stream](https://reference.aspose.com/slides/th/cpp/system.io/stream/) ที่บรรจุใบอนุญาต เพื่อให้ตัวอย่างสั้นลง โค้ด C++ ต่อไปนี้เปิด *Aspose.Slides.lic* ในไดเรกทอรีทำงานด้วย [File::OpenRead](https://reference.aspose.com/slides/th/cpp/system.io/file/openread/) แล้วใช้ใบอนุญาตจากสตรีมนั้น:
+โหลดใบอนุญาตจากสตรีมเมื่อโปรแกรมของคุณไม่ได้เก็บใบอนุญาตเป็นไฟล์ที่สามารถระบุชื่อได้ เช่น เมื่ออ่านใบอนุญาตจากฐานข้อมูล [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) รับสตรีมใด ๆ [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) ที่บรรจุใบอนุญาต เพื่อให้ตัวอย่างสั้นลง โค้ด C++ ต่อไปนี้เปิด *Aspose.Slides.lic* ในไดเรกทอรีทำงานด้วย [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) แล้วใช้ใบอนุญาตจากสตรีมนั้น:
 
 ```c++
 #include <Util/License.h>
@@ -117,11 +117,11 @@ int main()
 }
 ```
 
-ใบอนุญาตที่ถูกต้องให้ผลเช่นเดียวกับตัวอย่างไฟล์ หากไฟล์不存在 [File::OpenRead](https://reference.aspose.com/slides/th/cpp/system.io/file/openread/) จะโยงข้อยกเว้น [FileNotFoundException](https://reference.aspose.com/slides/th/cpp/system.io/filenotfoundexception/) ก่อนที่ใบอนุญาตจะถูกนำไปใช้และโปรแกรมจะหยุดทำงาน
+ใบอนุญาตที่ถูกต้องให้ผลเช่นเดียวกับตัวอย่างไฟล์ หากไฟล์不存在 [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) จะโยงข้อยกเว้น [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) ก่อนที่ใบอนุญาตจะถูกนำไปใช้และโปรแกรมจะหยุดทำงาน
 
 ## **ตรวจสอบใบอนุญาต**
 
-เพื่อเช็คว่าใบอนุญาตได้ตั้งค่าอย่างถูกต้องหรือไม่ ให้เรียก [License::IsLicensed](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/islicensed/) มันจะคืนค่า `true` เท่านั้นหลังจากใบอนุญาตที่ถูกต้องได้ถูกนำไปใช้ และคืนค่า `false` ก่อนหน้านั้น โค้ด C++ ต่อไปนี้ใช้ไฟล์ใบอนุญาตจากไดเรกทอรีทำงานแล้วตรวจสอบ:
+เพื่อเช็คว่าใบอนุญาตได้ตั้งค่าอย่างถูกต้องหรือไม่ ให้เรียก [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/) มันจะคืนค่า `true` เท่านั้นหลังจากใบอนุญาตที่ถูกต้องได้ถูกนำไปใช้ และคืนค่า `false` ก่อนหน้านั้น โค้ด C++ ต่อไปนี้ใช้ไฟล์ใบอนุญาตจากไดเรกทอรีทำงานแล้วตรวจสอบ:
 
 ```c++
 #include <Util/License.h>
@@ -145,12 +145,12 @@ int main()
 }
 ```
 
-เมื่อใบอนุญาตถูกต้อง โปรแกรมจะพิมพ์ *License is good!* หากไฟล์หายหรือไม่ได้เป็นไฟล์ใบอนุญาต [License::SetLicense](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/setlicense/) จะโยงข้อยกเว้นก่อนการตรวจสอบและโปรแกรมจะหยุดโดยไม่พิมพ์อะไร หากไฟล์เป็นใบอนุญาตที่ลายเซ็นไม่ตรง เช่น ถูกแก้ไข SetLicense จะคืนค่าโดยไม่มีข้อผิดพลาดแต่ `IsLicensed` จะคืนค่า `false` ดังนั้นไม่มีการพิมพ์ใด ๆ และ Aspose.Slides จะอยู่ในโหมดประเมินต่อไป
+เมื่อใบอนุญาตถูกต้อง โปรแกรมจะพิมพ์ *License is good!* หากไฟล์หายหรือไม่ได้เป็นไฟล์ใบอนุญาต [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) จะโยงข้อยกเว้นก่อนการตรวจสอบและโปรแกรมจะหยุดโดยไม่พิมพ์อะไร หากไฟล์เป็นใบอนุญาตที่ลายเซ็นไม่ตรง เช่น ถูกแก้ไข SetLicense จะคืนค่าโดยไม่มีข้อผิดพลาดแต่ `IsLicensed` จะคืนค่า `false` ดังนั้นไม่มีการพิมพ์ใด ๆ และ Aspose.Slides จะอยู่ในโหมดประเมินต่อไป
 
 ## **ความปลอดภัยของเธรด**
 
 {{% alert color="warning" title="Warning" %}}
-เมธอด [License::SetLicense](https://reference.aspose.com/slides/th/cpp/aspose.slides/license/setlicense/) **ไม่ปลอดภัยต่อเธรด** หากคุณต้องการเรียกเมธอดนี้จากหลายเธรดพร้อมกัน แนะนำให้ใช้ primitive การซิงโครไนซ์ (เช่น lock) เพื่อป้องกันปัญหาที่อาจเกิดขึ้น
+เมธอด [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) **ไม่ปลอดภัยต่อเธรด** หากคุณต้องการเรียกเมธอดนี้จากหลายเธรดพร้อมกัน แนะนำให้ใช้ primitive การซิงโครไนซ์ (เช่น lock) เพื่อป้องกันปัญหาที่อาจเกิดขึ้น
 {{% /alert %}}
 
 ## **FAQ**
