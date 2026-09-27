@@ -5,132 +5,165 @@ weight: 90
 url: /ar/androidjava/licensing/
 keywords:
 - ترخيص
-- ترخيص مؤقت
-- تعيين ترخيص
-- استخدام ترخيص
+- رخصة مؤقتة
+- تعيين الترخيص
+- استخدام الترخيص
 - التحقق من الترخيص
 - ملف الترخيص
-- نسخة تقييم
+- نسخة التقييم
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تطبيق وإدارة وحل مشاكل الترخيص في Aspose.Slides لـ Android عبر Java. احرص على الحصول على وصول غير متقطع إلى جميع الميزات من خلال دليل الترخيص الخاص بنا."
+description: "تطبيق وإدارة وحل مشاكل التراخيص في Aspose.Slides لنظام Android عبر Java. ضمان الوصول غير المتقطع إلى جميع الميزات مع دليل الترخيص الخاص بنا."
 ---
+## **نظرة عامة**
+
+يمكن استخدام Aspose.Slides في وضع التقييم أو باستخدام ترخيص صالح. يوفر إصدار التقييم نفس وظائف الإصدار المرخص، لكنه يضيف علامة مائية للتقييم إلى كل شريحة من كل عرض تقديمي يتم حفظه ويقطع النص الذي يقرأه الكود من العروض التقديمية.
+
+تشرح هذه المقالة كيفية عمل الترخيص في Aspose.Slides وكيفية تطبيق الترخيص قبل استخدام المكتبة. يمكن تحميل الترخيص من ملف أو تدفق أو مورد مضمّن باستخدام فئة [License](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/license/). كما تُظهر المقالة كيفية التحقق مما إذا تم تطبيق الترخيص بصورة صحيحة.
 
 ## **تقييم Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-يمكنك تنزيل نسخة التقييم من **Aspose.Slides for Android via Java** من [صفحة التحميل](https://releases.aspose.com/slides/androidjava/). توفر نسخة التقييم نفس الوظائف التي تقدمها النسخة المرخصة من المنتج. حزمة التقييم هي نفسها الحزمة المشتراة. تصبح نسخة التقييم مرخصة ببساطة بعد أن تضيف بضع أسطر من الشيفرة لتطبيق الترخيص.
+يمكنك تنزيل نسخة التقييم من **Aspose.Slides for Android via Java** من صفحة [download page](https://releases.aspose.com/slides/ar/androidjava/). يوفر إصدار التقييم نفس الوظائف التي يوفرها الإصدار المرخص من المنتج. حزمة التقييم هي نفسها الحزمة المشتراة. يصبح إصدار التقييم مرخصًا بمجرد إضافة بضع أسطر من الكود إليه (لتطبيق الترخيص).
 
-بمجرد أن تكون راضيًا عن تقييمك لـ **Aspose.Slides**، يمكنك [شراء ترخيص](https://purchase.aspose.com/buy). نوصيك بالاطلاع على أنواع الاشتراكات المختلفة. إذا كان لديك أسئلة، تواصل مع فريق مبيعات Aspose.
+بعد أن تكون راضٍ عن تقييمك لـ **Aspose.Slides**، يمكنك [purchase a license](https://purchase.aspose.com/pricing/slides/ar/android-java/). نوصي بأن تتصفح أنواع الاشتراكات المختلفة. إذا كانت لديك أسئلة، فاتصل بفريق مبيعات Aspose.
 
-كل ترخيص Aspose يأتي مع اشتراك سنة واحدة للحصول على ترقيات مجانية إلى الإصدارات الجديدة أو التصحيحات التي تم إصدارها خلال فترة الاشتراك. يحصل المستخدمون الذين لديهم منتجات مرخصة (أو حتى نسخ تقييم) على دعم فني مجاني ولا محدود.
+كل ترخيص Aspose يأتي مع اشتراك سنة واحدة لتحديثات مجانية إلى الإصدارات الجديدة أو الإصلاحات التي تُصدر ضمن فترة الاشتراك. يحصل المستخدمون الذين لديهم منتجات مرخصة (أو حتى إصدارات تقييم) على دعم فني مجاني وغير محدود.
 
 {{% /alert %}} 
 
 **قيود نسخة التقييم**
 
-* بينما نسخة التقييم من Aspose.Slides (بدون ترخيص محدد) توفر جميع وظائف المنتج، فإنها تضيف علامة مائية للتقييم في أعلى المستند عند عمليات الفتح والحفظ. 
-* يُستثنى استخراج النصوص من شرائح العرض إلى شريحة واحدة فقط.
+* نسخة التقييم (بدون ترخيص محدد) توفر وظائف المنتج بالكامل، لكنها تضيف صندوق نص علامة مائية تقييم إلى كل شريحة من كل عرض تقديمي يتم حفظه.
+* يتم قطع النص الذي يقرأه الكود من العرض التقديمي إلى أول عدة أحرف، متبوعًا بإشعار حول قيود التقييم. النص الذي يكتبه الكود يُحفظ بالكامل.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-لاختبار Aspose.Slides دون قيود، يمكنك طلب **ترخيص مؤقت لمدة 30 يومًا**. راجع صفحة [كيفية الحصول على ترخيص مؤقت](https://purchase.aspose.com/temporary-license) لمزيد من المعلومات.
+لاختبار Aspose.Slides بدون قيود، يمكنك طلب **رخصة مؤقتة لمدة 30 يومًا**. راجع صفحة [How to get a Temporary License](https://purchase.aspose.com/temporary-license) لمزيد من المعلومات.
 
 {{% /alert %}}
 
 ## **الترخيص في Aspose.Slides**
 
-* تصبح نسخة التقييم مرخصة بعد أن تشتري ترخيصًا وتضيف بضع أسطر من الشيفرة لتطبيق الترخيص.
-* الترخيص هو ملف XML نص عادي يحتوي على تفاصيل مثل اسم المنتج، عدد المطورين المرخص لهم، تاريخ انتهاء الاشتراك، وما إلى ذلك.
-* ملف الترخيص موقع رقمياً، لذا لا يجب تعديل الملف. حتى إضافة غير مقصودة لسطر جديد إلى محتوى الملف سيجعله غير صالح.
-* عادةً ما يحاول Aspose.Slides for Android via Java العثور على الترخيص في المواقع التالية:
+* يتحول إصدار التقييم إلى مرخص بعد شراء ترخيص وإضافة بضع أسطر من الكود لتطبيق الترخيص.
+* الترخيص هو ملف XML نصي بسيط يحتوي على تفاصيل مثل اسم المنتج، عدد المطورين المرخص لهم، تاريخ انتهاء الاشتراك، وما إلى ذلك.
+* ملف الترخيص موقع رقمياً، لذا لا يجب تعديل الملف. حتى إضافة سطر فارغ غير مقصودة إلى محتويات الملف ستجعله غير صالح.
+* عادةً ما تحاول Aspose.Slides for Android via Java العثور على الترخيص في المواقع التالية:
   * مسار صريح
   * المجلد الذي يحتوي على Aspose.Slides.jar
-* لتجنب القيود المرتبطة بنسخة التقييم، تحتاج إلى تعيين ترخيص قبل استخدام **Aspose.Slides**. يكفي تعيين الترخيص مرة واحدة لكل تطبيق أو عملية.
+* لتجنب القيود المرتبطة بإصدار التقييم، تحتاج إلى تعيين ترخيص قبل استخدام **Aspose.Slides**. لا تحتاج إلى تعيين الترخيص إلا مرة واحدة لكل تطبيق أو عملية.
 
 ## **تطبيق الترخيص**
 
-يمكن تحميل الترخيص من **ملف** أو **دفق**.
+يمكن تحميل الترخيص من **ملف** أو **تدفق**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-يوفر Aspose.Slides الفئة [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) لعمليات الترخيص.
+توفر Aspose.Slides فئة [License](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/license/) لعمليات الترخيص.
 
 {{% /alert %}} 
 
-{{% alert color="warning" %}}
+{{% alert color="warning" title="Warning" %}}
 
-يمكن للتراخيص الجديدة تفعيل Aspose.Slides فقط مع الإصدار 21.4 أو أحدث. الإصدارات السابقة تستخدم نظام ترخيص مختلف ولن تتعرف على هذه التراخيص.
+يمكن للترخيص الجديد تفعيل Aspose.Slides فقط مع الإصدار 21.4 أو أحدث. الإصدارات السابقة تستخدم نظام ترخيص مختلف ولن تتعرف على هذه التراخيص.
 
 {{% /alert %}}
 
 ### **ملف**
 
-أسهل طريقة لتعيين الترخيص تتطلب وضع ملف الترخيص في المجلد الذي يحتوي على Aspose.Slides.jar أو ملف jar الخاص بتطبيقك.
+أسهل طريقة لتعيين ترخيص هي وضع ملف الترخيص في المجلد الذي يحتوي على Aspose.Slides.jar أو ملف jar الخاص بتطبيقك.
 
-هذا الكود Java يوضح لك كيفية تعيين ملف ترخيص:
+{{% alert color="info" title="Note" %}}
+
+في Android، تُحزم المكتبة وتطبيقك في ملف APK، لذا لا يوجد مجلد يحتوي على ملف JAR الخاص بالمكتبة، والمسار النسبي مثل *Aspose.Slides.Android.via.Java.lic* لا يشير إلى ملف في تطبيقك. أضف ملف الترخيص إلى مجلد assets في تطبيقك وحمّله من تدفق، كما هو موضح في [Stream from App Assets](#stream-from-app-assets).
+
+{{% /alert %}}
+
+هذا الكود Java يوضح لك كيفية تعيين ملف الترخيص:
+
 ``` java
-// يقوم بإنشاء فئة License
+// ينشئ مثيل من الفئة License
 com.aspose.slides.License license = new com.aspose.slides.License();
 
 // يحدد مسار ملف الترخيص
 license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
+{{% alert color="warning" title="Warning" %}}
 
-{{% alert color="warning" %}} 
+إذا وضعت ملف الترخيص في دليل مختلف، عند استدعاء طريقة [setLicense](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) يجب أن يكون اسم ملف الترخيص في نهاية المسار المحدد هو نفسه اسم ملف الترخيص الخاص بك.
 
-إذا وضعت ملف الترخيص في دليل مختلف، عند استدعاء طريقة [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) يجب أن يكون اسم ملف الترخيص في نهاية المسار الصريح هو نفسه اسم ملف الترخيص الخاص بك.
-
-على سبيل المثال، يمكنك تغيير اسم ملف الترخيص إلى *Aspose.Slides.Android.via.Java.lic.xml*. ثم في الشيفرة الخاصة بك، يجب تمرير المسار إلى الملف (المنتهي بـ *Aspose.Slides.Android.via.Java.lic.xml*) إلى طريقة [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+على سبيل المثال، يمكنك تغيير اسم ملف الترخيص إلى *Aspose.Slides.Android.via.Java.lic.xml*. ثم، في الكود الخاص بك، عليك تمرير المسار إلى الملف (الذي ينتهي بـ *Aspose.Slides.Android.via.Java.lic.xml*) إلى طريقة [setLicense](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
-### **دفق**
+### **تدفق**
 
-يمكنك تحميل الترخيص من دفق. هذا الكود Java يوضح لك كيفية تطبيق الترخيص من دفق:
+يمكنك تحميل ترخيص من تدفق. هذا الكود Java يوضح لك كيفية تطبيق ترخيص من تدفق:
+
 ``` java
-// يقوم بإنشاء فئة License
+// ينشئ مثيل من الفئة License
 com.aspose.slides.License license = new com.aspose.slides.License();
 
-// يحدد الترخيص عبر دفق
+// يعيّن الترخيص عبر تدفق
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.lic"));
 ```
 
+### **تدفق من موارد التطبيق**
 
-## **التحقق من صحة الترخيص**
+في تطبيق Android، ضع ملف الترخيص في مجلد *assets* داخل وحدة التطبيق، *app/src/main/assets*، بحيث يُحصَّل داخل ملف APK. افتح الملف باستخدام طريقة [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) ومرّر التدفق إلى طريقة [setLicense](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). يعمل الكود داخل `Activity`، على سبيل المثال في طريقة `onCreate`، قبل أن يستخدم التطبيق Aspose.Slides:
 
-للتحقق مما إذا تم تعيين الترخيص بشكل صحيح، يمكنك التحقق من صحته. هذا الكود Java يوضح لك كيفية التحقق من صحة الترخيص:
 ```java
-License license = new License();
-license.setLicense("Aspize.Slides.Android.via.Java.lic");
+import android.util.Log;
+import com.aspose.slides.License;
+import java.io.IOException;
+import java.io.InputStream;
 
-if (License.isLicensed()) 
+License license = new License();
+try (InputStream licenseStream = getAssets().open("Aspose.Slides.Android.via.Java.lic")) {
+    license.setLicense(licenseStream);
+} catch (IOException exception) {
+    Log.e("Licensing", "Cannot read the license file from the app's assets.", exception);
+}
+```
+
+اسم الملف الممرّر إلى طريقة [open](https://developer.android.com/reference/android/content/res/AssetManager#open(java.lang.String)) يكون نسبياً إلى مجلد *assets*. إذا لم يكن الملف هناك، يسجل الكود الخطأ، وتظل Aspose.Slides في وضع التقييم. للتحقق مما إذا تم تطبيق الترخيص، راجع قسم [Validating a License](#validating-a-license).
+
+## **التحقق من الترخيص**
+
+للتحقق مما إذا تم تعيين الترخيص بصورة صحيحة، يمكنك التحقق منه. هذا الكود Java يوضح لك كيفية التحقق من الترخيص:
+
+```java
+import com.aspose.slides.*;
+
+License license = new License();
+license.setLicense("Aspose.Slides.Android.via.Java.lic");
+
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }
 ```
 
+## **السلامة في بيئات متعددة الخيوط**
 
-## **أمان الخيوط**
+{{% alert color="warning" title="Warning" %}}
 
-{{% alert title="Note" color="warning" %}} 
-
-طريقة [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) غير آمنة في بيئات متعددة الخيوط. إذا كان يجب استدعاء هذه الطريقة في وقت واحد من عدة خيوط، قد ترغب في استخدام آليات تزامن (مثل القفل) لتجنب المشكلات. 
+طريقة [setLicense](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) ليست آمنة للاستخدام المتعدد الخيوط. إذا كان لابد من استدعاء هذه الطريقة في وقت واحد من خيوط متعددة، قد ترغب في استخدام آليات التزامن (مثل القفل) لتجنب المشكلات.
 
 {{% /alert %}}
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تطبيق الترخيص في بيئة غير متصلة بالإنترنت تمامًا (بدون اتصال بالإنترنت)؟**
+### هل يمكنني تطبيق الترخيص في بيئة غير متصلة بالإنترنت تمامًا (بدون وصول إلى الإنترنت)؟
 
-نعم. يتم التحقق من صحة الترخيص محليًا باستخدام ملف الترخيص؛ لا يتطلب اتصالًا بالإنترنت.
+نعم. يتم التحقق من الترخيص محليًا باستخدام ملف الترخيص؛ لا يلزم اتصال إنترنت.
 
-**ماذا يحدث بعد انتهاء الاشتراك لمدة سنة واحدة؟ هل سيتوقف المكتبة عن العمل؟**
+### ماذا يحدث بعد انتهاء الاشتراك السنوي؟ هل تتوقف المكتبة عن العمل؟
 
-لا. الترخيص دائم: يمكنك الاستمرار في استخدام الإصدارات الصادرة قبل تاريخ انتهاء اشتراكك؛ لكن لن تتمكن من استخدام الإصدارات الأحدث دون التجديد.
+لا. الترخيص دائم: يمكنك الاستمرار في استخدام الإصدارات التي أُصدرت قبل تاريخ انتهاء اشتراكك؛ لن تكون مؤهلاً لاستخدام الإصدارات الأحدث دون تجديد.

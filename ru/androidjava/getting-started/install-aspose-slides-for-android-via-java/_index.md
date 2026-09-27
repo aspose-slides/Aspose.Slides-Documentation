@@ -8,210 +8,112 @@ keywords:
 - скачать Aspose.Slides
 - использовать Aspose.Slides
 - установка Aspose.Slides
+- Gradle
+- репозиторий Maven
 - PowerPoint
 - OpenDocument
 - презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Быстрая установка Aspose.Slides для Android. Пошаговое руководство, системные требования и примеры кода на Java — начните работать с презентациями PowerPoint уже сегодня!"
+description: "Добавьте Aspose.Slides for Android via Java в проект Android Studio с помощью Gradle из Maven‑репозитория Aspose, или добавьте JAR‑файл вручную."
 ---
+## **Обзор**
 
-## **Установка**
-Ранее Aspose.Slides for Android via Java распространялся как один ZIP‑файл, содержащий JAR‑файл, демо‑версии и документацию продукта. 
+В этой статье объясняется, как добавить Aspose.Slides for Android via Java в Android проект. Рекомендуемый способ — позволить Gradle загрузить библиотеку из Maven репозитория Aspose. Вы также можете скачать JAR файл и добавить его в проект вручную.
 
-1. Если вам требуется использовать версию старше Aspose.Words for Android via Java 18.9, необходимо распаковать соответствующий файл Aspose.Slides.Android.zip в выбранный каталог. 
-1. Добавьте извлечённый JAR‑файл в приложение, используя конфигурацию Build Path. 
-### **Добавить ссылку на Aspose.Slides for Android via Java Jar**
-1. Скачайте последнюю версию [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/androidjava)
-1. Скопируйте aspose-slides-18.9-android.via.java.jar в папку *libs/* вашего проекта
+Библиотека не опубликована в Maven Central или Maven репозитории Google. Она доступна в собственном репозитории Aspose как артефакт `aspose-slides` с классификатором `android.via.java`.
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_1.png)
+## **Установка из Maven репозитория Aspose**
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_2.png)
-### **Установить Aspose.Slides for Android via Java из Maven‑репозитория**
-1. Добавьте репозиторий Maven в ваш build.gradle. 
-1. Добавьте JAR [Aspose.Slides for Android via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) в качестве зависимости.
-``` java
+### **Шаг 1: Добавить репозиторий**
 
- // 1. Добавьте репозиторий Maven в ваш build.gradle 
+Новые проекты Android Studio объявляют свои репозитории в блоке `dependencyResolutionManagement` файла *settings.gradle.kts*, и Gradle отклоняет репозитории, которые добавляет файл сборки модуля. Добавьте строку `maven`, показанную ниже, в блок `repositories` внутри существующего блока, а не вставляйте второй блок `dependencyResolutionManagement`:
 
-repositories {
-
-    mavenCentral()
-
-    maven { url "https://releases.aspose.com/java/repo/" }
-
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://releases.aspose.com/java/repo/") }
+    }
 }
+```
 
-// 2. Добавьте JAR 'Aspose.Slides for Android via Java' в качестве зависимости
+### **Шаг 2: Добавить зависимость**
 
+Добавьте библиотеку в блок `dependencies` файла сборки модуля приложения, *app/build.gradle.kts*:
+
+```kotlin
 dependencies {
-
-    ...
-
-    ...
-
-    compile (group: 'com.aspose', name: 'aspose-slides', version: 'XX.XX', classifier: 'android.via.java')
-
+    implementation("com.aspose:aspose-slides:26.9:android.via.java")
 }
 ```
 
-## **Ваше первое приложение, использующее Aspose.Slides for Android via Java**
-В этом разделе вы узнаете, как начать работу с Aspose.Slides for Android via Java. Мы покажем, как создать новый Android‑проект с нуля, добавить ссылку на JAR‑файл Aspose.Slides и создать новую презентацию PowerPoint, сохраняемую на диск в формате PPTX. В примере используется [Android Studio](https://developer.android.com/studio/index.html) для разработки, а приложение запускается в Android Emulator. Чтобы приступить к работе с Aspose.Slides for Android via Java, следуйте этому пошаговому руководству по созданию приложения, использующего Aspose.Slides for Android via Java:
+Последняя часть координат, `android.via.java`, — это классификатор, который выбирает Android‑версию библиотеки. Без него Gradle не может найти артефакт.
 
-1. Скачайте [Android Studio](https://developer.android.com/studio/index.html) и установите его в любое место.
-1. Запустите Android Studio.
-1. Создайте новый проект Android Application.
+Затем синхронизируйте проект с файлами Gradle, чтобы Gradle загрузил библиотеку.
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_3.png)
+### **Выбор версии**
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_4.png)
+Aspose.Slides for Android via Java не собирается для каждой версии в репозитории. Его сборки публикуются только для некоторых версий Aspose.Slides for Java, и версия без Android‑сборки не может быть найдена. Выберите версию, указанную на странице [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/ru/androidjava/).
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_5.png)
+### **Скрипты сборки Groovy**
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_6.png)
+Если ваш проект использует скрипты сборки Groovy, добавьте строку `maven` в блок `repositories` внутри существующего блока `dependencyResolutionManagement` файла *settings.gradle*:
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_7.png)
-
-
-
-
-
-1. Скопируйте aspose-slides-XX.XX-android.via.java.jar в папку libs вашего проекта
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_1.png)
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_2.png)
-
-
-
-
-1. Выберите раздел Project (в меню File) и перейдите на вкладку Dependencies.
-   1. Нажмите кнопку «+». Выберите вариант зависимости от файла.
-   1. Выберите библиотеку Aspose.Slides из папки libs и нажмите OK.
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_10.png)
-
-
-
-
-1. При необходимости синхронизируйте проект с gradle‑файлами. 
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_11.png)
-
-
-
-
-
-1. Чтобы получить доступ к SD‑карте, необходимо добавить специальные разрешения. Откройте файл AndroidManifest.xml и выберите режим XML. Добавьте в файл следующую строку <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_12.png)
-
-
-
-
-1. Перейдите обратно к разделу кода приложения и добавьте эти директивы using: 
-``` java
-
- import java.io.File;
-
-import com.aspose.slides.IAutoShape;
-
-import com.aspose.slides.IParagraph;
-
-import com.aspose.slides.IPortion;
-
-import com.aspose.slides.ISlide;
-
-import com.aspose.slides.ITextFrame;
-
-import com.aspose.slides.Presentation;
-
-import com.aspose.slides.SaveFormat;
-
-import com.aspose.slides.ShapeType;
-
-import android.os.Environment; 
-
-```
-
-
-Теперь вставьте этот код в тело метода onCreate, чтобы создать новую Presentation с нуля с использованием Aspose.Slides и сохранить её на SD‑карту в формате PPTX.
-``` java
-
- try
-{
-    // Создать экземпляр класса Presentation, представляющего PPTX
-    Presentation pres = new Presentation();
-
-    // Получить первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Добавить AutoShape типа Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Добавить TextFrame к прямоугольнику
-    ashp.addTextFrame(" ");
-
-    // Получение text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // Создать объект Paragraph для text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Создать объект Portion для абзаца
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // Установить текст
-    portion.setText("Aspose TextBox");
-
-    // Сохранить PPTX на карту
-    String sdCardPath = Environment.getExternalStorageDirectory().getPath() + File.separator;
-    pres.save(sdCardPath + "Textbox.pptx",SaveFormat.Pptx);
-}
-catch (Exception e)
-{
-   e.printStackTrace();
+```groovy
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = 'https://releases.aspose.com/java/repo/' }
+    }
 }
 ```
 
+И добавьте зависимость в *app/build.gradle*:
 
-Полный код должен выглядеть так:
+```groovy
+dependencies {
+    implementation 'com.aspose:aspose-slides:26.9:android.via.java'
+}
+```
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_13.png)
+## **Добавление JAR файла вручную**
 
+Если вы не можете использовать Maven репозиторий, добавьте JAR файл в ваш проект:
 
+1. Скачайте JAR файл из папки нужной версии в [Aspose's Maven repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Для версии 26.9 файл называется *aspose-slides-26.9-android.via.java.jar* в папке *26.9*.
+2. Скопируйте файл в папку *app/libs* вашего проекта. Создайте папку, если её нет.
+3. Добавьте файл в блок `dependencies` файла *app/build.gradle.kts*, затем синхронизируйте проект:
 
-1. Теперь снова запустите приложение. На этот раз код Aspose.Slides выполнится в фоновом режиме и сгенерирует документ, сохраняемый на SD‑карту.
+```kotlin
+dependencies {
+    implementation(files("libs/aspose-slides-26.9-android.via.java.jar"))
+}
+```
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_14.png)
+## **Создание первой презентации**
 
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_15.jpg)
+После синхронизации проекта продолжите с руководством [Create Presentations](/slides/ru/androidjava/create-presentation/). В первом примере добавляется текстовое поле на слайд и сохраняется презентация во внутреннее хранилище вашего приложения, не требующее разрешения на доступ к хранилищу. Без лицензии Aspose.Slides добавляет отметку оценки на каждый сохранённый слайд; смотрите раздел [Licensing](/slides/ru/androidjava/licensing/).
 
-1. Чтобы просмотреть созданный документ, откройте меню Tools, выберите Android, а затем Android Device Monitor
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_16.jpg)
-
-
-
-
-![todo:image_alt_text](install-aspose-slides-for-android-via-java_17.jpg)
 ## **Версионирование**
-С 2018 года система версионирования Aspose.Slides for Android via Java соответствует Aspose.Slides for Java. 
+
+С 2018 года версионирование Aspose.Slides for Android via Java соответствует версионированию Aspose.Slides for Java. Android‑сборки не публикуются для каждой версии Java; смотрите раздел [Choose a Version](#choose-a-version).
 
 ## **FAQ**
 
-**Как я могу проверить, что Aspose.Slides интегрирован корректно?**
+### Как проверить, что Aspose.Slides интегрирован правильно?
 
-Соберите проект, создайте пустой объект [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создаётся без исключений, библиотека успешно интегрирована.
+Соберите проект, создайте пустой объект [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создан без исключений, библиотека успешно интегрирована.
 
-**Как я могу ограничить потребление памяти при обработке больших презентаций?**
+### Как ограничить потребление памяти при обработке больших презентаций?
 
-Увеличивайте лимиты памяти JVM только до необходимого уровня и закрывайте каждый экземпляр [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) в блоке `finally`, чтобы своевременно освобождать кэш. Это предотвращает ошибки недостатка памяти и обеспечивает предсказуемое использование памяти при пакетных операциях.
+Вызовите метод [dispose](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#dispose--) каждого экземпляра [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) в блоке `finally`, чтобы быстро освободить его ресурсы, и обрабатывайте по одной большой презентации за раз. Это помогает предотвратить ошибки нехватки памяти и поддерживает предсказуемое общее использование памяти во время пакетных операций.
 
-**Могу ли я исключить нежелательные форматы экспорта, чтобы уменьшить конечный размер JAR?**
+### Можно ли исключить ненужные форматы экспорта, чтобы уменьшить размер конечного JAR?
 
-Текущие выпуски Aspose.Slides поставляются в виде единой монолитной библиотеки, поэтому отключить отдельные экспортеры, такие как PDF или SVG, во время сборки невозможно.
+Текущие релизы Aspose.Slides поставляются в виде единой монолитной библиотеки, поэтому нельзя отключить отдельные экспортеры, такие как PDF или SVG, во время сборки.

@@ -15,75 +15,84 @@ keywords:
 - ODP ใหม่
 - PowerPoint
 - OpenDocument
-- presentation
+- การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "สร้างการนำเสนอใน Java ด้วย Aspose.Slides สำหรับ Android—ผลิตไฟล์ PPT, PPTX, และ ODP, ใช้ประโยชน์จากการสนับสนุน OpenDocument, และบันทึกโดยโปรแกรมสำหรับผลลัพธ์ที่เชื่อถือได้."
+description: "สร้างการนำเสนอด้วย Java และ Aspose.Slides สำหรับ Android—สร้างไฟล์ PPT, PPTX และ ODP, ใช้ประโยชน์จากการสนับสนุน OpenDocument และบันทึกไฟล์โดยโปรแกรมเพื่อผลลัพธ์ที่เชื่อถือได้"
 ---
-## **ภาพรวม**
+## **Overview**
 
-บทความนี้แสดงวิธีสร้างการนำเสนอใน Aspose.Slides, เพิ่มเนื้อหาแบบง่ายลงในสไลด์, และบันทึกผลลัพธ์เป็นไฟล์ นอกจากนี้ยังสาธิตวิธีสร้างและบันทึกการนำเสนอใหม่, เปิดการนำเสนอที่มีอยู่ในรูปแบบที่สนับสนุน, และบันทึกไปยังรูปแบบอื่น
+บทความนี้แสดงวิธีการสร้างการนำเสนอใน Aspose.Slides for Android ผ่าน Java, เพิ่มกล่องข้อความเข้าไปในสไลด์แรก, และบันทึกผลลัพธ์เป็นไฟล์ในที่จัดเก็บของแอปของคุณ เพื่อเปิดการนำเสนอที่มีอยู่หรือบันทึกเป็นรูปแบบอื่น ดู [Open Presentation](/slides/th/androidjava/open-presentation/) และ [Save Presentation](/slides/th/androidjava/save-presentation/) คำถามที่พบบ่อยสั้น ๆ ที่ส่วนท้ายครอบคลุมคำถามทั่วไปเกี่ยวกับรูปแบบ, แม่แบบ, ขนาดสไลด์, หน่วยวัด, การใช้หน่วยความจำ, การทำงานหลายเธรด, การให้สิทธิใช้งาน, ลายเซ็นดิจิทัล, และการสนับสนุน VBA
 
-## **สร้างการนำเสนอ PowerPoint**
-เพื่อเพิ่มเส้นธรรมดาแบบเรียบง่ายลงในสไลด์ที่เลือกของการนำเสนอ โปรดทำตามขั้นตอนต่อไปนี้:
+ก่อนเริ่มต้นให้เพิ่ม Aspose.Slides ไปยังโครงการ Android ของคุณจาก Maven repository ของ Aspose ดู [Installation](/slides/th/androidjava/install-aspose-slides-for-android-via-java/)
 
-1. สร้างอินสแตนซ์ของคลาส Presentation.
-1. รับอ้างอิงของสไลด์โดยใช้ดัชนีของมัน.
-1. เพิ่ม AutoShape ชนิด Line โดยใช้เมธอด addAutoShape ที่เปิดให้ใช้งานโดยอ็อบเจ็กต์ Shapes.
-1. เขียนการนำเสนอที่แก้ไขแล้วเป็นไฟล์ PPTX.
+## **Create a PowerPoint Presentation**
 
-ในตัวอย่างที่ให้ไว้ด้านล่าง เราได้เพิ่มเส้นลงในสไลด์ที่หนึ่งของการนำเสนอ
+เพื่อสร้างการนำเสนอและใส่กล่องข้อความบนสไลด์แรก ให้ทำตามขั้นตอนต่อไปนี้:
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) การนำเสนอใหม่จะมีสไลด์ว่างเปล่าอยู่แล้วหนึ่งสไลด์
+1. ดึงสไลด์นั้นจาก [slide collection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/) โดยใช้ดัชนี 0
+1. เพิ่มสี่เหลี่ยมด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ของ [shape collection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/) และตั้งค่าข้อความของ [text frame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ด้วยเมธอด [setText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-)
+1. บันทึกการนำเสนอเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ในรูปแบบ [SaveFormat.Pptx](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/saveformat/)
+
+โค้ดทำงานภายใน `Activity` ตัวอย่างเช่นในเมธอด `onCreate` ของมัน บันทึกไฟล์ไปยังไดเรกทอรีที่คืนค่าจากเมธอด [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) คือที่เก็บส่วนตัวของแอปซึ่งสามารถเขียนได้โดยไม่ต้องขอสิทธิใด ๆ
 
 ```java
-// สร้างอ็อบเจ็กต์ Presentation ที่เป็นตัวแทนของไฟล์การนำเสนอ
-Presentation pres = new Presentation();
-try {
-    // รับสไลด์แรก
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.File;
 
-    // เพิ่ม autoshape ประเภทเส้น
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+File outputFile = new File(getFilesDir(), "hello.pptx");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **คำถามที่พบบ่อย**
+มุมซ้ายบนของสี่เหลี่ยมอยู่ 50 points จากขอบซ้ายและ 50 points จากขอบบนของสไลด์ และสี่เหลี่ยมมีความกว้าง 400 points สูง 100 points ไฟล์ที่บันทึกมีสไลด์หนึ่งสไลด์ที่มีสี่เหลี่ยมและข้อความนั้น หากไม่มีใบอนุญาต Aspose.Slides จะเพิ่มลายน้ำการประเมินผลในทุกสไลด์ที่บันทึก; ดู [Licensing](/slides/th/androidjava/licensing/)
 
-**ฉันสามารถบันทึกการนำเสนอใหม่เป็นรูปแบบใดได้บ้าง?**
+เพื่อดูไฟล์ ให้เปิด [Device Explorer]ของ Android Studio และค้นหา *hello.pptx* ภายใต้ *data/data/* ในโฟลเดอร์ *files* ของแอปของคุณ ในแอปที่ใช้งานจริง ควรประมวลผลการนำเสนอในเธรดพื้นหลังเพื่อให้ส่วนต่อประสานผู้ใช้ทำงานได้อย่างราบรื่น
 
-คุณสามารถบันทึกเป็น [PPTX, PPT, และ ODP](/slides/th/androidjava/save-presentation/), และส่งออกเป็น [PDF](/slides/th/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/th/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/th/androidjava/convert-powerpoint-to-html/), [SVG](/slides/th/androidjava/convert-powerpoint-to-png/), และ [images](/slides/th/androidjava/convert-powerpoint-to-png/), เป็นต้น
+## **FAQ**
 
-**ฉันสามารถเริ่มจากเทมเพลต (POTX/POTM) แล้วบันทึกเป็น PPTX ปกติได้หรือไม่?**
+### What formats can I save a new presentation to?
 
-ได้. โหลดเทมเพลตและบันทึกเป็นรูปแบบที่ต้องการ; รูปแบบ POTX/POTM/PPTM และรูปแบบที่คล้ายกัน [ได้รับการสนับสนุน](/slides/th/androidjava/supported-file-formats/).
+คุณสามารถบันทึกเป็น [PPTX, PPT, and ODP](/slides/th/androidjava/save-presentation/) และส่งออกเป็น [PDF](/slides/th/androidjava/convert-powerpoint-to-pdf/), [XPS](/slides/th/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/th/androidjava/convert-powerpoint-to-html/), [SVG](/slides/th/androidjava/render-a-slide-as-an-svg-image/), และ [images](/slides/th/androidjava/convert-powerpoint-to-png/) เป็นต้น
 
-**ฉันจะควบคุมขนาดสไลด์/อัตราส่วนภาพเมื่อสร้างการนำเสนอได้อย่างไร?**
+### Can I start from a template (POTX/POTM) and save as a regular PPTX?
 
-ตั้งค่า [slide size](/slides/th/androidjava/slide-size/) (รวมถึงค่าพรีเซ็ตเช่น 4:3 และ 16:9 หรือขนาดกำหนดเอง) และเลือกวิธีการปรับสเกลของเนื้อหา.
+ได้ โหลดแม่แบบแล้วบันทึกเป็นรูปแบบที่ต้องการ; POTX/POTM/PPTM และรูปแบบที่คล้ายกัน [are supported](/slides/th/androidjava/supported-file-formats/)
 
-**หน่วยที่ใช้วัดขนาดและพิกัดคืออะไร?**
+### How do I control slide size/aspect ratio when creating a presentation?
 
-เป็นจุด: 1 นิ้วเท่ากับ 72 หน่วย.
+ตั้งค่า [slide size](/slides/th/androidjava/slide-size/) (รวมถึงพรีเซ็ตเช่น 4:3 และ 16:9 หรือขนาดกำหนดเอง) และเลือกวิธีการปรับขนาดเนื้อหา
 
-**ฉันจะจัดการการนำเสนอที่ใหญ่มาก (มีไฟล์สื่อจำนวนมาก) เพื่อ ลดการใช้หน่วยความจำได้อย่างไร?**
+### In what units are sizes and coordinates measured?
 
-ใช้ [BLOB management strategies](/slides/th/androidjava/manage-blob/), จำกัดการจัดเก็บในหน่วยความจำโดยใช้ไฟล์ชั่วคราว, และเลือกกระบวนการทำงานแบบไฟล์เป็นหลักแทนการสตรีมเฉพาะในหน่วยความจำ.
+เป็นหน่วย points: 1 นิ้วเท่ากับ 72 units
 
-**ฉันสามารถสร้าง/บันทึกการนำเสนอพร้อมกันได้หรือไม่?**
+### How do I handle very large presentations (with many media files) to reduce memory usage?
 
-คุณไม่สามารถดำเนินการกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) เดียวกันจาก [หลายเธรด](/slides/th/androidjava/multithreading/) ได้. ให้เรียกใช้อินสแตนซ์แยกกันและแยกจากกันต่อแต่ละเธรดหรือกระบวนการ.
+ใช้ [BLOB management strategies](/slides/th/androidjava/manage-blob/), จำกัดการจัดเก็บในหน่วยความจำโดยใช้ไฟล์ชั่วคราว, และควรเลือกเวิร์กฟลว์แบบไฟล์แทนสตรีมในหน่วยความจำเต็มรูปแบบ
 
-**ฉันจะลบลายน้ำทดลองและข้อจำกัดได้อย่างไร?**
+### Can I create/save presentations in parallel?
 
-[Apply a license](/slides/th/androidjava/licensing/) หนึ่งครั้งต่อกระบวนการ. XML ของไลเซนส์ต้องไม่มีการแก้ไข, และการตั้งค่าไลเซนส์ควรทำให้สอดคล้องกันหากมีหลายเธรดเข้ามาเกี่ยวข้อง.
+คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) เดียวจาก [multiple threads](/slides/th/androidjava/multithreading/) ได้ ให้สร้างอินสแตนซ์แยกต่างหากต่อเธรดหรือกระบวนการ
 
-**ฉันสามารถลงลายเซ็นดิจิทัลบน PPTX ที่สร้างได้หรือไม่?**
+### How do I remove the trial watermark and limitations?
 
-ได้. [Digital signatures](/slides/th/androidjava/digital-signature-in-powerpoint/) (การเพิ่มและตรวจสอบ) ได้รับการสนับสนุนสำหรับการนำเสนอ.
+[Apply a license](/slides/th/androidjava/licensing/) ครั้งเดียวต่อกระบวนการ XML ใบอนุญาตต้องไม่ถูกแก้ไข และการตั้งค่าใบอนุญาตควรรองรับการทำงานพร้อมกันหากมีหลายเธรด
 
-**Macro (VBA) ถูกสนับสนุนในการนำเสนอที่สร้างหรือไม่?**
+### Can I digitally sign the PPTX I create?
 
-ได้. คุณสามารถ [create/edit VBA projects](/slides/th/androidjava/presentation-via-vba/) และบันทึกไฟล์ที่มีแมโครเช่น PPTM/PPSM.
+ได้ รองรับ [Digital signatures](/slides/th/androidjava/digital-signature-in-powerpoint/) (การเพิ่มและการตรวจสอบ) สำหรับการนำเสนอ
+
+### Are macros (VBA) supported in created presentations?
+
+ได้ คุณสามารถ [create/edit VBA projects](/slides/th/androidjava/presentation-via-vba/) และบันทึกไฟล์ที่มีมาโครเช่น PPTM/PPSM

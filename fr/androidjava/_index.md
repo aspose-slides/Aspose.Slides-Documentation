@@ -1,34 +1,113 @@
 ---
 title: Aspose.Slides pour Android via Java
-second_title: Aspose.Slides for Android
-description: Aspose.Slides pour Android offre de nombreuses fonctionnalités clés qui vous permettent d'ajouter, de modifier et de manipuler du texte, des formes, des tableaux et des animations, des fichiers audio et des vidéos dans des diapositives.
+second_title: Aspose.Slides pour Android
 type: docs
 weight: 40
 url: /fr/androidjava/
+keywords:
+- documentation
+- traitement de présentation
+- conversion de présentation
+- PowerPoint
+- OpenDocument
+- Android
+- Java
+- Aspose.Slides
+description: "Commencez ici : ajoutez Aspose.Slides for Android via Java à votre application, créez votre première présentation, et trouvez les guides pour les tâches courantes, la référence API et le support."
 is_root: true
 ---
+<img src="home_1.png" alt="Aspose.Slides pour Android via Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-{{% alert color="primary" %}}
+Aspose.Slides pour Android via Java est une bibliothèque de classes permettant de créer, lire, modifier et convertir des présentations PowerPoint et OpenDocument dans des applications Android, sans Microsoft PowerPoint.
 
-![Logo du produit Aspose.Slides pour Android](home_1.png)
+Elle charge et enregistre les fichiers PPT, PPTX, PPS, POT et ODP, y compris les variantes avec macros et les modèles, et exporte vers PDF, XPS, HTML, SVG, TIFF, Markdown et images.
 
-**Bienvenue dans Aspose.Slides pour Android via Java**
+<div style="clear:both"></div>
 
-Aspose.Slides pour Android via Java est une API de gestion de Microsoft PowerPoint® qui permet aux applications Android de lire et d'écrire des documents PowerPoint® sans Microsoft PowerPoint®. Aspose.Slides pour Android via Java est le premier et le seul composant qui fournit les fonctionnalités nécessaires à la gestion des documents PowerPoint® sur les plateformes Android. Aspose.Slides pour Android offre de nombreuses fonctionnalités clés qui vous permettent d'ajouter, de modifier et de manipuler du texte, des formes, des tableaux et des animations, des fichiers audio et des vidéos dans des diapositives.
+------
 
-{{% /alert %}}
+<div class="row">
+<div class="col-md-4">
+<p><b>Commencer</b></p>
+<hr>
+<p>DÉMARRAGE</p>
+<ul>
+<li><a href="/slides/fr/androidjava/install-aspose-slides-for-android-via-java/">Installation</a></li>
+<li><a href="/slides/fr/androidjava/create-presentation/">Créer votre première présentation</a></li>
+<li><a href="/slides/fr/androidjava/getting-started/">Guide de démarrage</a></li>
+</ul>
+<p>ÉVALUER</p>
+<ul>
+<li><a href="/slides/fr/androidjava/supported-file-formats/">Formats de fichiers pris en charge</a></li>
+<li><a href="/slides/fr/androidjava/evaluate-aspose-slides/">Limites de l'essai</a></li>
+<li><a href="/slides/fr/androidjava/licensing/">Licence</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Développer avec Slides</b></p>
+<hr>
+<p>TÂCHES COURANTES</p>
+<ul>
+<li><a href="/slides/fr/androidjava/open-presentation/">Ouvrir une présentation</a></li>
+<li><a href="/slides/fr/androidjava/save-presentation/">Enregistrer une présentation</a></li>
+<li><a href="/slides/fr/androidjava/convert-powerpoint-to-pdf/">Convertir en PDF</a></li>
+<li><a href="/slides/fr/androidjava/convert-slide/">Rendre les diapositives en images</a></li>
+<li><a href="/slides/fr/androidjava/manage-text/">Modifier le texte et les formes</a></li>
+</ul>
+<p>FLUX DE TRAVAIL SLIDES</p>
+<ul>
+<li><a href="/slides/fr/androidjava/powerpoint-charts/">Graphiques</a></li>
+<li><a href="/slides/fr/androidjava/powerpoint-animation/">Animations</a></li>
+<li><a href="/slides/fr/androidjava/manage-media-files/">Audio et vidéo</a></li>
+<li><a href="/slides/fr/androidjava/presentation-design/">Conception de diapositives</a></li>
+<li><a href="/slides/fr/androidjava/merge-presentation/">Fusionner des présentations</a></li>
+</ul>
+<p>EXEMPLES</p>
+<ul>
+<li><a href="/slides/fr/androidjava/examples/">Exemples par élément de diapositive</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Référence &amp; Support</b></p>
+<hr>
+<p>RÉFÉRENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/fr/androidjava/">Référence API</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/androidjava/release-notes/">Notes de version</a></li>
+<li><a href="/slides/fr/androidjava/known-issues/">Problèmes connus</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/androidjava/">Télécharger</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
+</ul>
+</div>
+</div>
 
-## **Ressources Aspose.Slides pour Android via Java**
+------
 
-Voici des liens vers des ressources utiles dont vous pourriez avoir besoin pour effectuer votre travail :
+## **Votre première présentation**
 
-- [Documentation en ligne d'Aspose.Slides pour Android via Java](/slides/fr/androidjava/)
-- [Fonctionnalités d'Aspose.Slides pour Android via Java](https://docs.aspose.com/slides/androidjava/aspose-slides-for-android-via-java-features/)
-- [Notes de version d'Aspose.Slides pour Android via Java](https://releases.aspose.com/slides/androidjava/release-notes/)
-- [Page produit d'Aspose.Slides pour Android via Java](https://products.aspose.com/slides/android-java/)
-- [Télécharger Aspose.Slides pour Android via Java](https://releases.aspose.com/slides/androidjava/)
-- [Dépôt Maven d'Aspose.Slides pour Android via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Installer Aspose.Slides pour Android via Java](/slides/fr/androidjava/install-aspose-slides-for-android-via-java/)
-- [Guide de référence de l'API d'Aspose.Slides pour Android via Java](https://reference.aspose.com/slides/androidjava)
-- [Forum de support gratuit d'Aspose.Slides pour Android via Java](https://forum.aspose.com/c/slides/11)
-- [Service d'assistance payant d'Aspose.Slides pour Android via Java](https://helpdesk.aspose.com/)
+La bibliothèque provient du référentiel Maven d'Aspose. Les nouveaux projets Android Studio possèdent déjà un bloc `dependencyResolutionManagement` dans *settings.gradle.kts*. Ajoutez la ligne `maven` indiquée ci-dessous au bloc `repositories` à l'intérieur, au lieu de coller un second bloc :
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://releases.aspose.com/java/repo/") }
+    }
+}
+```
+
+Ensuite, ajoutez la bibliothèque à *app/build.gradle.kts* et synchronisez le projet :
+
+```kotlin
+dependencies {
+    implementation("com.aspose:aspose-slides:26.9:android.via.java")
+}
+```
+
+[Installation](/slides/fr/androidjava/install-aspose-slides-for-android-via-java/) couvre les scripts de construction Groovy, le fichier JAR manuel et la façon de choisir une version. Le code de votre première présentation se trouve dans [Create Presentations](/slides/fr/androidjava/create-presentation/) : il ajoute une zone de texte à une diapositive et enregistre la présentation dans le stockage de votre application. Cet exemple a été compilé et intégré dans un APK ; il n'a pas été exécuté sur un appareil. Sans licence, les présentations enregistrées portent un filigrane d'évaluation — voir [Licensing](/slides/fr/androidjava/licensing/).

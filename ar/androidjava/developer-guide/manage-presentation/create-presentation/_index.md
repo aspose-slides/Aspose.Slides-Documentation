@@ -19,59 +19,80 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "إنشاء عروض تقديمية في Java باستخدام Aspose.Slides لنظام Android — إنتاج ملفات PPT و PPTX و ODP، الاستفادة من دعم OpenDocument، وحفظها برمجيًا للحصول على نتائج موثوقة."
+description: "إنشاء عروض تقديمية باستخدام Java مع Aspose.Slides لنظام Android — إنتاج ملفات PPT و PPTX و ODP، الاستفادة من دعم OpenDocument، وحفظها برمجياً للحصول على نتائج موثوقة."
 ---
+## **نظرة عامة**
 
-## **إنشاء عرض تقديمي PowerPoint**
-لإضافة خط بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
+توضح هذه المقالة كيفية إنشاء عرض تقديمي باستخدام Aspose.Slides لنظام Android عبر Java، وإضافة مربع نص إلى الشريحة الأولى، وحفظ النتيجة كملف في مساحة تخزين تطبيقك. لفتح عرض تقديمي موجود أو حفظه بتنسيق آخر، راجع [Open Presentation](/slides/ar/androidjava/open-presentation/) و[Save Presentation](/slides/ar/androidjava/save-presentation/). تغطي الأسئلة الشائعة القصيرة في النهاية أسئلة شائعة حول التنسيقات والقوالب وحجم الشرائح والوحدات واستخدام الذاكرة والبرمجة المتعددة الخيوط والترخيص والتوقيعات الرقمية ودعم VBA.
 
-1. إنشاء نسخة من الفئة Presentation.
-1. الحصول على مرجع شريحة باستخدام الفهرس Index.
-1. إضافة AutoShape من نوع Line باستخدام الطريقة addAutoShape التي توفرها كائن Shapes.
-1. كتابة العرض التقديمي المعدل كملف PPTX.
+قبل البدء، أضف Aspose.Slides إلى مشروع Android الخاص بك من مستودع Maven الخاص بـ Aspose. راجع [Installation](/slides/ar/androidjava/install-aspose-slides-for-android-via-java/).
 
-في المثال الموضح أدناه، قمنا بإضافة خط إلى الشريحة الأولى من العرض التقديمي.
+## **إنشاء عرض PowerPoint**
+
+لإنشاء عرض تقديمي ووضع مربع نص على الشريحة الأولى، اتبع الخطوات التالية:
+
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.  
+1. احصل على تلك الشريحة من [مجموعة الشرائح](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidecollection/) حسب فهرسها، 0.  
+1. أضف مستطيلًا باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) من [مجموعة الأشكال](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/) وحدد نص [إطار النص](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) باستخدام طريقة [setText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+1. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) بصيغة [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/saveformat/).
+
+يعمل الكود داخل `Activity`، على سبيل المثال في طريقة `onCreate` الخاصة به. يحفظ الملف في الدليل الذي تُرجعه طريقة [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()): مساحة التخزين الخاصة بتطبيقك، والتي يمكن الكتابة إليها دون طلب أي إذن.
+
 ```java
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
-Presentation pres = new Presentation();
-try {
-    // الحصول على الشريحة الأولى
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.File;
 
-    // إضافة autoshape من النوع line
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+File outputFile = new File(getFilesDir(), "hello.pptx");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.getTextFrame().setText("Hello, Aspose.Slides!");
+    presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+زاوية المستطيل العلوية اليسرى تبعد 50 نقطة عن حافة اليسار و50 نقطة عن حافة الأعلى للشفرة، وعرض المستطيل 400 نقطة وارتفاعه 100 نقطة. يحتوي الملف المحفوظ على شريحة واحدة بها ذلك المستطيل ونصه. بدون ترخيص، يضيف Aspose.Slides علامة مائية للتقييم إلى كل شريحة يتم حفظها؛ راجع [Licensing](/slides/ar/androidjava/licensing/).
+
+لعرض الملف، افتح **Device Explorer** في Android Studio وابحث عن *hello.pptx* داخل *data/data/*، في مجلد *files* الخاص بتطبيقك. في تطبيق حقيقي، عالج العروض التقديمية على خيط خلفي للحفاظ على استجابة واجهة المستخدم.
 
 ## **الأسئلة الشائعة**
 
-**ما الصيغ التي يمكنني حفظ عرض تقديمي جديد بها؟**  
-يمكنك الحفظ إلى [PPTX, PPT, و ODP](/slides/ar/androidjava/save-presentation/)، وتصدير إلى [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/androidjava/convert-powerpoint-to-xps/)، [HTML](/slides/ar/androidjava/convert-powerpoint-to-html/)، [SVG](/slides/ar/androidjava/convert-powerpoint-to-png/)، و[images](/slides/ar/androidjava/convert-powerpoint-to-png/)، وغيرها.
+### ما الصيغ التي يمكنني حفظ عرض تقديمي جديد إليها؟
 
-**هل يمكنني البدء من قالب (POTX/POTM) وحفظه كملف PPTX عادي؟**  
-نعم. قم بتحميل القالب واحفظه بالصيغ المطلوبة؛ الصيغ POTX/POTM/PPTM وما شابهها [مدعومة](/slides/ar/androidjava/supported-file-formats/).
+يمكنك الحفظ إلى [PPTX, PPT, and ODP](/slides/ar/androidjava/save-presentation/)، والتصدير إلى [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، [XPS](/slides/ar/androidjava/convert-powerpoint-to-xps/)، [HTML](/slides/ar/androidjava/convert-powerpoint-to-html/)، [SVG](/slides/ar/androidjava/render-a-slide-as-an-svg-image/)، و[الصور](/slides/ar/androidjava/convert-powerpoint-to-png/)، وغيرها.
 
-**كيف يمكنني التحكم في حجم الشريحة/نسبة العرض إلى الارتفاع عند إنشاء عرض تقديمي؟**  
-قم بتحديد [slide size](/slides/ar/androidjava/slide-size/) (يشمل الإعدادات المسبقة مثل 4:3 و 16:9 أو أبعاد مخصصة) واختر كيفية مقياس المحتوى.
+### هل يمكنني البدء من قالب (POTX/POTM) وحفظه كـ PPTX عادي؟
 
-**بأي وحدات يتم قياس الأحجام والإحداثيات؟**  
-بالنقاط: 1 بوصة تساوي 72 وحدة.
+نعم. حمّل القالب واحفظه بالتنسيق المطلوب؛ تنسيقات POTX/POTM/PPTM وما شابهها [مدعومة](/slides/ar/androidjava/supported-file-formats/).
 
-**كيف يمكنني التعامل مع عروض تقديمية كبيرة جدًا (مع العديد من ملفات الوسائط) لتقليل استهلاك الذاكرة؟**  
-استخدم [BBlob management strategies](/slides/ar/androidjava/manage-blob/)، وقلل التخزين في الذاكرة عبر الاستفادة من الملفات المؤقتة، وفضّل سير عمل قائم على الملفات بدلاً من التدفقات التي تُعامل بالكامل في الذاكرة.
+### كيف أتحكم في حجم الشريحة/نسبة العرض إلى الارتفاع عند إنشاء عرض تقديمي؟
 
-**هل يمكنني إنشاء/حفظ عروض تقديمية بشكل متوازي؟**  
-لا يمكنك العمل على نفس كائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) من [multiple threads](/slides/ar/androidjava/multithreading/). شغّل نسخًا منفصلة ومعزولة لكل خيط أو عملية.
+حدد [حجم الشريحة](/slides/ar/androidjava/slide-size/) (بما في ذلك القوالب المسبقة مثل 4:3 و16:9 أو أبعاد مخصصة) واختر طريقة تكبير المحتوى.
 
-**كيف يمكنني إزالة علامة التجربة المائية والقيود؟**  
-[Apply a license](/slides/ar/androidjava/licensing/) مرة واحدة لكل عملية. يجب أن يبقى ملف ترخيص XML غير معدل، ويجب مزامنة إعداد الترخيص إذا كانت هناك خيوط متعددة.
+### بأي وحدات تُقاس الأحجام والإحداثيات؟
 
-**هل يمكنني توقيع PPTX رقمياً؟**  
-نعم. [Digital signatures](/slides/ar/androidjava/digital-signature-in-powerpoint/) (الإضافة والتحقق) مدعومة للعروض التقديمية.
+بالنقطة: البوصة الواحدة تعادل 72 وحدة.
 
-**هل تدعم العروض التقديمية التي تم إنشاؤها الماكرو (VBA)؟**  
-نعم. يمكنك [create/edit VBA projects](/slides/ar/androidjava/presentation-via-vba/) وحفظ ملفات تدعم الماكرو مثل PPTM/PPSM.
+### كيف أتعامل مع عروض تقديمية ضخمة (مع العديد من ملفات الوسائط) لتقليل استهلاك الذاكرة؟
+
+استخدم [استراتيجيات إدارة BLOB](/slides/ar/androidjava/manage-blob/)، وحدّ التخزين في الذاكرة عبر الاستفادة من الملفات المؤقتة، وفضّل سير العمل القائم على الملفات على التدفقات التي تُنفّذ بالكامل في الذاكرة.
+
+### هل يمكنني إنشاء/حفظ عروض تقديمية بصورة متوازية؟
+
+لا يمكنك التعامل مع نفس كائن [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) من [عدة خيوط](/slides/ar/androidjava/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+
+### كيف أزيل علامة التقييم والقيود؟
+
+[طبق ترخيص](/slides/ar/androidjava/licensing/) مرة واحدة لكل عملية. يجب أن يظل ملف الترخيص XML غير معدل، ويجب مزامنة إعداد الترخيص إذا شاركت خيوط متعددة.
+
+### هل يمكنني توقيع ملف PPTX الذي أنشئه رقميًا؟
+
+نعم. [التوقيعات الرقمية](/slides/ar/androidjava/digital-signature-in-powerpoint/) (الإضافة والتحقق) مدعومة للعروض التقديمية.
+
+### هل تدعم العروض التقديمية الماكرو (VBA)؟
+
+نعم. يمكنك [إنشاء/تحرير مشاريع VBA](/slides/ar/androidjava/presentation-via-vba/) وحفظ ملفات تمكّن الماكرو مثل PPTM/PPSM.
