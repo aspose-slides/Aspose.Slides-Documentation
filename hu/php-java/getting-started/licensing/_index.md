@@ -8,79 +8,77 @@ keywords:
 - ideiglenes licenc
 - licenc beállítása
 - licenc használata
-- licenc érvényesítése
+- licenc ellenőrzése
 - licencfájl
 - kiértékelési verzió
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - PHP
 - Aspose.Slides
-description: "Alkalmazza, kezelje és hibaelhárítsa a licenceket az Aspose.Slides for PHP via Java-ban. Biztosítsa a teljes funkciók megszakítás nélküli elérését lépésről lépésre útmutatónkkal."
+description: "Alkalmazza, kezelje és hibaelhárítsa a licenceket a PHP (Java) számára készült Aspose.Slides-ben. Biztosítsa a teljes funkciók megszakítás nélküli elérését lépésről lépésre útmutatónkkal a licenceléshez."
 ---
 ## **Bevezetés**
 
-Néha a legjobb értékelési eredmények elérése érdekében gyakorlati megközelítésre lehet szükség. Emiatt az Aspose.Slides különböző vásárlási csomagokat kínál, valamint egy Ingyenes Próbaverziót és egy 30 napos Ideiglenes Licencet a kiértékeléshez.
+Néha a legjobb kiértékelési eredmények eléréséhez gyakorlati megközelítésre lehet szükség. Emiatt az Aspose.Slides különböző vásárlási csomagokat kínál, valamint ingyenes próbaidőszakot és 30 napos Ideiglenes Licencet biztosít az értékeléshez.
 
-{{% alert color="primary" %}}
-Vegye figyelembe, hogy számos általános irányelv és gyakorlat van, amelyek útmutatást adnak a termékeink kiértékeléséhez, megfelelő licenceléséhez és megvásárlásához. Ezeket a ["Vásárlási szabályzatok és GYIK"](https://purchase.aspose.com/policies) szekcióban találja.
+{{% alert color="info" title="Note" %}}
+Vegye figyelembe, hogy számos általános irányelv és gyakorlat segít abban, hogyan értékelje, megfelelően licencelje és vásárolja meg termékeinket. Ezeket megtalálja a ["Vásárlási irányelvek és GYIK"](https://purchase.aspose.com/policies) szakaszban.
 {{% /alert %}}
 
 ## **Az Aspose.Slides kiértékelése**
-Az Aspose.Slides könnyen letölthető kiértékeléshez. A kiértékelési csomag megegyezik a megvásárolt csomaggal. A kiértékelési verzió egyszerűen licencelté válik, miután néhány kódsort hozzáad a licenc alkalmazásához. 
+Az Aspose.Slides-et egyszerűen letöltheti kiértékelés céljából. A kiértékelési csomag megegyezik a vásárolt csomaggal. A kiértékelési verzió egyszerűen licencelté válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
 
 ## **A kiértékelési verzió korlátozása**
-Az Aspose.Slides kiértékelési verziója (licenc megadása nélkül) a termék teljes funkcionalitását biztosítja, de egy kiértékelési vízjelet helyez a dokumentum tetejére megnyitáskor és mentéskor. Emellett egy diára korlátozódik a szöveg kinyerése a bemutató diákból.
+Az Aspose.Slides kiértékelési verziója (licenc nélkül) a teljes termékfunkciókat kínálja, két korlátozással:
+* Minden mentett prezentáció közepére egy kiértékelési vízjel szövegdobozt tesz.
+* A prezentációból a kód által beolvasott szöveg csak az első néhány karakterre van csonkolva, majd egy értesítés követi a kiértékelési korlátozásról. A kód által írt szöveg teljesen mentésre kerül.
 
-{{% alert color="primary" %}} 
-Ha az Aspose.Slides-t a kiértékelési verzió korlátozása nélkül szeretné tesztelni, kérhet egy **30 napos Ideiglenes Licencet**. További információkért tekintse meg a [Hogyan szerezhet Ideiglenes Licencet?](https://purchase.aspose.com/temporary-license) oldalt.
+{{% alert color="info" title="Note" %}}
+Ha az Aspose.Slides-et a kiértékelési verzió korlátozása nélkül szeretné tesztelni, kérhet **30 napos Ideiglenes Licencet**. További információért lásd a [Hogyan lehet Ideiglenes Licencet szerezni?](https://purchase.aspose.com/temporary-license) oldalt.
 {{% /alert %}} 
 
 ## **A licencről**
-Az Aspose.Slides PHP via Java kiértékelési verzióját egyszerűen letöltheti a [letöltési oldalról](https://packagist.org/packages/aspose/slides). A kiértékelési verzió **azonos képességeket** biztosít, mint az Aspose.Slides licencelt változata. Továbbá a kiértékelési verzió egyszerűen licencelté válik, miután megvásárol egy licencet és néhány kódsort hozzáad a licenc alkalmazásához.
+Az Aspose.Slides PHP (Java) kiértékelési verzióját egyszerűen letöltheti a [letöltési oldalról](https://packagist.org/packages/aspose/slides). A kiértékelési verzió **azonos képességeket** kínál, mint az Aspose.Slides licencelt verziója. Továbbá a kiértékelési verzió licencelté válik, ha megvásárol egy licencet és néhány kódsort hozzáad a licenc alkalmazásához.
 
-A licenc egy egyszerű szöveges XML-fájl, amely a termék nevét, a licencelt fejlesztők számát, az előfizetés lejárati dátumát stb. tartalmazza. A fájl digitálisan alá van írva, ezért ne módosítsa. Még egy véletlenül hozzáadott sortörés is érvényteleníti a fájlt.
+A licenc egy egyszerű szöveges XML fájl, amely olyan részleteket tartalmaz, mint a termék neve, a licencelt fejlesztők száma, az előfizetés lejárati dátuma stb. A fájl digitálisan alá van írva, ezért ne módosítsa. Még egy véletlenül hozzáadott sortörés is érvényteleníti.
 
-A kiértékelési verzióval kapcsolatos korlátoások elkerülése érdekében a **Aspose.Slides** használata előtt licencet kell beállítania. A licencet csak egyszer kell beállítani alkalmazásonként vagy folyamatonként.
+A kiértékelési verzióhoz kapcsolódó korlátozások elkerüléséhez licencet kell beállítania a **Aspose.Slides** használata előtt. A licencet csak egyszer kell beállítani alkalmazásonként vagy folyamatonként.
 
-{{% alert color="primary" %}}
-Érdemes megtekinteni a [Mértékelt licencelés](https://docs.aspose.com/slides/hu/php-java/metered-licensing/) oldalt.
+{{% alert color="info" title="Note" %}}
+Érdemes megtekinteni a [Mérés alapú licenc](/slides/hu/php-java/metered-licensing/).
 {{% /alert %}} 
 
 ## **Megvásárolt licenc**
+Vásárlás után alkalmaznia kell a licencfájlt vagy -folyamot.
 
-Vásárlás után alkalmaznia kell a licencfájlt vagy -folyamot. 
-
-{{% alert color="primary" %}}
-Szükséges beállítani a licencet:
-* csak egyszer alkalmazás domainként
+{{% alert color="info" title="Note" %}}
+Be kell állítania a licencet:
+* csak egyszer egy alkalmazási tartományon belül
 * mielőtt bármely más Aspose.Slides osztályt használná
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Az árinformációkat a [Ár információ](https://purchase.aspose.com/pricing/slides/hu/family) oldalon találhatja.
+{{% alert color="info" title="Note" %}}
+Ár információkat a [Ár információ](https://purchase.aspose.com/pricing/slides/hu/family) oldalon találja.
 {{% /alert %}}
 
-### **Licenc beállítása az Aspose.Slides for PHP via Java-ban**
-
-A licencek az alábbi helyekről alkalmazhatók:
-
+### **Licenc beállítása az Aspose.Slides PHP (Java) verziójában**
+Licenceket a következő helyekről lehet alkalmazni:
 * Kifejezett útvonal
-* Stream
-* Metered License-ként – egy új licencelési mechanizmus
+* Folyam
+* Mint Mérés alapú licenc – egy új licencelési mechanizmus
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 Használja a **setLicense** metódust egy komponens licenceléséhez.
 
-Bár a **setLicense** több hívása nem árt, erőforrás-pazarlás (processzor).
+Bár a **setLicense** többszöri meghívása nem káros, felesleges erőforrás (processzor) felhasználás.
 {{% /alert %}}
 
-{{% alert color="warning" %}}
-Az új licencek csak a 21.4 vagy újabb verzióval aktiválhatják az Aspose.Slides-et. A régebbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
+{{% alert color="warning" title="Warning" %}}
+Az új licencek csak a 21.4 vagy újabb verzióval aktiválhatók az Aspose.Slides-ben. A régebbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
 {{% /alert %}}
 
-#### **Licenc alkalmazása fájl használatával**
-
+#### **Licenc alkalmazása fájlból**
 Ez a kódrészlet a licencfájl beállításához használható:
 
 **PHP**
@@ -88,39 +86,38 @@ Ez a kódrészlet a licencfájl beállításához használható:
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/hu/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
 $license = new License();
-$license->setLicense("Aspose.Slides.lic");
-?>
+$license->setLicense(__DIR__ . "/Aspose.Slides.lic");
 ```
 
-A setLicense metódus hívásakor a licenc neve megegyező kell legyen a licencfájl nevével. Például a licencfájl nevét megváltoztathatja "Aspose.Slides.lic.xml"-re. Ezután a kódban át kell adnia az új licenc nevet (Aspose.Slides.lic.xml) a setLicense metódusnak.
+A minta a licencfájl a szkript mellett létezését feltételezi, és az abszolút útvonalát adja át: az Aspose.Slides a Tomcat alatt fut, így nem oldja fel a relatív útvonalat a szkript mappája alapján. A setLicense metódus hívásakor a licenc neve meg kell, hogy egyezzen a licencfájl nevével. Például átnevezheti a licencfájlt „Aspose.Slides.lic.xml”-ra. Ezután a kódban a setLicense metódusnak ezt az új licencnevet (Aspose.Slides.lic.xml) kell átadni.
 
-#### **Licenc alkalmazása stream-ből**
-
-Ez a kódrészlet a licenc stream-ből való alkalmazásához használható:
+#### **Licenc alkalmazása folyamról**
+Ez a kódrészlet a licenc folyamról történő alkalmazásához használható:
 
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
+require_once(__DIR__ . "/vendor/aspose/slides/hu/lib/aspose.slides.php");
 
 use aspose\slides\License;
 
+$stream = new Java("java.io.FileInputStream", __DIR__ . "/Aspose.Slides.lic");
+
 $license = new License();
 $license->setLicense($stream);
-?>
+
+$stream->close();
 ```
 
 ## **GYIK**
 
-**Alkalmazhatom a licencet teljesen offline környezetben (nincs internetkapcsolat)?**
+### Alkalmazhatom a licencet teljesen offline környezetben (internetkapcsolat nélkül)?
+Igen. A licenc ellenőrzése helyben történik a licencfájllal; internetkapcsolat nem szükséges.
 
-Igen. A licenc ellenőrzése helyileg, a licencfájl használatával történik; internetkapcsolat nem szükséges.
-
-**Mi történik, ha az egyéves előfizetés lejár? Leáll a könyvtár?**
-
-Nem. A licenc örökös: a feliratkozás befejezési dátuma előtt kiadott verziókat továbbra is használhatja; csak az újabb kiadásokhoz licencet kell újítania.
+### Mi történik, ha az egyéves előfizetés lejár? Leáll a könyvtár működése?
+Nem. A licenc örökös: a feliratkozás lejárati dátuma előtt kiadott verziókat továbbra is használhatja; csak az újabb kiadásokhoz újra kell fizetnie.

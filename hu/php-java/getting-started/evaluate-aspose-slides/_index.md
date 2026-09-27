@@ -1,49 +1,47 @@
 ---
-title: Aspose.Slides kiértékelése
+title: Az Aspose.Slides értékelése
 type: docs
 weight: 120
 url: /hu/php-java/evaluate-aspose-slides/
 keywords:
 - Aspose.Slides értékelése
-- Aspose.Slides kiértékelés
-- kiértékelő verzió
+- Aspose.Slides értékelés
+- értékelő verzió
 - teljes funkcionalitás
-- kiértékelő vízjel
+- értékelő vízjel
 - Aspose.Slides vásárlása
-- korlátozás
+- korlát
 - PowerPoint
 - OpenDocument
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Az Aspose.Slides-t PHP-hez Java használatával értékelje, és fedezze fel a PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációk API-funkcióit – kezdje el ingyenes próbaidőszakát."
+description: "Értékelje az Aspose.Slides-t PHP-hez Java-n keresztül, és ismerje meg az API funkciókat PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkhoz - kezdje el ingyenes próbaverzióját."
 ---
-## **Aspose.Slides Értékelés**
+## **Aspose.Slides értékelés**
 
-Az Aspose.Slides könnyen letölthető értékelés céljából. Az értékelő csomag megegyezik a megvásárolt csomaggal. Az értékelő verzió egyszerűen licencessé válik, ha néhány sort hozzáad a licenc alkalmazásához.
+Letöltheti az Aspose.Slides-t értékelés céljából. Az értékelő csomag megegyezik a megvásárolt csomaggal; licenccel ellátottá válik, ha néhány sort hozzáad a kódban a licenc alkalmazásához. Tekintse meg a [Telepítés](/slides/hu/php-java/installation/) a beállításhoz, valamint a [Licencelés](/slides/hu/php-java/licensing/) a licenc alkalmazásához.
 
-Az Aspose.Slides értékelő verziója (licenc megadása nélkül) teljes funkcionalitást biztosít, de egy értékelő vízjelet helyez a dokumentum tetejére megnyitáskor és mentéskor. Emellett egy diára van korlátozva a szövegek kinyerése a prezentációs diákból.
+Licenc nélkül az Aspose.Slides a teljes funkcionalitást biztosítja értékelő módban, két korláttal: minden mentett előadás minden diájának közepére egy értékelő vízjelet (szövegdobozt) helyez, és a kódja által egy prezentációból beolvasott szöveg az első néhány karakterre van csonkolva, majd egy értesítést jelenít meg az értékelési korlátról. A kód által írt szöveg teljes egészében mentésre kerül.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-Ha az Aspose.Slides‑t az értékelő verzió korlátozása nélkül szeretné tesztelni, kérhet **30 napos ideiglenes licencet**. További információért tekintse meg a [Hogyan szerezhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) oldalt.
+{{% alert color="info" title="Note" %}}
+Ha az Aspose.Slides-t értékelő verziókorlátok nélkül szeretné tesztelni, kérhet egy **30 napos ideiglenes licencet**. További információkért tekintse meg a [Hogyan szerezhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) oldalt.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelő módban?**
+### Tesztelhetek több bemutatót párhuzamosan különböző szálakon értékelő módban?
 
-Igen. Különböző dokumentumokat párhuzamosan feldolgozhat; nem szabad ugyanazt a prezentáció objektumot megosztani [across threads](/slides/hu/php-java/multithreading/). Az értékelő mód nem befolyásolja ezt.
+Igen. Különböző dokumentumokat párhuzamosan feldolgozhat; nem szabad megosztani ugyanazt a prezentáció objektumot [szálakon keresztül](/slides/hu/php-java/multithreading/). Az értékelő mód erre nem hat.
 
-**Szükséges-e a Microsoft PowerPoint telepítése a könyvtár értékeléséhez egy szerveren vagy CI‑ban?**
+### Szükséges-e a Microsoft PowerPoint telepítése a könyvtár teszteléséhez egy szerveren vagy CI-ben?
 
-Nem. Az Aspose.Slides egy önálló motor, és nem igényli a PowerPoint telepítését sem az értékeléshez, sem a termeléshez.
+Nem. Az Aspose.Slides egy önálló motor, és sem értékelés, sem produkció esetén nem igényel PowerPoint telepítést.
 
-**Tesztelhetem teljesen a PPT/PPTX PDF‑re és képekre konvertálását értékelő módban?**
+### Teljesen tesztelhetem a PPT/PPTX PDF és képek formátumba konvertálását értékelő módban?
 
-Igen. A [converters](/slides/hu/php-java/convert-presentation/) működik; a kimenet vízjelet fog tartalmazni.
+Igen. A [konverterek](/slides/hu/php-java/convert-presentation/) működnek; a kimenet vízjelet tartalmaz.
 
-**Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?**
+### Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?
 
-Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelő mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.
+Igen. A 30 napos ideiglenes licenc eltávolítja az értékelő mód korlátait, és lehetővé teszi a vízjel nélküli tesztelést.

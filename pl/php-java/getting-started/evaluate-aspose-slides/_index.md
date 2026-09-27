@@ -1,11 +1,11 @@
 ---
-title: Ewaluacja Aspose.Slides
+title: Ocena Aspose.Slides
 type: docs
 weight: 120
 url: /pl/php-java/evaluate-aspose-slides/
 keywords:
-- ewaluuj Aspose.Slides
-- ewaluacja Aspose.Slides
+- ocena Aspose.Slides
+- Ocena Aspose.Slides
 - wersja ewaluacyjna
 - pełna funkcjonalność
 - znak wodny wersji ewaluacyjnej
@@ -16,34 +16,34 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Ewaluuj Aspose.Slides dla PHP za pośrednictwem Javy i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
+description: "Oceń Aspose.Slides dla PHP za pośrednictwem Java i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
 ---
-## **Ewaluacja Aspose.Slides**
+## **Ocena Aspose.Slides**
 
-Możesz łatwo pobrać Aspose.Slides do oceny. Pakiet ewaluacyjny jest taki sam jak zakupiony pakiet. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku linii kodu w celu zastosowania licencji. 
+Możesz pobrać Aspose.Slides do oceny. Pakiet ewaluacyjny jest taki sam jak zakupiony; jest licencjonowany po dodaniu kilku linii kodu służących do zastosowania licencji. Zobacz [Installation](/slides/pl/php-java/installation/) aby go skonfigurować i [Licensing](/slides/pl/php-java/licensing/) aby zastosować licencję.
 
-Wersja ewaluacyjna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny oceny u góry dokumentu podczas otwierania i zapisywania. Masz także ograniczenie do jednego slajdu przy wyodrębnianiu tekstu z slajdów prezentacji.
+Bez licencji Aspose.Slides udostępnia pełną funkcjonalność w trybie ewaluacyjnym, z dwoma ograniczeniami: dodaje pole tekstowe z wodnym znakiem oceny na środku każdej slajdu każdej prezentacji, którą zapisuje, a tekst odczytywany z prezentacji jest przycinany do kilku pierwszych znaków i kończony informacją o ograniczeniu ewaluacyjnym. Tekst zapisywany jest w całości.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
-Jeśli chcesz testować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz ubiegać się o **30‑dniową tymczasową licencję**. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license) po więcej informacji.
+Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz poprosić o **30‑dniową licencję tymczasową**. Więcej informacji znajdziesz w [How to get a Temporary License?](https://purchase.aspose.com/temporary-license).
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę testować wiele prezentacji równolegle w różnych wątkach w trybie ewaluacyjnym?**
+### Czy mogę testować wiele prezentacji równolegle w różnych wątkach w trybie ewaluacyjnym?
 
-Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [w wielu wątkach](/slides/pl/php-java/multithreading/). Tryb ewaluacyjny na to nie wpływa.
+Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [across threads](/slides/pl/php-java/multithreading/). Tryb ewaluacyjny nie ma na to wpływu.
 
-**Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?**
+### Czy muszę zainstalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?
 
-Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa ani w trybie ewaluacyjnym, ani w produkcji.
+Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa, ani w trybie ewaluacji, ani w produkcji.
 
-**Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie ewaluacyjnym?**
+### Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie ewaluacyjnym?
 
-Tak. [Konwertery](/slides/pl/php-java/convert-presentation/) działają; wynik będzie zawierał znak wodny.
+Tak. [converters](/slides/pl/php-java/convert-presentation/) działają; wynik będzie zawierał znak wodny.
 
-**Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znaku wodnego?**
+### Czy mogę użyć licencji tymczasowej do testów obciążeniowych bez znaku wodnego?
 
-Tak. 30‑dniowa tymczasowa licencja usuwa ograniczenia trybu ewaluacyjnego i pozwala na testowanie bez znaku wodnego.
+Tak. 30‑dniowa licencja tymczasowa usuwa ograniczenia trybu ewaluacyjnego i umożliwia testowanie bez znaku wodnego.
