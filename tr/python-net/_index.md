@@ -79,13 +79,13 @@ PPT, PPTX, PPS, POT ve ODP dosyalarını, makro‑destekli ve şablon varyantlar
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/tr/python-net/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/python-net/release-notes/">Sürüm notları</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/python-net/">İndir</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Sürüm notları</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmeti</a></li>
 </ul>
 </div>

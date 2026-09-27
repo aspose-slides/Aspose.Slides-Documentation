@@ -29,10 +29,10 @@ Başlamadan önce, paketi PyPI'dan `pip install aspose.slides` ile kurun. Linux 
 
 Bir sunum oluşturmak ve ilk slaytına metin içeren bir şekil eklemek için aşağıdaki adımları izleyin:
 
-1. Yeni bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.
-2. [slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/slides/tr/) koleksiyonundan indeksini (0) kullanarak o slaytı alın.
-3. Slaytın [shapes](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/shapes/) koleksiyonundaki [add_auto_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_auto_shape/) yöntemiyle bulut şeklinde bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin ve onun [text](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/text/) özelliğini ayarlayın.
-4. [save](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/save/) yöntemiyle sunumu bir PPTX dosyası olarak kaydedin.
+1. Yeni bir [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.
+2. [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) koleksiyonundan indeksini (0) kullanarak o slaytı alın.
+3. Slaytın [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) koleksiyonundaki [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) yöntemiyle bulut şeklinde bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin ve onun [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/) özelliğini ayarlayın.
+4. [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) yöntemiyle sunumu bir PPTX dosyası olarak kaydedin.
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Birimi point olarak: 1 inç 72 birime eşittir.
 
 ### Sunumları paralel olarak oluşturup kaydedebilir miyim?
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneği üzerinde [çoklu iş parçacıkları](/slides/tr/python-net/multithreading/) kullanarak işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
+Aynı [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) örneği üzerinde [çoklu iş parçacıkları](/slides/tr/python-net/multithreading/) kullanarak işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
 
 ### Deneme filigranı ve sınırlamaları nasıl kaldırırım?
 

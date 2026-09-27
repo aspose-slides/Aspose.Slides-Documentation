@@ -23,7 +23,7 @@ Aspose.Slides, değerlendirme modunda veya geçerli bir lisansla kullanılabilir
 
 **Aspose.Slides for Python via .NET**'in değerlendirme sürümünü [indirme sayfası](https://pypi.org/project/Aspose.Slides/) üzerinden indirebilirsiniz. Değerlendirme sürümü, lisanslı ürünle aynı özellikleri sunar. Değerlendirme paketi, satın alınan paketle aynı olup lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
 
-**Aspose.Slides**'in değerlendirmesinden memnun kaldığınızda, bir [lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/python-net/). Mevcut abonelik seçeneklerini incelemenizi öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
+**Aspose.Slides**'in değerlendirmesinden memnun kaldığınızda, bir [lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/python-net/). Mevcut abonelik seçeneklerini incelemenizi öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
 
 Her Aspose lisansı, bu süre içinde yayınlanan yeni sürümlere ve düzeltmelere ücretsiz yükseltmeler içeren bir yıllık abonelik içerir. Lisanslı ve değerlendirme kullanıcıları ücretsiz ve sınırsız teknik destek alır.
 
@@ -48,13 +48,13 @@ Her Aspose lisansı, bu süre içinde yayınlanan yeni sürümlere ve düzeltmel
 
 Bir lisans, **dosya** ya da **akış** üzerinden yüklenebilir.
 
-{{% alert color="info" title="Note" %}}Aspose.Slides, lisanslamayı yönetmek için [License](https://reference.aspose.com/slides/tr/python-net/aspose.slides/license/) sınıfını sağlar.{{% /alert %}}
+{{% alert color="info" title="Note" %}}Aspose.Slides, lisanslamayı yönetmek için [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) sınıfını sağlar.{{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}Yeni lisanslar, sadece 21.4 veya daha sonraki sürümde Aspose.Slides'ı etkinleştirebilir. Daha eski sürümler farklı bir lisanslama sistemi kullanır ve bu lisansları tanımaz.{{% /alert %}}
 
 ### **Dosya**
 
-Bir lisansı ayarlamanın en basit yolu, lisans dosyasının yolunu [set_license](https://reference.aspose.com/slides/tr/python-net/aspose.slides/license/set_license/) metoduna geçirmek​dir. Aşağıdaki örnekteki gibi yalnızca dosya adını verirseniz, Aspose.Slides dosyayı geçerli çalışma dizininde arar.
+Bir lisansı ayarlamanın en basit yolu, lisans dosyasının yolunu [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) metoduna geçirmek​dir. Aşağıdaki örnekteki gibi yalnızca dosya adını verirseniz, Aspose.Slides dosyayı geçerli çalışma dizininde arar.
 
 Aşağıdaki Python kodu, lisans dosyasını nasıl ayarlayacağınızı gösterir:
 
@@ -68,9 +68,9 @@ license = slides.License()
 license.set_license("Aspose.Slides.lic")
 ```
 
-{{% alert color="warning" title="Warning" %}}Eğer lisans dosyasını farklı bir dizine yerleştirirseniz, [License.set_license](https://reference.aspose.com/slides/tr/python-net/aspose.slides/license/set_license/#str) metodunu çağırdığınızda, açık yolun sonundaki dosya adı lisans dosyanızın adıyla aynı olmalıdır.
+{{% alert color="warning" title="Warning" %}}Eğer lisans dosyasını farklı bir dizine yerleştirirseniz, [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) metodunu çağırdığınızda, açık yolun sonundaki dosya adı lisans dosyanızın adıyla aynı olmalıdır.
 
-Örneğin, lisans dosyasını *Aspose.Slides.lic.xml* olarak yeniden adlandırabilirsiniz. Ardından kodunuzda, bu dosyanın tam yolunu (Aspose.Slides.lic.xml ile biten) [License.set_license](https://reference.aspose.com/slides/tr/python-net/aspose.slides/license/set_license/#str) metoduna geçirin.{{% /alert %}}
+Örneğin, lisans dosyasını *Aspose.Slides.lic.xml* olarak yeniden adlandırabilirsiniz. Ardından kodunuzda, bu dosyanın tam yolunu (Aspose.Slides.lic.xml ile biten) [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) metoduna geçirin.{{% /alert %}}
 
 ### **Akış**
 
@@ -104,7 +104,7 @@ if license.is_licensed():
 
 ## **İş Parçacığı Güvenliği**
 
-{{% alert color="warning" title="Warning" %}}[License.set_license](https://reference.aspose.com/slides/tr/python-net/aspose.slides/license/set_license/) metodu iş parçacığı güvenli değildir. Birden fazla iş parçacığından aynı anda çağırmanız gerektiğinde, `threading.Lock` gibi bir senkronizasyon primi kullanarak sorunlardan kaçının.{{% /alert %}}
+{{% alert color="warning" title="Warning" %}}[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) metodu iş parçacığı güvenli değildir. Birden fazla iş parçacığından aynı anda çağırmanız gerektiğinde, `threading.Lock` gibi bir senkronizasyon primi kullanarak sorunlardan kaçının.{{% /alert %}}
 
 ## **SSS**
 
