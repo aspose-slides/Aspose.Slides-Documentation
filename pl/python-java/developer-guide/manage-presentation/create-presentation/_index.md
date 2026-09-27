@@ -29,13 +29,13 @@ Zanim rozpoczniesz, zainstaluj Pythona, JDK, JPype oraz Aspose.Slides for Python
 
 ## **Utwórz prezentację**
 
-Tworzenie pliku PowerPoint od podstaw w Aspose.Slides for Python via Java jest tak proste, jak utworzenie instancji klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Konstruktor automatycznie dostarcza pustą prezentację z jednym slajdem, dając natychmiastowy obszar roboczy dla kształtów, tekstu, wykresów lub innej treści, której potrzebuje Twoja aplikacja. Po zmodyfikowaniu tego slajdu — lub dodaniu nowych — możesz zapisać wynik w formacie PPTX, starszym PPT lub nawet OpenDocument. Krótki przykład kodu poniżej ilustruje ten przepływ, dodając prosty kształt na pierwszy slajd.
+Tworzenie pliku PowerPoint od podstaw w Aspose.Slides for Python via Java jest tak proste, jak utworzenie instancji klasy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Konstruktor automatycznie dostarcza pustą prezentację z jednym slajdem, dając natychmiastowy obszar roboczy dla kształtów, tekstu, wykresów lub innej treści, której potrzebuje Twoja aplikacja. Po zmodyfikowaniu tego slajdu — lub dodaniu nowych — możesz zapisać wynik w formacie PPTX, starszym PPT lub nawet OpenDocument. Krótki przykład kodu poniżej ilustruje ten przepływ, dodając prosty kształt na pierwszy slajd.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Pobierz pierwszy slajd po jego indeksie, 0.
-1. Dodaj [AutoShape](/slides/pl/python-java/aspose.slides/autoshape/) typu [ShapeType.Cloud](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapetype/#Cloud) przy użyciu [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Ustaw tekst kształtu za pomocą [TextFrame.setText](https://reference.aspose.com/slides/pl/python-java/aspose.slides/textframe/#setText).
-1. Zapisz prezentację używając [Presentation.save](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#save) z [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/python-java/aspose.slides/saveformat/#Pptx).
+1. Dodaj [AutoShape](/slides/pl/python-java/aspose.slides/autoshape/) typu [ShapeType.Cloud](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Cloud) przy użyciu [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Ustaw tekst kształtu za pomocą [TextFrame.setText](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#setText).
+1. Zapisz prezentację używając [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) z [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx).
 
 Przykład poniżej uruchamia maszynę wirtualną Javy (JVM), jeśli nie jest już uruchomiona, dodaje kształt chmury z tekstem do pierwszego slajdu i zapisuje prezentację. Zapisz go jako *create_presentation.py*:
 

@@ -77,14 +77,14 @@ Obsługuje ładowanie i zapisywanie plików PPT, PPTX, PPS, POT i ODP, w tym war
 <hr>
 <p>REFERENCJA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/pl/python-java/">API reference</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/python-java/release-notes/">Release notes</a></li>
+<li><a href="https://reference.aspose.com/slides/python-java/">API reference</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/release-notes/">Release notes</a></li>
 <li><a href="/slides/pl/python-java/known-issues/">Known issues</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/python-java/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/python-java/">Download</a></li>
 </ul>
 <p>WSPARCIE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pl/11">Free support forum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Free support forum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Paid support helpdesk</a></li>
 </ul>
 </div>
