@@ -30,10 +30,10 @@ description: "สร้างงานนำเสนอด้วย Aspose.Slid
 
 เพื่อสร้างงานพรีเซนเทชันและใส่กล่องข้อความในสไลด์แรก, ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) งานพรีเซนเทชันใหม่จะมีสไลด์เปล่า 1 แท่งอยู่แล้ว
-2. ดึงสไลด์นั้นจากคอลเลกชันที่คืนโดย [Presentation::getSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/getslides/), โดยใช้ดัชนี 0
-3. เพิ่มสี่เหลี่ยมโดยใช้เมธอด [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addautoshape/) และกำหนดข้อความของมันด้วย [TextFrame::setText](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/settext/)
-4. บันทึกงานพรีเซนเทชันเป็นไฟล์ PPTX ด้วยเมธอด [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/save/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) งานพรีเซนเทชันใหม่จะมีสไลด์เปล่า 1 แท่งอยู่แล้ว
+2. ดึงสไลด์นั้นจากคอลเลกชันที่คืนโดย [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), โดยใช้ดัชนี 0
+3. เพิ่มสี่เหลี่ยมโดยใช้เมธอด [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) และกำหนดข้อความของมันด้วย [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/)
+4. บันทึกงานพรีเซนเทชันเป็นไฟล์ PPTX ด้วยเมธอด [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/)
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides อ่านและเขียนไฟล์ภายใน To
 
 ## **สร้างและบันทึกงานพรีเซนเทชัน**
 
-เพื่อสร้างงานพรีเซนเทชันเปล่าและบันทึก, สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) แล้วบันทึกในรูปแบบใดก็ได้ของ enumeration [SaveFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/saveformat/) ผลลัพธ์จะเป็นงานพรีเซนเทชันที่มีสไลด์เปล่า 1 แท่ง
+เพื่อสร้างงานพรีเซนเทชันเปล่าและบันทึก, สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) แล้วบันทึกในรูปแบบใดก็ได้ของ enumeration [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) ผลลัพธ์จะเป็นงานพรีเซนเทชันที่มีสไลด์เปล่า 1 แท่ง
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **เปิดและบันทึกงานพรีเซนเทชัน**
 
-เพื่อแปลงงานพรีเซนเทชันจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง, เปิดมันโดยส่งพาธของไฟล์ไปยังคอนสตรักเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) จากนั้นบันทึกในรูปแบบเป้าหมาย Aspose.Slides จะตรวจจับรูปแบบอินพุต เช่น PPT, PPTX หรือ ODP จากไฟล์โดยตรง
+เพื่อแปลงงานพรีเซนเทชันจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง, เปิดมันโดยส่งพาธของไฟล์ไปยังคอนสตรักเตอร์ของ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) จากนั้นบันทึกในรูปแบบเป้าหมาย Aspose.Slides จะตรวจจับรูปแบบอินพุต เช่น PPT, PPTX หรือ ODP จากไฟล์โดยตรง
 
 ตัวอย่างด้านล่างคาดว่าไฟล์งานพรีเซนเทชัน OpenDocument ชื่อ *Sample.odp* อยู่ข้างสคริปต์และบันทึกเป็น PPTX.
 
@@ -127,7 +127,7 @@ try {
 
 ### ฉันสามารถสร้าง/บันทึกงานพรีเซนเทชันพร้อมกันได้หรือไม่?
 
-คุณไม่สามารถทำงานกับอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) เดียวจาก [หลายเธรด](/slides/th/php-java/multithreading/) ได้. ให้รันอินสแตนซ์แยกต่างหากสำหรับแต่ละเธรดหรือกระบวนการ.
+คุณไม่สามารถทำงานกับอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) เดียวจาก [หลายเธรด](/slides/th/php-java/multithreading/) ได้. ให้รันอินสแตนซ์แยกต่างหากสำหรับแต่ละเธรดหรือกระบวนการ.
 
 ### ฉันจะลบลายน้ำและข้อจำกัดของเวอร์ชันทดลองอย่างไร?
 

@@ -59,7 +59,7 @@ description: "นำใบอนุญาตไปใช้ จัดการ �
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-คุณสามารถดูข้อมูลการกำหนดราคาที่หน้า [“ข้อมูลการกำหนดราคา”](https://purchase.aspose.com/pricing/slides/th/family).
+คุณสามารถดูข้อมูลการกำหนดราคาที่หน้า [“ข้อมูลการกำหนดราคา”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **ตั้งค่าใบอนุญาตใน Aspose.Slides สำหรับ PHP ผ่าน Java**
