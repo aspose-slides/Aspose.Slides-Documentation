@@ -100,7 +100,7 @@ node hello.js
 Το πακέτο είναι επίσης διαθέσιμο ως αρχείο ZIP με το ίδιο περιεχόμενο με το npm πακέτο. Για να το εγκαταστήσετε από το αρχείο:
 
 1. Εγκαταστήστε τις προαπαιτήσεις για το λειτουργικό σας σύστημα, όπως περιγράφηκε παραπάνω.  
-1. Κατεβάστε το αρχείο από τη [σελίδα λήψης Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/el/nodejs-java/).  
+1. Κατεβάστε το αρχείο από τη [σελίδα λήψης Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/nodejs-java/).  
 1. Δημιουργήστε έναν φάκελο έργου:
 
     ```bash

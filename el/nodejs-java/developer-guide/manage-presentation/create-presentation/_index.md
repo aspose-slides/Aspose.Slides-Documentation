@@ -31,11 +31,11 @@ description: "Δημιουργήστε παρουσιάσεις με το Aspose
 
 Για να δημιουργήσετε μια παρουσίαση και να τοποθετήσετε ένα πλαίσιο κειμένου στην πρώτη της διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/). Μια νέα παρουσίαση περιλαμβάνει ήδη μια κενή διαφάνεια.
-1. Αποκτήστε αυτή τη διαφάνεια από τη [συλλογή διαφανειών]((https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/getslides/)) με το δείκτη της, 0.
-1. Προσθέστε ένα ορθογώνιο με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/addautoshape/) και ορίστε το κείμενό του με το [setText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/settext/).
-1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/save/).
-1. Αποδεσμεύστε την παρουσίαση με τη μέθοδο [dispose](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/dispose/) και τερματίστε τη διαδικασία.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Μια νέα παρουσίαση περιλαμβάνει ήδη μια κενή διαφάνεια.
+1. Αποκτήστε αυτή τη διαφάνεια από τη [συλλογή διαφανειών]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/)) με το δείκτη της, 0.
+1. Προσθέστε ένα ορθογώνιο με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) και ορίστε το κείμενό του με το [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Αποδεσμεύστε την παρουσίαση με τη μέθοδο [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/) και τερματίστε τη διαδικασία.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ process.exit(0);
 
 ### Μπορώ να δημιουργήσω/αποθηκεύσω παρουσιάσεις παράλληλα;
 
-Δεν μπορείτε να λειτουργήσετε πάνω στο ίδιο αντικείμενο [Presentation]((https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/)) από [πολλαπλά νήματα](/slides/el/nodejs-java/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες εμφανίσεις ανά νήμα ή διαδικασία.
+Δεν μπορείτε να λειτουργήσετε πάνω στο ίδιο αντικείμενο [Presentation]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)) από [πολλαπλά νήματα](/slides/el/nodejs-java/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες εμφανίσεις ανά νήμα ή διαδικασία.
 
 ### Πώς αφαιρώ την υδατογραφή δοκιμής και τους περιορισμούς;
 

@@ -72,14 +72,14 @@ Aspose.Slides για Node.js μέσω Java είναι μια βιβλιοθήκ�
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/el/nodejs-java/">API αναφορά</a></li>
-<li><a href="https://releases.aspose.com/slides/el/nodejs-java/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">API αναφορά</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Σημειώσεις έκδοσης</a></li>
 <li><a href="/slides/el/nodejs-java/known-issues/">Γνωστά προβλήματα</a></li>
-<li><a href="https://releases.aspose.com/slides/el/nodejs-java/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Πληρωμένη υποστήριξη helpdesk</a></li>
 </ul>
 </div>
