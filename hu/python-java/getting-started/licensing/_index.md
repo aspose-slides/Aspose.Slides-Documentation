@@ -1,158 +1,147 @@
 ---
 title: Licencelés
-description: "Az Aspose.Slides for Python via Java különböző vásárlási terveket kínál, vagy ingyenes próba és 30 napos ideiglenes licencet biztosít az értékeléshez a Licencelési és Előfizetési szabályzatok használatával."
 type: docs
 weight: 80
 url: /hu/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- licencfájl
+- ideiglenes licenc
+- használati licenc
+- értékelési korlátozások
+description: "Alkalmazzon fájl, bájt-alapú vagy használati licencet az Aspose.Slides for Python via Java-ban, és távolítsa el az értékelési korlátozásokat az alkalmazásaiból."
 ---
-Néha a legjobb értékelési eredményekhez gyakorlati megközelítésre lehet szükség. Ezért az Aspose.Slides különböző vásárlási csomagokat kínál, valamint ingyenes próbaverziót és 30 napos ideiglenes licencet biztosít az értékeléshez.
+## **Áttekintés**
 
-{{% alert color="primary" %}}
-Vegye figyelembe, hogy számos általános irányelv és gyakorlat van, amely segít az értékelésben, a megfelelő licencelésben és termékeink megvásárlásában. Ezeket megtalálja a ["Vásárlási irányelvek és GYIK"](https://purchase.aspose.com/policies) szakaszban.
-{{% /alert %}}
+Az Aspose.Slides for Python via Java futtatható értékelő módban vagy licenccel. Értékelő módban egy értékelő vízjel szövegdobozt ad minden diára minden mentett prezentációban, és a prezentációkból a kód által olvasott szöveget csonkolja. Ez a cikk elmagyarázza, hogyan lehet licencet alkalmazni fájlból vagy bájtokból, és hogyan konfigurálható a használati licencelés.
 
-## **Az Aspose.Slides értékelése**
-Az Aspose.Slides-et könnyen letöltheti értékelés céljából. Az értékelési csomag megegyezik a vásárolt csomaggal. Az értékelési verzió egyszerűen licencessé válik, miután néhány kódsort hozzáad a licenc alkalmazásához. 
+A vásárlási lehetőségekért tekintse meg a [Ár információ](https://purchase.aspose.com/pricing/slides/hu/family) oldalt. Általános licencelési és vásárlási kérdésekért lásd a [Vásárlási irányelvek és GYIK](https://purchase.aspose.com/policies) oldalt.
 
-## **Az értékelési verzió korlátozása**
-Az Aspose.Slides (licenc nélküli) értékelési verziója a teljes termékfunkciókat biztosítja, de a dokumentum tetejére értékelési vízjelet helyez meg megnyitáskor és mentéskor. A bemutató diák szövegeinek kinyerése esetén csak egy diára van korlátozva.
-
-{{% alert color="primary" %}} 
-Ha az Aspose.Slides-et az értékelési verzió korlátozása nélkül szeretné tesztelni, kérhet **30 napos ideiglenes licencet**. További információért tekintse meg a [Hogyan szerezhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) oldalt.
-{{% /alert %}} 
+Az értékelési korlátozásokért és az ideiglenes licenc kérésének módjáért tekintse meg a [Evaluate Aspose.Slides](/slides/hu/python-java/evaluate-aspose-slides/) oldalt. Az ideiglenes licencet ugyanúgy kell alkalmazni, mint a megvásárolt licencfájlt.
 
 ## **A licencről**
-Az Aspose.Slides for Python via Java értékelési verzióját könnyen letöltheti a [letöltési oldalról](https://releases.aspose.com/slides/hu/python-java/). Az értékelési verzió teljesen **ugyanazokat a képességeket** kínálja, mint az Aspose.Slides licencelt verziója. Ráadásul az értékelési verzió egyszerűen licencessé válik, miután megvásárol egy licencet és néhány kódsort hozzáad a licenc alkalmazásához.
 
-A licenc egy egyszerű szöveges XML fájl, amely olyan részleteket tartalmaz, mint a termék neve, a licencelt fejlesztők száma, az előfizetés lejárati dátuma stb. A fájl digitálisan alá van írva, ezért ne módosítsa. Még egy véletlen új sor hozzáadása a fájl tartalmához is érvényteleníti azt.
+A licencfájl olyan információkat tartalmaz, mint a termék neve, a licencelt fejlesztők száma és az előfizetés lejárati dátuma. A fájl digitálisan aláírt XML.
 
-Az értékelési verzióval járó korlátozások elkerülése érdekében licencet kell beállítania a **Aspose.Slides** használata előtt. A licencet csak egyszer kell beállítani alkalmazásonként vagy folyamathoz.
-
-## **Megvásárolt licenc**
-
-Vásárlás után alkalmaznia kell a licencfájlt vagy -folyamot. 
-
-{{% alert color="primary" %}}
-Be kell állítania a licencet:
-* csak egyszer az alkalmazás domainjében
-* mielőtt bármely más Aspose.Slides osztályt használná
+{{% alert color="warning" title="Warning" %}}
+Ne módosítsa a licencfájlt. Még egy felesleges sortörés is érvénytelenítheti digitális aláírását.
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Ár információkat a [“Ár információk”](https://purchase.aspose.com/pricing/slides/hu/family) oldalon talál.
-{{% /alert %}}
+A licencet egyszer kell alkalmazni alkalmazásonként vagy folyamatonként, mielőtt prezentációkat hozna létre vagy más Aspose.Slides műveleteket végezne. Licencfájl esetén használja a [License](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/) osztályt. A használati (metered) licencelés nyilvános és privát kulcspárt használ a licencfájl helyett.
 
-### **Licence beállítása az Aspose.Slides for Python via Java‑ban**
+## **Licenc alkalmazása**
 
-A licenceket az alábbi helyekről lehet alkalmazni:
-* Kifejezett útvonal
-* Folyam
-* Metered licencként – egy új licencelési mechanizmus
+A következő példák feltételezik, hogy az Aspose.Slides for Python via Java és előfeltételei telepítve vannak. Minden példa egy önálló szkript, amely elindítja a JVM-et, importálja az API-t, és alkalmaz egy licencet. Az alkalmazásában a prezentációs műveleteket a licenc alkalmazása után végezze, és csak akkor állítsa le a JVM-et, amikor minden Aspose.Slides feladat befejeződött.
 
-{{% alert color="primary" %}}
-Használja a **setLicense** metódust egy komponens licenceléséhez.
+### **Licenc alkalmazása fájlból**
 
-Bár a **setLicense** több hívása nem káros, csak feleslegesen terheli a rendszert (processzort).
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Az új licencek csak a 21.4 vagy újabb verziójú Aspose.Slides-ot aktiválják. A korábbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
-{{% /alert %}}
-
-#### **Licenc alkalmazása fájlból**
-
-Ez a kódrészlet a licencfájl beállításához használható:
-
-**Python**
+Adja át a licencfájl útvonalát a [License.setLicense](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/#setLicense) metódusnak. Cserélje le a `Aspose.Slides.lic`-et a licencfájl útvonalára.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # Végezze a prezentációs műveleteket itt, mielőtt leállítja a JVM-et.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-A setLicense metódus meghívásakor a licenc neve megegyező kell legyen a licencfájl nevével. Például megváltoztathatja a licencfájl nevét „Aspose.Slides.lic.xml”-ra. Ezután a kódban át kell adnia az új licencnevet (Aspose.Slides.lic.xml) a setLicense metódusnak.
+Használja a pontos fájlnevet, beleértve a kiterjesztést is. Például, ha a fájl neve `Aspose.Slides.lic.xml`, a `.xml` kiterjesztést is adja meg az úton. Egy abszolút útvonal elkerüli a bizonytalanságot az alkalmazás munkakönyvtárát illetően.
 
-#### **Licenc alkalmazása bájtokból**
+A példa a [License.isLicensed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/#isLicensed) metódust használja annak ellenőrzésére, hogy a licenc alkalmazva lett-e.
 
-Ez a kódrészlet a licenc bájtokból történő alkalmazásához használható:
+### **Licenc alkalmazása bájtokból**
 
-**Python**
+Használja a [License.setLicenseFromBytes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/license/#setLicenseFromBytes) metódust, amikor a licenc Python bájtokként érhető el. A következő példa bináris módban olvassa be a fájlt, majd a licenc alkalmazása előtt bezárja azt.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # Végezze a prezentációs műveleteket itt, mielőtt leállítja a JVM-et.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### **Metered licenc alkalmazása**
+Tartsa a eredeti bájtokat változatlanul. Ne dekódolja, formázza át vagy módosítsa a licenc tartalmát a alkalmazás előtt.
 
-Az Aspose.Slides lehetővé teszi a fejlesztőknek, hogy metered kulcsot alkalmazzanak. Ez egy új licencelési mechanizmus.
+## **Használati (metered) licenc alkalmazása**
 
-Az új licencelési mechanizmus a meglévő licencelési móddal együtt kerül használatra. Azok az ügyfelek, akik az API funkciók használata alapján szeretnének számlázást kapni, a Metered licencelést választhatják.
+A használati licenc az API használat alapján számláz. A használati licenc megszerzése után a nyilvános és privát kulcsait a [Metered.setMeteredKey](https://reference.aspose.com/slides/hu/python-java/aspose.slides/metered/#setMeteredKey) metódussal alkalmazza. Inicializálja a [Metered](https://reference.aspose.com/slides/hu/python-java/aspose.slides/metered/) objektumot, és a kulcsokat egyszer az alkalmazás indításánál alkalmazza.
 
-A szükséges lépések befejezése után a kulcsokat kapja meg, nem pedig a licencfájlt. Ezt a metered kulcsot a kifejezetten erre a célra bevezetett **Metered** osztály segítségével lehet alkalmazni.
-
-A következő kódrészlet bemutatja, hogyan állíthatók be a metered nyilvános és privát kulcsok:
+A következő példa a `ASPOSE_METERED_PUBLIC_KEY` és `ASPOSE_METERED_PRIVATE_KEY` környezeti változókból olvassa be a kulcsokat. Állítsa be mindkét változót a szkript futtatása előtt.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# Hozzon létre egy példányt a CAD Metered osztályból
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# Hozzáfér a set_metered_key tulajdonsághoz, és átadja a nyilvános és privát kulcsokat paraméterként
-metered.setMeteredKey("*****", "*****");
-
-# Kérdezze le a metered adat mennyiségét az API hívása előtt
-amountbefore = Metered.getConsumptionQuantity()
-
-# Információk kiíratása
-print("Amount Consumed Before: \" + amountbefore + \"" )
-
-# Betölti a dokumentumot a lemezről.
-pres = Presentation();
-
-# Lekéri a dokumentum oldalszámát
-print("Amount Consumed After: \" +  pres.getSlides().size()) + \"" )
-
-# Mentés PDF-ként
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# Kérdezze le a metered adat mennyiségét az API hívása után
-amountafter = Metered.getConsumptionQuantity()
-
-# Információk kiíratása
-print("Amount Consumed After: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # Végezze a prezentációs műveleteket itt, mielőtt leállítja a JVM-et.
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-Kérjük, vegye figyelembe, hogy a Metered licenc helyes használatához stabil internetkapcsolatra van szükség, mivel a Metered mechanizmus folyamatosan kommunikál szolgáltatásainkkal a pontos számítások érdekében. További részletekért tekintse meg a [“Metered licenc GYIK”](https://purchase.aspose.com/faqs/licensing/metered) részt.
+{{% alert color="info" title="Note" %}}
+A használati licenchez internetkapcsolat szükséges a kulcsok érvényesítéséhez és a használat jelentéséhez. A privát kulcsot tartsa távol a forráskódtól és a naplóktól. A kapcsolódási és számlázási részletekért tekintse meg a [Használati licenc GYIK](https://purchase.aspose.com/faqs/licensing/metered) oldalt.
 {{% /alert %}}
+
+## **GYIK**
+
+**Szükségem van másik csomag telepítésére a licenc megvásárlása után?**  
+Nem. A licencet ugyanarra a csomagra alkalmazza, amelyet az értékeléshez használt.
+
+**Minden prezentációhoz alkalmazni kell licencet?**  
+Nem. Egyszer alkalmazza az alkalmazás indításakor, mielőtt prezentációkat hozna létre vagy betöltene.
+
+**Át tudom nevezni a licencfájlt?**  
+Igen. A kódban használja a pontos új fájlnevet, és a fájl tartalmát változatlanul hagyja.
+
+**Használhatok ideiglenes licencet a bájt-alapú példával?**  
+Igen. Olvassa be az ideiglenes licencfájlt bájtokként, és ugyanúgy alkalmazza, mint a megvásárolt licencet.

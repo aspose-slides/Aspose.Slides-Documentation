@@ -1,5 +1,5 @@
 ---
-title: Python üzerinden Java ile Sunum Oluşturma
+title: Python üzerinden Java ile Sunumlar Oluşturma
 linktitle: Sunum Oluştur
 type: docs
 weight: 10
@@ -19,23 +19,25 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides ile Python üzerinden Java’da sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinin avantajlarından yararlanın ve güvenilir sonuçlar için programlı olarak kaydedin."
+description: "Aspose.Slides ile Python üzerinden Java aracılığıyla sunumlar oluşturun—PPT, PPTX ve ODP dosyaları üretin, OpenDocument desteğinden yararlanın ve güvenilir sonuçlar için programlı olarak kaydedin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via Java ile bir sunum nasıl oluşturulacağını, ilk slayta metin içeren bir şekil eklemeyi ve sonucu PPTX dosyası olarak kaydetmeyi gösterir. SSS, çıktı formatları, şablonlar, slayt boyutu, bellek kullanımı, çoklu iş parçacığı, lisanslama, dijital imzalar ve VBA desteğini kapsar.
+Bu makale, Aspose.Slides for Python via Java kullanarak bir sunum nasıl oluşturulur, ilk slayta metin içeren bir şekil nasıl eklenir ve sonuç bir PPTX dosyası olarak nasıl kaydedilir, konularını gösterir. SSS bölümü çıktı formatları, şablonlar, slayt boyutlandırması, bellek kullanımı, çoklu iş parçacığı, lisanslama, dijital imzalar ve VBA desteği gibi konuları kapsar.
+
+Başlamadan önce Python, bir JDK, JPype ve Aspose.Slides for Python via Java'ı kurun. Windows, Linux ve macOS için adımları görmek üzere [Kurulum](/slides/tr/python-java/installation/) sayfasına bakın.
 
 ## **Sunum Oluşturma**
 
-Aspose.Slides for Python via Java’da sıfırdan bir PowerPoint dosyası oluşturmak, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini yaratmak kadar basittir. Yapıcı, tek bir slayt içeren boş bir sunum otomatik olarak sağlar; bu, şekiller, metin, grafikler veya uygulamanızın ihtiyaç duyduğu diğer içerikler için anında bir tuval sunar. Bu slaytı düzenledikten—veya yeni slaytlar ekledikten—sonucu PPTX, eski PPT veya hatta OpenDocument formatlarına kaydedebilirsiniz. Aşağıdaki kısa kod örneği, ilk slayta basit bir şekil ekleyerek bu iş akışını gösterir.
+Aspose.Slides for Python via Java ile sıfırdan bir PowerPoint dosyası oluşturmak, [Presentation] sınıfının bir örneğini oluşturmak kadar basittir. Yapıcı, tek bir slayttan oluşan boş bir sunum otomatik olarak sağlar ve bu sayede şekiller, metin, grafikler veya uygulamanızın ihtiyaç duyduğu diğer içerikler için hemen bir tuval elde edersiniz. Bu slaytı değiştirdikten—veya yenilerini ekledikten—sonucu PPTX, eski PPT ya da hatta OpenDocument formatlarında kalıcı hale getirebilirsiniz. Aşağıdaki kısa kod örneği, ilk slayta basit bir şekil ekleyerek bu iş akışını gösterir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İlk slaytı indeksine göre alın.  
-1. [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapecollection/#addAutoShape) kullanarak [ShapeType.Cloud](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapetype/#Cloud) tipinde bir [AutoShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin metnini [TextFrame.setText](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframe/#setText) ile ayarlayın.  
-1. [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metodunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Pptx) ile kullanarak sunumu kaydedin.
+1. Bir [Presentation] örneği oluşturun.
+1. İlk slaytı indeks değeri 0 ile alın.
+1. [ShapeCollection.addAutoShape] yöntemiyle [ShapeType.Cloud] türünde bir [AutoShape] ekleyin.
+1. Şeklin metnini [TextFrame.setText] ile ayarlayın.
+1. [Presentation.save] metodunu [SaveFormat.Pptx] ile kullanarak sunumu kaydedin.
 
-Aşağıdaki örnek, Aspose.Slides for Python via Java ve uyumlu bir Java çalışma zamanını gerektirir. JVM henüz çalışmıyorsa başlatır, ilk slayta bir bulut şekli ekler ve sunumu kaydeder:
+İşte örnek, Java Sanal Makinesi (JVM) hâlâ çalışmıyorsa başlatır, ilk slayta metinli bir bulut şekli ekler ve sunumu kaydeder. Dosyayı *create_presentation.py* olarak kaydedin:
 
 ```python
 import jpype
@@ -46,7 +48,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# Bir boş slayt ile sunum oluştur.
+# Bir sunumu tek boş slaytla oluştur.
 presentation = Presentation()
 try:
     # İlk slaytı al.
@@ -62,44 +64,52 @@ finally:
     presentation.dispose()
 ```
 
+Paketleri kurduğunuz ortamda betiği çalıştırın:
+
+```sh
+python create_presentation.py
+```
+
+Bulutun sol üst köşesi slaytın sol ve üst kenarlarından 20 puan uzaklıkta ve bulut 200 puan genişliğinde ve 80 puan yüksekliğindedir. Betik, *new_presentation.pptx* dosyasını geçerli çalışma dizinine kaydeder; bu dosya, bulutu ve metnini içeren bir slayt içerir. JVM, Python işlemi sona erene kadar çalışmaya devam eder; bkz. [Sınırlamalar ve API Farklılıkları](/slides/tr/python-java/limitations-and-api-differences/#import-the-library). Lisans olmadan Aspose.Slides, kaydettiği her slayta bir değerlendirme filigranı metin kutusu ekler; bkz. [Lisanslama](/slides/tr/python-java/licensing/).
+
 Sonuç:
 
-![The new presentation](new_presentation.png)
+![Yeni sunum](new_presentation.png)
 
 ## **SSS**
 
 **Yeni bir sunumu hangi formatlarda kaydedebilirim?**
 
-[PDF](/slides/tr/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/tr/python-java/convert-powerpoint-to-xps/), [HTML](/slides/tr/python-java/convert-powerpoint-to-html/), [SVG](/slides/tr/python-java/render-slide-as-svg/) ve [görseller](/slides/tr/python-java/convert-powerpoint-to-png/) gibi diğer seçeneklerin yanı sıra [PPTX, PPT ve ODP](/slides/tr/python-java/save-presentation/) formatlarında kaydedebilirsiniz.
+Yeni bir sunumu [PPTX, PPT ve ODP](/slides/tr/python-java/save-presentation/) formatlarında kaydedebilir ve ayrıca [PDF](/slides/tr/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/tr/python-java/convert-powerpoint-to-xps/), [HTML](/slides/tr/python-java/convert-powerpoint-to-html/), [SVG](/slides/tr/python-java/render-a-slide-as-an-svg-image/) ve [görüntüler](/slides/tr/python-java/convert-powerpoint-to-png/) gibi diğer formatlara dışa aktarabilirsiniz.
 
-**Bir şablondan (POTX/POTM) başlatıp normal bir PPTX olarak kaydedebilir miyim?**
+**Şablondan (POTX/POTM) başlatıp normal bir PPTX olarak kaydedebilir miyim?**
 
-Evet. Şablonu yükleyin ve istediğiniz formatta kaydedin; POTX/POTM/PPTM ve benzeri formatlar [desteklenir](/slides/tr/python-java/supported-file-formats/).
+Evet. Şablonu yükleyip istediğiniz formatta kaydedebilirsiniz; POTX/POTM/PPTM ve benzeri formatlar [desteklenir](/slides/tr/python-java/supported-file-formats/).
 
-**Sunum oluştururken slayt boyutu/ en‑boy oranını nasıl kontrol ederim?**
+**Sunum oluştururken slayt boyutu/en‑boy oranını nasıl kontrol ederim?**
 
-[slayt boyutunu](/slides/tr/python-java/slide-size/) (4:3, 16:9 gibi ön ayarlar veya özel boyutlar) ayarlayın ve içeriğin nasıl ölçekleneceğini seçin.
+Şu yolu kullanarak [slayt boyutunu](/slides/tr/python-java/slide-size/) (4:3 ve 16:9 gibi ön ayarlar ya da özel boyutlar dahil) ayarlayın ve içeriğin nasıl ölçekleneceğini seçin.
 
 **Boyutlar ve koordinatlar hangi birimde ölçülür?**
 
-Puan cinsinden: 1 inç 72 birime eşittir.
+Puan (point) cinsindendir: 1 inç 72 birime eşittir.
 
-**Çok sayıda medya dosyası içeren büyük sunumlarda bellek kullanımını nasıl azaltırım?**
+**Bellek kullanımını azaltmak için çok sayıda medya dosyası içeren büyük sunumları nasıl yönetebilirim?**
 
-[Blob yönetim stratejileri](/slides/tr/python-java/manage-blob/) kullanın, geçici dosyalarla bellek içi depolamayı sınırlayın ve tamamen bellek içi akışlar yerine dosya temelli iş akışlarını tercih edin.
+Bellek kullanımını azaltmak için [BLOB yönetim stratejilerini](/slides/tr/python-java/manage-blob/) kullanın, geçici dosyalar aracılığıyla bellek içi depolamayı sınırlayın ve tamamen bellek içi akışlardan ziyade dosya tabanlı iş akışlarını tercih edin.
 
-**Sunumları paralel olarak oluşturup kaydedebilir miyim?**
+**Sunumları paralel olarak oluşturup/kaydedebilir miyim?**
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneğine [çoklu iş parçacıkları](/slides/tr/python-java/multithreading/) üzerinden erişemezsiniz. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
+Aynı [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği üzerinde [birden fazla iş parçacığı](/slides/tr/python-java/multithreading/) işlem yapamazsınız. Her iş parçacığı veya süreç için ayrı, izole edilmiş örnekler çalıştırın.
 
-**Deneme sürümü filigranı ve sınırlamaları nasıl kaldırırım?**
+**Deneme filigranını ve sınırlamaları nasıl kaldırabilirim?**
 
-İşlem başına bir kez [lisans uygulayın](/slides/tr/python-java/licensing/). Lisans XML’i değiştirilmemeli ve birden fazla iş parçacığı kullanıyorsanız lisans kurulumu senkronize edilmelidir.
+[Bir lisans uygulayın](/slides/tr/python-java/licensing/) süreç başına bir kez. Lisans XML'i değiştirilmemiş kalmalı ve birden fazla iş parçacığı kullanılıyorsa lisans kurulumu senkronize edilmelidir.
 
-**Oluşturduğum PPTX dosyasını dijital olarak imzalayabilir miyim?**
+**Oluşturduğum PPTX'yi dijital olarak imzalayabilir miyim?**
 
-Evet. Sunumlar için [dijital imzalar](/slides/tr/python-java/digital-signature-in-powerpoint/) (ekleme ve doğrulama) desteklenir.
+Evet. Sunumlar için [Dijital imzalar](/slides/tr/python-java/digital-signature-in-powerpoint/) (ekleme ve doğrulama) desteklenir.
 
 **Oluşturulan sunumlarda makrolar (VBA) destekleniyor mu?**
 
-Evet. [VBA projeleri oluşturabilir/düzenleyebilir](/slides/tr/python-java/presentation-via-vba/) ve PPTM/PPSM gibi makro‑etkin dosyaları kaydedebilirsiniz.
+Evet. [VBA projeleri oluşturabilir/düzenleyebilirsiniz](/slides/tr/python-java/presentation-via-vba/) ve PPTM/PPSM gibi makro etkin dosyaları kaydedebilirsiniz.

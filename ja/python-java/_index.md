@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for Python via Java
-second_title: Aspose.Slides for Python
+title: Java 経由の Python 用 Aspose.Slides
+second_title: Python 用 Aspose.Slides
 type: docs
 weight: 47
 url: /ja/python-java/
@@ -15,41 +15,122 @@ keywords:
 - Python で PowerPoint を SVG にエクスポート
 - Python でスライドをプレビュー
 - Python でスライドに音声と動画を追加
-- Microsoft Office なしで PowerPoint
+- Microsoft Office なしの PowerPoint
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用すると、テキスト、図形、表、アニメーションを管理し、音声や動画を追加し、スライドをプレビューし、プレゼンテーションを SVG、PDF などにエクスポートできます。"
+description: "ここから始めましょう: Aspose.Slides for Python via Java をインストールし、最初のプレゼンテーションを作成し、一般的なタスクのガイド、API リファレンス、サポート情報を見つけてください。"
 ---
-{{% alert color="info" title="Note" %}}
+<img src="aspose_slides-for-python-via-java.png" alt="Python via Java 用の Aspose.Slides" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-**Aspose.Slides for Python via Java へようこそ**
+Aspose.Slides for Python via Java は、Microsoft PowerPoint を使用せずに Python アプリケーションで PowerPoint および OpenDocument のプレゼンテーションを作成、読み取り、編集、変換できるライブラリで、JPype を介して Python プロセス内で Aspose.Slides Java エンジンを実行します。
 
-![Aspose.Slides for Python via Java 製品ロゴ](aspose_slides-for-python-via-java.png)
+PPT、PPTX、PPS、POT、ODP をマクロ有効版やテンプレート版を含めて読み書きでき、PDF、XPS、HTML、SVG、TIFF、Markdown、画像へエクスポートできます。
 
-Aspose.Slides for Python via Java はクラス ライブラリで、Python アプリケーションが Microsoft PowerPoint® を必要とせずに PowerPoint® プレゼンテーションを読み書きできるようにします。
+<div style="clear:both"></div>
 
-主な機能には、テキスト、図形、表、アニメーションの管理、スライドへの音声・動画の追加、スライドのプレビュー、SVG、PDF などの形式へのエクスポートが含まれます。
+------ 
 
-{{% /alert %}}
+<div class="row">
+<div class="col-md-4">
+<p><b>はじめに</b></p>
+<hr>
+<p>GETTING STARTED</p>
+<ul>
+<li><a href="/slides/ja/python-java/installation/">インストール</a></li>
+<li><a href="/slides/ja/python-java/create-presentation/">最初のプレゼンテーションを作成</a></li>
+<li><a href="/slides/ja/python-java/getting-started/">はじめにガイド</a></li>
+</ul>
+<p>EVALUATE</p>
+<ul>
+<li><a href="/slides/ja/python-java/supported-file-formats/">サポートされているファイル形式</a></li>
+<li><a href="/slides/ja/python-java/evaluate-aspose-slides/">試用版の制限</a></li>
+<li><a href="/slides/ja/python-java/licensing/">ライセンス</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Slides で構築</b></p>
+<hr>
+<p>COMMON TASKS</p>
+<ul>
+<li><a href="/slides/ja/python-java/open-presentation/">プレゼンテーションを開く</a></li>
+<li><a href="/slides/ja/python-java/save-presentation/">プレゼンテーションを保存</a></li>
+<li><a href="/slides/ja/python-java/convert-powerpoint-to-pdf/">PDF に変換</a></li>
+<li><a href="/slides/ja/python-java/convert-slide/">スライドを画像としてレンダリング</a></li>
+<li><a href="/slides/ja/python-java/manage-text/">テキストと図形を編集</a></li>
+</ul>
+<p>SLIDES WORKFLOWS</p>
+<ul>
+<li><a href="/slides/ja/python-java/powerpoint-charts/">チャート</a></li>
+<li><a href="/slides/ja/python-java/powerpoint-animation/">アニメーション</a></li>
+<li><a href="/slides/ja/python-java/manage-media-files/">音声と動画</a></li>
+<li><a href="/slides/ja/python-java/presentation-design/">スライドデザイン</a></li>
+<li><a href="/slides/ja/python-java/merge-presentation/">プレゼンテーションを結合</a></li>
+</ul>
+<p>EXAMPLES</p>
+<ul>
+<li><a href="/slides/ja/python-java/examples/">スライド要素別の例</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>リファレンスとサポート</b></p>
+<hr>
+<p>REFERENCE</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/ja/python-java/">API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/ja/python-java/release-notes/">リリースノート</a></li>
+<li><a href="/slides/ja/python-java/known-issues/">既知の問題</a></li>
+<li><a href="https://releases.aspose.com/slides/ja/python-java/">ダウンロード</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://helpdesk.aspose.com/">有料サポートデスク</a></li>
+</ul>
+</div>
+</div>
 
-## **Aspose.Slides for Python via Java リソース**
+------ 
 
-{{% alert color="info" title="Note" %}}
+## **最初のプレゼンテーション**
 
-Aspose.Slides for Python via Java は Aspose.Slides for Java から移植されたため、Aspose.Slides for Java のドキュメントや API リファレンスも利用できます。
+Python と JDK をインストールし、`JAVA_HOME` を設定し、[Installation](/slides/ja/python-java/installation/) に記載されている手順で仮想環境を作成して有効化します。その後、PyPI から JPype と Aspose.Slides をインストールします:
 
-{{% /alert %}}
+```sh
+python -m pip install JPype1 aspose-slides-java
+```
 
-以下のリソースをご覧ください:
+このコードを *hello.py* として保存します。コードは Java 仮想マシンを起動し、新しいプレゼンテーションの最初のスライドにテキスト付きの雲形状を追加し、プレゼンテーションを保存します:
 
-- [Aspose.Slides for Python via Java オンライン ドキュメント](/slides/ja/python-java/developer-guide/)
-- [Aspose.Slides for Python via Java の機能](/slides/ja/python-java/features-overview/)
-- [Aspose.Slides for Python via Java の制限事項と API の違い](/slides/ja/python-java/limitations-and-api-differences/)
-- [Aspose.Slides for Python via Java リリース ノート](https://releases.aspose.com/slides/ja/python-java/release-notes/)
-- [Aspose.Slides for Python via Java 製品ページ](https://products.aspose.com/slides/ja/python-java/)
-- [Aspose.Slides for Python via Java パッケージのダウンロード](https://releases.aspose.com/slides/ja/python-java/)
-- [Aspose.Slides for Python via Java のインストール](/slides/ja/python-java/installation/)
-- [Aspose.Slides for Python via Java API リファレンス](https://reference.aspose.com/slides/ja/python-java/)
-- [Aspose.Slides for Python via Java 無料サポート フォーラム](https://forum.aspose.com/c/slides/ja/11)
-- [Aspose.Slides for Python via Java 有料サポート ヘルプデスク](https://helpdesk.aspose.com/)
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+# 1つの空白スライドでプレゼンテーションを作成します。
+presentation = Presentation()
+try:
+    # 最初のスライドを取得します。
+    slide = presentation.getSlides().get_Item(0)
+
+    # 雲形状を追加し、テキストを設定します。
+    auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
+    auto_shape.getTextFrame().setText("Hello, Aspose!")
+
+    # プレゼンテーションを PPTX ファイルとして保存します。
+    presentation.save("new_presentation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+同じ仮想環境で実行します:
+
+```sh
+python hello.py
+```
+
+このスクリプトは、テキスト「Hello, Aspose!」が入った雲形状を含むスライドが1枚の *new_presentation.pptx* を保存します。ライセンスがない場合、保存されたファイルには評価版の透かしが付加されます — 詳細は [Licensing](/slides/ja/python-java/licensing/) を参照してください。プレゼンテーションの作成や内容の設定方法の詳細は、[Create Presentations](/slides/ja/python-java/create-presentation/) をご覧ください。

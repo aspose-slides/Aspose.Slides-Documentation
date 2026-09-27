@@ -7,142 +7,125 @@ keywords:
 - Aspose.Slides letöltése
 - Aspose.Slides telepítése
 - Aspose.Slides telepítése
+- Python
+- Java
+- JPype
 - Windows
 - macOS
 - Linux
-- Python
-description: "Az Aspose.Slides for Python via Java telepítése Windows, Linux vagy macOS rendszerekre"
+description: "Telepítse az Aspose.Slides for Python via Java-t Windows, Linux vagy macOS rendszeren, konfigurálja a Java-t és a JPype-ot, és ellenőrizze a beállítást egy működő példával."
 ---
-Az Aspose.Slides for Python via Java egy platformfüggetlen API, és bármely platformon (Windows, Linux és macOS) használható, ahol a `Python`, a `Java` és a `jpype1` híd telepítve van.
+Aspose.Slides for Python via Java Windows, Linux és macOS rendszereken fut. A JPype-t használja a Java könyvtár Python‑ból történő eléréséhez. A Microsoft PowerPoint nem szükséges.
 
-## **Programok és verziók követelményei**
+## **Előfeltételek**
 
-Az Aspose.Slides for Python via Java megfelelő működésének biztosítása érdekében a következő programokat és csomagokat kell telepíteni:
+A Python csomagok telepítése előtt telepítsen Python‑t és egy JDK‑t, amely megfelel a [Rendszerkövetelmények](/slides/hu/python-java/system-requirements/) követelményeinek. Az oldal felsorolja a kompatibilis verziókat, az architektúra követelményeket, és minden szükséges függőséget a JPype forrásból történő felépítéséhez.
 
-- JRE verzió >=8 (A JPype1 tesztelve lett a Java 1.8-tól 11-ig terjedő verzióin).
-- Python verzió >=3.7, <=3.12.
-- JPype1 csomag verzió: >=1.5.0.
+Állítsa be a `JAVA_HOME` változót a JDK telepítési könyvtárra, nem a `bin` almappára, és adja hozzá a JDK `bin` könyvtárát a `PATH`‑hez. A környezeti változók módosítása után nyisson meg egy új terminált.
 
-## **Telepítés pip‑ből**
+## **Telepítés a PyPI‑ról**
 
-Az Aspose.Slides for Python via Java könnyedén telepíthető a [pip](https://pypi.org/) segítségével, amennyiben az összes szükséges program (Java, Python) telepítve van.
-
-Hozzon létre egy új projektmappát.
-
-[Telepítse a JPype1‑et](https://jpype.readthedocs.io/en/latest/install.html) a következő paranccsal:
-```
-$ pip install JPype1
-```
-
-Az Aspose.Slides for Python via Java telepítéséhez használja a következő parancsot:
-```
-$ pip install aspose-slides-java
-```
-
-## **Telepítés ZIP‑archívumból**
-
-Az Aspose.Slides for Python via Java ZIP‑archívumból történő telepítéséhez és használatához kövesse inkább ezeket az utasításokat:
+Futtassa a következő parancsokat egy terminálban, ne a Python interaktív promptban. Hozzon létre egy projektkönyvtárat és egy virtuális környezetet, hogy a csomagok izoláltak legyenek más projektektől.
 
 ### **Windows**
 
-1. Telepítse a JDK8‑at, és állítsa be a `JAVA_HOME` környezeti változót.
-2. [Telepítse a Python‑t](https://www.python.org/downloads/) >=3.7 verzióval, és adja hozzá a python.exe‑t a `PATH`‑hez.
-3. [Telepítse a Microsoft C++ Build Tools‑t](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
-4. [Telepítse a JPype1‑et](https://jpype.readthedocs.io/en/latest/install.html). Az alábbi parancsokat futtathatja a python terminálban:
+Ha a kiválasztott Python interpreter a `python` néven elérhető a `PATH`‑ban, futtassa a következő parancsokat a Parancssorban:
+
+```bat
+mkdir slides-example
+cd slides-example
+python -m venv .venv
+.venv\Scripts\activate.bat
 ```
-$ pip install --upgrade pip
-$ pip install JPype1
+
+### **Linux és macOS**
+
+Ha a kiválasztott Python verzió a `python3` néven elérhető, futtassa a következő parancsokat Bash vagy zsh környezetben:
+
+```bash
+mkdir slides-example
+cd slides-example
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-5. [Töltse le az Aspose.Slides for Python via Java‑t](https://releases.aspose.com/slides/hu/python-java/) és csomagolja ki a `aspose-slides-java` könyvtárba.
-6. Hozzon létre egy `example.py` nevű fájlt a `aspose-slides-java` mappában a következő mintakóddal:
+
+Debian vagy Ubuntu rendszeren, ha a környezet létrehozása sikertelen, mert az `ensurepip` nem érhető el, telepítse a `python3-venv` csomagot a `sudo apt-get install python3-venv` parancs segítségével, majd ismételje meg a környezet létrehozásának parancsát. Egy külön telepített Python verzió esetén szükség lehet a megfelelő verzióspecifikus `venv` csomagra.
+
+### **A csomagok telepítése**
+
+A virtuális környezet aktív állapotában telepítse a JPype‑t és az Aspose.Slides‑et:
+
+```sh
+python -m pip install --upgrade pip
+python -m pip install JPype1 aspose-slides-java
+```
+
+`python -m pip` használata biztosítja, hogy a csomagok az alkalmazás futtatásához használt interpreterhez legyenek telepítve.
+
+Egy meglévő Aspose.Slides telepítés frissítéséhez futtassa a `python -m pip install --upgrade aspose-slides-java` parancsot ugyanabban a környezetben.
+
+## **Telepítés ZIP archívumból**
+
+A könyvtárat a [Aspose.Slides letöltési oldalról](https://releases.aspose.com/slides/hu/python-java/) is használhatja:
+
+1. Telepítse a Python‑t és a Java‑t a [Előfeltételek](#prerequisites) leírása szerint.
+2. Hozzon létre és aktiváljon egy virtuális környezetet a fenti útmutató szerint.
+3. Telepítse a JPype‑t a `python -m pip install JPype1` paranccsal.
+4. Töltse le és csomagolja ki az Aspose.Slides for Python via Java ZIP archívumot.
+5. Keresse meg a kicsomagolt `asposeslides` csomagkönyvtárat. Tartsa meg a tartalmát, beleértve a `lib` könyvtárat és a JAR fájlt, együtt.
+6. Helyezze a következő szakaszból származó `example.py` fájlt az `asposeslides` könyvtár mellé, hogy a Python importálni tudja a csomagot. Az archívum már tartalmaz egy `example.py` fájlt az `asposeslides` mellett; cserélje le az alábbira.
+
+## **Ellenőrizze a telepítést**
+
+Mentse el a következő kódot `example.py` néven. Ez egy prezentációt hoz létre egy szövegdobozzal, és a `out.pptx` fájlként menti el az aktuális munkakönyvtárban.
+
 ```python
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+try:
+    from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
-
-jpype.shutdownJVM()
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 500, 80)
+        shape.getTextFrame().setText("Aspose.Slides is ready!")
+        presentation.save("out.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    jpype.shutdownJVM()
 ```
-7. Most futtassa a `py example.py` parancsot a parancssorban.
 
-### **Linux**
+A virtuális környezet aktív állapotában futtassa a példát abban a könyvtárban, ahol a `example.py` található:
 
-1. Telepítse a JDK8‑at Linuxra, és állítsa be a `JAVA_HOME` környezeti változót.
-2. [Telepítse a Python‑t](https://www.python.org/downloads/) >=3.7 verzióval
-3. Telepítse a ``g++`` és ``python-dev`` csomagokat.
-- Debian/Ubuntu esetén:```
-    sudo apt-get install g++ python3-dev
-    ```
-- RedHat-alapú rendszerek esetén:```
-    dnf install redhat-rpm-config gcc-c++ python3-devel unixODBC-devel
-    ```
-4. [Telepítse a JPype1‑et](https://jpype.readthedocs.io/en/latest/install.html). Az alábbi parancsokat futtathatja a python terminálban:
+```sh
+python example.py
 ```
-$ pip install --upgrade pip
-$ pip install JPype1
-```
-5. [Töltse le az Aspose.Slides for Python via Java‑t](https://releases.aspose.com/slides/hu/python-java/) és csomagolja ki a `aspose-slides-java` könyvtárba.
-6. Hozzon létre egy `example.py` nevű tesztfájlt a `aspose-slides-java` mappában a következő mintakóddal:
-```python
-import jpype
-import asposeslides
 
-jpype.startJVM()
+Az `asposeslides` import regisztrálja a csomagolt Java könyvtárat, mielőtt a JVM elindul. Importálja az `asposeslides.api`‑t a JVM indítása után, és szabadítsa fel a prezentáció erőforrásait a leállítás előtt.
 
-from asposeslides.api import Presentation, SaveFormat
+{{% alert color="info" title="Note" %}}
+Licenc nélkül a kimenet egy értékelési vízjelet tartalmaz. Lásd a [Aspose.Slides értékelése](/slides/hu/python-java/evaluate-aspose-slides/) oldalt az értékelési korlátozások és az ideiglenes licenc információiért.
+{{% /alert %}}
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
+## **GYIK**
 
-jpype.shutdownJVM()
-```
-7. Most futtassa a `py example.py` parancsot a parancssorban.
+**Miért jelzi a Python, hogy a JVM nem található vagy nem tölthető be?**
 
-### **Mac**
+Ellenőrizze, hogy a `JAVA_HOME` egy a Python és JPype telepítésével kompatibilis JDK‑re mutat, ahogy a [Rendszerkövetelmények](/slides/hu/python-java/system-requirements/) leírásában szerepel. További ellenőrzésekért tekintse meg a [JPype telepítési hibaelhárítási útmutatót](https://jpype.readthedocs.io/en/latest/install.html).
 
-1. Telepítse a JDK8‑at Mac-re, és állítsa be a `JAVA_HOME` környezeti változót.
-2. Módosítsa a JVMCapabilities részt a `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` fájlban rendszergazdai jogosultsággal. A `jdk1.8.x_xxx.jdk` a JDK verziójától függ. Így nézzen ki:
-```xml
-<key>JavaVM</key>
-    <dict>
-        <key>JVMCapabilities</key>
-        <array>
-                <string>JNI</string>
-                <string>BundledApp</string>
-                <string>CommandLine</string>
-        </array>
-```
-3. [Telepítse a Python‑t](https://www.python.org/downloads/) >=3.7 verzióval.
-4. Telepítse a GCC vagy Clang fordítókat a Python verziójától és platformjától függően.
-5. [Telepítse a JPype1‑et](https://jpype.readthedocs.io/en/latest/install.html). Az alábbi parancsokat futtathatja a python terminálban:
-```
-$ pip install --upgrade pip
-$ pip install JPype1
-```
-6. [Töltse le az Aspose.Slides for Python via Java‑t](https://releases.aspose.com/slides/hu/python-java/) és csomagolja ki a `aspose-slides-java` könyvtárba.
-7. Hozzon létre egy `example.py` nevű tesztfájlt a `aspose-slides-java` mappában a következő mintakóddal:
-```python
-import jpype
-import asposeslides
+**Miért jelzi a Python, hogy a `asposeslides` hiányzik a telepítés után?**
 
-jpype.startJVM()
+A csomag egy másik Python interpreterhez lett telepítve. Aktiválja a telepítéshez használt virtuális környezetet, és futtassa a `python -m pip show aspose-slides-java` parancsot. ZIP telepítés esetén győződjön meg róla, hogy a `asposeslides` könyvtár a szkriptje mellett vagy egyébként elérhető a Python modulkeresési útvonalában.
 
-from asposeslides.api import Presentation, SaveFormat
+**Futtathatom a példát többször egy notebookban?**
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
+A példa egy önálló Python folyamat számára készült. Mielőtt adaptálná ismételt notebook futtatáshoz, tekintse meg a [Korlátozások és API eltérések](/slides/hu/python-java/limitations-and-api-differences/#import-the-library) oldalt a JVM életciklus és notebook útmutató tekintetében.
 
-jpype.shutdownJVM()
-```
-9. Most futtassa a `python example.py` parancsot a parancssorban.
+**Miért hibázik a pip a `CERTIFICATE_VERIFY_FAILED` hibával?**
+
+Ha a hálózata HTTPS ellenőrző proxy‑t használ, a pip‑nek bizalommal kell rendelkeznie annak tanúsítványkiadójával. Állítsa be a megbízható CA csomagot a pip `--cert` opciójával vagy a `PIP_CERT` környezeti változóval, az [pip HTTPS tanúsítványi útmutató](https://pip.pypa.io/en/stable/topics/https-certificates/) útmutatása szerint. A szükséges konfiguráció a hálózattól és a pip verziójától függ.

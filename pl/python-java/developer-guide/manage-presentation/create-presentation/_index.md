@@ -1,5 +1,5 @@
 ---
-title: Tworzenie prezentacji w Pythonie przez Javę
+title: Tworzenie prezentacji w Pythonie za pomocą Java
 linktitle: Utwórz prezentację
 type: docs
 weight: 10
@@ -7,11 +7,11 @@ url: /pl/python-java/create-presentation/
 keywords:
 - tworzenie prezentacji
 - nowa prezentacja
-- tworzenie PPT
+- utwórz PPT
 - nowy PPT
-- tworzenie PPTX
+- utwórz PPTX
 - nowy PPTX
-- tworzenie ODP
+- utwórz ODP
 - nowy ODP
 - PowerPoint
 - OpenDocument
@@ -19,23 +19,25 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Twórz prezentacje w Pythonie przez Javę przy użyciu Aspose.Slides — twórz pliki PPT, PPTX i ODP, korzystaj z obsługi OpenDocument i zapisuj je programowo, aby uzyskać niezawodne wyniki."
+description: "Twórz prezentacje w Pythonie za pomocą Java i Aspose.Slides—generuj pliki PPT, PPTX i ODP, korzystaj ze wsparcia OpenDocument i zapisuj je programowo dla niezawodnych wyników."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak utworzyć prezentację za pomocą Aspose.Slides dla Pythona przez Javę, dodać kształt z tekstem do pierwszego slajdu i zapisać wynik jako plik PPTX. Sekcja FAQ obejmuje formaty wyjściowe, szablony, rozmiar slajdów, wykorzystanie pamięci, wątkowanie, licencjonowanie, podpisy cyfrowe oraz obsługę VBA.
+Ten artykuł pokazuje, jak utworzyć prezentację przy użyciu Aspose.Slides for Python via Java, dodać kształt z tekstem do pierwszego slajdu i zapisać wynik jako plik PPTX. FAQ opisuje formaty wyjściowe, szablony, rozmiary slajdów, zużycie pamięci, wielowątkowość, licencjonowanie, podpisy cyfrowe oraz obsługę VBA.
 
-## **Utworzenie prezentacji**
+Zanim rozpoczniesz, zainstaluj Pythona, JDK, JPype oraz Aspose.Slides for Python via Java. Zobacz [Instalacja](/slides/pl/python-java/installation/) po kroki dla Windows, Linux i macOS.
 
-Tworzenie pliku PowerPoint od podstaw w Aspose.Slides dla Pythona przez Javę jest tak proste, jak utworzenie klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Konstruktor automatycznie dostarcza pustą prezentację z jednym slajdem, dając od razu płótno do kształtów, tekstu, wykresów lub innej treści potrzebnej aplikacji. Po modyfikacji tego slajdu — lub dodaniu nowych — można zapisać wynik w formacie PPTX, starszym PPT lub nawet OpenDocument. Krótki przykład kodu poniżej ilustruje ten przepływ, dodając prosty kształt na pierwszy slajd.
+## **Utwórz prezentację**
+
+Tworzenie pliku PowerPoint od podstaw w Aspose.Slides for Python via Java jest tak proste, jak utworzenie instancji klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Konstruktor automatycznie dostarcza pustą prezentację z jednym slajdem, dając natychmiastowy obszar roboczy dla kształtów, tekstu, wykresów lub innej treści, której potrzebuje Twoja aplikacja. Po zmodyfikowaniu tego slajdu — lub dodaniu nowych — możesz zapisać wynik w formacie PPTX, starszym PPT lub nawet OpenDocument. Krótki przykład kodu poniżej ilustruje ten przepływ, dodając prosty kształt na pierwszy slajd.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
-1. Pobierz pierwszy slajd według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/) typu [ShapeType.Cloud](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapetype/#Cloud) używając [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/#addAutoShape).
-1. Ustaw tekst kształtu przy pomocy [TextFrame.setText](https://reference.aspose.com/slides/pl/python-java/aspose.slides/textframe/#setText).
-1. Zapisz prezentację przy użyciu [Presentation.save](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#save) z [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/python-java/aspose.slides/saveformat/#Pptx).
+1. Pobierz pierwszy slajd po jego indeksie, 0.
+1. Dodaj [AutoShape](/slides/pl/python-java/aspose.slides/autoshape/) typu [ShapeType.Cloud](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapetype/#Cloud) przy użyciu [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Ustaw tekst kształtu za pomocą [TextFrame.setText](https://reference.aspose.com/slides/pl/python-java/aspose.slides/textframe/#setText).
+1. Zapisz prezentację używając [Presentation.save](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#save) z [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/python-java/aspose.slides/saveformat/#Pptx).
 
-Poniższy przykład wymaga Aspose.Slides dla Pythona przez Javę oraz kompatybilnego środowiska uruchomieniowego Javy. Uruchamia JVM, jeśli nie jest już uruchomiona, dodaje kształt chmury do pierwszego slajdu i zapisuje prezentację:
+Przykład poniżej uruchamia maszynę wirtualną Javy (JVM), jeśli nie jest już uruchomiona, dodaje kształt chmury z tekstem do pierwszego slajdu i zapisuje prezentację. Zapisz go jako *create_presentation.py*:
 
 ```python
 import jpype
@@ -62,6 +64,14 @@ finally:
     presentation.dispose()
 ```
 
+Uruchom skrypt w środowisku, w którym zainstalowano pakiety:
+
+```sh
+python create_presentation.py
+```
+
+Górny lewy róg chmury znajduje się 20 punktów od lewej i górnej krawędzi slajdu, a chmura ma szerokość 200 punktów i wysokość 80 punktów. Skrypt zapisuje *new_presentation.pptx* w bieżącym katalogu roboczym, z jednym slajdem zawierającym chmurę i jej tekst. JVM działa, dopóki proces Pythona nie zakończy się; zobacz [Ograniczenia i różnice API](/slides/pl/python-java/limitations-and-api-differences/#import-the-library). Bez licencji Aspose.Slides dodaje również tekstowe pole z wodnym znakiem oceny do każdego zapisanego slajdu; zobacz [Licencjonowanie](/slides/pl/python-java/licensing/).
+
 Wynik:
 
 ![Nowa prezentacja](new_presentation.png)
@@ -70,36 +80,36 @@ Wynik:
 
 **Jakie formaty mogę zapisać nową prezentację?**
 
-Możesz zapisać do [PPTX, PPT i ODP](/slides/pl/python-java/save-presentation/), a także eksportować do [PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/pl/python-java/convert-powerpoint-to-xps/), [HTML](/slides/pl/python-java/convert-powerpoint-to-html/), [SVG](/slides/pl/python-java/render-slide-as-svg/) oraz [obrazów](/slides/pl/python-java/convert-powerpoint-to-png/), między innymi.
+Możesz zapisać w formacie [PPTX, PPT i ODP](/slides/pl/python-java/save-presentation/), a także wyeksportować do [PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/pl/python-java/convert-powerpoint-to-xps/), [HTML](/slides/pl/python-java/convert-powerpoint-to-html/), [SVG](/slides/pl/python-java/render-a-slide-as-an-svg-image/) oraz [obrazów](/slides/pl/python-java/convert-powerpoint-to-png/), entre innych.
 
-**Czy mogę rozpocząć od szablonu (POTX/POTM) i zapisać jako standardowy PPTX?**
+**Czy mogę rozpocząć od szablonu (POTX/POTM) i zapisać jako zwykły PPTX?**
 
 Tak. Załaduj szablon i zapisz w żądanym formacie; formaty POTX/POTM/PPTM i podobne [są obsługiwane](/slides/pl/python-java/supported-file-formats/).
 
-**Jak kontrolować rozmiar slajdu/proporcje obrazu przy tworzeniu prezentacji?**
+**Jak kontrolować rozmiar slajdu/współczynnik proporcji przy tworzeniu prezentacji?**
 
-Ustaw [slide size](/slides/pl/python-java/slide-size/) (w tym predefiniowane 4:3 i 16:9 lub własne wymiary) i wybierz, jak ma być skalowana zawartość.
+Ustaw [rozmiar slajdu](/slides/pl/python-java/slide-size/) (w tym ustawienia wstępne takie jak 4:3 i 16:9 lub niestandardowe wymiary) i wybierz sposób skalowania treści.
 
 **W jakich jednostkach mierzone są rozmiary i współrzędne?**
 
-W punktach: 1 cal = 72 jednostki.
+W punktach: 1 cal to 72 jednostki.
 
 **Jak radzić sobie z bardzo dużymi prezentacjami (z wieloma plikami multimedialnymi), aby zmniejszyć zużycie pamięci?**
 
-Użyj [BLOB management strategies](/slides/pl/python-java/manage-blob/), ogranicz przechowywanie w pamięci, wykorzystując pliki tymczasowe, i preferuj przepływy pracy oparte na plikach zamiast wyłącznie strumieni w pamięci.
+Użyj [strategii zarządzania BLOB](/slides/pl/python-java/manage-blob/), ogranicz przechowywanie w pamięci przy pomocy plików tymczasowych i preferuj przepływy oparte na plikach zamiast wyłącznie strumieni w pamięci.
 
 **Czy mogę tworzyć/zapisywać prezentacje równolegle?**
 
-Nie możesz operować na tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) z [multiple threads](/slides/pl/python-java/multithreading/). Uruchamiaj oddzielne, izolowane instancje na każdy wątek lub proces.
+Nie możesz operować na tej samej [Presentation](/slides/pl/python-java/multithreading/) z [wielu wątków](/slides/pl/python-java/multithreading/). Uruchom oddzielne, izolowane instancje na wątek lub proces.
 
 **Jak usunąć znak wodny wersji próbnej i ograniczenia?**
 
-[Apply a license](/slides/pl/python-java/licensing/) raz na proces. XML licencji musi pozostać niezmieniony, a konfiguracja licencji powinna być zsynchronizowana, jeśli używane są wielowątkowe operacje.
+[Zastosuj licencję](/slides/pl/python-java/licensing/) raz na proces. Plik XML licencji musi pozostać niezmieniony, a konfiguracja licencji powinna być zsynchronizowana, jeśli używane są wielokrotne wątki.
 
 **Czy mogę cyfrowo podpisać utworzony PPTX?**
 
-Tak. [Digital signatures](/slides/pl/python-java/digital-signature-in-powerpoint/) (dodawanie i weryfikacja) są obsługiwane dla prezentacji.
+Tak. [Podpisy cyfrowe](/slides/pl/python-java/digital-signature-in-powerpoint/) (dodawanie i weryfikacja) są obsługiwane dla prezentacji.
 
 **Czy makra (VBA) są obsługiwane w tworzonych prezentacjach?**
 
-Tak. Możesz [create/edit VBA projects](/slides/pl/python-java/presentation-via-vba/) i zapisywać pliki z włączonymi makrami, takie jak PPTM/PPSM.
+Tak. Możesz [tworzyć/edytować projekty VBA](/slides/pl/python-java/presentation-via-vba/) i zapisywać pliki z włączonymi makrami, takie jak PPTM/PPSM.

@@ -3,18 +3,23 @@ title: Evaluar Aspose.Slides
 type: docs
 weight: 120
 url: /es/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- versión de evaluación
+- limitaciones de prueba
+- marca de agua de evaluación
+- licencia temporal
+description: "Evaluar Aspose.Slides para Python mediante Java, conocer las limitaciones de la versión de prueba y solicitar una licencia temporal de 30 días para probar la funcionalidad completa."
 ---
+Puedes descargar Aspose.Slides para Python a través de Java para evaluar sus funciones. El paquete de evaluación es idéntico al paquete con licencia. Para usarlo sin limitaciones de evaluación, añade unas pocas líneas de código a [aplicar una licencia](/slides/es/python-java/licensing/).
 
+La versión de evaluación de Aspose.Slides (utilizada sin una licencia) ofrece la funcionalidad completa del producto, con dos limitaciones:
 
-Puedes descargar fácilmente Aspose.Slides para evaluación. El paquete de evaluación es el mismo que el paquete adquirido. La versión de evaluación simplemente se licencia después de que agregues algunas líneas de código para aplicar la licencia.
+- Añade un cuadro de texto con marca de agua de evaluación a cada diapositiva de cada presentación que guarda. Abrir una presentación no añade una, pero guardar un archivo que ya lleva la marca de agua añade otra.
+- El texto que tu código lee se trunca a sus primeros caracteres, seguido de un aviso sobre la limitación de evaluación. Esto se aplica a cada diapositiva, y al texto que tu código ha establecido así como al texto cargado desde un archivo. El texto que tu código escribe se guarda completo.
 
-La versión de evaluación de Aspose.Slides (sin una licencia especificada) proporciona la funcionalidad completa del producto, pero inserta una marca de agua de evaluación en la parte superior del documento al abrir y guardar. También estás limitado a una diapositiva al extraer textos de las diapositivas de presentación.
-
-
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Si deseas probar Aspose.Slides sin las limitaciones de la versión de evaluación, puedes solicitar una **Licencia Temporal de 30 Días**. Consulta [¿Cómo obtener una Licencia Temporal?](https://purchase.aspose.com/temporary-license) para más información.
-
+{{% alert color="info" title="Note" %}}
+Para probar Aspose.Slides sin limitaciones de evaluación, puedes solicitar una **licencia temporal de 30 días**. Consulta [Obtener una licencia temporal](https://purchase.aspose.com/temporary-license) para obtener más información.
 {{% /alert %}}

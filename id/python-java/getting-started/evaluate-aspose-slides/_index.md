@@ -3,13 +3,25 @@ title: Evaluasi Aspose.Slides
 type: docs
 weight: 120
 url: /id/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- versi evaluasi
+- batasan percobaan
+- watermark evaluasi
+- lisensi sementara
+description: "Evaluasi Aspose.Slides untuk Python via Java, pelajari tentang batasan percobaan, dan minta lisensi sementara 30 hari untuk menguji fungsionalitas penuh."
 ---
-Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
+Anda dapat mengunduh Aspose.Slides untuk Python via Java untuk mengevaluasi fiturnya. Paket evaluasi identik dengan paket berlisensi. Untuk menggunakannya tanpa batasan evaluasi, tambahkan beberapa baris kode ke [menerapkan lisensi](/slides/id/python-java/licensing/).
 
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan fungsionalitas produk penuh, tetapi menambahkan watermark evaluasi di bagian atas dokumen saat dibuka dan disimpan. Anda juga dibatasi hanya satu slide saat mengekstrak teks dari slide presentasi.
+Versi evaluasi Aspose.Slides (digunakan tanpa lisensi) menyediakan fungsionalitas penuh produk, dengan dua batasan:
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+- Ia menambahkan kotak teks watermark evaluasi ke setiap slide dari setiap presentasi yang disimpannya. Membuka presentasi tidak menambahnya, tetapi menyimpan file yang sudah memiliki watermark menambah yang lain.
+- Teks yang dibaca kode Anda dipotong menjadi beberapa karakter pertama, diikuti dengan pemberitahuan tentang batasan evaluasi. Ini berlaku untuk setiap slide, dan untuk teks yang baru saja kode Anda tetapkan maupun teks yang dimuat dari file. Teks yang ditulis kode Anda disimpan secara lengkap.
 
-{{% alert color="primary" %}} 
-Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat meminta **30 Day Temporary License**. Silakan lihat [Cara Mendapatkan Lisensi Sementara?](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
+{{% alert color="info" title="Note" %}}
+
+Untuk menguji Aspose.Slides tanpa batasan evaluasi, Anda dapat meminta **lisensi sementara 30 hari**. Lihat [Dapatkan Lisensi Sementara](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
+
 {{% /alert %}}

@@ -1,14 +1,14 @@
 ---
-title: Presentaties importeren vanuit PDF of HTML in Python via Java
+title: Importeer presentaties van PDF of HTML in Python via Java
 linktitle: Importeer presentatie
 type: docs
 weight: 60
 url: /nl/python-java/import-presentation/
 keywords:
-- import presentatie
-- import dia
-- import PDF
-- import HTML
+- presentatie importeren
+- slide importeren
+- PDF importeren
+- HTML importeren
 - PDF naar presentatie
 - PDF naar PPT
 - PDF naar PPTX
@@ -22,25 +22,25 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Leer hoe u PDF- en HTML-inhoud kunt importeren in PowerPoint-presentaties in Python via Java met Aspose.Slides en sla de resultaten op als PPTX-bestanden."
+description: "Leer hoe u PDF- en HTML-inhoud kunt importeren in PowerPoint‑presentaties in Python via Java met Aspose.Slides en de resultaten kunt opslaan als PPTX‑bestanden."
 ---
 ## **Introductie**
 
-Aspose.Slides voor Python via Java kan PDF-pagina's of HTML-inhoud omzetten naar PowerPoint-dia's zonder Microsoft PowerPoint. De [SlideCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/) klasse biedt [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf) en [addFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromHtml) om geïmporteerde inhoud aan een presentatie toe te voegen.
+Aspose.Slides for Python via Java kan PDF‑pagina’s of HTML‑inhoud omzetten naar PowerPoint‑dia’s zonder Microsoft PowerPoint. De [SlideCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/) klasse biedt [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf) en [addFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromHtml) om geïmporteerde inhoud toe te voegen aan een presentatie.
 
-Voor meer controle over de plaatsing van HTML kan [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#insertFromHtml) gegenereerde dia's invoegen op een verzamelingsindex of beginnen met het vullen van beschikbare ruimte op een bestaande dia. Lange HTML wordt automatisch over meerdere dia's gepagineerd, de bron kan als tekenreeks of stream worden aangeleverd, en externe middelen kunnen worden geladen via [ExternalResourceResolver](https://reference.aspose.com/slides/nl/python-java/aspose.slides/externalresourceresolver/) met een basis-URI. De geretourneerde [Slide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/) array identificeert de getroffen en nieuw aangemaakte dia's.
+Voor meer controle over de plaatsing van HTML kan [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#insertFromHtml) gegenereerde dia’s invoegen op een verzameling‑index of beginnen met het vullen van beschikbare ruimte op een bestaande dia. Lange HTML wordt automatisch over extra dia’s gepagineerd, de bron kan worden opgegeven als een string of stream, en externe assets kunnen worden geladen via [ExternalResourceResolver](https://reference.aspose.com/slides/nl/python-java/aspose.slides/externalresourceresolver/) met een basis‑URI. De geretourneerde [Slide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/)‑array identificeert de getroffen en nieuw aangemaakte dia’s.
 
 ## **Importeren vanuit PDF**
 
-Om een PDF-document om te zetten naar een PowerPoint-presentatie, importeer je de inhoud in de dia‑collectie en sla je het resultaat op als een PPTX‑bestand.
+Om een PDF‑document om te zetten naar een PowerPoint‑presentatie, importeert u de inhoud in de dia‑collectie en slaat u het resultaat op als een PPTX‑bestand.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. Maak een nieuw [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) object aan.
-2. Roep [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf) aan met het pad naar het PDF‑bestand.
+1. Maak een nieuw [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) object aan.  
+2. Roep [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf) aan met het pad naar het PDF‑bestand.  
 3. Roep [save](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#save) aan met [SaveFormat.Pptx](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveformat/#Pptx) om de presentatie naar een PPTX‑bestand te schrijven.
 
-Het volgende Python‑voorbeeld importeert een PDF‑document en slaat de gegenereerde dia's op als een PowerPoint‑presentatie:
+Het volgende Python‑voorbeeld importeert een PDF‑document en slaat de gegenereerde dia’s op als een PowerPoint‑presentatie:
 
 ```python
 import jpype
@@ -59,23 +59,23 @@ finally:
     presentation.dispose()
 ```
 
-De standaard lege dia blijft in de presentatie omdat de import dia's toevoegt. Om alleen de geïmporteerde pagina's te behouden, maak je de dia‑collectie leeg met [SlideCollection.clear](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#clear) vóór het importeren.
+De standaard lege dia blijft in de presentatie omdat de import dia’s toevoegt. Om alleen de geïmporteerde pagina’s te behouden, maakt u de dia‑collectie leeg met [SlideCollection.clear](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#clear) voordat u importeert.
 
-De [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf) methode retourneert de dia's die hij toevoegt, wat handig is wanneer je alleen de geïmporteerde dia's moet verwerken.
+De [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf) methode retourneert de dia’s die ze toevoegt, wat handig is wanneer u alleen de geïmporteerde dia’s moet verwerken.
 
 {{% alert title="Tip" color="success" %}}
-Probeer de gratis [PDF to PowerPoint](https://products.aspose.app/slides/nl/import/pdf-to-powerpoint) web‑app om deze conversiewerkstroom in actie te zien.
+Probeer de gratis [PDF to PowerPoint](https://products.aspose.app/slides/nl/import/pdf-to-powerpoint) webapp om deze conversieworkflow in actie te zien.
 {{% /alert %}}
 
 ## **Importeren vanuit HTML**
 
-Aspose.Slides kan ook dia's maken vanuit een HTML‑document. De bron kan worden aangeleverd als HTML‑tekst of een stream. De volgende stappen gebruiken een bestands‑stream:
+Aspose.Slides kan ook dia’s maken vanuit een HTML‑document. De bron kan worden opgegeven als HTML‑tekst of een stream. De volgende stappen gebruiken een bestand‑stream:
 
-1. Maak een nieuw [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) object aan.
-2. Open het HTML‑bestand voor lezen en geef de stream door aan [addFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromHtml).
+1. Maak een nieuw [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) object aan.  
+2. Open het HTML‑bestand voor lezen en geef de stream door aan [addFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromHtml).  
 3. Roep [save](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#save) aan met [SaveFormat.Pptx](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveformat/#Pptx) om het resultaat naar een PPTX‑bestand te schrijven.
 
-Het volgende Python‑voorbeeld importeert een HTML‑document en slaat de gegenereerde dia's op als een PowerPoint‑presentatie:
+Het volgende Python‑voorbeeld importeert een HTML‑document en slaat de gegenereerde dia’s op als een PowerPoint‑presentatie:
 
 ```python
 import jpype
@@ -101,18 +101,18 @@ finally:
 
 ## **HTML‑inhoud invoegen**
 
-Gebruik [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#insertFromHtml) wanneer HTML‑gegenereerde dia's op een specifieke positie moeten worden geplaatst in plaats van toegevoegd. De index is nul‑gebaseerd en geeft de positie aan waarop de import begint.
+Gebruik [SlideCollection.insertFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#insertFromHtml) wanneer HTML‑gegenereerde dia’s op een specifieke positie moeten worden geplaatst in plaats van toegevoegd. De index is nul‑gebaseerd en geeft de positie aan waarop de import start.
 
 Het argument `useSlideWithIndexAsStart` bepaalt hoe de importeur die positie gebruikt:
 
-- Wanneer het `False` is, maakt de importeur nieuwe dia's op de opgegeven index en verschuift de daarop volgende dia's.
-- Wanneer het `True` is, begint de importeur de inhoud te plaatsen in de beschikbare ruimte op de bestaande dia op die index. Als de HTML niet past, pagina't Aspose.Slides het automatisch en voegt extra dia's direct na de startdia in.
+- Wanneer het `False` is, maakt de importeur nieuwe dia’s op de opgegeven index en schuift de daaropvolgende dia’s.  
+- Wanneer het `True` is, begint de importeur de inhoud te plaatsen in de beschikbare ruimte op de bestaande dia op die index. Past de HTML niet, dan pagineert Aspose.Slides het automatisch en voegt extra dia’s toe direct na de start‑dia.
 
-[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#insertFromHtml) retourneert een array van [Slide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/) objecten. Wanneer de invoeging start op nieuwe dia's, is elk geretourneerd item nieuw aangemaakt. Wanneer een bestaande dia wordt gebruikt als start, bevat de array die getroffen dia gevolgd door eventuele nieuwe overlappende dia's. Je kunt deze array inspecteren in plaats van het berekenen van het getroffen bereik op basis van het aantal dia's in de presentatie.
+[SlideCollection.insertFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#insertFromHtml) retourneert een array van [Slide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/)‑objecten. Wanneer de invoeging start op nieuwe dia’s, is elk geretourneerd item nieuw aangemaakt. Wanneer een bestaande dia als start wordt gebruikt, bevat de array die getroffen dia gevolgd door eventuele nieuwe overflow‑dia’s. U kunt deze array inspecteren in plaats van het getroffen bereik te berekenen op basis van het totale aantal dia’s in de presentatie.
 
-### **HTML invoegen als nieuwe dia's**
+### **HTML invoegen als nieuwe dia’s**
 
-Het volgende voorbeeld levert HTML als een tekenreeks en voegt de gegenereerde dia's in op verzamelings‑index `1`. Het doorgeven van `False` laat de bestaande dia's ongewijzigd, behalve dat ze worden verschoven om ruimte te maken.
+Het volgende voorbeeld levert HTML als een string en voegt de gegenereerde dia’s in op verzamelings‑index `1`. Het doorgeven van `False` laat de bestaande dia’s ongewijzigd, behalve dat ze worden verschoven om ruimte te maken.
 
 ```python
 import jpype
@@ -141,11 +141,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Beginnen op een bestaande dia**
+### **Starten op een bestaande dia**
 
-Het volgende voorbeeld levert de HTML via een stream. Het behoudt een koptekst‑vorm op de bestaande sjabloondia, begint met importeren onder het bezette gebied, en laat de lange body doorgaan op nieuwe dia's.
+Het volgende voorbeeld levert de HTML via een stream. Het behoudt een koptekstvorm op de bestaande sjabloondia, start het importeren onder het bezette gebied en laat de lange tekst doorgaan op nieuwe dia’s.
 
-De HTML bevat ook een relatieve afbeelding‑URL. Een [ExternalResourceResolver](https://reference.aspose.com/slides/nl/python-java/aspose.slides/externalresourceresolver/) haalt de bron op, terwijl de basis‑URI de importeur vertelt hoe `images/logo.png` moet worden opgelost. In dit voorbeeld wordt verwacht dat dat bestand zich bevindt op `html-assets/images/logo.png`.
+De HTML bevat ook een relatieve afbeeldings‑URL. Een [ExternalResourceResolver](https://reference.aspose.com/slides/nl/python-java/aspose.slides/externalresourceresolver/) haalt de bron op, terwijl de basis‑URI de importeur vertelt hoe `images/logo.png` moet worden opgelost. In dit voorbeeld wordt dat bestand verwacht op `html-assets/images/logo.png`.
 
 ```python
 from pathlib import Path
@@ -189,16 +189,16 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert title="Warning" color="warning" %}}
-Een onbeperkte externe resource‑resolver kan lokale of netwerkbronnen lezen die door de HTML worden gerefereerd. Voor niet‑vertrouwde invoer moet je resource‑URL's valideren en sanitizen tegen een whitelist van toegestane schema's, mappen en hosts voordat je de HTML importeert.
+{{% alert title="Waarschuwing" color="warning" %}}
+Een onbeperkte externe resource‑resolver kan lokale of netwerkbronnen die in de HTML worden vermeld lezen. Voor onbetrouwbare invoer moet u resource‑URL’s valideren en saniteren tegen een whitelist van toegestane schema’s, mappen en hosts voordat u de HTML importeert.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Kan Aspose.Slides tabellen detecteren bij het importeren van een PDF?**
 
-Ja. Maak een [PdfImportOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfimportoptions/) object aan, roep [setDetectTables](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfimportoptions/#setDetectTables) aan met `True`, en geef de opties door aan [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf). De kwaliteit van tabelherkenning hangt af van de structuur en complexiteit van de bron‑PDF.
+Ja. Maak een [PdfImportOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfimportoptions/) object, roep [setDetectTables](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfimportoptions/#setDetectTables) aan met `True`, en geef de opties door aan [addFromPdf](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slidecollection/#addFromPdf). De kwaliteit van tabelherkenning hangt af van de structuur en complexiteit van de bron‑PDF.
 
-{{% alert title="Note" color="info" %}}
-Na het importeren van HTML kun je de dia's ook exporteren naar [images](/slides/nl/python-java/convert-powerpoint-to-png/), [TIFF](/slides/nl/python-java/convert-powerpoint-to-tiff/), of [SVG](/slides/nl/python-java/render-slide-as-svg/).
+{{% alert title="Opmerking" color="info" %}}
+Na het importeren van HTML kunt u de dia’s ook exporteren naar [images](/slides/nl/python-java/convert-powerpoint-to-png/), [TIFF](/slides/nl/python-java/convert-powerpoint-to-tiff/), of [SVG](/slides/nl/python-java/render-a-slide-as-an-svg-image/).
 {{% /alert %}}
