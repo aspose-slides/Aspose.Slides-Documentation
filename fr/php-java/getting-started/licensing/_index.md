@@ -61,7 +61,7 @@ Vous devez définir la licence :
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Vous pouvez trouver les informations de tarification sur la page [« Informations tarifaires »](https://purchase.aspose.com/pricing/slides/fr/family).
+Vous pouvez trouver les informations de tarification sur la page [« Informations tarifaires »](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Définir une licence dans Aspose.Slides pour PHP via Java**

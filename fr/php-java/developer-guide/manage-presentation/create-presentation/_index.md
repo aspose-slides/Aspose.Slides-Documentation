@@ -30,10 +30,10 @@ Avant de commencer, installez Aspose.Slides pour PHP via Java avec Composer et l
 
 Pour créer une présentation et placer une zone de texte sur sa première diapositive, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.
-2. Récupérez cette diapositive dans la collection renvoyée par [Presentation::getSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/getslides/), en utilisant son indice 0.
-3. Ajoutez un rectangle avec la méthode [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shapecollection/addautoshape/) et définissez son texte avec [TextFrame::setText](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textframe/settext/).
-4. Enregistrez la présentation en tant que fichier PPTX avec la méthode [Presentation::save](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/save/).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Une nouvelle présentation contient déjà une diapositive vide.
+2. Récupérez cette diapositive dans la collection renvoyée par [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/), en utilisant son indice 0.
+3. Ajoutez un rectangle avec la méthode [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) et définissez son texte avec [TextFrame::setText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/settext/).
+4. Enregistrez la présentation en tant que fichier PPTX avec la méthode [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/).
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Aspose.Slides lit et écrit les fichiers à l'intérieur de Tomcat, pas dans vot
 
 ## **Créer et enregistrer une présentation**
 
-Pour créer une présentation vide et l'enregistrer, créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) et enregistrez‑la dans n'importe quel format de l'énumération [SaveFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/saveformat/). Le résultat est une présentation avec une diapositive vide.
+Pour créer une présentation vide et l'enregistrer, créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) et enregistrez‑la dans n'importe quel format de l'énumération [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/). Le résultat est une présentation avec une diapositive vide.
 
 ```php
 <?php
@@ -83,7 +83,7 @@ try {
 
 ## **Ouvrir et enregistrer une présentation**
 
-Pour convertir une présentation d'un format à un autre, ouvrez‑la en passant son chemin au constructeur [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/), puis enregistrez‑la dans le format cible. Aspose.Slides détecte le format d'entrée, tel que PPT, PPTX ou ODP, à partir du fichier lui‑même.
+Pour convertir une présentation d'un format à un autre, ouvrez‑la en passant son chemin au constructeur [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), puis enregistrez‑la dans le format cible. Aspose.Slides détecte le format d'entrée, tel que PPT, PPTX ou ODP, à partir du fichier lui‑même.
 
 L'exemple ci‑dessous suppose une présentation OpenDocument nommée *Sample.odp* à côté du script et l'enregistre au format PPTX.
 
@@ -127,7 +127,7 @@ Utilisez les [stratégies de gestion des BLOB](/slides/fr/php-java/manage-blob/)
 
 ### Puis‑je créer/enregistrer des présentations en parallèle ?
 
-Vous ne pouvez pas manipuler la même instance [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/php-java/multithreading/). Exécutez des instances séparées et isolées par thread ou processus.
+Vous ne pouvez pas manipuler la même instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/php-java/multithreading/). Exécutez des instances séparées et isolées par thread ou processus.
 
 ### Comment supprimer le filigrane d'essai et les limitations ?
 
