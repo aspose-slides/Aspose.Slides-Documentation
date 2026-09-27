@@ -10,7 +10,7 @@ url: /fr/nodejs-net/licensing/
 Aspose.Slides for Node.js via .NET est un paquet npm à la fois pour l'évaluation et la production. Sans licence, il fonctionne en mode d'évaluation. Après avoir acheté une licence, ou obtenu une licence temporaire gratuite de 30 jours, vous l'appliquez avec quelques lignes de code, et les limitations d'évaluation ne s'appliquent plus.
 
 {{% alert color="info" title="Note" %}}
-Les politiques générales sur la façon d'évaluer, de licencier et d'acheter les produits Aspose sont regroupées dans [Politiques d'achat et FAQ](https://purchase.aspose.com/policies). Les prix sont indiqués sur la page [Informations tarifaires](https://purchase.aspose.com/pricing/slides/fr/family).
+Les politiques générales sur la façon d'évaluer, de licencier et d'acheter les produits Aspose sont regroupées dans [Politiques d'achat et FAQ](https://purchase.aspose.com/policies). Les prix sont indiqués sur la page [Informations tarifaires](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ## **Limitations de la version d'évaluation**
@@ -51,4 +51,4 @@ Un nom de fichier ou un chemin relatif est résolu par rapport au dossier couran
 
 Si le fichier est introuvable ou n'est pas une licence valide, `setLicense` lève une erreur, et Aspose.Slides reste en mode d'évaluation. Le script intercepte l'erreur et affiche son message. Pour un fichier manquant, le message commence par `License "Aspose.Slides.lic" doesn't exist or access is restricted.` et répertorie chaque emplacement qui a été recherché.
 
-Dans ce paquet, une licence n'est appliquée qu'à partir d'un fichier. `License` n'accepte pas de flux, et le paquet n'expose pas de licence à la consommation. Pour la classe encapsulée par le paquet, voir [License](https://reference.aspose.com/slides/fr/net/aspose.slides/license/) dans la référence API Aspose.Slides for .NET.
+Dans ce paquet, une licence n'est appliquée qu'à partir d'un fichier. `License` n'accepte pas de flux, et le paquet n'expose pas de licence à la consommation. Pour la classe encapsulée par le paquet, voir [License](https://reference.aspose.com/slides/net/aspose.slides/license/) dans la référence API Aspose.Slides for .NET.

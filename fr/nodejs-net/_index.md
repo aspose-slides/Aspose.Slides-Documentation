@@ -58,13 +58,13 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 <hr>
 <p>RÉFÉRENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fr/net/">Référence API .NET</a></li>
-<li><a href="https://releases.aspose.com/slides/fr/nodejs-net/release-notes/">Notes de version</a></li>
-<li><a href="https://releases.aspose.com/slides/fr/nodejs-net/">Télécharger</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Référence API .NET</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Notes de version</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">Télécharger</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum d'assistance gratuit</a></li>
 <li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
 </ul>
 </div>

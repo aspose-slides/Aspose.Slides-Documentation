@@ -22,20 +22,20 @@ description: "Convertir des présentations PPTX, PPT et ODP en PDF en JavaScript
 ---
 ## **Aperçu**
 
-Aspose.Slides for Node.js via .NET convertit les présentations PowerPoint et OpenDocument en PDF sans Microsoft PowerPoint. Chaque diapositive visible devient une page PDF de la même taille que la diapositive, et le texte reste sélectionnable et recherchable. Cet article montre la conversion par défaut et une conversion en PDF/A avec [PdfOptions](https://reference.aspose.com/slides/fr/net/aspose.slides.export/pdfoptions/).
+Aspose.Slides for Node.js via .NET convertit les présentations PowerPoint et OpenDocument en PDF sans Microsoft PowerPoint. Chaque diapositive visible devient une page PDF de la même taille que la diapositive, et le texte reste sélectionnable et recherchable. Cet article montre la conversion par défaut et une conversion en PDF/A avec [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 Les exemples supposent une présentation nommée `sample.pptx` dans le dossier du projet que vous avez configuré dans [Installation](/slides/fr/nodejs-net/installation/). Toute présentation PowerPoint convient. Enregistrez chaque exemple comme un fichier `.js` dans le dossier du projet et exécutez-le depuis ce dossier avec `node`.
 
 {{% alert color="info" title="Remarque" %}}
-Aspose.Slides for Node.js via .NET n’a pas de référence API propre. Il reflète l’API Aspose.Slides for .NET avec des noms camelCase, de sorte que les liens API de cet article mènent aux classes et membres correspondants dans la [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/fr/net/).
+Aspose.Slides for Node.js via .NET n’a pas de référence API propre. Il reflète l’API Aspose.Slides for .NET avec des noms camelCase, de sorte que les liens API de cet article mènent aux classes et membres correspondants dans la [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Convertir une présentation en PDF**
 
 Pour convertir une présentation en PDF, suivez ces étapes :
 
-1. Ouvrez la présentation en passant son chemin au constructeur [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/presentation/). Le même code fonctionne pour les fichiers PPTX, PPT et ODP.
-2. Appelez la méthode [save](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/save/) en lui fournissant le chemin de sortie et `SaveFormat.Pdf`.
+1. Ouvrez la présentation en passant son chemin au constructeur [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Le même code fonctionne pour les fichiers PPTX, PPT et ODP.
+2. Appelez la méthode [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) en lui fournissant le chemin de sortie et `SaveFormat.Pdf`.
 3. Appelez `dispose` dans un bloc `finally` pour libérer les ressources .NET sous‑jacent la présentation.
 
 ```javascript
@@ -54,7 +54,7 @@ Le script écrit `sample.pdf` dans le dossier du projet. La conversion utilise l
 
 ## **Convertir une présentation en PDF/A**
 
-Pour contrôler la sortie, passez un objet [PdfOptions](https://reference.aspose.com/slides/fr/net/aspose.slides.export/pdfoptions/) comme troisième argument de `save`. L’exemple suivant définit la propriété [compliance](https://reference.aspose.com/slides/fr/net/aspose.slides.export/pdfoptions/compliance/) sur `PdfCompliance.PdfA2b`, ce qui produit un fichier PDF/A-2b. PDF/A est la norme ISO pour l’archivage à long terme : parmi d’autres règles, il exige que chaque police utilisée par le document soit incorporée dans le fichier.
+Pour contrôler la sortie, passez un objet [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) comme troisième argument de `save`. L’exemple suivant définit la propriété [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) sur `PdfCompliance.PdfA2b`, ce qui produit un fichier PDF/A-2b. PDF/A est la norme ISO pour l’archivage à long terme : parmi d’autres règles, il exige que chaque police utilisée par le document soit incorporée dans le fichier.
 
 ```javascript
 const { Presentation, SaveFormat, PdfOptions, PdfCompliance } = require("aspose.slides.via.net");
@@ -71,17 +71,17 @@ try {
 }
 ```
 
-Le script écrit `sample-pdfa.pdf` avec les mêmes pages que la conversion par défaut. Pour confirmer qu’un fichier respecte la norme, vérifiez‑le avec un validateur PDF/A tel que [veraPDF](https://verapdf.org/). D’autres valeurs [PdfCompliance](https://reference.aspose.com/slides/fr/net/aspose.slides.export/pdfcompliance/) sélectionnent d’autres normes, comme `PdfA1b`, `PdfA2a` ou `PdfUa` pour l’accessibilité.
+Le script écrit `sample-pdfa.pdf` avec les mêmes pages que la conversion par défaut. Pour confirmer qu’un fichier respecte la norme, vérifiez‑le avec un validateur PDF/A tel que [veraPDF](https://verapdf.org/). D’autres valeurs [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) sélectionnent d’autres normes, comme `PdfA1b`, `PdfA2a` ou `PdfUa` pour l’accessibilité.
 
 ## **FAQ**
 
 **Comment inclure les diapositives masquées dans le PDF ?**
 
-Les diapositives masquées sont ignorées par défaut. Réglez la propriété [showHiddenSlides](https://reference.aspose.com/slides/fr/net/aspose.slides.export/pdfoptions/showhiddenslides/) de `PdfOptions` sur `true` et passez les options à `save`.
+Les diapositives masquées sont ignorées par défaut. Réglez la propriété [showHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) de `PdfOptions` sur `true` et passez les options à `save`.
 
 **Puis-je protéger le PDF avec un mot de passe ?**
 
-Oui. Définissez la propriété [password](https://reference.aspose.com/slides/fr/net/aspose.slides.export/pdfoptions/password/) de `PdfOptions` avant d’appeler `save`. Les lecteurs PDF demanderont alors ce mot de passe avant d’ouvrir le fichier.
+Oui. Définissez la propriété [password](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/password/) de `PdfOptions` avant d’appeler `save`. Les lecteurs PDF demanderont alors ce mot de passe avant d’ouvrir le fichier.
 
 **Puis-je convertir seulement certaines diapositives ?**
 

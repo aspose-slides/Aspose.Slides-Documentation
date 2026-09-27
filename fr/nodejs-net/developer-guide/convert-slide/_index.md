@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET rend les diapositives des présentations Powe
 Les exemples supposent une présentation nommée `sample.pptx` dans le dossier du projet que vous avez configuré dans [Installation](/slides/fr/nodejs-net/installation/). Toute présentation PowerPoint convient. Enregistrez chaque exemple sous forme de fichier `.js` dans le dossier du projet et exécutez‑le depuis ce dossier avec `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET n’a pas de référence d’API propre. Elle reflète l’API Aspose.Slides for .NET avec des noms camelCase, de sorte que les liens API de cet article mènent aux classes et membres correspondants dans la [référence d’API Aspose.Slides for .NET](https://reference.aspose.com/slides/fr/net/).
+Aspose.Slides for Node.js via .NET n’a pas de référence d’API propre. Elle reflète l’API Aspose.Slides for .NET avec des noms camelCase, de sorte que les liens API de cet article mènent aux classes et membres correspondants dans la [référence d’API Aspose.Slides for .NET](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 Pour convertir une diapositive en image, suivez ces étapes :
 
-1. Ouvrez la présentation avec le constructeur [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/presentation/).
-1. Récupérez une diapositive depuis la collection [slides](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/slides/fr/) avec `get(index)`. Les index commencent à 0.
-1. Rendu de la diapositive avec `getImageWithScale` ou `getImageWithImageSize`. Dans la référence d’API .NET, les deux sont des surcharges de [Slide.GetImage](https://reference.aspose.com/slides/fr/net/aspose.slides/slide/getimage/). Elles renvoient un objet image qui correspond à [IImage](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/).
-1. Enregistrez l'image avec sa méthode [save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/save/) et une valeur [ImageFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/imageformat/), puis appelez sa méthode `dispose`.
+1. Ouvrez la présentation avec le constructeur [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/).
+1. Récupérez une diapositive depuis la collection [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) avec `get(index)`. Les index commencent à 0.
+1. Rendu de la diapositive avec `getImageWithScale` ou `getImageWithImageSize`. Dans la référence d’API .NET, les deux sont des surcharges de [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Elles renvoient un objet image qui correspond à [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
+1. Enregistrez l'image avec sa méthode [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) et une valeur [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), puis appelez sa méthode `dispose`.
 
 ## **Convertir chaque diapositive en image PNG**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Le script écrit un fichier par diapositive, `slide_1.png`, `slide_2.png`, etc., numérotés à partir de 1. Pour une présentation 16 : 9 dont les diapositives mesurent 960 × 540 points, chaque image fait 1920 × 1080 pixels. Les diapositives masquées sont également rendues ; pour les ignorer, vérifiez la propriété [hidden](https://reference.aspose.com/slides/fr/net/aspose.slides/slide/hidden/) de la diapositive. Chaque image est libérée dans son propre bloc `finally`, ce qui la libère avant que la diapositive suivante ne soit rendue. Sans licence, les images affichent également un filigrane d’évaluation ; voir [Licensing](/slides/fr/nodejs-net/licensing/).
+Le script écrit un fichier par diapositive, `slide_1.png`, `slide_2.png`, etc., numérotés à partir de 1. Pour une présentation 16 : 9 dont les diapositives mesurent 960 × 540 points, chaque image fait 1920 × 1080 pixels. Les diapositives masquées sont également rendues ; pour les ignorer, vérifiez la propriété [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) de la diapositive. Chaque image est libérée dans son propre bloc `finally`, ce qui la libère avant que la diapositive suivante ne soit rendue. Sans licence, les images affichent également un filigrane d’évaluation ; voir [Licensing](/slides/fr/nodejs-net/licensing/).
 
 ## **Convertir une diapositive en image d’une taille donnée**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-La propriété [slideSize.size](https://reference.aspose.com/slides/fr/net/aspose.slides/slidesize/size/) renvoie la largeur et la hauteur de la diapositive en points. Pour une présentation 16 : 9, le script affiche `Saved a 1280 x 720 image` et écrit `slide_1_1280px.png` ; pour une présentation 4 : 3, l'image fait 1280 × 960 pixels.
+La propriété [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) renvoie la largeur et la hauteur de la diapositive en points. Pour une présentation 16 : 9, le script affiche `Saved a 1280 x 720 image` et écrit `slide_1_1280px.png` ; pour une présentation 4 : 3, l'image fait 1280 × 960 pixels.
 
 ## **FAQ**
 

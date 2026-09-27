@@ -31,12 +31,12 @@ Cet article ajoute une zone de texte à une diapositive et enregistre la présen
 Les exemples nécessitent un projet configuré comme décrit dans [Installation](/slides/fr/nodejs-net/installation/). Enregistrez chaque exemple comme fichier `.js` dans le dossier du projet et exécutez‑le depuis ce dossier avec `node`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET n’a pas de référence d’API propre. Il reflète l’API Aspose.Slides for .NET avec des noms camelCase, de sorte que les liens API de cet article renvoient aux classes et membres correspondants dans la [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/fr/net/).
+Aspose.Slides for Node.js via .NET n’a pas de référence d’API propre. Il reflète l’API Aspose.Slides for .NET avec des noms camelCase, de sorte que les liens API de cet article renvoient aux classes et membres correspondants dans la [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/).
 {{% /alert %}}
 
 ## **Ajouter une zone de texte**
 
-Pour ajouter une zone de texte, ajoutez une forme automatique à une diapositive avec la méthode [addAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/shapecollection/addautoshape/) et donnez‑lui du texte avec la méthode [addTextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/autoshape/addtextframe/). L’exemple suivant ajoute un rectangle à la première diapositive d’une nouvelle présentation et enregistre la présentation sous le nom `text-box.pptx` :
+Pour ajouter une zone de texte, ajoutez une forme automatique à une diapositive avec la méthode [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) et donnez‑lui du texte avec la méthode [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/). L’exemple suivant ajoute un rectangle à la première diapositive d’une nouvelle présentation et enregistre la présentation sous le nom `text-box.pptx` :
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ La diapositive dans `text-box.pptx` contient un rectangle de 500 points de large
 
 ## **Modifier le texte et son formatage**
 
-L’exemple suivant ouvre `text-box.pptx`, créé par l’exemple précédent, et récupère la première forme de la première diapositive. Les formes telles que les images et les tableaux n’ont pas de cadre de texte, c’est pourquoi l’exemple vérifie que la forme est une [AutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/autoshape/) avant d’utiliser le [textFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/autoshape/textframe/) de la forme. Il effectue ensuite les opérations suivantes :
+L’exemple suivant ouvre `text-box.pptx`, créé par l’exemple précédent, et récupère la première forme de la première diapositive. Les formes telles que les images et les tableaux n’ont pas de cadre de texte, c’est pourquoi l’exemple vérifie que la forme est une [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) avant d’utiliser le [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) de la forme. Il effectue ensuite les opérations suivantes :
 
-1. Il remplace le texte via la propriété [text](https://reference.aspose.com/slides/fr/net/aspose.slides/textframe/text/) du cadre de texte. Après cela, le cadre de texte contient un paragraphe avec une seule portion.  
-2. Il récupère cette portion à partir des collections [paragraphs](https://reference.aspose.com/slides/fr/net/aspose.slides/textframe/paragraphs/) et [portions](https://reference.aspose.com/slides/fr/net/aspose.slides/paragraph/portions/) et lit son [portionFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/portion/portionformat/).  
-3. Il définit [fontHeight](https://reference.aspose.com/slides/fr/net/aspose.slides/baseportionformat/fontheight/), la taille de police en points, et [fontBold](https://reference.aspose.com/slides/fr/net/aspose.slides/baseportionformat/fontbold/), qui prend une valeur [NullableBool](https://reference.aspose.com/slides/fr/net/aspose.slides/nullablebool/).
+1. Il remplace le texte via la propriété [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) du cadre de texte. Après cela, le cadre de texte contient un paragraphe avec une seule portion.  
+2. Il récupère cette portion à partir des collections [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) et [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) et lit son [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).  
+3. Il définit [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), la taille de police en points, et [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), qui prend une valeur [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/).
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

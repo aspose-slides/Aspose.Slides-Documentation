@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET est documenté par la référen
 ---
 ## **Vue d'ensemble**
 
-Aspose.Slides for Node.js via .NET n'a pas de référence API propre. Le package expose les classes d'Aspose.Slides for .NET à JavaScript sous les mêmes noms, avec des noms de membres en camelCase, de sorte que la [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/fr/net/) documente ses classes, membres et énumérations.
+Aspose.Slides for Node.js via .NET n'a pas de référence API propre. Le package expose les classes d'Aspose.Slides for .NET à JavaScript sous les mêmes noms, avec des noms de membres en camelCase, de sorte que la [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) documente ses classes, membres et énumérations.
 
 ## **Mapper les noms .NET en JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Le script écrit `slide.png` et `slide.pdf` dans le dossier actuel. Les deux affichent le rectangle avec son texte. Sans licence, ils affichent également un filigrane d'évaluation ; voir la [Licence](/slides/fr/nodejs-net/licensing/).
 
-Pour plus de détails sur les membres utilisés ici, voir [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/fr/net/aspose.slides/textframe/text/) et [Slide.GetImage](https://reference.aspose.com/slides/fr/net/aspose.slides/slide/getimage/) dans la référence API Aspose.Slides for .NET.
+Pour plus de détails sur les membres utilisés ici, voir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) et [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) dans la référence API Aspose.Slides for .NET.
