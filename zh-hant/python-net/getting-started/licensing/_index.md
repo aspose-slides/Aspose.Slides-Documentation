@@ -23,7 +23,7 @@ Aspose.Slides 可以以評估模式或使用有效授權使用。評估版本提
 
 您可以從其[下載頁面](https://pypi.org/project/Aspose.Slides/)下載 **Aspose.Slides for Python via .NET** 的評估版本。評估版本提供與授權產品相同的功能。評估套件與購買套件完全相同，加入少量程式碼以套用授權後即可轉為授權版。
 
-當您對 **Aspose.Slides** 的評估感到滿意時，您可以[購買授權](https://purchase.aspose.com/pricing/slides/zh-hant/python-net/)。建議您檢視可用的訂閱選項。如有疑問，請聯絡 Aspose 銷售團隊。
+當您對 **Aspose.Slides** 的評估感到滿意時，您可以[購買授權](https://purchase.aspose.com/pricing/slides/python-net/)。建議您檢視可用的訂閱選項。如有疑問，請聯絡 Aspose 銷售團隊。
 
 每個 Aspose 授權都包含一年訂閱，期間可免費升級至新版本以及取得修補程式。授權使用者與評估使用者皆可獲得免費、無限制的技術支援。
 
@@ -58,7 +58,7 @@ Aspose.Slides 可以以評估模式或使用有效授權使用。評估版本提
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides 提供[License](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/license/)類別以處理授權事宜。
+Aspose.Slides 提供[License](https://reference.aspose.com/slides/python-net/aspose.slides/license/)類別以處理授權事宜。
 
 {{% /alert %}}
 
@@ -70,7 +70,7 @@ Aspose.Slides 提供[License](https://reference.aspose.com/slides/zh-hant/python
 
 ### **檔案**
 
-設定授權最簡單的方式是將授權檔案的路徑傳遞給[set_license](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/license/set_license/)方法。如果僅傳遞檔名，如下例所示，Aspose.Slides 會在目前工作目錄中尋找該檔案。
+設定授權最簡單的方式是將授權檔案的路徑傳遞給[set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/)方法。如果僅傳遞檔名，如下例所示，Aspose.Slides 會在目前工作目錄中尋找該檔案。
 
 以下 Python 程式碼示範如何設定授權檔案：
 
@@ -86,9 +86,9 @@ license.set_license("Aspose.Slides.lic")
 
 {{% alert color="warning" title="Warning" %}}
 
-如果您將授權檔案放在其他目錄，呼叫[License.set_license](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/license/set_license/#str)時，明確路徑最後的檔名必須與授權檔案的名稱相符。
+如果您將授權檔案放在其他目錄，呼叫[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)時，明確路徑最後的檔名必須與授權檔案的名稱相符。
 
-例如，您可以將授權檔案重新命名為 *Aspose.Slides.lic.xml*。然後在程式碼中傳遞該檔案的完整路徑（以 Aspose.Slides.lic.xml 結尾）給[License.set_license](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/license/set_license/#str)方法。
+例如，您可以將授權檔案重新命名為 *Aspose.Slides.lic.xml*。然後在程式碼中傳遞該檔案的完整路徑（以 Aspose.Slides.lic.xml 結尾）給[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str)方法。
 
 {{% /alert %}}
 
@@ -126,7 +126,7 @@ if license.is_licensed():
 
 {{% alert color="warning" title="Warning" %}}
 
-[License.set_license](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/license/set_license/) 方法不是執行緒安全的。如果需要在多個執行緒中同時呼叫，請使用同步基元（例如 `threading.Lock`）以避免問題。
+[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) 方法不是執行緒安全的。如果需要在多個執行緒中同時呼叫，請使用同步基元（例如 `threading.Lock`）以避免問題。
 
 {{% /alert %}}
 

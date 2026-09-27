@@ -29,10 +29,10 @@ description: "在 Python 中使用 Aspose.Slides 建立 PowerPoint 簡報——�
 
 若要建立簡報並在第一張投影片上放置帶文字的圖形，請依照以下步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的實例。新簡報會自動包含一張空白投影片。  
-2. 由 [slides](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/slides/zh-hant/) 集合依索引 0 取得該投影片。  
-3. 使用投影片的 [shapes](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slide/shapes/) 集合的 [add_auto_shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_auto_shape/) 方法，新增一個雲狀的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/)，並設定其 [text](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/textframe/text/)。  
-4. 以 [save](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 類別的實例。新簡報會自動包含一張空白投影片。  
+2. 由 [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) 集合依索引 0 取得該投影片。  
+3. 使用投影片的 [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) 集合的 [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) 方法，新增一個雲狀的 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)，並設定其 [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/)。  
+4. 以 [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) 方法將簡報儲存為 PPTX 檔案。
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ### 可以平行建立/儲存簡報嗎？
 
-無法在[多執行緒](/slides/zh-hant/python-net/multithreading/)中同時操作同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 實例。請為每個執行緒或行程使用獨立的實例。
+無法在[多執行緒](/slides/zh-hant/python-net/multithreading/)中同時操作同一個 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 實例。請為每個執行緒或行程使用獨立的實例。
 
 ### 如何移除評估浮水印與限制？
 
