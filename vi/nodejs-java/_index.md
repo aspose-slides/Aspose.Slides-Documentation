@@ -72,14 +72,14 @@ Thư viện này tải và lưu các định dạng PPT, PPTX, PPS, POT và ODP,
 <hr>
 <p>THAM KHẢO</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/vi/nodejs-java/">Tham khảo API</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/nodejs-java/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">Tham khảo API</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Ghi chú phát hành</a></li>
 <li><a href="/slides/vi/nodejs-java/known-issues/">Vấn đề đã biết</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/nodejs-java/">Tải xuống</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Trợ giúp hỗ trợ trả phí</a></li>
 </ul>
 </div>

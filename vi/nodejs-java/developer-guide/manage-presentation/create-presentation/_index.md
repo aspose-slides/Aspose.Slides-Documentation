@@ -31,11 +31,11 @@ Trước khi bắt đầu, cài đặt gói `aspose.slides.via.java` từ npm, c
 
 Để tạo một bài thuyết trình và đặt một hộp văn bản trên slide đầu tiên, hãy làm theo các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/). Một bài thuyết trình mới đã chứa sẵn một slide trống.
-2. Lấy slide đó từ [slide collection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getslides/) bằng chỉ mục 0.
-3. Thêm một hình chữ nhật bằng phương thức [addAutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/addautoshape/) và đặt văn bản cho nó bằng [setText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/settext/).
-4. Lưu bài thuyết trình dưới dạng tệp PPTX bằng phương thức [save](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/save/).
-5. Giải phóng bài thuyết trình bằng phương thức [dispose](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/dispose/), và kết thúc quá trình.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Một bài thuyết trình mới đã chứa sẵn một slide trống.
+2. Lấy slide đó từ [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) bằng chỉ mục 0.
+3. Thêm một hình chữ nhật bằng phương thức [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) và đặt văn bản cho nó bằng [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+4. Lưu bài thuyết trình dưới dạng tệp PPTX bằng phương thức [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+5. Giải phóng bài thuyết trình bằng phương thức [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/), và kết thúc quá trình.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Sử dụng [BLOB management strategies](/slides/vi/nodejs-java/manage-blob/), g
 
 ### Tôi có thể tạo/lưu các bài thuyết trình song song không?
 
-Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/nodejs-java/multithreading/). Hãy chạy các thể hiện riêng biệt, độc lập cho mỗi luồng hoặc tiến trình.
+Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/nodejs-java/multithreading/). Hãy chạy các thể hiện riêng biệt, độc lập cho mỗi luồng hoặc tiến trình.
 
 ### Làm sao để xóa dấu bản quyền dùng thử và các hạn chế?
 

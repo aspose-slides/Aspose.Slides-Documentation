@@ -100,7 +100,7 @@ Nếu *hello.pptx* xuất hiện trong thư mục dự án, việc cài đặt �
 Gói này cũng có sẵn dưới dạng tệp ZIP với cùng nội dung như gói npm. Để cài đặt từ tệp ZIP:
 
 1. Cài đặt các yêu cầu trước cho hệ điều hành của bạn, như mô tả ở trên.
-2. Tải tệp nén từ [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/vi/nodejs-java/).
+2. Tải tệp nén từ [Aspose.Slides for Node.js via Java download page](https://releases.aspose.com/slides/nodejs-java/).
 3. Tạo một thư mục dự án:
 
     ```bash

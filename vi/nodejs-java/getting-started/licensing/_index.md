@@ -41,7 +41,7 @@ Nếu bạn muốn thử Aspose.Slides mà không bị hạn chế của phiên 
 {{% /alert %}}
 
 ## **Về Giấy phép**
-Bạn có thể dễ dàng tải xuống một phiên bản đánh giá của Aspose.Slides cho Node.js via Java từ [trang tải xuống](https://releases.aspose.com/slides/vi/nodejs-java/). Phiên bản đánh giá có cùng các tính năng như phiên bản có giấy phép, với các hạn chế đã mô tả ở trên. Hơn nữa, phiên bản đánh giá sẽ trở thành có giấy phép sau khi bạn mua giấy phép và thêm một vài dòng mã để áp dụng giấy phép.
+Bạn có thể dễ dàng tải xuống một phiên bản đánh giá của Aspose.Slides cho Node.js via Java từ [trang tải xuống](https://releases.aspose.com/slides/nodejs-java/). Phiên bản đánh giá có cùng các tính năng như phiên bản có giấy phép, với các hạn chế đã mô tả ở trên. Hơn nữa, phiên bản đánh giá sẽ trở thành có giấy phép sau khi bạn mua giấy phép và thêm một vài dòng mã để áp dụng giấy phép.
 
 Giấy phép là một tệp XML dạng văn bản thuần chứa các chi tiết như tên sản phẩm, số nhà phát triển được cấp phép, ngày hết hạn đăng ký, v.v. Tệp được ký số, vì vậy không được chỉnh sửa tệp. Ngay cả một dấu ngắt dòng thừa trong nội dung tệp cũng sẽ làm mất hiệu lực của nó.
 
@@ -62,7 +62,7 @@ Bạn cần thiết lập giấy phép:
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}}
-Bạn có thể tìm thông tin giá cả trên trang ["Thông tin Giá cả"](https://purchase.aspose.com/pricing/slides/vi/family).
+Bạn có thể tìm thông tin giá cả trên trang ["Thông tin Giá cả"](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
 ### **Thiết lập Giấy phép trong Aspose.Slides cho Node.js via Java**
@@ -96,11 +96,11 @@ console.log("The license was applied.");
 process.exit(0);
 ```
 
-Khi gọi phương thức setLicense, tên giấy phép phải trùng với tên tệp giấy phép của bạn. Ví dụ, bạn có thể đổi tên tệp giấy phép thành "Aspose.Slides.lic.xml". Sau đó, trong mã của bạn, phải truyền tên giấy phép mới (Aspose.Slides.lic.xml) cho phương thức setLicense. Nếu tệp bị thiếu hoặc không chứa giấy phép hợp lệ, [setLicense](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/license/setlicense/) sẽ ném ngoại lệ, khiến script kết thúc với lỗi.
+Khi gọi phương thức setLicense, tên giấy phép phải trùng với tên tệp giấy phép của bạn. Ví dụ, bạn có thể đổi tên tệp giấy phép thành "Aspose.Slides.lic.xml". Sau đó, trong mã của bạn, phải truyền tên giấy phép mới (Aspose.Slides.lic.xml) cho phương thức setLicense. Nếu tệp bị thiếu hoặc không chứa giấy phép hợp lệ, [setLicense](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/) sẽ ném ngoại lệ, khiến script kết thúc với lỗi.
 
 #### **Áp dụng Giấy phép từ Luồng**
 
-Để áp dụng giấy phép từ một luồng, truyền đối tượng [License](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/license/) và một luồng đọc được cho phương thức tĩnh [setLicenseFromStream](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/license/setlicense/). Luồng được đọc bất đồng bộ, và callback sẽ nhận lỗi nếu luồng không chứa giấy phép hợp lệ:
+Để áp dụng giấy phép từ một luồng, truyền đối tượng [License](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/) và một luồng đọc được cho phương thức tĩnh [setLicenseFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/license/setlicense/). Luồng được đọc bất đồng bộ, và callback sẽ nhận lỗi nếu luồng không chứa giấy phép hợp lệ:
 
 **Node.js**
 
