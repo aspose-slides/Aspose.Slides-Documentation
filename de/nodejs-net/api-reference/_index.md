@@ -7,7 +7,7 @@ description: "Aspose.Slides für Node.js via .NET wird durch die Aspose.Slides f
 ---
 ## **Überblick**
 
-Aspose.Slides for Node.js via .NET verfügt über keine eigene API‑Referenz. Das Paket stellt die Klassen von Aspose.Slides for .NET JavaScript unter denselben Namen zur Verfügung, wobei die Mitgliedsnamen in camelCase vorliegen, sodass die [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/de/net/) ihre Klassen, Member und Aufzählungen dokumentiert.
+Aspose.Slides for Node.js via .NET verfügt über keine eigene API‑Referenz. Das Paket stellt die Klassen von Aspose.Slides for .NET JavaScript unter denselben Namen zur Verfügung, wobei die Mitgliedsnamen in camelCase vorliegen, sodass die [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) ihre Klassen, Member und Aufzählungen dokumentiert.
 
 ## **Zuordnung von .NET-Namen zu JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 Das Skript schreibt `slide.png` und `slide.pdf` in den aktuellen Ordner. Beide zeigen das Rechteck mit seinem Text. Ohne Lizenz wird zudem ein Evaluations‑Wasserzeichen angezeigt; siehe [Licensing](/slides/de/nodejs-net/licensing/).
 
-Für Details zu den hier verwendeten Mitgliedern siehe [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/de/net/aspose.slides/textframe/text/) und [Slide.GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/slide/getimage/) in der Aspose.Slides for .NET API reference.
+Für Details zu den hier verwendeten Mitgliedern siehe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/), [TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) und [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) in der Aspose.Slides for .NET API reference.

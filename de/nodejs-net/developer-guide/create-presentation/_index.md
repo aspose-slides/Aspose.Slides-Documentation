@@ -27,15 +27,15 @@ Dieser Artikel zeigt, wie man eine Präsentation mit Aspose.Slides für Node.js 
 Die Beispiele benötigen ein Projekt, das wie in [Installation](/slides/de/nodejs-net/installation/) beschrieben eingerichtet ist. Speichern Sie jedes Beispiel als `.js`‑Datei im Projektordner und führen Sie es aus diesem Ordner mit `node` aus, zum Beispiel `node create-presentation.js`.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides für Node.js via .NET hat keine eigene API‑Referenz. Es spiegelt die Aspose.Slides‑API für .NET mit camelCase‑Namensgebung wider, sodass die API‑Links in diesem Artikel zu den entsprechenden Klassen und Mitgliedern in der [Aspose.Slides für .NET API‑Referenz](https://reference.aspose.com/slides/de/net/) führen.
+Aspose.Slides für Node.js via .NET hat keine eigene API‑Referenz. Es spiegelt die Aspose.Slides‑API für .NET mit camelCase‑Namensgebung wider, sodass die API‑Links in diesem Artikel zu den entsprechenden Klassen und Mitgliedern in der [Aspose.Slides für .NET API‑Referenz](https://reference.aspose.com/slides/net/) führen.
 {{% /alert %}}
 
 ## **Erstellen einer Präsentation mit einer Textbox**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/). Eine neue Präsentation enthält bereits eine leere Folie.
-2. Rufen Sie diese Folie aus der Sammlung [slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slides/de/) ab. Sammlungen in diesem Paket werden mit `get(index)` gelesen, und die Indizes beginnen bei 0.
-3. Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/shapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie den [text](https://reference.aspose.com/slides/de/net/aspose.slides/textframe/text/) seines [textFrame](https://reference.aspose.com/slides/de/net/aspose.slides/autoshape/textframe/).
-4. Speichern Sie die Präsentation mit der Methode [save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/) und dem Wert `SaveFormat.Pptx`.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Eine neue Präsentation enthält bereits eine leere Folie.
+2. Rufen Sie diese Folie aus der Sammlung [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) ab. Sammlungen in diesem Paket werden mit `get(index)` gelesen, und die Indizes beginnen bei 0.
+3. Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) ein Rechteck hinzu und setzen Sie den [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) seines [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/).
+4. Speichern Sie die Präsentation mit der Methode [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) und dem Wert `SaveFormat.Pptx`.
 5. Rufen Sie `dispose` in einem `finally`‑Block auf, um die .NET‑Ressourcen, die der Präsentation zugrunde liegen, freizugeben.
 
 ```javascript
@@ -60,7 +60,7 @@ Das Skript schreibt `new-presentation.pptx` in den Projektordner. Die Datei enth
 
 ## **Folien hinzufügen**
 
-Eine neue Präsentation hat eine Folie. Um weitere hinzuzufügen, übergeben Sie einer Layout‑Folie die Methode [addEmptySlide](https://reference.aspose.com/slides/de/net/aspose.slides/slidecollection/addemptyslide/) der `slides`‑Sammlung. Die Methode [getByType](https://reference.aspose.com/slides/de/net/aspose.slides/layoutslidecollection/getbytype/) der Sammlung [layoutSlides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/layoutslides/) liefert das erste Layout eines angegebenen [SlideLayoutType](https://reference.aspose.com/slides/de/net/aspose.slides/slidelayouttype/).
+Eine neue Präsentation hat eine Folie. Um weitere hinzuzufügen, übergeben Sie einer Layout‑Folie die Methode [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) der `slides`‑Sammlung. Die Methode [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) der Sammlung [layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) liefert das erste Layout eines angegebenen [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/).
 
 Das folgende Beispiel fügt zwei Folien mit dem Layout Blank hinzu:
 
@@ -84,7 +84,7 @@ Das Skript gibt `Slide count: 3` aus und schreibt `three-slides.pptx`. Die neuen
 
 ## **Foliengröße festlegen**
 
-Eine neue Präsentation verwendet 4:3‑Folien mit 720 × 540 Punkten (10 × 7,5 Zoll). Um stattdessen Breitbild‑Folien zu erstellen, rufen Sie die Methode [setSize](https://reference.aspose.com/slides/de/net/aspose.slides/slidesize/setsize/) des [slideSize](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slidesize/) der Präsentation mit einem Wert vom Typ [SlideSizeType](https://reference.aspose.com/slides/de/net/aspose.slides/slidesizetype/) und einem Wert vom Typ [SlideSizeScaleType](https://reference.aspose.com/slides/de/net/aspose.slides/slidesizescaletype/) auf. Der Skalierungstyp gibt Aspose.Slides vor, wie mit Formen umgegangen werden soll, die bereits auf den Folien vorhanden sind; `DoNotScale` lässt sie unverändert, was die richtige Wahl für eine Präsentation ohne Inhalt ist.
+Eine neue Präsentation verwendet 4:3‑Folien mit 720 × 540 Punkten (10 × 7,5 Zoll). Um stattdessen Breitbild‑Folien zu erstellen, rufen Sie die Methode [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) des [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) der Präsentation mit einem Wert vom Typ [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) und einem Wert vom Typ [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) auf. Der Skalierungstyp gibt Aspose.Slides vor, wie mit Formen umgegangen werden soll, die bereits auf den Folien vorhanden sind; `DoNotScale` lässt sie unverändert, was die richtige Wahl für eine Präsentation ohne Inhalt ist.
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -112,7 +112,7 @@ In Punkten. Ein Zoll entspricht 72 Punkten, daher hat die Standard‑4:3‑Folie
 
 **In welchen Formaten kann ich eine neue Präsentation speichern?**
 
-Jeder Wert der Aufzählung [SaveFormat](https://reference.aspose.com/slides/de/net/aspose.slides.export/saveformat/), zum Beispiel `SaveFormat.Ppt` für PowerPoint 97–2003, `SaveFormat.Odp` für OpenDocument oder `SaveFormat.Pdf`. Für PDF‑Ausgabe siehe [PowerPoint in PDF konvertieren](/slides/de/nodejs-net/convert-powerpoint-to-pdf/).
+Jeder Wert der Aufzählung [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/), zum Beispiel `SaveFormat.Ppt` für PowerPoint 97–2003, `SaveFormat.Odp` für OpenDocument oder `SaveFormat.Pdf`. Für PDF‑Ausgabe siehe [PowerPoint in PDF konvertieren](/slides/de/nodejs-net/convert-powerpoint-to-pdf/).
 
 **Warum enthält die gespeicherte Präsentation den Text „Evaluation only“?**
 

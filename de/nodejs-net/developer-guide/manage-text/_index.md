@@ -31,12 +31,12 @@ Dieser Artikel fügt einer Folie ein Textfeld hinzu und speichert die Präsentat
 Die Beispiele benötigen ein Projekt, das wie in [Installation](/slides/de/nodejs-net/installation/) beschrieben eingerichtet ist. Speichern Sie jedes Beispiel als `.js`‑Datei im Projektordner und führen Sie es aus diesem Ordner mit `node` aus.
 
 {{% alert color="info" title="Hinweis" %}}
-Aspose.Slides für Node.js via .NET hat keine eigene API‑Referenz. Sie spiegelt die Aspose.Slides‑API für .NET mit camelCase‑Namen wider, sodass die API‑Links in diesem Artikel zu den entsprechenden Klassen und Mitgliedern in der [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/de/net/) führen.
+Aspose.Slides für Node.js via .NET hat keine eigene API‑Referenz. Sie spiegelt die Aspose.Slides‑API für .NET mit camelCase‑Namen wider, sodass die API‑Links in diesem Artikel zu den entsprechenden Klassen und Mitgliedern in der [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) führen.
 {{% /alert %}}
 
 ## **Textfeld hinzufügen**
 
-Um ein Textfeld hinzuzufügen, fügen Sie einer Folie mit der Methode [addAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/shapecollection/addautoshape/) eine Autoform hinzu und geben ihr mit der Methode [addTextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/autoshape/addtextframe/) Text. Das folgende Beispiel fügt ein Rechteck zur ersten Folie einer neuen Präsentation hinzu und speichert die Präsentation als `text-box.pptx`:
+Um ein Textfeld hinzuzufügen, fügen Sie einer Folie mit der Methode [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) eine Autoform hinzu und geben ihr mit der Methode [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) Text. Das folgende Beispiel fügt ein Rechteck zur ersten Folie einer neuen Präsentation hinzu und speichert die Präsentation als `text-box.pptx`:
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ Die Folie in `text-box.pptx` enthält ein Rechteck, 500 Punkte breit und 80 Punk
 
 ## **Text und dessen Formatierung ändern**
 
-Das folgende Beispiel öffnet `text-box.pptx`, das im vorherigen Beispiel erstellt wurde, und holt die erste Form auf der ersten Folie. Formen wie Bilder und Tabellen besitzen kein Textfeld, daher prüft das Beispiel, ob die Form eine [AutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/autoshape/) ist, bevor es das [textFrame](https://reference.aspose.com/slides/de/net/aspose.slides/autoshape/textframe/) der Form verwendet. Anschließend führt es Folgendes aus:
+Das folgende Beispiel öffnet `text-box.pptx`, das im vorherigen Beispiel erstellt wurde, und holt die erste Form auf der ersten Folie. Formen wie Bilder und Tabellen besitzen kein Textfeld, daher prüft das Beispiel, ob die Form eine [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) ist, bevor es das [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) der Form verwendet. Anschließend führt es Folgendes aus:
 
-1. Es ersetzt den Text über die Eigenschaft [text](https://reference.aspose.com/slides/de/net/aspose.slides/textframe/text/) des Textfelds. Danach enthält das Textfeld einen Absatz mit einem Abschnitt.  
-2. Es holt diesen Abschnitt aus den Sammlungen [paragraphs](https://reference.aspose.com/slides/de/net/aspose.slides/textframe/paragraphs/) und [portions](https://reference.aspose.com/slides/de/net/aspose.slides/paragraph/portions/) und liest dessen [portionFormat](https://reference.aspose.com/slides/de/net/aspose.slides/portion/portionformat/).  
-3. Es setzt [fontHeight](https://reference.aspose.com/slides/de/net/aspose.slides/baseportionformat/fontheight/), die Schriftgröße in Punkten, und [fontBold](https://reference.aspose.com/slides/de/net/aspose.slides/baseportionformat/fontbold/), das einen [NullableBool](https://reference.aspose.com/slides/de/net/aspose.slides/nullablebool/)‑Wert annimmt.
+1. Es ersetzt den Text über die Eigenschaft [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) des Textfelds. Danach enthält das Textfeld einen Absatz mit einem Abschnitt.  
+2. Es holt diesen Abschnitt aus den Sammlungen [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) und [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) und liest dessen [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/).  
+3. Es setzt [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/), die Schriftgröße in Punkten, und [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/), das einen [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)‑Wert annimmt.
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET rendert Folien aus PowerPoint‑ und OpenDocu
 Die Beispiele gehen von einer Präsentation mit dem Namen `sample.pptx` im Projektordner aus, den Sie in [Installation](/slides/de/nodejs-net/installation/) eingerichtet haben. Jede PowerPoint‑Präsentation ist geeignet. Speichern Sie jedes Beispiel als `.js`‑Datei im Projektordner und führen Sie es dort mit `node` aus.
 
 {{% alert color="info" title="Hinweis" %}}
-Aspose.Slides for Node.js via .NET hat keine eigene API‑Referenz. Sie spiegelt die Aspose.Slides for .NET API mit camelCase‑Namen wider, sodass die API‑Links in diesem Artikel zu den entsprechenden Klassen und Mitgliedern in der [Aspose.Slides for .NET API‑Referenz](https://reference.aspose.com/slides/de/net/) führen.
+Aspose.Slides for Node.js via .NET hat keine eigene API‑Referenz. Sie spiegelt die Aspose.Slides for .NET API mit camelCase‑Namen wider, sodass die API‑Links in diesem Artikel zu den entsprechenden Klassen und Mitgliedern in der [Aspose.Slides for .NET API‑Referenz](https://reference.aspose.com/slides/net/) führen.
 {{% /alert %}}
 
 Um eine Folie in ein Bild zu konvertieren, führen Sie folgende Schritte aus:
 
-1. Öffnen Sie die Präsentation mit dem [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/presentation/)‑Konstruktor.
-2. Holen Sie sich eine Folie aus der [slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slides/de/)‑Sammlung mit `get(index)`. Indizes beginnen bei 0.
-3. Rendern Sie die Folie mit `getImageWithScale` oder `getImageWithImageSize`. In der .NET API‑Referenz sind beide Überladungen von [Slide.GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/slide/getimage/). Sie geben ein Bildobjekt zurück, das dem [IImage](https://reference.aspose.com/slides/de/net/aspose.slides/iimage/) entspricht.
-4. Speichern Sie das Bild mit seiner [save](https://reference.aspose.com/slides/de/net/aspose.slides/iimage/save/)‑Methode und einem [ImageFormat](https://reference.aspose.com/slides/de/net/aspose.slides/imageformat/)‑Wert und rufen Sie anschließend seine `dispose`‑Methode auf.
+1. Öffnen Sie die Präsentation mit dem [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/)‑Konstruktor.
+2. Holen Sie sich eine Folie aus der [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)‑Sammlung mit `get(index)`. Indizes beginnen bei 0.
+3. Rendern Sie die Folie mit `getImageWithScale` oder `getImageWithImageSize`. In der .NET API‑Referenz sind beide Überladungen von [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/). Sie geben ein Bildobjekt zurück, das dem [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) entspricht.
+4. Speichern Sie das Bild mit seiner [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/)‑Methode und einem [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/)‑Wert und rufen Sie anschließend seine `dispose`‑Methode auf.
 
 ## **Jede Folie in ein PNG‑Bild konvertieren**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-Das Skript schreibt für jede Folie eine Datei, `slide_1.png`, `slide_2.png` usw., nummeriert ab 1. Für eine 16:9‑Präsentation mit Folien von 960 × 540 Punkten ist jedes Bild 1920 × 1080 Pixel groß. Versteckte Folien werden ebenfalls gerendert; um sie zu überspringen, prüfen Sie die [hidden](https://reference.aspose.com/slides/de/net/aspose.slides/slide/hidden/)‑Eigenschaft der Folie. Jedes Bild wird in einem eigenen `finally`‑Block freigegeben, wodurch es vor dem Rendern der nächsten Folie entsorgt wird. Ohne Lizenz zeigen die Bilder außerdem ein Evaluierungs‑Wasserzeichen; siehe [Licensing](/slides/de/nodejs-net/licensing/).
+Das Skript schreibt für jede Folie eine Datei, `slide_1.png`, `slide_2.png` usw., nummeriert ab 1. Für eine 16:9‑Präsentation mit Folien von 960 × 540 Punkten ist jedes Bild 1920 × 1080 Pixel groß. Versteckte Folien werden ebenfalls gerendert; um sie zu überspringen, prüfen Sie die [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/)‑Eigenschaft der Folie. Jedes Bild wird in einem eigenen `finally`‑Block freigegeben, wodurch es vor dem Rendern der nächsten Folie entsorgt wird. Ohne Lizenz zeigen die Bilder außerdem ein Evaluierungs‑Wasserzeichen; siehe [Licensing](/slides/de/nodejs-net/licensing/).
 
 ## **Eine Folie in ein Bild mit vorgegebener Größe konvertieren**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-Die Eigenschaft [slideSize.size](https://reference.aspose.com/slides/de/net/aspose.slides/slidesize/size/) liefert die Folienbreite und -höhe in Punkten. Für eine 16:9‑Präsentation gibt das Skript `Saved a 1280 x 720 image` aus und schreibt `slide_1_1280px.png`; für eine 4:3‑Präsentation beträgt das Bild 1280 × 960 Pixel.
+Die Eigenschaft [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) liefert die Folienbreite und -höhe in Punkten. Für eine 16:9‑Präsentation gibt das Skript `Saved a 1280 x 720 image` aus und schreibt `slide_1_1280px.png`; für eine 4:3‑Präsentation beträgt das Bild 1280 × 960 Pixel.
 
 ## **FAQ**
 
