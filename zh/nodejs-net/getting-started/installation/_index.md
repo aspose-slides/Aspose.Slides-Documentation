@@ -71,7 +71,7 @@ npm install aspose.slides.via.net
 
 安装过程中，包会将其原生绘图库（文件名中包含 `aspose.slides.drawing.capi` 的文件）复制到项目文件夹中，位于 `package.json` 同目录。
 
-该包也以 ZIP 档案形式发布在 [releases.aspose.com](https://releases.aspose.com/slides/zh/nodejs-net/)。本文仅涉及通过 npm 的安装方式。
+该包也以 ZIP 档案形式发布在 [releases.aspose.com](https://releases.aspose.com/slides/nodejs-net/)。本文仅涉及通过 npm 的安装方式。
 
 ## **恢复 .NET 依赖**
 
@@ -154,7 +154,7 @@ node hello.js
 请从包含 `package.json` 的项目文件夹运行脚本。相对路径（例如 `hello.pptx`）会相对于当前文件夹解析，在某些机器上，从其他文件夹启动的脚本可能无法创建演示文稿。
 {{% /alert %}}
 
-JavaScript API 镜像 Aspose.Slides for .NET：类名保持 .NET 名称，属性和方法采用 camelCase（`Slides` 变为 `slides`，`AddAutoShape` 变为 `addAutoShape`），集合项通过 `get(index)` 读取。该包暂无单独的 API 参考，请使用 [Aspose.Slides for .NET API 参考](https://reference.aspose.com/slides/zh/net/) 查阅类和成员详情，例如 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 和 [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/shapecollection/addautoshape/)。
+JavaScript API 镜像 Aspose.Slides for .NET：类名保持 .NET 名称，属性和方法采用 camelCase（`Slides` 变为 `slides`，`AddAutoShape` 变为 `addAutoShape`），集合项通过 `get(index)` 读取。该包暂无单独的 API 参考，请使用 [Aspose.Slides for .NET API 参考](https://reference.aspose.com/slides/net/) 查阅类和成员详情，例如 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 和 [ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)。
 
 ## **常见问题**
 

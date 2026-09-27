@@ -26,15 +26,15 @@ Aspose.Slides for Node.js via .NET 将 PowerPoint 和 OpenDocument 演示文稿�
 这些示例需要在项目文件夹中放置一个名为 `sample.pptx` 的演示文稿，该文件夹已在[安装](/slides/zh/nodejs-net/installation/)中设置。任何 PowerPoint 演示文稿均可使用。将每个示例保存为项目文件夹中的 `.js` 文件，并使用 `node` 在该文件夹中运行它。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET 没有自己的 API 参考文档。它以 camelCase 名称镜像 Aspose.Slides for .NET API，因此本文中的 API 链接指向 [Aspose.Slides for .NET API 参考](https://reference.aspose.com/slides/zh/net/) 中相应的类和成员。
+Aspose.Slides for Node.js via .NET 没有自己的 API 参考文档。它以 camelCase 名称镜像 Aspose.Slides for .NET API，因此本文中的 API 链接指向 [Aspose.Slides for .NET API 参考](https://reference.aspose.com/slides/net/) 中相应的类和成员。
 {{% /alert %}}
 
 要将幻灯片转换为图像，请按以下步骤操作：
 
-1. 使用[Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/presentation/) 构造函数打开演示文稿。  
-1. 使用 `get(index)` 从 [slides](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/slides/zh/) 集合获取幻灯片。索引从 0 开始。  
-1. 使用 `getImageWithScale` 或 `getImageWithImageSize` 渲染幻灯片。在 .NET API 参考文档中，两者都是 [Slide.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/slide/getimage/) 的重载。它们返回与 [IImage](https://reference.aspose.com/slides/zh/net/aspose.slides/iimage/) 对应的图像对象。  
-1. 使用其 [save](https://reference.aspose.com/slides/zh/net/aspose.slides/iimage/save/) 方法和一个 [ImageFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/imageformat/) 值保存图像，然后调用其 `dispose` 方法。
+1. 使用[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 构造函数打开演示文稿。  
+1. 使用 `get(index)` 从 [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合获取幻灯片。索引从 0 开始。  
+1. 使用 `getImageWithScale` 或 `getImageWithImageSize` 渲染幻灯片。在 .NET API 参考文档中，两者都是 [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) 的重载。它们返回与 [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) 对应的图像对象。  
+1. 使用其 [save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) 方法和一个 [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 值保存图像，然后调用其 `dispose` 方法。
 
 ## **将每张幻灯片转换为 PNG 图像**
 
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-脚本为每张幻灯片写入一个文件，`slide_1.png`、`slide_2.png` 等，从 1 开始编号。对于分辨率为 16:9、幻灯片尺寸为 960 × 540 点的演示文稿，每张图像为 1920 × 1080 像素。隐藏的幻灯片也会被渲染；如需跳过它们，请检查幻灯片的 [hidden](https://reference.aspose.com/slides/zh/net/aspose.slides/slide/hidden/) 属性。每个图像在各自的 `finally` 块中被释放，以在渲染下一张幻灯片前释放资源。没有许可证时，图像还会显示评估水印；参见[授权](/slides/zh/nodejs-net/licensing/)。
+脚本为每张幻灯片写入一个文件，`slide_1.png`、`slide_2.png` 等，从 1 开始编号。对于分辨率为 16:9、幻灯片尺寸为 960 × 540 点的演示文稿，每张图像为 1920 × 1080 像素。隐藏的幻灯片也会被渲染；如需跳过它们，请检查幻灯片的 [hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) 属性。每个图像在各自的 `finally` 块中被释放，以在渲染下一张幻灯片前释放资源。没有许可证时，图像还会显示评估水印；参见[授权](/slides/zh/nodejs-net/licensing/)。
 
 ## **将幻灯片转换为指定尺寸的图像**
 
@@ -94,7 +94,7 @@ try {
 }
 ```
 
-[slideSize.size](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesize/size/) 属性返回幻灯片的宽度和高度（单位为点）。对于 16:9 演示文稿，脚本打印 `Saved a 1280 x 720 image` 并写入 `slide_1_1280px.png`；对于 4:3 演示文稿，图像为 1280 × 960 像素。
+[slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) 属性返回幻灯片的宽度和高度（单位为点）。对于 16:9 演示文稿，脚本打印 `Saved a 1280 x 720 image` 并写入 `slide_1_1280px.png`；对于 4:3 演示文稿，图像为 1280 × 960 像素。
 
 ## **常见问题**
 

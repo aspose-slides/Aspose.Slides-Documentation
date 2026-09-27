@@ -27,17 +27,17 @@ description: "使用 Aspose.Slides for Node.js via .NET 在 JavaScript 中创建
 示例需要在 [Installation](/slides/zh/nodejs-net/installation/) 中描述的项目设置。将每个示例保存为项目文件夹中的 `.js` 文件，并使用 `node` 从该文件夹运行，例如 `node create-presentation.js`。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET 没有自己的 API 参考文档。它使用驼峰式命名镜像 Aspose.Slides for .NET API，因此本文中的 API 链接指向 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/zh/net/) 中的对应类和成员。
+Aspose.Slides for Node.js via .NET 没有自己的 API 参考文档。它使用驼峰式命名镜像 Aspose.Slides for .NET API，因此本文中的 API 链接指向 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) 中的对应类和成员。
 {{% /alert %}}
 
 ## **使用文本框创建演示文稿**
 
 要创建演示文稿并在其第一张幻灯片上放置文本框，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 类的实例。新演示文稿默认包含一张空幻灯片。  
-2. 从 [slides](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/slides/zh/) 集合中获取该幻灯片。该包中的集合使用 `get(index)` 读取，索引从 0 开始。  
-3. 使用 [addAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/shapecollection/addautoshape/) 方法添加矩形，并设置其 [textFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/autoshape/textframe/) 的 [text](https://reference.aspose.com/slides/zh/net/aspose.slides/textframe/text/)。  
-4. 使用 [save](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/) 方法并传入 `SaveFormat.Pptx` 值保存演示文稿。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。新演示文稿默认包含一张空幻灯片。  
+2. 从 [slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合中获取该幻灯片。该包中的集合使用 `get(index)` 读取，索引从 0 开始。  
+3. 使用 [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) 方法添加矩形，并设置其 [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) 的 [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/)。  
+4. 使用 [save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法并传入 `SaveFormat.Pptx` 值保存演示文稿。  
 5. 在 `finally` 块中调用 `dispose`，以释放支撑演示文稿的 .NET 资源。
 
 ```javascript
@@ -62,7 +62,7 @@ try {
 
 ## **添加幻灯片**
 
-新演示文稿默认有一张幻灯片。若要添加更多幻灯片，请向 `slides` 集合的 [addEmptySlide](https://reference.aspose.com/slides/zh/net/aspose.slides/slidecollection/addemptyslide/) 方法传入布局幻灯片。[layoutSlides](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/layoutslides/) 集合的 [getByType](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutslidecollection/getbytype/) 方法返回指定 [SlideLayoutType](https://reference.aspose.com/slides/zh/net/aspose.slides/slidelayouttype/) 的第一个布局。
+新演示文稿默认有一张幻灯片。若要添加更多幻灯片，请向 `slides` 集合的 [addEmptySlide](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addemptyslide/) 方法传入布局幻灯片。[layoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) 集合的 [getByType](https://reference.aspose.com/slides/net/aspose.slides/layoutslidecollection/getbytype/) 方法返回指定 [SlideLayoutType](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/) 的第一个布局。
 
 以下示例使用 Blank 布局添加两张幻灯片：
 
@@ -86,7 +86,7 @@ try {
 
 ## **设置幻灯片大小**
 
-新演示文稿使用 4:3 幻灯片，尺寸为 720 × 540 点（10 × 7.5 英寸）。若要改为宽屏幻灯片，请调用演示文稿的 [slideSize](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/slidesize/) 的 [setSize](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesize/setsize/) 方法，传入 [SlideSizeType](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesizetype/) 值和 [SlideSizeScaleType](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesizescaletype/) 值。缩放类型决定 Aspose.Slides 对已有形状的处理方式；`DoNotScale` 表示保持原样，适用于尚未添加内容的演示文稿。
+新演示文稿使用 4:3 幻灯片，尺寸为 720 × 540 点（10 × 7.5 英寸）。若要改为宽屏幻灯片，请调用演示文稿的 [slideSize](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) 的 [setSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) 方法，传入 [SlideSizeType](https://reference.aspose.com/slides/net/aspose.slides/slidesizetype/) 值和 [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) 值。缩放类型决定 Aspose.Slides 对已有形状的处理方式；`DoNotScale` 表示保持原样，适用于尚未添加内容的演示文稿。
 
 ```javascript
 const { Presentation, SlideSizeType, SlideSizeScaleType, SaveFormat } = require("aspose.slides.via.net");
@@ -114,7 +114,7 @@ try {
 
 **可以将新演示文稿保存为何种格式？**
 
-可以使用 [SaveFormat](https://reference.aspose.com/slides/zh/net/aspose.slides.export/saveformat/) 枚举的任意值，例如 `SaveFormat.Ppt`（PowerPoint 97–2003）、`SaveFormat.Odp`（OpenDocument）或 `SaveFormat.Pdf`。PDF 输出请参阅 [Convert PowerPoint to PDF](/slides/zh/nodejs-net/convert-powerpoint-to-pdf/)。
+可以使用 [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 枚举的任意值，例如 `SaveFormat.Ppt`（PowerPoint 97–2003）、`SaveFormat.Odp`（OpenDocument）或 `SaveFormat.Pdf`。PDF 输出请参阅 [Convert PowerPoint to PDF](/slides/zh/nodejs-net/convert-powerpoint-to-pdf/)。
 
 **为什么保存的演示文稿中会包含 “Evaluation only” 文本？**
 

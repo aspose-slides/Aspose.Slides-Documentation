@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via .NET 是一个用于评估和生产的 npm 包。�
 
 {{% alert color="info" title="Note" %}}
 
-关于如何评估、授权和购买 Aspose 产品的一般政策已收集在[Purchase Policies and FAQ](https://purchase.aspose.com/policies)。价格列在[Pricing Information](https://purchase.aspose.com/pricing/slides/zh/family)页面。
+关于如何评估、授权和购买 Aspose 产品的一般政策已收集在[Purchase Policies and FAQ](https://purchase.aspose.com/policies)。价格列在[Pricing Information](https://purchase.aspose.com/pricing/slides/family)页面。
 
 {{% /alert %}}
 
@@ -57,4 +57,4 @@ try {
 
 如果找不到文件或文件不是有效的许可证，`setLicense` 会抛出错误，Aspose.Slides 将保持评估模式。脚本会捕获错误并打印其信息。对于缺失的文件，信息以 `License "Aspose.Slides.lic" doesn't exist or access is restricted.` 开头，并列出已搜索的所有位置。
 
-在此包中，许可证仅能从文件加载。`License` 不接受流，且包未公开计量授权。有关该包封装的类，请参见 Aspose.Slides for .NET API 参考中的[License](https://reference.aspose.com/slides/zh/net/aspose.slides/license/)。
+在此包中，许可证仅能从文件加载。`License` 不接受流，且包未公开计量授权。有关该包封装的类，请参见 Aspose.Slides for .NET API 参考中的[License](https://reference.aspose.com/slides/net/aspose.slides/license/)。

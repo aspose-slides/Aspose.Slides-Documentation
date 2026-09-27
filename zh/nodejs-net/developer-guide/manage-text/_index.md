@@ -31,12 +31,12 @@ description: "在 JavaScript 中使用 Aspose.Slides for Node.js via .NET 向幻
 示例需要按照[安装](/slides/zh/nodejs-net/installation/)中描述的方式设置项目。将每个示例保存为项目文件夹中的 `.js` 文件，并在该文件夹中使用 `node` 运行。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Node.js via .NET 没有自己的 API 参考。它使用 camelCase 名称镜像 Aspose.Slides for .NET API，因此本文中的 API 链接指向 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/zh/net/) 中对应的类和成员。
+Aspose.Slides for Node.js via .NET 没有自己的 API 参考。它使用 camelCase 名称镜像 Aspose.Slides for .NET API，因此本文中的 API 链接指向 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) 中对应的类和成员。
 {{% /alert %}}
 
 ## **添加文本框**
 
-要添加文本框，使用 [addAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/shapecollection/addautoshape/) 方法向幻灯片添加自动形状，并使用 [addTextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/autoshape/addtextframe/) 方法为其添加文本。以下示例向新演示文稿的第一张幻灯片添加一个矩形，并将演示文稿保存为 `text-box.pptx`：
+要添加文本框，使用 [addAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/) 方法向幻灯片添加自动形状，并使用 [addTextFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/addtextframe/) 方法为其添加文本。以下示例向新演示文稿的第一张幻灯片添加一个矩形，并将演示文稿保存为 `text-box.pptx`：
 
 ```javascript
 const { Presentation, ShapeType, SaveFormat } = require("aspose.slides.via.net");
@@ -60,11 +60,11 @@ try {
 
 ## **更改文本及其格式**
 
-以下示例打开前面示例创建的 `text-box.pptx`，并获取第一张幻灯片上的第一个形状。图片、表格等形状没有文本框，因此示例在使用形状的 [textFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/autoshape/textframe/) 之前，会检查该形状是否为 [AutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/autoshape/)。随后执行以下操作：
+以下示例打开前面示例创建的 `text-box.pptx`，并获取第一张幻灯片上的第一个形状。图片、表格等形状没有文本框，因此示例在使用形状的 [textFrame](https://reference.aspose.com/slides/net/aspose.slides/autoshape/textframe/) 之前，会检查该形状是否为 [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)。随后执行以下操作：
 
-1. 通过文本框的 [text](https://reference.aspose.com/slides/zh/net/aspose.slides/textframe/text/) 属性替换文本。之后，文本框只包含一个段落，其中只有一个片段。  
-2. 从 [paragraphs](https://reference.aspose.com/slides/zh/net/aspose.slides/textframe/paragraphs/) 和 [portions](https://reference.aspose.com/slides/zh/net/aspose.slides/paragraph/portions/) 集合中获取该片段，并读取其 [portionFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/portion/portionformat/)。  
-3. 设置 [fontHeight](https://reference.aspose.com/slides/zh/net/aspose.slides/baseportionformat/fontheight/)（以点为单位的字体大小）和 [fontBold](https://reference.aspose.com/slides/zh/net/aspose.slides/baseportionformat/fontbold/)，后者接受一个 [NullableBool](https://reference.aspose.com/slides/zh/net/aspose.slides/nullablebool/) 值。
+1. 通过文本框的 [text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) 属性替换文本。之后，文本框只包含一个段落，其中只有一个片段。  
+2. 从 [paragraphs](https://reference.aspose.com/slides/net/aspose.slides/textframe/paragraphs/) 和 [portions](https://reference.aspose.com/slides/net/aspose.slides/paragraph/portions/) 集合中获取该片段，并读取其 [portionFormat](https://reference.aspose.com/slides/net/aspose.slides/portion/portionformat/)。  
+3. 设置 [fontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)（以点为单位的字体大小）和 [fontBold](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontbold/)，后者接受一个 [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) 值。
 
 ```javascript
 const { Presentation, AutoShape, NullableBool, SaveFormat } = require("aspose.slides.via.net");

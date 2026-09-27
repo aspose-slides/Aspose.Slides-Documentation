@@ -58,13 +58,13 @@ Aspose.Slides for Node.js via .NET 是一个库，可在 Node.js 应用程序中
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh/net/">.NET API 参考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/nodejs-net/release-notes/">发行说明</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/nodejs-net/">下载</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">.NET API 参考</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">发行说明</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-net/">下载</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免费支持论坛</a></li>
 <li><a href="https://helpdesk.aspose.com/">付费支持服务台</a></li>
 </ul>
 </div>

@@ -7,7 +7,7 @@ description: "Aspose.Slides for Node.js via .NET 由 Aspose.Slides for .NET API 
 ---
 ## **概述**
 
-Aspose.Slides for Node.js via .NET 没有自己的 API 参考。该包在 JavaScript 中以相同的名称公开 Aspose.Slides for .NET 的类，成员名称采用 camelCase，因此 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/zh/net/) 文档了其类、成员和枚举。
+Aspose.Slides for Node.js via .NET 没有自己的 API 参考。该包在 JavaScript 中以相同的名称公开 Aspose.Slides for .NET 的类，成员名称采用 camelCase，因此 [Aspose.Slides for .NET API reference](https://reference.aspose.com/slides/net/) 文档了其类、成员和枚举。
 
 ## **将 .NET 名称映射到 JavaScript**
 
@@ -54,4 +54,4 @@ try {
 
 该脚本会在当前文件夹写入 `slide.png` 和 `slide.pdf`。两者均显示带文字的矩形。未授权时，它们还会显示评估水印；请参阅 [Licensing](/slides/zh/nodejs-net/licensing/)。
 
-有关此处使用的成员的详细信息，请参阅 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)、[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/shapecollection/addautoshape/)、[TextFrame.Text](https://reference.aspose.com/slides/zh/net/aspose.slides/textframe/text/) 和 [Slide.GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/slide/getimage/) 在 Aspose.Slides for .NET API 参考中的文档。
+有关此处使用的成员的详细信息，请参阅 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)、[ShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addautoshape/)、[TextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/textframe/text/) 和 [Slide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) 在 Aspose.Slides for .NET API 参考中的文档。
