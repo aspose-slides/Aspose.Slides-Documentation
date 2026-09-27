@@ -149,11 +149,11 @@ sudo apt-get update && sudo apt-get install -y default-jdk maven fontconfig font
 
 ### Aspose.Slides が正しく統合されているかどうか、どのように確認できますか？
 
-プロジェクトをビルドし、空の [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) をインスタンス化して新しい名前で保存します。例外がスローされずにファイルが作成されれば、ライブラリは正常に統合されています。
+プロジェクトをビルドし、空の [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) をインスタンス化して新しい名前で保存します。例外がスローされずにファイルが作成されれば、ライブラリは正常に統合されています。
 
 ### 大きなプレゼンテーションを処理する際のメモリ消費を抑えるにはどうすればよいですか？
 
-必要な分だけ JVM のメモリ上限を上げ、`finally` ブロック内で各 [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) インスタンスに対して [dispose](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#dispose--) を呼び出してキャッシュを速やかに解放します。これによりメモリ不足エラーを防ぎ、バッチ処理中のメモリ使用量を予測しやすくなります。
+必要な分だけ JVM のメモリ上限を上げ、`finally` ブロック内で各 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) インスタンスに対して [dispose](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#dispose--) を呼び出してキャッシュを速やかに解放します。これによりメモリ不足エラーを防ぎ、バッチ処理中のメモリ使用量を予測しやすくなります。
 
 ### 不要なエクスポート形式を除外して最終的な JAR サイズを小さくできますか？
 

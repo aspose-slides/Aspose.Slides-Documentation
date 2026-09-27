@@ -22,7 +22,7 @@ description: "Java 用 Aspose.Slides を評価し、PowerPoint (PPT、PPTX) お�
 
 評価用に Aspose.Slides をダウンロードできます。評価版のダウンロードは購入版と同じで、ライセンスを適用するコードを数行追加すればライセンスが有効になります。
 
-ライセンスがない場合、Aspose.Slides は評価モードで完全な機能を提供しますが、2 つの制限があります。保存する各プレゼンテーションのすべてのスライドに評価用ウォーターマークのテキストボックスが追加され、API 経由でコードが読み取るテキスト（設定したばかりのテキストを含む）は最初の数文字に切り詰められ、評価制限に関する通知が続きます。コードが書き込むテキストは全文が保存されます。プレゼンテーション全体をロードせずにテキストを抽出する [getPresentationText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) メソッドは、スライドのテキストは返さず評価通知のみを返します。
+ライセンスがない場合、Aspose.Slides は評価モードで完全な機能を提供しますが、2 つの制限があります。保存する各プレゼンテーションのすべてのスライドに評価用ウォーターマークのテキストボックスが追加され、API 経由でコードが読み取るテキスト（設定したばかりのテキストを含む）は最初の数文字に切り詰められ、評価制限に関する通知が続きます。コードが書き込むテキストは全文が保存されます。プレゼンテーション全体をロードせずにテキストを抽出する [getPresentationText](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) メソッドは、スライドのテキストは返さず評価通知のみを返します。
 
 ![評価ウォーターマークが付いたスライド](evaluate-aspose-slides_1.png)
 

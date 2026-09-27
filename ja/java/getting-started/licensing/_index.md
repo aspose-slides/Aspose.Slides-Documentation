@@ -29,7 +29,7 @@ Aspose.Slides は評価モードまたは有効なライセンスで使用でき
 {{% alert color="info" title="Note" %}}
 **Aspose.Slides for Java** の評価版は[ダウンロードページ](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)からダウンロードできます。評価版は製品のライセンス版と同じ機能を提供します。評価パッケージは購入版と同一です。評価版はライセンスを適用するために数行のコードを追加すれば、ライセンス版となります。
 
-**Aspose.Slides** の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/ja/java/)できます。さまざまなサブスクリプションタイプをご確認ください。ご不明な点があれば、Aspose の営業チームにお問い合わせください。
+**Aspose.Slides** の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/java/)できます。さまざまなサブスクリプションタイプをご確認ください。ご不明な点があれば、Aspose の営業チームにお問い合わせください。
 
 すべての Aspose ライセンスには、サブスクリプション期間中にリリースされる新バージョンや修正への無料アップグレードが 1 年間付属します。ライセンス製品（評価版でも可）を使用しているユーザーは、無料で無制限のテクニカルサポートを受けられます。
 {{% /alert %}} 
@@ -62,7 +62,7 @@ Aspose.Slides は評価モードまたは有効なライセンスで使用でき
 ライセンスは**ファイル**または**ストリーム**から読み込むことができます。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides はライセンス操作用に[License](https://reference.aspose.com/slides/ja/java/com.aspose.slides/license/)クラスを提供しています。
+Aspose.Slides はライセンス操作用に[License](https://reference.aspose.com/slides/java/com.aspose.slides/license/)クラスを提供しています。
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -83,9 +83,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-別のディレクトリにライセンス ファイルを配置した場合、[setLicense](https://reference.aspose.com/slides/ja/java/com.aspose.slides/license/#setLicense-java.lang.String-) メソッドを呼び出す際、指定したパスの末尾にあるライセンス ファイル名は実際のファイル名と同じでなければなりません。
+別のディレクトリにライセンス ファイルを配置した場合、[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) メソッドを呼び出す際、指定したパスの末尾にあるライセンス ファイル名は実際のファイル名と同じでなければなりません。
 
-例として、ライセンス ファイル名を *Aspose.Slides.Java.lic.xml* に変更したとします。その場合、コード内で [setLicense](https://reference.aspose.com/slides/ja/java/com.aspose.slides/license/#setLicense-java.lang.String-) メソッドに*Aspose.Slides.Java.lic.xml* で終わるパスを渡す必要があります。
+例として、ライセンス ファイル名を *Aspose.Slides.Java.lic.xml* に変更したとします。その場合、コード内で [setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.lang.String-) メソッドに*Aspose.Slides.Java.lic.xml* で終わるパスを渡す必要があります。
 {{% /alert %}}
 
 ### **ストリーム**
@@ -121,7 +121,7 @@ if (license.isLicensed())
 ## **スレッド安全性**
 
 {{% alert color="warning" title="Warning" %}}
-[setLicense](https://reference.aspose.com/slides/ja/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) メソッドはスレッドセーフではありません。このメソッドを多数のスレッドから同時に呼び出す必要がある場合は、ロックなどの同期プリミティブを使用して問題を回避してください。
+[setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/license/#setLicense-java.io.InputStream-) メソッドはスレッドセーフではありません。このメソッドを多数のスレッドから同時に呼び出す必要がある場合は、ロックなどの同期プリミティブを使用して問題を回避してください。
 {{% /alert %}}
 
 ## **FAQ**

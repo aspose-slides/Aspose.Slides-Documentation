@@ -28,14 +28,14 @@ description: "Aspose.Slides を使用して Java でプレゼンテーション�
 
 ## **プレゼンテーションの作成**
 
-Aspose.Slides for Java で最初から PowerPoint ファイルを作成するには、[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスから開始します。コンストラクタは単一のスライドを持つ空のプレゼンテーションを提供し、シェイプ、テキスト、チャート、またはアプリケーションが必要とする任意のコンテンツを追加できる状態です。そのスライドを変更したり新しいスライドを追加したりした後、結果を PPTX、従来の PPT、または OpenDocument 形式で保存できます。
+Aspose.Slides for Java で最初から PowerPoint ファイルを作成するには、[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスから開始します。コンストラクタは単一のスライドを持つ空のプレゼンテーションを提供し、シェイプ、テキスト、チャート、またはアプリケーションが必要とする任意のコンテンツを追加できる状態です。そのスライドを変更したり新しいスライドを追加したりした後、結果を PPTX、従来の PPT、または OpenDocument 形式で保存できます。
 
 プレゼンテーションを作成し、最初のスライドにテキスト付きシェイプを配置するには、次の手順に従います。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションにはすでに空のスライドが 1 つ含まれています。
-2. そのスライドをインデックス 0 で取得します。取得は [getSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getSlides--) が返すコレクションから行います。
-3. [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) の `Cloud` タイプを [addAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) メソッドで追加し、[setText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/#setText-java.lang.String-) でテキストを設定します。
-4. [save](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#save-java.lang.String-int-) メソッドでプレゼンテーションを PPTX ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションにはすでに空のスライドが 1 つ含まれています。
+2. そのスライドをインデックス 0 で取得します。取得は [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) が返すコレクションから行います。
+3. [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) の `Cloud` タイプを [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) メソッドで追加し、[setText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#setText-java.lang.String-) でテキストを設定します。
+4. [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) メソッドでプレゼンテーションを PPTX ファイルとして保存します。
 
 以下の例は完全なプログラムです。[インストール](/slides/ja/java/installation/) の Maven プロジェクト内で、*src/main/java/HelloSlides.java* として保存し、`mvn compile exec:java` を実行してください。
 
@@ -93,7 +93,7 @@ public class HelloSlides {
 
 ### プレゼンテーションを並列で作成／保存できますか？
 
-同じ [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) インスタンスに対して [複数スレッド](/slides/ja/java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに別々の独立したインスタンスを実行してください。
+同じ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) インスタンスに対して [複数スレッド](/slides/ja/java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに別々の独立したインスタンスを実行してください。
 
 ### 評価用の透かしと制限を削除するには？
 
