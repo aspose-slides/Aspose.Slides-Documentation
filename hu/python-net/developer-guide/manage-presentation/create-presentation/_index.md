@@ -29,10 +29,10 @@ Mielőtt elkezdené, telepítse a csomagot a PyPI‑ról a `pip install aspose.s
 
 Egy prezentáció létrehozásához és egy szöveges alakzat hozzáadásához az első diájához kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból. Egy új prezentáció már tartalmaz egy üres diát.
-2. Szerezze meg azt a diát a [slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/slides/hu/) gyűjteményből index alapján, 0.
-3. A dia [shapes](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slide/shapes/) gyűjteményének [add_auto_shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_auto_shape/) metódusával adjon hozzá egy felhő alakú [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/)-t, és állítsa be a [text](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/text/) tulajdonságát.
-4. Mentse a prezentációt PPTX fájlként a [save](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/save/) metódussal.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztályból. Egy új prezentáció már tartalmaz egy üres diát.
+2. Szerezze meg azt a diát a [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) gyűjteményből index alapján, 0.
+3. A dia [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) gyűjteményének [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) metódusával adjon hozzá egy felhő alakú [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)-t, és állítsa be a [text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text/) tulajdonságát.
+4. Mentse a prezentációt PPTX fájlként a [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) metódussal.
 
 ```py
 import aspose.slides as slides
@@ -80,7 +80,7 @@ Használjon [BLOB kezelési stratégiai](/slides/hu/python-net/manage-blob/) meg
 
 ### Készíthetek/sMenthetek prezentációkat párhuzamosan?
 
-Nem működik, ha ugyanazon [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányon több [thread](/slides/hu/python-net/multithreading/) dolgozik. Indítson külön, izolált példányokat szálanként vagy folyamatanként.
+Nem működik, ha ugyanazon [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) példányon több [thread](/slides/hu/python-net/multithreading/) dolgozik. Indítson külön, izolált példányokat szálanként vagy folyamatanként.
 
 ### Hogyan távolíthatom el a próba‑vízjelet és a korlátozásokat?
 

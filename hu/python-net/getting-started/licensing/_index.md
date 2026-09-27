@@ -23,7 +23,7 @@ Aspose.Slides használható értékelő módban vagy érvényes licencel. Az ér
 
 Az **Aspose.Slides for Python via .NET** értékelő verzióját letöltheti a [letöltési oldal](https://pypi.org/project/Aspose.Slides/)ról. Az értékelő verzió ugyanazokat a funkciókat biztosítja, mint a licencelt termék. Az értékelő csomag azonos a megvásárolt csomaggal, és licencessé válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
 
-Ha elégedett az **Aspose.Slides** értékelésével, akkor [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/hu/python-net/). Javasoljuk, hogy tekintse át a rendelkezésre álló előfizetési lehetőségeket. Ha kérdése van, lépjen kapcsolatba az Aspose értékesítési csapatával.
+Ha elégedett az **Aspose.Slides** értékelésével, akkor [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/python-net/). Javasoljuk, hogy tekintse át a rendelkezésre álló előfizetési lehetőségeket. Ha kérdése van, lépjen kapcsolatba az Aspose értékesítési csapatával.
 
 Minden Aspose licenc egyéves előfizetést tartalmaz, amely ingyenes frissítéseket és a periódus alatt kiadott hibajavításokat biztosítja. A licencelt és az értékelő felhasználók egyaránt ingyenes, korlátlan technikai támogatást kapnak.
 
@@ -53,7 +53,7 @@ Az Aspose.Slides korlátozások nélküli teszteléséhez kérhet **30 napos ide
 A licenc betölthető egy **fájlból** vagy egy **folyamból**.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides a [License](https://reference.aspose.com/slides/hu/python-net/aspose.slides/license/) osztályt biztosítja a licenckezeléshez.
+Az Aspose.Slides a [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) osztályt biztosítja a licenckezeléshez.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -62,7 +62,7 @@ Az új licenc csak a 21.4 vagy újabb verzióval aktiválja az Aspose.Slides-et.
 
 ### **Fájl**
 
-A licenc beállításának legegyszerűbb módja, ha a licencfájl útvonalát átadja a [set_license](https://reference.aspose.com/slides/hu/python-net/aspose.slides/license/set_license/) metódusnak. Ha csak a fájlnevet adja meg, ahogy az alábbi példában is, az Aspose.Slides a fájlt a jelenlegi munkakönyvtárban keresi.
+A licenc beállításának legegyszerűbb módja, ha a licencfájl útvonalát átadja a [set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) metódusnak. Ha csak a fájlnevet adja meg, ahogy az alábbi példában is, az Aspose.Slides a fájlt a jelenlegi munkakönyvtárban keresi.
 
 Az alábbi Python kód bemutatja, hogyan kell beállítani a licencfájlt:
 ```py
@@ -76,9 +76,9 @@ license.set_license("Aspose.Slides.lic")
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Ha a licencfájlt egy másik könyvtárba helyezi, a [License.set_license](https://reference.aspose.com/slides/hu/python-net/aspose.slides/license/set_license/#str) hívásakor a kifejezett útvonal végén szereplő fájlnévnek meg kell egyeznie a licencfájl nevével.
+Ha a licencfájlt egy másik könyvtárba helyezi, a [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) hívásakor a kifejezett útvonal végén szereplő fájlnévnek meg kell egyeznie a licencfájl nevével.
 
-Például átnevezheti a licencfájlt *Aspose.Slides.lic.xml*-re. Ezután a kódban adja meg a teljes útvonalat a fájlhoz (a végén Aspose.Slides.lic.xml-vel), a [License.set_license](https://reference.aspose.com/slides/hu/python-net/aspose.slides/license/set_license/#str) metódusnak.
+Például átnevezheti a licencfájlt *Aspose.Slides.lic.xml*-re. Ezután a kódban adja meg a teljes útvonalat a fájlhoz (a végén Aspose.Slides.lic.xml-vel), a [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) metódusnak.
 {{% /alert %}}
 
 ### **Folyam**
@@ -112,7 +112,7 @@ if license.is_licensed():
 ## **Szálbiztonság**
 
 {{% alert color="warning" title="Warning" %}}
-A [License.set_license](https://reference.aspose.com/slides/hu/python-net/aspose.slides/license/set_license/) metódus nem szálbiztos. Ha több szálból kell egyszerre meghívni, használjon szinkronizációs primitívet, például `threading.Lock`-ot, a problémák elkerülése érdekében.
+A [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/) metódus nem szálbiztos. Ha több szálból kell egyszerre meghívni, használjon szinkronizációs primitívet, például `threading.Lock`-ot, a problémák elkerülése érdekében.
 {{% /alert %}}
 
 ## **GYIK**

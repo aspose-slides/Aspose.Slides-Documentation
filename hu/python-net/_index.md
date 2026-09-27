@@ -79,13 +79,13 @@ Támogatja a PPT, PPTX, PPS, POT és ODP fájlok betöltését és mentését, b
 <hr>
 <p>Referencia</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hu/python-net/">API referencia</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/python-net/release-notes/">Kiadási megjegyzések</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/python-net/">Letöltés</a></li>
+<li><a href="https://reference.aspose.com/slides/python-net/">API referencia</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://releases.aspose.com/slides/python-net/">Letöltés</a></li>
 </ul>
 <p>Támogatás</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>
