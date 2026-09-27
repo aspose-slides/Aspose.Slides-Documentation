@@ -72,14 +72,14 @@ Aspose.Slides для Node.js через Java — это библиотека д�
 <hr>
 <p>СПРАВКА</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ru/nodejs-java/">Справочник API</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/nodejs-java/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://reference.aspose.com/slides/nodejs-java/">Справочник API</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/nodejs-java/known-issues/">Известные проблемы</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/nodejs-java/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/nodejs-java/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
 </ul>
 </div>

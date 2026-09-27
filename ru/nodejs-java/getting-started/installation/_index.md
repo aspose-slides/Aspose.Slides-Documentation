@@ -100,7 +100,7 @@ node hello.js
 Пакет также доступен в виде ZIP‑архива, содержащего те же файлы, что и npm‑пакет. Чтобы установить его из архива:
 
 1. Установите предварительные требования для вашей ОС, как описано выше.  
-1. Скачайте архив со [страницы загрузки Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/ru/nodejs-java/).  
+1. Скачайте архив со [страницы загрузки Aspose.Slides for Node.js via Java](https://releases.aspose.com/slides/nodejs-java/).  
 1. Создайте папку проекта:
 
     ```bash

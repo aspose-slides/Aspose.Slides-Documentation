@@ -31,11 +31,11 @@ description: "Создавайте презентации с помощью Aspo
 
 Чтобы создать презентацию и добавить текстовое поле на её первый слайд, выполните следующие действия:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
-1. Получите этот слайд из [slide collection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/getslides/) по индексу 0.
-1. Добавьте прямоугольник с помощью метода [addAutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/addautoshape/) и задайте его текст методом [setText](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/settext/).
-1. Сохраните презентацию в файл PPTX с помощью метода [save](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/save/).
-1. Освободите ресурсы презентации с помощью метода [dispose](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/dispose/), и завершите процесс.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
+1. Получите этот слайд из [slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) по индексу 0.
+1. Добавьте прямоугольник с помощью метода [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addautoshape/) и задайте его текст методом [setText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/settext/).
+1. Сохраните презентацию в файл PPTX с помощью метода [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/).
+1. Освободите ресурсы презентации с помощью метода [dispose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/dispose/), и завершите процесс.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -84,7 +84,7 @@ Aspose.Slides работает в виртуальной машине Java, ко
 
 ### Могу ли я создавать/сохранять презентации параллельно?
 
-Вы не можете работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/) из [multiple threads](/slides/ru/nodejs-java/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
+Вы не можете работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) из [multiple threads](/slides/ru/nodejs-java/multithreading/). Запускайте отдельные, изолированные экземпляры для каждого потока или процесса.
 
 ### Как убрать пробный водяной знак и ограничения?
 
