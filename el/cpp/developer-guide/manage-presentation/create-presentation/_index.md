@@ -30,10 +30,10 @@ description: "Δημιουργήστε παρουσιάσεις σε C++ με τ
 
 Για να δημιουργήσετε μια παρουσίαση και να τοποθετήσετε ένα πλαίσιο κειμένου στην πρώτη της διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) . Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.
-2. Αποκτήστε αυτή τη διαφάνεια με τη μέθοδο [Presentation::get_Slide](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_slide/) και το ευρετήριο της, 0.
-3. Προσθέστε ένα ορθογώνιο σχήμα με τη μέθοδο [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/addautoshape/) και ορίστε το κείμενό του με τη μέθοδο [ITextFrame::set_Text](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/set_text/) .
-4. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [Presentation::Save](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/save/) .
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) . Μια νέα παρουσίαση περιέχει ήδη μία κενή διαφάνεια.
+2. Αποκτήστε αυτή τη διαφάνεια με τη μέθοδο [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) και το ευρετήριο της, 0.
+3. Προσθέστε ένα ορθογώνιο σχήμα με τη μέθοδο [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addautoshape/) και ορίστε το κείμενό του με τη μέθοδο [ITextFrame::set_Text](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/set_text/) .
+4. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) .
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,7 +87,7 @@ int main()
 
 ### Μπορώ να δημιουργήσω/αποθηκεύσω παρουσιάσεις παράλληλα;
 
-Δεν μπορείτε να λειτουργήσετε στην ίδια [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) instance από [πολλαπλά νήματα](/slides/el/cpp/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες εμφανίσεις ανά νήμα ή διεργασία.
+Δεν μπορείτε να λειτουργήσετε στην ίδια [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance από [πολλαπλά νήματα](/slides/el/cpp/multithreading/). Εκτελέστε ξεχωριστές, απομονωμένες εμφανίσεις ανά νήμα ή διεργασία.
 
 ### Πώς αφαιρώ το δοκιμαστικό υδατογράφημα και τους περιορισμούς;
 

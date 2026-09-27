@@ -72,14 +72,14 @@ is_root: true
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/el/cpp/">Τεκμηρίωση API</a></li>
-<li><a href="https://releases.aspose.com/slides/el/cpp/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://reference.aspose.com/slides/cpp/">Τεκμηρίωση API</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/release-notes/">Σημειώσεις έκδοσης</a></li>
 <li><a href="/slides/el/cpp/known-issues/">Γνωστά προβλήματα</a></li>
-<li><a href="https://releases.aspose.com/slides/el/cpp/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/cpp/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Πληρωμένο helpdesk υποστήριξης</a></li>
 </ul>
 </div>

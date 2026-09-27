@@ -28,9 +28,9 @@ description: "Εφαρμόζετε, διαχειρίζεστε και αντιμ
 
 {{% alert color="info" title="Σημείωση" %}}
 
-Μπορείτε να κατεβάσετε μια έκδοση αξιολόγησης του **Aspose.Slides for C++** από [τη σελίδα λήψης στο NuGet](https://www.nuget.org/packages/Aspose.Slides.Cpp/) ή, ως πακέτο ZIP, από τη [σελίδα λήψης](https://releases.aspose.com/slides/el/cpp/). Η έκδοση αξιολόγησης προσφέρει την ίδια λειτουργικότητα με το προϊόν με άδεια. Στην πραγματικότητα, το πακέτο αξιολόγησης είναι ταυτόσημο με το αγορασμένο — γίνεται απλώς άδεια αφού προσθέσετε μερικές γραμμές κώδικα για την εφαρμογή της άδειας.
+Μπορείτε να κατεβάσετε μια έκδοση αξιολόγησης του **Aspose.Slides for C++** από [τη σελίδα λήψης στο NuGet](https://www.nuget.org/packages/Aspose.Slides.Cpp/) ή, ως πακέτο ZIP, από τη [σελίδα λήψης](https://releases.aspose.com/slides/cpp/). Η έκδοση αξιολόγησης προσφέρει την ίδια λειτουργικότητα με το προϊόν με άδεια. Στην πραγματικότητα, το πακέτο αξιολόγησης είναι ταυτόσημο με το αγορασμένο — γίνεται απλώς άδεια αφού προσθέσετε μερικές γραμμές κώδικα για την εφαρμογή της άδειας.
 
-Μόλις είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/pricing/slides/el/cpp/). Σας συνιστούμε να εξετάσετε τους διαθέσιμους τύπους συνδρομής. Εάν έχετε ερωτήσεις, μη διστάσετε να επικοινωνήσετε με την ομάδα πωλήσεων της Aspose.
+Μόλις είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/pricing/slides/cpp/). Σας συνιστούμε να εξετάσετε τους διαθέσιμους τύπους συνδρομής. Εάν έχετε ερωτήσεις, μη διστάσετε να επικοινωνήσετε με την ομάδα πωλήσεων της Aspose.
 
 Κάθε άδεια Aspose περιλαμβάνει ετήσια συνδρομή για δωρεάν ενημερώσεις, συμπεριλαμβανομένων νέων εκδόσεων και διορθώσεων σφαλμάτων που κυκλοφορούν κατά τη διάρκεια της περιόδου. Είτε χρησιμοποιείτε άδεια είτε έκδοση αξιολόγησης, λαμβάνετε δωρεάν και απεριόριστη τεχνική υποστήριξη.
 
@@ -61,7 +61,7 @@ description: "Εφαρμόζετε, διαχειρίζεστε και αντιμ
 
 {{% alert color="info" title="Σημείωση" %}}
 
-Το Aspose.Slides παρέχει την κλάση [License](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/) για λειτουργίες αδειοδότησης.
+Το Aspose.Slides παρέχει την κλάση [License](https://reference.aspose.com/slides/cpp/aspose.slides/license/) για λειτουργίες αδειοδότησης.
 
 {{% /alert %}} 
 
@@ -94,19 +94,19 @@ int main()
 }
 ```
 
-Αν η άδεια είναι έγκυρη, [License::SetLicense](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/setlicense/) επιστρέφει και το πρόγραμμα τερματίζει χωρίς έξοδο· από τότε το Aspose.Slides λειτουργεί χωρίς τους περιορισμούς αξιολόγησης. Αν το αρχείο δεν βρίσκεται στον φάκελο εργασίας, η μέθοδος ρίχνει μια [FileNotFoundException](https://reference.aspose.com/slides/el/cpp/system.io/filenotfoundexception/) με το μήνυμα *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Το παράδειγμα δεν χειρίζεται την εξαίρεση, έτσι το πρόγραμμα σταματά.
+Αν η άδεια είναι έγκυρη, [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) επιστρέφει και το πρόγραμμα τερματίζει χωρίς έξοδο· από τότε το Aspose.Slides λειτουργεί χωρίς τους περιορισμούς αξιολόγησης. Αν το αρχείο δεν βρίσκεται στον φάκελο εργασίας, η μέθοδος ρίχνει μια [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) με το μήνυμα *License "Aspose.Slides.lic" doesn't exist or access is restricted*. Το παράδειγμα δεν χειρίζεται την εξαίρεση, έτσι το πρόγραμμα σταματά.
 
 {{% alert color="warning" title="Προειδοποίηση" %}}
 
-Αν τοποθετήσετε το αρχείο άδειας σε διαφορετικό κατάλογο, τότε όταν καλέσετε τη μέθοδο [License::SetLicense](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/setlicense/), το όνομα αρχείου στο τέλος του ρητού μονοπατιού πρέπει να ταιριάζει ακριβώς με το όνομα του αρχείου άδειας σας.
+Αν τοποθετήσετε το αρχείο άδειας σε διαφορετικό κατάλογο, τότε όταν καλέσετε τη μέθοδο [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/), το όνομα αρχείου στο τέλος του ρητού μονοπατιού πρέπει να ταιριάζει ακριβώς με το όνομα του αρχείου άδειας σας.
 
-Για παράδειγμα, αν μετονομάσετε το αρχείο άδειας σε *Aspose.Slides.lic.xml*, πρέπει να περάσετε το πλήρες μονοπάτι που λήγει σε *Aspose.Slides.lic.xml* στη μέθοδο [License::SetLicense](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/setlicense/) στον κώδικά σας.
+Για παράδειγμα, αν μετονομάσετε το αρχείο άδειας σε *Aspose.Slides.lic.xml*, πρέπει να περάσετε το πλήρες μονοπάτι που λήγει σε *Aspose.Slides.lic.xml* στη μέθοδο [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) στον κώδικά σας.
 
 {{% /alert %}}
 
 ### **Ροή**
 
-Φορτώστε μια άδεια από ροή όταν το πρόγραμμά σας δεν διατηρεί την άδεια ως αρχείο που μπορεί να ονομαστεί, για παράδειγμα όταν διαβάζει την άδεια από μια βάση δεδομένων. Το [License::SetLicense](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/setlicense/) δέχεται οποιαδήποτε [Stream](https://reference.aspose.com/slides/el/cpp/system.io/stream/) που περιέχει την άδεια. Για να κρατήσουμε το παράδειγμα σύντομο, ο παρακάτω κώδικας C++ ανοίγει το *Aspose.Slides.lic* στον φάκελο εργασίας με το [File::OpenRead](https://reference.aspose.com/slides/el/cpp/system.io/file/openread/) και εφαρμόζει την άδεια από εκείνη τη ροή:
+Φορτώστε μια άδεια από ροή όταν το πρόγραμμά σας δεν διατηρεί την άδεια ως αρχείο που μπορεί να ονομαστεί, για παράδειγμα όταν διαβάζει την άδεια από μια βάση δεδομένων. Το [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) δέχεται οποιαδήποτε [Stream](https://reference.aspose.com/slides/cpp/system.io/stream/) που περιέχει την άδεια. Για να κρατήσουμε το παράδειγμα σύντομο, ο παρακάτω κώδικας C++ ανοίγει το *Aspose.Slides.lic* στον φάκελο εργασίας με το [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) και εφαρμόζει την άδεια από εκείνη τη ροή:
 
 ```c++
 #include <Util/License.h>
@@ -127,11 +127,11 @@ int main()
 }
 ```
 
-Μια έγκυρη άδεια δίνει το ίδιο αποτέλεσμα όπως στο παράδειγμα του αρχείου. Αν το αρχείο δεν υπάρχει, το [File::OpenRead](https://reference.aspose.com/slides/el/cpp/system.io/file/openread/) ρίχνει μια [FileNotFoundException](https://reference.aspose.com/slides/el/cpp/system.io/filenotfoundexception/) πριν εφαρμοστεί η άδεια, και το πρόγραμμα σταματά.
+Μια έγκυρη άδεια δίνει το ίδιο αποτέλεσμα όπως στο παράδειγμα του αρχείου. Αν το αρχείο δεν υπάρχει, το [File::OpenRead](https://reference.aspose.com/slides/cpp/system.io/file/openread/) ρίχνει μια [FileNotFoundException](https://reference.aspose.com/slides/cpp/system.io/filenotfoundexception/) πριν εφαρμοστεί η άδεια, και το πρόγραμμα σταματά.
 
 ## **Επικύρωση Άδειας**
 
-Για να ελέγξετε αν μια άδεια έχει οριστεί σωστά, καλέστε το [License::IsLicensed](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/islicensed/). Επιστρέφει `true` μόνο μετά την εφαρμογή έγκυρης άδειας και `false` πριν από αυτό. Ο παρακάτω κώδικας C++ εφαρμόζει το αρχείο άδειας από τον φάκελο εργασίας και, στη συνέχεια, το ελέγχει:
+Για να ελέγξετε αν μια άδεια έχει οριστεί σωστά, καλέστε το [License::IsLicensed](https://reference.aspose.com/slides/cpp/aspose.slides/license/islicensed/). Επιστρέφει `true` μόνο μετά την εφαρμογή έγκυρης άδειας και `false` πριν από αυτό. Ο παρακάτω κώδικας C++ εφαρμόζει το αρχείο άδειας από τον φάκελο εργασίας και, στη συνέχεια, το ελέγχει:
 
 ```c++
 #include <Util/License.h>
@@ -155,13 +155,13 @@ int main()
 }
 ```
 
-Με έγκυρη άδεια, το πρόγραμμα εμφανίζει *License is good!*. Αν το αρχείο λείπει ή δεν είναι αρχείο άδειας, το [License::SetLicense](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/setlicense/) ρίχνει εξαίρεση πριν τον έλεγχο και το πρόγραμμα σταματά χωρίς καμία εκτύπωση. Αν το αρχείο είναι άδεια που η υπογραφή του δεν ταιριάζει, π.χ. επειδή επεξεργάστηκε, το SetLicense επιστρέφει χωρίς σφάλμα αλλά το `IsLicensed` επιστρέφει `false`, έτσι δεν τίθεται τίποτα και το Aspose.Slides παραμένει σε λειτουργία αξιολόγησης.
+Με έγκυρη άδεια, το πρόγραμμα εμφανίζει *License is good!*. Αν το αρχείο λείπει ή δεν είναι αρχείο άδειας, το [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) ρίχνει εξαίρεση πριν τον έλεγχο και το πρόγραμμα σταματά χωρίς καμία εκτύπωση. Αν το αρχείο είναι άδεια που η υπογραφή του δεν ταιριάζει, π.χ. επειδή επεξεργάστηκε, το SetLicense επιστρέφει χωρίς σφάλμα αλλά το `IsLicensed` επιστρέφει `false`, έτσι δεν τίθεται τίποτα και το Aspose.Slides παραμένει σε λειτουργία αξιολόγησης.
 
 ## **Ασφάλεια Νημάτων**
 
 {{% alert color="warning" title="Προειδοποίηση" %}}
 
-Η μέθοδος [License::SetLicense](https://reference.aspose.com/slides/el/cpp/aspose.slides/license/setlicense/) **δεν είναι ασφαλής για νήματα**. Εάν χρειάζεται να καλέσετε αυτή τη μέθοδο από πολλαπλά νήματα ταυτόχρονα, συνιστάται η χρήση μηχανισμών συγχρονισμού (όπως κλείδωμα) για την αποφυγή πιθανών προβλημάτων.
+Η μέθοδος [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) **δεν είναι ασφαλής για νήματα**. Εάν χρειάζεται να καλέσετε αυτή τη μέθοδο από πολλαπλά νήματα ταυτόχρονα, συνιστάται η χρήση μηχανισμών συγχρονισμού (όπως κλείδωμα) για την αποφυγή πιθανών προβλημάτων.
 
 {{% /alert %}}
 
