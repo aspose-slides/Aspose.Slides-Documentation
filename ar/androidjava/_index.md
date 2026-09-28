@@ -72,14 +72,14 @@ Aspose.Slides لأندرويد عبر Java هي مكتبة فئات لإنشاء
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ar/androidjava/">وثائق API</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/androidjava/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">وثائق API</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">ملاحظات الإصدار</a></li>
 <li><a href="/slides/ar/androidjava/known-issues/">المشكلات المعروفة</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/androidjava/">التنزيل</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">التنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب المساعدة المدفوع</a></li>
 </ul>
 </div>

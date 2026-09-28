@@ -31,10 +31,10 @@ description: "إنشاء عروض تقديمية باستخدام Java مع Aspo
 
 لإنشاء عرض تقديمي ووضع مربع نص على الشريحة الأولى، اتبع الخطوات التالية:
 
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.  
-1. احصل على تلك الشريحة من [مجموعة الشرائح](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidecollection/) حسب فهرسها، 0.  
-1. أضف مستطيلًا باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) من [مجموعة الأشكال](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/) وحدد نص [إطار النص](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) باستخدام طريقة [setText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-1. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) بصيغة [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/saveformat/).
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). يحتوي العرض التقديمي الجديد بالفعل على شريحة فارغة واحدة.  
+1. احصل على تلك الشريحة من [مجموعة الشرائح](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) حسب فهرسها، 0.  
+1. أضف مستطيلًا باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) من [مجموعة الأشكال](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) وحدد نص [إطار النص](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) باستخدام طريقة [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+1. احفظ العرض التقديمي كملف PPTX باستخدام طريقة [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) بصيغة [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 يعمل الكود داخل `Activity`، على سبيل المثال في طريقة `onCreate` الخاصة به. يحفظ الملف في الدليل الذي تُرجعه طريقة [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()): مساحة التخزين الخاصة بتطبيقك، والتي يمكن الكتابة إليها دون طلب أي إذن.
 
@@ -83,7 +83,7 @@ try {
 
 ### هل يمكنني إنشاء/حفظ عروض تقديمية بصورة متوازية؟
 
-لا يمكنك التعامل مع نفس كائن [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) من [عدة خيوط](/slides/ar/androidjava/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
+لا يمكنك التعامل مع نفس كائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) من [عدة خيوط](/slides/ar/androidjava/multithreading/). شغّل مثيلات منفصلة ومعزولة لكل خيط أو عملية.
 
 ### كيف أزيل علامة التقييم والقيود؟
 

@@ -57,7 +57,7 @@ dependencies {
 
 ### **اختر إصدارًا**
 
-لا يتم بناء Aspose.Slides for Android via Java لكل إصدار في المستودع. يتم نشر بناءاته لبعض إصدارات Aspose.Slides for Java فقط، والإصدار الذي لا يحتوي على بناء Android يفشل في الحل. اختر إصدارًا مدرجًا في صفحة [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/ar/androidjava/).
+لا يتم بناء Aspose.Slides for Android via Java لكل إصدار في المستودع. يتم نشر بناءاته لبعض إصدارات Aspose.Slides for Java فقط، والإصدار الذي لا يحتوي على بناء Android يفشل في الحل. اختر إصدارًا مدرجًا في صفحة [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/androidjava/).
 
 ### **سكربتات بناء Groovy**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### كيف يمكنني التحقق من أن Aspose.Slides تم دمجه بشكل صحيح؟
 
-قم ببناء مشروعك، أنشئ كائنًا فارغًا من نوع [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) واحفظه باسم جديد. إذا تم إنشاء الملف دون رمي استثناءات، فقد تم دمج المكتبة بنجاح.
+قم ببناء مشروعك، أنشئ كائنًا فارغًا من نوع [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) واحفظه باسم جديد. إذا تم إنشاء الملف دون رمي استثناءات، فقد تم دمج المكتبة بنجاح.
 
 ### كيف يمكنني الحد من استهلاك الذاكرة عند معالجة عروض تقديمية كبيرة؟
 
-استدعِ طريقة [dispose](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#dispose--) لكل كائن [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) داخل كتلة `finally` لتحرير موارده فورًا، ومعالجة عرض تقديمي كبير واحد في كل مرة. يساعد ذلك في منع أخطاء نفاد الذاكرة ويجعل استهلاك الذاكرة الكلي قابلًا للتنبؤ أثناء عمليات الدفعات.
+استدعِ طريقة [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) لكل كائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) داخل كتلة `finally` لتحرير موارده فورًا، ومعالجة عرض تقديمي كبير واحد في كل مرة. يساعد ذلك في منع أخطاء نفاد الذاكرة ويجعل استهلاك الذاكرة الكلي قابلًا للتنبؤ أثناء عمليات الدفعات.
 
 ### هل يمكنني استبعاد تنسيقات تصدير غير مرغوب فيها لتقليل حجم ملف JAR النهائي؟
 
