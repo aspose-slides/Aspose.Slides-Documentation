@@ -3,28 +3,21 @@ title: Támogatott fájlformátumok
 type: docs
 weight: 20
 url: /hu/jasperreports/supported-file-formats/
+description: "Tekintse meg, hogy az Aspose.Slides for JasperReports milyen bemenetet fogad, és mely fájlformátumokba exportálja a jelentéseket."
 ---
-## **Támogatott Microsoft PowerPoint verziók**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint Mac-hez
-- Office 365
+## **Bemenet**
 
-## **Támogatott fájlformátumok**
-Az alábbi táblázat mutatja az Aspose.Slides for JasperReports által betölthető és menthető fájlformátumokat.
+Az Aspose.Slides for JasperReports jelentéseket exportál; nem konvertálja a meglévő prezentációkat. Az exportálók egy kitöltött JasperReports jelentést (`JasperPrint`) vesznek fel, például a `JasperFillManager` eredményét vagy egy *.jrprint* fájlból betöltött kitöltött jelentést.
 
-|**Formátum**|**Leírás**|**Betöltés**|**Mentés**|**Megjegyzés**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint prezentáció 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint diavetítés 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint prezentáció 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint diavetítés 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Formátum||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|HTML formátum||{{< emoticons/tick >}}||
+## **Kimeneti formátumok**
+
+Az alábbi táblázat felsorolja azokat a formátumokat, amelyekbe az Aspose.Slides for JasperReports egy jelentést exportál, valamint az egyes formátumok írásáért felelős exportáló osztályt.
+
+|**Formátum**|**Leírás**|**Exportáló**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97–2003 prezentáció; egy dia a jelentés oldalanként|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint prezentáció (Office Open XML); egy dia a jelentés oldalanként|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format; egy PDF oldal a jelentés oldalanként|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|Egyetlen HTML fájl, egy SVG kép a jelentés oldalanként|`ASHtmlExporter`|
+
+Nincs exportáló a PPS és PPSX diavetítési formátumokhoz. Ha egy PPTX exportnak *.ppsx* fájlnevet adunk, akkor is PPTX prezentáció jön létre, nem diavetítés. Ahhoz, hogy lásd, hogyan használják az egyes exportálókat, lásd a [PPT, PPTX, PDF and HTML Export](/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/).

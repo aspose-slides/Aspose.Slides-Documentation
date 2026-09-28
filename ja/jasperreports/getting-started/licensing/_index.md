@@ -3,61 +3,62 @@ title: ライセンス
 type: docs
 weight: 50
 url: /ja/jasperreports/licensing/
+description: "Aspose.Slides for JasperReports の評価版がエクスポートされたファイルに追加する内容と、JasperReports および JasperReports Server でライセンスを適用する方法を学びます。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Aspose.Slides for JasperReports は、[download page](https://releases.aspose.com/slides/ja/jasperreport/) から無料で期間無制限の評価版として入手できます。評価版とライセンス版は同一のダウンロードです。
 
-Aspose.Slides for JasperReportsは、[ダウンロードページ](https://downloads.aspose.com/slides/jasperreport)から無制限の評価版として無料で提供されています。評価版とライセンス版は同じダウンロードです。
+評価版に満足したら、[buy a license](https://purchase.aspose.com/pricing/slides/ja/jasperreports/) を実行してください。利用規約を理解し、同意したことを確認してください。
 
-評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)してください。サブスクリプションの条件を理解し、同意していることを確認してください。
+ライセンスは、注文が支払われた後の注文ページからダウンロードできます。ライセンスはプレーンテキストのデジタル署名された XML ファイルで、クライアント名、購入した製品、ライセンスの種類などの情報が含まれます。ライセンスファイルの内容をいかなる方法でも変更しないでください。変更するとライセンスが無効になります。
 
-ライセンスは、注文が支払われた後に注文ページからダウンロードできます。ライセンスは、クライアント名、購入した製品、ライセンスタイプなどの情報を含む、デジタル署名されたXMLファイルです。ライセンスファイルの内容を変更しないでください。変更するとライセンスが無効になります。
+ライセンスをコンピューターにダウンロードし、適切なフォルダー（例: アプリケーション フォルダーまたは **JasperReports\lib**）にコピーしてください。
+{{% /alert %}}
 
-ライセンスをコンピューターにダウンロードし、適切なフォルダー（たとえば、アプリケーションフォルダーまたは**JasperReports\lib**）にコピーしてください。
+## **評価バージョンの制限**
+ライセンスが指定されていない Aspose.Slides for JasperReports の評価版はレポートのすべてのページをエクスポートしますが、4 つの出力形式（PPT、PPTX、PDF、HTML）すべてで各スライドまたはページの中心に評価用透かしが入ります。以下の図をご参照ください。詳細は [Evaluate Aspose.Slides](/slides/ja/jasperreports/evaluate-aspose-slides/) をご覧ください。
 
-## **評価版の制限**
-Aspose.Slidesの評価版（ライセンスが指定されていない）は、製品の全機能を提供しますが（プレゼンテーションを保存するとき）、下記の図に示すように各スライドの中央に評価用の透かしを挿入します：
-
-![todo:image_alt_text](evaluation_watermark.png) 
+![The evaluation watermark at the center of an exported slide](evaluation_watermark.png)
 
 ## **ライセンスの適用**
-ライセンスを適用する方法はいくつかあります。JasperReportsまたはJasperServerで作業しているかによって異なります。
+ライセンスの適用方法はいくつかあり、JasperReports で作業する場合と JasperServer で作業する場合で異なります。
 
-### **JasperReportsのライセンスの適用**
-Aspose.Slides for Javaと同様に、直接setLicenseメソッドを呼び出します。
+### **JasperReports 用のライセンスの適用**
+Java 用 Aspose.Slides と同様に、`License` クラスの `setLicense` メソッドにライセンス ファイルを読み込むストリームを渡して呼び出します。
 
 ```java
+import java.io.FileInputStream;
+
 import com.aspose.slides.jasperreports.License;
 
-..... 
+public class ApplyLicense {
+    public static void main(String[] args) {
+        try {
+            // ライセンスファイルを含むストリームオブジェクトを作成します。
+            FileInputStream fstream = new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 
-try {
-    //ライセンスファイルを含むストリームオブジェクトを作成
-    FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
-	
-    //Licenseクラスをインスタンス化
-    License license = new License();
-	
-    //ストリームオブジェクトを通じてライセンスを設定
-    license.setLicense(fstream);
-} catch(Exception ex) {
-    System.out.println(ex.toString());
+            // License クラスのインスタンスを作成します。
+            License license = new License();
+
+            // ストリームオブジェクトを使用してライセンスを設定します。
+            license.setLicense(fstream);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+    }
 }
 ```
 
-または、コード内でエクスポーターパラメータを設定します。
+または、エクスポーターに `ASExporterParameters.PPT_LICENSE` パラメータでライセンス ファイルのパスを渡します。このフラグメントでは、`jasperPrint` はレポートが埋め込まれた状態です（[Your first export](/slides/ja/jasperreports/#your-first-export) を参照）。
 
 ```java
-ASPptExporter exporter = new ASPptExporter (); 
+ASPptExporter exporter = new ASPptExporter();
+exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "report.ppt");
 exporter.setParameter(ASExporterParameters.PPT_LICENSE, "Aspose.Slides.JasperReports.Developer.lic");
 exporter.exportReport();
 ```
 
-### **JasperServerでのライセンスの適用**
-applicationContext.xmlでエクスポーターパラメータを設定します。
-
-``` xml
-<bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">
-    <property name="licenseFile" value="C:/jasperserver-3.0/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
-</bean>
-```
+### **JasperServer でのライセンスの適用**
+*applicationContext.xml* の `pptExportParameters` ビーンの `licenseFile` プロパティにライセンス ファイルへのパスを設定します。手順は [Integration with JasperServer](/slides/ja/jasperreports/integration-with-jasperserver/#set-font-mapping-and-the-license) をご覧ください。

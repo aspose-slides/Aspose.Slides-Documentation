@@ -3,16 +3,14 @@ title: Aspose.Slidesの評価
 type: docs
 weight: 80
 url: /ja/jasperreports/evaluate-aspose-slides/
+description: "Aspose.Slides for JasperReports の評価版がエクスポートされたファイルに何を追加するか、そして評価透かしなしでエクスポートする方法を確認してください。"
 ---
+評価目的で Aspose.Slides for JasperReports をダウンロードできるのは、[download page](https://releases.aspose.com/slides/ja/jasperreport/) です。評価版のダウンロードはライセンス版と同じで、ライセンスを適用するとライセンス版になります。詳しくは[Licensing](/slides/ja/jasperreports/licensing/)をご覧ください。
 
-Aspose.Slidesを簡単に評価用にダウンロードできます。評価用のダウンロードは、購入したダウンロードと同じです。評価版は、ライセンスを適用するために数行のコードを追加すると、単にライセンス付きになります。
+ライセンスがない場合でもエクスポーターはレポートのすべてのページをエクスポートしますが、各スライドまたはページの中央に評価透かしが配置されます。透かしには「Evaluation only.」「Created with Aspose.Slides for JasperReports」と製品バージョン、著作権行が表示されます。これは PPT、PPTX、PDF、HTML のすべての出力形式で表示されます。
 
-Aspose.Slidesの評価版（ライセンス未指定）は製品の全機能を提供しますが、ドキュメントを開いたり保存したりするときに評価用の透かしを挿入し、プレゼンテーションスライドからテキストを抽出する際には1スライドに制限されます。
+![ライセンスなしでエクスポートされたレポート（スライドの中央に評価透かしが表示されます）](evaluate-aspose-slides_1.png)
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Aspose.Slidesを評価版の制限なしで試したい場合は、30日間の一時ライセンスをリクエストすることもできます。 [一時ライセンスの取得方法を参照してください。](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+評価透かしなしで Aspose.Slides for JasperReports をテストするには、30 日間の[temporary license](https://purchase.aspose.com/temporary-license)を取得してください。
 {{% /alert %}}

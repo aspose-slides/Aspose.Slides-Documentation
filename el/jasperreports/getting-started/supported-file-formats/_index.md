@@ -1,31 +1,23 @@
 ---
-title: Υποστηριζόμενες Μορφές Αρχείων
+title: Υποστηριζόμενες μορφές αρχείων
 type: docs
 weight: 20
 url: /el/jasperreports/supported-file-formats/
+description: "Δείτε τι δέχεται ως είσοδο το Aspose.Slides for JasperReports και σε ποιες μορφές αρχείων εξάγει τις αναφορές."
 ---
-## **Υποστηριζόμενες Εκδόσεις Microsoft PowerPoint**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint για MAC
-- Office 365
+## **Είσοδος**
 
+Aspose.Slides for JasperReports εξάγει αναφορές· δεν μετατρέπει υπάρχουσες παρουσιάσεις. Οι εξαγωγείς του λαμβάνουν μια γεμάτη αναφορά JasperReports (`JasperPrint`), όπως το αποτέλεσμα του `JasperFillManager` ή μια γεμάτη αναφορά που φορτώθηκε από αρχείο *.jrprint*.
 
-## **Υποστηριζόμενες Μορφές Αρχείων**
-Ο παρακάτω πίνακας δείχνει τις μορφές αρχείων που το Aspose.Slides for JasperReports μπορεί να φορτώσει και να αποθηκεύσει.
+## **Μορφές εξόδου**
 
-|**Μορφή**|**Περιγραφή**|**Φόρτωση**|**Αποθήκευση**|**Σχόλια**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Παρουσίαση PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Παρουσίαση διαφανειών PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Παρουσίαση PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Παρουσίαση διαφανειών PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Φορματ Φορητού Εγγράφου| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Μορφή HTML| |{{< emoticons/tick >}}| |
+Ο παρακάτω πίνακας παραθέτει τις μορφές στις οποίες το Aspose.Slides for JasperReports εξάγει μια αναφορά, καθώς και την κλάση εξαγωγέα που γράφει την καθεμία.
+
+|**Μορφή**|**Περιγραφή**|**Εξαγωγέας**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Παρουσίαση PowerPoint 97–2003· μία διαφάνεια ανά σελίδα αναφοράς|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Παρουσίαση PowerPoint (Office Open XML)· μία διαφάνεια ανά σελίδα αναφοράς|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Φορητό Έγγραφο (PDF)· μία σελίδα PDF ανά σελίδα αναφοράς|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|Ένα μοναδικό αρχείο HTML με μία εικόνα SVG ανά σελίδα αναφοράς|`ASHtmlExporter`|
+
+Δεν υπάρχει εξαγωγέας για τις μορφές παρουσίασης PPS και PPSX. Η ανάθεση ενός ονόματος αρχείου *.ppsx* σε εξαγωγή PPTX παράγει ακόμη παρουσίαση PPTX, όχι παρουσίαση διαφάνειας. Για να δείτε πώς χρησιμοποιείται κάθε εξαγωγέας, δείτε [Εξαγωγή PPT, PPTX, PDF και HTML](/slides/el/jasperreports/ppt-pptx-pdf-and-html-export/).

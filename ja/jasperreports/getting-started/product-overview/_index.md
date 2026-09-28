@@ -3,38 +3,28 @@ title: 製品概要
 type: docs
 weight: 10
 url: /ja/jasperreports/product-overview/
+description: "Aspose.Slides for JasperReports が何を行うか、対応している JasperReports のバージョンと出力形式、そして 2 つの jar の用途を学びます。"
 ---
-![Aspose.Slides for JasperReports](product-overview_1.png)
-
-## **Aspose.Slides for JasperReportsへようこそ！**
-
-Aspose.Slides for JasperReports は、JasperReports から Microsoft PowerPoint プレゼンテーション (PPT) および Microsoft PowerPoint ショー (PPS) 形式へレポートを簡単にエクスポートする必要がある開発者向けに特別に設計・開発されたライブラリです。すべてのレポート機能は、最高の精度で Microsoft PowerPoint プレゼンテーションに変換されます。Aspose.Slides for JasperReports は JasperReports 5 以降をサポートしています。
+![JasperReports 用 Aspose.Slides](product-overview_1.png)
 
 ## **製品の説明**
-JasperReports と JasperServer には、レポートを Microsoft PowerPoint プレゼンテーションとしてエクスポートする組み込み機能がありませんが、Aspose.Slides for JasperReports を使用すると、次の 2 つの追加エクスポート形式が利用できます。
 
-- PPT – Aspose.Slides による PowerPoint プレゼンテーション
-- PPS – Aspose.Slides による PowerPoint ショー
-- PPTX – Aspose.Slides による PowerPoint プレゼンテーション
-- PPSX – Aspose.Slides による PowerPoint ショー
+Aspose.Slides for JasperReports は、Microsoft PowerPoint を使用せずに、JasperReports から PowerPoint プレゼンテーションへレポートをエクスポートします。Java アプリケーションおよび JasperReports Server で使用できます。JasperReports 3.7.2 から 6.16.0 をサポートし、バージョン範囲ごとに別々の jar が用意されています — 詳細は[Installing Aspose.Slides for JasperReports](/slides/ja/jasperreports/installing-aspose-slides-for-jasperreports/)をご覧ください。
 
-Aspose.Slides for JasperReports は内部で、当社の 100% 純粋な Java ライブラリである Aspose.Slides for Java と Aspose.Metafiles for Java を使用します。これらはサーバー側のプレゼンテーションとメタファイル処理のための世界クラスのライブラリです。
+埋め込まれたレポートを4つの形式でエクスポートします。レポートの各ページにつき1枚のスライドまたはページが生成されます：
 
-Aspose.Slides for JasperReports を使用すると、任意のレポートを PPT または PPS 形式でエクスポートできます。
+- PPT – PowerPoint 97–2003 プレゼンテーション
+- PPTX – PowerPoint プレゼンテーション（Office Open XML）
+- PDF – PDF
+- HTML – HTML
+
+製品は2つのパーツで構成されています：
+
+- ライブラリ jar は、エクスポーター `ASPptExporter`、`ASPptxExporter`、`ASPdfExporter`、`ASHtmlExporter` を JasperReports Library に追加します。
+- サーバー jar は、同じ4つの形式のエクスポート アクションを提供し、JasperReports Server に登録します — 詳細は[Integration with JasperServer](/slides/ja/jasperreports/integration-with-jasperserver/)をご覧ください。
 
 ### **出力例**
-ASPptExporter クラスは ASAbstractExporter クラスを継承しているため、他の標準エクスポーターと同様に使用できます。この簡単な例は、典型的なコードと MS PowerPoint で表示されたレポートのスクリーンショットを示しています。詳細な例は、提供されているデモレポートで確認できます。
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+エクスポーターは JasperReports のエクスポーター クラスを拡張しており、使用方法は同じです。埋め込まれたレポートと出力ファイルを渡し、`exportReport` を呼び出します。レポートを埋め込み PPTX にエクスポートする完全なプログラムについては[Your first export](/slides/ja/jasperreports/#your-first-export)をご覧ください。4つの形式すべてについては[PPT, PPTX, PDF and HTML Export](/slides/ja/jasperreports/ppt-pptx-pdf-and-html-export/)をご参照ください。
 
-**JasperReports xmldatasource デモで生成されたプレゼンテーション** 
-
-![JasperReportsで生成されたプレゼンテーション](product-overview_2.png)
+![ライセンスなしでプレゼンテーションにエクスポートされたレポート（スライド中央に評価ウォーターマークあり）](product-overview_2.png)

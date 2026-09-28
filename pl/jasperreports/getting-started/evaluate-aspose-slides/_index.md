@@ -3,15 +3,14 @@ title: Ewaluacja Aspose.Slides
 type: docs
 weight: 80
 url: /pl/jasperreports/evaluate-aspose-slides/
+description: "Zobacz, co wersja ewaluacyjna Aspose.Slides for JasperReports dodaje do wyeksportowanych plików i jak eksportować bez niej."
 ---
-Możesz łatwo pobrać Aspose.Slides do oceny. Pobranie wersji ewaluacyjnej jest takie samo jak pobranie wersji zakupionej. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku linii kodu w celu zastosowania licencji.
+Możesz pobrać Aspose.Slides for JasperReports do oceny ze [strony pobierania](https://releases.aspose.com/slides/pl/jasperreport/). Pobranie ewaluacyjne jest takie same jak wersja licencjonowana: staje się licencjonowane po zastosowaniu licencji, jak opisano w [Licencjonowaniu](/slides/pl/jasperreports/licensing/).
 
-Wersja ewaluacyjna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny oceny na górze dokumentu podczas otwierania i zapisywania oraz ogranicza do jednego slajdu przy wyodrębnianiu tekstu z slajdów prezentacji.
+Bez licencji eksportery nadal eksportują każdą stronę raportu, ale umieszczają znak wodny oceny w centrum każdego slajdu lub strony. Znak wodny zawiera tekst "Evaluation only.", "Created with Aspose.Slides for JasperReports" wraz z wersją produktu oraz linię praw autorskich. Pojawia się we wszystkich czterech formatach wyjściowych: PPT, PPTX, PDF i HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Raport wyeksportowany bez licencji, ze znakiem wodnym oceny w centrum slajdu](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-
-Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz również poprosić o 30‑dniową tymczasową licencję. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+Aby przetestować Aspose.Slides for JasperReports bez znaku wodnego oceny, poproś o 30-dniową [licencję tymczasową](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}

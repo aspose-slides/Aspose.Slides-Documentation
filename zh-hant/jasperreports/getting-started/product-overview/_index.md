@@ -1,40 +1,30 @@
 ---
-title: 產品概述
+title: 產品概覽
 type: docs
 weight: 10
 url: /zh-hant/jasperreports/product-overview/
+description: "了解 Aspose.Slides for JasperReports 的功能、支援的 JasperReports 版本與輸出格式，以及它的兩個 jar 用途。"
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **歡迎使用 Aspose.Slides for JasperReports！**
-
-Aspose.Slides for JasperReports 是一個專門為需要在 Java 應用程式中輕鬆將 JasperReports 報表匯出為 Microsoft PowerPoint 簡報 (PPT) 與 Microsoft PowerPoint 幻燈片 (PPS) 格式的開發人員設計與開發的函式庫。所有報表功能皆以最高精度轉換為 Microsoft PowerPoint 簡報。Aspose.Slides for JasperReports 支援 JasperReports 5 以上版本。
-
 ## **產品說明**
-JasperReports 與 JasperServer 並未內建將報表匯出為 Microsoft PowerPoint 簡報的功能，但 Aspose.Slides for JasperReports 為您提供了兩種額外的匯出格式：
 
-- PPT – 透過 Aspose.Slides 的 PowerPoint 簡報
-- PPS – 透過 Aspose.Slides 的 PowerPoint 幻燈片
-- PPTX – 透過 Aspose.Slides 的 PowerPoint 簡報
-- PPSX – 透過 Aspose.Slides 的 PowerPoint 幻燈片
+Aspose.Slides for JasperReports 可將 JasperReports 的報表匯出為 PowerPoint 簡報，適用於 Java 應用程式與 JasperReports Server，且不需 Microsoft PowerPoint。它支援 JasperReports 3.7.2 到 6.16.0，各版本範圍皆有對應的 jar — 請參閱[安裝 Aspose.Slides for JasperReports](/slides/zh-hant/jasperreports/installing-aspose-slides-for-jasperreports/)。
 
-Aspose.Slides for JasperReports 內部使用我們 100% 純 Java 函式庫 Aspose.Slides for Java 與 Aspose.Metafiles for Java，這些是伺服器端簡報與中繼檔處理的世界級函式庫。
+它將已填寫的報表匯出為四種格式，每個報表頁面對應一張投影片或頁面：
 
-Aspose.Slides for JasperReports 使任何報表都能匯出為 PPT 或 PPS 格式。
+- PPT – PowerPoint 97–2003 簡報
+- PPTX – PowerPoint 簡報（Office Open XML）
+- PDF
+- HTML
+
+此產品包含兩個部分：
+
+- Library jar 為 JasperReports Library 新增匯出器 `ASPptExporter`、`ASPptxExporter`、`ASPdfExporter` 與 `ASHtmlExporter`。
+- Server jar 提供相同四種格式的匯出動作，您需在 JasperReports Server 中註冊——請參閱[與 JasperServer 的整合](/slides/zh-hant/jasperreports/integration-with-jasperserver/)。
 
 ### **輸出範例**
-ASPptExporter 類別繼承自 ASAbstractExporter 類別，因而可像其他標準匯出器一樣使用。此簡短範例顯示了典型程式碼以及在 MS PowerPoint 中檢視的報表螢幕截圖。詳細範例可在提供的示範報表中找到。
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+這些匯出器繼承自 JasperReports 自身的匯出類別，使用方式相同：將已填寫的報表與輸出檔案傳入，然後呼叫 `exportReport`。欲取得填寫報表並匯出為 PPTX 的完整程式碼範例，請參閱[您的首次匯出](/slides/zh-hant/jasperreports/#your-first-export)；如需四種格式的範例，請參閱[PPT、PPTX、PDF 與 HTML 匯出](/slides/zh-hant/jasperreports/ppt-pptx-pdf-and-html-export/)。
 
-**使用 JasperReports xmldatasource demo 產生的簡報** 
-
-![使用 JasperReports 產生的簡報](product-overview_2.png)
+![未授權的報表匯出為簡報，評估水印位於投影片中央](product-overview_2.png)

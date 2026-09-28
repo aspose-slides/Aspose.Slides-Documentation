@@ -3,13 +3,14 @@ title: Đánh giá Aspose.Slides
 type: docs
 weight: 80
 url: /vi/jasperreports/evaluate-aspose-slides/
+description: "Xem phiên bản đánh giá của Aspose.Slides for JasperReports thêm gì vào các tệp đã xuất, và cách xuất mà không có nó."
 ---
-Bạn có thể dễ dàng tải xuống Aspose.Slides để đánh giá. Bản tải xuống để đánh giá giống với bản tải xuống đã mua. Phiên bản đánh giá chỉ cần thêm một vài dòng mã để áp dụng giấy phép và sẽ trở thành có giấy phép.
+Bạn có thể tải Aspose.Slides for JasperReports để đánh giá từ [trang tải xuống](https://releases.aspose.com/slides/vi/jasperreport/). Bản tải đánh giá tương tự như bản có giấy phép: nó sẽ trở thành có giấy phép khi bạn áp dụng giấy phép, như mô tả trong [Cấp phép](/slides/vi/jasperreports/licensing/).
 
-Phiên bản đánh giá của Aspose.Slides (không chỉ định giấy phép) cung cấp đầy đủ chức năng của sản phẩm, nhưng nó sẽ chèn dấu nước đánh giá ở đầu tài liệu khi mở và lưu, và giới hạn chỉ một slide khi trích xuất văn bản từ các slide trình chiếu.
+Nếu không có giấy phép, các bộ xuất vẫn xuất mọi trang của báo cáo, nhưng chúng sẽ đặt một watermark đánh giá ở trung tâm của mỗi slide hoặc trang. Watermark hiển thị "Evaluation only.", "Created with Aspose.Slides for JasperReports" kèm theo phiên bản sản phẩm và dòng bản quyền. Nó xuất hiện trong bốn định dạng đầu ra: PPT, PPTX, PDF và HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Báo cáo được xuất mà không có giấy phép, với watermark đánh giá ở trung tâm của slide](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Nếu bạn muốn thử Aspose.Slides mà không gặp các hạn chế của phiên bản đánh giá, bạn cũng có thể yêu cầu Giấy phép tạm thời 30 ngày. Vui lòng tham khảo [Làm thế nào để nhận Giấy phép tạm thời?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Lưu ý" %}}
+Để thử Aspose.Slides for JasperReports mà không có watermark đánh giá, yêu cầu một [giấy phép tạm thời](https://purchase.aspose.com/temporary-license) 30‑ngày.
 {{% /alert %}}

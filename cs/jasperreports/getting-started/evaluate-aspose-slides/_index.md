@@ -3,15 +3,14 @@ title: Vyhodnocení Aspose.Slides
 type: docs
 weight: 80
 url: /cs/jasperreports/evaluate-aspose-slides/
+description: "Zobrazte, co přidává zkušební verze Aspose.Slides pro JasperReports do exportovaných souborů, a jak exportovat bez ní."
 ---
-Můžete snadno stáhnout Aspose.Slides k vyzkoušení. Stažení ke zkušebnímu použití je stejné jako zakoupené stažení. Zkušební verze se jednoduše licencuje, když přidáte několik řádků kódu pro aplikaci licence.
+Můžete si stáhnout Aspose.Slides pro JasperReports ke zkušebnímu použití z [download page](https://releases.aspose.com/slides/cs/jasperreport/). Stahování ke zkušebnímu použití je stejné jako licencované: stane se licencovaným, když použijete licenci, jak je popsáno v [Licensing](/slides/cs/jasperreports/licensing/).
 
-Zkušební verze Aspose.Slides (bez uvedené licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení vloží vodoznak „Evaluation“ do horní části dokumentu a při extrahování textu z prezentačních snímků omezuje výstup na jeden snímek.
+Bez licence exportéry stále exportují každou stránku zprávy, ale umístí vodotisk určený pro hodnocení do středu každého snímku nebo stránky. Vodotisk zobrazuje "Evaluation only.", "Created with Aspose.Slides for JasperReports" následovaný verzí produktu a řádkem s autorskými právy. Objevuje se ve všech čtyřech výstupních formátech: PPT, PPTX, PDF a HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Zpráva exportovaná bez licence, s vodotiskem pro hodnocení ve středu snímku](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-
-Pokud chcete testovat Aspose.Slides bez omezení zkušební verze, můžete si také požádat o 30-denní dočasnou licenci. Další informace najdete v [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+Chcete-li testovat Aspose.Slides pro JasperReports bez vodotisku pro hodnocení, požádejte o 30denní [dočasnou licenci](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}

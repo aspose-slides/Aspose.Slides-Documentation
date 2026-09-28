@@ -3,38 +3,28 @@ title: Gambaran Produk
 type: docs
 weight: 10
 url: /id/jasperreports/product-overview/
+description: "Pelajari apa yang dilakukan Aspose.Slides for JasperReports, versi JasperReports dan format output apa yang didukungnya, serta untuk apa dua jar tersebut."
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Selamat datang di Aspose.Slides for JasperReports!**
-
-Aspose.Slides for JasperReports adalah sebuah pustaka yang dirancang khusus dan dikembangkan untuk pengembang yang perlu mengekspor laporan dari JasperReports ke format Microsoft PowerPoint Presentation (PPT) dan Microsoft PowerPoint Show (PPS) dengan mudah dalam aplikasi Java mereka. Semua fitur laporan dikonversi dengan tingkat presisi tertinggi ke presentasi Microsoft PowerPoint. Aspose.Slides for JasperReports mencakup dukungan untuk JasperReports 5+.
-
 ## **Deskripsi Produk**
-JasperReports dan JasperServer tidak memiliki kemampuan bawaan untuk mengekspor laporan sebagai presentasi Microsoft PowerPoint, tetapi Aspose.Slides for JasperReports memberi Anda akses ke dua format ekspor tambahan: 
 
-- PPT – Presentasi PowerPoint via Aspose.Slides
-- PPS – Show PowerPoint via Aspose.Slides
-- PPTX – Presentasi PowerPoint via Aspose.Slides
-- PPSX – Show PowerPoint via Aspose.Slides
+Aspose.Slides for JasperReports mengekspor laporan dari JasperReports ke presentasi PowerPoint, dalam aplikasi Java dan di JasperReports Server, tanpa Microsoft PowerPoint. Produk ini mendukung JasperReports 3.7.2 hingga 6.16.0, dengan jar terpisah untuk setiap rentang versi — lihat [Installing Aspose.Slides for JasperReports](/slides/id/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Aspose.Slides for JasperReports secara internal menggunakan pustaka Java 100% murni kami, Aspose.Slides for Java dan Aspose.Metafiles for Java, pustaka kelas dunia untuk pemrosesan presentasi sisi server dan metafile.
+Ini mengekspor laporan yang telah diisi ke empat format, satu slide atau halaman per halaman laporan:
 
-Aspose.Slides for JasperReports memungkinkan untuk mengekspor laporan apa pun dalam format PPT atau PPS.
+- PPT – presentasi PowerPoint 97–2003
+- PPTX – presentasi PowerPoint (Office Open XML)
+- PDF
+- HTML
+
+Produk ini memiliki dua bagian:
+
+- Jar perpustakaan menambahkan exporternya `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter`, dan `ASHtmlExporter` ke JasperReports Library.
+- Jar server menyediakan aksi ekspor untuk keempat format yang sama, yang Anda daftarkan di JasperReports Server — lihat [Integration with JasperServer](/slides/id/jasperreports/integration-with-jasperserver/).
 
 ### **Contoh Output**
-Kelas ASPptExporter memperluas kelas ASAbstractExporter sehingga dapat digunakan dengan cara yang sama seperti semua pengekspor standar lainnya. Contoh singkat ini menampilkan kode tipikal dan tangkapan layar dari sebuah laporan yang dilihat di MS PowerPoint. Contoh terperinci dapat ditemukan dalam laporan demo yang disediakan. 
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+Exporter memperluas kelas exporter milik JasperReports sendiri dan digunakan dengan cara yang sama: berikan laporan yang telah diisi dan file output kepada mereka, lalu panggil `exportReport`. Untuk program lengkap yang mengisi laporan dan mengekspornya ke PPTX, lihat [Your first export](/slides/id/jasperreports/#your-first-export); untuk semua empat format, lihat [PPT, PPTX, PDF and HTML Export](/slides/id/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**Presentasi yang dihasilkan dengan demo JasperReports xmldatasource** 
-
-![Presentasi yang dihasilkan dengan JasperReports](product-overview_2.png)
+![Laporan yang diekspor ke presentasi tanpa lisensi, dengan watermark evaluasi di tengah slide](product-overview_2.png)

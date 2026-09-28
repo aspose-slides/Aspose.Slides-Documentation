@@ -3,13 +3,14 @@ title: Utvärdera Aspose.Slides
 type: docs
 weight: 80
 url: /sv/jasperreports/evaluate-aspose-slides/
+description: "Se vad utvärderingsversionen av Aspose.Slides för JasperReports lägger till i exporterade filer, och hur du exporterar utan den."
 ---
-Du kan enkelt ladda ner Aspose.Slides för utvärdering. Utvärderingsnedladdningen är densamma som den köpta nedladdningen. Utvärderingsversionen blir helt enkelt licensierad när du lägger till några rader kod för att tillämpa licensen.
+Du kan ladda ner Aspose.Slides för JasperReports för utvärdering från [nedladdningssidan](https://releases.aspose.com/slides/sv/jasperreport/). Utvärderingsnedladdningen är densamma som den licensierade: den blir licensierad när du tillämpar en licens, enligt vad som beskrivs i [Licensiering](/slides/sv/jasperreports/licensing/).
 
-Utvärderingsversionen av Aspose.Slides (utan angiven licens) erbjuder full produktfunktionalitet, men den lägger in ett utvärderingsvattenstämpel högst upp i dokumentet vid öppning och sparning, och begränsar till en bild när text extraheras från presentationsbilder.
+Utan en licens exporterar exportörerna fortfarande varje sida i rapporten, men de placerar ett utvärderingsvattenstämpel i centrum av varje bild eller sida. Vattenstämpeln visar "Endast för utvärdering.", "Skapat med Aspose.Slides för JasperReports" följt av produktversionen, samt en upphovsradslinje. Den visas i alla fyra utdataformat: PPT, PPTX, PDF och HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![En rapport exporterad utan licens, med utvärderingsvattenstämpeln i bildens centrum](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Om du vill testa Aspose.Slides utan begränsningarna i utvärderingsversionen kan du också begära en 30-dagars temporär licens. Se [Hur får jag en tillfällig licens?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Note" %}}
+För att testa Aspose.Slides för JasperReports utan utvärderingsvattenstämpeln, begär en 30-dagars [tillfällig licens](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}

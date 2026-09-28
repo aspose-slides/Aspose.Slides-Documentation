@@ -3,30 +3,21 @@ title: サポートされているファイル形式
 type: docs
 weight: 20
 url: /ja/jasperreports/supported-file-formats/
+description: "Aspose.Slides for JasperReports が入力として受け付けるものと、レポートをエクスポートするファイル形式を確認してください。"
 ---
+## **入力**
 
-## **サポートされているMicrosoft PowerPointバージョン**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
-- Office 365
+Aspose.Slides for JasperReports はレポートをエクスポートします; 既存のプレゼンテーションは変換しません。そのエクスポーターは、埋め込まれた JasperReports レポート（`JasperPrint`）を受け取ります。たとえば、`JasperFillManager` の結果や *.jrprint* ファイルから読み込まれた埋め込みレポートです。
 
+## **出力形式**
 
-## **サポートされているファイル形式**
-以下の表は、Aspose.Slides for JasperReportsが読み込むことができ、保存するファイル形式を示しています。
+以下の表は、Aspose.Slides for JasperReports がレポートをエクスポートできる形式と、それぞれを書き出すエクスポータークラスを示しています。
 
-|**形式**|**説明**|**読み込み**|**保存**|**備考**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPointプレゼンテーション 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPointスライドショー 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPointプレゼンテーション 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPointスライドショー 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|ポータブルドキュメントフォーマット| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|HTML形式| |{{< emoticons/tick >}}| |
+|**形式**|**説明**|**エクスポーター**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97–2003 プレゼンテーション; レポートページごとに1スライド|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint プレゼンテーション (Office Open XML); レポートページごとに1スライド|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format; レポートページごとに1 PDF ページ|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|単一の HTML ファイルで、レポートページごとに1つの SVG 画像を含む|`ASHtmlExporter`|
+
+PPS および PPSX スライドショー形式のエクスポーターはありません。*.ppsx* のファイル名を付けて PPTX エクスポートを行っても、スライドショーではなく PPTX プレゼンテーションが生成されます。各エクスポーターの使用方法を見るには、[PPT, PPTX, PDF and HTML Export](/slides/ja/jasperreports/ppt-pptx-pdf-and-html-export/) を参照してください。

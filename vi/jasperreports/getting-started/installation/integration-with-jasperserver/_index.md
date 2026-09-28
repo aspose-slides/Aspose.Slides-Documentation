@@ -3,20 +3,21 @@ title: Tích hợp với JasperServer
 type: docs
 weight: 45
 url: /vi/jasperreports/integration-with-jasperserver/
+description: "Thêm các bộ xuất Aspose.Slides cho JasperReports vào JasperReports Server: sao chép các file JAR, đăng ký bộ xuất PowerPoint và thiết lập ánh xạ phông chữ cùng giấy phép."
 ---
-{{% alert color="primary" %}} 
+## **Sao chép các file JAR**
 
-Để tích hợp Aspose.Slides cho JasperReports với JasperServer, cần thực hiện một số bước bổ sung và cập nhật các tệp cấu hình JasperServer. Bài viết này giải thích cách thực hiện.
+Sao chép cả hai file JAR — *aspose.slides.jasperreports.library-xx.x.jar* và *aspose.slides.jasperreports.server-xx.x.jar* — vào **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**. Lấy chúng từ cùng một thư mục con của thư mục *lib* trong bản tải xuống: thư mục phù hợp với phiên bản JasperReports mà máy chủ của bạn đang chạy. Xem [Installing Aspose.Slides for JasperReports](/slides/vi/jasperreports/installing-aspose-slides-for-jasperreports/) để biết các khoảng phiên bản.
 
-{{% /alert %}} 
+## **Đăng ký bộ xuất**
 
-1. Thêm các thuộc tính xuất khẩu mới vào tệp cấu hình **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
+Thêm các bean của bộ xuất mới vào tệp cấu hình **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**. Lớp `ASPptReportExporter` nằm trong jar server; cùng jar cũng chứa `ASPptxReportExporter`, `ASPdfReportExporter` và `ASHtmlReportExporter`.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
     <property name="exportParameters" ref="pptExportParameters"/>
     <property name="setResponseContentLength" value="true"/>
-</bean> 
+</bean>
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
     <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
@@ -32,19 +33,24 @@ url: /vi/jasperreports/integration-with-jasperserver/
 </util:map>
 ```
 
-2. Sao chép **aspose.slides.jasperreports.jar** tới **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Để sử dụng tính năng ánh xạ phông chữ, cập nhật **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** như dưới đây.
+## **Thiết lập ánh xạ phông chữ và giấy phép**
+
+Xác định bean `pptExportParameters` mà bộ xuất tham chiếu trong **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml**. Thuộc tính `fontMap` của nó ánh xạ tên phông chữ được sử dụng trong báo cáo sang các phông chữ được ghi vào bản trình bày, và thuộc tính `licenseFile` đặt đường dẫn tới tệp giấy phép của bạn.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
     <property name="fontMap">
         <util:map id="fontMap">
-            <entry key="sansserif" value="Arial"/>
-            <entry key="serif" value="Times New Roman"/>
-            <entry key="monospaced" value="Courier"/>
+            <entry key="SansSerif" value="Arial"/>
+            <entry key="Serif" value="Times New Roman"/>
+            <entry key="Monospaced" value="Courier New"/>
         </util:map>
     </property>
     <property name="needAlterText" value="false"/>
     <property name="licenseFile" value="C:/jasperserver-XX/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
 </bean>
 ```
+
+{{% alert color="warning" title="Warning" %}}
+Viết mỗi khóa `fontMap` chính xác như tên phông chữ trong báo cáo, bao gồm cả chữ hoa/thường: khóa `sansserif` sẽ không thay thế phông chữ mặc định của JasperReports, `SansSerif`. Mỗi giá trị phải là một phông chữ mà Java tìm thấy trên máy chủ, nếu không các bộ xuất sẽ bỏ qua mục này. Trên Windows, ví dụ, Java tìm thấy `Courier New` nhưng không tìm thấy `Courier`. Xem [Map fonts](/slides/vi/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts).
+{{% /alert %}}

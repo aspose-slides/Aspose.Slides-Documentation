@@ -3,30 +3,21 @@ title: 支持的文件格式
 type: docs
 weight: 20
 url: /zh/jasperreports/supported-file-formats/
+description: "查看 Aspose.Slides for JasperReports 接受哪些输入以及它将报告导出为哪些文件格式。"
 ---
+## **Input**
 
-## **支持的Microsoft PowerPoint版本**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
-- Office 365
+Aspose.Slides for JasperReports 导出报告；它不转换现有的演示文稿。其导出器接受已填充的 JasperReports 报告（`JasperPrint`），例如 `JasperFillManager` 的结果或从 *.jrprint* 文件加载的已填充报告。
 
+## **输出格式**
 
-## **支持的文件格式**
-下表显示Aspose.Slides for JasperReports可以加载和保存的文件格式。
+下表列出了 Aspose.Slides for JasperReports 将报告导出为的格式以及对应的导出器类。
 
-|**格式**|**描述**|**加载**|**保存**|**备注**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint演示文稿 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint幻灯片放映 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint演示文稿 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint幻灯片放映 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|可移植文档格式| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|HTML格式| |{{< emoticons/tick >}}| |
+|**格式**|**描述**|**导出器**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97–2003 演示文稿；每个报告页面对应一张幻灯片|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint 演示文稿（Office Open XML）；每个报告页面对应一张幻灯片|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|可移植文档格式（PDF）；每个报告页面对应一页 PDF|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|单个 HTML 文件，每个报告页面包含一个 SVG 图像|`ASHtmlExporter`|
+
+目前没有针对 PPS 和 PPSX 幻灯片放映格式的导出器。即使将 PPTX 导出为 *.ppsx* 文件名，仍然会生成 PPTX 演示文稿，而不是幻灯片放映。要了解每个导出器的使用方式，请参阅 [PPT, PPTX, PDF and HTML Export](/slides/zh/jasperreports/ppt-pptx-pdf-and-html-export/).

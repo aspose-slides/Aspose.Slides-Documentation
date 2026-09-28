@@ -1,15 +1,16 @@
 ---
-title: Evalueer Aspose.Slides
+title: Aspose.Slides evalueren
 type: docs
 weight: 80
 url: /nl/jasperreports/evaluate-aspose-slides/
+description: "Bekijk wat de evaluatieversie van Aspose.Slides for JasperReports toevoegt aan geëxporteerde bestanden, en hoe u zonder deze exporteert."
 ---
-U kunt eenvoudig Aspose.Slides voor evaluatie downloaden. De evaluatie‑download is hetzelfde als de gekochte download. De evaluatieversie wordt gewoon gelicenseerd wanneer u een paar regels code toevoegt om de licentie toe te passen.
+U kunt Aspose.Slides for JasperReports voor evaluatie downloaden van de [downloadpagina](https://releases.aspose.com/slides/nl/jasperreport/). De evaluatie-download is hetzelfde als de gelicentieerde versie: deze wordt gelicentieerd wanneer u een licentie toepast, zoals beschreven in de [Licenties](/slides/nl/jasperreports/licensing/).
 
-De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt volledige productfunctionaliteit, maar voegt een evaluatiewatermerk toe aan de bovenkant van het document bij openen en opslaan, en beperkt tot één dia bij het extraheren van tekst uit presentatie‑dia's.
+Zonder licentie exporteren de exporteurs nog steeds elke pagina van het rapport, maar ze plaatsen een evaluatiewatermerk in het midden van elke dia of pagina. Het watermerk bevat de tekst "Evaluation only.", "Created with Aspose.Slides for JasperReports" gevolgd door de productversie, en een copyright-regel. Het verschijnt in alle vier de uitvoerformaten: PPT, PPTX, PDF en HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Een rapport geëxporteerd zonder licentie, met het evaluatiewatermerk in het midden van de dia](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Als u Aspose.Slides wilt testen zonder de beperkingen van de evaluatieversie, kunt u ook een tijdelijke licentie van 30 dagen aanvragen. Raadpleeg [Hoe krijg ik een tijdelijke licentie?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Opmerking" %}}
+Om Aspose.Slides for JasperReports te testen zonder het evaluatiewatermerk, vraag een [tijdelijke licentie](https://purchase.aspose.com/temporary-license) van 30 dagen aan.
 {{% /alert %}}

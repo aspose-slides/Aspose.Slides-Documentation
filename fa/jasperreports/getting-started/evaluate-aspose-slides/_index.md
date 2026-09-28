@@ -3,13 +3,14 @@ title: ارزیابی Aspose.Slides
 type: docs
 weight: 80
 url: /fa/jasperreports/evaluate-aspose-slides/
+description: "ببینید نسخه ارزیابی Aspose.Slides for JasperReports چه چیزی به فایل‌های صادر شده اضافه می‌کند و چطور بدون آن صادر کنید."
 ---
-شما می‌توانید به‌راحتی Aspose.Slides را برای ارزیابی دانلود کنید. فایل دانلود ارزیابی همان فایل دانلود خریداری شده است. نسخه ارزیابی به‌سادگی پس از افزودن چند خط کد برای اعمال لایسنس، به‌صورت لایسنس‌دار می‌شود.
+می‌توانید Aspose.Slides for JasperReports را برای ارزیابی از [صفحه دانلود](https://releases.aspose.com/slides/fa/jasperreport/) دریافت کنید. بارگیری ارزیابی همانند نسخه دارای مجوز است: هنگام اعمال یک لایسنس، به‌صورت مجوزدار در می‌آید، همان‌طور که در [مجوزدهی](/slides/fa/jasperreports/licensing/) توضیح داده شده است.
 
-نسخه ارزیابی Aspose.Slides (بدون مشخص کردن لایسنس) تمام قابلیت‌های محصول را فراهم می‌کند، اما یک واترمارک ارزیابی در بالای سند هنگام باز و ذخیره‌سازی قرار می‌دهد و هنگام استخراج متن از اسلایدهای ارائه، به یک اسلاید محدود می‌شود.
+بدون لایسنس، استخراج‌کنندگان همچنان تمام صفحات گزارش را صادر می‌کنند، اما یک واترمارک ارزیابی در مرکز هر اسلاید یا صفحه قرار می‌دهند. واترمارک متن‌های "Evaluation only." و "Created with Aspose.Slides for JasperReports" به‌همراه نسخه محصول و خط حق کپی را نشان می‌دهد. این واترمارک در هر چهار فرمت خروجی PPT، PPTX، PDF و HTML ظاهر می‌شود.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![گزارشی که بدون لایسنس صادر شده است، با واترمارک ارزیابی در مرکز اسلاید](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-اگر می‌خواهید Aspose.Slides را بدون محدودیت‌های نسخه ارزیابی تست کنید، می‌توانید یک لایسنس موقت ۳۰ روزه درخواست کنید. لطفاً به [چگونه یک لایسنس موقت دریافت کنیم؟](https://purchase.aspose.com/temporary-license) مراجعه کنید.
+{{% alert color="info" title="Note" %}}
+برای تست Aspose.Slides for JasperReports بدون واترمارک ارزیابی، یک لایسنس موقت 30 روزه درخواست کنید. [لایسنس موقت](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}

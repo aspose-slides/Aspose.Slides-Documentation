@@ -3,20 +3,21 @@ title: การบูรณาการกับ JasperServer
 type: docs
 weight: 45
 url: /th/jasperreports/integration-with-jasperserver/
+description: "เพิ่มตัวส่งออก Aspose.Slides สำหรับ JasperReports ไปยัง JasperReports Server: คัดลอกไฟล์ jar, ลงทะเบียนตัวส่งออก PowerPoint, และตั้งค่าการแมปฟอนต์และใบอนุญาต."
 ---
-{{% alert color="primary" %}} 
+## **คัดลอกไฟล์ jar**
 
-เพื่อผสานรวม Aspose.Slides for JasperReports กับ JasperServer จำเป็นต้องดำเนินการขั้นตอนเพิ่มเติมหลายขั้นตอนและอัปเดตไฟล์กำหนดค่า JasperServer บทความนี้อธิบายวิธีการทำ
+คัดลอกไฟล์ jar ทั้งสองไฟล์ — *aspose.slides.jasperreports.library-xx.x.jar* และ *aspose.slides.jasperreports.server-xx.x.jar* — ไปยัง **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**. นำไฟล์เหล่านี้จากโฟลเดอร์ย่อยเดียวกันของโฟลเดอร์ *lib* ในไฟล์ดาวน์โหลด: โฟลเดอร์ที่ตรงกับเวอร์ชัน JasperReports ที่เซิร์ฟเวอร์ของคุณใช้งาน. ดู [การติดตั้ง Aspose.Slides สำหรับ JasperReports](/slides/th/jasperreports/installing-aspose-slides-for-jasperreports/) เพื่อดูช่วงเวอร์ชัน.
 
-{{% /alert %}} 
+## **ลงทะเบียนตัวส่งออก**
 
-1. เพิ่มคุณสมบัติของ exporter ใหม่ในไฟล์กำหนดค่า **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** 
+เพิ่ม beans ตัวส่งออกใหม่ไปยังไฟล์กำหนดค่า **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**. คลาส `ASPptReportExporter` อยู่ในไฟล์ jar ของเซิร์ฟเวอร์; ไฟล์ jar เดียวกันยังมี `ASPptxReportExporter`, `ASPdfReportExporter` และ `ASHtmlReportExporter`.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
     <property name="exportParameters" ref="pptExportParameters"/>
     <property name="setResponseContentLength" value="true"/>
-</bean> 
+</bean>
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
     <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
@@ -32,20 +33,24 @@ url: /th/jasperreports/integration-with-jasperserver/
 </util:map>
 ```
 
-2. คัดลอก **aspose.slides.jasperreports.jar** ไปยัง **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
+## **ตั้งค่าการแมปฟอนต์และใบอนุญาต**
 
-3. หากต้องการใช้คุณลักษณะการแมปฟอนต์ ให้ปรับปรุง **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** ตามด้านล่าง
+กำหนด bean `pptExportParameters` ที่ตัวส่งออกอ้างอิงใน **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml**. คุณสมบัติ `fontMap` ของมันจะแมปชื่อฟอนต์ที่ใช้ในรายงานไปยังฟอนต์ที่เขียนลงในงานนำเสนอ, และคุณสมบัติ `licenseFile` ของมันตั้งค่าพาธไปยังไฟล์ใบอนุญาตของคุณ.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
     <property name="fontMap">
         <util:map id="fontMap">
-            <entry key="sansserif" value="Arial"/>
-            <entry key="serif" value="Times New Roman"/>
-            <entry key="monospaced" value="Courier"/>
+            <entry key="SansSerif" value="Arial"/>
+            <entry key="Serif" value="Times New Roman"/>
+            <entry key="Monospaced" value="Courier New"/>
         </util:map>
     </property>
     <property name="needAlterText" value="false"/>
     <property name="licenseFile" value="C:/jasperserver-XX/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
 </bean>
 ```
+
+{{% alert color="warning" title="Warning" %}}
+เขียนคีย์ `fontMap` แต่ละรายการให้ตรงกับชื่อฟอนต์ในรายงานอย่างแม่นยำ รวมถึงรูปแบบตัวอักษร: คีย์ `sansserif` ไม่ได้แทนที่ฟอนต์เริ่มต้นของ JasperReports คือ `SansSerif`. ค่าแต่ละค่าต้องเป็นฟอนต์ที่ Java พบบนเซิร์ฟเวอร์, ไม่เช่นนั้นตัวส่งออกจะละเว้นรายการนั้น. บน Windows, ตัวอย่างเช่น, Java พบ `Courier New` แต่ไม่พบ `Courier`. ดู [แมปฟอนต์](/slides/th/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts).
+{{% /alert %}}

@@ -1,40 +1,30 @@
 ---
-title: Visão geral do produto
+title: Visão Geral do Produto
 type: docs
 weight: 10
 url: /pt/jasperreports/product-overview/
+description: "Saiba o que o Aspose.Slides for JasperReports faz, quais versões do JasperReports e formatos de saída ele suporta, e para que servem seus dois jars."
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Bem-vindo ao Aspose.Slides for JasperReports!**
-
-Aspose.Slides for JasperReports é uma biblioteca projetada e desenvolvida especialmente para desenvolvedores que precisam exportar relatórios do JasperReports para os formatos Microsoft PowerPoint Presentation (PPT) e Microsoft PowerPoint Show (PPS) em suas aplicações Java. Todos os recursos do relatório são convertidos com o mais alto grau de precisão para apresentações do Microsoft PowerPoint. Aspose.Slides for JasperReports inclui suporte ao JasperReports 5+.
-
 ## **Descrição do Produto**
-JasperReports e JasperServer não possuem recursos nativos para exportar relatórios como apresentações Microsoft PowerPoint, mas o Aspose.Slides for JasperReports oferece acesso a dois formatos de exportação adicionais: 
 
-- PPT – Apresentação PowerPoint via Aspose.Slides
-- PPS – PowerPoint Show via Aspose.Slides
-- PPTX – Apresentação PowerPoint via Aspose.Slides
-- PPSX – PowerPoint Show via Aspose.Slides
+Aspose.Slides for JasperReports exporta relatórios do JasperReports para apresentações PowerPoint, em aplicações Java e no JasperReports Server, sem necessidade do Microsoft PowerPoint. Ele suporta JasperReports 3.7.2 até 6.16.0, com um jar separado para cada intervalo de versões — veja [Instalando Aspose.Slides for JasperReports](/slides/pt/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-O Aspose.Slides for JasperReports usa internamente nossas bibliotecas Java 100% puras Aspose.Slides for Java e Aspose.Metafiles for Java, bibliotecas de classe mundial para processamento de apresentações e metafiles no lado do servidor.
+Ele exporta um relatório preenchido para quatro formatos, um slide ou página por página do relatório:
 
-O Aspose.Slides for JasperReports possibilita exportar qualquer relatório nos formatos PPT ou PPS.
+- PPT – Apresentação PowerPoint 97–2003
+- PPTX – Apresentação PowerPoint (Office Open XML)
+- PDF
+- HTML
+
+O produto tem duas partes:
+
+- O jar da biblioteca adiciona os exportadores `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` e `ASHtmlExporter` à JasperReports Library.
+- O jar do servidor fornece ações de exportação para os mesmos quatro formatos, que você registra no JasperReports Server — veja [Integração com JasperServer](/slides/pt/jasperreports/integration-with-jasperserver/).
 
 ### **Exemplo de Saída**
-A classe ASPptExporter estende a classe ASAbstractExporter, de modo que pode ser usada da mesma forma que quaisquer outros exportadores padrão. Este breve exemplo mostra o código típico e uma captura de tela de um relatório visualizado no MS PowerPoint. Exemplos detalhados podem ser encontrados nos relatórios de demonstração fornecidos. 
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+Os exportadores estendem as próprias classes de exportação do JasperReports e são usados da mesma forma: passe a eles o relatório preenchido e o arquivo de saída, então chame `exportReport`. Para um programa completo que preenche um relatório e o exporta para PPTX, veja [Sua primeira exportação](/slides/pt/jasperreports/#your-first-export); para os quatro formatos, veja [Exportação PPT, PPTX, PDF e HTML](/slides/pt/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**Apresentação gerada com a demonstração JasperReports xmldatasource** 
-
-![Apresentação gerada com JasperReports](product-overview_2.png)
+![Um relatório exportado para uma apresentação sem licença, com a marca d'água de avaliação no centro do slide](product-overview_2.png)

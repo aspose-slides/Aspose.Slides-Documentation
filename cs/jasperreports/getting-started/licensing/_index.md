@@ -3,60 +3,62 @@ title: Licencování
 type: docs
 weight: 50
 url: /cs/jasperreports/licensing/
+description: "Zjistěte, co zkušební verze Aspose.Slides for JasperReports přidává do exportovaných souborů, a jak použít licenci v JasperReports a JasperReports Server."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides pro JasperReports je k dispozici jako neomezené bezplatné hodnocení na [stránka ke stažení](https://downloads.aspose.com/slides/cs/jasperreport). Evaluační a licencovaná verze produktu jsou ke stažení ze stejného místa.
+Aspose.Slides for JasperReports je k dispozici jako bezplatná, časově neomezená zkušební verze ze [stránky ke stažení](https://releases.aspose.com/slides/cs/jasperreport/). Zkušební a licencované verze produktu jsou ke stažení ze stejného souboru.
 
-Jakmile budete s hodnocením spokojeni, [kupte licenci](https://purchase.aspose.com/buy). Ujistěte se, že rozumíte a souhlasíte s podmínkami předplatného.
+Pokud jste se se zkušební verzí spokojeni, [zakupte licenci](https://purchase.aspose.com/pricing/slides/cs/jasperreports/). Ujistěte se, že rozumíte a souhlasíte s podmínkami předplatného.
 
-Licence je k dispozici ke stažení na stránce objednávky poté, co byla objednávka zaplacena. Licence je čistý textový, digitálně podepsaný soubor XML, který obsahuje informace jako název klienta, zakoupený produkt a typ licence. Neměňte obsah souboru licence žádným způsobem: takové úpravy licenci neplatní.
+Licence je k stažení na stránce objednávky po zaplacení objednávky. Licence je v čistém textu, digitálně podepsaný XML soubor, který obsahuje informace jako název klienta, zakoupený produkt a typ licence. Obsah licenčního souboru v žádném případě neupravujte: úprava zneplatní licenci.
 
-Stáhněte licenci do počítače a zkopírujte ji do příslušné složky (například do složky aplikace nebo **JasperReports\lib**).
+Stáhněte licenci do svého počítače a zkopírujte ji do příslušné složky (například do složky aplikace nebo **JasperReports\lib**).
+{{% /alert %}}
 
-## **Omezení evaluační verze**
-Evaluační verze Aspose.Slides (bez specifikované licence) poskytuje plnou funkčnost produktu, ale (při ukládání prezentací) vkládá evaluační vodoznak do středu každého snímku, jak je uvedeno na obrázku níže:
+## **Omezení zkušební verze**
+Zkušební verze Aspose.Slides for JasperReports (bez zadané licence) exportuje každou stránku zprávy, ale do středu každého snímku nebo stránky vloží zkušební vodoznak ve všech čtyřech výstupních formátech (PPT, PPTX, PDF a HTML), jak je znázorněno na obrázku níže. Další podrobnosti naleznete v [Evaluate Aspose.Slides](/slides/cs/jasperreports/evaluate-aspose-slides/).
 
-![todo:image_alt_text](evaluation_watermark.png) 
+![Zkušební vodoznak uprostřed exportovaného snímku](evaluation_watermark.png)
 
 ## **Použití licence**
 Existuje několik způsobů, jak licenci použít, v závislosti na tom, zda pracujete s JasperReports nebo JasperServer.
 
 ### **Použití licence pro JasperReports**
-Použijte přímé volání metody setLicense podobně jako v Aspose.Slides pro Java.
+Zavolejte metodu `setLicense` třídy `License` s proudem, který čte licenční soubor, stejně jako v Aspose.Slides for Java:
 
 ```java
+import java.io.FileInputStream;
+
 import com.aspose.slides.jasperreports.License;
 
-..... 
+public class ApplyLicense {
+    public static void main(String[] args) {
+        try {
+            // Vytvořte objekt proudu obsahující licenční soubor.
+            FileInputStream fstream = new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 
-try {
-    //Vytvořte objekt proudu obsahující soubor licence
-    FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
-	
-    //Vytvořte instanci třídy License
-    License license = new License();
-	
-    //Nastavte licenci pomocí objektu proudu
-    license.setLicense(fstream);
-} catch(Exception ex) {
-    System.out.println(ex.toString());
+            // Vytvořte instanci třídy License.
+            License license = new License();
+
+            // Nastavte licenci pomocí objektu proudu.
+            license.setLicense(fstream);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+    }
 }
 ```
 
-Nebo nastavte parametr exportéru v kódu.
+Nebo předávejte cestu k licenčnímu souboru exportéru v parametru `ASExporterParameters.PPT_LICENSE`. V tomto úryvku je `jasperPrint` vyplněná zpráva, jak je uvedeno v [Your first export](/slides/cs/jasperreports/#your-first-export):
 
 ```java
-ASPptExporter exporter = new ASPptExporter (); 
+ASPptExporter exporter = new ASPptExporter();
+exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "report.ppt");
 exporter.setParameter(ASExporterParameters.PPT_LICENSE, "Aspose.Slides.JasperReports.Developer.lic");
 exporter.exportReport();
 ```
 
-### **Použití licence na JasperServer**
-Nastavte parametr exportéru v souboru applicationContext.xml.
-
-``` xml
-<bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">
-    <property name="licenseFile" value="C:/jasperserver-3.0/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
-</bean>
-```
+### **Použití licence v JasperServer**
+Nastavte vlastnost `licenseFile` beanu `pptExportParameters` v *applicationContext.xml* na cestu k licenčnímu souboru, jak je ukázáno v [Integration with JasperServer](/slides/cs/jasperreports/integration-with-jasperserver/#set-font-mapping-and-the-license).
