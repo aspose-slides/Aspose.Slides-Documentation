@@ -31,10 +31,10 @@ description: "Aspose.Slides for Android के साथ Java में प्�
 
 एक प्रेज़ेंटेशन बनाने और उसकी पहली स्लाइड पर एक टेक्स्ट बॉक्स रखने के लिए, इन चरणों का पालन करें:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक instance बनाएँ। एक नया प्रेज़ेंटेशन पहले से ही एक खाली स्लाइड रखता है।
-2. उस स्लाइड को उसके इंडेक्स, 0 द्वारा, [स्लाइड संग्रह](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islidecollection/) से प्राप्त करें।
-3. [shape संग्रह](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishapecollection/) की [addAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) मेथड से एक आयत जोड़ें और उसके [text frame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) के टेक्स्ट को [setText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) मेथड से सेट करें।
-4. प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में [save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) मेथड से सहेजें, [SaveFormat.Pptx](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/saveformat/) फ़ॉर्मेट में।
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) क्लास का एक instance बनाएँ। एक नया प्रेज़ेंटेशन पहले से ही एक खाली स्लाइड रखता है।
+2. उस स्लाइड को उसके इंडेक्स, 0 द्वारा, [स्लाइड संग्रह](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) से प्राप्त करें।
+3. [shape संग्रह](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) की [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) मेथड से एक आयत जोड़ें और उसके [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) के टेक्स्ट को [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) मेथड से सेट करें।
+4. प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) मेथड से सहेजें, [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/) फ़ॉर्मेट में।
 
 यह कोड `Activity` के अंदर चलता है, उदाहरण के लिए उसके `onCreate` मेथड में। यह फ़ाइल को उस डायरेक्टरी में सहेजता है जो [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) मेथड द्वारा लौटाई जाती है: आपके ऐप का प्राइवेट स्टोरेज, जहाँ इसे किसी अनुमति के बिना लिखा जा सकता है।
 
@@ -83,7 +83,7 @@ try {
 
 ### क्या मैं समानांतर में प्रेज़ेंटेशन बना/सहेज सकता हूँ?
 
-आप एक ही [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इन्स्टेंस को [कई थ्रेड्स](/slides/hi/androidjava/multithreading/) से ऑपरेट नहीं कर सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग‑अलग इन्स्टेंस चलाएँ।
+आप एक ही [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) इन्स्टेंस को [कई थ्रेड्स](/slides/hi/androidjava/multithreading/) से ऑपरेट नहीं कर सकते। प्रत्येक थ्रेड या प्रोसेस के लिए अलग‑अलग इन्स्टेंस चलाएँ।
 
 ### ट्रायल वाटरमार्क और सीमाओं को कैसे हटाऊँ?
 

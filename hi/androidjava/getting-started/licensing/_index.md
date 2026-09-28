@@ -23,14 +23,14 @@ description: "Aspose.Slides for Android via Java में लाइसेंस
 
 Aspose.Slides को मूल्यांकन मोड में या वैध लाइसेंस के साथ उपयोग किया जा सकता है। मूल्यांकन संस्करण लाइसेंस प्राप्त संस्करण के समान कार्यक्षमता प्रदान करता है, लेकिन यह प्रत्येक प्रस्तुति की प्रत्येक स्लाइड पर एक मूल्यांकन वॉटरमार्क जोड़ता है और आपके कोड द्वारा प्रस्तुतियों से पढ़े गए पाठ को छोटा कर देता है।
 
-यह लेख बताता है कि Aspose.Slides में लाइसेंसिंग कैसे काम करती है और लाइब्रेरी का उपयोग करने से पहले लाइसेंस कैसे लागू किया जाए। लाइसेंस को फ़ाइल, स्ट्रीम या एम्बेडेड रिसोर्स से [License](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/license/) क्लास का उपयोग करके लोड किया जा सकता है। लेख यह भी दिखाता है कि लाइसेंस सही ढंग से लागू हुआ है या नहीं, इसे कैसे सत्यापित किया जाए।
+यह लेख बताता है कि Aspose.Slides में लाइसेंसिंग कैसे काम करती है और लाइब्रेरी का उपयोग करने से पहले लाइसेंस कैसे लागू किया जाए। लाइसेंस को फ़ाइल, स्ट्रीम या एम्बेडेड रिसोर्स से [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) क्लास का उपयोग करके लोड किया जा सकता है। लेख यह भी दिखाता है कि लाइसेंस सही ढंग से लागू हुआ है या नहीं, इसे कैसे सत्यापित किया जाए।
 
 ## **Aspose.Slides का मूल्यांकन**
 
 {{% alert color="info" title="Note" %}}
-आप **Aspose.Slides for Android via Java** का मूल्यांकन संस्करण उसके [download page](https://releases.aspose.com/slides/hi/androidjava/) से डाउनलोड कर सकते हैं। मूल्यांकन संस्करण उत्पाद के लाइसेंस प्राप्त संस्करण के समान कार्यक्षमता प्रदान करता है। मूल्यांकन पैकेज खरीदे गए पैकेज के समान है। केवल कुछ पंक्तियों का कोड जोड़कर (लाइसेंस लागू करने के लिए) मूल्यांकन संस्करण लाइसेंस प्राप्त बन जाता है।
+आप **Aspose.Slides for Android via Java** का मूल्यांकन संस्करण उसके [download page](https://releases.aspose.com/slides/androidjava/) से डाउनलोड कर सकते हैं। मूल्यांकन संस्करण उत्पाद के लाइसेंस प्राप्त संस्करण के समान कार्यक्षमता प्रदान करता है। मूल्यांकन पैकेज खरीदे गए पैकेज के समान है। केवल कुछ पंक्तियों का कोड जोड़कर (लाइसेंस लागू करने के लिए) मूल्यांकन संस्करण लाइसेंस प्राप्त बन जाता है।
 
-एक बार जब आप **Aspose.Slides** के मूल्यांकन से संतुष्ट हो जाएँ, तो आप [purchase a license](https://purchase.aspose.com/pricing/slides/hi/android-java/) कर सकते हैं। हम विभिन्न सदस्यता प्रकारों को देखने की सलाह देते हैं। यदि आपके कोई प्रश्न हैं, तो Aspose बिक्री टीम से संपर्क करें।
+एक बार जब आप **Aspose.Slides** के मूल्यांकन से संतुष्ट हो जाएँ, तो आप [purchase a license](https://purchase.aspose.com/pricing/slides/android-java/) कर सकते हैं। हम विभिन्न सदस्यता प्रकारों को देखने की सलाह देते हैं। यदि आपके कोई प्रश्न हैं, तो Aspose बिक्री टीम से संपर्क करें।
 
 हर Aspose लाइसेंस के साथ एक वर्ष की मुफ्त अपग्रेड सदस्यता आती है, जिससे सदस्यता अवधि के भीतर जारी किए गए नए संस्करणों या फ़िक्सों को मुफ्त में प्राप्त किया जा सकता है। लाइसेंस प्राप्त उत्पाद (या यहाँ तक कि मूल्यांकन संस्करण) वाले उपयोगकर्ताओं को मुफ्त और असीमित तकनीकी समर्थन मिलता है।
 {{% /alert %}} 
@@ -59,7 +59,7 @@ Aspose.Slides को मूल्यांकन मोड में या व�
 लाइसेंस को **फ़ाइल** या **स्ट्रीम** से लोड किया जा सकता है।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides लाइसेंसिंग कार्यों के लिए [License](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/license/) क्लास प्रदान करता है।
+Aspose.Slides लाइसेंसिंग कार्यों के लिए [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) क्लास प्रदान करता है।
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,9 +85,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-यदि आप लाइसेंस फ़ाइल को किसी अलग निर्देशिका में रखते हैं, तो जब आप [setLicense](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को कॉल करते हैं, तो निर्दिष्ट पथ के अंत में फ़ाइल का नाम आपके लाइसेंस फ़ाइल के नाम के समान होना चाहिए।
+यदि आप लाइसेंस फ़ाइल को किसी अलग निर्देशिका में रखते हैं, तो जब आप [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को कॉल करते हैं, तो निर्दिष्ट पथ के अंत में फ़ाइल का नाम आपके लाइसेंस फ़ाइल के नाम के समान होना चाहिए।
 
-उदाहरण के लिए, आप लाइसेंस फ़ाइल का नाम *Aspose.Slides.Android.via.Java.lic.xml* बदल सकते हैं। फिर, अपने कोड में, आपको फ़ाइल का पथ (जो *Aspose.Slides.Android.via.Java.lic.xml* समाप्त हो) को [setLicense](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को पास करना होगा।
+उदाहरण के लिए, आप लाइसेंस फ़ाइल का नाम *Aspose.Slides.Android.via.Java.lic.xml* बदल सकते हैं। फिर, अपने कोड में, आपको फ़ाइल का पथ (जो *Aspose.Slides.Android.via.Java.lic.xml* समाप्त हो) को [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) मेथड को पास करना होगा।
 {{% /alert %}}
 
 ### **स्ट्रीम**
@@ -104,7 +104,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **ऐप Assets से स्ट्रीम**
 
-Android ऐप में, लाइसेंस फ़ाइल को ऐप मॉड्यूल की *assets* फ़ोल्डर में रखें, यानी *app/src/main/assets*, ताकि यह APK में पैक हो जाए। फ़ाइल को [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) मेथड से खोलें और स्ट्रीम को [setLicense](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) मेथड को पास करें। कोड `Activity` के भीतर चलता है, उदाहरण के लिए उसके `onCreate` मेथड में, इससे पहले कि ऐप Aspose.Slides का उपयोग करे:
+Android ऐप में, लाइसेंस फ़ाइल को ऐप मॉड्यूल की *assets* फ़ोल्डर में रखें, यानी *app/src/main/assets*, ताकि यह APK में पैक हो जाए। फ़ाइल को [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) मेथड से खोलें और स्ट्रीम को [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) मेथड को पास करें। कोड `Activity` के भीतर चलता है, उदाहरण के लिए उसके `onCreate` मेथड में, इससे पहले कि ऐप Aspose.Slides का उपयोग करे:
 
 ```java
 import android.util.Log;
@@ -141,7 +141,7 @@ if (license.isLicensed())
 ## **थ्रेड सुरक्षा**
 
 {{% alert color="warning" title="Warning" %}}
-[setLicense](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) मेथड थ्रेड‑सेफ़ नहीं है। यदि इस मेथड को कई थ्रेड्स से एक साथ कॉल करना पड़ता है, तो आप समस्याओं से बचने के लिए लॉक जैसी समकालिकता तकनीकें उपयोग कर सकते हैं।
+[setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) मेथड थ्रेड‑सेफ़ नहीं है। यदि इस मेथड को कई थ्रेड्स से एक साथ कॉल करना पड़ता है, तो आप समस्याओं से बचने के लिए लॉक जैसी समकालिकता तकनीकें उपयोग कर सकते हैं।
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**

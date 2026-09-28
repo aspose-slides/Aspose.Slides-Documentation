@@ -57,7 +57,7 @@ dependencies {
 
 ### **संस्करण चुनें**
 
-Aspose.Slides for Android via Java रिपोजिटरी में हर संस्करण के लिए नहीं बनाया गया है। इसके बिल्ड केवल कुछ Aspose.Slides for Java संस्करणों के लिए प्रकाशित होते हैं, और Android बिल्ड के बिना संस्करण रेजॉल्व नहीं हो पाएगा। सूचीबद्ध संस्करण [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/hi/androidjava/) पर चुनें।
+Aspose.Slides for Android via Java रिपोजिटरी में हर संस्करण के लिए नहीं बनाया गया है। इसके बिल्ड केवल कुछ Aspose.Slides for Java संस्करणों के लिए प्रकाशित होते हैं, और Android बिल्ड के बिना संस्करण रेजॉल्व नहीं हो पाएगा। सूचीबद्ध संस्करण [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/androidjava/) पर चुनें।
 
 ### **Groovy बिल्ड स्क्रिप्ट्स**
 
@@ -106,11 +106,11 @@ dependencies {
 
 ### Aspose.Slides का सही इंटेग्रेशन कैसे सत्यापित करें?
 
-अपने प्रोजेक्ट को बिल्ड करें, एक खाली [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) का उदाहरण बनाएं और उसे नया नाम देकर सहेजें। यदि फ़ाइल बिना किसी अपवाद के बन जाती है, तो लाइब्रेरी सफलतापूर्वक एकीकृत हो गई है।
+अपने प्रोजेक्ट को बिल्ड करें, एक खाली [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) का उदाहरण बनाएं और उसे नया नाम देकर सहेजें। यदि फ़ाइल बिना किसी अपवाद के बन जाती है, तो लाइब्रेरी सफलतापूर्वक एकीकृत हो गई है।
 
 ### बड़ी प्रस्तुतियों को प्रोसेस करते समय मेमोरी उपयोग को कैसे सीमित करें?
 
-प्रत्येक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस की [dispose](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#dispose--) मेथड को `finally` ब्लॉक में कॉल करके उसके संसाधनों को तुरंत मुक्त करें, और एक बार में एक बड़ी प्रस्तुति प्रोसेस करें। यह आउट-ऑफ-मेमोरी त्रुटियों को रोकने और बैच ऑपरेशनों के दौरान समग्र मेमोरी उपयोग को पूर्वानुमेय रखने में मदद करता है।
+प्रत्येक [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) इंस्टेंस की [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) मेथड को `finally` ब्लॉक में कॉल करके उसके संसाधनों को तुरंत मुक्त करें, और एक बार में एक बड़ी प्रस्तुति प्रोसेस करें। यह आउट-ऑफ-मेमोरी त्रुटियों को रोकने और बैच ऑपरेशनों के दौरान समग्र मेमोरी उपयोग को पूर्वानुमेय रखने में मदद करता है।
 
 ### क्या मैं अनचाहे एक्सपोर्ट फॉर्मैट्स को बाहर रख कर अंतिम JAR आकार को छोटा कर सकता हूँ?
 
