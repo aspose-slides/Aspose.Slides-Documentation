@@ -31,10 +31,10 @@ Sebelum memulai, tambahkan Aspose.Slides ke proyek Android Anda dari repositori 
 
 Untuk membuat presentasi dan menambahkan kotak teks pada slide pertama, ikuti langkah‑langkah berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
-2. Dapatkan slide tersebut dari [slide collection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/) dengan indeksnya, 0.  
-3. Tambahkan persegi panjang dengan metode [addAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) pada [shape collection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/) dan setel teks pada [text frame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/)‑nya menggunakan metode [setText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Simpan presentasi sebagai file PPTX dengan metode [save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) dalam format [SaveFormat.Pptx](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/saveformat/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Presentasi baru sudah berisi satu slide kosong.  
+2. Dapatkan slide tersebut dari [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) dengan indeksnya, 0.  
+3. Tambahkan persegi panjang dengan metode [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) pada [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) dan setel teks pada [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑nya menggunakan metode [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Simpan presentasi sebagai file PPTX dengan metode [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) dalam format [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Kode dijalankan di dalam sebuah `Activity`, misalnya pada metode `onCreate`. Itu menyimpan file ke direktori yang dikembalikan oleh metode [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) : penyimpanan privat aplikasi Anda, yang dapat ditulis tanpa meminta izin apapun.
 
@@ -83,7 +83,7 @@ Gunakan [strategi manajemen BLOB](/slides/id/androidjava/manage-blob/), batasi p
 
 ### Dapatkah saya membuat/menyimpan presentasi secara paralel?
 
-Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) yang sama dari [multiple threads](/slides/id/androidjava/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) yang sama dari [multiple threads](/slides/id/androidjava/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
 
 ### Bagaimana cara menghapus watermark percobaan dan batasan?
 

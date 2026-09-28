@@ -23,13 +23,13 @@ description: "Terapkan, kelola, dan selesaikan masalah lisensi di Aspose.Slides 
 
 Aspose.Slides dapat digunakan dalam mode evaluasi atau dengan lisensi yang valid. Versi evaluasi menyediakan fungsionalitas yang sama dengan versi berlisensi, tetapi menambahkan watermark evaluasi pada setiap slide dari setiap presentasi yang disimpan dan memotong teks yang dibaca kode Anda dari presentasi.
 
-Artikel ini menjelaskan cara kerja lisensi di Aspose.Slides dan cara menerapkan lisensi sebelum menggunakan perpustakaan. Lisensi dapat dimuat dari file, aliran, atau sumber daya tertanam dengan menggunakan kelas [License](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/license/). Artikel ini juga menunjukkan cara memvalidasi apakah lisensi telah diterapkan dengan benar.
+Artikel ini menjelaskan cara kerja lisensi di Aspose.Slides dan cara menerapkan lisensi sebelum menggunakan perpustakaan. Lisensi dapat dimuat dari file, aliran, atau sumber daya tertanam dengan menggunakan kelas [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/). Artikel ini juga menunjukkan cara memvalidasi apakah lisensi telah diterapkan dengan benar.
 
 ## **Evaluasi Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-Anda dapat mengunduh versi evaluasi **Aspose.Slides for Android via Java** dari [halaman unduhan](https://releases.aspose.com/slides/id/androidjava/). Versi evaluasi menyediakan fungsionalitas yang sama dengan versi berlisensi produk. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi cukup menjadi berlisensi setelah Anda menambahkan beberapa baris kode (untuk menerapkan lisensi).
-Setelah Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/id/android-java/). Kami menyarankan Anda meninjau berbagai jenis langganan. Jika Anda memiliki pertanyaan, hubungi tim penjualan Aspose.
+Anda dapat mengunduh versi evaluasi **Aspose.Slides for Android via Java** dari [halaman unduhan](https://releases.aspose.com/slides/androidjava/). Versi evaluasi menyediakan fungsionalitas yang sama dengan versi berlisensi produk. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi cukup menjadi berlisensi setelah Anda menambahkan beberapa baris kode (untuk menerapkan lisensi).
+Setelah Anda puas dengan evaluasi **Aspose.Slides**, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/android-java/). Kami menyarankan Anda meninjau berbagai jenis langganan. Jika Anda memiliki pertanyaan, hubungi tim penjualan Aspose.
 Setiap lisensi Aspose dilengkapi dengan langganan satu tahun untuk peningkatan gratis ke versi baru atau perbaikan yang dirilis selama periode langganan. Pengguna dengan produk berlisensi (atau bahkan versi evaluasi) mendapatkan dukungan teknis gratis dan tanpa batas.
 {{% /alert %}}
 
@@ -57,7 +57,7 @@ Untuk menguji Aspose.Slides tanpa batasan, Anda dapat meminta **Lisensi Sementar
 Lisensi dapat dimuat dari **file** atau **stream**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/license/) untuk operasi lisensi.
+Aspose.Slides menyediakan kelas [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) untuk operasi lisensi.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -83,9 +83,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Jika Anda menempatkan file lisensi di direktori berbeda, saat memanggil metode [setLicense](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) , nama file lisensi di akhir jalur yang ditentukan harus sama dengan nama file lisensi Anda.
+Jika Anda menempatkan file lisensi di direktori berbeda, saat memanggil metode [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) , nama file lisensi di akhir jalur yang ditentukan harus sama dengan nama file lisensi Anda.
 
-Sebagai contoh, Anda dapat mengubah nama file lisensi menjadi *Aspose.Slides.Android.via.Java.lic.xml*. Kemudian, dalam kode Anda, Anda harus memberi jalur ke file (yang berakhir dengan *Aspose.Slides.Android.via.Java.lic.xml*) ke metode [setLicense](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Sebagai contoh, Anda dapat mengubah nama file lisensi menjadi *Aspose.Slides.Android.via.Java.lic.xml*. Kemudian, dalam kode Anda, Anda harus memberi jalur ke file (yang berakhir dengan *Aspose.Slides.Android.via.Java.lic.xml*) ke metode [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 {{% /alert %}}
 
 ### **Stream**
@@ -102,7 +102,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Stream from App Assets**
 
-Di aplikasi Android, letakkan file lisensi di folder *assets* modul aplikasi, *app/src/main/assets*, sehingga file tersebut menjadi bagian dari APK. Buka file dengan metode [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) dan berikan aliran ke metode [setLicense](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Kode dijalankan di dalam sebuah `Activity`, misalnya di metode `onCreate`, sebelum aplikasi menggunakan Aspose.Slides:
+Di aplikasi Android, letakkan file lisensi di folder *assets* modul aplikasi, *app/src/main/assets*, sehingga file tersebut menjadi bagian dari APK. Buka file dengan metode [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) dan berikan aliran ke metode [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Kode dijalankan di dalam sebuah `Activity`, misalnya di metode `onCreate`, sebelum aplikasi menggunakan Aspose.Slides:
 
 ```java
 import android.util.Log;
@@ -139,7 +139,7 @@ if (license.isLicensed())
 ## **Keamanan Thread**
 
 {{% alert color="warning" title="Warning" %}}
-Metode [setLicense](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) tidak aman untuk thread. Jika metode ini harus dipanggil secara bersamaan dari banyak thread, Anda mungkin ingin menggunakan primitif sinkronisasi (seperti kunci) untuk menghindari masalah.
+Metode [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) tidak aman untuk thread. Jika metode ini harus dipanggil secara bersamaan dari banyak thread, Anda mungkin ingin menggunakan primitif sinkronisasi (seperti kunci) untuk menghindari masalah.
 {{% /alert %}}
 
 ## **FAQ**

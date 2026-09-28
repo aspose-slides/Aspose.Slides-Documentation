@@ -57,7 +57,7 @@ Kemudian sinkronkan proyek dengan file Gradle, sehingga Gradle mengunduh perpust
 
 ### **Pilih Versi**
 
-Aspose.Slides for Android via Java tidak dibangun untuk setiap versi di repositori. Build‑nya hanya dipublikasikan untuk beberapa versi Aspose.Slides for Java, dan versi tanpa build Android tidak dapat diselesaikan. Pilih versi yang terdaftar pada [halaman unduhan Aspose.Slides for Android via Java](https://releases.aspose.com/slides/id/androidjava/).
+Aspose.Slides for Android via Java tidak dibangun untuk setiap versi di repositori. Build‑nya hanya dipublikasikan untuk beberapa versi Aspose.Slides for Java, dan versi tanpa build Android tidak dapat diselesaikan. Pilih versi yang terdaftar pada [halaman unduhan Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/).
 
 ### **Skrip Build Groovy**
 
@@ -108,11 +108,11 @@ Sejak 2018, penomoran versi Aspose.Slides for Android via Java telah sesuai deng
 
 ### Bagaimana saya dapat memverifikasi bahwa Aspose.Slides terintegrasi dengan benar?
 
-Buat proyek Anda, buat instance [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) kosong dan simpan dengan nama baru. Jika file dibuat tanpa melemparkan pengecualian, perpustakaan telah berhasil diintegrasikan.
+Buat proyek Anda, buat instance [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) kosong dan simpan dengan nama baru. Jika file dibuat tanpa melemparkan pengecualian, perpustakaan telah berhasil diintegrasikan.
 
 ### Bagaimana saya dapat membatasi konsumsi memori saat memproses presentasi besar?
 
-Panggil metode [dispose](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#dispose--) pada setiap instance [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dalam blok `finally` untuk melepaskan sumber dayanya dengan cepat, dan proses satu presentasi besar pada satu waktu. Ini membantu mencegah kesalahan out-of-memory dan menjaga penggunaan memori secara keseluruhan tetap dapat diprediksi selama operasi batch.
+Panggil metode [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) pada setiap instance [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) dalam blok `finally` untuk melepaskan sumber dayanya dengan cepat, dan proses satu presentasi besar pada satu waktu. Ini membantu mencegah kesalahan out-of-memory dan menjaga penggunaan memori secara keseluruhan tetap dapat diprediksi selama operasi batch.
 
 ### Bisakah saya mengecualikan format ekspor yang tidak diinginkan untuk memperkecil ukuran JAR akhir?
 
