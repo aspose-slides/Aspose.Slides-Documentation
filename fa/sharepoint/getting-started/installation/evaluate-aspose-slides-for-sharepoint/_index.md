@@ -11,7 +11,7 @@ description: "Aspose.Slides for SharePoint را با بارگیری معمولی
 
 {{% /alert %}}
 
-نسخه ارزیابی و نسخه پرداختی Aspose.Slides for SharePoint همان بارگیری هستند. [دانلود Aspose.Slides for SharePoint](https://releases.aspose.com/slides/fa/sharepoint/), [نصب آن](/slides/fa/sharepoint/installing-aspose-slides-for-sharepoint/), و به‌صورت پیش‌فرض در حالت ارزیابی کار می‌کند.
+نسخه ارزیابی و نسخه پرداختی Aspose.Slides for SharePoint همان بارگیری هستند. [دانلود Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [نصب آن](/slides/fa/sharepoint/installing-aspose-slides-for-sharepoint/), و به‌صورت پیش‌فرض در حالت ارزیابی کار می‌کند.
 
 در حالت ارزیابی، سند تبدیل‌شده حاوی یک watermark ارزیابی است. هنگامی که لایسنس خریداری کردید، راه‌حل لایسنس را بر روی نسخه ارزیابی نصب شده اعمال کنید، همان‌طور که در [نصب لایسنس Aspose.Slides for SharePoint](/slides/fa/sharepoint/installing-aspose-slides-for-sharepoint-license/) توصیف شده است، و Aspose.Slides for SharePoint در حالت لایسنس‌دار کار می‌کند.
 

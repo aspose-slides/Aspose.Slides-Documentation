@@ -57,12 +57,12 @@ Aspose.Slides for SharePoint یک راهکار فارم برای SharePoint 2007
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/fa/sharepoint/release-notes/">یادداشت‌های انتشار</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/sharepoint/">بارگیری</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">بارگیری</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">پشتیبانی اختصاصی (پرداختی)</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Aspose.Slides for SharePoint یک راهکار فارم برای SharePoint 2007
 
 Aspose.Slides for SharePoint یک‌بار در فارم نصب می‌شود و سپس از هر کتابخانه سندی که ویژگی آن فعال شده باشد، قابل استفاده است:
 
-1. فایل ZIP را از [صفحه بارگیری](https://releases.aspose.com/slides/fa/sharepoint/) دانلود و در یک سرور از فارم SharePoint خود استخراج کنید.
+1. فایل ZIP را از [صفحه بارگیری](https://releases.aspose.com/slides/sharepoint/) دانلود و در یک سرور از فارم SharePoint خود استخراج کنید.
 2. برنامهٔ راه‌اندازی متناسب با نسخهٔ SharePoint خود را اجرا کنید: *Setup2007.exe*، *Setup2010.exe*، *Setup2013.exe*، *Setup2016.exe* یا *Setup2019.exe*. از حسابی استفاده کنید که بتواند راهکارهای SharePoint را نصب و استقرار دهد. موافقت‌نامهٔ مجوز را بپذیرید، مجموعه سایت‌هایی را که می‌خواهید ویژگی روی آنها فعال شود انتخاب کنید و اجازه دهید نصب‌کننده راهکار را استقرار دهد. هر صفحهٔ نصب در [نصب](/slides/fa/sharepoint/installing-aspose-slides-for-sharepoint/) توضیح داده شده است.
 3. یک کتابخانه سند در یکی از مجموعه‌های سایت باز کنید، منوی یک فایل PPT یا PPTX را باز کرده و **Convert via Aspose.Slides** را انتخاب کنید. در SharePoint 2007 این گزینه به نام **Convert with Aspose.Slides** است.
 4. زیر **Convert to**، **PDF - Adobe Portable Document** را انتخاب کنید. اگر لازم است نام فایل مقصد و پوشه را تغییر دهید و سپس **Convert** را کلیک کنید.

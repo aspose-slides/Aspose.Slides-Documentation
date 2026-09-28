@@ -7,7 +7,7 @@ description: "Aspose.Slides را برای SharePoint بر روی یک فارم S
 ---
 ## **محتویات بسته**
 
-Aspose.Slides برای SharePoint از [صفحه دانلود](https://releases.aspose.com/slides/fa/sharepoint/) به‌عنوان یک بایگانی ZIP دریافت می‌شود. این بایگانی شامل یک بسته راه‌حل SharePoint (WSP) و یک برنامه نصب برای هر نسخهٔ پشتیبانی‌شدهٔ SharePoint است:
+Aspose.Slides برای SharePoint از [صفحه دانلود](https://releases.aspose.com/slides/sharepoint/) به‌عنوان یک بایگانی ZIP دریافت می‌شود. این بایگانی شامل یک بسته راه‌حل SharePoint (WSP) و یک برنامه نصب برای هر نسخهٔ پشتیبانی‌شدهٔ SharePoint است:
 
 | نسخه SharePoint | برنامه نصب | بستهٔ راه‌حل |
 | :- | :- | :- |

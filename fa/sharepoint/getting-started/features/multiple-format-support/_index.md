@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint قالب‌های ورودی زیر را تبدیل
 
 {{% alert color="info" title="Note" %}}
 
-برای تبدیل اسناد، Aspose.Slides for SharePoint بر نسخه داخلی [Aspose.Slides for .NET](https://products.aspose.com/slides/fa/net/) وابسته است.
+برای تبدیل اسناد، Aspose.Slides for SharePoint بر نسخه داخلی [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) وابسته است.
 
 {{% /alert %}}
 
