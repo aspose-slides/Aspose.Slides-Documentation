@@ -7,7 +7,7 @@ description: "Installeer Aspose.Slides voor SharePoint op een SharePoint-farm: k
 ---
 ## **Inhoud van het pakket**
 
-Aspose.Slides for SharePoint wordt gedownload vanaf de [downloadpagina](https://releases.aspose.com/slides/nl/sharepoint/) als een ZIP‑archief. Het archief bevat één SharePoint‑oplossingspakket (WSP) en één installatieprogramma voor elke ondersteunde SharePoint‑versie:
+Aspose.Slides for SharePoint wordt gedownload vanaf de [downloadpagina](https://releases.aspose.com/slides/sharepoint/) als een ZIP‑archief. Het archief bevat één SharePoint‑oplossingspakket (WSP) en één installatieprogramma voor elke ondersteunde SharePoint‑versie:
 
 | SharePoint‑versie | Installatieprogramma | Oplossingspakket |
 | :- | :- | :- |

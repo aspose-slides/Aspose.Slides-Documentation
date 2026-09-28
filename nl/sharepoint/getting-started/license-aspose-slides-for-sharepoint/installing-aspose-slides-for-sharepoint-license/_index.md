@@ -7,7 +7,7 @@ description: "Installeer de Aspose.Slides voor SharePoint-licentie op een ShareP
 ---
 {{% alert color="info" title="Note" %}}
 
-Zodra u tevreden bent met uw evaluatie, kunt u een licentie [aanschaffen](https://purchase.aspose.com/pricing/slides/nl/sharepoint/). Voordat u koopt, zorg ervoor dat u de voorwaarden van het licentie‑abonnement begrijpt en ermee akkoord gaat. De licentie wordt per e‑mail naar u verzonden zodra de bestelling is betaald.
+Zodra u tevreden bent met uw evaluatie, kunt u een licentie [aanschaffen](https://purchase.aspose.com/pricing/slides/sharepoint/). Voordat u koopt, zorg ervoor dat u de voorwaarden van het licentie‑abonnement begrijpt en ermee akkoord gaat. De licentie wordt per e‑mail naar u verzonden zodra de bestelling is betaald.
 
 De licentie is een ZIP‑archief dat een reguliere SharePoint‑oplossingspakket bevat. Het archief bevat:
 

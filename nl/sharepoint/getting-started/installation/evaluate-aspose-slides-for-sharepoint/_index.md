@@ -11,7 +11,7 @@ Profiteer van de gratis evaluatie van Aspose.Slides for SharePoint: er is geen t
 
 {{% /alert %}}
 
-De evaluatie- en de betaalde versie van Aspose.Slides for SharePoint zijn dezelfde download. [Download Aspose.Slides for SharePoint](https://releases.aspose.com/slides/nl/sharepoint/), [installeer het](/slides/nl/sharepoint/installing-aspose-slides-for-sharepoint/), en hij werkt standaard in evaluatiemodus.
+De evaluatie- en de betaalde versie van Aspose.Slides for SharePoint zijn dezelfde download. [Download Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [installeer het](/slides/nl/sharepoint/installing-aspose-slides-for-sharepoint/), en hij werkt standaard in evaluatiemodus.
 
 In de evaluatiemodus bevat het geconverteerde document een evaluatiewatermerk. Wanneer u een licentie hebt aangeschaft, installeert u de licentieoplossing over de geïnstalleerde evaluatiekopie, zoals beschreven in [Installing Aspose.Slides for SharePoint License](/slides/nl/sharepoint/installing-aspose-slides-for-sharepoint-license/), en Aspose.Slides for SharePoint werkt in de gelicentieerde modus.
 
