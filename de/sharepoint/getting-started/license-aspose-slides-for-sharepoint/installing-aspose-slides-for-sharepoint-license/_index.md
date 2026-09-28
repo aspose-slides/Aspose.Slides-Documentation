@@ -7,7 +7,7 @@ description: "Installieren Sie die Aspose.Slides for SharePoint‑Lizenz in eine
 ---
 {{% alert color="info" title="Hinweis" %}}
 
-Sobald Sie mit Ihrer Evaluation zufrieden sind, können Sie [eine Lizenz erwerben](https://purchase.aspose.com/pricing/slides/de/sharepoint/). Stellen Sie vor dem Kauf sicher, dass Sie die Lizenz‑Abonnementbedingungen verstanden haben und ihnen zustimmen. Die Lizenz wird Ihnen per E‑Mail zugesandt, sobald die Bestellung bezahlt wurde.
+Sobald Sie mit Ihrer Evaluation zufrieden sind, können Sie [eine Lizenz erwerben](https://purchase.aspose.com/pricing/slides/sharepoint/). Stellen Sie vor dem Kauf sicher, dass Sie die Lizenz‑Abonnementbedingungen verstanden haben und ihnen zustimmen. Die Lizenz wird Ihnen per E‑Mail zugesandt, sobald die Bestellung bezahlt wurde.
 
 Die Lizenz ist ein ZIP‑Archiv, das ein reguläres SharePoint‑Lösungspaket enthält. Das Archiv enthält:
 
