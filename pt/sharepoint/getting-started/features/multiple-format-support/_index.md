@@ -20,7 +20,7 @@ O Aspose.Slides for SharePoint converte os seguintes formatos de entrada:
 
 {{% alert color="info" title="Note" %}}
 
-Para converter documentos, o Aspose.Slides for SharePoint depende de uma versão incorporada do [Aspose.Slides for .NET](https://products.aspose.com/slides/pt/net/).
+Para converter documentos, o Aspose.Slides for SharePoint depende de uma versão incorporada do [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 

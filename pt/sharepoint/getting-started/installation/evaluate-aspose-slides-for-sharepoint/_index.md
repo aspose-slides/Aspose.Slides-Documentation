@@ -11,7 +11,7 @@ Aproveite a avaliação gratuita do Aspose.Slides for SharePoint: não tem limit
 
 {{% /alert %}}
 
-A avaliação e a versão paga do Aspose.Slides for SharePoint são o mesmo download. [Download Aspose.Slides for SharePoint](https://releases.aspose.com/slides/pt/sharepoint/), [instale-o](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint/), e ele funciona no modo de avaliação por padrão.
+A avaliação e a versão paga do Aspose.Slides for SharePoint são o mesmo download. [Download Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [instale-o](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint/), e ele funciona no modo de avaliação por padrão.
 
 No modo de avaliação, o documento convertido contém uma marca d'água de avaliação. Quando você adquirir uma licença, instale a solução de licença sobre a cópia de avaliação instalada, conforme descrito em [Installing Aspose.Slides for SharePoint License](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint-license/), e o Aspose.Slides for SharePoint funciona no modo licenciado.
 

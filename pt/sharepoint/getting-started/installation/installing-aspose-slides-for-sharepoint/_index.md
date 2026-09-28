@@ -7,7 +7,7 @@ description: "Instale Aspose.Slides for SharePoint em uma fazenda SharePoint: es
 ---
 ## **Conteúdo do Pacote**
 
-Aspose.Slides for SharePoint é baixado da [página de download](https://releases.aspose.com/slides/pt/sharepoint/) como um arquivo ZIP. O arquivo contém um pacote de solução SharePoint (WSP) e um programa de instalação para cada versão suportada do SharePoint:
+Aspose.Slides for SharePoint é baixado da [página de download](https://releases.aspose.com/slides/sharepoint/) como um arquivo ZIP. O arquivo contém um pacote de solução SharePoint (WSP) e um programa de instalação para cada versão suportada do SharePoint:
 
 | Versão do SharePoint | Programa de instalação | Pacote de solução |
 | :- | :- | :- |
