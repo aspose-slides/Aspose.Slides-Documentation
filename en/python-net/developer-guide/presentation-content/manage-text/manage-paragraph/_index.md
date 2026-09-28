@@ -470,6 +470,8 @@ with slides.Presentation("Test.pptx") as presentation:
 
 ## **Count Rendered Lines**
 
+For paragraph rules that affect automatic wrapping and punctuation at line endings, see [Control Line Breaking](/slides/python-net/text-formatting/#control-line-breaking) and [Control Hanging Punctuation](/slides/python-net/text-formatting/#control-hanging-punctuation).
+
 Use [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) to count the lines occupied by a paragraph after text layout, including automatic wrapping. This is useful when checking text length and layout in presentation templates.
 
 A paragraph is one item in [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
