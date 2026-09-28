@@ -31,10 +31,10 @@ Voordat je begint, voeg Aspose.Slides toe aan je Android‑project vanuit de Mav
 
 Om een presentatie te maken en een tekstvak op de eerste dia te plaatsen, volg je deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
-2. Haal die dia op uit de [slide collection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidecollection/) op basis van de index 0.  
-3. Voeg een rechthoek toe met de [addAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-)‑methode van de [shape collection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/) en stel de tekst in van het bijbehorende [text frame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/) met de [setText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-)‑methode.  
-4. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-)‑methode, in het [SaveFormat.Pptx](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/saveformat/)‑formaat.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑klasse. Een nieuwe presentatie bevat al één lege dia.  
+2. Haal die dia op uit de [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) op basis van de index 0.  
+3. Voeg een rechthoek toe met de [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-)‑methode van de [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) en stel de tekst in van het bijbehorende [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) met de [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-)‑methode.  
+4. Sla de presentatie op als een PPTX‑bestand met de [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-)‑methode, in het [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/)‑formaat.
 
 De code draait binnen een `Activity`, bijvoorbeeld in de `onCreate`‑methode. Het bestand wordt opgeslagen in de map die wordt geretourneerd door de [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir())‑methode: de private opslag van je app, waartoe kan worden geschreven zonder extra machtigingen aan te vragen.
 
