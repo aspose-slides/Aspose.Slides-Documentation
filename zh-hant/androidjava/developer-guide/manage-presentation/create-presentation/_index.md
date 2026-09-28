@@ -31,10 +31,10 @@ description: "使用 Aspose.Slides for Android 於 Java 中建立簡報——產
 
 要建立簡報並在第一張投影片上放置文字方塊，請依照下列步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。新簡報已預設包含一張空白投影片。
-1. 透過索引 0 從 [slide collection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/) 取得該投影片。
-1. 使用 [addAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 方法於 [shape collection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/) 中新增矩形，並使用 [setText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) 方法設定其 [text frame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/) 的文字。
-1. 使用 [save](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 方法將簡報以 PPTX 檔儲存，格式為 [SaveFormat.Pptx](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/saveformat/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例。新簡報已預設包含一張空白投影片。
+1. 透過索引 0 從 [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) 取得該投影片。
+1. 使用 [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 方法於 [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) 中新增矩形，並使用 [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) 方法設定其 [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 的文字。
+1. 使用 [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 方法將簡報以 PPTX 檔儲存，格式為 [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/)。
 
 程式碼在 `Activity` 中執行，例如在其 `onCreate` 方法內。它會將檔案儲存至由 [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) 方法回傳的目錄：應用程式的私有儲存空間，無需任何權限即可寫入。
 

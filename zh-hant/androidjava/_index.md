@@ -72,14 +72,14 @@ Aspose.Slides for Android via Java 是一個類別庫，用於在 Android 應用
 <hr>
 <p>參考</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh-hant/androidjava/">API 參考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/androidjava/release-notes/">發行說明</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">API 參考</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">發行說明</a></li>
 <li><a href="/slides/zh-hant/androidjava/known-issues/">已知問題</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/androidjava/">下載</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">下載</a></li>
 </ul>
 <p>支援</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">免費支援論壇</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免費支援論壇</a></li>
 <li><a href="https://helpdesk.aspose.com/">付費支援服務台</a></li>
 </ul>
 </div>

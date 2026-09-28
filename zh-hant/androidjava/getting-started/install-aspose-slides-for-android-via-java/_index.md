@@ -57,7 +57,7 @@ dependencies {
 
 ### **選擇版本**
 
-Aspose.Slides for Android via Java 並非每個版本都有對應的建置。它只針對部分 Aspose.Slides for Java 版本發布 Android 版，若選擇沒有 Android 建置的版本將無法解析。請在 [Aspose.Slides for Android via Java 下載頁面](https://releases.aspose.com/slides/zh-hant/androidjava/) 中挑選版本。
+Aspose.Slides for Android via Java 並非每個版本都有對應的建置。它只針對部分 Aspose.Slides for Java 版本發布 Android 版，若選擇沒有 Android 建置的版本將無法解析。請在 [Aspose.Slides for Android via Java 下載頁面](https://releases.aspose.com/slides/androidjava/) 中挑選版本。
 
 ### **Groovy 建置腳本**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### 如何驗證 Aspose.Slides 是否正確整合？
 
-建置專案，實例化一個空的 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 並以新名稱儲存。若檔案能順利建立且未拋出例外，即表示套件已成功整合。
+建置專案，實例化一個空的 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 並以新名稱儲存。若檔案能順利建立且未拋出例外，即表示套件已成功整合。
 
 ### 如何在處理大型簡報時限制記憶體使用量？
 
-在 `finally` 區塊中呼叫每個 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 實例的 [dispose](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#dispose--) 方法以立即釋放資源，並一次只處理一個大型簡報。此作法有助於防止記憶體不足錯誤，並在批次作業期間保持記憶體使用量可預測。
+在 `finally` 區塊中呼叫每個 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 實例的 [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) 方法以立即釋放資源，並一次只處理一個大型簡報。此作法有助於防止記憶體不足錯誤，並在批次作業期間保持記憶體使用量可預測。
 
 ### 能否排除不需要的匯出格式以縮小最終 JAR 大小？
 
