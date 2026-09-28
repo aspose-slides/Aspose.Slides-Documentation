@@ -57,12 +57,12 @@ Nó chuyển đổi các tệp PPT và PPTX sang PDF, TIFF, XPS, HTML, SWF và O
 <hr>
 <p>THAM KHẢO</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/vi/sharepoint/release-notes/">Ghi chú phát hành</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/sharepoint/">Tải xuống</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Trung tâm hỗ trợ trả phí</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Nó chuyển đổi các tệp PPT và PPTX sang PDF, TIFF, XPS, HTML, SWF và O
 
 Aspose.Slides for SharePoint được cài đặt một lần trên farm và sau đó được sử dụng từ bất kỳ thư viện tài liệu nào mà nó đã được kích hoạt:
 
-1. Tải xuống tập tin ZIP từ [trang tải xuống](https://releases.aspose.com/slides/vi/sharepoint/) và giải nén nó trên một máy chủ trong farm SharePoint của bạn.  
+1. Tải xuống tập tin ZIP từ [trang tải xuống](https://releases.aspose.com/slides/sharepoint/) và giải nén nó trên một máy chủ trong farm SharePoint của bạn.  
 2. Chạy chương trình cài đặt phù hợp với phiên bản SharePoint của bạn: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* hoặc *Setup2019.exe*. Sử dụng tài khoản có quyền cài đặt và triển khai giải pháp SharePoint. Chấp nhận thỏa thuận cấp phép, chọn các bộ sưu tập trang để kích hoạt tính năng, và để chương trình cài đặt triển khai giải pháp. Mỗi màn hình được mô tả trong [Cài đặt](/slides/vi/sharepoint/installing-aspose-slides-for-sharepoint/).  
 3. Mở một thư viện tài liệu trong một trong các bộ sưu tập trang, mở menu của tệp PPT hoặc PPTX, và chọn **Convert via Aspose.Slides**. Trên SharePoint 2007, mục menu được đặt tên là **Convert with Aspose.Slides**.  
 4. Trong mục **Convert to**, chọn **PDF - Adobe Portable Document**. Thay đổi tên tệp và thư mục đích nếu cần, và nhấn **Convert**.  

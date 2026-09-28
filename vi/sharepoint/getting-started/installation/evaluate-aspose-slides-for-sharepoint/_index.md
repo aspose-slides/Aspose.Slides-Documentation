@@ -11,7 +11,7 @@ Hãy tận dụng bản dùng thử miễn phí của Aspose.Slides for SharePoi
 
 {{% /alert %}}
 
-Bản dùng thử và phiên bản trả phí của Aspose.Slides for SharePoint là cùng một tệp tải xuống. [Tải xuống Aspose.Slides for SharePoint](https://releases.aspose.com/slides/vi/sharepoint/), [cài đặt nó](/slides/vi/sharepoint/installing-aspose-slides-for-sharepoint/), và nó sẽ chạy ở chế độ dùng thử theo mặc định.
+Bản dùng thử và phiên bản trả phí của Aspose.Slides for SharePoint là cùng một tệp tải xuống. [Tải xuống Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [cài đặt nó](/slides/vi/sharepoint/installing-aspose-slides-for-sharepoint/), và nó sẽ chạy ở chế độ dùng thử theo mặc định.
 
 Trong chế độ dùng thử, tài liệu đã chuyển đổi sẽ có dấu nước dùng thử. Khi bạn đã mua giấy phép, hãy cài đặt giải pháp giấy phép lên bản dùng thử đã cài đặt, như mô tả trong [Cài đặt giấy phép Aspose.Slides for SharePoint](/slides/vi/sharepoint/installing-aspose-slides-for-sharepoint-license/), và Aspose.Slides for SharePoint sẽ hoạt động ở chế độ có giấy phép.
 

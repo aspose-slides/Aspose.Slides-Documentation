@@ -7,7 +7,7 @@ description: "Cài đặt Aspose.Slides cho SharePoint trên một farm SharePoi
 ---
 ## **Nội dung Gói**
 
-Aspose.Slides for SharePoint được tải xuống từ [trang tải xuống](https://releases.aspose.com/slides/vi/sharepoint/) dưới dạng tệp ZIP. Tệp lưu trữ chứa một gói giải pháp SharePoint (WSP) và một chương trình cài đặt cho mỗi phiên bản SharePoint được hỗ trợ:
+Aspose.Slides for SharePoint được tải xuống từ [trang tải xuống](https://releases.aspose.com/slides/sharepoint/) dưới dạng tệp ZIP. Tệp lưu trữ chứa một gói giải pháp SharePoint (WSP) và một chương trình cài đặt cho mỗi phiên bản SharePoint được hỗ trợ:
 
 | Phiên bản SharePoint | Chương trình cài đặt | Gói giải pháp |
 | :- | :- | :- |

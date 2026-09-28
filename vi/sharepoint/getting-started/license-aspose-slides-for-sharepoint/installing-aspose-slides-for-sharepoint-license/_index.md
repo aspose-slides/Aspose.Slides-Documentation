@@ -7,7 +7,7 @@ description: "Cài đặt giấy phép Aspose.Slides cho SharePoint trên một 
 ---
 {{% alert color="info" title="Note" %}}
 
-Khi bạn đã hài lòng với phiên bản đánh giá, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/vi/sharepoint/). Trước khi mua, hãy đảm bảo bạn hiểu và đồng ý với các điều khoản đăng ký giấy phép. Giấy phép sẽ được gửi qua email cho bạn khi đơn hàng đã được thanh toán.
+Khi bạn đã hài lòng với phiên bản đánh giá, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/sharepoint/). Trước khi mua, hãy đảm bảo bạn hiểu và đồng ý với các điều khoản đăng ký giấy phép. Giấy phép sẽ được gửi qua email cho bạn khi đơn hàng đã được thanh toán.
 
 Giấy phép là một tệp ZIP chứa một gói giải pháp SharePoint thông thường. Tệp nén chứa:
 

@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint chuyển đổi các định dạng đầu vào sau
 
 {{% alert color="info" title="Note" %}}
 
-Để chuyển đổi tài liệu, Aspose.Slides for SharePoint dựa trên phiên bản tích hợp sẵn của [Aspose.Slides for .NET](https://products.aspose.com/slides/vi/net/).
+Để chuyển đổi tài liệu, Aspose.Slides for SharePoint dựa trên phiên bản tích hợp sẵn của [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 
