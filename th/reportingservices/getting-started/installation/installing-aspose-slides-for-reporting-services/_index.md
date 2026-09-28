@@ -3,30 +3,29 @@ title: การติดตั้ง Aspose.Slides for Reporting Services
 type: docs
 weight: 10
 url: /th/reportingservices/installing-aspose-slides-for-reporting-services/
+keywords:
+- การติดตั้ง
+- ตัวติดตั้ง MSI
+- การติดตั้งด้วยตนเอง
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "เลือกวิธีการติดตั้ง Aspose.Slides for Reporting Services บนเซิร์ฟเวอร์รายงาน — ด้วยตัวติดตั้ง MSI หรือจากแพ็คเกจ ZIP ที่มีเฉพาะ DLLs — และค้นหาบทความการตั้งค่าที่เกี่ยวข้อง"
 ---
-{{% alert color="primary" %}} 
-บทความนี้มุ่งเน้นการติดตั้ง Aspose.Slides for Reporting Services บนเซิร์ฟเวอร์
-{{% /alert %}} 
-### **ตัวเลือกการติดตั้ง**
-Aspose.Slides for Reporting Services สามารถปรับใช้ได้สองวิธี:
+## **ตัวเลือกการติดตั้ง**
 
-* โดยอัตโนมัติโดยใช้ตัวติดตั้ง MSI
-* ด้วยตนเองโดยคัดลอกแอสเซมบลีและแก้ไขไฟล์กำหนดค่า. 
+Aspose.Slides for Reporting Services จะถูกติดตั้งบนเซิร์ฟเวอร์รายงานเอง. ก่อนเริ่มใช้งาน ตรวจสอบ [ความต้องการของระบบ](/slides/th/reportingservices/system-requirements/).
 
-ตัวติดตั้ง MSI สำหรับการติดตั้งอัตโนมัติ (Aspose.Slides for Reporting Services XX.XX) และแพ็คเกจ zip ที่มีไฟล์สำหรับการติดตั้งด้วยตนเอง (Aspose.Slides for Reporting Services XX.XX DLL Only) สามารถดาวน์โหลดได้จาก [หน้าเผยแพร่ผลิตภัณฑ์](https://releases.aspose.com/slides/th/reportingservices/). 
+[หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/reportingservices/) มีแพคเกจสองประเภทสำหรับแต่ละรุ่น:
 
-{{% alert color="primary" %}} 
-Aspose.Slides for Reporting Services สามารถติดตั้งบนเซิร์ฟเวอร์ Power BI ได้.
-{{% /alert %}} 
+- **Aspose.Slides for Reporting Services XX.XX** — ตัวติดตั้ง MSI. ระบบจะตรวจจับอินสแตนซ์ของเซิร์ฟเวอร์รายงานบนเครื่อง คัดลอกส่วนขยายไปยังที่คุณเลือกและอัปเดตไฟล์การกำหนดค่า. ดู [การติดตั้งด้วยตัวติดตั้ง MSI](/slides/th/reportingservices/install-with-msi-installer/).
+- **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — แพ็คเกจ ZIP สำหรับการติดตั้งด้วยตนเอง: คัดลอกแอสเซมบลีหนึ่งไฟล์และแก้ไขไฟล์การกำหนดค่าสองไฟล์. ดู [การติดตั้งด้วยตนเอง](/slides/th/reportingservices/install-manually/).
 
-### **ลิงก์ไปยังบทความการติดตั้ง**
-- [การติดตั้งด้วยตัวติดตั้ง MSI](/slides/th/reportingservices/install-with-msi-installer/).
-- [การติดตั้งด้วยตนเอง](/slides/th/reportingservices/install-manually/).
-- [การติดตั้งใหม่ Aspose.Slides for Reporting Services](/slides/th/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [การรวมด้วยตนเองกับ Visual Studio 2005 หรือ 2008 Report Designer](/slides/th/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [การปรับแต่งคำบรรยายส่วนขยายการเรนเดอร์ Microsoft PowerPoint](/slides/th/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [การให้ใบอนุญาต Aspose.Slides for Reporting Services](/slides/th/reportingservices/license-aspose-slides-for-reporting-services/).
+แพ็คเกจเดียวกันนี้ติดตั้ง Aspose.Slides for Reporting Services บน [Power BI Report Server](/slides/th/reportingservices/power-bi/).
 
-{{% alert title="Note" color="warning" %}} 
-**Aspose.Slides for Reporting Services** ต้องการการติดตั้ง .NET Framework 3.5 บนเครื่องโฮสต์. 
-{{% /alert %}}
+## **บทความที่เกี่ยวข้อง**
+
+- [การให้สิทธิ์ Aspose.Slides for Reporting Services](/slides/th/reportingservices/license-aspose-slides-for-reporting-services/)
+- [การติดตั้ง Aspose.Slides for Reporting Services ใหม่](/slides/th/reportingservices/re-installing-aspose-slides-for-reporting-services/)
+- [การผสานรวมด้วยตนเองกับ Visual Studio 2005 หรือ 2008 Report Designer](/slides/th/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)
+- [การปรับแต่งคำบรรยายส่วนขยายการเรนเดอร์ของ Microsoft PowerPoint](/slides/th/reportingservices/customizing-powerpoint-rendering-extension-caption/)

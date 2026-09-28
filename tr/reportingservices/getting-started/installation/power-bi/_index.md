@@ -1,21 +1,19 @@
 ---
-title: Power BI'da Aspose.Slides for Reporting Services'ı Kurun
+title: "Power BI'ye Aspose.Slides for Reporting Services'ı Yükle"
 type: docs
 weight: 20
 url: /tr/reportingservices/power-bi/
-keywords: "Power BI, kurulum, Power BI'da Aspose.Slides for Reporting Services"
-description: "Power BI'da Aspose.Slides for Reporting Services'ı Kurun"
+keywords:
+- Power BI Rapor Sunucusu
+- kurulum
+- Aspose.Slides for Reporting Services
+description: "Power BI Report Server üzerine Aspose.Slides for Reporting Services'ı kurarak sayfalı (RDL) raporları PowerPoint biçimlerine dışa aktarın."
 ---
 ## **Power BI**
-Aspose.Slides for Reporting Services'ı bir Power BI sunucusuna aynı kurulum süreçleriyle kurabilirsiniz:
 
-Bakınız
+Aynı kurulum süreçleriyle Aspose.Slides for Reporting Services'ı Power BI Report Server üzerine kurabilirsiniz:
 
-* [MSI Yükleyicisi ile Kurulum](https://docs.aspose.com/slides/tr/reportingservices/install-with-msi-installer/#installation). Kurulum programı sunucuda kurulu Power BI'yi otomatik olarak algılar, ürünü kurar ve ardından çalışma ortamınız için yapılandırır.
-* [Manuel Kurulum](https://docs.aspose.com/slides/tr/reportingservices/install-manually/).
+* [MSI Yükleyicisiyle Yükle](/slides/tr/reportingservices/install-with-msi-installer/). Kurulum programı, yüklü Power BI Report Server'ı otomatik olarak algılar, ürünü kurar ve ardından çalışma ortamınız için yapılandırır.
+* [Manuel Olarak Yükle](/slides/tr/reportingservices/install-manually/). ZIP paketinin *Bin\Universal* klasöründeki derlemeyi kullanın.
 
-{{% alert title="Note" color="warning" %}} 
-**Aspose.Slides for Reporting Services** ana makinede **.NET Framework 3.5** kurulumunu gerektirir. 
-{{% /alert %}}
-
-Aspose.Slides for SSRS sayfalı raporları (cdl) destekler.
+Aspose.Slides for Reporting Services, Power BI Report Server'dan sayfalı raporları (RDL) dışa aktarır. Gereksinimler, ana bilgisayar makinesindeki .NET Framework 3.5 dahil olmak üzere, [Sistem Gereksinimleri](/slides/tr/reportingservices/system-requirements/) bölümünde bulunabilir.

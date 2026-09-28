@@ -3,15 +3,22 @@ title: Vyhodnocení Aspose.Slides
 type: docs
 weight: 80
 url: /cs/reportingservices/evaluate-aspose-slides/
+keywords:
+- vyhodnocení
+- zkouška
+- vodoznak pro vyhodnocení
+- dočasná licence
+- Aspose.Slides for Reporting Services
+description: "Zjistěte, jak se chová vyhodnocovací verze Aspose.Slides for Reporting Services, jak označuje exportované prezentace a jak ji vyhodnotit bez tohoto označení."
 ---
-{{% alert color="primary" %}} 
-Jednoduše si můžete stáhnout Aspose.Slides pro vyzkoušení. Vyzkoušejte stažení je stejné jako stažení zakoupené verze. Vyzkoušejte verze se jednoduše licencuje, když přidáte několik řádků kódu pro použití licence.
+## **Verze pro vyhodnocení**
 
-Vyzkoušejte verze Aspose.Slides (bez specifikované licence) poskytuje plnou funkčnost produktu, ale vkládá vodoznak evaluation na každou snímku vygenerované prezentace.
+Aspose.Slides for Reporting Services můžete ke zkušebnímu vyzkoušení stáhnout z [její stránky ke stažení](https://releases.aspose.com/slides/cs/reportingservices/). Stáhnutí ke zkušebnímu použití je stejné jako zakoupené stažení. Stane se licencovaným, když zkopírujete licenční soubor na server zpráv — není potřeba žádný kód; viz [Licencování](/slides/cs/reportingservices/license-aspose-slides-for-reporting-services/).
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+Vyhodnocovací verze (bez licence) poskytuje plnou funkčnost produktu, ale do exportovaných prezentací vkládá vodoznak pro vyhodnocení.
 
-{{% /alert %}} {{% alert color="primary" %}} 
-Pokud chcete testovat Aspose.Slides bez omezení vyzkoušejte verze, můžete také požádat o 30‑denní dočasnou licenci. Další informace najdete na stránce [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
+![Zpráva exportovaná v režimu hodnocení, s vodotiskem pro vyhodnocení](evaluate-aspose-slides_1.png)
 
-{{% /alert %}}
+## **Testujte bez vodotisku**
+
+Pokud chcete Aspose.Slides for Reporting Services vyzkoušet bez vodotisku pro vyhodnocení, můžete požádat o 30‑denní dočasnou licenci. Viz [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)

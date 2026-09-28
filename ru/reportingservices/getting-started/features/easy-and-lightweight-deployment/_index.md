@@ -1,29 +1,28 @@
----  
-title: Легкое и легковесное развертывание  
-type: docs  
-weight: 50  
-url: /ru/reportingservices/easy-and-lightweight-deployment/  
----  
+---
+title: Лёгкое и экономичное развертывание
+type: docs
+weight: 50
+url: /ru/reportingservices/easy-and-lightweight-deployment/
+description: "Узнайте, как развертывается Aspose.Slides for Reporting Services: одна сборка в папке bin сервера отчетов, зарегистрированная в конфигурации сервера отчетов."
+---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}}  
+Aspose.Slides for Reporting Services — это [расширение визуализации](https://learn.microsoft.com/en-us/sql/reporting-services/extensions/rendering-extension/rendering-extensions-overview) для Microsoft SQL Server Reporting Services и Power BI Report Server.
+Aspose.Slides for Reporting Services поставляется в виде одного MSI‑установщика, который можно установить на компьютеры с поддерживаемым сервером отчетов, 32‑битным или 64‑битным; см. [Системные требования](/slides/ru/reportingservices/system-requirements/).
 
-Aspose.Slides для Reporting Services — это [расширение рендеринга](http://msdn2.microsoft.com/en-us/library/ms154606.aspx) для Microsoft SQL Server Reporting Services.  
-Aspose.Slides для Reporting Services предоставляется в виде одного MSI-установщика, который может быть установлен на компьютерах с одной из следующих версий:  
+Также легко развернуть и управлять Aspose.Slides for Reporting Services вручную, поскольку он состоит только из одной .NET‑сборки *Aspose.Slides* *.ReportingServices.dll* , полностью написанной на C#, совместимой с CLS и содержащей только безопасный управляемый код.
 
-- Microsoft SQL Server 2005 Reporting Services (32-разрядная и 64-разрядная)  
-- Microsoft SQL Server 2008 Reporting Services (32-разрядная и 64-разрядная)  
+{{% /alert %}}
 
-Также легко развернуть и управлять Aspose.Slides для Reporting Services вручную, так как это всего лишь одна сборка .NET *Aspose.Slides* *.ReportingServices.dll*, написанная полностью на C#, совместимая с CLS и содержащая только безопасный управляемый код.  
+ZIP‑файл содержит две сборки Aspose.Slides.ReportingServices.dll для серверов отчетов:
 
-{{% /alert %}}  
+- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll — построена для Microsoft SQL Server 2005 и .NET Framework 2.0 (для x86 и x64)
+- Bin\Universal\Aspose.Slides.ReportingServices.dll — построена для Microsoft SQL Server 2008 и новее, Power BI Report Server и .NET Framework 2.0 (для x86 и x64)
 
-MSI-установщик и ZIP-загрузка включают Aspose.Slides для Reporting Services:  
+MSI‑установщик устанавливает те же две сборки и выбирает нужную для каждого экземпляра сервера отчетов. [Установить вручную](/slides/ru/reportingservices/install-manually/) перечисляет каждый файл в ZIP‑загрузке.
 
-- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll — создан для Microsoft SQL Server 2005 и .NET Framework 2.0 (использовать для x86 и x64)  
-- Bin\SSRS2008\Aspose.Slides.ReportingServices.dll — создан для Microsoft SQL Server 2008 и .NET Framework 2.0 (использовать для x86 и x64)  
+При установке Aspose.Slides.ReportingServices.dll копируется в каталог ReportServer\bin, а конфигурационный файл обновляется, чтобы Reporting Services знал о новом расширении рендеринга. Эти действия выполняет установщик Aspose.Slides for Reporting Services, но их также можно выполнить вручную, как описано далее в этой документации.
 
-При установке Aspose.Slides.ReportingServices.dll копируется в директорию ReportServer\bin, и файл конфигурации обновляется, чтобы Reporting Services знало о новом расширении рендеринга. Эти шаги выполняются установщиком Aspose.Slides для Reporting Services, но вы также можете выполнить их вручную, как описано далее в этой документации.  
+![todo:image_alt_text](easy-and-lightweight-deployment_1.png)
 
-![todo:image_alt_text](easy-and-lightweight-deployment_1.png)  
-
-**Рисунок**: Aspose.Slides.ReportingServices.dll скопирован в директорию **ReportServer\bin**.  
+**Рисунок**: Aspose.Slides.ReportingServices.dll копируется в каталог **ReportServer\bin**.

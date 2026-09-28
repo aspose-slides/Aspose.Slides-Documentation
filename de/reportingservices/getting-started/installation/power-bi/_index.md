@@ -1,24 +1,19 @@
 ---
-title: Installieren von Aspose.Slides für Reporting Services in Power BI
+title: Aspose.Slides für Reporting Services in Power BI installieren
 type: docs
 weight: 20
 url: /de/reportingservices/power-bi/
-keywords: "Power BI, Installation, Aspose.Slides für Reporting Services in Power BI"
-description: "Installieren von Aspose.Slides für Reporting Services in Power BI"
+keywords:
+- Power BI Report Server
+- Installation
+- Aspose.Slides für Reporting Services
+description: "Installieren Sie Aspose.Slides für Reporting Services auf dem Power BI Report Server, um paginierte (RDL)-Berichte in PowerPoint-Formate zu exportieren."
 ---
-
 ## **Power BI**
-Sie können Aspose.Slides für Reporting Services auf einem Power BI-Server über die gleichen Installationsprozesse installieren:
 
-Siehe 
+Sie können Aspose.Slides für Reporting Services auf dem Power BI Report Server über dieselben Installationsprozesse installieren:
 
-* [Installation mit MSI-Installer](https://docs.aspose.com/slides/reportingservices/install-with-msi-installer/#installation). Das Installationsprogramm erkennt automatisch das installierte Power BI auf dem Server, installiert das Produkt und konfiguriert es dann für Ihre Arbeitsumgebung. 
-* [Manuelle Installation](https://docs.aspose.com/slides/reportingservices/install-manually/).
+* [Installation mit MSI-Installer](/slides/de/reportingservices/install-with-msi-installer/). Das Installationsprogramm erkennt automatisch den installierten Power BI Report Server, installiert das Produkt und konfiguriert es anschließend für Ihre Arbeitsumgebung.
+* [Manuell installieren](/slides/de/reportingservices/install-manually/). Verwenden Sie die Assembly aus dem *Bin\Universal*-Ordner des ZIP-Pakets.
 
-{{% alert title="Hinweis" color="warning" %}} 
-
-**Aspose.Slides für Reporting Services** erfordert die Installation von **.NET Framework 3.5** auf der Hostmaschine. 
-
-{{% /alert %}}
-
-Aspose.Slides für SSRS unterstützt paginierte Berichte (cdl).
+Aspose.Slides für Reporting Services exportiert paginierte Berichte (RDL) vom Power BI Report Server. Für die Anforderungen, einschließlich .NET Framework 3.5 auf dem Host‑Computer, siehe [Systemanforderungen](/slides/de/reportingservices/system-requirements/).

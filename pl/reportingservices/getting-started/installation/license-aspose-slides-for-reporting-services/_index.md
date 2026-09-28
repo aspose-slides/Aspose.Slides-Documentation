@@ -3,39 +3,47 @@ title: Licencja Aspose.Slides for Reporting Services
 type: docs
 weight: 70
 url: /pl/reportingservices/license-aspose-slides-for-reporting-services/
+keywords:
+- licencja
+- licencjonowanie
+- znak wodny ewaluacji
+- tymczasowa licencja
+- Aspose.Slides for Reporting Services
+description: "Zastosuj licencję do Aspose.Slides for Reporting Services, kopiując plik licencji na serwer raportów, i sprawdź, że wyeksportowane prezentacje nie zawierają już znaku wodnego ewaluacji."
 ---
 ## **Obsługa licencji**
-{{% alert color="primary" %}} 
 
-Możesz pobrać wersję ewaluacyjną **Aspose.Slides for Reporting Services** ze [strony wydań](https://releases.aspose.com/slides/pl/reportingservices/). Wersja ewaluacyjna oferuje te same funkcje, co licencjonowana wersja produktu. Pakiet ewaluacyjny jest identyczny z zakupionym pakietem. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku linii kodu (aby zastosować licencję).
+Wersja ewaluacyjna Aspose.Slides for Reporting Services jest tym samym pakietem co zakupiona, z [jej strony pobierania](https://releases.aspose.com/slides/pl/reportingservices/), i zapewnia tę samą funkcjonalność. Bez licencji działa w trybie ewaluacyjnym i wstawia znak wodny ewaluacji do wyeksportowanych prezentacji.
 
-Gdy będziesz zadowolony z oceny produktu, możesz [zakupić licencję](https://purchase.aspose.com/buy). Zalecamy zapoznanie się z różnymi typami subskrypcji. Jeśli masz pytania, skontaktuj się z zespołem sprzedaży Aspose.
+Wersja ewaluacyjna staje się licencjonowana po skopiowaniu pliku licencji na serwer raportów. Nie wymaga żadnego kodu.
 
-{{% /alert %}} 
+Gdy będziesz zadowolony z wersji ewaluacyjnej, możesz [zakupić licencję](https://purchase.aspose.com/pricing/slides/pl/reporting-services/). Zalecamy zapoznanie się z różnymi typami subskrypcji. Jeśli masz pytania, skontaktuj się z zespołem sprzedaży Aspose.
 
-## **Licencjonowanie w Aspose.Slides for Reporting Service**
+## **Licencjonowanie w Aspose.Slides for Reporting Services**
 
-* Wersja ewaluacyjna zostaje licencjonowana po zakupie licencji i dodaniu kilku linii kodu (aby zastosować licencję).  
-* Licencja jest plikiem XML w formacie tekstowym, który zawiera szczegóły takie jak nazwa produktu, liczba deweloperów, do których jest licencjonowana, data wygaśnięcia subskrypcji i inne.  
-* Plik licencji jest cyfrowo podpisany, więc nie należy go modyfikować. Nawet niezamierzone dodanie dodatkowego znaku końca wiersza do zawartości pliku spowoduje jego unieważnienie.  
-* Aby uniknąć ograniczeń związanych z wersją ewaluacyjną, należy ustawić licencję przed użyciem Aspose.Slides for Reporting Service.  
+* Licencja jest zwykłym plikiem XML tekstowym, który zawiera szczegóły takie jak nazwa produktu, liczba programistów, którym jest licencjonowana, data wygaśnięcia subskrypcji i podobne.
+* Plik licencji jest cyfrowo podpisany, więc nie należy go modyfikować. Nawet przypadkowe dodanie dodatkowego znaku nowej linii do zawartości pliku spowoduje jego unieważnienie.
 
-Pobierz licencję na swój komputer i skopiuj ją do folderu **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\bin**, w którym zainstalowany jest **Aspose.Slides.ReportingServices.dll**.  
+Aby zastosować licencję:
 
-Aby potwierdzić, że licencja została pomyślnie zainstalowana, wyeksportuj dowolny raport jako prezentację Microsoft PowerPoint. Jeśli dokument nie zawiera znaku wodnego, licencja została aktywowana pomyślnie.  
+1. Skopiuj plik licencji do folderu *ReportServer\bin* każdej instancji serwera raportów, w której zainstalowano *Aspose.Slides.ReportingServices.dll* — na przykład *C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer\bin*. [Instaluj ręcznie](/slides/pl/reportingservices/install-manually/#find-the-report-server-folder) wymienia domyślne foldery.
+1. Upewnij się, że plik ma jedną z nazw, których szuka rozszerzenie: *Aspose.Slides.ReportingServices.lic*, *Aspose.Slides.Reporting.Services.lic*, *Aspose.Slides.Product.Family.lic*, *Aspose.Total.ReportingServices.lic*, *Aspose.Total.Reporting.Services.lic*, *Aspose.Total.Product.Family.lic* lub *Aspose.Total.lic*.
+1. Wyeksportuj dowolny raport jako prezentację. Jeśli nie zawiera znaku wodnego, licencja jest aktywna.
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_1.png)
+Rozszerzenie także szuka pliku licencji w *%ProgramData%\Aspose\Slides* (zwykle *C:\ProgramData\Aspose\Slides*), więc jedna kopia w tym miejscu obsługuje każdą instancję na maszynie.
 
-Gdy w folderze *ReportServer\bin* znajduje się prawidłowy plik Aspose.Slides.ReportingServices.lic, znak wodny wersji ewaluacyjnej nie jest wyświetlany.  
+**Tryb licencjonowany**
 
-**Tryb ewaluacji**
+Gdy znajdzie się ważny plik licencji, wyeksportowane prezentacje nie zawierają znaku wodnego ewaluacji.
 
-Aspose.Slides for Reporting Services wstawia znak wodny podczas pracy w trybie ewaluacyjnym (bez licencji)  
+![Raport wyeksportowany z licencją: brak znaku wodnego ewaluacji](license-aspose-slides-for-reporting-services_2.png)
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_2.png)
+**Tryb ewaluacyjny**
 
-{{% alert color="primary" %}} 
+Bez licencji Aspose.Slides for Reporting Services wstawia znak wodny ewaluacji do wyeksportowanych prezentacji.
 
-Aby przetestować Aspose.Slides for Reporting Services bez ograniczeń, możesz poprosić o **30‑dniową licencję tymczasową**. Zobacz stronę [Jak uzyskać tymczasową licencję](https://purchase.aspose.com/temporary-license) po więcej informacji.
+![Raport wyeksportowany w trybie ewaluacyjnym, ze znakiem wodnym ewaluacji](license-aspose-slides-for-reporting-services_1.png)
 
+{{% alert color="info" title="Note" %}}
+Aby przetestować Aspose.Slides for Reporting Services bez ograniczeń, możesz poprosić o **30‑dniową tymczasową licencję**. Zobacz stronę [Jak uzyskać tymczasową licencję](https://purchase.aspose.com/temporary-license) po więcej informacji.
 {{% /alert %}}

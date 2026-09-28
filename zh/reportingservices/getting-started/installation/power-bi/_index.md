@@ -1,24 +1,19 @@
 ---
-title: 在 Power BI 中安装 Aspose.Slides for Reporting Services
+title: 安装 Aspose.Slides for Reporting Services 到 Power BI
 type: docs
 weight: 20
 url: /zh/reportingservices/power-bi/
-keywords: "Power BI, 安装, Aspose.Slides for Reporting Services 在 Power BI 中"
-description: "在 Power BI 中安装 Aspose.Slides for Reporting Services"
+keywords:
+- Power BI 报表服务器
+- 安装
+- Aspose.Slides for Reporting Services
+description: "在 Power BI Report Server 上安装 Aspose.Slides for Reporting Services，以将分页 (RDL) 报告导出为 PowerPoint 格式。"
 ---
-
 ## **Power BI**
-您可以通过相同的安装流程在 Power BI 服务器上安装 Aspose.Slides for Reporting Services：
 
-请参见
+您可以通过相同的安装过程在 Power BI Report Server 上安装 Aspose.Slides for Reporting Services：
 
-* [使用 MSI 安装程序安装](https://docs.aspose.com/slides/reportingservices/install-with-msi-installer/#installation)。安装程序会自动检测服务器上安装的 Power BI，安装产品，然后为您的工作环境进行配置。
-* [手动安装](https://docs.aspose.com/slides/reportingservices/install-manually/)。
+* [使用 MSI 安装程序](/slides/zh/reportingservices/install-with-msi-installer/)。安装程序会自动检测已安装的 Power BI Report Server，安装产品，然后为您的工作环境进行配置。
+* [手动安装](/slides/zh/reportingservices/install-manually/)。使用 ZIP 包中 *Bin\Universal* 文件夹中的程序集。
 
-{{% alert title="注意" color="warning" %}} 
-
-**Aspose.Slides for Reporting Services** 需要在主机上安装 **.NET Framework 3.5**。 
-
-{{% /alert %}}
-
-Aspose.Slides for SSRS 支持分页报告（cdl）。
+Aspose.Slides for Reporting Services 可从 Power BI Report Server 导出分页报告（RDL）。有关要求（包括主机上的 .NET Framework 3.5），请参阅 [系统要求](/slides/zh/reportingservices/system-requirements/)。

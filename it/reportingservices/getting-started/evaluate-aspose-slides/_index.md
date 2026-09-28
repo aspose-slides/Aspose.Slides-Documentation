@@ -3,17 +3,22 @@ title: Valuta Aspose.Slides
 type: docs
 weight: 80
 url: /it/reportingservices/evaluate-aspose-slides/
+keywords:
+- valutazione
+- prova
+- filigrana di valutazione
+- licenza temporanea
+- Aspose.Slides for Reporting Services
+description: "Scopri come si comporta la versione di valutazione di Aspose.Slides for Reporting Services, come contrassegna le presentazioni esportate e come valutarla senza tale contrassegno."
 ---
-{{% alert color="primary" %}} 
+## **Versione di valutazione**
 
-Puoi scaricare facilmente Aspose.Slides per la valutazione. Il download di valutazione è lo stesso del download acquistato. La versione di valutazione diventa semplicemente licenziata quando aggiungi alcune righe di codice per applicare la licenza.
+Puoi scaricare Aspose.Slides for Reporting Services in versione di valutazione dalla [sua pagina di download](https://releases.aspose.com/slides/it/reportingservices/). Il download di valutazione è identico al download acquistato. Diventa licenziato quando copi un file di licenza sul server di report — non è necessario alcun codice; vedi [Licenze](/slides/it/reportingservices/license-aspose-slides-for-reporting-services/).
 
-La versione di valutazione di Aspose.Slides (senza licenza specificata) offre la piena funzionalità del prodotto, ma inserisce una filigrana di valutazione su ogni diapositiva della presentazione generata.
+La versione di valutazione (senza licenza) offre tutte le funzionalità del prodotto, ma inserisce una filigrana di valutazione nelle presentazioni esportate.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Un report esportato in modalità di valutazione, con la filigrana di valutazione](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+## **Valuta senza la filigrana**
 
-Se vuoi testare Aspose.Slides senza le limitazioni della versione di valutazione, puoi anche richiedere una Licenza Temporanea di 30 giorni. Consulta [Come ottenere una Licenza Temporanea?](https://purchase.aspose.com/temporary-license)
-
-{{% /alert %}}
+Se desideri testare Aspose.Slides for Reporting Services senza la filigrana di valutazione, puoi richiedere una licenza temporanea di 30 giorni. Consulta [Come ottenere una licenza temporanea?](https://purchase.aspose.com/temporary-license)

@@ -1,41 +1,49 @@
 ---
-title: Aspose.Slides for Reporting Services 授權
+title: 授權 Aspose.Slides for Reporting Services
 type: docs
 weight: 70
 url: /zh-hant/reportingservices/license-aspose-slides-for-reporting-services/
+keywords:
+- 授權
+- 授權管理
+- 評估浮水印
+- 臨時授權
+- Aspose.Slides for Reporting Services
+description: "透過將授權檔案複製到報表伺服器，以套用授權至 Aspose.Slides for Reporting Services，並確認匯出的簡報不再帶有評估浮水印。"
 ---
 ## **授權支援**
-{{% alert color="primary" %}} 
 
-您可以從[其發佈頁面](https://releases.aspose.com/slides/zh-hant/reportingservices/)下載 **Aspose.Slides for Reporting Services** 的評估版。評估版提供與正式授權版相同的功能，且評估套件與購買套件相同。只要在程式碼中加入少許幾行（以套用授權），評估版即可轉為授權版。
+Aspose.Slides for Reporting Services 的評估版與購買版使用相同的套件，下載自[其下載頁面](https://releases.aspose.com/slides/zh-hant/reportingservices/)，並提供相同的功能。未授權時，它會以評估模式運作，並在匯出的簡報中插入評估浮水印。
 
-當您對產品的評估滿意後，可[購買授權](https://purchase.aspose.com/buy)。我們建議您瀏覽不同的訂閱類型。如有任何問題，請聯絡 Aspose 銷售團隊。
+當您將授權檔案複製到報表伺服器時，評估版即會變為已授權。此過程不涉及任何程式碼。
 
-{{% /alert %}} 
+當您對評估結果滿意時，您可以[購買授權](https://purchase.aspose.com/pricing/slides/zh-hant/reporting-services/)。建議您瀏覽不同的訂閱類型。如有任何問題，請聯繫 Aspose 銷售團隊。
 
-## **Aspose.Slides for Reporting Service 的授權方式**
+## **Aspose.Slides for Reporting Services 的授權**
 
-* 評估版在您購買授權並加入幾行程式碼（以套用授權）後即會轉為授權版。
-* 授權是一個純文字 XML 檔案，包含產品名稱、授權給多少位開發人員、訂閱到期日等詳細資訊。 
-* 授權檔案已數位簽署，切勿修改。即使不小心在檔案內容加入額外換行，也會使其失效。
-* 為避免評估版的限制，必須在使用 Aspose.Slides for Reporting Service 前設定授權。 
+* 授權是一個純文字 XML 檔案，內含產品名稱、授權開發人員數量、訂閱到期日等資訊。
+* 授權檔案已數位簽章，切勿修改。即使不小心在檔案內容中加入額外的換行，也會使其失效。
 
-將授權下載至電腦，並複製至 **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\bin** 資料夾，此處即為安裝 **Aspose.Slides.ReportingServices.dll** 的位置。 
+套用授權:
 
-為確認授權是否正確安裝，將任意報表匯出為 Microsoft PowerPoint 簡報。若文件未出現浮水印，表示授權已成功啟用。 
+1. 將授權檔案複製到每個報表伺服器實例的 *ReportServer\bin* 資料夾內，該資料夾也是 *Aspose.Slides.ReportingServices.dll* 所在位置，例如 *C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer\bin*。[手動安裝](/slides/zh-hant/reportingservices/install-manually/#find-the-report-server-folder)列出了預設資料夾。
+2. 確認檔案名稱符合擴充功能所搜尋的任一名稱：*Aspose.Slides.ReportingServices.lic*、*Aspose.Slides.Reporting.Services.lic*、*Aspose.Slides.Product.Family.lic*、*Aspose.Total.ReportingServices.lic*、*Aspose.Total.Reporting.Services.lic*、*Aspose.Total.Product.Family.lic*或*Aspose.Total.lic*。
+3. 將任意報表匯出為簡報。若未出現浮水印，即表示授權已生效。
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_1.png)
+此擴充功能亦會在 *%ProgramData%\Aspose\Slides*（通常為 *C:\ProgramData\Aspose\Slides*）中搜尋授權檔案，因而只需在該位置放置一份即可供機器上的所有實例使用。
 
-當 *ReportServer\bin* 資料夾中存在有效的 Aspose.Slides.ReportingServices.lic 檔案時，將不會出現評估版浮水印。 
+**已授權模式**
+
+當找到有效的授權檔案時，匯出的簡報不會帶有評估浮水印。
+
+![已授權匯出的報表：無評估浮水印](license-aspose-slides-for-reporting-services_2.png)
 
 **評估模式**
 
-Aspose.Slides for Reporting Services 在評估模式（未授權）下會注入浮水印。
+未授權時，Aspose.Slides for Reporting Services 會在匯出的簡報中插入評估浮水印。
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_2.png)
+![評估模式匯出的報表，帶有評估浮水印](license-aspose-slides-for-reporting-services_1.png)
 
-{{% alert color="primary" %}} 
-
-若要在無限制的情況下測試 Aspose.Slides for Reporting Services，您可以申請 **30 天臨時授權**。更多資訊請參閱[如何取得臨時授權](https://purchase.aspose.com/temporary-license)頁面。
-
+{{% alert color="info" title="注意" %}}
+若要在不受限制的情況下測試 Aspose.Slides for Reporting Services，您可以申請**30 天臨時授權**。更多資訊請參閱[如何取得臨時授權](https://purchase.aspose.com/temporary-license)頁面。
 {{% /alert %}}

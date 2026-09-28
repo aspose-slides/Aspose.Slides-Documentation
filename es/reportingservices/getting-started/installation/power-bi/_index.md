@@ -1,24 +1,19 @@
 ---
-title: Instalar Aspose.Slides para Reporting Services en Power BI
+title: Instalar Aspose.Slides for Reporting Services en Power BI
 type: docs
 weight: 20
 url: /es/reportingservices/power-bi/
-keywords: "Power BI, instalación, Aspose.Slides para Reporting Services en Power BI"
-description: "Instalar Aspose.Slides para Reporting Services en Power BI"
+keywords:
+- Servidor de informes Power BI
+- instalación
+- Aspose.Slides for Reporting Services
+description: "Instale Aspose.Slides for Reporting Services en Power BI Report Server para exportar informes paginados (RDL) a formatos de PowerPoint."
 ---
-
 ## **Power BI**
-Puedes instalar Aspose.Slides para Reporting Services en un servidor Power BI a través de los mismos procesos de instalación:
 
-Ver 
+Puede instalar Aspose.Slides for Reporting Services en Power BI Report Server mediante los mismos procesos de instalación:
 
-* [Instalar con Instalador MSI](https://docs.aspose.com/slides/reportingservices/install-with-msi-installer/#installation). El programa de instalación detecta automáticamente el Power BI instalado en el servidor, instala el producto y luego lo configura para tu entorno de trabajo.
-* [Instalar Manualmente](https://docs.aspose.com/slides/reportingservices/install-manually/).
+* [Instalar con el instalador MSI](/slides/es/reportingservices/install-with-msi-installer/). El programa de instalación detecta automáticamente el Power BI Report Server instalado, instala el producto y luego lo configura para su entorno de trabajo.
+* [Instalar manualmente](/slides/es/reportingservices/install-manually/). Use el ensamblado de la carpeta *Bin\Universal* del paquete ZIP.
 
-{{% alert title="Nota" color="warning" %}} 
-
-**Aspose.Slides para Reporting Services** requiere la instalación de **.NET Framework 3.5** en la máquina host. 
-
-{{% /alert %}}
-
-Aspose.Slides para SSRS soporta informes paginados (cdl).
+Aspose.Slides for Reporting Services exporta informes paginados (RDL) desde Power BI Report Server. Para los requisitos, incluido .NET Framework 3.5 en el equipo host, consulte [System Requirements](/slides/es/reportingservices/system-requirements/).

@@ -3,31 +3,29 @@ title: Installatie van Aspose.Slides for Reporting Services
 type: docs
 weight: 10
 url: /nl/reportingservices/installing-aspose-slides-for-reporting-services/
+keywords:
+- installatie
+- MSI‑installatie
+- handmatige installatie
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "Kies hoe u Aspose.Slides for Reporting Services op een rapportserver installeert — met het MSI‑installatieprogramma of via het ZIP‑pakket met alleen DLL’s — en vind de bijbehorende installatie‑artikelen."
 ---
-{{% alert color="primary" %}} 
-Dit artikel richt zich op de installatie van Aspose.Slides for Reporting Services op een server.
-{{% /alert %}} 
-### **Installatieopties**
-Aspose.Slides for Reporting Services kan op twee manieren worden geïmplementeerd: 
+## **Installatieopties**
 
-* automatisch door een MSI installer te gebruiken
-* handmatig door de assembly te kopiëren en configuratiebestanden aan te passen. 
+Aspose.Slides for Reporting Services wordt geïnstalleerd op de rapportserver zelf. Controleer vóór het beginnen de [systeemvereisten](/slides/nl/reportingservices/system-requirements/).
 
-De MSI installer voor de automatische installatie (Aspose.Slides for Reporting Services XX.XX) en het zip‑pakket met bestanden voor de handmatige installatie (Aspose.Slides for Reporting Services XX.XX DLL Only) kunnen worden gedownload van de [productreleasepagina](https://releases.aspose.com/slides/nl/reportingservices/). 
+De downloadpagina biedt twee pakketten per release:
 
-{{% alert color="primary" %}} 
-Aspose.Slides for Reporting Services kan worden geïnstalleerd op een Power BI‑server.
-{{% /alert %}} 
+- **Aspose.Slides for Reporting Services XX.XX** — een MSI‑installatieprogramma. Het detecteert de rapportserver‑instellingen op de machine, kopieert de extensie naar de geselecteerde servers en werkt hun configuratiebestanden bij. Zie [Installeren met de MSI‑installatie](/slides/nl/reportingservices/install-with-msi-installer/).
+- **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — een ZIP‑pakket voor handmatige installatie: je kopieert één assembly en bewerkt twee configuratiebestanden. Zie [Handmatig installeren](/slides/nl/reportingservices/install-manually/).
 
-### **Links naar installatie‑artikelen**
+Dezelfde pakketten installeren Aspose.Slides for Reporting Services op [Power BI Report Server](/slides/nl/reportingservices/power-bi/).
 
-- [Installeren met MSI installer](/slides/nl/reportingservices/install-with-msi-installer/).
-- [Handmatig installeren](/slides/nl/reportingservices/install-manually/).
-- [Herinstallatie van Aspose.Slides for Reporting Services](/slides/nl/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [Handmatig integreren met Visual Studio 2005 of 2008 Report Designer](/slides/nl/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [Aanpassen van het Microsoft PowerPoint rendering‑extensie‑bijschrift](/slides/nl/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [Licenseren van Aspose.Slides for Reporting Services](/slides/nl/reportingservices/license-aspose-slides-for-reporting-services/).
+## **Gerelateerde artikelen**
 
-{{% alert title="Note" color="warning" %}} 
-**Aspose.Slides for Reporting Services** vereist de installatie van .NET Framework 3.5 op de hostmachine.
-{{% /alert %}}
+- [Licenties van Aspose.Slides for Reporting Services](/slides/nl/reportingservices/license-aspose-slides-for-reporting-services/)
+- [Herinstallatie van Aspose.Slides for Reporting Services](/slides/nl/reportingservices/re-installing-aspose-slides-for-reporting-services/)
+- [Handmatig integreren met Visual Studio 2005 of 2008 Report Designer](/slides/nl/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)
+- [Aanpassen van Microsoft PowerPoint rendering‑extensie‑bijschrift](/slides/nl/reportingservices/customizing-powerpoint-rendering-extension-caption/)

@@ -3,39 +3,47 @@ title: Giấy phép Aspose.Slides for Reporting Services
 type: docs
 weight: 70
 url: /vi/reportingservices/license-aspose-slides-for-reporting-services/
+keywords:
+- giấy phép
+- cấp phép
+- watermark đánh giá
+- giấy phép tạm thời
+- Aspose.Slides for Reporting Services
+description: "Áp dụng giấy phép cho Aspose.Slides for Reporting Services bằng cách sao chép tệp giấy phép vào máy chủ báo cáo, và kiểm tra rằng các bản trình chiếu đã xuất không còn chứa watermark đánh giá."
 ---
-## **Hỗ trợ giấy phép**
-{{% alert color="primary" %}} 
+## **Hỗ trợ Giấy phép**
 
-Bạn có thể tải xuống phiên bản dùng thử của **Aspose.Slides for Reporting Services** từ [trang phát hành của nó](https://releases.aspose.com/slides/vi/reportingservices/). Phiên bản dùng thử cung cấp các chức năng giống như phiên bản có giấy phép của sản phẩm. Gói dùng thử giống hệt gói đã mua. Phiên bản dùng thử sẽ trở thành có giấy phép sau khi bạn thêm một vài dòng mã vào (để áp dụng giấy phép).
+Phiên bản dùng thử của Aspose.Slides for Reporting Services là cùng một gói với phiên bản đã mua, từ [trang tải xuống của nó](https://releases.aspose.com/slides/vi/reportingservices/), và cung cấp cùng các chức năng. Nếu không có giấy phép, nó hoạt động ở chế độ đánh giá và chèn một dấu watermark đánh giá vào các bản trình chiếu đã xuất.
 
-Khi bạn hài lòng với quá trình đánh giá sản phẩm, bạn có thể [mua giấy phép](https://purchase.aspose.com/buy). Chúng tôi khuyên bạn nên xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội ngũ bán hàng của Aspose.
+Phiên bản dùng thử sẽ trở thành có giấy phép khi bạn sao chép tệp giấy phép vào máy chủ báo cáo. Không cần bất kỳ mã nào.
 
-{{% /alert %}} 
+Khi bạn hài lòng với bản dùng thử, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/vi/reporting-services/). Chúng tôi khuyên bạn nên xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội bán hàng của Aspose.
 
-## **Cấp phép trong Aspose.Slides for Reporting Service**
+## **Cách cấp giấy phép trong Aspose.Slides for Reporting Services**
 
-* Một phiên bản dùng thử sẽ trở thành có giấy phép sau khi bạn mua giấy phép và thêm một vài dòng mã vào (để áp dụng giấy phép).
 * Giấy phép là một tệp XML dạng văn bản thuần chứa các chi tiết như tên sản phẩm, số lượng nhà phát triển được cấp phép, ngày hết hạn đăng ký, v.v.
-* Tệp giấy phép được ký số, vì vậy bạn không được phép chỉnh sửa tệp. Ngay cả việc vô tình thêm một dòng ngắt mới vào nội dung tệp cũng sẽ làm cho nó không còn hiệu lực.
-* Để tránh các giới hạn liên quan đến phiên bản dùng thử, bạn cần đặt giấy phép trước khi sử dụng Aspose.Slides for Reporting Service.
+* Tệp giấy phép được ký số, vì vậy bạn không được phép sửa đổi nó. Ngay cả việc vô tình thêm một dấu xuống dòng vào nội dung của tệp cũng sẽ làm cho nó không còn hiệu lực.
 
-Tải giấy phép về máy tính của bạn và sao chép nó vào thư mục **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\bin**, nơi **Aspose.Slides.ReportingServices.dll** được cài đặt. 
+Để áp dụng giấy phép:
 
-Để xác nhận giấy phép đã được cài đặt đúng, xuất bất kỳ báo cáo nào thành bản trình bày Microsoft PowerPoint. Nếu tài liệu không chứa watermark, giấy phép đã được kích hoạt thành công. 
+1. Sao chép tệp giấy phép vào thư mục *ReportServer\bin* của mỗi phiên bản máy chủ báo cáo, nơi *Aspose.Slides.ReportingServices.dll* được cài đặt — ví dụ, *C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer\bin*. [Cài đặt thủ công](/slides/vi/reportingservices/install-manually/#find-the-report-server-folder) liệt kê các thư mục mặc định.
+2. Đảm bảo tệp có một trong các tên mà tiện ích mở rộng tìm kiếm: *Aspose.Slides.ReportingServices.lic*, *Aspose.Slides.Reporting.Services.lic*, *Aspose.Slides.Product.Family.lic*, *Aspose.Total.ReportingServices.lic*, *Aspose.Total.Reporting.Services.lic*, *Aspose.Total.Product.Family.lic* hoặc *Aspose.Total.lic*.
+3. Xuất bất kỳ báo cáo nào dưới dạng bản trình chiếu. Nếu không có watermark, giấy phép đang có hiệu lực.
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_1.png)
+Tiện ích mở rộng cũng tìm tệp giấy phép trong *%ProgramData%\Aspose\Slides* (thường là *C:\ProgramData\Aspose\Slides*), vì vậy một bản sao ở đó sẽ phục vụ cho mọi phiên bản trên máy.
 
-Khi một tệp Aspose.Slides.ReportingServices.lic hợp lệ tồn tại trong thư mục *ReportServer\bin*, sẽ không có watermark đánh dấu dùng thử. 
+**Chế độ có giấy phép**
 
-**Chế độ Đánh giá**
+Khi tìm thấy tệp giấy phép hợp lệ, các bản trình chiếu đã xuất sẽ không có watermark đánh giá.
 
-Aspose.Slides for Reporting Services chèn một watermark khi hoạt động ở chế độ đánh giá (không có giấy phép)
+![Báo cáo được xuất với giấy phép: không có watermark đánh giá](license-aspose-slides-for-reporting-services_2.png)
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_2.png)
+**Chế độ đánh giá**
 
-{{% alert color="primary" %}} 
+Nếu không có giấy phép, Aspose.Slides for Reporting Services sẽ chèn một watermark đánh giá vào các bản trình chiếu đã xuất.
 
-Để thử Aspose.Slides for Reporting Services mà không có giới hạn, bạn có thể yêu cầu một **Giấy phép Tạm thời 30 Ngày**. Xem trang [Cách nhận Giấy phép Tạm thời](https://purchase.aspose.com/temporary-license) để biết thêm thông tin.
+![Báo cáo được xuất ở chế độ đánh giá, với watermark đánh giá](license-aspose-slides-for-reporting-services_1.png)
 
+{{% alert color="info" title="Note" %}}
+Để kiểm tra Aspose.Slides for Reporting Services mà không bị giới hạn, bạn có thể yêu cầu một **Giấy phép tạm thời 30 ngày**. Xem trang [Cách nhận Giấy phép tạm thời](https://purchase.aspose.com/temporary-license) để biết thêm thông tin.
 {{% /alert %}}

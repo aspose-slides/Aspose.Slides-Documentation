@@ -1,11 +1,11 @@
 ---
-title: Formats de Fichiers Supportés
+title: Formats de fichiers pris en charge
 type: docs
 weight: 20
 url: /fr/reportingservices/supported-file-formats/
+description: "Voir quels formats Aspose.Slides for Reporting Services lit (RDL, RPL) et vers quels formats de présentation et de document il exporte les rapports."
 ---
-
-## **Versions de Microsoft PowerPoint Supportées**
+## **Versions Microsoft PowerPoint prises en charge**
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -17,16 +17,16 @@ url: /fr/reportingservices/supported-file-formats/
 - Microsoft PowerPoint 2019
 - Microsoft PowerPoint pour MAC
 
+## **Formats de fichiers pris en charge**
+Le tableau suivant indique les formats de fichiers que Aspose.Slides for Reporting Services peut charger et enregistrer.
 
-## **Formats de Fichiers Supportés**
-Le tableau suivant indique les formats de fichiers que Aspose.Slides pour Reporting Services peut charger et sauvegarder.
-
-|**Format**|**Description**|**Charger**|**Sauvegarder**|**Remarques**|
+|**Format**|**Description**|**Chargement**|**Enregistrement**|**Remarques**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Présentation PowerPoint 97 - 2003| |{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Diaporama PowerPoint 97 - 2003| |{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Présentation PowerPoint 2007 - 2019| |{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Diaporama PowerPoint 2007 - 2019| |{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Documents XPS| |{{< emoticons/tick >}}| |
-|RPL|Mise en Page du Rapport|{{< emoticons/tick >}}| | |
-|RDL|Langage de Définition du Rapport|{{< emoticons/tick >}}| | |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Présentation PowerPoint 97 - 2003||{{< emoticons/tick >}}||
+|[PPS](https://docs.fileformat.com/presentation/pps/)|Diaporama PowerPoint 97 - 2003||{{< emoticons/tick >}}||
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Présentation PowerPoint 2007 - 2019||{{< emoticons/tick >}}||
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|Diaporama PowerPoint 2007 - 2019||{{< emoticons/tick >}}||
+|[ODP](https://docs.fileformat.com/presentation/odp/)|Présentation OpenDocument||{{< emoticons/tick >}}||
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Documents XPS||{{< emoticons/tick >}}||
+|RPL|Mise en page du rapport|{{< emoticons/tick >}}|||
+|RDL|Langage de définition de rapport|{{< emoticons/tick >}}|||

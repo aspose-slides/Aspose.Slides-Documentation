@@ -1,39 +1,31 @@
 ---
-title: Aspose.Slides for Reporting Services'ı Kurma
+title: Aspose.Slides for Reporting Services'ı Yükleme
 type: docs
 weight: 10
 url: /tr/reportingservices/installing-aspose-slides-for-reporting-services/
+keywords:
+- kurulum
+- MSI yükleyicisi
+- manuel kurulum
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "Aspose.Slides for Reporting Services'ı bir rapor sunucusuna nasıl kuracağınızı seçin — MSI yükleyicisiyle veya yalnızca DLL'ler içeren ZIP paketiyle — ve ilgili kurulum makalelerini bulun."
 ---
-{{% alert color="primary" %}} 
+## **Yükleme Seçenekleri**
 
-Bu makale, Aspose.Slides for Reporting Services'ın bir sunucu üzerine kurulumuna odaklanmaktadır.
+Aspose.Slides for Reporting Services rapor sunucusunun kendisine kurulur. Başlamadan önce, [sistem gereksinimleri](/slides/tr/reportingservices/system-requirements/) sayfasını kontrol edin.
 
-{{% /alert %}} 
-### **Kurulum Seçenekleri**
-Aspose.Slides for Reporting Services iki şekilde dağıtılabilir: 
+[indir sayfası](https://releases.aspose.com/slides/tr/reportingservices/) her sürüm için iki paket sunar:
 
-* otomatik olarak bir MSI yükleyicisi kullanarak
-* elle derlemeyi kopyalayarak ve yapılandırma dosyalarını değiştirerek. 
+- **Aspose.Slides for Reporting Services XX.XX** — bir MSI yükleyicisi. Makinedeki rapor sunucusu örneklerini algılar, seçtiğiniz örneklere uzantıyı kopyalar ve yapılandırma dosyalarını günceller. Gör: [MSI Yükleyicisiyle Kurulum](/slides/tr/reportingservices/install-with-msi-installer/).
+- **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — elle kurulmak için bir ZIP paketi: bir derlemeyi kopyalar ve iki yapılandırma dosyasını düzenlersiniz. Gör: [Manuel Kurulum](/slides/tr/reportingservices/install-manually/).
 
-Otomatik kurulum için MSI yükleyicisi (Aspose.Slides for Reporting Services XX.XX) ve manuel kurulum için dosyaları içeren zip paketi (Aspose.Slides for Reporting Services XX.XX DLL Only), [ürün sürüm sayfasından](https://releases.aspose.com/slides/tr/reportingservices/) indirilebilir. 
+Aynı paketler Aspose.Slides for Reporting Services'ı [Power BI Report Server](/slides/tr/reportingservices/power-bi/) üzerine kurar.
 
-{{% alert color="primary" %}} 
+## **İlgili Makaleler**
 
-Aspose.Slides for Reporting Services bir Power BI sunucusuna kurulabilir.
-
-{{% /alert %}} 
-
-### **Kurulum Makalelerine Bağlantılar**
-
-- [MSI yükleyicisiyle kurulum](/slides/tr/reportingservices/install-with-msi-installer/).
-- [Manuel kurulum](/slides/tr/reportingservices/install-manually/).
-- [Aspose.Slides for Reporting Services'ı yeniden kurma](/slides/tr/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [Visual Studio 2005 veya 2008 Report Designer ile manuel entegrasyon](/slides/tr/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [Microsoft PowerPoint işleme uzantısı altyazısını özelleştirme](/slides/tr/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [Aspose.Slides for Reporting Services lisanslama](/slides/tr/reportingservices/license-aspose-slides-for-reporting-services/).
-
-{{% alert title="Not" color="warning" %}} 
-
-**Aspose.Slides for Reporting Services** .NET Framework 3.5'in ana makineye kurulmasını gerektirir. 
-
-{{% /alert %}}
+- [Aspose.Slides for Reporting Services Lisanslama](/slides/tr/reportingservices/license-aspose-slides-for-reporting-services/)
+- [Aspose.Slides for Reporting Services Yeniden Kurma](/slides/tr/reportingservices/re-installing-aspose-slides-for-reporting-services/)
+- [Visual Studio 2005 veya 2008 Report Designer ile manuel bütünleştirme](/slides/tr/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)
+- [Microsoft PowerPoint render uzantı başlığını özelleştirme](/slides/tr/reportingservices/customizing-powerpoint-rendering-extension-caption/)

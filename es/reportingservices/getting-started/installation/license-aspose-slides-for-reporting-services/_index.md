@@ -1,42 +1,49 @@
 ---
-title: Licencia de Aspose.Slides para Reporting Services
+title: Licencia Aspose.Slides for Reporting Services
 type: docs
 weight: 70
 url: /es/reportingservices/license-aspose-slides-for-reporting-services/
+keywords:
+- licencia
+- licenciamiento
+- marca de agua de evaluación
+- licencia temporal
+- Aspose.Slides for Reporting Services
+description: "Aplicar una licencia a Aspose.Slides for Reporting Services copiando el archivo de licencia al servidor de informes y comprobar que las presentaciones exportadas ya no llevan la marca de agua de evaluación."
 ---
+## **Soporte de Licencia**
 
-## **Soporte de licencia**
-{{% alert color="primary" %}} 
+La versión de evaluación de Aspose.Slides for Reporting Services es el mismo paquete que la adquirida, desde [su página de descarga](https://releases.aspose.com/slides/es/reportingservices/), y ofrece la misma funcionalidad. Sin una licencia, funciona en modo de evaluación e inserta una marca de agua de evaluación en las presentaciones exportadas.
 
-Puedes descargar una versión de evaluación de **Aspose.Slides para Reporting Services** desde [su página de lanzamientos](https://releases.aspose.com/slides/reportingservices/). La versión de evaluación proporciona las mismas funcionalidades que la versión con licencia del producto. El paquete de evaluación es el mismo que el paquete comprado. La versión de evaluación simplemente se convierte en licenciada después de que agregues algunas líneas de código (para aplicar la licencia).
+La versión de evaluación se licencia cuando copia un archivo de licencia al servidor de informes. No se requiere código.
 
-Una vez que estés satisfecho con tu evaluación del producto, puedes [comprar una licencia](https://purchase.aspose.com/buy). Te recomendamos que revises los diferentes tipos de suscripción. Si tienes preguntas, contacta al equipo de ventas de Aspose.
+Cuando esté satisfecho con su evaluación, puede [adquirir una licencia](https://purchase.aspose.com/pricing/slides/es/reporting-services/). Le recomendamos que revise los diferentes tipos de suscripción. Si tiene preguntas, contacte al equipo de ventas de Aspose.
 
-{{% /alert %}} 
+## **Licenciamiento en Aspose.Slides for Reporting Services**
 
-## **Licenciamiento en Aspose.Slides para Reporting Services**
+* La licencia es un archivo XML de texto plano que contiene detalles como el nombre del producto, el número de desarrolladores a los que está licenciada, la fecha de expiración de la suscripción, etc.
+* El archivo de licencia está firmado digitalmente, por lo que no debe modificarlo. Incluso la adición accidental de un salto de línea extra al contenido del archivo lo invalidará.
 
-* Una versión de evaluación se convierte en licenciada después de que compras una licencia y agregas un par de líneas de código (para aplicar la licencia).
-* La licencia es un archivo XML de texto plano que contiene detalles como el nombre del producto, el número de desarrolladores a los que está licenciada, la fecha de expiración de la suscripción, etc. 
-* El archivo de licencia está digitalmente firmado, por lo que no debes modificar el archivo. Incluso una adición inadvertida de un salto de línea adicional al contenido del archivo lo invalidará.
-* Para evitar las limitaciones asociadas con la versión de evaluación, necesitas establecer una licencia antes de usar Aspose.Slides para Reporting Services. 
+Para aplicar la licencia:
 
-Descarga la licencia en tu computadora y cópiala en la carpeta **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\bin**, que es donde se encuentra instalado **Aspose.Slides.ReportingServices.dll**. 
+1. Copie el archivo de licencia a la carpeta *ReportServer\bin* de cada instancia del servidor de informes, donde está instalado *Aspose.Slides.ReportingServices.dll* — por ejemplo, *C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer\bin*. [Instalar manualmente](/slides/es/reportingservices/install-manually/#find-the-report-server-folder) enumera las carpetas predeterminadas.
+1. Asegúrese de que el archivo tenga uno de los nombres que la extensión busca: *Aspose.Slides.ReportingServices.lic*, *Aspose.Slides.Reporting.Services.lic*, *Aspose.Slides.Product.Family.lic*, *Aspose.Total.ReportingServices.lic*, *Aspose.Total.Reporting.Services.lic*, *Aspose.Total.Product.Family.lic* o *Aspose.Total.lic*.
+1. Exportar cualquier informe como una presentación. Si no contiene una marca de agua, la licencia está activa.
 
-Para confirmar que la licencia se instaló correctamente, exporta cualquier informe como una presentación de Microsoft PowerPoint. Si el documento no contiene una marca de agua, la licencia se activó correctamente. 
+La extensión también busca el archivo de licencia en *%ProgramData%\Aspose\Slides* (normalmente *C:\ProgramData\Aspose\Slides*), por lo que una copia allí sirve a todas las instancias en la máquina.
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_1.png)
+**Modo con Licencia**
 
-Cuando existe un archivo válido Aspose.Slides.ReportingServices.lic en la carpeta *ReportServer\bin*, no hay marca de agua de evaluación. 
+Cuando se encuentra un archivo de licencia válido, las presentaciones exportadas no incluyen marca de agua de evaluación.
+
+![Un informe exportado con una licencia: sin marca de agua de evaluación](license-aspose-slides-for-reporting-services_2.png)
 
 **Modo de Evaluación**
 
-Aspose.Slides para Reporting Services inyecta una marca de agua cuando trabaja en el modo de evaluación (sin licencia)
+Sin una licencia, Aspose.Slides for Reporting Services inserta una marca de agua de evaluación en las presentaciones exportadas.
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_2.png)
+![Un informe exportado en modo de evaluación, con la marca de agua de evaluación](license-aspose-slides-for-reporting-services_1.png)
 
-{{% alert color="primary" %}} 
-
-Para probar Aspose.Slides para Reporting Services sin limitaciones, puedes solicitar una **Licencia Temporal de 30 Días**. Consulta la página [Cómo Obtener una Licencia Temporal](https://purchase.aspose.com/temporary-license) para más información.
-
+{{% alert color="info" title="Note" %}}
+Para probar Aspose.Slides for Reporting Services sin limitaciones, puede solicitar una **Licencia Temporal de 30 Días**. Consulte la página [Cómo obtener una licencia temporal](https://purchase.aspose.com/temporary-license) para obtener más información.
 {{% /alert %}}

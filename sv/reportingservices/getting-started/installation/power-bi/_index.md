@@ -1,23 +1,19 @@
 ---
-title: Installera Aspose.Slides for Reporting Services i Power BI
+title: Installera Aspose.Slides för Reporting Services i Power BI
 type: docs
 weight: 20
 url: /sv/reportingservices/power-bi/
-keywords: "Power BI, installation, Aspose.Slides for Reporting Services i Power BI"
-description: "Installera Aspose.Slides for Reporting Services i Power BI"
+keywords:
+- Power BI Report Server
+- installation
+- Aspose.Slides för Reporting Services
+description: "Installera Aspose.Slides för Reporting Services på Power BI Report Server för att exportera paginerade (RDL) rapporter till PowerPoint-format."
 ---
 ## **Power BI**
-Du kan installera Aspose.Slides for Reporting Services på en Power BI-server genom samma installationsprocesser:
 
-Se 
+Du kan installera Aspose.Slides för Reporting Services på Power BI Report Server genom samma installationsprocesser:
 
-* [Installera med MSI-installerare](https://docs.aspose.com/slides/sv/reportingservices/install-with-msi-installer/#installation). Installationsprogrammet upptäcker automatiskt den installerade Power BI på servern, installerar produkten och konfigurerar den sedan för din arbetsmiljö. 
-* [Installera manuellt](https://docs.aspose.com/slides/sv/reportingservices/install-manually/).
+* [Installera med MSI‑installerare](/slides/sv/reportingservices/install-with-msi-installer/). Installationsprogrammet upptäcker automatiskt den installerade Power BI Report Server, installerar produkten och konfigurerar den sedan för din arbetsmiljö.
+* [Installera manuellt](/slides/sv/reportingservices/install-manually/). Använd sammansättningen från *Bin\Universal*-mappen i ZIP‑paketet.
 
-{{% alert title="Note" color="warning" %}} 
-
-**Aspose.Slides for Reporting Services** kräver att **.NET Framework 3.5** är installerat på värddatorn. 
-
-{{% /alert %}}
-
-Aspose.Slides för SSRS stöder paginerade rapporter (cdl).
+Aspose.Slides för Reporting Services exporterar paginerade rapporter (RDL) från Power BI Report Server. För kraven, inklusive .NET Framework 3.5 på värddatorn, se [Systemkrav](/slides/sv/reportingservices/system-requirements/).

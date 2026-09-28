@@ -1,19 +1,24 @@
 ---
-title: Aspose.Slides'ı Değerlendirme
+title: Aspose.Slides Değerlendirme
 type: docs
 weight: 80
 url: /tr/reportingservices/evaluate-aspose-slides/
+keywords:
+- değerlendirme
+- deneme
+- değerlendirme filigranı
+- geçici lisans
+- Aspose.Slides for Reporting Services
+description: "Aspose.Slides for Reporting Services'in değerlendirme sürümünün nasıl davrandığını, dışa aktarılan sunumları nasıl işaretlediğini ve bu işareti olmadan nasıl değerlendirileceğini öğrenin."
 ---
-{{% alert color="primary" %}} 
+## **Değerlendirme Sürümü**
 
-Aspose.Slides'ı değerlendirmeniz için kolayca indirebilirsiniz. Değerlendirme indirmesi, satın alınan indirme ile aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç kod satırı eklediğinizde basitçe lisanslı hâle gelir.
+Aspose.Slides for Reporting Services'i değerlendirme amaçlı olarak [indirme sayfasından](https://releases.aspose.com/slides/tr/reportingservices/) indirebilirsiniz. Değerlendirme indirmesi, satın alınan indirme ile aynı dosyadır. Bir lisans dosyasını rapor sunucusuna kopyaladığınızda lisanslı hâle gelir — kod gerektirmez; bakınız [Lisanslama](/slides/tr/reportingservices/license-aspose-slides-for-reporting-services/).
 
-Lisans belirtilmemiş Aspose.Slides değerlendirme sürümü tam ürün işlevselliği sağlar, ancak oluşturulan sunumun her slaytına bir değerlendirme filigranı ekler.
+Lisanssız değerlendirme sürümü, tam ürün işlevselliği sağlar, ancak dışa aktarılan sunumlara bir değerlendirme filigranı ekler.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Değerlendirme modunda dışa aktarılan bir rapor, değerlendirme filigranı ile](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+## **Filigran Olmadan Değerlendirme**
 
-Aspose.Slides'ı değerlendirme sürümü kısıtlamaları olmadan test etmek istiyorsanız, 30 günlük Geçici Lisans da talep edebilirsiniz. Lütfen [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) adresine başvurun.
-
-{{% /alert %}}
+Aspose.Slides for Reporting Services'i değerlendirme filigranı olmadan test etmek istiyorsanız, 30 günlük geçici bir lisans isteyebilirsiniz. Lütfen [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) bölümüne bakın.

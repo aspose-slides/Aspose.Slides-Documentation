@@ -3,150 +3,88 @@ title: Manuel Kurulum
 type: docs
 weight: 30
 url: /tr/reportingservices/install-manually/
+keywords:
+- manuel kurulum
+- rsreportserver.config
+- rssrvpolicy.config
+- SQL Server Raporlama Servisleri
+- Power BI Rapor Sunucusu
+- Aspose.Slides for Reporting Services
+description: "Aspose.Slides for Reporting Services'i DLL yalnızca ZIP paketinden elle kurun: hangi derlemenin kopyalanacağı ve rsreportserver.config ile rssrvpolicy.config dosyalarına ne ekleneceği."
 ---
-{{% alert color="primary" %}} 
+## **Genel Bakış**
 
-Bu adımları yalnızca Aspose.Slides for Reporting Services'i manuel olarak kurmayı planlıyorsanız izleyin. Bu durumda, derleme dosyalarını içeren ZIP paketini indirmiş olmalısınız. 
+MSI yükleyicisi olmadan Aspose.Slides for Reporting Services'i, *Aspose.Slides for Reporting Services XX.XX (Sadece DLL'ler)* ZIP paketinden, [indirme sayfası](https://releases.aspose.com/slides/tr/reportingservices/) üzerinden adımları izleyerek kurun. Bu adımlar, [MSI yükleyicisi](/slides/tr/reportingservices/install-with-msi-installer/) ile aynı uzantıları kaydeder. Her rapor sunucusu örneği için bu adımları tekrarlayın.
 
-{{% /alert %}} 
+Başlamadan önce, [sistem gereksinimlerini](/slides/tr/reportingservices/system-requirements/) kontrol edin. Rapor sunucusunda yerel yönetici haklarına ihtiyacınız var.
 
-{{% alert title="Not" color="warning" %}} 
+## **Derlemeyi Seçin**
 
-**Aspose.Slides for Reporting Services**, ana bilgisayar makinesinde **.NET Framework 3.5** kurulmasını ister. 
+ZIP paketi birden fazla derleme içerir. Raport sunucusuna **tek bir** *Aspose.Slides.ReportingServices.dll* kopyalayın:
 
-{{% /alert %}}
+| ZIP paketindeki dosya | Ne için kullanılacağı |
+| :- | :- |
+| *Bin\Universal\Aspose.Slides.ReportingServices.dll* | SQL Server 2008 ve sonraki Reporting Services sürümleri ile Power BI Report Server |
+| *Bin\SSRS2005\Aspose.Slides.ReportingServices.dll* | SQL Server 2005 Reporting Services |
+| *Bin\ReportViewer2010\Aspose.Slides.ReportingServices.dll* | Rapor sunucusu için değil: ReportViewer 2010 veya 2012 denetiminden dışa aktaran uygulamalar, bkz. [Aspose.Slides'ı ReportViewer 2010 ve 2012 ile Kullanma](/slides/tr/reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/) |
+| *Bin\RplExport\Aspose.ReportingServices.Debug.Rpl.dll* | İsteğe bağlı: sorun raporları için RPL formatında rapor kaydeder, bkz. [Raporları RPL Formatına Dışa Aktarma](/slides/tr/reportingservices/exporting-reports-to-rpl-format/) |
 
-### **Manuel Kurulum**
-Bu talimatlar, Microsoft SQL Server Reporting Services'in kurulu olduğu klasörde dosyaları nasıl kopyalayacağınızı ve değiştireceğinizi gösterir:
+## **Rapor Sunucusu Klasörünü Bulun**
 
-1. Report Server kurulum dizinini bulun.  
-   Microsoft SQL Server’ın kök dizini genellikle burada bulunur: ***C:\Program Files\Microsoft SQL Server***  
+Aşağıdaki adımlar, *ReportServer* klasörüne ( *rsreportserver.config* ve *rssrvpolicy.config* dosyalarını içerir) atıfta bulunur. Varsayılan bir kurulumda klasör aşağıdaki gibidir:
 
-   {{% alert color="primary" %}} 
-   
-   **Microsoft SQL Server 2005 ve 2008**: Makinede birden fazla Microsoft SQL Server örneği yapılandırılmış olabilir ve bu örnekler MSSQL.1, MSSQL.2 gibi farklı MSSQL.x alt dizinlerinde bulunabilir. Sonraki adıma geçmeden önce doğru ***C:\Program Files\Microsoft SQL Server\MSSQL.x\Reporting Services\ReportServer*** dizinini bulmalısınız.  
-   
-   {{% /alert %}} Aşağıda kullanılan tüm yollar bu dizini <Instance> olarak referans alacaktır. 
+| Rapor sunucusu | Varsayılan *ReportServer* klasörü |
+| :- | :- |
+| SQL Server 2017 ve sonraki Reporting Services | `C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer` |
+| Power BI Report Server | `C:\Program Files\Microsoft Power BI Report Server\PBIRS\ReportServer` |
+| SQL Server 2016 ve daha eski Reporting Services | `C:\Program Files\Microsoft SQL Server\<instance folder>\Reporting Services\ReportServer`, burada örnek klasörü örneğin SQL Server 2016 için `MSRS13.MSSQLSERVER` veya SQL Server 2005 için `MSSQL.x` gibi bir isimdir |
 
-2. Aspose.Slides.ReportingServices.dll dosyasını **C:\Program Files\Microsoft SQL Server\xxx\Reporting Services\ReportServer\bin** klasörüne kopyalayın.  
-   **Aspose.Slides.ReportingServices.zip** indirmesi, **Aspose.Slides.ReportingServices.dll** dosyasını içerir. {{% alert color="primary" %}} 
+Daha fazla konum için Microsoft'un [RsReportServer.config yapılandırma dosyası](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/rsreportserver-config-configuration-file) makalesine bakın.
 
-   Bazı durumlarda, DLL'i **ReportServer\bin** dizinine kopyaladığınızda, ona atanmış özel NTFS dosya izinleriyle birlikte kopyalanabilir. NTFS izinleri, Microsoft SQL Server Reporting Services'in **Aspose.Slides.ReportingServices.dll** dosyasını yüklerken erişimini engelleyebilir. Bu durumda yeni dışa aktarma formatları kullanılamaz. Doğru NTFS izinlerinin bulunduğunu kontrol edin ve doğrulayın:
+## **Uzantıyı Yükleyin**
 
-   1. **Aspose.Slides.ReportingServices.dll** üzerine sağ tıklayın.  
-   2. **Properties** (Özellikler) seçin ve **Security** (Güvenlik) sekmesine gidin.  
-   3. Açıkça atanmış NTFS izinlerini kaldırın ve yalnızca kalıtılan izinlerin kalmasını sağlayın.  
+1. Seçtiğiniz derlemeyi *ReportServer* klasörünün *bin* alt klasörüne kopyalayın.
 
-   {{% /alert %}}
+   Kopyalanan dosyada açıkça atanmış NTFS izinleri olmamalıdır; aksi takdirde rapor sunucusu derlemeyi yüklerken erişimi reddeder ve yeni dışa aktarma formatları görünmez. Dosyaya sağ tıklayın, **Properties** (Özellikler) seçeneğini açın ve **Security** (Güvenlik) sekmesinde açıkça atanmış izinleri kaldırarak yalnızca kalıtılanları bırakın. **General** (Genel) sekmesinde **Unblock** (Engeli Kaldır) seçeneği varsa işaretleyin.
 
-3. Aspose.Slides for Reporting Services'i bir render uzantısı olarak kaydedin:  
-   1. *C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rsreportserver.config* dosyasını açın.  
-   2. <Render> öğesine şu satırları ekleyin:  
+1. *rsreportserver.config* dosyasının bir kopyasını kaydedin ve ardından bir metin düzenleyicide açın. `<Render>` öğesi içinde aşağıdaki girişleri ekleyin:
 
-**<Render>**
+   ```xml
+   <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASXPSS" Type="Aspose.Slides.ReportingServices.XpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASODP" Type="Aspose.Slides.ReportingServices.OdpRenderer,Aspose.Slides.ReportingServices"/>
+   ```
 
-``` xml
+   Her giriş bir dışa aktarma formatı kaydeder; `Name` değeri render uzantıları arasında benzersiz olmalıdır. MSI yükleyicisi aynı altı adı ve türü kaydeder. Listeye istediğiniz formatı eklemek istemiyorsanız ilgili girişi atlayın.
 
-   ...
+1. *rssrvpolicy.config* dosyasının bir kopyasını kaydedin ve ardından bir metin düzenleyicide açın. `Description` değeri "This code group grants MyComputer code Execution permission." olan kod grubunu bulun ve aşağıdaki kod grubunu son alt öğe olarak ekleyin:
 
-  <!--Buradan başlayın.-->
+   ```xml
+   <CodeGroup class="UnionCodeGroup" version="1" PermissionSetName="FullTrust" Name="Aspose.Slides_for_Reporting_Services" Description="This code group grants full trust to the Aspose.Slides.ReportingServices.dll assembly.">
+       <IMembershipCondition class="StrongNameMembershipCondition" version="1" PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf"/>
+   </CodeGroup>
+   ```
 
-  <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   `PublicKeyBlob`, Aspose.Slides.ReportingServices derlemesinin ortak anahtarıdır. Tek satırda tutun.
 
-  <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+1. İki dosyayı da kaydedin. Rapor sunucusu, dosyalar kaydedildiğinde yapılandırma dosyalarını yeniden okur. Bir dosyada hatalı XML bulunursa, rapor sunucusu dosyayı yok sayar ya da başlatılamaz; bu durumda kopyanızı geri yükleyin.
 
-  <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+## **Kurulumu Kontrol Edin**
 
-  <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+Web portalında (SQL Server 2014 ve öncesi için Report Manager) bir sayfalı raporu açın ve **Export** (Dışa Aktar) menüsünü görüntüleyin. Artık aşağıdaki formatlar listelenir:
 
-  <!--Buradan sonlandırın.-->
+- PPT - PowerPoint Sunumu via Aspose.Slides
+- PPS - PowerPoint Slayt Gösterisi via Aspose.Slides
+- PPTX - PowerPoint 2007 Sunumu via Aspose.Slides
+- PPSX - PowerPoint 2007 Slayt Gösterisi via Aspose.Slides
+- ODP - OpenDocument Sunumu via Aspose.Slides
+- XPS - via Aspose.Slides
 
-</Render>
+Bu formatlardan birini seçerek raporu dışa aktarın. Dosya, ilgili formatla ilişkilendirilmiş uygulamada açılır.
 
+![Aspose.Slides for Reporting Services ile PowerPoint'e dışa aktarılan bir rapor](install-manually_2.png)
 
-
-```
-
-4. Aspose.Slides for Reporting Services'in çalıştırma izni olsun:  
-   1. **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config** dosyasını açın.  
-   2. Aşağıdakini, ikinci dış <CodeGroup> öğesinin ( <CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission. "> olması gerekir) son öğesi olarak ekleyin.  
-
-**<CodeGroup>**
-
-``` xml
-
-
-
-...
-
-  <CodeGroup>
-
-    ...
-
-    <!--Buradan başlayın.-->
-
-    <CodeGroup
-
-        class="UnionCodeGroup"
-
-        version="1"
-
-        PermissionSetName="FullTrust"
-
-        Name="Aspose.Slides_for_Reporting_Services"
-
-        Description="This code group grants full trust to the AS4SSRS assembly.">
-
-        <IMembershipCondition
-
-            class="StrongNameMembershipCondition"
-
-            version="1"
-
-            PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e
-
-            99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2
-
-            d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744
-
-            e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf" />
-
-    </CodeGroup>
-
-    <!--Buradan sonlandırın.-->
-
-  </CodeGroup>
-
-</CodeGroup>
-
-
-
-```
-
-5. Aspose.Slides for Reporting Services'in başarıyla kurulduğunu doğrulayın:  
-   1. Report Manager'ı açın ve bir rapor için mevcut dışa aktarma türleri listesini kontrol edin.  
-
-      {{% alert color="primary" %}} Report Manager'ı başlatmak için bir tarayıcı (Microsoft Internet Explorer 6.0 veya daha yenisi) açın ve adres çubuğuna Report Manager URL'sini girin (varsayılan olarak http://< ComputerName >/Reports ).  
-   
-      {{% /alert %}}
-
-   1. Sunucudaki bir raporu seçin.  
-   1. **Select Format** (Biçim Seç) listesini açın.  
-      Aspose.Slides for Reporting Services tarafından sağlanan dışa aktarma formatları listesini görmelisiniz.  
-   1. **PPT – PowerPoint Presentation via Aspose.Slides** seçeneğini seçin.  
-
-   **Aspose.Slides for Reporting Services başarıyla yüklendi ve yeni dışa aktarma formatları kullanılabilir.**  
-
-![todo:image_alt_text](install-manually_1.png)
-
-
-
-
-6. **Export** (Dışa Aktar) bağlantısına tıklayın.  
-   Rapor seçilen formatta oluşturulur, istemciye gönderilir ve ardından uygun bir uygulamada açılır. Bizim örneğimizde rapor Microsoft PowerPoint'te açıldı.  
-
-   **Aspose.Slides for Reporting Services tarafından oluşturulan bir PPT raporu.**  
-
-![todo:image_alt_text](install-manually_2.png)
-
-Aspose.Slides for Reporting Services'i başarıyla kurdunuz ve raporu bir Microsoft PowerPoint sunumu olarak oluşturduğunuz için tebrikler!
+Formatlar görünmüyorsa, kopyalanan derlemenin NTFS izinlerini kontrol edin. Lisans olmadan dışa aktarılan dosyalar değerlendirme filigranı içerir; bkz. [Lisanslama](/slides/tr/reportingservices/license-aspose-slides-for-reporting-services/).

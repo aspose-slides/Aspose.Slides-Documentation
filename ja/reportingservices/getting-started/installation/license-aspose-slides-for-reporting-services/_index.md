@@ -1,42 +1,49 @@
 ---
-title: Aspose.Slides for Reporting Servicesのライセンス
+title: Aspose.Slides for Reporting Services のライセンス
 type: docs
 weight: 70
 url: /ja/reportingservices/license-aspose-slides-for-reporting-services/
+keywords:
+- ライセンス
+- ライセンス認証
+- 評価用透かし
+- 一時ライセンス
+- Aspose.Slides for Reporting Services
+description: "Aspose.Slides for Reporting Services にライセンス ファイルをレポート サーバーにコピーしてライセンスを適用し、エクスポートされたプレゼンテーションに評価用透かしが付かなくなったことを確認します。"
 ---
-
 ## **ライセンスサポート**
-{{% alert color="primary" %}} 
 
-**Aspose.Slides for Reporting Services**の評価版を[リリースページ](https://releases.aspose.com/slides/reportingservices/)からダウンロードできます。評価版は製品のライセンス版と同じ機能を提供します。評価パッケージは購入したパッケージと同じです。評価版は、ライセンスを適用するために数行のコードを追加することでライセンス版に変わります。
+Aspose.Slides for Reporting Services の評価版は、購入版と同じパッケージで、[its download page](https://releases.aspose.com/slides/ja/reportingservices/) から入手でき、同等の機能を提供します。ライセンスがない場合、評価モードで動作し、エクスポートされたプレゼンテーションに評価用の透かしが挿入されます。
 
-製品の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)することができます。さまざまなサブスクリプションタイプを確認することをお勧めします。質問がある場合は、Asposeの営業チームにお問い合わせください。
+評価版は、ライセンス ファイルをレポート サーバーにコピーするとライセンスが適用されます。コードは不要です。
 
-{{% /alert %}} 
+評価に満足したら、[purchase a license](https://purchase.aspose.com/pricing/slides/ja/reporting-services/) してください。さまざまなサブスクリプションタイプをご確認いただくことを推奨します。ご質問がある場合は、Aspose の営業チームまでお問い合わせください。
 
-## **Aspose.Slides for Reporting Servicesのライセンス管理**
+## **Aspose.Slides for Reporting Services のライセンス**
 
-* 評価版はライセンスを購入し、ライセンスを適用するための数行のコードを追加するとライセンス版になります。
-* ライセンスは、製品名、ライセンスを付与された開発者の数、サブスクリプションの有効期限などの詳細を含むプレーンテキストのXMLファイルです。
-* ライセンスファイルはデジタル署名されているため、ファイルを変更しないでください。ファイルの内容に余分な改行を加えるだけでも無効になります。
-* 評価版に関連する制限を回避するには、Aspose.Slides for Reporting Servicesを使用する前にライセンスを設定する必要があります。
+* ライセンスはプレーンテキストの XML ファイルで、製品名、ライセンス対象の開発者数、サブスクリプションの有効期限などの情報が含まれます。
+* ライセンス ファイルはデジタル署名されているため、変更してはいけません。ファイル内容に余計な改行が一つでも加わると無効になります。
 
-ライセンスをコンピュータにダウンロードし、**C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\bin**フォルダーにコピーします。ここに**Aspose.Slides.ReportingServices.dll**がインストールされています。
+ライセンスを適用する手順:
 
-ライセンスが正しくインストールされたことを確認するには、任意のレポートをMicrosoft PowerPointプレゼンテーションとしてエクスポートします。ドキュメントに透かしが含まれていない場合、ライセンスは正常にアクティブ化されています。
+1. ライセンス ファイルを各レポート サーバー インスタンスの *ReportServer\bin* フォルダー（*Aspose.Slides.ReportingServices.dll* がインストールされている場所）にコピーします。例: *C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer\bin*。[Install Manually](/slides/ja/reportingservices/install-manually/#find-the-report-server-folder) にデフォルト フォルダーが記載されています。
+2. ファイル名が拡張機能が探す名前のいずれかであることを確認します: *Aspose.Slides.ReportingServices.lic*、*Aspose.Slides.Reporting.Services.lic*、*Aspose.Slides.Product.Family.lic*、*Aspose.Total.ReportingServices.lic*、*Aspose.Total.Reporting.Services.lic*、*Aspose.Total.Product.Family.lic* または *Aspose.Total.lic*。
+3. 任意のレポートをプレゼンテーションとしてエクスポートします。透かしが表示されなければ、ライセンスが有効です。
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_1.png)
+拡張機能は *%ProgramData%\Aspose\Slides*（通常は *C:\ProgramData\Aspose\Slides*）でもライセンス ファイルを探すため、そこに 1 つ配置すればマシン上のすべてのインスタンスで使用できます。
 
-*ReportServer\bin*フォルダーに有効なAspose.Slides.ReportingServices.licファイルが存在する場合、評価透かしは表示されません。
+**Licensed Mode**
 
-**評価モード**
+有効なライセンス ファイルが検出されると、エクスポートされたプレゼンテーションに評価用透かしは付加されません。
 
-Aspose.Slides for Reporting Servicesは、評価モードで動作するときに透かしを挿入します（ライセンスなし）。
+![ライセンスでエクスポートされたレポート: 評価用透かしなし](license-aspose-slides-for-reporting-services_2.png)
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_2.png)
+**Evaluation Mode**
 
-{{% alert color="primary" %}} 
+ライセンスがない場合、Aspose.Slides for Reporting Services はエクスポートされたプレゼンテーションに評価用透かしを挿入します。
 
-制限なしでAspose.Slides for Reporting Servicesを試すには、**30日間の仮ライセンス**をリクエストできます。詳細については、[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)ページを参照してください。
+![評価モードでエクスポートされたレポート、評価用透かし付き](license-aspose-slides-for-reporting-services_1.png)
 
+{{% alert color="info" title="Note" %}}
+制限なしで Aspose.Slides for Reporting Services をテストしたい場合は、**30 日間の一時ライセンス**を取得できます。詳細は [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) ページをご覧ください。
 {{% /alert %}}

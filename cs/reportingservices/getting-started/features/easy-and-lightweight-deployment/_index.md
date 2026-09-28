@@ -3,25 +3,25 @@ title: Jednoduché a lehké nasazení
 type: docs
 weight: 50
 url: /cs/reportingservices/easy-and-lightweight-deployment/
+description: "Zjistěte, jak se nasazuje Aspose.Slides for Reporting Services: jedna sestava ve složce bin serveru zpráv, registrovaná v konfiguraci serveru zpráv."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides for Reporting Services je [renderovací rozšíření](http://msdn2.microsoft.com/en-us/library/ms154606.aspx) pro Microsoft SQL Server Reporting Services.  
-Aspose.Slides for Reporting Services je poskytován jako jediný MSI instalátor, který lze nainstalovat na počítače, na nichž běží některá z následujících:
+Aspose.Slides for Reporting Services je [rendering extension](https://learn.microsoft.com/en-us/sql/reporting-services/extensions/rendering-extension/rendering-extensions-overview) pro Microsoft SQL Server Reporting Services a Power BI Report Server.  
+Aspose.Slides for Reporting Services je poskytován jako jediný MSI instalátor, který lze nainstalovat na počítače s podporovaným serverem zpráv, 32‑bitovým nebo 64‑bitovým; viz [System Requirements](/slides/cs/reportingservices/system-requirements/).
 
-- Microsoft SQL Server 2005 Reporting Services (32-bit and 64-bit)
-- Microsoft SQL Server 2008 Reporting Services (32-bit and 64-bit)
-
-Nasazení a správa Aspose.Slides for Reporting Services ručně je také snadná, protože se skládá pouze z jedné .NET sestavy *Aspose.Slides* *.ReportingServices.dll*, která je kompletně napsána v C#, je kompatibilní s CLS a obsahuje pouze bezpečný řízený kód.
+Nasazení a správa Aspose.Slides for Reporting Services ručně je také snadná, protože se skládá pouze z jedné .NET sestavy *Aspose.Slides* *.ReportingServices.dll*, kompletně napsané v C#, kompatibilní s CLS a obsahující pouze bezpečný řízený kód.
 
 {{% /alert %}}
 
-MSI instalátor a ZIP ke stažení obsahují Aspose.Slides for ReportingServices:
+ZIP soubor ke stažení obsahuje dva sestavení Aspose.Slides.ReportingServices.dll pro servery zpráv:
 
-- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – kompilováno pro Microsoft SQL Server 2005 a .NET Framework 2.0 (použitelné pro x86 a x64)
-- Bin\SSRS2008\Aspose.Slides.ReportingServices.dll – kompilováno pro Microsoft SQL Server 2008 a .NET Framework 2.0 (použitelné pro x86 a x64)
+- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – sestaveno pro Microsoft SQL Server 2005 a .NET Framework 2.0 (použijte pro x86 a x64)
+- Bin\Universal\Aspose.Slides.ReportingServices.dll – sestaveno pro Microsoft SQL Server 2008 a novější, Power BI Report Server a .NET Framework 2.0 (použijte pro x86 a x64)
 
-Při instalaci je soubor Aspose.Slides.ReportingServices.dll zkopírován do adresáře ReportServer\bin a konfigurační soubor je aktualizován, aby Reporting Services byl informován o novém renderovacím rozšíření. Tyto kroky provádí instalátor Aspose.Slides for Reporting Services, ale můžete je také provést ručně, jak je popsáno dále v této dokumentaci.
+Instalátor MSI nainstaluje stejná dvě sestavení a vybere to správné pro každou instanci serveru zpráv. [Install Manually](/slides/cs/reportingservices/install-manually/) uvádí každý soubor v ZIP souboru ke stažení.
+
+Při instalaci se Aspose.Slides.ReportingServices.dll zkopíruje do adresáře ReportServer\bin a konfigurační soubor se aktualizuje, aby Reporting Services byl informován o nové rozšiřující komponentě pro vykreslování. Tyto kroky provádí instalátor Aspose.Slides for Reporting Services, ale můžete je také provést ručně, jak je dále popsáno v této dokumentaci.
 
 ![todo:image_alt_text](easy-and-lightweight-deployment_1.png)
 

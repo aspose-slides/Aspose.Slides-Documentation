@@ -3,17 +3,22 @@ title: Ewaluacja Aspose.Slides
 type: docs
 weight: 80
 url: /pl/reportingservices/evaluate-aspose-slides/
+keywords:
+- ewaluacja
+- wersja próbna
+- znak wodny ewaluacji
+- tymczasowa licencja
+- Aspose.Slides for Reporting Services
+description: "Dowiedz się, jak zachowuje się wersja ewaluacyjna Aspose.Slides for Reporting Services, jak oznacza wyeksportowane prezentacje i jak ją ocenić bez tego oznaczenia."
 ---
-{{% alert color="primary" %}} 
+## **Wersja ewaluacyjna**
 
-Możesz łatwo pobrać Aspose.Slides do oceny. Pobranie wersji ewaluacyjnej jest takie samo jak pobranie wersji zakupionej. Wersja ewaluacyjna po prostu zostaje licencjonowana, gdy dodasz kilka linii kodu, aby zastosować licencję.
+Możesz pobrać Aspose.Slides for Reporting Services do ewaluacji ze [strony pobierania](https://releases.aspose.com/slides/pl/reportingservices/). Pobranie ewaluacyjne jest takie same jak pobranie zakupione. Staje się licencjonowane po skopiowaniu pliku licencji na serwer raportów — nie wymaga kodu; zobacz [Licencjonowanie](/slides/pl/reportingservices/license-aspose-slides-for-reporting-services/).
 
-Wersja ewaluacyjna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale dodaje znak wodny „evaluation” na każdej slajdzie generowanej prezentacji.
+Wersja ewaluacyjna (bez licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny ewaluacji do eksportowanych prezentacji.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Raport wyeksportowany w trybie ewaluacji, ze znakiem wodnym ewaluacji](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+## **Testuj bez znaku wodnego**
 
-Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz także poprosić o 30-dniową tymczasową licencję. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
-
-{{% /alert %}}
+Jeśli chcesz przetestować Aspose.Slides for Reporting Services bez znaku wodnego ewaluacji, możesz poprosić o tymczasową licencję na 30 dni. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
