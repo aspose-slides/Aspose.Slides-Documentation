@@ -3,17 +3,18 @@ title: Avaliar Aspose.Slides para SharePoint
 type: docs
 weight: 40
 url: /pt/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Avalie o Aspose.Slides para SharePoint com o download padrão: instale-o, converta apresentações no modo de avaliação e mude para o modo licenciado instalando a solução de licença."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Certifique‑se de aproveitar a avaliação gratuita do Aspose.Words para SharePoint: não tem limite de tempo e vem com suporte técnico gratuito. Incentivamos nossos usuários a avaliar nossos produtos antes de comprar, para que saibam que o produto fará o que desejam.
+Aproveite a avaliação gratuita do Aspose.Slides for SharePoint: não tem limite de tempo e inclui suporte técnico gratuito. Recomendamos que você avalie o produto antes de comprar, para garantir que ele atenda às suas necessidades.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-É o mesmo download tanto para a avaliação quanto para a versão paga do Aspose.Slides para SharePoint. Basta [download Aspose.Slides para SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) da página de download, [instalá‑lo]() e ele funcionará no modo de avaliação por padrão. 
+A avaliação e a versão paga do Aspose.Slides for SharePoint são o mesmo download. [Download Aspose.Slides for SharePoint](https://releases.aspose.com/slides/pt/sharepoint/), [instale-o](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint/), e ele funciona no modo de avaliação por padrão.
 
-O modo de avaliação injeta uma marca d'água de avaliação em cada slide no documento exportado. Quando você adquirir uma licença, basta instalar a solução de licença sobre a cópia de avaliação instalada do Aspose.Slides para SharePoint e ele passará a funcionar no modo licenciado. 
+No modo de avaliação, o documento convertido contém uma marca d'água de avaliação. Quando você adquirir uma licença, instale a solução de licença sobre a cópia de avaliação instalada, conforme descrito em [Installing Aspose.Slides for SharePoint License](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint-license/), e o Aspose.Slides for SharePoint funciona no modo licenciado.
 
-**Marca d'água de avaliação em um slide** 
+**Marca d'água de avaliação em um slide**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Um slide convertido no modo de avaliação, com a marca d'água de avaliação](evaluate-aspose-slides-for-sharepoint_1.png)

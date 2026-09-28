@@ -3,34 +3,29 @@ title: उत्पाद अवलोकन
 type: docs
 weight: 10
 url: /hi/sharepoint/product-overview/
+description: "Aspose.Slides for SharePoint का अवलोकन: वह प्रस्तुति स्वरूप जिन्हें यह परिवर्तित करता है और वह SharePoint संस्करण जिनपर यह स्थापित होता है।"
 ---
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **Aspose.Slides for SharePoint में आपका स्वागत है!**
-
-Aspose.Slides for SharePoint एक लचीला समाधान है जो Microsoft SharePoint साइट्स के भीतर PowerPoint® दस्तावेज़ों को परिवर्तित करना संभव बनाता है।
-
 ## **उत्पाद अवलोकन**
 
-Aspose.Slides for SharePoint कई PowerPoint दस्तावेज़ प्रारूपों को समर्थन देता है:
+Aspose.Slides for SharePoint सर्वर पर SharePoint दस्तावेज़ लाइब्रेरीज़ में संग्रहित PowerPoint प्रस्तुतीकरण को अन्य स्वरूपों में परिवर्तित करता है।
+
+यह निम्नलिखित PowerPoint स्वरूपों को परिवर्तित करता है:
 
 - PPT – Microsoft PowerPoint प्रस्तुति 97 - 2003
-- PPS – Microsoft PowerPoint स्लाइडशो 97 - 2003
-- POT – Microsoft PowerPoint टेम्पलेट 97 - 2003
 - PPTX – Office Open XML प्रस्तुति
-- PPSX – Office Open XML स्लाइडशो
-- POTX – Office Open XML टेम्पलेट
 
-Aspose.Slides for SharePoint को निम्नलिखित उत्पादों के साथ काम करने के लिए डिज़ाइन किया गया है:
+यह उन्हें PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX और POTM में परिवर्तित करता है। विवरण के लिए देखें [समर्थित फ़ाइल स्वरूप](/slides/hi/sharepoint/supported-file-formats/)।
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+डाउनलोड में निम्नलिखित प्रत्येक उत्पाद के लिए एक अलग सेटअप प्रोग्राम और सॉल्यूशन पैकेज शामिल है:
 
-ऊपर उल्लिखित उत्पादों के अलावा कोई अतिरिक्त सिस्टम आवश्यकताएँ नहीं हैं।
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-**SharePoint के दस्तावेज़ लाइब्रेरी से दस्तावेज़ों को बदलने के लिए Aspose.Slides for SharePoint का उपयोग करें** 
+**Aspose.Slides for SharePoint का उपयोग करके SharePoint की दस्तावेज़ लाइब्रेरी से दस्तावेज़ों को परिवर्तित करें**
 
-![SharePoint की दस्तावेज़ लाइब्रेरी](product-overview_2.png)
+![Convert with Aspose.Slides मेनू आइटम के साथ एक SharePoint दस्तावेज़ लाइब्रेरी](product-overview_2.png)

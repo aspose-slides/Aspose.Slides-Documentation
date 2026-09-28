@@ -3,34 +3,49 @@ title: การสนับสนุนหลายรูปแบบ
 type: docs
 weight: 10
 url: /th/sharepoint/multiple-format-support/
+description: "รูปแบบไฟล์เข้าที่ Aspose.Slides for SharePoint รองรับและรูปแบบไฟล์ออกที่เสนอในหน้าการแปลง"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="หมายเหตุ" %}}
 
-ด้วย Aspose.Slides for SharePoint คุณสามารถแปลงเอกสารระหว่างรูปแบบเอกสาร Office ยอดนิยมหลายรูปแบบจากไลบรารีเอกสารของ SharePoint การแปลงทำด้วยความแม่นยำและคุณภาพสูง 
-
-{{% /alert %}} 
-## **รูปแบบไฟล์ต้นฉบับที่รองรับ**
-Aspose.Slides for SharePoint รองรับรูปแบบไฟล์ต้นฉบับต่อไปนี้: 
-
-- PPT – Microsoft PowerPoint Presentation 97 - 2003
-- PPS – Microsoft PowerPoint SlideShow 97 - 2003
-- POT – Microsoft PowerPoint Template 97 - 2003
-- PPTX – Office Open XML Presentation
-- PPSX – Office Open XML SlideShow
-- POTX – Office Open XML Template
-
-{{% alert color="primary" %}} 
-
-เพื่อสร้างเอกสาร Aspose.Slides for SharePoint พึ่งพาเวอร์ชันที่รวมมาพร้อมของ [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx) ซึ่งเป็นคอมโพเนนต์การประมวลผลเอกสาร PowerPoint เดียวของ Aspose 
+ด้วย Aspose.Slides for SharePoint คุณสามารถแปลงงานนำเสนอ PowerPoint เป็นรูปแบบเอกสารยอดนิยมหลายรูปแบบได้โดยตรงจากไลบรารีเอกสารของ SharePoint
 
 {{% /alert %}}
-## **รูปแบบไฟล์ผลลัพธ์ที่รองรับ**
-รูปแบบไฟล์ผลลัพธ์ต่อไปนี้ได้รับการสนับสนุนโดย Aspose.Slides for SharePoint: 
 
-- PDF – Portable Document Format
-- TIFF – Pictures Package
+## **รูปแบบไฟล์เข้าแบบที่รองรับ**
+
+Aspose.Slides for SharePoint แปลงรูปแบบไฟล์เข้าเหล่านี้:
+
+- PPT – Microsoft PowerPoint Presentation 97 - 2003
+- PPTX – Office Open XML Presentation
+
+{{% alert color="info" title="หมายเหตุ" %}}
+
+เพื่อแปลงเอกสาร Aspose.Slides for SharePoint พึ่งพาเวอร์ชันในตัวของ [Aspose.Slides for .NET](https://products.aspose.com/slides/th/net/)
+
+{{% /alert %}}
+
+## **รูปแบบไฟล์ออกแบบที่รองรับ**
+
+รายการ **Convert to** บนหน้าการแปลงแสดงรูปแบบไฟล์ออกต่อไปนี้ตามลำดับ:
+
+- PDF – Adobe Portable Document
+- TIFF – Pictures package
 - XPS – XML Paper Specification
+- PPS – Slide show presentation
+- PPSX – Microsoft PowerPoint Open XML Slide Show
+- ODP – OpenDocument presentation
+- PPTM – Microsoft PowerPoint Open XML Macro-Enabled Presentation
+- PPSM – Microsoft PowerPoint Open XML Macro-Enabled Slide Show
+- POTX – Microsoft PowerPoint Template
+- POTM – PowerPoint Open XML Macro-Enabled Presentation Template
+- PDFNotes – Presentation notes view in PDF format
+- HTML – Presentation in HTML format
+- TIFFNotes – Presentation notes view as multi-page TIFF image
+- SWF – Shockwave Flash Movie
+- SWFNotes – Presentation notes view as multi-page SWF
 
-**การเลือกรูปแบบผลลัพธ์จากหน้าต่างการตั้งค่า Conversion Settings** 
+**การเลือกรูปแบบไฟล์ออกบนหน้าการตั้งค่าการแปลง**
 
-![todo:image_alt_text](multiple-format-support_1.png)
+![หน้าการตั้งค่าการแปลงพร้อมรายการ Convert to ของรูปแบบไฟล์ออก](multiple-format-support_1.png)
+
+ภาพนี้ถ่ายจากเวอร์ชันก่อนหน้า ซึ่งมีเฉพาะรูปแบบ PDF, TIFF และ XPS เท่านั้น

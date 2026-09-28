@@ -3,17 +3,19 @@ title: Introducción
 type: docs
 weight: 10
 url: /es/sharepoint/introduction/
+description: "Una introducción a la guía del usuario de Aspose.Slides para SharePoint: lo que el producto hace en un sitio de SharePoint y qué artículos cubren las bibliotecas de documentos, los beneficios y la conversión."
 ---
+{{% alert color="info" title="Nota" %}}
 
-{{% alert color="primary" %}} 
+Los sitios de SharePoint están diseñados para la colaboración, la comunicación y el almacenamiento de contenido con el fin de satisfacer necesidades empresariales específicas. Permiten que un grupo de personas logre un objetivo común facilitando el intercambio de información y la comunicación. La información suele estar disponible como un sitio web y se accede a ella mediante un navegador.
 
-Los sitios de SharePoint están destinados a la colaboración, comunicación y almacenamiento de contenido para satisfacer necesidades empresariales particulares. Permite a un grupo de individuos lograr un objetivo común al facilitar el intercambio de información y la comunicación. La información está disponible con mayor frecuencia como un sitio web y se accede a través de un navegador web. 
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **¿Qué es SharePoint y Aspose.Slides?**
-Aspose.Slides para SharePoint es una solución flexible para convertir documentos de Microsoft PowerPoint a otros formatos como PPT, POT, PPS, PPTX, PPSX y POTX. Aspose.Slides para SharePoint te permite leer y convertir archivos de PowerPoint en una aplicación de SharePoint sin utilizar Microsoft PowerPoint. 
 
-Este artículo cubre lo siguiente: 
+Aspose.Slides for SharePoint es una solución para convertir presentaciones de Microsoft PowerPoint (PPT y PPTX) a otros formatos: PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX y POTM. Permite convertir archivos de PowerPoint en un sitio de SharePoint sin usar Microsoft PowerPoint. La lista completa de formatos está en [Formatos de archivo compatibles](/slides/es/sharepoint/supported-file-formats/).
+
+Este artículo cubre lo siguiente:
 
 - [Una nota sobre la biblioteca de documentos de SharePoint](/slides/es/sharepoint/sharepoint-document-library/).
 - [Los beneficios de usar Aspose.Slides para SharePoint](/slides/es/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).

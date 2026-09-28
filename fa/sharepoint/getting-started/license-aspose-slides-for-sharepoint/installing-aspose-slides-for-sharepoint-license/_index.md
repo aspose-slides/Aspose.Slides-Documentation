@@ -3,56 +3,63 @@ title: نصب لایسنس Aspose.Slides برای SharePoint
 type: docs
 weight: 10
 url: /fa/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "لایسنس Aspose.Slides برای SharePoint را بر روی یک فارم SharePoint نصب کنید: راه‌حل لایسنس را به فروشگاه راه‌حل‌ها اضافه کنید، آن را استقرار دهید، و تأیید کنید که فایل‌های تبدیل‌شده دیگر واترمارک ارزیابی را نشان نمی‌دهند."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-پس از اینکه از ارزیابی خود راضی شدید، می‌توانید [خرید یک لایسنس](https://purchase.aspose.com/buy) کنید. قبل از خرید، مطمئن شوید که شرایط اشتراک لایسنس را درک کرده و با آن موافق هستید. لایسنس پس از پرداخت سفارش برای شما ایمیل می‌شود.
+پس از اینکه از ارزیابی خود راضی شدید، می‌توانید [خرید یک لایسنس](https://purchase.aspose.com/pricing/slides/fa/sharepoint/). قبل از خرید، اطمینان حاصل کنید که شرایط اشتراک لایسنس را درک کرده و با آن موافقید. لایسنس پس از پرداخت سفارش برای شما ایمیل می‌شود.
 
-لایسنس یک بایگانی ZIP است که شامل یک بسته‌ راه‌حل SharePoint معمولی می‌باشد. این بایگانی شامل:
+لایسنس یک آرشیو ZIP است که شامل یک بسته راه‌حل معمولی SharePoint می‌باشد. این آرشیو شامل:
 
-- Aspose.Slides.SharePoint.License.wsp – فایل بسته راه‌حل SharePoint. لایسنس به‌صورت یک راه‌حل SharePoint بسته‌بندی شده است تا استقرار و بازگشت آن در یک فارم سرور آسان باشد.
+- Aspose.Slides.SharePoint.License.wsp – فایل بسته راه‌حل SharePoint. لایسنس به‌عنوان یک راه‌حل SharePoint بسته‌بندی شده است تا استقرار و بازپس‌گیری آن در سراسر یک فارم سرور به راحتی انجام شود.
 - readme.txt – دستورالعمل‌های نصب لایسنس.
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **استقرار لایسنس**
+
 نصب لایسنس از طریق کنسول سرور با استفاده از **stsadm.exe** انجام می‌شود.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
 مسیرها برای وضوح در بخش زیر حذف شده‌اند.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 مراحل زیر را برای استقرار لایسنس Aspose.Slides برای SharePoint انجام دهید:
 
-1. دستور stsadm را اجرا کنید تا راه‌حل را به فروشگاه راه‌حل‌های SharePoint اضافه کنید: 
+1. اجرای stsadm برای افزودن راه‌حل به فروشگاه راه‌حل‌های SharePoint:
 
-``` xml
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+2. استقرار راه‌حل بر روی تمام سرورها در فارم:
 
-```
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-2. راه‌حل را به تمام سرورهای فارم استقرار دهید: 
+3. اجرای کارهای زمان‌دار اداری برای تکمیل فوری استقرار:
 
-``` xml
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+عملیات `addsolution` مسیر فایل راه‌حل را در پارامتر `-filename` می‌گیرد؛ عملیات `deploysolution` نام راه‌حلی که قبلاً در فروشگاه راه‌حل موجود است را در پارامتر `-name` می‌گیرد.
 
-```
+{{% alert color="info" title="Note" %}}
 
-3. کارهای زمان‌دار مدیریتی را اجرا کنید تا استقرار بلافاصله تکمیل شود: 
+اگر سرویس مدیریت SharePoint در حال اجرا نباشد، هنگام اجرای مرحله استقرار یک هشدار دریافت می‌کنید. **stsadm.exe** به این سرویس و سرویس تایمر SharePoint برای تکثیر داده‌های راه‌حل در سراسر فارم وابسته است. اگر این سرویس‌ها در فارم سرور شما فعال نباشند، ممکن است نیاز باشد لایسنس را بر روی هر سرور مستقر کنید.
 
-``` xml
+{{% /alert %}}
 
- Stsadm.exe -o execadmsvcjobs
+{{% alert color="info" title="Note" %}}
 
-```
+در SharePoint 2010 و نسخه‌های بعدی، cmdletهای SharePoint Management Shell `Add-SPSolution`، `Install-SPSolution` و `Start-SPAdminJob` به عملیات‌های `addsolution`، `deploysolution` و `execadmsvcjobs` متناظر هستند. ببینید [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
 
-{{% alert color="primary" %}} 
+{{% /alert %}}
 
-اگر سرویس مدیریت Windows SharePoint Services در حال اجرا نباشد، هنگام اجرای مرحله استقرار یک هشدار دریافت می‌کنید. **stsadm.exe** به این سرویس و سرویس Windows SharePoint Timer برای تکثیر داده‌های راه‌حل در سراسر فارم وابسته است. اگر این سرویس‌ها در فارم سرور شما اجرا نمی‌شوند، ممکن است لازم باشد لایسنس را بر روی هر سرور جداگانه استقرار دهید. 
+## **آزمون لایسنس**
 
-{{% /alert %}} 
-## **آزمایش لایسنس**
-برای تست اینکه لایسنس به‌درستی نصب شده است، هر سندی را به قالب جدیدی تبدیل کنید. اگر در سند علامت آب‌نمای ارزیابی وجود نداشته باشد، لایسنس با موفقیت فعال شده است.
+برای آزمون اینکه لایسنس به‌درستی نصب شده است، هر ارائه‌ای را به قالب جدیدی تبدیل کنید. اگر در فایل تبدیل‌شده واترمارک ارزیابی وجود نداشته باشد، لایسنس فعال است.

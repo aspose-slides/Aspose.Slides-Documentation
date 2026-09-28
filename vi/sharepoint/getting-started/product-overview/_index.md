@@ -1,36 +1,31 @@
 ---
-title: Tổng quan sản phẩm
+title: "Tổng quan sản phẩm"
 type: docs
 weight: 10
 url: /vi/sharepoint/product-overview/
+description: "Tổng quan về Aspose.Slides cho SharePoint: các định dạng bản trình bày mà nó chuyển đổi và các phiên bản SharePoint mà nó được cài đặt trên."
 ---
-![Aspose.Slides for SharePoint](product-overview_1.png)
-
-## **Chào mừng đến với Aspose.Slides for SharePoint!**
-
-Aspose.Slides for SharePoint là một giải pháp linh hoạt cho phép chuyển đổi tài liệu PowerPoint® trong các trang Microsoft SharePoint.
+![Aspose.Slides cho SharePoint](product-overview_1.png)
 
 ## **Tổng quan sản phẩm**
 
-Aspose.Slides for SharePoint hỗ trợ một số định dạng tài liệu PowerPoint:
+Aspose.Slides cho SharePoint chuyển đổi các bản trình bày PowerPoint lưu trong thư viện tài liệu SharePoint sang các định dạng khác, trên máy chủ.
 
-- PPT – bản trình chiếu Microsoft PowerPoint 97 - 2003
-- PPS – trình chiếu Microsoft PowerPoint 97 - 2003
-- POT – mẫu Microsoft PowerPoint 97 - 2003
-- PPTX – bản trình chiếu Office Open XML
-- PPSX – trình chiếu Office Open XML
-- POTX – mẫu Office Open XML
+Nó chuyển đổi các định dạng PowerPoint sau:
 
-Aspose.Slides for SharePoint được thiết kế để làm việc với các sản phẩm sau:
+- PPT – Bản trình bày Microsoft PowerPoint 97 - 2003
+- PPTX – Bản trình bày Office Open XML
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+Nó chuyển đổi chúng sang PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX và POTM. Xem [Supported File Formats](/slides/vi/sharepoint/supported-file-formats/) để biết chi tiết.
 
-Không có yêu cầu hệ thống nào khác ngoài những yêu cầu đã tồn tại cho các sản phẩm trên.
+Bản tải về chứa một chương trình cài đặt và gói giải pháp riêng biệt cho mỗi sản phẩm sau:
 
-**Sử dụng Aspose.Slides for SharePoint để chuyển đổi tài liệu từ thư viện tài liệu của SharePoint**
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-![Thư viện tài liệu của SharePoint](product-overview_2.png)
+**Sử dụng Aspose.Slides cho SharePoint để chuyển đổi tài liệu từ thư viện tài liệu của SharePoint**
+
+![Thư viện tài liệu SharePoint có mục menu Chuyển đổi với Aspose.Slides](product-overview_2.png)

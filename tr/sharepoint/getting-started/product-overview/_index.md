@@ -3,34 +3,29 @@ title: Ürün Genel Bakışı
 type: docs
 weight: 10
 url: /tr/sharepoint/product-overview/
+description: "Aspose.Slides for SharePoint'in bir genel bakışı: dönüştürdüğü sunum formatları ve kurulum yaptığı SharePoint sürümleri."
 ---
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **Aspose.Slides for SharePoint'e Hoş Geldiniz!**
-
-Aspose.Slides for SharePoint, Microsoft SharePoint Sitelerinde PowerPoint® belgelerini dönüştürmeyi mümkün kılan esnek bir çözümdür.
-
 ## **Ürün Genel Bakışı**
 
-Aspose.Slides for SharePoint, bir dizi PowerPoint belge formatını destekler:
+Aspose.Slides for SharePoint, SharePoint belge kitaplıklarında depolanan PowerPoint sunumlarını sunucuda başka formatlara dönüştürür.
 
-- PPT – Microsoft PowerPoint sunumu 97 - 2003
-- PPS – Microsoft PowerPoint slayt gösterisi 97 - 2003
-- POT – Microsoft PowerPoint Şablonu 97 - 2003
+Aşağıdaki PowerPoint formatlarını dönüştürür:
+
+- PPT – Microsoft PowerPoint sunumu 97‑2003
 - PPTX – Office Open XML sunumu
-- PPSX – Office Open XML slayt gösterisi
-- POTX – Office Open XML şablonu
 
-Aspose.Slides for SharePoint, aşağıdaki ürünlerle çalışmak üzere tasarlanmıştır:
+Bu formatları PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX ve POTM'ye dönüştürür. Ayrıntılar için [Desteklenen Dosya Biçimleri](/slides/tr/sharepoint/supported-file-formats/) sayfasına bakın.
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+İndirilen paket, aşağıdaki ürünlerin her biri için ayrı bir kurulum programı ve çözüm paketi içerir:
 
-Yukarıdaki ürünler için mevcut olanlar dışında başka bir sistem gereksinimi yoktur.
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-**Aspose.Slides for SharePoint'i, SharePoint'in belge kitaplığındaki belgeleri dönüştürmek için kullanın** 
+**Aspose.Slides for SharePoint'i SharePoint'in belge kitaplığından belgeleri dönüştürmek için kullanın**
 
-![SharePoint'in belge kitaplığı](product-overview_2.png)
+![Aspose.Slides ile Dönüştür menü öğesine sahip bir SharePoint belge kitaplığı](product-overview_2.png)

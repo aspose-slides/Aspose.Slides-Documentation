@@ -1,19 +1,24 @@
 ---
-title: Aspose.Slides'ı Değerlendirin
+title: Aspose.Slides Değerlendirmesi
 type: docs
 weight: 70
 url: /tr/sharepoint/evaluate-aspose-slides/
+description: "Aspose.Slides for SharePoint'in değerlendirme sürümünün ne yaptığını, çıktısının nasıl işaretlendiğini ve lisanslı sürüme nasıl dönüştürüleceğini."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Not" %}}
 
-Aspose.Slides'ı değerlendirme amaçlı kolayca indirebilirsiniz. Değerlendirme indirmesi, satın alınan indirme ile aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde basitçe lisanslı hâle gelir.
+Aspose.Slides for SharePoint'in değerlendirme indirmesi, satın alınan indirme ile aynıdır. Lisans çözüm paketi çiftliğe yüklendiğinde lisanslı sürüm haline gelir; bakınız [Installing Aspose.Slides for SharePoint License](/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint-license/). Kod kullanılmaz.
 
-Aspose.Slides'ın değerlendirme sürümü (lisans belirtilmediğinde) tam ürün işlevselliği sağlar, ancak oluşturulan PDF, TIFF ve XPS dosyalarının her slaytına bir değerlendirme filigranı ekler.
+Lisans olmadan, Aspose.Slides for SharePoint tüm desteklenen formatlara dönüştürür, ancak dönüştürülen dosyalar bir değerlendirme filigranı içerir ve dönüşüm sayfası bir değerlendirme bildirimi gösterir.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**Dönüştürülmüş PDF dosyasındaki değerlendirme filigranı**
 
-{{% /alert %}} {{% alert color="primary" %}} 
+![Değerlendirme modunda dönüştürülmüş bir PDF dosyası, slaytın üzerinde değerlendirme filigranı ile](evaluate-aspose-slides_1.png)
 
-Aspose.Slides'ı değerlendirme sürümü sınırlamaları olmadan test etmek istiyorsanız, 30 günlük Geçici Lisans da talep edebilirsiniz. Lütfen [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license)
+{{% /alert %}}
+
+{{% alert color="info" title="Not" %}}
+
+Değerlendirme sınırlamaları olmadan Aspose.Slides'i denemek istiyorsanız, 30 günlük geçici bir lisans da talep edebilirsiniz. Bakınız [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}

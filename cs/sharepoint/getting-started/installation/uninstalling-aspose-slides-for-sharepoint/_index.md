@@ -1,15 +1,16 @@
 ---
-title: Odinstalování Aspose.Slides pro SharePoint
+title: Odinstalace Aspose.Slides for SharePoint
 type: docs
 weight: 30
 url: /cs/sharepoint/uninstalling-aspose-slides-for-sharepoint/
+description: "Odstraňte Aspose.Slides for SharePoint ze SharePoint farmy pomocí stejného instalačního programu, který jej nainstaloval."
 ---
-Pro odinstalování Aspose.Slides for SharePoint: 
+Pro odinstalaci Aspose.Slides for SharePoint:
 
-1. Spusťte instalační program.
-   Pokud je Aspose.Slides for SharePoint již nainstalováno, instalační program navrhuje jeho odstranění nebo opravu. 
-1. Vyberte **Remove** pro odinstalování Aspose.Slides for SharePoint.
+1. Spusťte instalační program, který jste použili k instalaci, například *Setup2019.exe* na SharePoint Server 2019.  
+   Když najde nainstalovanou stejnou verzi, nabídne opravu nebo odebrání. Když najde jinou verzi, nabídne aktualizaci nebo odebrání.
+2. Vyberte **Remove** a klikněte na **Next** pro odinstalaci Aspose.Slides for SharePoint.
 
-**Odinstalování Aspose.Slides for SharePoint** 
+**Odinstalace Aspose.Slides for SharePoint**
 
-![todo:image_alt_text](uninstalling-aspose-slides-for-sharepoint_1.png)
+![Instalační program nabízí opravu nebo odebrání Aspose.Slides for SharePoint](uninstalling-aspose-slides-for-sharepoint_1.png)

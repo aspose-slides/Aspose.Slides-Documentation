@@ -3,56 +3,63 @@ title: Installera Aspose.Slides för SharePoint-licens
 type: docs
 weight: 10
 url: /sv/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "Installera Aspose.Slides för SharePoint-licensen på en SharePoint-farm: lägg till licenslösningen i lösningslagret, distribuera den och kontrollera att konverterade filer inte längre innehåller utvärderingsvattenstämpeln."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Obs" %}}
 
-När du är nöjd med din utvärdering kan du [köpa en licens](https://purchase.aspose.com/buy). Innan du köper, se till att du förstår och godkänner licensprenumerationsvillkoren. Licensen skickas till dig via e‑post när beställningen har betalats.
+När du är nöjd med din utvärdering kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/sv/sharepoint/). Innan du köper, se till att du förstår och accepterar licensabonnemangsvillkoren. Licensen skickas till dig via e‑post när beställningen har betalats.
 
-Licensen är ett ZIP‑arkiv som innehåller ett vanligt SharePoint‑lösningspaket. Arkivet innehåller:
+Licensen är ett ZIP‑arkiv som innehåller ett standard SharePoint‑lösningspaket. Arkivet innehåller:
 
-- Aspose.Slides.SharePoint.License.wsp – SharePoint‑lösningspaketfilen. Licensen är paketerad som en SharePoint‑lösning för att underlätta distribution och återtagning över en serverfarm.
-- readme.txt – Instruktioner för licensinstallation.
+- Aspose.Slides.SharePoint.License.wsp – SharePoint‑lösningspaketfilen. Licensen är paketerad som en SharePoint‑lösning för att göra distribution och återtagning över en serverfarm enkel.
+- readme.txt – Installationsinstruktioner för licensen.
 
-{{% /alert %}} 
-## **Deploying the License**
-License installation is performed from the server console via **stsadm.exe**.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+## **Distribuera licensen**
 
-Sökvägarna har utelämnats i följande avsnitt för tydlighetens skull.
+Licensinstallationen utförs från serverkonsolen via **stsadm.exe**.
 
-{{% /alert %}} 
+{{% alert color="info" title="Obs" %}}
 
-Utför följande steg för att distribuera Aspose.Slides för SharePoint‑licensen:
+Sökvägarna har utelämnats i avsnittet nedan för tydlighetens skull.
 
-1. Kör stsadm för att lägga till lösningen i SharePoint‑lösningslagret: 
+{{% /alert %}}
 
-``` xml
+Följ dessa steg för att distribuera Aspose.Slides för SharePoint‑licensen:
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+1. Kör stsadm för att lägga till lösningen i SharePoint‑lösningslagret:
 
-```
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
-2. Distribuera lösningen till alla servrar i farmen: 
+2. Distribuera lösningen till alla servrar i farmen:
 
-``` xml
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+3. Kör administrativa timer‑jobb för att slutföra distributionen omedelbart:
 
-```
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
-3. Kör administrativa timer‑jobb för att slutföra distributionen omedelbart: 
+Operationen `addsolution` tar sökvägen till lösningsfilen i `-filename`; operationen `deploysolution` tar namnet på den lösning som redan finns i lösningslagret i `-name`.
 
-``` xml
+{{% alert color="info" title="Obs" %}}
 
- Stsadm.exe -o execadmsvcjobs
+Du får en varning när du kör distributionssteget om SharePoint‑administrationsservicen inte är igång. **stsadm.exe** förlitar sig på den här tjänsten och SharePoint Timer‑tjänsten för att replikera lösningsdata över farmen. Om dessa tjänster inte körs i din serverfarm kan du behöva distribuera licensen på varje server.
 
-```
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Obs" %}}
 
-Du får en varning när du kör distributionssteget om Windows SharePoint Services Administration‑tjänsten inte är igång. **stsadm.exe** är beroende av denna tjänst och Windows SharePoint Timer Service för att replikera lösningsdata över farmen. Om dessa tjänster inte körs i din serverfarm kan du behöva distribuera licensen på varje server. 
+I SharePoint 2010 och senare motsvarar SharePoint Management Shell‑cmdlets `Add-SPSolution`, `Install-SPSolution` och `Start-SPAdminJob` operationerna `addsolution`, `deploysolution` och `execadmsvcjobs`. Se [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
 
-{{% /alert %}} 
-## **Test the License**
-För att testa att licensen har installerats korrekt, konvertera ett dokument till ett nytt format. Om det inte finns någon utvärderingsvattenstämpel i dokumentet har licensen aktiverats framgångsrikt.
+{{% /alert %}}
+
+## **Testa licensen**
+
+För att testa att licensen har installerats korrekt, konvertera någon presentation till ett nytt format. Om det inte finns någon utvärderingsvattenstämpel i den konverterade filen är licensen aktiv.

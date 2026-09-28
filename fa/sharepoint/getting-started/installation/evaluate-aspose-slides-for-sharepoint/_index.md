@@ -1,19 +1,20 @@
 ---
-title: ارزیابی Aspose.Slides برای SharePoint
+title: ارزیابی Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /fa/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Aspose.Slides for SharePoint را با بارگیری معمولی ارزیابی کنید: آن را نصب کنید، ارائه‌ها را در حالت ارزیابی تبدیل کنید، و با نصب راه‌حل لایسنس به حالت دارای لایسنس تغییر دهید."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="یادداشت" %}}
 
-از مزایای ارزیابی رایگان Aspose.Words برای SharePoint استفاده کنید: این ارزیابی هیچ محدودیت زمانی ندارد و با پشتیبانی فنی رایگان ارائه می‌شود. ما کاربران خود را تشویق می‌کنیم قبل از خرید محصولات ما را ارزیابی کنند تا مطمئن شوید محصول همان کاری را که می‌خواهید انجام می‌دهد.
+از ارزیابی رایگان Aspose.Slides for SharePoint بهره ببرید: این ارزیابی هیچ محدودیت زمانی ندارد و همراه با پشتیبانی فنی رایگان ارائه می‌شود. ما شما را تشویق می‌کنیم که قبل از خرید، محصول را ارزیابی کنید تا مطمئن شوید کار مورد نیاز شما را انجام می‌دهد.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-هم برای نسخه ارزیابی و هم برای نسخه پرداختی Aspose.Slides برای SharePoint، همان دانلود است. به سادگی [دریافت Aspose.Slides برای SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) را از صفحه دانلود دریافت کنید، [نصب کنید]() و به‌طور پیش‌فرض در حالت ارزیابی کار خواهد کرد. 
+نسخه ارزیابی و نسخه پرداختی Aspose.Slides for SharePoint همان بارگیری هستند. [دانلود Aspose.Slides for SharePoint](https://releases.aspose.com/slides/fa/sharepoint/), [نصب آن](/slides/fa/sharepoint/installing-aspose-slides-for-sharepoint/), و به‌صورت پیش‌فرض در حالت ارزیابی کار می‌کند.
 
-حالت ارزیابی یک واترمارک ارزیابی را بر روی هر اسلاید در سند خروجی وارد می‌کند. زمانی که لایسنس خریداری کردید، به سادگی راه حل لایسنس را روی نسخه ارزیابی نصب شده Aspose.Slides برای SharePoint نصب کنید و سپس در حالت دارای لایسنس کار خواهد کرد. 
+در حالت ارزیابی، سند تبدیل‌شده حاوی یک watermark ارزیابی است. هنگامی که لایسنس خریداری کردید، راه‌حل لایسنس را بر روی نسخه ارزیابی نصب شده اعمال کنید، همان‌طور که در [نصب لایسنس Aspose.Slides for SharePoint](/slides/fa/sharepoint/installing-aspose-slides-for-sharepoint-license/) توصیف شده است، و Aspose.Slides for SharePoint در حالت لایسنس‌دار کار می‌کند.
 
-**واترمارک ارزیابی بر روی یک اسلاید** 
+**علامت آب‌رنگ ارزیابی روی اسلاید**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![یک اسلاید تبدیل‌شده در حالت ارزیابی، همراه با علامت آب‌رنگ ارزیابی](evaluate-aspose-slides-for-sharepoint_1.png)

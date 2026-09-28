@@ -1,36 +1,51 @@
 ---
-title: Υποστήριξη Πολλαπλών Μορφών
+title: Υποστήριξη πολλαπλών μορφών
 type: docs
 weight: 10
 url: /el/sharepoint/multiple-format-support/
+description: "Οι μορφές εισόδου που δέχεται το Aspose.Slides for SharePoint και οι μορφές εξόδου που προσφέρονται στη σελίδα μετατροπής."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Με το Aspose.Slides for SharePoint, μπορείτε να μετατρέψετε έγγραφα μεταξύ πολλών δημοφιλών μορφών γραφείου απευθείας από μια βιβλιοθήκη εγγράφων του SharePoint. Οι μετατροπές γίνονται με υψηλή πιστότητα και ακρίβεια. 
-
-{{% /alert %}} 
-## **Υποστηριζόμενες Μορφές Εισόδου**
-Το Aspose.Slides for SharePoint υποστηρίζει τις ακόλουθες μορφές εισόδου: 
-
-- PPT – Παρουσίαση Microsoft PowerPoint 97 - 2003
-- PPS – Παρουσίαση Διαφανειών Microsoft PowerPoint 97 - 2003
-- POT – Πρότυπο Microsoft PowerPoint 97 - 2003
-- PPTX – Παρουσίαση Office Open XML
-- PPSX – Διαφάνεια Office Open XML
-- POTX – Πρότυπο Office Open XML
-
-{{% alert color="primary" %}} 
-
-Για τη δημιουργία εγγράφων, το Aspose.Slides for SharePoint βασίζεται σε ενσωματωμένη έκδοση του [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), του μοναδικού στοιχείου επεξεργασίας εγγράφων PowerPoint της Aspose. 
+Με το Aspose.Slides for SharePoint, μπορείτε να μετατρέψετε παρουσιάσεις PowerPoint σε πολλές δημοφιλείς μορφές εγγράφων από μια βιβλιοθήκη εγγράφων SharePoint.
 
 {{% /alert %}}
+
+## **Υποστηριζόμενες Μορφές Εισόδου**
+
+Το Aspose.Slides for SharePoint μετατρέπει τις ακόλουθες μορφές εισόδου:
+
+- PPT – Παρουσίαση Microsoft PowerPoint 97 - 2003
+- PPTX – Παρουσίαση Office Open XML
+
+{{% alert color="info" title="Note" %}}
+
+Για τη μετατροπή εγγράφων, το Aspose.Slides for SharePoint βασίζεται σε μια ενσωματωμένη έκδοση του [Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/).
+
+{{% /alert %}}
+
 ## **Υποστηριζόμενες Μορφές Εξόδου**
-Οι ακόλουθες μορφές εξόδου υποστηρίζονται από το Aspose.Slides for SharePoint: 
 
-- PDF – Φορμάτ Φορητού Εγγράφου
-- TIFF – Πακέτο Εικόνων
-- XPS – XML Paper Specification
+Η λίστα **Convert to** στη σελίδα μετατροπής προσφέρει τις ακόλουθες μορφές εξόδου, με αυτή τη σειρά:
 
-**Επιλογή της μορφής εξόδου από την οθόνη Ρυθμίσεων Μετατροπής** 
+- PDF – Έγγραφο Adobe Portable
+- TIFF – Πακέτο εικόνων
+- XPS – Προδιαγραφή XML Paper
+- PPS – Παρουσίαση διαφανειών
+- PPSX – Διαφάνεια PowerPoint Open XML της Microsoft
+- ODP – Παρουσίαση OpenDocument
+- PPTM – Παρουσίαση Microsoft PowerPoint Open XML με ενεργοποιημένα μακροεντολές
+- PPSM – Διαφάνεια Microsoft PowerPoint Open XML με ενεργοποιημένα μακροεντολές
+- POTX – Πρότυπο Microsoft PowerPoint
+- POTM – Πρότυπο παρουσίασης PowerPoint Open XML με ενεργοποιημένα μακροεντολές
+- PDFNotes – Προβολή σημειώσεων παρουσίασης σε μορφή PDF
+- HTML – Παρουσίαση σε μορφή HTML
+- TIFFNotes – Προβολή σημειώσεων παρουσίασης ως εικόνα TIFF πολλαπλών σελίδων
+- SWF – Ταινία Shockwave Flash
+- SWFNotes – Προβολή σημειώσεων παρουσίασης ως πολλαπλών σελίδων SWF
 
-![todo:image_alt_text](multiple-format-support_1.png)
+**Επιλογή της μορφής εξόδου στη σελίδα Ρυθμίσεων Μετατροπής**
+
+![Η σελίδα Ρυθμίσεων Μετατροπής με τη λίστα Convert to των μορφών εξόδου](multiple-format-support_1.png)
+
+Το στιγμιότυπο οθόνης ελήφθη με προηγούμενη έκδοση, η οποία παρείχε μόνο τις μορφές PDF, TIFF και XPS.

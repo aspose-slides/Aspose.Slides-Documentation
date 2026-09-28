@@ -3,34 +3,29 @@ title: نظرة عامة على المنتج
 type: docs
 weight: 10
 url: /ar/sharepoint/product-overview/
+description: "نظرة عامة على Aspose.Slides for SharePoint: صيغ العرض التقديمي التي يتم تحويلها والإصدارات التي يتم تثبيتها من SharePoint."
 ---
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **مرحبًا ب Aspose.Slides for SharePoint!**
-
-Aspose.Slides for SharePoint هو حل مرن يجعل من الممكن تحويل مستندات PowerPoint® داخل مواقع Microsoft SharePoint.
-
 ## **نظرة عامة على المنتج**
 
-Aspose.Slides for SharePoint يدعم عددًا من تنسيقات مستندات PowerPoint:
+يحول Aspose.Slides for SharePoint عروض PowerPoint المخزنة في مكتبات مستندات SharePoint إلى صيغ أخرى على الخادم.
+
+يحول الصيغ التالية من PowerPoint:
 
 - PPT – عرض تقديمي Microsoft PowerPoint 97 - 2003
-- PPS – عرض شرائح Microsoft PowerPoint 97 - 2003
-- POT – قالب Microsoft PowerPoint 97 - 2003
 - PPTX – عرض تقديمي Office Open XML
-- PPSX – عرض شرائح Office Open XML
-- POTX – قالب Office Open XML
 
-Aspose.Slides for SharePoint مصمم للعمل مع المنتجات التالية:
+يحولها إلى PDF، TIFF، XPS، HTML، SWF، ODP، PPS، PPSX، PPTM، PPSM، POTX وPOTM. راجع [الصيغ المدعومة](/slides/ar/sharepoint/supported-file-formats/) للمزيد من التفاصيل.
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+يتضمن التحميل برنامج تثبيت منفصل وحزمة حل لكل من المنتجات التالية:
 
-لا توجد متطلبات نظام أخرى غير تلك الموجودة للمنتجات المذكورة أعلاه.
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
 **استخدم Aspose.Slides for SharePoint لتحويل المستندات من مكتبة مستندات SharePoint**
 
-![مكتبة مستندات SharePoint](product-overview_2.png)
+![مكتبة مستندات SharePoint مع عنصر القائمة تحويل باستخدام Aspose.Slides](product-overview_2.png)

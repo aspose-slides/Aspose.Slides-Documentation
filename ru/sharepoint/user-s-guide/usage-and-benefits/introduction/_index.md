@@ -3,19 +3,21 @@ title: Введение
 type: docs
 weight: 10
 url: /ru/sharepoint/introduction/
+description: "Введение в руководство пользователя Aspose.Slides для SharePoint: что делает продукт на сайте SharePoint и какие статьи охватывают библиотеки документов, преимущества и конвертацию."
 ---
+{{% alert color="info" title="Заметка" %}}
 
-{{% alert color="primary" %}} 
+Сайты SharePoint предназначены для совместной работы, общения и хранения контента с целью удовлетворения конкретных бизнес‑потребностей. Они позволяют группе людей достигать общей цели, облегчая обмен информацией и коммуникацию. Информация обычно доступна в виде веб‑сайта и открывается через веб‑браузер.
 
-Сайты SharePoint предназначены для сотрудничества, коммуникации и хранения контента с целью удовлетворения потребностей бизнеса. Они позволяют группе людей достичь общей цели, облегчая обмен информацией и общение. Информация обычно доступна как веб-сайт и доступна через веб-браузер. 
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **Что такое SharePoint и Aspose.Slides?**
-Aspose.Slides для SharePoint — это гибкое решение для конвертации документов Microsoft PowerPoint в другие форматы, такие как PPT, POT, PPS, PPTX, PPSX и POTX. Aspose.Slides для SharePoint позволяет вам читать и конвертировать файлы PowerPoint в приложении SharePoint без использования Microsoft PowerPoint. 
 
-Данная статья охватывает следующее: 
+Aspose.Slides for SharePoint — это решение для конвертации презентаций Microsoft PowerPoint (PPT и PPTX) в другие форматы: PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX и POTM. Оно позволяет конвертировать файлы PowerPoint на сайте SharePoint без использования Microsoft PowerPoint. Полный список форматов доступен в [Поддерживаемые форматы файлов](/slides/ru/sharepoint/supported-file-formats/).
+
+В этой статье рассматриваются следующие темы:
 
 - [Заметка о библиотеке документов SharePoint](/slides/ru/sharepoint/sharepoint-document-library/).
 - [Преимущества использования Aspose.Slides для SharePoint](/slides/ru/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
 - [Как конвертировать документы Microsoft PowerPoint в другие форматы](/slides/ru/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
-- [Резюме](/slides/ru/sharepoint/summary/)
+- [Итоги](/slides/ru/sharepoint/summary/)

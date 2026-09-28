@@ -3,17 +3,18 @@ title: Đánh giá Aspose.Slides cho SharePoint
 type: docs
 weight: 40
 url: /vi/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Đánh giá Aspose.Slides cho SharePoint với bản tải xuống thông thường: cài đặt nó, chuyển đổi các bài thuyết trình ở chế độ dùng thử, và chuyển sang chế độ có giấy phép bằng cách cài đặt giải pháp giấy phép."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Hãy chắc chắn tận dụng bản đánh giá miễn phí của Aspose.Words for SharePoint: không có thời hạn và đi kèm hỗ trợ kỹ thuật miễn phí. Chúng tôi khuyến khích người dùng đánh giá sản phẩm của chúng tôi trước khi mua để bạn biết rằng sản phẩm sẽ thực hiện đúng những gì bạn muốn.
+Hãy tận dụng bản dùng thử miễn phí của Aspose.Slides for SharePoint: không có thời hạn và đi kèm hỗ trợ kỹ thuật miễn phí. Chúng tôi khuyến khích bạn đánh giá sản phẩm trước khi mua, để biết nó đáp ứng nhu cầu của bạn.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Đây là cùng một tệp tải xuống cho cả phiên bản đánh giá và phiên bản trả phí của Aspose.Slides for SharePoint. Chỉ cần [tải xuống Aspose.Slides for SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) từ trang tải xuống, [cài đặt nó]() và nó sẽ hoạt động ở chế độ đánh giá theo mặc định. 
+Bản dùng thử và phiên bản trả phí của Aspose.Slides for SharePoint là cùng một tệp tải xuống. [Tải xuống Aspose.Slides for SharePoint](https://releases.aspose.com/slides/vi/sharepoint/), [cài đặt nó](/slides/vi/sharepoint/installing-aspose-slides-for-sharepoint/), và nó sẽ chạy ở chế độ dùng thử theo mặc định.
 
-Chế độ đánh giá sẽ chèn một dấu watermark đánh giá trên mỗi slide vào tài liệu xuất. Khi bạn đã mua giấy phép, chỉ cần cài đặt giải pháp giấy phép lên bản sao Aspose.Slides for SharePoint đã được cài đặt ở chế độ đánh giá và nó sẽ hoạt động ở chế độ có giấy phép. 
+Trong chế độ dùng thử, tài liệu đã chuyển đổi sẽ có dấu nước dùng thử. Khi bạn đã mua giấy phép, hãy cài đặt giải pháp giấy phép lên bản dùng thử đã cài đặt, như mô tả trong [Cài đặt giấy phép Aspose.Slides for SharePoint](/slides/vi/sharepoint/installing-aspose-slides-for-sharepoint-license/), và Aspose.Slides for SharePoint sẽ hoạt động ở chế độ có giấy phép.
 
-**Dấu watermark đánh giá trên một slide** 
+**Dấu nước dùng thử trên một slide**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Một slide được chuyển đổi ở chế độ dùng thử, có dấu nước dùng thử](evaluate-aspose-slides-for-sharepoint_1.png)

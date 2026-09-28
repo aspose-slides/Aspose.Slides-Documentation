@@ -3,17 +3,22 @@ title: ارزیابی Aspose.Slides
 type: docs
 weight: 70
 url: /fa/sharepoint/evaluate-aspose-slides/
+description: "این که نسخهٔ ارزیابی Aspose.Slides for SharePoint چه کار می‌کند، خروجی آن چگونه علامت‌گذاری می‌شود و چگونه می‌توان آن را به نسخهٔ دارای لایسنس تبدیل کرد."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-می‌توانید به سادگی Aspose.Slides را برای ارزیابی دانلود کنید. دانلود ارزیابی همان دانلود خریداری‌شده است. نسخه ارزیابی به سادگی پس از اضافه کردن چند خط کد برای اعمال لایسنس، مجوز دریافت می‌کند.
+بارگیری ارزیابی Aspose.Slides for SharePoint همانند بارگیری خریداری‌شده است. وقتی بسته راه‌حل لایسنس را بر روی فارم نصب می‌کنید، به نسخه دارای مجوز تبدیل می‌شود؛ برای جزئیات به [نصب لایسنس Aspose.Slides برای SharePoint](/slides/fa/sharepoint/installing-aspose-slides-for-sharepoint-license/) مراجعه کنید. هیچ کدی درگیر نیست.
 
-نسخه ارزیابی Aspose.Slides (بدون مشخص کردن لایسنس) تمام عملکردهای محصول را فراهم می‌کند، اما یک واترمارک ارزیابی را بر روی هر اسلاید از فایل‌های PDF، TIFF و XPS تولید شده اضافه می‌کند.
+بدون لایسنس، Aspose.Slides for SharePoint به تمام قالب‌های پشتیبانی‌شده تبدیل می‌شود، اما فایل‌های تبدیل‌شده دارای واترمارک ارزیابی هستند و صفحه تبدیل‌نامه یک اطلاعیه ارزیابی نمایش می‌دهد.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**واترمارک ارزیابی در فایل PDF تبدیل‌شده**
 
-{{% /alert %}} {{% alert color="primary" %}} 
+![فایلی PDF که در حالت ارزیابی تبدیل شده است، با واترمارک ارزیابی بر روی اسلاید](evaluate-aspose-slides_1.png)
 
-اگر می‌خواهید Aspose.Slides را بدون محدودیت‌های نسخه ارزیابی تست کنید، می‌توانید یک لایسنس موقت 30 روزه درخواست کنید. لطفاً به [چگونه یک لایسنس موقت دریافت کنیم؟](https://purchase.aspose.com/temporary-license) مراجعه کنید.
+{{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+اگر می‌خواهید Aspose.Slides را بدون محدودیت‌های ارزیابی تست کنید، می‌توانید یک مجوز موقت ۳۰ روزه نیز درخواست کنید. برای اطلاعات بیشتر به [چگونه یک مجوز موقت دریافت کنیم؟](https://purchase.aspose.com/temporary-license) مراجعه کنید.
 
 {{% /alert %}}

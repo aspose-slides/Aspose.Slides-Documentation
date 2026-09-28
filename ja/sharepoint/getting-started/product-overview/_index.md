@@ -3,34 +3,29 @@ title: 製品概要
 type: docs
 weight: 10
 url: /ja/sharepoint/product-overview/
+description: "Aspose.Slides for SharePoint の概要: 変換するプレゼンテーション形式とインストール対象の SharePoint バージョン。"
 ---
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **Aspose.Slides for SharePointへようこそ！**
-
-Aspose.Slides for SharePointは、Microsoft SharePoint サイト内でPowerPoint®ドキュメントを変換できる柔軟なソリューションです。
-
 ## **製品概要**
 
-Aspose.Slides for SharePointは、以下の多数のPowerPointドキュメント形式をサポートしています：
+Aspose.Slides for SharePoint は、サーバー上で SharePoint のドキュメント ライブラリに保存されている PowerPoint プレゼンテーションを他の形式に変換します。
+
+次の PowerPoint 形式を変換します:
 
 - PPT – Microsoft PowerPoint プレゼンテーション 97-2003
-- PPS – Microsoft PowerPoint スライドショー 97-2003
-- POT – Microsoft PowerPoint テンプレート 97-2003
 - PPTX – Office Open XML プレゼンテーション
-- PPSX – Office Open XML スライドショー
-- POTX – Office Open XML テンプレート
 
-Aspose.Slides for SharePointは、以下の製品と連携できるよう設計されています：
+これらを PDF、TIFF、XPS、HTML、SWF、ODP、PPS、PPSX、PPTM、PPSM、POTX、POTM に変換します。詳細については[Supported File Formats](/slides/ja/sharepoint/supported-file-formats/)をご覧ください。
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+ダウンロードには、次の製品ごとに個別のセットアップ プログラムとソリューション パッケージが含まれます:
 
-上記製品に必要な要件以外に、追加のシステム要件はありません。
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-**Aspose.Slides for SharePointを使用して、SharePoint のドキュメント ライブラリからドキュメントを変換します**
+**Aspose.Slides for SharePoint を使用して、SharePoint のドキュメント ライブラリからドキュメントを変換します**
 
-![SharePoint のドキュメント ライブラリ](product-overview_2.png)
+![Convert with Aspose.Slides メニュー項目がある SharePoint ドキュメント ライブラリ](product-overview_2.png)

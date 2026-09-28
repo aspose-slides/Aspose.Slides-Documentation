@@ -3,34 +3,49 @@ title: Obsługa wielu formatów
 type: docs
 weight: 10
 url: /pl/sharepoint/multiple-format-support/
+description: "Formaty wejściowe, które akceptuje Aspose.Slides for SharePoint oraz formaty wyjściowe oferowane na stronie konwersji."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Z Aspose.Slides for SharePoint możesz konwertować dokumenty między wieloma popularnymi formatami dokumentów biurowych bezpośrednio z biblioteki dokumentów SharePoint. Konwersje są wykonywane z wysoką wiernością i precyzją. 
-
-{{% /alert %}} 
-## **Obsługiwane formaty wejściowe**
-Aspose.Slides for SharePoint obsługuje następujące formaty wejściowe: 
-
-- PPT – Microsoft PowerPoint Presentation 97 - 2003
-- PPS – Microsoft PowerPoint SlideShow 97 - 2003
-- POT – Microsoft PowerPoint Template 97 - 2003
-- PPTX – Office Open XML Presentation
-- PPSX – Office Open XML SlideShow
-- POTX – Office Open XML Template
-
-{{% alert color="primary" %}} 
-
-Aby generować dokumenty, Aspose.Slides for SharePoint korzysta z wbudowanej wersji [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), jedynego komponentu firmy Aspose do przetwarzania dokumentów PowerPoint. 
+Za pomocą Aspose.Slides for SharePoint możesz konwertować prezentacje PowerPoint na wiele popularnych formatów dokumentów bezpośrednio w bibliotece dokumentów SharePoint.
 
 {{% /alert %}}
+
+## **Obsługiwane formaty wejściowe**
+
+Aspose.Slides for SharePoint konwertuje następujące formaty wejściowe:
+
+- PPT – Prezentacja Microsoft PowerPoint 97‑2003
+- PPTX – Prezentacja Office Open XML
+
+{{% alert color="info" title="Note" %}}
+
+Aby konwertować dokumenty, Aspose.Slides for SharePoint korzysta z wbudowanej wersji [Aspose.Slides for .NET](https://products.aspose.com/slides/pl/net/).
+
+{{% /alert %}}
+
 ## **Obsługiwane formaty wyjściowe**
-Poniższe formaty wyjściowe są obsługiwane przez Aspose.Slides for SharePoint: 
 
-- PDF – Portable Document Format
-- TIFF – Pictures Package
-- XPS – XML Paper Specification
+Lista **Convert to** na stronie konwersji oferuje następujące formaty wyjściowe w tej kolejności:
 
-**Wybieranie formatu wyjściowego na ekranie Ustawień konwersji** 
+- PDF – Adobe Portable Document
+- TIFF – Pakiet obrazów
+- XPS – Specyfikacja XML Paper
+- PPS – Prezentacja pokazu slajdów
+- PPSX – Pokaz slajdów Microsoft PowerPoint Open XML
+- ODP – Prezentacja OpenDocument
+- PPTM – Prezentacja Microsoft PowerPoint Open XML z obsługą makr
+- PPSM – Pokaz slajdów Microsoft PowerPoint Open XML z obsługą makr
+- POTX – Szablon Microsoft PowerPoint
+- POTM – Szablon prezentacji PowerPoint Open XML z obsługą makr
+- PDFNotes – Widok notatek prezentacji w formacie PDF
+- HTML – Prezentacja w formacie HTML
+- TIFFNotes – Widok notatek prezentacji jako wielostronicowy obraz TIFF
+- SWF – Film Shockwave Flash
+- SWFNotes – Widok notatek prezentacji jako wielostronicowy SWF
 
-![todo:image_alt_text](multiple-format-support_1.png)
+**Wybieranie formatu wyjściowego na stronie Ustawień konwersji**
+
+![Strona Ustawień konwersji z listą Convert to zawierającą formaty wyjściowe](multiple-format-support_1.png)
+
+Zrzut ekranu został wykonany w wcześniejszej wersji, która oferowała tylko formaty PDF, TIFF i XPS.

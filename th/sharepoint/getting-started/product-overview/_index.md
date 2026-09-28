@@ -3,34 +3,29 @@ title: ภาพรวมของผลิตภัณฑ์
 type: docs
 weight: 10
 url: /th/sharepoint/product-overview/
+description: "ภาพรวมของ Aspose.Slides for SharePoint: รูปแบบการนำเสนอที่แปลงและเวอร์ชันของ SharePoint ที่ติดตั้งบน."
 ---
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **ยินดีต้อนรับสู่ Aspose.Slides for SharePoint!**
-
-Aspose.Slides for SharePoint เป็นโซลูชันที่ยืดหยุ่นซึ่งทำให้สามารถแปลงเอกสาร PowerPoint® ภายใน Microsoft SharePoint Sites ได้
-
 ## **ภาพรวมของผลิตภัณฑ์**
 
-Aspose.Slides for SharePoint รองรับรูปแบบเอกสาร PowerPoint หลายประเภท:
+Aspose.Slides for SharePoint แปลงไฟล์นำเสนอ PowerPoint ที่จัดเก็บในไลบรารีเอกสารของ SharePoint ไปเป็นรูปแบบอื่นบนเซิร์ฟเวอร์
 
-- PPT – การนำเสนอ Microsoft PowerPoint 97 - 2003
-- PPS – สไลด์โชว์ Microsoft PowerPoint 97 - 2003
-- POT – เทมเพลต Microsoft PowerPoint 97 - 2003
-- PPTX – การนำเสนอ Office Open XML
-- PPSX – สไลด์โชว์ Office Open XML
-- POTX – เทมเพลต Office Open XML
+มันรองรับการแปลงรูปแบบ PowerPoint ต่อไปนี้:
 
-Aspose.Slides for SharePoint ถูกออกแบบให้ทำงานร่วมกับผลิตภัณฑ์ต่อไปนี้:
+- PPT – ไฟล์นำเสนอ Microsoft PowerPoint 97‑2003
+- PPTX – ไฟล์นำเสนอ Office Open XML
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+มันสามารถแปลงเป็น PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX และ POTM ดูรายละเอียดเพิ่มเติมที่[รูปแบบไฟล์ที่รองรับ](/slides/th/sharepoint/supported-file-formats/)
 
-ไม่มีความต้องการระบบอื่นนอกจากที่มีสำหรับผลิตภัณฑ์ข้างต้น
+ไฟล์ดาวน์โหลดมีโปรแกรมติดตั้งแยกต่างหากและแพ็กเกจโซลูชันสำหรับผลิตภัณฑ์ต่อไปนี้แต่ละรายการ:
 
-**ใช้ Aspose.Slides for SharePoint เพื่อแปลงเอกสารจากไลบรารีเอกสารของ SharePoint** 
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-![ไลบรารีเอกสารของ SharePoint](product-overview_2.png)
+**ใช้ Aspose.Slides for SharePoint เพื่อแปลงเอกสารจากไลบรารีเอกสารของ SharePoint**
+
+![ไลบรารีเอกสาร SharePoint พร้อมเมนู Convert with Aspose.Slides](product-overview_2.png)

@@ -1,59 +1,65 @@
 ---
-title: Aspose.Slides for SharePointライセンスのインストール
+title: Aspose.Slides for SharePoint ライセンスのインストール
 type: docs
 weight: 10
 url: /ja/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "SharePoint ファームに Aspose.Slides for SharePoint のライセンスをインストールします。ライセンス ソリューションをソリューション ストアに追加し、展開し、変換されたファイルに評価用透かしが残っていないことを確認します。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/ja/sharepoint/)できます。購入前に、ライセンスのサブスクリプション条件を理解し、同意していることをご確認ください。注文が支払われると、ライセンスはメールで送信されます。
 
-評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)できます。購入前に、ライセンスサブスクリプションの条件を理解し、同意していることを確認してください。注文が支払われると、ライセンスがメールで送信されます。
+ライセンスは通常の SharePoint ソリューション パッケージを含む ZIP アーカイブです。アーカイブには以下が含まれます:
 
-ライセンスは、通常のSharePointソリューションパッケージを含むZIPアーカイブです。アーカイブには次のものが含まれています：
+- Aspose.Slides.SharePoint.License.wsp – SharePoint ソリューション パッケージ ファイルです。ライセンスは SharePoint ソリューションとしてパッケージ化され、サーバーファーム全体への展開および撤回が容易になります。
+- readme.txt – ライセンス インストール手順です。
 
-- Aspose.Slides.SharePoint.License.wsp – SharePointソリューションパッケージファイル。このライセンスは、サーバーファーム全体での展開と撤回を簡単にするためにSharePointソリューションとしてパッケージ化されています。
-- readme.txt – ライセンスインストール手順。
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **ライセンスの展開**
-ライセンスのインストールは、**stsadm.exe**を介してサーバーコンソールから行われます。
 
-{{% alert color="primary" %}} 
+ライセンスのインストールはサーバーコンソールから **stsadm.exe** を使用して実行されます。
 
-以下のセクションでは、明確性のためにパスは省略されています。
+{{% alert color="info" title="Note" %}}
 
-{{% /alert %}} 
+以下のセクションでは、明確にするためにパスは省略しています。
 
-Aspose.Slides for SharePointライセンスを展開するための手順は次のとおりです：
+{{% /alert %}}
 
-1. stsadmを実行してソリューションをSharePointソリューションストアに追加します：
+Aspose.Slides for SharePoint ライセンスを展開するには、次の手順を実行してください。
 
-``` xml
+1. stsadm を実行してソリューションを SharePoint ソリューション ストアに追加します:
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
-```
+2. ファーム内のすべてのサーバーにソリューションを展開します:
 
-2. ソリューションをファーム内のすべてのサーバーに展開します：
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-``` xml
+3. 管理タイマージョブを実行して、展開をすぐに完了させます:
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
-```
+`addsolution` 操作は `-filename` にソリューション ファイルのパスを指定します。`deploysolution` 操作は `-name` にソリューション ストアに既に存在するソリューション名を指定します。
 
-3. 展開を即座に完了させるために管理タイマージョブを実行します：
+{{% alert color="info" title="Note" %}}
 
-``` xml
+展開手順を実行する際に SharePoint Administration サービスが実行されていないと警告が表示されます。**stsadm.exe** はこのサービスおよび SharePoint Timer サービスに依存しており、ファーム全体にソリューション データをレプリケートします。これらのサービスがサーバーファームで実行されていない場合、各サーバーにライセンスを展開する必要があります。
 
- Stsadm.exe -o execadmsvcjobs
+{{% /alert %}}
 
-```
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+SharePoint 2010 以降では、SharePoint Management Shell のコマンドレット `Add-SPSolution`、`Install-SPSolution`、`Start-SPAdminJob` がそれぞれ `addsolution`、`deploysolution`、`execadmsvcjobs` 操作に対応します。詳細は [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping) を参照してください。
 
-Windows SharePoint Services Administrationサービスが実行されていない場合、展開ステップを実行すると警告が表示されます。**stsadm.exe**はこのサービスとWindows SharePoint Timer Serviceに依存しており、ファーム全体でソリューションデータを複製します。これらのサービスがサーバーファームで実行されていない場合、各サーバーでライセンスを展開する必要があるかもしれません。
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **ライセンスのテスト**
-ライセンスが正しくインストールされたかを確認するために、任意のドキュメントを新しい形式に変換します。ドキュメントに評価用の透かしが表示されていない場合、ライセンスは正常にアクティブ化されています。
+
+ライセンスが正しくインストールされたかテストするには、任意のプレゼンテーションを新しい形式に変換します。変換後のファイルに評価用透かしが表示されなければ、ライセンスは有効です。

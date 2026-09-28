@@ -1,75 +1,93 @@
 ---
-title: تثبيت Aspose.Slides ل SharePoint
+title: تثبيت Aspose.Slides for SharePoint
 type: docs
 weight: 10
 url: /ar/sharepoint/installing-aspose-slides-for-sharepoint/
+description: "تثبيت Aspose.Slides for SharePoint على مجموعة SharePoint: اختر برنامج الإعداد لإصدار SharePoint الخاص بك، نفّذ فحص النظام، وانشر الحل وفَعِّلُه."
 ---
+## **محتويات الحزمة**
 
-{{% alert color="primary" %}} 
+Aspose.Slides for SharePoint يتم تنزيله من [صفحة التنزيل](https://releases.aspose.com/slides/ar/sharepoint/) كملف ZIP. يحتوي الأرشيف على حزمة حل SharePoint (WSP) واحدة وبرنامج إعداد واحد لكل إصدار من إصدارات SharePoint المدعومة:
 
-تم تنزيل Aspose.Slides ل SharePoint كأرشيف Aspose.Slides.SharePoint.zip. يحتوي الأرشيف على: 
+| إصدار SharePoint | برنامج الإعداد | حزمة الحل |
+| :- | :- | :- |
+| SharePoint 2007 | Setup2007.exe | Aspose.Slides.SharePoint2007.wsp |
+| SharePoint 2010 | Setup2010.exe | Aspose.Slides.SharePoint2010.wsp |
+| SharePoint Server 2013 | Setup2013.exe | Aspose.Slides.SharePoint2013.wsp |
+| SharePoint Server 2016 | Setup2016.exe | Aspose.Slides.SharePoint2016.wsp |
+| SharePoint Server 2019 | Setup2019.exe | Aspose.Slides.SharePoint2019.wsp |
 
-- **Aspose.Slides.SharePoint.wsp**: ملف حل SharePoint. يتم تعبئة Aspose.Slides ل SharePoint كحل SharePoint لتسهيل التفعيل وإلغاء التفعيل عبر مزرعة الخادم.
-- **Aspose_LicenseAgreement.rtf**: اتفاقية ترخيص المستخدم النهائي.
-- **Setup.exe**: برنامج الإعداد.
-- **Setup.exe.config**: ملف تكوين الإعداد.
+لكل برنامج إعداد ملف تكوين بجواره (مثال، *Setup2019.exe.config*) يحدد اسم حزمة الحل التي يتم تثبيتها. يحتوي مجلد *License* على ارتباط باتفاقية ترخيص المستخدم النهائي وإشعارات تراخيص الجهات الخارجية.
 
-{{% /alert %}} 
+Aspose.Slides for SharePoint يتم حزمته كحل SharePoint، تقوم SharePoint بنشره عبر مجموعة الخوادم. ثم يتم تفعيل أو إلغاء تفعيل ميزته لكل مجموعة مواقع.
+
 ## **عملية التثبيت**
-قبل تشغيل التثبيت، يتحقق برنامج الإعداد من:
 
-- أن WSS 3.0 أو MOSS 2007 مثبت.
-- أن لدى المستخدم الإذن لتثبيت حلول SharePoint.
-- أن قاعدة بيانات SharePoint متصلة بالإنترنت.
-- أن خدمة إدارة WSS بدأت.
-- أن خدمة المؤقت WSS بدأت.
+قبل التثبيت، يقوم برنامج الإعداد بتنفيذ فحص نظام. يتحقق مما يلي:
 
-تحتاج خدمات إدارة WSS والموقت لأن بعض إجراءات الإعداد تعتمد على مهمة مؤقت للانتشار إلى جميع الخوادم في مزرعة الخادم. 
+- تم تثبيت SharePoint على الخادم.
+- للمستخدم الحالي صلاحية تثبيت ونشر حلول SharePoint.
+- تم تشغيل خدمة إدارة SharePoint.
+- تم تشغيل خدمة مؤقت SharePoint.
+- حزمة الحل المذكورة في ملف التكوين موجودة.
+
+تحتاج إلى خدمات الإدارة والمؤقت لأن بعض إجراءات الإعداد تُنفّذ كمهام مؤقت تُرسل الحل إلى جميع الخوادم في المجموعة.
+
 ### **تشغيل التثبيت**
-لتثبيت Aspose.Slides ل SharePoint: 
 
-1. فك ضغط Aspose.Slides.SharePoint zip إلى محرك الأقراص المحلي على خادم MOSS 7.0 أو WSS 3.0.
-2. قم بتشغيل setup.exe واتبع التعليمات على الشاشة.
-   يقوم برنامج الإعداد بأداء الإجراءات التالية: 
-   1. يتحقق من متطلبات التثبيت. لن يستمر الإعداد إذا فشل أي فحص. 
+لتثبيت Aspose.Slides for SharePoint:
 
-      **تشغيل فحص النظام** 
+1. قم بفك ضغط ملف ZIP إلى قرص محلي على خادم في مجموعة SharePoint.
+2. شغّل برنامج الإعداد الذي يتطابق مع إصدار SharePoint الخاص بك (انظر الجدول أعلاه) واتبع التعليمات على الشاشة. يقوم برنامج الإعداد:
+   1. ينفّذ فحص النظام. لا يتابع الإعداد إذا فشل أي فحص.
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_1.png)
+      **تنفيذ فحص النظام**
 
+      ![شاشة فحص النظام لبرنامج الإعداد](installing-aspose-slides-for-sharepoint_1.png)
 
+   2. يعرض اتفاقية ترخيص المستخدم النهائي. يجب عليك قبولها للمتابعة.
 
+      **اتفاقية الترخيص**
 
-3. يعرض اتفاقية ترخيص المستخدم النهائي. يجب قبول الاتفاقية للاستمرار. 
+      ![شاشة اتفاقية الترخيص لبرنامج الإعداد](installing-aspose-slides-for-sharepoint_2.png)
 
-   **اتفاقية الترخيص** 
+   3. يعرض أهداف النشر. حدّد تطبيقات الويب ومجموعات المواقع لتفعيل الميزة لها.
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_2.png)
+      **اختيار أهداف النشر**
 
+      ![شاشة أهداف نشر مجموعة المواقع لبرنامج الإعداد](installing-aspose-slides-for-sharepoint_3.png)
 
+   4. ينشر الحل إلى المجموعة.
 
+      **تقدم التثبيت**
 
-4. يعرض اختيار هدف النشر. يحدد تطبيقات الويب ومجموعات المواقع التي يجب تفعيل الميزة لها. 
+      ![شاشة تقدم التثبيت لبرنامج الإعداد](installing-aspose-slides-for-sharepoint_4.png)
 
-   **اختيار أهداف النشر** 
+   5. يفعّل Aspose.Slides for SharePoint على مجموعات المواقع المحددة.
+   6. يعرض تطبيقات الويب ومجموعات المواقع التي تم نشر الحل وتفعيله فيها.
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_3.png)
+      **التثبيت الناجح**
 
+      ![شاشة اكتمال التثبيت لبرنامج الإعداد](installing-aspose-slides-for-sharepoint_5.png)
 
+{{% alert color="info" title="Note" %}}
+تم أخذ لقطات الشاشة على SharePoint 2007. تمر برامج الإعداد للإصدارات الأحدث عبر نفس الشاشات.
+{{% /alert %}}
 
+إذا كان نفس إصدار Aspose.Slides for SharePoint مثبتًا بالفعل، يوفر برنامج الإعداد خيار الإصلاح أو الإزالة. إذا كان إصدار آخر مثبتًا، يوفر خيار الترقية أو الإزالة.
 
-5. ينشر الميزة إلى مزرعة الخادم. 
+بعد التثبيت، يظهر عنصر **Convert via Aspose.Slides** في قائمة الملفات في مكتبات المستندات لمجموعات المواقع المحددة (في SharePoint 2007، **Convert with Aspose.Slides**). لتحويل أول عرض تقديمي، راجع [Converting Microsoft PowerPoint Documents into Other Formats](/slides/ar/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/). ما يضيفه الحل إلى المجموعة موصوف في [Deployment and Activation](/slides/ar/sharepoint/deployment-and-activation/).
 
-   **شريط تقدم التثبيت** 
+## **الأسئلة المتكررة**
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_4.png)
+**أي برنامج إعداد يجب تشغيله؟**
 
+ذلك الذي يتطابق اسمه مع إصدار SharePoint الخاص بك. على سبيل المثال، شغّل *Setup2016.exe* على مجموعة SharePoint Server 2016. كل برنامج إعداد يثبت حزمة الحل الخاصة به فقط.
 
+**هل أحتاج إلى تنزيل منفصل للإصدار المرخص؟**
 
+لا. الحزمة نفسها تعمل في وضع التقييم حتى تقوم بتثبيت حل الترخيص؛ راجع [Installing Aspose.Slides for SharePoint License](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint-license/).
 
-6. يقوم بتفعيل Aspose.Slides لمجموعات المواقع المحددة ويقوم بتكوين تطبيقات الويب الخاصة بها.
-7. يعرض قائمة بتطبيقات الويب ومجموعات المواقع التي تم نشر الميزة وتفعيلها لها. 
+**كيف يمكنني إزالة المنتج؟**
 
-   **تثبيت ناجح** 
-
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_5.png)
+شغّل نفس برنامج الإعداد مرة أخرى واختر **Remove**؛ راجع [Uninstalling Aspose.Slides for SharePoint](/slides/ar/sharepoint/uninstalling-aspose-slides-for-sharepoint/).

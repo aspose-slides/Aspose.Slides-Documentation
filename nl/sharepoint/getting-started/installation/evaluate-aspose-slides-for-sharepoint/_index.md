@@ -1,19 +1,20 @@
 ---
-title: Evalueer Aspose.Slides voor SharePoint
+title: Evalueer Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /nl/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Evalueer Aspose.Slides for SharePoint met de reguliere download: installeer het, converteer presentaties in evaluatiemodus en schakel over naar gelicentieerde modus door de licentieoplossing te installeren."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Zorg ervoor dat u gebruik maakt van de gratis Aspose.Words voor SharePoint‑evaluatie: er is geen tijdslimiet en er is gratis technische ondersteuning. We moedigen onze gebruikers aan onze producten te evalueren voordat ze kopen, zodat u zeker weet dat het product doet wat u ervan verwacht.
+Profiteer van de gratis evaluatie van Aspose.Slides for SharePoint: er is geen tijdslimiet en er wordt gratis technische ondersteuning geboden. We raden u aan het product te evalueren vóór aankoop, zodat u zeker weet dat het doet wat u nodig heeft.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Het is dezelfde download voor zowel de evaluatie‑ als de betaalde versie van Aspose.Slides voor SharePoint. Download eenvoudig [download Aspose.Slides voor SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) van de downloadpagina, [installeer het]() en deze werkt standaard in de evaluatiemodus. 
+De evaluatie- en de betaalde versie van Aspose.Slides for SharePoint zijn dezelfde download. [Download Aspose.Slides for SharePoint](https://releases.aspose.com/slides/nl/sharepoint/), [installeer het](/slides/nl/sharepoint/installing-aspose-slides-for-sharepoint/), en hij werkt standaard in evaluatiemodus.
 
-De evaluatiemodus voegt een evaluatiewatermerk toe aan elke dia in het geëxporteerde document. Wanneer u een licentie hebt aangeschaft, installeert u eenvoudig de licentieoplossing over de geïnstalleerde evaluatiekopie van Aspose.Slides voor SharePoint en werkt deze vervolgens in de gelicentieerde modus. 
+In de evaluatiemodus bevat het geconverteerde document een evaluatiewatermerk. Wanneer u een licentie hebt aangeschaft, installeert u de licentieoplossing over de geïnstalleerde evaluatiekopie, zoals beschreven in [Installing Aspose.Slides for SharePoint License](/slides/nl/sharepoint/installing-aspose-slides-for-sharepoint-license/), en Aspose.Slides for SharePoint werkt in de gelicentieerde modus.
 
-**Evaluatiewatermerk op een dia** 
+**Evaluatiewatermerk op een dia**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Een dia geconverteerd in evaluatiemodus, met het evaluatiewatermerk](evaluate-aspose-slides-for-sharepoint_1.png)

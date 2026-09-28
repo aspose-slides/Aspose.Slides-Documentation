@@ -3,57 +3,63 @@ title: تثبيت ترخيص Aspose.Slides لـ SharePoint
 type: docs
 weight: 10
 url: /ar/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "ثبت ترخيص Aspose.Slides لـ SharePoint على مجموعة خوادم SharePoint: أضف حل الترخيص إلى مخزن الحلول، وانشره، وتحقق من أن الملفات المحوّلة لم تعد تحمل علامة مائية للتقييم."
 ---
+{{% alert color="info" title="ملاحظة" %}}
 
-{{% alert color="primary" %}} 
+بمجرد رضاك عن تقييمك، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/ar/sharepoint/). قبل الشراء، تأكد من فهمك وموافقتك على شروط اشتراك الترخيص. يتم إرسال الترخيص إليك عبر البريد الإلكتروني عندما يتم دفع الطلب.
 
-بمجرد أن تكون راضيًا عن تقييمك، يمكنك [شراء ترخيص](https://purchase.aspose.com/buy). قبل الشراء، تأكد من أنك تفهم وتوافق على شروط اشتراك الترخيص. سيتم إرسال الترخيص إليك عبر البريد الإلكتروني عند سداد الطلب.
+الترخيص هو ملف أرشيف ZIP يحتوي على حزمة حل SharePoint عادية. يحتوي الأرشيف على:
 
-التراخيص عبارة عن أرشيف ZIP يحتوي على حزمة حل SharePoint العادية. يحتوي الأرشيف على:
-
-- Aspose.Slides.SharePoint.License.wsp – ملف حزمة حل SharePoint. تم تعبئة التراخيص كحزمة حل SharePoint لتسهيل النشر والسحب عبر مزرعة الخادم.
+- Aspose.Slides.SharePoint.License.wsp – ملف حزمة حل SharePoint. تم حزم الترخيص كحل SharePoint لتسهيل النشر والسحب عبر مجموعة الخوادم.
 - readme.txt – تعليمات تثبيت الترخيص.
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **نشر الترخيص**
+
 يتم تثبيت الترخيص من وحدة تحكم الخادم عبر **stsadm.exe**.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="ملاحظة" %}}
 
-تم حذف المسارات في القسم التالي لأغراض التوضيح.
+تم حذف المسارات في القسم التالي لتوضيح الأمر.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-نفذ الخطوات التالية لنشر ترخيص Aspose.Slides لـ SharePoint:
+اتبع الخطوات التالية لنشر ترخيص Aspose.Slides لـ SharePoint:
 
-1. قم بتشغيل stsadm لإضافة الحل إلى متجر حلول SharePoint: 
+1. تشغيل stsadm لإضافة الحل إلى مخزن حلول SharePoint:
 
-``` xml
-
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
-
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
 ```
 
-2. نشر الحل إلى جميع الخوادم في المزرعة: 
+2. نشر الحل إلى جميع الخوادم في المجموعة:
 
-``` xml
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+3. تنفيذ وظائف المؤقت الإدارية لإكمال النشر فورًا:
 
-```
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
-3. قم بتنفيذ مهام المؤقت الإدارية لإتمام النشر على الفور: 
+تستقبل العملية `addsolution` مسار ملف الحل في `-filename`؛ وتستقبل العملية `deploysolution` اسم الحل الموجود بالفعل في مخزن الحلول في `-name`.
 
-``` xml
+{{% alert color="info" title="ملاحظة" %}}
 
- Stsadm.exe -o execadmsvcjobs
+ستظهر لك تحذير عند تشغيل خطوة النشر إذا لم تكن خدمة إدارة SharePoint قيد التشغيل. يعتمد **stsadm.exe** على هذه الخدمة وخدمة مؤقت SharePoint لتكرار بيانات الحل عبر المجموعة. إذا لم تكن هذه الخدمات قيد التشغيل في مجموعة الخوادم الخاصة بك، قد تحتاج إلى نشر الترخيص على كل خادم.
 
-```
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="ملاحظة" %}}
 
-ستحصل على تحذير عند تشغيل خطوة النشر إذا لم يكن خدمة إدارة Windows SharePoint Services قيد التشغيل. يعتمد **stsadm.exe** على هذه الخدمة وخدمة مؤقت Windows SharePoint لنسخ بيانات الحل عبر المزرعة. إذا لم تكن هذه الخدمات قيد التشغيل على مزرعة خوادمك، قد تحتاج إلى نشر الترخيص على كل خادم.
+في SharePoint 2010 وما بعده، تتطابق أوامر PowerShell لإدارة SharePoint `Add-SPSolution` و `Install-SPSolution` و `Start-SPAdminJob` مع عمليات `addsolution` و `deploysolution` و `execadmsvcjobs`. راجع [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **اختبار الترخيص**
-لاختبار ما إذا تم تثبيت الترخيص بشكل صحيح، قم بتحويل أي مستند إلى تنسيق جديد. إذا لم يكن هناك علامة مائية للتقييم في المستند، فإن الترخيص قد تم تفعيله بنجاح.
+
+لاختبار أن الترخيص تم تثبيته بشكل صحيح، قم بتحويل أي عرض تقديمي إلى تنسيق جديد. إذا لم يظهر علامة مائية للتقييم في الملف المحول، فإن الترخيص فعال.

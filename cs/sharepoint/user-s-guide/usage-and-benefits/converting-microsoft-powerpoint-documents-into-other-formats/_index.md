@@ -3,52 +3,52 @@ title: Převod dokumentů Microsoft PowerPoint do jiných formátů
 type: docs
 weight: 40
 url: /cs/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
+description: "Převést prezentaci PowerPoint v knihovně dokumentů SharePoint do PDF nebo jiného formátu pomocí položky nabídky Convert via Aspose.Slides, krok po kroku."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Když je Aspose.Slides for SharePoint nainstalováno na serveru SharePoint, přidá se možnost **Convert via Aspose.Slides.SharePoint** do nabídky prezentace, jak je uvedeno níže: 
+Když je Aspose.Slides pro SharePoint nainstalován na serveru SharePoint a aktivován pro kolekci webů, přidá položku **Convert via Aspose.Slides** do nabídky dokumentů v jeho knihovnách dokumentů, jak je uvedeno níže. Ve verzi SharePoint 2007 se položka nazývá **Convert with Aspose.Slides**.
 
-**Instalace Aspose.Slides for SharePoint přidá možnost Convert via Aspose.Slides do menu dokumentů** 
+**Instalace Aspose.Slides pro SharePoint přidá položku Convert via Aspose.Slides do nabídek dokumentů**
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
+![Nabídka dokumentu s položkou Convert via Aspose.Slides](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **Převod prezentace**
-Chcete-li převést dokument Microsoft PowerPoint z knihovny dokumentů SharePoint: 
 
-1. Vyberte dokument Microsoft PowerPoint v knihovně dokumentů.
-2. Klikněte na šipku dolů pro zobrazení nabídky a klikněte na **Convert via Aspose.Slides.SharePoint**. 
+1. Vyberte prezentaci Microsoft PowerPoint v knihovně dokumentů.
+2. Otevřete její nabídku a klikněte na **Convert via Aspose.Slides**.
 
-   **Nabídka souboru Presentation 2 zobrazuje možnost Convert via Aspose.Slides** 
+   **Nabídka souboru Presentation 2, zobrazující položku Convert via Aspose.Slides**
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
+   ![Nabídka prezentace v knihovně dokumentů, se zvýrazněnou položkou Convert via Aspose.Slides](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
 
+3. Vyberte výstupní formát pod **Convert to**. Pokud chcete, změňte název výstupního souboru a cílovou složku.
+4. Klikněte na **Convert** pro převod souboru.
 
+   **Stránka převodu vám umožní vybrat výstupní formát, název souboru a cíl**
 
+   ![Stránka převodu s výstupním formátem, cílovým souborem a cílovou složkou](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
 
-3. Vyberte požadovaný výstupní formát ve formuláři. Pokud chcete, změňte název výstupního souboru a cílovou složku.
-4. Klikněte na **Convert** pro převod souboru. 
+5. Po dokončení převodu se zobrazí zpráva o úspěchu.
 
-   **Formulář pro konverzi vám umožňuje vybrat formát výstupního souboru, název a cíl** 
+   **Převod byl úspěšný**
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
+   ![Stránka s výsledky převodu](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
 
+6. Klikněte na **Source Library** (pro přechod do zdrojové složky) nebo **Destination Library** (pro přechod do složky, kam byl soubor uložen).
 
+   Převedený dokument se objeví v knihovně dokumentů.
 
+   **Převedený dokument zobrazený v knihovně, do které byl uložen**
 
-5. Po dokončení konverze se zobrazí zpráva o úspěchu. 
+   ![Převedený soubor v knihovně dokumentů](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
 
-   **Konverze byla úspěšná** 
+{{% alert color="info" title="Note" %}}
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
+Snímky obrazovky byly pořízeny v dřívější verzi, která nabízela pouze formáty PDF, TIFF a XPS. Aktuální stránka převodu nabízí více výstupních formátů; viz [Podpora více formátů](/slides/cs/sharepoint/multiple-format-support/).
 
+{{% /alert %}}
 
-
-
-6. Klikněte na **Source Library** (pro přechod do zdrojového adresáře) nebo **Destination Library** (pro přechod do adresáře, kam byl soubor uložen). 
-
-   Převedený dokument se objeví v knihovně dokumentů. 
-
-   **Převedený dokument zobrazený v knihovně, kam byl uložen** 
-
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
+Na SharePoint 2010 a novějším můžete také vybrat jednu nebo více prezentací v knihovně a kliknout na **Convert Slides** na kartu pásu **Aspose Tools**. Otevře se stejná stránka převodu.

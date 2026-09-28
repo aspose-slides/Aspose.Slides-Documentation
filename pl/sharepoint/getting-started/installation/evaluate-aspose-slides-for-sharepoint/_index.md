@@ -1,19 +1,20 @@
 ---
-title: Ocena Aspose.Slides dla SharePoint
+title: Ewaluuj Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /pl/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Testuj Aspose.Slides for SharePoint poprzez standardowe pobranie: zainstaluj go, konwertuj prezentacje w trybie próbnym oraz przełącz się na tryb licencjonowany, instalując rozwiązanie licencyjne."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Upewnij się, że skorzystasz z bezpłatnej wersji próbnej Aspose.Words dla SharePoint: nie ma ona limitu czasowego i jest objęta bezpłatnym wsparciem technicznym. Zachęcamy naszych użytkowników do wypróbowania naszych produktów przed zakupem, aby mieć pewność, że produkt zrobi to, czego oczekujesz.
+Skorzystaj z bezpłatnej wersji próbnej Aspose.Slides for SharePoint: nie ma ona limitu czasowego i jest dostarczana z darmowym wsparciem technicznym. Zachęcamy do przetestowania produktu przed zakupem, abyś wiedział, że spełnia on Twoje potrzeby.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Jest to ten sam plik do pobrania zarówno dla wersji próbnej, jak i płatnej Aspose.Slides for SharePoint. Wystarczy [pobrać Aspose.Slides for SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) ze strony pobierania, [zainstalować go]() i będzie działał w trybie próbnym domyślnie. 
+Wersja próbna i płatna Aspose.Slides for SharePoint są dostępne w tym samym pliku do pobrania. [Pobierz Aspose.Slides for SharePoint](https://releases.aspose.com/slides/pl/sharepoint/), [zainstaluj go](/slides/pl/sharepoint/installing-aspose-slides-for-sharepoint/), i domyślnie działa w trybie próbnym.
 
-Tryb próbny dodaje znak wodny oceny na każdym slajdzie w wyeksportowanym dokumencie. Gdy zakupisz licencję, po prostu zainstaluj rozwiązanie licencyjne na zainstalowanej kopii próbnej Aspose.Slides for SharePoint i wtedy będzie działał w trybie licencjonowanym. 
+W trybie próbnym przekonwertowany dokument zawiera znak wodny oceny. Po zakupie licencji zainstaluj rozwiązanie licencyjne na zainstalowanej kopii próbnej, jak opisano w [Instalowanie licencji Aspose.Slides for SharePoint](/slides/pl/sharepoint/installing-aspose-slides-for-sharepoint-license/), a Aspose.Slides for SharePoint działa w trybie licencjonowanym.
 
-**Znak wodny w wersji próbnej na slajdzie** 
+**Znak wodny oceny na slajdzie**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Slajd skonwertowany w trybie próbnym, z znakiem wodnym oceny](evaluate-aspose-slides-for-sharepoint_1.png)

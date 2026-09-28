@@ -3,17 +3,22 @@ title: Aspose.Slides értékelése
 type: docs
 weight: 70
 url: /hu/sharepoint/evaluate-aspose-slides/
+description: "Az Aspose.Slides for SharePoint értékelési verziója mit csinál, hogyan jelölik meg a kimenetét, és hogyan alakítható licencelt verzióvá."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Megjegyzés" %}}
 
-Az Aspose.Slides-et könnyen letöltheti értékelésre. Az értékelő letöltés ugyanaz, mint a megvásárolt letöltés. Az értékelő verzió egyszerűen licenccé válik, ha néhány sor kódot adunk hozzá a licenc alkalmazásához.
+Az Aspose.Slides for SharePoint értékelési letöltése megegyezik a megvásárolt letöltéssel. A farmon a licencmegoldás csomag telepítése után licencelt verzióvá válik; lásd [Installing Aspose.Slides for SharePoint License](/slides/hu/sharepoint/installing-aspose-slides-for-sharepoint-license/). Kód nem szükséges.
 
-Az Aspose.Slides értékelő verziója (licenc megadása nélkül) a termék teljes funkcionalitását biztosítja, de minden generált PDF, TIFF és XPS fájl diájára egy értékelő vízjelet helyez.
+Licenc nélkül az Aspose.Slides for SharePoint minden támogatott formátumba konvertál, de a konvertált fájlok értékelési vízjellel rendelkeznek, és a konvertálási oldal értékelési értesítést jelenít meg.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**Értékelési vízjel egy konvertált PDF-fájlban**
 
-{{% /alert %}} {{% alert color="primary" %}} 
+![Egy PDF fájl konvertálva értékelési módban, a diára helyezett értékelési vízjellel](evaluate-aspose-slides_1.png)
 
-Ha az Aspose.Slides-et az értékelő verzió korlátozásai nélkül szeretné tesztelni, kérhet 30 napos ideiglenes licencet is. További információért lásd a [Hogyan lehet ideiglenes licencet szerezni?](https://purchase.aspose.com/temporary-license)
+{{% /alert %}}
+
+{{% alert color="info" title="Megjegyzés" %}}
+
+Ha szeretnéd az Aspose.Slides-et az értékelési korlátozások nélkül tesztelni, kérhetsz 30 napos ideiglenes licencet is. Lásd [Hogyan szerezhetünk ideiglenes licencet?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}

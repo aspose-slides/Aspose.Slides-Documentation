@@ -3,34 +3,29 @@ title: Productoverzicht
 type: docs
 weight: 10
 url: /nl/sharepoint/product-overview/
+description: "Een overzicht van Aspose.Slides for SharePoint: de presentatieformaten die het converteert en de SharePoint-versies waarop het wordt geïnstalleerd."
 ---
-![Aspose.Slides voor SharePoint](product-overview_1.png)
-
-## **Welkom bij Aspose.Slides voor SharePoint!**
-
-Aspose.Slides voor SharePoint is een flexibele oplossing die het mogelijk maakt PowerPoint®‑documenten te converteren binnen Microsoft SharePoint‑sites.
+![Aspose.Slides for SharePoint](product-overview_1.png)
 
 ## **Productoverzicht**
 
-Aspose.Slides voor SharePoint ondersteunt een aantal PowerPoint‑documentformaten:
+Aspose.Slides for SharePoint converteert PowerPoint‑presentaties die zijn opgeslagen in SharePoint‑documentbibliotheken naar andere formaten, op de server.
+
+Het converteert de volgende PowerPoint‑formaten:
 
 - PPT – Microsoft PowerPoint‑presentatie 97 - 2003
-- PPS – Microsoft PowerPoint‑diavoorstelling 97 - 2003
-- POT – Microsoft PowerPoint‑sjabloon 97 - 2003
 - PPTX – Office Open XML‑presentatie
-- PPSX – Office Open XML‑diavoorstelling
-- POTX – Office Open XML‑sjabloon
 
-Aspose.Slides voor SharePoint is ontworpen om te werken met de volgende producten:
+Het converteert ze naar PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX en POTM. Zie [Supported File Formats](/slides/nl/sharepoint/supported-file-formats/) voor details.
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+De download bevat een afzonderlijk installatieprogramma en oplossingspakket voor elk van de volgende producten:
 
-Er zijn geen andere systeemvereisten behalve die welke bestaan voor de bovenstaande producten.
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-**Gebruik Aspose.Slides voor SharePoint om documenten uit de documentbibliotheek van SharePoint te converteren** 
+**Gebruik Aspose.Slides for SharePoint om documenten uit de documentbibliotheek van SharePoint te converteren**
 
-![Documentbibliotheek van SharePoint](product-overview_2.png)
+![Een SharePoint-documentbibliotheek met het menu‑item Convert with Aspose.Slides](product-overview_2.png)

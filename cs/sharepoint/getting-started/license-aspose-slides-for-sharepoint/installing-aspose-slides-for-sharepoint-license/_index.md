@@ -3,56 +3,63 @@ title: Instalace licence Aspose.Slides pro SharePoint
 type: docs
 weight: 10
 url: /cs/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "Nainstalujte licenci Aspose.Slides pro SharePoint na farmu SharePoint: přidejte řešení licence do úložiště řešení, nasadíte jej a ověřte, že převedené soubory již neobsahují vodotisk hodnocení."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Jakmile budete spokojeni s vyzkoušením, můžete [purchase a license](https://purchase.aspose.com/buy). Před nákupem se ujistěte, že rozumíte a souhlasíte s podmínkami předplatného licence. Licence vám bude zaslána e-mailem po uhrazení objednávky.
+Jakmile budete spokojeni s hodnocením, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cs/sharepoint/). Před nákupem se ujistěte, že rozumíte podmínkám předplatného licence a souhlasíte s nimi. Licence vám bude zaslána e‑mailem po zaplacení objednávky.
 
 Licence je archiv ZIP obsahující běžný balíček řešení SharePoint. Archiv obsahuje:
 
 - Aspose.Slides.SharePoint.License.wsp – soubor balíčku řešení SharePoint. Licence je zabalena jako řešení SharePoint, aby bylo nasazení a stažení napříč farmou serverů snadné.
 - readme.txt – Pokyny k instalaci licence.
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **Nasazení licence**
+
 Instalace licence se provádí z konzole serveru pomocí **stsadm.exe**.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Cesty jsou v následující sekci vynechány pro přehlednost.
+Cesty jsou v následující části vynechány pro přehlednost.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 Proveďte následující kroky k nasazení licence Aspose.Slides pro SharePoint:
 
-1. Spusťte stsadm pro přidání řešení do úložiště řešení SharePoint: 
+1. Spusťte stsadm pro přidání řešení do úložiště řešení SharePoint:
 
-``` xml
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+2. Nasazujte řešení na všechny servery ve farmě:
 
-```
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-2. Nasadit řešení na všechny servery ve farmě: 
+3. Proveďte administrativní časovačové úlohy pro okamžité dokončení nasazení:
 
-``` xml
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+Operace `addsolution` přijímá cestu k souboru řešení v `-filename`; operace `deploysolution` přijímá název řešení, které je již v úložišti řešení, v `-name`.
 
-```
+{{% alert color="info" title="Note" %}}
 
-3. Spusťte administrativní časovačové úlohy, aby se nasazení okamžitě dokončilo: 
+Při spuštění kroku nasazení se zobrazí varování, pokud služba SharePoint Administration neběží. **stsadm.exe** závisí na této službě a na službě SharePoint Timer, aby replikovala data řešení napříč farmou. Pokud tyto služby neběží na vaší farmě serverů, může být nutné licenci nasadit na každém serveru zvlášť.
 
-``` xml
+{{% /alert %}}
 
- Stsadm.exe -o execadmsvcjobs
+{{% alert color="info" title="Note" %}}
 
-```
+V SharePoint 2010 a novějších odpovídají cmdlety SharePoint Management Shell `Add-SPSolution`, `Install-SPSolution` a `Start-SPAdminJob` operacím `addsolution`, `deploysolution` a `execadmsvcjobs`. Viz [Mapování Stsadm na Microsoft PowerShell v SharePoint Serveru](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
 
-{{% alert color="primary" %}} 
+{{% /alert %}}
 
-Při provádění nasazení se zobrazí varování, pokud služba Windows SharePoint Services Administration neběží. **stsadm.exe** závisí na této službě a na Windows SharePoint Timer Service pro replikaci dat řešení napříč farmou. Pokud tyto služby ve vaší farmě serverů neběží, může být nutné nasadit licenci na každém serveru. 
+## **Otestování licence**
 
-{{% /alert %}} 
-## **Testování licence**
-Pro otestování, že byla licence správně nainstalována, převeďte libovolný dokument do nového formátu. Pokud v dokumentu není žádná zkušební vodoznak, licence byla úspěšně aktivována.
+Pro otestování, že byla licence nainstalována správně, převeďte libovolnou prezentaci do nového formátu. Pokud v převedeném souboru není vodotisk hodnocení, licence je aktivní.

@@ -1,36 +1,51 @@
 ---
-title: Supporto a Formati Multipli
+title: Supporto a più formati
 type: docs
 weight: 10
 url: /it/sharepoint/multiple-format-support/
+description: "I formati di input accettati da Aspose.Slides for SharePoint e i formati di output offerti nella sua pagina di conversione."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Con Aspose.Slides per SharePoint, è possibile convertire documenti tra molti formati di documenti Office popolari all'interno di una libreria documenti di SharePoint. Le conversioni vengono eseguite con alta fedeltà e precisione. 
-
-{{% /alert %}} 
-## **Formati di Input Supportati**
-Aspose.Slides per SharePoint supporta i seguenti formati di input: 
-
-- PPT – Presentazione Microsoft PowerPoint 97 - 2003
-- PPS – Presentazione Microsoft PowerPoint SlideShow 97 - 2003
-- POT – Modello Microsoft PowerPoint 97 - 2003
-- PPTX – Presentazione Office Open XML
-- PPSX – SlideShow Office Open XML
-- POTX – Modello Office Open XML
-
-{{% alert color="primary" %}} 
-
-Per generare documenti, Aspose.Slides per SharePoint fa affidamento su una versione integrata di [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), l'unico componente di elaborazione di documenti PowerPoint di Aspose.
+Con Aspose.Slides for SharePoint, è possibile convertire le presentazioni PowerPoint in molti formati di documento popolari all'interno di una libreria documenti di SharePoint.
 
 {{% /alert %}}
-## **Formati di Output Supportati**
-Sono supportati i seguenti formati di output da Aspose.Slides per SharePoint: 
 
-- PDF – Formato Documento Portatile
-- TIFF – Pacchetto Immagini
+## **Formati di input supportati**
+
+Aspose.Slides for SharePoint converte i seguenti formati di input:
+
+- PPT – Presentazione Microsoft PowerPoint 97 - 2003
+- PPTX – Presentazione Office Open XML
+
+{{% alert color="info" title="Note" %}}
+
+Per convertire i documenti, Aspose.Slides for SharePoint si basa su una versione integrata di [Aspose.Slides for .NET](https://products.aspose.com/slides/it/net/).
+
+{{% /alert %}}
+
+## **Formati di output supportati**
+
+L'elenco **Converti in** nella pagina di conversione offre i seguenti formati di output, in questo ordine:
+
+- PDF – Documento portatile Adobe
+- TIFF – Pacchetto di immagini
 - XPS – Specifica XML Paper
+- PPS – Presentazione diapositive
+- PPSX – Presentazione diapositive Open XML di Microsoft PowerPoint
+- ODP – Presentazione OpenDocument
+- PPTM – Presentazione Open XML con macro di Microsoft PowerPoint
+- PPSM – Presentazione diapositive Open XML con macro di Microsoft PowerPoint
+- POTX – Modello Microsoft PowerPoint
+- POTM – Modello di presentazione Open XML con macro di PowerPoint
+- PDFNotes – Visualizzazione delle note della presentazione in formato PDF
+- HTML – Presentazione in formato HTML
+- TIFFNotes – Visualizzazione delle note della presentazione come immagine TIFF multipagina
+- SWF – Filmato Shockwave Flash
+- SWFNotes – Visualizzazione delle note della presentazione come file SWF multipagina
 
-**Selezionare il formato di output dalla schermata Impostazioni di Conversione** 
+**Selezionare il formato di output nella pagina Impostazioni di conversione**
 
-![todo:image_alt_text](multiple-format-support_1.png)
+![La pagina Impostazioni di conversione con l'elenco Converti in dei formati di output](multiple-format-support_1.png)
+
+L'istantanea è stata scattata con una versione precedente, che offriva solo i formati PDF, TIFF e XPS.

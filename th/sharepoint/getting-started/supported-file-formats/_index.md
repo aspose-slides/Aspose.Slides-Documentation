@@ -3,8 +3,10 @@ title: รูปแบบไฟล์ที่รองรับ
 type: docs
 weight: 20
 url: /th/sharepoint/supported-file-formats/
+description: "รูปแบบการนำเสนอที่ Aspose.Slides for SharePoint แปลงจากและรูปแบบที่แปลงเป็น"
 ---
 ## **เวอร์ชัน Microsoft PowerPoint ที่รองรับ**
+
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -14,25 +16,27 @@ url: /th/sharepoint/supported-file-formats/
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
-
+- Microsoft PowerPoint for Mac
 
 ## **รูปแบบไฟล์ที่รองรับ**
-ตารางต่อไปนี้แสดงรูปแบบไฟล์ที่ Aspose.Slides for SharePoint สามารถโหลดและบันทึกได้.
 
-|**รูปแบบ**|**คำอธิบาย**|**โหลด**|**บันทึก**|**หมายเหตุ**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|งานนำเสนอ PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|งานนำเสนอ PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|สไลด์โชว์ PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|สไลด์โชว์ PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|งานนำเสนอ PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|สไลด์โชว์ PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTX](https://docs.fileformat.com/presentation/potx/)|เทมเพลต PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://docs.fileformat.com/presentation/potm/)|เทมเพลต PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|บันทึกเอกสารเป็นภาพ TIFF หน้าเดียวหรือหลายหน้า| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|รูปแบบเอกสารแบบพกพา| |{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|เอกสาร XPS| |{{< emoticons/tick >}}| |
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|กราฟิกเวกเตอร์แบบขยาย (รูปแบบภาพเวกเตอร์แบบ XML)| |{{< emoticons/tick >}}| |
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|รูปแบบเว็บขนาดเล็ก| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|รูปแบบ HTML| |{{< emoticons/tick >}}| |
+Aspose.Slides for SharePoint แปลงการนำเสนอ PPT และ PPTX ที่จัดเก็บในไลบรารีเอกสารของ SharePoint ไฟล์ประเภทอื่นจะไม่ถูกแปลง
+
+|**รูปแบบ**|**คำอธิบาย**|**แปลงจาก**|**แปลงเป็น**|
+| :- | :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|การนำเสนอ PowerPoint 97 - 2003|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|การนำเสนอ PowerPoint 2007 เป็นต้นไป|{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|รูปแบบเอกสารแบบพกพา, พร้อมสไลด์หรือมุมมองบันทึกย่อ| |{{< emoticons/tick >}}|
+|[TIFF](https://docs.fileformat.com/image/tiff/)|รูปภาพ TIFF, พร้อมสไลด์หรือมุมมองบันทึกย่อ| |{{< emoticons/tick >}}|
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification| |{{< emoticons/tick >}}|
+|[HTML](https://docs.fileformat.com/web/html/)|การนำเสนอในรูปแบบ HTML| |{{< emoticons/tick >}}|
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|ภาพยนตร์ Shockwave Flash, พร้อมสไลด์หรือมุมมองบันทึกย่อ| |{{< emoticons/tick >}}|
+|[ODP](https://docs.fileformat.com/presentation/odp/)|การนำเสนอ OpenDocument| |{{< emoticons/tick >}}|
+|[PPS](https://docs.fileformat.com/presentation/pps/)|การแสดงสไลด์ PowerPoint 97 - 2003| |{{< emoticons/tick >}}|
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|การแสดงสไลด์ PowerPoint 2007 เป็นต้นไป| |{{< emoticons/tick >}}|
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|การนำเสนอ PowerPoint ที่เปิดใช้งานมาโคร| |{{< emoticons/tick >}}|
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|การแสดงสไลด์ PowerPoint ที่เปิดใช้งานมาโคร| |{{< emoticons/tick >}}|
+|[POTX](https://docs.fileformat.com/presentation/potx/)|เทมเพลต PowerPoint| |{{< emoticons/tick >}}|
+|[POTM](https://docs.fileformat.com/presentation/potm/)|เทมเพลต PowerPoint ที่เปิดใช้งานมาโคร| |{{< emoticons/tick >}}|
+
+รูปแบบผลลัพธ์จะถูกเลือกภายใต้ **แปลงเป็น** ในหน้าการแปลง; ดู [การสนับสนุนหลายรูปแบบ](/slides/th/sharepoint/multiple-format-support/) เพื่อดูรายการตัวเลือกที่แน่นอน.

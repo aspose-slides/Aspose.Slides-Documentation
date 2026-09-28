@@ -3,19 +3,20 @@ title: مقدمة
 type: docs
 weight: 10
 url: /ar/sharepoint/introduction/
+description: "مقدمة لدليل مستخدم Aspose.Slides لـ SharePoint: ما يفعله المنتج في موقع SharePoint وأي المقالات تغطي مكتبات المستندات، والفوائد، والتحويل."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+تم تصميم مواقع SharePoint للتعاون والاتصال وتخزين المحتوى لتلبية احتياجات تجارية معينة. تمكن مجموعة من الأفراد من تحقيق هدف مشترك من خلال تسهيل مشاركة المعلومات والاتصال. غالبًا ما تكون المعلومات متاحة كموقع ويب ويتم الوصول إليها عبر متصفح الويب.
 
-تم تصميم مواقع SharePoint للتعاون والتواصل وتخزين المحتوى من أجل تلبية احتياجات الأعمال المحددة. يتيح ذلك لمجموعة من الأفراد تحقيق هدف مشترك من خلال تسهيل تبادل المعلومات والتواصل. غالبًا ما تتوفر المعلومات على شكل موقع ويب ويتم الوصول إليها عبر متصفح الويب. 
+{{% /alert %}}
 
-{{% /alert %}} 
-## **ما هو SharePoint وAspose.Slides؟**
-Aspose.Slides لـ SharePoint هو حل مرن لتحويل مستندات ~Microsoft PowerPoint إلى تنسيقات أخرى مثل PPT وPOT وPPS وPPTX وPPSX وPOTX. يتيح Aspose.Slides لـ SharePoint قراءة وتحويل ملفات PowerPoint في تطبيق SharePoint دون استخدام Microsoft PowerPoint. 
+## **ما هو SharePoint و Aspose.Slides؟**
 
-تتناول هذه المقالة ما يلي: 
+Aspose.Slides for SharePoint هو حل لتحويل عروض Microsoft PowerPoint (PPT و PPTX) إلى صيغ أخرى: PDF، TIFF، XPS، HTML، SWF، ODP، PPS، PPSX، PPTM، PPSM، POTX و POTM. يتيح لك تحويل ملفات PowerPoint في موقع SharePoint دون استخدام Microsoft PowerPoint. القائمة الكاملة للصيغ موجودة في [الصيغ المدعومة](/slides/ar/sharepoint/supported-file-formats/).
 
-- [ملحوظة حول مكتبة مستندات SharePoint](/slides/ar/sharepoint/sharepoint-document-library/).
+يغطي هذا المقال ما يلي:
+- [ملاحظة حول مكتبة مستندات SharePoint](/slides/ar/sharepoint/sharepoint-document-library/).
 - [فوائد استخدام Aspose.Slides لـ SharePoint](/slides/ar/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
-- [كيفية تحويل مستندات Microsoft PowerPoint إلى تنسيقات أخرى](/slides/ar/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
-- [ملخص](/slides/ar/sharepoint/summary/)
+- [كيفية تحويل مستندات Microsoft PowerPoint إلى صيغ أخرى](/slides/ar/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+- [الملخص](/slides/ar/sharepoint/summary/)

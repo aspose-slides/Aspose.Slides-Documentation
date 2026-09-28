@@ -3,56 +3,63 @@ title: Εγκατάσταση της άδειας Aspose.Slides για SharePoin
 type: docs
 weight: 10
 url: /el/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "Εγκαταστήστε την άδεια Aspose.Slides για SharePoint σε ένα farm SharePoint: προσθέστε τη λύση άδειας στο κατάστημα λύσεων, αναπτύξτε τη και ελέγξτε ότι τα μετατρεπόμενα αρχεία δεν φέρουν πλέον υδατογράφημα αξιολόγησης."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Μόλις είστε ευχαριστημένοι με την αξιολόγησή σας, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/buy). Πριν από την αγορά, βεβαιωθείτε ότι κατανοείτε και συμφωνείτε με τους όρους συνδρομής της άδειας. Η άδεια σας αποστέλλεται μέσω email όταν η παραγγελία έχει πληρωθεί.
+Μόλις είστε ευχαριστημένοι με την αξιολόγησή σας, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/pricing/slides/el/sharepoint/). Πριν κάνετε την αγορά, βεβαιωθείτε ότι καταλαβαίνετε και συμφωνείτε με τους όρους συνδρομής της άδειας. Η άδεια αποστέλλεται σε εσάς μέσω email όταν η παραγγελία έχει πληρωθεί.
 
 Η άδεια είναι ένα αρχείο ZIP που περιέχει ένα κανονικό πακέτο λύσης SharePoint. Το αρχείο περιέχει:
 
-- Aspose.Slides.SharePoint.License.wsp – το αρχείο του πακέτου λύσης SharePoint. Η άδεια συσκευάζεται ως λύση SharePoint για να διευκολύνει την ανάπτυξη και την ανάκληση σε ένα σύνολο διακομιστών.
-- readme.txt – Οδηγίες εγκατάστασης άδειας.
+- Aspose.Slides.SharePoint.License.wsp – το αρχείο πακέτου λύσης SharePoint. Η άδεια συσκευάζεται ως λύση SharePoint για να διευκολύνει την ανάπτυξη και την ανάκληση σε ολόκληρο το farm διακομιστών.
+- readme.txt – Οδηγίες εγκατάστασης της άδειας.
 
 {{% /alert %}}
+
 ## **Ανάπτυξη της Άδειας**
+
 Η εγκατάσταση της άδειας εκτελείται από την κονσόλα του διακομιστή μέσω του **stsadm.exe**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
 Οι διαδρομές παραλείπονται στην επόμενη ενότητα για σαφήνεια.
 
 {{% /alert %}}
 
-Εκτελέστε τα παρακάτω βήματα για να αναπτύξετε την άδεια Aspose.Slides για SharePoint:
+Εκτελέστε τα παρακάτω βήματα για την ανάπτυξη της άδειας Aspose.Slides για SharePoint:
 
-1. Εκτελέστε stsadm για να προσθέσετε τη λύση στο αποθετήριο λύσεων του SharePoint:
+1. Εκτελέστε το stsadm για να προσθέσετε τη λύση στο κατάστημα λύσεων του SharePoint:
 
-``` xml
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+2. Αναπτύξτε τη λύση σε όλους τους διακομιστές του farm:
 
-```
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-2. Αναπτύξτε τη λύση σε όλους τους διακομιστές του συγκροτήματος:
+3. Εκτελέστε τις εργασίες χρονοδιακόπτη διαχείρισης για να ολοκληρώσετε αμέσως την ανάπτυξη:
 
-``` xml
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+Η ενέργεια `addsolution` δέχεται τη διαδρομή του αρχείου λύσης στο `-filename`; η ενέργεια `deploysolution` δέχεται το όνομα της λύσης που είναι ήδη στο κατάστημα λύσεων στο `-name`.
 
-```
+{{% alert color="info" title="Note" %}}
 
-3. Εκτελέστε εργασίες χρονοδιακόπτη διαχείρισης για να ολοκληρωθεί η ανάπτυξη αμέσως:
-
-``` xml
-
- Stsadm.exe -o execadmsvcjobs
-
-```
-
-{{% alert color="primary" %}}
-
-Λαμβάνετε μια προειδοποίηση όταν εκτελείτε το βήμα της ανάπτυξης εάν δεν εκτελείται η υπηρεσία Windows SharePoint Services Administration. Το **stsadm.exe** εξαρτάται από αυτήν την υπηρεσία και από την υπηρεσία Windows SharePoint Timer Service για να αντιγράψει τα δεδομένα της λύσης σε όλο το συγκρότημα. Εάν αυτές οι υπηρεσίες δεν εκτελούνται στο συγκρότημα διακομιστών σας, ίσως χρειαστεί να αναπτύξετε την άδεια σε κάθε διακομιστή.
+Λαμβάνετε μια προειδοποίηση κατά την εκτέλεση του βήματος ανάπτυξης εάν η υπηρεσία SharePoint Administration δεν εκτελείται. Το **stsadm.exe** εξαρτάται από αυτήν την υπηρεσία και από την υπηρεσία SharePoint Timer για την αντιγραφή των δεδομένων λύσης σε όλο το farm. Εάν αυτές οι υπηρεσίες δεν εκτελούνται στο farm των διακομιστών σας, ίσως χρειαστεί να εγκαταστήσετε την άδεια σε κάθε διακομιστή.
 
 {{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+Στο SharePoint 2010 και μετά, οι cmdlet του SharePoint Management Shell `Add-SPSolution`, `Install-SPSolution` και `Start-SPAdminJob` αντιστοιχούν στις ενέργειες `addsolution`, `deploysolution` και `execadmsvcjobs`. Δείτε το [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
+
+{{% /alert %}}
+
 ## **Δοκιμή της Άδειας**
-Για να ελέγξετε ότι η άδεια έχει εγκατασταθεί σωστά, μετατρέψτε οποιοδήποτε έγγραφο σε νέο μορφότυπο. Εάν δεν υπάρχει υδατογράφημα αξιολόγησης στο έγγραφο, η άδεια ενεργοποιήθηκε επιτυχώς.
+
+Για να ελέγξετε ότι η άδεια έχει εγκατασταθεί σωστά, μετατρέψτε οποιαδήποτε παρουσίαση σε νέο μορφότυπο. Εάν δεν υπάρχει υδατογράφημα αξιολόγησης στο μετατρεπόμενο αρχείο, η άδεια είναι ενεργή.

@@ -1,10 +1,12 @@
 ---
-title: Formati file supportati
+title: Formati di file supportati
 type: docs
 weight: 20
 url: /it/sharepoint/supported-file-formats/
+description: "I formati di presentazione che Aspose.Slides per SharePoint converte, e i formati in cui li converte."
 ---
 ## **Versioni Microsoft PowerPoint supportate**
+
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -14,25 +16,27 @@ url: /it/sharepoint/supported-file-formats/
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint per MAC
+- Microsoft PowerPoint per Mac
 
+## **Formati di file supportati**
 
-## **Formati file supportati**
-La tabella seguente indica i formati di file che Aspose.Slides per SharePoint può caricare e salvare.
+Aspose.Slides per SharePoint converte presentazioni PPT e PPTX archiviate in una libreria documenti di SharePoint. I file di altri tipi non vengono convertiti.
 
-|**Formato**|**Descrizione**|**Carica**|**Salva**|**Note**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentazione PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentazione PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Presentazione diapositive PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Presentazione diapositive PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Presentazione PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Presentazione diapositive PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTX](https://docs.fileformat.com/presentation/potx/)|Modello PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTM](https://docs.fileformat.com/presentation/potm/)|Modello PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Salva il documento come immagine TIFF singola o multi‑pagina||{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Formato documento portatile||{{< emoticons/tick >}}||
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Documenti XPS||{{< emoticons/tick >}}||
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Grafica vettoriale scalabile (formato di immagine vettoriale basato su XML)||{{< emoticons/tick >}}||
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Formato web piccolo||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|Formato HTML||{{< emoticons/tick >}}||
+|**Formato**|**Descrizione**|**Converti da**|**Converti in**|
+| :- | :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentazione PowerPoint 97 - 2003|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentazione PowerPoint 2007 e successive|{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Formato Portable Document Format, con le diapositive o con la vista note| |{{< emoticons/tick >}}|
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Immagine TIFF, con le diapositive o con la vista note| |{{< emoticons/tick >}}|
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Specificazione XML Paper| |{{< emoticons/tick >}}|
+|[HTML](https://docs.fileformat.com/web/html/)|Presentazione in formato HTML| |{{< emoticons/tick >}}|
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Filmato Shockwave Flash, con le diapositive o con la vista note| |{{< emoticons/tick >}}|
+|[ODP](https://docs.fileformat.com/presentation/odp/)|Presentazione OpenDocument| |{{< emoticons/tick >}}|
+|[PPS](https://docs.fileformat.com/presentation/pps/)|Presentazione PowerPoint 97 - 2003| |{{< emoticons/tick >}}|
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|Presentazione PowerPoint 2007 e successive| |{{< emoticons/tick >}}|
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Presentazione PowerPoint con macro| |{{< emoticons/tick >}}|
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Presentazione PowerPoint con macro| |{{< emoticons/tick >}}|
+|[POTX](https://docs.fileformat.com/presentation/potx/)|Modello PowerPoint| |{{< emoticons/tick >}}|
+|[POTM](https://docs.fileformat.com/presentation/potm/)|Modello PowerPoint con macro| |{{< emoticons/tick >}}|
+
+Il formato di output è selezionato sotto **Converti in** nella pagina di conversione; consultare [Supporto più formati](/slides/it/sharepoint/multiple-format-support/) per l'elenco completo delle opzioni.

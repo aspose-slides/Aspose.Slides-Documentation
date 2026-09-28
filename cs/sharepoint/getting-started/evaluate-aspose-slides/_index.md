@@ -1,19 +1,24 @@
 ---
-title: Vyzkoušet Aspose.Slides
+title: Vyhodnocení Aspose.Slides
 type: docs
 weight: 70
 url: /cs/sharepoint/evaluate-aspose-slides/
+description: "Co dělá evaluační verze Aspose.Slides for SharePoint, jak je její výstup označen a jak ji převést na licencovanou verzi."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" title="Poznámka" %}}
 
-Aspose.Slides můžete snadno stáhnout k vyzkoušení. Stáhnutí k vyzkoušení je stejné jako zakoupené stažení. Vyzkoušejte verze se stane licencovanou po přidání několika řádků kódu pro aplikaci licence.
+Vyhodnocovací stažení Aspose.Slides for SharePoint je stejné jako zakoupené stažení. Stane se licencovanou verzí, když nainstalujete balíček řešení licence na farmu; viz [Instalace licence Aspose.Slides for SharePoint](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint-license/). Kód není potřeba.
 
-Evaluační verze Aspose.Slides (bez určené licence) poskytuje plnou funkčnost produktu, ale vkládá evaluační vodoznak na každý snímek generovaných souborů PDF, TIFF a XPS.
+Bez licence Aspose.Slides for SharePoint konvertuje do všech podporovaných formátů, ale konvertované soubory obsahují vodotisk vyhodnocení a stránka převodu zobrazuje upozornění na vyhodnocení.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**Vodotisk vyhodnocení v konvertovaném PDF souboru**
 
-{{% /alert %}} {{% alert color="primary" %}}
+![PDF soubor konvertovaný v režimu vyhodnocení, s vodotiskem vyhodnocení přes snímek](evaluate-aspose-slides_1.png)
 
-Pokud chcete testovat Aspose.Slides bez omezení evaluační verze, můžete si také požádat o 30‑denní dočasnou licenci. Viz [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
+{{% /alert %}}
+
+{{% alert color="info" title="Poznámka" %}}
+
+Pokud chcete testovat Aspose.Slides bez omezení vyhodnocení, můžete také požádat o 30denní dočasnou licenci. Viz [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}

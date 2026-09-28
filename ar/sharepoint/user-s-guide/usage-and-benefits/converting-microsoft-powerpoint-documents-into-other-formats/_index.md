@@ -1,55 +1,56 @@
 ---
-title: تحويل مستندات Microsoft PowerPoint إلى تنسيقات أخرى
+title: تحويل مستندات Microsoft PowerPoint إلى صيغ أخرى
 type: docs
 weight: 40
 url: /ar/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
+description: "تحويل عرض تقديمي PowerPoint في مكتبة مستندات SharePoint إلى PDF أو صيغة أخرى باستخدام عنصر القائمة Convert via Aspose.Slides، خطوة بخطوة."
 ---
+{{% alert color="info" title="ملاحظة" %}}
 
-{{% alert color="primary" %}} 
+عند تثبيت Aspose.Slides for SharePoint على خادم SharePoint وتفعيلها لمجموعة مواقع، يتم إضافة العنصر **Convert via Aspose.Slides** إلى قائمة المستندات في مكتبات المستندات، كما هو موضح أدناه. في SharePoint 2007، يُسمّى العنصر **Convert with Aspose.Slides**.
 
-عند تثبيت Aspose.Slides لـ SharePoint على خادم SharePoint، فإنه يضيف خيار **التحويل عبر Aspose.Slides.SharePoint** إلى قائمة العرض كما هو موضح أدناه: 
+**إضافة Aspose.Slides for SharePoint يضيف عنصر Convert via Aspose.Slides إلى قوائم المستندات**
 
-**تثبيت Aspose.Slides لـ SharePoint يضيف خيار التحويل عبر Aspose.Slides إلى قوائم المستندات** 
+![قائمة مستند تحتوي على عنصر Convert via Aspose.Slides](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **تحويل عرض تقديمي**
-لتحويل مستند Microsoft PowerPoint من مكتبة مستندات SharePoint: 
 
-1. حدد مستند Microsoft PowerPoint في مكتبة المستندات.
-2. انقر على السهم المتجه لأسفل لكشف القائمة وانقر على **التحويل عبر Aspose.Slides.SharePoint**. 
+لتحويل عرض تقديمي Microsoft PowerPoint (PPT أو PPTX) من مكتبة مستندات SharePoint:
 
-   **قائمة ملف العرض 2 تظهر خيار التحويل عبر Aspose.Slides** 
+1. حدد عرض تقديمي Microsoft PowerPoint في مكتبة المستندات.
+2. افتح قائمته وانقر على **Convert via Aspose.Slides**.
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
+   **قائمة ملف Presentation 2، مع إبراز عنصر Convert via Aspose.Slides**
 
+   ![قائمة عرض تقديمي في مكتبة مستندات، مع إبراز عنصر Convert via Aspose.Slides](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
 
+3. اختر تنسيق الإخراج ضمن **Convert to**. إذا رغبت، غيّر اسم ملف الإخراج ومجلد الوجهة.
+4. انقر على **Convert** لتحويل الملف.
 
+   **صفحة التحويل تسمح لك باختيار تنسيق الإخراج واسم الملف والوجهة**
 
-3. اختر تنسيق الإخراج المطلوب من النموذج. إذا رغبت، يمكنك تغيير اسم الملف الناتج ومجلد الوجهة.
-4. انقر على **تحويل** لتحويل الملف. 
+   ![صفحة التحويل مع تنسيق الإخراج وملف الوجهة ومجلد الوجهة](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
 
-   **نموذج التحويل يتيح لك اختيار تنسيق ملف الإخراج، الاسم والمكان** 
+5. عند اكتمال التحويل، تُعرض رسالة نجاح.
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
+   **تم التحويل بنجاح**
 
+   ![صفحة نتائج التحويل](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
 
+6. انقر على **Source Library** (للذهاب إلى المجلد المصدر) أو **Destination Library** (للذهاب إلى المجلد الذي تم حفظ الملف فيه).
 
+   يظهر المستند المحوَّل في مكتبة المستندات.
 
-5. عندما تكتمل عملية التحويل، يتم عرض رسالة نجاح. 
+   **المستند المحوَّل معروض في المكتبة التي تم حفظه إليها**
 
-   **كانت عملية التحويل ناجحة** 
+   ![الملف المحوَّل في مكتبة المستندات](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
+{{% alert color="info" title="ملاحظة" %}}
 
+تم التقاط لقطات الشاشة باستخدام نسخة سابقة، التي كانت تعرض فقط تنسيقات PDF وTIFF وXPS. صفحة التحويل الحالية تعرض المزيد من تنسيقات الإخراج؛ راجع [Multiple Format Support](/slides/ar/sharepoint/multiple-format-support/).
 
+{{% /alert %}}
 
-
-6. انقر على **المكتبة المصدرية** (للانتقال إلى الدليل المصدر) أو **المكتبة الوجهة** (للانتقال إلى الدليل الذي تم حفظ الملف فيه). 
-
-   يظهر المستند المحول في مكتبة المستندات. 
-
-   **المستند المحول يظهر في المكتبة التي تم حفظه فيها** 
-
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
+في SharePoint 2010 وما بعده، يمكنك أيضًا تحديد عرض تقديمي واحد أو أكثر في المكتبة والنقر على **Convert Slides** في علامة التبويب **Aspose Tools** على الشريط. سيفتح ذلك نفس صفحة التحويل.

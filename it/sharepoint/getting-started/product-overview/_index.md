@@ -3,34 +3,29 @@ title: Panoramica del prodotto
 type: docs
 weight: 10
 url: /it/sharepoint/product-overview/
+description: "Una panoramica di Aspose.Slides per SharePoint: i formati di presentazione che converte e le versioni di SharePoint su cui si installa."
 ---
 ![Aspose.Slides per SharePoint](product-overview_1.png)
 
-## **Benvenuti in Aspose.Slides per SharePoint!**
-
-Aspose.Slides per SharePoint è una soluzione flessibile che consente di convertire documenti PowerPoint® all'interno dei siti Microsoft SharePoint.
-
 ## **Panoramica del prodotto**
 
-Aspose.Slides per SharePoint supporta numerosi formati di documento PowerPoint:
+Aspose.Slides per SharePoint converte le presentazioni PowerPoint archiviate nelle librerie documenti di SharePoint in altri formati, sul server.
 
-- PPT – Presentazione Microsoft PowerPoint 97 - 2003
-- PPS – Presentazione Microsoft PowerPoint slideShow 97 - 2003
-- POT – Modello Microsoft PowerPoint 97 - 2003
-- PPTX – Presentazione Office Open XML
-- PPSX – SlideShow Office Open XML
-- POTX – Modello Office Open XML
+Converte i seguenti formati PowerPoint:
 
-Aspose.Slides per SharePoint è progettato per funzionare con i seguenti prodotti:
+- PPT – presentazione Microsoft PowerPoint 97 - 2003
+- PPTX – presentazione Office Open XML
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+Le converte in PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX e POTM. Vedi [Formati di file supportati](/slides/it/sharepoint/supported-file-formats/) per i dettagli.
 
-Non ci sono altri requisiti di sistema oltre a quelli esistenti per i prodotti sopra elencati.
+Il download contiene un programma di installazione separato e un pacchetto di soluzioni per ciascuno dei seguenti prodotti:
 
-**Utilizza Aspose.Slides per SharePoint per convertire i documenti dalla libreria documenti di SharePoint** 
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-![Libreria documenti di SharePoint](product-overview_2.png)
+**Utilizza Aspose.Slides per SharePoint per convertire i documenti dalla libreria documenti di SharePoint**
+
+![Una libreria documenti di SharePoint con la voce di menu Converti con Aspose.Slides](product-overview_2.png)

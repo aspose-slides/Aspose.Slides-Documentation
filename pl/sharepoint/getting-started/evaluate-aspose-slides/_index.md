@@ -1,19 +1,24 @@
 ---
-title: Ocena Aspose.Slides
+title: Ewaluacja Aspose.Slides
 type: docs
 weight: 70
 url: /pl/sharepoint/evaluate-aspose-slides/
+description: "Co robi wersja ewaluacyjna Aspose.Slides for SharePoint, jak jej wynik jest oznaczony i jak przekształcić ją w wersję licencjonowaną."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Możesz łatwo pobrać Aspose.Slides do oceny. Pobranie wersji próbnej jest takie samo jak pobranie po zakupie. Wersja próbna po prostu staje się licencjonowana, gdy dodasz kilka linii kodu, aby zastosować licencję.
+Pobranie wersji ewaluacyjnej Aspose.Slides for SharePoint jest takie samo jak pobranie zakupionej wersji. Staje się wersją licencjonowaną po zainstalowaniu pakietu rozwiązania licencyjnego na farmie; zobacz [Instalowanie licencji Aspose.Slides for SharePoint](/slides/pl/sharepoint/installing-aspose-slides-for-sharepoint-license/). Nie wymaga kodu.
 
-Wersja próbna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny oceny na każdym slajdzie generowanych plików PDF, TIFF i XPS.
+Bez licencji Aspose.Slides for SharePoint konwertuje do każdego obsługiwanego formatu, ale przekonwertowane pliki zawierają znak wodny wersji ewaluacyjnej, a strona konwersji wyświetla informację o wersji ewaluacyjnej.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**Znak wodny wersji ewaluacyjnej w przekonwertowanym pliku PDF**
 
-{{% /alert %}} {{% alert color="primary" %}} 
+![Plik PDF przekonwertowany w trybie ewaluacji, z znakiem wodnym wersji ewaluacyjnej nad slajdem](evaluate-aspose-slides_1.png)
 
-Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji próbnej, możesz także poprosić o tymczasową licencję na 30 dni. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
+{{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz również poprosić o 30‑dniową tymczasową licencję. Zobacz [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}
