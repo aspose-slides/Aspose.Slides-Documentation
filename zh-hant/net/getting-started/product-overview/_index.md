@@ -123,7 +123,7 @@ Aspose.Slides for .NET 的功能可分為以下幾組：
 ## **技術支援**
 Aspose 為所有產品提供無限制的免費技術支援。所有使用者（包括使用評估版的使用者）皆可取得支援。若您需要 Aspose.Slides for .NET 的協助，請參考以下方式：
 
-- 主要支援管道為 [Aspose 論壇](https://forum.aspose.com/)。請在 [Aspose.Slides 論壇](https://forum.aspose.com/c/slides/zh-hant/11) 發表問題，通常會在數小時內得到回覆。Aspose.Slides 支援團隊會直接回覆論壇上的問題。
+- 主要支援管道為 [Aspose 論壇](https://forum.aspose.com/)。請在 [Aspose.Slides 論壇](https://forum.aspose.com/c/slides/11) 發表問題，通常會在數小時內得到回覆。Aspose.Slides 支援團隊會直接回覆論壇上的問題。
 - 請注意，Aspose 不提供電話技術支援。電話支援僅限於銷售與購買相關問題。
 - 在論壇等待回覆時，請保持耐心，並考慮時區差異。
 
@@ -145,10 +145,10 @@ Aspose 為所有產品提供無限制的免費技術支援。所有使用者（�
 
 |**資源**|**說明**|
 | :- | :- |
-|[Aspose.Slides for .NET 首頁](https://products.aspose.com/slides/zh-hant/net/)|產品首頁。|
-|[Aspose.Slides 部落格](https://blog.aspose.com/category/slides/zh-hant/)|定期檢視此頁以取得新版本資訊與實用技巧。|
+|[Aspose.Slides for .NET 首頁](https://products.aspose.com/slides/net/)|產品首頁。|
+|[Aspose.Slides 部落格](https://blog.aspose.com/category/slides/)|定期檢視此頁以取得新版本資訊與實用技巧。|
 |[Aspose.Slides for .NET 下載](https://www.nuget.org/packages/Aspose.Slides.NET/)|於此下載最新版本的 Aspose.Slides。我們會不斷釋出新版本。|
-|[Aspose.Slides 支援論壇](https://forum.aspose.com/c/slides/zh-hant/11)|在此發表問題與議題，快速取得解決方案。|
+|[Aspose.Slides 支援論壇](https://forum.aspose.com/c/slides/11)|在此發表問題與議題，快速取得解決方案。|
 |[Aspose.Slides for .NET 產品文件](/slides/zh-hant/net/)|完整線上文件，包含本文件與 Aspose.Slides API 參考。|
 
 ## **信任等級需求**
@@ -159,7 +159,7 @@ Aspose 為所有產品提供無限制的免費技術支援。所有使用者（�
 
 ### 是否支援用於歸檔與可及性之 PDF 相容等級 (PDF/A 與 PDF/UA)？
 
-是的。您可以透過設定 [PDF 匯出選項](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/pdfoptions/) 以 PDF/A-2a/2b/2u、PDF/A-3a/3b 以及 PDF/UA 格式儲存為 PDF。
+是的。您可以透過設定 [PDF 匯出選項](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 以 PDF/A-2a/2b/2u、PDF/A-3a/3b 以及 PDF/UA 格式儲存為 PDF。
 
 ### 是否有字型替代機制，並支援自訂字型以確保正確的渲染？
 
@@ -179,7 +179,7 @@ Aspose 為所有產品提供無限制的免費技術支援。所有使用者（�
 
 ### 是否保留巨集，且能在 PPTM/PPSM 檔案中管理 VBA？
 
-是的。支援含巨集的簡報 [已支援](/slides/zh-hant/net/presentation-via-vba/)，您也可以在這些檔案中 [檢查與管理 VBA 專案](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.vba/)。
+是的。支援含巨集的簡報 [已支援](/slides/zh-hant/net/presentation-via-vba/)，您也可以在這些檔案中 [檢查與管理 VBA 專案](https://reference.aspose.com/slides/net/aspose.slides.vba/)。
 
 ### 是否能將 PDF 或 HTML 轉回 PowerPoint 投影片？
 
@@ -187,7 +187,7 @@ Aspose 為所有產品提供無限制的免費技術支援。所有使用者（�
 
 ### 是否支援 XPS 匯出，且能控制 XPS 輸出的品質與內容？
 
-是的。提供 [匯出至 XPS](/slides/zh-hant/net/convert-powerpoint-to-xps/) 功能，且透過 [儲存選項](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/xpsoptions/) 可調整輸出品質與內容。
+是的。提供 [匯出至 XPS](/slides/zh-hant/net/convert-powerpoint-to-xps/) 功能，且透過 [儲存選項](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) 可調整輸出品質與內容。
 
 ### 是否能將投影片轉換為影像，並控制輸出品質？
 

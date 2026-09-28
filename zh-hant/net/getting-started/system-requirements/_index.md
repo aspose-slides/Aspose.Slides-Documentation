@@ -68,7 +68,7 @@ Aspose.Slides.NET6.CrossPlatform 無法在使用 musl 取代 glibc 的 Alpine Li
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-如果缺少它，建立[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 會因 `TypeInitializationException`，其內部的 `DllNotFoundException` 會指出找不到 `libfontconfig.so.1` 而失敗。
+如果缺少它，建立[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 會因 `TypeInitializationException`，其內部的 `DllNotFoundException` 會指出找不到 `libfontconfig.so.1` 而失敗。
 
 最小基礎映像可能也不包含 `fontconfig`。例如 .NET 8 的 AWS Lambda 基礎映像既沒有 `fontconfig` 也沒有任何字型。若在其上建構容器映像，請執行 `dnf install -y fontconfig`，此指令亦會安裝 Noto Sans 字型。
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **全球化支援**
 
-兩個套件都需要 .NET 的全球化支援，Linux 上的 .NET 透過 ICU 函式庫提供。若以[globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) 執行，建立[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 會拋出 `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`。
+兩個套件都需要 .NET 的全球化支援，Linux 上的 .NET 透過 ICU 函式庫提供。若以[globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) 執行，建立[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 會拋出 `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`。
 
 某些容器映像會開啟此模式。例如 Alpine Linux 的 .NET 執行階段映像（`runtime-deps`、`runtime`、`aspnet`）會設定 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true`，且未包含 ICU。若在此類映像上建構，請安裝 ICU 並關閉此模式：
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-程式會在第一張投影片上加入帶文字的矩形，並使用 [Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法將簡報儲存為 *hello.pptx*。接著使用 [GetImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slide/getimage/) 渲染投影片，並以 [IImage.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimage/save/) 以 [ImageFormat.Png](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imageformat/) 格式儲存為 *hello.png*。比例因子 1 會使每點對應一像素，因此預設的 720 × 540 點投影片會變成 720 × 540 像素的圖像，文字可見於矩形內。若未授權，兩個檔案皆會帶有評估水印；詳情請參閱[授權](/slides/zh-hant/net/licensing/)。若缺少任何需求，程式會因前述的例外而終止。
+程式會在第一張投影片上加入帶文字的矩形，並使用 [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法將簡報儲存為 *hello.pptx*。接著使用 [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) 渲染投影片，並以 [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) 以 [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 格式儲存為 *hello.png*。比例因子 1 會使每點對應一像素，因此預設的 720 × 540 點投影片會變成 720 × 540 像素的圖像，文字可見於矩形內。若未授權，兩個檔案皆會帶有評估水印；詳情請參閱[授權](/slides/zh-hant/net/licensing/)。若缺少任何需求，程式會因前述的例外而終止。
 
 ## **開發工具**
 

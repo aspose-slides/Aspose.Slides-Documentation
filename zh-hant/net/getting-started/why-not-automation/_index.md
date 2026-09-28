@@ -110,5 +110,5 @@ Aspose 元件提供了管理 Office 檔案所需的一切，甚至遠超需求�
 {{% alert color="info" title="Note" %}}
 雖然本文僅列出部分 Aspose 元件相較於 Office Automation 的關鍵優勢，但實際上還有許多更多的好處。我們僅提及了其中一些主要優勢。
 
-此外，所有 Aspose 產品與元件皆提供無風險、無義務的[評估版](https://releases.aspose.com/slides/zh-hant/net/)。我們鼓勵您利用評估版，親自體驗 Aspose 為您的應用程式或業務帶來的價值。
+此外，所有 Aspose 產品與元件皆提供無風險、無義務的[評估版](https://releases.aspose.com/slides/net/)。我們鼓勵您利用評估版，親自體驗 Aspose 為您的應用程式或業務帶來的價值。
 {{% /alert %}}

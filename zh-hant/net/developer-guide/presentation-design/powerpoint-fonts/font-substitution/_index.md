@@ -28,7 +28,7 @@ description: "在渲染或轉換 PowerPoint 與 OpenDocument 簡報時，於 .NE
 
 ## **取得字型替代**
 
-使用 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/getsubstitutions/) 方法來判斷在渲染簡報時會被替代的字型。此方法傳回 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/fontsubstitutioninfo/) 物件，這些物件會識別原始字型和替代字型的名稱。
+使用 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 方法來判斷在渲染簡報時會被替代的字型。此方法傳回 [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) 物件，這些物件會識別原始字型和替代字型的名稱。
 
 以下 C# 範例列出簡報的全部字型替代：
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **取得所選投影片的字型替代**
 
-使用帶有 `int[] slides` 參數的 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/getsubstitutions/) 多載，以僅檢查渲染特定投影片所需的替代。這在您渲染或匯出簡報的部分、逐步檢查大型簡報、定位依賴不可用字型的投影片、為伺服器或容器準備最小字型套件，或在不處理其他投影片的情況下診斷渲染差異時非常有用。
+使用帶有 `int[] slides` 參數的 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 多載，以僅檢查渲染特定投影片所需的替代。這在您渲染或匯出簡報的部分、逐步檢查大型簡報、定位依賴不可用字型的投影片、為伺服器或容器準備最小字型套件，或在不處理其他投影片的情況下診斷渲染差異時非常有用。
 
-`slides` 陣列使用以 1 為起始的投影片索引：`1` 代表第一張投影片。相較之下，[Presentation.Slides](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/slides/zh-hant/) 集合的索引子是從 0 開始，所以同一張投影片須以 `presentation.Slides[0]` 取得。建立陣列時請留意此差異，以避免產生一位錯誤。
+`slides` 陣列使用以 1 為起始的投影片索引：`1` 代表第一張投影片。相較之下，[Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合的索引子是從 0 開始，所以同一張投影片須以 `presentation.Slides[0]` 取得。建立陣列時請留意此差異，以避免產生一位錯誤。
 
-透過 [Presentation.FontsManager](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/fontsmanager/) 屬性呼叫此多載。它只傳回在渲染所選投影片時決定的替代。每個結果都是包含原始與替代字型名稱的 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/fontsubstitutioninfo/) 物件。結果會反映目前的字型環境以及[外部載入的字型](/slides/zh-hant/net/custom-font/)。儲存在 [IFontSubstRuleCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsubstrulecollection/) 中的替代規則會變更渲染輸出，但不會在結果中顯示。
+透過 [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) 屬性呼叫此多載。它只傳回在渲染所選投影片時決定的替代。每個結果都是包含原始與替代字型名稱的 [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) 物件。結果會反映目前的字型環境以及[外部載入的字型](/slides/zh-hant/net/custom-font/)。儲存在 [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) 中的替代規則會變更渲染輸出，但不會在結果中顯示。
 
 同一個替代可能被多張所選投影片需求。建立字型清單或預檢報告時請對結果去除重複。以下範例會報告每個傳回的替代，然後建立唯一字型對映的排序清單：
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/) 介面提供兩種多載。依照渲染操作的範圍選擇使用：
+[IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) 介面提供兩種多載。依照渲染操作的範圍選擇使用：
 
 | 多載 | 使用情境 |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/getsubstitutions/) 不帶參數的 | 需要整個簡報的替代。 |
-| [GetSubstitutions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/getsubstitutions/) 帶有 `int[] slides` 參數的 | 需要特定範圍、增量檢查或部分匯出的替代。 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 不帶參數的 | 需要整個簡報的替代。 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 帶有 `int[] slides` 參數的 | 需要特定範圍、增量檢查或部分匯出的替代。 |
 
 ## **設定字型替代規則**
 
@@ -94,9 +94,9 @@ foreach (var entry in sortedPreflightEntries)
 
 1. 載入簡報。
 2. 為來源字型與替代字型建立字型定義。
-3. 使用 [WhenInaccessible](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/fontsubstcondition/) 條件建立 [FontSubstRule](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/fontsubstrule/)。
-4. 將規則加入 [FontSubstRuleCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/fontsubstrulecollection/)。
-5. 將該集合指派給 [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/fontsmanager/fontsubstrulelist/) 屬性。
+3. 使用 [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) 條件建立 [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/)。
+4. 將規則加入 [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/)。
+5. 將該集合指派給 [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) 屬性。
 6. 渲染或轉換簡報。
 
 以下 C# 範例在 `SomeRareFont` 不可用時，使用 `Arial` 替代 `SomeRareFont`，然後渲染第一張投影片以驗證結果。替代字型必須對 Aspose.Slides 可用。
@@ -160,4 +160,4 @@ Aspose.Slides 會依照其字型選擇流程選取最接近的可用字型。結
 
 **如何在批次轉換中保持字型選擇一致？**
 
-在每台機器或容器上使用相同的字型檔案與版本，[load required external fonts](/slides/zh-hant/net/custom-font/)，並在授權允許時 [embed fonts](/slides/zh-hant/net/embedded-font/)。您也可以在匯出前呼叫 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/getsubstitutions/) 以偵測非預期的替代。
+在每台機器或容器上使用相同的字型檔案與版本，[load required external fonts](/slides/zh-hant/net/custom-font/)，並在授權允許時 [embed fonts](/slides/zh-hant/net/embedded-font/)。您也可以在匯出前呼叫 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 以偵測非預期的替代。

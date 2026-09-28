@@ -22,7 +22,7 @@ description: "為什麼使用 Aspose.Slides for .NET 新增的 OLE 物件會顯�
 ---
 ## **介紹**
 
-使用 Aspose.Slides for .NET 時，當您將 [OleObjectFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/oleobjectframe/) 新增到投影片，輸出投影片上會顯示「EMBEDDED OLE OBJECT」訊息。此訊息是有意為之，並非錯誤。
+使用 Aspose.Slides for .NET 時，當您將 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) 新增到投影片，輸出投影片上會顯示「EMBEDDED OLE OBJECT」訊息。此訊息是有意為之，並非錯誤。
 
 如需取得有關 OLE 物件的更多資訊，請參閱 [Manage OLE](/slides/zh-hant/net/manage-ole/)。
 
@@ -30,7 +30,7 @@ description: "為什麼使用 Aspose.Slides for .NET 新增的 OLE 物件會顯�
 
 Aspose.Slides 會顯示「EMBEDDED OLE OBJECT」訊息，以通知您 OLE 物件已變更，必須更新預覽圖像。
 
-例如，若您將 Microsoft Excel 圖表作為 [OleObjectFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/oleobjectframe/) 新增至投影片（更多細節請參閱「Manage OLE」文章），然後在 Microsoft PowerPoint 中開啟簡報，您將在投影片上看到此圖像：
+例如，若您將 Microsoft Excel 圖表作為 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) 新增至投影片（更多細節請參閱「Manage OLE」文章），然後在 Microsoft PowerPoint 中開啟簡報，您將在投影片上看到此圖像：
 
 ![OLE 物件訊息](OLE_object_message.png)
 

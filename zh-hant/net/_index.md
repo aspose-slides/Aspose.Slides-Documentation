@@ -82,15 +82,15 @@ Aspose.Slides for .NET 是一個類別庫，用於在 .NET 應用程式中建立
 </ul>
 <p>參考文件</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh-hant/net/">API 參考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/net/release-notes/">版本說明</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API 參考</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">版本說明</a></li>
 <li><a href="/slides/zh-hant/net/known-issues/">已知問題</a></li>
 <li><a href="/slides/zh-hant/net/api-limitations/">輸出中繼資料限制</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/net/">下載</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">下載</a></li>
 </ul>
 <p>支援</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">免費支援論壇</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免費支援論壇</a></li>
 <li><a href="https://helpdesk.aspose.com/">付費支援服務台</a></li>
 </ul>
 </div>

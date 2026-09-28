@@ -14,7 +14,7 @@ description: "歷史：於 2014 年發佈的 Aspose.Slides for .NET 14.1.0 的�
 ---
 {{% alert color="info" title="注意" %}}
 
-這是一個歷史頁面。它列出了於 2014 年發佈的 Aspose.Slides for .NET 14.1.0 所公佈的已知問題，並未描述目前版本。欲了解各版本的變更，請參閱[release notes](https://releases.aspose.com/slides/zh-hant/net/release-notes/)。
+這是一個歷史頁面。它列出了於 2014 年發佈的 Aspose.Slides for .NET 14.1.0 所公佈的已知問題，並未描述目前版本。欲了解各版本的變更，請參閱[release notes](https://releases.aspose.com/slides/net/release-notes/)。
 
 {{% /alert %}}
 

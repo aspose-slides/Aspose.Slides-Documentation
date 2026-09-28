@@ -24,7 +24,7 @@ description: "在 C# 中使用 Aspose.Slides for .NET，將 PowerPoint 與 OpenD
 
 Aspose.Slides for .NET 可以將 PowerPoint 簡報轉換為 PowerPoint XML 簡報格式。當您需要以文字為基礎的表示來檢查簡報結構、排除產生的文件問題、在自動化測試中比較輸出，或整合需要 XML 而非簡報封裝的工作流程時，XML 輸出非常有用。
 
-使用 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法，搭配來自 [SaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/saveformat/) 列舉的 `Xml` 值。您可以將結果直接寫入檔案或寫入串流。
+使用 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法，搭配來自 [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 列舉的 `Xml` 值。您可以將結果直接寫入檔案或寫入串流。
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` 會建立 PowerPoint XML 簡報。它不會提取 PPTX 封裝內部儲存的各個 Office Open XML 部分。若您需要完整的 PPTX 封裝部件，例如 `ppt/presentation.xml` 或單一投影片的 XML 檔案，請檢查 PPTX 封裝本身。
@@ -32,7 +32,7 @@ Aspose.Slides for .NET 可以將 PowerPoint 簡報轉換為 PowerPoint XML 簡�
 
 ## **將簡報轉換為 XML 檔案**
 
-使用 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別載入來源簡報，然後將輸出路徑和 `SaveFormat.Xml` 傳遞給 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/)。來源可以是任何支援載入的簡報格式，例如 PPT、PPTX 或 ODP。
+使用 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 類別載入來源簡報，然後將輸出路徑和 `SaveFormat.Xml` 傳遞給 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)。來源可以是任何支援載入的簡報格式，例如 PPT、PPTX 或 ODP。
 
 以下範例將 PPTX 簡報轉換為 XML 檔案：
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **將 XML 輸出寫入串流**
 
-當 XML 必須保留在記憶體中或傳遞給其他元件（例如 Web 服務、儲存提供者或 XML 處理管線）時，請使用 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 的串流重載。以下範例將結果寫入 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 並將其倒回以便後續讀取：
+當 XML 必須保留在記憶體中或傳遞給其他元件（例如 Web 服務、儲存提供者或 XML 處理管線）時，請使用 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 的串流重載。以下範例將結果寫入 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 並將其倒回以便後續讀取：
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ xmlStream.Position = 0;
 
 **我可以在不在磁碟上建立檔案的情況下儲存 XML 輸出嗎？**
 
-可以。將可寫入的串流傳遞給 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/)。例如，使用 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 進行記憶體內處理。
+可以。將可寫入的串流傳遞給 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)。例如，使用 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 進行記憶體內處理。
 
 **Aspose.Slides 能再次載入匯出的 XML 檔案嗎？**
 
-可以。將 XML 檔案或串流傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/presentation/) 建構子。然後 [Presentation.SourceFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/sourceformat/) 會回傳 `SourceFormat.Xml`。[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentationfactory/getpresentationinfo/) 會為此格式回報 `LoadFormat.Unknown`，因此請勿以此判斷是否能開啟 XML 檔案。
+可以。將 XML 檔案或串流傳遞給 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 建構子。然後 [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) 會回傳 `SourceFormat.Xml`。[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) 會為此格式回報 `LoadFormat.Unknown`，因此請勿以此判斷是否能開啟 XML 檔案。
 
 **XML 轉換會將每張投影片渲染為頁面或影像嗎？**
 

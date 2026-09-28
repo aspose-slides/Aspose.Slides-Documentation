@@ -77,7 +77,7 @@ Aspose.Slides 讓您可以建立、讀取與修改簡報中幾乎所有的內容
 
 **多執行緒運作方式是什麼？處理可以平行化嗎？**
 
-在不同執行緒中處理不同文件是安全的；同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 物件不能同時被 [多執行緒](/slides/zh-hant/net/multithreading/) 使用。
+在不同執行緒中處理不同文件是安全的；同一個 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 物件不能同時被 [多執行緒](/slides/zh-hant/net/multithreading/) 使用。
 
 **是否支援檔案密碼與加密？**
 

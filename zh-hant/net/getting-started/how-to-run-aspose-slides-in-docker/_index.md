@@ -59,7 +59,7 @@ Aspose.Slides.NET6.CrossPlatform 無法在 Alpine Linux 上執行。對於基於
 </Project>
 ```
 
-*Program.cs* 會建立一個[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/)，在第一張投影片上加入帶文字的矩形，並使用[Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法將簡報分別儲存為 PPTX 與 PDF。兩個檔案皆會寫入工作目錄下的 *output* 資料夾。接著，程式會列出 PDF 產生過程中被取代的字型，使用[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/getsubstitutions/)，讓您得以確認容器是否擁有簡報所使用的字型。
+*Program.cs* 會建立一個[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)，在第一張投影片上加入帶文字的矩形，並使用[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法將簡報分別儲存為 PPTX 與 PDF。兩個檔案皆會寫入工作目錄下的 *output* 資料夾。接著，程式會列出 PDF 產生過程中被取代的字型，使用[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/)，讓您得以確認容器是否擁有簡報所使用的字型。
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Alpine 階段會安裝三個套件並變更一項設定：
 - `font-dejavu` 提供字型。若沒有任何字型，轉換會因 `System.ArgumentException: Font '?' cannot be found` 而中止。
 - `icu-libs` 與 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` 提供語系資料。Alpine .NET 映像預設以全球化不變模式執行，在此模式下 Aspose.Slides 會因缺少 `en-US` 的文化資訊而拋出 `CultureNotFoundException`。
 
-使用與前述相同的指令建置、執行並複製輸出。於此映像中，應用程式僅會列印 `Saved` 行：在 Linux 上使用 Aspose.Slides.NET 時，fontconfig 會自行選擇缺失字型的替代字型，而 [GetSubstitutions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ifontsmanager/getsubstitutions/) 不會列出它。請參閱[部署字型](/slides/zh-hant/net/deploy-fonts/) 以了解如何檢查實際使用的字型。
+使用與前述相同的指令建置、執行並複製輸出。於此映像中，應用程式僅會列印 `Saved` 行：在 Linux 上使用 Aspose.Slides.NET 時，fontconfig 會自行選擇缺失字型的替代字型，而 [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 不會列出它。請參閱[部署字型](/slides/zh-hant/net/deploy-fonts/) 以了解如何檢查實際使用的字型。
 
 ## **常見問題集**
 

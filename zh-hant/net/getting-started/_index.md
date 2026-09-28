@@ -62,7 +62,7 @@ Aspose.Slides for .NET 透過 NuGet 發佈為兩個提供相同類別的套件�
 
 ## **取得協助**
 
-[Product Support](/slides/zh-hant/net/product-support/) 說明如何在[免費支援論壇](https://forum.aspose.com/c/slides/zh-hant/11) 上提問，以及回報問題時需要包含的資訊。
+[Product Support](/slides/zh-hant/net/product-support/) 說明如何在[免費支援論壇](https://forum.aspose.com/c/slides/11) 上提問，以及回報問題時需要包含的資訊。
 
 ## **常見問答**
 
