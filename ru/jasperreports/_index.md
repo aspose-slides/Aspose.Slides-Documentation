@@ -64,12 +64,12 @@ Aspose.Slides for JasperReports добавляет экспортеры PowerPoi
 <hr>
 <p>СПРАВОЧНИК</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ru/jasperreport/release-notes/">Примечания к выпуску</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/jasperreport/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for JasperReports добавляет экспортеры PowerPoi
 
 Эти шаги компилируют однострочный отчёт, заполняют его и экспортируют в PPTX с помощью JasperReports 6.16.0 из Maven Central. Требуется JDK 11 или новее и Apache Maven.
 
-1. Скачайте ZIP‑архив со [download page](https://releases.aspose.com/slides/ru/jasperreport/) и распакуйте его. Папка *lib* содержит подпапку для каждого диапазона версий JasperReports, в которой находится jar‑файл соответствующего диапазона. Для JasperReports 6.16.0 скопируйте *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* в пустую папку проекта.
+1. Скачайте ZIP‑архив со [download page](https://releases.aspose.com/slides/jasperreport/) и распакуйте его. Папка *lib* содержит подпапку для каждого диапазона версий JasperReports, в которой находится jar‑файл соответствующего диапазона. Для JasperReports 6.16.0 скопируйте *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* в пустую папку проекта.
 
 2. Jar‑файл поставляется в ZIP, а не из Maven‑репозитория, поэтому установите его в локальный Maven‑репозиторий. Выполните эту команду в папке проекта:
 
