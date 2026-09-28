@@ -22,7 +22,7 @@ description: "为什么使用 Aspose.Slides for .NET 添加的 OLE 对象会显�
 ---
 ## **简介**
 
-使用 Aspose.Slides for .NET 时，当您向幻灯片添加 [OleObjectFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/oleobjectframe/) 时，输出幻灯片上会显示 “EMBEDDED OLE OBJECT” 消息。此消息是有意的，并非错误。
+使用 Aspose.Slides for .NET 时，当您向幻灯片添加 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) 时，输出幻灯片上会显示 “EMBEDDED OLE OBJECT” 消息。此消息是有意的，并非错误。
 
 有关处理 OLE 对象的更多信息，请参阅 [Manage OLE](/slides/zh/net/manage-ole/)。
 
@@ -30,7 +30,7 @@ description: "为什么使用 Aspose.Slides for .NET 添加的 OLE 对象会显�
 
 Aspose.Slides 显示 “EMBEDDED OLE OBJECT” 消息，以通知您 OLE 对象已更改，需要更新预览图像。
 
-例如，如果您将 Microsoft Excel 图表作为 [OleObjectFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/oleobjectframe/) 添加到幻灯片中（有关更多细节，请参阅 “Manage OLE” 文章），然后在 Microsoft PowerPoint 中打开演示文稿，您将在幻灯片上看到以下图像：
+例如，如果您将 Microsoft Excel 图表作为 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) 添加到幻灯片中（有关更多细节，请参阅 “Manage OLE” 文章），然后在 Microsoft PowerPoint 中打开演示文稿，您将在幻灯片上看到以下图像：
 
 ![OLE object message](OLE_object_message.png)
 

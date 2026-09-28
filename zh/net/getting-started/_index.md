@@ -62,7 +62,7 @@ Aspose.Slides for .NET 通过 NuGet 分发为两个提供相同类的包。将�
 
 ## **获取帮助**
 
-[产品支持](/slides/zh/net/product-support/) 说明了如何在[免费支持论坛](https://forum.aspose.com/c/slides/zh/11)提问以及报告问题时应包含哪些信息。
+[产品支持](/slides/zh/net/product-support/) 说明了如何在[免费支持论坛](https://forum.aspose.com/c/slides/11)提问以及报告问题时应包含哪些信息。
 
 ## **常见问题**
 

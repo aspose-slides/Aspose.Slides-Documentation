@@ -25,7 +25,7 @@ description: "Aspose.Slides for .NET 所需的代码访问安全信任级别：�
 
 ## **.NET Framework**
 
-Aspose.Slides 在 .NET Framework 上需要全信任。它无法在部分信任环境下运行，例如配置为 Medium Trust (`<trust level="Medium" />`) 的 ASP.NET 应用程序：创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 对象会导致 `SecurityException`。
+Aspose.Slides 在 .NET Framework 上需要全信任。它无法在部分信任环境下运行，例如配置为 Medium Trust (`<trust level="Medium" />`) 的 ASP.NET 应用程序：创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 对象会导致 `SecurityException`。
 
 Microsoft 不再将 ASP.NET 部分信任视为将应用程序相互隔离的方式，并建议改为在独立的应用程序池中运行应用程序。参见 [ASP.NET 部分信任不能保证应用隔离](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation)。
 

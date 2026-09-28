@@ -28,7 +28,7 @@ description: "在渲染或转换 PowerPoint 和 OpenDocument 演示文稿时，�
 
 ## **获取字体替代**
 
-使用 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsmanager/getsubstitutions/) 方法确定在渲染演示文稿时将替代哪些字体。该方法返回标识原始字体名称和替代字体名称的 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsubstitutioninfo/) 对象。
+使用 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 方法确定在渲染演示文稿时将替代哪些字体。该方法返回标识原始字体名称和替代字体名称的 [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) 对象。
 
 以下 C# 示例列出演示文稿的所有字体替代：
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **获取选定幻灯片的字体替代**
 
-使用带有 `int[] slides` 参数的 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsmanager/getsubstitutions/) 重载，仅检查渲染特定幻灯片所需的替代。这在以下情况下很有用：渲染或导出演示文稿的部分内容、增量检查大型演示文稿、定位依赖于不可用字体的幻灯片、为服务器或容器准备最小字体包，或在不处理无关幻灯片的情况下诊断渲染差异。
+使用带有 `int[] slides` 参数的 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 重载，仅检查渲染特定幻灯片所需的替代。这在以下情况下很有用：渲染或导出演示文稿的部分内容、增量检查大型演示文稿、定位依赖于不可用字体的幻灯片、为服务器或容器准备最小字体包，或在不处理无关幻灯片的情况下诊断渲染差异。
 
-`slides` 数组使用基于 1 的幻灯片索引：`1` 标识第一张幻灯片。相比之下，[Presentation.Slides](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/slides/zh/) 集合的索引器是基于 0 的，因此同一张幻灯片应写作 `presentation.Slides[0]`。构建数组时请牢记此差异，以免出现越界错误。
+`slides` 数组使用基于 1 的幻灯片索引：`1` 标识第一张幻灯片。相比之下，[Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合的索引器是基于 0 的，因此同一张幻灯片应写作 `presentation.Slides[0]`。构建数组时请牢记此差异，以免出现越界错误。
 
-通过 [Presentation.FontsManager](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/fontsmanager/) 属性调用该重载。它仅返回在渲染所选幻灯片时确定的替代。每个结果都是一个包含原始和替代字体名称的 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsubstitutioninfo/) 对象。结果反映当前的字体环境以及 [externally loaded fonts](/slides/zh/net/custom-font/)。存储在 [IFontSubstRuleCollection](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsubstrulecollection/) 中的替代规则会更改渲染输出，但不会在结果中体现。
+通过 [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) 属性调用该重载。它仅返回在渲染所选幻灯片时确定的替代。每个结果都是一个包含原始和替代字体名称的 [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) 对象。结果反映当前的字体环境以及 [externally loaded fonts](/slides/zh/net/custom-font/)。存储在 [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) 中的替代规则会更改渲染输出，但不会在结果中体现。
 
 同一替代可能被多个选定幻灯片所需。在创建字体清单或预检报告时请去重。以下示例报告每个返回的替代，然后创建唯一字体映射的排序列表：
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsmanager/) 接口提供这两个重载。根据渲染操作的范围选择使用：
+[IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) 接口提供这两个重载。根据渲染操作的范围选择使用：
 
 | 重载 | 适用场景 |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | 需要获取整个演示文稿的替代字体时。 |
-| [GetSubstitutions](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | 需要获取选定范围、增量检查或部分导出的替代字体时。 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | 需要获取整个演示文稿的替代字体时。 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | 需要获取选定范围、增量检查或部分导出的替代字体时。 |
 
 ## **设置字体替代规则**
 
@@ -94,9 +94,9 @@ foreach (var entry in sortedPreflightEntries)
 
 1. 加载演示文稿。  
 2. 为源字体和替代字体创建字体定义。  
-3. 使用 [WhenInaccessible](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsubstcondition/) 条件创建一个 [FontSubstRule](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsubstrule/)。  
-4. 将规则添加到 [FontSubstRuleCollection](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsubstrulecollection/)。  
-5. 将集合分配给 [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsmanager/fontsubstrulelist/) 属性。  
+3. 使用 [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) 条件创建一个 [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/)。  
+4. 将规则添加到 [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/)。  
+5. 将集合分配给 [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) 属性。  
 6. 渲染或转换演示文稿。
 
 以下 C# 示例在 `SomeRareFont` 不可用时用 `Arial` 替代它，然后渲染第一张幻灯片以验证结果。替代字体必须对 Aspose.Slides 可用。
@@ -153,4 +153,4 @@ Aspose.Slides 将根据其字体选择过程选择最接近的可用字体。结
 会。不同操作系统安装的字体及搜索路径不同，某台机器上可用的字体在另一台机器上可能需要替代。
 
 **如何在批量转换中保持字体选择的一致性？**  
-在每台机器或容器上使用相同的字体文件和版本，[load required external fonts](/slides/zh/net/custom-font/)，并在许可允许时 [embed fonts](/slides/zh/net/embedded-font/)。您还可以在导出前调用 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsmanager/getsubstitutions/) 以识别意外的替代。
+在每台机器或容器上使用相同的字体文件和版本，[load required external fonts](/slides/zh/net/custom-font/)，并在许可允许时 [embed fonts](/slides/zh/net/embedded-font/)。您还可以在导出前调用 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 以识别意外的替代。

@@ -24,7 +24,7 @@ description: "使用 Aspose.Slides for .NET 在 C# 中将 PowerPoint 和 OpenDoc
 
 Aspose.Slides for .NET 可以将 PowerPoint 演示文稿转换为 PowerPoint XML 演示文稿格式。当您需要文本化表示以检查演示文稿结构、排查生成的文档、在自动化测试中比较输出，或与使用 XML 而非演示文稿包的工作流集成时，XML 输出非常有用。
 
-使用 [Presentation.Save](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/) 方法，并将来自 [SaveFormat](https://reference.aspose.com/slides/zh/net/aspose.slides.export/saveformat/) 枚举的 `Xml` 值作为参数。您可以直接将结果写入文件或写入流。
+使用 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 方法，并将来自 [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 枚举的 `Xml` 值作为参数。您可以直接将结果写入文件或写入流。
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` 会创建一个 PowerPoint XML 演示文稿。它不会提取存储在 PPTX 包内部的各个 Office Open XML 部件。如果您需要确切的 PPTX 包部件，例如 `ppt/presentation.xml` 或各个幻灯片的 XML 文件，请检查 PPTX 包本身。
@@ -32,7 +32,7 @@ Aspose.Slides for .NET 可以将 PowerPoint 演示文稿转换为 PowerPoint XML
 
 ## **将演示文稿转换为 XML 文件**
 
-使用 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 类加载源演示文稿，然后将输出路径和 `SaveFormat.Xml` 传递给 [Presentation.Save](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/)。源文件可以是任何受支持的加载格式，例如 PPT、PPTX 或 ODP。
+使用 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类加载源演示文稿，然后将输出路径和 `SaveFormat.Xml` 传递给 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)。源文件可以是任何受支持的加载格式，例如 PPT、PPTX 或 ODP。
 
 以下示例将 PPTX 演示文稿转换为 XML 文件：
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **将 XML 输出写入流**
 
-当 XML 必须保持在内存中或传递给其他组件（例如 Web 服务、存储提供程序或 XML 处理管道）时，使用 [Presentation.Save](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/) 的流重载。以下示例将结果写入 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 并在随后读取前将其倒回：
+当 XML 必须保持在内存中或传递给其他组件（例如 Web 服务、存储提供程序或 XML 处理管道）时，使用 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 的流重载。以下示例将结果写入 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 并在随后读取前将其倒回：
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ xmlStream.Position = 0;
 
 **我可以在不在磁盘上创建文件的情况下保存 XML 输出吗？**
 
-可以。将可写的流传递给 [Presentation.Save](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/)。例如，使用 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 进行内存处理。
+可以。将可写的流传递给 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)。例如，使用 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) 进行内存处理。
 
 **Aspose.Slides 能再次加载导出的 XML 文件吗？**
 
-可以。将 XML 文件或流传递给 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/presentation/) 构造函数。随后 [Presentation.SourceFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/sourceformat/) 将返回 `SourceFormat.Xml`。但是 [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/presentationfactory/getpresentationinfo/) 会报告 `LoadFormat.Unknown`，因此不要使用它来判断是否可以打开 XML 文件。
+可以。将 XML 文件或流传递给 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 构造函数。随后 [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) 将返回 `SourceFormat.Xml`。但是 [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) 会报告 `LoadFormat.Unknown`，因此不要使用它来判断是否可以打开 XML 文件。
 
 **XML 转换会将每张幻灯片渲染为页面或图像吗？**
 

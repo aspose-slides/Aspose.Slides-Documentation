@@ -68,7 +68,7 @@ Aspose.Slides.NET6.CrossPlatform 不在基于 musl 而非 glibc 的 Alpine Linux
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-如果缺少它，创建[演示文稿](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)将会失败，并抛出 `TypeInitializationException`，其内部的 `DllNotFoundException` 报告无法打开 `libfontconfig.so.1`。
+如果缺少它，创建[演示文稿](https://reference.aspose.com/slides/net/aspose.slides/presentation/)将会失败，并抛出 `TypeInitializationException`，其内部的 `DllNotFoundException` 报告无法打开 `libfontconfig.so.1`。
 
 最小化的基础镜像可能也不包含 `fontconfig`。例如 .NET 8 的 AWS Lambda 基础镜像既不包含 `fontconfig` 也不包含任何字体。在基于该镜像构建的容器中，运行 `dnf install -y fontconfig`，它还会安装 Noto Sans 字体。
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Globalization Support**
 
-这两个包都需要 .NET 的全球化支持，Linux 上的 .NET 通过 ICU 库提供此支持。在[globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)下，创建[演示文稿](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)会失败，并抛出 `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`。
+这两个包都需要 .NET 的全球化支持，Linux 上的 .NET 通过 ICU 库提供此支持。在[globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)下，创建[演示文稿](https://reference.aspose.com/slides/net/aspose.slides/presentation/)会失败，并抛出 `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`。
 
 某些容器镜像会开启此模式。例如，Alpine Linux 的 .NET 运行时镜像（`runtime-deps`、`runtime` 和 `aspnet`）会设置 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` 并且不包含 ICU。在基于这些镜像构建的镜像中，安装 ICU 并关闭该模式：
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-该程序向第一张幻灯片添加一个带文本的矩形，并使用[保存](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/save/)方法将演示文稿保存为 *hello.pptx*。随后使用[GetImage](https://reference.aspose.com/slides/zh/net/aspose.slides/slide/getimage/)渲染幻灯片，并使用[IImage.Save](https://reference.aspose.com/slides/zh/net/aspose.slides/iimage/save/) 将结果保存为 *hello.png*，格式为 [ImageFormat.Png](https://reference.aspose.com/slides/zh/net/aspose.slides/imageformat/)。比例因子为 1 时，每个点渲染为一个像素，因此默认的 720 × 540 点幻灯片会变为 720 × 540 像素的图像，文本在矩形内可见。若未获取许可证，两个文件都会带有评估水印；请参阅[授权](/slides/zh/net/licensing/)。如果缺少某项要求，程序会在[Linux](#linux)中描述的异常之一处停止。
+该程序向第一张幻灯片添加一个带文本的矩形，并使用[保存](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)方法将演示文稿保存为 *hello.pptx*。随后使用[GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/)渲染幻灯片，并使用[IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) 将结果保存为 *hello.png*，格式为 [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/)。比例因子为 1 时，每个点渲染为一个像素，因此默认的 720 × 540 点幻灯片会变为 720 × 540 像素的图像，文本在矩形内可见。若未获取许可证，两个文件都会带有评估水印；请参阅[授权](/slides/zh/net/licensing/)。如果缺少某项要求，程序会在[Linux](#linux)中描述的异常之一处停止。
 
 ## **开发工具**
 

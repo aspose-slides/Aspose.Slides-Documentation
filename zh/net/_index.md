@@ -82,15 +82,15 @@ Aspose.Slides for .NET 是一个类库，可在 .NET 应用程序中创建、读
 </ul>
 <p>参考</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/zh/net/">API 参考</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/net/release-notes/">发行说明</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API 参考</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">发行说明</a></li>
 <li><a href="/slides/zh/net/known-issues/">已知问题</a></li>
 <li><a href="/slides/zh/net/api-limitations/">输出元数据限制</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/net/">下载</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">下载</a></li>
 </ul>
 <p>支持</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免费支持论坛</a></li>
 <li><a href="https://helpdesk.aspose.com/">付费支持服务台</a></li>
 </ul>
 </div>

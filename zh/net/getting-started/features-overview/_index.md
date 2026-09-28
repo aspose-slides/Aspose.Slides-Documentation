@@ -77,7 +77,7 @@ Aspose.Slides 让您几乎可以创建、读取和修改演示文稿的所有内
 
 **多线程是如何工作的？可以并行处理吗？**
 
-在不同线程中处理不同文档是安全的；同一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 对象不能同时被 [多个线程](/slides/zh/net/multithreading/) 使用。
+在不同线程中处理不同文档是安全的；同一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 对象不能同时被 [多个线程](/slides/zh/net/multithreading/) 使用。
 
 **是否支持文件密码和加密？**
 

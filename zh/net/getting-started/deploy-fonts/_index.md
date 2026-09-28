@@ -56,7 +56,7 @@ Aspose.Slides 在渲染演示文稿时使用可用的字体来绘制文本，例
 </Project>
 ```
 
-*Program.cs* 为每个字体名称在幻灯片上添加一个文本框，并通过 [LatinFont](https://reference.aspose.com/slides/zh/net/aspose.slides/baseportionformat/latinfont/) 属性分配字体。 字体名称来源于命令行；如果没有参数，应用程序会检查 Calibri、Arial 和 Times New Roman。 它会打印 Aspose.Slides 查找字体的文件夹（[FontsLoader.GetFontFolders](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsloader/getfontfolders/)），将幻灯片渲染为 *output/fonts.pdf*，并打印 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/zh/net/aspose.slides/ifontsmanager/getsubstitutions/) 报告的替代情况。 文首的两个可选步骤——加载 *fonts* 文件夹和读取 `DEFAULT_FONT` 变量——将在本文后面解释。
+*Program.cs* 为每个字体名称在幻灯片上添加一个文本框，并通过 [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/) 属性分配字体。 字体名称来源于命令行；如果没有参数，应用程序会检查 Calibri、Arial 和 Times New Roman。 它会打印 Aspose.Slides 查找字体的文件夹（[FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)），将幻灯片渲染为 *output/fonts.pdf*，并打印 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 报告的替代情况。 文首的两个可选步骤——加载 *fonts* 文件夹和读取 `DEFAULT_FONT` 变量——将在本文后面解释。
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **从应用程序文件夹加载字体**
 
-您也可以不在镜像中安装字体，而是随应用程序一起打包并使用 [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsloader/loadexternalfonts/) 加载它们。 此后这些字体仅对 Aspose.Slides 可用，并随应用程序一起部署。 *FontCheck* 就是这样做的：*FontCheck.csproj* 将 *fonts* 文件夹复制到应用程序输出，*Program.cs* 在创建演示文稿之前将该文件夹传递给 `LoadExternalFonts`。 [Custom Font](/slides/zh/net/custom-font/) 说明了其他提供字体的方式，例如从内存加载。
+您也可以不在镜像中安装字体，而是随应用程序一起打包并使用 [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) 加载它们。 此后这些字体仅对 Aspose.Slides 可用，并随应用程序一起部署。 *FontCheck* 就是这样做的：*FontCheck.csproj* 将 *fonts* 文件夹复制到应用程序输出，*Program.cs* 在创建演示文稿之前将该文件夹传递给 `LoadExternalFonts`。 [Custom Font](/slides/zh/net/custom-font/) 说明了其他提供字体的方式，例如从内存加载。
 
 重新构建镜像，然后检查 Calibri 和 Carlito：
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **为缺失的字体设置默认字体**
 
-当字体缺失时，Aspose.Slides 会使用自己选择的替代字体。 若要自行指定替代字体，请设置 [LoadOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/) 的 [DefaultRegularFont](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/defaultregularfont/) 属性，并将该选项传递给 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 构造函数。 *FontCheck* 从 `DEFAULT_FONT` 环境变量读取字体名称。 加载 Carlito 后，可将其用于缺失的字体：
+当字体缺失时，Aspose.Slides 会使用自己选择的替代字体。 若要自行指定替代字体，请设置 [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) 的 [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) 属性，并将该选项传递给 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 构造函数。 *FontCheck* 从 `DEFAULT_FONT` 环境变量读取字体名称。 加载 Carlito 后，可将其用于缺失的字体：
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-默认字体会替换所有缺失的字体。 若要为单个字体映射，例如将 Arial 映射为 Liberation Sans、将 Calibri 映射为 Carlito，请使用[font substitution rules](/slides/zh/net/font-substitution/)。 规则会更改渲染结果，但 `GetSubstitutions` 并不反映这些规则，因此请在输出文件中检查实际使用的字体。 对于亚洲文字，还需设置 [DefaultAsianFont](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/defaultasianfont/)，请参见[Default Font](/slides/zh/net/default-font/)。
+默认字体会替换所有缺失的字体。 若要为单个字体映射，例如将 Arial 映射为 Liberation Sans、将 Calibri 映射为 Carlito，请使用[font substitution rules](/slides/zh/net/font-substitution/)。 规则会更改渲染结果，但 `GetSubstitutions` 并不反映这些规则，因此请在输出文件中检查实际使用的字体。 对于亚洲文字，还需设置 [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/)，请参见[Default Font](/slides/zh/net/default-font/)。
 
 ## **在 Alpine Linux 上安装字体**
 

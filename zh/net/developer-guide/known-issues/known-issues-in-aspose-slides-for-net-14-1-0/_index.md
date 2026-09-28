@@ -13,7 +13,7 @@ keywords:
 description: "历史：发布于 2014 年的 Aspose.Slides for .NET 14.1.0 已知问题，供参考。它不是当前版本的问题列表。"
 ---
 {{% alert color="info" title="注意" %}}
-这是一个历史页面。它列出了发布于 2014 年的 Aspose.Slides for .NET 14.1.0 的已知问题，并不描述当前版本。有关每个版本的更改，请参阅[发行说明](https://releases.aspose.com/slides/zh/net/release-notes/)。
+这是一个历史页面。它列出了发布于 2014 年的 Aspose.Slides for .NET 14.1.0 的已知问题，并不描述当前版本。有关每个版本的更改，请参阅[发行说明](https://releases.aspose.com/slides/net/release-notes/)。
 {{% /alert %}}
 
 以下是 Aspose.Slides for .NET 14.1.0 的已知问题和限制。

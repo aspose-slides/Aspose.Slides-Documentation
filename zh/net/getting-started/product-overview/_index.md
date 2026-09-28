@@ -123,7 +123,7 @@ Aspose.Slides for .NET 的功能可分为以下几组：
 ## **技术支持**
 Aspose 为其所有产品提供无限制的免费技术支持。支持面向所有用户（包括使用评估版的用户）。如果您需要 Aspose.Slides for .NET 的帮助，请考虑以下渠道：
 
-- 主要的支持渠道是 [Aspose 论坛](https://forum.aspose.com/)。在 [Aspose.Slides 论坛](https://forum.aspose.com/c/slides/zh/11) 中发布您的问题——通常会在几小时内得到答复。Aspose.Slides 支持团队会直接在论坛上回答问题。
+- 主要的支持渠道是 [Aspose 论坛](https://forum.aspose.com/)。在 [Aspose.Slides 论坛](https://forum.aspose.com/c/slides/11) 中发布您的问题——通常会在几小时内得到答复。Aspose.Slides 支持团队会直接在论坛上回答问题。
 - 请注意，Aspose 不提供电话技术支持。电话支持仅用于销售和采购问题。
 - 在论坛等待回复时，请保持耐心，并考虑时区差异。
 
@@ -145,10 +145,10 @@ Aspose 为其所有产品提供无限制的免费技术支持。支持面向所�
 
 |**资源**|**描述**|
 | :- | :- |
-|[Aspose.Slides for .NET 首页](https://products.aspose.com/slides/zh/net/)|产品首页。|
-|[Aspose.Slides 博客](https://blog.aspose.com/category/slides/zh/)|定期查看此页面获取新版本信息和 Aspose.Slides 的实用技巧。|
+|[Aspose.Slides for .NET 首页](https://products.aspose.com/slides/net/)|产品首页。|
+|[Aspose.Slides 博客](https://blog.aspose.com/category/slides/)|定期查看此页面获取新版本信息和 Aspose.Slides 的实用技巧。|
 |[Aspose.Slides for .NET 下载](https://www.nuget.org/packages/Aspose.Slides.NET/)|在此下载 Aspose.Slides 的最新版本。我们经常发布新版本。|
-|[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/zh/11)|在此发布问题和疑难，以便快速得到解决。|
+|[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在此发布问题和疑难，以便快速得到解决。|
 |[Aspose.Slides for .NET 产品文档](/slides/zh/net/)|包含本文档和 Aspose.Slides API 参考的完整在线文档。|
 
 ## **信任级别要求**
@@ -159,7 +159,7 @@ Aspose 为其所有产品提供无限制的免费技术支持。支持面向所�
 
 ### 是否支持用于归档和无障碍的 PDF 合规级别（PDF/A 和 PDF/UA）？
 
-是的。您可以通过配置 [PDF 导出选项](https://reference.aspose.com/slides/zh/net/aspose.slides.export/pdfoptions/) 将文件保存为 PDF/A-2a/2b/2u、PDF/A-3a/3b 以及 PDF/UA。
+是的。您可以通过配置 [PDF 导出选项](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) 将文件保存为 PDF/A-2a/2b/2u、PDF/A-3a/3b 以及 PDF/UA。
 
 ### 是否提供字体替换机制并支持自定义字体以确保正确渲染？
 
@@ -179,7 +179,7 @@ Aspose 为其所有产品提供无限制的免费技术支持。支持面向所�
 
 ### 宏是否会被保留，能否管理 PPTM/PPSM 文件中的 VBA？
 
-是的。支持包含宏的演示文稿 [已实现](/slides/zh/net/presentation-via-vba/)，并且您可以 [检查和管理 VBA 项目](https://reference.aspose.com/slides/zh/net/aspose.slides.vba/)。
+是的。支持包含宏的演示文稿 [已实现](/slides/zh/net/presentation-via-vba/)，并且您可以 [检查和管理 VBA 项目](https://reference.aspose.com/slides/net/aspose.slides.vba/)。
 
 ### 能否将 PDF 或 HTML 转回 PowerPoint 幻灯片？
 
@@ -187,7 +187,7 @@ Aspose 为其所有产品提供无限制的免费技术支持。支持面向所�
 
 ### 是否支持 XPS 导出，能否控制 XPS 输出的质量和内容？
 
-是的。支持 [导出为 XPS](/slides/zh/net/convert-powerpoint-to-xps/)，并且通过 [保存选项](https://reference.aspose.com/slides/zh/net/aspose.slides.export/xpsoptions/) 可以调节输出质量和包含的内容。
+是的。支持 [导出为 XPS](/slides/zh/net/convert-powerpoint-to-xps/)，并且通过 [保存选项](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) 可以调节输出质量和包含的内容。
 
 ### 能否将幻灯片转换为图像并控制输出质量？
 

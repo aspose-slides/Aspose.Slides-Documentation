@@ -104,5 +104,5 @@ Aspose 组件提供了管理 Office 文件所需的一切，甚至更多。我�
 {{% alert color="info" title="Note" %}}
 虽然本文已覆盖了 Aspose 组件优于 Office Automation 的一些关键点，但实际上还有更多优势。我们仅列举了一部分主要优势。
 
-此外，所有 Aspose 产品和组件均提供无风险、无义务的[评估版](https://releases.aspose.com/slides/zh/net/)。我们鼓励您利用评估版，亲自体验 Aspose 能为您的应用或业务带来什么。
+此外，所有 Aspose 产品和组件均提供无风险、无义务的[评估版](https://releases.aspose.com/slides/net/)。我们鼓励您利用评估版，亲自体验 Aspose 能为您的应用或业务带来什么。
 {{% /alert %}}

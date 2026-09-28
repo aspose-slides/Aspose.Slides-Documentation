@@ -54,7 +54,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-在 Debian 和 Ubuntu 上，`libfontconfig1` 同时安装 DejaVu 字体，因此文本能够正常渲染，无需额外的字体包。如果没有 `fontconfig`，创建 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 会因 `TypeInitializationException` 失败，其内部的 `DllNotFoundException` 报告无法打开 `libfontconfig.so.1`。[System Requirements](/slides/zh/net/system-requirements/) 包含一个检查设置的简短程序。
+在 Debian 和 Ubuntu 上，`libfontconfig1` 同时安装 DejaVu 字体，因此文本能够正常渲染，无需额外的字体包。如果没有 `fontconfig`，创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 会因 `TypeInitializationException` 失败，其内部的 `DllNotFoundException` 报告无法打开 `libfontconfig.so.1`。[System Requirements](/slides/zh/net/system-requirements/) 包含一个检查设置的简短程序。
 
 ## **云和容器主机**
 
@@ -66,7 +66,7 @@ dotnet add package Aspose.Slides.NET6.CrossPlatform
 
 使用 Aspose.Slides.NET6.CrossPlatform 的项目也可以引用 System.Drawing.Common，无论是直接引用还是通过其他包。当前版本的 Aspose.Slides 未在 `System` 命名空间中公开类型，因此这两个库不会冲突，您可以在同一个文件中同时使用 `Aspose.Slides` 和 `System.Drawing` 命名空间。
 
-如果编译器因 `Image` 或 `Graphics` 等类型同时存在于 Aspose.Slides 和 System.Drawing.Common 而报告 CS0433 错误，则说明项目使用了较旧版本的 Aspose.Slides。请将包更新到最新版本。Aspose.Slides 将渲染后的图像作为 [IImage](https://reference.aspose.com/slides/zh/net/aspose.slides/iimage/) 对象返回，相关内容在 [Modern API](/slides/zh/net/modern-api/) 中有说明。
+如果编译器因 `Image` 或 `Graphics` 等类型同时存在于 Aspose.Slides 和 System.Drawing.Common 而报告 CS0433 错误，则说明项目使用了较旧版本的 Aspose.Slides。请将包更新到最新版本。Aspose.Slides 将渲染后的图像作为 [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) 对象返回，相关内容在 [Modern API](/slides/zh/net/modern-api/) 中有说明。
 
 ## **常见问题**
 
