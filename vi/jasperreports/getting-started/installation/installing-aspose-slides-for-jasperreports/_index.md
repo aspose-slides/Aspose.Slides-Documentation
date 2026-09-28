@@ -7,7 +7,7 @@ description: "Chọn các file jar Aspose.Slides cho JasperReports phù hợp v�
 ---
 ## **Chọn các file jar cho phiên bản JasperReports của bạn**
 
-Aspose.Slides for JasperReports được phân phối dưới dạng file ZIP trên [trang tải xuống](https://releases.aspose.com/slides/vi/jasperreport/). Thư mục *lib* của nó có một thư mục con cho mỗi dải phiên bản JasperReports. Lấy các file jar từ thư mục con tương ứng với phiên bản JasperReports bạn đang dùng:
+Aspose.Slides for JasperReports được phân phối dưới dạng file ZIP trên [trang tải xuống](https://releases.aspose.com/slides/jasperreport/). Thư mục *lib* của nó có một thư mục con cho mỗi dải phiên bản JasperReports. Lấy các file jar từ thư mục con tương ứng với phiên bản JasperReports bạn đang dùng:
 
 | Phiên bản JasperReports | Thư mục con của *lib* |
 | :- | :- |

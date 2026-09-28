@@ -64,12 +64,12 @@ Nó xuất một báo cáo đã điền sang PPT và PPTX, một slide cho mỗi
 <hr>
 <p>THAM KHẢO</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/vi/jasperreport/release-notes/">Ghi chú phát hành</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/jasperreport/">Tải xuống</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Trợ giúp hỗ trợ trả phí</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Nó xuất một báo cáo đã điền sang PPT và PPTX, một slide cho mỗi
 
 Các bước này biên dịch một báo cáo một dòng, điền dữ liệu và xuất nó ra PPTX bằng JasperReports 6.16.0 từ Maven Central. Bạn cần JDK 11 trở lên và Apache Maven.
 
-1. Tải xuống tệp ZIP từ [trang tải xuống](https://releases.aspose.com/slides/vi/jasperreport/) và giải nén. Thư mục *lib* của nó có một thư mục con cho mỗi dải phiên bản JasperReports, và mỗi thư mục chứa jar tương ứng. Đối với JasperReports 6.16.0, sao chép *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* vào một thư mục dự án trống.
+1. Tải xuống tệp ZIP từ [trang tải xuống](https://releases.aspose.com/slides/jasperreport/) và giải nén. Thư mục *lib* của nó có một thư mục con cho mỗi dải phiên bản JasperReports, và mỗi thư mục chứa jar tương ứng. Đối với JasperReports 6.16.0, sao chép *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* vào một thư mục dự án trống.
 
 2. Jar có trong tệp ZIP thay vì từ một kho Maven, vì vậy cài đặt nó vào kho Maven nội bộ của bạn. Chạy lệnh sau trong thư mục dự án:
 

@@ -7,9 +7,9 @@ description: "Tìm hiểu phiên bản đánh giá của Aspose.Slides for Jaspe
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports có sẵn dưới dạng bản đánh giá miễn phí, không giới hạn thời gian từ [download page](https://releases.aspose.com/slides/vi/jasperreport/). Phiên bản đánh giá và phiên bản có bản quyền của sản phẩm đều được tải xuống từ cùng một địa chỉ.
+Aspose.Slides for JasperReports có sẵn dưới dạng bản đánh giá miễn phí, không giới hạn thời gian từ [download page](https://releases.aspose.com/slides/jasperreport/). Phiên bản đánh giá và phiên bản có bản quyền của sản phẩm đều được tải xuống từ cùng một địa chỉ.
 
-Khi bạn hài lòng với bản đánh giá, [buy a license](https://purchase.aspose.com/pricing/slides/vi/jasperreports/). Đảm bảo bạn hiểu và đồng ý với các điều khoản đăng ký.
+Khi bạn hài lòng với bản đánh giá, [buy a license](https://purchase.aspose.com/pricing/slides/jasperreports/). Đảm bảo bạn hiểu và đồng ý với các điều khoản đăng ký.
 
 Bản quyền có thể tải xuống từ trang đặt hàng sau khi đơn hàng đã được thanh toán. Bản quyền là tệp XML dạng văn bản thuần, được ký số kỹ thuật số, chứa các thông tin như tên khách hàng, sản phẩm đã mua và loại giấy phép. Không được thay đổi nội dung của tệp bản quyền bằng bất kỳ cách nào: việc này sẽ làm mất hiệu lực của giấy phép.
 

@@ -5,7 +5,7 @@ weight: 80
 url: /vi/jasperreports/evaluate-aspose-slides/
 description: "Xem phiên bản đánh giá của Aspose.Slides for JasperReports thêm gì vào các tệp đã xuất, và cách xuất mà không có nó."
 ---
-Bạn có thể tải Aspose.Slides for JasperReports để đánh giá từ [trang tải xuống](https://releases.aspose.com/slides/vi/jasperreport/). Bản tải đánh giá tương tự như bản có giấy phép: nó sẽ trở thành có giấy phép khi bạn áp dụng giấy phép, như mô tả trong [Cấp phép](/slides/vi/jasperreports/licensing/).
+Bạn có thể tải Aspose.Slides for JasperReports để đánh giá từ [trang tải xuống](https://releases.aspose.com/slides/jasperreport/). Bản tải đánh giá tương tự như bản có giấy phép: nó sẽ trở thành có giấy phép khi bạn áp dụng giấy phép, như mô tả trong [Cấp phép](/slides/vi/jasperreports/licensing/).
 
 Nếu không có giấy phép, các bộ xuất vẫn xuất mọi trang của báo cáo, nhưng chúng sẽ đặt một watermark đánh giá ở trung tâm của mỗi slide hoặc trang. Watermark hiển thị "Evaluation only.", "Created with Aspose.Slides for JasperReports" kèm theo phiên bản sản phẩm và dòng bản quyền. Nó xuất hiện trong bốn định dạng đầu ra: PPT, PPTX, PDF và HTML.
 
