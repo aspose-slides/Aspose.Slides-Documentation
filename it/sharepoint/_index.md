@@ -57,12 +57,12 @@ Converte i file PPT e PPTX in PDF, TIFF, XPS, HTML, SWF e ODP, e nei formati Pow
 <hr>
 <p>RIFERIMENTO</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/it/sharepoint/release-notes/">Note di rilascio</a></li>
-<li><a href="https://releases.aspose.com/slides/it/sharepoint/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Note di rilascio</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Download</a></li>
 </ul>
 <p>SUPPORTO</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/it/11">Forum di supporto gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum di supporto gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Help desk di supporto a pagamento</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Converte i file PPT e PPTX in PDF, TIFF, XPS, HTML, SWF e ODP, e nei formati Pow
 
 Aspose.Slides per SharePoint viene installato una sola volta nella farm e poi utilizzato da qualsiasi libreria documenti in cui è attivato:
 
-1. Scarica l'archivio ZIP dalla [pagina di download](https://releases.aspose.com/slides/it/sharepoint/) e decomprimilo su un server nella tua fattoria SharePoint.  
+1. Scarica l'archivio ZIP dalla [pagina di download](https://releases.aspose.com/slides/sharepoint/) e decomprimilo su un server nella tua fattoria SharePoint.  
 2. Esegui il programma di installazione corrispondente alla tua versione di SharePoint: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* o *Setup2019.exe*. Usa un account che possa installare e distribuire soluzioni SharePoint. Accetta il contratto di licenza, seleziona le raccolte di siti su cui attivare la funzionalità e lascia che l'installazione distribuisca la soluzione. Ogni schermata è descritta in [Installazione](/slides/it/sharepoint/installing-aspose-slides-for-sharepoint/).  
 3. Apri una libreria documenti in una di quelle raccolte di siti, apri il menu di un file PPT o PPTX e seleziona **Convert via Aspose.Slides**. Su SharePoint 2007, la voce di menu è denominata **Convert with Aspose.Slides**.  
 4. Sotto **Convert to**, seleziona **PDF - Adobe Portable Document**. Modifica il nome del file di destinazione e la cartella se necessario, quindi fai clic su **Convert**.  
