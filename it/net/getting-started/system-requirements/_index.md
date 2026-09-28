@@ -68,7 +68,7 @@ La libreria Linux del pacchetto richiede la libreria `fontconfig`:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Senza di essa, la creazione di una [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/) fallisce con una `TypeInitializationException` il cui `DllNotFoundException` interno segnala che `libfontconfig.so.1` non puo` essere aperto.
+Senza di essa, la creazione di una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) fallisce con una `TypeInitializationException` il cui `DllNotFoundException` interno segnala che `libfontconfig.so.1` non puo` essere aperto.
 
 Le immagini base minime potrebbero non includere neanche `fontconfig`. L'immagine base AWS Lambda per .NET 8, ad esempio, non contiene ne` `fontconfig` ne` alcun carattere. In un'immagine container costruita su di essa, esegui `dnf install -y fontconfig`, che installa anche i caratteri Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Supporto alla globalizzazione**
 
-Entrambi i pacchetti necessitano del supporto alla globalizzazione di .NET, che .NET su Linux fornisce tramite le librerie ICU. In [modalita` globalizzazione invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), la creazione di una [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/) fallisce con `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Entrambi i pacchetti necessitano del supporto alla globalizzazione di .NET, che .NET su Linux fornisce tramite le librerie ICU. In [modalita` globalizzazione invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), la creazione di una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) fallisce con `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Alcune immagini container attivano questa modalita`. Le immagini runtime .NET per Alpine Linux (`runtime-deps`, `runtime` e `aspnet`), ad esempio, impostano `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` e non includono ICU. In un'immagine costruita su di esse, installa ICU e disattiva la modalita`:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Il programma aggiunge un rettangolo con testo alla prima diapositiva e salva la presentazione come *hello.pptx* con il metodo [Save](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/save/). Quindi rende la diapositiva con [GetImage](https://reference.aspose.com/slides/it/net/aspose.slides/slide/getimage/) e salva il risultato come *hello.png* con [IImage.Save](https://reference.aspose.com/slides/it/net/aspose.slides/iimage/save/) nel formato [ImageFormat.Png](https://reference.aspose.com/slides/it/net/aspose.slides/imageformat/). I fattori di scala di 1 rendono un pixel per punto, quindi la diapositiva predefinita di 720 x 540 punti diventa un'immagine di 720 x 540 pixel, con il testo visibile all'interno del rettangolo. Senza licenza, entrambi i file contengono anche una filigrana di valutazione; vedi [Licensing](/slides/it/net/licensing/). Se manca un requisito, il programma si interrompe con una delle eccezioni descritte in [Linux](#linux).
+Il programma aggiunge un rettangolo con testo alla prima diapositiva e salva la presentazione come *hello.pptx* con il metodo [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Quindi rende la diapositiva con [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) e salva il risultato come *hello.png* con [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) nel formato [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). I fattori di scala di 1 rendono un pixel per punto, quindi la diapositiva predefinita di 720 x 540 punti diventa un'immagine di 720 x 540 pixel, con il testo visibile all'interno del rettangolo. Senza licenza, entrambi i file contengono anche una filigrana di valutazione; vedi [Licensing](/slides/it/net/licensing/). Se manca un requisito, il programma si interrompe con una delle eccezioni descritte in [Linux](#linux).
 
 ## **Strumenti di sviluppo**
 

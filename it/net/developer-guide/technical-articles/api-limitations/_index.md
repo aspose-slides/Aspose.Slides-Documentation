@@ -27,12 +27,12 @@ Quando le presentazioni vengono create o esportate con Aspose.Slides, alcuni met
 
 Quando crei o esporti presentazioni con Aspose.Slides per .NET, alcuni metadati tecnici vengono scritti nel file. Due campi sollevano spesso domande:
 
-**Application** identifica il programma che ha creato o salvato per ultimo una presentazione **PPTX**. In Aspose.Slides per .NET, questo valore è fisso e mostra il nome della libreria invece del nome della tua app, anche se imposti [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/it/net/aspose.slides/documentproperties/nameofapplication/).
+**Application** identifica il programma che ha creato o salvato per ultimo una presentazione **PPTX**. In Aspose.Slides per .NET, questo valore è fisso e mostra il nome della libreria invece del nome della tua app, anche se imposti [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/).
 
 **Producer** identifica il motore di rendering che ha generato il file finale durante l'esportazione. Nelle esportazioni **PDF**, i metadati usano i campi **Creator** e **Producer**. Con Aspose.Slides per .NET, entrambi sono fissi e riflettono la libreria e la sua versione.
 
 **Cosa è limitato**
 
-Non è possibile sovrascrivere questi campi tramite l'API per i formati sopraindicati. Per **PPTX**, la proprietà Application viene scritta come "Aspose.Slides for .NET". Per **PDF**, le proprietà Creator e Producer vengono scritte come "Aspose.Slides for .NET" seguite dalla versione della libreria. Per **ODP**, il campo generator viene scritto come "Aspose.Slides for .NET" seguita dalla versione della libreria. Questo comportamento è progettato così e si applica indipendentemente da come carichi o salvi il file, e indipendentemente dai valori assegnati a [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/it/net/aspose.slides/documentproperties/nameofapplication/).
+Non è possibile sovrascrivere questi campi tramite l'API per i formati sopraindicati. Per **PPTX**, la proprietà Application viene scritta come "Aspose.Slides for .NET". Per **PDF**, le proprietà Creator e Producer vengono scritte come "Aspose.Slides for .NET" seguite dalla versione della libreria. Per **ODP**, il campo generator viene scritto come "Aspose.Slides for .NET" seguita dalla versione della libreria. Questo comportamento è progettato così e si applica indipendentemente da come carichi o salvi il file, e indipendentemente dai valori assegnati a [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/).
 
-Questa restrizione non si applica ai file **PPT**: in un file PPT, il nome dell'applicazione impostato in [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/it/net/aspose.slides/documentproperties/nameofapplication/) viene salvato.
+Questa restrizione non si applica ai file **PPT**: in un file PPT, il nome dell'applicazione impostato in [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/) viene salvato.

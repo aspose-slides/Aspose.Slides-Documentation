@@ -59,7 +59,7 @@ Crea una cartella denominata *HelloSlidesDocker* e aggiungi i tre file seguenti.
 </Project>
 ```
 
-*Program.cs* crea una [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/), aggiunge un rettangolo con testo alla prima diapositiva e salva la presentazione due volte con il metodo [Save](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/save/): come PPTX e come PDF. Entrambi i file vanno nella cartella *output* nella directory di lavoro. L’applicazione elenca poi i font che sono stati sostituiti durante il rendering del PDF, usando [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/), così puoi verificare se il contenitore possiede i font usati dalla presentazione.
+*Program.cs* crea una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), aggiunge un rettangolo con testo alla prima diapositiva e salva la presentazione due volte con il metodo [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): come PPTX e come PDF. Entrambi i file vanno nella cartella *output* nella directory di lavoro. L’applicazione elenca poi i font che sono stati sostituiti durante il rendering del PDF, usando [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), così puoi verificare se il contenitore possiede i font usati dalla presentazione.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ La fase Alpine installa tre pacchetti e modifica un’impostazione:
 - `font-dejavu` fornisce i font. Senza alcun font, la conversione si blocca con `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` e `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` forniscono dati culturali. Le immagini .NET Alpine girano in modalità globalizzazione‑invariata per impostazione predefinita; in tale modalità Aspose.Slides si arresta con una `CultureNotFoundException` per `en-US`.
 
-Compila, esegui e copia l’output con gli stessi comandi di prima. Su questa immagine, l’applicazione stampa solo la riga `Saved`: con Aspose.Slides.NET su Linux, fontconfig sceglie il sostituto per un font mancante, e [GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) non lo elenca. [Deploy Fonts](/slides/it/net/deploy-fonts/) mostra come verificare quale font è stato usato.
+Compila, esegui e copia l’output con gli stessi comandi di prima. Su questa immagine, l’applicazione stampa solo la riga `Saved`: con Aspose.Slides.NET su Linux, fontconfig sceglie il sostituto per un font mancante, e [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) non lo elenca. [Deploy Fonts](/slides/it/net/deploy-fonts/) mostra come verificare quale font è stato usato.
 
 ## **FAQ**
 

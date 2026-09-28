@@ -56,7 +56,7 @@ L’applicazione console seguente riporta i caratteri che Aspose.Slides sostitui
 </Project>
 ```
 
-*Program.cs* aggiunge una casella di testo per ogni nome di carattere a una diapositiva e assegna il carattere tramite la proprietà [LatinFont](https://reference.aspose.com/slides/it/net/aspose.slides/baseportionformat/latinfont/). I nomi dei caratteri provengono dalla riga di comando; senza argomenti, l’applicazione verifica Calibri, Arial e Times New Roman. Stampa le cartelle in cui Aspose.Slides cerca i caratteri ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/it/net/aspose.slides/fontsloader/getfontfolders/)), renderizza la diapositiva in *output/fonts.pdf* e stampa le sostituzioni riportate da [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/). I due passaggi opzionali all’inizio, il caricamento di una cartella *fonts* e la lettura della variabile `DEFAULT_FONT`, sono spiegati più avanti in questo articolo.
+*Program.cs* aggiunge una casella di testo per ogni nome di carattere a una diapositiva e assegna il carattere tramite la proprietà [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). I nomi dei caratteri provengono dalla riga di comando; senza argomenti, l’applicazione verifica Calibri, Arial e Times New Roman. Stampa le cartelle in cui Aspose.Slides cerca i caratteri ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), renderizza la diapositiva in *output/fonts.pdf* e stampa le sostituzioni riportate da [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). I due passaggi opzionali all’inizio, il caricamento di una cartella *fonts* e la lettura della variabile `DEFAULT_FONT`, sono spiegati più avanti in questo articolo.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Carica i Caratteri dalla Cartella dell’Applicazione**
 
-Invece di installare i caratteri nell’immagine, puoi includerli con l’applicazione e caricarli tramite [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/it/net/aspose.slides/fontsloader/loadexternalfonts/). I caratteri saranno quindi disponibili solo a Aspose.Slides e verranno distribuiti insieme all’applicazione. *FontCheck* lo fa: *FontCheck.csproj* copia la cartella *fonts* nell’output dell’applicazione, e *Program.cs* passa quella cartella a `LoadExternalFonts` prima di creare la presentazione. [Carattere Personalizzato](/slides/it/net/custom-font/) descrive gli altri modi per fornire i caratteri, ad esempio il caricamento dalla memoria.
+Invece di installare i caratteri nell’immagine, puoi includerli con l’applicazione e caricarli tramite [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). I caratteri saranno quindi disponibili solo a Aspose.Slides e verranno distribuiti insieme all’applicazione. *FontCheck* lo fa: *FontCheck.csproj* copia la cartella *fonts* nell’output dell’applicazione, e *Program.cs* passa quella cartella a `LoadExternalFonts` prima di creare la presentazione. [Carattere Personalizzato](/slides/it/net/custom-font/) descrive gli altri modi per fornire i caratteri, ad esempio il caricamento dalla memoria.
 
 Ricompila l’immagine, poi verifica Calibri e Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Imposta un Carattere Predefinito per i Caratteri Mancanti**
 
-Quando un carattere è mancante, Aspose.Slides utilizza un sostituto scelto autonomamente. Per sceglierlo tu, imposta la proprietà [DefaultRegularFont](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/defaultregularfont/) di [LoadOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/) e passa le opzioni al costruttore di [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/). *FontCheck* legge il nome del carattere dalla variabile d’ambiente `DEFAULT_FONT`. Con Carlito caricato, usalo per i caratteri mancanti:
+Quando un carattere è mancante, Aspose.Slides utilizza un sostituto scelto autonomamente. Per sceglierlo tu, imposta la proprietà [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) di [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) e passa le opzioni al costruttore di [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* legge il nome del carattere dalla variabile d’ambiente `DEFAULT_FONT`. Con Carlito caricato, usalo per i caratteri mancanti:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Il carattere predefinito sostituisce tutti i caratteri mancanti. Per mappare singoli caratteri, ad esempio Arial → Liberation Sans e Calibri → Carlito, usa le [regole di sostituzione dei caratteri](/slides/it/net/font-substitution/). Le regole cambiano l’output renderizzato, ma `GetSubstitutions` non le riflette; verifica quindi i caratteri nel file di output. Per il testo asiatico, imposta anche [DefaultAsianFont](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/defaultasianfont/); vedi [Carattere Predefinito](/slides/it/net/default-font/).
+Il carattere predefinito sostituisce tutti i caratteri mancanti. Per mappare singoli caratteri, ad esempio Arial → Liberation Sans e Calibri → Carlito, usa le [regole di sostituzione dei caratteri](/slides/it/net/font-substitution/). Le regole cambiano l’output renderizzato, ma `GetSubstitutions` non le riflette; verifica quindi i caratteri nel file di output. Per il testo asiatico, imposta anche [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); vedi [Carattere Predefinito](/slides/it/net/default-font/).
 
 ## **Installa i Caratteri su Alpine Linux**
 
