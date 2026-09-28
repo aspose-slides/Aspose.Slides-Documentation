@@ -7,9 +7,9 @@ description: "Aspose.Slides for JasperReports'in değerlendirme sürümünün d�
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports, ücretsiz ve süresiz bir değerlendirme sürümü olarak [download page](https://releases.aspose.com/slides/tr/jasperreport/) adresinden indirilebilir. Ürünün değerlendirme ve lisanslı sürümleri aynı indirme dosyasını kullanır.
+Aspose.Slides for JasperReports, ücretsiz ve süresiz bir değerlendirme sürümü olarak [download page](https://releases.aspose.com/slides/jasperreport/) adresinden indirilebilir. Ürünün değerlendirme ve lisanslı sürümleri aynı indirme dosyasını kullanır.
 
-Değerlendirmeden memnun kaldığınızda, [buy a license](https://purchase.aspose.com/pricing/slides/tr/jasperreports/) satın alabilirsiniz. Abonelik koşullarını anladığınızdan ve kabul ettiğinizden emin olun.
+Değerlendirmeden memnun kaldığınızda, [buy a license](https://purchase.aspose.com/pricing/slides/jasperreports/) satın alabilirsiniz. Abonelik koşullarını anladığınızdan ve kabul ettiğinizden emin olun.
 
 Lisans, sipariş sayfasından ödeme yapıldıktan sonra indirilebilir. Lisans, istemci adı, satın alınan ürün ve lisans türü gibi bilgileri içeren, açık metin, dijital olarak imzalanmış bir XML dosyasıdır. Lisans dosyasının içeriğini hiçbir şekilde değiştirmeyin: değiştirmek lisansı geçersiz kılar.
 

@@ -64,12 +64,12 @@ Doldurulmuş bir raporu PPT ve PPTX formatına, rapor sayfası başına bir slay
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/tr/jasperreport/release-notes/">Sürüm notları</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/jasperreport/">İndir</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Sürüm notları</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Doldurulmuş bir raporu PPT ve PPTX formatına, rapor sayfası başına bir slay
 
 Bu adımlar tek satırlık bir raporu derler, doldurur ve Maven Central üzerindeki JasperReports 6.16.0 ile PPTX olarak dışa aktarır. JDK 11 veya daha yeni bir sürüm ve Apache Maven gerekir.
 
-1. ZIP dosyasını [download sayfası](https://releases.aspose.com/slides/tr/jasperreport/) üzerinden indirin ve açın. *lib* klasörü, JasperReports sürüm aralıklarına göre bir alt klasör içerir ve her biri o aralık için jar dosyasını tutar. JasperReports 6.16.0 için *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* dosyasını boş bir proje klasörüne kopyalayın.
+1. ZIP dosyasını [download sayfası](https://releases.aspose.com/slides/jasperreport/) üzerinden indirin ve açın. *lib* klasörü, JasperReports sürüm aralıklarına göre bir alt klasör içerir ve her biri o aralık için jar dosyasını tutar. JasperReports 6.16.0 için *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* dosyasını boş bir proje klasörüne kopyalayın.
 
 2. Jar, Maven deposundan değil ZIP içinde geldiği için yerel Maven deponuza yükleyin. Proje klasöründe şu komutu çalıştırın:
 

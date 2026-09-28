@@ -7,7 +7,7 @@ description: "JasperReports sürümünüzle eşleşen Aspose.Slides for JasperRe
 ---
 ## **JasperReports sürümünüz için jar dosyalarını seçin**
 
-Aspose.Slides for JasperReports, [download page](https://releases.aspose.com/slides/tr/jasperreport/) adresinde bir ZIP dosyası olarak dağıtılır. *lib* klasörü, JasperReports sürüm aralıkları başına bir alt klasöre sahiptir. Kullandığınız JasperReports sürümünü kapsayan alt klasörden jar dosyalarını alın:
+Aspose.Slides for JasperReports, [download page](https://releases.aspose.com/slides/jasperreport/) adresinde bir ZIP dosyası olarak dağıtılır. *lib* klasörü, JasperReports sürüm aralıkları başına bir alt klasöre sahiptir. Kullandığınız JasperReports sürümünü kapsayan alt klasörden jar dosyalarını alın:
 
 | JasperReports sürümü | *lib* alt klasörü |
 | :- | :- |
