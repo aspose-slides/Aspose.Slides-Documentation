@@ -11,7 +11,7 @@ description: "정식 다운로드로 Aspose.Slides for SharePoint 를 평가하�
 
 {{% /alert %}}
 
-Aspose.Slides for SharePoint의 평가 버전과 유료 버전은 동일한 다운로드입니다. [Aspose.Slides for SharePoint 다운로드](https://releases.aspose.com/slides/ko/sharepoint/), [설치](/slides/ko/sharepoint/installing-aspose-slides-for-sharepoint/), 기본적으로 평가 모드로 작동합니다.
+Aspose.Slides for SharePoint의 평가 버전과 유료 버전은 동일한 다운로드입니다. [Aspose.Slides for SharePoint 다운로드](https://releases.aspose.com/slides/sharepoint/), [설치](/slides/ko/sharepoint/installing-aspose-slides-for-sharepoint/), 기본적으로 평가 모드로 작동합니다.
 
 평가 모드에서는 변환된 문서에 평가 워터마크가 표시됩니다. 라이선스를 구매한 경우, [Aspose.Slides for SharePoint 라이선스 설치](/slides/ko/sharepoint/installing-aspose-slides-for-sharepoint-license/)에 설명된 대로 설치된 평가 사본 위에 라이선스 솔루션을 설치하면 Aspose.Slides for SharePoint가 라이선스 모드로 작동합니다.
 

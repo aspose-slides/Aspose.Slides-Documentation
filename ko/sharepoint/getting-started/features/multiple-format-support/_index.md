@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint는 다음 입력 형식을 변환합니다:
 
 {{% alert color="info" title="Note" %}}
 
-문서를 변환하려면 Aspose.Slides for SharePoint는 내장된 [Aspose.Slides for .NET](https://products.aspose.com/slides/ko/net/) 버전에 의존합니다.
+문서를 변환하려면 Aspose.Slides for SharePoint는 내장된 [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) 버전에 의존합니다.
 
 {{% /alert %}}
 

@@ -7,7 +7,7 @@ description: "SharePoint 팜에 Aspose.Slides for SharePoint 라이선스를 설
 ---
 {{% alert color="info" title="Note" %}}
 
-평가가 만족스럽다면 [라이선스를 구매](https://purchase.aspose.com/pricing/slides/ko/sharepoint/)할 수 있습니다. 구매하기 전에 라이선스 구독 약관을 이해하고 동의했는지 확인하십시오. 주문이 결제되면 라이선스가 이메일로 발송됩니다.
+평가가 만족스럽다면 [라이선스를 구매](https://purchase.aspose.com/pricing/slides/sharepoint/)할 수 있습니다. 구매하기 전에 라이선스 구독 약관을 이해하고 동의했는지 확인하십시오. 주문이 결제되면 라이선스가 이메일로 발송됩니다.
 
 라이선스는 일반 SharePoint 솔루션 패키지를 포함하는 ZIP 아카이브입니다. 아카이브에는 다음이 포함됩니다:
 

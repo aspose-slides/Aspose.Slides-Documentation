@@ -57,12 +57,12 @@ Aspose.Slides for SharePoint는 SharePoint 2007부터 2019까지 지원되는 �
 <hr>
 <p>참조</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ko/sharepoint/release-notes/">릴리스 노트</a></li>
-<li><a href="https://releases.aspose.com/slides/ko/sharepoint/">다운로드</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">릴리스 노트</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">다운로드</a></li>
 </ul>
 <p>지원</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">무료 지원 포럼</a></li>
 <li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Aspose.Slides for SharePoint는 SharePoint 2007부터 2019까지 지원되는 �
 
 Aspose.Slides for SharePoint는 팜에 한 번 설치된 후 활성화된 모든 문서 라이브러리에서 사용할 수 있습니다:
 
-1. ZIP 아카이브를 [download page](https://releases.aspose.com/slides/ko/sharepoint/)에서 다운로드하고 SharePoint 팜의 서버에 압축을 풉니다.
+1. ZIP 아카이브를 [download page](https://releases.aspose.com/slides/sharepoint/)에서 다운로드하고 SharePoint 팜의 서버에 압축을 풉니다.
 2. SharePoint 버전에 맞는 설치 프로그램을 실행합니다: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* 또는 *Setup2019.exe*. SharePoint 솔루션을 설치하고 배포할 수 있는 계정을 사용하세요. 라이선스 계약에 동의하고, 기능을 활성화할 사이트 컬렉션을 선택한 뒤 설치 프로그램이 솔루션을 배포하도록 합니다. 각 화면은 [설치](/slides/ko/sharepoint/installing-aspose-slides-for-sharepoint/)에 설명되어 있습니다.
 3. 문서 라이브러리를 열고 PPT 또는 PPTX 파일의 메뉴를 열어 **Convert via Aspose.Slides**를 선택합니다. SharePoint 2007에서는 메뉴 항목이 **Convert with Aspose.Slides**라 불립니다.
 4. **Convert to** 아래에서 **PDF - Adobe Portable Document**를 선택합니다. 필요에 따라 대상 파일명과 폴더를 변경하고 **Convert**를 클릭합니다.

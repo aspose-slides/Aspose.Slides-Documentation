@@ -7,7 +7,7 @@ description: "SharePoint 팜에 Aspose.Slides for SharePoint를 설치합니다:
 ---
 ## **패키지 내용**
 
-Aspose.Slides for SharePoint는 ZIP 아카이브 형태로 [다운로드 페이지](https://releases.aspose.com/slides/ko/sharepoint/)에서 다운로드됩니다. 이 아카이브에는 지원되는 각 SharePoint 버전에 대해 하나의 SharePoint 솔루션 패키지(WSP)와 하나의 설치 프로그램이 포함됩니다.
+Aspose.Slides for SharePoint는 ZIP 아카이브 형태로 [다운로드 페이지](https://releases.aspose.com/slides/sharepoint/)에서 다운로드됩니다. 이 아카이브에는 지원되는 각 SharePoint 버전에 대해 하나의 SharePoint 솔루션 패키지(WSP)와 하나의 설치 프로그램이 포함됩니다.
 
 | SharePoint 버전 | 설치 프로그램 | 솔루션 패키지 |
 | :- | :- | :- |
