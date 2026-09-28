@@ -63,12 +63,12 @@ Aspose.Slides for Reporting Services माइक्रोसॉफ्ट SQL Se
 <hr>
 <p>संदर्भ</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/hi/reportingservices/release-notes/">रिलीज नोट्स</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/reportingservices/">डाउनलोड</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">रिलीज नोट्स</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">डाउनलोड</a></li>
 </ul>
 <p>समर्थन</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">मुफ़्त समर्थन फ़ोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">मुफ़्त समर्थन फ़ोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">पेड समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for Reporting Services माइक्रोसॉफ्ट SQL Se
 कोड लिखने की ज़रूरत नहीं है: आप रिपोर्ट सर्वर पर एक्सटेन्शन स्थापित करते हैं, और इसके फ़ॉर्मेट सर्वर पर प्रत्येक पेजिनेटेड रिपोर्ट की निर्यात सूची में दिखते हैं।
 
 1. जांचें कि रिपोर्ट सर्वर [सिस्टम आवश्यकताएँ](/slides/hi/reportingservices/system-requirements/) को पूरा करता है, जिसमें .NET Framework 3.5 शामिल है।
-1. [डाउनलोड पृष्ठ](https://releases.aspose.com/slides/hi/reportingservices/), MSI इंस्टॉलर डाउनलोड करें, *Aspose.Slides for Reporting Services*। यदि आप हाथ से स्थापित करना चाहते हैं, तो ZIP पैकेज डाउनलोड करें, *Aspose.Slides for Reporting Services (DLLs Only)*।
+1. [डाउनलोड पृष्ठ](https://releases.aspose.com/slides/reportingservices/), MSI इंस्टॉलर डाउनलोड करें, *Aspose.Slides for Reporting Services*। यदि आप हाथ से स्थापित करना चाहते हैं, तो ZIP पैकेज डाउनलोड करें, *Aspose.Slides for Reporting Services (DLLs Only)*।
 1. रिपोर्ट सर्वर पर एक्सटेन्शन स्थापित करें: MSI को एडमिनिस्ट्रेटर के रूप में चलाएँ, जैसा कि [MSI इंस्टॉलर के साथ स्थापित करें](/slides/hi/reportingservices/install-with-msi-installer/) में बताया गया है, या ZIP पैकेज के लिए [हाथ से स्थापित करें](/slides/hi/reportingservices/install-manually/) का पालन करें।
 1. एक ब्राउज़र में, रिपोर्ट सर्वर का वेब पोर्टल (SQL Server 2014 और पुराना के लिए Report Manager) खोलें। डिफ़ॉल्ट रूप से, इसका पता `https://<ComputerName>/reports` है।
 1. एक पेजिनेटेड रिपोर्ट खोलें। रिपोर्ट टूलबार पर, **निर्यात** सूची खोलें और **PPTX - PowerPoint 2007 Presentation via Aspose.Slides** चुनें। यदि टूलबार में अलग **निर्यात** बटन है, जैसा कि Report Manager में होते हैं, तो उसे चुनें।

@@ -15,7 +15,7 @@ description: "Aspose.Slides for Reporting Services को उसके MSI इ�
 
 MSI इंस्टॉलर Aspose.Slides for Reporting Services को स्थापित करने का सबसे सरल तरीका है। इसे .NET Framework 3.5 और रिपोर्ट सर्वर पर व्यवस्थापक अधिकारों की आवश्यकता होती है; देखें [System Requirements](/slides/hi/reportingservices/system-requirements/).
 
-1. MSI इंस्टॉलर, *Aspose.Slides for Reporting Services XX.XX*, को [download page](https://releases.aspose.com/slides/hi/reportingservices/) से डाउनलोड करें और उसे रिपोर्ट सर्वर पर कॉपी करें।
+1. MSI इंस्टॉलर, *Aspose.Slides for Reporting Services XX.XX*, को [download page](https://releases.aspose.com/slides/reportingservices/) से डाउनलोड करें और उसे रिपोर्ट सर्वर पर कॉपी करें।
 2. इसे व्यवस्थापक के रूप में चलाएँ। यदि .NET Framework 3.5 अनुपलब्ध है, तो इंस्टॉलर एक संदेश के साथ रुक जाता है; .NET Framework 3.5 फ़ीचर इंस्टॉल करें और फिर से चलाएँ।
 3. लाइसेंस समझौते को स्वीकार करें।
 4. **Custom Setup** पृष्ठ पर, फीचर ट्री मशीन पर इंस्टॉलर द्वारा पता लगाए गए प्रत्येक SQL Server Reporting Services और Power BI Report Server इंस्टेंस को सूचीबद्ध करता है। किसी इंस्टेंस को अपरिवर्तित रखने के लिए, उसके आइकन पर क्लिक करें और **Entire feature will be unavailable** चुनें। Express संस्करण रेंडरिंग एक्सटेंशन को समर्थन नहीं देते, इसलिए Express इंस्टेंस का चयन न करें। इंस्टॉलर SQL Server 2016 और उससे पुराने Express इंस्टेंस को छुपाता है।

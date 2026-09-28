@@ -14,7 +14,7 @@ description: "DLLs-only ZIP पैकेज से Aspose.Slides for Reporting S
 ---
 ## **अवलोकन**
 
-MSI इंस्टॉलर के बिना Aspose.Slides for Reporting Services को स्थापित करने के लिए ये चरणों का पालन करें, ZIP पैकेज *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* से, जो [download page](https://releases.aspose.com/slides/hi/reportingservices/) पर उपलब्ध है। ये [MSI installer](/slides/hi/reportingservices/install-with-msi-installer/) के समान एक्सटेंशन रजिस्टर करते हैं। प्रत्येक रिपोर्ट सर्वर इंस्टेंस के लिए इन्हें दोहराएँ।
+MSI इंस्टॉलर के बिना Aspose.Slides for Reporting Services को स्थापित करने के लिए ये चरणों का पालन करें, ZIP पैकेज *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* से, जो [download page](https://releases.aspose.com/slides/reportingservices/) पर उपलब्ध है। ये [MSI installer](/slides/hi/reportingservices/install-with-msi-installer/) के समान एक्सटेंशन रजिस्टर करते हैं। प्रत्येक रिपोर्ट सर्वर इंस्टेंस के लिए इन्हें दोहराएँ।
 
 शुरू करने से पहले, [system requirements](/slides/hi/reportingservices/system-requirements/) देखें। आपको रिपोर्ट सर्वर पर स्थानीय प्रशासक अधिकारों की आवश्यकता होगी।
 

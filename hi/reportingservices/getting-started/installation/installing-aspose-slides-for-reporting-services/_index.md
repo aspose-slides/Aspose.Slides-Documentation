@@ -16,7 +16,7 @@ description: "रिपोर्ट सर्वर पर Aspose.Slides for Rep
 
 Aspose.Slides for Reporting Services रिपोर्ट सर्वर पर ही स्थापित किया जाता है। शुरू करने से पहले, [system requirements](/slides/hi/reportingservices/system-requirements/) देखें।
 
-[डाउनलोड पेज](https://releases.aspose.com/slides/hi/reportingservices/) प्रत्येक रिलीज़ के लिए दो पैकेज प्रदान करता है:
+[डाउनलोड पेज](https://releases.aspose.com/slides/reportingservices/) प्रत्येक रिलीज़ के लिए दो पैकेज प्रदान करता है:
 
 - **Aspose.Slides for Reporting Services XX.XX** — एक MSI इंस्टॉलर। यह मशीन पर रिपोर्ट सर्वर इंस्टेंस की पहचान करता है, चयनित सर्वरों में एक्सटेंशन कॉपी करता है, और उनकी कॉन्फ़िगरेशन फ़ाइलों को अपडेट करता है। देखें [MSI इंस्टॉलर के साथ स्थापित करें](/slides/hi/reportingservices/install-with-msi-installer/)।
 

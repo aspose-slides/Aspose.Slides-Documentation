@@ -13,11 +13,11 @@ description: "Aspose.Slides for Reporting Services में लाइसें�
 ---
 ## **लाइसेंस समर्थन**
 
-Aspose.Slides for Reporting Services का मूल्यांकन संस्करण खरीदे गए संस्करण के समान पैकेज है, [its download page](https://releases.aspose.com/slides/hi/reportingservices/), और समान कार्यक्षमता प्रदान करता है। बिना लाइसेंस के, यह मूल्यांकन मोड में काम करता है और निर्यात किए गए प्रस्तुतियों में एक मूल्यांकन वाटरमार्क जोड़ता है।
+Aspose.Slides for Reporting Services का मूल्यांकन संस्करण खरीदे गए संस्करण के समान पैकेज है, [its download page](https://releases.aspose.com/slides/reportingservices/), और समान कार्यक्षमता प्रदान करता है। बिना लाइसेंस के, यह मूल्यांकन मोड में काम करता है और निर्यात किए गए प्रस्तुतियों में एक मूल्यांकन वाटरमार्क जोड़ता है।
 
 जब आप लाइसेंस फ़ाइल को रिपोर्ट सर्वर पर कॉपी करते हैं तो मूल्यांकन संस्करण लाइसेंस प्राप्त हो जाता है। इसमें कोई कोड शामिल नहीं है।
 
-जब आप अपने मूल्यांकन से संतुष्ट हों, तो आप [लाइसेंस खरीदें](https://purchase.aspose.com/pricing/slides/hi/reporting-services/)। हम आपको विभिन्न सब्सक्रिप्शन प्रकारों को देखने की सलाह देते हैं। यदि आपके प्रश्न हों, तो Aspose बिक्री टीम से संपर्क करें।
+जब आप अपने मूल्यांकन से संतुष्ट हों, तो आप [लाइसेंस खरीदें](https://purchase.aspose.com/pricing/slides/reporting-services/)। हम आपको विभिन्न सब्सक्रिप्शन प्रकारों को देखने की सलाह देते हैं। यदि आपके प्रश्न हों, तो Aspose बिक्री टीम से संपर्क करें।
 
 ## **Aspose.Slides for Reporting Services में लाइसेंसिंग**
 
