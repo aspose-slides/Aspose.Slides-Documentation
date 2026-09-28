@@ -64,12 +64,12 @@ Ini mengekspor laporan yang terisi ke PPT dan PPTX, satu slide per halaman lapor
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/id/jasperreport/release-notes/">Catatan rilis</a></li>
-<li><a href="https://releases.aspose.com/slides/id/jasperreport/">Unduh</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Catatan rilis</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Ini mengekspor laporan yang terisi ke PPT dan PPTX, satu slide per halaman lapor
 
 Langkah-langkah ini mengkompilasi laporan satu baris, mengisinya, dan mengekspornya ke PPTX dengan JasperReports 6.16.0 dari Maven Central. Anda memerlukan JDK 11 atau lebih baru dan Apache Maven.
 
-1. Unduh ZIP dari [halaman unduhan](https://releases.aspose.com/slides/id/jasperreport/) dan ekstrak. Folder *lib*‑nya memiliki satu subfolder per rentang versi JasperReports, dan masing‑masing berisi jar untuk rentang tersebut. Untuk JasperReports 6.16.0, salin *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ke folder proyek yang kosong.
+1. Unduh ZIP dari [halaman unduhan](https://releases.aspose.com/slides/jasperreport/) dan ekstrak. Folder *lib*‑nya memiliki satu subfolder per rentang versi JasperReports, dan masing‑masing berisi jar untuk rentang tersebut. Untuk JasperReports 6.16.0, salin *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ke folder proyek yang kosong.
 
 2. Jar tersebut terdapat dalam ZIP bukan dari repositori Maven, jadi instal ke repositori Maven lokal Anda. Jalankan perintah berikut di folder proyek:
 

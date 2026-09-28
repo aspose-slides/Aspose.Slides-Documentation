@@ -7,7 +7,7 @@ description: "Pilih jar Aspose.Slides untuk JasperReports yang sesuai dengan ver
 ---
 ## **Pilih jar untuk versi JasperReports Anda**
 
-Aspose.Slides for JasperReports didistribusikan sebagai file ZIP pada [halaman unduhan](https://releases.aspose.com/slides/id/jasperreport/). Folder *lib*-nya memiliki satu subfolder untuk tiap rentang versi JasperReports. Ambil jar dari subfolder yang mencakup versi JasperReports yang Anda gunakan:
+Aspose.Slides for JasperReports didistribusikan sebagai file ZIP pada [halaman unduhan](https://releases.aspose.com/slides/jasperreport/). Folder *lib*-nya memiliki satu subfolder untuk tiap rentang versi JasperReports. Ambil jar dari subfolder yang mencakup versi JasperReports yang Anda gunakan:
 
 | Versi JasperReports | Subfolder *lib* |
 | :- | :- |

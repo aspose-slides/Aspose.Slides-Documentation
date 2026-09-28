@@ -7,9 +7,9 @@ description: "Pelajari apa yang ditambahkan versi evaluasi Aspose.Slides for Jas
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports tersedia sebagai evaluasi gratis tanpa batas waktu dari [halaman unduhan](https://releases.aspose.com/slides/id/jasperreport/). Versi evaluasi dan versi berlisensi produk ini diunduh dengan cara yang sama.
+Aspose.Slides for JasperReports tersedia sebagai evaluasi gratis tanpa batas waktu dari [halaman unduhan](https://releases.aspose.com/slides/jasperreport/). Versi evaluasi dan versi berlisensi produk ini diunduh dengan cara yang sama.
 
-Setelah Anda puas dengan evaluasi, [beli lisensi](https://purchase.aspose.com/pricing/slides/id/jasperreports/). Pastikan Anda memahami dan menyetujui ketentuan berlangganan.
+Setelah Anda puas dengan evaluasi, [beli lisensi](https://purchase.aspose.com/pricing/slides/jasperreports/). Pastikan Anda memahami dan menyetujui ketentuan berlangganan.
 
 Lisensi dapat diunduh dari halaman pesanan setelah pembayaran selesai. Lisensi berupa file XML teks jelas yang ditandatangani secara digital, berisi informasi seperti nama klien, produk yang dibeli, dan jenis lisensi. Jangan memodifikasi isi file lisensi dengan cara apapun: hal tersebut akan membuat lisensi tidak valid.
 
