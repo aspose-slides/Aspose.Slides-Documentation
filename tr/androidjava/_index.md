@@ -72,14 +72,14 @@ Makro destekli ve şablon varyantları dahil olmak üzere PPT, PPTX, PPS, POT ve
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/tr/androidjava/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/androidjava/release-notes/">Sürüm notları</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/androidjava/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/androidjava/">İndir</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek masası</a></li>
 </ul>
 </div>

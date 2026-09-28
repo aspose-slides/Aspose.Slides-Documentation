@@ -31,10 +31,10 @@ Başlamadan önce, Aspose.Slides'i Android projenize Aspose'un Maven deposundan 
 
 Bir sunum oluşturmak ve ilk slaytına bir metin kutusu eklemek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
-1. Bu slaytı, [slide collection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islidecollection/) içerisinden indeksine göre, 0, alın.  
-1. [shape collection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) üzerinden [addAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) yöntemiyle bir dikdörtgen ekleyin ve [text frame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) nin [setText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) yöntemiyle metnini ayarlayın.  
-1. Sunumu, [save](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) yöntemiyle [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/saveformat/) biçiminde bir PPTX dosyası olarak kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun. Yeni bir sunum zaten bir boş slayt içerir.  
+1. Bu slaytı, [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) içerisinden indeksine göre, 0, alın.  
+1. [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) üzerinden [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) yöntemiyle bir dikdörtgen ekleyin ve [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) nin [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) yöntemiyle metnini ayarlayın.  
+1. Sunumu, [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) yöntemiyle [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/) biçiminde bir PPTX dosyası olarak kaydedin.
 
 Kod, örneğin `onCreate` metodunda bir `Activity` içinde çalışır. Dosyayı, [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) yöntemiyle dönen dizine kaydeder: uygulamanızın izin istemeden yazabileceği özel depolama.
 
@@ -83,7 +83,7 @@ Puan cinsinden: 1 inç 72 birime eşittir.
 
 ### Sunumları aynı anda paralel olarak oluşturup/kaydedebilir miyim?
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) örneğine [birden fazla iş parçacığından](/slides/tr/androidjava/multithreading/) erişemezsiniz. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
+Aynı [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) örneğine [birden fazla iş parçacığından](/slides/tr/androidjava/multithreading/) erişemezsiniz. Her iş parçacığı veya süreç için ayrı, izole örnekler çalıştırın.
 
 ### Deneme filigranı ve kısıtlamaları nasıl kaldırabilirim?
 

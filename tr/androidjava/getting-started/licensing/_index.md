@@ -23,14 +23,14 @@ description: "Aspose.Slides for Android via Java'da lisansları uygulayın, yön
 
 Aspose.Slides, değerlendirme modunda veya geçerli bir lisansla kullanılabilir. Değerlendirme sürümü, lisanslı sürümle aynı işlevselliği sağlar, ancak kaydettiği her sunumun her slaytına bir değerlendirme filigranı ekler ve kodunuzun sunumlardan okuduğu metni kısaltır.
 
-Bu makale, Aspose.Slides’da lisanslamanın nasıl çalıştığını ve kütüphaneyi kullanmadan önce nasıl bir lisans uygulayacağınızı açıklar. Bir lisans, [License](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/license/) sınıfı kullanılarak bir dosyadan, akıştan veya gömülü kaynaktan yüklenebilir. Makale ayrıca bir lisansın doğru şekilde uygulanıp uygulanmadığını nasıl doğrulayacağınızı da gösterir.
+Bu makale, Aspose.Slides’da lisanslamanın nasıl çalıştığını ve kütüphaneyi kullanmadan önce nasıl bir lisans uygulayacağınızı açıklar. Bir lisans, [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) sınıfı kullanılarak bir dosyadan, akıştan veya gömülü kaynaktan yüklenebilir. Makale ayrıca bir lisansın doğru şekilde uygulanıp uygulanmadığını nasıl doğrulayacağınızı da gösterir.
 
 ## **Aspose.Slides Değerlendirme**
 
 {{% alert color="info" title="Not" %}}
-Aspose.Slides for Android via Java’nın **değerlendirme sürümünü**, [indirme sayfası](https://releases.aspose.com/slides/tr/androidjava/) üzerinden indirebilirsiniz. Değerlendirme sürümü, ürünün lisanslı sürümüyle aynı işlevleri sağlar. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, yalnızca birkaç satır kod ekleyerek (lisansı uygulamak için) lisanslı hâle gelir.
+Aspose.Slides for Android via Java’nın **değerlendirme sürümünü**, [indirme sayfası](https://releases.aspose.com/slides/androidjava/) üzerinden indirebilirsiniz. Değerlendirme sürümü, ürünün lisanslı sürümüyle aynı işlevleri sağlar. Değerlendirme paketi, satın alınan paketle aynıdır. Değerlendirme sürümü, yalnızca birkaç satır kod ekleyerek (lisansı uygulamak için) lisanslı hâle gelir.
 
-**Aspose.Slides** değerlendirme sürecinizden memnun kaldıktan sonra, [bir lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/android-java/). Farklı abonelik türlerini incelemenizi öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
+**Aspose.Slides** değerlendirme sürecinizden memnun kaldıktan sonra, [bir lisans satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/android-java/). Farklı abonelik türlerini incelemenizi öneririz. Sorularınız varsa, Aspose satış ekibiyle iletişime geçin.
 
 Her Aspose lisansı, abonelik süresi içinde yayınlanan yeni sürümlere veya düzeltmelere ücretsiz yükseltmeler sağlayan bir yıllık ücretsiz abonelikle birlikte gelir. Lisanslı ürünleri (ve hatta değerlendirme sürümleri) kullanan kullanıcılar, sınırsız ve ücretsiz teknik destek alırlar.
 {{% /alert %}} 
@@ -59,7 +59,7 @@ Aspose.Slides’ı sınırlama olmadan test etmek için **30 Günlük Geçici Li
 Lisans bir **dosyadan** veya **akıştan** yüklenebilir.
 
 {{% alert color="info" title="Not" %}}
-Aspose.Slides, lisans işlemleri için [License](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/license/) sınıfını sağlar.
+Aspose.Slides, lisans işlemleri için [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) sınıfını sağlar.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Uyarı" %}}
@@ -85,9 +85,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Uyarı" %}}
-Lisans dosyasını farklı bir dizine koyarsanız, [setLicense](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metodunu çağırdığınızda belirtilen yolun sonunda yer alan dosya adı lisans dosyanızın adıyla aynı olmalıdır.
+Lisans dosyasını farklı bir dizine koyarsanız, [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metodunu çağırdığınızda belirtilen yolun sonunda yer alan dosya adı lisans dosyanızın adıyla aynı olmalıdır.
 
-Örneğin, lisans dosyasının adını *Aspose.Slides.Android.via.Java.lic.xml* olarak değiştirebilirsiniz. Ardından kodunuzda, yolu ( *Aspose.Slides.Android.via.Java.lic.xml* ile biten) [setLicense](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metoduna geçirmeniz gerekir.
+Örneğin, lisans dosyasının adını *Aspose.Slides.Android.via.Java.lic.xml* olarak değiştirebilirsiniz. Ardından kodunuzda, yolu ( *Aspose.Slides.Android.via.Java.lic.xml* ile biten) [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metoduna geçirmeniz gerekir.
 {{% /alert %}}
 
 ### **Akış**
@@ -104,7 +104,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Uygulama Varlıklarından Akış**
 
-Android uygulamasında, lisans dosyasını uygulama modülünün *assets* klasörüne, *app/src/main/assets* içine koyun; böylece APK’ye paketlenir. Dosyayı [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) metodu ile açın ve akışı [setLicense](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metoduna geçirin. Kod, bir `Activity` içinde, örneğin `onCreate` metodunda, Aspose.Slides kullanılmadan önce çalıştırılır:
+Android uygulamasında, lisans dosyasını uygulama modülünün *assets* klasörüne, *app/src/main/assets* içine koyun; böylece APK’ye paketlenir. Dosyayı [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) metodu ile açın ve akışı [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metoduna geçirin. Kod, bir `Activity` içinde, örneğin `onCreate` metodunda, Aspose.Slides kullanılmadan önce çalıştırılır:
 
 ```java
 import android.util.Log;
@@ -141,7 +141,7 @@ if (license.isLicensed())
 ## **İş Parçacığı Güvenliği**
 
 {{% alert color="warning" title="Uyarı" %}}
-[setLicense](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metodu iş parçacığı güvenli değildir. Bu metodun birçok iş parçacığından aynı anda çağrılması gerekiyorsa, sorunları önlemek için bir kilit gibi eşzamanlama primitifleri kullanmanız önerilir.
+[setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metodu iş parçacığı güvenli değildir. Bu metodun birçok iş parçacığından aynı anda çağrılması gerekiyorsa, sorunları önlemek için bir kilit gibi eşzamanlama primitifleri kullanmanız önerilir.
 {{% /alert %}}
 
 ## **SSS**

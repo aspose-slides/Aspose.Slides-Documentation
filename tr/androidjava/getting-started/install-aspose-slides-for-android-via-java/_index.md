@@ -57,7 +57,7 @@ Ardından projeyi Gradle dosyalarıyla senkronize edin, böylece Gradle kütüph
 
 ### **Bir Sürüm Seçin**
 
-Aspose.Slides for Android via Java, depodaki her sürüm için oluşturulmamıştır. Derlemeleri yalnızca bazı Aspose.Slides for Java sürümleri için yayımlanır ve Android derlemesi olmayan bir sürüm çözülemez. [Aspose.Slides for Android via Java indirme sayfasında](https://releases.aspose.com/slides/tr/androidjava/) listelenen bir sürümü seçin.
+Aspose.Slides for Android via Java, depodaki her sürüm için oluşturulmamıştır. Derlemeleri yalnızca bazı Aspose.Slides for Java sürümleri için yayımlanır ve Android derlemesi olmayan bir sürüm çözülemez. [Aspose.Slides for Android via Java indirme sayfasında](https://releases.aspose.com/slides/androidjava/) listelenen bir sürümü seçin.
 
 ### **Groovy Yapı Betikleri**
 
@@ -108,11 +108,11 @@ Proje senkronize edildikten sonra, [Sunum Oluşturma](/slides/tr/androidjava/cre
 
 ### Aspose.Slides'ın doğru şekilde entegre edildiğini nasıl doğrulayabilirim?
 
-Projenizi derleyin, boş bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) nesnesi oluşturun ve yeni bir adla kaydedin. Dosya istisna fırlatmadan oluşturulursa, kütüphane başarılı bir şekilde entegre edilmiştir.
+Projenizi derleyin, boş bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) nesnesi oluşturun ve yeni bir adla kaydedin. Dosya istisna fırlatmadan oluşturulursa, kütüphane başarılı bir şekilde entegre edilmiştir.
 
 ### Büyük sunumları işlerken bellek tüketimini nasıl sınırlayabilirim?
 
-Her bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) örneğinin `finally` bloğunda [dispose](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#dispose--) metodunu çağırarak kaynaklarını hemen serbest bırakın ve aynı anda yalnızca bir büyük sunumu işleyin. Bu, bellek taşması hatalarını önlemeye yardımcı olur ve toplu işlemler sırasında genel bellek kullanımının öngörülebilir kalmasını sağlar.
+Her bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) örneğinin `finally` bloğunda [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) metodunu çağırarak kaynaklarını hemen serbest bırakın ve aynı anda yalnızca bir büyük sunumu işleyin. Bu, bellek taşması hatalarını önlemeye yardımcı olur ve toplu işlemler sırasında genel bellek kullanımının öngörülebilir kalmasını sağlar.
 
 ### İstenmeyen dışa aktarma formatlarını hariç tutarak JAR boyutunu küçültebilir miyim?
 
