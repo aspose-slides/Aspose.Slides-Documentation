@@ -31,10 +31,10 @@ Innan du börjar, lägg till Aspose.Slides i ditt Android‑projekt från Aspose
 
 För att skapa en presentation och placera en textruta på den första bilden, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.
-1. Hämta den bilden från [slide collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/) med dess index, 0.
-1. Lägg till en rektangel med metoden [addAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) från [shape collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/) och sätt texten i dess [text frame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/) med metoden [setText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
-1. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-), i formatet [SaveFormat.Pptx](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/saveformat/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). En ny presentation innehåller redan en tom bild.
+1. Hämta den bilden från [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) med dess index, 0.
+1. Lägg till en rektangel med metoden [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) från [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) och sätt texten i dess [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) med metoden [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
+1. Spara presentationen som en PPTX‑fil med metoden [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-), i formatet [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Koden körs inne i en `Activity`, till exempel i dess `onCreate`‑metod. Den sparar filen till katalogen som returneras av metoden [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()): appens privata lagring, som den kan skriva till utan att begära någon behörighet.
 
@@ -83,7 +83,7 @@ Använd [BLOB management strategies](/slides/sv/androidjava/manage-blob/), begr�
 
 ### Kan jag skapa/spara presentationer parallellt?
 
-Du kan inte arbeta på samma [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)-instans från [multiple threads](/slides/sv/androidjava/multithreading/). Kör separata, isolerade instanser per tråd eller process.
+Du kan inte arbeta på samma [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)-instans från [multiple threads](/slides/sv/androidjava/multithreading/). Kör separata, isolerade instanser per tråd eller process.
 
 ### Hur tar jag bort testvattenstämpeln och begränsningarna?
 

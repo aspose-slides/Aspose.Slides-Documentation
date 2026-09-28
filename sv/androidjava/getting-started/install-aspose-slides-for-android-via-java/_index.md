@@ -57,7 +57,7 @@ Synkronisera sedan projektet med Gradle‑filerna så att Gradle laddar ner bibl
 
 ### **Välj en version**
 
-Aspose.Slides for Android via Java byggs inte för varje version i arkivet. Dess byggnader publiceras endast för vissa Aspose.Slides for Java‑versioner, och en version utan Android‑byggnad kan inte lösas. Välj en version som listas på [Aspose.Slides for Android via Java nedladdningssida](https://releases.aspose.com/slides/sv/androidjava/).
+Aspose.Slides for Android via Java byggs inte för varje version i arkivet. Dess byggnader publiceras endast för vissa Aspose.Slides for Java‑versioner, och en version utan Android‑byggnad kan inte lösas. Välj en version som listas på [Aspose.Slides for Android via Java nedladdningssida](https://releases.aspose.com/slides/androidjava/).
 
 ### **Groovy‑byggskript**
 
@@ -108,11 +108,11 @@ Sedan 2018 har versioneringen av Aspose.Slides for Android via Java följt Aspos
 
 ### Hur kan jag verifiera att Aspose.Slides är korrekt integrerat?
 
-Bygg ditt projekt, skapa en tom [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) och spara den under ett nytt namn. Om filen skapas utan att kasta undantag har biblioteket integrerats framgångsrikt.
+Bygg ditt projekt, skapa en tom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) och spara den under ett nytt namn. Om filen skapas utan att kasta undantag har biblioteket integrerats framgångsrikt.
 
 ### Hur kan jag begränsa minnesanvändningen när jag behandlar stora presentationer?
 
-Anropa metoden [dispose](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#dispose--) för varje [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)-instans i ett `finally`‑block för att snabbt frigöra dess resurser, och behandla en stor presentation åt gången. Detta hjälper till att förhindra out‑of‑memory‑fel och håller den totala minnesanvändningen förutsägbar under batch‑operationer.
+Anropa metoden [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) för varje [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)-instans i ett `finally`‑block för att snabbt frigöra dess resurser, och behandla en stor presentation åt gången. Detta hjälper till att förhindra out‑of‑memory‑fel och håller den totala minnesanvändningen förutsägbar under batch‑operationer.
 
 ### Kan jag exkludera oönskade exportformat för att minska den slutliga JAR‑storleken?
 

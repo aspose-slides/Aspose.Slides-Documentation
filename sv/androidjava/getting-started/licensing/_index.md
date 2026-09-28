@@ -23,15 +23,15 @@ description: "Applicera, hantera och felsöka licenser i Aspose.Slides för Andr
 
 Aspose.Slides kan användas i utvärderingsläge eller med en giltig licens. Utvärderingsversionen erbjuder samma funktionalitet som den licensierade versionen, men den lägger till ett utvärderingsvattenstämpel på varje bild i varje presentation som sparas och trunkerar text som din kod läser från presentationer.
 
-Denna artikel förklarar hur licensiering fungerar i Aspose.Slides och hur du tillämpar en licens innan du använder biblioteket. En licens kan laddas från en fil, en ström eller en inbäddad resurs genom att använda klassen [License](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/license/). Artikeln visar också hur du validerar om en licens har tillämpats korrekt.
+Denna artikel förklarar hur licensiering fungerar i Aspose.Slides och hur du tillämpar en licens innan du använder biblioteket. En licens kan laddas från en fil, en ström eller en inbäddad resurs genom att använda klassen [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/). Artikeln visar också hur du validerar om en licens har tillämpats korrekt.
 
 ## **Evaluate Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
 
-Du kan ladda ner en utvärderingsversion av **Aspose.Slides for Android via Java** från dess [nedladdningssida](https://releases.aspose.com/slides/sv/androidjava/). Utvärderingsversionen erbjuder samma funktioner som den licensierade versionen av produkten. Utvärderingspaketet är identiskt med det köpta paketet. Utvärderingsversionen blir helt licensierad när du lägger till några rader kod för att tillämpa licensen.
+Du kan ladda ner en utvärderingsversion av **Aspose.Slides for Android via Java** från dess [nedladdningssida](https://releases.aspose.com/slides/androidjava/). Utvärderingsversionen erbjuder samma funktioner som den licensierade versionen av produkten. Utvärderingspaketet är identiskt med det köpta paketet. Utvärderingsversionen blir helt licensierad när du lägger till några rader kod för att tillämpa licensen.
 
-När du är nöjd med din utvärdering av **Aspose.Slides** kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/sv/android-java/). Vi rekommenderar att du går igenom de olika prenumerationstyperna. Om du har frågor, kontakta Aspose försäljningsteam.
+När du är nöjd med din utvärdering av **Aspose.Slides** kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/android-java/). Vi rekommenderar att du går igenom de olika prenumerationstyperna. Om du har frågor, kontakta Aspose försäljningsteam.
 
 Varje Aspose-licens innehåller ett ettårsabonnemang för gratis uppgraderingar till nya versioner eller korrigeringar som släpps under prenumerationsperioden. Användare med licensierade produkter (eller även utvärderingsversioner) får fri och obegränsad teknisk support.
 
@@ -64,7 +64,7 @@ En licens kan laddas från en **fil** eller **ström**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides tillhandahåller klassen [License](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/license/) för licensoperationer.
+Aspose.Slides tillhandahåller klassen [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) för licensoperationer.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Om du placerar licensfilen i en annan katalog, måste när du anropar metoden [setLicense](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) licensfilens namn i slutet av den angivna sökvägen vara exakt detsamma som ditt licensfilnamn.
+Om du placerar licensfilen i en annan katalog, måste när du anropar metoden [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) licensfilens namn i slutet av den angivna sökvägen vara exakt detsamma som ditt licensfilnamn.
 
-Till exempel kan du ändra licensfilens namn till *Aspose.Slides.Android.via.Java.lic.xml*. Då måste du i koden skicka sökvägen till filen (slutande med *Aspose.Slides.Android.via.Java.lic.xml*) till metoden [setLicense](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Till exempel kan du ändra licensfilens namn till *Aspose.Slides.Android.via.Java.lic.xml*. Då måste du i koden skicka sökvägen till filen (slutande med *Aspose.Slides.Android.via.Java.lic.xml*) till metoden [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -116,7 +116,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Stream from App Assets**
 
-I en Android‑app placerar du licensfilen i *assets*-mappen i app‑modulen, *app/src/main/assets*, så att den paketeras i APK‑filen. Öppna filen med metoden [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) och skicka strömmen till metoden [setLicense](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Koden körs i en `Activity`, till exempel i dess `onCreate`‑metod, innan appen använder Aspose.Slides:
+I en Android‑app placerar du licensfilen i *assets*-mappen i app‑modulen, *app/src/main/assets*, så att den paketeras i APK‑filen. Öppna filen med metoden [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) och skicka strömmen till metoden [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Koden körs i en `Activity`, till exempel i dess `onCreate`‑metod, innan appen använder Aspose.Slides:
 
 ```java
 import android.util.Log;
@@ -154,7 +154,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-Metoden [setLicense](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) är inte trådsäker. Om metoden måste anropas samtidigt från många trådar bör du använda synkroniseringsprimitive (t.ex. en lås) för att undvika problem.
+Metoden [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) är inte trådsäker. Om metoden måste anropas samtidigt från många trådar bör du använda synkroniseringsprimitive (t.ex. en lås) för att undvika problem.
 
 {{% /alert %}}
 
