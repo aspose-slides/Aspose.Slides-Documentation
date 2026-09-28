@@ -7,7 +7,7 @@ description: "在 SharePoint 農場上安裝 Aspose.Slides for SharePoint 授權
 ---
 {{% alert color="info" title="Note" %}}
 
-一旦您對評估結果滿意，便可以[購買授權](https://purchase.aspose.com/pricing/slides/zh-hant/sharepoint/)。在購買之前，請確認您已了解並同意授權訂閱條款。訂單付款後，授權將以電子郵件形式發送給您。
+一旦您對評估結果滿意，便可以[購買授權](https://purchase.aspose.com/pricing/slides/sharepoint/)。在購買之前，請確認您已了解並同意授權訂閱條款。訂單付款後，授權將以電子郵件形式發送給您。
 
 授權是一個 ZIP 壓縮檔，內含一般的 SharePoint 解決方案套件。壓縮檔包含：
 

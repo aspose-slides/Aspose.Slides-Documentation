@@ -11,7 +11,7 @@ description: "使用一般下載方式評估 Aspose.Slides for SharePoint：安�
 
 {{% /alert %}}
 
-Aspose.Slides for SharePoint 的評估版與付費版皆為相同的下載檔案。[下載 Aspose.Slides for SharePoint](https://releases.aspose.com/slides/zh-hant/sharepoint/)，[安裝它](/slides/zh-hant/sharepoint/installing-aspose-slides-for-sharepoint/)，預設會以評估模式執行。
+Aspose.Slides for SharePoint 的評估版與付費版皆為相同的下載檔案。[下載 Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/)，[安裝它](/slides/zh-hant/sharepoint/installing-aspose-slides-for-sharepoint/)，預設會以評估模式執行。
 
 在評估模式下，轉換的文件會帶有評估浮水印。當您已購買授權時，請依照 [Installing Aspose.Slides for SharePoint License](/slides/zh-hant/sharepoint/installing-aspose-slides-for-sharepoint-license/) 的說明，將授權方案安裝至已安裝的評估副本上，Aspose.Slides for SharePoint 即會以授權模式運作。
 

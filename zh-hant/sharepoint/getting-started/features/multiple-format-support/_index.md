@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint 可轉換以下輸入格式：
 
 {{% alert color="info" title="Note" %}}
 
-要轉換文件，Aspose.Slides for SharePoint 依賴內建的 [Aspose.Slides for .NET](https://products.aspose.com/slides/zh-hant/net/)。
+要轉換文件，Aspose.Slides for SharePoint 依賴內建的 [Aspose.Slides for .NET](https://products.aspose.com/slides/net/)。
 
 {{% /alert %}}
 

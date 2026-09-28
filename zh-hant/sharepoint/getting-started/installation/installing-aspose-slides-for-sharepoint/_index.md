@@ -7,7 +7,7 @@ description: "在 SharePoint 伺服器平台上安裝 Aspose.Slides for SharePoi
 ---
 ## **套件內容**
 
-Aspose.Slides for SharePoint 可從[下載頁面](https://releases.aspose.com/slides/zh-hant/sharepoint/) 下載為 ZIP 壓縮檔。該壓縮檔包含每個受支援的 SharePoint 版本的一個 SharePoint 解決方案套件 (WSP) 與一個安裝程式：
+Aspose.Slides for SharePoint 可從[下載頁面](https://releases.aspose.com/slides/sharepoint/) 下載為 ZIP 壓縮檔。該壓縮檔包含每個受支援的 SharePoint 版本的一個 SharePoint 解決方案套件 (WSP) 與一個安裝程式：
 
 | SharePoint 版本 | 安裝程式 | 解決方案套件 |
 | :- | :- | :- |
