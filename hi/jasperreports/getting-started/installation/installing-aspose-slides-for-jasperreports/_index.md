@@ -7,7 +7,7 @@ description: "अपने JasperReports संस्करण से मिल�
 ---
 ## **अपने JasperReports संस्करण के लिए जार चुनें**
 
-Aspose.Slides for JasperReports को ZIP फ़ाइल के रूप में [download page](https://releases.aspose.com/slides/hi/jasperreport/) से वितरित किया जाता है। इसकी *lib* फ़ोल्डर में JasperReports संस्करणों की श्रेणी के अनुसार एक उप‑फ़ोल्डर होता है। उस उप‑फ़ोल्डर से जार लें जो आप जिस JasperReports संस्करण का उपयोग करते हैं, उसे कवर करता है:
+Aspose.Slides for JasperReports को ZIP फ़ाइल के रूप में [download page](https://releases.aspose.com/slides/jasperreport/) से वितरित किया जाता है। इसकी *lib* फ़ोल्डर में JasperReports संस्करणों की श्रेणी के अनुसार एक उप‑फ़ोल्डर होता है। उस उप‑फ़ोल्डर से जार लें जो आप जिस JasperReports संस्करण का उपयोग करते हैं, उसे कवर करता है:
 
 | JasperReports संस्करण | *lib* का उपफ़ोल्डर |
 | :- | :- |

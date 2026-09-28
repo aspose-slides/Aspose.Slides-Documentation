@@ -7,9 +7,9 @@ description: "जानें कि Aspose.Slides for JasperReports का म�
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports एक मुफ्त, समय-अपरिमित मूल्यांकन रूप में [download page](https://releases.aspose.com/slides/hi/jasperreport/) से उपलब्ध है। मूल्यांकन और लाइसेंस प्राप्त संस्करण उत्पाद के एक ही डाउनलोड हैं।
+Aspose.Slides for JasperReports एक मुफ्त, समय-अपरिमित मूल्यांकन रूप में [download page](https://releases.aspose.com/slides/jasperreport/) से उपलब्ध है। मूल्यांकन और लाइसेंस प्राप्त संस्करण उत्पाद के एक ही डाउनलोड हैं।
 
-जब आप मूल्यांकन से संतुष्ट हों, तो [लाइसेंस खरीदें](https://purchase.aspose.com/pricing/slides/hi/jasperreports/) करें। सुनिश्चित करें कि आप सब्सक्रिप्शन शर्तों को समझते हैं और सहमत हैं।
+जब आप मूल्यांकन से संतुष्ट हों, तो [लाइसेंस खरीदें](https://purchase.aspose.com/pricing/slides/jasperreports/) करें। सुनिश्चित करें कि आप सब्सक्रिप्शन शर्तों को समझते हैं और सहमत हैं।
 
 ऑर्डर पेज से भुगतान पूरा होने के बाद लाइसेंस डाउनलोड करने के लिए उपलब्ध होता है। लाइसेंस एक स्पष्ट पाठ, डिजिटल रूप से हस्ताक्षरित XML फ़ाइल है जिसमें क्लाइंट का नाम, खरीदा गया उत्पाद और लाइसेंस प्रकार जैसी जानकारी होती है। लाइसेंस फ़ाइल की सामग्री को किसी भी तरह संशोधित न करें: ऐसा करने से लाइसेंस अमान्य हो जाएगा।
 
