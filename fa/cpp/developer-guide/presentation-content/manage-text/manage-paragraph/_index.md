@@ -1,5 +1,5 @@
 ---
-title: مدیریت پاراگراف‌های متن PowerPoint در C++
+title: مدیریت پاراگراف‌های متن پاورپوینت در C++
 linktitle: مدیریت پاراگراف
 type: docs
 weight: 40
@@ -8,56 +8,56 @@ aliases:
   - /cpp/paragraph/
   - /cpp/portion/
 keywords:
-  - اضافه کردن متن
-  - اضافه کردن پاراگراف
-  - مدیریت متن
-  - مدیریت پاراگراف
-  - مدیریت نقطه
-  - تورفتگی پاراگراف
-  - تورفتگی معلق
-  - نقطه‌گذاری پاراگراف
-  - فهرست شماره‌دار
-  - فهرست نقطه‌دار
-  - خصوصیات پاراگراف
-  - وارد کردن HTML
-  - متن به HTML
-  - پاراگراف به HTML
-  - پاراگراف به تصویر
-  - متن به تصویر
-  - صادر کردن پاراگراف
-  - PowerPoint
-  - ارائه
-  - C++
-  - Aspose.Slides
-description: "نحوه ایجاد و قالب‌بندی پاراگراف‌ها، بخش‌ها، نقطه‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها، محتوای HTML و تصاویر پاراگرافی را با Aspose.Slides برای C++ بیاموزید."
+- اضافه کردن متن
+- اضافه کردن پاراگراف
+- مدیریت متن
+- مدیریت پاراگراف
+- مدیریت گلوله
+- تورفتگی پاراگراف
+- تورفتگی معلق
+- گلوله پاراگراف
+- فهرست شماره‌دار
+- فهرست گلوله‌ای
+- ویژگی‌های پاراگراف
+- وارد کردن HTML
+- متن به HTML
+- پاراگراف به HTML
+- پاراگراف به تصویر
+- متن به تصویر
+- صادر کردن پاراگراف
+- پاورپوینت
+- ارائه
+- C++
+- Aspose.Slides
+description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، گلوله‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها, محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای C++ ایجاد و قالب‌بندی کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides for C++ متن را به صورت یک سلسله‌مراتب از فریم‌های متنی، پاراگراف‌ها و بخش‌ها (Portion) نمایش می‌دهد:
+Aspose.Slides برای C++ متن را به صورت یک سلسله‌مراتب از فریم‌های متنی، پاراگراف‌ها و بخش‌ها نمایش می‌دهد:
 
-* [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) فریم متنی موجود در یک شکل را نمایان می‌کند و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌سازد.
-* [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) یک پاراگراف در فریم متنی را نمایان می‌کند و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌سازد.
-* [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) یک بخش متنی داخل پاراگراف را نمایان می‌کند. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتری خود را داشته باشد.
+* [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) فریم متنی را در یک شکل نشان می‌دهد و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
+* [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) یک پاراگراف در فریم متنی را نشان می‌دهد و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
+* [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) یک بخش متن درون یک پاراگراف را نشان می‌دهد. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
 
-به این ترتیب یک پاراگراف می‌تواند متنی با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف داشته باشد که با استفاده از چندین بخش (Portion) ایجاد می‌شود.
+بنابراین یک پاراگراف می‌تواند متن با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف را با استفاده از چندین بخش شامل شود.
 
 ## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-### **ایجاد پاراگراف‌ها با چندین بخش**
+### **ایجاد پاراگراف‌ها با بخش‌های متعدد**
 
-مراحل زیر یک فریم متنی با سه پاراگراف، هر کدام شامل سه بخش ایجاد می‌کند:
+مراحل زیر یک فریم متنی با سه پاراگراف، هر کدام شامل سه بخش، ایجاد می‌کند:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق اندیس، به اسلاید مربوطه دسترسی پیدا کنید.
+2. مرجع اسلاید مربوطه را از طریق ایندکس آن دسترسی پیدا کنید.
 3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
 4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
 5. از پاراگراف پیش‌فرض استفاده کنید و دو شیء دیگر [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) را به فریم متنی اضافه کنید.
-6. برای هر پاراگراف به اندازه کافی شیء [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) اضافه کنید تا سه بخش داشته باشد. پاراگراف پیش‌فرض از قبل یک بخش خالی دارد.
+6. برای هر پاراگراف به اندازه کافی شیء [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) اضافه کنید تا سه بخش داشته باشند. پاراگراف پیش‌فرض در حال حاضر یک بخش خالی دارد.
 7. متن هر بخش را تنظیم کنید.
-8. قالب‌بندی سطح کاراکتری را از طریق [IPortion::get_PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/get_portionformat/) اعمال کنید.
-9. ارائه (Presentation) اصلاح‌شده را ذخیره کنید.
+8. قالب‌بندی سطح کاراکتر را از طریق [IPortion::get_PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/get_portionformat/) اعمال کنید.
+9. ارائه تغییر یافته را ذخیره کنید.
 
-این مثال C++ مراحل فوق را پیاده‌سازی می‌کند:
+این مثال C++ مراحل فوق را اجرا می‌کند:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -131,26 +131,26 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ایجاد فهرست‌های نقطه‌دار و شماره‌دار**
+## **ایجاد فهرست‌های بولت‌دار و عددی**
 
-### **ایجاد فهرست نقطه‌دار یا شماره‌دار**
+### **ایجاد یک فهرست بولت‌دار یا عددی**
 
-نقطه‌ها و شماره‌گذاری، موارد مرتبط را اسکن آسان‌تر می‌کند. در Aspose.Slides تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/) تعریف می‌شود.
+بولت‌ها و شماره‌گذاری موارد مرتبط را برای اسکن سریع‌تر می‌کند. در Aspose.Slides تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/) تعریف می‌شود.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق اندیس، به اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید انتخاب‌شده اضافه کنید.
+2. مرجع اسلاید مربوطه را از طریق ایندکس آن دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید انتخابی اضافه کنید.
 4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
 5. پاراگراف پیش‌فرض را از فریم متنی حذف کنید.
-6. برای یک نقطه نمادین یک [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید.
-7. [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Symbol](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید و کاراکتر نقطه را مشخص کنید.
-8. متن، تورفتگی، رنگ نقطه و ارتفاع نقطه را تنظیم کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) برای بولت نماد ایجاد کنید.
+7. [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Symbol](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید و کاراکتر بولت را مشخص کنید.
+8. متن پاراگراف، تورفتگی، رنگ بولت و ارتفاع بولت را تنظیم کنید.
 9. پاراگراف را به فریم متنی اضافه کنید.
-10. پاراگراف دوم را ایجاد کنید و [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Numbered](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید.
-11. سبک نقطه شماره‌دار را پیکربندی کنید و پاراگراف را به فریم متنی اضافه کنید.
+10. یک پاراگراف دوم ایجاد کرده و [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Numbered](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید.
+11. سبک بولت عددی را پیکربندی کرده و پاراگراف را به فریم متنی اضافه کنید.
 12. ارائه را ذخیره کنید.
 
-این مثال C++ یک نقطه نمادین و یک نقطه شماره‌دار ایجاد می‌کند:
+این مثال C++ یک بولت نماد و یک بولت عددی ایجاد می‌کند:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -203,22 +203,22 @@ presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **استفاده از نقطه‌های تصویری**
+### **استفاده از بولت‌های تصویری**
 
-نقطه‌های تصویری به شما اجازه می‌دهند به جای نماد یا عدد، از تصویر سفارشی استفاده کنید.
+بولت‌های تصویری امکان استفاده از تصویر سفارشی به‌جای نماد یا عدد را می‌دهند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق اندیس، به اسلاید مربوطه دسترسی پیدا کنید.
+2. مرجع اسلاید مربوطه را از طریق ایندکس آن دسترسی پیدا کنید.
 3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید و به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) آن دسترسی پیدا کنید.
 4. پاراگراف پیش‌فرض را از فریم متنی حذف کنید.
-5. تصویر نقطه را بارگذاری کنید و به مجموعه تصاویر ارائه به عنوان یک [IPPImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ippimage/) اضافه کنید.
-6. یک [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید و متن آن را تنظیم کنید.
+5. تصویر بولت را بارگذاری کرده و به مجموعه تصویرهای ارائه به عنوان یک [IPPImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ippimage/) اضافه کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کرده و متن آن را تنظیم کنید.
 7. [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید.
-8. تصویر را از طریق [ISlidesPicture::set_Image](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidespicture/set_image/) اختصاص دهید و ارتفاع نقطه را تنظیم کنید.
+8. تصویر را از طریق [ISlidesPicture::set_Image](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidespicture/set_image/) اختصاص داده و ارتفاع بولت را تنظیم کنید.
 9. پاراگراف را به فریم متنی اضافه کنید.
-10. ارائه اصلاح‌شده را ذخیره کنید.
+10. ارائه تغییر یافته را ذخیره کنید.
 
-این مثال C++ یک نقطه تصویری ایجاد می‌کند:
+این مثال C++ یک بولت تصویری ایجاد می‌کند:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -259,17 +259,17 @@ presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
 presentation->Dispose();
 ```
 
-### **ایجاد فهرست چندسطحه‌ای**
+### **ایجاد فهرست چندسطحی**
 
-[ IParagraphFormat::set_Depth](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_depth/) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالایی عمق `0` دارد.
+[ IParagraphFormat::set_Depth](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_depth/) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالا عمق `0` دارد.
 
-1. یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و به یک اسلاید دسترسی پیدا کنید.
-2. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض را از فریم متنی آن پاک کنید.
-3. چهار پاراگراف ایجاد کنید و نمادهای نقطه آن‌ها را پیکربندی کنید.
+1. یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کرده و به یک اسلاید دسترسی پیدا کنید.
+2. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض را از فریم متنی آن حذف کنید.
+3. چهار پاراگراف ایجاد کرده و نمادهای بولت آن‌ها را پیکربندی کنید.
 4. مقدارهای [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_depth/) آن‌ها را به ترتیب `0`، `1`، `2` و `3` تنظیم کنید.
-5. پاراگراف‌ها را به فریم متنی اضافه کنید و ارائه را ذخیره کنید.
+5. پاراگراف‌ها را به فریم متنی اضافه کرده و ارائه را ذخیره کنید.
 
-این مثال C++ یک فهرست نقطه‌دار چهارسطحی ایجاد می‌کند:
+این مثال C++ یک فهرست بولت‌دار چهارسطحی ایجاد می‌کند:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -335,17 +335,17 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **شروع شماره‌گذاری موارد فهرست با مقادیر دلخواه**
+### **شروع موارد فهرست عددی با مقادیر سفارشی**
 
-از [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) برای تعیین عدد اولیه نمایش داده‌شده برای یک پاراگراف شماره‌دار استفاده کنید.
+از [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) برای تنظیم عدد اولیه نمایش داده شده برای یک پاراگراف عددی استفاده کنید.
 
 1. یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-2. پاراگراف پیش‌فرض را از فریم متنی شکل پاک کنید.
-3. سه پاراگراف شماره‌دار ایجاد کنید.
-4. برای هر پاراگراف، [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) را به ترتیب `2`، `3` و `7` تنظیم کنید.
-5. پاراگراف‌ها را به فریم متنی اضافه کنید و ارائه را ذخیره کنید.
+2. پاراگراف پیش‌فرض را از فریم متنی شکل حذف کنید.
+3. سه پاراگراف عددی ایجاد کنید.
+4. برای پاراگراف‌های مربوطه، [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) را به ترتیب به `2`، `3` و `7` تنظیم کنید.
+5. پاراگراف‌ها را به فریم متنی اضافه کرده و ارائه را ذخیره کنید.
 
-این مثال C++ عدد شروع دلخواه را به هر پاراگراف اختصاص می‌دهد:
+این مثال C++ عدد شروع سفارشی را برای هر پاراگراف اختصاص می‌دهد:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -388,25 +388,25 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **کنترل چیدمان پاراگراف و ویژگی‌های انتهایی**
+## **کنترل چیدمان پاراگراف و ویژگی‌های انتهای پاراگراف**
 
 ### **تنظیم تورفتگی خط اول**
 
-از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) برای کنترل تورفتگی خط اول پاراگراف استفاده کنید. این متد تنها خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به سمت راست می‌برد، در حالی که خطوط باقی‌مانده هم‌تراز بدنه پاراگراف می‌مانند.
+از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به سمت راست می‌برد، در حالی که بقیه خطوط در بدنه پاراگراف ثابت می‌مانند.
 
-هنگامی که نیاز به جابه‌جایی کل پاراگراف دارید، از [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) استفاده کنید. برای جابه‌جایی تنها خط اول از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) بهره بگیرید.
+زمانی که نیاز به جابه‌جایی کل پاراگراف دارید از [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) استفاده کنید. زمانی که فقط خط اول را می‌خواهید جابه‌جا کنید از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) استفاده کنید.
 
-مثال زیر چندین پاراگراف ایجاد می‌کند و مقادیر مختلف [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را برای نشان دادن تأثیر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌نماید.
+مثال زیر چند پاراگراف ایجاد کرده و مقادیر مختلف [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را برای نشان دادن تأثیر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌کند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. به اسلاید هدف دسترسی پیدا کنید.
+2. اسلاید هدف را دسترسی پیدا کنید.
 3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
 4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. چندین پاراگراف ایجاد کنید و مقادیر مختلف [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را برای آن‌ها تنظیم کنید.
+5. چند پاراگراف ایجاد کنید و برای هر کدام مقادیر متفاوتی از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) تنظیم کنید.
 6. پاراگراف‌ها را به فریم متنی اضافه کنید.
-7. ارائه اصلاح‌شده را ذخیره کنید.
+7. ارائه تغییر یافته را ذخیره کنید.
 
-این کد نشان می‌دهد چگونه تورفتگی پاراگراف تنظیم شود:
+این کد نشان می‌دهد چگونه تورفتگی پاراگراف تنظیم می‌شود:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -466,26 +466,26 @@ presentation->Dispose();
 
 نتیجه:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![تورفتگی خط اول پاراگراف‌ها](first_line_indent.png)
 
 ### **تنظیم تورفتگی معلق**
 
-تورفتگی معلق چیدمان پاراگرافی است که در آن خط اول نسبت به خطوط دیگر به سمت چپ حرکت می‌کند. در Aspose.Slides این اثر را با [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) ایجاد می‌کنید. برای حرکت خط اول به سمت چپ مقدار منفی به این خصوصیت بدهید.
+تورفتگی معلق یک چیدمان پاراگراف است که در آن خط اول به سمت چپ خطوط بعدی شروع می‌شود. در Aspose.Slides این اثر را با [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) ایجاد می‌کنید. مقدار منفی به‌عنوان تورفتگی تنظیم کنید تا خط اول نسبت به بدنه پاراگراف به سمت چپ حرکت کند.
 
-در عمل، [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) موقعیت خط اول را نسبت به آن حاشیه تنظیم می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت برای حاشیه چپ و مقدار منفی برای تورفتگی تنظیم کنید.
+در عمل، [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) موقعیت خط اول را نسبت به آن حاشیه تعیین می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت MarginLeft و مقدار منفی Indent را تنظیم کنید.
 
-این قالب‌بندی برای کتاب‌شناسی‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنه پاراگراف هم‌تراز شوند مفید است.
+این قالب‌بندی برای کتاب‌نامه‌ها، مراجع، واژگان و سایر پاراگراف‌هایی که خطوط بسته‌بندی شده باید زیر بدنه پاراگراف و نه زیر اولین کاراکتر خط اول قرار گیرند، مفید است.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. به اسلاید هدف دسترسی پیدا کنید.
+2. اسلاید هدف را دسترسی پیدا کنید.
 3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
 4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. برای هر پاراگراف مقدار مثبت [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) تنظیم کنید.
-6. مقدار منفی [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را برای ایجاد اثر تورفتگی معلق تنظیم کنید.
+5. پاراگراف‌ها را ایجاد کنید و برای هر پاراگراف مقدار مثبت [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) تنظیم کنید.
+6. برای ایجاد اثر تورفتگی معلق مقدار منفی [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را تنظیم کنید.
 7. پاراگراف‌ها را به فریم متنی اضافه کنید.
-8. ارائه اصلاح‌شده را ذخیره کنید.
+8. ارائه تغییر یافته را ذخیره کنید.
 
-این کد نشان می‌دهد چگونه تورفتگی معلق برای یک پاراگراف تنظیم شود:
+این کد نشان می‌دهد چگونه تورفتگی معلق برای یک پاراگراف تنظیم می‌شود:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -537,18 +537,18 @@ presentation->Dispose();
 
 نتیجه:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
 
 ### **تنظیم ویژگی‌های انتهای پاراگراف**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) قالب‌بندی علامت پایان پاراگراف را کنترل می‌کند. مثال زیر اندازه قلم و فونت لاتین را برای علامت پایان پاراگراف دوم اختصاص می‌دهد:
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) قالب‌بندی علامت انتهای پاراگراف را کنترل می‌کند. مثال زیر اندازه فونت و فونت لاتین را برای علامت انتهای پاراگراف دوم اختصاص می‌دهد:
 
 1. یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) بارگذاری کنید و به یک اسلاید دسترسی پیدا کنید.
 2. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض آن را پاک کنید.
 3. دو پاراگراف ایجاد کنید و به آن‌ها بخش‌های متنی اضافه کنید.
-4. برای علامت پایان پاراگراف دوم یک [PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/portionformat/) ایجاد کنید.
+4. یک [PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/portionformat/) برای علامت انتهای پاراگراف دوم بسازید.
 5. [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_fontheight/) و [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_latinfont/) را تنظیم کنید.
-6. قالب را با [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) اختصاص دهید و ارائه را ذخیره کنید.
+6. قالب را با [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) اختصاص داده و ارائه را ذخیره کنید.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -590,13 +590,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **شمارش خطوط رندرشده**
+## **شمارش خطوط رندر‌شده**
 
-از [IParagraph::GetLinesCount](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getlinescount/) برای شمارش خطوطی که یک پاراگراف پس از چیدمان متن اشغال می‌کند (شامل بسته‌شدن خودکار) استفاده کنید. این برای بررسی طول متن و چیدمان در الگوهای ارائه مفید است.
+برای قوانین پاراگراف که بر بسته‌بندی خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به [کنترل شکست خط](/slides/fa/cpp/text-formatting/#control-line-breaking) و [کنترل نقطه‌گذاری معلق](/slides/fa/cpp/text-formatting/#control-hanging-punctuation) مراجعه کنید.
 
-یک پاراگراف یک مورد در [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_paragraphs/) است و می‌تواند چندین خط رندرشده را اشغال کند. شکست خط صریح داخل پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف جدیدی بسازد. بسته‌شدن خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون اینکه کاراکترهای شکست خط صریحی وارد متن شود. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، تعداد خطوط رندرشده را نمی‌دهد.
+از [IParagraph::GetLinesCount](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getlinescount/) برای شمارش خطوطی که یک پاراگراف پس از چیدمان متن اشغال می‌کند، استفاده کنید؛ این شامل بسته‌بندی خودکار نیز می‌شود. این متد وقتی که می‌خواهید طول متن و چیدمان را در قالب‌های ارائه بررسی کنید مفید است.
 
-مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته کوتاهتری جایگزین می‌کند. بسته‌شدن فعال است و AutoFit غیرفعال؛ به‌طوری‌که عرض شکل کنترل بسته‌شدن را بدون کوچک‌کردن خودکار متن یا تغییر اندازه شکل انجام می‌دهد. ابعاد شکل به نقطه (point) است. در نهایت مثال یک پاراگراف دیگر اضافه می‌کند و مجموع شمارش خطوط را در تمام فریم متنی محاسبه می‌نماید.
+یک پاراگراف یک مورد در [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_paragraphs/) است و می‌تواند چندین خط رندر‌شده را اشغال کند. یک شکست خط صریح داخل پاراگراف، خط جدیدی ایجاد می‌کند بدون اینکه پاراگراف دیگری ایجاد شود. بسته‌بندی خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون این که کاراکترهای شکست خط صریح به متن افزوده شوند. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، تعداد خطوط رندر‌شده را نمی‌دهد.
+
+مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته‌ای کوتاه‌تر جایگزین می‌کند. بسته‌بندی فعال است و AutoFit غیرفعال شده تا عرض شکل کنترل‌کننده‌ی بسته‌بندی باشد بدون اینکه متن یا شکل به‌صورت خودکار کوچک شود. ابعاد شکل بر حسب پونت است. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و تعداد خطوط را در کل فریم متنی جمع می‌زند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -644,22 +646,22 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه تعداد خطوط را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به موجود بودن فونت، جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی، بسته‌شدن و تنظیمات AutoFit متفاوت باشد. هنگام بررسی یک الگو، از فونت‌ها و تنظیمات چیدمان مورد انتظار برای محیط هدف استفاده کنید.
+با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه‌تر آن را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به دسترس‌پذیری و جایگزینی فونت‌ها، اندازه فونت، حاشیه‌ها، تورفتگی، بسته‌بندی و تنظیمات AutoFit متفاوت باشد. هنگام بررسی قالب، از فونت‌ها و تنظیمات چیدمان هدفمند برای محیط هدف استفاده کنید.
 
-تنها شمارش خطوط تعیین‌کنندهٔ پرش متن از محفظه نیست. ارتفاع موجود، ارتفاع خطوط، فواصل پاراگراف و خط، و رفتار AutoFit نیز مؤثرند؛ حتی یک خط می‌تواند عرض موجود را در صورتی که بسته‌شدن غیرفعال باشد، تجاوز کند.
+تنها شمارش خطوط تعیین‌کننده‌ی overflow متن در محفظه نیست. ارتفاع موجود، ارتفاع خطوط، فاصله بین پاراگراف‌ها و خطوط، و رفتار AutoFit نیز مهم‌اند؛ حتی یک خط می‌تواند عرض موجود را تجاوز کند وقتی بسته‌بندی غیرفعال باشد.
 
-## **واردات و صادرات محتوای پاراگراف**
+## **واردات و صادرات محتویات پاراگراف**
 
 ### **وارد کردن متن HTML به پاراگراف‌ها**
 
-از [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/addfromhtml/) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در فریم متنی استفاده کنید.
+از [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/addfromhtml/) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متنی استفاده کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
 2. به یک اسلاید دسترسی پیدا کنید و یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید.
 3. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را پاک کنید.
 4. فایل HTML منبع را بخوانید.
 5. رشته HTML را به [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/addfromhtml/) پاس دهید.
-6. ارائه اصلاح‌شده را ذخیره کنید.
+6. ارائه تغییر یافته را ذخیره کنید.
 
 این مثال C++ HTML را به یک فریم متنی وارد می‌کند:
 
@@ -696,13 +698,13 @@ presentation->Dispose();
 
 ### **صادرات متن پاراگراف به HTML**
 
-از [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/exporttohtml/) برای صادرات محدودهٔ انتخابی پاراگراف‌ها به HTML استفاده کنید.
+از [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/exporttohtml/) برای صادرات یک بازه انتخابی از پاراگراف‌ها به صورت HTML استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و ارائه‌ی موردنظر را بارگذاری کنید.
-2. به اسلاید دسترسی پیدا کنید و [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) شامل متن را پیدا کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و ارائه مورد نظر را بارگذاری کنید.
+2. اسلاید را دسترسی پیدا کنید و [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) حاوی متن را پیدا کنید.
 3. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-4. با ارائهٔ شاخص پاراگراف شروع و تعداد پاراگراف‌های موردنظر، [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/exporttohtml/) را فراخوانی کنید.
-5. رشته HTML برگردانده‌شده را در فایلی بنویسید.
+4. با مشخص کردن ایندکس پاراگراف شروع و تعداد پاراگراف‌های مورد نظر، [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/exporttohtml/) را صدا بزنید.
+5. رشته HTML بازگشتی را در یک فایل بنویسید.
 
 این مثال C++ تمام پاراگراف‌های اولین شکل متنی را صادر می‌کند:
 
@@ -740,19 +742,19 @@ else
 presentation->Dispose();
 ```
 
-### **رندر پاراگراف به‌صورت تصویر**
+### **رندر کردن پاراگراف به عنوان تصویر**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) پاراگراف منفرد را مستقیماً رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iimage/) برمی‌گرداند. نتیجه را با [IImage::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iimage/save/) در فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی آن یا برش بیت‌مپ به‌صورت دستی ندارید.
+[IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) یک پاراگراف منفرد را مستقیماً رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iimage/) برمی‌گرداند. نتیجه را با استفاده از [IImage::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iimage/save/) به فایل یا جریان ذخیره کنید. نیازی به رندر کل شکل یا برش بیت‌مپ به‌طور دستی ندارید.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) می‌تواند `nullptr` برگرداند اگر پاراگراف در مجموعه والد یافت نشود، محدودهٔ رندر معتبری نداشته باشد یا قابل رندر نباشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگشتی را آزاد نمایید.
+[IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) ممکن است `nullptr` برگرداند اگر پاراگراف در مجموعه والد خود پیدا نشود، مرزهای رندری معتبری نداشته باشد یا نتواند رندر شود. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگشتی را آزاد کنید.
 
 #### **رندر پاراگراف با مقیاس پیش‌فرض**
 
-فرض کنیم فایلی به نام *sample.pptx* داریم که شامل یک اسلاید است و اولین شکل آن یک جعبهٔ متن با سه پاراگراف می‌باشد.
+فرض کنید فایلی به نام sample.pptx داریم که یک اسلاید دارد و اولین شکل آن یک جعبه متن با سه پاراگراف است.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
 
-مثال زیر پاراگراف دوم را در یک شکل متنی معمولی با مقیاس پیش‌فرض رندر می‌کند و تصویر برگردانده‌شده را در قالب PNG ذخیره می‌نماید.
+مثال زیر پاراگراف دوم را در یک شکل متنی عادی با مقیاس پیش‌فرض رندر می‌کند و تصویر برگشتی را با فرمت PNG ذخیره می‌کند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -795,11 +797,11 @@ presentation->Dispose();
 
 نتیجه:
 
-![The paragraph image](paragraph_to_image_output.png)
+![تصویر پاراگراف](paragraph_to_image_output.png)
 
-#### **رندر پاراگراف در یک سلول جدول با مقیاس‌بندی**
+#### **رندر پاراگراف در یک سلول جدول با مقیاس**
 
-از نسخهٔ overload شدهٔ [IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد، برای تنظیم مقادیر مقیاس افقی و عمودی استفاده کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌نماید.
+از Overload متد [IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد، برای تنظیم مقیاس افقی و عمودی استفاده کنید. مثال زیر یک جدول می‌سازد، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌کند.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -836,24 +838,24 @@ else
 presentation->Dispose();
 ```
 
-مقدار مقیاس `1` آن محور را در اندازه پیش‌فرض پیکسل نگه می‌دارد. به عنوان مثال `2` برای هر دو عامل تصویری می‌سازد که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض است و به‌طور تقریبی چهار برابر پیکسل دارد. مقادیر بزرگتر معمولاً متن شفاف‌تری برای زوم یا خروجی با وضوح بالا تولید می‌کنند، اما مصرف حافظه و حجم فایل را نیز افزایش می‌دهند. مقادیر زیر `1` تصاویر کوچکتری با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت تصویر پاراگراف، از عوامل برابر استفاده کنید؛ عوامل افقی و عمودی متفاوت خروجی را به طور مستقل کشیده می‌کند.
+یک مقدار مقیاس `1` آن محور را در اندازه پیکسل پیش‌فرض نگه می‌دارد. برای مثال، `2` برای هر دو عامل تصویری تولید می‌کند که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض باشد و در نتیجه چهار برابر پیکسل داشته باشد. مقادیر بزرگ‌تر معمولاً متن واضح‌تری برای زوم یا خروجی با وضوح بالا فراهم می‌آورند، اما مصرف حافظه و حجم فایل را نیز افزایش می‌دهند. مقادیر زیر `1` تصاویر کوچک‌تری با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت عرض/ارتفاع پاراگراف از مقادیر برابر استفاده کنید؛ مقادیر متفاوت افقی و عمودی تصویر را به طور مستقل کشیده می‌کند.
 
-رندر کل شکل با [IShape::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getimage/) زمانی مفید است که خروجی باید شامل پرکردگی، مرز یا سایر زمینه‌های بصری شکل باشد. برای تصویر فقط پاراگراف، از [IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) استفاده کنید.
+رندر کل شکل با استفاده از [IShape::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getimage/) زمانی مفید است که خروجی نیاز به شامل پرشدن، حاشیه یا دیگر زمینه‌های بصری شکل داشته باشد. برای تصویر فقط پاراگراف، از [IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) استفاده کنید.
 
 ## **پرسش‌های متداول**
 
-**آیا می‌توانم بسته شدن خطوط داخل فریم متنی را به‌طور کامل غیرفعال کنم؟**
+**آیا می‌توانم بسته‌بندی خطوط داخل یک فریم متنی را به‌طور کامل غیرفعال کنم؟**
 
-بله. از [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_wraptext/) برای غیرفعال کردن بسته شدن استفاده کنید تا خطوط در لبه‌های فریم متنی شکسته نشوند.
+بله. از [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_wraptext/) برای غیرفعال کردن بسته‌بندی استفاده کنید تا خطوط در لبه‌های فریم متنی شکسته نشوند.
 
 **چگونه می‌توانم مرزهای دقیق روی اسلاید یک پاراگراف خاص را به‌دست آورم؟**
 
-از [IParagraph::GetRect](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getrect/) برای دریافت مستطیل محدود کنندهٔ پاراگراف استفاده کنید. [IPortion::GetRect](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/getrect/) مرزهای یک بخش منفرد را بر می‌گرداند.
+از [IParagraph::GetRect](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getrect/) برای دریافت مستطیل مرزی پاراگراف استفاده کنید. [IPortion::GetRect](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/getrect/) مرزهای یک بخش منفرد را فراهم می‌کند.
 
-**کنترل تراز پاراگراف (چپ، راست، وسط یا توجیه) در کجا انجام می‌شود؟**
+**کنترل ترازبندی پاراگراف (چپ، راست، مرکز یا هم‌تراز) در کجا انجام می‌شود؟**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_alignment/) تنظیمی در سطح پاراگراف است و بر کل پاراگраф اعمال می‌شود، صرف‌نظر از قالب‌بندی بخش‌های منفرد.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_alignment/) یک تنظیم سطح پاراگراف است و بر کل پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی هر بخش به‌صورت مجزا.
 
-**آیا می‌توانم زبان تصحیح املایی را برای بخشی از یک پاراگراف تنظیم کنم؟**
+**آیا می‌توانم زبانproofing را برای بخشی از یک پاراگراف تنظیم کنم؟**
 
-بله. از [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_languageid/) برای بخش‌های منفرد استفاده کنید؛ بنابراین یک پاراگراف می‌تواند متن‌هایی با زبان‌های مختلف داشته باشد.
+بله. از [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_languageid/) برای بخش‌های منفرد استفاده کنید؛ به این ترتیب یک پاراگراف می‌تواند متنی با زبان‌های مختلف داشته باشد.

@@ -13,7 +13,7 @@ keywords:
 - gerenciar texto
 - gerenciar parágrafo
 - gerenciar marcador
-- recuo do parágrafo
+- recuo de parágrafo
 - recuo suspenso
 - marcador de parágrafo
 - lista numerada
@@ -34,31 +34,31 @@ description: "Aprenda a criar e formatar parágrafos, trechos, marcadores, lista
 ---
 ## **Visão geral**
 
-Aspose.Slides for Node.js via Java representa o texto como uma hierarquia de quadros de texto, parágrafos e trechos:
+Aspose.Slides para Node.js via Java representa o texto como uma hierarquia de quadros de texto, parágrafos e trechos:
 
 * [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) representa o contêiner de texto em uma forma e fornece acesso à sua coleção de parágrafos.
-* [Paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/) representa um parágrafo em um quadro de texto e fornece acesso aos seus trechos e à formatação em nível de parágrafo.
-* [Portion](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/portion/) representa uma sequência de texto dentro de um parágrafo. Cada trecho pode ter seu próprio texto e formatação em nível de caractere.
+* [Paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/) representa um parágrafo em um quadro de texto e fornece acesso aos seus trechos e à formatação ao nível do parágrafo.
+* [Portion](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/portion/) representa uma sequência de texto dentro de um parágrafo. Cada trecho pode ter seu próprio texto e formatação ao nível de caractere.
 
-Um parágrafo, portanto, pode conter texto com diferentes fontes, cores, tamanhos e outras formatações usando vários trechos.
+Um parágrafo pode, portanto, conter texto com diferentes fontes, cores, tamanhos e outras formatações usando vários trechos.
 
-## **Criar e Formatar Parágrafos**
+## **Criar e formatar parágrafos**
 
-### **Criar Parágrafos com Vários Trechos**
+### **Criar parágrafos com múltiplos trechos**
 
 As etapas a seguir criam um quadro de texto com três parágrafos, cada um contendo três trechos:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-2. Acesse o slide desejado pelo seu índice.
-3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) retangular ao slide.
+2. Acesse o slide relevante por seu índice.
+3. Adicione uma [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) retangular ao slide.
 4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) da forma.
-5. Use o parágrafo padrão e adicione mais dois objetos [Paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/) ao quadro de texto.
-6. Adicione trechos [Portion](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/portion/) suficientes para que cada parágrafo contenha três trechos. O parágrafo padrão já contém um trecho vazio.
+5. Use o parágrafo padrão e adicione dois objetos [Paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/) adicionais ao quadro de texto.
+6. Adicione objetos [Portion](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/portion/) suficientes para que cada parágrafo contenha três trechos. O parágrafo padrão já contém um trecho vazio.
 7. Defina o texto de cada trecho.
-8. Aplique formatação em nível de caractere através de [Portion.getPortionFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/portion/getportionformat/).
+8. Aplique formatação ao nível de caractere através de [Portion.getPortionFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/portion/getportionformat/).
 9. Salve a apresentação modificada.
 
-O exemplo JavaScript implementa as etapas:
+Este exemplo em JavaScript implementa as etapas:
 
 ```javascript
 var aspose = aspose || {};
@@ -115,26 +115,26 @@ try {
 }
 ```
 
-## **Criar Listas com Marcadores e Numeração**
+## **Criar listas com marcadores e numeradas**
 
-### **Criar uma Lista com Marcadores ou Numerada**
+### **Criar uma lista com marcadores ou numerada**
 
-Marcadores e numeração facilitam a leitura de itens relacionados. No Aspose.Slides, as configurações da lista são definidas por meio de [BulletFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/).
+Marcadores e numeração tornam itens relacionados mais fáceis de visualizar. No Aspose.Slides, as configurações de lista são definidas através de [BulletFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/).
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-2. Acesse o slide desejado pelo seu índice.
+2. Acesse o slide relevante por seu índice.
 3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide selecionado.
 4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) da forma.
 5. Remova o parágrafo padrão do quadro de texto.
 6. Crie um [Paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/) para um marcador de símbolo.
-7. Defina [BulletFormat.setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/settype/) como [BulletType.Symbol](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bullettype/) e especifique o caractere do marcador.
+7. Defina [BulletFormat.setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/settype/) para [BulletType.Symbol](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bullettype/) e especifique o caractere do marcador.
 8. Defina o texto do parágrafo, recuo, cor do marcador e altura do marcador.
 9. Adicione o parágrafo ao quadro de texto.
-10. Crie um segundo parágrafo e defina [BulletFormat.setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/settype/) como [BulletType.Numbered](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bullettype/).
+10. Crie um segundo parágrafo e defina [BulletFormat.setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/settype/) para [BulletType.Numbered](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bullettype/).
 11. Configure o estilo do marcador numerado e adicione o parágrafo ao quadro de texto.
 12. Salve a apresentação.
 
-O exemplo JavaScript cria um marcador de símbolo e um marcador numerado:
+Este exemplo em JavaScript cria um marcador de símbolo e um marcador numerado:
 
 ```javascript
 var aspose = aspose || {};
@@ -176,22 +176,22 @@ try {
 }
 ```
 
-### **Usar Marcadores de Imagem**
+### **Usar marcadores de imagem**
 
 Marcadores de imagem permitem usar uma imagem personalizada em vez de um símbolo ou número.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-2. Acesse o slide desejado pelo seu índice.
+2. Acesse o slide relevante por seu índice.
 3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) e acesse seu [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/).
 4. Remova o parágrafo padrão do quadro de texto.
 5. Carregue a imagem do marcador e adicione-a à coleção de imagens da apresentação como um [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ppimage/).
 6. Crie um [Paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/) e defina seu texto.
-7. Defina [BulletFormat.setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/settype/) como [BulletType.Picture](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bullettype/).
-8. Associe a imagem através de [BulletFormat.getPicture](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/getpicture/) e defina a altura do marcador.
+7. Defina [BulletFormat.setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/settype/) para [BulletType.Picture](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bullettype/).
+8. Atribua a imagem através de [BulletFormat.getPicture](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/getpicture/) e defina a altura do marcador.
 9. Adicione o parágrafo ao quadro de texto.
 10. Salve a apresentação modificada.
 
-O exemplo JavaScript cria um marcador de imagem:
+Este exemplo em JavaScript cria um marcador de imagem:
 
 ```javascript
 var aspose = aspose || {};
@@ -228,17 +228,17 @@ try {
 }
 ```
 
-### **Criar uma Lista Multinível**
+### **Criar uma lista multinível**
 
 Defina [ParagraphFormat.setDepth](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setdepth/) para posicionar parágrafos em diferentes níveis de uma lista. O nível superior tem profundidade `0`.
 
 1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) e acesse um slide.
 2. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) e limpe o parágrafo padrão de seu quadro de texto.
 3. Crie quatro parágrafos e configure seus símbolos de marcador.
-4. Defina seus valores de [ParagraphFormat.setDepth](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setdepth/) como `0`, `1`, `2` e `3`.
+4. Defina seus valores [ParagraphFormat.setDepth](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setdepth/) para `0`, `1`, `2` e `3`.
 5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
 
-O exemplo JavaScript cria uma lista com quatro níveis de marcadores:
+Este exemplo em JavaScript cria uma lista com marcadores de quatro níveis:
 
 ```javascript
 var aspose = aspose || {};
@@ -295,17 +295,17 @@ try {
 }
 ```
 
-### **Iniciar Itens Numerados com Valores Personalizados**
+### **Iniciar itens de lista numerada com valores personalizados**
 
 Use [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) para definir o número inicial exibido para um parágrafo numerado.
 
 1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) e adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) a um slide.
 2. Limpe o parágrafo padrão do quadro de texto da forma.
 3. Crie três parágrafos numerados.
-4. Defina [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) como `2`, `3` e `7` para os respectivos parágrafos.
+4. Defina [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) para `2`, `3` e `7` nos respectivos parágrafos.
 5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
 
-O exemplo JavaScript atribui um número inicial personalizado a cada parágrafo:
+Este exemplo em JavaScript atribui um número inicial personalizado a cada parágrafo:
 
 ```javascript
 var aspose = aspose || {};
@@ -343,21 +343,21 @@ try {
 }
 ```
 
-## **Controlar Layout do Parágrafo e Propriedades de Fim**
+## **Controlar layout de parágrafos e propriedades de fim**
 
-### **Definir Recuo da Primeira Linha**
+### **Definir recuo da primeira linha**
 
 Use [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) para controlar o recuo da primeira linha de um parágrafo. Esse método move apenas a primeira linha em relação à margem esquerda do parágrafo. Um valor positivo desloca a primeira linha para a direita, enquanto as linhas restantes permanecem alinhadas ao corpo do parágrafo.
 
 Use [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) quando precisar mover todo o parágrafo. Use [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) quando precisar mover apenas a primeira linha.
 
-O exemplo abaixo cria vários parágrafos e aplica valores diferentes de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
+O exemplo abaixo cria vários parágrafos e aplica diferentes valores de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
 2. Acesse o slide de destino.
 3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) retangular ao slide.
 4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) da forma e remova o parágrafo padrão.
-5. Crie vários parágrafos e defina valores diferentes de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) para eles.
+5. Crie vários parágrafos e defina diferentes valores de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) para eles.
 6. Adicione os parágrafos ao quadro de texto.
 7. Salve a apresentação modificada.
 
@@ -414,21 +414,21 @@ try {
 
 O resultado:
 
-![O recuo da primeira linha dos parágrafos](first_line_indent.png)
+![A identação da primeira linha dos parágrafos](first_line_indent.png)
 
-### **Definir Recuo Suspenso**
+### **Definir recuo suspenso**
 
 Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/). Passe um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
 
 Na prática, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) define a posição esquerda do corpo do parágrafo, e [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) define a posição da primeira linha em relação a essa margem. Para criar um recuo suspenso, passe um valor positivo para `setMarginLeft` e um valor negativo para `setIndent`.
 
-Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos em que linhas envolvidas devem alinhar-se sob o corpo do parágrafo e não sob o primeiro caractere da primeira linha.
+Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde as linhas quebradas devem alinhar-se sob o corpo do parágrafo e não sob o primeiro caractere da primeira linha.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
 2. Acesse o slide de destino.
 3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) retangular ao slide.
 4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) da forma e remova o parágrafo padrão.
-5. Crie parágrafos e passe um valor positivo para [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) para cada parágrafo.
+5. Crie parágrafos e passe um valor positivo para [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) em cada parágrafo.
 6. Passe um valor negativo para [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setindent/) para criar o efeito de recuo suspenso.
 7. Adicione os parágrafos ao quadro de texto.
 8. Salve a apresentação modificada.
@@ -480,9 +480,9 @@ O resultado:
 
 ![O recuo suspenso dos parágrafos](hanging_indent.png)
 
-### **Definir Propriedades de Execução do Parágrafo Final**
+### **Definir propriedades de execução do final do parágrafo**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) controla a formatação da marca de fim do parágrafo. O exemplo a seguir atribui um tamanho de fonte e a fonte latina à marca de fim do segundo parágrafo:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) controla a formatação da marca de fim de parágrafo. O exemplo a seguir atribui um tamanho de fonte e a fonte latina à marca de fim do segundo parágrafo:
 
 1. Crie ou carregue uma [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) e acesse um slide.
 2. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) e limpe seu parágrafo padrão.
@@ -522,13 +522,15 @@ try {
 }
 ```
 
-## **Contar Linhas Renderizadas**
+## **Contar linhas renderizadas**
 
-Use [Paragraph.getLinesCount](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getLinesCount) para contar as linhas ocupadas por um parágrafo após o layout do texto, incluindo quebras automáticas. Isso é útil ao verificar o comprimento e o layout do texto em modelos de apresentação.
+Para regras de parágrafo que afetam a quebra automática de linha e pontuação nos finais de linha, veja [Control Line Breaking](/slides/pt/nodejs-java/text-formatting/#control-line-breaking) e [Control Hanging Punctuation](/slides/pt/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Um parágrafo é um item em [TextFrame.getParagraphs](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/#getParagraphs) e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática gera linhas com base na largura disponível sem inserir quebras de linha explícitas no texto. Portanto, contar parágrafos ou caracteres de quebra de linha não fornece a contagem de linhas renderizadas.
+Use [Paragraph.getLinesCount](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getLinesCount) para contar as linhas ocupadas por um parágrafo após o layout do texto, incluindo a quebra automática. Isso é útil ao verificar o comprimento e o layout do texto em modelos de apresentação.
 
-O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e, em seguida, substitui o texto por uma string mais curta. A quebra de linha está habilitada e o ajuste automático está desabilitado para que a largura da forma controle a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma são em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
+Um parágrafo é um item em [TextFrame.getParagraphs](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/#getParagraphs), e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras de linha explícitas no texto. Portanto, contar parágrafos ou caracteres de quebra de linha não fornece a contagem de linhas renderizadas.
+
+O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e, em seguida, substitui o texto por uma string mais curta. A quebra de linha está habilitada e o ajuste automático está desativado, de modo que a largura da forma controla a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma estão em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
 
 ```javascript
 var aspose = aspose || {};
@@ -571,24 +573,24 @@ try {
 }
 ```
 
-Com esse texto e essas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela string curta a reduz. Contagens exatas podem variar conforme a disponibilidade e substituição de fontes, tamanho da fonte, margens, recuos, quebra automática e configurações de ajuste automático. Use as fontes e as configurações de layout previstas para o ambiente de destino ao validar um modelo.
+Com esse texto e essas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela string curta a reduz. As contagens exatas podem variar com a disponibilidade e substituição de fontes, tamanho da fonte, margens, recuo, quebra de linha e configurações de ajuste automático. Use as fontes e as configurações de layout previstas para o ambiente alvo ao verificar um modelo.
 
-A contagem de linhas isolada não determina se o texto excede seu contêiner. A altura disponível, alturas de linha, espaçamento entre parágrafos e linhas e o comportamento de ajuste automático também são importantes; até uma única linha pode ultrapassar a largura disponível quando a quebra automática está desativada.
+A contagem de linhas por si só não determina se o texto excede seu contêiner. A altura disponível, as alturas das linhas, o espaçamento entre parágrafos e linhas, e o comportamento de ajuste automático também são importantes; até uma única linha pode exceder a largura disponível quando a quebra de linha está desativada.
 
-## **Importar e Exportar Conteúdo de Parágrafos**
+## **Importar e exportar conteúdo de parágrafos**
 
-### **Importar Texto HTML para Parágrafos**
+### **Importar texto HTML em parágrafos**
 
-Use [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) para converter marcação HTML em parágrafos e trechos dentro de um quadro de texto.
+Use [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) para converter marcação HTML em parágrafos e trechos em um quadro de texto.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
 2. Acesse um slide e adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/).
-3. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) da forma e limpe seu parágrafo padrão.
+3. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) da forma e limpe o parágrafo padrão.
 4. Defina ou leia a string HTML de origem.
 5. Passe a string HTML para [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
 6. Salve a apresentação modificada.
 
-Este exemplo JavaScript importa HTML para um quadro de texto:
+Este exemplo em JavaScript importa HTML em um quadro de texto:
 
 ```javascript
 var aspose = aspose || {};
@@ -612,17 +614,17 @@ try {
 }
 ```
 
-### **Exportar Texto do Parágrafo para HTML**
+### **Exportar texto de parágrafo para HTML**
 
 Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) para exportar um intervalo selecionado de parágrafos como HTML.
 
 1. Crie ou carregue uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-2. Acesse o slide e localize o [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) que contém o texto.
+2. Acesse o slide e encontre o [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) que contém o texto.
 3. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframe/) da forma.
-4. Chame [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) informando o índice do parágrafo inicial e o número de parágrafos a exportar.
-5. Grave a string HTML retornada em um arquivo.
+4. Chame [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) com o índice do parágrafo inicial e o número de parágrafos a exportar.
+5. Escreva a string HTML retornada em um arquivo.
 
-Este exemplo JavaScript autossuficiente cria uma forma de texto e exporta todos os seus parágrafos:
+Este exemplo JavaScript autocontido cria uma forma de texto e exporta todos os seus parágrafos:
 
 ```javascript
 var aspose = aspose || {};
@@ -660,19 +662,19 @@ try {
 }
 ```
 
-### **Renderizar um Parágrafo como Imagem**
+### **Renderizar um parágrafo como imagem**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage) renderiza um parágrafo individualmente e devolve um [IImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/iimage/). Salve o resultado em um arquivo com [IImage.save](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/iimage/#save). Não é necessário renderizar a forma que contém o parágrafo nem recortar um bitmap manualmente.
+[Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage) renderiza diretamente um parágrafo individual e retorna um [IImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/iimage/). Salve o resultado em um arquivo com [IImage.save](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/iimage/#save). Você não precisa renderizar a forma que contém ou recortar um bitmap manualmente.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage) pode devolver `null` se o parágrafo não for encontrado em sua coleção pai, não possuir limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e libere a imagem retornada após o uso.
+[Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage) pode retornar `null` se o parágrafo não for encontrado em sua coleção pai, não possuir limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e descarte a imagem retornada após o uso.
 
-#### **Renderizar um Parágrafo na Escala Padrão**
+#### **Renderizar um parágrafo na escala padrão**
 
 A caixa de texto a seguir contém três parágrafos:
 
 ![A caixa de texto com três parágrafos](paragraph_to_image_input.png)
 
-O exemplo a seguir renderiza o segundo parágrafo em uma forma de texto regular na escala padrão e salva a imagem retornada em formato PNG. O bloco `finally` garante que a imagem seja descartada corretamente.
+O exemplo a seguir renderiza o segundo parágrafo em uma forma de texto regular na escala padrão e salva a imagem retornada no formato PNG. O bloco `finally` garante que a imagem seja descartada corretamente.
 
 ```javascript
 var aspose = aspose || {};
@@ -722,9 +724,9 @@ O resultado:
 
 ![A imagem do parágrafo](paragraph_to_image_output.png)
 
-#### **Renderizar um Parágrafo em Célula de Tabela com Redimensionamento**
+#### **Renderizar um parágrafo em uma célula de tabela com dimensionamento**
 
-Use a sobrecarga de [Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage) que aceita os parâmetros `scaleX` e `scaleY` para definir os fatores de escala horizontal e vertical. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula em duas vezes a largura e altura padrão, e salva o resultado como imagem PNG.
+Use a sobrecarga de [Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage) que aceita os parâmetros `scaleX` e `scaleY` para definir os fatores de escala horizontal e vertical. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão, e salva o resultado como uma imagem PNG.
 
 ```javascript
 var aspose = aspose || {};
@@ -758,24 +760,24 @@ try {
 }
 ```
 
-Um fator de escala `1` mantém aquele eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente geram texto mais nítido para zoom ou saída em alta resolução, mas também aumentam o consumo de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores horizontais e verticais diferentes esticam a saída independentemente.
+Um fator de escala `1` mantém esse eixo no tamanho padrão de pixels. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída em alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores horizontais e verticais diferentes esticam a saída de forma independente.
 
-Renderizar toda a forma com [Shape.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/shape/#getImage) continua útil quando a saída deve incluir o preenchimento, borda ou outro contexto visual da forma. Para uma imagem apenas do parágrafo, use [Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage).
+Renderizar toda a forma com [Shape.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/shape/#getImage) continua útil quando a saída deve incluir o preenchimento, a borda ou outro contexto visual da forma. Para uma imagem apenas do parágrafo, use [Paragraph.getImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
 **Posso desativar completamente a quebra de linha dentro de um quadro de texto?**
 
-Sim. Defina [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframeformat/setwraptext/) para desativar a quebra, de modo que as linhas não se interrompam nas bordas do quadro de texto.
+Sim. Defina [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/textframeformat/setwraptext/) para desativar a quebra, de modo que as linhas não se quebrem nas bordas do quadro de texto.
 
-**Como obtenho as coordenadas exatas de um parágrafo específico no slide?**
+**Como posso obter os limites exatos no slide de um parágrafo específico?**
 
 Use [Paragraph.getRect](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraph/getrect/) para recuperar o retângulo delimitador do parágrafo. [Portion.getRect](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/portion/#getRect) fornece os limites de um trecho individual.
 
-**Onde é controlado o alinhamento do parágrafo (esquerda, direita, centralizado ou justificado)?**
+**Onde é controlado o alinhamento do parágrafo (esquerda, direita, centro ou justificado)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setalignment/) é uma configuração em nível de parágrafo e se aplica a todo o parágrafo, independentemente da formatação de trechos individuais.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/paragraphformat/setalignment/) é uma configuração ao nível do parágrafo e se aplica a todo o parágrafo independentemente da formatação dos trechos individuais.
 
 **Posso definir o idioma de revisão para parte de um parágrafo?**
 
-Sim. Defina [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) para trechos individuais, de modo que um parágrafo possa conter texto em vários idiomas.
+Sim. Defina [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) para trechos individuais, permitindo que um parágrafo contenha texto em vários idiomas.

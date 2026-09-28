@@ -1,6 +1,6 @@
 ---
-title: "Formátování textu prezentace v JavaScriptu"
-linktitle: "Formátování textu"
+title: Formátování textu prezentace v JavaScriptu
+linktitle: Formátování textu
 type: docs
 weight: 50
 url: /cs/nodejs-java/text-formatting/
@@ -9,15 +9,15 @@ keywords:
 - styl textu
 - pozadí textu
 - průhlednost textu
-- mezery mezi znaky
+- mezera mezi znaky
 - vlastnosti písma
 - rodina písma
-- otočení textu
-- úhel otočení
-- textový rámeček
+- rotace textu
+- úhel rotace
+- textový rámec
 - řádkování
 - vlastnost automatického přizpůsobení
-- ukotvení textového rámečku
+- ukotvení textového rámce
 - tabulace textu
 - výchozí jazyk
 - PowerPoint
@@ -30,19 +30,19 @@ description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDoc
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Node.js přes Java. Popisuje barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otáčení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
+Tento článek ukazuje, jak naformátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Node.js přes Java. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otočení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-V níže uvedených příkladech použijeme soubor s názvem **sample.pptx**, který obsahuje jedinou textovou oblast na první snímku s následujícím textem:
+Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). První tvar na první snímku je textové pole a jeho první odstavec obsahuje níže zobrazený text. Indexy snímků i tvarů jsou číslovány od nuly. Příklady, které vybírají tučné části, používají efektivní formátování, včetně zděděného tučného formátování:
 
 ![Ukázkový text](sample_text.png)
 
-Pro vyhledání a zvýraznění doslovného textu nebo shod regulárního výrazu viz [Hledat a nahradit text](/slides/cs/nodejs-java/search-and-replace-text/).
+Pro vyhledání a zvýraznění doslovného textu nebo shod regulárních výrazů, viz [Vyhledávání a náhrada textu](/slides/cs/nodejs-java/search-and-replace-text/).
 
 ## **Nastavení barvy pozadí textu**
 
-Použijte [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) k nastavení výchozí barvy zvýraznění pro odstavec, nebo [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) pro jednotlivé části textu.
+Použijte [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) pro jednotlivé textové části.
 
-Následující ukázkový kód ukazuje, jak nastavit barvu pozadí pro **celý odstavec**:
+Následující příklad nastaví světle šedé zvýraznění jako výchozí pro první odstavec. explicitní barvy zvýraznění na jednotlivých částech mají přednost před tímto výchozím nastavením:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -51,6 +51,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -67,7 +68,7 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Níže uvedený kód ukazuje, jak nastavit barvu pozadí pro **části textu s tučným písmem**:
+Níže uvedený příklad ukazuje, jak nastavit barvu pozadí pro **textové části s tučným písmem**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -76,6 +77,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -84,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Nastavte barvu zvýraznění pro část textu.
+            // Nastavte barvu zvýraznění pro textovou část.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -97,13 +99,13 @@ try {
 
 Výsledek:
 
-![Šedé části textu](gray_text_portions.png)
+![Šedé textové části](gray_text_portions.png)
 
 ## **Zarovnání odstavců textu**
 
-Použijte [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku atd.
+Použijte [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, zarovnaná do bloku apod.
 
-Následující kód ukazuje, jak zarovnat odstavec do **středu**:
+Následující kód ukazuje, jak zarovnat odstavec **na střed**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,6 +113,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -129,9 +132,9 @@ Výsledek:
 
 ## **Nastavení průhlednosti textu**
 
-Průhlednost textu se řídí alfa komponentou barvy přiřazené pomocí [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). V příkladech níže je `alpha = 50` hodnota kanálu ARGB v rozsahu 0‑255, nikoli procento průhlednosti.
+Průhlednost textu se řídí alfa‑komponentou barvy přiřazené pomocí [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). V níže uvedených příkladech `alpha = 50` představuje hodnotu alfa‑kanálu ARGB v rozsahu 0–255, nikoli procento průhlednosti.
 
-Ukázkový kód níže ukazuje, jak aplikovat průhlednost na **celý odstavec**:
+Následující příklad ukazuje, jak použít průhlednost na **celý odstavec**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -142,6 +145,7 @@ const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
@@ -160,7 +164,7 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Následující kód ukazuje, jak aplikovat průhlednost na **části textu s tučným písmem**:
+Následující příklad ukazuje, jak použít průhlednost na **textové části s tučným písmem**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -171,6 +175,7 @@ const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -181,7 +186,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const fillFormat = portion.getPortionFormat().getFillFormat();
 
-            // Nastavte průhlednost části textu.
+            // Nastavte průhlednost textové části.
             fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
             fillFormat.getSolidFillColor().setColor(transparentBlack);
         }
@@ -195,13 +200,13 @@ try {
 
 Výsledek:
 
-![Průhledné části textu](transparent_text_portions.png)
+![Průhledné textové části](transparent_text_portions.png)
 
-## **Nastavení mezery mezi znaky textu**
+## **Nastavení mezery mezi znaky pro text**
 
-Použijte [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) k rozšíření nebo zmenšení mezery mezi znaky v textovém rámečku.
+Použijte [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) k rozšíření nebo zmenšení mezery mezi znaky v textovém poli. Příklady přidávají 3 body mezery; záporné hodnoty text zmenšují.
 
-Níže uvedený JavaScriptový kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
+Následující JavaScript kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -209,11 +214,12 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Poznámka: Použijte záporné hodnoty pro zmenšení mezery mezi znaky.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozšíří mezery mezi znaky.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozšířit mezeru mezi znaky.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -225,7 +231,7 @@ Výsledek:
 
 ![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
 
-Kód níže ukazuje, jak rozšířit mezeru mezi znaky v **částech textu s tučným písmem**:
+Níže uvedený příklad ukazuje, jak rozšířit mezeru mezi znaky v **textových částech s tučným písmem**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -233,6 +239,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -242,7 +249,7 @@ try {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Poznámka: Použijte záporné hodnoty pro zmenšení mezery mezi znaky.
-            portion.getPortionFormat().setSpacing(3); // Rozšíří mezery mezi znaky.
+            portion.getPortionFormat().setSpacing(3); // Rozšířit mezeru mezi znaky.
         }
     }
 
@@ -254,13 +261,13 @@ try {
 
 Výsledek:
 
-![Mezera mezi znaky v částech textu](character_spacing_in_text_portions.png)
+![Mezera mezi znaky v textových částech](character_spacing_in_text_portions.png)
 
 ### **Zakázání kerningu pro konkrétní písma**
 
-V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, pokud PowerPoint ignoruje data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat o něco těžší než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
 
-Aby výstup byl v takových případech blíže vzhledu v PowerPointu, můžete zakázat kerning pro části textu, které používají dotčené písmo. Nastavte [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) na hodnotu podstatně větší než skutečná velikost písma:
+Aby výstup lépe odpovídal PowerPointu, můžete pro textové části, které používají dotčené písmo, kerning zakázat. Nastavte [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) na hodnotu větší než skutečná velikost písma. Tento příklad vyžaduje soubor „presentation.pptx“ s textovým polem jako prvním tvarem na prvním snímku. Kontroluje efektivní názvy písem, včetně zděděných, a nastaví prahovou hodnotu 100 bodů pro části používající Roboto. To zakáže kerning pro odpovídající části s velikostí písma pod 100 bodů:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,6 +275,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraphs = autoShape.getTextFrame().getParagraphs();
     const paragraphCount = paragraphs.getCount();
@@ -279,7 +287,7 @@ try {
 
         for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
             const portion = portions.get_Item(portionIndex);
-            const portionFormat = portion.getPortionFormat();
+            const portionFormat = portion.getPortionFormat().getEffective();
             const latinFont = portionFormat.getLatinFont();
             const eastAsianFont = portionFormat.getEastAsianFont();
             const complexScriptFont = portionFormat.getComplexScriptFont();
@@ -287,7 +295,7 @@ try {
             if ((latinFont !== null && latinFont.getFontName() === targetFont) ||
                 (eastAsianFont !== null && eastAsianFont.getFontName() === targetFont) ||
                 (complexScriptFont !== null && complexScriptFont.getFontName() === targetFont)) {
-                portionFormat.setKerningMinimalSize(100);
+                portion.getPortionFormat().setKerningMinimalSize(100);
             }
         }
     }
@@ -298,13 +306,13 @@ try {
 }
 ```
 
-Toto nastavení zabraňuje aplikaci kerningu na odpovídající části textu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma ovlivněná tímto specifickým chováním PowerPointu.
+Pro text pod prahovou hodnotou toto nastavení zabraňuje kerningu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma, na která se tato specifická chování PowerPointu vztahují.
 
 ## **Správa vlastností písma textu**
 
 Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) nebo na jednotlivých částech pomocí [PortionFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/portionformat/).
 
-Následující kód nastavuje písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučné, kurzívou, tečkované podtržení a písmo Times New Roman na všechny části odstavce.
+Následující příklad nastaví výchozí písmo prvního odstavce na 12‑bodové Times New Roman s tučným, kurzívovým a tečkovaným podtržením. Explicitní formátování na jednotlivých částech má přednost před těmito výchozími hodnotami:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -313,6 +321,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
@@ -332,9 +341,9 @@ try {
 
 Výsledek:
 
-![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
+![Vlastnosti písma odstavce](font_properties_for_paragraph.png)
 
-Kód níže aplikuje podobné vlastnosti na **části textu s tučným písmem**:
+Následující příklad použije 13‑bodové Times New Roman, kurzívu a tečkované podtržení na části, jejichž efektivní formátování je tučné:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -343,6 +352,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -353,7 +363,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // Nastavte vlastnosti písma pro část textu.
+            // Nastavte vlastnosti písma pro textovou část.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -369,13 +379,13 @@ try {
 
 Výsledek:
 
-![Vlastnosti písma pro části textu](font_properties_for_text_portions.png)
+![Vlastnosti písma textových částí](font_properties_for_text_portions.png)
 
-## **Nastavení otočení textu**
+## **Nastavení rotace textu**
 
 Použijte [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) k nastavení předdefinované orientace textu uvnitř tvaru.
 
-Následující kód nastavuje orientaci textu v tvaru na `Vertical270`, což otočí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující kód nastaví orientaci textu ve tvaru na [TextVerticalType.Vertical270](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textverticaltype/), což otočí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -384,8 +394,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
 
     presentation.save("text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
@@ -396,11 +406,11 @@ try {
 
 Výsledek:
 
-![Otočení textu](text_rotation.png)
+![Rotace textu](text_rotation.png)
 
-## **Nastavení vlastního otočení pro textové rámečky**
+## **Nastavení vlastní rotace pro textové rámečky**
 
-Použijte [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) k nastavení vlastního úhlu otočení pro [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/).
+Použijte [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) k nastavení vlastního úhlu rotace pro [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/).
 
 Níže uvedený kód otočí textový rámeček o 3 stupně po směru hodinových ručiček uvnitř tvaru:
 
@@ -410,8 +420,8 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
     presentation.save("custom_text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
@@ -422,16 +432,16 @@ try {
 
 Výsledek:
 
-![Vlastní otočení textu](custom_text_rotation.png)
+![Vlastní rotace textu](custom_text_rotation.png)
 
 ## **Nastavení řádkování odstavců**
 
-Aspose.Slides poskytuje [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) a [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) k řízení vzdálenosti odstavců. Tyto vlastnosti se používají následovně:
+Aspose.Slides poskytuje [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) a [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) k řízení mezery odstavců. Tyto vlastnosti se používají následovně:
 
-* Použijte kladnou hodnotu pro specifikaci řádkování jako procenta výšky řádku.
-* Použijte zápornou hodnotu pro specifikaci řádkování v bodech.
+* Použijte kladnou hodnotu pro zadání řádkování jako procenta výšky řádku.
+* Použijte zápornou hodnotu pro zadání řádkování v bodech.
 
-Následující kód ukazuje, jak zadat řádkování uvnitř odstavce:
+Následující příklad nastaví mezeru uvnitř prvního odstavce na 200 % výšky řádku (dvojité řádkování):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -439,9 +449,10 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
+
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setSpaceWithin(200);
 
     presentation.save("line_spacing.pptx", aspose.slides.SaveFormat.Pptx);
@@ -452,11 +463,105 @@ try {
 
 Výsledek:
 
-![Řádkování uvnitř odstavce](line_spacing.png)
+![Řádkování v odstavci](line_spacing.png)
+
+## **Řízení zalamování řádků**
+
+Pravidla zalamování řádků odstavců jsou užitečná v úzkých textových blocích a prezentacích, které kombinují latinský a východoasijský text. Následující metody patří do [ParagraphFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/), takže se vztahují na celý odstavec:
+
+- [setLatinLineBreak](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak-byte-) řídí pravidla zalamování pro latinské texty. V smíšeném textu může jeho změna také ovlivnit, kde se zalamuje sousední východoasijský text a interpunkce.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak-byte-) řídí pravidla zalamování pro východoasijské texty, včetně omezení znaků na začátku a konci řádku.
+
+Tato pravidla nenahrazují [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setWrapText-byte-), které umožňuje automatické zalamování v textovém rámečku. Ovlivňují rozvržení, když k zalamování dochází; nevkládají znaky zalomení řádku. Explicitní zalomení řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
+
+Následující samostatný příklad vytvoří úzký textový blok obsahující čínské a latinské znaky. Explicitně nastaví obě možnosti zalamování a uloží „line_breaking.pptx“. Pro experimentování s některým pravidlem změňte odpovídající hodnotu při zachování druhého nastavení. Příklad používá 24‑bodové Arial a SimSun, šířku rámce 160 bodů a nulové vodorovné okraje textového rámce. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) je voláno s [TextAutofitType.None](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textautofittype/), aby velikost textu a rozměry rámce zůstaly pevné.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 160, 300);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    const textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.True));
+    textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("中文排版测试，PowerPoint 中文演示。");
+
+    const format = paragraph.getParagraphFormat();
+    format.setAlignment(aspose.slides.TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    const latinFont = new aspose.slides.FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    const eastAsianFont = new aspose.slides.FontData("SimSun");
+    format.getDefaultPortionFormat().setEastAsianFont(eastAsianFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+    format.setLatinLineBreak(java.newByte(aspose.slides.NullableBool.False));
+    format.setEastAsianLineBreak(java.newByte(aspose.slides.NullableBool.True));
+
+    presentation.save("line_breaking.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Řízení zavěšené interpunkce**
+
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation-byte-) umožňuje oprávněné interpunkční znaménko vyčnívat za pravý okraj textové řádky místo aby zabíralo další řádek. Používá se na celý odstavec a liší se od zavěšeného odsazení.
+
+Následující samostatný příklad povolí zavěšenou interpunkci v 100‑bodovém širokém textovém rámečku a uloží „hanging_punctuation.pptx“. Při 24‑bodovém Arial a nulových vodorovných okrajích textového rámce zůstane poslední tečka za slovem „sentence“ a přesahuje pravý okraj textu. Nastavte vlastnost na [NullableBool.False](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/nullablebool/) pro porovnání: s těmito nastaveními tečka zaujme samostatný řádek. Zalamování je povoleno a automatické přizpůsobení je zakázáno, aby zůstala dostupná šířka pevná.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 200);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    const textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.True));
+    textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("Simple text, next sentence.");
+
+    const format = paragraph.getParagraphFormat();
+    format.setAlignment(aspose.slides.TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    const latinFont = new aspose.slides.FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+    format.setHangingPunctuation(java.newByte(aspose.slides.NullableBool.True));
+
+    presentation.save("hanging_punctuation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ne každé interpunkční znaménko může viset. Viditelný výsledek závisí na dostupnosti písma a rozvržení: změna písma, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může viditelný rozdíl odstranit.
 
 ## **Nastavení typu automatického přizpůsobení pro textové rámečky**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenšuje, přeteče nebo automaticky mění velikost tvaru. Následující příklad konfiguruje tvar tak, aby se velikost měnila podle textu, a uloží výsledek do „autofit_type.pptx“.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -465,8 +570,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
 
     presentation.save("autofit_type.pptx", aspose.slides.SaveFormat.Pptx);
@@ -475,13 +580,11 @@ try {
 }
 ```
 
-Pro spočítání řádků po automatickém zalomení a zjištění, jak se mění šířka textu nebo tvaru, viz [Počítat vykreslené řádky](/slides/cs/nodejs-java/manage-paragraph/). Pouze počet řádků neindikuj
-
-e, zda text přeteče svůj kontejner.
+Pro spočítání řádků po automatickém zalomení a zobrazení, jak se mění šířka textu nebo tvaru, viz [Počítání vykreslených řádků](/slides/cs/nodejs-java/manage-paragraph/). Počet řádků sám o sobě neindikuje, zda text přesahuje svůj kontejner.
 
 ## **Nastavení ukotvení textových rámečků**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) definuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole. Následující příklad ukotví text ke spodnímu okraji prvního tvaru a uloží výsledek do „text_anchor.pptx“.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -490,8 +593,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
 
     presentation.save("text_anchor.pptx", aspose.slides.SaveFormat.Pptx);
@@ -500,9 +603,9 @@ try {
 }
 ```
 
-## **Nastavení tabulace textu**
+## **Nastavení tabulátorů textu**
 
-Použijte [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) a [ParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#getTabs--) k konfiguraci tabulátorů v odstavci.
+Použijte [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) a [ParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraphformat/#getTabs--) k nastavení tabulátorů v odstavci. Následující příklad nastaví výchozí interval tabulátorů na 100 bodů a přidá levě zarovnaný tabulátor na 30 bodech. Tato nastavení ovlivní text obsahující znaky tabulátorů.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -511,9 +614,10 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
+
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setDefaultTabSize(100);
     paragraph.getParagraphFormat().getTabs().add(30, java.newByte(aspose.slides.TabAlignment.Left));
 
@@ -527,11 +631,11 @@ Výsledek:
 
 ![Tabulátory odstavce](paragraph_tabs.png)
 
-## **Nastavení jazyka korekce pravopisu**
+## **Nastavení jazyka kontroly pravopisu**
 
-Aspose.Slides poskytuje [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), který umožňuje nastavit jazyk korekce pravopisu pro část textu. Jazyk korekce určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), který umožňuje nastavit jazyk kontroly pravopisu pro textovou část. Jazyk kontroly pravopisu určuje jazyk použitého pravopisného a gramatického kontroloru v PowerPointu.
 
-Následující kód ukazuje, jak nastavit jazyk korekce pravopisu pro část textu:
+Následující příklad vyžaduje soubor „presentation.pptx“ s textovým polem jako prvním tvarem na prvním snímku a alespoň jedním odstavcem. Nahrazuje obsah prvního odstavce textem „1。“, nastaví SimSun jako písmo a přiřadí zjednodušenou čínštinu pro kontrolu pravopisu (`zh-CN`). Výsledek uloží do „proofing_language.pptx“:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -539,7 +643,9 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
+
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
 
@@ -549,7 +655,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Nastavte Id korekčního jazyka.
+    // Nastavte Id jazyka kontroly pravopisu.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -563,7 +669,7 @@ try {
 
 ## **Nastavení výchozího jazyka**
 
-Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) k definování výchozího jazyka pro text vytvářený při načítání nebo vytváření prezentace.
+Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) k definování výchozího jazyka pro text vytvářený při načítání nebo tvorbě prezentace. Následující příklad vytvoří prezentaci s US English jako výchozím jazykem textu, přidá textové pole a vytiskne `en-US` pro jeho první textovou část.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -587,11 +693,11 @@ try {
 }
 ```
 
-## **Nastavení výchozího stylu textu**
+## **Nastavení výchozího textového stylu**
 
-Pro použití výchozího formátování textu na úrovni prezentace použijte [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
+Pro aplikaci výchozího formátování textu na úrovni prezentace použijte [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-Následující kód ukazuje, jak nastavit výchozí tučné písmo s velikostí 14 pt pro veškerý text napříč snímky v nové prezentaci.
+Následující příklad nastaví 14‑bodové tučné písmo jako výchozí pro odstavce nejvyšší úrovně v nové prezentaci a uloží jej do „default_text_style.pptx“. Text může tyto výchozí hodnoty zdědit, pokud je nepřepíše konkrétnější formátování.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -613,15 +719,11 @@ try {
 }
 ```
 
-## **Extrahování textu s efektem VŠECH PRÁVKŮ VELKÝMI PÍSMENY**
+## **Extrahování textu s efektem VELKÝCH PÍSMEN**
 
-V PowerPointu aplikace **All Caps** (všechna velká písmena) způsobí, že se text na snímku zobrazí velkými písmeny, i když byl původně zadán malými. Při získávání takové části textu pomocí Aspose.Slides knihovna vrátí text přesně tak, jak byl zadán. Pro odpovídající zobrazení textu zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textcaptype/) a převeďte vrácený řetězec na velká písmena, pokud je hodnota `All`.
+V PowerPointu aplikace **All Caps** (všechna písmena velká) způsobí, že text na snímku vypadá jako velká písmena, i když byl původně zadán malými písmeny. Když získáte takovou textovou část pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro shodu se zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textcaptype/) a v případě, že hodnota je `All`, převede vrácený řetězec na velká písmena.
 
-Předpokládejme, že máme následující textovou oblast na první snímek souboru sample2.pptx.
-
-![Efekt All Caps](all_caps_effect.png)
-
-Níže uvedený kód ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
+Následující příklad ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -629,6 +731,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const autoShape = slide.getShapes().get_Item(0);
     const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
@@ -653,10 +756,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **Často kladené otázky**
 
-**Jak upravit text v tabulce na snímku?**
+**Jak mohu upravit text v tabulce na snímku?**
 
-Pro úpravu textu v tabulce na snímku použijte [Table](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/table/). Procházejte buňky a aktualizujte každou buňku pomocí [Cell.getTextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/cell/#getTextFrame--) a formátování odstavců pomocí [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
+Pro úpravu textu v tabulce na snímku použijte [Table](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/table/). Projděte buňky a aktualizujte každou buňku pomocí [Cell.getTextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/cell/#getTextFrame--) a formátování odstavců pomocí [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**Jak aplikovat gradientní barvu na text v PowerPoint snímku?**
+**Jak mohu použít gradientní barvu na text na snímku PowerPoint?**
 
 Pro aplikaci gradientní barvy na text použijte [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Nastavte [FillFormat.setFillType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/filltype/) a nakonfigurujte gradientní zastávky, směr a průhlednost.

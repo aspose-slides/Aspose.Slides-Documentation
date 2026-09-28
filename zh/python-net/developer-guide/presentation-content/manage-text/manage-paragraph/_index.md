@@ -1,5 +1,5 @@
 ---
-title: 用 Python 管理 PowerPoint 文本段落
+title: 在 Python 中管理 PowerPoint 文本段落
 linktitle: 管理段落
 type: docs
 weight: 40
@@ -37,27 +37,27 @@ Aspose.Slides for Python via .NET 将文本表示为文本框、段落和文本�
 
 * [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/) 表示形状中的文本容器，并提供对其段落集合的访问。
 * [Paragraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/) 表示文本框中的一个段落，并提供对其文本段和段落级格式的访问。
-* [Portion](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portion/) 表示段落内的一段文本。每个文本段可以拥有自己的文本和字符级格式。
+* [Portion](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portion/) 表示段落中的文本运行。每个文本段可以拥有自己的文本和字符级格式。
 
-因此，一个段落可以通过使用多个文本段来包含不同字体、颜色、大小和其他格式的文本。
+因此，一个段落可以通过使用多个文本段来包含具有不同字体、颜色、大小和其他格式的文本。
 
 ## **创建和格式化段落**
 
-### **创建包含多个文本段的段落**
+### **使用多个文本段创建段落**
 
-以下步骤创建一个包含三个段落的文本框，每个段落包含三个文本段：
+以下步骤创建一个包含三个段落、每个段落包含三个文本段的文本框：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
 2. 通过索引访问相应的幻灯片。
 3. 向幻灯片添加一个矩形的 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
 4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/)。
 5. 使用默认段落并向文本框再添加两个 [Paragraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/) 对象。
-6. 为每个段落添加足够的 [Portion](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portion/) 对象，使其包含三个文本段。默认段落已包含一个空的文本段。
+6. 为每个段落添加足够的 [Portion](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portion/) 对象，使其包含三个文本段。默认段落已经包含一个空的文本段。
 7. 设置每个文本段的文本。
 8. 通过 [Portion.portion_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portion/portion_format/) 应用字符级格式。
 9. 保存修改后的演示文稿。
 
-下面的 Python 示例实现了上述步骤：
+下面的 Python 示例实现了这些步骤：
 
 ```python
 import aspose.pydrawing as draw
@@ -108,9 +108,9 @@ with slides.Presentation() as presentation:
 
 ### **创建项目符号或编号列表**
 
-项目符号和编号使相关项目更易于浏览。在 Aspose.Slides 中，列表设置通过 [BulletFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/) 定义。
+项目符号和编号可以帮助更快速地浏览关联项。在 Aspose.Slides 中，通过 [BulletFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/) 定义列表设置。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
 2. 通过索引访问相应的幻灯片。
 3. 向选定的幻灯片添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
 4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/)。
@@ -162,16 +162,16 @@ with slides.Presentation() as presentation:
 
 ### **使用图片项目符号**
 
-图片项目符号允许使用自定义图像代替符号或数字。
+图片项目符号允许使用自定义图像替代符号或数字。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
 2. 通过索引访问相应的幻灯片。
 3. 添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/) 并访问其 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/)。
 4. 从文本框中移除默认段落。
-5. 加载项目符号图像并将其作为 [PPImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ppimage/) 添加到演示文稿的图像集合中。
+5. 加载项目符号图片并作为 [PPImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ppimage/) 添加到演示文稿的图像集合中。
 6. 创建一个 [Paragraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/) 并设置其文本。
 7. 将 [BulletFormat.type](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/type/) 设置为 [BulletType.PICTURE](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bullettype/)。
-8. 通过 [BulletFormat.picture](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/picture/) 指定图像并设置项目符号高度。
+8. 通过 [BulletFormat.picture](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/picture/) 指定图片并设置项目符号高度。
 9. 将段落添加到文本框。
 10. 保存修改后的演示文稿。
 
@@ -203,12 +203,12 @@ with slides.Presentation() as presentation:
 
 ### **创建多级列表**
 
-将 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/depth/) 设置为不同的值，以在列表中放置不同层级的段落。顶层的深度为 `0`。
+将 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/depth/) 设置为不同的深度，可将段落放置在列表的不同层级。顶层深度为 `0`。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 并访问一张幻灯片。
-2. 添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/) 并清除其文本框中的默认段落。
-3. 创建四个段落并配置其项目符号符号。
-4. 将它们的 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/depth/) 值分别设为 `0`、`1`、`2` 和 `3`。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 并访问一个幻灯片。
+2. 添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/) 并从其文本框中清除默认段落。
+3. 创建四个段落并配置它们的项目符号符号。
+4. 将它们的 [ParagraphFormat.depth](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/depth/) 值分别设为 `0`、`1`、`2`、`3`。
 5. 将段落添加到文本框并保存演示文稿。
 
 下面的 Python 示例创建了四级项目符号列表：
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **为编号列表项设置自定义起始值**
+### **自定义编号列表起始值**
 
-使用 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) 设置编号段落的起始数字。
+使用 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) 可为编号段落设置初始显示数字。
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 并向幻灯片添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
-2. 清除形状文本框中的默认段落。
+2. 从形状的文本框中清除默认段落。
 3. 创建三个编号段落。
-4. 将 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) 分别设置为 `2`、`3` 和 `7`。
+4. 为相应的段落将 [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/zh/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) 设置为 `2`、`3` 和 `7`。
 5. 将段落添加到文本框并保存演示文稿。
 
-下面的 Python 示例为每个段落分配了自定义起始编号：
+下面的 Python 示例为每个段落分配自定义起始编号：
 
 ```python
 import aspose.slides as slides
@@ -309,13 +309,13 @@ with slides.Presentation() as presentation:
 
 ### **设置首行缩进**
 
-使用 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 属性控制段落的首行缩进。此属性仅移动第一行相对于段落左侧边距的位置。正值将第一行向右移动，而其余行保持与段落正文对齐。
+使用 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 属性控制段落的首行缩进。此属性仅移动首行相对于段落左侧边距的位置。正值将首行向右移动，而其余行保持与段落正文对齐。
 
-当需要移动整段落时使用 [ParagraphFormat.margin_left](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/margin_left/)，仅移动首行时使用 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/)。
+需要整体移动段落时使用 [ParagraphFormat.margin_left](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/margin_left/)；只需移动首行时使用 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/)。
 
-下面的示例创建了多个段落，并对不同的 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 值进行演示，以说明首行缩进如何影响段落布局。
+下面的示例创建若干段落，并为它们应用不同的 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 值，以演示首行缩进对段落布局的影响。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
 2. 访问目标幻灯片。
 3. 向幻灯片添加一个矩形的 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
 4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/) 并移除默认段落。
@@ -323,7 +323,7 @@ with slides.Presentation() as presentation:
 6. 将段落添加到文本框。
 7. 保存修改后的演示文稿。
 
-下面的代码展示了如何设置段落缩进：
+以下代码展示了如何设置段落缩进：
 
 ```python
 import aspose.pydrawing as draw
@@ -374,22 +374,20 @@ with slides.Presentation() as presentation:
 
 ### **设置悬挂缩进**
 
-悬挂缩进是一种段落布局，第一行相对于其余行向左开始。在 Aspose.Slides 中，可通过 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 属性实现。将 `indent` 设置为负值，可使第一行相对于段落正文左移。
+悬挂缩进是一种段落布局，其中首行位于其余行的左侧。在 Aspose.Slides 中，可通过设置 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 为负值来实现此效果。正值的 `margin_left` 定义段落正文的左侧位置，负值的 `indent` 将首行向左移动，从而形成悬挂缩进。
 
-实际使用中，`margin_left` 定义段落正文的左侧位置，`indent` 定义第一行相对于该边距的位置。要创建悬挂缩进，需要将 `margin_left` 设为正值，同时将 `indent` 设为负值。
+此格式常用于参考文献、词汇表条目等，需要后续换行行对齐到段落正文而非首行首字符的情形。
 
-此格式在参考文献、书目、术语表等需要换行后对齐到段落正文而不是首字符的场景中特别有用。
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
 2. 访问目标幻灯片。
 3. 向幻灯片添加一个矩形的 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
 4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/) 并移除默认段落。
-5. 为每个段落设置正的 [ParagraphFormat.margin_left](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/margin_left/) 值。
-6. 将 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 设为负值，以实现悬挂缩进效果。
+5. 为每个段落创建并设置一个正的 [ParagraphFormat.margin_left](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/margin_left/) 值。
+6. 将负的 [ParagraphFormat.indent](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/indent/) 值应用于段落，以产生悬挂缩进效果。
 7. 将段落添加到文本框。
 8. 保存修改后的演示文稿。
 
-下面的代码展示了如何为段落设置悬挂缩进：
+以下代码展示了如何为段落设置悬挂缩进：
 
 ```python
 import aspose.pydrawing as draw
@@ -430,14 +428,14 @@ with slides.Presentation() as presentation:
 
 ![段落的悬挂缩进](hanging_indent.png)
 
-### **设置段落结束标记属性**
+### **设置段落结束运行属性**
 
-[Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) 属性控制段落结束标记的格式。下面的示例为第二段落的结束标记分配了字体大小和拉丁字体：
+[Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) 属性控制段落结束标记的格式。以下示例为第二段的结束标记分配字体大小和拉丁字体：
 
-1. 加载一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 并访问一张幻灯片。
+1. 加载一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 并访问一个幻灯片。
 2. 添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/) 并清除其默认段落。
 3. 创建两个段落并向其添加文本段。
-4. 为第二段落的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/)。
+4. 为第二段的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/)。
 5. 设置 [PortionFormat.font_height](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/font_height/) 和 [PortionFormat.latin_font](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/latin_font/)。
 6. 将该格式分配给 [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) 并保存演示文稿。
 
@@ -467,13 +465,15 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **统计渲染行数**
+## **计数渲染行数**
 
-使用 [Paragraph.get_lines_count](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/get_lines_count/) 可统计段落在文本布局后占用的行数（包括自动换行）。在检查演示文稿模板的文本长度和布局时，这非常有用。
+有关影响自动换行和行尾标点的段落规则，请参阅 [Control Line Breaking](/slides/zh/python-net/text-formatting/#control-line-breaking) 和 [Control Hanging Punctuation](/slides/zh/python-net/text-formatting/#control-hanging-punctuation)。
 
-段落是 [TextFrame.paragraphs](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/paragraphs/) 中的一个项目，可能占用多行渲染的空间。段落内的显式换行符会强制换行而不会创建新的段落。自动换行根据可用宽度生成行，而不在文本中插入显式换行符。因此，仅统计段落或换行符字符并不能得到渲染行数。
+使用 [Paragraph.get_lines_count](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/get_lines_count/) 可统计段落在文本布局后占用的渲染行数（包括自动换行）。这在检查演示文稿模板中文本长度和布局时非常有用。
 
-下面的示例创建一个文本形状，统计其行数，缩窄形状后再次统计，并用更短的字符串替换文本。启用了换行，关闭了自动适应，以便形状宽度控制换行而不会自动缩小文本或调整形状大小。形状尺寸使用点。随后示例再添加一个段落并累计整个文本框的行数。
+段落是 [TextFrame.paragraphs](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/paragraphs/) 中的一个项目，但它可以占据多行渲染。段落内部的显式换行符会强制另起一行，但不会创建新段落。自动换行则依据可用宽度生成行，而不会在文本中插入显式换行符。因此，仅统计段落或换行字符并不能得到渲染行数。
+
+以下示例创建一个文本形状，统计其行数，随后缩窄形状，再用更短的字符串替换文本。启用了换行并关闭了自动适应，以便形状宽度控制换行而不会自动缩小文本或调整形状尺寸。形状尺寸以点为单位。最后，示例向文本框再添加一个段落，并对所有段落的行数求和。
 
 ```python
 import aspose.slides as slides
@@ -508,18 +508,18 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-在此文本和尺寸下，缩窄形状会增加行数，而用短字符串替换文本会减少行数。确切的计数会因字体可用性与替代、字体大小、边距、缩进、换行和自动适应设置而异；请使用面向目标环境的字体和布局设置进行检查。
+使用上述文本和尺寸，缩窄形状会增加行数，而用短字符串替换文本会减少行数。实际计数可能因字体可用性及替代、字体大小、边距、缩进、换行和自动适应设置而异；请使用目标环境的字体和布局设置来检查模板。
 
-仅凭行数并不能决定文本是否溢出其容器。可用高度、行高、段落和行间距以及自动适应行为同样重要；即使是一行文本，在关闭换行的情况下也可能超出可用宽度。
+仅凭行数并不能判断文本是否溢出容器。可用高度、行高、段落和行间距以及自动适应行为也会影响；即使只有一行，在关闭换行时也可能超出可用宽度。
 
 ## **导入和导出段落内容**
 
 ### **将 HTML 文本导入段落**
 
-使用 [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphcollection/add_from_html/) 将 HTML 标记转换为文本框中的段落和文本段。
+使用 [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphcollection/add_from_html/) 可将 HTML 标记转换为文本框中的段落和文本段。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
-2. 访问一张幻灯片并添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例。
+2. 访问一个幻灯片并添加一个 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
 3. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/) 并清除默认段落。
 4. 读取源 HTML 文件。
 5. 将 HTML 字符串传递给 [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphcollection/add_from_html/)。
@@ -547,12 +547,12 @@ with slides.Presentation() as presentation:
 
 ### **将段落文本导出为 HTML**
 
-使用 [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphcollection/export_to_html/) 将选定范围的段落导出为 HTML。
+使用 [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphcollection/export_to_html/) 可将选定范围的段落导出为 HTML。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例并加载所需的演示文稿。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例并加载所需的演示文稿。
 2. 访问幻灯片并找到包含文本的 [AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)。
 3. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframe/)。
-4. 调用 [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphcollection/export_to_html/) ，传入起始段落索引和要导出的段落数量。
+4. 调用 [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphcollection/export_to_html/) 并提供起始段落索引以及要导出的段落数量。
 5. 将返回的 HTML 字符串写入文件。
 
 下面的 Python 示例导出第一个文本形状中的所有段落：
@@ -574,17 +574,17 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
 
 ### **将段落渲染为图像**
 
-[Paragraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/) 提供 `get_image` 方法，可直接渲染单个段落。该方法返回一个 [IImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/iimage/)，您可以使用 [IImage.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/iimage/save/) 将其保存到文件或流中，无需渲染包含的形状或手动裁剪位图。
+[Paragraph](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/) 提供 `get_image` 方法，可直接渲染单个段落。该方法返回一个 [IImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/iimage/)，您可以使用 [IImage.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/iimage/save/) 将其保存为文件或流，无需渲染整个形状或手动裁剪位图。
 
-如果段落在其父集合中找不到、没有有效的渲染边界，或无法渲染，`get_image` 方法可能返回 `None`。在保存之前请检查返回值，并使用上下文管理器释放图像资源。
+如果段落在其父集合中未找到、没有有效的渲染边界，或无法渲染，`get_image` 方法会返回 `None`。请在保存前检查返回值，并使用返回的图像作为上下文管理器以释放资源。
 
-#### **以默认比例渲染段落**
+#### **在默认比例下渲染段落**
 
-假设我们有一个名为 sample.pptx 的演示文稿，其中只有一张幻灯片，第一形状是包含三个段落的文本框。
+假设我们有一个名为 sample.pptx 的演示文稿，包含一张幻灯片，第一形状是包含三个段落的文本框。
 
 ![包含三个段落的文本框](paragraph_to_image_input.png)
 
-以下示例在默认比例下渲染第二段落，并将返回的图像以 PNG 格式保存：
+以下示例在默认比例下渲染第二个段落，并以 PNG 格式保存返回的图像：
 
 ```python
 import aspose.slides as slides
@@ -609,9 +609,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![段落图像](paragraph_to_image_output.png)
 
-#### **在表格单元格中按比例渲染段落**
+#### **在表格单元格中渲染段落并缩放**
 
-向 `get_image` 传递水平和垂直比例因子，可控制渲染段落的大小。下面的示例创建一个表格，在其第一个单元格中以两倍默认宽度和高度渲染段落，并将结果保存为 PNG 图像：
+向 `get_image` 传递水平和垂直缩放因子，可控制渲染段落的大小。下面的示例创建一个表格，在其第一个单元格中以两倍默认宽高渲染段落，并保存为 PNG 图像：
 
 ```python
 import aspose.slides as slides
@@ -633,24 +633,20 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-比例因子为 `1` 时保持该轴的默认像素尺寸。例如，水平和垂直均为 `2` 时，生成的图像宽高约为默认尺寸的两倍，像素数约为四倍。较大的因子通常能在放大或高分辨率输出时提供更清晰的文本，但也会增加内存使用和文件大小。小于 `1` 的因子会产生更小、细节更少的图像。使用相等的因子可保持段落的宽高比；不同的水平和垂直因子会独立拉伸输出。
+因子为 `1` 时保持该轴的默认像素尺寸。例如，水平和垂直均为 `2` 时，生成的图像宽高大约是默认尺寸的两倍，像素数量约为四倍。更大的因子通常可在放大或高分辨率输出时获得更清晰的文本，但也会增加内存使用和文件大小。因子小于 `1` 会生成更小且细节更少的图像。使用相同的因子可保持段落的宽高比；不同的水平和垂直因子会分别拉伸输出。
 
-在需要包含形状填充、边框或其他可视上下文时，使用 [Shape.get_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/get_image/) 渲染整个形状仍然很有用。仅渲染段落时，请使用 `Paragraph.get_image`。
+在需要包括形状填充、边框或其他视觉上下文时，仍可使用 [Shape.get_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/get_image/) 渲染整个形状。若仅需段落图像，请使用 `Paragraph.get_image`。
 
 ## **常见问题**
 
-**我可以完全禁用文本框内部的自动换行吗？**
+**我能完全禁用文本框内的换行吗？**  
+是的。将 [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframeformat/wrap_text/) 设置为 `False` 可禁用换行，使行不会在文本框边缘断开。
 
-可以。将 [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides/textframeformat/wrap_text/) 设置为关闭换行，使行不会在文本框边缘断开。
+**如何获取特定段落在幻灯片上的精确边界？**  
+使用 [Paragraph.get_rect](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/get_rect/) 可获取段落的外接矩形。单个文本段的边界可通过 [Portion.get_rect](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portion/get_rect/) 获取。
 
-**如何获取特定段落在幻灯片上的准确边界？**
-
-使用 [Paragraph.get_rect](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraph/get_rect/) 获取段落的外接矩形。[Portion.get_rect](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portion/get_rect/) 提供单个文本段的边界。
-
-**段落的对齐方式（左、右、居中或两端对齐）在哪里控制？**
-
+**段落对齐（左、右、居中、两端对齐）在哪里控制？**  
 [ParagraphFormat.alignment](https://reference.aspose.com/slides/zh/python-net/aspose.slides/paragraphformat/alignment/) 是段落级别的设置，适用于整个段落，而不受单个文本段格式的影响。
 
-**我可以为段落的一部分设置校对语言吗？**
-
-可以。为各个文本段设置 [PortionFormat.language_id](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/language_id/)，这样一个段落可以包含多种语言的文本。
+**我能为段落的部分设置校对语言吗？**  
+可以。为单个文本段设置 [PortionFormat.language_id](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/language_id/)，即可在同一段落中包含多种语言的文本。

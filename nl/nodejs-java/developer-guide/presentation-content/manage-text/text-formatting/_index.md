@@ -1,5 +1,5 @@
 ---
-title: Presentatietekst opmaken in JavaScript
+title: Opmaak van presentatietekst in JavaScript
 linktitle: Tekstopmaak
 type: docs
 weight: 50
@@ -10,14 +10,14 @@ keywords:
 - tekstachtergrond
 - teksttransparantie
 - tekenafstand
-- lettertype-eigenschappen
+- lettertype‑eigenschappen
 - lettertypefamilie
 - tekstrotatie
 - rotatiehoek
 - tekstkader
 - regelafstand
-- autofit-eigenschap
-- tekstkader-anker
+- autofit‑eigenschap
+- ankering tekstkader
 - teksttabulatie
 - standaardtaal
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Opmaak en stijl van tekst in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Node.js via Java. Pas lettertypen, kleuren, uitlijning en meer aan."
+description: "Formateer en style tekst in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor Node.js via Java. Pas lettertypen, kleuren, uitlijning en meer aan."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe je tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Node.js via Java. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekstverankering, tab‑stops en taalinstellingen.
+Dit artikel laat zien hoe u tekst opmaakt in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Node.js via Java. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekstverankering, tabstops en taalinstellingen.
 
-In de onderstaande voorbeelden gebruiken we een bestand genaamd "sample.pptx", dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
+Tenzij anders vermeld, gebruiken de voorbeelden [sample.pptx](sample.pptx). De eerste vorm op de eerste dia is een tekstvak, en de eerste alinea bevat de onderstaande tekst. Zowel dia‑ als vorm‑indices beginnen bij nul. Voorbeelden die vette delen selecteren gebruiken effectieve opmaak, inclusief geërfde vette opmaak:
 
 ![Voorbeeldtekst](sample_text.png)
 
-Om letterlijke tekst of reguliere‑expressie‑overeenkomsten te vinden en te markeren, zie [Zoeken en Vervangen van Tekst](/slides/nl/nodejs-java/search-and-replace-text/).
+Om letterlijke tekst of reguliere-expressie‑overeenkomsten te zoeken en te markeren, zie [Tekst zoeken en vervangen](/slides/nl/nodejs-java/search-and-replace-text/).
 
-## **Achtergrondkleur van Tekst Instellen**
+## **Achtergrondkleur van tekst instellen**
 
-Gebruik [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) voor individuele tekstgedeelten.
+Gebruik [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) voor individuele tekstdelen.
 
-De volgende code‑voorbeeld toont hoe je de achtergrondkleur voor de **hele alinea** instelt:
+Het volgende voorbeeld stelt een lichtgrijze markering in als standaard voor de eerste alinea. Expliciete markeerkleuren op individuele delen hebben voorrang op deze standaard:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -51,6 +51,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -67,7 +68,7 @@ Het resultaat:
 
 ![De grijze alinea](gray_paragraph.png)
 
-De code‑voorbeeld hieronder toont hoe je de achtergrondkleur voor **tekstgedeelten met een vet lettertype** instelt:
+Het code‑voorbeeld hieronder laat zien hoe u de achtergrondkleur instelt voor **tekstdelen met een vet lettertype**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -76,6 +77,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -97,13 +99,13 @@ try {
 
 Het resultaat:
 
-![De grijze tekstgedeelten](gray_text_portions.png)
+![De grijze tekstdelen](gray_text_portions.png)
 
-## **Tekst‑alinea’s Uitlijnen**
+## **Tekst‑alinea’s uitlijnen**
 
-Gebruik [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) om de alinea‑uitlijning binnen een tekstkader in te stellen. De waarde kan gecentreerd, links‑uitgelijnd, rechts‑uitgelijnd, uitgevuld, enzovoort zijn.
+Gebruik [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) om de uitlijning van een alinea binnen een tekstkader in te stellen. De waarde kan gecentreerd, links uitgelijnd, rechts uitgelijnd, uitgevuld, enzovoort zijn.
 
-De volgende code‑voorbeeld toont hoe je de alinea naar het **midden** uitlijnt:
+Het volgende code‑voorbeeld toont hoe u de alinea naar het **midden** uitlijnt:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,10 +113,11 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Stel de uitlijning van de alinea in op centreren.
+    // Stel de uitlijning van de alinea in op het midden.
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -127,11 +130,11 @@ Het resultaat:
 
 ![De uitgelijnde alinea](aligned_paragraph.png)
 
-## **Transparantie van Tekst Instellen**
+## **Transparantie van tekst instellen**
 
-Transparantie van tekst wordt geregeld via het alfa‑component van de kleur die is toegewezen aan [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). In de voorbeelden hieronder is `alpha = 50` een ARGB‑alfa‑waarde op de 0‑255 schaal, geen transparantiepercentage.
+De transparantie van tekst wordt geregeld via de alfa‑component van de kleur die is toegewezen aan [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). In de onderstaande voorbeelden is `alpha = 50` een ARGB‑alfa‑kanaalwaarde op de schaal 0–255, geen transparantie‑percentage.
 
-De code‑voorbeeld hieronder toont hoe je transparantie toepast op de **hele alinea**:
+Het code‑voorbeeld hieronder laat zien hoe u transparantie toepast op de **hele alinea**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -142,6 +145,7 @@ const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
@@ -160,7 +164,7 @@ Het resultaat:
 
 ![De transparante alinea](transparent_paragraph.png)
 
-De volgende code‑voorbeeld toont hoe je transparantie toepast op **tekstgedeelten met een vet lettertype**:
+Het volgende code‑voorbeeld laat zien hoe u transparantie toepast op **tekstdelen met een vet lettertype**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -171,6 +175,7 @@ const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -195,13 +200,13 @@ try {
 
 Het resultaat:
 
-![De transparante tekstgedeelten](transparent_text_portions.png)
+![De transparante tekstdelen](transparent_text_portions.png)
 
-## **Tekenafstand voor Tekst Instellen**
+## **Tekensprong van tekst instellen**
 
-Gebruik [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen.
+Gebruik [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen. De voorbeelden voegen 3 punten afstand toe; negatieve waarden verkleinen de tekst.
 
-De volgende JavaScript‑code toont hoe je de tekenafstand in de **hele alinea** uitbreidt:
+De volgende JavaScript‑code toont hoe u de tekensprong in de **hele alinea** kunt vergroten:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -209,10 +214,11 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
+    // Opmerking: gebruik negatieve waarden om de tekenafstand te verkleinen.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Vergroot de tekenafstand.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -223,9 +229,9 @@ try {
 
 Het resultaat:
 
-![De tekenafstand in de alinea](character_spacing_in_paragraph.png)
+![De tekensprong in de alinea](character_spacing_in_paragraph.png)
 
-De code‑voorbeeld hieronder toont hoe je de tekenafstand uitbreidt in **tekstgedeelten met een vet lettertype**:
+Het code‑voorbeeld hieronder toont hoe u de tekensprong in **tekstdelen met een vet lettertype** kunt vergroten:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -233,6 +239,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -241,7 +248,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
+            // Opmerking: gebruik negatieve waarden om de tekenafstand te verkleinen.
             portion.getPortionFormat().setSpacing(3); // Vergroot de tekenafstand.
         }
     }
@@ -254,13 +261,13 @@ try {
 
 Het resultaat:
 
-![De tekenafstand in de tekstgedeelten](character_spacing_in_text_portions.png)
+![De tekensprong in de tekstdelen](character_spacing_in_text_portions.png)
 
-### **Kerning voor Specifieke Lettertypen Uitschakelen**
+### **Kerning voor specifieke lettertypen uitschakelen**
 
-In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd iets strakker lijken dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning in de PowerPoint‑instellingen is ingeschakeld.
+In sommige gevallen kan de tekst die door Aspose.Slides wordt gerenderd iets strakker lijken dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
 
-Om de gerenderde uitvoer in dergelijke gevallen dichter bij PowerPoint te laten komen, kun je kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) in op een waarde die aanzienlijk groter is dan de werkelijke lettertypegrootte:
+Om de gerenderde uitvoer in dergelijke gevallen dichter bij PowerPoint te krijgen, kunt u kerning uitschakelen voor tekstdelen die het betreffende lettertype gebruiken. Stel [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) in op een waarde die groter is dan de werkelijke lettergrootte. Dit voorbeeld vereist "presentation.pptx" met een tekstvak als eerste vorm op de eerste dia. Het controleert effectieve lettertypenamen, inclusief geërfde lettertypen, en stelt een drempel van 100 punten in voor delen die Roboto gebruiken. Dit schakelt kerning uit voor overeenkomende delen met een lettergrootte kleiner dan 100 punten:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,6 +275,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraphs = autoShape.getTextFrame().getParagraphs();
     const paragraphCount = paragraphs.getCount();
@@ -279,7 +287,7 @@ try {
 
         for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
             const portion = portions.get_Item(portionIndex);
-            const portionFormat = portion.getPortionFormat();
+            const portionFormat = portion.getPortionFormat().getEffective();
             const latinFont = portionFormat.getLatinFont();
             const eastAsianFont = portionFormat.getEastAsianFont();
             const complexScriptFont = portionFormat.getComplexScriptFont();
@@ -287,7 +295,7 @@ try {
             if ((latinFont !== null && latinFont.getFontName() === targetFont) ||
                 (eastAsianFont !== null && eastAsianFont.getFontName() === targetFont) ||
                 (complexScriptFont !== null && complexScriptFont.getFontName() === targetFont)) {
-                portionFormat.setKerningMinimalSize(100);
+                portion.getPortionFormat().setKerningMinimalSize(100);
             }
         }
     }
@@ -298,13 +306,13 @@ try {
 }
 ```
 
-Deze instelling voorkomt dat kerning wordt toegepast op overeenkomende tekstgedeelten en kan helpen de weergave van Aspose.Slides meer in lijn te brengen met de visuele uitvoer van PowerPoint voor lettertypen die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
+Voor overeenkomende tekst onder de drempel voorkomt deze instelling kerning en kan het helpen om de weergave van Aspose.Slides beter te laten overeenkomen met de visuele uitvoer van PowerPoint voor lettertypen die door dit PowerPoint‑specifieke gedrag worden getroffen.
 
-## **Tekst‑lettertype‑eigenschappen Beheren**
+## **Eigenschappen van tekstlettertype beheren**
 
-Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) of op individuele gedeelten via [PortionFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/portionformat/).
+Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) of op individuele delen via [PortionFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/portionformat/).
 
-De volgende code stelt het lettertype en de tekststijl in voor de hele alinea: het past lettergrootte, vet, cursief, puntonderlijning en het lettertype Times New Roman toe op alle gedeelten in de alinea.
+Het volgende voorbeeld stelt het standaardlettertype van de eerste alinea in op 12‑punt Times New Roman met vet, cursief en een gestippelde onderstreping. Expliciete opmaak op individuele delen heeft voorrang op deze standaardinstellingen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -313,11 +321,12 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // Stel de lettertype‑eigenschappen in voor de alinea.
+    // Stel de lettertype-eigenschappen in voor de alinea.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -334,7 +343,7 @@ Het resultaat:
 
 ![De lettertype‑eigenschappen voor de alinea](font_properties_for_paragraph.png)
 
-De code‑voorbeeld hieronder past soortgelijke eigenschappen toe op **tekstgedeelten met een vet lettertype**:
+Het volgende voorbeeld past 13‑punt Times New Roman, cursieve opmaak en een gestippelde onderstreping toe op delen waarvan de effectieve opmaak vet is:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -343,6 +352,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -353,7 +363,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // Stel de lettertype‑eigenschappen in voor het tekstgedeelte.
+            // Stel de lettertype-eigenschappen in voor het tekstgedeelte.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -369,13 +379,13 @@ try {
 
 Het resultaat:
 
-![De lettertype‑eigenschappen voor de tekstgedeelten](font_properties_for_text_portions.png)
+![De lettertype‑eigenschappen voor tekstdelen](font_properties_for_text_portions.png)
 
-## **Tekstrotatie Instellen**
+## **Tekstrotatie instellen**
 
 Gebruik [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) om een vooraf gedefinieerde tekstoriëntatie binnen een vorm in te stellen.
 
-De volgende code‑voorbeeld zet de tekstoriëntatie in de vorm op `Vertical270`, waardoor de tekst **90 graden tegen de klok in** wordt geroteerd:
+Het volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textverticaltype/), wat de tekst **90 graden tegen de klok in** roteert:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -384,8 +394,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
 
     presentation.save("text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
@@ -398,11 +408,11 @@ Het resultaat:
 
 ![De tekstrotatie](text_rotation.png)
 
-## **Aangepaste Rotatie voor Tekstkaders Instellen**
+## **Aangepaste rotatie voor tekstkaders instellen**
 
 Gebruik [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) om een aangepaste rotatiehoek in te stellen voor een [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/).
 
-De code‑voorbeeld hieronder roteert het tekstkader met 3 graden met de klok mee binnen de vorm:
+Het code‑voorbeeld hieronder roteert het tekstkader met 3 graden met de klok mee binnen de vorm:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -410,8 +420,8 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
     presentation.save("custom_text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
@@ -424,14 +434,14 @@ Het resultaat:
 
 ![De aangepaste tekstrotatie](custom_text_rotation.png)
 
-## **Regelafstand van Alinea’s Instellen**
+## **Regelafstand van alinea’s instellen**
 
-Aspose.Slides biedt [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) en [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) om de alinea‑afstand te regelen. Deze eigenschappen worden als volgt gebruikt:
+Aspose.Slides biedt [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-), en [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) om de alinea‑afstand te regelen. Deze eigenschappen worden als volgt gebruikt:
 
-* Gebruik een positieve waarde om regelafstand als een percentage van de regelhoogte op te geven.
+* Gebruik een positieve waarde om regelafstand op te geven als een percentage van de regelhoogte.
 * Gebruik een negatieve waarde om regelafstand in punten op te geven.
 
-De volgende code‑voorbeeld toont hoe je de regelafstand binnen de alinea specificeert:
+Het volgende voorbeeld stelt de afstand binnen de eerste alinea in op 200 % van de regelhoogte (dubbele regelafstand):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -439,9 +449,10 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
+
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setSpaceWithin(200);
 
     presentation.save("line_spacing.pptx", aspose.slides.SaveFormat.Pptx);
@@ -454,9 +465,103 @@ Het resultaat:
 
 ![De regelafstand binnen de alinea](line_spacing.png)
 
-## **Autofit‑type voor Tekstkaders Instellen**
+## **Regelafbreking regelen**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) bepaalt hoe tekst zich gedraagt wanneer ze de grenzen van haar container overschrijdt. Gebruik dit om te bepalen of de tekst krimpt, overloopt of de vorm automatisch schaalt.
+Regelafbreekregels voor alinea's zijn nuttig in smalle tekstblokken en presentaties die Latijnse en Oost‑Aziatische tekst combineren. De volgende methoden behoren tot [ParagraphFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/), dus ze gelden voor een volledige alinea:
+
+- [setLatinLineBreak](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak-byte-) regelt de regelafbreekregels voor Latijn. In gemengde tekst kan het wijzigen ervan ook invloed hebben op waar aangrenzende Oost‑Aziatische tekst en interpunctie omslaan.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak-byte-) regelt de regelafbreekregels voor Oost‑Aziatische tekst, inclusief beperkingen op tekens aan het begin en einde van een regel.
+
+Deze regels vervangen niet [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setWrapText-byte-), dat automatisch afbreken binnen een tekstkader inschakelt. Ze beïnvloeden de lay-out wanneer er wordt afgebroken; ze voegen geen regelafbreek‑tekens toe. Een expliciete regelafbreking dwingt een nieuwe regel binnen de alinea af, onafhankelijk van de beschikbare breedte.
+
+Het volgende zelfstandige voorbeeld maakt een smal tekstblok met Chinese en Latijnse tekst. Het stelt beide regelafbreek‑opties expliciet in en slaat "line_breaking.pptx" op. Om met een van de regels te experimenteren, wijzigt u de bijbehorende waarde terwijl u de andere instellingen onveranderd laat. Het voorbeeld gebruikt 24‑punt Arial en SimSun met een kaderbreedte van 160 punten en nul horizontale tekstkader‑marges. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) wordt aangeroepen met [TextAutofitType.None](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textautofittype/) zodat tekstgrootte en kaderafmetingen vast blijven.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 160, 300);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    const textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.True));
+    textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("中文排版测试，PowerPoint 中文演示。");
+
+    const format = paragraph.getParagraphFormat();
+    format.setAlignment(aspose.slides.TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    const latinFont = new aspose.slides.FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    const eastAsianFont = new aspose.slides.FontData("SimSun");
+    format.getDefaultPortionFormat().setEastAsianFont(eastAsianFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+    format.setLatinLineBreak(java.newByte(aspose.slides.NullableBool.False));
+    format.setEastAsianLineBreak(java.newByte(aspose.slides.NullableBool.True));
+
+    presentation.save("line_breaking.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Hangende interpunctie regelen**
+
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation-byte-) staat toe dat in aanmerking komende interpunctie zich uitstrekt voorbij de rechterkant van de tekstlijn in plaats van de volgende regel in te nemen. Het geldt voor de volledige alinea en verschilt van een hangende inspringing.
+
+Het volgende zelfstandige voorbeeld schakelt hangende interpunctie in in een tekstkader van 100 punten breed en slaat "hanging_punctuation.pptx" op. Met 24‑punt Arial en nul horizontale tekstkader‑marges blijft de laatste punt achter "sentence" en rekt zich uit voorbij de rechterkant van de tekst. Stel de eigenschap in op [NullableBool.False](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/nullablebool/) voor vergelijking: met deze instellingen neemt de punt een aparte regel in. Afbreken is ingeschakeld en autofit is uitgeschakeld om de beschikbare breedte vast te houden.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 200);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    const textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.True));
+    textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("Simple text, next sentence.");
+
+    const format = paragraph.getParagraphFormat();
+    format.setAlignment(aspose.slides.TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    const latinFont = new aspose.slides.FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+    format.setHangingPunctuation(java.newByte(aspose.slides.NullableBool.True));
+
+    presentation.save("hanging_punctuation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Niet elk leesteken kan hangen. Het zichtbare resultaat hangt af van de beschikbaarheid van lettertypen en de lay-out: het wijzigen van het lettertype, de beschikbare breedte, marges of autofit‑instellingen kan het zichtbare verschil wegnemen.
+
+## **Autofit‑type voor tekstkaders instellen**
+
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik het om te regelen of de tekst krimpt, overlapt, of de vorm automatisch van grootte verandert. Het volgende voorbeeld configureert de vorm om te schalen zodat de tekst past en slaat het resultaat op in "autofit_type.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -465,8 +570,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
 
     presentation.save("autofit_type.pptx", aspose.slides.SaveFormat.Pptx);
@@ -475,11 +580,11 @@ try {
 }
 ```
 
-Om regels te tellen na automatisch afbreken en te zien hoe de breedte van tekst of vorm het resultaat verandert, zie [Regels Tellen](/slides/nl/nodejs-java/manage-paragraph/). Alleen het aantal regels geeft niet aan of tekst buiten de container overloopt.
+Om het aantal regels na automatisch afbreken te tellen en te zien hoe de tekst of de breedte van de vorm het resultaat verandert, zie [Aantal gerenderde regels](/slides/nl/nodejs-java/manage-paragraph/). Alleen het aantal regels geeft niet aan of de tekst buiten de container overstroomt.
 
-## **Anker van Tekstkaders Instellen**
+## **Anker van tekstkaders instellen**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) definieert hoe tekst verticaal wordt gepositioneerd binnen een vorm, bijvoorbeeld bovenaan, in het midden of onderaan.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) definieert hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, midden of onderaan. Het volgende voorbeeld verankert de tekst aan de onderkant van de eerste vorm en slaat het resultaat op in "text_anchor.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -488,8 +593,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
 
     presentation.save("text_anchor.pptx", aspose.slides.SaveFormat.Pptx);
@@ -498,9 +603,9 @@ try {
 }
 ```
 
-## **Tekst‑tabulatie Instellen**
+## **Tabulatie van tekst instellen**
 
-Gebruik [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) en [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#getTabs--) om tabs in een alinea te configureren.
+Gebruik [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) en [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#getTabs--) om tabstops in een alinea te configureren. Het volgende voorbeeld stelt de standaardtab‑intervallen in op 100 punten en voegt een links uitgelijnde tabstop toe op 30 punten. Deze instellingen beïnvloeden tekst met tab‑tekens.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -509,9 +614,10 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
+
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setDefaultTabSize(100);
     paragraph.getParagraphFormat().getTabs().add(30, java.newByte(aspose.slides.TabAlignment.Left));
 
@@ -525,9 +631,11 @@ Het resultaat:
 
 ![De alinea‑tabs](paragraph_tabs.png)
 
-## **Correctietaal Instellen**
+## **Controletaal instellen**
 
-Aspose.Slides biedt [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), waarmee je de correctietaal voor een tekstgedeelte kunt instellen. De correctietaal bepaalt welke taal wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
+Aspose.Slides biedt [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), waarmee u de controletaal voor een tekstdel kunt instellen. De controletaal bepaalt de taal die wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
+
+Het volgende voorbeeld vereist "presentation.pptx" met een tekstvak als eerste vorm op de eerste dia en minstens één alinea. Het vervangt de inhoud van de eerste alinea door "1。", stelt SimSun in als lettertype en wijst de vereenvoudigde Chinese controletaal (`zh-CN`) toe. Het slaat het resultaat op in "proofing_language.pptx":
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -535,7 +643,9 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
+
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
 
@@ -545,7 +655,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Stel de Id van een correctietaal in.
+    // Stel de Id van een proeftaal in.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -557,9 +667,9 @@ try {
 }
 ```
 
-## **Standaardtaal Instellen**
+## **Standaardtaal instellen**
 
-Gebruik [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of creëren van een presentatie.
+Gebruik [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of creëren van een presentatie. Het volgende voorbeeld maakt een presentatie met Amerikaans Engels als standaardteksttaal, voegt een tekstvak toe en drukt `en-US` af voor het eerste tekstdel.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -571,11 +681,11 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een nieuw rechthoekig vorm toe met tekst.
+    // Voeg een nieuw rechthoekig vorm met tekst toe.
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Controleer de taal van het eerste gedeelte.
+    // Controleer de taal van het eerste tekstgedeelte.
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -583,11 +693,11 @@ try {
 }
 ```
 
-## **Standaard Tekstopmaak Instellen**
+## **Standaardtekstopmaak instellen**
 
 Om standaardtekstopmaak op presentatieniveau toe te passen, gebruik [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-De volgende code‑voorbeeld toont hoe je een standaard vet lettertype met een grootte van 14 pt instelt voor alle tekst over de dia’s heen in een nieuwe presentatie.
+Het volgende voorbeeld stelt een 14‑punt vet lettertype in als standaard voor alinea's op het hoogste niveau in een nieuwe presentatie en slaat het op in "default_text_style.pptx". Tekst kan deze standaardwaarden erven tenzij meer specifieke opmaak ze overschrijft.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -595,7 +705,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // Haal het alinea‑format van het hoogste niveau op.
+    // Verkrijg het alineaformaat van het hoogste niveau.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -609,15 +719,15 @@ try {
 }
 ```
 
-## **Tekst Extraheren met het All‑Caps Effect**
+## **Tekst extraheren met het All‑Caps‑effect**
 
-In PowerPoint zorgt het toepassen van het **All Caps**‑lettertype‑effect ervoor dat tekst in hoofdletters wordt weergegeven op de dia, zelfs wanneer deze oorspronkelijk in kleine letters is getypt. Wanneer je zo’n tekstgedeelte ophaalt met Aspose.Slides, geeft de bibliotheek de tekst precies terug zoals deze is ingevoerd. Om de weergegeven tekst te evenaren, controleer je [TextCapType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textcaptype/) en zet je de geretourneerde tekenreeks om naar hoofdletters wanneer de waarde `All` is.
+In PowerPoint maakt het toepassen van het **All Caps**‑lettertype‑effect dat tekst op de dia in hoofdletters wordt weergegeven, zelfs als het oorspronkelijk in kleine letters is getypt. Wanneer u zo’n tekstdel opvraagt met Aspose.Slides, retourneert de bibliotheek de tekst precies zoals ingevoerd. Om overeen te komen met de weergegeven tekst, controleert u [TextCapType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textcaptype/) en zet u de geretourneerde tekenreeks om in hoofdletters wanneer de waarde `All` is.
 
-Stel dat we het volgende tekstvak hebben op de eerste dia van het bestand sample2.pptx.
+Dit voorbeeld vereist "sample2.pptx" met een tekstvak als eerste vorm op de eerste dia. Het eerste deel van de eerste alinea bevat "Hello, Aspose!" met het All Caps‑effect toegepast, zoals hieronder weergegeven.
 
 ![Het All Caps‑effect](all_caps_effect.png)
 
-De code‑voorbeeld hieronder toont hoe je de tekst met het **All Caps**‑effect kunt extraheren:
+Het code‑voorbeeld hieronder laat zien hoe u de tekst kunt extraheren met het **All Caps**‑effect toegepast:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -625,6 +735,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const autoShape = slide.getShapes().get_Item(0);
     const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
@@ -649,10 +760,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Hoe tekst in een tabel op een dia wijzigen?**
+**Hoe kan ik tekst in een tabel op een dia wijzigen?**
 
-Om tekst in een tabel op een dia te wijzigen, gebruik je [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/table/). Loop de cellen door en werk elke cel bij via [Cell.getTextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/#getTextFrame--) en de alinea‑opmaak via [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
+Om tekst in een tabel op een dia te wijzigen, gebruik [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/table/). Doorloop de cellen en werk elke cel bij via [Cell.getTextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/#getTextFrame--) en alinea‑opmaak via [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**Hoe een kleurverloop op tekst in een PowerPoint‑dia toepassen?**
+**Hoe pas ik een kleurverloop toe op tekst in een PowerPoint‑dia?**
 
-Om een kleurverloop op tekst toe te passen, gebruik je [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Stel [FillFormat.setFillType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/filltype/) en configureer de gradient‑stops, richting en transparantie.
+Om een kleurverloop op tekst toe te passen, gebruik [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Stel [FillFormat.setFillType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/filltype/) en configureer de verloop‑stops, richting en transparantie.

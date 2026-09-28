@@ -5,19 +5,19 @@ type: docs
 weight: 50
 url: /id/nodejs-java/text-formatting/
 keywords:
-- penyelarasan paragraf
+- menyelaraskan paragraf
 - gaya teks
 - latar belakang teks
 - transparansi teks
 - jarak karakter
 - properti font
-- keluarga font
+- family font
 - rotasi teks
 - sudut rotasi
 - bingkai teks
 - jarak baris
 - properti autofit
-- penambatan bingkai teks
+- jangkar bingkai teks
 - tabulasi teks
 - bahasa default
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Format dan gayakan teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Node.js via Java. Sesuaikan font, warna, perataan, dan lainnya."
+description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Node.js via Java. Sesuaikan font, warna, perataan, dan lainnya."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Node.js via Java. Artikel ini mencakup warna latar belakang, transparansi, jarak antar karakter, properti font, rotasi, spasi paragraf, perilaku autofit, penempatan teks, titik tab, dan pengaturan bahasa.
+Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Node.js melalui Java. Artikel ini mencakup warna latar belakang, transparansi, jarak karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tab stop, dan pengaturan bahasa.
 
-Dalam contoh di bawah, kami akan menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
+Kecuali disebutkan lain, contoh menggunakan [sample.pptx](sample.pptx). Bentuk pertama pada slide pertama adalah kotak teks, dan paragraf pertamanya berisi teks yang ditampilkan di bawah. Indeks slide dan bentuk keduanya berbasis nol. Contoh yang memilih bagian tebal menggunakan pemformatan efektif, termasuk pemformatan tebal yang diwariskan:
 
-![Teks contoh](sample_text.png)
+![Teks Contoh](sample_text.png)
 
-Untuk menemukan dan menyorot teks literal atau kecocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/nodejs-java/search-and-replace-text/).
+Untuk menemukan dan menyorot teks literal atau hasil pencocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/nodejs-java/search-and-replace-text/).
 
-## **Mengatur Warna Latar Belakang Teks**
+## **Setel Warna Latar Belakang Teks**
 
-Gunakan [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) untuk mengatur warna sorot default untuk sebuah paragraf, atau gunakan [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) untuk bagian teks individu.
+Gunakan [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) untuk mengatur warna sorotan default untuk sebuah paragraf, atau gunakan [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) untuk bagian teks individu.
 
-Contoh kode berikut menunjukkan cara mengatur warna latar belakang untuk **seluruh paragraf**:
+Contoh berikut menetapkan sorotan abu-abu terang sebagai default untuk paragraf pertama. Warna sorotan eksplisit pada bagian individu memiliki prioritas lebih tinggi dibandingkan default ini:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -51,10 +51,11 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur warna sorotan untuk seluruh paragraf.
+    // Setel warna sorotan untuk seluruh paragraf.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -65,9 +66,9 @@ try {
 
 Hasilnya:
 
-![Paragraf abu‑abu](gray_paragraph.png)
+![Paragraf abu-abu](gray_paragraph.png)
 
-Contoh kode di bawah ini mendemonstrasikan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
+Contoh kode di bawah menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -76,6 +77,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -84,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Atur warna sorotan untuk bagian teks.
+            // Setel warna sorotan untuk bagian teks.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -97,11 +99,11 @@ try {
 
 Hasilnya:
 
-![Bagian teks abu‑abu](gray_text_portions.png)
+![Bagian teks abu-abu](gray_text_portions.png)
 
-## **Meratakan Paragraf Teks**
+## **Menyelaraskan Paragraf Teks**
 
-Gunakan [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) untuk mengatur perataan paragraf dalam bingkai teks. Nilainya dapat berupa center, left, right, justified, dan sebagainya.
+Gunakan [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) untuk mengatur perataan paragraf dalam bingkai teks. Nilainya dapat berupa tengah, rata kiri, rata kanan, sejajar kanan-kiri, dan sebagainya.
 
 Contoh kode berikut menunjukkan cara meratakan paragraf ke **tengah**:
 
@@ -111,10 +113,11 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur perataan paragraf ke tengah.
+    // Setel perataan paragraf ke tengah.
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -127,11 +130,11 @@ Hasilnya:
 
 ![Paragraf yang diratakan](aligned_paragraph.png)
 
-## **Mengatur Transparansi untuk Teks**
+## **Setel Transparansi untuk Teks**
 
-Transparansi teks dikontrol melalui komponen alfa dari warna yang diberikan ke [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Pada contoh di bawah, `alpha = 50` adalah nilai kanal alfa ARGB pada skala 0–255, bukan persentase transparansi.
+Transparansi teks dikendalikan melalui komponen alfa dari warna yang ditetapkan pada [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Dalam contoh di bawah, `alpha = 50` adalah nilai saluran alfa ARGB pada skala 0–255, bukan persentase transparansi.
 
-Contoh kode berikut menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
+Contoh kode di bawah menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -142,11 +145,12 @@ const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // Atur warna isi teks menjadi warna transparan.
+    // Setel warna isi teks ke warna transparan.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -171,6 +175,7 @@ const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -181,7 +186,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const fillFormat = portion.getPortionFormat().getFillFormat();
 
-            // Atur transparansi bagian teks.
+            // Setel transparansi bagian teks.
             fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
             fillFormat.getSolidFillColor().setColor(transparentBlack);
         }
@@ -197,11 +202,11 @@ Hasilnya:
 
 ![Bagian teks transparan](transparent_text_portions.png)
 
-## **Mengatur Jarak Antar Karakter untuk Teks**
+## **Setel Jarak Karakter untuk Teks**
 
-Gunakan [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) untuk memperlebar atau mempersempit jarak antar karakter dalam kotak teks.
+Gunakan [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) untuk memperlebar atau mempersempit jarak antar karakter dalam kotak teks. Contoh menambahkan 3 poin jarak; nilai negatif mempersempit teks.
 
-Kode JavaScript berikut memperlihatkan cara memperlebar jarak antar karakter dalam **seluruh paragraf**:
+Kode JavaScript berikut menunjukkan cara memperluas jarak karakter pada **seluruh paragraf**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -209,10 +214,11 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
+    // Catatan: Gunakan nilai negatif untuk memadatkan jarak karakter.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Perluas jarak karakter.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -225,7 +231,7 @@ Hasilnya:
 
 ![Jarak karakter dalam paragraf](character_spacing_in_paragraph.png)
 
-Contoh kode di bawah ini menunjukkan cara memperlebar jarak antar karakter dalam **bagian teks dengan font tebal**:
+Contoh kode di bawah menunjukkan cara memperluas jarak karakter pada **bagian teks dengan font tebal**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -233,6 +239,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -241,7 +248,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
+            // Catatan: Gunakan nilai negatif untuk memadatkan jarak karakter.
             portion.getPortionFormat().setSpacing(3); // Perluas jarak karakter.
         }
     }
@@ -256,11 +263,11 @@ Hasilnya:
 
 ![Jarak karakter dalam bagian teks](character_spacing_in_text_portions.png)
 
-### **Menonaktifkan Kerning untuk Font Tertentu**
+### **Nonaktifkan Kerning untuk Font Tertentu**
 
-Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat terlihat sedikit lebih rapat daripada teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan di pengaturan PowerPoint.
+Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat terlihat sedikit lebih rapat dibandingkan teks yang sama ditampilkan di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
 
-Untuk membuat output yang dirender lebih mirip dengan PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terpengaruh. Atur [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) ke nilai yang jauh lebih besar daripada ukuran font sebenarnya:
+Untuk membuat output yang dirender lebih mirip dengan PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terpengaruh. Atur [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) ke nilai yang lebih besar daripada ukuran font sebenarnya. Contoh ini memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Ia memeriksa nama font efektif, termasuk font yang diwariskan, dan menetapkan ambang batas 100 poin untuk bagian yang menggunakan Roboto. Ini menonaktifkan kerning untuk bagian yang cocok dengan ukuran font di bawah 100 poin:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,6 +275,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraphs = autoShape.getTextFrame().getParagraphs();
     const paragraphCount = paragraphs.getCount();
@@ -279,7 +287,7 @@ try {
 
         for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
             const portion = portions.get_Item(portionIndex);
-            const portionFormat = portion.getPortionFormat();
+            const portionFormat = portion.getPortionFormat().getEffective();
             const latinFont = portionFormat.getLatinFont();
             const eastAsianFont = portionFormat.getEastAsianFont();
             const complexScriptFont = portionFormat.getComplexScriptFont();
@@ -287,7 +295,7 @@ try {
             if ((latinFont !== null && latinFont.getFontName() === targetFont) ||
                 (eastAsianFont !== null && eastAsianFont.getFontName() === targetFont) ||
                 (complexScriptFont !== null && complexScriptFont.getFontName() === targetFont)) {
-                portionFormat.setKerningMinimalSize(100);
+                portion.getPortionFormat().setKerningMinimalSize(100);
             }
         }
     }
@@ -298,13 +306,13 @@ try {
 }
 ```
 
-Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan rendering Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi perilaku khusus PowerPoint ini.
+Untuk teks yang cocok di bawah ambang batas, pengaturan ini mencegah kerning dan dapat membantu menyelaraskan rendering Aspose.Slides dengan output visual PowerPoint untuk font yang terpengaruh oleh perilaku khusus PowerPoint ini.
 
-## **Mengelola Properti Font Teks**
+## **Kelola Properti Font Teks**
 
-Properti font dapat diatur pada tingkat paragraf melalui [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) atau pada bagian individual melalui [PortionFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/portionformat/).
+Properti font dapat diatur pada tingkat paragraf melalui [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) atau pada bagian individu melalui [PortionFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/portionformat/).
 
-Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: ia menerapkan ukuran font, tebal, miring, underline titik, dan font Times New Roman ke semua bagian dalam paragraf.
+Contoh berikut menetapkan font default paragraf pertama menjadi Times New Roman 12 poin dengan format tebal, miring, dan garis bawah titik. Pemformatan eksplisit pada bagian individu memiliki prioritas lebih tinggi dibandingkan default ini:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -313,11 +321,12 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // Atur properti font untuk paragraf.
+    // Setel properti font untuk paragraf.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -334,7 +343,7 @@ Hasilnya:
 
 ![Properti font untuk paragraf](font_properties_for_paragraph.png)
 
-Contoh kode di bawah ini menerapkan properti serupa pada **bagian teks dengan font tebal**:
+Contoh berikut menerapkan Times New Roman 13 poin, format miring, dan garis bawah titik pada bagian yang pemformatannya efektif tebal:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -343,6 +352,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
@@ -353,7 +363,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // Atur properti font untuk bagian teks.
+            // Setel properti font untuk bagian teks.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -371,11 +381,11 @@ Hasilnya:
 
 ![Properti font untuk bagian teks](font_properties_for_text_portions.png)
 
-## **Mengatur Rotasi Teks**
+## **Setel Rotasi Teks**
 
-Gunakan [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) untuk mengatur orientasi teks bawaan dalam sebuah bentuk.
+Gunakan [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) untuk mengatur orientasi teks yang telah ditentukan dalam sebuah bentuk.
 
-Contoh kode berikut mengatur orientasi teks dalam bentuk menjadi `Vertical270`, yang memutar teks **90 derajat berlawanan arah jarum jam**:
+Contoh kode berikut mengatur orientasi teks dalam bentuk ke [TextVerticalType.Vertical270](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textverticaltype/), yang memutar teks **90 derajat berlawanan arah jarum jam**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -384,8 +394,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
 
     presentation.save("text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
@@ -398,11 +408,11 @@ Hasilnya:
 
 ![Rotasi teks](text_rotation.png)
 
-## **Mengatur Rotasi Kustom untuk Bingkai Teks**
+## **Setel Rotasi Kustom untuk Bingkai Teks**
 
-Gunakan [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) untuk mengatur sudut rotasi kustom bagi sebuah [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/).
+Gunakan [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) untuk mengatur sudut rotasi kustom untuk sebuah [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/).
 
-Contoh kode di bawah ini memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
+Contoh kode di bawah memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -410,8 +420,8 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
     presentation.save("custom_text_rotation.pptx", aspose.slides.SaveFormat.Pptx);
@@ -424,14 +434,14 @@ Hasilnya:
 
 ![Rotasi teks kustom](custom_text_rotation.png)
 
-## **Mengatur Jarak Baris pada Paragraf**
+## **Setel Jarak Baris Paragraf**
 
-Aspose.Slides menyediakan [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-), dan [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) untuk mengontrol spasi paragraf. Properti ini digunakan sebagai berikut:
+Aspose.Slides menyediakan [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-), dan [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) untuk mengontrol jarak paragraf. Properti-properti ini digunakan sebagai berikut:
 
 * Gunakan nilai positif untuk menentukan jarak baris sebagai persentase dari tinggi baris.
 * Gunakan nilai negatif untuk menentukan jarak baris dalam poin.
 
-Contoh kode berikut menunjukkan cara menentukan jarak baris dalam paragraf:
+Contoh berikut mengatur jarak dalam paragraf pertama menjadi 200% dari tinggi baris (jarak ganda):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -439,9 +449,10 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
+
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setSpaceWithin(200);
 
     presentation.save("line_spacing.pptx", aspose.slides.SaveFormat.Pptx);
@@ -454,9 +465,103 @@ Hasilnya:
 
 ![Jarak baris dalam paragraf](line_spacing.png)
 
-## **Mengatur Tipe Autofit untuk Bingkai Teks**
+## **Kontrol Pemutusan Baris**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengontrol apakah teks diperkecil, meluap, atau mengubah ukuran bentuk secara otomatis.
+Aturan pemutusan baris paragraf berguna dalam blok teks sempit dan presentasi yang mencampur teks Latin dan Asia Timur. Metode berikut milik [ParagraphFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/), sehingga diterapkan pada seluruh paragraf:
+
+- [setLatinLineBreak](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak-byte-) mengontrol aturan pemutusan baris Latin. Dalam teks campuran, mengubahnya juga dapat mengubah tempat pembungkus teks dan tanda baca Asia Timur yang berdekatan.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak-byte-) mengontrol aturan pemutusan baris Asia Timur, termasuk pembatasan pada karakter di awal dan akhir baris.
+
+Aturan-aturan ini tidak menggantikan [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setWrapText-byte-), yang memungkinkan pembungkus otomatis dalam bingkai teks. Aturan-aturan ini memengaruhi tata letak saat pembungkus terjadi; mereka tidak menyisipkan karakter pemutusan baris. Pemutusan baris eksplisit memaksa baris baru dalam paragraf secara independen dari lebar yang tersedia.
+
+Contoh mandiri berikut membuat blok teks sempit yang berisi teks China dan Latin. Ia secara eksplisit mengatur kedua opsi pemutusan baris dan menyimpan "line_breaking.pptx". Untuk bereksperimen dengan salah satu aturan, ubah nilai yang bersangkutan sambil menjaga pengaturan lainnya tetap. Contoh ini menggunakan Arial 24 poin dan SimSun dengan lebar bingkai 160 poin serta margin horizontal bingkai teks nol. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) dipanggil dengan [TextAutofitType.None](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textautofittype/) sehingga ukuran teks dan dimensi bingkai tetap tetap.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 160, 300);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    const textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.True));
+    textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("中文排版测试，PowerPoint 中文演示。");
+
+    const format = paragraph.getParagraphFormat();
+    format.setAlignment(aspose.slides.TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    const latinFont = new aspose.slides.FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    const eastAsianFont = new aspose.slides.FontData("SimSun");
+    format.getDefaultPortionFormat().setEastAsianFont(eastAsianFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+    format.setLatinLineBreak(java.newByte(aspose.slides.NullableBool.False));
+    format.setEastAsianLineBreak(java.newByte(aspose.slides.NullableBool.True));
+
+    presentation.save("line_breaking.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kontrol Tanda Baca Menggantung**
+
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation-byte-) memungkinkan tanda baca yang memenuhi syarat meluas melampaui tepi kanan baris teks alih-alih menempati baris berikutnya. Ini diterapkan pada seluruh paragraf dan berbeda dari indentasi menggantung.
+
+Contoh mandiri berikut mengaktifkan tanda baca menggantung dalam bingkai teks lebar 100 poin dan menyimpan "hanging_punctuation.pptx". Dengan Arial 24 poin dan margin horizontal bingkai teks nol, titik akhir tetap setelah "sentence" dan meluas melampaui tepi kanan teks. Atur properti ke [NullableBool.False](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/nullablebool/) untuk membandingkan: dengan pengaturan ini, titik berada di baris terpisah. Pembungkus diaktifkan dan autofit dinonaktifkan untuk menjaga lebar yang tersedia tetap.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 200);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    const textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.True));
+    textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("Simple text, next sentence.");
+
+    const format = paragraph.getParagraphFormat();
+    format.setAlignment(aspose.slides.TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    const latinFont = new aspose.slides.FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+    format.setHangingPunctuation(java.newByte(aspose.slides.NullableBool.True));
+
+    presentation.save("hanging_punctuation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Tidak semua tanda baca dapat menggantung. Hasil yang terlihat tergantung pada ketersediaan font dan tata letak: mengubah font, lebar yang tersedia, margin, atau pengaturan autofit dapat menghilangkan perbedaan yang terlihat.
+
+## **Setel Tipe Autofit untuk Bingkai Teks**
+
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengontrol apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis. Contoh berikut mengonfigurasi bentuk agar diubah ukurannya menyesuaikan teksnya dan menyimpan hasilnya ke "autofit_type.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -465,8 +570,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
 
     presentation.save("autofit_type.pptx", aspose.slides.SaveFormat.Pptx);
@@ -475,11 +580,11 @@ try {
 }
 ```
 
-Untuk menghitung baris setelah pembungkus otomatis dan melihat bagaimana lebar teks atau bentuk berubah, lihat [Hitung Baris yang Dirender](/slides/id/nodejs-java/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluap kontainer.
+Untuk menghitung baris setelah pembungkus otomatis dan melihat bagaimana teks atau lebar bentuk mengubah hasil, lihat [Hitung Baris yang Dirender](/slides/id/nodejs-java/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluap dari kontainernya.
 
-## **Mengatur Penambatan Bingkai Teks**
+## **Setel Penjajakan Bingkai Teks**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) mendefinisikan bagaimana teks diposisikan secara vertikal di dalam bentuk, misalnya di atas, tengah, atau bawah.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) menentukan bagaimana teks diposisikan secara vertikal di dalam sebuah bentuk, misalnya di atas, tengah, atau bawah. Contoh berikut menempatkan teks pada bagian bawah bentuk pertama dan menyimpan hasilnya ke "text_anchor.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -488,8 +593,8 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
 
     presentation.save("text_anchor.pptx", aspose.slides.SaveFormat.Pptx);
@@ -498,9 +603,9 @@ try {
 }
 ```
 
-## **Mengatur Tabulasi Teks**
+## **Setel Tabulasi Teks**
 
-Gunakan [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) dan [ParagraphFormat.getTabs](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#getTabs--) untuk mengonfigurasi titik tab dalam sebuah paragraf.
+Gunakan [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) dan [ParagraphFormat.getTabs](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraphformat/#getTabs--) untuk mengonfigurasi tab stop dalam sebuah paragraf. Contoh berikut menetapkan interval tab default menjadi 100 poin dan menambahkan tab stop rata kiri pada 30 poin. Pengaturan ini memengaruhi teks yang mengandung karakter tab.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -509,9 +614,10 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const autoShape = slide.getShapes().get_Item(0);
-    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    const autoShape = slide.getShapes().get_Item(0);
+
+    const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setDefaultTabSize(100);
     paragraph.getParagraphFormat().getTabs().add(30, java.newByte(aspose.slides.TabAlignment.Left));
 
@@ -523,13 +629,13 @@ try {
 
 Hasilnya:
 
-![Tab paragraf](paragraph_tabs.png)
+![Tabulasi paragraf](paragraph_tabs.png)
 
-## **Mengatur Bahasa Proofing**
+## **Setel Bahasa Pemeriksaan Ejaan**
 
-Aspose.Slides menyediakan [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), yang memungkinkan Anda mengatur bahasa proofing untuk sebuah bagian teks. Bahasa proofing menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), yang memungkinkan Anda mengatur bahasa pemeriksaan ejaan untuk sebuah bagian teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pengecekan ejaan dan tata bahasa di PowerPoint.
 
-Contoh kode berikut menunjukkan cara mengatur bahasa proofing untuk sebuah bagian teks:
+Contoh berikut memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama dan setidaknya satu paragraf. Ia mengganti isi paragraf pertama dengan "1。", menetapkan SimSun sebagai fontnya, dan menetapkan bahasa pemeriksaan Simplified Chinese (`zh-CN`). Ia menyimpan hasilnya ke "proofing_language.pptx":
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -537,7 +643,9 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
+
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
 
@@ -547,7 +655,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Atur Id bahasa proofing.
+    // Setel Id bahasa pemeriksaan ejaan.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -559,9 +667,9 @@ try {
 }
 ```
 
-## **Mengatur Bahasa Default**
+## **Setel Bahasa Default**
 
-Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) untuk mendefinisikan bahasa default untuk teks yang dibuat saat memuat atau membuat presentasi.
+Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) untuk menentukan bahasa default untuk teks yang dibuat saat memuat atau membuat presentasi. Contoh berikut membuat presentasi dengan bahasa teks US English sebagai default, menambahkan kotak teks, dan mencetak `en-US` untuk bagian teks pertamanya.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -585,11 +693,11 @@ try {
 }
 ```
 
-## **Mengatur Gaya Teks Default**
+## **Setel Gaya Teks Default**
 
 Untuk menerapkan pemformatan teks default pada tingkat presentasi, gunakan [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-Contoh kode berikut menunjukkan cara mengatur font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam presentasi baru.
+Contoh berikut menetapkan font tebal 14 poin sebagai default untuk paragraf tingkat atas dalam presentasi baru dan menyimpannya ke "default_text_style.pptx". Teks dapat mewarisi default ini kecuali ada pemformatan yang lebih spesifik yang menimpanya.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -611,15 +719,15 @@ try {
 }
 ```
 
-## **Mengekstrak Teks dengan Efek Semua Huruf Kapital**
+## **Ekstrak Teks dengan Efek Semua Huruf Kapital**
 
-Di PowerPoint, menerapkan efek **All Caps** membuat teks muncul dalam huruf besar pada slide meskipun awalnya diketik dengan huruf kecil. Ketika Anda mengambil bagian teks semacam itu dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf besar ketika nilainya `All`.
+Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf kapital pada slide meskipun awalnya diketik dalam huruf kecil. Ketika Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf kapital ketika nilainya `All`.
 
-Misalkan kita memiliki kotak teks berikut pada slide pertama file sample2.pptx.
+Contoh ini memerlukan "sample2.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Bagian pertama paragraf pertamanya berisi "Hello, Aspose!" dengan efek All Caps diterapkan, seperti ditampilkan di bawah.
 
 ![Efek All Caps](all_caps_effect.png)
 
-Contoh kode berikut menunjukkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
+Contoh kode di bawah menunjukkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -627,6 +735,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const autoShape = slide.getShapes().get_Item(0);
     const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
@@ -651,10 +760,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Bagaimana cara memodifikasi teks dalam tabel pada slide?**
+**Bagaimana cara mengubah teks dalam tabel pada slide?**
 
-Untuk memodifikasi teks dalam tabel pada slide, gunakan [Table](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/table/). Iterasi melalui sel‑sel dan perbarui masing‑masing sel melalui [Cell.getTextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cell/#getTextFrame--) serta pemformatan paragraf melalui [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
+Untuk mengubah teks dalam tabel pada slide, gunakan [Table](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/table/). Iterasikan sel-selnya dan perbarui setiap sel melalui [Cell.getTextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cell/#getTextFrame--) serta pemformatan paragraf melalui [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**Bagaimana cara menerapkan warna gradasi pada teks dalam slide PowerPoint?**
+**Bagaimana cara menerapkan warna gradasi pada teks di slide PowerPoint?**
 
-Untuk menerapkan warna gradasi pada teks, gunakan [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Atur [FillFormat.setFillType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) ke [FillType.Gradient](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/filltype/) dan konfigurasikan titik gradasi, arah, serta transparansi.
+Untuk menerapkan warna gradasi pada teks, gunakan [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Atur [FillFormat.setFillType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) ke [FillType.Gradient](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/filltype/) dan konfigurasikan titik-titik gradasi, arah, serta transparansi.

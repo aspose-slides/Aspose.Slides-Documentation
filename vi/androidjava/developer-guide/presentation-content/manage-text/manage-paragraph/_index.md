@@ -1,6 +1,6 @@
 ---
 title: Quản lý các đoạn văn bản PowerPoint trên Android
-linktitle: Quản lý Đoạn Văn
+linktitle: Quản lý Đoạn văn
 type: docs
 weight: 40
 url: /vi/androidjava/manage-paragraph/
@@ -17,46 +17,46 @@ keywords:
 - thụt lề treo
 - dấu đầu dòng đoạn
 - danh sách đánh số
-- danh sách đánh dấu
+- danh sách có dấu đầu dòng
 - thuộc tính đoạn
 - nhập HTML
-- văn bản thành HTML
-- đoạn thành HTML
-- đoạn thành hình ảnh
-- văn bản thành hình ảnh
+- văn bản sang HTML
+- đoạn sang HTML
+- đoạn sang hình ảnh
+- văn bản sang hình ảnh
 - xuất đoạn
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho Android qua Java."
+description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn văn bằng Aspose.Slides cho Android qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Android qua Java đại diện cho văn bản dưới dạng một hệ thống phân cấp gồm khung văn bản, đoạn văn và phần văn bản:
+Aspose.Slides cho Android qua Java biểu diễn văn bản dưới dạng một hệ thống đa cấp của khung văn bản, đoạn văn và phần:
 
-* [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn văn.
-* [IParagraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/) đại diện cho một đoạn trong khung văn bản và cung cấp quyền truy cập vào các phần cũng như định dạng ở mức đoạn.
-* [IPortion](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportion/) đại diện cho một đoạn chạy văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
+* [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn văn của nó.
+* [IParagraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/) đại diện cho một đoạn văn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng cấp độ đoạn.
+* [IPortion](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportion/) đại diện cho một đoạn chạy văn bản trong một đoạn văn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
 
-Vì vậy, một đoạn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
+Do đó, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Tạo và Định dạng Đoạn Văn**
+## **Tạo và Định dạng Đoạn văn**
 
-### **Tạo Đoạn Văn với Nhiều Phần**
+### **Tạo Đoạn văn với Nhiều Phần**
 
-Các bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
+Các bước sau tạo một khung văn bản với ba đoạn văn, mỗi đoạn chứa ba phần:
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
 2. Truy cập slide liên quan thông qua chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) dạng hình chữ nhật vào slide.
 4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của hình dạng.
 5. Sử dụng đoạn mặc định và thêm hai đối tượng [IParagraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/) nữa vào khung văn bản.
-6. Thêm đủ các đối tượng [IPortion](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần trống.
+6. Thêm đủ đối tượng [IPortion](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần trống.
 7. Đặt văn bản cho mỗi phần.
 8. Áp dụng định dạng cấp ký tự thông qua [IPortion.getPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
-9. Lưu bản trình bày đã sửa đổi.
+9. Lưu bản trình chiếu đã chỉnh sửa.
 
 Ví dụ Android qua Java này thực hiện các bước:
 
@@ -114,26 +114,26 @@ try {
 }
 ```
 
-## **Tạo Danh Sách Đánh Dấu và Đánh Số**
+## **Tạo Danh sách Đánh dấu và Đánh số**
 
-### **Tạo Danh Sách Đánh Dấu hoặc Đánh Số**
+### **Tạo Danh sách Đánh dấu hoặc Đánh số**
 
-Các dấu đầu dòng và đánh số giúp người đọc dễ quét các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [IBulletFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/).
+Dấu chấm và đánh số giúp người dùng quét các mục liên quan dễ dàng hơn. Trong Aspose.Slides, các thiết lập danh sách được định nghĩa qua [IBulletFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/).
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
 2. Truy cập slide liên quan thông qua chỉ mục của nó.
 3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) vào slide đã chọn.
 4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của hình dạng.
 5. Xóa đoạn mặc định khỏi khung văn bản.
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraph/) cho dấu đầu dòng ký hiệu.
-7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
-8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
+6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraph/) cho dấu chấm ký hiệu.
+7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/bullettype/) và chỉ định ký tự dấu chấm.
+8. Đặt văn bản, thụt lề, màu dấu chấm và chiều cao dấu chấm cho đoạn.
 9. Thêm đoạn vào khung văn bản.
-10. Tạo một đoạn thứ hai và đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/bullettype/).
-11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn vào khung văn bản.
-12. Lưu bản trình bày.
+10. Tạo đoạn thứ hai và đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/bullettype/).
+11. Cấu hình kiểu dấu chấm đánh số và thêm đoạn vào khung văn bản.
+12. Lưu bản trình chiếu.
 
-Ví dụ Android qua Java này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
+Ví dụ Android qua Java này tạo một dấu chấm ký hiệu và một dấu chấm đánh số:
 
 ```java
 import com.aspose.slides.*;
@@ -174,22 +174,22 @@ try {
 }
 ```
 
-### **Sử Dụng Dấu Đầu Dòng Hình Ảnh**
+### **Sử dụng Đánh dấu Hình ảnh**
 
-Dấu đầu dòng hình ảnh cho phép bạn sử dụng một hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
+Đánh dấu hình ảnh cho phép bạn sử dụng một hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
 2. Truy cập slide liên quan thông qua chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) và truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/).
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) và truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của nó.
 4. Xóa đoạn mặc định khỏi khung văn bản.
-5. Tải hình ảnh dấu đầu dòng và thêm vào bộ sưu tập hình ảnh của bản trình bày dưới dạng một [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/).
+5. Tải hình ảnh dấu chấm và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu dưới dạng một [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/).
 6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraph/) và đặt văn bản cho nó.
 7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/bullettype/).
-8. Gán hình ảnh qua [IBulletFormat.getPicture](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#getPicture--) và đặt chiều cao dấu đầu dòng.
+8. Gán hình ảnh qua [IBulletFormat.getPicture](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#getPicture--) và đặt chiều cao dấu chấm.
 9. Thêm đoạn vào khung văn bản.
-10. Lưu bản trình bày đã sửa đổi.
+10. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ Android qua Java này tạo một dấu đầu dòng hình ảnh:
+Ví dụ Android qua Java này tạo một dấu chấm hình ảnh:
 
 ```java
 import com.aspose.slides.*;
@@ -224,15 +224,15 @@ try {
 }
 ```
 
-### **Tạo Danh Sách Đa Cấp**
+### **Tạo Danh sách Đa cấp**
 
-Đặt [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) để đặt các đoạn ở các cấp độ khác nhau của danh sách. Cấp cao nhất có độ sâu `0`.
+Đặt [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) để đặt các đoạn ở các mức độ khác nhau của một danh sách. Mức cao nhất có độ sâu là `0`.
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và truy cập một slide.
 2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
-3. Tạo bốn đoạn và cấu hình ký hiệu dấu đầu dòng cho chúng.
+3. Tạo bốn đoạn và cấu hình ký hiệu dấu chấm cho chúng.
 4. Đặt giá trị [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) thành `0`, `1`, `2` và `3`.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình bày.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
 Ví dụ Android qua Java này tạo một danh sách đánh dấu bốn cấp:
 
@@ -290,7 +290,7 @@ try {
 }
 ```
 
-### **Bắt Đầu Các Mục Đánh Số Tại Giá Trị Tùy Chỉnh**
+### **Bắt đầu Các mục Danh sách Đánh số với Giá trị Tùy chỉnh**
 
 Sử dụng [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) để đặt số ban đầu hiển thị cho một đoạn đánh số.
 
@@ -298,9 +298,9 @@ Sử dụng [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.
 2. Xóa đoạn mặc định khỏi khung văn bản của hình dạng.
 3. Tạo ba đoạn đánh số.
 4. Đặt [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) thành `2`, `3` và `7` cho các đoạn tương ứng.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình bày.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
-Ví dụ Android qua Java này gán một số bắt đầu tùy chỉnh cho mỗi đoạn:
+Ví dụ Android qua Java này gán số bắt đầu tùy chỉnh cho mỗi đoạn:
 
 ```java
 import com.aspose.slides.*;
@@ -336,25 +336,23 @@ try {
 }
 ```
 
-## **Kiểm Soát Bố Cục và Thuộc Tính Kết Thúc Đoạn Văn**
+## **Kiểm soát Bố cục Đoạn văn và Các thuộc tính Kết thúc**
 
 ### **Đặt Thụt Lề Dòng Đầu**
 
-Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) để kiểm soát thụt lề dòng đầu của một đoạn. Phương pháp này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương đẩy dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn theo thân đoạn.
+Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) để kiểm soát thụt lề dòng đầu của một đoạn. Phương thức này chỉ di chuyển dòng đầu so với lề trái của đoạn. Giá trị dương đẩy dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
 
-Sử dụng [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) khi bạn chỉ cần di chuyển dòng đầu tiên.
+Sử dụng [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) khi bạn chỉ cần di chuyển dòng đầu.
 
-Ví dụ dưới tạo một số đoạn và áp dụng các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau để minh họa cách thụt lề dòng đầu ảnh hưởng đến bố cục đoạn.
+Ví dụ dưới đây tạo một số đoạn và áp dụng các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau để minh họa cách thụt lề dòng đầu ảnh hưởng đến bố cục đoạn.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) dạng hình chữ nhật vào slide.
 4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
 5. Tạo một số đoạn và đặt các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau cho chúng.
 6. Thêm các đoạn vào khung văn bản.
-7. Lưu bản trình bày đã sửa đổi.
-
-Mã này cho bạn thấy cách đặt thụt lề đoạn:
+7. Lưu bản trình chiếu đã chỉnh sửa.
 
 ```java
 import com.aspose.slides.*;
@@ -406,26 +404,24 @@ try {
 
 Kết quả:
 
-![Thụt lề dòng đầu của các đoạn](first_line_indent.png)
+![Thụt lề dòng đầu của các đoạn văn](first_line_indent.png)
 
 ### **Đặt Thụt Lề Treo**
 
-Thụt lề treo là bố cục đoạn trong đó dòng đầu bắt đầu phía trái hơn các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Đặt giá trị âm để di chuyển dòng đầu sang trái so với thân đoạn.
+Thụt lề treo là bố cục đoạn trong đó dòng đầu bắt đầu ở phía trái so với các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Đưa giá trị âm để di chuyển dòng đầu sang trái so với thân đoạn.
 
-Thực tế, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) xác định vị trí bên trái của thân đoạn, và [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đặt giá trị dương cho `setMarginLeft` và giá trị âm cho `setIndent`.
+Trong thực tế, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) xác định vị trí bên trái của thân đoạn, và [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đặt giá trị dương cho `setMarginLeft` và giá trị âm cho `setIndent`.
 
-Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục giải thích và các đoạn văn khác mà các dòng gập phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tham chiếu, mục từ điển và các đoạn khác mà các dòng gập phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) dạng hình chữ nhật vào slide.
 4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
-5. Tạo các đoạn và đặt giá trị dương cho [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) cho mỗi đoạn.
-6. Đặt giá trị âm cho [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) để tạo hiệu ứng thụt lề treo.
+5. Tạo các đoạn và đưa giá trị dương cho [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) cho mỗi đoạn.
+6. Đưa giá trị âm cho [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) để tạo hiệu ứng thụt lề treo.
 7. Thêm các đoạn vào khung văn bản.
-8. Lưu bản trình bày đã sửa đổi.
-
-Mã này cho bạn thấy cách đặt thụt lề treo cho một đoạn:
+8. Lưu bản trình chiếu đã chỉnh sửa.
 
 ```java
 import com.aspose.slides.*;
@@ -469,9 +465,9 @@ try {
 
 Kết quả:
 
-![Thụt lề treo của các đoạn](hanging_indent.png)
+![Thụt lề treo của các đoạn văn](hanging_indent.png)
 
-### **Đặt Thuộc Tính Đánh Dấu Kết Thúc Đoạn Văn**
+### **Đặt Thuộc tính Chạy Đoạn Văn Kết Thúc**
 
 [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kiểm soát định dạng của dấu kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho dấu kết thúc của đoạn thứ hai:
 
@@ -480,7 +476,7 @@ Kết quả:
 3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
 4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/portionformat/) cho dấu kết thúc của đoạn thứ hai.
 5. Đặt [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) và [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Gán định dạng bằng [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) và lưu bản trình bày.
+6. Gán định dạng bằng [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) và lưu bản trình chiếu.
 
 ```java
 import com.aspose.slides.*;
@@ -512,13 +508,13 @@ try {
 }
 ```
 
-## **Đếm Các Dòng Được Render**
+## **Đếm Dòng Được Hiển thị**
 
-Sử dụng [IParagraph.getLinesCount](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) để đếm số dòng mà một đoạn chiếm sau khi bố cục văn bản, bao gồm việc tự động gập. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong các mẫu bản trình bày.
+Đối với các quy tắc đoạn ảnh hưởng đến việc tự động gập và dấu câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/androidjava/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/androidjava/text-formatting/#control-hanging-punctuation).
 
-Một đoạn là một mục trong [ITextFrame.getParagraphs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/#getParagraphs--), và nó có thể chiếm nhiều dòng đã render. Một ký tự ngắt dòng rõ ràng trong đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc gập tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng vào văn bản. Vì vậy, đếm số đoạn hoặc ký tự ngắt dòng không cho ra số dòng đã render.
+Sử dụng [IParagraph.getLinesCount](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc gập tự động. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong các mẫu bản trình chiếu.
 
-Ví dụ sau tạo một hình dạng văn bản, đếm các dòng, thu hẹp hình dạng, rồi thay thế văn bản bằng một chuỗi ngắn hơn. Gập được bật và tự động điều chỉnh kích thước bị tắt để chiều rộng hình dạng kiểm soát việc gập mà không tự động thu nhỏ văn bản hay thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và cộng tổng số dòng trong khung văn bản.
+Một đoạn là một mục trong [ITextFrame.getParagraphs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/#getParagraphs--), và nó có thể chiếm nhiều dòng hiển thị. Một ngắt dòng rõ ràng trong một đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc gập tự động tạo các dòng dựa trên chiều rộng sẵn có mà không chèn ký tự ngắt dòng vào văn bản. Vì vậy, đếm số đoạn hoặc ký tự ngắt dòng không cho biết số dòng đã hiển thị.
 
 ```java
 import com.aspose.slides.*;
@@ -558,13 +554,13 @@ try {
 }
 ```
 
-Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn làm giảm số dòng. Số đếm chính xác có thể khác nhau tùy thuộc vào phông chữ có sẵn và thay thế, kích thước phông, lề, thụt lề, gập và cài đặt tự động điều chỉnh. Hãy sử dụng phông và cài đặt bố cục dự kiến cho môi trường mục tiêu khi kiểm tra mẫu.
+Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn làm giảm số dòng. Số đếm chính xác có thể thay đổi tùy thuộc vào việc có sẵn phông chữ và việc thay thế, kích thước phông chữ, lề, thụt lề, gập và cài đặt autofit. Sử dụng phông chữ và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra mẫu.
 
-Số dòng một mình không quyết định liệu văn bản có tràn ra ngoài vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi tự động điều chỉnh cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt gập.
+Số dòng một mình không quyết định liệu văn bản có tràn khỏi vùng chứa hay không. Chiều cao có sẵn, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng có sẵn khi tắt gập.
 
-## **Nhập và Xuất Nội Dung Đoạn Văn**
+## **Nhập và Xuất Nội dung Đoạn văn**
 
-### **Nhập Văn Bản HTML vào Đoạn Văn**
+### **Nhập Văn bản HTML vào Đoạn văn**
 
 Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
 
@@ -572,10 +568,10 @@ Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slide
 2. Truy cập một slide và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/).
 3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
 4. Đọc tệp HTML nguồn.
-5. Gửi chuỗi HTML tới [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Lưu bản trình bày đã sửa đổi.
+5. Đưa chuỗi HTML vào [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ Android qua Java này nhập HTML vào một khung văn bản:
+Ví dụ Android qua Java này nhập HTML vào khung văn bản:
 
 ```java
 import com.aspose.slides.*;
@@ -606,17 +602,17 @@ try {
 }
 ```
 
-### **Xuất Văn Bản Đoạn Sang HTML**
+### **Xuất Văn bản Đoạn văn ra HTML**
 
-Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) để xuất một phạm vi đoạn được chọn dưới dạng HTML.
+Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) để xuất một phạm vi các đoạn đã chọn dưới dạng HTML.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải bản trình bày mong muốn.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
 2. Truy cập slide và tìm [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) chứa văn bản.
-3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/).
+3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của hình dạng.
 4. Gọi [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) với chỉ mục đoạn bắt đầu và số đoạn cần xuất.
 5. Ghi chuỗi HTML trả về vào tệp.
 
-Ví dụ Android qua Java này xuất tất cả các đoạn từ hình dạng văn bản đầu tiên:
+Ví dụ Android qua Java này xuất tất cả các đoạn từ khung văn bản đầu tiên:
 
 ```java
 import com.aspose.slides.*;
@@ -651,19 +647,19 @@ try {
 }
 ```
 
-### **Render Đoạn Văn Thành Ảnh**
+### **Kết xuất Đoạn văn dưới dạng Hình ảnh**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage--) render một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Bạn không cần render hình dạng chứa hoặc cắt bitmap bằng tay.
+[IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage--) kết xuất trực tiếp một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Bạn không cần phải kết xuất hình dạng chứa hoặc cắt ảnh bitmap một cách thủ công.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage--) có thể trả về `null` nếu đoạn không tồn tại trong bộ sưu tập cha, không có giới hạn render hợp lệ, hoặc không thể render được. Kiểm tra kết quả trước khi lưu và giải phóng ảnh đã trả về sau khi sử dụng.
+[IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage--) có thể trả về `null` nếu không tìm thấy đoạn trong bộ sưu tập cha, không có giới hạn hiển thị hợp lệ, hoặc không thể kết xuất. Kiểm tra kết quả trước khi lưu và giải phóng ảnh đã trả về sau khi sử dụng.
 
-#### **Render Đoạn Văn ở Tỷ Lệ Mặc Định**
+#### **Kết xuất Đoạn văn ở Tỷ lệ Mặc định**
 
-Giả sử chúng ta có một tệp bản trình bày có tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
+Giả sử chúng ta có một tệp bản trình chiếu có tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một ô văn bản chứa ba đoạn.
 
-![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
+![Hộp văn bản với ba đoạn văn](paragraph_to_image_input.png)
 
-Ví dụ sau render đoạn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu ảnh trả về ở định dạng PNG. Khối `finally` đảm bảo ảnh được giải phóng đúng cách.
+Ví dụ sau kết xuất đoạn thứ hai trong một hình dạng văn bản thường ở tỷ lệ mặc định và lưu ảnh trả về dưới định dạng PNG. Khối `finally` đảm bảo ảnh được giải phóng đúng cách.
 
 ```java
 import com.aspose.slides.*;
@@ -701,11 +697,11 @@ try {
 
 Kết quả:
 
-![Ảnh đoạn văn](paragraph_to_image_output.png)
+![Hình ảnh đoạn văn](paragraph_to_image_output.png)
 
-#### **Render Đoạn Văn trong Ô Bảng với Tỷ Lệ**
+#### **Kết xuất Đoạn văn trong Ô Bảng với Tỷ lệ**
 
-Sử dụng phương thức quá tải [IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) chấp nhận các tham số `float scaleX` và `float scaleY` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, render đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng ảnh PNG.
+Sử dụng phương thức [IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) cho phép truyền các tham số `float scaleX` và `float scaleY` để đặt hệ số tỷ lệ chiều ngang và chiều dọc. Ví dụ sau tạo một bảng, kết xuất đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi kích thước mặc định, và lưu kết quả dưới dạng ảnh PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -735,24 +731,24 @@ try {
 }
 ```
 
-Hệ số `1` giữ trục ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số sẽ tạo ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương bốn lần số pixel. Hệ số lớn hơn thường tạo văn bản sắc nét hơn cho phóng to hoặc đầu ra độ phân giải cao, nhưng cũng tăng sử dụng bộ nhớ và kích thước tệp. Hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số tỷ lệ `1` giữ trục tương ứng ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai trục tạo ra một ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất ra độ phân giải cao, nhưng cũng tăng sử dụng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
 
-Render toàn bộ hình dạng bằng [IShape.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/#getImage--) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh trực quan khác của hình dạng. Đối với ảnh chỉ chứa đoạn, sử dụng [IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage--).
+Kết xuất toàn bộ hình dạng bằng [IShape.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/#getImage--) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với ảnh chỉ chứa đoạn, sử dụng [IParagraph.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getImage--).
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Có thể tắt hoàn toàn việc gập dòng trong khung văn bản không?**
+**Tôi có thể tắt hoàn toàn việc ngắt dòng trong khung văn bản không?**
 
-Có. Đặt [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) để tắt gập, vì vậy các dòng sẽ không ngắt ở cạnh khung văn bản.
+Có. Đặt [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) để tắt gập, vì vậy các dòng sẽ không ngắt ở các cạnh của khung văn bản.
 
-**Làm sao để lấy kích thước chính xác trên slide của một đoạn cụ thể?**
+**Làm thế nào để tôi lấy kích thước chính xác trên slide của một đoạn văn cụ thể?**
 
-Sử dụng [IParagraph.getRect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getRect--) để lấy hình chữ nhật bao quanh đoạn. [IPortion.getRect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportion/#getRect--) cung cấp kích thước của một phần riêng lẻ.
+Sử dụng [IParagraph.getRect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getRect--) để lấy hình chữ nhật bao quanh đoạn. [IPortion.getRect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportion/#getRect--) cung cấp giới hạn của một phần riêng lẻ.
 
-**Nơi nào kiểm soát căn chỉnh đoạn (trái, phải, giữa hoặc căn đều)?**
+**Căn chỉnh đoạn văn (trái, phải, trung tâm hoặc căn đều) được kiểm soát ở đâu?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) là cài đặt cấp đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng riêng lẻ của từng phần.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) là một thiết lập cấp độ đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng phần riêng lẻ.
 
-**Có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
+**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn văn không?**
 
-Có. Đặt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.
+Có. Đặt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) cho các phần riêng lẻ, để một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

@@ -8,54 +8,54 @@ aliases:
   - /java/paragraph/
   - /java/portion/
 keywords:
-- metin ekle
-- paragraf ekle
-- metni yönet
-- paragrafı yönet
-- madde işaretini yönet
-- paragraf girintisi
-- askıda girinti
-- paragraf madde işareti
-- numaralı liste
-- madde işaretli liste
-- paragraf özellikleri
-- HTML içe aktar
-- metni HTML'e
-- paragrafı HTML'e
-- paragrafı görüntüye
-- metni görüntüye
-- paragrafı dışa aktar
-- PowerPoint
-- sunum
-- Java
-- Aspose.Slides
-description: "Aspose.Slides for Java ile paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görüntüleri oluşturmayı ve biçimlendirmeyi öğrenin."
+  - metin ekle
+  - paragraf ekle
+  - metni yönet
+  - paragrafı yönet
+  - madde işaretini yönet
+  - paragraf girintisi
+  - asılı girinti
+  - paragraf madde işareti
+  - numaralı liste
+  - madde işaretli liste
+  - paragraf özellikleri
+  - HTML içe aktar
+  - metni HTML'e
+  - paragrafı HTML'e
+  - paragrafı görüntüye
+  - metni görüntüye
+  - paragrafı dışa aktar
+  - PowerPoint
+  - sunum
+  - Java
+  - Aspose.Slides
+description: "Aspose.Slides for Java kullanarak paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görüntüleri oluşturmayı ve biçimlendirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Java, metni metin çerçeveleri, paragraflar ve bölümler hiyerarşisi olarak temsil eder:
+Aspose.Slides for Java metni, metin çerçeveleri, paragraflar ve bölümler hiyerarşisi olarak temsil eder:
 
-* [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) metin çerçevesindeki metin kapsayıcısını temsil eder ve paragraf koleksiyonuna erişim sağlar.
-* [IParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/) bir metin çerçevesindeki bir paragrafı temsil eder ve bölümlerine ve paragraf düzeyindeki biçimlendirmeye erişim sağlar.
-* [IPortion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportion/) bir paragraftaki metin çalışmasını temsil eder. Her bölüm, kendi metnine ve karakter düzeyinde biçimlendirmeye sahip olabilir.
+* [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) bir şeklin metin kapsayıcısını temsil eder ve paragraf koleksiyonuna erişim sağlar.
+* [IParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/) bir metin çerçevesindeki tek bir paragrafı temsil eder ve bölümlere ve paragraf düzeyinde biçimlendirmeye erişim sağlar.
+* [IPortion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportion/) bir paragraftaki metin akışını temsil eder. Her bölüm kendi metni ve karakter düzeyinde biçimlendirmeye sahip olabilir.
 
 Bu nedenle bir paragraf, birden çok bölüm kullanarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmeler içeren metin içerebilir.
 
 ## **Paragrafları Oluşturma ve Biçimlendirme**
 
-### **Birden Çok Bölümle Paragraflar Oluşturma**
+### **Birden Çok Bölüm İçeren Paragraflar Oluşturma**
 
-Aşağıdaki adımlar, her biri üç bölüm içeren üç paragrafla bir metin çerçevesi oluşturur:
+Aşağıdaki adımlar bir metin çerçevesi oluşturur ve üç paragraf ekler, her biri üç bölüm içerir:
 
-1. [Presentation] sınıfının bir örneğini oluşturun.
-2. İlgili slayta indeksine göre erişin.
-3. Slayta dikdörtgen bir [IAutoShape] ekleyin.
-4. Şeklin [ITextFrame] öğesine erişin.
-5. Varsayılan paragrafı kullanın ve metin çerçevesine iki ekstra [IParagraph] nesnesi ekleyin.
-6. Her paragrafın üç bölüm içerebilmesi için yeterli sayıda [IPortion] nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta dizini üzerinden erişin.
+3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) öğesine erişin.
+5. Varsayılan paragrafı kullanın ve metin çerçevesine iki ekstra [IParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/) nesnesi ekleyin.
+6. Her paragraf üç bölüm içerecek şekilde yeterli sayıda [IPortion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
 7. Her bölümün metnini ayarlayın.
-8. Karakter düzeyinde biçimlendirmeyi [IPortion.getPortionFormat] aracılığıyla uygulayın.
-9. Değiştirilen sunumu kaydedin.
+8. Karakter düzeyinde biçimlendirmeyi [IPortion.getPortionFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportion/#getPortionFormat--) üzerinden uygulayın.
+9. Değiştirilmiş sunumu kaydedin.
 
 Bu Java örneği adımları uygular:
 
@@ -117,18 +117,18 @@ try {
 
 ### **Madde İşaretli veya Numaralı Liste Oluşturma**
 
-Madde işaretleri ve numaralandırma, ilgili öğelerin daha kolay taranmasını sağlar. Aspose.Slides'te liste ayarları [IBulletFormat] aracılığıyla tanımlanır.
+Madde işaretleri ve numaralar ilişkili öğelerin taranmasını kolaylaştırır. Aspose.Slides'te liste ayarları [IBulletFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/) aracılığıyla tanımlanır.
 
-1. [Presentation] sınıfının bir örneğini oluşturun.
-2. İlgili slayta indeksine göre erişin.
-3. Seçilen slayta bir [IAutoShape] ekleyin.
-4. Şeklin [ITextFrame] öğesine erişin.
-5. Metin çerçevesindeki varsayılan paragrafı kaldırın.
-6. Sembol madde işareti için bir [Paragraph] oluşturun.
-7. [IBulletFormat.setType] metodunu [BulletType.Symbol] olarak ayarlayın ve madde işareti karakterini belirtin.
-8. Paragraf metnini, girinti, madde işareti rengi ve madde işareti yüksekliğini ayarlayın.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta dizini üzerinden erişin.
+3. Seçilen slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) öğesine erişin.
+5. Metin çerçevesinden varsayılan paragrafı kaldırın.
+6. Sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/paragraph/) oluşturun.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-int-) metodunu [BulletType.Symbol](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirleyin.
+8. Paragraf metnini, girintiyi, madde işareti rengini ve madde işareti yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
-10. İkinci bir paragraf oluşturun ve [IBulletFormat.setType] metodunu [BulletType.Numbered] olarak ayarlayın.
+10. İkinci bir paragraf oluşturun ve [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-int-) değerini [BulletType.Numbered](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/) olarak ayarlayın.
 11. Numaralı madde işareti stilini yapılandırın ve paragrafı metin çerçevesine ekleyin.
 12. Sunumu kaydedin.
 
@@ -175,18 +175,18 @@ try {
 
 ### **Resim Madde İşaretleri Kullanma**
 
-Resim madde işaretleri, bir sembol veya sayı yerine özel bir resim kullanmanıza olanak tanır.
+Resim madde işaretleri, bir sembol veya sayı yerine özel bir görüntü kullanmanıza olanak tanır.
 
-1. [Presentation] sınıfının bir örneğini oluşturun.
-2. İlgili slayta indeksine göre erişin.
-3. Bir [IAutoShape] ekleyin ve onun [ITextFrame] öğesine erişin.
-4. Metin çerçevesindeki varsayılan paragrafı kaldırın.
-5. Madde işareti görüntüsünü yükleyin ve sunumun görüntü koleksiyonuna [IPPImage] olarak ekleyin.
-6. Bir [Paragraph] oluşturun ve metnini ayarlayın.
-7. [IBulletFormat.setType] metodunu [BulletType.Picture] olarak ayarlayın.
-8. Görüntüyü [IBulletFormat.getPicture] ile atayın ve madde işareti yüksekliğini ayarlayın.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta dizini üzerinden erişin.
+3. Bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin ve onun [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) öğesine erişin.
+4. Metin çerçevesinden varsayılan paragrafı kaldırın.
+5. Madde işareti resmini yükleyin ve sunumun resim koleksiyonuna bir [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/) olarak ekleyin.
+6. Bir [Paragraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/paragraph/) oluşturun ve metnini ayarlayın.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-int-) değerini [BulletType.Picture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/) olarak ayarlayın.
+8. Görüntüyü [IBulletFormat.getPicture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#getPicture--) ile atayın ve madde işareti yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
-10. Değiştirilen sunumu kaydedin.
+10. Değiştirilmiş sunumu kaydedin.
 
 Bu Java örneği bir resim madde işareti oluşturur:
 
@@ -223,17 +223,17 @@ try {
 }
 ```
 
-### **Çok Düzeyli Liste Oluşturma**
+### **Çok Seviyeli Liste Oluşturma**
 
-Paragrafları bir listenin farklı seviyelerine yerleştirmek için [IParagraphFormat.setDepth] metodunu ayarlayın. Üst seviye derinliği `0` dır.
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setDepth-short-) metodunu ayarlayarak paragrafları bir listenin farklı seviyelerine yerleştirin. Üst seviye derinliği `0` dır.
 
-1. Bir [Presentation] oluşturun ve bir slayta erişin.
-2. Bir [IAutoShape] ekleyin ve metin çerçevesindeki varsayılan paragrafı temizleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) oluşturun ve bir slayta erişin.
+2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin ve onun metin çerçevesinden varsayılan paragrafı temizleyin.
 3. Dört paragraf oluşturun ve madde işareti sembollerini yapılandırın.
-4. Their [IParagraphFormat.setDepth] değerlerini `0`, `1`, `2` ve `3` olarak ayarlayın.
+4. Their [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setDepth-short-) değerlerini `0`, `1`, `2` ve `3` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
-Bu Java örneği dört seviyeli bir madde işareti listesi oluşturur:
+Bu Java örneği dört seviyeli bir madde işaretli liste oluşturur:
 
 ```java
 import com.aspose.slides.*;
@@ -291,12 +291,12 @@ try {
 
 ### **Numaralı Liste Öğelerini Özel Değerlerle Başlatma**
 
-[IBulletFormat.setNumberedBulletStartWith] metodunu, numaralı bir paragraf için gösterilecek başlangıç numarasını ayarlamak için kullanın.
+[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) metodunu kullanarak bir numaralı paragraf için başlangıç numarasını belirleyin.
 
-1. Bir [Presentation] oluşturun ve bir slayta [IAutoShape] ekleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) oluşturun ve bir slayta [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin.
 2. Şeklin metin çerçevesindeki varsayılan paragrafı temizleyin.
 3. Üç numaralı paragraf oluşturun.
-4. İlgili paragraflar için [IBulletFormat.setNumberedBulletStartWith] değerini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
+4. İlgili paragraflar için [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) değerini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu Java örneği her paragraf için özel bir başlangıç numarası atar:
@@ -335,25 +335,25 @@ try {
 }
 ```
 
-## **Paragraf Düzeni ve Son Özelliklerini Kontrol Etme**
+## **Paragraf Düzeni ve Bitiş Özelliklerini Kontrol Etme**
 
 ### **İlk Satır Girintisi Ayarlama**
 
-Bir paragrafın ilk satır girintisini kontrol etmek için [IParagraphFormat.setIndent] metodunu kullanın. Bu yöntem, sadece ilk satırı paragrafın sol kenar boşluğuna göre hareket ettirir. Pozitif bir değer, ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
+İlk satır girintisini kontrol etmek için [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setIndent-float-) metodunu kullanın. Bu yöntem yalnızca paragrafın sol kenarına göre ilk satırı hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
 
-Tam paragrafı taşımak istediğinizde [IParagraphFormat.setMarginLeft] kullanın. Sadece ilk satırı taşımak istediğinizde [IParagraphFormat.setIndent] kullanın.
+Tüm paragrafı taşımak gerektiğinde [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) kullanın. Sadece ilk satırı taşımak istediğinizde ise [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setIndent-float-) kullanın.
 
-Aşağıdaki örnek, birkaç paragraf oluşturur ve ilk satır girintisinin paragraf düzenini nasıl etkilediğini göstermek için farklı [IParagraphFormat.setIndent] değerleri uygular.
+Aşağıdaki örnek birkaç paragraf oluşturur ve farklı [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setIndent-float-) değerleri uygulayarak ilk satır girintisinin paragraf düzenini nasıl etkilediğini gösterir.
 
-1. [Presentation] sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta dikdörtgen bir [IAutoShape] ekleyin.
-4. Şeklin [ITextFrame] öğesine erişin ve varsayılan paragrafı kaldırın.
-5. Birkaç paragraf oluşturun ve her biri için farklı [IParagraphFormat.setIndent] değerleri ayarlayın.
+3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
+5. Birkaç paragraf oluşturun ve farklı [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setIndent-float-) değerleri ayarlayın.
 6. Paragrafları metin çerçevesine ekleyin.
-7. Değiştirilen sunumu kaydedin.
+7. Değiştirilmiş sunumu kaydedin.
 
-Bu kod, bir paragraf girintisini nasıl ayarlayacağınızı gösterir:
+Bu kod bir paragraf girintisinin nasıl ayarlanacağını gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -405,26 +405,26 @@ try {
 
 Sonuç:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Paragrafların ilk satır girintisi](first_line_indent.png)
 
-### **Askıda Girinti Ayarlama**
+### **Asılı Girinti Ayarlama**
 
-Askıda girinti, ilk satırın geri kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides'te bu etkiyi [IParagraphFormat.setIndent] ile oluşturursunuz. Paragraf gövdesine göre ilk satırı sola kaydırmak için negatif bir değer gönderin.
+Asılı girinti, ilk satırın kalan satırların solundan başlayacağı bir paragraf düzenidir. Aspose.Slides'te bu etkiyi [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ile oluşturursunuz. İlk satırı paragraf gövdesine göre sola kaydırmak için negatif bir değer geçirin.
 
-Uygulamada, [IParagraphFormat.setMarginLeft] paragraf gövdesinin sol konumunu tanımlar ve [IParagraphFormat.setIndent] ilk satırın bu kenar boşluğuna göre konumunu tanımlar. Askıda girinti oluşturmak için `setMarginLeft` metoduna pozitif bir değer ve `setIndent` metoduna negatif bir değer gönderin.
+Pratikte, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) paragraf gövdesinin sol konumunu, [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ise ilk satırın bu kenara göre konumunu belirler. Asılı girinti oluşturmak için `setMarginLeft` değerine pozitif, `setIndent` değerine negatif bir sayı geçirin.
 
-Bu biçimlendirme, sarma satırlarının ilk satırın ilk karakteri yerine paragraf gövdesinin altına hizalanması gereken bibliyografyalar, referanslar, sözlük girişleri ve diğer paragraflar için faydalıdır.
+Bu biçimlendirme bibliyografiler, referanslar, sözlük girişleri ve satırların paragraf gövdesi altında hizalanması gereken diğer paragraflar için faydalıdır.
 
-1. [Presentation] sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
-3. Slayta dikdörtgen bir [IAutoShape] ekleyin.
-4. Şeklin [ITextFrame] öğesine erişin ve varsayılan paragrafı kaldırın.
-5. Paragraflar oluşturun ve her paragraf için [IParagraphFormat.setMarginLeft] metoduna pozitif bir değer gönderin.
-6. Askıda girinti etkisini yaratmak için [IParagraphFormat.setIndent] metoduna negatif bir değer gönderin.
+3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
+5. Paragraflar oluşturun ve her paragraf için [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) metoduna pozitif bir değer geçirin.
+6. Asılı girinti etkisini oluşturmak için [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setIndent-float-) metoduna negatif bir değer geçirin.
 7. Paragrafları metin çerçevesine ekleyin.
-8. Değiştirilen sunumu kaydedin.
+8. Değiştirilmiş sunumu kaydedin.
 
-Bu kod, bir paragraf için askıda girinti nasıl ayarlanacağını gösterir:
+Bu kod bir paragraf için asılı girintinin nasıl ayarlanacağını gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -452,8 +452,8 @@ try {
 
     Paragraph secondParagraph = new Paragraph();
     secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
-    secondParagraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid);
-    secondParagraph.getParagraphFormat().getDefaultPortionFormat().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -468,18 +468,18 @@ try {
 
 Sonuç:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Paragrafların asılı girintisi](hanging_indent.png)
 
-### **Paragraf Sonu Çalıştırma Özelliklerini Ayarlama**
+### **Paragraf Sonu Çalışma Özelliklerini Ayarlama**
 
-[IParagraph.setEndParagraphPortionFormat] paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki örnek, ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipini atar:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki örnek ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
 
-1. Bir [Presentation] yükleyin ve bir slayta erişin.
-2. Bir [IAutoShape] ekleyin ve varsayılan paragrafını temizleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) yükleyin ve bir slayta erişin.
+2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin ve varsayılan paragrafını temizleyin.
 3. İki paragraf oluşturun ve onlara metin bölümleri ekleyin.
-4. İkinci paragrafın son işareti için bir [PortionFormat] oluşturun.
-5. [IBasePortionFormat.setFontHeight] ve [IBasePortionFormat.setLatinFont] metodlarını ayarlayın.
-6. Biçimi [IParagraph.setEndParagraphPortionFormat] ile atayın ve sunumu kaydedin.
+4. İkinci paragrafın son işareti için bir [PortionFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/portionformat/) oluşturun.
+5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) ve [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) ayarlayın.
+6. Formatı [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ile atayın ve sunumu kaydedin.
 
 ```java
 import com.aspose.slides.*;
@@ -513,11 +513,13 @@ try {
 
 ## **Render Edilen Satırları Sayma**
 
-Bir paragrafın metin yerleşiminden sonra kapladığı satırları saymak için [IParagraph.getLinesCount] metodunu kullanın; otomatik sarma dahil. Bu, sunum şablonlarında metin uzunluğunu ve düzenini kontrol ederken faydalıdır.
+Satır sonlarındaki otomatik kaydırma ve noktalama işaretlerini etkileyen paragraf kuralları için [Control Line Breaking](/slides/tr/java/text-formatting/#control-line-breaking) ve [Control Hanging Punctuation](/slides/tr/java/text-formatting/#control-hanging-punctuation) bölümlerine bakın.
 
-Bir paragraf, [ITextFrame.getParagraphs] içinde bir öğedir ve birkaç render edilmiş satır kaplayabilir. Paragraf içinde açık bir satır sonu, başka bir paragraf oluşturmadan yeni bir satır oluşturur. Otomatik sarma, metne açık satır sonları eklemeden mevcut genişliğe göre satırlar oluşturur. Bu nedenle, paragraf saymak ya da satır sonu karakterlerini saymak render edilmiş satır sayısını vermez.
+Paragrafın metin düzenlemesinden sonra kapladığı satır sayısını saymak için [IParagraph.getLinesCount](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getLinesCount--) metodunu kullanın. Bu, otomatik kaydırma dahil olmak üzere gerçek render edilen satırları sayar ve şablonlarda metin uzunluğunu ve düzenini kontrol ederken faydalıdır.
 
-Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Sarma etkinleştirilmiş ve otomatik sığdırma devre dışı bırakılmıştır; böylece şekil genişliği sarma kontrol eder ve metin otomatik olarak küçülmez veya şekil yeniden boyutlandırılmaz. Şekil boyutları puan cinsindendir. Son olarak, örnek bir paragraf daha ekler ve metin çerçevesindeki satır sayılarını toplar.
+Bir paragraf, [ITextFrame.getParagraphs](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#getParagraphs--) içinde bir öğedir ve birkaç render edilen satır kaplayabilir. Paragraf içindeki açık bir satır sonu (line break) yeni bir satır oluşturur ancak yeni bir paragraf eklemez. Otomatik kaydırma, metnin genişliğine göre satırları oluşturur ve metne açık satır sonu karakteri eklemez. Bu nedenle paragraf sayısını ya da satır sonu karakterlerini saymak render edilen satır sayısını vermez.
+
+Bu örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma etkinleştirilmiş ve otomatik sığdırma (autofit) devre dışı bırakılmıştır; bu sayede şekil genişliği kaydırmayı kontrol eder, metin otomatik olarak küçülmez veya şekil yeniden boyutlandırılmaz. Şekil boyutları puan cinsindendir. Son olarak örnek başka bir paragraf ekler ve metin çerçevesi üzerindeki satır sayılarını toplar.
 
 ```java
 import com.aspose.slides.*;
@@ -557,24 +559,24 @@ try {
 }
 ```
 
-Bu metin ve bu boyutlarla, şekli daraltmak satır sayısını artırırken, metni kısa dizeyle değiştirmek azaltır. Kesin sayılar, yazı tipi bulunabilirliği ve yerine geçme, yazı tipi boyutu, kenar boşlukları, girinti, sarma ve otomatik sığdırma ayarları gibi faktörlere göre değişebilir. Bir şablonu kontrol ederken hedef ortam için tasarlanmış yazı tiplerini ve düzen ayarlarını kullanın.
+Bu metin ve bu boyutlarla şeklin daraltılması satır sayısını artırırken, kısa dizeye değiştirildiğinde azaltır. Kesin sayılar kullanılan yazı tipine, yazı tipi boyutuna, kenar boşluklarına, girintiye, kaydırmaya ve otomatik sığdırma ayarlarına bağlı olarak değişebilir. Şablonları kontrol ederken hedef ortamda kullanılacak yazı tiplerini ve düzen ayarlarını kullanın.
 
-Sadece satır sayısı, metnin kapsayıcısını aşmayacağını belirlemez. Kullanılabilir yükseklik, satır yüksekliği, paragraf ve satır aralığı ve otomatik sığdırma davranışı da önemlidir; sarma devre dışı olduğunda tek bir satır bile mevcut genişliği aşabilir.
+Satır sayısı tek başına metnin kapsayıcısının dışına taşma olup olmadığını belirlemez. Kullanılabilir yükseklik, satır yükseklikleri, paragraf ve satır arası boşluklar ve otomatik sığdırma davranışı da önemlidir; kaydırma devre dışı bırakıldığında tek bir satır bile mevcut genişliği aşabilir.
 
-## **Paragraf İçeriğini İçe ve Dışa Aktarma**
+## **Paragraf İçeriğini İçe/Dışa Aktarma**
 
 ### **HTML Metnini Paragraflara İçe Aktarma**
 
-[ParagraphCollection.addFromHtml] metodunu kullanarak HTML işaretlemesini bir metin çerçevesindeki paragraflara ve bölümlere dönüştürebilirsiniz.
+HTML işaretlemesini bir metin çerçevesindeki paragraflara ve bölümlere dönüştürmek için [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/tr/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metodunu kullanın.
 
-1. Bir [Presentation] sınıfının örneğini oluşturun.
-2. Bir slayta erişin ve bir [IAutoShape] ekleyin.
-3. Şeklin [ITextFrame] öğesine erişin ve varsayılan paragrafı temizleyin.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Bir slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ekleyin.
+3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı temizleyin.
 4. Kaynak HTML dosyasını okuyun.
-5. HTML dizesini [ParagraphCollection.addFromHtml] metoduna gönderin.
-6. Değiştirilen sunumu kaydedin.
+5. HTML dizesini [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/tr/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metoduna geçirin.
+6. Değiştirilmiş sunumu kaydedin.
 
-Bu Java örneği HTML'i bir metin çerçevesine aktarır:
+Bu Java örneği HTML’i bir metin çerçevesine içe aktarır:
 
 ```java
 import com.aspose.slides.*;
@@ -605,15 +607,15 @@ try {
 }
 ```
 
-### **Paragraf Metnini HTML'e Dışa Aktarma**
+### **Paragraf Metnini HTML Olarak Dışa Aktarma**
 
-[ParagraphCollection.exportToHtml] metodunu kullanarak seçilmiş paragraf aralığını HTML olarak dışa aktarabilirsiniz.
+Seçili bir paragraf aralığını HTML olarak dışa aktarmak için [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/tr/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metodunu kullanın.
 
-1. Bir [Presentation] sınıfının örneğini oluşturun ve istenen sunumu yükleyin.
-2. Slayta erişin ve metni içeren [IAutoShape]'ı bulun.
-3. Şeklin [ITextFrame] öğesine erişin.
-4. Başlangıç paragraf indeksi ve dışa aktarılacak paragraf sayısını belirterek [ParagraphCollection.exportToHtml] metodunu çağırın.
-5. Döndürülen HTML dizesini bir dosyaya yazın.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve istenen sunumu yükleyin.
+2. Slayta erişin ve metni içeren [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) bulun.
+3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) öğesine erişin.
+4. Başlangıç paragrafı indeksi ve dışa aktarılacak paragraf sayısı ile [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/tr/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metodunu çağırın.
+5. Dönen HTML dizesini bir dosyaya yazın.
 
 Bu Java örneği ilk metin şeklinin tüm paragraflarını dışa aktarır:
 
@@ -650,19 +652,19 @@ try {
 }
 ```
 
-### **Bir Paragrafı Görüntü Olarak Render Etme**
+### **Paragrafı Görüntü Olarak Render Etme**
 
-[IParagraph.getImage] tek bir paragrafı doğrudan render eder ve bir [IImage] döndürür. Sonucu bir dosyaya veya akışa [IImage.save] ile kaydedebilirsiniz. İçeren şekli render etmenize ya da bitmap'i elle kırpmanıza gerek yoktur.
+[IParagraph.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getImage--) bireysel bir paragrafı doğrudan render eder ve bir [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/) döndürür. Sonucu [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/#save-java.lang.String-int-) ile dosyaya veya akışa kaydedebilirsiniz. İçeren şekli render etmeye veya bitmap’i elle kırpmaya gerek yoktur.
 
-[IParagraph.getImage] paragraf ebeveyn koleksiyonunda bulunamazsa, geçerli bir render sınırı yoksa veya render edilemezse `null` döndürebilir. Kaydetmeden önce sonucu kontrol edin ve kullanım sonrası döndürülen görüntüyü serbest bırakın.
+Paragraf bulunamazsa, geçerli bir render alanı yoksa veya render edilemiyorsa [IParagraph.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getImage--) `null` döndürebilir. Sonucu kaydetmeden önce kontrol edin ve kullanımdan sonra dönen görüntüyü serbest bırakın.
 
-#### **Paragrafı Varsayılan Ölçekte Render Etme**
+#### **Varsayılan Ölçekte Paragrafı Render Etme**
 
-sample.pptx adlı bir sunum dosyamız olduğunu ve bir slaytı olduğunu, ilk şeklinin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
+sample.pptx adında bir sunum dosyamız olduğunu ve bir slaytta ilk şeklin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Üç paragraf içeren metin kutusu](paragraph_to_image_input.png)
 
-Aşağıdaki örnek, ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekte render eder ve döndürülen görüntüyü PNG formatında kaydeder. `finally` bloğu, görüntünün doğru şekilde serbest bırakılmasını sağlar.
+Aşağıdaki örnek ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekte render eder ve PNG formatında kaydeder. `finally` bloğu görüntünün doğru bir şekilde serbest bırakılmasını sağlar.
 
 ```java
 import com.aspose.slides.*;
@@ -700,11 +702,11 @@ try {
 
 Sonuç:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Paragraf görüntüsü](paragraph_to_image_output.png)
 
-#### **Bir Tablo Hücresinde Ölçekleyerek Paragraf Render Etme**
+#### **Tablo Hücresinde Ölçeklendirme ile Paragraf Render Etme**
 
-`float scaleX` ve `float scaleY` parametrelerini kabul eden [IParagraph.getImage] aşırı yüklemesini, yatay ve dikey ölçek faktörlerini ayarlamak için kullanın. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişliğinin ve yüksekliğinin iki katı ölçekte render eder ve sonucu PNG görüntüsü olarak kaydeder.
+Yatay ve dikey ölçek faktörlerini ayarlamak için `float scaleX` ve `float scaleY` parametrelerini kabul eden [IParagraph.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getImage-float-float-) aşırı yüklemesini kullanın. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişliğinin iki katı ve yüksekliğinin iki katı olacak şekilde render eder ve sonucu PNG olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -734,20 +736,24 @@ try {
 }
 ```
 
-`1` ölçek faktörü, ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` değeri, genişliği ve yüksekliği yaklaşık iki kat olan bir görüntü üretir ve piksel sayısı dört katına çıkar. Daha büyük faktörler, yakınlaştırma veya yüksek çözünürlüklü çıktı için metni daha keskin yapar, ancak bellek kullanımını ve dosya boyutunu artırır. `1`'in altındaki faktörler daha az ayrıntıya sahip daha küçük görüntüler üretir. Paragrafın en‑boy oranını korumak için eşit faktörler kullanın; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
+`1` ölçek faktörü ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` kullanmak görüntünün genişliğini ve yüksekliğini yaklaşık iki katına çıkarır ve dört kat daha fazla piksel üretir. Daha büyük faktörler yakınlaştırma veya yüksek çözünürlüklü çıktılar için metni daha keskin yapar, ancak bellek kullanımını ve dosya boyutunu artırır. `1`’in altındaki faktörler daha az detayla daha küçük görüntüler üretir. En-boy oranını korumak için faktörleri eşit tutun; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
 
-Çıktının şeklin doldurulması, kenarlığı veya diğer görsel bağlamını içermesi gerektiğinde [IShape.getImage] ile tüm şekli render etmek hâlâ faydalıdır. Sadece paragraf görüntüsü için [IParagraph.getImage] kullanın.
+Tam bir şekli [IShape.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getImage--) ile render etmek, şeklin doldurması, kenarlığı veya diğer görsel bağlamı dahil edilmesi gerektiğinde işe yarar. Yalnızca paragraf görüntüsü için [IParagraph.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getImage--) kullanın.
 
 ## **SSS**
 
-**Metin çerçevesi içinde satır sarma tamamen devre dışı bırakabilir miyim?**  
-Evet. Satırların metin çerçevesinin kenarlarında kırılmaması için sarma işlevini devre dışı bırakacak şekilde [ITextFrameFormat.setWrapText] metodunu ayarlayın.
+**Bir metin çerçevesinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
 
-**Belirli bir paragrafın slayt üzerindeki tam sınırlarını nasıl alabilirim?**  
-Bunun için [IParagraph.getRect] metodunu kullanarak paragrafın sınırlayıcı dikdörtgenini elde edebilirsiniz. [IPortion.getRect] ise tek bir bölümün sınırlarını sağlar.
+Evet. Satır kaydırmayı devre dışı bırakmak ve satırların metin çerçevesinin kenarlarında kırılmamasını sağlamak için [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) metodunu ayarlayın.
 
-**Paragraf hizalaması (sol, sağ, ortalanmış veya iki yana yaslanmış) nerede kontrol edilir?**  
-[IParagraphFormat.setAlignment] paragraf düzeyinde bir ayardır ve bireysel bölüm biçimlendirmelerinden bağımsız olarak tüm paragrafı etkiler.
+**Belirli bir paragrafın slayt üzerindeki tam sınırlamalarını nasıl alabilirim?**
 
-**Paragrafın bir bölümü için düzeltme dilini ayarlayabilir miyim?**  
-Evet. Bireysel bölümler için [IBasePortionFormat.setLanguageId] metodunu ayarlayarak bir paragraf içinde birden çok dilde metin bulundurabilirsiniz.
+[Paragrafın sınırlayıcı dikdörtgenini almak için](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getRect--) [IParagraph.getRect] metodunu kullanın. Tek bir bölümün sınırlarını almak için ise [IPortion.getRect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportion/#getRect--) metodunu kullanabilirsiniz.
+
+**Paragraf hizalaması (sol, sağ, ortalanmış veya iki yana yaslı) nerede kontrol edilir?**
+
+Paragraf hizalaması [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) ile paragraf seviyesinde ayarlanır ve bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
+
+**Paragrafın bir kısmı için denetleme dilini ayarlayabilir miyim?**
+
+Evet. Bireysel bölümler için [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) metodunu ayarlayarak bir paragrafın içinde birden çok dil kullanabilirsiniz.

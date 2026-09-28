@@ -1,6 +1,6 @@
 ---
-title: .NET'te PowerPoint Metin Paragraflarını Yönetme
-linktitle: Paragrafı Yönet
+title: ".NET'te PowerPoint Metin Paragraflarını Yönetme"
+linktitle: "Paragrafı Yönet"
 type: docs
 weight: 40
 url: /tr/net/manage-paragraph/
@@ -8,54 +8,54 @@ aliases:
   - /net/paragraph/
   - /net/portion/
 keywords:
-- metin ekle
-- paragraf ekle
-- metni yönet
-- paragrafı yönet
-- madde işaretini yönet
-- paragraf girintisi
-- asılı girinti
-- paragraf madde işareti
-- numaralı liste
-- madde işaretli liste
-- paragraf özellikleri
-- HTML içe aktar
-- metni HTML'ye
-- paragrafı HTML'ye
-- paragrafı görüntüye
-- metni görüntüye
-- paragrafı dışa aktar
-- PowerPoint
-- sunum
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET ile paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görüntülerini nasıl oluşturup biçimlendireceğinizi öğrenin."
+  - "metin ekle"
+  - "paragraf ekle"
+  - "metni yönet"
+  - "paragrafı yönet"
+  - "madde işaretini yönet"
+  - "paragraf girintisi"
+  - "sarkan girinti"
+  - "paragraf madde işareti"
+  - "numaralı liste"
+  - "madde işaretli liste"
+  - "paragraf özellikleri"
+  - "HTML içe aktar"
+  - "metni HTML'ye"
+  - "paragrafı HTML'ye"
+  - "paragrafı görüntüye"
+  - "metni görüntüye"
+  - "paragrafı dışa aktar"
+  - "PowerPoint"
+  - "sunum"
+  - ".NET"
+  - "C#"
+  - "Aspose.Slides"
+description: "Aspose.Slides for .NET ile paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görüntüleri oluşturmayı ve biçimlendirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
 Aspose.Slides for .NET, metni metin çerçeveleri, paragraflar ve bölümler hiyerarşisi olarak temsil eder:
 
 * [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) şekil içindeki metin konteynerini temsil eder ve paragraf koleksiyonuna erişim sağlar.
-* [IParagraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/) bir metin çerçevesindeki bir paragrafı temsil eder ve bölümlerine ve paragraf‑düzeyindeki biçimlendirmeye erişim sağlar.
-* [IPortion](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/) bir paragraftaki metin çalışmasını (run) temsil eder. Her bölüm kendi metnine ve karakter‑düzeyindeki biçimlendirmeye sahip olabilir.
+* [IParagraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/) bir metin çerçevesindeki bir paragrafı temsil eder ve bölümlerine ve paragraf seviyesindeki biçimlendirmesine erişim sağlar.
+* [IPortion](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/) bir paragraftaki metin çalışmasını temsil eder. Her bölüm kendi metnine ve karakter seviyesindeki biçimlendirmeye sahip olabilir.
 
-Bu nedenle bir paragraf, birden çok bölüm kullanarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmelerle metin içerebilir.
+Bir paragraf bu nedenle birden fazla bölüm kullanılarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmeler içeren metin içerebilir.
 
 ## **Paragraflar Oluşturma ve Biçimlendirme**
 
 ### **Birden Çok Bölüm İçeren Paragraflar Oluşturma**
 
-Aşağıdaki adımlar, her biri üç bölüm içeren üç paragraf ile bir metin çerçevesi oluşturur:
+Aşağıdaki adımlar, her biri üç bölüm içeren üç paragrafla bir metin çerçevesi oluşturur:
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. İlgili slaydın referansına indeksini kullanarak erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
 3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.
-4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/)ʼine erişin.
-5. Varsayılan paragrafı kullanın ve metin çerçevesine iki tane daha [IParagraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/) nesnesi ekleyin.
-6. Her paragrafın üç bölüm içermesi için yeterli [IPortion](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) öğesine erişin.
+5. Varsayılan paragrafı kullanın ve metin çerçevesine iki adet daha [IParagraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/) nesnesi ekleyin.
+6. Her paragrafın üç bölüm içermesi için yeterli sayıda [IPortion](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
 7. Her bölümün metnini ayarlayın.
-8. Karakter düzeyinde biçimlendirmeyi [IPortion.PortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/portionformat/) üzerinden uygulayın.
+8. [IPortion.PortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/portionformat/) aracılığıyla karakter seviyesinde biçimlendirme uygulayın.
 9. Değiştirilen sunumu kaydedin.
 
 Bu C# örneği adımları uygular:
@@ -120,18 +120,18 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ### **Madde İşaretli veya Numaralı Liste Oluşturma**
 
-Madde işaretleri ve numaralar ilgili öğeleri taramayı kolaylaştırır. Aspose.Slides'da liste ayarları [IBulletFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/) aracılığıyla tanımlanır.
+Madde işaretleri ve numaralar ilgili öğelerin taranmasını kolaylaştırır. Aspose.Slides'te liste ayarları [IBulletFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/) aracılığıyla tanımlanır.
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. İlgili slaydın referansına indeksini kullanarak erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
 3. Seçili slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.
-4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/)ʼine erişin.
-5. Metin çerçevesinden varsayılan paragrafı kaldırın.
-6. Sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraph/) oluşturun.
-7. [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) özelliğini [BulletType.Symbol](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirleyin.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) öğesine erişin.
+5. Metin çerçevesindeki varsayılan paragrafı kaldırın.
+6. Bir sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraph/) oluşturun.
+7. [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) özelliğini [BulletType.Symbol](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirtin.
 8. Paragraf metnini, girintiyi, madde işareti rengini ve yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
-10. İkinci paragrafı oluşturun ve [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) özelliğini [BulletType.Numbered](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın.
+10. İkinci bir paragraf oluşturun ve [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) özelliğini [BulletType.Numbered](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın.
 11. Numaralı madde işareti stilini yapılandırın ve paragrafı metin çerçevesine ekleyin.
 12. Sunumu kaydedin.
 
@@ -172,15 +172,15 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Resim Madde İşaretlerini Kullanma**
+### **Resim Madde İşaretleri Kullanma**
 
-Resim madde işaretleri, bir sembol veya sayı yerine özel bir görüntü kullanmanızı sağlar.
+Resim madde işaretleri, bir sembol veya sayı yerine özel bir görüntü kullanmanıza izin verir.
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. İlgili slaydın referansına indeksini kullanarak erişin.
-3. Bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin ve onun [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/)ʼine erişin.
-4. Metin çerçevesinden varsayılan paragrafı kaldırın.
-5. Madde işareti görselini yükleyin ve sunumun görüntü koleksiyonuna bir [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) olarak ekleyin.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+2. İlgili slaytın referansına diziniyle erişin.
+3. Bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin ve onun [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) öğesine erişin.
+4. Metin çerçevesindeki varsayılan paragrafı kaldırın.
+5. Madde işareti görüntüsünü yükleyin ve sunumun görüntü koleksiyonuna bir [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) olarak ekleyin.
 6. Bir [Paragraph](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraph/) oluşturun ve metnini ayarlayın.
 7. [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) özelliğini [BulletType.Picture](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın.
 8. Görüntüyü [IBulletFormat.Picture](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/picture/) aracılığıyla atayın ve madde işareti yüksekliğini ayarlayın.
@@ -215,12 +215,12 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **Çok Seviyeli Liste Oluşturma**
 
-Paragrafları bir listenin farklı seviyelerine yerleştirmek için [IParagraphFormat.Depth](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/depth/) ayarlayın. En üst seviye `0` derinliğe sahiptir.
+Paragrafları bir listenin farklı seviyelerine yerleştirmek için [IParagraphFormat.Depth](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/depth/) özelliğini ayarlayın. Üst seviye `0` derinliğe sahiptir.
 
 1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturun ve bir slayta erişin.
-2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin ve metin çerçevesinden varsayılan paragrafı temizleyin.
+2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin ve metin çerçevesindeki varsayılan paragrafı temizleyin.
 3. Dört paragraf oluşturun ve madde işareti sembollerini yapılandırın.
-4. Bu paragrafların [IParagraphFormat.Depth](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/depth/) değerlerini sırasıyla `0`, `1`, `2` ve `3` olarak ayarlayın.
+4. [IParagraphFormat.Depth](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/depth/) değerlerini sırasıyla `0`, `1`, `2` ve `3` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu C# örneği dört seviyeli bir madde işaretli liste oluşturur:
@@ -275,10 +275,10 @@ presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 
 ### **Numaralı Liste Öğelerini Özel Değerlerle Başlatma**
 
-Numaralı bir paragraf için gösterilecek ilk sayıyı ayarlamak için [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/numberedbulletstartwith/) kullanın.
+Bir numaralı paragraf için görüntülenecek ilk sayıyı ayarlamak üzere [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/numberedbulletstartwith/) özelliğini kullanın.
 
 1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturun ve bir slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.
-2. Şeklin metin çerçevesinden varsayılan paragrafı temizleyin.
+2. Şeklin metin çerçevesindeki varsayılan paragrafı temizleyin.
 3. Üç numaralı paragraf oluşturun.
 4. İlgili paragraflar için [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/numberedbulletstartwith/) özelliğini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
@@ -313,23 +313,25 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Paragraf Düzeni ve Son Özelliklerini Kontrol Etme**
+## **Paragraf Düzeni ve Bitiş Özelliklerini Kontrol Etme**
 
 ### **İlk Satır Girintisi Ayarlama**
 
-[IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) özelliği bir paragrafın ilk satır girintisini kontrol eder. Bu özellik yalnızca ilk satırı paragrafın sol kenar boşluğuna göre kaydırır. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
+Paragrafın ilk satır girintisini kontrol etmek için [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) özelliğini kullanın. Bu özellik yalnızca paragrafın sol kenar boşluğuna göre ilk satırı hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
 
-Tüm paragrafı taşımak gerektiğinde [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/marginleft/) kullanın. Yalnızca ilk satırı taşımak istediğinizde ise [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) kullanın.
+Tüm paragrafı taşımak gerektiğinde [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/marginleft/) kullanın. Sadece ilk satırı taşımak istediğinizde ise [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) kullanın.
 
-Aşağıdaki örnek birkaç paragraf oluşturur ve farklı [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) değerleri uygulayarak ilk satır girintisinin paragraf düzenini nasıl etkilediğini gösterir.
+Aşağıdaki örnek çeşitli paragraflar oluşturur ve farklı [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) değerleri uygulayarak ilk satır girintisinin paragraf düzenini nasıl etkilediğini gösterir.
 
 1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
 3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.
-4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/)ʼine erişin ve varsayılan paragrafı kaldırın.
-5. Birkaç paragraf oluşturun ve bunların farklı [Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) değerlerini ayarlayın.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
+5. Çeşitli paragraflar oluşturun ve her biri için farklı [Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) değerleri ayarlayın.
 6. Paragrafları metin çerçevesine ekleyin.
 7. Değiştirilen sunumu kaydedin.
+
+Bu kod bir paragraf girintisi nasıl ayarlanır gösterir:
 
 ```csharp
 using System.Drawing;
@@ -376,22 +378,24 @@ Sonuç:
 
 ![Paragrafların ilk satır girintisi](first_line_indent.png)
 
-### **Asılı Girinti Ayarlama**
+### **Sarkan Girinti Ayarlama**
 
-Asılı girinti, ilk satırın kalan satırlardan daha sola başlamasıyla oluşan bir paragraf düzenidir. Aspose.Slides’da bu etkiyi [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) özelliğiyle oluşturursunuz. `Indent` değerini negatif yaparak ilk satırı paragraf gövdesine göre sola kaydırırsınız.
+Sarkan girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides'te bu etkiyi [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) özelliğiyle oluşturursunuz. `Indent` değerini negatif yaparak ilk satırı paragraf gövdesine göre sola kaydırırsınız.
 
-Gerçekte, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/marginleft/) paragraf gövdesinin sol konumunu, [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) ise ilk satırın bu kenar boşluğuna göre konumunu belirler. Asılı girinti oluşturmak için pozitif bir `MarginLeft` ve negatif bir `Indent` değeri ayarlayın.
+Pratikte, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/marginleft/) paragraf gövdesinin sol konumunu belirlerken, [IParagraphFormat.Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) bu kenar boşluğuna göre ilk satırın konumunu tanımlar. Sarkan bir girinti oluşturmak için pozitif bir `MarginLeft` ve negatif bir `Indent` değeri ayarlayın.
 
-Bu biçimlendirme bibliyografiler, referanslar, sözlük girişleri ve satırların paragraf gövdesi altında hizalanması gereken diğer paragraflar için yararlıdır.
+Bu biçimlendirme bibliyografyalar, referanslar, sözlük girdileri ve satırların paragraf gövdesinin altında hizalanması gereken diğer paragraflar için kullanışlıdır.
 
 1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
 3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.
-4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/)ʼine erişin ve varsayılan paragrafı kaldırın.
+4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
 5. Paragraflar oluşturun ve her biri için pozitif bir [MarginLeft](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/marginleft/) değeri ayarlayın.
-6. Asılı girinti etkisini yaratmak için negatif bir [Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) değeri atayın.
+6. Sarkan girinti etkisini oluşturmak için negatif bir [Indent](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/indent/) değeri ayarlayın.
 7. Paragrafları metin çerçevesine ekleyin.
 8. Değiştirilen sunumu kaydedin.
+
+Bu kod bir paragraf için sarkan girinti nasıl ayarlanır gösterir:
 
 ```csharp
 using System.Drawing;
@@ -429,18 +433,18 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Paragrafların asılı girintisi](hanging_indent.png)
+![Paragrafların sarkan girintisi](hanging_indent.png)
 
 ### **Paragraf Sonu Çalışma Özelliklerini Ayarlama**
 
-[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/endparagraphportionformat/) özelliği paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki örnek ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
+[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/endparagraphportionformat/) özelliği paragraf bitiş işaretinin biçimini kontrol eder. Aşağıdaki örnek ikinci paragrafın bitiş işaretine bir font boyutu ve Latin fontu atar:
 
 1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) yükleyin ve bir slayta erişin.
-2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin ve varsayılan paragrafı temizleyin.
+2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin ve varsayılan paragrafını temizleyin.
 3. İki paragraf oluşturun ve onlara metin bölümleri ekleyin.
-4. İkinci paragrafın son işareti için bir [PortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/portionformat/) oluşturun.
-5. [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseportionformat/fontheight/) ve [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseportionformat/latinfont/) ayarlarını yapın.
-6. Biçimi [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/endparagraphportionformat/)ʼa atayın ve sunumu kaydedin.
+4. İkinci paragrafın bitiş işareti için bir [PortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/portionformat/) oluşturun.
+5. [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseportionformat/fontheight/) ve [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseportionformat/latinfont/) ayarlayın.
+6. Formatı [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/endparagraphportionformat/) özelliğine atayın ve sunumu kaydedin.
 
 ```csharp
 using Aspose.Slides;
@@ -471,11 +475,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Oluşturulan Satırları Sayma**
 
-[IParagraph.GetLinesCount](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getlinescount/) kullanılarak bir paragrafın metin yerleşimi sonrası (otomatik kaydırma dahil) kapladığı satır sayısı sayılabilir. Bu, sunum şablonlarındaki metin uzunluğunu ve düzenini kontrol ederken yararlıdır.
+Otomatik kaydırma ve satır sonlarındaki noktalama işaretlerini etkileyen paragraf kuralları için, [Control Line Breaking](/slides/tr/net/text-formatting/#control-line-breaking) ve [Control Hanging Punctuation](/slides/tr/net/text-formatting/#control-hanging-punctuation) bölümlerine bakın.
 
-Bir paragraf, [ITextFrame.Paragraphs](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/paragraphs/) koleksiyonundaki bir öğedir ve birden çok oluşturulmuş satır kaplayabilir. Paragraf içinde açık bir satır sonu karakteri (`\n` gibi) yeni bir satır başlatır ve yeni bir paragraf oluşturmaz. Otomatik kaydırma, mevcut genişliğe göre satırları oluşturur; metne ek bir satır sonu karakteri eklemez. Bu nedenle, paragraf sayısını veya satır‑sonu karakterlerini saymak, oluşturulan satır sayısını vermez.
+Bir paragrafın metin yerleşimi sonrasında kapladığı satır sayısını, otomatik kaydırma dahil, saymak için [IParagraph.GetLinesCount](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getlinescount/) kullanın. Bu, sunum şablonlarında metin uzunluğunu ve yerleşimini kontrol ederken yararlıdır.
 
-Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şeklin genişliğini daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma açıktır ve otomatik sığdırma kapalıdır; böylece şekil genişliği kaydırmayı kontrol eder ve metin otomatik olarak küçülmez. Şekil boyutları puan cinsindendir. Son olarak örnek başka bir paragraf ekler ve metin çerçevesi üzerindeki satır sayılarını toplar.
+Bir paragraf, [ITextFrame.Paragraphs](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/paragraphs/) içinde bir öğedir ve birkaç işlenmiş satır kaplayabilir. Paragraf içinde açık bir satır sonu karakteri, yeni bir paragraf oluşturmadan yeni bir satır zorlar. Otomatik kaydırma, mevcut genişliğe göre satırları oluşturur ve metne açık satır sonu eklemez. Bu yüzden paragraf sayısını veya satır sonu karakterlerini saymak işlenmiş satır sayısını vermez.
+
+Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma etkinleştirilmiş ve otomatik sığdırma devre dışı bırakılmıştır, böylece şekil genişliği kaydırmayı kontrol eder ve metin otomatik olarak küçülmez veya şekil yeniden boyutlandırılmaz. Şekil boyutları puan cinsindendir. Son olarak örnek bir başka paragraf ekler ve metin çerçevesindeki satır sayılarını toplar.
 
 ```csharp
 using System;
@@ -512,24 +518,24 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Bu metin ve boyutlarla, şekli daraltmak satır sayısını artırırken, kısa dizeye değiştirmek azaltır. Kesin sayılar, kullanılan yazı tipi, yedekleme, yazı tipi boyutu, kenar boşlukları, girinti, kaydırma ve otomatik sığdırma ayarlarına göre değişebilir. Şablonu kontrol ederken hedef ortamda kullanılacak yazı tiplerini ve yerleşim ayarlarını göz önünde bulundurun.
+Bu metin ve bu boyutlarla, şekli daraltmak satır sayısını artırırken, kısa dizeye değiştirmek azaltır. Tam sayılar font bulunabilirliği ve ikamesi, font boyutu, kenar boşlukları, girinti, kaydırma ve otomatik sığdırma ayarlarıyla değişebilir. Şablonu kontrol ederken hedef ortam için tasarlanan font ve yerleşim ayarlarını kullanın.
 
-Satır sayısı yalnız başına metnin kapsayıcısını aşıp aşmadığını belirlemez. Kullanılabilir yükseklik, satır yüksekliği, paragraf ve satır aralığı ve otomatik sığdırma davranışı da önemlidir; kaydırma kapalıyken tek bir satır bile mevcut genişliği aşabilir.
+Satır sayısı yalnız başına metnin kapsayıcısının dışına taşmasını belirlemez. Kullanılabilir yükseklik, satır yükseklikleri, paragraf ve satır aralığı ve otomatik sığdırma davranışı da önemlidir; hatta tek bir satır bile kaydırma devre dışı bırakıldığında mevcut genişliği aşabilir.
 
 ## **Paragraf İçeriğini İçe/Dışa Aktarma**
 
 ### **HTML Metnini Paragraflara İçe Aktarma**
 
-[ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/addfromhtml/) kullanılarak HTML işaretlemesi, bir metin çerçevesindeki paragraflara ve bölümlere dönüştürülür.
+HTML işaretlemesini bir metin çerçevesindeki paragraflara ve bölümlere dönüştürmek için [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/addfromhtml/) kullanın.
 
 1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
 2. Bir slayta erişin ve bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.
-3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/)ʼine erişin ve varsayılan paragrafı temizleyin.
+3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı temizleyin.
 4. Kaynak HTML dosyasını okuyun.
-5. HTML dizesini [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/addfromhtml/) metoduna gönderin.
+5. HTML dizesini [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/addfromhtml/) metoduna iletin.
 6. Değiştirilen sunumu kaydedin.
 
-Bu C# örneği HTML'i bir metin çerçevesine aktarır:
+Bu C# örneği HTML'i bir metin çerçevesine içe aktarır:
 
 ```csharp
 using System.IO;
@@ -551,14 +557,14 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Paragraf Metnini HTML Olarak Dışa Aktarma**
+### **Paragraf Metnini HTML'ye Dışa Aktarma**
 
-[ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/exporttohtml/) kullanılarak seçilen paragraf aralığı HTML olarak dışa aktarılır.
+Seçilen bir paragraf aralığını HTML olarak dışa aktarmak için [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/exporttohtml/) kullanın.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) örneği oluşturun ve istediğiniz sunumu yükleyin.
-2. Slayta erişin ve metni içeren [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) öğesini bulun.
-3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/)ʼine erişin.
-4. Başlangıç paragraf indeksi ve dışa aktarılacak paragraf sayısını belirterek [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/exporttohtml/) metodunu çağırın.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun ve istenen sunumu yükleyin.
+2. Slayta erişin ve metni içeren [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) bulun.
+3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) öğesine erişin.
+4. Başlangıç paragrafı indeksi ve dışa aktarılacak paragraf sayısı ile [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/paragraphcollection/exporttohtml/) metodunu çağırın.
 5. Dönen HTML dizesini bir dosyaya yazın.
 
 Bu C# örneği ilk metin şeklinin tüm paragraflarını dışa aktarır:
@@ -585,19 +591,19 @@ else
 }
 ```
 
-### **Paragrafı Görüntü Olarak Oluşturma**
+### **Bir Paragrafı Görüntü Olarak Oluşturma**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) tek bir paragrafı doğrudan işler ve bir [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) döndürür. Sonucu [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/save/) ile bir dosyaya veya akışa kaydedebilirsiniz; kapsayıcı şekli ayrıca oluşturmanıza ya da bitmap’i elle kırpmanıza gerek yoktur.
+[IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) bir paragrafı doğrudan oluşturur ve bir [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) döndürür. Sonucu [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/save/) ile dosyaya veya akıma kaydedin. İçeren şekli oluşturmanız veya bitmap'i manuel olarak kırpmanız gerekmez.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) paragraf bulunamazsa, geçerli bir çizim sınırı yoksa veya çizilemezse `null` dönebilir. Kaydetmeden önce sonucu kontrol edin ve görüntüyü kullanımdan sonra dispose edin.
+[IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) paragraf bulunamazsa, geçerli bir çizim sınırı yoksa veya oluşturulamıyorsa `null` dönebilir. Kaydetmeden önce sonucu kontrol edin ve kullanılan görüntüyü işlem sonrası serbest bırakın.
 
-#### **Paragrafları Varsayılan Ölçekte Oluşturma**
+#### **Paragrafı Varsayılan Ölçekte Oluşturma**
 
-sample.pptx adlı bir sunum dosyamız olduğunu ve bir slayt içinde ilk şeklin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
+sample.pptx adlı bir sunum dosyamız olduğunu ve bir slaytta ilk şeklin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
 
-![Üç paragraf içeren metin kutusu](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-Aşağıdaki örnek ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekte oluşturur ve sonucu PNG formatında kaydeder. `using` ifadesi, görüntünün doğru şekilde dispose edilmesini sağlar.
+Aşağıdaki örnek, ikinci paragrafı normal bir metin şeklinde varsayılan ölçekte oluşturur ve PNG formatında kaydeder. `using` ifadesi görüntünün doğru şekilde serbest bırakılmasını sağlar.
 
 ```csharp
 using System;
@@ -632,9 +638,9 @@ Sonuç:
 
 ![Paragraf görüntüsü](paragraph_to_image_output.png)
 
-#### **Tablo Hücresinde Ölçekli Paragraf Oluşturma**
+#### **Bir Tablo Hücresinde Ölçeklendirme ile Paragraf Oluşturma**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) metodunun `float scaleX` ve `float scaleY` parametrelerini kabul eden aşırı yüklemesini kullanarak yatay ve düşey ölçek faktörlerini ayarlayabilirsiniz. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişliğinin iki katı ve yüksekliğinin iki katı olacak şekilde işler ve sonucu PNG görüntüsü olarak kaydeder.
+Yatay ve dikey ölçek faktörlerini ayarlamak için `float scaleX` ve `float scaleY` parametrelerini kabul eden [IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) aşırı yüklemesini kullanın. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişliğinin ve yüksekliğinin iki katı olarak ölçeklendirir ve sonucu PNG görüntüsü olarak kaydeder.
 
 ```csharp
 using System;
@@ -660,20 +666,24 @@ else
 }
 ```
 
-`1` ölçek faktörü ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` ayarlanırsa, görüntünün genişliği ve yüksekliği yaklaşık olarak varsayılan boyutların iki katı olur; bu da piksel sayısının dört katı demektir. Daha büyük faktörler genellikle yakınlaştırma ya da yüksek çözünürlük çıktısı için daha keskin metin sağlar, ancak bellek kullanımını ve dosya boyutunu artırır. `1`’in altındaki faktörler daha az detaylı, daha küçük görüntüler üretir. Paragrafın en‑boy oranını korumak için aynı faktörleri kullanın; farklı yatay ve düşey faktörler çıktıyı bağımsız olarak uzatır.
+`1` ölçek faktörü ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` genişlik ve yükseklik yaklaşık olarak iki kat olur ve dört kat piksel üretir. Daha büyük faktörler genellikle yakınlaştırma veya yüksek çözünürlüklü çıktı için daha keskin metin üretir ancak bellek kullanımını ve dosya boyutunu artırır. `1`'in altındaki faktörler daha az detaylı, daha küçük görüntüler üretir. Oranları korumak için eşit faktörler kullanın; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
 
-[Tüm şekli render etmek] için [IShape.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/getimage/) hâlâ yararlıdır; çünkü bu yöntem şeklin doldurmasını, kenarlığını veya diğer görsel bağlamını da içerir. Yalnızca paragraf görüntüsü için [IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) kullanılmalıdır.
+[Tüm bir şekli](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/getimage/) oluşturmak, şeklin doldurması, kenarlığı veya diğer görsel bağlamı dahil edilmesi gerektiğinde hâlâ yararlıdır. Yalnızca paragraf görüntüsü için [IParagraph.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getimage/) kullanın.
 
 ## **SSS**
 
-**Metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**  
-Evet. [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframeformat/wraptext/) özelliğini `false` olarak ayarlayarak kaydırmayı devre dışı bırakabilirsiniz; böylece satırlar metin çerçevesinin kenarlarında kırılmaz.
+**Bir metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
 
-**Belirli bir paragrafın slayt üzerindeki tam sınırlarını nasıl alabilirim?**  
-[İParagraph.GetRect](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getrect/) metodunu kullanarak paragrafın sınırlayıcı dikdörtgenini alabilirsiniz. Bireysel bir bölümün sınırlarını elde etmek için [IPortion.GetRect](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/getrect/) kullanılır.
+Evet. Satır kaydırmayı devre dışı bırakmak için [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframeformat/wraptext/) özelliğini ayarlayın.
 
-**Paragraf hizalaması (sol, sağ, ortalanmış veya iki yana yaslanmış) nerede kontrol edilir?**  
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/alignment/) bir paragraf‑düzeyi ayardır ve bölüm‑düzeyi biçimlendirmeden bağımsız olarak bütün paragrafı etkiler.
+**Belirli bir paragrafın slayt üzerindeki kesin sınırlarını nasıl alabilirim?**
 
-**Paragrafın bir bölümü için düzeltme dilini ayarlayabilir miyim?**  
-Evet. Bireysel bölümler için [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseportionformat/languageid/) ayarlanabilir; böylece tek bir paragrafta birden fazla dilde metin bulunabilir.
+Paragrafın sınırlayıcı dikdörtgenini almak için [IParagraph.GetRect](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/getrect/) kullanın. Tek bir bölümün sınırlarını almak için [IPortion.GetRect](https://reference.aspose.com/slides/tr/net/aspose.slides/iportion/getrect/) kullanılabilir.
+
+**Paragraf hizalaması (sol, sağ, ortalanmış veya iki yana yaslanmış) nerede kontrol edilir?**
+
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/alignment/) bir paragraf‑seviyesi ayardır ve bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
+
+**Paragrafın bir kısmı için denetim dili ayarlayabilir miyim?**
+
+Evet. Bireysel bölümler için [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseportionformat/languageid/) ayarlayabilirsiniz; böylece bir paragraf birden çok dilde metin içerebilir.

@@ -1,5 +1,5 @@
 ---
-title: PowerPoint szöveg bekezdések kezelése Pythonban
+title: PowerPoint szövegbekezdések kezelése Pythonban
 linktitle: Bekezdés kezelése
 type: docs
 weight: 40
@@ -12,16 +12,16 @@ keywords:
 - bekezdés hozzáadása
 - szöveg kezelése
 - bekezdés kezelése
-- pont kezelése
+- felsorolás kezelése
 - bekezdés behúzás
 - függő behúzás
-- bekezdés pont
+- bekezdés felsorolás
 - számozott lista
 - pontozott lista
 - bekezdés tulajdonságok
-- HTML importálás
-- szöveg HTML-re
-- bekezdés HTML-re
+- HTML importálása
+- szöveg HTML-be
+- bekezdés HTML-be
 - bekezdés képre
 - szöveg képre
 - bekezdés exportálása
@@ -29,35 +29,33 @@ keywords:
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, szakaszokat, pontozásokat, számozott listákat, behúzásokat, HTML tartalmakat és bekezdés képeket az Aspose.Slides for Python via .NET segítségével."
+description: "Tanulja meg, hogyan hozhat létre és formázhat bekezdéseket, részeket, felsorolásjeleket, számozott listákat, behúzások, HTML tartalmakat és bekezdés képeket az Aspose.Slides for Python via .NET segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Python via .NET a szöveget szövegdobozok, bekezdések és szakaszok hierarchiájaként reprezentálja:
+Az Aspose.Slides for Python via .NET a szöveget szövegkeretek, bekezdések és részek hierarchiájaként ábrázolja:
 
-* [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) egy alakzat szövegkonténerét képviseli, és hozzáférést biztosít a bekezdésgyűjteményéhez.
-* [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) egy szövegdobozban lévő bekezdést képvisel, és hozzáférést biztosít a szakaszaihoz és a bekezdés szintű formázáshoz.
-* [Portion](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portion/) egy szövegrészt képvisel egy bekezdésen belül. Minden szakasz saját szöveggel és karakter szintű formázással rendelkezhet.
+* [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) a alakzat szövegtárolóját képviseli, és hozzáférést biztosít a bekezdésgyűjteményéhez.
+* [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) egy bekezdést képvisel egy szövegkeretben, és hozzáférést biztosít a részeihez és a bekezdés szintű formázáshoz.
+* [Portion](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portion/) a bekezdésen belüli szövegegységet jelöli. Minden résznek saját szövege és karakter szintű formázása lehet.
 
-Ezáltal egy bekezdés különböző betűtípusú, színű, méretű és egyéb formázású szöveget tartalmazhat több szakasz használatával.
+A bekezdés ezért több rész használatával különböző betűtípusú, színű, méretű és egyéb formázású szöveget tartalmazhat.
 
 ## **Bekezdések létrehozása és formázása**
 
-### **Bekezdések létrehozása több szakaszzal**
+### **Több részes bekezdések létrehozása**
 
-A következő lépések egy szövegdobozt hoznak létre három bekezdéssel, amelyek mindegyike három szakaszt tartalmaz:
+Az alábbi lépések egy szövegkeretet hoznak létre három bekezdéssel, mindegyikben három résszel:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Érje el a megfelelő diát az indexén keresztül.
-3. Adjon hozzá egy téglalap alakú [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet a diára.
-4. Érje el az alakzat [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét.
-5. Használja az alapértelmezett bekezdést, és adjon hozzá további két [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) objektumot a szövegdobozhoz.
-6. Adjon hozzá elegendő [Portion](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portion/) objektumot minden bekezdéshez, hogy három szakaszt tartalmazzon. Az alapértelmezett bekezdés már egy üres szakaszt tartalmaz.
-7. Állítsa be minden szakasz szövegét.
+2. A megfelelő diát az indexén keresztül érje el.
+3. Adjon egy téglalap alakú [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet a diához.
+4. A forma [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét érje el.
+5. Használja az alapértelmezett bekezdést, és adjon hozzá további két [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) objektumot a szövegkerethez.
+6. Adjunk elegendő [Portion](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portion/) objektumot minden bekezdéshez, hogy három részt tartalmazzon. Az alapértelmezett bekezdés már egy üres részt tartalmaz.
+7. Állítsa be minden rész szövegét.
 8. Alkalmazzon karakter szintű formázást a [Portion.portion_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portion/portion_format/) segítségével.
-9. Mentse a módosított bemutatót.
-
-Ez a Python példa megvalósítja a lépéseket:
+9. Mentse a módosított prezentációt.
 
 ```python
 import aspose.pydrawing as draw
@@ -108,22 +106,20 @@ with slides.Presentation() as presentation:
 
 ### **Pontozott vagy számozott lista létrehozása**
 
-A pontok és a számozás megkönnyítik a kapcsolódó elemek átlapozását. Az Aspose.Slides-ben a lista beállításait a [BulletFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/) határozza meg.
+A felsorolások és a számozás megkönnyítik az egymáshoz kapcsolódó elemek áttekintését. Az Aspose.Slides-ben a lista beállításait a [BulletFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/) határozza meg.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Érje el a megfelelő diát az indexén keresztül.
-3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet a kiválasztott diához.
-4. Érje el az alakzat [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét.
-5. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
-6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) elemet egy szimbólum pontozáshoz.
-7. Állítsa a [BulletFormat.type] értékét [BulletType.SYMBOL]‑ra, és adja meg a pont karakterét.
-8. Állítsa be a bekezdés szövegét, behúzását, a pont színét és magasságát.
-9. Adja hozzá a bekezdést a szövegdobozhoz.
-10. Hozzon létre egy második bekezdést, és állítsa a [BulletFormat.type] értékét [BulletType.NUMBERED]‑ra.
-11. Állítsa be a számozott pont stílusát, és adja hozzá a bekezdést a szövegdobozhoz.
-12. Mentse a bemutatót.
-
-Ez a Python példa szimbólum pontot és számozott pontot hoz létre:
+2. A megfelelő diát az indexén keresztül érje el.
+3. Adjon egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet a kiválasztott diához.
+4. A forma [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét érje el.
+5. Távolítsa el az alapértelmezett bekezdést a szövegkeretből.
+6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) elemet egy szimbólumjelzőhöz.
+7. Állítsa be a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét [BulletType.SYMBOL](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/)‑ra, és adja meg a jelző karaktert.
+8. Állítsa be a bekezdés szövegét, behúzását, a jelző színét és magasságát.
+9. Adja hozzá a bekezdést a szövegkerethez.
+10. Hozzon létre egy második bekezdést, és állítsa be a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét [BulletType.NUMBERED](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/).
+11. Konfigurálja a számozott jelző stílusát, és adja hozzá a bekezdést a szövegkerethez.
+12. Mentse a prezentációt.
 
 ```python
 import aspose.pydrawing as draw
@@ -160,22 +156,20 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Képes pontok használata**
+### **Képes jelzők használata**
 
-A képes pontok lehetővé teszik egy egyedi kép használatát szimbólum vagy szám helyett.
+Az képes jelzők lehetővé teszik, hogy egy egyedi képet használjon szimbólum vagy szám helyett.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Érje el a megfelelő diát az indexén keresztül.
-3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet, és érje el annak [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét.
-4. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
-5. Töltsa be a pont képet, és adja hozzá a bemutató képgyűjteményéhez [PPImage] formájában.
+2. A megfelelő diát az indexén keresztül érje el.
+3. Adjon egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet, és annak [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét érje el.
+4. Távolítsa el az alapértelmezett bekezdést a szövegkeretből.
+5. Töltse be a jelző képet, és adja hozzá a prezentáció képgyűjteményéhez [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/)ként.
 6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) elemet, és állítsa be a szövegét.
-7. Állítsa a [BulletFormat.type] értékét [BulletType.PICTURE]‑ra.
-8. Rendelje hozzá a képet a [BulletFormat.picture] segítségével, és állítsa be a pont magasságát.
-9. Adja hozzá a bekezdést a szövegdobozhoz.
-10. Mentse a módosított bemutatót.
-
-Ez a Python példa képes pontot hoz létre:
+7. Állítsa be a [BulletFormat.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/type/) értékét [BulletType.PICTURE](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bullettype/).
+8. Rendelje hozzá a képet a [BulletFormat.picture](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/picture/)‑en keresztül, és állítsa be a jelző magasságát.
+9. Adja hozzá a bekezdést a szövegkerethez.
+10. Mentse a módosított prezentációt.
 
 ```python
 import aspose.slides as slides
@@ -203,15 +197,13 @@ with slides.Presentation() as presentation:
 
 ### **Többszintű lista létrehozása**
 
-Állítsa be a [ParagraphFormat.depth] értékét, hogy a bekezdéseket a lista különböző szintjeire helyezze. A legfelső szint mélysége `0`.
+Állítsa be a [ParagraphFormat.depth](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/depth/) értékét a bekezdések listában való különböző szintekre helyezéséhez. A legfelső szint mélysége `0`.
 
-1. Hozzon létre egy [Presentation] objektumot, és érje el egy diát.
-2. Adjon hozzá egy [AutoShape] elemet, és törölje az alapértelmezett bekezdést a szövegdobozából.
-3. Hozzon létre négy bekezdést, és állítsa be a pont szimbólumaikat.
-4. Állítsa be a [ParagraphFormat.depth] értéküket `0`, `1`, `2` és `3`‑ra.
-5. Adja hozzá a bekezdéseket a szövegdobozhoz, majd mentse a bemutatót.
-
-Ez a Python példa négy szintű pontozott listát hoz létre:
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumot, és érje el egy diát.
+2. Adjon egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet, és törölje az alapértelmezett bekezdést a szövegkeretből.
+3. Hozzon létre négy bekezdést, és állítsa be a jelző szimbólumaikat.
+4. Állítsa be a [ParagraphFormat.depth](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/depth/) értékeket `0`, `1`, `2` és `3`‑ra.
+5. Adja hozzá a bekezdéseket a szövegkerethez, és mentse a prezentációt.
 
 ```python
 import aspose.pydrawing as draw
@@ -263,17 +255,15 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Számozott listaelemek indítása egyéni értékekkel**
+### **Számozott listaelemek egyéni kezdőértékkel**
 
-Használja a [BulletFormat.numbered_bullet_start_with] beállítást, hogy megadja a számozott bekezdés kezdeti számát.
+Használja a [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) beállítást, hogy megadja a számozott bekezdés kezdeti számát.
 
-1. Hozzon létre egy [Presentation] objektumot, és adjon hozzá egy [AutoShape] elemet egy diához.
-2. Törölje az alapértelmezett bekezdést az alakzat szövegdobozából.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumot, és adjon egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet egy diához.
+2. Törölje az alapértelmezett bekezdést a forma szövegkeretéből.
 3. Hozzon létre három számozott bekezdést.
-4. Állítsa a [BulletFormat.numbered_bullet_start_with] értékét a megfelelő bekezdésekhez `2`, `3` és `7`‑re.
-5. Adja hozzá a bekezdéseket a szövegdobozhoz, majd mentse a bemutatót.
-
-Ez a Python példa egyedi kezdőszámot rendel minden bekezdéshez:
+4. Állítsa be a [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/hu/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) értékét a megfelelő bekezdésekhez `2`, `3` és `7`‑re.
+5. Adja hozzá a bekezdéseket a szövegkerethez, és mentse a prezentációt.
 
 ```python
 import aspose.slides as slides
@@ -305,25 +295,23 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bekezdés elrendezésének és vége tulajdonságainak vezérlése**
+## **Bekezdéselrendezés és végjellemzők szabályozása**
 
 ### **Első sor behúzás beállítása**
 
-Használja a [ParagraphFormat.indent] tulajdonságot a bekezdés első sorának behúzásának vezérléséhez. Ez a tulajdonság csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolja az első sort, míg a többi sor a bekezdés törzséhez igazodik.
+A [ParagraphFormat.indent](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/indent/) tulajdonságot használja a bekezdés első sorának behúzásának szabályozásához. Ez a tulajdonság csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolja az első sort, míg a többi sor a bekezdés törzséhez igazodik.
 
-Használja a [ParagraphFormat.margin_left]‑t, ha az egész bekezdést szeretné mozgatni. Használja a [ParagraphFormat.indent]‑t, ha csak az első sort akarja eltolni.
+Használja a [ParagraphFormat.margin_left](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/margin_left/)‑t, ha a teljes bekezdést szeretné elmozdítani. Használja a [ParagraphFormat.indent](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/indent/)‑t, ha csak az első sort kell eltolni.
 
-Az alábbi példa több bekezdést hoz létre, és különböző [ParagraphFormat.indent] értékeket alkalmaz, hogy bemutassa, hogyan befolyásolja az első sor behúzása a bekezdés elrendezését.
+Az alábbi példa több bekezdést hoz létre, és különböző [ParagraphFormat.indent](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/indent/) értékeket alkalmaz, hogy bemutassa, miként befolyásolja az első sor behúzása a bekezdéselrendezést.
 
-1. Hozzon létre egy példányt a [Presentation] osztályból.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
 2. Érje el a cél diát.
-3. Adjon hozzá egy téglalap alakú [AutoShape] elemet a diára.
-4. Érje el az alakzat [TextFrame] elemét, és távolítsa el az alapértelmezett bekezdést.
-5. Hozzon létre több bekezdést, és állítson be különböző [ParagraphFormat.indent] értékeket.
-6. Adja hozzá a bekezdéseket a szövegdobozhoz.
-7. Mentse a módosított bemutatót.
-
-Ez a kód megmutatja, hogyan állíthat be bekezdés behúzást:
+3. Adjon egy téglalap alakú [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet a diához.
+4. A forma [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét érje el, és távolítsa el az alapértelmezett bekezdést.
+5. Hozzon létre több bekezdést, és állítson be nekik különböző [ParagraphFormat.indent](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/indent/) értékeket.
+6. Adja a bekezdéseket a szövegkerethez.
+7. Mentse a módosított prezentációt.
 
 ```python
 import aspose.pydrawing as draw
@@ -370,26 +358,24 @@ with slides.Presentation() as presentation:
 
 Az eredmény:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Az első sor behúzása a bekezdésekben](first_line_indent.png)
 
 ### **Függő behúzás beállítása**
 
-A függő behúzás olyan bekezdéselrendezés, ahol az első sor balra indul a többi sorhoz képest. Az Aspose.Slides-ben ezt a hatást a [ParagraphFormat.indent] tulajdonsággal hozhatja létre. Állítsa az `indent` értékét negatívra, hogy az első sort a bekezdés törzséhez képest balra mozgassa.
+A függő behúzás egy bekezdéselrendezés, ahol az első sor a többi sor bal oldalán kezdődik. Az Aspose.Slides-ben ezt a hatást a [ParagraphFormat.indent](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/indent/) tulajdonsággal hozhatja létre. Állítsa a `indent`‑et negatív értékre, hogy az első sort a bekezdés törzséhez képest balra mozgassa.
 
-Gyakorlatban a [ParagraphFormat.margin_left] határozza meg a bekezdés törzsének bal pozícióját, a [ParagraphFormat.indent] pedig az első sor pozícióját ehhez a margóhoz képest. A függő behúzás létrehozásához állítson be pozitív `margin_left` értéket és negatív `indent` értéket.
+Gyakorlatban a [ParagraphFormat.margin_left](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/margin_left/) határozza meg a bekezdés törzsének bal pozícióját, míg a [ParagraphFormat.indent](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/indent/) definiálja az első sor helyzetét ehhez a margóhoz képest. Függő behúzás létrehozásához állítson be pozitív `margin_left` értéket és negatív `indent` értéket.
 
-Ez a formázás hasznos bibliográfiák, hivatkozások, szószedet-bejegyzések és egyéb bekezdések esetén, ahol a sortöréses soroknak a bekezdés törzsének alá kell illeszkedniük, nem pedig az első sor első karaktere alá.
+Ez a formázás hasznos bibliográfiák, hivatkozások, szójegyzék bejegyzések és más bekezdések esetén, ahol a sortöréses soroknak a bekezdés törzse alatt kell igazodni, nem pedig az első sor első karaktere alatt.
 
-1. Hozzon létre egy példányt a [Presentation] osztályból.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
 2. Érje el a cél diát.
-3. Adjon hozzá egy téglalap alakú [AutoShape] elemet a diára.
-4. Érje el az alakzat [TextFrame] elemét, és távolítsa el az alapértelmezett bekezdést.
-5. Hozzon létre bekezdéseket, és állítson be minden bekezdéshez pozitív [ParagraphFormat.margin_left] értéket.
-6. Állítson be negatív [ParagraphFormat.indent] értéket a függő behúzás létrehozásához.
-7. Adja hozzá a bekezdéseket a szövegdobozhoz.
-8. Mentse a módosított bemutatót.
-
-Ez a kód megmutatja, hogyan állíthat be függő behúzást egy bekezdésnél:
+3. Adjon egy téglalap alakú [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet a diához.
+4. A forma [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét érje el, és távolítsa el az alapértelmezett bekezdést.
+5. Hozzon létre bekezdéseket, és állítson be egy pozitív [ParagraphFormat.margin_left](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/margin_left/) értéket minden bekezdéshez.
+6. Állítson be egy negatív [ParagraphFormat.indent](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/indent/) értéket a függő behúzás hatásának létrehozásához.
+7. Adja a bekezdéseket a szövegkerethez.
+8. Mentse a módosított prezentációt.
 
 ```python
 import aspose.pydrawing as draw
@@ -428,18 +414,18 @@ with slides.Presentation() as presentation:
 
 Az eredmény:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![A bekezdések függő behúzása](hanging_indent.png)
 
-### **Bekezdés végének részformázási tulajdonságainak beállítása**
+### **Bekezdésvégi futtatási tulajdonságok beállítása**
 
-A [Paragraph.end_paragraph_portion_format] tulajdonság szabályozza a bekezdés végejelének formázását. A következő példa betűméretet és latin betűtípust rendel a második bekezdés végejeléhez:
+A [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) tulajdonság szabályozza a bekezdés végjelének formázását. Az alábbi példa betűméretet és latin betűtípust rendel a második bekezdés végjeléhez:
 
-1. Töltsön be egy [Presentation] objektumot, és érje el egy diát.
-2. Adjon hozzá egy [AutoShape] elemet, és törölje az alapértelmezett bekezdését.
-3. Hozzon létre két bekezdést, és adjon hozzá szöveg szakaszokat.
-4. Hozzon létre egy [PortionFormat] objektumot a második bekezdés végejeléhez.
-5. Állítsa be a [PortionFormat.font_height] és a [PortionFormat.latin_font] értékeket.
-6. Rendelje hozzá a formátumot a [Paragraph.end_paragraph_portion_format] tulajdonsághoz, majd mentse a bemutatót.
+1. Töltsön be egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumot, és érje el egy diát.
+2. Adjon egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet, és törölje az alapértelmezett bekezdését.
+3. Hozzon létre két bekezdést, és adjon szövegrészeket hozzájuk.
+4. Hozzon létre egy [PortionFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portionformat/) objektumot a második bekezdés végjeléhez.
+5. Állítsa be a [PortionFormat.font_height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portionformat/font_height/) és a [PortionFormat.latin_font](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portionformat/latin_font/) értékeket.
+6. Rendelje a formátumot a [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/end_paragraph_portion_format/)‑hez, és mentse a prezentációt.
 
 ```python
 import aspose.slides as slides
@@ -469,11 +455,13 @@ with slides.Presentation("Test.pptx") as presentation:
 
 ## **Megjelenített sorok számlálása**
 
-Használja a [Paragraph.get_lines_count] metódust, hogy megszámolja egy bekezdés által elfoglalt sorok számát a szöveg elrendezése után, beleértve az automatikus sortörést is. Ez hasznos a szöveghossz és az elrendezés ellenőrzésénél a prezentációs sablonokban.
+A bekezdés szabályok, amelyek az automatikus sortörést és a sorvégi írásjeleket befolyásolják, lásd [Control Line Breaking](/slides/hu/python-net/text-formatting/#control-line-breaking) és [Control Hanging Punctuation](/slides/hu/python-net/text-formatting/#control-hanging-punctuation).
 
-Egy bekezdés a [TextFrame.paragraphs] egy eleme, és több megjelenített sorba is elférhet. Egy explicit sortörés egy bekezdésen belül új sort kényszerít anélkül, hogy új bekezdést hozna létre. Az automatikus sortörés a rendelkezésre álló szélesség alapján hoz létre sorokat, anélkül, hogy explicit sortörés karaktereket szúrna be a szövegbe. Így a bekezdések vagy sortörés karakterek számolása nem adja meg a megjelenített sorok számát.
+Használja a [Paragraph.get_lines_count](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/get_lines_count/) metódust, hogy megszámolja a bekezdés által elfoglalt sorok számát a szöveg elrendezése után, beleértve az automatikus sortörést. Ez hasznos a szöveghossz és az elrendezés ellenőrzésénél prezentáció sablonokban.
 
-A következő példa egy szövegtáblát hoz létre, megszámolja a sorait, szűkíti a táblát, majd egy rövidebb szövegre cseréli a tartalmat. A sortörés engedélyezett és az automatikus méretezés le van tiltva, így a tábla szélessége határozza meg a sortörést anélkül, hogy automatikusan zsugorítaná a szöveget vagy átméretezné a táblát. A tábla méretei pontban vannak megadva. Végül a példa egy másik bekezdést ad hozzá, és összeadja a sorok számát a szövegdobozon belül.
+Egy bekezdés a [TextFrame.paragraphs](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/paragraphs/) egy eleme, és több megjelenített sort is elfoglalhat. Egy kifejezett sortörés a bekezdésen belül új sort kényszerít, anélkül, hogy új bekezdést hozna létre. Az automatikus sortörés a rendelkezésre álló szélesség alapján hoz sorokat, anélkül, hogy kifejezett sortöréseket szúrna a szövegbe. Így a bekezdések vagy sortörés karakterek számolása nem adja meg a megjelenített sorok számát.
+
+Az alábbi példa létrehoz egy szöveges alakzatot, megszámolja a sorait, szűkíti az alakzatot, majd a szöveget egy rövidebb karaktersorral helyettesíti. A sortörés engedélyezett, az automatikus illesztés le van tiltva, így az alakzat szélessége szabályozza a sortörést anélkül, hogy automatikusan zsugorítaná a szöveget vagy átméretezné az alakzatot. Az alakzat méretei pontban vannak megadva. Végül a példa hozzáad egy újabb bekezdést, és összegzi a sorok számát a szövegkereten belül.
 
 ```python
 import aspose.slides as slides
@@ -508,24 +496,22 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-Ezzel a szöveggel és ezekkel a dimenziókkal a tábla szűkítése növeli a sorok számát, míg a szöveg rövid lánccal való helyettesítése csökkenti azt. A pontos számok változhatnak a betűtípus elérhetősége és helyettesítése, betűméret, margók, behúzás, sortörés és automatikus méretezés beállításai szerint. Használja az adott környezethez tervezett betűtípusokat és elrendezési beállításokat, amikor egy sablont ellenőriz.
+Ezzel a szöveggel és ezekkel a méretekkel a forma szűkítése növeli a sorok számát, míg a szöveg rövid sztringgel való helyettesítése csökkenti azt. A pontos számok változhatnak a betűtípus elérhetőségének és helyettesítésének, betűméretnek, margóknak, behúzásnak, sortörésnek és automatikus illesztés beállításainak függvényében. A sablon ellenőrzésekor használja a célkörnyezethez szánt betűtípusokat és elrendezési beállításokat.
 
-A sorok száma önmagában nem határozza meg, hogy a szöveg kilóg-e a tárolóból. A rendelkezésre álló magasság, a sormagasságok, a bekezdés- és sorköz, valamint az automatikus méretezés viselkedése is számít; még egyetlen sor is túllépheti a rendelkezésre álló szélességet, ha a sortörés le van tiltva.
+A sorok száma önmagában nem határozza meg, hogy a szöveg túlcsordul-e a tárolóban. A rendelkezésre álló magasság, sormagasságok, bekezdés- és sortávolság, valamint az automatikus illesztés viselkedése is számít; még egyetlen sor is túllépheti a rendelkezésre álló szélességet, ha a sortörés le van tiltva.
 
 ## **Bekezdés tartalmának importálása és exportálása**
 
 ### **HTML szöveg importálása bekezdésekbe**
 
-Használja a [ParagraphCollection.add_from_html] metódust, hogy HTML jelölőnyelvet konvertáljon bekezdésekké és szakaszokká egy szövegdobozban.
+Használja a [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphcollection/add_from_html/) módszert, hogy a HTML jelölőnyelvet bekezdésekké és részekké (portions) alakítsa egy szövegkeretben.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Érje el egy diát, és adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet.
-3. Érje el az alakzat [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét, és törölje az alapértelmezett bekezdését.
+2. A diát egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) hozzáadásával érje el.
+3. A forma [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét érje el, és törölje az alapértelmezett bekezdést.
 4. Olvassa be a forrás HTML fájlt.
-5. Adja át a HTML karakterláncot a [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphcollection/add_from_html/) metódusnak.
-6. Mentse a módosított bemutatót.
-
-Ez a Python példa HTML-t importál egy szövegdobozba:
+5. A HTML karakterláncot adja át a [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphcollection/add_from_html/)‑nek.
+6. Mentse a módosított prezentációt.
 
 ```python
 import aspose.slides as slides
@@ -547,15 +533,13 @@ with slides.Presentation() as presentation:
 
 ### **Bekezdés szövegének exportálása HTML-be**
 
-Használja a [ParagraphCollection.export_to_html] metódust, hogy a kiválasztott bekezdéssort HTML-ként exportálja.
+Használja a [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphcollection/export_to_html/) módszert, hogy a kiválasztott bekezdés tartományt HTML-ként exportálja.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt, és töltse be a kívánt bemutatót.
-2. Érje el a diát, és keresse meg a szöveget tartalmazó [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet.
-3. Érje el az alakzat [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét.
-4. Hívja meg a [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphcollection/export_to_html/) metódust a kezdő bekezdés indexével és az exportálandó bekezdések számával.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt, és töltse be a kívánt prezentációt.
+2. A diát érje el, és keresse meg a szöveget tartalmazó [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet.
+3. A forma [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) elemét érje el.
+4. Hívja meg a [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphcollection/export_to_html/)‑t a kezdő bekezdés indexével és az exportálandó bekezdések számával.
 5. Írja a visszakapott HTML karakterláncot egy fájlba.
-
-Ez a Python példa az első szövegelem összes bekezdését exportálja:
 
 ```python
 import aspose.slides as slides
@@ -574,17 +558,17 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
 
 ### **Bekezdés renderelése képként**
 
-A [Paragraph] biztosítja a `get_image` metódust egy egyedi bekezdés közvetlen rendereléséhez. A metódus egy [IImage] objektumot ad vissza, amelyet fájlba vagy adatfolyamba menthet a [IImage.save] segítségével. Nem szükséges a környező alakzatot renderelni vagy a bitmapet manuálisan kivágni.
+A [Paragraph](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/) a `get_image` metódust biztosítja egy egyedi bekezdés közvetlen rendereléséhez. A metódus egy [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) objektumot ad vissza, amelyet a [IImage.save](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/save/)‑vel fájlba vagy adatfolyamba menthet. Nem kell a tartalmazó alakzatot renderelni, vagy a bitmapet kézzel vágni.
 
-A `get_image` metódus `None` értéket adhat vissza, ha a bekezdés nem található a szülő gyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt a mentés előtt, és használja a visszakapott képet kontextuskezelőként a erőforrások felszabadításához.
+A `get_image` metódus `None`‑t adhat vissza, ha a bekezdés nem található meg a szülőgyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt mentés előtt, és a visszakapott képet használja kontextuskezelőként a erőforrások felszabadításához.
 
 #### **Bekezdés renderelése alapértelmezett méretben**
 
-Tegyük fel, hogy van egy sample.pptx nevű prezentációs fájlunk egy diával, ahol az első alakzat egy három bekezdést tartalmazó szövegdoboz.
+Tegyük fel, hogy van egy sample.pptx nevű prezentációs fájlunk, egy diával, ahol az első alakzat egy három bekezdést tartalmazó szövegdoboz.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![A három bekezdést tartalmazó szövegdoboz](paragraph_to_image_input.png)
 
-A következő példa a második bekezdést egy normál szövegalakzatban alapértelmezett méretben rendereli, majd a visszakapott képet PNG formátumban menti:
+Az alábbi példa a második bekezdést rendereli egy szabályos szöveges alakzatban alapértelmezett méretben, és a visszakapott képet PNG formátumban menti:
 
 ```python
 import aspose.slides as slides
@@ -607,11 +591,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Az eredmény:
 
-![The paragraph image](paragraph_to_image_output.png)
+![A bekezdés képe](paragraph_to_image_output.png)
 
 #### **Bekezdés renderelése táblázatcellában méretezéssel**
 
-Adjon meg vízszintes és függőleges méretezési tényezőket a `get_image` metódusnak, hogy a renderelt bekezdés méretét szabályozza. A következő példa egy táblázatot hoz létre, a bekezdést az első cellájában a alapértelmezett szélesség és magasság kétszeresére rendereli, és a végeredményt PNG képként menti:
+Adjunk meg vízszintes és függőleges méretezési tényezőket a `get_image`‑nek, hogy szabályozzuk a renderelt bekezdés méretét. Az alábbi példa létrehoz egy táblázatot, a bekezdést az első cellájában kétszeres alapértelmezett szélesség és magasság mellett rendereli, és a resultat PNG képként menti:
 
 ```python
 import aspose.slides as slides
@@ -633,20 +617,24 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Az `1` méretezési tényező az adott tengelyet az alapértelmezett pixelméretben hagyja. Például a `2` mindkét tényező esetén egy olyan képet eredményez, amelynek szélessége és magassága körülbelül kétszerese az alapértelmezettnek, ez négyzet annyi pixelt jelent. A nagyobb tényezők általában élesebb szöveget biztosítanak nagyításhoz vagy nagy felbontású kimenethez, de növelik a memóriahasználatot és a fájlméretet. Az `1`‑nél kisebb tényezők kisebb, kevésbé részletes képeket adnak. Azonos tényezőket használjon a bekezdés méretarányának megőrzéséhez; a különböző vízszintes és függőleges tényezők önállóan nyújtják a kimenetet.
+Egy `1` méretezési tényező az adott tengelyen az alapértelmezett pixeleméretet tartja. Például a mindkét tényező `2`‑je egy olyan képet eredményez, amelynek szélessége és magassága megközelítőleg kétszerese az alapértelmezett méretnek, így négyszer annyi pixel. A nagyobb tényezők általában élesebb szöveget eredményeznek nagyításhoz vagy nagy felbontású kimenethez, de növelik a memóriahasználatot és a fájlméretet. Az `1`‑nél kisebb tényezők kisebb, kevésbé részletes képeket hoznak létre. Használjon egyenlő tényezőket a bekezdés képarányának megtartásához; a különböző vízszintes és függőleges tényezők önállóan nyújtják a kimenetet.
 
-Egy egész alakzat renderelése a [Shape.get_image](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/get_image/) segítségével továbbra is hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, keretét vagy egyéb vizuális kontextusát. Egy csak bekezdést tartalmazó képhez használja a `Paragraph.get_image` metódust.
+Egy egész alakzat renderelése a [Shape.get_image](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/get_image/)‑vel továbbra is hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, szegélyét vagy más vizuális kontextusát. Csak bekezdés képe esetén használja a `Paragraph.get_image`‑t.
 
 ## **GYIK**
 
-**Letilthatom a sortörést teljesen egy szövegdobozban?**  
-Igen. Állítsa a [TextFrameFormat.wrap_text] értéket a sortörés letiltásához, így a sorok nem törnek a szövegdoboz szélén.
+**Letilthatom teljesen a sortörést egy szövegkereten belül?**
 
-**Hogyan kaphatom meg egy adott bekezdés pontos diakörvonalát?**  
-Használja a [Paragraph.get_rect] metódust a bekezdés határoló téglalapjának lekérésére. A [Portion.get_rect] egy adott szakasz határait adja vissza.
+Igen. Állítsa a [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/wrap_text/) értékét a sortörés letiltásához, így a sorok nem törnek meg a szövegkeret szélén.
 
-**Hol állítható be a bekezdés igazítása (balra, jobbra, középre vagy sorkizárás)?**  
-A [ParagraphFormat.alignment] a bekezdés szintű beállítás, amely a teljes bekezdésre vonatkozik, függetlenül az egyes szakaszok formázásától.
+**Hogyan kaphatom meg egy adott bekezdés pontos dián lévő határait?**
 
-**Beállíthatok lektorálási nyelvet a bekezdés egy részére?**  
-Igen. Állítsa a [PortionFormat.language_id] értéket az egyes szakaszokhoz, így egy bekezdés több nyelven is tartalmazhat szöveget.
+Használja a [Paragraph.get_rect](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraph/get_rect/)‑t a bekezdés határoló téglalapjának lekérdezéséhez. A [Portion.get_rect](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portion/get_rect/) egy adott rész határait adja vissza.
+
+**Hol szabályozható a bekezdés igazítása (balra, jobbra, középre vagy sorkizárás)?**
+
+A [ParagraphFormat.alignment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/alignment/) bekezdés szintű beállítás, amely a teljes bekezdésre vonatkozik, a részletekre vonatkozó formázástól függetlenül.
+
+**Beállíthatok bizonyítási nyelvet a bekezdés egy részére?**
+
+Igen. Állítsa be a [PortionFormat.language_id](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portionformat/language_id/) értékét az egyes részeknél, így egy bekezdés több nyelven írt szöveget is tartalmazhat.

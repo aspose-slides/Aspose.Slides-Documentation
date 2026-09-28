@@ -1,57 +1,61 @@
 ---
-title: PHPでプレゼンテーション テキストの書式設定
+title: PHPでプレゼンテーションのテキストをフォーマット
 linktitle: テキスト書式設定
 type: docs
 weight: 50
 url: /ja/php-java/text-formatting/
 keywords:
 - 段落の配置
-- テキスト スタイル
-- テキスト 背景
-- テキスト 透明度
+- テキストスタイル
+- テキスト背景
+- テキスト透明度
 - 文字間隔
-- フォント プロパティ
-- フォント ファミリー
-- テキスト 回転
+- フォントプロパティ
+- フォントファミリー
+- テキスト回転
 - 回転角度
-- テキスト フレーム
+- テキストフレーム
 - 行間隔
-- オートフィット プロパティ
-- テキスト フレーム アンカー
-- テキスト タブ設定
+- オートフィットプロパティ
+- テキストフレームアンカー
+- テキストタブ設定
 - デフォルト言語
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument のプレゼンテーション内のテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
 ---
-## **概要**
+## **Overview**
 
-この記事では、Aspose.Slides for PHP via Java を使用して PowerPoint および OpenDocument プレゼンテーションのテキスト書式設定方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブ位置、言語設定について説明します。
+この記事では、Aspose.Slides for PHP via Java を使用して PowerPoint および OpenDocument プレゼンテーションのテキスト書式設定方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット動作、テキストのアンカー、タブ位置、言語設定などを扱います。
 
-以下の例では、最初のスライドに単一のテキスト ボックスが含まれる「sample.pptx」ファイルを使用します。
+特に記載がない限り、例は [sample.pptx](sample.pptx) を使用します。最初のスライドの最初のシェイプはテキストボックスで、最初の段落に以下のテキストが含まれています。スライドとシェイプのインデックスはゼロベースです。太字部分を選択する例は、継承された太字書式を含む実効書式を使用します。
 
-![サンプルテキスト](sample_text.png)
+![Sample text](sample_text.png)
 
-リテラル テキストまたは正規表現マッチを検索してハイライトする方法については、[Search and Replace Text](/slides/ja/php-java/search-and-replace-text/) を参照してください。
+文字列や正規表現マッチを検索してハイライトする方法については、[Search and Replace Text](/slides/ja/php-java/search-and-replace-text/) を参照してください。
 
-## **テキスト背景色の設定**
+## **Set Text Background Color**
 
-段落のデフォルトハイライト色を設定するには [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を使用し、個々のテキスト部分に対しては [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#getHighlightColor) を使用します。
+段落のデフォルトハイライト色を設定するには [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を使用し、個々のテキスト部分のハイライト色を設定するには [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#getHighlightColor) を使用します。
 
-次のコード例は **段落全体** の背景色を設定する方法を示します。
+以下の例は、最初の段落のデフォルトハイライトを薄いグレーに設定します。個々の部分で明示的にハイライト色を指定した場合は、このデフォルトより優先されます。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // 段落全体のハイライト色を設定します。
+    // 段落全体のハイライトカラーを設定します。
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
@@ -62,14 +66,18 @@ try {
 
 結果:
 
-![灰色の段落](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** の背景色を設定する方法を示します。
+以下のコード例は、**太字フォント**のテキスト部分の背景色を設定する方法を示します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
@@ -77,9 +85,8 @@ try {
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
-        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-        // Set the highlight color for the text portion.
-        // テキスト部分のハイライト色を設定します。
+        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
+            // テキスト部分のハイライトカラーを設定します。
             $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
@@ -92,18 +99,23 @@ try {
 
 結果:
 
-![灰色のテキスト部分](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
-## **テキスト段落の配置**
+## **Align Text Paragraphs**
 
-テキスト フレーム内の段落配置を設定するには [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setAlignment) を使用します。値は中央揃え、左揃え、右揃え、両端揃えなどがあります。
+テキストフレーム内の段落配置を設定するには [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setAlignment) を使用します。値は中央揃え、左揃え、右揃え、均等揃えなどがあります。
 
-次のコード例は段落を **中央** に揃える方法を示します。
+以下のコード例は、段落を **中央** に揃える方法を示します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextAlignment;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
@@ -118,25 +130,30 @@ try {
 
 結果:
 
-![揃えられた段落](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
-## **テキストの透明度の設定**
+## **Set Transparency for Text**
 
-テキストの透明度は [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#getFillFormat) に割り当てられた色のアルファ成分で制御します。以下の例では `alpha = 50` は 0〜255 のスケールの ARGB アルファ チャネル値であり、透明度パーセンテージではありません。
+テキストの透明度は、[BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#getFillFormat) に割り当てられる色のアルファ成分で制御します。以下の例では、`alpha = 50` は 0〜255 のスケールの ARGB アルファチャネル値であり、透明度パーセンテージではありません。
 
-次のコード例は **段落全体** に透明度を適用する方法を示します。
+以下のコード例は、**段落全体** に透明度を適用する方法を示します。
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // テキストの塗りつぶし色を透明色に設定します。
+    // テキストの塗りつぶし色を透明な色に設定します。
     $fillFormat->setFillType(FillType::Solid);
     $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
     $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -149,16 +166,21 @@ try {
 
 結果:
 
-![透明な段落](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** に透明度を適用する方法を示します。
+以下のコード例は、**太字フォント**のテキスト部分に透明度を適用する方法を示します。
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
@@ -166,7 +188,7 @@ try {
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
-        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
+        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
             // テキスト部分の透明度を設定します。
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
@@ -182,23 +204,27 @@ try {
 
 結果:
 
-![透明なテキスト部分](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
-## **テキストの文字間隔の設定**
+## **Set Character Spacing for Text**
 
-テキスト ボックス内の文字間隔を拡大または縮小するには [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#setSpacing) を使用します。
+テキストボックス内の文字間隔を拡大または縮小するには [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#setSpacing) を使用します。例では 3 ポイントの間隔を追加しています。負の値を指定すると文字が詰まります。
 
-次の PHP コードは **段落全体** の文字間隔を拡大する方法を示します。
+以下の PHP コードは、**段落全体** の文字間隔を拡大する方法を示します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     // 注意: 文字間隔を圧縮するには負の値を使用します。
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // 文字間隔を拡大します。
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // 文字間隔を広げます。
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -208,23 +234,27 @@ try {
 
 結果:
 
-![段落内の文字間隔](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** の文字間隔を拡大する方法を示します。
+以下のコード例は、**太字フォント**のテキスト部分の文字間隔を拡大する方法を示します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
-        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
+        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
             // 注意: 文字間隔を圧縮するには負の値を使用します。
-            $portion->getPortionFormat()->setSpacing(3); // 文字間隔を拡大します。
+            $portion->getPortionFormat()->setSpacing(3); // 文字間隔を広げます。
         }
     }
 
@@ -236,18 +266,22 @@ try {
 
 結果:
 
-![テキスト部分の文字間隔](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
-### **特定フォントのカーニングを無効にする**
+### **Disable Kerning for Specific Fonts**
 
-場合によっては、Aspose.Slides がレンダリングしたテキストが PowerPoint の同一テキストよりもわずかに詰まって見えることがあります。これは PowerPoint が特定フォントのカーニング データを無視するためです（フォントに有効なカーニング情報が含まれていても、PowerPoint 設定でカーニングが有効になっていても同様です）。
+場合によっては、Aspose.Slides がレンダリングするテキストが PowerPoint の表示よりわずかに狭く見えることがあります。これは、PowerPoint が特定のフォントに対してカーニング情報を無視するためです（フォントに有効なカーニング情報があり、PowerPoint の設定でカーニングが有効になっていても）。
 
-このようなケースで PowerPoint に近い表示にするには、影響を受けるフォントを使用するテキスト部分のカーニングを無効にします。[BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) を実際のフォント サイズよりはるかに大きい値に設定します。
+このような場合に PowerPoint に近い出力にするには、該当フォントを使用するテキスト部分のカーニングを無効にします。実際のフォントサイズより大きい値を [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) に設定します。この例は、最初のスライドの最初のシェイプがテキストボックスである "presentation.pptx" を前提としています。実効フォント名（継承されたフォントも含む）をチェックし、Roboto を使用する部分に対して 100 ポイントのしきい値を設定します。これにより、フォントサイズが 100 ポイント未満の該当部分のカーニングが無効になります。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("presentation.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $targetFont = "Roboto";
 
@@ -257,7 +291,7 @@ try {
         $portionCount = java_values($paragraph->getPortions()->getCount());
         for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
             $portion = $paragraph->getPortions()->get_Item($portionIndex);
-            $portionFormat = $portion->getPortionFormat();
+            $portionFormat = $portion->getPortionFormat()->getEffective();
             $latinFont = $portionFormat->getLatinFont();
             $eastAsianFont = $portionFormat->getEastAsianFont();
             $complexScriptFont = $portionFormat->getComplexScriptFont();
@@ -265,7 +299,7 @@ try {
             if ((!java_is_null($latinFont) && $latinFont->getFontName() == $targetFont) ||
                 (!java_is_null($eastAsianFont) && $eastAsianFont->getFontName() == $targetFont) ||
                 (!java_is_null($complexScriptFont) && $complexScriptFont->getFontName() == $targetFont)) {
-                $portionFormat->setKerningMinimalSize(100);
+                $portion->getPortionFormat()->setKerningMinimalSize(100);
             }
         }
     }
@@ -276,18 +310,25 @@ try {
 }
 ```
 
-この設定により該当テキスト部分へのカーニング適用が防止され、PowerPoint 固有の動作の影響を受けるフォントでの表示が一致しやすくなります。
+しきい値未満の該当テキストについては、この設定によりカーニングが抑制され、PowerPoint 固有の動作で影響を受けるフォントの表示を Aspose.Slides と合わせることができます。
 
-## **テキスト フォント プロパティの管理**
+## **Manage Text Font Properties**
 
-フォント プロパティは [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を介して段落レベルで、または個別の部分に対しては [PortionFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/portionformat/) を使用して設定できます。
+フォントプロパティは、[ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を介して段落レベルで設定するか、[PortionFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/portionformat/) を介して個々の部分で設定できます。
 
-次のコードは段落全体のフォントとテキスト スタイルを設定します。フォント サイズ、太字、斜体、点線下線、そして Times New Roman フォントがすべての部分に適用されます。
+以下の例は、最初の段落のデフォルトフォントを 12 ポイントの Times New Roman に設定し、太字、イタリック、点線下線を適用します。個々の部分で明示的に書式設定した場合は、これらのデフォルトより優先されます。
 
 ```php
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextUnderlineType;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
@@ -308,14 +349,21 @@ try {
 
 結果:
 
-![段落のフォント プロパティ](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** に同様のプロパティを適用します。
+以下の例は、実効書式が太字である部分に対して、13 ポイントの Times New Roman、イタリック、点線下線を適用します。
 
 ```php
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextUnderlineType;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $font = new FontData("Times New Roman");
@@ -323,7 +371,7 @@ try {
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
-        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
+        if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
             // テキスト部分のフォントプロパティを設定します。
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
@@ -341,20 +389,24 @@ try {
 
 結果:
 
-![テキスト部分のフォント プロパティ](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
-## **テキストの回転の設定**
+## **Set Text Rotation**
 
-テキストの向きを形状内で事前定義されたものに設定するには [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setTextVerticalType) を使用します。
+テキストの向きを事前定義されたものに設定するには、[TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setTextVerticalType) を使用します。
 
-次のコード例はテキストの向きを `Vertical270` に設定し、テキストを **時計回り 90 度** 回転させます。
+以下のコード例は、シェイプ内のテキスト向きを [TextVerticalType::Vertical270](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textverticaltype/) に設定し、テキストを **反時計回りに 90 度** 回転させます。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextVerticalType;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->get_Item(0);
 
+    $autoShape = $slide->getShapes()->get_Item(0);
     $autoShape->getTextFrame()->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
 
     $presentation->save("text_rotation.pptx", SaveFormat::Pptx);
@@ -365,20 +417,23 @@ try {
 
 結果:
 
-![テキストの回転](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **テキスト フレームのカスタム回転の設定**
+## **Set Custom Rotation for Text Frames**
 
-[TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setRotationAngle) を使用して、[TextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/) のカスタム回転角度を設定します。
+[TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setRotationAngle) を使用して、[TextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/) のカスタム回転角度を設定できます。
 
-次のコード例は形状内のテキスト フレームを時計回りに 3 度回転させます。
+以下のコード例は、シェイプ内のテキストフレームを時計回りに 3 度回転させます。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->get_Item(0);
 
+    $autoShape = $slide->getShapes()->get_Item(0);
     $autoShape->getTextFrame()->getTextFrameFormat()->setRotationAngle(3);
 
     $presentation->save("custom_text_rotation.pptx", SaveFormat::Pptx);
@@ -389,24 +444,28 @@ try {
 
 結果:
 
-![カスタム テキスト回転](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
-## **段落の行間の設定**
+## **Set Line Spacing of Paragraphs**
 
-Aspose.Slides は [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setSpaceAfter)、[ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setSpaceBefore)、[ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setSpaceWithin) を提供し、段落間隔を制御します。これらのプロパティは次のように使用します。
+Aspose.Slides は、[ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setSpaceAfter)、[ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setSpaceBefore)、[ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setSpaceWithin) を提供し、段落間隔を制御します。これらのプロパティは次のように使用します。
 
-* 正の値は行の高さのパーセンテージとして行間を指定します。
-* 負の値はポイント単位で行間を指定します。
+* 正の値は行高さのパーセンテージとして行間隔を指定します。
+* 負の値はポイント数で行間隔を指定します。
 
-次のコード例は段落内の行間を指定する方法を示します。
+以下の例は、最初の段落の内部間隔を行高さの 200%（倍行間）に設定します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->get_Item(0);
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
+    $autoShape = $slide->getShapes()->get_Item(0);
+
+    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getParagraphFormat()->setSpaceWithin(200);
 
     $presentation->save("line_spacing.pptx", SaveFormat::Pptx);
@@ -417,18 +476,128 @@ try {
 
 結果:
 
-![段落内の行間](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **テキスト フレームのオートフィット タイプの設定**
+## **Control Line Breaking**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setAutofitType) はテキストがコンテナの境界を超えたときの動作を決定します。テキストの縮小、はみ出し、または形状の自動リサイズを制御できます。
+段落の改行規則は、狭いテキストブロックやラテン文字と東アジア文字が混在するプレゼンテーションで役立ちます。以下のメソッドは [ParagraphFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/) に属し、段落全体に適用されます。
+
+- [setLatinLineBreak](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) はラテン文字の改行規則を制御します。混在テキストでは、隣接する東アジア文字や句読点の折り返し位置にも影響します。
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) は東アジア文字の改行規則を制御し、行頭・行末の文字制限を含みます。
+
+これらの規則は [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setWrapText) の代わりになるものではなく、テキストフレーム内の自動折り返しを有効にします。折り返しが発生したときのレイアウトに影響を与え、改行文字を挿入するわけではありません。明示的な改行は、利用可能幅に関係なく段落内に新しい行を強制します。
+
+以下の自己完結型サンプルは、中文とラテン文字を含む狭いテキストブロックを作成し、両方の改行オプションを明示的に設定して "line_breaking.pptx" として保存します。どちらか一方の規則を試す場合は、もう一方の設定はそのままにして値を変更してください。例は 24 ポイントの Arial と SimSun、フレーム幅 160 ポイント、水平マージン 0 の設定です。[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setAutofitType) には [TextAutofitType::None](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textautofittype/) を指定し、テキストサイズとフレームサイズを固定しています。
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 160, 300);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getTextFrameFormat()->setWrapText(NullableBool::True);
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+    $textFrame->getTextFrameFormat()->setMarginLeft(0);
+    $textFrame->getTextFrameFormat()->setMarginRight(0);
+
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $paragraph->setText("中文排版测试，PowerPoint 中文演示。");
+
+    $format = $paragraph->getParagraphFormat();
+    $format->setAlignment(TextAlignment::Left);
+    $format->getDefaultPortionFormat()->setFontHeight(24);
+    $latinFont = new FontData("Arial");
+    $format->getDefaultPortionFormat()->setLatinFont($latinFont);
+    $eastAsianFont = new FontData("SimSun");
+    $format->getDefaultPortionFormat()->setEastAsianFont($eastAsianFont);
+    $format->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $blackColor = java("java.awt.Color")->BLACK;
+    $format->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($blackColor);
+    $format->setLatinLineBreak(NullableBool::False);
+    $format->setEastAsianLineBreak(NullableBool::True);
+
+    $presentation->save("line_breaking.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Control Hanging Punctuation**
+
+[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) を使用すると、対象となる句読点が右端を超えて表示され、次の行に占有されないようになります。段落全体に適用され、ハングインデントとは異なります。
+
+以下の自己完結型サンプルは、幅 100 ポイントのテキストフレームでハング句読点を有効にし、"hanging_punctuation.pptx" として保存します。24 ポイントの Arial と水平マージン 0 の設定で、最後の句点は「sentence」の後に残り、右端を超えて表示されます。比較のためにプロパティを [NullableBool::False](https://reference.aspose.com/slides/ja/php-java/aspose.slides/nullablebool/) に設定すると、句点が別行に配置されます。折り返しは有効、オートフィットは無効にして幅を固定しています。
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 100, 200);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getTextFrameFormat()->setWrapText(NullableBool::True);
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+    $textFrame->getTextFrameFormat()->setMarginLeft(0);
+    $textFrame->getTextFrameFormat()->setMarginRight(0);
+
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $paragraph->setText("Simple text, next sentence.");
+
+    $format = $paragraph->getParagraphFormat();
+    $format->setAlignment(TextAlignment::Left);
+    $format->getDefaultPortionFormat()->setFontHeight(24);
+    $latinFont = new FontData("Arial");
+    $format->getDefaultPortionFormat()->setLatinFont($latinFont);
+    $format->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $blackColor = java("java.awt.Color")->BLACK;
+    $format->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($blackColor);
+    $format->setHangingPunctuation(NullableBool::True);
+
+    $presentation->save("hanging_punctuation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+すべての句読点がハングできるわけではありません。表示結果はフォントの有無やレイアウトに依存し、フォント、幅、余白、オートフィット設定を変更すると差異が消えることがあります。
+
+## **Set Autofit Type for Text Frames**
+
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setAutofitType) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小するか、はみ出すか、シェイプ自体を自動でリサイズするかを制御できます。以下の例は、シェイプをテキストに合わせてリサイズするよう構成し、結果を "autofit_type.pptx" として保存します。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->get_Item(0);
 
+    $autoShape = $slide->getShapes()->get_Item(0);
     $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
 
     $presentation->save("autofit_type.pptx", SaveFormat::Pptx);
@@ -437,18 +606,22 @@ try {
 }
 ```
 
-自動改行後の行数をカウントし、テキストや形状の幅が結果にどのように影響するかを確認するには、[Count Rendered Lines](/slides/ja/php-java/manage-paragraph/) を参照してください。行数だけではテキストがコンテナからはみ出しているかどうかは判断できません。
+自動折り返し後の行数をカウントし、テキストやシェイプ幅の変化が結果に与える影響を確認するには、[Count Rendered Lines](/slides/ja/php-java/manage-paragraph/) を参照してください。行数だけではテキストがコンテナからはみ出しているかどうかは判断できません。
 
-## **テキスト フレームのアンカーの設定**
+## **Set Anchor of Text Frames**
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setAnchoringType) はテキストを形状内で垂直方向に配置する方法（上部、中央、下部など）を定義します。
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/#setAnchoringType) は、シェイプ内でテキストを縦方向に配置する方法（上部、中央、下部など）を定義します。以下の例は、テキストを最初のシェイプの下部にアンカーし、結果を "text_anchor.pptx" として保存します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextAnchorType;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->get_Item(0);
 
+    $autoShape = $slide->getShapes()->get_Item(0);
     $autoShape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
 
     $presentation->save("text_anchor.pptx", SaveFormat::Pptx);
@@ -457,17 +630,22 @@ try {
 }
 ```
 
-## **テキストのタブ設定**
+## **Set Text Tabulation**
 
-段落のタブ位置を構成するには、[ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) と [ParagraphFormat::getTabs](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#getTabs) を使用します。
+[ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) と [ParagraphFormat::getTabs](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/#getTabs) を使用して段落のタブ位置を構成できます。以下の例は、デフォルトタブ間隔を 100 ポイントに設定し、30 ポイントに左揃えタブ位置を追加します。これらの設定はタブ文字を含むテキストに影響します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TabAlignment;
+
 $presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->get_Item(0);
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
+    $autoShape = $slide->getShapes()->get_Item(0);
+
+    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getParagraphFormat()->setDefaultTabSize(100);
     $paragraph->getParagraphFormat()->getTabs()->add(30, TabAlignment::Left);
 
@@ -479,18 +657,24 @@ try {
 
 結果:
 
-![段落タブ](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
-## **校正言語の設定**
+## **Set Proofing Language**
 
-Aspose.Slides はテキスト部分の校正言語を設定できる [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#setLanguageId) を提供します。校正言語は PowerPoint のスペルチェックや文法チェックに使用される言語を決定します。
+Aspose.Slides は [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#setLanguageId) を提供し、テキスト部分の校閲言語を設定できます。校閲言語は PowerPoint のスペルチェックや文法チェックに使用される言語を決定します。
 
-次のコード例はテキスト部分の校正言語を設定する方法を示します。
+以下の例は、最初のスライドの最初のシェイプがテキストボックスである "presentation.pptx" を前提とし、最初の段落の内容を "1。" に置き換え、フォントを SimSun に設定し、簡体字中国語校閲言語 (`zh-CN`) を割り当てます。結果は "proofing_language.pptx" として保存されます。
 
 ```php
+use aspose\slides\FontData;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("presentation.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->get_Item(0);
 
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
@@ -503,7 +687,7 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // 校正言語の ID を設定します。
+    // 校閲言語の ID を設定します。
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
     $textPortion->setText("1。");
@@ -515,11 +699,15 @@ try {
 }
 ```
 
-## **デフォルト言語の設定**
+## **Set Default Language**
 
-プレゼンテーションの読み込みまたは作成時に作成されるテキストのデフォルト言語を定義するには、[LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/ja/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) を使用します。
+[LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/ja/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) を使用して、プレゼンテーションの読み込みまたは作成時に作成されるテキストのデフォルト言語を定義できます。以下の例は、デフォルトテキスト言語を米国英語に設定してプレゼンテーションを作成し、テキストボックスを追加し、最初のテキスト部分の言語として `en-US` を出力します。
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $loadOptions = new LoadOptions();
 $loadOptions->setDefaultTextLanguage("en-US");
 
@@ -527,11 +715,11 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // 新しい矩形シェイプをテキスト付きで追加します。
+    // テキスト付きの新しい矩形シェイプを追加します。
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // 最初の部分の言語をチェックします。
+    // 最初のポーションの言語を確認します。
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -539,13 +727,17 @@ try {
 }
 ```
 
-## **デフォルト テキスト スタイルの設定**
+## **Set Default Text Style**
 
-プレゼンテーション レベルでデフォルトのテキスト書式を適用するには、[Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/#getDefaultTextStyle) を使用します。
+プレゼンテーションレベルでデフォルトのテキスト書式を適用するには、[Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/#getDefaultTextStyle) を使用します。
 
-次のコード例は新しいプレゼンテーション内のすべてのスライドで、サイズ 14 pt の太字フォントをデフォルトとして設定する方法を示します。
+以下の例は、新しいプレゼンテーションのトップレベル段落に 14 ポイントの太字フォントをデフォルトとして設定し、"default_text_style.pptx" として保存します。テキストは、より具体的な書式が上書きしない限り、これらのデフォルトを継承できます。
 
 ```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
     // トップレベルの段落書式を取得します。
@@ -562,20 +754,24 @@ try {
 }
 ```
 
-## **全角効果付きテキストの抽出**
+## **Extract Text with the All-Caps Effect**
 
-PowerPoint では **All Caps** フォント効果を適用すると、スライド上のテキストが大文字で表示されますが、元のテキストは小文字のままです。Aspose.Slides でそのテキスト部分を取得すると、入力されたままの文字列が返ります。表示されたテキストに合わせるには、[TextCapType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textcaptype/) を確認し、値が `All` の場合は返された文字列を大文字に変換します。
+PowerPoint では、**All Caps** フォント効果を適用すると、スライド上では大文字で表示されますが、実際に入力された文字列は小文字のままです。Aspose.Slides でそのようなテキスト部分を取得すると、ライブラリは元の入力通りの文字列を返します。表示されているテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textcaptype/) を確認し、値が `All` の場合は取得した文字列を大文字に変換します。
 
-以下は sample2.pptx の最初のスライドにあるテキスト ボックスの例です。
+この例は、最初のスライドの最初のシェイプがテキストボックスである "sample2.pptx" を前提とし、最初の段落の最初の部分に **All Caps** 効果が適用された "Hello, Aspose!" が含まれています。
 
-![All Caps 効果](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-次のコード例は **All Caps** 効果が適用されたテキストを抽出する方法を示します。
+以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示します。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\TextCapType;
+
 $presentation = new Presentation("sample2.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+    
     $autoShape = $slide->getShapes()->get_Item(0);
     $textPortion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 
@@ -601,10 +797,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**スライド上のテーブル内のテキストを変更するには？**
+**How do I modify text in a table on a slide?**
 
-テーブルのテキストを変更するには [Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/table/) を使用します。セルを反復処理し、[Cell::getTextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/#getTextFrame) と [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraph/#getParagraphFormat) を介して各セルと段落書式を更新します。
+スライド上のテーブル内のテキストを変更するには、[Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/table/) を使用します。セルを走査し、各セルを [Cell::getTextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/#getTextFrame) で取得し、[Paragraph::getParagraphFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraph/#getParagraphFormat) で段落書式を更新します。
 
-**PowerPoint スライドのテキストにグラデーションカラーを適用するには？**
+**How do I apply a gradient color to text on a PowerPoint slide?**
 
-グラデーション カラーを適用するには [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#getFillFormat) を使用します。[FillFormat::setFillType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fillformat/#setFillType) を [FillType::Gradient](https://reference.aspose.com/slides/ja/php-java/aspose.slides/filltype/) に設定し、グラデーション ストップ、方向、透明度を構成します。
+テキストにグラデーションカラーを適用するには、[BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#getFillFormat) を使用します。[FillFormat::setFillType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fillformat/#setFillType) を [FillType::Gradient](https://reference.aspose.com/slides/ja/php-java/aspose.slides/filltype/) に設定し、グラデーションストップ、方向、透明度を構成します。

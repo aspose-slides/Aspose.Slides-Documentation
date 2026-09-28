@@ -15,50 +15,50 @@ keywords:
 - 箇条書きを管理
 - 段落インデント
 - ハンギングインデント
-- 段落の箇条書き
+- 段落箇条書き
 - 番号付きリスト
 - 箇条書きリスト
 - 段落プロパティ
-- HTML をインポート
+- HTML のインポート
 - テキストを HTML に変換
 - 段落を HTML に変換
 - 段落を画像に変換
 - テキストを画像に変換
-- 段落をエクスポート
+- 段落のエクスポート
 - PowerPoint
 - プレゼンテーション
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用して、段落、ポーション、箇条書き、番号付きリスト、インデント、HTML コンテンツ、段落画像の作成と書式設定方法を学びます。"
+description: "Aspose.Slides for Python via Java を使用して、段落、ポーション、箇条書き、番号付きリスト、インデント、HTML コンテンツ、段落画像の作成と書式設定を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Python via Java は、テキストをテキストフレーム、段落、ポーションの階層で表現します。
+Aspose.Slides for Python via Java は、テキストをテキストフレーム、段落、ポーションの階層として表現します。
 
-* [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) はシェイプ内のテキスト コンテナを表し、段落コレクションへのアクセスを提供します。  
-* [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) はテキストフレーム内の 1 つの段落を表し、ポーションと段落レベルの書式設定へのアクセスを提供します。  
-* [Portion](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/) は段落内のテキスト ランを表します。各ポーションは独自のテキストと文字レベルの書式設定を持つことができます。
+* [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) は、シェイプ内のテキスト コンテナを表し、段落コレクションへのアクセスを提供します。
+* [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) は、テキストフレーム内の 1 つの段落を表し、そのポーションおよび段落レベルの書式設定へのアクセスを提供します。
+* [Portion](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/) は、段落内のテキスト ランを表します。各ポーションは独自のテキストと文字レベルの書式設定を持つことができます。
 
-このため、段落は複数のポーションを使用して、フォント、色、サイズ、その他の書式が異なるテキストを含めることができます。
+したがって、段落は複数のポーションを使用することで、異なるフォント、色、サイズ、その他の書式設定のテキストを含むことができます。
 
 ## **段落の作成と書式設定**
 
-### **複数のポーションを持つ段落の作成**
+### **�数のポーションを持つ段落の作成**
 
-以下の手順で、3 つの段落それぞれに 3 つのポーションを持つテキストフレームを作成します。
+次の手順は、3 つの段落を持ち、各段落に 3 つのポーションを含むテキストフレームを作成します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスを使用して対象スライドにアクセスします。  
-3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。  
-4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。  
-5. デフォルトの段落を使用し、さらに 2 つの [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) オブジェクトをテキストフレームに追加します。  
-6. 各段落に 3 つのポーションが含まれるように十分な [Portion](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/) オブジェクトを追加します。デフォルトの段落にはすでに空のポーションが 1 つ含まれています。  
-7. 各ポーションのテキストを設定します。  
-8. [Portion.getPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/#getPortionFormat) を使用して文字レベルの書式設定を適用します。  
-9. 変更したプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスを使用して対象のスライドにアクセスします。
+3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
+4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。
+5. デフォルトの段落を使用し、テキストフレームにさらに 2 つの [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) オブジェクトを追加します。
+6. 各段落が 3 つのポーションを含むように十分な数の [Portion](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/) オブジェクトを追加します。デフォルトの段落にはすでに空のポーションが 1 つ含まれています。
+7. 各ポーションのテキストを設定します。
+8. [Portion.getPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/#getPortionFormat) を使用して文字レベルの書式設定を適用します。
+9. 変更されたプレゼンテーションを保存します。
 
-この Python の例が手順を実装しています:
+この Python の例は手順を実装しています:
 
 ```python
 import jpype
@@ -110,26 +110,26 @@ finally:
     presentation.dispose()
 ```
 
-## **箇条書きリストと番号付きリストの作成**
+## **箇条書きと番号付きリストの作成**
 
 ### **箇条書きまたは番号付きリストの作成**
 
-箇条書きと番号付けは、関連項目を視認しやすくします。Aspose.Slides では、リスト設定は [BulletFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/) で定義します。
+箇条書きと番号付けは、関連項目をスキャンしやすくします。Aspose.Slides では、リスト設定は [BulletFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/) で定義されます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスで対象スライドにアクセスします。  
-3. 選択したスライドに [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。  
-4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。  
-5. テキストフレームからデフォルトの段落を削除します。  
-6. 記号箇条書き用に [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) を作成します。  
-7. [BulletFormat.setType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setType) を [BulletType.Symbol](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bullettype/#Symbol) に設定し、箇条書き文字を指定します。  
-8. 段落のテキスト、インデント、箇条書きの色、箇条書きの高さを設定します。  
-9. 段落をテキストフレームに追加します。  
-10. 2 番目の段落を作成し、[BulletFormat.setType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setType) を [BulletType.Numbered](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bullettype/#Numbered) に設定します。  
-11. 番号箇条書きスタイルを構成し、段落をテキストフレームに追加します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスを使用して対象のスライドにアクセスします。
+3. 選択したスライドに [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
+4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。
+5. テキストフレームからデフォルトの段落を削除します。
+6. シンボルの箇条書き用に [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) を作成します。
+7. [BulletFormat.setType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setType) を [BulletType.Symbol](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bullettype/#Symbol) に設定し、箇条書き文字を指定します。
+8. 段落のテキスト、インデント、箇条書きの色、箇条書きの高さを設定します。
+9. 段落をテキストフレームに追加します。
+10. 2 番目の段落を作成し、[BulletFormat.setType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setType) を [BulletType.Numbered](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bullettype/#Numbered) に設定します。
+11. 番号付き箇条書きのスタイルを構成し、段落をテキストフレームに追加します。
 12. プレゼンテーションを保存します。
 
-この Python の例は記号箇条書きと番号箇条書きを作成します:
+この Python の例はシンボル箇条書きと番号付き箇条書きを作成します:
 
 ```python
 import jpype
@@ -174,18 +174,18 @@ finally:
 
 ### **画像箇条書きの使用**
 
-画像箇条書きでは、記号や数字の代わりにカスタム画像を使用できます。
+画像箇条書きを使用すると、シンボルや数字の代わりにカスタム画像を使用できます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) のインスタンスを作成します。  
-2. インデックスで対象スライドにアクセスします。  
-3. [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加し、その [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。  
-4. テキストフレームからデフォルトの段落を削除します。  
-5. 箇条書き画像を読み込み、[PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) としてプレゼンテーションの画像コレクションに追加します。  
-6. [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) を作成し、テキストを設定します。  
-7. [BulletFormat.setType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setType) を [BulletType.Picture](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bullettype/#Picture) に設定します。  
-8. [BulletFormat.getPicture](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#getPicture) で画像を割り当て、箇条書きの高さを設定します。  
-9. 段落をテキストフレームに追加します。  
-10. 変更したプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスを使用して対象のスライドにアクセスします。
+3. [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加し、その [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。
+4. テキストフレームからデフォルトの段落を削除します。
+5. 箇条書き画像をロードし、プレゼンテーションの画像コレクションに [PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) として追加します。
+6. [Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) を作成し、テキストを設定します。
+7. [BulletFormat.setType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setType) を [BulletType.Picture](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bullettype/#Picture) に設定します。
+8. [BulletFormat.getPicture](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#getPicture) で画像を割り当て、箇条書きの高さを設定します。
+9. 段落をテキストフレームに追加します。
+10. 変更されたプレゼンテーションを保存します。
 
 この Python の例は画像箇条書きを作成します:
 
@@ -221,14 +221,14 @@ finally:
     presentation.dispose()
 ```
 
-### **多階層リストの作成**
+### **多層リストの作成**
 
 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setDepth) を設定して、段落をリストの異なるレベルに配置します。最上位レベルの深さは `0` です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) を作成し、スライドにアクセスします。  
-2. [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加し、テキストフレームからデフォルト段落をクリアします。  
-3. 4 つの段落を作成し、箇条書き記号を設定します。  
-4. それぞれの [ParagraphFormat.setDepth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setDepth) 値を `0`、`1`、`2`、`3` に設定します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) を作成し、スライドにアクセスします。
+2. [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加し、そのテキストフレームからデフォルトの段落をクリアします。
+3. 4 つの段落を作成し、箇条書きシンボルを設定します。
+4. それらの [ParagraphFormat.setDepth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setDepth) の値を `0`、`1`、`2`、`3` に設定します。
 5. 段落をテキストフレームに追加し、プレゼンテーションを保存します。
 
 この Python の例は 4 レベルの箇条書きリストを作成します:
@@ -286,14 +286,14 @@ finally:
     presentation.dispose()
 ```
 
-### **番号付きリスト項目の開始番号をカスタム値に設定**
+### **番号付きリスト項目の開始番号をカスタム値に設定する**
 
-[BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) を使用して、番号付き段落の先頭番号を指定できます。
+[BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) を使用して、番号付き段落の最初に表示される番号を設定します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) を作成し、スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。  
-2. シェイプのテキストフレームからデフォルト段落をクリアします。  
-3. 3 つの番号付き段落を作成します。  
-4. 各段落に対して [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) を `2`、`3`、`7` に設定します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) を作成し、スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
+2. シェイプのテキストフレームからデフォルトの段落をクリアします。
+3. 3 つの番号付き段落を作成します。
+4. 各段落に対して [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) を `2`、`3`、`7` に設定します。
 5. 段落をテキストフレームに追加し、プレゼンテーションを保存します。
 
 この Python の例は各段落にカスタム開始番号を割り当てます:
@@ -333,23 +333,23 @@ finally:
     presentation.dispose()
 ```
 
-## **段落のレイアウトおよび終了プロパティの制御**
+## **段落のレイアウトと終了プロパティの制御**
 
-### **ファーストラインインデントの設定**
+### **先頭行インデントの設定**
 
-[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) を使用して段落の最初の行のインデントを制御します。このメソッドは段落の左余白に対して最初の行だけを移動させます。正の値は最初の行を右にシフトし、残りの行は段落本文に揃ったままです。
+[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) を使用して、段落の先頭行インデントを制御します。このメソッドは段落の左余白に対して先頭行のみを移動させます。正の値は先頭行を右にシフトし、残りの行は段落本文に揃ったままです。
 
-段落全体を移動したい場合は [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setMarginLeft) を使用し、最初の行だけを移動したい場合は [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) を使用します。
+段落全体を移動させたい場合は [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setMarginLeft) を使用します。先頭行だけを移動させたいときは [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) を使用します。
 
-以下の例は複数の段落を作成し、異なる [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) 値を適用して、ファーストラインインデントが段落レイアウトに与える影響を示しています。
+以下の例は複数の段落を作成し、異なる [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) の値を適用して、先頭行インデントが段落レイアウトに与える影響を示します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) のインスタンスを作成します。  
-2. 対象スライドにアクセスします。  
-3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。  
-4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスし、デフォルト段落を削除します。  
-5. 複数の段落を作成し、それぞれに異なる [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) 値を設定します。  
-6. 段落をテキストフレームに追加します。  
-7. 変更したプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. 対象のスライドにアクセスします。
+3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
+4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスし、デフォルトの段落を削除します。
+5. いくつかの段落を作成し、それらに異なる [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) の値を設定します。
+6. 段落をテキストフレームに追加します。
+7. 変更されたプレゼンテーションを保存します。
 
 このコードは段落インデントの設定方法を示します:
 
@@ -401,26 +401,26 @@ finally:
 
 結果:
 
-![段落のファーストラインインデント](first_line_indent.png)
+![段落の先頭行インデント](first_line_indent.png)
 
 ### **ハンギングインデントの設定**
 
-ハンギングインデントは、最初の行が残りの行より左に開始する段落レイアウトです。Aspose.Slides では、[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) に負の値を渡すことで実現します。
+ハンギングインデントは、最初の行が残りの行より左側から始まる段落レイアウトです。Aspose.Slides では、[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) に負の値を渡すことでこの効果を作成します。
 
 実際には、[ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setMarginLeft) が段落本文の左位置を定義し、[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) がその余白に対する最初の行の位置を定義します。ハンギングインデントを作成するには、[ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setMarginLeft) に正の値を、[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) に負の値を渡します。
 
-この書式は、文献リスト、参考文献、用語集エントリなど、折り返し行が段落本文の下に揃う必要があるケースで便利です。
+この書式設定は、文献リスト、参考文献、用語集エントリ、その他、折り返し行が段落本文の下に揃う必要がある段落で便利です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) のインスタンスを作成します。  
-2. 対象スライドにアクセスします。  
-3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。  
-4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスし、デフォルト段落を削除します。  
-5. 各段落に対して正の値で [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setMarginLeft) を設定します。  
-6. [ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) に負の値を渡してハンギングインデント効果を作ります。  
-7. 段落をテキストフレームに追加します。  
-8. 変更したプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. 対象のスライドにアクセスします。
+3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
+4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスし、デフォルトの段落を削除します。
+5. 各段落に対して [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setMarginLeft) に正の値を渡して段落を作成します。
+6. ハンギングインデント効果を作成するために、[ParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setIndent) に負の値を渡します。
+7. 段落をテキストフレームに追加します。
+8. 変更されたプレゼンテーションを保存します。
 
-このコードは段落のハンギングインデント設定方法を示します:
+このコードは段落のハンギングインデントの設定方法を示します:
 
 ```python
 import jpype
@@ -465,15 +465,15 @@ finally:
 
 ![段落のハンギングインデント](hanging_indent.png)
 
-### **段落終了プロパティの設定**
+### **段落終端の実行プロパティの設定**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) は段落終了マークの書式を制御します。次の例では、2 番目の段落の終了マークにフォントサイズとラテンフォントを割り当てます。
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) は段落終端記号の書式設定を制御します。次の例は 2 番目の段落の終端記号にフォントサイズとラテンフォントを割り当てます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) をロードし、スライドにアクセスします。  
-2. [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加し、デフォルト段落をクリアします。  
-3. 2 つの段落を作成し、テキストポーションを追加します。  
-4. 2 番目の段落の終了マーク用に [PortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) を作成します。  
-5. [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setFontHeight) と [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setLatinFont) を設定します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) をロードし、スライドにアクセスします。
+2. [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加し、デフォルトの段落をクリアします。
+3. 2 つの段落を作成し、テキスト ポーションを追加します。
+4. 2 番目の段落の終端マーク用に [PortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) を作成します。
+5. [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setFontHeight) と [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setLatinFont) を設定します。
 6. [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) で書式を割り当て、プレゼンテーションを保存します。
 
 ```python
@@ -509,13 +509,15 @@ finally:
     presentation.dispose()
 ```
 
-## **描画された行数の取得**
+## **描画された行数のカウント**
 
-[Paragraph.getLinesCount](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#getLinesCount) を使用して、テキストレイアウト後に段落が占める行数（自動折り返しを含む）を取得できます。これは、プレゼンテーション テンプレートでテキストの長さとレイアウトをチェックする際に便利です。
+自動改行や行末の句読点に影響する段落のルールについては、[Control Line Breaking](/slides/ja/python-java/text-formatting/#control-line-breaking) および [Control Hanging Punctuation](/slides/ja/python-java/text-formatting/#control-hanging-punctuation) を参照してください。
 
-段落は [TextFrame.getParagraphs](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/#getParagraphs) の 1 アイテムであり、複数の描画行を占めることがあります。段落内の明示的な改行は新しい行を強制しますが、別の段落は作成しません。自動折り返しは利用可能な幅に基づいて行を生成し、テキストに明示的な改行文字を挿入しません。そのため、段落数や改行文字数を数えても描画行数は得られません。
+[Paragraph.getLinesCount](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#getLinesCount) を使用して、テキストレイアウト後に段落が占める行数（自動改行を含む）をカウントします。これは、プレゼンテーションテンプレートでテキスト長とレイアウトをチェックする際に便利です。
 
-以下の例はテキストシェイプを作成し、行数をカウントしてからシェイプを狭め、短い文字列に置き換えます。折り返しは有効にし、オートフィットは無効にして、シェイプ幅が折り返しを制御するようにしています。シェイプのサイズはポイント単位です。最後に、別の段落を追加してテキストフレーム全体の行数を合計します。
+段落は [TextFrame.getParagraphs](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/#getParagraphs) の 1 アイテムであり、複数の描画行を占めることがあります。段落内の明示的な改行は新しい行を強制しますが、別の段落は作成しません。自動改行はテキストに明示的な改行文字を挿入せず、利用可能な幅に基づいて行を作成します。そのため、段落数や改行文字のカウントだけでは描画行数は得られません。
+
+以下の例はテキストシェイプを作成し、行数をカウントし、シェイプを狭め、テキストを短い文字列に置き換えます。ラップは有効でオートフィットは無効にしているため、シェイプ幅がラップを制御し、テキストやシェイプの自動縮小は行われません。シェイプの寸法はポイント単位です。最後に、別の段落を追加し、テキストフレーム全体の行数を合計します。
 
 ```python
 import jpype
@@ -559,22 +561,22 @@ finally:
     presentation.dispose()
 ```
 
-このテキストとサイズでは、シェイプを狭めると行数が増え、短い文字列に置き換えると減ります。正確なカウントはフォントの可用性・置換、フォントサイズ、余白、インデント、折り返し、オートフィット設定に依存します。テンプレートをチェックする際は、対象環境で使用するフォントとレイアウト設定を使用してください。
+このテキストと寸法では、シェイプを狭めると行数が増え、短い文字列に置き換えると減少します。正確なカウントはフォントの可用性と置換、フォントサイズ、余白、インデント、ラップ、オートフィット設定により変わります。テンプレートをチェックする際は、対象環境向けに意図したフォントとレイアウト設定を使用してください。
 
-行数だけではテキストがコンテナからはみ出すかどうかは判断できません。利用可能な高さ、行の高さ、段落および行間、オートフィットの動作も考慮する必要があります。折り返しが無効の場合、1 行だけでも幅を超えることがあります。
+行数だけではテキストがコンテナからはみ出すかどうかは判断できません。利用可能な高さ、行の高さ、段落と行の間隔、オートフィットの動作も重要です。ラップが無効の場合、1 行だけでも利用可能な幅を超えることがあります。
 
 ## **段落コンテンツのインポートとエクスポート**
 
-### **HTML テキストを段落にインポート**
+### **HTML テキストを段落にインポートする**
 
-[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#addFromHtml) を使用して、HTML マークアップをテキストフレーム内の段落とポーションに変換できます。
+[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#addFromHtml) を使用して、HTML マークアップをテキストフレーム内の段落とポーションに変換します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. スライドにアクセスし、[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。  
-3. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスし、デフォルト段落をクリアします。  
-4. ソース HTML ファイルを読み込みます。  
-5. HTML 文字列を [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#addFromHtml) に渡します。  
-6. 変更したプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. スライドにアクセスし、[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
+3. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスし、デフォルトの段落をクリアします。
+4. ソース HTML ファイルを読み取ります。
+5. HTML 文字列を [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#addFromHtml) に渡します。
+6. 変更されたプレゼンテーションを保存します。
 
 この Python の例は HTML をテキストフレームにインポートします:
 
@@ -606,14 +608,14 @@ finally:
     presentation.dispose()
 ```
 
-### **段落テキストを HTML にエクスポート**
+### **段落テキストを HTML にエクスポートする**
 
-[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#exportToHtml) を使用して、選択した段落範囲を HTML としてエクスポートできます。
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#exportToHtml) を使用して、選択した範囲の段落を HTML としてエクスポートします。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) のインスタンスを作成し、目的のプレゼンテーションをロードします。  
-2. スライドにアクセスし、テキストを含む [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を見つけます。  
-3. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。  
-4. 開始段落インデックスとエクスポートする段落数を指定して、[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#exportToHtml) を呼び出します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) のインスタンスを作成し、目的のプレゼンテーションをロードします。
+2. スライドにアクセスし、テキストを含む [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を見つけます。
+3. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) にアクセスします。
+4. エクスポートする開始段落インデックスと段落数を指定して [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphcollection/#exportToHtml) を呼び出します。
 5. 返された HTML 文字列をファイルに書き込みます。
 
 この Python の例は最初のテキストシェイプからすべての段落をエクスポートします:
@@ -649,19 +651,19 @@ finally:
     presentation.dispose()
 ```
 
-### **段落を画像としてレンダリング**
+### **段落を画像としてレンダリングする**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) は個々の段落を直接レンダリングし、画像オブジェクトを返します。取得した画像は `save` メソッドでファイルまたはストリームに保存できます。シェイプ全体をレンダリングしたり、ビットマップを手動で切り取る必要はありません。
+[Paragraph.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) は個々の段落を直接レンダリングし、画像オブジェクトを返します。`save` メソッドで結果をファイルまたはストリームに保存できます。包含シェイプをレンダリングしたり、ビットマップを手動で切り取る必要はありません。
 
-段落が親コレクションに存在しない、または有効なレンダリング境界がない、またはレンダリングできない場合、[Paragraph.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) は `None` を返すことがあります。保存前に結果を確認し、使用後は画像を破棄してください。
+[Paragraph.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) は、段落が親コレクションに見つからない、レンダリング境界が有効でない、またはレンダリングできない場合に `None` を返すことがあります。保存前に結果を確認し、使用後は返された画像を破棄してください。
 
-#### **デフォルトスケールで段落をレンダリング**
+#### **デフォルトスケールで段落をレンダリングする**
 
-サンプルとして `sample.pptx` というプレゼンテーション ファイルに 1 スライドがあり、最初のシェイプは 3 段落を含むテキスト ボックスであるとします。
+1 つのスライドを持つ sample.pptx というプレゼンテーション ファイルがあり、最初のシェイプが 3 段落を含むテキスト ボックスであると想定します。
 
 ![3 段落を含むテキスト ボックス](paragraph_to_image_input.png)
 
-以下の例は 2 番目の段落をデフォルト スケールでレンダリングし、PNG 形式で画像を保存します。`finally` ブロックで画像が正しく破棄されます。
+次の例は通常のテキストシェイプ内の 2 番目の段落をデフォルトスケールでレンダリングし、PNG 形式で返された画像を保存します。`finally` ブロックは画像が正しく破棄されることを保証します。
 
 ```python
 import jpype
@@ -698,11 +700,11 @@ finally:
 
 結果:
 
-![段落画像](paragraph_to_image_output.png)
+![段落の画像](paragraph_to_image_output.png)
 
-#### **テーブルセル内の段落をスケーリングしてレンダリング**
+#### **テーブルセル内の段落をスケーリングしてレンダリングする**
 
-`scale_x` と `scale_y` パラメータを受け取る [Paragraph.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) のオーバーロードを使用して、横方向と縦方向のスケール係数を設定できます。以下の例はテーブルを作成し、最初のセル内の段落を幅と高さを 2 倍に拡大してレンダリングし、PNG 画像として保存します。
+`scale_x` と `scale_y` パラメータを受け取る [Paragraph.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) のオーバーロードを使用して、水平および垂直のスケール係数を設定します。次の例はテーブルを作成し、最初のセルの段落をデフォルト幅と高さの 2 倍でレンダリングし、PNG 画像として保存します。
 
 ```python
 import jpype
@@ -733,24 +735,24 @@ finally:
     presentation.dispose()
 ```
 
-スケール係数 `1` はデフォルトのピクセルサイズを保ちます。たとえば両方を `2` にすると、幅と高さが約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストをより鮮明にしますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が減る小さな画像を生成します。段落のアスペクト比を保ちたい場合は同じ係数を使用し、横・縦で異なる係数を指定すると出力がそれぞれ伸びます。
+スケール係数 `1` はその軸をデフォルトのピクセルサイズに保ちます。たとえば、両方の係数を `2` にすると、幅と高さがそれぞれデフォルトの約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストをより鮮明にしますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が少ない小さな画像を生成します。段落のアスペクト比を保持するには等しい係数を使用し、水平と垂直で異なる係数を使用すると出力が個別に伸びます。
 
-シェイプ全体を画像化するには [Shape.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getImage) が便利です。段落だけの画像が必要な場合は [Paragraph.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) を使用してください。
+出力にシェイプの塗りつぶし、枠線、その他のビジュアル コンテキストを含める必要がある場合は、[Shape.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getImage) でシェイプ全体をレンダリングするのが有用です。段落のみの画像には [Paragraph.getImage] を使用してください。
 
 ## **FAQ**
 
-**テキストフレーム内で改行を完全に無効にできますか？**
+**テキストフレーム内の行折り返しを完全に無効にできますか？**
 
-はい。`[TextFrameFormat.setWrapText](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setWrapText)` を設定してラップを無効にすると、行はテキストフレームの端で改行しなくなります。
+はい。[TextFrameFormat.setWrapText](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setWrapText) を設定して折り返しを無効にすると、行はテキストフレームの端で改行されなくなります。
 
-**特定の段落のスライド上の正確な境界を取得するには？**
+**特定の段落のスライド上の正確な境界を取得するにはどうすればよいですか？**
 
-`[Paragraph.getRect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#getRect)` を使用して段落のバウンディング矩形を取得できます。個々のポーションの境界は `[Portion.getRect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/#getRect)` が提供します。
+[Paragraph.getRect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#getRect) を使用して段落の境界矩形を取得します。[Portion.getRect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portion/#getRect) は個々のポーションの境界を提供します。
 
-**段落の配置（左揃え、右揃え、中央揃え、両端揃え）はどこで制御しますか？**
+**段落の配置（左揃え、右揃え、中央揃え、均等割り付け）はどこで制御されますか？**
 
-`[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setAlignment)` は段落レベルの設定であり、個々のポーションの書式設定に関係なく段落全体に適用されます。
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setAlignment) は段落レベルの設定であり、個々のポーションの書式設定に関係なく、段落全体に適用されます。
 
 **段落の一部に校正言語を設定できますか？**
 
-はい。個々のポーションに対して `[BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setLanguageId)` を設定すれば、同じ段落内で複数の言語を扱うことができます。
+はい。個々のポーションに対して [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setLanguageId) を設定すれば、1 つの段落に複数の言語のテキストを含めることができます。

@@ -5,16 +5,16 @@ type: docs
 weight: 40
 url: /id/net/manage-paragraph/
 aliases:
-  - /net/paragraph/
-  - /net/portion/
+  - /net/paragraf/
+  - /net/bagian/
 keywords:
-- menambah teks
-- menambah paragraf
-- mengelola teks
-- mengelola paragraf
-- mengelola bullet
+- tambahkan teks
+- tambahkan paragraf
+- kelola teks
+- kelola paragraf
+- kelola bullet
 - indentasi paragraf
-- indentasi menggantung
+- indentasi gantung
 - bullet paragraf
 - daftar bernomor
 - daftar bullet
@@ -34,32 +34,31 @@ description: "Pelajari cara membuat dan memformat paragraf, bagian, bullet, daft
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for .NET merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
+Aspose.Slides untuk .NET merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
 
-* [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) mewakili wadah teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
-* [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) mewakili satu paragraf dalam bingkai teks dan menyediakan akses ke bagian‑bagian serta pemformatan tingkat paragraf.
-* [IPortion](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/) mewakili sekumpulan teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter tersendiri.
+* [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) merepresentasikan wadah teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
+* [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) merepresentasikan satu paragraf dalam bingkai teks dan menyediakan akses ke bagiannya serta pemformatan tingkat paragraf.
+* [IPortion](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/) merepresentasikan urutan teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter masing‑masing.
 
-Dengan demikian, sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lainnya yang berbeda dengan menggunakan beberapa bagian.
+Dengan demikian, sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lain yang berbeda dengan menggunakan beberapa bagian.
 
-## **Membuat dan Memformat Paragraf**
+## **Buat dan Format Paragraf**
 
-### **Membuat Paragraf dengan Beberapa Bagian**
+### **Buat Paragraf dengan Beberapa Bagian**
 
-Langkah‑langkah berikut membuat bingkai teks dengan tiga paragraf, masing‑masing berisi tiga bagian:
+Langkah‑langkah berikut membuat sebuah bingkai teks dengan tiga paragraf, masing‑masing berisi tiga bagian:
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
 2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) persegi panjang ke slide.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) berbentuk persegi panjang ke slide.
 4. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) dari bentuk tersebut.
-5. Gunakan paragraf default dan tambahkan dua lagi objek [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) ke bingkai teks.
+5. Gunakan paragraf default dan tambahkan dua objek [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) lagi ke bingkai teks.
 6. Tambahkan cukup objek [IPortion](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/) untuk setiap paragraf agar berisi tiga bagian. Paragraf default sudah berisi satu bagian kosong.
-7. Atur teks setiap bagian.
+7. Atur teks masing‑masing bagian.
 8. Terapkan pemformatan tingkat karakter melalui [IPortion.PortionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/portionformat/).
 9. Simpan presentasi yang telah dimodifikasi.
 
 Contoh C# berikut mengimplementasikan langkah‑langkah tersebut:
-
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -116,27 +115,26 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **Membuat Daftar Bullet dan Bernomor**
+## **Buat Daftar Bullet dan Bernomor**
 
-### **Membuat Daftar Bullet atau Bernomor**
+### **Buat Daftar Bullet atau Bernomor**
 
-Bullet dan penomoran memudahkan pemindaian item terkait. Di Aspose.Slides, pengaturan daftar didefinisikan melalui [IBulletFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/).
+Bullet dan penomoran memudahkan penelusuran item terkait. Pada Aspose.Slides, pengaturan daftar didefinisikan melalui [IBulletFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/).
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide yang dipilih.
-4. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) dari bentuk tersebut.
+4. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/).
 5. Hapus paragraf default dari bingkai teks.
 6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/) untuk bullet simbol.
-7. Atur [IBulletFormat.Type](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/type/) ke [BulletType.Symbol](https://reference.aspose.com/slides/id/net/aspose.slides/bullettype/) dan tentukan karakter bullet.
+7. Atur [IBulletFormat.Type](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/type/) menjadi [BulletType.Symbol](https://reference.aspose.com/slides/id/net/aspose.slides/bullettype/) dan tentukan karakter bullet.
 8. Atur teks paragraf, indentasi, warna bullet, dan tinggi bullet.
 9. Tambahkan paragraf ke bingkai teks.
-10. Buat paragraf kedua dan atur [IBulletFormat.Type](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/type/) ke [BulletType.Numbered](https://reference.aspose.com/slides/id/net/aspose.slides/bullettype/).
+10. Buat paragraf kedua dan atur [IBulletFormat.Type](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/type/) menjadi [BulletType.Numbered](https://reference.aspose.com/slides/id/net/aspose.slides/bullettype/).
 11. Konfigurasikan gaya bullet bernomor dan tambahkan paragraf ke bingkai teks.
 12. Simpan presentasi.
 
 Contoh C# berikut membuat bullet simbol dan bullet bernomor:
-
 ```csharp
 using System;
 using System.Drawing;
@@ -172,23 +170,22 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Menggunakan Bullet Gambar**
+### **Gunakan Bullet Gambar**
 
-Bullet gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau angka.
+Bullet gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau nomor.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
 2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dan akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/)‑nya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dan akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/).
 4. Hapus paragraf default dari bingkai teks.
 5. Muat gambar bullet dan tambahkan ke koleksi gambar presentasi sebagai [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/).
 6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/) dan atur teksnya.
-7. Atur [IBulletFormat.Type](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/type/) ke [BulletType.Picture](https://reference.aspose.com/slides/id/net/aspose.slides/bullettype/).
+7. Atur [IBulletFormat.Type](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/type/) menjadi [BulletType.Picture](https://reference.aspose.com/slides/id/net/aspose.slides/bullettype/).
 8. Tetapkan gambar melalui [IBulletFormat.Picture](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/picture/) dan atur tinggi bullet.
 9. Tambahkan paragraf ke bingkai teks.
 10. Simpan presentasi yang telah dimodifikasi.
 
 Contoh C# berikut membuat bullet gambar:
-
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -213,18 +210,17 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **Membuat Daftar Multilevel**
+### **Buat Daftar Multilevel**
 
-Atur [IParagraphFormat.Depth](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/depth/) untuk menempatkan paragraf pada level berbeda dalam sebuah daftar. Level teratas memiliki depth `0`.
+Atur [IParagraphFormat.Depth](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/depth/) untuk menempatkan paragraf pada level daftar yang berbeda. Level teratas memiliki kedalaman `0`.
 
 1. Buat sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan akses sebuah slide.
-2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) serta bersihkan paragraf default dari bingkai teksnya.
+2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dan bersihkan paragraf default dari bingkai teksnya.
 3. Buat empat paragraf dan konfigurasikan simbol bullet masing‑masing.
 4. Atur nilai [IParagraphFormat.Depth](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/depth/) mereka menjadi `0`, `1`, `2`, dan `3`.
 5. Tambahkan paragraf ke bingkai teks dan simpan presentasi.
 
 Contoh C# berikut membuat daftar bullet empat level:
-
 ```csharp
 using System;
 using System.Drawing;
@@ -273,18 +269,17 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Memulai Item Daftar Bernomor dengan Nilai Kustom**
+### **Mulai Item Daftar Bernomor dengan Nilai Kustom**
 
-Gunakan [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith/) untuk menetapkan angka awal yang ditampilkan pada paragraf bernomor.
+Gunakan [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith/) untuk menetapkan nomor awal yang ditampilkan untuk paragraf bernomor.
 
 1. Buat sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke sebuah slide.
 2. Bersihkan paragraf default dari bingkai teks bentuk.
 3. Buat tiga paragraf bernomor.
-4. Atur [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith/) menjadi `2`, `3`, dan `7` untuk masing‑masing paragraf.
+4. Atur [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith/) menjadi `2`, `3`, dan `7` untuk paragraf masing‑masing.
 5. Tambahkan paragraf ke bingkai teks dan simpan presentasi.
 
-Contoh C# berikut menetapkan angka mulai kustom untuk setiap paragraf:
-
+Contoh C# berikut menetapkan nomor awal kustom untuk setiap paragraf:
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -313,26 +308,25 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Mengontrol Tata Letak Paragraf dan Properti Akhir**
+## **Kontrol Tata Letak Paragraf dan Properti Akhir**
 
-### **Mengatur Indentasi Baris Pertama**
+### **Atur Inden Baris Pertama**
 
-Gunakan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) untuk mengontrol indentasi baris pertama sebuah paragraf. Properti ini hanya menggeser baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris berikutnya tetap sejajar dengan tubuh paragraf.
+Gunakan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) untuk mengontrol inden baris pertama sebuah paragraf. Properti ini memindahkan hanya baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris lainnya tetap rata dengan isi paragraf.
 
-Gunakan [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) bila Anda perlu memindahkan seluruh paragraf. Gunakan [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) bila hanya baris pertama yang dipindahkan.
+Gunakan [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) ketika Anda perlu memindahkan seluruh paragraf. Gunakan [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) ketika Anda hanya perlu memindahkan baris pertama.
 
-Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai‑nilai berbeda pada [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) untuk mendemonstrasikan pengaruh indentasi baris pertama terhadap tata letak paragraf.
+Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) yang berbeda untuk menunjukkan bagaimana inden baris pertama memengaruhi tata letak paragraf.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
 2. Akses slide target.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) persegi panjang ke slide.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) berbentuk persegi panjang ke slide.
 4. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) bentuk dan hapus paragraf default.
-5. Buat beberapa paragraf dan atur nilai‑nilai [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) yang berbeda untuk masing‑masing.
+5. Buat beberapa paragraf dan atur nilai [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) yang berbeda untuk masing‑masing.
 6. Tambahkan paragraf ke bingkai teks.
 7. Simpan presentasi yang telah dimodifikasi.
 
-Kode berikut menunjukkan cara mengatur indentasi paragraf:
-
+Kode ini menunjukkan cara mengatur inden paragraf:
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -375,28 +369,26 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 ```
 
 Hasilnya:
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-![Indentasi baris pertama pada paragraf](first_line_indent.png)
+### **Atur Inden Gantung**
 
-### **Mengatur Indentasi Menggantung**
+Inden gantung adalah tata letak paragraf di mana baris pertama mulai lebih ke kiri dibandingkan baris‑baris berikutnya. Pada Aspose.Slides, Anda membuat efek ini dengan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/). Atur `Indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap isi paragraf.
 
-Indentasi menggantung adalah tata letak paragraf di mana baris pertama dimulai lebih ke kiri dibandingkan baris‑baris berikutnya. Di Aspose.Slides, efek ini dibuat dengan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/). Atur `Indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap tubuh paragraf.
+Dalam praktiknya, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) menentukan posisi kiri isi paragraf, dan [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat inden gantung, atur nilai `MarginLeft` positif dan nilai `Indent` negatif.
 
-Secara praktis, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) menentukan posisi kiri tubuh paragraf, dan [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indentasi menggantung, atur nilai `MarginLeft` menjadi positif dan nilai `Indent` menjadi negatif.
-
-Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris‑baris terbalut harus sejajar di bawah tubuh paragraf, bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris yang dibungkus harus rata di bawah isi paragraf, bukan di bawah karakter pertama baris pertama.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
 2. Akses slide target.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) persegi panjang ke slide.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) berbentuk persegi panjang ke slide.
 4. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) bentuk dan hapus paragraf default.
-5. Buat paragraf‑paragraf dan atur nilai positif [MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) untuk masing‑masing.
-6. Atur nilai negatif [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) untuk menghasilkan efek indentasi menggantung.
+5. Buat paragraf dan atur nilai [MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) positif untuk setiap paragraf.
+6. Atur nilai [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) negatif untuk menciptakan efek inden gantung.
 7. Tambahkan paragraf ke bingkai teks.
 8. Simpan presentasi yang telah dimodifikasi.
 
-Kode berikut menunjukkan cara mengatur indentasi menggantung untuk sebuah paragraf:
-
+Kode ini menunjukkan cara mengatur inden gantung untuk sebuah paragraf:
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -432,20 +424,18 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 ```
 
 Hasilnya:
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-![Indentasi menggantung pada paragraf](hanging_indent.png)
+### **Atur Properti Jalankan Akhir Paragraf**
 
-### **Mengatur Properti Akhir Paragraf (Run)**
-
-Properti [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/endparagraphportionformat/) mengontrol format tanda akhir paragraf. Contoh berikut menetapkan ukuran font dan font Latin pada tanda akhir paragraf kedua:
+Properti [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/endparagraphportionformat/) mengontrol pemformatan tanda akhir paragraf. Contoh berikut menetapkan ukuran font dan font Latin untuk tanda akhir paragraf kedua:
 
 1. Muat sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan akses sebuah slide.
-2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) serta bersihkan paragraf defaultnya.
+2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dan bersihkan paragraf defaultnya.
 3. Buat dua paragraf dan tambahkan bagian‑bagian teks ke masing‑masing.
 4. Buat sebuah [PortionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/portionformat/) untuk tanda akhir paragraf kedua.
 5. Atur [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseportionformat/fontheight/) dan [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseportionformat/latinfont/).
-6. Tetapkan format tersebut ke [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/endparagraphportionformat/) dan simpan presentasi.
-
+6. Tetapkan format ke [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/endparagraphportionformat/) dan simpan presentasi.
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -473,14 +463,15 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-## **Menghitung Baris yang Dirender**
+## **Hitung Baris yang Dihasilkan**
 
-Gunakan [IParagraph.GetLinesCount](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getlinescount/) untuk menghitung baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Ini berguna ketika memeriksa panjang teks dan tata letak dalam templat presentasi.
+Untuk aturan paragraf yang memengaruhi pembungkusan otomatis dan tanda baca pada akhir baris, lihat [Control Line Breaking](/slides/id/net/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/net/text-formatting/#control-hanging-punctuation).
 
-Sebuah paragraf adalah satu item dalam [ITextFrame.Paragraphs](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/paragraphs/), dan dapat menempati beberapa baris yang dirender. Penyisipan jeda baris eksplisit dalam paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkusan otomatis menghasilkan baris berdasarkan lebar yang tersedia tanpa menyisipkan jeda baris eksplisit ke dalam teks. Oleh karena itu, menghitung paragraf atau karakter jeda baris tidak memberikan jumlah baris yang dirender.
+Gunakan [IParagraph.GetLinesCount](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getlinescount/) untuk menghitung baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
 
-Contoh berikut membuat sebuah bentuk teks, menghitung barisnya, mempersempit bentuk, lalu mengganti teks dengan string yang lebih pendek. Pembungkusan diaktifkan dan autofit dinonaktifkan sehingga lebar bentuk mengontrol pembungkusan tanpa secara otomatis memperkecil teks atau mengubah ukuran bentuk. Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan hitungan baris di seluruh bingkai teks.
+Paragraf adalah satu item dalam [ITextFrame.Paragraphs](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/paragraphs/), dan dapat menempati beberapa baris yang dihasilkan. Pemutusan baris eksplisit dalam sebuah paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkusan otomatis membuat baris berdasarkan lebar yang tersedia tanpa menyisipkan pemutusan baris eksplisit ke dalam teks. Karena itu, menghitung paragraf atau karakter pemutusan baris tidak memberikan jumlah baris yang dihasilkan.
 
+Contoh berikut membuat sebuah bentuk teks, menghitung barisnya, mempersempit bentuk, lalu mengganti teks dengan string yang lebih pendek. Pembungkusan diaktifkan dan autofit dinonaktifkan sehingga lebar bentuk mengontrol pembungkusan tanpa secara otomatis mengecilkan teks atau mengubah ukuran bentuk. Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan jumlah baris di seluruh bingkai teks.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -516,9 +507,9 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Hitungan tepat dapat bervariasi tergantung pada ketersediaan font dan substitusi, ukuran font, margin, indentasi, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa templat.
+Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Jumlah pasti dapat bervariasi tergantung pada ketersediaan dan substitusi font, ukuran font, margin, indentasi, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang dimaksudkan untuk lingkungan target saat memeriksa sebuah templat.
 
-Jumlah baris saja tidak menentukan apakah teks melimpahi wadahnya. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga berpengaruh; bahkan satu baris dapat melebihi lebar yang tersedia ketika pembungkusan dinonaktifkan.
+Jumlah baris saja tidak menentukan apakah teks meluap dari wadahnya. Tinggi yang tersedia, tinggi baris, jarak paragraf dan baris, serta perilaku autofit juga penting; bahkan satu baris dapat melebihi lebar yang tersedia ketika pembungkusan dinonaktifkan.
 
 ## **Impor dan Ekspor Konten Paragraf**
 
@@ -526,15 +517,14 @@ Jumlah baris saja tidak menentukan apakah teks melimpahi wadahnya. Tinggi yang t
 
 Gunakan [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphcollection/addfromhtml/) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam sebuah bingkai teks.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) .
-2. Akses sebuah slide dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) .
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
+2. Akses sebuah slide dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/).
 3. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) bentuk dan bersihkan paragraf defaultnya.
 4. Baca file HTML sumber.
-5. Serahkan string HTML ke [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphcollection/addfromhtml/) .
+5. Berikan string HTML ke [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphcollection/addfromhtml/).
 6. Simpan presentasi yang telah dimodifikasi.
 
-Contoh C# berikut mengimpor HTML ke dalam bingkai teks:
-
+Contoh C# berikut mengimpor HTML ke dalam sebuah bingkai teks:
 ```csharp
 using System.IO;
 using Aspose.Slides;
@@ -557,16 +547,15 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **Ekspor Teks Paragraf ke HTML**
 
-Gunakan [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphcollection/exporttohtml/) untuk mengekspor rentang paragraf yang dipilih sebagai HTML.
+Gunakan [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphcollection/exporttohtml/) untuk mengekspor rentang paragraf terpilih sebagai HTML.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) dan muat presentasi yang diinginkan.
 2. Akses slide dan temukan [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) yang berisi teks.
-3. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) bentuk.
+3. Akses [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/).
 4. Panggil [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphcollection/exporttohtml/) dengan indeks paragraf awal dan jumlah paragraf yang akan diekspor.
 5. Tulis string HTML yang dikembalikan ke sebuah file.
 
 Contoh C# berikut mengekspor semua paragraf dari bentuk teks pertama:
-
 ```csharp
 using System;
 using System.IO;
@@ -591,18 +580,17 @@ else
 
 ### **Render Paragraf sebagai Gambar**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/) merender sebuah paragraf tunggal secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/save/). Anda tidak perlu merender bentuk yang berisi atau memangkas bitmap secara manual.
+[IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/) merender sebuah paragraf individual secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/save/). Anda tidak perlu merender bentuk yang berisi atau memotong bitmap secara manual.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/) dapat mengembalikan `null` jika paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan buang gambar yang dikembalikan setelah selesai digunakan.
+[IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/) dapat mengembalikan `null` jika paragraf tidak dapat ditemukan dalam koleksi induknya, tidak memiliki batas rendering yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan buang gambar yang dikembalikan setelah digunakan.
 
 #### **Render Paragraf pada Skala Default**
 
-Misalkan kita memiliki file presentasi bernama *sample.pptx* dengan satu slide, di mana bentuk pertama adalah kotak teks yang berisi tiga paragraf.
+Misalkan kami memiliki file presentasi bernama sample.pptx dengan satu slide, di mana bentuk pertama adalah kotak teks yang berisi tiga paragraf.
 
-![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-Contoh berikut merender paragraf kedua dalam sebuah bentuk teks biasa pada skala default dan menyimpan gambar yang dikembalikan dalam format PNG. Deklarasi `using` memastikan gambar dibuang dengan benar.
-
+Contoh berikut merender paragraf kedua dalam bentuk teks reguler pada skala default dan menyimpan gambar yang dikembalikan dalam format PNG. Deklarasi `using` memastikan gambar dibuang dengan benar.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -633,13 +621,11 @@ else
 ```
 
 Hasilnya:
-
-![Gambar paragraf](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
 #### **Render Paragraf dalam Sel Tabel dengan Skala**
 
-Gunakan overload [IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/) yang menerima parameter `float scaleX` dan `float scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf di sel pertama dengan lebar dan tinggi dua kali lipat skala default, lalu menyimpan hasilnya sebagai gambar PNG.
-
+Gunakan overload [IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/) yang menerima parameter `float scaleX` dan `float scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf di sel pertamanya dengan lebar dan tinggi dua kali lipat ukuran default, dan menyimpan hasilnya sebagai gambar PNG.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -664,24 +650,24 @@ else
 }
 ```
 
-Faktor skala `1` mempertahankan ukuran piksel default pada sumbu tersebut. Misalnya, `2` untuk kedua faktor menghasilkan gambar dengan lebar dan tinggi kira‑kira dua kali dimensi default, menghasilkan empat kali jumlah piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output beresolusi tinggi, namun juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
+Faktor skala `1` menjaga sumbu tersebut pada ukuran piksel defaultnya. Misalnya, `2` untuk kedua faktor menghasilkan gambar dengan lebar dan tinggi kira‑kiranya dua kali dimensi default, menghasilkan empat kali lebih banyak piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk memperbesar atau output resolusi tinggi, tetapi juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
 
-Merender seluruh bentuk dengan [IShape.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/getimage/) tetap berguna bila output harus mencakup isi, border, atau konteks visual lain dari bentuk. Untuk gambar hanya paragraf, gunakan [IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/).
+Merender seluruh bentuk dengan [IShape.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/getimage/) tetap berguna ketika output harus mencakup isian bentuk, batas, atau konteks visual lainnya. Untuk gambar hanya paragraf, gunakan [IParagraph.GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Apakah saya dapat menonaktifkan pembungkusan baris sepenuhnya di dalam sebuah bingkai teks?**
+**Apakah saya dapat menonaktifkan sepenuhnya pembungkusan baris di dalam bingkai teks?**
 
-Ya. Atur [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/wraptext/) untuk menonaktifkan pembungkusan sehingga baris tidak terpotong pada tepi bingkai teks.
+Ya. Atur [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/wraptext/) untuk menonaktifkan pembungkusan sehingga baris tidak terputus di tepi bingkai teks.
 
-**Bagaimana cara mendapatkan batas pada slide yang tepat untuk paragraf tertentu?**
+**Bagaimana cara mendapatkan batas tepat pada slide untuk paragraf tertentu?**
 
-Gunakan [IParagraph.GetRect](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getrect/) untuk mengambil persegi panjang pembatas paragraf. [IPortion.GetRect](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/getrect/) menyediakan batas untuk sebuah bagian individu.
+Gunakan [IParagraph.GetRect](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/getrect/) untuk mengambil persegi panjang pembatas paragraf. [IPortion.GetRect](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/getrect/) memberikan batas bagian individual.
 
-**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau justify) dikendalikan?**
+**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau rata) dikendalikan?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/alignment/) adalah pengaturan tingkat paragraf dan berlaku untuk seluruh paragraf terlepas dari pemformatan bagian individu.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/alignment/) adalah pengaturan tingkat paragraf dan berlaku untuk seluruh paragraf terlepas dari pemformatan bagian individual.
 
 **Apakah saya dapat mengatur bahasa pemeriksaan ejaan untuk sebagian paragraf?**
 
-Ya. Atur [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseportionformat/languageid/) untuk bagian‑bagian individu, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.
+Ya. Atur [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseportionformat/languageid/) untuk bagian individual, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.

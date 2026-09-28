@@ -5,19 +5,19 @@ type: docs
 weight: 50
 url: /fa/java/text-formatting/
 keywords:
-- ترازبندی پاراگراف
+- هم‌ترازی پاراگراف
 - سبک متن
 - پس‌زمینه متن
 - شفافیت متن
-- فاصله بین حروف
+- فاصله بین کاراکترها
 - ویژگی‌های قلم
 - خانواده قلم
 - چرخش متن
 - زاویه چرخش
-- فریم متن
+- قاب متن
 - فاصله خطوط
-- ویژگی Autofit
-- لنگر فریم متن
+- ویژگی خودسازگاری
+- لنگر قاب متن
 - تب‌بندی متن
 - زبان پیش‌فرض
 - PowerPoint
@@ -25,23 +25,23 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Java قالب‌بندی و استایل‌دهی کنید. قلم‌ها، رنگ‌ها، ترازبندی و موارد دیگر را سفارشی کنید."
+description: "متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای جاوا قالب‌بندی و استایل می‌کنید. قلم‌ها، رنگ‌ها، تراز و موارد دیگر را سفارشی کنید."
 ---
 ## **بررسی کلی**
 
-این مقاله نشان می‌دهد چگونه می‌توان متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Java قالب‌بندی کرد. این مقاله به رنگ‌های پس‌زمینه، شفافیت، فاصله بین حروف، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار autofit، لنگر متن، توقف‌های تب و تنظیمات زبان می‌پردازد.
+این مقاله نشان می‌دهد چگونه متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Java قالب‌بندی کنید. این مقاله رنگ‌های پس‌زمینه، شفافیت، فاصله بین کاراکترها، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار autofit، تنظیم موقعیت متن، توقف‌های تب و تنظیمات زبان را پوشش می‌دهد.
 
-در مثال‌های زیر، از فایلی به نام «sample.pptx» استفاده می‌کنیم که یک جعبه متن در اسلاید اول دارد و متن زیر را شامل می‌شود:
+مگر اینکه خلاف آن ذکر شود، مثال‌ها از [sample.pptx](sample.pptx) استفاده می‌کنند. اولین شکل در اولین اسلاید یک جعبه متن است و اولین پاراگراف آن شامل متنی است که در زیر نشان داده شده است. هر دو شاخص اسلاید و شکل بر پایه صفر هستند. مثال‌هایی که بخش‌های بولد را انتخاب می‌کنند از قالب‌بندی مؤثر، از جمله قالب‌بندی بولد ارث‌برده استفاده می‌کنند:
 
 ![متن نمونه](sample_text.png)
 
-برای یافتن و برجسته کردن متن دقیق یا تطابق‌های عبارت منظم، به بخش [جستجو و جایگزینی متن](/slides/fa/java/search-and-replace-text/) مراجعه کنید.
+برای یافتن و برجسته‌کردن متن لغوی یا مطابقت‌های عبارات منظم، به [Search and Replace Text](/slides/fa/java/search-and-replace-text/) مراجعه کنید.
 
 ## **تنظیم رنگ پس‌زمینه متن**
 
-از [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) برای تنظیم رنگ برجسته پیش‌فرض یک پاراگراف، یا از [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) برای قسمت‌های متنی جداگانه استفاده کنید.
+از [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) برای تنظیم رنگ برجسته پیش‌فرض یک پاراگراف استفاده کنید، یا برای بخش‌های متنی جداگانه از [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) استفاده کنید.
 
-کد مثال زیر نشان می‌دهد چگونه رنگ پس‌زمینه برای **تمام پاراگراف** تنظیم شود:
+مثال زیر برجسته‌ای خاکستری روشن را به‌عنوان پیش‌فرض برای اولین پاراگراف تنظیم می‌کند. رنگ‌های برجسته صریح در بخش‌های جداگانه بر این پیش‌فرض اولویت دارند:
 
 ```java
 import com.aspose.slides.*;
@@ -50,6 +50,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -66,7 +67,7 @@ try {
 
 ![پاراگراف خاکستری](gray_paragraph.png)
 
-کد مثال زیر نحوه تنظیم رنگ پس‌زمینه برای **قسمت‌های متنی با قلم بولد** را نشان می‌دهد:
+مثال کد زیر نشان می‌دهد چگونه رنگ پس‌زمینه را برای **بخش‌های متنی با قلم بولد** تنظیم کنیم:
 
 ```java
 import com.aspose.slides.*;
@@ -75,12 +76,13 @@ import java.awt.Color;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // رنگ برجسته را برای قسمت متن تنظیم کنید.
+            // رنگ برجسته را برای بخش متن تنظیم کنید.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -93,13 +95,13 @@ try {
 
 نتیجه:
 
-![قسمت‌های متنی خاکستری](gray_text_portions.png)
+![بخش‌های متن خاکستری](gray_text_portions.png)
 
-## **ترازبندی پاراگراف‌های متنی**
+## **تراز پاراگراف‌های متن**
 
-از [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) برای تنظیم ترازبندی پاراگراف درون یک فریم متن استفاده کنید. مقدار می‌تواند centered، left‑aligned، right‑aligned، justified و غیره باشد.
+از [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) برای تنظیم تراز پاراگراف درون یک فریم متنی استفاده کنید. مقدار می‌تواند وسط‌چین، چپ‌چین، راست‌چین، توجیه‌شده و غیره باشد.
 
-کد مثال زیر نحوه ترازبندی پاراگراف به **مرکز** را نشان می‌دهد:
+مثال کد زیر نشان می‌دهد چگونه پاراگراف را به **مرکز** تراز کنیم:
 
 ```java
 import com.aspose.slides.*;
@@ -107,6 +109,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -121,13 +124,13 @@ try {
 
 نتیجه:
 
-![پاراگراف ترازبندی شده](aligned_paragraph.png)
+![پاراگراف تراز شده](aligned_paragraph.png)
 
 ## **تنظیم شفافیت برای متن**
 
-شفافیت متن از طریق مؤلفه آلفای رنگی که به [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) اختصاص داده می‌شود، کنترل می‌شود. در مثال‌های زیر، `alpha = 50` مقدار آلفای ARGB در مقیاس 0‑255 است، نه درصد شفافیت.
+شفافیت متن از طریق مؤلفه آلفای رنگی که به [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) اختصاص داده شده، کنترل می‌شود. در مثال‌های زیر، `alpha = 50` مقدار کانال آلفای ARGB در مقیاس 0–255 است، نه درصد شفافیت.
 
-کد مثال زیر نشان می‌دهد چگونه شفافیت برای **تمام پاراگراف** اعمال شود:
+مثال کد زیر نشان می‌دهد چگونه شفافیت را به **تمام پاراگراف** اعمال کنیم:
 
 ```java
 import com.aspose.slides.*;
@@ -138,10 +141,11 @@ int alpha = 50;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // رنگ پر متن را به رنگ شفاف تنظیم کنید.
+    // رنگ پرکننده متن را به رنگ شفاف تنظیم کنید.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -155,7 +159,7 @@ try {
 
 ![پاراگراف شفاف](transparent_paragraph.png)
 
-کد مثال زیر نحوه اعمال شفافیت برای **قسمت‌های متنی با قلم بولد** را نشان می‌دهد:
+مثال کد زیر نشان می‌دهد چگونه شفافیت را به **بخش‌های متنی با قلم بولد** اعمال کنیم:
 
 ```java
 import com.aspose.slides.*;
@@ -166,12 +170,13 @@ int alpha = 50;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // شفافیت قسمت متن را تنظیم کنید.
+            // شفافیت بخش متن را تنظیم کنید.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -185,13 +190,13 @@ try {
 
 نتیجه:
 
-![قسمت‌های متنی شفاف](transparent_text_portions.png)
+![بخش‌های متن شفاف](transparent_text_portions.png)
 
-## **تنظیم فاصله حروف برای متن**
+## **تنظیم فاصله کاراکتر برای متن**
 
-از [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) برای گسترش یا فشرده‌سازی فاصله بین حروف در یک جعبه متن استفاده کنید.
+از [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) برای افزایش یا کاهش فاصله بین کاراکترها در یک جعبه متن استفاده کنید. مثال‌ها 3 پوینت فاصله اضافه می‌کند؛ مقادیر منفی متن را فشرده می‌کند.
 
-کد جاوا زیر نشان می‌دهد چگونه فاصله حروف در **تمام پاراگراف** گسترش یابد:
+کد جاوا زیر نشان می‌دهد چگونه فاصله کاراکتر را در **تمام پاراگراف** گسترش دهیم:
 
 ```java
 import com.aspose.slides.*;
@@ -199,11 +204,12 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // توجه: برای فشرده‌سازی فاصله بین حروف از مقادیر منفی استفاده کنید.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // فاصله بین حروف را گسترش دهید.
+    // توجه: برای فشرده‌کردن فاصله بین کاراکترها از مقادیر منفی استفاده کنید.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // فاصله کاراکترها را افزایش دهید.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -213,9 +219,9 @@ try {
 
 نتیجه:
 
-![فاصله حروف در پاراگراف](character_spacing_in_paragraph.png)
+![فاصله کاراکتر در پاراگراف](character_spacing_in_paragraph.png)
 
-کد مثال زیر نشان می‌دهد چگونه فاصله حروف در **قسمت‌های متنی با قلم بولد** گسترش یابد:
+مثال کد زیر نشان می‌دهد چگونه فاصله کاراکتر را در **بخش‌های متنی با قلم بولد** گسترش دهیم:
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +229,14 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // توجه: برای فشرده‌سازی فاصله بین حروف از مقادیر منفی استفاده کنید.
-            portion.getPortionFormat().setSpacing(3); // فاصله بین حروف را گسترش دهید.
+            // نکته: برای فشرده‌کردن فاصله بین کاراکترها از مقادیر منفی استفاده کنید.
+            portion.getPortionFormat().setSpacing(3); // فاصله کاراکترها را افزایش دهید.
         }
     }
 
@@ -241,13 +248,13 @@ try {
 
 نتیجه:
 
-![فاصله حروف در قسمت‌های متنی](character_spacing_in_text_portions.png)
+![فاصله کاراکتر در بخش‌های متن](character_spacing_in_text_portions.png)
 
-### **غیرفعال‌سازی Kerning برای فونت‌های مشخص**
+### **غیرفعال کردن کرنینگ برای فونت‌های خاص**
 
-در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود، ممکن است اندکی فشرده‌تر از همان متن در PowerPoint به نظر برسد. این می‌تواند به این دلیل باشد که PowerPoint ممکن است داده‌های kerning را برای فونت‌های خاص نادیده بگیرد، حتی زمانی که فونت دارای اطلاعات kerning معتبر باشد و kerning در تنظیمات PowerPoint فعال باشد.
+در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود ممکن است کمی فشرده‌تر از همان متنی که در PowerPoint نمایش داده می‌شود، به نظر برسد. این می‌تواند به این دلیل باشد که PowerPoint داده‌های کرنینگ برای برخی فونت‌ها را نادیده می‌گیرد، حتی اگر فونت حاوی اطلاعات کرنینگ معتبر باشد و کرنینگ در تنظیمات PowerPoint فعال باشد.
 
-برای نزدیک‌تر کردن خروجی رندر شده به PowerPoint در چنین مواردی، می‌توانید kerning را برای قسمت‌های متنی که از فونت مورد نظر استفاده می‌کنند غیرفعال کنید. مقدار [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) را به مقداری بسیار بزرگتر از اندازه واقعی فونت تنظیم کنید:
+برای نزدیک‌تر کردن خروجی رندر به PowerPoint در چنین مواردی، می‌توانید کرنینگ را برای بخش‌های متنی که از فونت مورد نظر استفاده می‌کنند غیرفعال کنید. مقدار [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) را به مقداری بزرگتر از اندازه واقعی فونت تنظیم کنید. این مثال به «presentation.pptx» با یک جعبه متن به‌عنوان اولین شکل در اولین اسلاید نیاز دارد. نام‌های قلم مؤثر شامل قلم‌های ارث‌برده بررسی می‌شوند و آستانه 100 پوینت برای بخش‌هایی که از Roboto استفاده می‌کنند تنظیم می‌شود؛ این کار کرنینگ را برای بخش‌های مطابق با اندازه قلم زیر 100 پوینت غیرفعال می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -255,12 +262,13 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
     for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
         for (IPortion portion : paragraph.getPortions()) {
-            IPortionFormat portionFormat = portion.getPortionFormat();
+            IPortionFormatEffectiveData portionFormat = portion.getPortionFormat().getEffective();
 
             if ((portionFormat.getLatinFont() != null &&
                  portionFormat.getLatinFont().getFontName().equals(targetFont)) ||
@@ -268,7 +276,7 @@ try {
                  portionFormat.getEastAsianFont().getFontName().equals(targetFont)) ||
                 (portionFormat.getComplexScriptFont() != null &&
                  portionFormat.getComplexScriptFont().getFontName().equals(targetFont))) {
-                portionFormat.setKerningMinimalSize(100);
+                portion.getPortionFormat().setKerningMinimalSize(100);
             }
         }
     }
@@ -279,13 +287,13 @@ try {
 }
 ```
 
-این تنظیم از اعمال kerning بر روی قسمت‌های متنی منطبق جلوگیری می‌کند و می‌تواند به همسویی رندر Aspose.Slides با خروجی تصویری PowerPoint برای فونت‌های تحت تأثیر این رفتار خاص PowerPoint کمک کند.
+برای متنی که زیر آستانه باشد، این تنظیم از کرنینگ جلوگیری می‌کند و می‌تواند به تطابق رندر Aspose.Slides با خروجی بصری PowerPoint برای فونت‌های تحت تأثیر این رفتار ویژه PowerPoint کمک کند.
 
 ## **مدیریت ویژگی‌های قلم متن**
 
-ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) یا در قسمت‌های جداگانه از طریق [IPortionFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iportionformat/) تنظیم شوند.
+ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) یا بر روی بخش‌های جداگانه از طریق [IPortionFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iportionformat/) تنظیم شوند.
 
-کد زیر قلم و سبک متن را برای **تمام پاراگراف** تنظیم می‌کند: این کد اندازه قلم، بولد، ایتالیک، زیرخط نقطه‌ای و قلم Times New Roman را برای تمام قسمت‌های پاراگراف اعمال می‌نماید.
+مثال زیر قلم پیش‌فرض اولین پاراگراف را به 12 پوینت Times New Roman با قالب‌بندی بولد، ایتالیک و زیرخط نقطه‌دار تنظیم می‌کند. قالب‌بندی صریح بر بخش‌های جداگانه بر این پیش‌فرض‌ها اولویت دارد:
 
 ```java
 import com.aspose.slides.*;
@@ -293,10 +301,11 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // تنظیم ویژگی‌های قلم برای پاراگراف.
+    // ویژگی‌های قلم را برای پاراگراف تنظیم کنید.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
@@ -313,7 +322,7 @@ try {
 
 ![ویژگی‌های قلم برای پاراگراف](font_properties_for_paragraph.png)
 
-کد مثال زیر ویژگی‌های مشابه را برای **قسمت‌های متنی با قلم بولد** اعمال می‌کند:
+مثال زیر 13 پوینت Times New Roman، قالب‌ایتالیک و زیرخط نقطه‌دار را به بخش‌هایی که قالب‌بندی مؤثر آن‌ها بولد است، اعمال می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -321,12 +330,13 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // تنظیم ویژگی‌های قلم برای قسمت متن.
+            // ویژگی‌های قلم را برای بخش متنی تنظیم کنید.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -342,13 +352,13 @@ try {
 
 نتیجه:
 
-![ویژگی‌های قلم برای قسمت‌های متنی](font_properties_for_text_portions.png)
+![ویژگی‌های قلم برای بخش‌های متن](font_properties_for_text_portions.png)
 
 ## **تنظیم چرخش متن**
 
-از [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) برای تنظیم جهت پیش‌فرض متن درون یک شکل استفاده کنید.
+از [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) برای تنظیم جهت‌گیری از پیش تعریف‌شده متن درون یک شکل استفاده کنید.
 
-کد مثال زیر جهت متن در شکل را به `Vertical270` تنظیم می‌کند که متن را **90 درجه در جهت خلاف ساعت** می‌چرخاند:
+مثال کد زیر جهت‌گیری متن را در شکل به [TextVerticalType.Vertical270](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textverticaltype/) تنظیم می‌کند که متن را **90 درجه خلاف ساعت‌گرد** می‌چرخاند:
 
 ```java
 import com.aspose.slides.*;
@@ -356,8 +366,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
     presentation.save("text_rotation.pptx", SaveFormat.Pptx);
@@ -372,9 +382,9 @@ try {
 
 ## **تنظیم چرخش سفارشی برای فریم‌های متن**
 
-از [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) برای تنظیم زاویه چرخش سفارشی یک [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) استفاده کنید.
+از [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) برای تنظیم زاویه چرخش سفارشی برای یک [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) استفاده کنید.
 
-کد مثال زیر فریم متن را 3 درجه به سمت ساعت درون شکل می‌چرخاند:
+مثال کد زیر فریم متن را داخل شکل به میزان 3 درجه ساعت‌گرد می‌چرخاند:
 
 ```java
 import com.aspose.slides.*;
@@ -382,8 +392,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
     presentation.save("custom_text_rotation.pptx", SaveFormat.Pptx);
@@ -398,12 +408,12 @@ try {
 
 ## **تنظیم فاصله خطوط پاراگراف‌ها**
 
-Aspose.Slides متدهای [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)، [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) و [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) را برای کنترل فاصله پاراگراف فراهم می‌کند. این ویژگی‌ها به شرح زیر استفاده می‌شوند:
+Aspose.Slides [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)، [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) و [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) را برای کنترل فاصله پاراگراف فراهم می‌کند. این ویژگی‌ها به‌صورت زیر استفاده می‌شوند:
 
-* از مقدار مثبت برای مشخص کردن فاصله خط به درصد ارتفاع خط استفاده کنید.
-* از مقدار منفی برای مشخص کردن فاصله خط به نقطه استفاده کنید.
+* مقدار مثبت برای تعیین فاصله خط به‌عنوان درصدی از ارتفاع خط استفاده شود.
+* مقدار منفی برای تعیین فاصله خط به‌واحد پوینت استفاده شود.
 
-کد مثال زیر نشان می‌دهد چگونه فاصله خط را درون پاراگراف مشخص کنید:
+مثال زیر فاصله داخل اولین پاراگراف را به 200٪ از ارتفاع خط (فاصله دوتایی) تنظیم می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -411,9 +421,10 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
+
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setSpaceWithin(200);
 
     presentation.save("line_spacing.pptx", SaveFormat.Pptx);
@@ -424,11 +435,103 @@ try {
 
 نتیجه:
 
-![فاصله خطوط درون پاراگراف](line_spacing.png)
+![فاصله خط در پاراگراف](line_spacing.png)
+
+## **کنترل شکستن خط**
+
+قواعد شکستن خط پاراگراف در بلوک‌های متنی باریک و ارائه‌هایی که متن لاتین و شرق آسیا را ترکیب می‌کنند مفید است. روش‌های زیر متعلق به [IParagraphFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/) هستند، بنابراین بر کل پاراگراف اعمال می‌شوند:
+
+- [setLatinLineBreak](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) قواعد شکستن خط لاتین را کنترل می‌کند. در متن ترکیبی، تغییر آن می‌تواند مکان بسته شدن متن شرق آسیا و علائم نگارشی مجاور را نیز تغییر دهد.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) قواعد شکستن خط شرق آسیا را کنترل می‌کند، از جمله محدودیت‌های کاراکتر در ابتدا و انتهای خط.
+
+این قواعد جایگزین [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) نمی‌شوند؛ این متد بسته شدن خودکار درون یک فریم متنی را فعال می‌کند. این قواعد بر زمانی که بسته شدن رخ می‌دهد، تأثیر می‌گذارند؛ آن‌ها کاراکترهای شکستن خط را وارد نمی‌کنند. یک شکست خط صریح یک خط جدید درون پاراگراف ایجاد می‌کند که مستقل از عرض در دسترس است.
+
+مثال خودکفا زیر یک بلوک متنی باریک شامل چینی و لاتین ایجاد می‌کند. هر دو گزینه شکستن خط به‌صورت صریح تنظیم می‌شوند و «line_breaking.pptx» ذخیره می‌شود. برای آزمایش هر یک از قواعد، مقدار مربوطه را تغییر دهید در حالی که تنظیمات دیگر ثابت بمانند. مثال از 24 پوینت Arial و SimSun با عرض فریم 160 پوینت و حاشیه افقی صفر استفاده می‌کند. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) با [TextAutofitType.None](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textautofittype/) فراخوانی می‌شود تا اندازه متن و ابعاد فریم ثابت بمانند.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 160, 300);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(NullableBool.True);
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("中文排版测试，PowerPoint 中文演示。");
+
+    IParagraphFormat format = paragraph.getParagraphFormat();
+    format.setAlignment(TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    FontData latinFont = new FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    FontData eastAsianFont = new FontData("SimSun");
+    format.getDefaultPortionFormat().setEastAsianFont(eastAsianFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    format.setLatinLineBreak(NullableBool.False);
+    format.setEastAsianLineBreak(NullableBool.True);
+
+    presentation.save("line_breaking.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **کنترل نقطه‌گذاری معلق**
+
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) به علائم نگارشی واجد شرایط اجازه می‌دهد تا فراتر از لبه راست خط متن امتداد یابند به‌جای اینکه در خط بعدی قرار گیرند. این ویژگی به کل پاراگراف اعمال می‌شود و متفاوت از تورفتگی معلق است.
+
+مثال خودکفا زیر نقطه‌گذاری معلق را در یک فریم متن با عرض 100 پوینت فعال می‌کند و «hanging_punctuation.pptx» ذخیره می‌کند. با 24 پوینت Arial و حاشیه افقی صفر، نقطه نهایی بعد از «sentence» می‌ماند و بیش از لبه راست متن امتداد می‌یابد. برای مقایسه مقدار را به [NullableBool.False](https://reference.aspose.com/slides/fa/java/com.aspose.slides/nullablebool/) تنظیم کنید: با این تنظیمات، نقطه یک خط جداگانه اشغال می‌کند. بسته شدن فعال و autofit غیرفعال است تا عرض در دسترس ثابت بماند.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 100, 200);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(NullableBool.True);
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("Simple text, next sentence.");
+
+    IParagraphFormat format = paragraph.getParagraphFormat();
+    format.setAlignment(TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    FontData latinFont = new FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    format.setHangingPunctuation(NullableBool.True);
+
+    presentation.save("hanging_punctuation.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+همهٔ علائم نگارشی نمی‌توانند معلق شوند. نتیجهٔ قابل مشاهده به در دسترس بودن قلم و طرح‌بندی بستگی دارد: تغییر قلم، عرض در دسترس، حاشیه‌ها یا تنظیمات autofit می‌تواند اختلاف قابل مشاهده را حذف کند.
 
 ## **تنظیم نوع Autofit برای فریم‌های متن**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) تعیین می‌کند متن هنگام تجاوز از مرزهای کانتینر خود چگونه رفتار کند. از آن برای کنترل این که آیا متن کوچک می‌شود، سرریز می‌کند یا به‌صورت خودکار شکل را تغییر اندازه می‌دهد، استفاده کنید.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) تعیین می‌کند متن هنگام عبور از مرزهای محفظهٔ خود چگونه رفتار کند. از آن برای کنترل اینکه متن کوچک شود، بیرون بزند یا به‌صورت خودکار شکل را تغییر اندازه دهد استفاده کنید. مثال زیر شکل را برای متناسب شدن با متن تغییر اندازه می‌دهد و نتیجه را در «autofit_type.pptx» ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -436,8 +539,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
     presentation.save("autofit_type.pptx", SaveFormat.Pptx);
@@ -446,11 +549,11 @@ try {
 }
 ```
 
-برای شمارش خطوط پس از پیچ‌گیری خودکار و مشاهده اینکه چگونه عرض متن یا شکل نتیجه را تغییر می‌دهد، به بخش [شمارش خطوط رندر شده](/slides/fa/java/manage-paragraph/) مراجعه کنید. تنها شمارش خطوط نشانگر سرریز متن نیست.
+برای شمارش خطوط پس از بسته شدن خودکار و مشاهدهٔ نحوهٔ تغییر عرض متن یا شکل، به [Count Rendered Lines](/slides/fa/java/manage-paragraph/) مراجعه کنید. شمارش خطوط به تنهایی نشان نمی‌دهد که متن از محفظهٔ خود عبور کرده است یا نه.
 
 ## **تنظیم لنگر فریم‌های متن**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) تعریف می‌کند متن به صورت عمودی داخل شکل در کجا قرار گیرد؛ برای مثال در بالا، وسط یا پایین.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) تعیین می‌کند متن به‌صورت عمودی در داخل یک شکل چگونه موقعیت‌گیری کند، به‌عنوان مثال در بالا، وسط یا پایین. مثال زیر متن را به پایین اولین شکل لنگر می‌کند و نتیجه را در «text_anchor.pptx» ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -458,8 +561,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
     presentation.save("text_anchor.pptx", SaveFormat.Pptx);
@@ -470,7 +573,7 @@ try {
 
 ## **تنظیم تب‌بندی متن**
 
-از [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) و [IParagraphFormat.getTabs](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getTabs--) برای پیکربندی توقف‌های تب در یک پاراگراف استفاده کنید.
+از [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) و [IParagraphFormat.getTabs](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getTabs--) برای پیکربندی توقف‌های تب در یک پاراگراف استفاده کنید. مثال زیر فاصله پیش‌فرض تب را به 100 پوینت تنظیم می‌کند و یک توقف تب چپ‌چین را در 30 پوینت اضافه می‌کند. این تنظیمات بر متنی که شامل کاراکترهای تب باشد تأثیر می‌گذارد.
 
 ```java
 import com.aspose.slides.*;
@@ -478,9 +581,10 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
+    
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setDefaultTabSize(100);
     paragraph.getParagraphFormat().getTabs().add(30, TabAlignment.Left);
 
@@ -494,11 +598,11 @@ try {
 
 ![تب‌های پاراگراف](paragraph_tabs.png)
 
-## **تنظیم زبان تصحیح املایی**
+## **تنظیم زبان Proofing**
 
-Aspose.Slides متد [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) را ارائه می‌دهد که به شما امکان می‌دهد زبان تصحیح املایی برای یک قسمت متن را تنظیم کنید. زبان تصحیح املایی تعیین می‌کند کدام زبان برای بررسی املایی و گرامری در PowerPoint استفاده شود.
+Aspose.Slides متد [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) را فراهم می‌کند که به شما اجازه می‌دهد زبان proofing را برای یک بخش متنی تنظیم کنید. زبان proofing زبان مورد استفاده برای بررسی املا و گرامر در PowerPoint را تعیین می‌کند.
 
-کد مثال زیر نشان می‌دهد چگونه زبان تصحیح املایی برای یک قسمت متن تنظیم شود:
+مثال زیر به «presentation.pptx» با یک جعبه متن به‌عنوان اولین شکل در اولین اسلاید و حداقل یک پاراگراف نیاز دارد. محتوای اولین پاراگراف را به «1。» تغییر می‌دهد، فونت آن را به SimSun تنظیم می‌کند و زبان proofing چینی ساده (`zh-CN`) را اختصاص می‌دهد. نتیجه در «proofing_language.pptx» ذخیره می‌شود:
 
 ```java
 import com.aspose.slides.*;
@@ -518,7 +622,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // شناسه زبان تصحیح املایی را تنظیم کنید.
+    // شناسه زبان proofing را تنظیم کنید.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -532,7 +636,7 @@ try {
 
 ## **تنظیم زبان پیش‌فرض**
 
-از [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) برای تعریف زبان پیش‌فرض متنی که هنگام بارگذاری یا ایجاد یک ارائه ایجاد می‌شود، استفاده کنید.
+از [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) برای تعریف زبان پیش‌فرض متنی که در حین بارگذاری یا ایجاد یک ارائه ایجاد می‌شود، استفاده کنید. مثال زیر یک ارائه با زبان متنی انگلیسی آمریکا به‌عنوان پیش‌فرض ایجاد می‌کند، یک جعبه متن اضافه می‌کند و برای اولین بخش متنی آن `en-US` چاپ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -548,7 +652,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // زبان اولین قسمت را بررسی کنید.
+    // زبان اولین بخش را بررسی کنید.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -558,16 +662,16 @@ try {
 
 ## **تنظیم سبک متن پیش‌فرض**
 
-برای اعمال قالب‌بندی متن پیش‌فرض در سطح ارائه، از [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--) استفاده کنید.
+برای اعمال قالب‌بندی پیش‌فرض متن در سطح ارائه، از [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--) استفاده کنید.
 
-کد مثال زیر نشان می‌دهد چگونه یک قلم بولد با اندازه 14 pt به‌عنوان متن پیش‌فرض برای تمام متن‌های اسلایدها در یک ارائه جدید تنظیم شود.
+مثال زیر قلم بولد 14 پوینت را به‌عنوان پیش‌فرض برای پاراگراف‌های سطح بالای یک ارائهٔ جدید تنظیم می‌کند و در «default_text_style.pptx» ذخیره می‌شود. متن می‌تواند این پیش‌فرض‌ها را به ارث ببرد مگر این که قالب‌بندی خاص‌تری آنها را بازنویسی کند.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // دریافت قالب پاراگراف سطح بالا.
+    // دریافت قالب پاراگراف سطح بالایی.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -581,15 +685,15 @@ try {
 }
 ```
 
-## **استخراج متن با اثر All‑Caps**
+## **استخراج متن با اثر تمام‌حروف بزرگ**
 
-در PowerPoint، اعمال اثر قلم **All Caps** باعث می‌شود متن در اسلاید به صورت حروف بزرگ نشان داده شود حتی اگر ابتدا با حروف کوچک وارد شده باشد. وقتی چنین قسمتی را با Aspose.Slides بازیابی می‌کنید، کتابخانه متن دقیقاً همان‌گونه که وارد شده است برمی‌گرداند. برای تطبیق با متن نمایش داده‌شده، [TextCapType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textcaptype/) را بررسی کنید و وقتی مقدار `All` باشد، رشته بازگردانده‌شده را به حروف بزرگ تبدیل کنید.
+در PowerPoint، اعمال اثر **All Caps** به قلم باعث می‌شود متن حتی اگر به حروف کوچک وارد شده باشد، روی اسلاید به صورت حروف بزرگ نمایش داده شود. هنگامی که چنین بخشی از متن را با Aspose.Slides استخراج می‌کنید، کتابخانه متن را دقیقاً به همان شکلی که وارد شده برمی‌گرداند. برای هم‌خوانی با متن نمایشی، [TextCapType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textcaptype/) را بررسی کنید و زمانی که مقدار `All` باشد، رشتهٔ بازگشتی را به حروف بزرگ تبدیل کنید.
 
-فرض کنید جعبه متن زیر را در اسلاید اول فایل sample2.pptx داریم.
+مثال زیر به «sample2.pptx» با یک جعبه متن به‌عنوان اولین شکل در اولین اسلاید نیاز دارد. اولین پاراگراف آن اولین بخش متن «Hello, Aspose!» را دارد که اثر All Caps روی آن اعمال شده است، همان‌طور که در زیر نشان داده شده است.
 
-![اثر All Caps](all_caps_effect.png)
+![اثر تمام‌حروف بزرگ](all_caps_effect.png)
 
-کد مثال زیر نشان می‌دهد چگونه متن با اثر **All Caps** استخراج شود:
+کد مثال زیر نشان می‌دهد چگونه متن را با اثر **All Caps** استخراج کنیم:
 
 ```java
 import com.aspose.slides.*;
@@ -597,6 +701,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample2.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
@@ -621,10 +726,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **پرسش‌های متداول**
 
-**چگونه متن در جدول یک اسلاید را ویرایش کنیم؟**
+**How do I modify text in a table on a slide?**
 
-برای ویرایش متن در جدول یک اسلاید، از [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itable/) استفاده کنید. سلول‌ها را پیمایش کرده و هر سلول را از طریق [ICell.getTextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/#getTextFrame--) و قالب‌بندی پاراگراف از طریق [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/#getParagraphFormat--) به‌روزرسانی کنید.
+برای اصلاح متن در یک جدول روی اسلاید، از [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itable/) استفاده کنید. سلول‌ها را پیمایش کرده و هر سلول را از طریق [ICell.getTextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/#getTextFrame--) و قالب‌بندی پاراگراف‌ها از طریق [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/#getParagraphFormat--) به‌روزرسانی کنید.
 
-**چگونه رنگ گرادیانی را به متن در یک اسلاید PowerPoint اعمال کنیم؟**
+**How do I apply a gradient color to text on a PowerPoint slide?**
 
-برای اعمال رنگ گرادیانی به متن، از [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) استفاده کنید. [IFillFormat.setFillType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifillformat/#setFillType-byte-) را به [FillType.Gradient](https://reference.aspose.com/slides/fa/java/com.aspose.slides/filltype/) تنظیم کرده و توقف‌های گرادیان، جهت و شفافیت را پیکربندی کنید.
+برای اعمال رنگ گرادیانت به متن، از [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) استفاده کنید. مقدار [IFillFormat.setFillType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifillformat/#setFillType-byte-) را روی [FillType.Gradient](https://reference.aspose.com/slides/fa/java/com.aspose.slides/filltype/) تنظیم کنید و نقاط گرادیانت، جهت و شفافیت را پیکربندی کنید.

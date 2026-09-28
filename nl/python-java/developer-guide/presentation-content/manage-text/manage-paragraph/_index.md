@@ -1,6 +1,6 @@
 ---
-title: "PowerPoint-tekstparagrafen beheren in Python via Java"
-linktitle: "Paragraaf beheren"
+title: Beheer PowerPoint-tekst alinea's in Python via Java
+linktitle: Beheer alinea
 type: docs
 weight: 40
 url: /nl/python-java/manage-paragraph/
@@ -8,55 +8,57 @@ aliases:
   - /python-java/paragraph/
   - /python-java/portion/
 keywords:
-  - "tekst toevoegen"
-  - "paragraaf toevoegen"
-  - "tekst beheren"
-  - "paragraaf beheren"
-  - "opsommingsteken beheren"
-  - "paragraafinsprong"
-  - "hangende insprong"
-  - "paragraaf opsommingsteken"
-  - "genummerde lijst"
-  - "opsomminglijst"
-  - "paragraafeigenschappen"
-  - "HTML importeren"
-  - "tekst naar HTML"
-  - "paragraaf naar HTML"
-  - "paragraaf naar afbeelding"
-  - "tekst naar afbeelding"
-  - "paragraaf exporteren"
-  - "PowerPoint"
-  - "presentatie"
-  - "Python"
-  - "Java"
-  - "Aspose.Slides"
-description: "Leer hoe u paragrafen, gedeelten, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en paragraafafbeeldingen kunt maken en opmaken met Aspose.Slides voor Python via Java."
+- tekst toevoegen
+- alinea toevoegen
+- tekst beheren
+- alinea beheren
+- opsommingsteken beheren
+- alinea‑insprong
+- hangende insprong
+- opsommingsteken alinea
+- genummerde lijst
+- opsommingstekenlijst
+- alinea‑eigenschappen
+- HTML importeren
+- tekst naar HTML
+- alinea naar HTML
+- alinea naar afbeelding
+- tekst naar afbeelding
+- alinea exporteren
+- PowerPoint
+- presentatie
+- Python
+- Java
+- Aspose.Slides
+description: "Leer hoe u alinea's, delen, opsommingstekens, genummerde lijsten, insprongen, HTML‑inhoud en alinea‑afbeeldingen kunt maken en opmaken met Aspose.Slides voor Python via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor Python via Java stelt tekst voor als een hiërarchie van TextFrames, Paragraphs en Portions:
+Aspose.Slides voor Python via Java vertegenwoordigt tekst als een hiërarchie van tekstkaders, alinea's en delen:
 
-* [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) vertegenwoordigt de tekstopslag in een shape en biedt toegang tot de verzameling paragraphs.
-* [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) vertegenwoordigt één paragraph in een TextFrame en biedt toegang tot de portions en de op paragraph‑niveau formattering.
-* [Portion](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/) vertegenwoordigt een tekstrun binnen een paragraph. Elke Portion kan zijn eigen tekst en op tekenniveau formattering hebben.
+* [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) vertegenwoordigt de tekstcontainer in een vorm en biedt toegang tot de alinea‑collectie.
+* [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstkader en biedt toegang tot de delen en de alinea‑niveau opmaak.
+* [Portion](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/) vertegenwoordigt een tekstreeks binnen een alinea. Elk deel kan zijn eigen tekst en teken‑niveau opmaak hebben.
 
-Een paragraph kan daarom tekst bevatten met verschillende lettertypen, kleuren, groottes en andere opmaak door meerdere portions te gebruiken.
+Een alinea kan daarom tekst met verschillende lettertypen, kleuren, groottes en andere opmaak bevatten door meerdere delen te gebruiken.
 
-## **Paragraphen maken en opmaken**
+## **Alinea's maken en opmaken**
 
-### **Paragraphen maken met meerdere Portions**
+### **Alinea's maken met meerdere delen**
 
-De volgende stappen maken een TextFrame met drie paragraphen, elk met drie portions:
+De volgende stappen maken een tekstkader met drie alinea's, elk met drie delen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse aan.
-2. Toegang krijgen tot de relevante slide via de index.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de slide.
-4. Toegang krijgen tot de [TextFrame] van de vorm.
-5. Gebruik de standaard paragraph en voeg twee extra [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/)‑objecten toe aan het TextFrame.
-6. Voeg genoeg [Portion](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/)‑objecten toe zodat elke paragraph drie portions bevat. De standaard paragraph bevat al één lege portion.
-7. Stel de tekst van elke portion in.
-8. Pas op tekenniveau formattering toe via [Portion.getPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/#getPortionFormat).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
+2. Open de betreffende dia via zijn index.
+3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de dia.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) van de vorm.
+5. Gebruik de standaardalinea en voeg twee extra [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) objecten toe aan het tekstkader.
+6. Voeg voldoende [Portion](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/) objecten toe zodat elke alinea drie delen bevat. De standaardalinea bevat al één leeg deel.
+7. Stel de tekst van elk deel in.
+8. Pas teken‑niveau opmaak toe via [Portion.getPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/#getPortionFormat).
 9. Sla de gewijzigde presentatie op.
+
+Dit Python‑voorbeeld implementeert de stappen:
 
 ```python
 import jpype
@@ -108,24 +110,26 @@ finally:
     presentation.dispose()
 ```
 
-## **Opsommingstekens en genummerde lijsten maken**
+## **Lijsten met opsommingstekens en genummerde lijsten maken**
 
 ### **Een opsomming of genummerde lijst maken**
 
-Opsommingstekens en nummering maken verwante items makkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/).
+Opsommingstekens en nummering maken gerelateerde items makkelijker door te nemen. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/).
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse aan.
-2. Toegang krijgen tot de relevante slide via de index.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de geselecteerde slide.
-4. Toegang krijgen tot de [TextFrame] van de vorm.
-5. Verwijder de standaard paragraph uit het TextFrame.
-6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) voor een symboolbullet.
-7. Stel [BulletFormat.setType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setType) in op [BulletType.Symbol](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bullettype/#Symbol) en specificeer het bulletteken.
-8. Stel de tekst, inspringing, bulletkleur en bullethoogte van de paragraph in.
-9. Voeg de paragraph toe aan het TextFrame.
-10. Maak een tweede paragraph en stel [BulletFormat.setType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setType) in op [BulletType.Numbered](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bullettype/#Numbered).
-11. Configureer de genummerde bulletstijl en voeg de paragraph toe aan het TextFrame.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
+2. Open de betreffende dia via zijn index.
+3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de geselecteerde dia.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) van de vorm.
+5. Verwijder de standaardalinea uit het tekstkader.
+6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
+7. Stel [BulletFormat.setType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setType) in op [BulletType.Symbol](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bullettype/#Symbol) en specificeer het opsommingsteken‑karakter.
+8. Stel de alinea‑tekst, insprong, opsommingsteken‑kleur en opsommingsteken‑hoogte in.
+9. Voeg de alinea toe aan het tekstkader.
+10. Maak een tweede alinea en stel [BulletFormat.setType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setType) in op [BulletType.Numbered](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bullettype/#Numbered).
+11. Configureer de genummerde opsommingsteken‑stijl en voeg de alinea toe aan het tekstkader.
 12. Sla de presentatie op.
+
+Dit Python‑voorbeeld maakt een symbool‑opsommingsteken en een genummerd opsommingsteken:
 
 ```python
 import jpype
@@ -168,20 +172,22 @@ finally:
     presentation.dispose()
 ```
 
-### **Afbeeldingsbullets gebruiken**
+### **Afbeeldingsopsommingstekens gebruiken**
 
-Afbeeldingsbullets laten u een aangepaste afbeelding gebruiken in plaats van een symbool of cijfer.
+Afbeeldingsopsommingstekens laten u een aangepast beeld gebruiken in plaats van een symbool of nummer.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse aan.
-2. Toegang krijgen tot de relevante slide via de index.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe en krijg toegang tot de [TextFrame].
-4. Verwijder de standaard paragraph uit het TextFrame.
-5. Laad de bulletafbeelding en voeg deze toe aan de afbeeldingenverzameling van de presentatie als een [PPImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
+2. Open de betreffende dia via zijn index.
+3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe en open het bijbehorende [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/).
+4. Verwijder de standaardalinea uit het tekstkader.
+5. Laad het opsommingsteken‑beeld en voeg het toe aan de afbeeldingscollectie van de presentatie als een [PPImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/).
 6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) en stel de tekst in.
 7. Stel [BulletFormat.setType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setType) in op [BulletType.Picture](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bullettype/#Picture).
-8. Wijs de afbeelding toe via [BulletFormat.getPicture](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#getPicture) en stel de bullethoogte in.
-9. Voeg de paragraph toe aan het TextFrame.
+8. Wijs het beeld toe via [BulletFormat.getPicture](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#getPicture) en stel de opsommingsteken‑hoogte in.
+9. Voeg de alinea toe aan het tekstkader.
 10. Sla de gewijzigde presentatie op.
+
+Dit Python‑voorbeeld maakt een afbeelding‑opsommingsteken:
 
 ```python
 import jpype
@@ -215,15 +221,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Een meerlagige lijst maken**
+### **Meerniveau‑lijst maken**
 
-Stel [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setDepth) in om paragraphen op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
+Stel [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setDepth) in om alinea's op verschillende niveaus in een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) aan en krijg toegang tot een slide.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe en verwijder de standaard paragraph uit het TextFrame.
-3. Maak vier paragraphen en configureer hun bullet‑symbolen.
-4. Stel hun [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setDepth)-waarden in op `0`, `1`, `2` en `3`.
-5. Voeg de paragraphen toe aan het TextFrame en sla de presentatie op.
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) en open een dia.
+2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe en verwijder de standaardalinea uit het tekstkader.
+3. Maak vier alinea's en configureer hun opsommingsteken‑symbolen.
+4. Stel hun [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setDepth) waarden in op `0`, `1`, `2` en `3`.
+5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
+
+Dit Python‑voorbeeld maakt een vier‑niveau‑opsommingstoepassing:
 
 ```python
 import jpype
@@ -278,15 +286,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Nummering van lijstitems starten met aangepaste waarden**
+### **Genummerde lijstelementen starten met aangepaste waarden**
 
-Gebruik [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) om het startnummer voor een genummerde paragraph in te stellen.
+Gebruik [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) om het startnummer voor een genummerde alinea in te stellen.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan een slide.
-2. Verwijder de standaard paragraph uit het TextFrame van de vorm.
-3. Maak drie genummerde paragraphen.
-4. Stel [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) in op `2`, `3` en `7` voor de respectieve paragraphen.
-5. Voeg de paragraphen toe aan het TextFrame en sla de presentatie op.
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan een dia.
+2. Verwijder de standaardalinea uit het tekstkader van de vorm.
+3. Maak drie genummerde alinea's.
+4. Stel [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) in op `2`, `3` en `7` voor de respectieve alinea's.
+5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
+
+Dit Python‑voorbeeld kent een aangepast startnummer toe aan elke alinea:
 
 ```python
 import jpype
@@ -323,23 +333,25 @@ finally:
     presentation.dispose()
 ```
 
-## **Paragraphlay-out en eind‑eigenschappen beheren**
+## **Alinea‑lay-out en eind‑eigenschappen beheren**
 
-### **Een eerste‑lijninsprong instellen**
+### **Eerste‑regelinloop instellen**
 
-Gebruik [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) om de eerste‑lijninsprong van een paragraph te regelen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de paragraph. Een positieve waarde schuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met het paragraph‑lichaam.
+Gebruik [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) om de eerste‑regelinloop van een alinea te regelen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
 
-Gebruik [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft) wanneer u de gehele paragraph wilt verplaatsen. Gebruik [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) wanneer u alleen de eerste regel wilt verplaatsen.
+Gebruik [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft) wanneer u de volledige alinea wilt verplaatsen. Gebruik [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) wanneer u alleen de eerste regel wilt verplaatsen.
 
-Het voorbeeld hieronder maakt verschillende paragraphen en past verschillende [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent)-waarden toe om te laten zien hoe de eerste‑lijninsprong de lay-out beïnvloedt.
+Het voorbeeld hieronder maakt verschillende alinea's en past verschillende [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) waarden toe om te laten zien hoe de eerste‑regelinloop de lay-out beïnvloedt.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse aan.
-2. Toegang krijgen tot de doel‑slide.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de slide.
-4. Toegang krijgen tot de [TextFrame] van de vorm en verwijder de standaard paragraph.
-5. Maak verschillende paragraphen en stel verschillende [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent)-waarden voor hen in.
-6. Voeg de paragraphen toe aan het TextFrame.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
+2. Open de doel‑dia.
+3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de dia.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+5. Maak verschillende alinea's en stel voor elk verschillende [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) waardes in.
+6. Voeg de alinea's toe aan het tekstkader.
 7. Sla de gewijzigde presentatie op.
+
+Deze code laat zien hoe u een alinea‑insprong instelt:
 
 ```python
 import jpype
@@ -369,13 +381,13 @@ try:
     first_paragraph.getParagraphFormat().setIndent(0.0)
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
     third_paragraph = Paragraph()
     third_paragraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.")
-    third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    third_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     third_paragraph.getParagraphFormat().setMarginLeft(20.0)
     third_paragraph.getParagraphFormat().setIndent(40.0)
@@ -389,24 +401,26 @@ finally:
 
 Het resultaat:
 
-![De eerste‑lijninsprong van de alinea's](first_line_indent.png)
+![De eerste‑regelinsprong van de alinea's](first_line_indent.png)
 
-### **Een hangende insprong instellen**
+### **Hangende insprong instellen**
 
-Een hangende insprong is een paragraph‑lay‑out waarbij de eerste regel links begint ten opzichte van de overige regels. In Aspose.Slides creëert u dit effect met [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent). Geef een negatieve waarde op om de eerste regel naar links te verplaatsen ten opzichte van het paragraph‑lichaam.
+Een hangende insprong is een alinea‑lay-out waarbij de eerste regel links van de resterende regels begint. In Aspose.Slides creëert u dit effect met [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent). Geef een negatieve waarde op om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
 
-In de praktijk definieert [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft) de linkse positie van het paragraph‑lichaam, en [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) de positie van de eerste regel ten opzichte van die marge. Om een hangende insprong te creëren, geef een positieve waarde op voor [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft) en een negatieve waarde voor [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent).
+In de praktijk bepaalt [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft) de linkermarge van de alinea‑inhoud, en [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) de positie van de eerste regel ten opzichte van die marge. Om een hangende insprong te maken, geeft u een positieve waarde aan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft) en een negatieve waarde aan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent).
 
-Deze formattering is nuttig voor bibliografieën, referenties, woordenlijst‑items en andere paragraphen waarbij ingesprongen regels onder het paragraph‑lichaam moeten uitlijnen i.p.v. onder het eerste teken van de eerste regel.
+Deze opmaak is nuttig voor bibliografieën, referenties, begrippenlijsten en andere alinea's waarbij afgebroken regels onder de alinea‑inhoud moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse aan.
-2. Toegang krijgen tot de doel‑slide.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de slide.
-4. Toegang krijgen tot de [TextFrame] van de vorm en verwijder de standaard paragraph.
-5. Maak paragraphen en geef een positieve waarde op voor [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft) voor elke paragraph.
-6. Geef een negatieve waarde op voor [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) om het hangende‑insprongeffect te creëren.
-7. Voeg de paragraphen toe aan het TextFrame.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
+2. Open de doel‑dia.
+3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe aan de dia.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+5. Maak alinea's en geef voor elke een positieve waarde aan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setMarginLeft).
+6. Geef een negatieve waarde aan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setIndent) om het hangende‑insprong‑effect te creëren.
+7. Voeg de alinea's toe aan het tekstkader.
 8. Sla de gewijzigde presentatie op.
+
+Deze code laat zien hoe u een hangende insprong voor een alinea instelt:
 
 ```python
 import jpype
@@ -451,16 +465,16 @@ Het resultaat:
 
 ![De hangende insprong van de alinea's](hanging_indent.png)
 
-### **Eind‑paragraph‑run‑eigenschappen instellen**
+### **Einde‑alinea‑run‑eigenschappen instellen**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) beheert de formattering van het eind‑teken van een paragraph. Het volgende voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eind‑teken van de tweede paragraph:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) regelt de opmaak van het eindteken van de alinea. Het volgende voorbeeld kent een lettergrootte en een Latijnse lettertype toe aan het eindteken van de tweede alinea:
 
-1. Laad een [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) en krijg toegang tot een slide.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe en verwijder de standaard paragraph.
-3. Maak twee paragraphen en voeg tekst‑portions toe aan hen.
-4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) voor het eind‑teken van de tweede paragraph.
+1. Laad een [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) en open een dia.
+2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe en verwijder de standaardalinea.
+3. Maak twee alinea's en voeg tekstdelen toe.
+4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) voor het eindteken van de tweede alinea.
 5. Stel [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseportionformat/#setFontHeight) en [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseportionformat/#setLatinFont) in.
-6. Wijs het format toe met [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) en sla de presentatie op.
+6. Wijs de opmaak toe met [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) en sla de presentatie op.
 
 ```python
 import jpype
@@ -495,13 +509,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Gerenderde regels tellen**
+## **Aantal gerenderde regels tellen**
 
-Gebruik [Paragraph.getLinesCount](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#getLinesCount) om het aantal regels te tellen dat een paragraph inneemt na tekst‑lay‑out, inclusief automatisch afbreken. Dit is handig bij het controleren van tekstelengte en lay‑out in presentatiesjablonen.
+Voor alinea‑regels die automatisch afbreken en interpunctie aan het einde van regels beïnvloeden, zie [Control Line Breaking](/slides/nl/python-java/text-formatting/#control-line-breaking) en [Control Hanging Punctuation](/slides/nl/python-java/text-formatting/#control-hanging-punctuation).
 
-Een paragraph is één item in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/#getParagraphs), en kan meerdere gerenderde regels bezetten. Een expliciete regeleinde‑invoeging binnen een paragraph dwingt een nieuwe regel af zonder een extra paragraph te maken. Automatisch afbreken genereert regels op basis van de beschikbare breedte zonder expliciete regeleindes in de tekst in te voegen. Het tellen van paragraphen of regeleinde‑tekens geeft daarom niet het gerenderde aantal regels.
+Gebruik [Paragraph.getLinesCount](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#getLinesCount) om het aantal regels dat een alinea inneemt na tekstlay-out te tellen, inclusief automatische afbreking. Dit is nuttig bij het controleren van tekstlengte en lay-out in presentatiesjablonen.
 
-Het volgende voorbeeld maakt een tekst‑shape, telt de regels, vernauwt de shape en vervangt daarna de tekst door een kortere string. Afbreken is ingeschakeld en autofit is uitgeschakeld zodat de breedte van de shape het afbreken bepaalt zonder de tekst automatisch te verkleinen of de shape te herschalen. Shape‑dimensies zijn in punten. Ten slotte voegt het voorbeeld een extra paragraph toe en somt de regel‑aantallen op over het TextFrame.
+Een alinea is één item in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/#getParagraphs), en kan meerdere gerenderde regels innemen. Een expliciete regelafbreking binnen een alinea dwingt een nieuwe regel af zonder een extra alinea te creëren. Automatische afbreking maakt regels op basis van de beschikbare breedte zonder expliciete line‑break‑tekens in de tekst in te voegen. Het tellen van alinea's of line‑break‑tekens levert daarom niet het gerenderde regelaantal op.
+
+Het volgende voorbeeld maakt een tekstvorm, telt de regels, verkleint de vorm en vervangt vervolgens de tekst door een kortere tekenreeks. Afbreken is ingeschakeld en autofit is uitgeschakeld zodat de vormbreedte de afbreking bepaalt zonder de tekst automatisch te verkleinen of de vorm te herschalen. Vormafmetingen zijn in punten. Ten slotte voegt het voorbeeld nog een alinea toe en somt de regelaantallen over het tekstkader.
 
 ```python
 import jpype
@@ -545,22 +561,24 @@ finally:
     presentation.dispose()
 ```
 
-Met deze tekst en deze dimensies verhoogt het vernauwen van de shape het aantal regels, terwijl het vervangen van de tekst door de korte string dit vermindert. Precieze aantallen kunnen variëren afhankelijk van de beschikbare lettertypen en substitutie, lettergrootte, marges, inspringing, afbreken en autofit‑instellingen. Gebruik de lettertypen en lay‑out‑instellingen die bedoeld zijn voor de doelsituatie bij het controleren van een sjabloon.
+Met deze tekst en afmetingen vergroot het verkleinen van de vorm het aantal regels, terwijl het vervangen van de tekst door de korte tekenreeks het aantal vermindert. Exacte aantallen kunnen variëren afhankelijk van de beschikbare lettertypen en substitutie, lettergrootte, marges, insprong, afbreking en autofit‑instellingen. Gebruik de lettertypen en lay‑out‑instellingen die voor de doelsituatie bedoeld zijn bij het testen van een sjabloon.
 
-Het aantal regels alleen bepaalt niet of tekst buiten zijn container stroomt. De beschikbare hoogte, regelhoogtes, alinea‑ en regel‑afstand, en autofit‑gedrag zijn ook van belang; zelfs één regel kan de beschikbare breedte overschrijden wanneer afbreken is uitgeschakeld.
+Het aantal regels alleen bepaalt niet of de tekst buiten de container stroomt. De beschikbare hoogte, regelhoogten, alinea‑ en regel‑interlinie, en het gedrag van autofit zijn eveneens van belang; zelfs een enkele regel kan de beschikbare breedte overschrijden wanneer afbreken is uitgeschakeld.
 
-## **Paragraphinhoud importeren en exporteren**
+## **Alinea‑inhoud importeren en exporteren**
 
-### **HTML‑tekst importeren in paragraphen**
+### **HTML‑tekst importeren in alinea's**
 
-Gebruik [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphcollection/#addFromHtml) om HTML‑markup om te zetten in paragraphen en portions in een TextFrame.
+Gebruik [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphcollection/#addFromHtml) om HTML‑markup te converteren naar alinea's en delen in een tekstkader.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse aan.
-2. Toegang krijgen tot een slide en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe.
-3. Toegang krijgen tot de [TextFrame] van de vorm en verwijder de standaard paragraph.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
+2. Open een dia en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) toe.
+3. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
 4. Lees het bron‑HTML‑bestand.
 5. Geef de HTML‑string door aan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphcollection/#addFromHtml).
 6. Sla de gewijzigde presentatie op.
+
+Dit Python‑voorbeeld importeert HTML in een tekstkader:
 
 ```python
 import jpype
@@ -590,15 +608,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Paragraphtekst exporteren naar HTML**
+### **Alinea‑tekst exporteren naar HTML**
 
-Gebruik [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphcollection/#exportToHtml) om een geselecteerd bereik van paragraphen als HTML te exporteren.
+Gebruik [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphcollection/#exportToHtml) om een geselecteerd bereik van alinea's als HTML te exporteren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse aan en laad de gewenste presentatie.
-2. Toegang krijgen tot de slide en vind de [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) die de tekst bevat.
-3. Toegang krijgen tot de [TextFrame] van de vorm.
-4. Roep [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphcollection/#exportToHtml) aan met de start‑paragraph‑index en het aantal te exporteren paragraphen.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse en laad de gewenste presentatie.
+2. Open de dia en vind de [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) die de tekst bevat.
+3. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) van de vorm.
+4. Roep [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphcollection/#exportToHtml) aan met de start‑alinea‑index en het aantal alinea's dat geëxporteerd moet worden.
 5. Schrijf de geretourneerde HTML‑string naar een bestand.
+
+Dit Python‑voorbeeld exporteert alle alinea's van de eerste tekstvorm:
 
 ```python
 import jpype
@@ -631,19 +651,19 @@ finally:
     presentation.dispose()
 ```
 
-### **Een paragraph renderen als een afbeelding**
+### **Een alinea renderen als afbeelding**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) rendert een individuele paragraph direct en retourneert een afbeelding‑object. Sla het resultaat op naar een bestand of stream met de `save`‑methode. Het is niet nodig om de omliggende shape te renderen of handmatig een bitmap bij te snijden.
+[Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) rendert een individuele alinea direct en retourneert een afbeeldingobject. Sla het resultaat op in een bestand of stream met de `save`‑methode. U hoeft de omvattende vorm niet te renderen of handmatig een bitmap bij te snijden.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) kan `None` retourneren als de paragraph niet in de bovenliggende collectie wordt gevonden, geen geldige render‑grenzen heeft, of niet kan worden gerenderd. Controleer het resultaat vóór het opslaan en maak de geretourneerde afbeelding na gebruik vrij.
+[Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) kan `None` retourneren als de alinea niet gevonden kan worden in de bovenliggende collectie, geen geldige renderings‑bounds heeft, of niet gerenderd kan worden. Controleer het resultaat vóór het opslaan en maak de geretourneerde afbeelding vrij na gebruik.
 
-#### **Een paragraph renderen op de standaard schaal**
+#### **Alinea renderen op de standaardschaal**
 
-Laten we aannemen dat we een presentatie‑bestand hebben genaamd sample.pptx met één slide, waarbij de eerste shape een tekstvak is dat drie paragraphen bevat.
+Stel dat we een presentatie‑bestand hebben genaamd sample.pptx met één dia, waarbij de eerste vorm een tekstvak is met drie alinea's.
 
-![Het tekstvak met drie paragraphen](paragraph_to_image_input.png)
+![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
 
-Het volgende voorbeeld rendert de tweede paragraph in een reguliere tekst‑shape op de standaard schaal en slaat de geretourneerde afbeelding op in PNG‑formaat. Het `finally`‑blok zorgt ervoor dat de afbeelding correct wordt vrijgegeven.
+Het volgende voorbeeld rendert de tweede alinea in een regulier tekstvak op de standaardschaal en slaat de geretourneerde afbeelding op in PNG‑formaat. Het `finally`‑blok zorgt ervoor dat de afbeelding correct wordt vrijgegeven.
 
 ```python
 import jpype
@@ -680,11 +700,11 @@ finally:
 
 Het resultaat:
 
-![De paragraph‑afbeelding](paragraph_to_image_output.png)
+![De alinea‑afbeelding](paragraph_to_image_output.png)
 
-#### **Een paragraph renderen in een tabelcel met schaalvergroting**
+#### **Alinea renderen in een tabelcel met schaal**
 
-Gebruik de overload van [Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) die de parameters `scale_x` en `scale_y` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de paragraph in de eerste cel op tweemaal de standaard breedte en hoogte, en slaat het resultaat op als PNG‑afbeelding.
+Gebruik de overload van [Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) die `scale_x` en `scale_y` parameters accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op het dubbele van de standaardbreedte en -hoogte, en slaat het resultaat op als PNG‑afbeelding.
 
 ```python
 import jpype
@@ -715,24 +735,24 @@ finally:
     presentation.dispose()
 ```
 
-Een schaalfactor van `1` behoudt die as op de standaard pixelgrootte. Bijvoorbeeld, `2` voor beide factoren produceert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn van de standaard afmetingen, wat resulteert in vier keer zoveel pixels. Grotere factoren leveren doorgaans scherpere tekst voor zoom of hoge resolutie, maar verhogen ook het geheugen‑ en bestandsgroottegebruik. Factoren onder `1` produceren kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de aspect‑ratio van de paragraph te behouden; verschillende horizontale en verticale factoren rekken de uitvoer onafhankelijk uit.
+Een schaalfactor van `1` behoudt die as op de standaardpixelgrootte. Bijvoorbeeld `2` voor beide factoren produceert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn van de standaardafmetingen, wat resulteert in vier keer zoveel pixels. Grotere factoren produceren doorgaans scherpere tekst voor inzoomen of hoge‑resolutie‑output, maar verhogen ook het geheugen‑ en bestandsgrootteverbruik. Factoren onder `1` geven kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de aspect‑ratio van de alinea te behouden; verschillende horizontale en verticale factoren rekken de output onafhankelijk uit.
 
-Het renderen van een volledige shape met [Shape.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getImage) blijft nuttig wanneer de output de vulling, rand of andere visuele context van de shape moet bevatten. Voor een alleen‑paragraph‑afbeelding, gebruik [Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/).
+Het renderen van een volledige vorm met [Shape.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getImage) blijft nuttig wanneer de output ook de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding die alleen de alinea bevat, gebruikt u [Paragraph.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/).
 
 ## **FAQ**
 
-**Kan ik het regelomloop volledig uitschakelen in een TextFrame?**
+**Kan ik het automatisch afbreken van tekst in een tekstkader volledig uitschakelen?**
 
-Ja. Stel [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setWrapText) in om omspringen uit te schakelen zodat regels niet af breken aan de randen van het TextFrame.
+Ja. Stel [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setWrapText) in om afbreken uit te schakelen zodat regels niet breken bij de randen van het tekstkader.
 
-**Hoe kan ik de exacte on‑slide grenzen van een specifieke paragraph verkrijgen?**
+**Hoe krijg ik de exacte positie van een specifieke alinea op de dia?**
 
-Gebruik [Paragraph.getRect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#getRect) om de omhullende rechthoek van de paragraph op te halen. [Portion.getRect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/#getRect) geeft de grenzen van een individuele portion.
+Gebruik [Paragraph.getRect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#getRect) om het begrenzings‑rechthoek van de alinea op te halen. [Portion.getRect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portion/#getRect) geeft de grenzen van een individueel deel.
 
-**Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of uitgevuld) geregeld?**
+**Waar wordt de uitlijning van alinea's (links, rechts, gecentreerd of uitgevuld) geregeld?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setAlignment) is een instelling op paragraph‑niveau en wordt toegepast op de volledige paragraph, ongeacht de formattering van individuele portions.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setAlignment) is een alinea‑niveau instelling en wordt toegepast op de volledige alinea, ongeacht de opmaak van individuele delen.
 
-**Kan ik de taalcontrole voor een deel van een paragraph instellen?**
+**Kan ik de proefleestaal instellen voor een deel van een alinea?**
 
-Ja. Stel [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseportionformat/#setLanguageId) in voor individuele portions, zodat één paragraph tekst in meerdere talen kan bevatten.
+Ja. Stel [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseportionformat/#setLanguageId) in voor individuele delen, zodat één alinea tekst in meerdere talen kan bevatten.

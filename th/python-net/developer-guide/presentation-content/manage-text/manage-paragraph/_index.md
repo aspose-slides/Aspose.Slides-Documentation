@@ -8,56 +8,56 @@ aliases:
   - /python-net/paragraph/
   - /python-net/portion/
 keywords:
-  - เพิ่มข้อความ
-  - เพิ่มย่อหน้า
-  - จัดการข้อความ
-  - จัดการย่อหน้า
-  - จัดการหัวข้อแบบ bullet
-  - ย่อหน้าด้วยการเยื้อง
-  - ย่อหน้าแบบ hanging
-  - bullet ของย่อหน้า
-  - รายการลำดับเลข
-  - รายการแบบ bullet
-  - คุณสมบัติของย่อหน้า
-  - นำเข้า HTML
-  - ข้อความเป็น HTML
-  - ย่อหน้าเป็น HTML
-  - ย่อหน้าเป็นภาพ
-  - ข้อความเป็นภาพ
-  - ส่งออกย่อหน้า
-  - PowerPoint
-  - งานนำเสนอ
-  - Python
-  - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, portion, bullet, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และภาพย่อหน้าด้วย Aspose.Slides สำหรับ Python ผ่าน .NET."
+- เพิ่มข้อความ
+- เพิ่มย่อหน้า
+- จัดการข้อความ
+- จัดการย่อหน้า
+- จัดการ bullet
+- การเยื้องย่อหน้า
+- การเยื้องแบบ hanging
+- bullet ย่อหน้า
+- รายการลำดับเลข
+- รายการหัวข้อ
+- คุณสมบัติย่อหน้า
+- นำเข้า HTML
+- ข้อความเป็น HTML
+- ย่อหน้าเป็น HTML
+- ย่อหน้าเป็นรูปภาพ
+- ข้อความเป็นรูปภาพ
+- ส่งออกย่อหน้า
+- PowerPoint
+- งานนำเสนอ
+- Python
+- Aspose.Slides
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, portion, bullet, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และรูปภาพย่อหน้าด้วย Aspose.Slides สำหรับ Python ผ่าน .NET."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Python via .NET แสดงข้อความเป็นลำดับขั้นของ text frame, paragraph, และ portion:
+Aspose.Slides สำหรับ Python ผ่าน .NET แสดงข้อความเป็นโครงสร้างลำดับชั้นของ text frame, paragraph และ portion:
 
-* [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) เป็นคอนเทนเนอร์ของข้อความในรูปร่างและให้เข้าถึงคอลเลกชันของ paragraph
-* [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) แสดงถึง paragraph หนึ่งใน text frame และให้เข้าถึง portion และการจัดรูปแบบระดับ paragraph
-* [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) แสดงถึงส่วนของข้อความภายใน paragraph แต่ละ portion สามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
+* [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) เป็นตัวบรรจุข้อความในรูปทรงและให้การเข้าถึงคอลเลกชันของ paragraph.
+* [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) เป็น paragraph หนึ่งใน text frame และให้การเข้าถึง portion และการจัดรูปแบบระดับ paragraph.
+* [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) เป็นส่วนข้อความภายใน paragraph. แต่ละ portion สามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้.
 
-ดังนั้น paragraph สามารถประกอบด้วยข้อความที่มีฟอนต์ สี ขนาด และการจัดรูปแบบอื่น ๆ ที่แตกต่างกันโดยใช้หลาย portion
+ดังนั้น paragraph สามารถมีข้อความที่มีฟอนต์ สี ขนาด และการจัดรูปแบบอื่น ๆ ที่แตกต่างกันได้โดยใช้หลาย portion.
 
 ## **สร้างและจัดรูปแบบ Paragraphs**
 
-### **สร้าง Paragraphs ด้วยหลาย Portion**
+### **สร้าง Paragraphs ด้วย Multiple Portions**
 
-ขั้นตอนต่อไปนี้จะสร้าง text frame ที่มีสาม paragraph โดยแต่ละ paragraph มีสาม portion:
+ขั้นตอนต่อไปนี้สร้าง text frame ที่มีสาม paragraph แต่ละอันประกอบด้วยสาม portion:
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่ต้องการโดยใช้ดัชนี
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมลงในสไลด์
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape
-5. ใช้ paragraph เริ่มต้นและเพิ่ม [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) อีกสองออบเจกต์ลงใน text frame
-6. เพิ่ม [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) ให้พอสำหรับแต่ละ paragraph เพื่อให้มีสาม portion (paragraph เริ่มต้นมี portion ว่างหนึ่งออบเจกต์อยู่แล้ว)
-7. ตั้งค่าข้อความของแต่ละ portion
-8. ใช้การจัดรูปแบบระดับอักขระผ่าน [Portion.portion_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/portion_format/)
-9. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
+2. เข้าถึง slide ที่เกี่ยวข้องโดยใช้ดัชนีของมัน.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมผืนผ้าไปยัง slide.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape.
+5. ใช้ paragraph เริ่มต้นและเพิ่มอีกสองอ็อบเจ็กต์ [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) ไปยัง text frame.
+6. เพิ่มอ็อบเจ็กต์ [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) จำนวนเพียงพอให้แต่ละ paragraph มีสาม portion. paragraph เริ่มต้นมี portion ว่างหนึ่งอันอยู่แล้ว.
+7. กำหนดข้อความของแต่ละ portion.
+8. ใช้การจัดรูปแบบระดับอักขระผ่าน [Portion.portion_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/portion_format/).
+9. บันทึก presentation ที่แก้ไขแล้ว.
 
-ตัวอย่าง Python ด้านล่างทำตามขั้นตอนเหล่านี้:
+ตัวอย่าง Python นี้ดำเนินการตามขั้นตอนดังกล่าว:
 
 ```python
 import aspose.pydrawing as draw
@@ -104,26 +104,26 @@ with slides.Presentation() as presentation:
     presentation.save("paragraphs_with_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **สร้างรายการแบบ Bulleted และ Numbered**
+## **สร้างรายการ Bulleted และ Numbered**
 
 ### **สร้างรายการ Bulleted หรือ Numbered**
 
-Bullets และ numbering ทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการจะกำหนดผ่าน [BulletFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/)
+Bullets และ numbering ช่วยให้การสแกนรายการที่เกี่ยวข้องง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการจะกำหนดผ่าน [BulletFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/).
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่ต้องการโดยใช้ดัชนี
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ลงในสไลด์ที่เลือก
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape
-5. ลบ paragraph เริ่มต้นออกจาก text frame
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) สำหรับ bullet สัญลักษณ์
-7. ตั้งค่า [BulletFormat.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/type/) เป็น [BulletType.SYMBOL](https://reference.aspose.com/slides/th/python-net/aspose.slides/bullettype/) และระบุอักขระ bullet
-8. ตั้งค่าข้อความของ paragraph, ระยะเยื้อง, สี bullet, และความสูงของ bullet
-9. เพิ่ม paragraph ลงใน text frame
-10. สร้าง paragraph ที่สองและตั้งค่า [BulletFormat.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/type/) เป็น [BulletType.NUMBERED](https://reference.aspose.com/slides/th/python-net/aspose.slides/bullettype/)
-11. กำหนดสไตล์ bullet แบบเลขและเพิ่ม paragraph ลงใน text frame
-12. บันทึก presentation
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
+2. เข้าถึง slide ที่เกี่ยวข้องโดยใช้ดัชนีของมัน.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยัง slide ที่เลือก.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape.
+5. ลบ paragraph เริ่มต้นออกจาก text frame.
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) สำหรับ bullet แบบสัญลักษณ์.
+7. ตั้งค่า [BulletFormat.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/type/) เป็น [BulletType.SYMBOL](https://reference.aspose.com/slides/th/python-net/aspose.slides/bullettype/) และระบุอักขระ bullet.
+8. ตั้งค่าข้อความ paragraph, การเยื้อง, สี bullet, และความสูงของ bullet.
+9. เพิ่ม paragraph ลงใน text frame.
+10. สร้าง paragraph ที่สองและตั้งค่า [BulletFormat.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/type/) เป็น [BulletType.NUMBERED](https://reference.aspose.com/slides/th/python-net/aspose.slides/bullettype/).
+11. กำหนดสไตล์ bullet แบบหมายเลขและเพิ่ม paragraph ลงใน text frame.
+12. บันทึก presentation.
 
-ตัวอย่าง Python ด้านล่างสร้าง bullet สัญลักษณ์และ bullet แบบเลข:
+ตัวอย่าง Python นี้สร้าง bullet แบบสัญลักษณ์และ bullet แบบหมายเลข:
 
 ```python
 import aspose.pydrawing as draw
@@ -162,20 +162,20 @@ with slides.Presentation() as presentation:
 
 ### **ใช้ Picture Bullets**
 
-Picture bullets ให้คุณใช้รูปภาพที่กำหนดเองแทนสัญลักษณ์หรือหมายเลข
+Picture bullets ให้คุณใช้รูปภาพที่กำหนดเองแทนสัญลักษณ์หรือหมายเลข.
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่ต้องการโดยใช้ดัชนี
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) และเข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของมัน
-4. ลบ paragraph เริ่มต้นออกจาก text frame
-5. โหลดรูปภาพ bullet และเพิ่มลงในคอลเลกชันรูปภาพของ presentation เป็น [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/)
-6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งข้อความของมัน
-7. ตั้งค่า [BulletFormat.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/type/) เป็น [BulletType.PICTURE](https://reference.aspose.com/slides/th/python-net/aspose.slides/bullettype/)
-8. กำหนดรูปภาพผ่าน [BulletFormat.picture](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/picture/) และตั้งค่าความสูงของ bullet
-9. เพิ่ม paragraph ลงใน text frame
-10. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
+2. เข้าถึง slide ที่เกี่ยวข้องโดยใช้ดัชนีของมัน.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) และเข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+4. ลบ paragraph เริ่มต้นออกจาก text frame.
+5. โหลดรูปภาพ bullet และเพิ่มไปยังคอลเลกชันรูปภาพของ presentation เป็น [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/).
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าข้อความของมัน.
+7. ตั้งค่า [BulletFormat.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/type/) เป็น [BulletType.PICTURE](https://reference.aspose.com/slides/th/python-net/aspose.slides/bullettype/).
+8. กำหนดภาพผ่าน [BulletFormat.picture](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/picture/) และตั้งค่าความสูงของ bullet.
+9. เพิ่ม paragraph ลงใน text frame.
+10. บันทึก presentation ที่แก้ไขแล้ว.
 
-ตัวอย่าง Python ด้านล่างสร้าง picture bullet:
+ตัวอย่าง Python นี้สร้าง picture bullet:
 
 ```python
 import aspose.slides as slides
@@ -203,15 +203,15 @@ with slides.Presentation() as presentation:
 
 ### **สร้าง Multilevel List**
 
-ตั้งค่า [ParagraphFormat.depth](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/depth/) เพื่อวาง paragraph ที่ระดับต่าง ๆ ของรายการ ระดับบนสุดมีค่า depth เป็น `0`
+ตั้งค่า [ParagraphFormat.depth](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/depth/) เพื่อวาง paragraph ในระดับต่าง ๆ ของรายการ. ระดับบนสุดมี depth เป็น `0`.
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และเข้าถึงสไลด์
-2. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) และลบ paragraph เริ่มต้นจาก text frame ของมัน
-3. สร้างสี่ paragraph และกำหนดสัญลักษณ์ bullet ของแต่ละอัน
-4. ตั้งค่า [ParagraphFormat.depth](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/depth/) ของพวกมันเป็น `0`, `1`, `2`, และ `3`
-5. เพิ่ม paragraph ลงใน text frame และบันทึก presentation
+1. สร้าง [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) แล้วเข้าถึง slide.
+2. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) แล้วลบ paragraph เริ่มต้นจาก text frame ของมัน.
+3. สร้างสี่ paragraph และกำหนดสัญลักษณ์ bullet ให้แต่ละอัน.
+4. ตั้งค่า [ParagraphFormat.depth](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/depth/) ของพวกเขาเป็น `0`, `1`, `2` และ `3`.
+5. เพิ่ม paragraph ลงใน text frame แล้วบันทึก presentation.
 
-ตัวอย่าง Python ด้านล่างสร้างรายการ bulleted สี่ระดับ:
+ตัวอย่าง Python นี้สร้างรายการ bullet สี่ระดับ:
 
 ```python
 import aspose.pydrawing as draw
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **กำหนดค่าเริ่มต้นของ Numbered List Items ให้เป็นค่าที่กำหนดเอง**
+### **กำหนดค่าเริ่มต้นของ Numbered List ให้เป็นค่าที่กำหนดเอง**
 
-ใช้ [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) เพื่อกำหนดหมายเลขเริ่มต้นสำหรับ paragraph ที่เป็น numbered
+ใช้ [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) เพื่อกำหนดหมายเลขเริ่มต้นที่แสดงสำหรับ paragraph ที่เป็นหมายเลข.
 
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และเพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ลงในสไลด์
-2. ลบ paragraph เริ่มต้นจาก text frame ของ shape
-3. สร้างสาม paragraph แบบ numbered
-4. ตั้งค่า [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) เป็น `2`, `3`, และ `7` สำหรับแต่ละ paragraph ตามลำดับ
-5. เพิ่ม paragraph ลงใน text frame และบันทึก presentation
+1. สร้าง [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) แล้วเพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยัง slide.
+2. ลบ paragraph เริ่มต้นจาก text frame ของ shape.
+3. สร้างสาม paragraph ที่เป็นหมายเลข.
+4. ตั้งค่า [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) เป็น `2`, `3` และ `7` สำหรับ paragraph แต่ละอัน.
+5. เพิ่ม paragraph ลงใน text frame แล้วบันทึก presentation.
 
-ตัวอย่าง Python ด้านล่างกำหนดหมายเลขเริ่มต้นแบบกำหนดเองให้กับแต่ละ paragraph:
+ตัวอย่าง Python นี้กำหนดหมายเลขเริ่มต้นที่กำหนดเองให้แต่ละ paragraph:
 
 ```python
 import aspose.slides as slides
@@ -309,19 +309,19 @@ with slides.Presentation() as presentation:
 
 ### **ตั้งค่า First-Line Indent**
 
-ใช้คุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เพื่อควบคุมการเยื้องบรรทัดแรกของ paragraph ค่าที่กำหนดนี้จะย้ายบรรทัดแรกเท่านั้นเมื่อเทียบกับขอบซ้ายของ paragraph ค่าบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือยังคงจัดตำแหน่งตามเนื้อหา paragraph
+ใช้คุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เพื่อควบคุมการเยื้องบรรทัดแรกของ paragraph. คุณสมบัตินี้จะย้ายบรรทัดแรกเท่านั้นเมื่อเทียบกับขอบซ้ายของ paragraph. ค่าบวกจะเลื่อนบรรทัดแรกไปทางขวา, ส่วนบรรทัดที่เหลือคงอยู่ในแนวเดียวกับส่วนเนื้อหา.
 
-ใช้ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) เมื่อคุณต้องการย้ายทั้ง paragraph ใช้ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก
+ใช้ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) เมื่อคุณต้องการย้ายทั้ง paragraph. ใช้ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก.
 
-ตัวอย่างด้านล่างสร้างหลาย paragraph แล้วกำหนดค่าต่าง ๆ ของ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เพื่อแสดงว่าการเยื้องบรรทัดแรกมีผลต่อการจัดวางอย่างไร
+ตัวอย่างด้านล่างสร้างหลาย paragraph และกำหนดค่าต่าง ๆ ของ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เพื่อแสดงว่าการเยื้องบรรทัดแรกส่งผลต่อการจัดวางอย่างไร.
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมลงในสไลด์
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape และลบ paragraph เริ่มต้น
-5. สร้างหลาย paragraph และกำหนดค่าต่าง ๆ ของ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) ให้มัน
-6. เพิ่ม paragraph ลงใน text frame
-7. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
+2. เข้าถึง slide เป้าหมาย.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมผืนผ้าไปยัง slide.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape แล้วลบ paragraph เริ่มต้น.
+5. สร้างหลาย paragraph และกำหนดค่า [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) ที่แตกต่างกันสำหรับแต่ละอัน.
+6. เพิ่ม paragraph ลงใน text frame.
+7. บันทึก presentation ที่แก้ไขแล้ว.
 
 โค้ดนี้แสดงวิธีตั้งค่าเยื้องของ paragraph:
 
@@ -374,20 +374,20 @@ with slides.Presentation() as presentation:
 
 ### **ตั้งค่า Hanging Indent**
 
-Hanging indent คือการจัดวาง paragraph ที่บรรทัดแรกเริ่มอยู่ด้านซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยคุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) ตั้งค่า `indent` ให้เป็นค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเมื่อเทียบกับเนื้อหา paragraph
+Hanging indent คือการจัดวาง paragraph ที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ. ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยคุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/). ตั้งค่า `indent` เป็นค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเมื่อเทียบกับเนื้อหา paragraph.
 
-โดยปฏิบัติ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) กำหนดตำแหน่งซ้ายของเนื้อหา paragraph ส่วน [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) กำหนดตำแหน่งของบรรทัดแรกเมื่อเทียบกับขอบซ้ายนั้น เพื่อสร้าง hanging indent ให้ตั้งค่า `margin_left` เป็นค่าบวกและ `indent` เป็นค่าลบ
+โดยปกติ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) กำหนดตำแหน่งซ้ายของเนื้อหา paragraph, และ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) กำหนดตำแหน่งของบรรทัดแรกสัมพันธ์กับขอบซ้ายนั้น. เพื่อสร้าง hanging indent ให้ตั้งค่า `margin_left` เป็นค่าบวกและ `indent` เป็นค่าลบ.
 
-รูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, แหล่งอ้างอิง, รายการพจนานุกรม และ paragraph อื่น ๆ ที่บรรทัดต่อเนื่องต้องจัดชิดกับเนื้อหา paragraph แทนที่จะชิดกับอักขระแรกของบรรทัดแรก
+การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, เอกสารอ้างอิง, รายการพจนานุกรม, และ paragraph อื่น ๆ ที่บรรทัดที่ต่อเนื่องต้องเรียงตำแหน่งใต้เนื้อหา paragraph แทนที่จะอยู่ใต้ตัวอักษรแรกของบรรทัดแรก.
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมลงในสไลด์
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape และลบ paragraph เริ่มต้น
-5. สร้าง paragraph และกำหนดค่า [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) ให้เป็นค่าบวกสำหรับแต่ละ paragraph
-6. ตั้งค่า [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เป็นค่าลบเพื่อสร้างเอฟเฟกต์ hanging indent
-7. เพิ่ม paragraph ลงใน text frame
-8. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
+2. เข้าถึง slide เป้าหมาย.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมผืนผ้าไปยัง slide.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape แล้วลบ paragraph เริ่มต้น.
+5. สร้าง paragraph และตั้งค่า [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) เป็นค่าบวกสำหรับแต่ละ paragraph.
+6. ตั้งค่า [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เป็นค่าลบเพื่อสร้างเอฟเฟกต์ hanging indent.
+7. เพิ่ม paragraph ลงใน text frame.
+8. บันทึก presentation ที่แก้ไขแล้ว.
 
 โค้ดนี้แสดงวิธีตั้งค่า hanging indent สำหรับ paragraph:
 
@@ -432,14 +432,14 @@ with slides.Presentation() as presentation:
 
 ### **ตั้งค่า End Paragraph Run Properties**
 
-คุณสมบัติ [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) ควบคุมการจัดรูปแบบของเครื่องหมายจบ paragraph ตัวอย่างต่อไปนี้กำหนดขนาดฟอนต์และฟอนต์ Latin ให้กับเครื่องหมายจบของ paragraph ที่สอง:
+คุณสมบัติ [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) ควบคุมการจัดรูปแบบของสัญลักษณ์สิ้นสุด paragraph. ตัวอย่างต่อไปนี้กำหนดขนาดฟอนต์และฟอนต์ Latin ให้กับสัญลักษณ์สิ้นสุดของ paragraph ที่สอง:
 
-1. โหลด [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) แล้วเข้าถึงสไลด์
-2. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) แล้วลบ paragraph เริ่มต้นของมัน
-3. สร้าง paragraph สองออบเจกต์และเพิ่ม portion ของข้อความลงในแต่ละออบเจกต์
-4. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/) สำหรับเครื่องหมายจบของ paragraph ที่สอง
-5. ตั้งค่า [PortionFormat.font_height](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/font_height/) และ [PortionFormat.latin_font](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/latin_font/)
-6. กำหนดฟอร์แมตให้กับ [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) แล้วบันทึก presentation
+1. โหลด [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และเข้าถึง slide.
+2. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) แล้วลบ paragraph เริ่มต้นของมัน.
+3. สร้างสอง paragraph แล้วเพิ่ม portion ข้อความให้กับแต่ละอัน.
+4. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/) สำหรับสัญลักษณ์สิ้นสุดของ paragraph ที่สอง.
+5. ตั้งค่า [PortionFormat.font_height](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/font_height/) และ [PortionFormat.latin_font](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/latin_font/).
+6. กำหนดรูปแบบให้กับ [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) แล้วบันทึก presentation.
 
 ```python
 import aspose.slides as slides
@@ -467,13 +467,15 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **นับจำนวนบรรทัดที่เรนเดอร์แล้ว**
+## **นับจำนวนบรรทัดที่แสดงผล**
 
-ใช้ [Paragraph.get_lines_count](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/get_lines_count/) เพื่อนับจำนวนบรรทัดที่ paragraph ใช้หลังจากการจัด layout ของข้อความ รวมถึงการตัดบรรทัดอัตโนมัติ นี่เป็นประโยชน์เมื่อตรวจสอบความยาวและการจัด layout ของข้อความในเทมเพลต presentation
+สำหรับกฎ paragraph ที่ส่งผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่ตำแหน่งจบบรรทัด, ดูที่ [Control Line Breaking](/slides/th/python-net/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/python-net/text-formatting/#control-hanging-punctuation).
 
-paragraph เป็นรายการหนึ่งใน [TextFrame.paragraphs](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/paragraphs/) และอาจใช้หลายบรรทัดที่เรนเดอร์ได้ การใส่ line break แบบชัดเจนภายใน paragraph จะบังคับให้เกิดบรรทัดใหม่โดยไม่สร้าง paragraph ใหม่ การตัดบรรทัดอัตโนมัติจะสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่ต้องใส่ line break ลงในข้อความ ดังนั้นการนับจำนวน paragraph หรือตัวอักษร line‑break ไม่ได้ให้จำนวนบรรทัดที่เรนเดอร์จริง
+ใช้ [Paragraph.get_lines_count](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/get_lines_count/) เพื่อให้นับจำนวนบรรทัดที่ paragraph ครอบคลุมหลังการจัดวางข้อความ, รวมถึงการตัดบรรทัดอัตโนมัติ. สิ่งนี้มีประโยชน์เมื่อทำการตรวจสอบความยาวข้อความและการจัดวางในเทมเพลต presentation.
 
-ตัวอย่างต่อไปนี้สร้าง shape ที่เป็นข้อความ, นับบรรทัด, ทำให้ shape แคบลง, แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า การตัดบรรทัดเปิดใช้งานและ autofit ปิดอยู่เพื่อให้ความกว้างของ shape ควบคุมการตัดบรรทัดโดยไม่ให้ข้อความหดหรือเปลี่ยนขนาดอัตโนมัติ ขนาดของ shape วัดเป็น points สุดท้ายตัวอย่างเพิ่ม paragraph อีกอันและรวมจำนวนบรรทัดจาก text frame ทั้งหมด
+Paragraph เป็นรายการหนึ่งใน [TextFrame.paragraphs](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/paragraphs/), และอาจครอบคลุมหลายบรรทัดที่แสดงผล. การใส่ line break ชัดเจนภายใน paragraph จะบังคับให้เกิดบรรทัดใหม่โดยไม่สร้าง paragraph ใหม่. การตัดบรรทัดอัตโนมัติจัดสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรก line break ชัดเจนลงในข้อความ. ดังนั้นการนับ paragraph หรืออักขระ line break จะไม่ให้จำนวนบรรทัดที่แสดงผลที่แท้จริง.
+
+ตัวอย่างต่อไปนี้สร้างรูปข้อความ, นับบรรทัด, ลดความกว้างของรูป, แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า. การตัดบรรทัดเปิดอยู่และ autofit ปิดเพื่อให้ความกว้างของรูปควบคุมการตัดบรรทัดโดยไม่ย่อขนาดข้อความหรือรูปโดยอัตโนมัติ. มิติของรูประบุเป็น points. ในที่สุดตัวอย่างเพิ่ม paragraph อีกหนึ่งอันและรวมจำนวนบรรทัดทั้งหมดของ text frame.
 
 ```python
 import aspose.slides as slides
@@ -508,24 +510,24 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-ด้วยข้อความและขนาดเหล่านี้ การทำให้ shape แคบลงจะเพิ่มจำนวนบรรทัด ในขณะที่การแทนที่ข้อความด้วยสตริงสั้นลงจะลดจำนวนบรรทัด จำนวนที่ได้อาจแตกต่างกันตามฟอนต์ที่ใช้งานและการทดแทน ฟอนต์, ขนาดฟอนต์, ระยะ margin, การเยื้อง, การตัดบรรทัดและการตั้งค่า autofit ใช้ฟอนต์และการตั้งค่า layout ที่กำหนดสำหรับสภาพแวดล้อมเป้าหมายเมื่อตรวจสอบเทมเพลต
+ด้วยข้อความและมิตินี้, การลดความกว้างของรูปจะเพิ่มจำนวนบรรทัด, ขณะที่การแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด. จำนวนที่แน่นอนอาจแตกต่างตามการใช้ฟอนต์และการแทนที่, ขนาดฟอนต์, ระยะขอบ, การเยื้อง, การตัดบรรทัด, และการตั้งค่า autofit. ใช้ฟอนต์และการตั้งค่าการจัดวางที่ตั้งใจสำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบเทมเพลต.
 
-จำนวนบรรทัดเพียงอย่างเดียวไม่บอกว่าข้อความเกินขอบเขตหรือไม่ ความสูงที่มีอยู่, ความสูงของบรรทัด, ระยะห่างระหว่าง paragraph และบรรทัด, และพฤติกรรม autofit มีผลเช่นกัน; แม้บรรทัดเดียวก็อาจเกินความกว้างที่มีเมื่อปิดการตัดบรรทัด
+จำนวนบรรทัดเพียงอย่างเดียวไม่ได้บ่งบอกว่าข้อความล้นจากคอนเทนเนอร์หรือไม่. ความสูงที่มีอยู่, ความสูงของบรรทัด, ระยะห่างของ paragraph และบรรทัด, และพฤติกรรม autofit ก็มีผลเช่นกัน; แม้บรรทัดเดียวก็อาจเกินความกว้างที่มีอยู่เมื่อการตัดบรรทัดถูกปิด.
 
 ## **นำเข้าและส่งออกเนื้อหา Paragraph**
 
-### **นำเข้า HTML Text ไปยัง Paragraphs**
+### **นำเข้า HTML Text เข้าไปใน Paragraphs**
 
-ใช้ [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/add_from_html/) เพื่อแปลง markup HTML ให้เป็น paragraph และ portion ภายใน text frame
+ใช้ [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/add_from_html/) เพื่อแปลง HTML markup ให้เป็น paragraph และ portion ใน text frame.
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-2. เข้าถึงสไลด์และเพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/)
-3. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape แล้วลบ paragraph เริ่มต้น
-4. อ่านไฟล์ HTML ต้นฉบับ
-5. ส่งสตริง HTML ให้กับ [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/add_from_html/)
-6. บันทึก presentation ที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
+2. เข้าถึง slide แล้วเพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/).
+3. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape แล้วลบ paragraph เริ่มต้น.
+4. อ่านไฟล์ HTML แหล่งที่มา.
+5. ส่งสตริง HTML ให้กับ [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/add_from_html/).
+6. บันทึก presentation ที่แก้ไขแล้ว.
 
-ตัวอย่าง Python นี้นำเข้า HTML เข้าไปใน text frame:
+ตัวอย่าง Python นี้นำเข้า HTML ไปยัง text frame:
 
 ```python
 import aspose.slides as slides
@@ -545,17 +547,17 @@ with slides.Presentation() as presentation:
     presentation.save("html_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **ส่งออกข้อความ Paragraph ไปยัง HTML**
+### **ส่งออกข้อความ Paragraph เป็น HTML**
 
-ใช้ [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/export_to_html/) เพื่อส่งออกช่วงของ paragraph ที่เลือกเป็น HTML
+ใช้ [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/export_to_html/) เพื่อส่งออกช่วงของ paragraph ที่เลือกเป็น HTML.
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) แล้วโหลด presentation ที่ต้องการ
-2. เข้าถึงสไลด์และหา [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ที่มีข้อความ
-3. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape
-4. เรียก [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/export_to_html/) พร้อมดัชนี paragraph เริ่มต้นและจำนวน paragraph ที่ต้องการส่งออก
-5. เขียนสตริง HTML ที่ได้ลงไฟล์
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และโหลด presentation ที่ต้องการ.
+2. เข้าถึง slide แล้วค้นหา [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ที่มีข้อความ.
+3. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ shape.
+4. เรียก [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphcollection/export_to_html/) พร้อมกับดัชนี paragraph เริ่มต้นและจำนวน paragraph ที่ต้องการส่งออก.
+5. เขียนสตริง HTML ที่ได้ลงไฟล์.
 
-ตัวอย่าง Python นี้ส่งออก paragraph ทั้งหมดจาก shape ที่เป็นข้อความแรก:
+ตัวอย่าง Python นี้ส่งออกทุก paragraph จากรูปข้อความแรก:
 
 ```python
 import aspose.slides as slides
@@ -572,19 +574,19 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
         print("The first shape is not a text shape.")
 ```
 
-### **เรนเดอร์ Paragraph เป็นภาพ**
+### **เรนเดอร์ Paragraph เป็น Image**
 
-[Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) มีเมธอด `get_image` สำหรับเรนเดอร์ paragraph เดียวโดยตรง เมธอดนี้จะคืนค่าเป็น [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) ที่คุณสามารถบันทึกเป็นไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/save/) ไม่จำเป็นต้องเรนเดอร์ shape ทั้งหมดหรือครอปบิตแมพด้วยตนเอง
+[Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) มีเมธอด `get_image` สำหรับเรนเดอร์ paragraph เดี่ยวโดยตรง. เมธอดจะคืนค่าเป็น [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) ที่คุณสามารถบันทึกเป็นไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/save/). คุณไม่จำเป็นต้องเรนเดอร์ shape ที่บรรจุหรือตัด bitmap ด้วยตนเอง.
 
-เมธอด `get_image` อาจคืนค่า `None` หากไม่พบ paragraph ในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและใช้ภาพที่คืนค่าด้วย context manager เพื่อปล่อยทรัพยากร
+เมธอด `get_image` อาจคืนค่า `None` หากไม่พบ paragraph ในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้. ตรวจสอบผลลัพธ์ก่อนบันทึกและใช้ภาพที่คืนค่าด้วยตัวจัดการบริบทเพื่อปล่อยทรัพยากร.
 
-#### **เรนเดอร์ Paragraph ที่สเกลค่าเริ่มต้น**
+#### **เรนเดอร์ Paragraph ที่สเกลเริ่มต้น**
 
-สมมติว่ามีไฟล์ presentation ชื่อ sample.pptx มีสไลด์หนึ่งสไลด์ที่ shape แรกเป็น text box ที่มีสาม paragraph
+สมมติว่าเรามีไฟล์ presentation ชื่อ sample.pptx ที่มีหนึ่ง slide, โดย shape แรกเป็นกล่องข้อความที่มีสาม paragraph.
 
-![Text box ที่มีสาม paragraph](paragraph_to_image_input.png)
+![กล่องข้อความที่มีสาม paragraph](paragraph_to_image_input.png)
 
-ตัวอย่างต่อไปนี้เรนเดอร์ paragraph ที่สองใน shape ข้อความปกติที่สเกลค่าเริ่มต้นและบันทึกภาพที่ได้ในรูปแบบ PNG:
+ตัวอย่างต่อไปนี้เรนเดอร์ paragraph ที่สองใน shape ข้อความปกติที่สเกลเริ่มต้นและบันทึกภาพที่ได้ในรูปแบบ PNG:
 
 ```python
 import aspose.slides as slides
@@ -611,7 +613,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 #### **เรนเดอร์ Paragraph ในเซลล์ตารางพร้อมสเกล**
 
-ส่งค่าปัจจัยสเกลแนวนอนและแนวตั้งให้กับ `get_image` เพื่อควบคุมขนาดของ paragraph ที่เรนเดอร์ ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ paragraph ในเซลล์แรกโดยกว้างและสูงเป็นสองเท่าของค่าเริ่มต้น, แล้วบันทึกผลเป็นภาพ PNG:
+ส่งค่าปัจจัยสเกลแนวนอนและแนวตั้งให้กับ `get_image` เพื่อควบคุมขนาดของ paragraph ที่เรนเดอร์. ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ paragraph ในเซลล์แรกด้วยความกว้างและความสูงที่เป็นสองเท่าของค่าเริ่มต้น, แล้วบันทึกผลลัพธ์เป็น PNG:
 
 ```python
 import aspose.slides as slides
@@ -633,24 +635,24 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-ค่าปัจจัยสเกล `1` จะรักษาขนาดพิกเซลเริ่มต้นของแกนนั้นไว้ ตัวอย่างเช่น `2` สำหรับทั้งสองแกนจะให้ภาพที่กว้างและสูงประมาณสองเท่าของขนาดเริ่มต้น ส่งผลให้มีพิกเซลมากขึ้นสี่เท่า การใช้ปัจจัยสเกลใหญ่กว่าให้ข้อความคมชัดขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ปัจจัยที่ต่ำกว่า `1` จะให้ภาพขนาดเล็กลงและรายละเอียดน้อยลง ใช้ปัจจัยเท่ากันเพื่อคงอัตราส่วนของ paragraph; ปัจจัยแนวนอนและแนวตั้งที่แตกต่างกันจะยืดเอาต์พุตแยกกัน
+ค่าสเกล `1` จะรักษาแกนนั้นที่ขนาดพิกเซลเริ่มต้น. ตัวอย่างเช่น `2` สำหรับทั้งสองแกนจะให้ภาพที่ความกว้างและความสูงประมาณสองเท่าของมิติเริ่มต้น, ส่งผลให้จำนวนพิกเซลเพิ่มเป็นสี่เท่า. ปัจจัยที่สูงกว่าจะให้ข้อความคมชัดสำหรับการซูมหรือเอาต์พุตความละเอียดสูง, แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์. ปัจจัยต่ำกว่า `1` จะให้ภาพที่เล็กลงและรายละเอียดน้อยลง. ใช้ปัจจัยเท่ากันเพื่อรักษาอัตราส่วนของ paragraph; ปัจจัยแนวนอนและแนวตั้งที่แตกต่างกันจะยืดหดผลลัพธ์แยกกัน.
 
-การเรนเดอร์ shape ทั้งหมดด้วย [Shape.get_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_image/) ยังคงมีประโยชน์เมื่อผลลัพธ์ต้องรวมการเติมสี, เส้นขอบ หรือบริบทภาพอื่น ๆ ของ shape สำหรับภาพเฉพาะ paragraph ให้ใช้ `Paragraph.get_image`
+การเรนเดอร์ shape ทั้งหมดด้วย [Shape.get_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_image/) ยังคงมีประโยชน์เมื่อผลลัพธ์ต้องรวมการเติมสี, เส้นขอบ, หรือบริบทภาพอื่นของ shape. สำหรับภาพเฉพาะ paragraph ให้ใช้ `Paragraph.get_image`.
 
 ## **FAQ**
 
-**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติภายใน text frame ได้หรือไม่?**
+**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติภายใน text frame ได้ทั้งหมดหรือไม่?**
 
-ได้. ตั้งค่า [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframeformat/wrap_text/) เพื่อปิดการตัดบรรทัด ทำให้บรรทัดไม่ตัดที่ขอบของ text frame
+ได้. ตั้งค่า [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframeformat/wrap_text/) เพื่อปิดการตัดบรรทัด sehingga บรรทัดจะไม่แตกที่ขอบของ text frame.
 
-**ฉันจะดึงขอบเขตบนสไลด์ของ paragraph เฉพาะได้อย่างไร?**
+**ฉันจะรับขอบเขตบนสไลด์ของ paragraph เฉพาะได้อย่างไร?**
 
-ใช้ [Paragraph.get_rect](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/get_rect/) เพื่อดึงสี่เหลี่ยมขอบของ paragraph. [Portion.get_rect](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/get_rect/) ให้ขอบเขตของ portion ทีละอัน
+ใช้ [Paragraph.get_rect](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/get_rect/) เพื่อดึงสี่เหลี่ยมผืนผ้าขอบเขตของ paragraph. [Portion.get_rect](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/get_rect/) ให้ขอบเขตของ portion แต่ละอัน.
 
-**การจัดแนวของ paragraph (ซ้าย, ขวา, กึ่งกลาง หรือเติมเต็ม) ถูกควบคุมที่ไหน?**
+**การจัดแนวของ paragraph (ซ้าย, ขวา, กลาง หรือจัดเต็ม) ถูกควบคุมที่ไหน?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/alignment/) เป็นการตั้งค่าระดับ paragraph และใช้กับทั้ง paragraph ไม่ว่ามีการจัดรูปแบบ portion แยกต่างหากหรือไม่
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/alignment/) เป็นการตั้งค่าระดับ paragraph และใช้กับทั้ง paragraph ไม่ว่าจะแบ่งเป็น portion ที่มีรูปแบบแยกต่างหากก็ตาม.
 
-**ฉันสามารถตั้งค่าภาษาการตรวจสอบสำหรับส่วนหนึ่งของ paragraph ได้หรือไม่?**
+**ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนของ paragraph ได้หรือไม่?**
 
-ได้. ตั้งค่า [PortionFormat.language_id](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/language_id/) สำหรับ portion แต่ละออบเจกต์ ทำให้ paragraph หนึ่งสามารถมีข้อความหลายภาษาได้.
+ได้. ตั้งค่า [PortionFormat.language_id](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/language_id/) สำหรับ portion แต่ละอัน, ทำให้ paragraph หนึ่งสามารถมีข้อความหลายภาษาได้.

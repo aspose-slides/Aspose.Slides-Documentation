@@ -1,5 +1,5 @@
 ---
-title: Управление абзацами текста PowerPoint в .NET
+title: Управление абзацами PowerPoint в .NET
 linktitle: Управление абзацем
 type: docs
 weight: 40
@@ -8,57 +8,57 @@ aliases:
   - /net/paragraph/
   - /net/portion/
 keywords:
-- добавить текст
-- добавить абзац
-- управлять текстом
-- управлять абзацем
-- управлять маркером
-- отступ абзаца
-- висячий отступ
-- маркер абзаца
-- нумерованный список
-- маркированный список
-- свойства абзаца
-- импорт HTML
-- текст в HTML
-- абзац в HTML
-- абзац в изображение
-- текст в изображение
-- экспортировать абзац
-- PowerPoint
-- презентация
-- .NET
-- C#
-- Aspose.Slides
-description: "Узнайте, как создать и отформатировать абзацы, части, маркеры, нумерованные списки, отступы, HTML‑контент и изображения абзацев с помощью Aspose.Slides для .NET."
+  - добавить текст
+  - добавить абзац
+  - управлять текстом
+  - управлять абзацем
+  - управлять маркером
+  - отступ абзаца
+  - висячий отступ
+  - маркер абзаца
+  - нумерованный список
+  - маркированный список
+  - свойства абзаца
+  - импортировать HTML
+  - текст в HTML
+  - абзац в HTML
+  - абзац в изображение
+  - текст в изображение
+  - экспортировать абзац
+  - PowerPoint
+  - презентация
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Узнайте, как создавать и форматировать абзацы, фрагменты, маркеры, нумерованные списки, отступы, HTML‑содержимое и изображения абзацев с помощью Aspose.Slides для .NET."
 ---
 ## **Обзор**
 
-Aspose.Slides for .NET представляет текст как иерархию текстовых рамок, абзацев и частей:
+Aspose.Slides for .NET представляет текст в виде иерархии текстовых рамок, абзацев и фрагментов:
 
-* [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) представляет контейнер текста в фигуре и обеспечивает доступ к её коллекции абзацев.
-* [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/) представляет один абзац в текстовой рамке и обеспечивает доступ к её частям и форматированию уровня абзаца.
-* [IPortion](https://reference.aspose.com/slides/ru/net/aspose.slides/iportion/) представляет часть текста внутри абзаца. Каждая часть может иметь собственный текст и форматирование уровня символов.
+* [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) представляет контейнер текста в фигуре и предоставляет доступ к её коллекции абзацев.
+* [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/) представляет один абзац в текстовой рамке и предоставляет доступ к его фрагментам и форматированию уровня абзаца.
+* [IPortion](https://reference.aspose.com/slides/ru/net/aspose.slides/iportion/) представляет текстовый фрагмент внутри абзаца. Каждый фрагмент может иметь собственный текст и форматирование уровня символов.
 
-Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько частей.
+Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько фрагментов.
 
 ## **Создание и форматирование абзацев**
 
-### **Создание абзацев с несколькими частями**
+### **Создание абзацев с несколькими фрагментами**
 
-Следующие шаги создают текстовую рамку с тремя абзацами, каждый из которых содержит три части:
+Следующие шаги создают текстовую рамку с тремя абзацами, каждый из которых содержит три фрагмента:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation).
-2. Получите ссылку на нужный слайд по его индексу.
-3. Добавьте прямоугольную [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на слайд.
-4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) фигуры.
-5. Используйте абзац по умолчанию и добавьте два дополнительных объекта [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/) в текстовую рамку.
-6. Добавьте достаточное количество объектов [IPortion](https://reference.aspose.com/slides/ru/net/aspose.slides/iportion/) для каждого абзаца, чтобы в нём было три части. Абзац по умолчанию уже содержит одну пустую часть.
-7. Установите текст для каждой части.
+2. Получите ссылку на соответствующий слайд по его индексу.
+3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на слайд.
+4. Получите [ITextFrame] фигуры.
+5. Используйте абзац по умолчанию и добавьте ещё два объекта [IParagraph] в текстовую рамку.
+6. Добавьте достаточно объектов [IPortion] для каждого абзаца, чтобы в нём было три фрагмента. Абзац по умолчанию уже содержит один пустой фрагмент.
+7. Установите текст для каждого фрагмента.
 8. Примените форматирование уровня символов через [IPortion.PortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iportion/portionformat/).
 9. Сохраните изменённую презентацию.
 
-Этот пример на C# реализует эти шаги:
+Этот пример C# реализует шаги:
 
 ```csharp
 using System.Drawing;
@@ -120,22 +120,22 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ### **Создание маркированного или нумерованного списка**
 
-Маркировка и нумерация упрощают просмотр связанных элементов. В Aspose.Slides параметры списка определяются через [IBulletFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/).
+Маркировка и нумерация упрощают восприятие связанных элементов. В Aspose.Slides настройки списка определяются через [IBulletFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/).
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation).
-2. Получите ссылку на нужный слайд по его индексу.
-3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на выбранный слайд.
-4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/).
+2. Получите ссылку на соответствующий слайд по его индексу.
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) к выбранному слайду.
+4. Получите [ITextFrame] фигуры.
 5. Удалите абзац по умолчанию из текстовой рамки.
-6. Создайте объект [Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraph/) для символа‑маркировки.
-7. Установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Symbol](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/) и укажите символ маркировки.
-8. Установите текст абзаца, отступ, цвет маркировки и высоту маркировки.
+6. Создайте [Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraph/) для символической маркировки.
+7. Установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Symbol](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/) и задайте символ маркера.
+8. Установите текст абзаца, отступ, цвет маркера и высоту маркера.
 9. Добавьте абзац в текстовую рамку.
 10. Создайте второй абзац и установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Numbered](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/).
-11. Настройте стиль нумерованной маркировки и добавьте абзац в текстовую рамку.
+11. Настройте стиль нумерованного маркера и добавьте абзац в текстовую рамку.
 12. Сохраните презентацию.
 
-Этот пример на C# создает символ‑маркировку и нумерованную маркировку:
+Этот пример C# создаёт символический маркер и нумерованный маркер:
 
 ```csharp
 using System;
@@ -172,22 +172,22 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Использование графических маркеров**
+### **Использовать маркеры с изображениями**
 
-Графические маркеры позволяют использовать собственное изображение вместо символа или цифры.
+Маркеры с изображениями позволяют использовать собственную картинку вместо символа или числа.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation).
-2. Получите ссылку на нужный слайд по его индексу.
+2. Получите ссылку на соответствующий слайд по его индексу.
 3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) и получите его [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/).
 4. Удалите абзац по умолчанию из текстовой рамки.
 5. Загрузите изображение маркера и добавьте его в коллекцию изображений презентации как [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/).
-6. Создайте объект [Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraph/) и задайте его текст.
+6. Создайте [Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraph/) и задайте его текст.
 7. Установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/).
 8. Назначьте изображение через [IBulletFormat.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/picture/) и задайте высоту маркера.
 9. Добавьте абзац в текстовую рамку.
 10. Сохраните изменённую презентацию.
 
-Этот пример на C# создаёт графический маркер:
+Этот пример C# создаёт маркер с изображением:
 
 ```csharp
 using Aspose.Slides;
@@ -215,15 +215,15 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **Создание многоуровневого списка**
 
-Установите [IParagraphFormat.Depth](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/depth/) , чтобы разместить абзацы на разных уровнях списка. Верхний уровень имеет глубину `0`.
+Установите [IParagraphFormat.Depth](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/depth/) для размещения абзацев на разных уровнях списка. Уровень верхнего уровня имеет глубину `0`.
 
-1. Создайте объект [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и получите доступ к слайду.
-2. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) и очистите от абзаца по умолчанию его текстовую рамку.
+1. Создайте [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и получите слайд.
+2. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) и очистите абзац по умолчанию из его текстовой рамки.
 3. Создайте четыре абзаца и настройте их символы маркеров.
-4. Установите их значения [IParagraphFormat.Depth](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/depth/) в `0`, `1`, `2` и `3`.
+4. Установите их значения [IParagraphFormat.Depth] в `0`, `1`, `2` и `3`.
 5. Добавьте абзацы в текстовую рамку и сохраните презентацию.
 
-Этот пример на C# создаёт четырёхуровневый маркированный список:
+Этот пример C# создаёт четырёхуровневый маркированный список:
 
 ```csharp
 using System;
@@ -273,17 +273,17 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Задание пользовательского начального номера в нумерованных списках**
+### **Начало нумерованных пунктов списка со пользовательских значений**
 
-Используйте [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/numberedbulletstartwith/) , чтобы задать начальный номер, отображаемый для нумерованного абзаца.
+Используйте [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/numberedbulletstartwith/) для задания начального номера, отображаемого для нумерованного абзаца.
 
-1. Создайте объект [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на слайд.
+1. Создайте [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) к слайду.
 2. Очистите абзац по умолчанию из текстовой рамки фигуры.
 3. Создайте три нумерованных абзаца.
-4. Установите [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/numberedbulletstartwith/) в `2`, `3` и `7` для соответствующих абзацев.
+4. Установите [IBulletFormat.NumberedBulletStartWith] в `2`, `3` и `7` для соответствующих абзацев.
 5. Добавьте абзацы в текстовую рамку и сохраните презентацию.
 
-Этот пример на C# назначает пользовательский начальный номер каждому абзацу:
+Этот пример C# задаёт пользовательский начальный номер для каждого абзаца:
 
 ```csharp
 using Aspose.Slides;
@@ -313,23 +313,25 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Управление макетом абзаца и конечными свойствами**
+## **Управление макетом абзаца и свойствами конца**
 
-### **Установка отступа первой строки**
+### **Установить отступ первой строки**
 
-Используйте свойство [IParagraphFormat.Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) , чтобы управлять отступом первой строки абзаца. Это свойство сдвигает только первую строку относительно левого поля абзаца. Положительное значение перемещает первую строку вправо, остальные строки остаются выровнены по телу абзаца.
+Используйте свойство [IParagraphFormat.Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) для управления отступом первой строки абзаца. Это свойство перемещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, тогда как остальные строки остаются выровненными по телу абзаца.
 
-Используйте [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/marginleft/) , когда необходимо переместить весь абзац. Используйте [IParagraphFormat.Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) , когда нужно переместить только первую строку.
+Используйте [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/marginleft/) когда нужно сместить весь абзац. Используйте [IParagraphFormat.Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) когда необходимо сместить только первую строку.
 
-Пример ниже создаёт несколько абзацев и применяет разные значения [IParagraphFormat.Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) , демонстрируя, как отступ первой строки влияет на макет абзаца.
+В примере ниже создаются несколько абзацев и применяются разные значения [IParagraphFormat.Indent] для демонстрации влияния отступа первой строки на макет абзаца.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/).
 2. Получите целевой слайд.
-3. Добавьте прямоугольную [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на слайд.
-4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) фигуры и удалите абзац по умолчанию.
-5. Создайте несколько абзацев и задайте им разные значения [Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) .
+3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на слайд.
+4. Получите [ITextFrame] фигуры и удалите абзац по умолчанию.
+5. Создайте несколько абзацев и задайте им разные значения [Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/).
 6. Добавьте абзацы в текстовую рамку.
 7. Сохраните изменённую презентацию.
+
+Этот код показывает, как установить отступ абзаца:
 
 ```csharp
 using System.Drawing;
@@ -376,22 +378,24 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 ![Отступ первой строки абзацев](first_line_indent.png)
 
-### **Установка висячего отступа**
+### **Установить висячий отступ**
 
-Висячий отступ — это макет абзаца, при котором первая строка начинается левее остальных строк. В Aspose.Slides этот эффект создаётся с помощью свойства [IParagraphFormat.Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) . Установите `Indent` в отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
+Висячий отступ — это макет абзаца, при котором первая строка начинается левее остальных строк. В Aspose.Slides вы создаёте этот эффект с помощью свойства [IParagraphFormat.Indent]. Установите `Indent` в отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
 
-На практике [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/marginleft/) определяет левое положение тела абзаца, а [IParagraphFormat.Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) определяет позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение `MarginLeft` и отрицательное значение `Indent`.
+На практике [IParagraphFormat.MarginLeft] определяет левое положение тела абзаца, а [IParagraphFormat.Indent] определяет положение первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение `MarginLeft` и отрицательное значение `Indent`.
 
-Это форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где перенесённые строки должны выравниваться под телом абзаца, а не под первым символом первой строки.
+Такое форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где перенесённые строки должны выравниваться по телу абзаца, а не по первому символу первой строки.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/).
 2. Получите целевой слайд.
-3. Добавьте прямоугольную [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на слайд.
-4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) фигуры и удалите абзац по умолчанию.
-5. Создайте абзацы и задайте каждому положительное значение [MarginLeft](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/marginleft/) .
-6. Задайте отрицательное значение [Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) , чтобы получить эффект висячего отступа.
+3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) на слайд.
+4. Получите [ITextFrame] фигуры и удалите абзац по умолчанию.
+5. Создайте абзацы и задайте каждому положительное значение [MarginLeft](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/marginleft/).
+6. Установите отрицательное значение [Indent](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/indent/) для создания эффекта висячего отступа.
 7. Добавьте абзацы в текстовую рамку.
 8. Сохраните изменённую презентацию.
+
+Этот код показывает, как установить висячий отступ для абзаца:
 
 ```csharp
 using System.Drawing;
@@ -431,16 +435,16 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 ![Висячий отступ абзацев](hanging_indent.png)
 
-### **Установка свойств конечного фрагмента абзаца**
+### **Установить свойства завершающего фрагмента абзаца**
 
-Свойство [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/endparagraphportionformat/) управляет форматированием конечного знака абзаца. Ниже приведён пример, который задаёт размер шрифта и латинский шрифт для конечного знака второго абзаца:
+Свойство [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/endparagraphportionformat/) управляет форматированием завершающего знака абзаца. В следующем примере задаётся размер шрифта и латинский шрифт для завершающего знака второго абзаца:
 
-1. Загрузите [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и получите доступ к слайду.
-2. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) и очистите её от абзаца по умолчанию.
-3. Создайте два абзаца и добавьте к ним текстовые части.
-4. Создайте объект [PortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/portionformat/) для конечного знака второго абзаца.
-5. Установите [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/fontheight/) и [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/latinfont/) .
-6. Назначьте формат [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/endparagraphportionformat/) и сохраните презентацию.
+1. Загрузите [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и получите слайд.
+2. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) и очистите его абзац по умолчанию.
+3. Создайте два абзаца и добавьте к ним текстовые фрагменты.
+4. Создайте [PortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/portionformat/) для завершающего знака второго абзаца.
+5. Установите [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/fontheight/) и [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/latinfont/).
+6. Присвойте формат свойству [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/endparagraphportionformat/) и сохраните презентацию.
 
 ```csharp
 using Aspose.Slides;
@@ -469,13 +473,16 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
+
 ## **Подсчёт отрисованных строк**
 
-Используйте [IParagraph.GetLinesCount](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getlinescount/) , чтобы посчитать строки, занятые абзацем после раскладки текста, включая автоматический перенос. Это полезно при проверке длины текста и макета в шаблонах презентаций.
+Для правил абзаца, влияющих на автоматический перенос и пунктуацию в конце строк, см. [Control Line Breaking](/slides/ru/net/text-formatting/#control-line-breaking) и [Control Hanging Punctuation](/slides/ru/net/text-formatting/#control-hanging-punctuation).
 
-Абзац является одним элементом в [ITextFrame.Paragraphs](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/paragraphs/), и он может занимать несколько отрисованных строк. Явный разрыв строки внутри абзаца заставляет перейти на новую строку без создания нового абзаца. Автоматический перенос создаёт строки на основе доступной ширины, не вставляя явные разрывы в текст. Поэтому подсчёт абзацев или символов разрыва строки не даёт количества отрисованных строк.
+Используйте [IParagraph.GetLinesCount](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getlinescount/) для подсчёта строк, занятых абзацем после раскладки текста, включая автоматический перенос. Это полезно при проверке длины текста и макета в шаблонах презентаций.
 
-Следующий пример создаёт текстовую фигуру, подсчитывает её строки, сужает фигуру, а затем заменяет текст более короткой строкой. Перенос включён, а автоподгонка отключена, чтобы ширина фигуры контролировала перенос без автоматического уменьшения текста или изменения размеров фигуры. Размеры фигур указаны в пунктах. В конце пример добавляет ещё один абзац и суммирует количество строк по всей текстовой рамке.
+Абзац является элементом в [ITextFrame.Paragraphs](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/paragraphs/) и может занимать несколько отрисованных строк. Явный разрыв строки внутри абзаца принуждает начало новой строки без создания нового абзаца. Автоматический перенос создаёт строки на основе доступной ширины без вставки явных разрывов в текст. Поэтому подсчёт абзацев или символов разрыва не даёт количества отрисованных строк.
+
+В следующем примере создаётся текстовая фигура, считается её количество строк, затем фигура сужается, после чего текст заменяется более короткой строкой. Перенос включён, а автоподгонка отключена, чтобы ширина фигуры контролировала перенос без автоматического уменьшения текста или изменения размеров фигуры. Размеры фигуры указаны в пунктах. Затем пример добавляет ещё один абзац и суммирует количество строк во всей текстовой рамке.
 
 ```csharp
 using System;
@@ -512,24 +519,24 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-С этим текстом и этими размерами сужение фигуры увеличивает количество строк, а замена текста короткой строкой уменьшает его. Точные счётчики могут различаться в зависимости от доступных шрифтов и их замены, размера шрифта, полей, отступов, переноса и настроек автоподгонки. При проверке шаблона используйте шрифты и параметры макета, предназначенные для целевой среды.
+С указанным текстом и этими размерами сужение фигуры увеличивает количество строк, тогда как замена текста на короткую строку уменьшает его. Точные подсчёты могут различаться в зависимости от доступных шрифтов и их подстановки, размера шрифта, полей, отступов, переноса и настроек автоподгонки. Используйте шрифты и настройки макета, предназначенные для целевой среды, при проверке шаблона.
 
-Само количество строк не определяет, выходит ли текст за пределы контейнера. Важны доступная высота, высоты строк, интервалы между абзацами и строками, а также поведение автоподгонки; даже одна строка может превысить доступную ширину, если перенос отключён.
+Только количество строк не определяет, выходит ли текст за пределы контейнера. Важны доступная высота, высота строк, интервалы абзаца и строк, а также поведение автоподгонки; даже одна строка может превышать доступную ширину при отключённом переносе.
 
 ## **Импорт и экспорт содержимого абзаца**
 
 ### **Импорт HTML‑текста в абзацы**
 
-Используйте [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/addfromhtml/) , чтобы преобразовать разметку HTML в абзацы и части в текстовой рамке.
+Используйте [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/addfromhtml/) для преобразования разметки HTML в абзацы и фрагменты в текстовой рамке.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation) .
-2. Получите слайд и добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) .
-3. Получите [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) фигуры и очистите её от абзаца по умолчанию.
-4. Прочитайте исходный файл HTML.
-5. Передайте строку HTML в [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/addfromhtml/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation).
+2. Получите слайд и добавьте [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/).
+3. Получите [ITextFrame] фигуры и очистите её абзац по умолчанию.
+4. Прочитайте исходный HTML‑файл.
+5. Передайте строку HTML в [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/addfromhtml/).
 6. Сохраните изменённую презентацию.
 
-Этот пример на C# импортирует HTML в текстовую рамку:
+Этот пример C# импортирует HTML в текстовую рамку:
 
 ```csharp
 using System.IO;
@@ -553,15 +560,15 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **Экспорт текста абзаца в HTML**
 
-Используйте [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/exporttohtml/) , чтобы экспортировать выбранный диапазон абзацев в виде HTML.
+Используйте [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/exporttohtml/) для экспорта выбранного диапазона абзацев в виде HTML.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation) и загрузите нужную презентацию.
-2. Получите слайд и найдите [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) , содержащий текст.
-3. Получите [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) фигуры.
-4. Вызовите [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/exporttohtml/) с индексом начального абзаца и количеством абзацев для экспорта.
+2. Получите слайд и найдите [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/), содержащий текст.
+3. Получите [ITextFrame] фигуры.
+4. Вызовите [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphcollection/exporttohtml/) с указанием индекса начального абзаца и количества абзацев для экспорта.
 5. Запишите полученную строку HTML в файл.
 
-Этот пример на C# экспортирует все абзацы из первой текстовой фигуры:
+Этот пример C# экспортирует все абзацы из первой текстовой фигуры:
 
 ```csharp
 using System;
@@ -587,9 +594,9 @@ else
 
 ### **Отрисовка абзаца как изображения**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/) отрисовывает отдельный абзац напрямую и возвращает объект [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) . Сохраните результат в файл или поток с помощью [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/save/) . Нет необходимости отрисовывать содержащую фигуру или вручную обрезать растровое изображение.
+[IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/) отрисовывает отдельный абзац непосредственно и возвращает [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/). Сохраните результат в файл или поток с помощью [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/save/). Нет необходимости отрисовывать содержащую фигуру или вручную обрезать bitmap.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/) может вернуть `null`, если абзац не найден в родительской коллекции, у него нет действительных границ отрисовки или он не может быть отрисован. Проверьте результат перед сохранением и освободите полученное изображение после использования.
+[IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/) может вернуть `null`, если абзац не найден в родительской коллекции, не имеет действительных границ отрисовки или не может быть отрисован. Проверьте результат перед сохранением и освободите возвращённое изображение после использования.
 
 #### **Отрисовка абзаца в масштабе по умолчанию**
 
@@ -597,7 +604,7 @@ else
 
 ![Текстовое поле с тремя абзацами](paragraph_to_image_input.png)
 
-Следующий пример отрисовывает второй абзац в обычной текстовой фигуре в масштабе по умолчанию и сохраняет полученное изображение в формате PNG. Объявление `using` гарантирует правильное освобождение изображения.
+Следующий пример отрисовывает второй абзац в обычной текстовой фигуре в масштабе по умолчанию и сохраняет полученное изображение в формате PNG. Оператор `using` гарантирует корректное освобождение изображения.
 
 ```csharp
 using System;
@@ -634,7 +641,7 @@ else
 
 #### **Отрисовка абзаца в ячейке таблицы с масштабированием**
 
-Используйте перегрузку [IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/) , принимающую параметры `float scaleX` и `float scaleY` , чтобы задать горизонтальные и вертикальные коэффициенты масштабирования. Пример ниже создаёт таблицу, отрисовывает абзац в её первой ячейке при двойной ширине и высоте по сравнению с масштабом по умолчанию и сохраняет результат в виде PNG‑изображения.
+Используйте перегрузку [IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/), принимающую параметры `float scaleX` и `float scaleY`, чтобы задать горизонтальные и вертикальные коэффициенты масштабирования. В следующем примере создаётся таблица, отрисовывается абзац в её первой ячейке с двойной шириной и высотой от масштаба по умолчанию, и результат сохраняется как PNG‑изображение.
 
 ```csharp
 using System;
@@ -660,24 +667,24 @@ else
 }
 ```
 
-Коэффициент масштаба `1` сохраняет размер оси в пикселях по умолчанию. Например, `2` для обоих коэффициентов создаёт изображение, ширина и высота которого приблизительно вдвое больше стандартных размеров, что приводит к четырём раз больше пикселей. Большие коэффициенты обычно дают более чёткий текст для увеличения или вывода в высоком разрешении, но также увеличивают расход памяти и размер файла. Коэффициенты ниже `1` создают меньшие изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить соотношение сторон абзаца; разные горизонтальные и вертикальные коэффициенты растягивают вывод независимо.
+Коэффициент масштабирования `1` сохраняет размер оси по умолчанию в пикселях. Например, `2` для обеих осей даёт изображение, ширина и высота которого примерно вдвое больше стандартных размеров, что приводит к четырёхкратному количеству пикселей. Большие коэффициенты обычно дают более чёткий текст для увеличения или вывода в высоком разрешении, но также увеличивают потребление памяти и размер файла. Коэффициенты ниже `1` дают более мелкие изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить соотношение сторон абзаца; разные горизонтальные и вертикальные коэффициенты растягивают вывод независимо.
 
-Отрисовка всей фигуры с помощью [IShape.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getimage/) остаётся полезной, когда в выводе должны присутствовать заливка, граница или иной визуальный контекст фигуры. Для изображения только абзаца используйте [IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/) .
+Отрисовка всей фигуры с помощью [IShape.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getimage/) остаётся полезной, когда в выводе должны присутствовать заливка фигуры, контур или другой визуальный контекст. Для изображения только абзаца используйте [IParagraph.GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
 **Могу ли я полностью отключить перенос строк внутри текстовой рамки?**
 
-Да. Установите [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/wraptext/) , чтобы отключить перенос, и строки не будут разбиваться у краёв текстовой рамки.
+Да. Установите [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/wraptext/) в значение, отключающее перенос, чтобы строки не разрывались у краёв текстовой рамки.
 
 **Как получить точные границы конкретного абзаца на слайде?**
 
-Используйте [IParagraph.GetRect](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getrect/) , чтобы получить ограничивающий прямоугольник абзаца. [IPortion.GetRect](https://reference.aspose.com/slides/ru/net/aspose.slides/iportion/getrect/) предоставляет границы отдельной части.
+Используйте [IParagraph.GetRect](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/getrect/) для получения ограничивающего прямоугольника абзаца. [IPortion.GetRect](https://reference.aspose.com/slides/ru/net/aspose.slides/iportion/getrect/) предоставляет границы отдельного фрагмента.
 
-**Где управляется выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
+**Где контролируется выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/alignment/) — это настройка уровня абзаца и применяется ко всему абзацу независимо от форматирования отдельных частей.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/alignment/) — это настройка уровня абзаца и применяется ко всему абзацу независимо от форматирования отдельных фрагментов.
 
 **Могу ли я задать язык проверки орфографии для части абзаца?**
 
-Да. Установите [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/languageid/) для отдельных частей, чтобы один абзац мог содержать текст на нескольких языках.
+Да. Установите [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseportionformat/languageid/) для отдельных фрагментов, чтобы один абзац мог содержать текст на нескольких языках.

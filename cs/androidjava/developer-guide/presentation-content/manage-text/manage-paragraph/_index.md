@@ -1,6 +1,6 @@
 ---
-title: Správa textových odstavců PowerPointu na Androidu
-linktitle: Spravovat odstavec
+title: Správa odstavců PowerPointu na Androidu
+linktitle: Správa odstavce
 type: docs
 weight: 40
 url: /cs/androidjava/manage-paragraph/
@@ -19,7 +19,7 @@ keywords:
 - číslovaný seznam
 - odrážkový seznam
 - vlastnosti odstavce
-- importovat HTML
+- import HTML
 - text do HTML
 - odstavec do HTML
 - odstavec na obrázek
@@ -30,35 +30,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se, jak s Aspose.Slides pro Android a Java vytvářet a formátovat odstavce, úseky, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců."
+description: "Naučte se vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců s Aspose.Slides pro Android pomocí Java."
 ---
 ## **Přehled**
 
-Aspose.Slides for Android via Java představuje text jako hierarchii textových rámců, odstavců a úseků:
+Aspose.Slides pro Android pomocí Java představuje text jako hierarchii textových rámců, odstavců a částí:
 
 * [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
-* [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho úsekům a formátování na úrovni odstavce.
-* [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) představuje běh textu v rámci odstavce. Každý úsek může mít vlastní text a formátování na úrovni znaků.
+* [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
+* [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) představuje úsek textu uvnitř odstavce. Každá část může mít vlastní text a formátování na úrovni znaků.
 
-Odstavec tak může obsahovat text s různými fonty, barvami, velikostmi a dalšími formátováními pomocí více úseků.
+Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a dalším formátováním pomocí více částí.
 
-## **Vytváření a formátování odstavců**
+## **Vytvoření a formátování odstavců**
 
-### **Vytvoření odstavců s více úseky**
+### **Vytvoření odstavců s více částmi**
 
-Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři úseky:
+Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři části:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte příslušný snímek pomocí jeho indexu.
-3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
+2. Přistupte k požadovanému snímku pomocí jeho indexu.
+3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) do snímku.
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru.
 5. Použijte výchozí odstavec a přidejte dva další objekty [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) do textového rámce.
-6. Přidejte dostatek objektů [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) pro každý odstavec, aby obsahoval tři úseky. Výchozí odstavec již obsahuje jeden prázdný úsek.
-7. Nastavte text každého úseku.
-8. Použijte formátování na úrovni znaků prostřednictvím [IPortion.getPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
+6. Přidejte dostatek objektů [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) tak, aby každý odstavec obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
+7. Nastavte text každé části.
+8. Použijte formátování na úrovni znaků pomocí [IPortion.getPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
 9. Uložte upravenou prezentaci.
 
-Tento příklad pro Android via Java implementuje tyto kroky:
+Tento příklad pro Android pomocí Java implementuje výše uvedené kroky:
 
 ```java
 import com.aspose.slides.*;
@@ -114,15 +114,15 @@ try {
 }
 ```
 
-## **Vytváření odrážkových a číslovaných seznamů**
+## **Vytvoření odrážkových a číslovaných seznamů**
 
 ### **Vytvoření odrážkového nebo číslovaného seznamu**
 
-Odrážky a číslování usnadňují prohlížení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [IBulletFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/).
+Odrážky a číslování usnadňují skenování souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována přes [IBulletFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/).
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte příslušný snímek pomocí jeho indexu.
-3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na vybraný snímek.
+2. Přistupte k požadovanému snímku pomocí jeho indexu.
+3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) do vybraného snímku.
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru.
 5. Odstraňte výchozí odstavec z textového rámce.
 6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/) pro symbolickou odrážku.
@@ -133,7 +133,7 @@ Odrážky a číslování usnadňují prohlížení souvisejících položek. V 
 11. Nakonfigurujte styl číslované odrážky a přidejte odstavec do textového rámce.
 12. Uložte prezentaci.
 
-Tento příklad pro Android via Java vytvoří symbolickou odrážku a číslovanou odrážku:
+Tento příklad pro Android pomocí Java vytvoří symbolickou odrážku a číslovanou odrážku:
 
 ```java
 import com.aspose.slides.*;
@@ -176,10 +176,10 @@ try {
 
 ### **Použití obrázkových odrážek**
 
-Obrázkové odrážky vám umožňují použít vlastní obrázek místo symbolu nebo čísla.
+Obrázkové odrážky umožňují použít vlastní obrázek místo symbolu nebo čísla.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte příslušný snímek pomocí jeho indexu.
+2. Přistupte k požadovanému snímku pomocí jeho indexu.
 3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a získejte jeho [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/).
 4. Odstraňte výchozí odstavec z textového rámce.
 5. Načtěte obrázek odrážky a přidejte jej do kolekce obrázků prezentace jako [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/).
@@ -189,7 +189,7 @@ Obrázkové odrážky vám umožňují použít vlastní obrázek místo symbolu
 9. Přidejte odstavec do textového rámce.
 10. Uložte upravenou prezentaci.
 
-Tento příklad pro Android via Java vytvoří obrázkovou odrážku:
+Tento příklad pro Android pomocí Java vytvoří obrázkovou odrážku:
 
 ```java
 import com.aspose.slides.*;
@@ -226,15 +226,15 @@ try {
 
 ### **Vytvoření víceúrovňového seznamu**
 
-Nastavte [IParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) aby se odstavce umístily na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
+Nastavte [IParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
 
-1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a získejte snímek.
-2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a odstraňte výchozí odstavec z jeho textového rámce.
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a přistupte k snímku.
+2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a vymažte výchozí odstavec z jeho textového rámce.
 3. Vytvořte čtyři odstavce a nakonfigurujte jejich symboly odrážek.
-4. Nastavte jejich [IParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) hodnoty na `0`, `1`, `2` a `3`.
+4. Nastavte jejich hodnoty [IParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) na `0`, `1`, `2` a `3`.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento příklad pro Android via Java vytvoří čtyřúrovňový odrážkový seznam:
+Tento příklad pro Android pomocí Java vytvoří čtyřúrovňový odrážkový seznam:
 
 ```java
 import com.aspose.slides.*;
@@ -290,17 +290,17 @@ try {
 }
 ```
 
-### **Zahájení číslovaných položek seznamu vlastními hodnotami**
+### **Zahájení číslovaných položek seznamu vlastní hodnotou**
 
-Použijte [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) k nastavení počátečního čísla zobrazovaného u číslovaného odstavce.
+Použijte [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) pro nastavení počátečního čísla zobrazeného u číslovaného odstavce.
 
 1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-2. Odstraňte výchozí odstavec z textového rámce tvaru.
+2. Vymažte výchozí odstavec z textového rámce tvaru.
 3. Vytvořte tři číslované odstavce.
 4. Nastavte [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) na `2`, `3` a `7` pro příslušné odstavce.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento příklad pro Android via Java přiřadí vlastní počáteční číslo každému odstavci:
+Tento příklad pro Android pomocí Java přiřadí vlastní počáteční číslo každému odstavci:
 
 ```java
 import com.aspose.slides.*;
@@ -336,21 +336,21 @@ try {
 }
 ```
 
-## **Ovládání rozvržení odstavců a koncových vlastností**
+## **Kontrola rozvržení odstavce a koncových vlastností**
 
 ### **Nastavení odsazení první řádky**
 
-Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) k ovládání odsazení první řádky odstavce. Tato metoda posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco ostatní řádky zůstanou zarovnané k tělu odstavce.
+Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) pro řízení odsazení první řádky odstavce. Tato metoda posouvá jen první řádek relativně k levému okraji odstavce. Kladná hodnota posouvá první řádek doprava, zatímco zbylé řádky zůstávají zarovnány k tělu odstavce.
 
-Použijte [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) když potřebujete posunout celý odstavec. Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) když potřebujete posunout jen první řádek.
+Použijte [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) pokud potřebujete posunout celý odstavec. Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) pokud potřebujete posunout jen první řádek.
 
-Níže uvedený příklad vytvoří několik odstavců a aplikuje různé hodnoty [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) aby ukázal, jak odsazení první řádky ovlivňuje rozvržení odstavce.
+Níže uvedený příklad vytvoří několik odstavců a použije různé hodnoty [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) k demonstraci, jak odsazení první řádky ovlivňuje rozvržení odstavce.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte cílový snímek.
-3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
+2. Přistupte k cílovému snímku.
+3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) do snímku.
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
-5. Vytvořte několik odstavců a nastavte různé hodnoty [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) pro ně.
+5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-).
 6. Přidejte odstavce do textového rámce.
 7. Uložte upravenou prezentaci.
 
@@ -408,24 +408,24 @@ Výsledek:
 
 ![Odsazení první řádky odstavců](first_line_indent.png)
 
-### **Nastavení závěsného odsazení**
+### **Nastavení zavěšeného odsazení**
 
-Závěsné odsazení je rozvržení odstavce, při kterém první řádek začíná vlevo od zbytku řádků. V Aspose.Slides vytvoříte tento efekt pomocí [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Zadejte zápornou hodnotu, aby se první řádek posunul vlevo vzhledem k tělu odstavce.
+Zavěšené odsazení je rozvržení odstavce, kde první řádek začíná vlevo od zbytku řádků. V Aspose.Slides tento efekt vytvoříte pomocí [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Zadáním záporné hodnoty posunete první řádek vlevo vůči tělu odstavce.
 
-V praxi [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) určuje levou pozici těla odstavce a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření závěsného odsazení zadejte kladnou hodnotu do `setMarginLeft` a zápornou hodnotu do `setIndent`.
+V praxi [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) určuje levou pozici těla odstavce a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) určuje pozici první řádky relativně k tomuto okraji. Pro vytvoření zavěšeného odsazení použijte kladnou hodnotu pro `setMarginLeft` a zápornou hodnotu pro `setIndent`.
 
-Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a jiné odstavce, kde zalomené řádky musí být zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, odkazy, glosáře a další odstavce, kde musí být zalomené řádky zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte cílový snímek.
-3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
+2. Přistupte k cílovému snímku.
+3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) do snímku.
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
-5. Vytvořte odstavce a zadejte kladnou hodnotu do [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) pro každý odstavec.
-6. Zadejte zápornou hodnotu do [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) pro vytvoření efektu závěsného odsazení.
+5. Vytvořte odstavce a zadejte kladnou hodnotu pro [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) u každého odstavce.
+6. Zadejte zápornou hodnotu pro [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) a vytvořte efekt zavěšeného odsazení.
 7. Přidejte odstavce do textového rámce.
 8. Uložte upravenou prezentaci.
 
-Tento kód ukazuje, jak nastavit závěsné odsazení pro odstavec:
+Tento kód ukazuje, jak nastavit zavěšené odsazení odstavce:
 
 ```java
 import com.aspose.slides.*;
@@ -469,15 +469,15 @@ try {
 
 Výsledek:
 
-![Závěsné odsazení odstavců](hanging_indent.png)
+![Zavěšené odsazení odstavců](hanging_indent.png)
 
-### **Nastavení vlastností běhu konce odstavce**
+### **Nastavení koncových vlastností odstavce**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kontroluje formátování koncového znaku odstavce. Následující příklad přiřadí velikost písma a latinský font koncovému znaku druhého odstavce:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) řídí formátování koncového znaku odstavce. Následující příklad přiřadí velikost písma a latinské písmo ke koncovému znaku druhého odstavce:
 
-1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a získejte snímek.
-2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a odstraňte jeho výchozí odstavec.
-3. Vytvořte dva odstavce a přidejte k nim textové úseky.
+1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a přistupte k snímku.
+2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a vymažte jeho výchozí odstavec.
+3. Vytvořte dva odstavce a přidejte k nim textové části.
 4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/portionformat/) pro koncový znak druhého odstavce.
 5. Nastavte [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) a [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
 6. Přiřaďte formát pomocí [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) a uložte prezentaci.
@@ -514,9 +514,11 @@ try {
 
 ## **Počítání vykreslených řádků**
 
-Použijte [IParagraph.getLinesCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) k počítání řádků, které odstavec zabírá po rozvržení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
+Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na konci řádků, viz [Control Line Breaking](/slides/cs/androidjava/text-formatting/#control-line-breaking) a [Control Hanging Punctuation](/slides/cs/androidjava/text-formatting/#control-hanging-punctuation).
 
-Odstavec je jednou položkou v [ITextFrame.getParagraphs](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParagraphs--), a může zabírat několik vykreslených řádků. Výslovný zalomení řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořil další odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by do textu vkládalo výslovná zalomení řádku. Počítání odstavců nebo znaků zalomení řádku tedy nedává počet vykreslených řádků.
+Použijte [IParagraph.getLinesCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) pro získání počtu řádků, které odstavec zabírá po rozložení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
+
+Odstavec je jednou položkou v [ITextFrame.getParagraphs](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParagraphs--), a může zabírat několik vykreslených řádků. Explicitní zalomení řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořilo další odstavec. Automatické zalamování vytváří řádky podle dostupné šířky, aniž by do textu vkládalo explicitní znaky zalomení. Proto počítání odstavců nebo znaků zalomení neposkytuje počet vykreslených řádků.
 
 Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a poté nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení (autofit) je zakázáno, takže šířka tvaru řídí zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
 
@@ -558,24 +560,24 @@ try {
 }
 ```
 
-Při tomto textu a těchto rozměrech zúžení tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti a náhrady fontů, velikosti fontu, okrajů, odsazení, zalamování a nastavení autofitu. Při kontrole šablony použijte fonty a nastavení rozvržení určené pro cílové prostředí.
+S tímto textem a těmito rozměry zúžení tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti písem a jejich náhrad, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte písma a nastavení rozvržení určená pro cílové prostředí při kontrole šablony.
 
-Počet řádků sám o sobě neurčuje, zda text přesahuje svůj kontejner. Důležité jsou také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování autofitu; i jediný řádek může překročit dostupnou šířku, když je zalamování zakázáno.
+Samotný počet řádků neurčuje, zda text přeplňuje svůj kontejner. Důležitá je také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může přesáhnout dostupnou šířku, pokud je zalamování zakázáno.
 
 ## **Import a export obsahu odstavců**
 
 ### **Import HTML textu do odstavců**
 
-Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) k převodu HTML značkování na odstavce a úseky v textovém rámci.
+Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) pro převod HTML značek na odstavce a části v textovém rámci.
 
-1. Vytvořte instanci [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) třídy.
-2. Získejte snímek a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
-3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
-4. Přečtěte zdrojový HTML soubor.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+2. Přistupte k snímku a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
+3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru a vymažte jeho výchozí odstavec.
+4. Načtěte zdrojový HTML soubor.
 5. Předávejte HTML řetězec metodě [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Uložte upravenou prezentaci.
 
-Tento příklad pro Android via Java importuje HTML do textového rámce:
+Tento příklad pro Android pomocí Java importuje HTML do textového rámce:
 
 ```java
 import com.aspose.slides.*;
@@ -606,17 +608,17 @@ try {
 }
 ```
 
-### **Export textu odstavců do HTML**
+### **Export textu odstavce do HTML**
 
-Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) k exportu vybraného rozsahu odstavců jako HTML.
+Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) pro export vybraného rozsahu odstavců jako HTML.
 
-1. Vytvořte instanci [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte požadovanou prezentaci.
-2. Získejte snímek a najděte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), který obsahuje text.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte požadovanou prezentaci.
+2. Přistupte k snímku a najděte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), který obsahuje text.
 3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/).
 4. Zavolejte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) s indexem počátečního odstavce a počtem odstavců k exportu.
-5. Zapíšete vrácený HTML řetězec do souboru.
+5. Zapište vrácený HTML řetězec do souboru.
 
-Tento příklad pro Android via Java exportuje všechny odstavce z prvního textového tvaru:
+Tento příklad pro Android pomocí Java exportuje všechny odstavce z prvního textového tvaru:
 
 ```java
 import com.aspose.slides.*;
@@ -653,17 +655,17 @@ try {
 
 ### **Vykreslení odstavce jako obrázku**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Není nutné vykreslovat obsahující tvar nebo ručně ořezávat bitmapu.
+[IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Není nutné vykreslovat celý tvar nebo ručně ořezávat bitmapu.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--) může vrátit `null`, pokud odstavec nelze najít v jeho nadřazené kolekci, nemá platné vykreslovací ohraničení nebo jej nelze vykreslit. Výsledek zkontrolujte před uložením a po použití uvolněte získaný obrázek.
+[IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--) může vrátit `null`, pokud odstavec nelze v rodičovské kolekci najít, nemá platné vykreslovací hranice nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
 
 #### **Vykreslení odstavce ve výchozím měřítku**
 
-Předpokládejme, že máme soubor prezentace s názvem sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
+Předpokládejme, že máme soubor prezentace nazvaný sample.pptx s jedním snímkem, kde je první tvar textovým polem se třemi odstavci.
 
 ![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG. Blok `finally` zajišťuje, že obrázek je správně uvolněn.
+Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží získaný obrázek ve formátu PNG. Blok `finally` zajistí správné uvolnění obrázku.
 
 ```java
 import com.aspose.slides.*;
@@ -705,7 +707,7 @@ Výsledek:
 
 #### **Vykreslení odstavce v buňce tabulky se škálováním**
 
-Použijte přetížení [IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) které přijímá parametry `float scaleX` a `float scaleY` pro nastavení vodorovných a svislých faktorů měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce při dvojnásobné šířce a výšce oproti výchozímu a výsledek uloží jako PNG obrázek.
+Použijte přetíženou metodu [IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) přijímající parametry `float scaleX` a `float scaleY` pro nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v první buňce dvojnásobně ve výchozí šířce i výšce a výsledek uloží jako PNG obrázek.
 
 ```java
 import com.aspose.slides.*;
@@ -735,24 +737,24 @@ try {
 }
 ```
 
-Faktor měřítka `1` zachovává danou osu v její výchozí velikosti v pixelech. Například `2` pro oba faktory vytvoří obrázek, jehož šířka i výška jsou přibližně dvojnásobkem výchozích rozměrů, což vede ke čtyřnásobnému počtu pixelů. Větší faktory obecně poskytují ostřejší text pro zvětšování nebo výstup ve vysokém rozlišení, ale také zvyšují paměťovou náročnost a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s méně podrobným zobrazením. Používejte stejné faktory pro zachování poměru stran odstavce; různé vodorovné a svislé faktory roztahují výstup nezávisle.
+Měřítko `1` zachovává výchozí velikost pixelu podél dané osy. Například `2` pro obě osy vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobkem výchozích rozměrů, což vede ke čtyřnásobku pixelů. Větší faktory obecně zajišťují ostřejší text při přiblížení nebo výstupu ve vysokém rozlišení, ale také zvyšují spotřebu paměti a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s menšími detaily. Použijte stejné faktory pro zachování poměru stran odstavce; odlišné horizontální a vertikální faktory rozprostřou výstup nezávisle.
 
-Vykreslování celého tvaru pomocí [IShape.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getImage--) zůstává užitečné, když výstup musí zahrnovat výplň tvaru, okraj nebo jiný vizuální kontext. Pro obrázek pouze odstavce použijte [IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--).
+Vykreslení celého tvaru pomocí [IShape.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getImage--) zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo další vizuální kontext tvaru. Pro obrázek jen s odstavcem použijte [IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--).
 
 ## **Často kladené otázky**
 
-**Mohu zcela vypnout zalamování řádků uvnitř textového rámce?**
+**Mohu zcela zakázat zalamování řádků uvnitř textového rámce?**
 
-Ano. Nastavte [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), aby se zakázalo zalamování, takže řádky se nebudou lámat na okrajích textového rámce.
+Ano. Nastavením [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) vypnete zalamování, takže řádky nebudou přerušovány na okrajích textového rámce.
 
-**Jak mohu získat přesné hranice konkrétního odstavce na snímku?**
+**Jak získám přesné hranice konkrétního odstavce na snímku?**
 
-Použijte [IParagraph.getRect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getRect--) k získání ohraničujícího obdélníku odstavce. [IPortion.getRect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/#getRect--) poskytuje hranice jednotlivého úseku.
+Použijte [IParagraph.getRect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getRect--) pro získání ohraničujícího obdélníku odstavce. [IPortion.getRect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/#getRect--) poskytuje hranice jednotlivé části.
 
 **Kde se řídí zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) je nastavení na úrovni odstavce a vztahuje se na celý odstavec bez ohledu na formátování jednotlivých úseků.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) je nastavení na úrovni odstavce a platí pro celý odstavec bez ohledu na formátování jednotlivých částí.
 
-**Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
+**Mohu nastavit jazyk korektury pro část odstavce?**
 
-Ano. Nastavte [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) pro jednotlivé úseky, takže jeden odstavec může obsahovat text v několika jazycích.
+Ano. Nastavte [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.
