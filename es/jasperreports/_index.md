@@ -64,12 +64,12 @@ Exporta un informe completado a PPT y PPTX, una diapositiva por página de infor
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/es/jasperreport/release-notes/">Notas de la versión</a></li>
-<li><a href="https://releases.aspose.com/slides/es/jasperreport/">Descarga</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Notas de la versión</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Descarga</a></li>
 </ul>
 <p>SOPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/es/11">Foro de soporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Foro de soporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Mesa de ayuda de soporte pago</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Exporta un informe completado a PPT y PPTX, una diapositiva por página de infor
 
 Estos pasos compilan un informe de una sola línea, lo rellenan y lo exportan a PPTX con JasperReports 6.16.0 desde Maven Central. Necesita JDK 11 o posterior y Apache Maven.
 
-1. Descargue el ZIP desde la [página de descarga](https://releases.aspose.com/slides/es/jasperreport/) y descomprímalo. Su carpeta *lib* tiene una subcarpeta por cada rango de versiones de JasperReports, y cada una contiene el jar correspondiente a ese rango. Para JasperReports 6.16.0, copie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* en una carpeta de proyecto vacía.
+1. Descargue el ZIP desde la [página de descarga](https://releases.aspose.com/slides/jasperreport/) y descomprímalo. Su carpeta *lib* tiene una subcarpeta por cada rango de versiones de JasperReports, y cada una contiene el jar correspondiente a ese rango. Para JasperReports 6.16.0, copie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* en una carpeta de proyecto vacía.
 
 2. El jar viene dentro del ZIP en lugar de un repositorio Maven, por lo que debe instalarlo en su repositorio Maven local. Ejecute este comando en la carpeta del proyecto:
 
