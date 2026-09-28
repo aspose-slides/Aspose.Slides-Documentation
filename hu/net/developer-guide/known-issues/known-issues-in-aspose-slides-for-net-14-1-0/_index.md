@@ -14,7 +14,7 @@ description: "Történeti: a 2014-ben az Aspose.Slides for .NET 14.1.0-hoz kiado
 ---
 {{% alert color="info" title="Note" %}}
 
-Ez egy történelmi oldal. A 2014‑ben megjelent Aspose.Slides for .NET 14.1.0‑hoz kiadott ismert problémákat sorolja fel, és nem ismerteti az aktuális verziót. Az egyes verziók változásaiért lásd a [kiadási megjegyzések](https://releases.aspose.com/slides/hu/net/release-notes/).
+Ez egy történelmi oldal. A 2014‑ben megjelent Aspose.Slides for .NET 14.1.0‑hoz kiadott ismert problémákat sorolja fel, és nem ismerteti az aktuális verziót. Az egyes verziók változásaiért lásd a [kiadási megjegyzések](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 

@@ -22,7 +22,7 @@ description: "Miért jelenik meg egy Aspose.Slides for .NET‑vel hozzáadott OL
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for .NET használatával, amikor egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe/) elemet ad egy diára, egy "EMBEDDED OLE OBJECT" üzenet jelenik meg a kimeneti dián. Ez az üzenet szándékos, és NEM hiba.
+Az Aspose.Slides for .NET használatával, amikor egy [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) elemet ad egy diára, egy "EMBEDDED OLE OBJECT" üzenet jelenik meg a kimeneti dián. Ez az üzenet szándékos, és NEM hiba.
 
 Az OLE objektumokkal való munkáról további információkért lásd a [Manage OLE](/slides/hu/net/manage-ole/) oldalt.
 
@@ -30,7 +30,7 @@ Az OLE objektumokkal való munkáról további információkért lásd a [Manage
 
 Az Aspose.Slides megjeleníti a "EMBEDDED OLE OBJECT" üzenetet, hogy jelezze, hogy az OLE objektum módosult, és a előnézeti képet frissíteni kell.
 
-Például, ha egy Microsoft Excel diagramot ad egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe/) elemmel egy diára (további részletekért lásd a "Manage OLE" cikket), majd megnyitja a prezentációt a Microsoft PowerPointban, a dián ezt a képet fogja látni:
+Például, ha egy Microsoft Excel diagramot ad egy [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) elemmel egy diára (további részletekért lásd a "Manage OLE" cikket), majd megnyitja a prezentációt a Microsoft PowerPointban, a dián ezt a képet fogja látni:
 
 ![OLE objektum üzenet](OLE_object_message.png)
 

@@ -24,7 +24,7 @@ description: "PowerPoint és OpenDocument prezentációk konvertálása PowerPoi
 
 Aspose.Slides for .NET képes a PowerPoint prezentációkat PowerPoint XML prezentáció formátumba konvertálni. Az XML kimenet hasznos, ha szöveges ábrázolásra van szükség a prezentáció struktúrájának vizsgálatához, a generált dokumentumok hibakereséséhez, a kimenet összehasonlításához automatizált tesztekben, vagy egy olyan munkafolyamattal való integrációhoz, amely XML-t fogyaszt a prezentáció csomag helyett.
 
-Használja a [Presentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódust a [SaveFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) felsorolás `Xml` értékével. Az eredményt közvetlenül fájlba vagy folyamba (stream) írhatja.
+Használja a [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódust a [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) felsorolás `Xml` értékével. Az eredményt közvetlenül fájlba vagy folyamba (stream) írhatja.
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` PowerPoint XML prezentációt hoz létre. Nem bontja le a PPTX csomagban tárolt egyedi Office Open XML részeket. Ha a pontos PPTX csomagrészekre van szüksége, például `ppt/presentation.xml` vagy egyedi diák XML fájlokra, ellenőrizze a PPTX csomagot.
@@ -32,7 +32,7 @@ Használja a [Presentation.Save](https://reference.aspose.com/slides/hu/net/aspo
 
 ## **Prezentáció konvertálása XML fájlra**
 
-Töltsön be egy forrás prezentációt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztállyal, majd adja át a kimeneti útvonalat és a `SaveFormat.Xml` értéket a [Presentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódusnak. A forrás lehet bármely a betöltéshez támogatott prezentációformátum, például PPT, PPTX vagy ODP.
+Töltsön be egy forrás prezentációt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) osztállyal, majd adja át a kimeneti útvonalat és a `SaveFormat.Xml` értéket a [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódusnak. A forrás lehet bármely a betöltéshez támogatott prezentációformátum, például PPT, PPTX vagy ODP.
 
 Az alábbi példa egy PPTX prezentációt XML fájlra konvertál:
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **XML kimenet írása folyamra**
 
-Használja a [Presentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) folyam (stream) túlterhelését, ha az XML-nek memóriában kell maradnia vagy egy másik komponensnek kell átadni, például egy webszolgáltatásnak, tárolási szolgáltatónak vagy XML feldolgozási csővezetéknek. Az alábbi példa az eredményt egy [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)‑be írja, és visszatekeri a későbbi olvasáshoz:
+Használja a [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) folyam (stream) túlterhelését, ha az XML-nek memóriában kell maradnia vagy egy másik komponensnek kell átadni, például egy webszolgáltatásnak, tárolási szolgáltatónak vagy XML feldolgozási csővezetéknek. Az alábbi példa az eredményt egy [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)‑be írja, és visszatekeri a későbbi olvasáshoz:
 
 ```csharp
 using System.IO;
@@ -83,10 +83,10 @@ A PPT és PPTX formátumoktól eltérően az XML kimenet elsősorban ellenőrzé
 Nem. A PPTX egy csomag, amely több Office Open XML részt tartalmaz, míg a `SaveFormat.Xml` egy PowerPoint XML prezentációs fájlt hoz létre.
 
 **Menthetem az XML kimenetet anélkül, hogy fájlt hoznék létre a lemezen?**  
-Igen. Adjon át egy írható folyamot a [Presentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódusnak. Például használjon egy [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)‑t a memóriában történő feldolgozáshoz.
+Igen. Adjon át egy írható folyamot a [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódusnak. Például használjon egy [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)‑t a memóriában történő feldolgozáshoz.
 
 **Tudja az Aspose.Slides újra betölteni az exportált XML fájlt?**  
-Igen. Adja át az XML fájlt vagy egy folyamot a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/presentation/) konstruktorának. A [Presentation.SourceFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/sourceformat/) ekkor `SourceFormat.Xml` értéket ad vissza. A [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/presentationfactory/getpresentationinfo/) `LoadFormat.Unknown` értéket jelent ennél a formátumnál, ezért ne használja annak eldöntésére, hogy egy XML fájl megnyitható‑e.
+Igen. Adja át az XML fájlt vagy egy folyamot a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) konstruktorának. A [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) ekkor `SourceFormat.Xml` értéket ad vissza. A [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) `LoadFormat.Unknown` értéket jelent ennél a formátumnál, ezért ne használja annak eldöntésére, hogy egy XML fájl megnyitható‑e.
 
 **Az XML konverzió minden diát oldal‑ként vagy kép‑ként renderel?**  
 Nem. Az XML konverzió strukturált prezentációs adatokat ír. Használjon PDF‑et vagy TIFF‑et oldal‑orientált kimenethez, vagy PNG‑t, JPEG‑t és SVG‑t egyedi diaképekhez.

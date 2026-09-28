@@ -56,7 +56,7 @@ A következő konzolalkalmazás jelzi, hogy az Aspose.Slides mely betűtípusoka
 </Project>
 ```
 
-*Program.cs* egy szövegdobozt ad hozzá minden betűtípusnévhez egy diára, és a [LatinFont](https://reference.aspose.com/slides/hu/net/aspose.slides/baseportionformat/latinfont/) tulajdonságon keresztül állítja be a betűtípust. A betűtípusnevek a parancssorból származnak; argumentumok nélkül az alkalmazás a Calibri, Arial és Times New Roman betűtípusokat ellenőrzi. Kiírja a mappákat, amelyekben az Aspose.Slides betűtípusokat keres ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/getfontfolders/)), rendereli a diát a *output/fonts.pdf* fájlba, és kiírja a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) által jelentett helyettesítéseket. A két opcionális lépés a kezdetnél, egy *fonts* mappa betöltése és egy `DEFAULT_FONT` változó olvasása, később kerül részletezésre ebben a cikkben.
+*Program.cs* egy szövegdobozt ad hozzá minden betűtípusnévhez egy diára, és a [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/) tulajdonságon keresztül állítja be a betűtípust. A betűtípusnevek a parancssorból származnak; argumentumok nélkül az alkalmazás a Calibri, Arial és Times New Roman betűtípusokat ellenőrzi. Kiírja a mappákat, amelyekben az Aspose.Slides betűtípusokat keres ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), rendereli a diát a *output/fonts.pdf* fájlba, és kiírja a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) által jelentett helyettesítéseket. A két opcionális lépés a kezdetnél, egy *fonts* mappa betöltése és egy `DEFAULT_FONT` változó olvasása, később kerül részletezésre ebben a cikkben.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Betűtípusok betöltése az alkalmazás mappájából**
 
-A betűtípusok a képbe való telepítése helyett csatolhatók az alkalmazáshoz, és betölthetők a [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfonts/) metódussal. Ekkor a betűtípusok csak az Aspose.Slides számára lesznek elérhetők, és az alkalmazással együtt kerülnek telepítésre. A *FontCheck* ezt teszi: a *FontCheck.csproj* másolja a *fonts* mappát az alkalmazás kimenetébe, a *Program.cs* pedig a `LoadExternalFonts`-nek átadja ezt a mappát a prezentáció létrehozása előtt. A [Egyedi betűtípus](/slides/hu/net/custom-font/) leírja a betűtípusok más módon történő biztosítását, például memóriából történő betöltést.
+A betűtípusok a képbe való telepítése helyett csatolhatók az alkalmazáshoz, és betölthetők a [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) metódussal. Ekkor a betűtípusok csak az Aspose.Slides számára lesznek elérhetők, és az alkalmazással együtt kerülnek telepítésre. A *FontCheck* ezt teszi: a *FontCheck.csproj* másolja a *fonts* mappát az alkalmazás kimenetébe, a *Program.cs* pedig a `LoadExternalFonts`-nek átadja ezt a mappát a prezentáció létrehozása előtt. A [Egyedi betűtípus](/slides/hu/net/custom-font/) leírja a betűtípusok más módon történő biztosítását, például memóriából történő betöltést.
 
 Építse újra a képet, majd ellenőrizze a Calibri és a Carlito betűtípusokat:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Alapértelmezett betűtípus beállítása hiányzó betűtípusokhoz**
 
-Ha egy betűtípus hiányzik, az Aspose.Slides egy saját maga által választott helyettesítőt használ. A saját helyettesítő beállításához állítsa be a [DefaultRegularFont](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/defaultregularfont/) tulajdonságot a [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/) osztályban, és adja át ezeket az opciókat a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) konstruktorának. A *FontCheck* a `DEFAULT_FONT` környezeti változóból olvassa a betűtípus nevét. Carlito betöltése után használja azt hiányzó betűtípusokhoz:
+Ha egy betűtípus hiányzik, az Aspose.Slides egy saját maga által választott helyettesítőt használ. A saját helyettesítő beállításához állítsa be a [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) tulajdonságot a [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) osztályban, és adja át ezeket az opciókat a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) konstruktorának. A *FontCheck* a `DEFAULT_FONT` környezeti változóból olvassa a betűtípus nevét. Carlito betöltése után használja azt hiányzó betűtípusokhoz:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Az alapértelmezett betűtípus minden hiányzó betűtípust lecserél. Az egyes betűtípusok leképezéséhez, például az Arial-t a Liberation Sans-re és a Calibri-t a Carlito-ra, használja a [betűtípus helyettesítési szabályokat](/slides/hu/net/font-substitution/). A szabályok megváltoztatják a renderelt kimenetet, de a `GetSubstitutions` nem tükrözi őket, ezért ellenőrizze a betűtípusokat a kimeneti fájlban. Ázsiai szöveg esetén állítsa be a [DefaultAsianFont](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/defaultasianfont/) értéket is; lásd a [Alapértelmezett betűtípus](/slides/hu/net/default-font/) oldalt.
+Az alapértelmezett betűtípus minden hiányzó betűtípust lecserél. Az egyes betűtípusok leképezéséhez, például az Arial-t a Liberation Sans-re és a Calibri-t a Carlito-ra, használja a [betűtípus helyettesítési szabályokat](/slides/hu/net/font-substitution/). A szabályok megváltoztatják a renderelt kimenetet, de a `GetSubstitutions` nem tükrözi őket, ezért ellenőrizze a betűtípusokat a kimeneti fájlban. Ázsiai szöveg esetén állítsa be a [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/) értéket is; lásd a [Alapértelmezett betűtípus](/slides/hu/net/default-font/) oldalt.
 
 ## **Betűtípusok telepítése Alpine Linuxon**
 

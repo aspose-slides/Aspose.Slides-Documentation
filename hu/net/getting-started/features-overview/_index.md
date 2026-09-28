@@ -77,7 +77,7 @@ Nem. A PowerPoint nem szükséges; az Aspose.Slides egy önálló motor a prezen
 
 **Hogyan működik a több szálas feldolgozás? Párhuzamosítható a feldolgozás?**
 
-Biztonságos különböző dokumentumok feldolgozása külön szálakon; ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektumot nem szabad [több szál](/slides/hu/net/multithreading/) egyidejűleg használni.
+Biztonságos különböző dokumentumok feldolgozása külön szálakon; ugyanazt a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) objektumot nem szabad [több szál](/slides/hu/net/multithreading/) egyidejűleg használni.
 
 **Támogatottak-e a fájl jelszavak és a titkosítás?**
 

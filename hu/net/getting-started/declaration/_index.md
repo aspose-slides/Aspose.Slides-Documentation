@@ -25,7 +25,7 @@ A kódfoglaló biztonság (CAS) bizalmi szintek csak a .NET Framework-ben létez
 
 ## **.NET Framework**
 
-Az Aspose.Slides teljes megbízhatást igényel a .NET Framework alatt. Nem fut részleges megbízhatással, például egy Medium Trust‑re (`<trust level="Medium" />`) konfigurált ASP.NET alkalmazásban: egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektum létrehozása `SecurityException` hibát eredményez.
+Az Aspose.Slides teljes megbízhatást igényel a .NET Framework alatt. Nem fut részleges megbízhatással, például egy Medium Trust‑re (`<trust level="Medium" />`) konfigurált ASP.NET alkalmazásban: egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) objektum létrehozása `SecurityException` hibát eredményez.
 
 A Microsoft már nem tekinti az ASP.NET részleges megbízhatást az alkalmazások egymástól való elszigetelésének módjának, és helyette azt javasolja, hogy az alkalmazásokat külön alkalmazáskészletekben futtassuk. Lásd [Az ASP.NET részleges megbízhatása nem garantálja az alkalmazások elszigetelését](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

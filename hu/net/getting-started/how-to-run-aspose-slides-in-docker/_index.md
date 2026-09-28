@@ -59,7 +59,7 @@ Hozzon létre egy *HelloSlidesDocker* nevű mappát, és adja hozzá a következ
 </Project>
 ```
 
-*Program.cs* létrehoz egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektumot, hozzáad egy szöveget tartalmazó téglalapot az első diájához, és kétszer menti a prezentációt a [Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódussal: PPTX‑ként és PDF‑ként. Mindkét fájl az *output* mappába kerül a munkakönyvtár alatt. Az alkalmazás ezután felsorolja a PDF renderelése közben helyettesített betűtípusokat a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) használatával, így láthatja, hogy a konténer rendelkezik‑e a prezentáció által használt betűtípusokkal.
+*Program.cs* létrehoz egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) objektumot, hozzáad egy szöveget tartalmazó téglalapot az első diájához, és kétszer menti a prezentációt a [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metódussal: PPTX‑ként és PDF‑ként. Mindkét fájl az *output* mappába kerül a munkakönyvtár alatt. Az alkalmazás ezután felsorolja a PDF renderelése közben helyettesített betűtípusokat a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) használatával, így láthatja, hogy a konténer rendelkezik‑e a prezentáció által használt betűtípusokkal.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Az Alpine szakasz három csomagot telepít és egy beállítást módosít:
 - `font-dejavu` betűtípusokat biztosít. Nincs betűtípus, a konverzió `System.ArgumentException: Font '?' cannot be found` hibával áll le.
 - `icu-libs` és `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` biztosítják a kulturális adatokat. Az Alpine .NET képek alapértelmezés szerint a globalizáció‑invariáns módban futnak, ebben a módban az Aspose.Slides `CultureNotFoundException` hibával áll le az `en-US` esetén.
 
-Építse, futtassa, és másolja a kimenetet a fenti ugyanazokkal a parancsokkal. Ezen a képen az alkalmazás csak a `Saved` sort írja ki: Linuxon az Aspose.Slides.NET esetén a fontconfig választja ki a hiányzó betűtípus helyettesítőjét, és a [GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) nem sorolja fel. A [Betűtípusk telepítése](/slides/hu/net/deploy-fonts/) bemutatja, hogyan ellenőrizhető, mely betűtípust használták.
+Építse, futtassa, és másolja a kimenetet a fenti ugyanazokkal a parancsokkal. Ezen a képen az alkalmazás csak a `Saved` sort írja ki: Linuxon az Aspose.Slides.NET esetén a fontconfig választja ki a hiányzó betűtípus helyettesítőjét, és a [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) nem sorolja fel. A [Betűtípusk telepítése](/slides/hu/net/deploy-fonts/) bemutatja, hogyan ellenőrizhető, mely betűtípust használták.
 
 ## **GYIK**
 

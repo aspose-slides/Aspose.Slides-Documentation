@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-Debian és Ubuntu alatt a `libfontconfig1` a DejaVu betűkészletet is telepíti, így a szöveg további betűcsomagok nélkül jelenik meg. `fontconfig` nélkül egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) létrehozása `TypeInitializationException` hibát eredményez, amelynek belső `DllNotFoundException` üzenete szerint a `libfontconfig.so.1` nem nyitható meg. A [Rendszerkövetelmények](/slides/hu/net/system-requirements/) egy rövid programot is tartalmaz, amellyel ellenőrizhető a beállítás.
+Debian és Ubuntu alatt a `libfontconfig1` a DejaVu betűkészletet is telepíti, így a szöveg további betűcsomagok nélkül jelenik meg. `fontconfig` nélkül egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) létrehozása `TypeInitializationException` hibát eredményez, amelynek belső `DllNotFoundException` üzenete szerint a `libfontconfig.so.1` nem nyitható meg. A [Rendszerkövetelmények](/slides/hu/net/system-requirements/) egy rövid programot is tartalmaz, amellyel ellenőrizhető a beállítás.
 
 ## **Felhő és konténergazdagépek**
 
@@ -68,7 +68,7 @@ A konkrét felhőplatformok útmutatóiért lásd a [Aspose.Slides a felhőplatf
 
 Az Aspose.Slides.NET6.CrossPlatform‑ot használó projekt hivatkozhat a System.Drawing.Common‑ra is, közvetlenül vagy egy másik csomágon keresztül. Az Aspose.Slides aktuális verziója nem tartalmaz nyilvános típusokat a `System` névtérben, ezért a két könyvtár nem ütközik, és ugyanabban a fájlban is importálható az `Aspose.Slides` és a `System.Drawing` névtér.
 
-Ha a fordító CS0433 hibát jelez, mert egy `Image` vagy `Graphics` típus mind az Aspose.Slides, mind a System.Drawing.Common könyvtárban megtalálható, akkor a projekt egy régebbi Aspose.Slides verziót használ. Frissítse a csomagot a legújabbra. Az Aspose.Slides a megjelenített képeket [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektumokként adja vissza, amelyeket a [Modern API](/slides/hu/net/modern-api/) részletez.
+Ha a fordító CS0433 hibát jelez, mert egy `Image` vagy `Graphics` típus mind az Aspose.Slides, mind a System.Drawing.Common könyvtárban megtalálható, akkor a projekt egy régebbi Aspose.Slides verziót használ. Frissítse a csomagot a legújabbra. Az Aspose.Slides a megjelenített képeket [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) objektumokként adja vissza, amelyeket a [Modern API](/slides/hu/net/modern-api/) részletez.
 
 ## **GYIK**
 

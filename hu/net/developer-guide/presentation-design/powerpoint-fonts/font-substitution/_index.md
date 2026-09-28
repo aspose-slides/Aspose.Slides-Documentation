@@ -28,7 +28,7 @@ Megadhatja, hogy melyik betűtípust kell használni, amikor egy adott betűtíp
 
 ## **Betűtípushelyettesítések lekérése**
 
-Használja a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) metódust annak meghatározásához, hogy mely betűtípusok lesznek helyettesítve a prezentáció renderelésekor. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és a helyettesített betűtípusok nevét tartalmazzák.
+Használja a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) metódust annak meghatározásához, hogy mely betűtípusok lesznek helyettesítve a prezentáció renderelésekor. A metódus [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) objektumokat ad vissza, amelyek az eredeti és a helyettesített betűtípusok nevét tartalmazzák.
 
 A következő C# példa felsorolja a prezentáció összes betűtípushelyettesítését:
 ```csharp
@@ -45,11 +45,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Kiválasztott diák betűtípushelyettesítéseinek lekérése**
 
-Használja az [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) túlterhelést `int[] slides` argumentummal, hogy csak a meghatározott diák rendereléséhez szükséges helyettesítéseket vizsgálja. Ez hasznos, ha a prezentáció egy részét rendereli vagy exportálja, fokozatosan ellenőrzi a nagy prezentációt, olyan diákot keres, amelyek nem elérhető betűtípusoktól függenek, minimális betűtípuscsomagot készít szerver vagy konténer számára, vagy a renderelési különbségeket diagnosztizálja anélkül, hogy a nem releváns diák feldolgozásra kerülnek.
+Használja az [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) túlterhelést `int[] slides` argumentummal, hogy csak a meghatározott diák rendereléséhez szükséges helyettesítéseket vizsgálja. Ez hasznos, ha a prezentáció egy részét rendereli vagy exportálja, fokozatosan ellenőrzi a nagy prezentációt, olyan diákot keres, amelyek nem elérhető betűtípusoktól függenek, minimális betűtípuscsomagot készít szerver vagy konténer számára, vagy a renderelési különbségeket diagnosztizálja anélkül, hogy a nem releváns diák feldolgozásra kerülnek.
 
-A `slides` tömb egy-alapú diák indexeket tartalmaz: az `1` az első diát jelöli. Ezzel szemben a [Presentation.Slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slides/hu/) gyűjtemény indexelője nullára alapozott, így ugyanaz a dia `presentation.Slides[0]` formában érhető el. Ügyeljen erre a különbségre a tömb felépítésekor, hogy elkerülje az egyes hibákat.
+A `slides` tömb egy-alapú diák indexeket tartalmaz: az `1` az első diát jelöli. Ezzel szemben a [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) gyűjtemény indexelője nullára alapozott, így ugyanaz a dia `presentation.Slides[0]` formában érhető el. Ügyeljen erre a különbségre a tömb felépítésekor, hogy elkerülje az egyes hibákat.
 
-Hívja meg a túlterhelést a [Presentation.FontsManager](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/fontsmanager/) tulajdonságon keresztül. Csak azokat a helyettesítéseket adja vissza, amelyeket a kiválasztott diák renderelése során határozott meg. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsubstitutioninfo/) objektum, amely az eredeti és a helyettesített betűtípusok nevét tartalmazza. Az eredmény tükrözi a jelenlegi betűtípus‑környezetet és a [külsőleg betöltött betűtípusokat](/slides/hu/net/custom-font/). Az [IFontSubstRuleCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsubstrulecollection/)‑ben tárolt helyettesítési szabályok módosítják a renderelt kimenetet, de az eredményben nem jelennek meg.
+Hívja meg a túlterhelést a [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) tulajdonságon keresztül. Csak azokat a helyettesítéseket adja vissza, amelyeket a kiválasztott diák renderelése során határozott meg. Minden eredmény egy [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) objektum, amely az eredeti és a helyettesített betűtípusok nevét tartalmazza. Az eredmény tükrözi a jelenlegi betűtípus‑környezetet és a [külsőleg betöltött betűtípusokat](/slides/hu/net/custom-font/). Az [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/)‑ben tárolt helyettesítési szabályok módosítják a renderelt kimenetet, de az eredményben nem jelennek meg.
 
 Egy ugyanaz a helyettesítés több mint egy kiválasztott dia esetén is szükséges lehet. Szűrje ki az ismétlődéseket, amikor betűtípus‑inventárt vagy előellenőrző jelentést készít. A következő példa minden visszaadott helyettesítést jelent, majd egy rendezett listát hoz létre az egyedi betűtípusleképezésekről:
 ```csharp
@@ -79,12 +79,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Az [IFontsManager](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/) interfész mindkét túlterhelést biztosítja. Válasszon egyet a renderelési művelet kiterjedésének megfelelően:
+Az [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) interfész mindkét túlterhelést biztosítja. Válasszon egyet a renderelési művelet kiterjedésének megfelelően:
 
 | Túlterhelés | Használja, ha |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | A teljes prezentációhoz szükséges helyettesítések. |
-| [GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Kiválasztott tartományhoz, fokozatos ellenőrzéshez vagy részleges exporthoz szükséges helyettesítések. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | A teljes prezentációhoz szükséges helyettesítések. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Kiválasztott tartományhoz, fokozatos ellenőrzéshez vagy részleges exporthoz szükséges helyettesítések. |
 
 ## **Betűtípushelyettesítési szabályok beállítása**
 
@@ -92,9 +92,9 @@ Annak meghatározásához, hogy az Aspose.Slides milyen betűtípust használjon
 
 1. Töltse be a prezentációt.
 2. Hozzon létre betűtípusdefiníciókat a forrás- és helyettesítő betűtípusokhoz.
-3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsubstrule/) szabályt a [WhenInaccessible](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsubstcondition/) feltétellel.
-4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsubstrulecollection/) gyűjteményhez.
-5. Rendelje hozzá a gyűjteményt a [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsmanager/fontsubstrulelist/) tulajdonsághoz.
+3. Hozzon létre egy [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) szabályt a [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) feltétellel.
+4. Adja hozzá a szabályt egy [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/) gyűjteményhez.
+5. Rendelje hozzá a gyűjteményt a [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) tulajdonsághoz.
 6. Renderelje vagy konvertálja a prezentációt.
 
 A következő C# példa a `SomeRareFont` helyett az `Arial` betűtípust használja, ha a `SomeRareFont` nem érhető el, majd rendereli az első diát az eredmény ellenőrzéséhez. A helyettesítő betűtípusnak elérhetőnek kell lennie az Aspose.Slides számára.
@@ -157,4 +157,4 @@ Igen. A telepített betűtípusok és a betűtípus‑keresési helyek operáci�
 
 **Hogyan tehetem következetessé a betűtípus‑kiválasztást kötegelt konvertálások során?**
 
-Használjon ugyanazokat a betűtípusfájlokat és verziókat minden gépen vagy konténerben, [töltse be a szükséges külső betűtípusokat](/slides/hu/net/custom-font/), és [ágyazza be a betűtípusokat](/slides/hu/net/embedded-font/), ha a licenc engedi. Exportálás előtt meghívhatja a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) metódust is, hogy azonosítsa a váratlan helyettesítéseket.
+Használjon ugyanazokat a betűtípusfájlokat és verziókat minden gépen vagy konténerben, [töltse be a szükséges külső betűtípusokat](/slides/hu/net/custom-font/), és [ágyazza be a betűtípusokat](/slides/hu/net/embedded-font/), ha a licenc engedi. Exportálás előtt meghívhatja a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) metódust is, hogy azonosítsa a váratlan helyettesítéseket.

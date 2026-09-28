@@ -68,7 +68,7 @@ A csomag Linux‑könyvtára a `fontconfig` könyvtárat igényli:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Enélkül egy [Presentation]https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/ létrehozása `TypeInitializationException`‑t eredményez, amelynek belső `DllNotFoundException` üzenete szerint a `libfontconfig.so.1` nem nyitható meg.
+Enélkül egy [Presentation]https://reference.aspose.com/slides/net/aspose.slides/presentation/ létrehozása `TypeInitializationException`‑t eredményez, amelynek belső `DllNotFoundException` üzenete szerint a `libfontconfig.so.1` nem nyitható meg.
 
 A minimális alapképek sem tartalmazhatják a `fontconfig`‑t. Például a .NET 8‑as AWS Lambda alapkép sem tartalmaz `fontconfig`‑ot, sem betűkészleteket. Egy belőle épített konténerképen futtassa a `dnf install -y fontconfig` parancsot, amely a Noto Sans betűkészleteket is telepíti.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Globalizáció támogatása**
 
-Mindkét csomagnak szüksége van .NET globalizáció‑támogatásra, amelyet a Linuxos .NET az ICU könyvtárakon keresztül biztosít. [globalization‑invariant módban](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) egy [Presentation]https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/ létrehozása `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` hibát eredményez.
+Mindkét csomagnak szüksége van .NET globalizáció‑támogatásra, amelyet a Linuxos .NET az ICU könyvtárakon keresztül biztosít. [globalization‑invariant módban](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) egy [Presentation]https://reference.aspose.com/slides/net/aspose.slides/presentation/ létrehozása `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` hibát eredményez.
 
 Néhány konténerkép ezt a módot bekapcsolja. Például az Alpine Linuxra (runtime‑deps, runtime, aspnet) szánt .NET futtatóképek `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` értékre állítják, és nem tartalmazzák az ICU‑t. Egy ezekre épített képen telepítse az ICU‑t, és kapcsolja ki a módot:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-A program egy téglalapot szöveggel ad az első diához, és a *hello.pptx* fájlt a [Save]https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/ metódussal menti. Ezután a diát a [GetImage]https://reference.aspose.com/slides/hu/net/aspose.slides/slide/getimage/ metódussal konvertálja, és az eredményt a [IImage.Save]https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/save/ metódussal *hello.png*‑ként menti az [ImageFormat.Png]https://reference.aspose.com/slides/hu/net/aspose.slides/imageformat/ formátumban. Az 1‑es skálázási tényező pontonként egy képpontot jelenít meg, így az alapértelmezett 720 × 540 pont méretű dia 720 × 540 képpontos képpé alakul, a szöveg a téglalapon belül látható. Licenc nélkül mindkét fájl egy értékelő vízjelet tartalmaz; lásd a [Licensing](/slides/hu/net/licensing/) oldalt. Ha valamelyik követelmény hiányzik, a program a [Linux](#linux) részben ismertetett kivételek egyikével áll le.
+A program egy téglalapot szöveggel ad az első diához, és a *hello.pptx* fájlt a [Save]https://reference.aspose.com/slides/net/aspose.slides/presentation/save/ metódussal menti. Ezután a diát a [GetImage]https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/ metódussal konvertálja, és az eredményt a [IImage.Save]https://reference.aspose.com/slides/net/aspose.slides/iimage/save/ metódussal *hello.png*‑ként menti az [ImageFormat.Png]https://reference.aspose.com/slides/net/aspose.slides/imageformat/ formátumban. Az 1‑es skálázási tényező pontonként egy képpontot jelenít meg, így az alapértelmezett 720 × 540 pont méretű dia 720 × 540 képpontos képpé alakul, a szöveg a téglalapon belül látható. Licenc nélkül mindkét fájl egy értékelő vízjelet tartalmaz; lásd a [Licensing](/slides/hu/net/licensing/) oldalt. Ha valamelyik követelmény hiányzik, a program a [Linux](#linux) részben ismertetett kivételek egyikével áll le.
 
 ## **Fejlesztői eszközök**
 

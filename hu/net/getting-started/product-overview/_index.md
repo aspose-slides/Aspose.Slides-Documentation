@@ -123,7 +123,7 @@ Az Aspose.Slides for .NET funkciói az alábbi csoportokra oszthatók:
 ## **Műszaki támogatás**
 Az Aspose korlátlan, ingyenes műszaki támogatást nyújt minden termékéhez. A támogatás minden felhasználó számára elérhető (beleértve a próbaverziót is). Ha segítségre van szüksége az Aspose.Slides for .NET‑hez, vegye figyelembe a következőket:
 
-- A fő támogatási csatorna a [Aspose Fórum](https://forum.aspose.com/). Tegye fel kérdését az [Aspose.Slides fórum](https://forum.aspose.com/c/slides/hu/11)‑ben – és pár órán belül választ kap. Az Aspose.Slides támogatási csapat közvetlenül válaszol a fórumra feltett kérdésekre.
+- A fő támogatási csatorna a [Aspose Fórum](https://forum.aspose.com/). Tegye fel kérdését az [Aspose.Slides fórum](https://forum.aspose.com/c/slides/11)‑ben – és pár órán belül választ kap. Az Aspose.Slides támogatási csapat közvetlenül válaszol a fórumra feltett kérdésekre.
 - Vegye figyelembe, hogy az Aspose telefonos műszaki támogatást nem nyújt. Telefonos támogatás csak értékesítési és vásárlási kérdésekhez érhető el.
 - A fórumokban várakozva legyen türelmes, és vegye figyelembe az időzónák közti eltéréseket.
 
@@ -145,10 +145,10 @@ Ez a táblázat felsorolja az Aspose.Slides for .NET fontos technikai erőforrá
 
 |**Erőforrás**|**Leírás**|
 | :- | :- |
-|[Aspose.Slides for .NET kezdőlap](https://products.aspose.com/slides/hu/net/)|Termék kezdőlapja.|
-|[Aspose.Slides blog](https://blog.aspose.com/category/slides/hu/)|Rendszeresen ellenőrizze ezt az oldalt az új kiadásokkal és hasznos tippekkel kapcsolatban.|
+|[Aspose.Slides for .NET kezdőlap](https://products.aspose.com/slides/net/)|Termék kezdőlapja.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/)|Rendszeresen ellenőrizze ezt az oldalt az új kiadásokkal és hasznos tippekkel kapcsolatban.|
 |[Aspose.Slides for .NET letöltés](https://www.nuget.org/packages/Aspose.Slides.NET/)|Töltse le itt a legújabb Aspose.Slides verziót. Gyakran jelentünk új verziókat.|
-|[Aspose.Slides támogatási fórum](https://forum.aspose.com/c/slides/hu/11)|Tegye fel kérdéseit és problémáit itt a gyors megoldás érdekében.|
+|[Aspose.Slides támogatási fórum](https://forum.aspose.com/c/slides/11)|Tegye fel kérdéseit és problémáit itt a gyors megoldás érdekében.|
 |[Aspose.Slides for .NET termékdokumentáció](/slides/hu/net/)|Teljes online dokumentáció, amely tartalmazza ezt a dokumentumot és az Aspose.Slides API‑referenciát.|
 
 ## **Bizalmi szint követelmények**
@@ -158,7 +158,7 @@ Ez a táblázat felsorolja az Aspose.Slides for .NET fontos technikai erőforrá
 ## **GYIK**
 
 ### Támogatja-e a PDF‑archíválási és hozzáférhetőségi (PDF/A és PDF/UA) konformitási szinteket?
-Igen. PDF‑t menthet PDF/A-2a/2b/2u, PDF/A-3a/3b és PDF/UA formátumban a [PDF exportálási opciók](https://reference.aspose.com/slides/hu/net/aspose.slides.export/pdfoptions/) konfigurálásával.
+Igen. PDF‑t menthet PDF/A-2a/2b/2u, PDF/A-3a/3b és PDF/UA formátumban a [PDF exportálási opciók](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) konfigurálásával.
 
 ### Van-e betűkészlet‑helyettesítési mechanizmus és egyéni betűkészletek támogatása a helyes rendereléshez?
 Igen. A könyvtár lehetővé teszi a [egyéni betűkészletek betöltését](/slides/hu/net/custom-font/) és a [fallback szabályok meghatározását](/slides/hu/net/fallback-font/), így a hiányzó glifák megbízhatóan helyettesíthetők konverzió és renderelés során.
@@ -173,13 +173,13 @@ Nem. Az Aspose.Slides önálló motor; a PowerPoint nem szükséges sem a szerve
 Igen, különböző dokumentumokat párhuzamosan dolgozhat fel külön szálakon; csak kerüld el ugyanazon prezentációs példány egyidejű használatát a [szálakon át](/slides/hu/net/multithreading/).
 
 ### Megmaradnak‑e a makrók, és kezelhetem‑e a VBA‑t PPTM/PPSM fájlokban?
-Igen. A makrókat tartalmazó prezentációk [támogatottak](/slides/hu/net/presentation-via-vba/), és [ellenőrizheted és kezelheted a VBA projekteket](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/) ezekben a fájlokban.
+Igen. A makrókat tartalmazó prezentációk [támogatottak](/slides/hu/net/presentation-via-vba/), és [ellenőrizheted és kezelheted a VBA projekteket](https://reference.aspose.com/slides/net/aspose.slides.vba/) ezekben a fájlokban.
 
 ### Konvertálhatok‑e PDF‑ vagy HTML‑t vissza PowerPoint‑diákká?
 Igen. [Importálhat PDF oldalakat vagy HTML tartalmat](/slides/hu/net/import-presentation/) a diák létrehozásához vagy feltöltéséhez egy prezentációban.
 
 ### Támogatott‑e az XPS export, és szabályozhatom‑e a kimenet minőségét és tartalmát?
-Igen. Az [XPS export](/slides/hu/net/convert-powerpoint-to-xps/) elérhető, és a [mentési beállítások](https://reference.aspose.com/slides/hu/net/aspose.slides.export/xpsoptions/) lehetővé teszik a kimeneti minőség és a tartalom finomhangolását.
+Igen. Az [XPS export](/slides/hu/net/convert-powerpoint-to-xps/) elérhető, és a [mentési beállítások](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) lehetővé teszik a kimeneti minőség és a tartalom finomhangolását.
 
 ### Konvertálhatom‑e a diákat képekké, és szabályozhatom‑e a kimenet minőségét?
 Igen. A diák [renderelhetők PNG, JPEG, GIF, BMP, TIFF](/slides/hu/net/convert-powerpoint-to-png/) formátumokba és más formátumokba, finom granulációval a méret és minőség fölött.

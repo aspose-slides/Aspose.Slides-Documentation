@@ -110,5 +110,5 @@ Csapataink mindig nyitottak és rugalmasak a segítségnyújtás során – ez a
 {{% alert color="info" title="Note" %}}
 Bár ez a cikk néhány kulcsfontosságú pontot érintett, amiért az Aspose összetevők jobb választásnak bizonyulnak az Office Automatizálás helyett, meg kell értenie, hogy sokkal több előny is van. Csak a főbb előnyök egy részét ismertettük.
 
-Továbbá minden Aspose termék és összetevő kockázatmentes, kötelezettség nélküli [Értékelési verziót](https://releases.aspose.com/slides/hu/net/) kínál. Javasoljuk, hogy használja ki az értékelést, hogy lássa, mit tud nyújtani az Aspose az alkalmazásai vagy vállalkozása számára.
+Továbbá minden Aspose termék és összetevő kockázatmentes, kötelezettség nélküli [Értékelési verziót](https://releases.aspose.com/slides/net/) kínál. Javasoljuk, hogy használja ki az értékelést, hogy lássa, mit tud nyújtani az Aspose az alkalmazásai vagy vállalkozása számára.
 {{% /alert %}}

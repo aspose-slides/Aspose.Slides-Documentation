@@ -82,15 +82,15 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makróv
 </ul>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/hu/net/">API referencia</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/net/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API referencia</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Kiadási megjegyzések</a></li>
 <li><a href="/slides/hu/net/known-issues/">Ismert problémák</a></li>
 <li><a href="/slides/hu/net/api-limitations/">Kimeneti metaadat korlátozások</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/net/">Letöltés</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Letöltés</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>

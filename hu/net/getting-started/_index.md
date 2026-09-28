@@ -62,7 +62,7 @@ Licenc nélkül az Aspose.Slides értékelési módban fut: minden mentett diár
 
 ## **Segítség kérés**
 
-[Terméktámogatás](/slides/hu/net/product-support/) elmagyarázza, hogyan tegyél fel kérdést az [ingyenes támogatási fórumban](https://forum.aspose.com/c/slides/hu/11), és mit kell mellékelned, ha problémát jelentesz be.
+[Terméktámogatás](/slides/hu/net/product-support/) elmagyarázza, hogyan tegyél fel kérdést az [ingyenes támogatási fórumban](https://forum.aspose.com/c/slides/11), és mit kell mellékelned, ha problémát jelentesz be.
 
 ## **GYIK**
 
