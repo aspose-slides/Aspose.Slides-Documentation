@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie sich die Evaluierungsversion von Aspose.Slides f
 ---
 ## **Evaluierungsversion**
 
-Sie können Aspose.Slides for Reporting Services zur Evaluierung von seiner [Download‑Seite](https://releases.aspose.com/slides/de/reportingservices/) herunterladen. Der Evaluierungs‑Download ist identisch mit dem käuflich erworbenen Download. Sie wird lizenziert, wenn Sie eine Lizenzdatei auf den Berichtserver kopieren – es ist kein Code nötig; siehe [Lizenzierung](/slides/de/reportingservices/license-aspose-slides-for-reporting-services/).
+Sie können Aspose.Slides for Reporting Services zur Evaluierung von seiner [Download‑Seite](https://releases.aspose.com/slides/reportingservices/) herunterladen. Der Evaluierungs‑Download ist identisch mit dem käuflich erworbenen Download. Sie wird lizenziert, wenn Sie eine Lizenzdatei auf den Berichtserver kopieren – es ist kein Code nötig; siehe [Lizenzierung](/slides/de/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Die Evaluierungsversion (ohne Lizenz) bietet die volle Produktfunktionalität, fügt jedoch ein Evaluierungs‑Wasserzeichen in exportierte Präsentationen ein.
 

@@ -13,11 +13,11 @@ description: "Wenden Sie eine Lizenz für Aspose.Slides for Reporting Services a
 ---
 ## **Lizenzunterstützung**
 
-Die Evaluierungsversion von Aspose.Slides for Reporting Services ist dasselbe Paket wie die erworbene Version, von seiner [Downloadseite](https://releases.aspose.com/slides/de/reportingservices/), und bietet dieselbe Funktionalität. Ohne Lizenz arbeitet sie im Evaluierungsmodus und fügt exportierten Präsentationen ein Evaluationswasserzeichen ein.
+Die Evaluierungsversion von Aspose.Slides for Reporting Services ist dasselbe Paket wie die erworbene Version, von seiner [Downloadseite](https://releases.aspose.com/slides/reportingservices/), und bietet dieselbe Funktionalität. Ohne Lizenz arbeitet sie im Evaluierungsmodus und fügt exportierten Präsentationen ein Evaluationswasserzeichen ein.
 
 Die Evaluierungsversion wird lizenziert, wenn Sie eine Lizenzdatei auf den Bericht‑Server kopieren. Es ist kein Code erforderlich.
 
-Wenn Sie mit Ihrer Evaluation zufrieden sind, können Sie eine [Lizenz erwerben](https://purchase.aspose.com/pricing/slides/de/reporting-services/). Wir empfehlen, die verschiedenen Abonnementtypen zu prüfen. Bei Fragen kontaktieren Sie das Aspose‑Vertriebsteam.
+Wenn Sie mit Ihrer Evaluation zufrieden sind, können Sie eine [Lizenz erwerben](https://purchase.aspose.com/pricing/slides/reporting-services/). Wir empfehlen, die verschiedenen Abonnementtypen zu prüfen. Bei Fragen kontaktieren Sie das Aspose‑Vertriebsteam.
 
 ## **Lizenzierung in Aspose.Slides for Reporting Services**
 

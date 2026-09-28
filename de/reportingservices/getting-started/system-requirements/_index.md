@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services läuft innerhalb des Berichtservers als Ren
 
 Sowohl 32-bit- als auch 64-bit-Berichtserver werden unterstützt. SQL Server 2005 verwendet seine eigene Build der Erweiterung; alle späteren Versionen und Power BI Report Server verwenden dieselbe Build. [Manuell installieren](/slides/de/reportingservices/install-manually/) zeigt, welche Datei kopiert werden muss.
 
-Wenn Ihre Berichtserver-Version nicht in dieser Liste steht, fragen Sie im [kostenlosen Support-Forum](https://forum.aspose.com/c/slides/de/11), bevor Sie die Bereitstellung durchführen.
+Wenn Ihre Berichtserver-Version nicht in dieser Liste steht, fragen Sie im [kostenlosen Support-Forum](https://forum.aspose.com/c/slides/11), bevor Sie die Bereitstellung durchführen.
 
 ## **Report Server Editionen**
 
