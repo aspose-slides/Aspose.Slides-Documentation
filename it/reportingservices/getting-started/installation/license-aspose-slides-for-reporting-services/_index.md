@@ -17,7 +17,7 @@ La versione di valutazione di Aspose.Slides for Reporting Services è lo stesso 
 
 La versione di valutazione diventa licenziata quando copi un file di licenza sul server di reporting. Non è necessario alcun codice.
 
-Quando sei soddisfatto della tua valutazione, puoi [acquistare una licenza](https://purchase.aspose.com/pricing/slides/it/reporting-services/). Ti consigliamo di esaminare i diversi tipi di abbonamento. Se hai domande, contatta il team di vendita di Aspose.
+Quando sei soddisfatto della tua valutazione, puoi [acquistare una licenza](https://purchase.aspose.com/pricing/slides/reporting-services/). Ti consigliamo di esaminare i diversi tipi di abbonamento. Se hai domande, contatta il team di vendita di Aspose.
 
 ## **Licenza in Aspose.Slides for Reporting Services**
 

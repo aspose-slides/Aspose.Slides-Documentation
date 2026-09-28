@@ -13,7 +13,7 @@ description: "Scopri come si comporta la versione di valutazione di Aspose.Slide
 ---
 ## **Versione di valutazione**
 
-Puoi scaricare Aspose.Slides for Reporting Services in versione di valutazione dalla [sua pagina di download](https://releases.aspose.com/slides/it/reportingservices/). Il download di valutazione è identico al download acquistato. Diventa licenziato quando copi un file di licenza sul server di report — non è necessario alcun codice; vedi [Licenze](/slides/it/reportingservices/license-aspose-slides-for-reporting-services/).
+Puoi scaricare Aspose.Slides for Reporting Services in versione di valutazione dalla [sua pagina di download](https://releases.aspose.com/slides/reportingservices/). Il download di valutazione è identico al download acquistato. Diventa licenziato quando copi un file di licenza sul server di report — non è necessario alcun codice; vedi [Licenze](/slides/it/reportingservices/license-aspose-slides-for-reporting-services/).
 
 La versione di valutazione (senza licenza) offre tutte le funzionalità del prodotto, ma inserisce una filigrana di valutazione nelle presentazioni esportate.
 
