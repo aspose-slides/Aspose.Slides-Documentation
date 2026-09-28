@@ -16,7 +16,7 @@ description: "Chọn cách cài đặt Aspose.Slides for Reporting Services trê
 
 Aspose.Slides for Reporting Services được cài đặt trực tiếp trên máy chủ báo cáo. Trước khi bắt đầu, kiểm tra [yêu cầu hệ thống](/slides/vi/reportingservices/system-requirements/).
 
-[trang tải xuống](https://releases.aspose.com/slides/vi/reportingservices/) cung cấp hai gói cho mỗi phiên bản:
+[trang tải xuống](https://releases.aspose.com/slides/reportingservices/) cung cấp hai gói cho mỗi phiên bản:
 
 - **Aspose.Slides for Reporting Services XX.XX** — một trình cài đặt MSI. Nó phát hiện các phiên bản máy chủ báo cáo trên máy, sao chép phần mở rộng vào những cái bạn chọn và cập nhật các tệp cấu hình của chúng. Xem [Cài đặt bằng Trình cài đặt MSI](/slides/vi/reportingservices/install-with-msi-installer/).
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — một gói ZIP để cài đặt thủ công: bạn sao chép một assembly và chỉnh sửa hai tệp cấu hình. Xem [Cài đặt thủ công](/slides/vi/reportingservices/install-manually/).

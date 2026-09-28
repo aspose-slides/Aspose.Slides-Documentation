@@ -63,12 +63,12 @@ Nó xuất các báo cáo sang các bài thuyết trình và slide show định 
 <hr>
 <p>THAM KHẢO</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/vi/reportingservices/release-notes/">Ghi chú phát hành</a></li>
-<li><a href="https://releases.aspose.com/slides/vi/reportingservices/">Tải xuống</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Ghi chú phát hành</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Tải xuống</a></li>
 </ul>
 <p>HỖ TRỢ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/vi/11">Diễn đàn hỗ trợ miễn phí</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Diễn đàn hỗ trợ miễn phí</a></li>
 <li><a href="https://helpdesk.aspose.com/">Bàn trợ giúp hỗ trợ trả phí</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Nó xuất các báo cáo sang các bài thuyết trình và slide show định 
 Không cần viết mã nào: bạn cài đặt tiện mở rộng trên máy chủ báo cáo, và các định dạng của nó sẽ xuất hiện trong danh sách xuất của mọi báo cáo phân trang trên máy chủ đó.
 
 1. Kiểm tra xem máy chủ báo cáo có đáp ứng [system requirements](/slides/vi/reportingservices/system-requirements/), bao gồm .NET Framework 3.5.
-1. Từ [download page](https://releases.aspose.com/slides/vi/reportingservices/), tải về trình cài đặt MSI, *Aspose.Slides for Reporting Services*. Để cài đặt thủ công, tải về gói ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. Từ [download page](https://releases.aspose.com/slides/reportingservices/), tải về trình cài đặt MSI, *Aspose.Slides for Reporting Services*. Để cài đặt thủ công, tải về gói ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. Cài đặt tiện mở rộng trên máy chủ báo cáo: chạy MSI với quyền quản trị, như mô tả trong [Install with the MSI installer](/slides/vi/reportingservices/install-with-msi-installer/), hoặc làm theo [Install manually](/slides/vi/reportingservices/install-manually/) cho gói ZIP.
 1. Trong trình duyệt, mở cổng thông tin web của máy chủ báo cáo (Report Manager trên SQL Server 2014 và các phiên bản trước). Theo mặc định, địa chỉ của nó là `https://<ComputerName>/reports`.
 1. Mở một báo cáo phân trang. Trên thanh công cụ báo cáo, mở danh sách **Export** và chọn **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Nếu thanh công cụ có nút **Export** riêng, như Report Manager, chọn nút đó.

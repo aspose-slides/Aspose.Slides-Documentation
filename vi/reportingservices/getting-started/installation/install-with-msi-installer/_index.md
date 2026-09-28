@@ -15,7 +15,7 @@ description: "Cài đặt Aspose.Slides for Reporting Services bằng trình cà
 
 Trình cài đặt MSI là cách đơn giản nhất để cài đặt Aspose.Slides for Reporting Services. Nó yêu cầu .NET Framework 3.5 và quyền quản trị trên máy chủ báo cáo; xem [Yêu cầu hệ thống](/slides/vi/reportingservices/system-requirements/).
 
-1. Tải xuống trình cài đặt MSI, *Aspose.Slides for Reporting Services XX.XX*, từ [trang tải xuống](https://releases.aspose.com/slides/vi/reportingservices/) và sao chép nó vào máy chủ báo cáo.
+1. Tải xuống trình cài đặt MSI, *Aspose.Slides for Reporting Services XX.XX*, từ [trang tải xuống](https://releases.aspose.com/slides/reportingservices/) và sao chép nó vào máy chủ báo cáo.
 1. Chạy với quyền quản trị. Nếu .NET Framework 3.5 thiếu, trình cài đặt sẽ dừng và hiện thông báo; cài đặt các tính năng .NET Framework 3.5 rồi chạy lại.
 1. Chấp nhận thỏa thuận giấy phép.
 1. Trên trang **Cài đặt tùy chỉnh**, cây tính năng liệt kê mỗi thể hiện SQL Server Reporting Services và Power BI Report Server mà trình cài đặt phát hiện trên máy. Để giữ nguyên một thể hiện, nhấp vào biểu tượng của nó và chọn **Toàn bộ tính năng sẽ không khả dụng**. Các phiên bản Express không hỗ trợ phần mở rộng render, vì vậy không chọn thể hiện Express. Trình cài đặt ẩn các thể hiện Express của SQL Server 2016 và trước đó.

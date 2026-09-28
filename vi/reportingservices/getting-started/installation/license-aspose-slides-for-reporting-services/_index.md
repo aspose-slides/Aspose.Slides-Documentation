@@ -13,11 +13,11 @@ description: "Áp dụng giấy phép cho Aspose.Slides for Reporting Services b
 ---
 ## **Hỗ trợ Giấy phép**
 
-Phiên bản dùng thử của Aspose.Slides for Reporting Services là cùng một gói với phiên bản đã mua, từ [trang tải xuống của nó](https://releases.aspose.com/slides/vi/reportingservices/), và cung cấp cùng các chức năng. Nếu không có giấy phép, nó hoạt động ở chế độ đánh giá và chèn một dấu watermark đánh giá vào các bản trình chiếu đã xuất.
+Phiên bản dùng thử của Aspose.Slides for Reporting Services là cùng một gói với phiên bản đã mua, từ [trang tải xuống của nó](https://releases.aspose.com/slides/reportingservices/), và cung cấp cùng các chức năng. Nếu không có giấy phép, nó hoạt động ở chế độ đánh giá và chèn một dấu watermark đánh giá vào các bản trình chiếu đã xuất.
 
 Phiên bản dùng thử sẽ trở thành có giấy phép khi bạn sao chép tệp giấy phép vào máy chủ báo cáo. Không cần bất kỳ mã nào.
 
-Khi bạn hài lòng với bản dùng thử, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/vi/reporting-services/). Chúng tôi khuyên bạn nên xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội bán hàng của Aspose.
+Khi bạn hài lòng với bản dùng thử, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/reporting-services/). Chúng tôi khuyên bạn nên xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội bán hàng của Aspose.
 
 ## **Cách cấp giấy phép trong Aspose.Slides for Reporting Services**
 

@@ -13,7 +13,7 @@ description: "Tìm hiểu cách phiên bản đánh giá của Aspose.Slides for
 ---
 ## **Phiên bản Đánh giá**
 
-Bạn có thể tải về Aspose.Slides for Reporting Services để đánh giá từ [trang tải xuống của nó](https://releases.aspose.com/slides/vi/reportingservices/). Bản tải đánh giá giống với bản đã mua. Nó sẽ được cấp phép khi bạn sao chép tệp giấy phép vào máy chủ báo cáo — không cần viết mã; xem [Cấp phép](/slides/vi/reportingservices/license-aspose-slides-for-reporting-services/).
+Bạn có thể tải về Aspose.Slides for Reporting Services để đánh giá từ [trang tải xuống của nó](https://releases.aspose.com/slides/reportingservices/). Bản tải đánh giá giống với bản đã mua. Nó sẽ được cấp phép khi bạn sao chép tệp giấy phép vào máy chủ báo cáo — không cần viết mã; xem [Cấp phép](/slides/vi/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Phiên bản đánh giá (không có giấy phép) cung cấp đầy đủ chức năng của sản phẩm, nhưng nó chèn một dấu nước đánh giá vào các bản trình bày được xuất.
 

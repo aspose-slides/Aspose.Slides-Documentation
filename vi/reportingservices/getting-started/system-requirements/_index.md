@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services chạy bên trong máy chủ báo cáo dư�
 
 Cả máy chủ báo cáo 32-bit và 64-bit đều được hỗ trợ. SQL Server 2005 sử dụng bản dựng riêng của phần mở rộng; tất cả các phiên bản sau và Power BI Report Server đều sử dụng cùng một bản dựng. [Cài đặt thủ công](/slides/vi/reportingservices/install-manually/) cho biết tệp nào cần sao chép.
 
-Nếu phiên bản máy chủ báo cáo của bạn không có trong danh sách này, hãy hỏi trên [diễn đàn hỗ trợ miễn phí](https://forum.aspose.com/c/slides/vi/11) trước khi triển khai.
+Nếu phiên bản máy chủ báo cáo của bạn không có trong danh sách này, hãy hỏi trên [diễn đàn hỗ trợ miễn phí](https://forum.aspose.com/c/slides/11) trước khi triển khai.
 
 ## **Phiên bản máy chủ báo cáo**
 
