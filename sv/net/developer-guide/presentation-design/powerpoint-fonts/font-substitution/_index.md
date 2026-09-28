@@ -28,7 +28,7 @@ Du kan definiera vilket teckensnitt som ska användas när ett visst teckensnitt
 
 ## **Hämta teckensnittssubstitutioner**
 
-Använd metoden [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) för att avgöra vilka teckensnitt som kommer att substitueras när presentationen renderas. Metoden returnerar [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstitutioninfo/)‑objekt som identifierar de ursprungliga och substituerade teckensnittsnamnen.
+Använd metoden [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) för att avgöra vilka teckensnitt som kommer att substitueras när presentationen renderas. Metoden returnerar [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/)‑objekt som identifierar de ursprungliga och substituerade teckensnittsnamnen.
 
 Följande C#‑exempel listar alla teckensnittssubstitutioner för en presentation:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Hämta teckensnittssubstitutioner för valda bilder**
 
-Använd överlagringen av [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) med ett `int[] slides`‑argument för att endast inspektera de substitutioner som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation inkrementellt, lokaliserar bilder som är beroende av otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en server eller container, eller diagnostiserar renderingsskillnader utan att bearbeta irrelevanta bilder.
+Använd överlagringen av [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) med ett `int[] slides`‑argument för att endast inspektera de substitutioner som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation inkrementellt, lokaliserar bilder som är beroende av otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en server eller container, eller diagnostiserar renderingsskillnader utan att bearbeta irrelevanta bilder.
 
-`slides`‑arrayen innehåller en‑baserade bildindex: `1` identifierar den första bilden. Till skillnad från detta är indexeraren i samlingen [Presentation.Slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/slides/sv/) noll‑baserad, så samma bild nås som `presentation.Slides[0]`. Ha denna skillnad i åtanke när du bygger arrayen för att undvika ett‑off‑by‑one‑fel.
+`slides`‑arrayen innehåller en‑baserade bildindex: `1` identifierar den första bilden. Till skillnad från detta är indexeraren i samlingen [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) noll‑baserad, så samma bild nås som `presentation.Slides[0]`. Ha denna skillnad i åtanke när du bygger arrayen för att undvika ett‑off‑by‑one‑fel.
 
-Anropa överlagringen via egenskapen [Presentation.FontsManager](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/fontsmanager/). Den returnerar endast de substitutioner som fastställts under rendering av de valda bilderna. Varje resultat är ett [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstitutioninfo/)‑objekt som innehåller de ursprungliga och substituerade teckensnittsnamnen. Resultatet speglar den aktuella teckensnittsmiljön och [externt laddade teckensnitt](/slides/sv/net/custom-font/). Substitutionsregler lagrade i en [IFontSubstRuleCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsubstrulecollection/) ändrar den renderade utdata men återspeglas inte i resultatet.
+Anropa överlagringen via egenskapen [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Den returnerar endast de substitutioner som fastställts under rendering av de valda bilderna. Varje resultat är ett [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/)‑objekt som innehåller de ursprungliga och substituerade teckensnittsnamnen. Resultatet speglar den aktuella teckensnittsmiljön och [externt laddade teckensnitt](/slides/sv/net/custom-font/). Substitutionsregler lagrade i en [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) ändrar den renderade utdata men återspeglas inte i resultatet.
 
 Samma substitution kan krävas av mer än en vald bild. Deduplicera resultaten när du skapar ett teckensnittsinventarium eller en förkontrollrapport. Följande exempel rapporterar varje returnerad substitution och skapar sedan en sorterad lista över unika teckensnittskartläggningar:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/)‑gränssnittet tillhandahåller båda överlagringarna. Välj en enligt omfattningen av renderingsoperationen:
+[IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/)‑gränssnittet tillhandahåller båda överlagringarna. Välj en enligt omfattningen av renderingsoperationen:
 
 | Överlagring | Använd den när |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) utan argument | Du behöver substitutioner för hela presentationen. |
-| [GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) med `int[] slides` | Du behöver substitutioner för ett valt intervall, inkrementell kontroll eller partiell export. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) utan argument | Du behöver substitutioner för hela presentationen. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) med `int[] slides` | Du behöver substitutioner för ett valt intervall, inkrementell kontroll eller partiell export. |
 
 ## **Ange teckensnittssubstitutionsregler**
 
@@ -94,9 +94,9 @@ För att ange vilket teckensnitt Aspose.Slides ska använda när ett källtecken
 
 1. Läs in presentationen.
 2. Skapa teckensnittdefinitioner för käll‑ och substitut‑teckensnitten.
-3. Skapa en [FontSubstRule](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstrule/) med villkoret [WhenInaccessible](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstcondition/).
-4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstrulecollection/).
-5. Tilldela samlingen till egenskapen [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+3. Skapa en [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) med villkoret [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).
+4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).
+5. Tilldela samlingen till egenskapen [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).
 6. Rendera eller konvertera presentationen.
 
 Följande C#‑exempel substituerar `Arial` för `SomeRareFont` när `SomeRareFont` inte är tillgängligt, och renderar sedan den första bilden för att verifiera resultatet. Det substituerade teckensnittet måste vara tillgängligt för Aspose.Slides.
@@ -160,4 +160,4 @@ Ja. Installerade teckensnitt och sökvägar för teckensnitt varierar mellan ope
 
 **Hur kan jag göra teckensnittsväljning konsekvent i batchkonverteringar?**
 
-Använd samma teckensnitts‑filer och versioner på varje maskin eller container, [ladda erforderliga externa teckensnitt](/slides/sv/net/custom-font/) och [bädda in teckensnitt](/slides/sv/net/embedded-font/) när licensen tillåter det. Du kan också anropa [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) före export för att identifiera oväntade substitutioner.
+Använd samma teckensnitts‑filer och versioner på varje maskin eller container, [ladda erforderliga externa teckensnitt](/slides/sv/net/custom-font/) och [bädda in teckensnitt](/slides/sv/net/embedded-font/) när licensen tillåter det. Du kan också anropa [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) före export för att identifiera oväntade substitutioner.

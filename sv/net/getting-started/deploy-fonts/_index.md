@@ -56,7 +56,7 @@ Följande konsolprogram rapporterar vilka teckensnitt Aspose.Slides ersätter i 
 </Project>
 ```
 
-*Program.cs* lägger till en textruta per teckensnittsnamn på en bild och tilldelar teckensnittet via egenskapen [LatinFont](https://reference.aspose.com/slides/sv/net/aspose.slides/baseportionformat/latinfont/). Teckensnittsnamnen kommer från kommandoraden; utan argument kontrollerar programmet Calibri, Arial och Times New Roman. Det skriver ut mapparna där Aspose.Slides letar efter teckensnitt ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/getfontfolders/)), renderar bilden till *output/fonts.pdf* och skriver ut ersättningarna som rapporteras av [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/). De två valfria stegen i början, laddning av en *fonts*-mapp och läsning av variabeln `DEFAULT_FONT`, förklaras senare i den här artikeln.
+*Program.cs* lägger till en textruta per teckensnittsnamn på en bild och tilldelar teckensnittet via egenskapen [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Teckensnittsnamnen kommer från kommandoraden; utan argument kontrollerar programmet Calibri, Arial och Times New Roman. Det skriver ut mapparna där Aspose.Slides letar efter teckensnitt ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), renderar bilden till *output/fonts.pdf* och skriver ut ersättningarna som rapporteras av [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). De två valfria stegen i början, laddning av en *fonts*-mapp och läsning av variabeln `DEFAULT_FONT`, förklaras senare i den här artikeln.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Ladda teckensnitt från applikationsmappen**
 
-Istället för att installera teckensnitten i bilden kan du paketera dem med applikationen och ladda dem med [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfonts/). Teckensnitten blir då bara tillgängliga för Aspose.Slides och distribueras tillsammans med applikationen. *FontCheck* gör så här: *FontCheck.csproj* kopierar *fonts*-mappen till applikationens utdata, och *Program.cs* passerar den mappen till `LoadExternalFonts` innan presentationen skapas. [Custom Font](/slides/sv/net/custom-font/) beskriver andra sätt att tillhandahålla teckensnitt, såsom att ladda dem från minnet.
+Istället för att installera teckensnitten i bilden kan du paketera dem med applikationen och ladda dem med [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Teckensnitten blir då bara tillgängliga för Aspose.Slides och distribueras tillsammans med applikationen. *FontCheck* gör så här: *FontCheck.csproj* kopierar *fonts*-mappen till applikationens utdata, och *Program.cs* passerar den mappen till `LoadExternalFonts` innan presentationen skapas. [Custom Font](/slides/sv/net/custom-font/) beskriver andra sätt att tillhandahålla teckensnitt, såsom att ladda dem från minnet.
 
 Bygg om bilden, kör sedan kontrollen för Calibri och Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Ställ in ett standardteckensnitt för saknade teckensnitt**
 
-När ett teckensnitt saknas använder Aspose.Slides ett ersättningsteckensnitt som den väljer själv. För att välja själv, ställ in egenskapen [DefaultRegularFont](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/defaultregularfont/) på [LoadOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/) och skicka alternativen till [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)-konstruktorn. *FontCheck* läser teckensnittsnamnet från miljövariabeln `DEFAULT_FONT`. Med Carlito laddat, används det för saknade teckensnitt:
+När ett teckensnitt saknas använder Aspose.Slides ett ersättningsteckensnitt som den väljer själv. För att välja själv, ställ in egenskapen [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) på [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) och skicka alternativen till [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)-konstruktorn. *FontCheck* läser teckensnittsnamnet från miljövariabeln `DEFAULT_FONT`. Med Carlito laddat, används det för saknade teckensnitt:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Standardteckensnittet ersätter varje saknat teckensnitt. För att mappa enskilda teckensnitt, till exempel Arial till Liberation Sans och Calibri till Carlito, använd [font substitution rules](/slides/sv/net/font-substitution/). Regler förändrar det renderade resultatet, men `GetSubstitutions` visar dem inte, så kontrollera teckensnitten i utdatafilen istället. För asiatisk text, ställ även in [DefaultAsianFont](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/defaultasianfont/); se [Default Font](/slides/sv/net/default-font/).
+Standardteckensnittet ersätter varje saknat teckensnitt. För att mappa enskilda teckensnitt, till exempel Arial till Liberation Sans och Calibri till Carlito, använd [font substitution rules](/slides/sv/net/font-substitution/). Regler förändrar det renderade resultatet, men `GetSubstitutions` visar dem inte, så kontrollera teckensnitten i utdatafilen istället. För asiatisk text, ställ även in [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); se [Default Font](/slides/sv/net/default-font/).
 
 ## **Installera teckensnitt på Alpine Linux**
 

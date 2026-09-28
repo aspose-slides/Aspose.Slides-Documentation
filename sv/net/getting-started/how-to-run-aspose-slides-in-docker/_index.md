@@ -59,7 +59,7 @@ Skapa en mapp med namnet *HelloSlidesDocker* och lägg till följande tre filer 
 </Project>
 ```
 
-*Program.cs* skapar en [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/), lägger till en rektangel med text på sin första bild och sparar presentationen två gånger med [Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/)-metoden: som PPTX och som PDF. Båda filerna placeras i *output*-mappen under arbetskatalogen. Applikationen listar sedan de teckensnitt som ersattes när PDF:en renderades, med hjälp av [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/), så att du kan se om behållaren har de teckensnitt som presentationen använder.
+*Program.cs* skapar en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), lägger till en rektangel med text på sin första bild och sparar presentationen två gånger med [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)-metoden: som PPTX och som PDF. Båda filerna placeras i *output*-mappen under arbetskatalogen. Applikationen listar sedan de teckensnitt som ersattes när PDF:en renderades, med hjälp av [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), så att du kan se om behållaren har de teckensnitt som presentationen använder.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Alpine‑steget installerar tre paket och ändrar en inställning:
 - `font-dejavu` tillhandahåller teckensnitt. Utan något teckensnitt stoppar konverteringen med `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` och `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` tillhandahåller kulturdata. Alpine‑.NET‑imagene kör i globalisering‑invariant läge som standard, så i det läget stoppar Aspose.Slides med ett `CultureNotFoundException` för `en-US`.
 
-Bygg, kör och kopiera utdata med samma kommandon som ovan. På den här imagen skriver applikationen bara ut `Saved`‑raden: med Aspose.Slides.NET på Linux väljer fontconfig ersättningen för ett saknat teckensnitt, och [GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) listar det inte. [Deploy Fonts](/slides/sv/net/deploy-fonts/) visar hur du kontrollerar vilket teckensnitt som används.
+Bygg, kör och kopiera utdata med samma kommandon som ovan. På den här imagen skriver applikationen bara ut `Saved`‑raden: med Aspose.Slides.NET på Linux väljer fontconfig ersättningen för ett saknat teckensnitt, och [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) listar det inte. [Deploy Fonts](/slides/sv/net/deploy-fonts/) visar hur du kontrollerar vilket teckensnitt som används.
 
 ## **FAQ**
 

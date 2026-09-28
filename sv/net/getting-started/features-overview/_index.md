@@ -77,7 +77,7 @@ Nej. PowerPoint krävs inte; Aspose.Slides är en fristående motor för att ska
 
 **Hur fungerar trådad körning? Kan bearbetning parallelliseras?**
 
-Det är säkert att bearbeta olika dokument i olika trådar; samma [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑objekt får inte användas av [flera trådar](/slides/sv/net/multithreading/) samtidigt.
+Det är säkert att bearbeta olika dokument i olika trådar; samma [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑objekt får inte användas av [flera trådar](/slides/sv/net/multithreading/) samtidigt.
 
 **Stöds fillösenord och kryptering?**
 

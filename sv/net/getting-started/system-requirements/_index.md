@@ -68,7 +68,7 @@ Paketets Linux‑bibliotek kräver `fontconfig`‑biblioteket:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Utan det misslyckas skapandet av en [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) med ett `TypeInitializationException` vars inre `DllNotFoundException` rapporterar att `libfontconfig.so.1` inte kan öppnas.
+Utan det misslyckas skapandet av en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) med ett `TypeInitializationException` vars inre `DllNotFoundException` rapporterar att `libfontconfig.so.1` inte kan öppnas.
 
 Minimalbasbilder kan också sakna `fontconfig`. AWS Lambda‑basbilden för .NET 8 innehåller till exempel varken `fontconfig` eller några typsnitt. I en container‑image byggd på den, kör `dnf install -y fontconfig`, vilket också installerar Noto Sans‑typsnitten.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Stöd för globalisering**
 
-Båda paketen kräver .NET‑globaliseringsstöd, vilket .NET på Linux tillhandahåller via ICU‑biblioteken. I [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), misslyckas skapandet av en [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) med `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Båda paketen kräver .NET‑globaliseringsstöd, vilket .NET på Linux tillhandahåller via ICU‑biblioteken. I [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), misslyckas skapandet av en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) med `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Vissa container‑bilder sätter på detta läge. .NET‑runtime‑bilderna för Alpine Linux (`runtime-deps`, `runtime` och `aspnet`) sätter till exempel `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` och innehåller inte ICU. I en bild byggd på dem, installera ICU och stäng av läget:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Programmet lägger till en rektangel med text på den första bilden och sparar presentationen som *hello.pptx* med metoden [Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/). Det renderar sedan bilden med [GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/slide/getimage/) och sparar resultatet som *hello.png* med [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/save/) i formatet [ImageFormat.Png](https://reference.aspose.com/slides/sv/net/aspose.slides/imageformat/). Skalningsfaktorn 1 renderar en pixel per punkt, så den standard 720 × 540‑punkt‑bilden blir en 720 × 540‑pixel‑bild, med texten synlig i rektangeln. Utan en licens har båda filerna också ett evalueringsvattenmärke; se [Licensing](/slides/sv/net/licensing/). Om ett krav saknas, avbryts programmet med ett av undantagen som beskrivs i [Linux](#linux).
+Programmet lägger till en rektangel med text på den första bilden och sparar presentationen som *hello.pptx* med metoden [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Det renderar sedan bilden med [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) och sparar resultatet som *hello.png* med [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) i formatet [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Skalningsfaktorn 1 renderar en pixel per punkt, så den standard 720 × 540‑punkt‑bilden blir en 720 × 540‑pixel‑bild, med texten synlig i rektangeln. Utan en licens har båda filerna också ett evalueringsvattenmärke; se [Licensing](/slides/sv/net/licensing/). Om ett krav saknas, avbryts programmet med ett av undantagen som beskrivs i [Linux](#linux).
 
 ## **Utvecklingsverktyg**
 

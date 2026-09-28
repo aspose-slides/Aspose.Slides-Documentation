@@ -24,7 +24,7 @@ description: "Konvertera PowerPoint- och OpenDocument-presentationer till PowerP
 
 Aspose.Slides för .NET kan konvertera PowerPoint-presentationer till PowerPoint XML‑presentationsformatet. XML‑utdata är användbart när du behöver en textbaserad representation för att inspektera presentationsstruktur, felsöka genererade dokument, jämföra utdata i automatiserade tester eller integrera med ett arbetsflöde som använder XML istället för ett presentationspaket.
 
-Använd metoden [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) med värdet `Xml` från uppräkningen [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/). Du kan skriva resultatet direkt till en fil eller till en ström.
+Använd metoden [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) med värdet `Xml` från uppräkningen [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). Du kan skriva resultatet direkt till en fil eller till en ström.
 
 {{% alert color="info" title="Obs" %}}
 
@@ -34,7 +34,7 @@ Använd metoden [Presentation.Save](https://reference.aspose.com/slides/sv/net/a
 
 ## **Konvertera en presentation till en XML‑fil**
 
-Läs in en källpresentation med klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och skicka sedan utvägsökvägen och `SaveFormat.Xml` till [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/). Källan kan vara vilket presentationsformat som helst som stöds för inläsning, såsom PPT, PPTX eller ODP.
+Läs in en källpresentation med klassen [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) och skicka sedan utvägsökvägen och `SaveFormat.Xml` till [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Källan kan vara vilket presentationsformat som helst som stöds för inläsning, såsom PPT, PPTX eller ODP.
 
 Följande exempel konverterar en PPTX‑presentation till en XML‑fil:
 
@@ -48,7 +48,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **Skriv XML‑utdata till en ström**
 
-Använd ström‑överladdningen av [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) när XML måste förbli i minnet eller skickas till en annan komponent, såsom en webbtjänst, lagringsleverantör eller XML‑bearbetningspipeline. Följande exempel skriver resultatet till en [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) och spolar tillbaka den för efterföljande läsning:
+Använd ström‑överladdningen av [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) när XML måste förbli i minnet eller skickas till en annan komponent, såsom en webbtjänst, lagringsleverantör eller XML‑bearbetningspipeline. Följande exempel skriver resultatet till en [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) och spolar tillbaka den för efterföljande läsning:
 
 ```csharp
 using System.IO;
@@ -87,11 +87,11 @@ Nej. PPTX är ett paket som innehåller flera Office Open XML‑delar, medan `Sa
 
 **Kan jag spara XML‑utdata utan att skapa en fil på disk?**
 
-Ja. Skicka en skrivbar ström till [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/). Till exempel kan du använda en [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) för in‑minnesbearbetning.
+Ja. Skicka en skrivbar ström till [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Till exempel kan du använda en [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) för in‑minnesbearbetning.
 
 **Kan Aspose.Slides läsa in den exporterade XML‑filen igen?**
 
-Ja. Skicka XML‑filen eller en ström till [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/presentation/)‑konstruktören. [Presentation.SourceFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/sourceformat/) återger sedan `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/sv/net/aspose.slides/presentationfactory/getpresentationinfo/) rapporterar `LoadFormat.Unknown` för detta format, så använd det inte för att avgöra om en XML‑fil kan öppnas.
+Ja. Skicka XML‑filen eller en ström till [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/)‑konstruktören. [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) återger sedan `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) rapporterar `LoadFormat.Unknown` för detta format, så använd det inte för att avgöra om en XML‑fil kan öppnas.
 
 **Renderar XML‑konvertering varje bild som en sida eller bild?**
 

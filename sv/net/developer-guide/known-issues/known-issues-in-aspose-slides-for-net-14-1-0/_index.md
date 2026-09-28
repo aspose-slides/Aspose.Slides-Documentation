@@ -14,7 +14,7 @@ description: "Historisk: de kända problemen som publicerades med Aspose.Slides 
 ---
 {{% alert color="info" title="Note" %}}
 
-Detta är en historisk sida. Den listar de kända problemen som publicerades med Aspose.Slides for .NET 14.1.0, släppt 2014, och beskriver inte den nuvarande versionen. För ändringarna i varje version, se [release notes](https://releases.aspose.com/slides/sv/net/release-notes/).
+Detta är en historisk sida. Den listar de kända problemen som publicerades med Aspose.Slides for .NET 14.1.0, släppt 2014, och beskriver inte den nuvarande versionen. För ändringarna i varje version, se [release notes](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 

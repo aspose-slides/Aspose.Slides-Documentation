@@ -22,7 +22,7 @@ description: "Varför ett OLE-objekt som lagts till med Aspose.Slides för .NET 
 ---
 ## **Introduktion**
 
-När du använder Aspose.Slides för .NET och lägger till [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe/) på en bild visas ett "EMBEDDED OLE OBJECT"-meddelande på den genererade bilden. Detta meddelande är avsiktligt och INTE ett fel.
+När du använder Aspose.Slides för .NET och lägger till [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) på en bild visas ett "EMBEDDED OLE OBJECT"-meddelande på den genererade bilden. Detta meddelande är avsiktligt och INTE ett fel.
 
 För mer information om hur du arbetar med OLE-objekt, se [Hantera OLE](/slides/sv/net/manage-ole/).
 
@@ -30,7 +30,7 @@ För mer information om hur du arbetar med OLE-objekt, se [Hantera OLE](/slides/
 
 Aspose.Slides visar meddelandet "EMBEDDED OLE OBJECT" för att meddela att OLE-objektet har ändrats och förhandsgranskningsbilden måste uppdateras.
 
-Till exempel, om du lägger till ett Microsoft Excel-diagram som ett [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe/) på en bild (för mer detaljer, se artikeln "Manage OLE") och sedan öppnar presentationen i Microsoft PowerPoint, kommer du att se den här bilden på bilden:
+Till exempel, om du lägger till ett Microsoft Excel-diagram som ett [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) på en bild (för mer detaljer, se artikeln "Manage OLE") och sedan öppnar presentationen i Microsoft PowerPoint, kommer du att se den här bilden på bilden:
 
 ![OLE-objektmeddelande](OLE_object_message.png)
 

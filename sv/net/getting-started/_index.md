@@ -62,7 +62,7 @@ Utan en licens kör Aspose.Slides i utvärderingsläge: den lägger till ett vat
 
 ## **Få hjälp**
 
-[Product Support](/slides/sv/net/product-support/) förklarar hur man ställer en fråga på [gratis supportforum](https://forum.aspose.com/c/slides/sv/11) och vad som bör inkluderas när du rapporterar ett problem.
+[Product Support](/slides/sv/net/product-support/) förklarar hur man ställer en fråga på [gratis supportforum](https://forum.aspose.com/c/slides/11) och vad som bör inkluderas när du rapporterar ett problem.
 
 ## **FAQ**
 
