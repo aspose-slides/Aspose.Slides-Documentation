@@ -31,10 +31,10 @@ Bevor Sie beginnen, fügen Sie Aspose.Slides Ihrem Android-Projekt aus dem Maven
 
 Um eine Präsentation zu erstellen und eine Textbox auf der ersten Folie zu platzieren, führen Sie die folgenden Schritte aus:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/). Ein neue Präsentation enthält bereits eine leere Folie.  
-2. Holen Sie diese Folie aus der [slide collection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islidecollection/) , indem Sie den Index 0 angeben.  
-3. Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) der [shape collection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapecollection/) ein Rechteck hinzu und setzen Sie den Text seines [text frame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/) mit der Methode [setText](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Speichern Sie die Präsentation als PPTX-Datei mit der Methode [save](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) , im Format [SaveFormat.Pptx](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/saveformat/).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Ein neue Präsentation enthält bereits eine leere Folie.  
+2. Holen Sie diese Folie aus der [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) , indem Sie den Index 0 angeben.  
+3. Fügen Sie mit der Methode [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) der [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) ein Rechteck hinzu und setzen Sie den Text seines [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) mit der Methode [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Speichern Sie die Präsentation als PPTX-Datei mit der Methode [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) , im Format [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Der Code wird innerhalb einer `Activity` ausgeführt, zum Beispiel in deren `onCreate`‑Methode. Er speichert die Datei in dem Verzeichnis, das von der Methode [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) zurückgegeben wird: dem privaten Speicher Ihrer App, in den ohne zusätzliche Berechtigungen geschrieben werden kann.
 
@@ -83,7 +83,7 @@ Verwenden Sie [BLOB management strategies](/slides/de/androidjava/manage-blob/),
 
 ### Kann ich Präsentationen parallel erstellen/speichern?
 
-Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/)‑Instanz von [mehreren Threads](/slides/de/androidjava/multithreading/) aus bearbeiten. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
+Sie können nicht dieselbe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Instanz von [mehreren Threads](/slides/de/androidjava/multithreading/) aus bearbeiten. Führen Sie separate, isolierte Instanzen pro Thread oder Prozess aus.
 
 ### Wie entferne ich das Test‑Wasserzeichen und die Einschränkungen?
 
