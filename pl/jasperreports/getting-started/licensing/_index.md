@@ -7,9 +7,9 @@ description: "Dowiedz się, co wersja ewaluacyjna Aspose.Slides for JasperReport
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports jest dostępny jako bezpłatna, nieograniczona czasowo wersja ewaluacyjna ze [strony pobierania](https://releases.aspose.com/slides/pl/jasperreport/). Wersje ewaluacyjna i licencjonowana produktu są dostępne do pobrania z tego samego linku.
+Aspose.Slides for JasperReports jest dostępny jako bezpłatna, nieograniczona czasowo wersja ewaluacyjna ze [strony pobierania](https://releases.aspose.com/slides/jasperreport/). Wersje ewaluacyjna i licencjonowana produktu są dostępne do pobrania z tego samego linku.
 
-Gdy będziesz zadowolony z wersji ewaluacyjnej, [kup licencję](https://purchase.aspose.com/pricing/slides/pl/jasperreports/). Upewnij się, że rozumiesz i akceptujesz warunki subskrypcji.
+Gdy będziesz zadowolony z wersji ewaluacyjnej, [kup licencję](https://purchase.aspose.com/pricing/slides/jasperreports/). Upewnij się, że rozumiesz i akceptujesz warunki subskrypcji.
 
 Licencja jest dostępna do pobrania z strony zamówienia po opłaceniu zamówienia. Licencja jest plikiem XML w formie czystego tekstu, cyfrowo podpisanym, który zawiera informacje takie jak nazwa klienta, zakupiony produkt i typ licencji. Nie modyfikuj w żaden sposób zawartości pliku licencji: spowoduje to unieważnienie licencji.
 

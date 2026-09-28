@@ -64,12 +64,12 @@ Eksportuje wypełniony raport do PPT i PPTX, po jednym slajdzie na stronę rapor
 <hr>
 <p>REFERENCJE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/pl/jasperreport/release-notes/">Informacje o wydaniu</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/jasperreport/">Pobierz</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Informacje o wydaniu</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Pobierz</a></li>
 </ul>
 <p>WSPARCIE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pl/11">Darmowe forum wsparcia</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Darmowe forum wsparcia</a></li>
 <li><a href="https://helpdesk.aspose.com/">Płatny helpdesk wsparcia</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Eksportuje wypełniony raport do PPT i PPTX, po jednym slajdzie na stronę rapor
 
 Te kroki kompilują raport jednolinijkowy, wypełniają go i eksportują do PPTX przy użyciu JasperReports 6.16.0 z Maven Central. Potrzebujesz JDK 11 lub nowszego oraz Apache Maven.
 
-1. Pobierz plik ZIP ze [strony pobierania](https://releases.aspose.com/slides/pl/jasperreport/) i rozpakuj go. Jego folder *lib* zawiera podfolder dla każdego zakresu wersji JasperReports, a każdy z nich przechowuje plik jar dla tego zakresu. Dla JasperReports 6.16.0, skopiuj *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* do pustego folderu projektu.
+1. Pobierz plik ZIP ze [strony pobierania](https://releases.aspose.com/slides/jasperreport/) i rozpakuj go. Jego folder *lib* zawiera podfolder dla każdego zakresu wersji JasperReports, a każdy z nich przechowuje plik jar dla tego zakresu. Dla JasperReports 6.16.0, skopiuj *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* do pustego folderu projektu.
 
 2. Plik jar znajduje się w ZIP, a nie w repozytorium Maven, więc zainstaluj go w lokalnym repozytorium Maven. Uruchom to polecenie w folderze projektu:
 
