@@ -57,12 +57,12 @@ Il convertit les fichiers PPT et PPTX en PDF, TIFF, XPS, HTML, SWF et ODP, ainsi
 <hr>
 <p>RÉFÉRENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/fr/sharepoint/release-notes/">Notes de version</a></li>
-<li><a href="https://releases.aspose.com/slides/fr/sharepoint/">Télécharger</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Notes de version</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Télécharger</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum d'assistance gratuit</a></li>
 <li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Il convertit les fichiers PPT et PPTX en PDF, TIFF, XPS, HTML, SWF et ODP, ainsi
 
 Aspose.Slides for SharePoint est installé une fois sur le farm, puis utilisé à partir de n'importe quelle bibliothèque de documents où il est activé :
 
-1. Téléchargez l'archive ZIP depuis la [page de téléchargement](https://releases.aspose.com/slides/fr/sharepoint/) et décompressez‑la sur un serveur de votre ferme SharePoint.
+1. Téléchargez l'archive ZIP depuis la [page de téléchargement](https://releases.aspose.com/slides/sharepoint/) et décompressez‑la sur un serveur de votre ferme SharePoint.
 2. Exécutez le programme d'installation correspondant à votre version de SharePoint : *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* ou *Setup2019.exe*. Utilisez un compte capable d'installer et de déployer des solutions SharePoint. Acceptez le contrat de licence, sélectionnez les collections de sites sur lesquelles activer la fonctionnalité, et laissez le programme d'installation déployer la solution. Chaque écran est décrit dans [Installation](/slides/fr/sharepoint/installing-aspose-slides-for-sharepoint/).
 3. Ouvrez une bibliothèque de documents dans l'une de ces collections de sites, ouvrez le menu d'un fichier PPT ou PPTX et sélectionnez **Convert via Aspose.Slides**. Sur SharePoint 2007, l'élément de menu s'appelle **Convert with Aspose.Slides**.
 4. Sous **Convert to**, choisissez **PDF - Adobe Portable Document**. Modifiez le nom du fichier de destination et le dossier si nécessaire, puis cliquez sur **Convert**.

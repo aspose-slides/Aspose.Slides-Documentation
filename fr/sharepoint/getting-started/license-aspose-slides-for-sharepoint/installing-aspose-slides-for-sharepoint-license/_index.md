@@ -7,7 +7,7 @@ description: "Installez la licence Aspose.Slides pour SharePoint sur un farm Sha
 ---
 {{% alert color="info" title="Remarque" %}}
 
-Une fois que vous êtes satisfait de votre évaluation, vous pouvez [acheter une licence](https://purchase.aspose.com/pricing/slides/fr/sharepoint/). Avant d'acheter, assurez‑vous de comprendre et d’accepter les conditions d’abonnement à la licence. La licence vous est envoyée par courriel lorsque la commande a été payée.
+Une fois que vous êtes satisfait de votre évaluation, vous pouvez [acheter une licence](https://purchase.aspose.com/pricing/slides/sharepoint/). Avant d'acheter, assurez‑vous de comprendre et d’accepter les conditions d’abonnement à la licence. La licence vous est envoyée par courriel lorsque la commande a été payée.
 
 La licence est une archive ZIP contenant un package de solution SharePoint standard. L’archive contient :
 
