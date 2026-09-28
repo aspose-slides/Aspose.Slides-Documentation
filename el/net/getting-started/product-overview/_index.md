@@ -123,7 +123,7 @@ description: "Το Aspose.Slides for .NET σας επιτρέπει να δημ�
 ## **Τεχνική υποστήριξη**
 Η Aspose παρέχει απεριόριστη δωρεάν τεχνική υποστήριξη για όλα τα προϊόντα της. Η υποστήριξη είναι διαθέσιμη για όλους τους χρήστες (συμπεριλαμβανομένων των χρηστών με πακέτα αξιολόγησης). Εάν χρειάζεστε βοήθεια με το Aspose.Slides for .NET, εξετάστε τα παρακάτω:
 
-- Η κύρια διαδρομή υποστήριξης είναι το [Φόρουμ Aspose](https://forum.aspose.com/). Δημοσιεύστε την ερώτησή σας στο [Φόρουμ Aspose.Slides](https://forum.aspose.com/c/slides/el/11)—και θα απαντηθεί εντός λίγων ωρών. Η ομάδα υποστήριξης Aspose.Slides απαντά άμεσα στις ερωτήσεις που δημοσιεύονται στο φόρουμ.
+- Η κύρια διαδρομή υποστήριξης είναι το [Φόρουμ Aspose](https://forum.aspose.com/). Δημοσιεύστε την ερώτησή σας στο [Φόρουμ Aspose.Slides](https://forum.aspose.com/c/slides/11)—και θα απαντηθεί εντός λίγων ωρών. Η ομάδα υποστήριξης Aspose.Slides απαντά άμεσα στις ερωτήσεις που δημοσιεύονται στο φόρουμ.
 - Παρακαλούμε σημειώστε ότι η Aspose δεν παρέχει τεχνική υποστήριξη τηλεφωνικά. Η τηλεφωνική υποστήριξη είναι διαθέσιμη μόνο για ερωτήσεις πωλήσεων και αγοράς.
 - Όταν περιμένετε απάντηση στα φόρουμ, παραμείνετε υπομονετικοί και λάβετε υπόψη τις διαφορές ζώνης ώρας.
 
@@ -140,10 +140,10 @@ description: "Το Aspose.Slides for .NET σας επιτρέπει να δημ�
 
 |**Πόρος**|**Περιγραφή**|
 | :- | :- |
-|[Αρχική σελίδα Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/)|Αρχική σελίδα προϊόντος.|
-|[Ιστολόγιο Aspose.Slides](https://blog.aspose.com/category/slides/el/)|Ελέγξτε αυτή τη σελίδα τακτικά για πληροφορίες σχετικά με νέες κυκλοφορίες και χρήσιμες συμβουλές για το Aspose.Slides.|
+|[Αρχική σελίδα Aspose.Slides for .NET](https://products.aspose.com/slides/net/)|Αρχική σελίδα προϊόντος.|
+|[Ιστολόγιο Aspose.Slides](https://blog.aspose.com/category/slides/)|Ελέγξτε αυτή τη σελίδα τακτικά για πληροφορίες σχετικά με νέες κυκλοφορίες και χρήσιμες συμβουλές για το Aspose.Slides.|
 |[Λήψη Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Κατεβάστε εδώ την τελευταία έκδοση του Aspose.Slides. Συχνά κυκλοφορούμε νέες εκδόσεις.|
-|[Φόρουμ υποστήριξης Aspose.Slides](https://forum.aspose.com/c/slides/el/11)|Αναρτήστε τις ερωτήσεις και τα προβλήματά σας εδώ για γρήγορη επίλυση.|
+|[Φόρουμ υποστήριξης Aspose.Slides](https://forum.aspose.com/c/slides/11)|Αναρτήστε τις ερωτήσεις και τα προβλήματά σας εδώ για γρήγορη επίλυση.|
 |[Τεκμηρίωση προϊόντος Aspose.Slides for .NET](/slides/el/net/)|Πλήρης διαδικτυακή τεκμηρίωση που περιλαμβάνει αυτό το έγγραφο και το API Reference του Aspose.Slides.|
 
 ## **Απαιτήσεις Επιπέδου Εμπιστοσύνης**
@@ -154,7 +154,7 @@ description: "Το Aspose.Slides for .NET σας επιτρέπει να δημ�
 
 ### Υποστηρίζει επίπεδα συμμόρφωσης PDF για αρχειοθέτηση και προσβασιμότητα (PDF/A και PDF/UA);
 
-Ναι. Μπορείτε να αποθηκεύσετε σε PDF με PDF/A-2a/2b/2u, PDF/A-3a/3b, καθώς και PDF/UA ρυθμίζοντας τις [επιλογές εξαγωγής PDF](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/).
+Ναι. Μπορείτε να αποθηκεύσετε σε PDF με PDF/A-2a/2b/2u, PDF/A-3a/3b, καθώς και PDF/UA ρυθμίζοντας τις [επιλογές εξαγωγής PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ### Υπάρχει μηχανισμός αντικατάστασης γραμματοσειρών και υποστήριξη προσαρμοσμένων γραμματοσειρών για σωστή απόδοση;
 
@@ -174,7 +174,7 @@ description: "Το Aspose.Slides for .NET σας επιτρέπει να δημ�
 
 ### Διατηρούνται τα μακροεντολές και μπορώ να διαχειριστώ VBA σε αρχεία PPTM/PPSM;
 
-Ναι. Οι παρουσιάσεις με μακροεντολές [υποστηρίζονται](/slides/el/net/presentation-via-vba/), και μπορείτε να [εξετάσετε και διαχειριστείτε έργα VBA](https://reference.aspose.com/slides/el/net/aspose.slides.vba/) σε αυτά τα αρχεία.
+Ναι. Οι παρουσιάσεις με μακροεντολές [υποστηρίζονται](/slides/el/net/presentation-via-vba/), και μπορείτε να [εξετάσετε και διαχειριστείτε έργα VBA](https://reference.aspose.com/slides/net/aspose.slides.vba/) σε αυτά τα αρχεία.
 
 ### Μπορώ να μετατρέψω PDF ή HTML πίσω σε διαφάνειες PowerPoint;
 
@@ -182,7 +182,7 @@ description: "Το Aspose.Slides for .NET σας επιτρέπει να δημ�
 
 ### Υποστηρίζεται η εξαγωγή σε XPS και μπορώ να ελέγξω την ποιότητα και το περιεχόμενο της εξόδου XPS;
 
-Ναι. Η [εξαγωγή σε XPS](/slides/el/net/convert-powerpoint-to-xps/) είναι διαθέσιμη, και οι [επιλογές αποθήκευσης](https://reference.aspose.com/slides/el/net/aspose.slides.export/xpsoptions/) σας επιτρέπουν να ρυθμίσετε την ποιότητα και το περιεχόμενο της εξόδου.
+Ναι. Η [εξαγωγή σε XPS](/slides/el/net/convert-powerpoint-to-xps/) είναι διαθέσιμη, και οι [επιλογές αποθήκευσης](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) σας επιτρέπουν να ρυθμίσετε την ποιότητα και το περιεχόμενο της εξόδου.
 
 ### Μπορώ να μετατρέψω διαφάνειες σε εικόνες και να ελέγξω την ποιότητα της εξόδου;
 

@@ -28,7 +28,7 @@ description: "Διαμορφώστε τους κανόνες αντικατάσ�
 
 ## **Λήψη Αντικαταστάσεων Γραμματοσειρών**
 
-Χρησιμοποιήστε τη μέθοδο [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/) για να προσδιορίσετε ποιες γραμματοσειρές θα αντικατασταθούν όταν η παρουσίαση αποδίδεται. Η μέθοδος επιστρέφει αντικείμενα [FontSubstitutionInfo](https://reference.aspose.com/slides/el/net/aspose.slides/fontsubstitutioninfo/) που ταυτοποιούν τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών.
+Χρησιμοποιήστε τη μέθοδο [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) για να προσδιορίσετε ποιες γραμματοσειρές θα αντικατασταθούν όταν η παρουσίαση αποδίδεται. Η μέθοδος επιστρέφει αντικείμενα [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) που ταυτοποιούν τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών.
 
 Το παρακάτω παράδειγμα C# καταχωρίζει όλες τις αντικαταστάσεις γραμματοσειρών για μια παρουσίαση:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Λήψη Αντικαταστάσεων Γραμματοσειρών για Επιλεγμένες Διαφάνειες**
 
-Χρησιμοποιήйте την υπερφόρτωση [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/) με όρισμα `int[] slides` για να ελέγξετε μόνο τις αντικαταστάσεις που απαιτούνται για την απόδοση συγκεκριμένων διαφανειών. Είναι χρήσιμο όταν αποδίδετε ή εξάγετε μέρος μιας παρουσίασης, ελέγχετε μια μεγάλη παρουσίαση βήμα-βήμα, εντοπίζετε διαφάνειες που εξαρτώνται από μη διαθέσιμες γραμματοσειρές, προετοιμάζετε ένα ελάχιστο πακέτο γραμματοσειρών για διακομιστή ή κοντέινερ, ή διαγώνιζετε διαφορές απόδοσης χωρίς να επεξεργαστείτε άσχετες διαφάνειες.
+Χρησιμοποιήйте την υπερφόρτωση [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) με όρισμα `int[] slides` για να ελέγξετε μόνο τις αντικαταστάσεις που απαιτούνται για την απόδοση συγκεκριμένων διαφανειών. Είναι χρήσιμο όταν αποδίδετε ή εξάγετε μέρος μιας παρουσίασης, ελέγχετε μια μεγάλη παρουσίαση βήμα-βήμα, εντοπίζετε διαφάνειες που εξαρτώνται από μη διαθέσιμες γραμματοσειρές, προετοιμάζετε ένα ελάχιστο πακέτο γραμματοσειρών για διακομιστή ή κοντέινερ, ή διαγώνιζετε διαφορές απόδοσης χωρίς να επεξεργαστείτε άσχετες διαφάνειες.
 
-Ο πίνακας `slides` περιέχει δείκτες διαφανειών με αρίθμηση που ξεκινά από το 1: το `1` αναφέρεται στην πρώτη διαφάνεια. Αντίθετα, ο δείκτης της συλλογής [Presentation.Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) είναι μηδενικής βάσης, ώστε η ίδια διαφάνεια προσπελαύνεται ως `presentation.Slides[0]`. Λάβετε υπόψη αυτή τη διαφορά όταν δημιουργείτε τον πίνακα για να αποφύγετε σφάλματα κατά το ένα-προς-πρώτο.
+Ο πίνακας `slides` περιέχει δείκτες διαφανειών με αρίθμηση που ξεκινά από το 1: το `1` αναφέρεται στην πρώτη διαφάνεια. Αντίθετα, ο δείκτης της συλλογής [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) είναι μηδενικής βάσης, ώστε η ίδια διαφάνεια προσπελαύνεται ως `presentation.Slides[0]`. Λάβετε υπόψη αυτή τη διαφορά όταν δημιουργείτε τον πίνακα για να αποφύγετε σφάλματα κατά το ένα-προς-πρώτο.
 
-Καλέστε την υπερφόρτωση μέσω της ιδιότητας [Presentation.FontsManager](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/fontsmanager/). Επιστρέφει μόνο τις αντικαταστάσεις που προσδιορίστηκαν κατά την απόδοση των επιλεγμένων διαφανειών. Κάθε αποτέλεσμα είναι ένα αντικείμενο [FontSubstitutionInfo](https://reference.aspose.com/slides/el/net/aspose.slides/fontsubstitutioninfo/) που περιέχει τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών. Το αποτέλεσμα αντανακλά το τρέχον περιβάλλον γραμματοσειρών και τις [externally loaded fonts](/slides/el/net/custom-font/). Οι κανόνες αντικατάστασης αποθηκευμένοι σε μια [IFontSubstRuleCollection](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsubstrulecollection/) αλλάζουν το παραγόμενο αποτέλεσμα αλλά δεν εμφανίζονται στο αποτέλεσμα.
+Καλέστε την υπερφόρτωση μέσω της ιδιότητας [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Επιστρέφει μόνο τις αντικαταστάσεις που προσδιορίστηκαν κατά την απόδοση των επιλεγμένων διαφανειών. Κάθε αποτέλεσμα είναι ένα αντικείμενο [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) που περιέχει τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών. Το αποτέλεσμα αντανακλά το τρέχον περιβάλλον γραμματοσειρών και τις [externally loaded fonts](/slides/el/net/custom-font/). Οι κανόνες αντικατάστασης αποθηκευμένοι σε μια [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) αλλάζουν το παραγόμενο αποτέλεσμα αλλά δεν εμφανίζονται στο αποτέλεσμα.
 
 Η ίδια αντικατάσταση μπορεί να απαιτείται από περισσότερες από μία επιλεγμένες διαφάνειες. Καταργήστε τα διπλότυπα αποτελέσματα όταν δημιουργείτε κατάλογο γραμματοσειρών ή αναφορά προελέγχου. Το παρακάτω παράδειγμα αναφέρει κάθε επιστρεφόμενη αντικατάσταση και, στη συνέχεια, δημιουργεί μια ταξινομημένη λίστα μοναδικών αντιστοιχίσεων γραμματοσειρών:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Το interface [IFontsManager](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/) παρέχει και τις δύο υπερφορτώσεις. Επιλέξτε αυτή που ταιριάζει με το εύρος της λειτουργίας απόδοσης:
+Το interface [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) παρέχει και τις δύο υπερφορτώσεις. Επιλέξτε αυτή που ταιριάζει με το εύρος της λειτουργίας απόδοσης:
 
 | Υπερφόρτωση | Χρησιμοποιήστε την όταν |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/) χωρίς ορίσματα | Χρειάζεστε αντικαταστάσεις για ολόκληρη την παρουσίαση. |
-| [GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/) με `int[] slides` | Χρειάζεστε αντικαταστάσεις για επιλεγμένο εύρος, βήμα-βήμα έλεγχο ή μερική εξαγωγή. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) χωρίς ορίσματα | Χρειάζεστε αντικαταστάσεις για ολόκληρη την παρουσίαση. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) με `int[] slides` | Χρειάζεστε αντικαταστάσεις για επιλεγμένο εύρος, βήμα-βήμα έλεγχο ή μερική εξαγωγή. |
 
 ## **Ορισμός Κανόνων Αντικατάστασης Γραμματοσειράς**
 
@@ -94,9 +94,9 @@ foreach (var entry in sortedPreflightEntries)
 
 1. Φορτώστε την παρουσίαση.
 2. Δημιουργήστε ορισμούς γραμματοσειρών για τη πηγή και τη γραμματοσειρά αντικατάστασης.
-3. Δημιουργήστε έναν [FontSubstRule](https://reference.aspose.com/slides/el/net/aspose.slides/fontsubstrule/) με την κατάσταση [WhenInaccessible](https://reference.aspose.com/slides/el/net/aspose.slides/fontsubstcondition/).
-4. Προσθέστε τον κανόνα σε μια [FontSubstRuleCollection](https://reference.aspose.com/slides/el/net/aspose.slides/fontsubstrulecollection/).
-5. Εκχωρήστε τη συλλογή στην ιδιότητα [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/el/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+3. Δημιουργήστε έναν [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) με την κατάσταση [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).
+4. Προσθέστε τον κανόνα σε μια [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).
+5. Εκχωρήστε τη συλλογή στην ιδιότητα [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).
 6. Αποδώστε ή μετατρέψτε την παρουσίαση.
 
 Το παρακάτω παράδειγμα C# αντικαθιστά το `Arial` με το `SomeRareFont` όταν το `SomeRareFont` δεν είναι διαθέσιμο και, στη συνέχεια, αποδίδει την πρώτη διαφάνεια για να ελέγξει το αποτέλεσμα. Η γραμματοσειρά αντικατάστασης πρέπει να είναι διαθέσιμη στο Aspose.Slides.
@@ -162,4 +162,4 @@ image.Save("slide.jpg", ImageFormat.Jpeg);
 
 **Πώς μπορώ να διασφαλίσω τη σταθερότητα επιλογής γραμματοσειράς σε μαζικές μετατροπές;**
 
-Χρησιμοποιήστε τα ίδια αρχεία γραμματοσειρών και τις ίδιες εκδόσεις σε κάθε μηχάνημα ή κοντέινερ, [load required external fonts](/slides/el/net/custom-font/), και [embed fonts](/slides/el/net/embedded-font/) όταν οι άδειες το επιτρέπουν. Μπορείτε επίσης να καλέσετε το [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/) πριν από την εξαγωγή για να εντοπίσετε ανεπιθύμητες αντικαταστάσεις.
+Χρησιμοποιήστε τα ίδια αρχεία γραμματοσειρών και τις ίδιες εκδόσεις σε κάθε μηχάνημα ή κοντέινερ, [load required external fonts](/slides/el/net/custom-font/), και [embed fonts](/slides/el/net/embedded-font/) όταν οι άδειες το επιτρέπουν. Μπορείτε επίσης να καλέσετε το [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) πριν από την εξαγωγή για να εντοπίσετε ανεπιθύμητες αντικαταστάσεις.

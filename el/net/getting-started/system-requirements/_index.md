@@ -68,7 +68,7 @@ description: "Ελέγξτε τι χρειάζεται το Aspose.Slides for .N
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Χωρίς αυτήν, η δημιουργία μιας [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) αποτυγχάνει με `TypeInitializationException` του οποίου το εσωτερικό `DllNotFoundException` αναφέρει ότι το `libfontconfig.so.1` δεν μπορεί να ανοιχθεί.
+Χωρίς αυτήν, η δημιουργία μιας [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) αποτυγχάνει με `TypeInitializationException` του οποίου το εσωτερικό `DllNotFoundException` αναφέρει ότι το `libfontconfig.so.1` δεν μπορεί να ανοιχθεί.
 
 Οι ελάχιστες εικόνες βάσης ενδέχεται επίσης να μην περιλαμβάνουν το `fontconfig`. Η εικόνα βάσης AWS Lambda για .NET 8, για παράδειγμα, δεν περιέχει ούτε `fontconfig` ούτε γραμματοσειρές. Σε μια εικόνα κοντέινερ που χτίζεται πάνω της, εκτελέστε `dnf install -y fontconfig`, το οποίο εγκαθιστά επίσης τις γραμματοσειρές Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Υποστήριξη Γλοβαλικοποίησης**
 
-Και τα δύο πακέτα χρειάζονται υποστήριξη .NET globalization, που το .NET στο Linux παρέχει μέσω των βιβλιοθηκών ICU. Σε [globalization‑invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), η δημιουργία μιας [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) αποτυγχάνει με `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Και τα δύο πακέτα χρειάζονται υποστήριξη .NET globalization, που το .NET στο Linux παρέχει μέσω των βιβλιοθηκών ICU. Σε [globalization‑invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), η δημιουργία μιας [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) αποτυγχάνει με `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Μερικές εικόνες κοντέινερ ενεργοποιούν αυτή τη λειτουργία. Οι εικόνες .NET runtime για Alpine Linux (`runtime-deps`, `runtime` και `aspnet`), για παράδειγμα, ορίζουν `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` και δεν περιλαμβάνουν ICU. Σε μια εικόνα που χτίζεται επάνω τους, εγκαταστήστε το ICU και απενεργοποιήστε τη λειτουργία:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Το πρόγραμμα προσθέτει ένα ορθογώνιο με κείμενο στην πρώτη διαφάνεια και αποθηκεύει την παρουσίαση ως *hello.pptx* με τη μέθοδο [Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/). Στη συνέχεια αποδίδει τη διαφάνεια με [GetImage](https://reference.aspose.com/slides/el/net/aspose.slides/slide/getimage/) και αποθηκεύει το αποτέλεσμα ως *hello.png* με [IImage.Save](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/save/) στη μορφή [ImageFormat.Png](https://reference.aspose.com/slides/el/net/aspose.slides/imageformat/). Οι συντελεστές κλίμακας 1 αποδίδουν ένα pixel ανά point, έτσι η προεπιλεγμένη διαφάνεια 720 × 540 points γίνεται εικόνα 720 × 540 pixels, με το κείμενο ορατό μέσα στο ορθογώνιο. Χωρίς άδεια, και τα δύο αρχεία φέρουν υδατογράφημα αξιολόγησης· δείτε [Licensing](/slides/el/net/licensing/). Εάν λείπει κάποια απαίτηση, το πρόγραμμα σταματά με μία από τις εξαιρέσεις που περιγράφονται στο [Linux](#linux).
+Το πρόγραμμα προσθέτει ένα ορθογώνιο με κείμενο στην πρώτη διαφάνεια και αποθηκεύει την παρουσίαση ως *hello.pptx* με τη μέθοδο [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Στη συνέχεια αποδίδει τη διαφάνεια με [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) και αποθηκεύει το αποτέλεσμα ως *hello.png* με [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) στη μορφή [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Οι συντελεστές κλίμακας 1 αποδίδουν ένα pixel ανά point, έτσι η προεπιλεγμένη διαφάνεια 720 × 540 points γίνεται εικόνα 720 × 540 pixels, με το κείμενο ορατό μέσα στο ορθογώνιο. Χωρίς άδεια, και τα δύο αρχεία φέρουν υδατογράφημα αξιολόγησης· δείτε [Licensing](/slides/el/net/licensing/). Εάν λείπει κάποια απαίτηση, το πρόγραμμα σταματά με μία από τις εξαιρέσεις που περιγράφονται στο [Linux](#linux).
 
 ## **Εργαλεία Ανάπτυξης**
 

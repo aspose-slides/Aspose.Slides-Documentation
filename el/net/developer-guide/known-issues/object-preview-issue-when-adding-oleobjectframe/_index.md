@@ -22,7 +22,7 @@ description: "Γιατί ένα αντικείμενο OLE που προστέθ
 ---
 ## **Εισαγωγή**
 
-Χρησιμοποιώντας το Aspose.Slides για .NET, όταν προσθέτετε το [OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe/) σε μια διαφάνεια, εμφανίζεται το μήνυμα «EMBEDDED OLE OBJECT» στη διαφάνεια εξόδου. Αυτό το μήνυμα είναι σκόπιμο και ΔΕΝ είναι σφάλμα.
+Χρησιμοποιώντας το Aspose.Slides για .NET, όταν προσθέτετε το [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) σε μια διαφάνεια, εμφανίζεται το μήνυμα «EMBEDDED OLE OBJECT» στη διαφάνεια εξόδου. Αυτό το μήνυμα είναι σκόπιμο και ΔΕΝ είναι σφάλμα.
 
 Για περισσότερες πληροφορίες σχετικά με τη χρήση αντικειμένων OLE, δείτε το [Manage OLE](/slides/el/net/manage-ole/).
 
@@ -30,7 +30,7 @@ description: "Γιατί ένα αντικείμενο OLE που προστέθ
 
 Το Aspose.Slides εμφανίζει το μήνυμα «EMBEDDED OLE OBJECT» για να σας ειδοποιήσει ότι το αντικείμενο OLE έχει αλλάξει και ότι η εικόνα προεπισκόπησης πρέπει να ενημερωθεί.
 
-Για παράδειγμα, εάν προσθέσετε ένα διάγραμμα του Microsoft Excel ως [OleObjectFrame](https://reference.aspose.com/slides/el/net/aspose.slides/oleobjectframe/) σε μια διαφάνεια (για περισσότερες λεπτομέρειες, δείτε το άρθρο «Manage OLE») και, στη συνέχεια, ανοίξετε την παρουσίαση στο Microsoft PowerPoint, θα δείτε αυτήν την εικόνα στη διαφάνεια:
+Για παράδειγμα, εάν προσθέσετε ένα διάγραμμα του Microsoft Excel ως [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) σε μια διαφάνεια (για περισσότερες λεπτομέρειες, δείτε το άρθρο «Manage OLE») και, στη συνέχεια, ανοίξετε την παρουσίαση στο Microsoft PowerPoint, θα δείτε αυτήν την εικόνα στη διαφάνεια:
 
 ![Μήνυμα αντικειμένου OLE](OLE_object_message.png)
 

@@ -56,7 +56,7 @@ Aspose.Slides σχεδιάζει το κείμενο με τις γραμματ�
 </Project>
 ```
 
-*Program.cs* προσθέτει ένα πλαίσιο κειμένου ανά όνομα γραμματοσειράς σε μια διαφάνεια και αναθέτει τη γραμματοσειρά μέσω της ιδιότητας [LatinFont](https://reference.aspose.com/slides/el/net/aspose.slides/baseportionformat/latinfont/). Τα ονόματα γραμματοσειρών προέρχονται από τη γραμμή εντολών· χωρίς ορίσματα, η εφαρμογή ελέγχει Calibri, Arial και Times New Roman. Εκτυπώνει τους φακέλους στους οποίους το Aspose.Slides ψάχνει για γραμματοσειρές ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/el/net/aspose.slides/fontsloader/getfontfolders/)), αποδίδει τη διαφάνεια στο *output/fonts.pdf* και εκτυπώνει τις αντικαταστάσεις που αναφέρει το [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/). Τα δύο προαιρετικά βήματα στην αρχή, η φόρτωση ενός φακέλου *fonts* και η ανάγνωση της μεταβλητής `DEFAULT_FONT`, εξηγούνται παρακάτω σε αυτό το άρθρο.
+*Program.cs* προσθέτει ένα πλαίσιο κειμένου ανά όνομα γραμματοσειράς σε μια διαφάνεια και αναθέτει τη γραμματοσειρά μέσω της ιδιότητας [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Τα ονόματα γραμματοσειρών προέρχονται από τη γραμμή εντολών· χωρίς ορίσματα, η εφαρμογή ελέγχει Calibri, Arial και Times New Roman. Εκτυπώνει τους φακέλους στους οποίους το Aspose.Slides ψάχνει για γραμματοσειρές ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), αποδίδει τη διαφάνεια στο *output/fonts.pdf* και εκτυπώνει τις αντικαταστάσεις που αναφέρει το [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Τα δύο προαιρετικά βήματα στην αρχή, η φόρτωση ενός φακέλου *fonts* και η ανάγνωση της μεταβλητής `DEFAULT_FONT`, εξηγούνται παρακάτω σε αυτό το άρθρο.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Φόρτωση Γραμματοσειρών από τον Φάκελο Εφαρμογής**
 
-Αντί να εγκαταστήσετε τις γραμματοσειρές στην εικόνα, μπορείτε να τις συμπεριλάβετε με την εφαρμογή και να τις φορτώσετε με το [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/el/net/aspose.slides/fontsloader/loadexternalfonts/). Οι γραμματοσειρές είναι τότε διαθέσιμες μόνο στο Aspose.Slides και αναπτύσσονται μαζί με την εφαρμογή. Το *FontCheck* το κάνει αυτό: το *FontCheck.csproj* αντιγράφει τον φάκελο *fonts* στην έξοδο της εφαρμογής, και το *Program.cs* περνά αυτόν τον φάκελο στο `LoadExternalFonts` πριν δημιουργήσει την παρουσίαση. Το [Custom Font](/slides/el/net/custom-font/) περιγράφει άλλους τρόπους παροχής γραμματοσειρών, όπως η φόρτωση από μνήμη.
+Αντί να εγκαταστήσετε τις γραμματοσειρές στην εικόνα, μπορείτε να τις συμπεριλάβετε με την εφαρμογή και να τις φορτώσετε με το [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Οι γραμματοσειρές είναι τότε διαθέσιμες μόνο στο Aspose.Slides και αναπτύσσονται μαζί με την εφαρμογή. Το *FontCheck* το κάνει αυτό: το *FontCheck.csproj* αντιγράφει τον φάκελο *fonts* στην έξοδο της εφαρμογής, και το *Program.cs* περνά αυτόν τον φάκελο στο `LoadExternalFonts` πριν δημιουργήσει την παρουσίαση. Το [Custom Font](/slides/el/net/custom-font/) περιγράφει άλλους τρόπους παροχής γραμματοσειρών, όπως η φόρτωση από μνήμη.
 
 Ανακατασκευάστε την εικόνα, στη συνέχεια ελέγξτε Calibri και Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Ορισμός Προεπιλεγμένης Γραμματοσειράς για Ελλείπουσες Γραμματοσειρές**
 
-Όταν λείπει μια γραμματοσειρά, το Aspose.Slides χρησιμοποιεί μια εναλλακτική που επιλέγει αυτόματα. Για να την επιλέξετε εσείς, ορίστε την ιδιότητα [DefaultRegularFont](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/defaultregularfont/) του [LoadOptions](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/) και περάστε τις επιλογές στον κατασκευαστή του [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Το *FontCheck* διαβάζει το όνομα γραμματοσειράς από τη μεταβλητή περιβάλλοντος `DEFAULT_FONT`. Με το Carlito φορτωμένο, χρησιμοποιήστε το για ελλείπουσες γραμματοσειρές:
+Όταν λείπει μια γραμματοσειρά, το Aspose.Slides χρησιμοποιεί μια εναλλακτική που επιλέγει αυτόματα. Για να την επιλέξετε εσείς, ορίστε την ιδιότητα [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) του [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) και περάστε τις επιλογές στον κατασκευαστή του [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Το *FontCheck* διαβάζει το όνομα γραμματοσειράς από τη μεταβλητή περιβάλλοντος `DEFAULT_FONT`. Με το Carlito φορτωμένο, χρησιμοποιήστε το για ελλείπουσες γραμματοσειρές:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Η προεπιλεγμένη γραμματοσειρά αντικαθιστά κάθε ελλείπουσα γραμματοσειρά. Για χαρτογράφηση μεμονωμένων γραμματοσειρών, π.χ. Arial σε Liberation Sans και Calibri σε Carlito, χρησιμοποιήστε [κανόνες αντικατάστασης γραμματοσειράς](/slides/el/net/font-substitution/). Οι κανόνες αλλάζουν το παραγόμενο αποτέλεσμα, αλλά το `GetSubstitutions` δεν τα αντικατοπτρίζει, οπότε ελέγξτε τις γραμματοσειρές στο αρχείο εξόδου. Για ασιατικό κείμενο, ορίστε επίσης το [DefaultAsianFont](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/defaultasianfont/); δείτε το [Default Font](/slides/el/net/default-font/).
+Η προεπιλεγμένη γραμματοσειρά αντικαθιστά κάθε ελλείπουσα γραμματοσειρά. Για χαρτογράφηση μεμονωμένων γραμματοσειρών, π.χ. Arial σε Liberation Sans και Calibri σε Carlito, χρησιμοποιήστε [κανόνες αντικατάστασης γραμματοσειράς](/slides/el/net/font-substitution/). Οι κανόνες αλλάζουν το παραγόμενο αποτέλεσμα, αλλά το `GetSubstitutions` δεν τα αντικατοπτρίζει, οπότε ελέγξτε τις γραμματοσειρές στο αρχείο εξόδου. Για ασιατικό κείμενο, ορίστε επίσης το [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); δείτε το [Default Font](/slides/el/net/default-font/).
 
 ## **Εγκατάσταση Γραμματοσειρών σε Alpine Linux**
 

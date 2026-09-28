@@ -25,7 +25,7 @@ description: "Ποιο επίπεδο εμπιστοσύνης της ασφάλ
 
 ## **.NET Framework**
 
-Το Aspose.Slides απαιτεί πλήρη εμπιστοσύνη στο .NET Framework. Δεν εκτελείται υπό μερική εμπιστοσύνη, όπως μια εφαρμογή ASP.NET διαμορφωμένη για Μεσαία Εμπιστοσύνη (`<trust level="Medium" />`): η δημιουργία ενός αντικειμένου [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) αποτυγχάνει με `SecurityException`.
+Το Aspose.Slides απαιτεί πλήρη εμπιστοσύνη στο .NET Framework. Δεν εκτελείται υπό μερική εμπιστοσύνη, όπως μια εφαρμογή ASP.NET διαμορφωμένη για Μεσαία Εμπιστοσύνη (`<trust level="Medium" />`): η δημιουργία ενός αντικειμένου [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) αποτυγχάνει με `SecurityException`.
 
 Η Microsoft δεν θεωρεί πλέον τη μερική εμπιστοσύνη του ASP.NET ως τρόπο απομόνωσης εφαρμογών μεταξύ τους και προτείνει την εκτέλεση των εφαρμογών σε ξεχωριστές δεξαμενές εφαρμογών. Δείτε το άρθρο [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

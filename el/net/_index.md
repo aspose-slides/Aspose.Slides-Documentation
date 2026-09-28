@@ -82,15 +82,15 @@ Aspose.Slides for .NET είναι μια βιβλιοθήκη κλάσεων γ�
 </ul>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/el/net/">Αναφορά API</a></li>
-<li><a href="https://releases.aspose.com/slides/el/net/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">Αναφορά API</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Σημειώσεις έκδοσης</a></li>
 <li><a href="/slides/el/net/known-issues/">Γνωστά προβλήματα</a></li>
 <li><a href="/slides/el/net/api-limitations/">Περιορισμοί μεταδεδομένων εξόδου</a></li>
-<li><a href="https://releases.aspose.com/slides/el/net/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Πλήρης υποστήριξη με χρέωση</a></li>
 </ul>
 </div>

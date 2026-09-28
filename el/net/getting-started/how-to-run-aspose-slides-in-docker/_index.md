@@ -59,7 +59,7 @@ description: "Δημιουργήστε και εκτελέστε μια εφαρ
 </Project>
 ```
 
-*Program.cs* δημιουργεί ένα [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/), προσθέτει ένα ορθογώνιο με κείμενο στην πρώτη του διαφάνεια, και αποθηκεύει την παρουσίαση δύο φορές με τη μέθοδο [Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/): ως PPTX και ως PDF. Και τα δύο αρχεία πηγαίνουν στο φάκελο *output* κάτω από τον τρέχοντα κατάλογο εργασίας. Η εφαρμογή στη συνέχεια παραθέτει τις γραμματοσειρές που αντικαταστάθηκαν κατά την απόδοση του PDF, χρησιμοποιώντας το [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/), ώστε να δείτε εάν το κοντέινερ διαθέτει τις γραμματοσειρές που χρησιμοποιεί η παρουσίαση.
+*Program.cs* δημιουργεί ένα [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), προσθέτει ένα ορθογώνιο με κείμενο στην πρώτη του διαφάνεια, και αποθηκεύει την παρουσίαση δύο φορές με τη μέθοδο [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): ως PPTX και ως PDF. Και τα δύο αρχεία πηγαίνουν στο φάκελο *output* κάτω από τον τρέχοντα κατάλογο εργασίας. Η εφαρμογή στη συνέχεια παραθέτει τις γραμματοσειρές που αντικαταστάθηκαν κατά την απόδοση του PDF, χρησιμοποιώντας το [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), ώστε να δείτε εάν το κοντέινερ διαθέτει τις γραμματοσειρές που χρησιμοποιεί η παρουσίαση.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-
 - `font-dejavu` παρέχει γραμματοσειρές. Χωρίς κάποια γραμματοσειρά, η μετατροπή σταματά με `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` και `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` παρέχουν δεδομένα πολιτισμού. Οι εικόνες .NET Alpine εκτελούνται σε κατάσταση παγκοσμιοποίησης‑αμετάβλητης κατά προεπιλογή, και σε αυτήν την κατάσταση το Aspose.Slides σταματά με `CultureNotFoundException` για `en-US`.
 
-Δημιουργήστε, εκτελέστε και αντιγράψτε το αποτέλεσμα με τις ίδιες εντολές όπως παραπάνω. Σε αυτήν την εικόνα, η εφαρμογή εκτυπώνει μόνο τη γραμμή `Saved`: με το Aspose.Slides.NET στο Linux, το fontconfig επιλέγει την αντικατάσταση για μια ελλιπή γραμματοσειρά, και το [GetSubstitutions](https://reference.aspose.com/slides/el/net/aspose.slides/ifontsmanager/getsubstitutions/) δεν το αναφέρει. Η σελίδα [Deploy Fonts](/slides/el/net/deploy-fonts/) δείχνει πώς να ελέγξετε ποια γραμματοσειρά χρησιμοποιείται.
+Δημιουργήστε, εκτελέστε και αντιγράψτε το αποτέλεσμα με τις ίδιες εντολές όπως παραπάνω. Σε αυτήν την εικόνα, η εφαρμογή εκτυπώνει μόνο τη γραμμή `Saved`: με το Aspose.Slides.NET στο Linux, το fontconfig επιλέγει την αντικατάσταση για μια ελλιπή γραμματοσειρά, και το [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) δεν το αναφέρει. Η σελίδα [Deploy Fonts](/slides/el/net/deploy-fonts/) δείχνει πώς να ελέγξετε ποια γραμματοσειρά χρησιμοποιείται.
 
 ## **Συχνές Ερωτήσεις**
 

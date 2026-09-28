@@ -62,7 +62,7 @@ Aspose.Slides for .NET διανέμεται μέσω του NuGet ως δύο π
 
 ## **Λήψη βοήθειας**
 
-[Product Support](/slides/el/net/product-support/) εξηγεί πώς να υποβάλετε ερώτηση στο [free support forum](https://forum.aspose.com/c/slides/el/11) και τι να συμπεριλάβετε όταν αναφέρετε ένα πρόβλημα.
+[Product Support](/slides/el/net/product-support/) εξηγεί πώς να υποβάλετε ερώτηση στο [free support forum](https://forum.aspose.com/c/slides/11) και τι να συμπεριλάβετε όταν αναφέρετε ένα πρόβλημα.
 
 ## **FAQ**
 
