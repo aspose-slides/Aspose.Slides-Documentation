@@ -7,7 +7,7 @@ description: "Installera Aspose.Slides för SharePoint-licensen på en SharePoin
 ---
 {{% alert color="info" title="Obs" %}}
 
-När du är nöjd med din utvärdering kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/sv/sharepoint/). Innan du köper, se till att du förstår och accepterar licensabonnemangsvillkoren. Licensen skickas till dig via e‑post när beställningen har betalats.
+När du är nöjd med din utvärdering kan du [köpa en licens](https://purchase.aspose.com/pricing/slides/sharepoint/). Innan du köper, se till att du förstår och accepterar licensabonnemangsvillkoren. Licensen skickas till dig via e‑post när beställningen har betalats.
 
 Licensen är ett ZIP‑arkiv som innehåller ett standard SharePoint‑lösningspaket. Arkivet innehåller:
 

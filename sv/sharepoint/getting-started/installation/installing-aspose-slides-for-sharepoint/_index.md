@@ -7,7 +7,7 @@ description: "Installera Aspose.Slides för SharePoint på en SharePoint-farm: v
 ---
 ## **Paketinnehåll**
 
-Aspose.Slides för SharePoint hämtas från [nedladdningssida](https://releases.aspose.com/slides/sv/sharepoint/) som ett ZIP‑arkiv. Arkivet innehåller ett SharePoint‑lösningspaket (WSP) och ett installationsprogram för varje stödd SharePoint‑version:
+Aspose.Slides för SharePoint hämtas från [nedladdningssida](https://releases.aspose.com/slides/sharepoint/) som ett ZIP‑arkiv. Arkivet innehåller ett SharePoint‑lösningspaket (WSP) och ett installationsprogram för varje stödd SharePoint‑version:
 
 | SharePoint‑version | Installationsprogram | Lösningspaket |
 | :- | :- | :- |

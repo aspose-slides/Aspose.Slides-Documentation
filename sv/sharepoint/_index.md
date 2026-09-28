@@ -57,12 +57,12 @@ Den konverterar PPT‑ och PPTX‑filer till PDF, TIFF, XPS, HTML, SWF och ODP, 
 <hr>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/sv/sharepoint/release-notes/">Versionsanteckningar</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/sharepoint/">Nedladdning</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Versionsanteckningar</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Nedladdning</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/sv/11">Gratis supportforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis supportforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betald supportdesk</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Den konverterar PPT‑ och PPTX‑filer till PDF, TIFF, XPS, HTML, SWF och ODP, 
 
 Aspose.Slides for SharePoint installeras en gång på farmen och används sedan från alla dokumentbibliotek där den är aktiverad:
 
-1. Ladda ner ZIP‑arkivet från [nedladdningssidan](https://releases.aspose.com/slides/sv/sharepoint/) och packa upp det på en server i din SharePoint‑farm.
+1. Ladda ner ZIP‑arkivet från [nedladdningssidan](https://releases.aspose.com/slides/sharepoint/) och packa upp det på en server i din SharePoint‑farm.
 2. Kör installationsprogrammet som matchar din SharePoint‑version: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* eller *Setup2019.exe*. Använd ett konto som kan installera och distribuera SharePoint‑lösningar. Godkänn licensavtalet, välj webbplatssamlingarna där funktionen ska aktiveras, och låt installationen distribuera lösningen. Varje skärm beskrivs i [Installation](/slides/sv/sharepoint/installing-aspose-slides-for-sharepoint/).
 3. Öppna ett dokumentbibliotek i någon av dessa webbplatssamlingar, öppna menyn för en PPT‑ eller PPTX‑fil och välj **Convert via Aspose.Slides**. På SharePoint 2007 heter menyalternativet **Convert with Aspose.Slides**.
 4. Under **Convert to** väljer du **PDF - Adobe Portable Document**. Ändra destinationsfilens namn och mapp om du behöver, och klicka på **Convert**.

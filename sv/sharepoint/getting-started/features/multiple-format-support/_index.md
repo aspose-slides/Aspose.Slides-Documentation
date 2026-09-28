@@ -20,7 +20,7 @@ Aspose.Slides för SharePoint konverterar följande inmatningsformat:
 
 {{% alert color="info" title="Note" %}}
 
-För att konvertera dokument förlitar sig Aspose.Slides för SharePoint på en inbyggd version av [Aspose.Slides for .NET](https://products.aspose.com/slides/sv/net/).
+För att konvertera dokument förlitar sig Aspose.Slides för SharePoint på en inbyggd version av [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 
