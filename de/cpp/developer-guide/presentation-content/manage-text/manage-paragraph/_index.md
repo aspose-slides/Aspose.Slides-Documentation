@@ -13,10 +13,10 @@ keywords:
 - Text verwalten
 - Absatz verwalten
 - Aufzählungszeichen verwalten
-- Absatz-Einzug
-- Hängender Einzug
-- Absatz-Aufzählungszeichen
-- Nummerierte Liste
+- Absatzeinzug
+- hängender Einzug
+- Absatzaufzählungszeichen
+- nummerierte Liste
 - Aufzählungsliste
 - Absatzeigenschaften
 - HTML importieren
@@ -29,30 +29,30 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für C++ Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML-Inhalte und Absatzbilder erstellen und formatieren."
+description: "Erfahren Sie, wie Sie mit Aspose.Slides für C++ Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML‑Inhalte und Absatzbilder erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für C++ stellt Text als Hierarchie von Textfeldern, Absätzen und Portionen dar:
+Aspose.Slides für C++ stellt Text als eine Hierarchie von Textrahmen, Absätzen und Portionen dar:
 
-* [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) stellt den Textbehälter in einer Form dar und bietet Zugriff auf die Absatzsammlung.
-* [IParagraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/) repräsentiert einen Absatz in einem Textfeld und bietet Zugriff auf seine Portionen und absatzbezogene Formatierung.
-* [IPortion](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann eigenen Text und Zeichenformatierung besitzen.
+* [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) stellt den Textcontainer in einer Form dar und bietet Zugriff auf ihre Absatzsammlung.
+* [IParagraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/) stellt einen Absatz in einem Textrahmen dar und bietet Zugriff auf seine Portionen und Absatzformatierungen.
+* [IPortion](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann ihren eigenen Text und Zeichenformatierungen besitzen.
 
-Ein Absatz kann daher Text mit verschiedenen Schriften, Farben, Größen und anderer Formatierung enthalten, indem mehrere Portionen verwendet werden.
+Ein Absatz kann daher Text mit unterschiedlichen Schriftarten, Farben, Größen und anderer Formatierung enthalten, indem mehrere Portionen verwendet werden.
 
 ## **Absätze erstellen und formatieren**
 
 ### **Absätze mit mehreren Portionen erstellen**
 
-Die folgenden Schritte erstellen ein Textfeld mit drei Absätzen, die jeweils drei Portionen enthalten:
+Die folgenden Schritte erstellen einen Textrahmen mit drei Absätzen, von denen jeder drei Portionen enthält:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
+3. Fügen Sie der Folie eine rechteckige [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) der Form zu.
-5. Verwenden Sie den Standardabsatz und fügen Sie dem Textfeld zwei weitere [IParagraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/)‑Objekte hinzu.
-6. Fügen Sie genügend [IPortion](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportion/)‑Objekte hinzu, sodass jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
+5. Verwenden Sie den Standardabsatz und fügen Sie dem Textrahmen zwei weitere [IParagraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/) Objekte hinzu.
+6. Fügen Sie genügend [IPortion](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportion/) Objekte hinzu, sodass jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
 7. Setzen Sie den Text jeder Portion.
 8. Wenden Sie Zeichenformatierung über [IPortion::get_PortionFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportion/get_portionformat/) an.
 9. Speichern Sie die geänderte Präsentation.
@@ -131,23 +131,23 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Aufzählungs‑ und nummerierte Listen erstellen**
+## **Aufzählungs- und nummerierte Listen erstellen**
 
-### **Eine Aufzählungs‑ oder nummerierte Liste erstellen**
+### **Aufzählungs- oder nummerierte Liste erstellen**
 
-Aufzählungszeichen und Nummerierung erleichtern das Durchsehen verwandter Elemente. In Aspose.Slides werden Listeneinstellungen über [IBulletFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/) definiert.
+Aufzählungszeichen und Nummerierungen erleichtern das Durchsuchen verwandter Elemente. In Aspose.Slides werden Listeneinstellungen über [IBulletFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/) definiert.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie der ausgewählten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) der Form zu.
-5. Entfernen Sie den Standardabsatz aus dem Textfeld.
+5. Entfernen Sie den Standardabsatz aus dem Textrahmen.
 6. Erstellen Sie ein [Paragraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
-7. Setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Symbol](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichenzeichen an.
-8. Setzen Sie den Absatztext, Einzug, Aufzählungsfarbe und Aufzählungsgröße.
-9. Fügen Sie den Absatz dem Textfeld hinzu.
+7. Setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Symbol](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/) und geben Sie das Aufzählungszeichen‑Zeichen an.
+8. Setzen Sie den Absatztext, Einzug, Aufzählungszeichenfarbe und Aufzählungszeichenhöhe.
+9. Fügen Sie den Absatz dem Textrahmen hinzu.
 10. Erstellen Sie einen zweiten Absatz und setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Numbered](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/).
-11. Konfigurieren Sie den Stil des nummerierten Aufzählungszeichens und fügen Sie den Absatz dem Textfeld hinzu.
+11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem Textrahmen hinzu.
 12. Speichern Sie die Präsentation.
 
 Dieses C++‑Beispiel erstellt ein Symbol‑Aufzählungszeichen und ein nummeriertes Aufzählungszeichen:
@@ -203,19 +203,19 @@ presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Bildaufzählungszeichen verwenden**
+### **Bild‑Aufzählungszeichen verwenden**
 
-Bildaufzählungszeichen ermöglichen die Verwendung eines benutzerdefinierten Bildes anstelle eines Symbols oder einer Zahl.
+Bild‑Aufzählungszeichen ermöglichen die Verwendung eines eigenen Bildes anstelle eines Symbols oder einer Zahl.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu und greifen Sie auf dessen [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) zu.
-4. Entfernen Sie den Standardabsatz aus dem Textfeld.
-5. Laden Sie das Aufzählungsbild und fügen Sie es der Bildsammlung der Präsentation als [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) hinzu.
+4. Entfernen Sie den Standardabsatz aus dem Textrahmen.
+5. Laden Sie das Aufzählungszeichen‑Bild und fügen Sie es der Bildsammlung der Präsentation als [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) hinzu.
 6. Erstellen Sie ein [Paragraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/paragraph/) und setzen Sie dessen Text.
 7. Setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Picture](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/).
-8. Weisen Sie das Bild über [ISlidesPicture::set_Image](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidespicture/set_image/) zu und setzen Sie die Aufzählungsgröße.
-9. Fügen Sie den Absatz dem Textfeld hinzu.
+8. Weisen Sie das Bild über [ISlidesPicture::set_Image](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidespicture/set_image/) zu und setzen Sie die Aufzählungszeichenhöhe.
+9. Fügen Sie den Absatz dem Textrahmen hinzu.
 10. Speichern Sie die geänderte Präsentation.
 
 Dieses C++‑Beispiel erstellt ein Bild‑Aufzählungszeichen:
@@ -259,15 +259,15 @@ presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
 presentation->Dispose();
 ```
 
-### **Eine mehrstufige Liste erstellen**
+### **Mehrstufige Liste erstellen**
 
-Setzen Sie [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_depth/), um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat eine Tiefe von `0`.
+Setzen Sie [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_depth/) , um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat die Tiefe `0`.
 
 1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
-2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu und löschen Sie den Standardabsatz aus dessen Textfeld.
+2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu und löschen Sie den Standardabsatz aus dessen Textrahmen.
 3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungssymbole.
-4. Setzen Sie deren [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_depth/)‑Werte auf `0`, `1`, `2` und `3`.
-5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
+4. Setzen Sie deren [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_depth/) Werte auf `0`, `1`, `2` und `3`.
+5. Fügen Sie die Absätze dem Textrahmen hinzu und speichern Sie die Präsentation.
 
 Dieses C++‑Beispiel erstellt eine vierstufige Aufzählungsliste:
 
@@ -335,17 +335,17 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Nummerierte Listeneinträge mit benutzerdefinierten Werten beginnen**
+### **Nummerierte Listenelemente mit benutzerdefinierten Werten beginnen**
 
-Verwenden Sie [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/), um die für einen nummerierten Absatz angezeigte Anfangszahl festzulegen.
+Verwenden Sie [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) , um die Anfangszahl für einen nummerierten Absatz festzulegen.
 
-1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) und fügen Sie einer Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
-2. Löschen Sie den Standardabsatz aus dem Textfeld der Form.
+1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) und fügen Sie einem Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
+2. Löschen Sie den Standardabsatz aus dem Textrahmen der Form.
 3. Erstellen Sie drei nummerierte Absätze.
-4. Setzen Sie [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
-5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
+4. Setzen Sie [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) auf `2`, `3` bzw. `7` für die jeweiligen Absätze.
+5. Fügen Sie die Absätze dem Textrahmen hinzu und speichern Sie die Präsentation.
 
-Dieses C++‑Beispiel weist jedem Absatz einen benutzerdefinierten Startwert zu:
+Dieses C++‑Beispiel weist jedem Absatz eine benutzerdefinierte Startzahl zu:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -388,25 +388,25 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Absatzlayout und End‑Eigenschaften steuern**
+## **Absatzlayout und Endeigenschaften steuern**
 
-### **Einrückung der ersten Zeile festlegen**
+### **Ersten Zeileneinzug festlegen**
 
-Verwenden Sie [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/), um die Einrückung der ersten Zeile eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die restlichen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/) , um den Erstzeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die restlichen Zeilen am Absatzkörper ausgerichtet bleiben.
 
-Verwenden Sie [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_marginleft/), wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [IParagraphFormat::set_Indent], wenn Sie nur die erste Zeile verschieben müssen.
+Verwenden Sie [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_marginleft/) , wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/) , wenn Sie nur die erste Zeile verschieben möchten.
 
-Das untenstehende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [IParagraphFormat::set_Indent]-Werte an, um zu zeigen, wie die Einrückung der ersten Zeile das Absatzlayout beeinflusst.
+Das nachstehende Beispiel erstellt mehrere Absätze und wendet verschiedene [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/) Werte an, um zu zeigen, wie sich der Erstzeileneinzug auf das Absatzlayout auswirkt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/).
-2. Greifen Sie auf die Ziel‑folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [IParagraphFormat::set_Indent]-Werte dafür.
-6. Fügen Sie die Absätze dem Textfeld hinzu.
+5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/) Werte für sie.
+6. Fügen Sie die Absätze dem Textrahmen hinzu.
 7. Speichern Sie die geänderte Präsentation.
 
-Dieser Code zeigt, wie man eine Absatz‑Einrückung festlegt:
+Dieser Code zeigt, wie ein Absatz‑Einzug festgelegt wird:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -466,26 +466,26 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Der Erstzeileneinzug der Absätze](first_line_indent.png)
 
-### **Hängende Einrückung festlegen**
+### **Hängenden Einzug festlegen**
 
-Eine hängende Einrückung ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [IParagraphFormat::set_Indent]. Setzen Sie die Einrückung auf einen negativen Wert, um die erste Zeile relativ zum Absatzkörper nach links zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den restlichen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/). Setzen Sie den Einzug auf einen negativen Wert, um die erste Zeile nach links zu verschieben.
 
-In der Praxis definiert [IParagraphFormat::set_MarginLeft] die linke Position des Absatzkörpers und [IParagraphFormat::set_Indent] die Position der ersten Zeile relativ zu diesem Rand. Um eine hängende Einrückung zu erzeugen, setzen Sie einen positiven Margin‑Left‑Wert und einen negativen Einrückungswert.
+In der Praxis definiert [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_marginleft/) die linke Position des Absatzkörpers, und [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, setzen Sie einen positiven margin‑left‑Wert und einen negativen indent‑Wert.
 
-Diese Formatierung ist nützlich für Bibliografien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
+Diese Formatierung ist nützlich für Bibliographien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/).
-2. Greifen Sie auf die Ziel‑folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie Absätze und setzen Sie für jeden Absatz einen positiven [IParagraphFormat::set_MarginLeft]-Wert.
-6. Setzen Sie einen negativen [IParagraphFormat::set_Indent]-Wert, um den Effekt der hängenden Einrückung zu erzeugen.
-7. Fügen Sie die Absätze dem Textfeld hinzu.
+5. Erstellen Sie Absätze und setzen Sie für jeden Absatz einen positiven [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_marginleft/) Wert.
+6. Setzen Sie einen negativen [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_indent/) Wert, um den hängenden Einzug zu erzeugen.
+7. Fügen Sie die Absätze dem Textrahmen hinzu.
 8. Speichern Sie die geänderte Präsentation.
 
-Dieser Code zeigt, wie man für einen Absatz eine hängende Einrückung festlegt:
+Dieser Code zeigt, wie ein hängender Einzug für einen Absatz festgelegt wird:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -537,15 +537,15 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Der hängende Einzug der Absätze](hanging_indent.png)
 
-### **End‑Absatz‑Lauf‑Eigenschaften festlegen**
+### **Endabsatz‑Lauf‑Eigenschaften festlegen**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) steuert die Formatierung des Absatzendzeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schrift zu:
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) steuert die Formatierung des Absatzendezeichens. Das folgende Beispiel weist dem Endezeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schrift zu:
 
 1. Laden Sie eine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) und greifen Sie auf eine Folie zu.
 2. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu und entfernen Sie dessen Standardabsatz.
-3. Erstellen Sie zwei Absätze und fügen Sie Textportionen hinzu.
+3. Erstellen Sie zwei Absätze und fügen Sie Textportionen zu ihnen hinzu.
 4. Erstellen Sie ein [PortionFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/portionformat/) für das Endzeichen des zweiten Absatzes.
 5. Setzen Sie [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseportionformat/set_fontheight/) und [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseportionformat/set_latinfont/).
 6. Weisen Sie das Format mit [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) zu und speichern Sie die Präsentation.
@@ -590,13 +590,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Gerenderte Zeilen zählen**
+## **Anzahl gerenderter Zeilen ermitteln**
 
-Verwenden Sie [IParagraph::GetLinesCount](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getlinescount/), um die nach der Textanordnung von einem Absatz belegten Zeilen zu zählen, einschließlich automatischem Umbruch. Dies ist nützlich, wenn Sie die Textlänge und das Layout in Präsentationsvorlagen prüfen.
+Für Absatzregeln, die automatischen Zeilenumbruch und Satzzeichen am Zeilenende beeinflussen, siehe [Control Line Breaking](/slides/de/cpp/text-formatting/#control-line-breaking) und [Control Hanging Punctuation](/slides/de/cpp/text-formatting/#control-hanging-punctuation).
 
-Ein Absatz ist ein Element in [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/get_paragraphs/ ) und kann mehrere gerenderte Zeilen beanspruchen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatischer Umbruch erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbrüche in den Text einzufügen. Das Zählen von Absätzen oder Zeilenumbruch‑Zeichen liefert daher nicht die Anzahl der gerenderten Zeilen.
+Verwenden Sie [IParagraph::GetLinesCount](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getlinescount/) , um die von einem Absatz nach dem Textlayout belegten Zeilen zu zählen, einschließlich automatischem Umbruch. Dies ist nützlich, wenn die Textlänge und das Layout in Präsentationsvorlagen überprüft werden sollen.
 
-Das folgende Beispiel erstellt ein Textobjekt, zählt seine Zeilen, verengt die Form und ersetzt anschließend den Text durch eine kürzere Zeichenkette. Der Umbruch ist aktiviert und die automatische Anpassung deaktiviert, sodass die Formbreite den Umbruch steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Die Formabmessungen sind in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen über das Textfeld.
+Ein Absatz ist ein Element in [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/get_paragraphs/), und er kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen neuen Absatz zu erstellen. Automatischer Umbruch erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbrüche in den Text einzufügen. Das Zählen von Absätzen oder Zeilenumbruch‑Zeichen liefert daher nicht die gerenderte Zeilenzahl.
+
+Das folgende Beispiel erstellt eine Textform, zählt ihre Zeilen, verengt die Form und ersetzt dann den Text durch einen kürzeren String. Der Zeilenumbruch ist aktiviert und die automatische Anpassung ist deaktiviert, sodass die Formbreite den Umbruch steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Formabmessungen werden in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen über den gesamten Textrahmen.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -644,22 +646,24 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-Bei diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch die kurze Zeichenkette sie verringert. Die genauen Zählungen können je nach Schriftverfügbarkeit und -ersatz, Schriftgröße, Rändern, Einrückungen, Umbruch und Autofit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriften und Layout‑Einstellungen, wenn Sie eine Vorlage prüfen.
+Mit diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch den kurzen String sie reduziert. Exakte Zahlen können je nach Schriftartverfügbarkeit und -ersatz, Schriftgröße, Rändern, Einzügen, Umbruch und autofit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriftarten und Layout‑Einstellungen, wenn Sie eine Vorlage prüfen.
 
-Die reine Zeilenzahl bestimmt nicht, ob der Text seinen Container überschreitet. Auch die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das Verhalten von Autofit sind wichtig; bereits eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn der Umbruch deaktiviert ist.
+Die reine Zeilenzahl bestimmt nicht, ob der Text aus seinem Container herausfließt. Die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das autofit‑Verhalten spielen ebenfalls eine Rolle; selbst eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn der Umbruch deaktiviert ist.
 
 ## **Absatzinhalt importieren und exportieren**
 
 ### **HTML‑Text in Absätze importieren**
 
-Verwenden Sie [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/addfromhtml/), um HTML‑Markup in Absätze und Portionen in einem Textfeld zu konvertieren.
+Verwenden Sie [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/addfromhtml/) , um HTML‑Markup in Absätze und Portionen eines Textrahmens zu konvertieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) Klasse.
 2. Greifen Sie auf eine Folie zu und fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) hinzu.
-3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) der Form zu und löschen Sie den Standardabsatz.
-4. Laden Sie die Quell‑HTML‑Datei.
-5. Geben Sie die HTML‑Zeichenkette an [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/addfromhtml/) weiter.
+3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) der Form zu und löschen Sie dessen Standardabsatz.
+4. Lesen Sie die Quell‑HTML‑Datei.
+5. Übergeben Sie die HTML‑Zeichenkette an [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
 6. Speichern Sie die geänderte Präsentation.
+
+Dieses C++‑Beispiel importiert HTML in einen Textrahmen:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -694,13 +698,15 @@ presentation->Dispose();
 
 ### **Absatztext nach HTML exportieren**
 
-Verwenden Sie [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/exporttohtml/), um einen ausgewählten Bereich von Absätzen als HTML zu exportieren.
+Verwenden Sie [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/exporttohtml/) , um einen ausgewählten Bereich von Absätzen als HTML zu exportieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) und laden Sie die gewünschte Präsentation.
-2. Greifen Sie auf die Folie zu und finden Sie das [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/), das den Text enthält.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) Klasse und laden Sie die gewünschte Präsentation.
+2. Greifen Sie auf die Folie zu und finden Sie das [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) , das den Text enthält.
 3. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) der Form zu.
-4. Rufen Sie [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/exporttohtml/) mit dem Start‑Absatz‑Index und der Anzahl der zu exportierenden Absätze auf.
+4. Rufen Sie [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphcollection/exporttohtml/) mit dem Start‑Absatzindex und der Anzahl der zu exportierenden Absätze auf.
 5. Schreiben Sie die zurückgegebene HTML‑Zeichenkette in eine Datei.
+
+Dieses C++‑Beispiel exportiert alle Absätze aus dem ersten Textfeld:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -738,17 +744,17 @@ presentation->Dispose();
 
 ### **Einen Absatz als Bild rendern**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getimage/) rendert einen einzelnen Absatz direkt und gibt ein [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) zurück. Speichern Sie das Ergebnis mit [IImage::Save](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/save/) in einer Datei oder einem Stream. Sie müssen die enthaltende Form nicht rendern oder ein Bitmap manuell zuschneiden.
+[IParagraph::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getimage/) rendert einen einzelnen Absatz direkt und gibt ein [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) zurück. Speichern Sie das Ergebnis mit [IImage::Save](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/save/). Sie müssen nicht die enthaltende Form rendern oder ein Bitmap manuell zuschneiden.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getimage/) kann `nullptr` zurückgeben, wenn der Absatz nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Überprüfen Sie das Ergebnis, bevor Sie es speichern, und geben Sie das zurückgegebene Bild nach der Verwendung frei.
+[IParagraph::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getimage/) kann `nullptr` zurückgeben, wenn der Absatz in seiner übergeordneten Sammlung nicht gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Überprüfen Sie das Ergebnis vor dem Speichern und entsorgen Sie das zurückgegebene Bild nach der Verwendung.
 
-#### **Absatz mit Standardskala rendern**
+#### **Einen Absatz in Standard‑Skala rendern**
 
-Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, bei der das erste Objekt ein Textfeld mit drei Absätzen ist.
+Nehmen wir an, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, wobei die erste Form ein Textfeld mit drei Absätzen ist.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
 
-Das folgende Beispiel rendert den zweiten Absatz in einem normalen Textfeld bei der Standardskala und speichert das zurückgegebene Bild im PNG‑Format.
+Das nachstehende Beispiel rendert den zweiten Absatz in einer normalen Textform in der Standard‑Skala und speichert das zurückgegebene Bild im PNG‑Format.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -791,11 +797,11 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Das Absatzbild](paragraph_to_image_output.png)
 
-#### **Absatz in einer Tabellenzelle mit Skalierung rendern**
+#### **Einen Absatz in einer Tabellenzelle mit Skalierung rendern**
 
-Verwenden Sie die Überladung von [IParagraph::GetImage], die `float scaleX` und `float scaleY` Parameter akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in ihrer ersten Zelle mit dem doppelten Standard‑Breite‑ und Höhenwert und speichert das Ergebnis als PNG‑Bild.
+Verwenden Sie die [IParagraph::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getimage/) Überladung, die die Parameter `float scaleX` und `float scaleY` akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in der ersten Zelle bei zweimaliger Breite und Höhe der Standardgröße und speichert das Ergebnis als PNG‑Bild.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -832,23 +838,23 @@ else
 presentation->Dispose();
 ```
 
-Ein Skalierungsfaktor von `1` lässt diese Achse bei ihrer Standard‑Pixel‑Größe. Beispielsweise erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa das Doppelte der Standardabmessungen betragen, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Vergrößerungen oder hochauflösende Ausgaben, erhöhen jedoch auch den Speicherverbrauch und die Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes beizubehalten; unterschiedliche horizontale und vertikale Faktoren dehnen die Ausgabe unabhängig voneinander.
+Ein Skalierungsfaktor von `1` behält diese Achse bei der Standard‑Pixelgröße bei. Beispiel: `2` für beide Faktoren produziert ein Bild, dessen Breite und Höhe etwa doppelt so groß sind wie die Standards, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom‑ oder hochauflösende Ausgaben, erhöhen jedoch Speicherverbrauch und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes beizubehalten; unterschiedliche horizontale und vertikale Faktoren dehnen die Ausgabe unabhängig voneinander.
 
-Das Rendern einer gesamten Form mit [IShape::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/getimage/) bleibt nützlich, wenn die Ausgabe die Füllung, den Rand oder einen anderen visuellen Kontext der Form enthalten muss. Für ein Bild, das nur den Absatz enthält, verwenden Sie [IParagraph::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getimage/).
+Das Rendern einer gesamten Form mit [IShape::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/getimage/) bleibt nützlich, wenn die Ausgabe die Füllung, den Rand oder andere visuelle Kontexte der Form enthalten muss. Für ein Bild, das ausschließlich den Absatz enthält, verwenden Sie [IParagraph::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Kann ich das Zeilenumbruch in einem Textfeld komplett deaktivieren?**
+**Kann ich das Zeilenumbruch innerhalb eines Textrahmens vollständig deaktivieren?**
 
-Ja. Verwenden Sie [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframeformat/set_wraptext/), um den Umbruch zu deaktivieren, sodass Zeilen nicht an den Rändern des Textfeldes umgebrochen werden.
+Ja. Verwenden Sie [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframeformat/set_wraptext/) , um den Umbruch zu deaktivieren, sodass Zeilen nicht an den Rändern des Textrahmens brechen.
 
-**Wie kann ich die genauen Folien‑Grenzen eines bestimmten Absatzes erhalten?**
+**Wie kann ich die genauen Positionen eines bestimmten Absatzes auf der Folie ermitteln?**
 
-Verwenden Sie [IParagraph::GetRect](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getrect/), um das umgebende Rechteck des Absatzes abzurufen. [IPortion::GetRect](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportion/getrect/) liefert die Grenzen einer einzelnen Portion.
+Verwenden Sie [IParagraph::GetRect](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/getrect/) , um das Begrenzungsrechteck des Absatzes abzurufen. [IPortion::GetRect](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportion/getrect/) liefert die Grenzen einer einzelnen Portion.
 
 **Wo wird die Absatzausrichtung (links, rechts, zentriert oder Blocksatz) gesteuert?**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_alignment/) ist eine Absatz‑Ebene‑Einstellung und gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_alignment/) ist eine Absatz‑Einstellung und gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
 
 **Kann ich die Rechtschreib‑Sprache für einen Teil eines Absatzes festlegen?**
 

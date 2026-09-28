@@ -1,24 +1,24 @@
 ---
-title: Tekst van presentaties opmaken in .NET
+title: Tekst in presentaties opmaken in .NET
 linktitle: Tekstopmaak
 type: docs
 weight: 50
 url: /nl/net/text-formatting/
 keywords:
-- paragraaf uitlijnen
+- alinea uitlijnen
 - tekststijl
 - tekstachtergrond
 - teksttransparantie
 - tekenafstand
-- lettertype-eigenschappen
-- lettertype-familie
+- lettertype‑eigenschappen
+- lettertypefamilie
 - tekstrotatie
-- rotatiehoek
-- tekstframe
+- rotatie‑hoek
+- tekstkader
 - regelafstand
-- autopas-eigenschap
-- tekstframe-anker
-- teksttabulatie
+- autofit‑eigenschap
+- anker van tekstkader
+- tabulatie van tekst
 - standaardtaal
 - PowerPoint
 - OpenDocument
@@ -26,561 +26,638 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Opmaak en stijl van tekst in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor .NET. Pas lettertypen, kleuren, uitlijning en meer aan."
+description: "Formatteer en styleer tekst in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor .NET. Pas lettertypen, kleuren, uitlijning en meer aan."
 ---
 ## **Overzicht**
 
-In dit artikel wordt getoond hoe je tekst in PowerPoint‑ en OpenDocument‑presentaties kunt opmaken met Aspose.Slides voor .NET. Er wordt aandacht besteed aan achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekstankering, tab‑stops en taalinrichtingen.
+Dit artikel laat zien hoe u tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor .NET. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, ankerinstellingen, tab‑stops en taalinstellingen.
 
-In de voorbeelden hieronder gebruiken we een bestand met de naam “sample.pptx”, dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
+Tenzij anders aangegeven, gebruiken de voorbeelden [sample.pptx](sample.pptx). De eerste vorm op de eerste dia is een tekstvak, en de eerste alinea bevat de hieronder weergegeven tekst. Zowel dia‑ als vormindices zijn nulgebaseerd. Voorbeelden die vette delen selecteren, gebruiken effectieve opmaak, inclusief geërfde vette opmaak:
 
 ![Voorbeeldtekst](sample_text.png)
 
-Om letterlijke tekst of regex‑overeenkomsten te zoeken en te markeren, zie [Zoeken en vervangen van tekst](/slides/nl/net/search-and-replace-text/).
+Om letterlijke tekst of reguliere‑expressie‑overeenkomsten te vinden en te markeren, zie [Zoeken en vervangen van tekst](/slides/nl/net/search-and-replace-text/).
 
-## **Achtergrondkleur van tekst instellen**
+## **Tekstachtergrondkleur instellen**
 
-Gebruik [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/defaultportionformat/) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/highlightcolor/) voor individuele tekstgedeelten.
+Gebruik [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/defaultportionformat/) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/highlightcolor/) voor individuele tekstdelen.
 
-De volgende code‑voorbeeld laat zien hoe je de achtergrondkleur voor de **hele alinea** instelt:
+Het volgende voorbeeld stelt een lichtgrijze markering in als de standaard voor de eerste alinea. Expliciete markeerkleuren op individuele delen hebben voorrang op deze standaard:
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Stel de markeerkleur in voor de volledige alinea.
-    paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
-}
+// Stel de markeerkleur in voor de hele alinea.
+paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
+
+presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De grijze alinea](gray_paragraph.png)
 
-Het onderstaande code‑voorbeeld toont hoe je de achtergrondkleur voor **tekstgedeelten met een vette opmaak** instelt:
+Het onderstaande code‑voorbeeld laat zien hoe u de achtergrondkleur kunt instellen voor **tekstgedeelten met een vet lettertype**:
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-
-    foreach (var portion in paragraph.Portions)
+    if (portion.PortionFormat.GetEffective().FontBold)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
-        {
-            // Stel de markeerkleur in voor het tekstgedeelte.
-            portion.PortionFormat.HighlightColor.Color = Color.LightGray;
-        }
+        // Stel de markeerkleur in voor het tekstgedeelte.
+        portion.PortionFormat.HighlightColor.Color = Color.LightGray;
     }
-
-    presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De grijze tekstgedeelten](gray_text_portions.png)
 
-## **Tekst alinea's uitlijnen**
+## **Tekst­alinea's uitlijnen**
 
-Gebruik [IParagraphFormat.Alignment](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/alignment/) om de uitlijning van een alinea binnen een tekstframe te bepalen. De waarde kan gecentreerd, links‑uitgelijnd, rechts‑uitgelijnd, uitgevuld, enz. zijn.
+Gebruik [IParagraphFormat.Alignment](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/alignment/) om de alinia‑uitlijning binnen een tekstkader in te stellen. De waarde kan gecentreerd, links uitgelijnd, rechts uitgelijnd, uitgevuld, enzovoort zijn.
 
-De volgende code‑voorbeeld laat zien hoe je de alinea **centraalt**:
+Het volgende code‑voorbeeld toont hoe u de alinea naar het **midden** kunt uitlijnen:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Stel de uitlijning van de alinea in op gecentreerd.
-    paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
-}
+// Stel de uitlijning van de alinea in op midden.
+paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
+
+presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De uitgelijnde alinea](aligned_paragraph.png)
 
-## **Transparantie van tekst instellen**
+## **Transparantie voor tekst instellen**
 
-Transparantie van tekst wordt geregeld via het alfa‑component van de kleur die is toegewezen aan [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/fillformat/). In de onderstaande voorbeelden is `alpha = 50` een ARGB‑alfa‑waarde op een schaal van 0‑255, geen transparantiepercentage.
+Teksttransparantie wordt geregeld via de alfa‑component van de kleur die is toegewezen aan [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/fillformat/). In de onderstaande voorbeelden is `alpha = 50` een ARGB alfa‑kanaalwaarde op de schaal 0–255, geen transparantiepercentage.
 
-De volgende code‑voorbeeld laat zien hoe je transparantie toepast op de **hele alinea**:
+Het onderstaande code‑voorbeeld toont hoe u transparantie toepast op de **hele alinea**:
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-int alpha = 50;
+var alpha = 50;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Stel de vulkleur van de tekst in op een transparante kleur.
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
-}
+// Stel een semitransparante zwarte vulling in voor de tekst.
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+
+presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De transparante alinea](transparent_paragraph.png)
 
-Het onderstaande code‑voorbeeld toont hoe je transparantie toepast op **tekstgedeelten met een vette opmaak**:
+Het volgende code‑voorbeeld toont hoe u transparantie toepast op **tekstgedeelten met een vet lettertype**:
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-int alpha = 50;
+var alpha = 50;
 
-using (var presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-
-    foreach (var portion in paragraph.Portions)
+    if (portion.PortionFormat.GetEffective().FontBold)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
-        {
-            // Stel de transparantie van het tekstgedeelte in.
-            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
-        }
+        // Stel de transparantie van het tekstgedeelte in.
+        portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+        portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
     }
-
-    presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De transparante tekstgedeelten](transparent_text_portions.png)
 
-## **Letterafstand voor tekst instellen**
+## **Tekenafstand voor tekst instellen**
 
-Gebruik [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/spacing/) om de afstand tussen tekens in een tekstvak te vergroten of te verkleinen.
+Gebruik [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/spacing/) om de ruimte tussen tekens in een tekstvak uit te breiden of te verkleinen. De voorbeelden voegen 3 punten afstand toe; negatieve waarden verkleinen de tekst.
 
-De volgende C#‑code toont hoe je de letterafstand in de **hele alinea** vergroot:
+De volgende C#‑code toont hoe u de tekenafstand in de **hele alinea** kunt uitbreiden:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Vergroot de tekenafstand.
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
-}
+// Opmerking: gebruik negatieve waarden om de tekenafstand te verkleinen.
+paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Vergroot de tekenafstand.
+
+presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
-![De letterafstand in de alinea](character_spacing_in_paragraph.png)
+![De tekenafstand in de alinea](character_spacing_in_paragraph.png)
 
-Het onderstaande code‑voorbeeld laat zien hoe je de letterafstand in **tekstgedeelten met een vette opmaak** vergroot:
+Het onderstaande code‑voorbeeld toont hoe u de tekenafstand in **tekstgedeelten met een vet lettertype** kunt uitbreiden:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
+{
+    if (portion.PortionFormat.GetEffective().FontBold)
+    {
+        // Opmerking: gebruik negatieve waarden om de tekenafstand te verkleinen.
+        portion.PortionFormat.Spacing = 3;  // Vergroot de tekenafstand.
+    }
+}
+
+presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat:
+
+![De tekenafstand in de tekstgedeelten](character_spacing_in_text_portions.png)
+
+### **Kerning voor specifieke lettertypen uitschakelen**
+
+In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd iets strakker lijken dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning in PowerPoint‑instellingen is ingeschakeld.
+
+Om de renderoutput dichter bij PowerPoint te brengen, kunt u kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/kerningminimalsize/) in op een waarde die groter is dan de feitelijke lettergrootte. Dit voorbeeld vereist “presentation.pptx” met een tekstvak als eerste vorm op de eerste dia. Het controleert effectieve lettertype‑namen, inclusief geërfde lettertypen, en stelt een drempel van 100 punten in voor gedeelten die Roboto gebruiken. Hierdoor wordt kerning uitgeschakeld voor overeenkomende gedeelten met een lettergrootte kleiner dan 100 punten:
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var targetFont = "Roboto";
+
+foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+{
     foreach (var portion in paragraph.Portions)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
+        var textFormat = portion.PortionFormat.GetEffective();
+        
+        var usesTargetFont = textFormat.LatinFont?.FontName == targetFont || 
+            textFormat.EastAsianFont?.FontName == targetFont || 
+            textFormat.ComplexScriptFont?.FontName == targetFont;
+
+        if (usesTargetFont)
         {
-            // Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
-            portion.PortionFormat.Spacing = 3;  // Vergroot de tekenafstand.
+            portion.PortionFormat.KerningMinimalSize = 100;
         }
     }
-
-    presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Voor overeenkomende tekst onder de drempel voorkomt deze instelling kerning en kan helpen om de weergave van Aspose.Slides te laten overeenkomen met de visuele output van PowerPoint voor lettertypen die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
 
-![De letterafstand in de tekstgedeelten](character_spacing_in_text_portions.png)
+## **Lettertype‑eigenschappen van tekst beheren**
 
-### **Kerning uitschakelen voor specifieke lettertypen**
+Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/defaultportionformat/) of op individuele gedeelten via [IPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iportionformat/).
 
-In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd er iets strakker uitzien dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning in PowerPoint is ingeschakeld.
-
-Om de weergave dichter bij PowerPoint te laten komen, kun je kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/kerningminimalsize/) in op een waarde die aanzienlijk groter is dan de werkelijke lettergrootte:
+Het volgende voorbeeld stelt het standaardlettertype van de eerste alinea in op 12‑punt Times New Roman met vet, cursief en een gestippelde onderstreping. Expliciete opmaak op individuele gedeelten heeft voorrang op deze standaardinstellingen:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("presentation.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var targetFont = "Roboto";
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    foreach (var paragraph in autoShape.TextFrame.Paragraphs)
-    {
-        foreach (var portion in paragraph.Portions)
-        {
-            if ((portion.PortionFormat.LatinFont != null &&
-                 portion.PortionFormat.LatinFont.FontName == targetFont) ||
-                (portion.PortionFormat.EastAsianFont != null &&
-                 portion.PortionFormat.EastAsianFont.FontName == targetFont) ||
-                (portion.PortionFormat.ComplexScriptFont != null &&
-                 portion.PortionFormat.ComplexScriptFont.FontName == targetFont))
-            {
-                portion.PortionFormat.KerningMinimalSize = 100;
-            }
-        }
-    }
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+// Stel de lettertype‑eigenschappen in voor de alinea.
+var portionFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
+portionFormat.FontHeight = 12;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontItalic = NullableBool.True;
+portionFormat.FontUnderline = TextUnderlineType.Dotted;
+portionFormat.LatinFont = new FontData("Times New Roman");
+
+presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
 ```
 
-Deze instelling voorkomt dat kerning wordt toegepast op overeenkomende tekstgedeelten en kan helpen om de rendering van Aspose.Slides meer in lijn te brengen met de visuele weergave van PowerPoint voor getroffen lettertypen.
-
-## **Teksteigenschappen van lettertype beheren**
-
-Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/defaultportionformat/) of per gedeelte via [IPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iportionformat/).
-
-De volgende code stelt het lettertype en de tekststijl in voor de volledige alinea: het past lettergrootte, vet, cursief, gestippelde onderstreping en het lettertype Times New Roman toe op alle gedeelten in de alinea.
-
-```cs
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-
-    // Stel de lettertype-eigenschappen in voor de alinea.
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontUnderline = TextUnderlineType.Dotted;
-    paragraph.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Times New Roman");
-
-    presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
-}
-```
-
-Resultaat:
+Het resultaat:
 
 ![De lettertype‑eigenschappen voor de alinea](font_properties_for_paragraph.png)
 
-Het onderstaande code‑voorbeeld past vergelijkbare eigenschappen toe op **tekstgedeelten met een vette opmaak**:
+Het volgende voorbeeld past 13‑punt Times New Roman, cursieve opmaak en een gestippelde onderstreping toe op gedeelten waarvan de effectieve opmaak vet is:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-
-    foreach (var portion in paragraph.Portions)
+    if (portion.PortionFormat.GetEffective().FontBold)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
-        {
-            // Stel de lettertype-eigenschappen in voor het tekstgedeelte.
-            portion.PortionFormat.FontHeight = 13;
-            portion.PortionFormat.FontItalic = NullableBool.True;
-            portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
-            portion.PortionFormat.LatinFont = new FontData("Times New Roman");
-        }
+        // Stel de lettertype‑eigenschappen in voor het tekstgedeelte.
+        portion.PortionFormat.FontHeight = 13;
+        portion.PortionFormat.FontItalic = NullableBool.True;
+        portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
+        portion.PortionFormat.LatinFont = new FontData("Times New Roman");
     }
-
-    presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De lettertype‑eigenschappen voor tekstgedeelten](font_properties_for_text_portions.png)
 
 ## **Tekstrotatie instellen**
 
-Gebruik [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/textverticaltype/) om een vooraf gedefinieerde tekstoriëntatie binnen een vorm in te stellen.
+Gebruik [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/textverticaltype/) om een vooraf gedefinieerde tekstrichting binnen een vorm in te stellen.
 
-De volgende code‑voorbeeld zet de tekstoriëntatie in de vorm op `Vertical270`, waardoor de tekst **90 graden tegen de klok in** wordt gedraaid:
+Het onderstaande code‑voorbeeld stelt de tekstrichting in de vorm in op [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nl/net/aspose.slides/textverticaltype/), waardoor de tekst **90 graden tegen de klok in** wordt geroteerd:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
 
-    presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De tekstrotatie](text_rotation.png)
 
-## **Aangepaste rotatie voor tekstframes instellen**
+## **Aangepaste rotatie voor tekstkaders instellen**
 
-Gebruik [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/rotationangle/) om een aangepaste rotatiehoek voor een [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) in te stellen.
+Gebruik [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/rotationangle/) om een aangepaste rotatie‑hoek in te stellen voor een [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/).
 
-Het onderstaande code‑voorbeeld roteert het tekstframe met 3 graden met de klok mee binnen de vorm:
+Het onderstaande code‑voorbeeld roteert het tekstkader met 3 graden met de klok mee binnen de vorm:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.RotationAngle = 3;
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.RotationAngle = 3;
 
-    presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De aangepaste tekstrotatie](custom_text_rotation.png)
 
-## **Regelafstand van alinea's instellen**
+## **Regelafstand van alinea’s instellen**
 
-Aspose.Slides biedt [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/spacebefore/) en [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/spacewithin/) om de alinea‑afstand te controleren. Deze eigenschappen worden als volgt gebruikt:
+Aspose.Slides biedt [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/spacebefore/) en [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/spacewithin/) om alinea‑afstand te regelen. Deze eigenschappen worden als volgt gebruikt:
 
-* Gebruik een positieve waarde om regelafstand als percentage van de regelhoogte op te geven.
-* Gebruik een negatieve waarde om regelafstand in punten op te geven.
+* Gebruik een positieve waarde om de regelafstand als percentage van de regelhoogte op te geven.
+* Gebruik een negatieve waarde om de regelafstand in punten op te geven.
 
-De volgende code‑voorbeeld laat zien hoe je de regelafstand binnen de alinea specificeert:
+Het volgende voorbeeld stelt de afstand binnen de eerste alinea in op 200 % van de regelhoogte (dubbele afstand):
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    paragraph.ParagraphFormat.SpaceWithin = 200;
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
-}
+paragraph.ParagraphFormat.SpaceWithin = 200;
+
+presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Het resultaat:
 
 ![De regelafstand binnen de alinea](line_spacing.png)
 
-## **Autopasstype voor tekstframes instellen**
+## **Regelafbreking beheersen**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/autofittype/) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik deze eigenschap om te bepalen of de tekst krimpt, overlapt of de vorm automatisch herschaalt.
+Regels voor regelafbreking van alinea’s zijn nuttig in smalle tekstblokken en presentaties die Latijnse en Oost‑Aziatische tekst combineren. De volgende eigenschappen behoren tot [IParagraphFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/), dus ze gelden voor een hele alinea:
+
+- [LatinLineBreak](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/latinlinebreak/) regelt de Latijnse regelafbrekingsregels. In gemengde tekst kan het aanpassen ervan ook invloed hebben op waar aangrenzende Oost‑Aziatische tekst en interpunctie worden afgebroken.
+- [EastAsianLineBreak](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/eastasianlinebreak/) regelt de Oost‑Aziatische regelafbrekingsregels, inclusief beperkingen voor tekens aan het begin en einde van een regel.
+
+Deze regels vervangen niet [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/wraptext/), die automatisch afbreken binnen een tekstkader mogelijk maakt. Ze beïnvloeden de layout wanneer afbreken plaatsvindt; ze voegen geen regeleinde‑tekens toe. Een expliciete regeleinde‑invoeging dwingt een nieuwe regel binnen de alinea, onafhankelijk van de beschikbare breedte.
+
+Het volgende zelfstandige voorbeeld maakt een smal tekstblok met Chinese en Latijnse tekst. Het stelt beide regelafbrekings‑eigenschappen expliciet in en slaat “line_breaking.pptx” op. Om met één van de regels te experimenteren, wijzig de waarde van die eigenschap terwijl de andere instellingen ongewijzigd blijven. Het voorbeeld gebruikt 24‑punt Arial en SimSun met een kaderbreedte van 160 punten en nul horizontale marges. [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/autofittype/) is ingesteld op [TextAutofitType.None](https://reference.aspose.com/slides/nl/net/aspose.slides/textautofittype/) zodat tekstgrootte en kaderafmetingen vast blijven.
 
 ```cs
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 160, 300);
+shape.FillFormat.FillType = FillType.NoFill;
 
-    presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
-}
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+textFrame.TextFrameFormat.MarginLeft = 0;
+textFrame.TextFrameFormat.MarginRight = 0;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.Text = "中文排版测试，PowerPoint 中文演示。";
+
+var format = paragraph.ParagraphFormat;
+format.Alignment = TextAlignment.Left;
+format.DefaultPortionFormat.FontHeight = 24;
+format.DefaultPortionFormat.LatinFont = new FontData("Arial");
+format.DefaultPortionFormat.EastAsianFont = new FontData("SimSun");
+format.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+format.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+format.LatinLineBreak = NullableBool.False;
+format.EastAsianLineBreak = NullableBool.True;
+
+presentation.Save("line_breaking.pptx", SaveFormat.Pptx);
 ```
 
-Om het aantal regels na automatisch afbreken te tellen en te zien hoe de breedte van tekst of vorm het resultaat verandert, zie [Count Rendered Lines](/slides/nl/net/manage-paragraph/). Alleen het aantal regels geeft geen indicatie of tekst buiten de container valt.
+## **Hangende interpunctie beheersen**
 
-## **Anker van tekstframes instellen**
+[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/hangingpunctuation/) laat toe dat in aanmerking komende interpunctie voorbij de rechterrand van de tekstlijn uitsteekt in plaats van de volgende regel in te nemen. Het geldt voor de volledige alinea en verschilt van een hangende inspringing.
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/anchoringtype/) definieert hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan.
+Het volgende zelfstandige voorbeeld schakelt hangende interpunctie in een 100‑punten breed tekstkader in en slaat “hanging_punctuation.pptx” op. Met 24‑punt Arial en nul horizontale marges blijft de laatste punt achter “sentence” staan en steekt hij uit voorbij de rechterrand. Stel de eigenschap in op [NullableBool.False](https://reference.aspose.com/slides/nl/net/aspose.slides/nullablebool/) om te vergelijken: met deze instellingen neemt de punt een aparte regel in. Wrapping is ingeschakeld en autofit uitgeschakeld om de beschikbare breedte vast te houden.
 
 ```cs
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 200);
+shape.FillFormat.FillType = FillType.NoFill;
 
-    presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
-}
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+textFrame.TextFrameFormat.MarginLeft = 0;
+textFrame.TextFrameFormat.MarginRight = 0;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.Text = "Simple text, next sentence.";
+
+var format = paragraph.ParagraphFormat;
+format.Alignment = TextAlignment.Left;
+format.DefaultPortionFormat.FontHeight = 24;
+format.DefaultPortionFormat.LatinFont = new FontData("Arial");
+format.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+format.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+format.HangingPunctuation = NullableBool.True;
+
+presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
 ```
 
-## **Teksttabulatie instellen**
+Niet elk leesteken kan hangen. De [lettertype‑ en layout‑voorwaarden die eerder zijn beschreven](#conditions-and-limitations) gelden ook voor deze vergelijking: wijzig het lettertype, de beschikbare breedte, marges of autofit‑instellingen kan het zichtbare verschil wegnemen.
 
-Gebruik [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/defaulttabsize/) en [IParagraphFormat.Tabs](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/tabs/) om tab‑stops in een alinea te configureren.
+## **Autofit‑type voor tekstkaders instellen**
+
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/autofittype/) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik het om te regelen of de tekst krimpt, overlapt of de vorm automatisch herschaalt. Het volgende voorbeeld configureert de vorm zodat deze wordt herschaald om de tekst te laten passen en slaat het resultaat op als “autofit_type.pptx”.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    paragraph.ParagraphFormat.DefaultTabSize = 100;
-    paragraph.ParagraphFormat.Tabs.Add(30, TabAlignment.Left);
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 
-    presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
-}
+presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
 ```
 
-Resultaat:
+Om het aantal regels na automatisch afbreken te tellen en te zien hoe tekst‑ of vormbreedte het resultaat wijzigt, zie [Rendered Lines tellen](/slides/nl/net/manage-paragraph/). Alleen het aantal regels geeft niet aan of tekst buiten de container overlapt.
 
-![De alinea tabs](paragraph_tabs.png)
+## **Anker van tekstkaders instellen**
 
-## **Proeflezer taal instellen**
-
-Aspose.Slides biedt [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/languageid/), waarmee je de proeflezer‑taal voor een tekstgedeelte kunt instellen. De proeflezer‑taal bepaalt welke taal wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
-
-De volgende code‑voorbeeld toont hoe je de proeflezer‑taal voor een tekstgedeelte instelt:
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/anchoringtype/) definieert hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan. Het volgende voorbeeld verankert de tekst aan de onderkant van de eerste vorm en slaat het resultaat op als “text_anchor.pptx”.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("presentation.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-    paragraph.Portions.Clear();
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
 
-    var font = new FontData("SimSun");
+presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
+```
 
-    var textPortion = new Portion();
-    textPortion.PortionFormat.ComplexScriptFont = font;
-    textPortion.PortionFormat.EastAsianFont = font;
-    textPortion.PortionFormat.LatinFont = font;
+## **Tabulatie voor tekst instellen**
 
-    // Stel de Id van een proeflezer‑taal in.
-    textPortion.PortionFormat.LanguageId = "zh-CN";
+Gebruik [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/defaulttabsize/) en [IParagraphFormat.Tabs](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/tabs/) om tab‑stops in een alinea te configureren. Het volgende voorbeeld stelt de standaard tab‑intervallen in op 100 punten en voegt een links-uitgelijnde tab‑stop toe op 30 punten. Deze instellingen hebben invloed op tekst met tab‑tekens.
 
-    textPortion.Text = "1。";
-    paragraph.Portions.Add(textPortion);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+paragraph.ParagraphFormat.DefaultTabSize = 100;
+paragraph.ParagraphFormat.Tabs.Add(30, TabAlignment.Left);
+
+presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat:
+
+![De alinea‑tabs](paragraph_tabs.png)
+
+## **Controlertaal voor proeflezen instellen**
+
+Aspose.Slides biedt [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/languageid/), waarmee u de proefleestaal voor een tekstdeling kunt instellen. De proefleestaal bepaalt de taal die wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
+
+Het volgende voorbeeld vereist “presentation.pptx” met een tekstvak als eerste vorm op de eerste dia en ten minste één alinea. Het vervangt de inhoud van de eerste alinea door “1。”, stelt SimSun in als lettertype en wijst de vereenvoudigde Chinese proefleestaal (`zh-CN`) toe. Het resultaat wordt opgeslagen als “proofing_language.pptx”:
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+paragraph.Portions.Clear();
+
+var font = new FontData("SimSun");
+
+var textPortion = new Portion();
+textPortion.PortionFormat.ComplexScriptFont = font;
+textPortion.PortionFormat.EastAsianFont = font;
+textPortion.PortionFormat.LatinFont = font;
+
+// Stel de proefleestaal in op Vereenvoudigd Chinees.
+textPortion.PortionFormat.LanguageId = "zh-CN";
+
+textPortion.Text = "1。";
+paragraph.Portions.Add(textPortion);
+
+presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 ```
 
 ## **Standaardtaal instellen**
 
-Gebruik [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/defaulttextlanguage/) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of maken van een presentatie.
+Gebruik [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/defaulttextlanguage/) om de standaardtaal voor tekst te definiëren die wordt aangemaakt bij het laden of maken van een presentatie. Het volgende voorbeeld maakt een presentatie met Amerikaans‑Engels als standaardteksttaal, voegt een tekstvak toe en drukt `en-US` af voor de eerste tekstdeling.
 
 ```cs
+using System;
 using Aspose.Slides;
 
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
 
-using (var presentation = new Presentation(loadOptions))
-{
-    var slide = presentation.Slides[0];
+using var presentation = new Presentation(loadOptions);
+var slide = presentation.Slides[0];
 
-    // Voeg een nieuw rechthoekvorm toe met tekst.
-    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
-    shape.TextFrame.Text = "Sample text";
+// Voeg een nieuwe rechthoekvorm toe met tekst.
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
+shape.TextFrame.Text = "Sample text";
 
-    // Controleer de taal van het eerste tekstgedeelte.
-    var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-    Console.WriteLine(portion.PortionFormat.LanguageId);
-}
+// Controleer de taal van de eerste tekstgedeelte.
+var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+Console.WriteLine(portion.PortionFormat.LanguageId);
 ```
 
-## **Standaard tekststijl instellen**
+## **Standaardtekststijl instellen**
 
-Om standaard tekstopmaak op presentatieniveau toe te passen, gebruik je [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/defaulttextstyle/).
+Om standaardtekstopmaak op presentatieniveau toe te passen, gebruikt u [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-De volgende code‑voorbeeld laat zien hoe je een standaard vet lettertype met een grootte van 14 pt instelt voor alle tekst in alle dia’s van een nieuwe presentatie.
+Het volgende voorbeeld stelt een 14‑punt vet lettertype in als standaard voor alinea’s van het hoogste niveau in een nieuwe presentatie en slaat deze op als “default_text_style.pptx”. Tekst kan deze standaard overerven tenzij specifiekere opmaak deze overschrijft.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation())
+using var presentation = new Presentation();
+// Haal het alineaformaat van het hoogste niveau op.
+var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
+
+if (paragraphFormat != null)
 {
-    // Haal het alinea‑formaat van het hoogste niveau op.
-    var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
-
-    if (paragraphFormat != null)
-    {
-        paragraphFormat.DefaultPortionFormat.FontHeight = 14;
-        paragraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
-    }
-
-    presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
+    paragraphFormat.DefaultPortionFormat.FontHeight = 14;
+    paragraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
 }
+
+presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 ```
 
-## **Tekst extraheren met het hoofdlettereffect**
+## **Tekst extraheren met het All‑Caps‑effect**
 
-In PowerPoint maakt het toepassen van het **All Caps**‑lettertype‑effect dat tekst in hoofdletters wordt weergegeven op de dia, zelfs als de tekst oorspronkelijk in kleine letters is getypt. Wanneer je een dergelijk tekstgedeelte met Aspose.Slides ophaalt, retourneert de bibliotheek de tekst precies zoals ingevoerd. Om de weergegeven tekst te matchen, controleer je [TextCapType](https://reference.aspose.com/slides/nl/net/aspose.slides/textcaptype/) en zet je de geretourneerde string om naar hoofdletters wanneer de waarde `All` is.
+In PowerPoint zorgt het toepassen van het **All Caps**‑lettertype‑effect ervoor dat tekst in hoofdletters wordt weergegeven op de dia, zelfs wanneer deze oorspronkelijk in kleine letters is ingevoerd. Wanneer u een dergelijk tekstdeling opvraagt met Aspose.Slides, retourneert de library de tekst precies zoals deze is ingevoerd. Om overeen te komen met de weergegeven tekst, controleert u [TextCapType](https://reference.aspose.com/slides/nl/net/aspose.slides/textcaptype/) en zet u de geretourneerde tekenreeks om in hoofdletters wanneer de waarde `All` is.
 
-Stel, we hebben het volgende tekstvak op de eerste dia van het bestand sample2.pptx.
+Dit voorbeeld vereist “sample2.pptx” met een tekstvak als eerste vorm op de eerste dia. De eerste alinea’s eerste gedeelte bevat “Hello, Aspose!” met het All‑Caps‑effect toegepast, zoals hieronder weergegeven.
 
-![Het hoofdlettereffect](all_caps_effect.png)
+![Het All‑Caps‑effect](all_caps_effect.png)
 
-De volgende code‑voorbeeld laat zien hoe je de tekst met het **All Caps**‑effect kunt extraheren:
+Het onderstaande code‑voorbeeld laat zien hoe u de tekst kunt extraheren met het **All Caps**‑effect toegepast:
 
 ```cs
+using System;
 using Aspose.Slides;
 
-using (var presentation = new Presentation("sample2.pptx"))
+using var presentation = new Presentation("sample2.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var textPortion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+
+Console.WriteLine($"Original text: {textPortion.Text}");
+
+var textFormat = textPortion.PortionFormat.GetEffective();
+if (textFormat.TextCapType == TextCapType.All)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var textPortion = autoShape.TextFrame.Paragraphs[0].Portions[0];
-
-    Console.WriteLine($"Original text: {textPortion.Text}");
-
-    var textFormat = textPortion.PortionFormat.GetEffective();
-    if (textFormat.TextCapType == TextCapType.All)
-    {
-        var text = textPortion.Text.ToUpper();
-        Console.WriteLine($"All-Caps effect: {text}");
-    }
+    var text = textPortion.Text.ToUpper();
+    Console.WriteLine($"All-Caps effect: {text}");
 }
 ```
 
@@ -593,10 +670,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Hoe tekst in een tabel op een dia aanpassen?**
+**Hoe wijzig ik tekst in een tabel op een dia?**
 
-Gebruik [ITable](https://reference.aspose.com/slides/nl/net/aspose.slides/itable/) om tekst in een tabel te wijzigen. Loop door de cellen en werk elke cel bij via [ICell.TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/icell/textframe/) en stel de alinea‑opmaak in via [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/paragraphformat/).
+Om tekst in een tabel op een dia te wijzigen, gebruikt u [ITable](https://reference.aspose.com/slides/nl/net/aspose.slides/itable/). Loop door de cellen en werk elke cel bij via [ICell.TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/icell/textframe/) en alinea‑opmaak via [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/paragraphformat/).
 
-**Hoe een verloopkleur op tekst in een PowerPoint-dia toepassen?**
+**Hoe pas ik een gradientkleur toe op tekst in een PowerPoint‑dia?**
 
-Gebruik [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/fillformat/) om een verloopkleur op tekst toe te passen. Stel [IFillFormat.FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/ifillformat/filltype/) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) en configureer de verloopstops, richting en transparantie.
+Om een gradientkleur op tekst toe te passen, gebruikt u [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/fillformat/). Stel [IFillFormat.FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/ifillformat/filltype/) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) en configureer de gradientstops, richting en transparantie.

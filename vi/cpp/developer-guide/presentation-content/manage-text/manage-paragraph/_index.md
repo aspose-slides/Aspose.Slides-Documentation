@@ -8,56 +8,56 @@ aliases:
   - /cpp/paragraph/
   - /cpp/portion/
 keywords:
-  - thêm văn bản
-  - thêm đoạn văn
-  - quản lý văn bản
-  - quản lý đoạn văn
-  - quản lý dấu đầu dòng
-  - thụt lề đoạn văn
-  - thụt lề treo
-  - dấu đầu dòng đoạn văn
-  - danh sách đánh số
-  - danh sách đánh dấu
-  - thuộc tính đoạn văn
-  - nhập HTML
-  - văn bản sang HTML
-  - đoạn văn sang HTML
-  - đoạn văn sang hình ảnh
-  - văn bản sang hình ảnh
-  - xuất đoạn văn
-  - PowerPoint
-  - bản trình chiếu
-  - C++
-  - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn văn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn văn với Aspose.Slides cho C++."
+- thêm văn bản
+- thêm đoạn
+- quản lý văn bản
+- quản lý đoạn
+- quản lý dấu đầu dòng
+- thụt lề đoạn
+- thụt lề treo
+- dấu đầu dòng đoạn
+- danh sách có số
+- danh sách có dấu đầu dòng
+- thuộc tính đoạn
+- nhập HTML
+- văn bản sang HTML
+- đoạn sang HTML
+- đoạn sang hình ảnh
+- văn bản sang hình ảnh
+- xuất đoạn
+- PowerPoint
+- bản trình chiếu
+- C++
+- Aspose.Slides
+description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách có số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho C++."
 ---
 ## **Tổng quan**
 
 Aspose.Slides for C++ đại diện cho văn bản dưới dạng một cây phân cấp gồm các khung văn bản, đoạn văn và phần:
 
-* [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) đại diện cho bộ chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập các đoạn văn của nó.
-* [IParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/) đại diện cho một đoạn văn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng cấp đoạn.
-* [IPortion](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportion/) đại diện cho một chuỗi văn bản trong một đoạn văn. Mỗi phần có thể có văn bản và định dạng cấp ký tự riêng.
+* [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn văn.
+* [IParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/) đại diện cho một đoạn văn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức đoạn.
+* [IPortion](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportion/) đại diện cho một đoạn văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
 
-Do đó, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
+Do đó, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
 
 ## **Tạo và Định dạng Đoạn Văn**
 
 ### **Tạo Đoạn Văn với Nhiều Phần**
 
-Các bước sau tạo một khung văn bản với ba đoạn văn, mỗi đoạn chứa ba phần:
+Các bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
-2. Truy cập tham chiếu của slide tương ứng bằng chỉ mục của nó.
+2. Truy cập tham chiếu của slide liên quan thông qua chỉ mục của nó.
 3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) hình chữ nhật vào slide.
 4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng.
-5. Sử dụng đoạn văn mặc định và thêm hai đối tượng [IParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/) nữa vào khung văn bản.
-6. Thêm đủ các đối tượng [IPortion](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportion/) cho mỗi đoạn văn để chúng chứa ba phần. Đoạn văn mặc định đã chứa một phần trống.
+5. Sử dụng đoạn mặc định và thêm hai đối tượng [IParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/) nữa vào khung văn bản.
+6. Thêm đủ đối tượng [IPortion](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần rỗng.
 7. Đặt văn bản cho mỗi phần.
 8. Áp dụng định dạng cấp ký tự thông qua [IPortion::get_PortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportion/get_portionformat/).
 9. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ C++ này thực hiện các bước:
+Ví dụ C++ này thực hiện các bước trên:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -135,22 +135,22 @@ presentation->Dispose();
 
 ### **Tạo Danh Sách Đánh Dấu hoặc Đánh Số**
 
-Các dấu đầu dòng và đánh số giúp việc quét các mục liên quan dễ dàng hơn. Trong Aspose.Slides, cài đặt danh sách được định nghĩa thông qua [IBulletFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/).
+Dấu đầu dòng và đánh số giúp người đọc nhanh chóng nhận diện các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được xác định thông qua [IBulletFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/).
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
-2. Truy cập tham chiếu của slide tương ứng bằng chỉ mục của nó.
+2. Truy cập tham chiếu của slide liên quan thông qua chỉ mục của nó.
 3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) vào slide đã chọn.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/).
-5. Xóa đoạn văn mặc định khỏi khung văn bản.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng.
+5. Xóa đoạn mặc định khỏi khung văn bản.
 6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/paragraph/) cho dấu đầu dòng ký hiệu.
 7. Đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Symbol](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
-8. Đặt văn bản đoạn, thụt lề, màu sắc và chiều cao của dấu đầu dòng.
-9. Thêm đoạn văn vào khung văn bản.
-10. Tạo một đoạn văn thứ hai và đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Numbered](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/).
-11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn văn vào khung văn bản.
+8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
+9. Thêm đoạn vào khung văn bản.
+10. Tạo đoạn thứ hai và đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Numbered](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/).
+11. Cấu hình kiểu dấu đầu dòng có số và thêm đoạn vào khung văn bản.
 12. Lưu bản trình chiếu.
 
-Ví dụ C++ này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
+Ví dụ C++ này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng có số:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -205,17 +205,17 @@ presentation->Dispose();
 
 ### **Sử Dụng Dấu Đầu Dòng Hình Ảnh**
 
-Dấu đầu dòng hình ảnh cho phép bạn sử dụng một hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
+Dấu đầu dòng hình ảnh cho phép bạn dùng một hình tùy chỉnh thay cho ký hiệu hoặc số.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
-2. Truy cập tham chiếu của slide tương ứng bằng chỉ mục của nó.
+2. Truy cập tham chiếu của slide liên quan thông qua chỉ mục của nó.
 3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) và truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của nó.
-4. Xóa đoạn văn mặc định khỏi khung văn bản.
-5. Tải ảnh dấu đầu dòng và thêm nó vào bộ sưu tập ảnh của bản trình chiếu dưới dạng [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/).
+4. Xóa đoạn mặc định khỏi khung văn bản.
+5. Tải hình ảnh dấu đầu dòng và thêm vào bộ sưu tập hình ảnh của bản trình chiếu dưới dạng [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/).
 6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/paragraph/) và đặt văn bản cho nó.
 7. Đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Picture](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/).
-8. Gán hình ảnh qua [ISlidesPicture::set_Image](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islidespicture/set_image/) và đặt chiều cao của dấu đầu dòng.
-9. Thêm đoạn văn vào khung văn bản.
+8. Gán hình ảnh thông qua [ISlidesPicture::set_Image](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islidespicture/set_image/) và đặt chiều cao dấu đầu dòng.
+9. Thêm đoạn vào khung văn bản.
 10. Lưu bản trình chiếu đã chỉnh sửa.
 
 Ví dụ C++ này tạo một dấu đầu dòng hình ảnh:
@@ -261,13 +261,13 @@ presentation->Dispose();
 
 ### **Tạo Danh Sách Đa Cấp**
 
-Đặt [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_depth/) để đặt các đoạn văn ở các cấp độ khác nhau của danh sách. Cấp đầu tiên có độ sâu là `0`.
+Đặt [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_depth/) để đưa các đoạn vào các cấp độ khác nhau của danh sách. Cấp cao nhất có độ sâu `0`.
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) và xóa đoạn văn mặc định khỏi khung văn bản của nó.
-3. Tạo bốn đoạn văn và cấu hình các ký hiệu dấu đầu dòng của chúng.
+2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
+3. Tạo bốn đoạn và cấu hình ký hiệu dấu đầu dòng cho chúng.
 4. Đặt giá trị [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_depth/) của chúng thành `0`, `1`, `2` và `3`.
-5. Thêm các đoạn văn vào khung văn bản và lưu bản trình chiếu.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
 Ví dụ C++ này tạo một danh sách đánh dấu bốn cấp:
 
@@ -335,17 +335,17 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Bắt Đầu Các Mục Đánh Số Với Giá Trị Tùy Chỉnh**
+### **Bắt Đầu Các Mục Danh Sách Đánh Số Với Giá Trị Tùy Chỉnh**
 
-Sử dụng [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) để đặt số đầu tiên hiển thị cho một đoạn văn được đánh số.
+Sử dụng [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) để đặt số ban đầu hiển thị cho một đoạn đánh số.
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) vào một slide.
-2. Xóa đoạn văn mặc định khỏi khung văn bản của hình dạng.
-3. Tạo ba đoạn văn đánh số.
-4. Đặt [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) thành `2`, `3` và `7` cho các đoạn văn tương ứng.
-5. Thêm các đoạn văn vào khung văn bản và lưu bản trình chiếu.
+2. Xóa đoạn mặc định khỏi khung văn bản của hình dạng.
+3. Tạo ba đoạn có đánh số.
+4. Đặt [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) thành `2`, `3` và `7` cho các đoạn tương ứng.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
-Ví dụ C++ này gán số bắt đầu tùy chỉnh cho mỗi đoạn văn:
+Ví dụ C++ này gán số bắt đầu tùy chỉnh cho mỗi đoạn:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -390,23 +390,23 @@ presentation->Dispose();
 
 ## **Kiểm Soát Bố Cục Đoạn Văn và Thuộc Tính Kết Thúc**
 
-### **Đặt Thụt Lề Dòng Đầu**
+### **Đặt Thụt Dòng Dòng Đầu Tiên**
 
-Sử dụng [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) để kiểm soát thụt lề dòng đầu của một đoạn văn. Phương thức này chỉ di chuyển dòng đầu so với lề trái của đoạn. Giá trị dương đẩy dòng đầu sang bên phải, trong khi các dòng còn lại vẫn căn chỉnh với phần thân đoạn.
+Sử dụng [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) để kiểm soát thụt lề của dòng đầu tiên trong một đoạn. Phương thức này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương sẽ dịch dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
 
-Sử dụng [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_marginleft/) khi bạn cần di chuyển toàn bộ đoạn văn. Sử dụng [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) khi bạn chỉ cần di chuyển dòng đầu.
+Sử dụng [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_marginleft/) khi bạn cần di chuyển toàn bộ đoạn. Dùng [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) khi chỉ muốn di chuyển dòng đầu tiên.
 
-Ví dụ dưới đây tạo một số đoạn văn và áp dụng các giá trị [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) khác nhau để minh họa cách thụt lề dòng đầu ảnh hưởng đến bố cục đoạn văn.
+Ví dụ dưới tạo một số đoạn và áp dụng các giá trị khác nhau của [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) để minh họa cách thụt lề dòng đầu tiên ảnh hưởng đến bố cục đoạn.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
 3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng và xóa đoạn văn mặc định.
-5. Tạo một số đoạn văn và đặt các giá trị [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) khác nhau cho chúng.
-6. Thêm các đoạn văn vào khung văn bản.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
+5. Tạo một số đoạn và đặt các giá trị [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) khác nhau cho chúng.
+6. Thêm các đoạn vào khung văn bản.
 7. Lưu bản trình chiếu đã chỉnh sửa.
 
-Đoạn mã này cho bạn thấy cách đặt thụt lề cho một đoạn văn:
+Mã này cho bạn thấy cách đặt thụt lề cho một đoạn:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -466,26 +466,26 @@ presentation->Dispose();
 
 Kết quả:
 
-![Thụt lề dòng đầu của các đoạn văn](first_line_indent.png)
+![Thụt dòng đầu tiên của các đoạn](first_line_indent.png)
 
 ### **Đặt Thụt Lề Treo**
 
-Thụt lề treo là một bố cục đoạn văn trong đó dòng đầu bắt đầu phía trái so với các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/). Đặt thụt lề thành giá trị âm để di chuyển dòng đầu sang trái so với phần thân đoạn.
+Thụt lề treo là kiểu bố cục đoạn trong đó dòng đầu tiên bắt đầu ở bên trái hơn các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/). Đặt giá trị thụt lề âm để di chuyển dòng đầu tiên sang trái so với thân đoạn.
 
-Trong thực tế, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_marginleft/) xác định vị trí bên trái của phần thân đoạn, và [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đặt giá trị margin-left dương và giá trị indent âm.
+Thực tế, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_marginleft/) xác định vị trí bên trái của thân đoạn, còn [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) xác định vị trí của dòng đầu tiên so với lề đó. Để tạo thụt lề treo, đặt giá trị margin-left dương và giá trị thụt lề âm.
 
-Định dạng này hữu ích cho danh mục thư mục, tham chiếu, mục giải thích và các đoạn văn khác, nơi các dòng được ngắt phải căn dưới phần thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục giải thích và các đoạn khác nơi các dòng gập phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
 3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng và xóa đoạn văn mặc định.
-5. Tạo các đoạn văn và đặt giá trị [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_marginleft/) dương cho mỗi đoạn.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
+5. Tạo các đoạn và đặt giá trị [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_marginleft/) dương cho mỗi đoạn.
 6. Đặt giá trị [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_indent/) âm để tạo hiệu ứng thụt lề treo.
-7. Thêm các đoạn văn vào khung văn bản.
+7. Thêm các đoạn vào khung văn bản.
 8. Lưu bản trình chiếu đã chỉnh sửa.
 
-Đoạn mã này cho bạn thấy cách đặt thụt lề treo cho một đoạn văn:
+Mã này cho bạn thấy cách đặt thụt lề treo cho một đoạn:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -531,22 +531,22 @@ secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
 
-presentation->Save(u"hhang_indent.pptx", SaveFormat::Pptx);
+presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Kết quả:
 
-![Thụt lề treo của các đoạn văn](hanging_indent.png)
+![Thụt lề treo của các đoạn](hanging_indent.png)
 
-### **Đặt Thuộc Tính Chạy Kết Thúc Đoạn Văn**
+### **Đặt Thuộc Tính Kết Thúc Đoạn**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) điều khiển định dạng của ký tự kết thúc đoạn văn. Ví dụ sau gán kích thước phông chữ và phông Latin cho ký tự kết thúc của đoạn văn thứ hai:
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) kiểm soát định dạng của ký hiệu kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho ký hiệu kết thúc của đoạn thứ hai:
 
 1. Tải một [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) và xóa đoạn văn mặc định của nó.
-3. Tạo hai đoạn văn và thêm các phần văn bản vào chúng.
-4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/portionformat/) cho ký tự kết thúc của đoạn văn thứ hai.
+2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) và xóa đoạn mặc định của nó.
+3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
+4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/portionformat/) cho ký hiệu kết thúc của đoạn thứ hai.
 5. Đặt [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_fontheight/) và [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_latinfont/).
 6. Gán định dạng bằng [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) và lưu bản trình chiếu.
 
@@ -590,13 +590,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Đếm Các Dòng Được Kết Xuất**
+## **Đếm Số Dòng Được Kết Xuất**
 
-Sử dụng [IParagraph::GetLinesCount](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getlinescount/) để đếm số dòng mà một đoạn văn chiếm sau khi bố cục văn bản, bao gồm việc ngắt dòng tự động. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong các mẫu bản trình chiếu.
+Đối với các quy tắc đoạn ảnh hưởng đến việc gập tự động và dấu chấm câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/cpp/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/cpp/text-formatting/#control-hanging-punctuation).
 
-Một đoạn văn là một mục trong [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_paragraphs/), và nó có thể chiếm nhiều dòng được kết xuất. Một ký tự ngắt dòng explicit trong một đoạn văn buộc tạo dòng mới mà không tạo đoạn mới. Việc ngắt dòng tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng explicit vào văn bản. Vì vậy, việc đếm các đoạn văn hoặc ký tự ngắt dòng không cho ra số dòng được kết xuất.
+Sử dụng [IParagraph::GetLinesCount](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getlinescount/) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm cả gập tự động. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong các mẫu bản trình chiếu.
 
-Ví dụ dưới đây tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Việc ngắt dòng được bật và tự động vừa không hoạt động để chiều rộng hình dạng kiểm soát việc ngắt dòng mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Các kích thước hình dạng được tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn văn khác và cộng tổng số dòng trong khung văn bản.
+Một đoạn là một mục trong [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_paragraphs/), và nó có thể chiếm nhiều dòng được kết xuất. Một ký tự ngắt dòng rõ ràng trong đoạn sẽ buộc tạo một dòng mới mà không tạo đoạn mới. Gập tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng vào văn bản. Do đó, việc đếm số đoạn hoặc ký tự ngắt dòng không cho kết quả là số dòng đã kết xuất.
+
+Ví dụ sau tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Việc gập được bật và tự động vừa kích thước bị tắt để chiều rộng hình dạng kiểm soát việc gập mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng được tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và cộng tổng số dòng qua khung văn bản.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -644,22 +646,24 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-Với văn bản và các kích thước này, việc thu hẹp hình dạng làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn làm giảm số dòng. Các số đếm chính xác có thể thay đổi tùy thuộc vào khả năng cung cấp phông chữ và thay thế, kích thước phông, lề, thụt lề, việc ngắt dòng và cài đặt tự động vừa. Hãy sử dụng các phông chữ và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra một mẫu.
+Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn làm giảm số dòng. Số đếm chính xác có thể thay đổi tùy thuộc vào khả năng cung cấp phông chữ, kích thước phông, lề, thụt lề, gập, và cài đặt tự động vừa. Hãy sử dụng phông chữ và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra mẫu.
 
-Chỉ số dòng không quyết định liệu văn bản có tràn khỏi vùng chứa hay không. Chiều cao khả dụng, độ cao dòng, khoảng cách giữa các đoạn và dòng, và hành vi tự động vừa cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt ngắt dòng.
+Chỉ số dòng không quyết định liệu văn bản có tràn ra khỏi vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách giữa các đoạn và dòng, và hành vi tự động vừa cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khi tắt gập.
 
 ## **Nhập và Xuất Nội Dung Đoạn Văn**
 
 ### **Nhập Văn Bản HTML vào Đoạn Văn**
 
-Sử dụng [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/addfromhtml/) để chuyển đổi mã HTML thành các đoạn văn và phần trong một khung văn bản.
+Sử dụng [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/addfromhtml/) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
 2. Truy cập một slide và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/).
-3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng và xóa đoạn văn mặc định.
+3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng và xóa đoạn mặc định.
 4. Đọc tệp HTML nguồn.
-5. Chuyển chuỗi HTML cho [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
+5. Gửi chuỗi HTML tới [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
 6. Lưu bản trình chiếu đã chỉnh sửa.
+
+Ví dụ C++ này nhập HTML vào một khung văn bản:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -692,15 +696,17 @@ presentation->Save(u"html_text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Xuất Văn Bản Đoạn Văn ra HTML**
+### **Xuất Văn Bản Đoạn Sang HTML**
 
-Sử dụng [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/exporttohtml/) để xuất một phạm vi các đoạn văn được chọn dưới dạng HTML.
+Sử dụng [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/exporttohtml/) để xuất một phạm vi đoạn đã chọn dưới dạng HTML.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
 2. Truy cập slide và tìm [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) chứa văn bản.
-3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/).
-4. Gọi [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/exporttohtml/) với chỉ mục đoạn văn bắt đầu và số lượng đoạn văn cần xuất.
+3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) của hình dạng.
+4. Gọi [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphcollection/exporttohtml/) với chỉ số đoạn bắt đầu và số đoạn cần xuất.
 5. Ghi chuỗi HTML trả về vào tệp.
+
+Ví dụ C++ này xuất tất cả các đoạn từ hình dạng văn bản đầu tiên:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -736,19 +742,19 @@ else
 presentation->Dispose();
 ```
 
-### **Kết Xuất Đoạn Văn thành Hình Ảnh**
+### **Kết Xuất Đoạn Thành Hình Ảnh**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/) kết xuất một đoạn văn riêng lẻ trực tiếp và trả về một [IImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/save/). Bạn không cần phải kết xuất hình dạng chứa hoặc cắt thủ công một bitmap.
+[IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/) kết xuất một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/save/). Bạn không cần phải kết xuất hình dạng chứa nó hoặc cắt ảnh bitmap thủ công.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/) có thể trả về `nullptr` nếu không tìm thấy đoạn văn trong bộ sưu tập cha, không có giới hạn kết xuất hợp lệ, hoặc không thể kết xuất. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh trả về sau khi sử dụng.
+[IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/) có thể trả về `nullptr` nếu đoạn không tồn tại trong bộ sưu tập cha, không có giới hạn kết xuất hợp lệ, hoặc không thể được kết xuất. Hãy kiểm tra kết quả trước khi lưu và giải phóng ảnh đã trả về sau khi sử dụng.
 
-#### **Kết Xuất Đoạn Văn ở Tỷ Lệ Mặc Định**
+#### **Kết Xuất Đoạn Ở Tỷ Lệ Mặc Định**
 
-Giả sử chúng ta có một tệp bản trình chiếu tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn văn.
+Giả sử chúng ta có một tệp trình chiếu có tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
 
 ![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
 
-Ví dụ sau kết xuất đoạn văn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu hình ảnh trả về ở định dạng PNG.
+Ví dụ sau kết xuất đoạn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu ảnh trả về dưới định dạng PNG.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -791,11 +797,11 @@ presentation->Dispose();
 
 Kết quả:
 
-![Hình ảnh đoạn văn](paragraph_to_image_output.png)
+![Ảnh đoạn văn bản](paragraph_to_image_output.png)
 
-#### **Kết Xuất Đoạn Văn trong Ô Bảng với Tỷ Lệ**
+#### **Kết Xuất Đoạn Trong Ô Bảng Với Tỷ Lệ**
 
-Sử dụng phương thức overload của [IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/) chấp nhận các tham số `float scaleX` và `float scaleY` để thiết lập hệ số tỷ lệ theo chiều ngang và dọc. Ví dụ dưới đây tạo một bảng, kết xuất đoạn văn trong ô đầu tiên với độ rộng và chiều cao gấp đôi kích thước mặc định, và lưu kết quả dưới dạng ảnh PNG.
+Sử dụng phương thức overload của [IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/) chấp nhận các tham số `float scaleX` và `float scaleY` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, kết xuất đoạn trong ô đầu tiên với chiều rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -832,24 +838,24 @@ else
 presentation->Dispose();
 ```
 
-Hệ số tỷ lệ `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra một ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, dẫn đến bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất ra độ phân giải cao, nhưng chúng cũng làm tăng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung hình của đoạn văn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số sẽ tạo một ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tức là có bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng đại hoặc xuất output độ phân giải cao, nhưng chúng cũng làm tăng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ra ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo giãn output một cách độc lập.
 
-Kết xuất toàn bộ hình dạng bằng [IShape::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/getimage/) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với ảnh chỉ chứa đoạn văn, hãy sử dụng [IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/).
+Kết xuất toàn bộ hình dạng bằng [IShape::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/getimage/) vẫn hữu ích khi output cần bao gồm màu nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với ảnh chỉ chứa đoạn, hãy sử dụng [IParagraph::GetImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getimage/).
 
-## **CÂU HỎI THƯỜNG GẶP**
+## **FAQ**
 
-**Có thể tắt hoàn toàn việc ngắt dòng trong khung văn bản không?**
+**Tôi có thể tắt hoàn toàn việc gập dòng trong khung văn bản không?**
 
-Có. Sử dụng [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_wraptext/) để tắt ngắt dòng sao cho các dòng không bị cắt tại cạnh của khung văn bản.
+Có. Sử dụng [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_wraptext/) để tắt gập, vì vậy các dòng sẽ không bị ngắt ở cạnh khung văn bản.
 
-**Làm sao để lấy giới hạn chính xác trên slide của một đoạn văn cụ thể?**
+**Làm sao tôi có thể lấy giới hạn trên slide của một đoạn cụ thể?**
 
-Sử dụng [IParagraph::GetRect](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getrect/) để lấy hình chữ nhật bao quanh của đoạn văn. [IPortion::GetRect](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportion/getrect/) cung cấp giới hạn của một phần riêng lẻ.
+Sử dụng [IParagraph::GetRect](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/getrect/) để lấy hình chữ nhật bao quanh đoạn. [IPortion::GetRect](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportion/getrect/) cung cấp giới hạn của một phần riêng lẻ.
 
-**Nơi nào kiểm soát căn chỉnh đoạn văn (trái, phải, giữa, hoặc canh đều)?**
+**Vị trí căn chỉnh đoạn (trái, phải, giữa hoặc căn đều) được kiểm soát ở đâu?**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_alignment/) là một thiết lập cấp đoạn và áp dụng cho toàn bộ đoạn văn bất kể định dạng riêng lẻ của các phần.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_alignment/) là cài đặt cấp đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng riêng của các phần.
 
-**Có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn văn không?**
+**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
 
-Có. Sử dụng [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_languageid/) cho các phần riêng lẻ, vì vậy một đoạn văn có thể chứa văn bản bằng nhiều ngôn ngữ.
+Có. Sử dụng [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_languageid/) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

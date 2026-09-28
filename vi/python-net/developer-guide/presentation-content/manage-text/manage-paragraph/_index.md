@@ -1,6 +1,6 @@
 ---
 title: Quản lý các đoạn văn bản PowerPoint trong Python
-linktitle: Quản lý Đoạn văn
+linktitle: Quản lý Đoạn Văn
 type: docs
 weight: 40
 url: /vi/python-net/manage-paragraph/
@@ -8,56 +8,56 @@ aliases:
   - /python-net/paragraph/
   - /python-net/portion/
 keywords:
-  - thêm văn bản
-  - thêm đoạn
-  - quản lý văn bản
-  - quản lý đoạn
-  - quản lý dấu đầu dòng
-  - thụt lề đoạn
-  - thụt lề treo
-  - dấu đầu dòng đoạn
-  - danh sách đánh số
-  - danh sách có dấu đầu dòng
-  - thuộc tính đoạn
-  - nhập HTML
-  - văn bản sang HTML
-  - đoạn sang HTML
-  - đoạn sang hình ảnh
-  - văn bản sang hình ảnh
-  - xuất đoạn
-  - PowerPoint
-  - bản trình chiếu
-  - Python
-  - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho Python qua .NET."
+- thêm văn bản
+- thêm đoạn
+- quản lý văn bản
+- quản lý đoạn
+- quản lý dấu đầu dòng
+- độ thụt lề đoạn
+- độ thụt lề treo
+- dấu đầu dòng đoạn
+- danh sách đánh số
+- danh sách đánh dấu
+- thuộc tính đoạn
+- nhập HTML
+- văn bản sang HTML
+- đoạn sang HTML
+- đoạn sang hình ảnh
+- văn bản sang hình ảnh
+- xuất đoạn
+- PowerPoint
+- bản trình bày
+- Python
+- Aspose.Slides
+description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho Python thông qua .NET."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Python via .NET đại diện cho văn bản dưới dạng một cấu trúc phân cấp gồm các khung văn bản, đoạn và phần:
+Aspose.Slides for Python via .NET biểu diễn văn bản như một cấu trúc phân cấp gồm các khung văn bản (text frames), đoạn văn (paragraphs) và phần (portions):
 
-* [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn của nó.
-* [Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) đại diện cho một đoạn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng mức độ đoạn.
-* [Portion](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/) đại diện cho một đoạn văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
+* [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp truy cập tới bộ sưu tập đoạn văn của nó.
+* [Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) đại diện cho một đoạn văn trong khung văn bản và cung cấp truy cập tới các phần và định dạng cấp đoạn.
+* [Portion](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/) đại diện cho một chuỗi văn bản trong một đoạn. Mỗi phần có thể có định dạng ký tự riêng.
 
-Do đó một đoạn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
+Do đó, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Tạo và Định dạng Đoạn văn**
+## **Tạo và Định dạng Đoạn Văn**
 
-### **Tạo Đoạn Văn với Nhiều Portion**
+### **Tạo Đoạn Văn với Nhiều Phần**
 
-Các bước sau tạo một khung văn bản có ba đoạn, mỗi đoạn chứa ba phần:
+Các bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
-2. Truy cập slide liên quan thông qua chỉ mục của nó.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
+2. Truy cập slide tương ứng qua chỉ mục của nó.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) hình chữ nhật vào slide.
 4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) của hình dạng.
 5. Sử dụng đoạn mặc định và thêm hai đối tượng [Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) nữa vào khung văn bản.
-6. Thêm đủ đối tượng [Portion](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần rỗng.
+6. Thêm đủ các đối tượng [Portion](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã có một phần trống.
 7. Đặt văn bản cho mỗi phần.
-8. Áp dụng định dạng cấp ký tự thông qua [Portion.portion_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/portion_format/).
-9. Lưu bản trình chiếu đã chỉnh sửa.
+8. Áp dụng định dạng cấp ký tự qua [Portion.portion_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/portion_format/).
+9. Lưu bản trình bày đã chỉnh sửa.
 
-Ví dụ Python này thực hiện các bước:
+Ví dụ Python thực hiện các bước trên:
 
 ```python
 import aspose.pydrawing as draw
@@ -104,26 +104,26 @@ with slides.Presentation() as presentation:
     presentation.save("paragraphs_with_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tạo Danh sách Đánh dấu và Đánh số**
+## **Tạo Danh Sách Đánh Dấu và Đánh Số**
 
-### **Tạo danh sách Đánh dấu hoặc Đánh số**
+### **Tạo Danh Sách Đánh Dấu hoặc Đánh Số**
 
-Các dấu đầu dòng và đánh số giúp người đọc dễ dàng quét các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [BulletFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/).
+Các dấu đầu dòng và đánh số giúp người đọc nhanh chóng nắm bắt các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được xác định qua [BulletFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/).
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
-2. Truy cập slide liên quan thông qua chỉ mục của nó.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
+2. Truy cập slide tương ứng qua chỉ mục của nó.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) vào slide đã chọn.
 4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) của hình dạng.
 5. Xóa đoạn mặc định khỏi khung văn bản.
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) cho dấu đầu dòng kiểu ký hiệu.
+6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) cho dấu đầu dòng ký hiệu.
 7. Đặt [BulletFormat.type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/type/) thành [BulletType.SYMBOL](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
 8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
 9. Thêm đoạn vào khung văn bản.
 10. Tạo một đoạn thứ hai và đặt [BulletFormat.type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/type/) thành [BulletType.NUMBERED](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bullettype/).
-11. Cấu hình kiểu dấu đầu dòng có số và thêm đoạn vào khung văn bản.
-12. Lưu bản trình chiếu.
+11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn vào khung văn bản.
+12. Lưu bản trình bày.
 
-Ví dụ Python này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng có số:
+Ví dụ Python này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
 
 ```python
 import aspose.pydrawing as draw
@@ -160,20 +160,20 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Sử dụng Đánh dấu Hình ảnh**
+### **Sử Dụng Dấu Đầu Dòng Hình Ảnh**
 
-Đánh dấu hình ảnh cho phép bạn sử dụng một hình ảnh tuỳ chỉnh thay cho ký hiệu hoặc số.
+Dấu đầu dòng hình ảnh cho phép bạn sử dụng một hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
-2. Truy cập slide liên quan thông qua chỉ mục của nó.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
+2. Truy cập slide tương ứng qua chỉ mục của nó.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) và truy cập [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) của nó.
 4. Xóa đoạn mặc định khỏi khung văn bản.
-5. Tải hình ảnh dấu đầu dòng và thêm nó vào bộ sưu tập ảnh của bản trình chiếu dưới dạng [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/).
+5. Tải ảnh dấu đầu dòng và thêm nó vào bộ sưu tập ảnh của bản trình bày dưới dạng [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/).
 6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) và đặt văn bản cho nó.
 7. Đặt [BulletFormat.type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/type/) thành [BulletType.PICTURE](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bullettype/).
-8. Gán hình ảnh qua [BulletFormat.picture](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/picture/) và đặt chiều cao dấu đầu dòng.
+8. Gán ảnh qua [BulletFormat.picture](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/picture/) và đặt chiều cao dấu đầu dòng.
 9. Thêm đoạn vào khung văn bản.
-10. Lưu bản trình chiếu đã chỉnh sửa.
+10. Lưu bản trình bày đã chỉnh sửa.
 
 Ví dụ Python này tạo một dấu đầu dòng hình ảnh:
 
@@ -201,15 +201,15 @@ with slides.Presentation() as presentation:
     presentation.save("picture_bullet.ppt", slides.export.SaveFormat.PPT)
 ```
 
-### **Tạo Danh sách Đa cấp**
+### **Tạo Danh Sách Đa Cấp**
 
-Đặt [ParagraphFormat.depth](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/depth/) để đặt các đoạn ở các mức độ khác nhau của một danh sách. Mức trên cùng có độ sâu `0`.
+Đặt [ParagraphFormat.depth](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/depth/) để đặt các đoạn ở các mức độ khác nhau của danh sách. Mức cao nhất có độ sâu `0`.
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và truy cập một slide.
 2. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
-3. Tạo bốn đoạn và cấu hình các ký hiệu dấu đầu dòng của chúng.
+3. Tạo bốn đoạn và cấu hình các ký hiệu dấu đầu dòng cho chúng.
 4. Đặt giá trị [ParagraphFormat.depth](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/depth/) thành `0`, `1`, `2` và `3`.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình bày.
 
 Ví dụ Python này tạo một danh sách đánh dấu bốn cấp:
 
@@ -263,17 +263,17 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Bắt đầu các mục danh sách đánh số với Giá trị Tùy chỉnh**
+### **Bắt Đầu Các Mục Đánh Số Với Giá Trị Tùy Chỉnh**
 
-Sử dụng [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) để đặt số khởi đầu hiển thị cho một đoạn có đánh số.
+Sử dụng [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) để đặt số ban đầu hiển thị cho một đoạn đánh số.
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) vào một slide.
 2. Xóa đoạn mặc định khỏi khung văn bản của hình dạng.
-3. Tạo ba đoạn có đánh số.
+3. Tạo ba đoạn đánh số.
 4. Đặt [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/vi/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) thành `2`, `3` và `7` cho các đoạn tương ứng.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình bày.
 
-Ví dụ Python này gán một số khởi đầu tùy chỉnh cho mỗi đoạn:
+Ví dụ Python này gán một số bắt đầu tùy chỉnh cho mỗi đoạn:
 
 ```python
 import aspose.slides as slides
@@ -305,25 +305,25 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kiểm soát Bố cục Đoạn và Thuộc tính Kết thúc**
+## **Kiểm Soát Bố Cục Đoạn Văn và Thuộc Tính Kết Thúc**
 
-### **Đặt Thụt Lề Dòng Đầu**
+### **Đặt Thụt Lề Dòng Đầu Tiên**
 
-Sử dụng thuộc tính [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) để kiểm soát thụt lề dòng đầu của một đoạn. Thuộc tính này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương đẩy dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
+Sử dụng thuộc tính [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) để điều khiển thụt lề dòng đầu tiên của một đoạn. Thuộc tính này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương đẩy dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn theo thân đoạn.
 
-Sử dụng [ParagraphFormat.margin_left](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/margin_left/) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) khi bạn chỉ muốn di chuyển dòng đầu tiên.
+Sử dụng [ParagraphFormat.margin_left](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/margin_left/) khi cần di chuyển toàn bộ đoạn. Sử dụng [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) khi chỉ muốn di chuyển dòng đầu tiên.
 
-Ví dụ dưới tạo một số đoạn và áp dụng các giá trị [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) khác nhau để minh họa cách thụt lề dòng đầu ảnh hưởng đến bố cục đoạn.
+Ví dụ dưới tạo một số đoạn và áp dụng các giá trị [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) khác nhau để minh họa cách thụt lề dòng đầu tiên ảnh hưởng đến bố cục đoạn.
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) hình chữ nhật vào slide.
 4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) của hình dạng và xóa đoạn mặc định.
 5. Tạo một số đoạn và đặt các giá trị [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) khác nhau cho chúng.
 6. Thêm các đoạn vào khung văn bản.
-7. Lưu bản trình chiếu đã chỉnh sửa.
+7. Lưu bản trình bày đã chỉnh sửa.
 
-Mã này cho bạn thấy cách đặt thụt lề đoạn:
+Đoạn mã này cho bạn cách đặt thụt lề đoạn:
 
 ```python
 import aspose.pydrawing as draw
@@ -370,26 +370,26 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Thụt lề dòng đầu của các đoạn](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
 ### **Đặt Thụt Lề Treo**
 
-Thụt lề treo là một bố cục đoạn trong đó dòng đầu tiên bắt đầu phía trái của các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/). Đặt `indent` thành giá trị âm để di chuyển dòng đầu tiên sang trái so với thân đoạn.
+Thụt lề treo là bố cục đoạn trong đó dòng đầu tiên bắt đầu phía trái hơn so với các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/). Đặt `indent` thành giá trị âm để di chuyển dòng đầu tiên sang trái so với thân đoạn.
 
-Trong thực tế, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/margin_left/) xác định vị trí trái của thân đoạn, và [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) xác định vị trí của dòng đầu tiên so với lề đó. Để tạo thụt lề treo, đặt giá trị `margin_left` dương và giá trị `indent` âm.
+Trong thực tế, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/margin_left/) xác định vị trí bên trái của thân đoạn, và [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) xác định vị trí của dòng đầu tiên so với lề này. Để tạo thụt lề treo, đặt giá trị `margin_left` dương và giá trị `indent` âm.
 
-Định dạng này hữu ích cho các mục thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác nơi các dòng gập phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác mà các dòng gập lại cần căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) hình chữ nhật vào slide.
 4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) của hình dạng và xóa đoạn mặc định.
 5. Tạo các đoạn và đặt giá trị [ParagraphFormat.margin_left](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/margin_left/) dương cho mỗi đoạn.
 6. Đặt giá trị [ParagraphFormat.indent](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/indent/) âm để tạo hiệu ứng thụt lề treo.
 7. Thêm các đoạn vào khung văn bản.
-8. Lưu bản trình chiếu đã chỉnh sửa.
+8. Lưu bản trình bày đã chỉnh sửa.
 
-Mã này cho bạn thấy cách đặt thụt lề treo cho một đoạn:
+Đoạn mã này cho bạn cách đặt thụt lề treo cho một đoạn:
 
 ```python
 import aspose.pydrawing as draw
@@ -428,18 +428,18 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Thụt lề treo của các đoạn](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **Đặt Thuộc tính Chạy Đoạn Kết thúc**
+### **Đặt Thuộc Tính Kết Thúc Đoạn**
 
-Thuộc tính [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) kiểm soát định dạng của dấu kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho dấu kết thúc của đoạn thứ hai:
+Thuộc tính [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) điều khiển định dạng của dấu kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho dấu kết thúc của đoạn thứ hai:
 
 1. Tải một [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và truy cập một slide.
 2. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) và xóa đoạn mặc định của nó.
 3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
 4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portionformat/) cho dấu kết thúc của đoạn thứ hai.
 5. Đặt [PortionFormat.font_height](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portionformat/font_height/) và [PortionFormat.latin_font](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portionformat/latin_font/).
-6. Gán định dạng cho [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) và lưu bản trình chiếu.
+6. Gán định dạng cho [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) và lưu bản trình bày.
 
 ```python
 import aspose.slides as slides
@@ -467,13 +467,15 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Đếm Số Dòng Được Định Dạng**
+## **Đếm Số Dòng Được Kết Xuất**
 
-Sử dụng [Paragraph.get_lines_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/get_lines_count/) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc tự động gập. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong các mẫu bản trình chiếu.
+Đối với các quy tắc đoạn ảnh hưởng đến việc gập tự động và dấu câu ở cuối dòng, xem mục [Control Line Breaking](/slides/vi/python-net/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/python-net/text-formatting/#control-hanging-punctuation).
 
-Một đoạn là một mục trong [TextFrame.paragraphs](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/paragraphs/), và nó có thể chiếm nhiều dòng đã được định dạng. Một dấu ngắt dòng rõ ràng trong một đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc gập tự động tạo các dòng dựa trên chiều rộng có sẵn mà không chèn dấu ngắt dòng vào văn bản. Vì vậy, việc đếm các đoạn hoặc ký tự ngắt dòng không cho số dòng đã được định dạng.
+Sử dụng [Paragraph.get_lines_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/get_lines_count/) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm gập tự động. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong các mẫu bản trình chiếu.
 
-Ví dụ sau tạo một hình dạng văn bản, đếm số dòng, thu hẹp hình dạng, sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Gập được bật và tự động vừa kích thước (autofit) bị tắt nên chiều rộng hình dạng kiểm soát việc gập mà không tự động thu nhỏ văn bản hay thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và tổng hợp số dòng trên toàn bộ khung văn bản.
+Một đoạn là một mục trong [TextFrame.paragraphs](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/paragraphs/), và nó có thể chiếm nhiều dòng đã kết xuất. Một dấu ngắt dòng rõ ràng bên trong đoạn sẽ buộc tạo một dòng mới mà không tạo đoạn mới. Gập tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn dấu ngắt dòng vào văn bản. Do đó, việc chỉ đếm số đoạn hoặc ký tự ngắt dòng không cung cấp số dòng đã kết xuất.
+
+Ví dụ dưới tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, rồi thay thế văn bản bằng một chuỗi ngắn hơn. Gập được bật và tự động vừa (autofit) bị tắt để chiều rộng hình dạng kiểm soát việc gập mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn nữa và tổng hợp số dòng trên toàn bộ khung văn bản.
 
 ```python
 import aspose.slides as slides
@@ -508,22 +510,22 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn làm giảm số dòng. Các số đếm chính xác có thể thay đổi tùy vào sự có sẵn và thay thế phông chữ, kích thước phông, lề, thụt lề, gập và cài đặt autofit. Hãy sử dụng phông chữ và cài đặt bố cục dự định cho môi trường đích khi kiểm tra mẫu.
+Với văn bản và các kích thước này, việc thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn hơn làm giảm số dòng. Các số đếm chính xác có thể thay đổi tùy thuộc vào việc có sẵn phông chữ và sự thay thế, kích thước phông, lề, thụt lề, gập và cài đặt autofit. Hãy sử dụng các phông và cài đặt bố cục dự kiến cho môi trường mục tiêu khi kiểm tra mẫu.
 
-Chỉ số dòng không tự động xác định liệu văn bản có tràn ra ngoài vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt gập.
+Số dòng một mình không quyết định liệu văn bản có tràn ra khỏi vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách giữa các đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt gập.
 
-## **Nhập và Xuất Nội dung Đoạn**
+## **Nhập và Xuất Nội Dung Đoạn Văn**
 
-### **Nhập Văn bản HTML vào Đoạn**
+### **Nhập Văn Bản HTML vào Đoạn Văn**
 
-Sử dụng [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphcollection/add_from_html/) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
+Sử dụng [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphcollection/add_from_html/) để chuyển đổi đánh dấu HTML thành các đoạn và phần trong một khung văn bản.
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
 2. Truy cập một slide và thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/).
 3. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) của hình dạng và xóa đoạn mặc định.
 4. Đọc tệp HTML nguồn.
-5. Truyền chuỗi HTML cho [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphcollection/add_from_html/).
-6. Lưu bản trình chiếu đã chỉnh sửa.
+5. Chuyển chuỗi HTML cho [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphcollection/add_from_html/).
+6. Lưu bản trình bày đã chỉnh sửa.
 
 Ví dụ Python này nhập HTML vào một khung văn bản:
 
@@ -545,11 +547,11 @@ with slides.Presentation() as presentation:
     presentation.save("html_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Xuất Văn bản Đoạn ra HTML**
+### **Xuất Văn Bản Đoạn Sang HTML**
 
-Sử dụng [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphcollection/export_to_html/) để xuất một phạm vi đoạn đã chọn dưới dạng HTML.
+Sử dụng [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphcollection/export_to_html/) để xuất một dải đoạn đã chọn dưới dạng HTML.
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải bản trình bày mong muốn.
 2. Truy cập slide và tìm [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) chứa văn bản.
 3. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframe/) của hình dạng.
 4. Gọi [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphcollection/export_to_html/) với chỉ mục đoạn bắt đầu và số lượng đoạn cần xuất.
@@ -572,19 +574,19 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
         print("The first shape is not a text shape.")
 ```
 
-### **Kết xuất Đoạn thành Hình ảnh**
+### **Kết Xuất Đoạn Văn Dưới Dạng Hình Ảnh**
 
-[Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) cung cấp phương thức `get_image` để kết xuất trực tiếp một đoạn riêng lẻ. Phương thức trả về một [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) mà bạn có thể lưu vào tệp hoặc luồng bằng [IImage.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/save/). Bạn không cần phải kết xuất toàn bộ hình dạng chứa hoặc cắt thủ công một bitmap.
+[Paragraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/) cung cấp phương thức `get_image` để kết xuất trực tiếp một đoạn riêng lẻ. Phương thức này trả về một [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) mà bạn có thể lưu vào tệp hoặc luồng bằng [IImage.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/save/). Bạn không cần phải kết xuất toàn bộ hình dạng chứa hoặc cắt ảnh bitmap thủ công.
 
-Phương thức `get_image` có thể trả về `None` nếu không tìm thấy đoạn trong bộ sưu tập cha, không có giới hạn hiển thị hợp lệ, hoặc không thể kết xuất. Kiểm tra kết quả trước khi lưu và sử dụng hình ảnh trả về như một context manager để giải phóng tài nguyên.
+Phương thức `get_image` có thể trả về `None` nếu không tìm thấy đoạn trong bộ sưu tập cha, không có giới hạn kết xuất hợp lệ, hoặc không thể kết xuất. Hãy kiểm tra kết quả trước khi lưu và sử dụng đối tượng ảnh trả về như một trình quản lý ngữ cảnh để giải phóng tài nguyên.
 
-#### **Kết xuất Đoạn ở Tỷ lệ Mặc định**
+#### **Kết Xuất Đoạn Văn ở Tỷ Lệ Mặc Định**
 
-Giả sử chúng ta có một tệp trình chiếu có tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
+Giả sử chúng ta có một tệp bản trình bày có tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
 
-![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-Ví dụ dưới kết xuất đoạn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu hình ảnh trả về ở định dạng PNG:
+Ví dụ sau kết xuất đoạn thứ hai trong một hình dạng văn bản thường ở tỷ lệ mặc định và lưu ảnh trả về dưới dạng PNG:
 
 ```python
 import aspose.slides as slides
@@ -607,11 +609,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Kết quả:
 
-![Hình ảnh đoạn](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **Kết xuất Đoạn trong Ô Bảng với Thang tỷ lệ**
+#### **Kết Xuất Đoạn Văn trong Ô Bảng với Tỷ Lệ**
 
-Chuyển các hệ số tỷ lệ ngang và dọc vào `get_image` để điều khiển kích thước của đoạn đã kết xuất. Ví dụ dưới tạo một bảng, kết xuất đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG:
+Gửi các hệ số tỷ lệ ngang và dọc vào `get_image` để điều khiển kích thước của đoạn đã kết xuất. Ví dụ dưới tạo một bảng, kết xuất đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG:
 
 ```python
 import aspose.slides as slides
@@ -633,24 +635,24 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Hệ số `1` giữ trục tương ứng ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra một hình ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất kết quả độ phân giải cao, nhưng cũng tăng mức tiêu thụ bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ra hình ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để duy trì tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số `1` giữ trục tương ứng ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số sẽ tạo một ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất ảnh độ phân giải cao, nhưng chúng cũng tăng sử dụng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
 
-Việc kết xuất toàn bộ hình dạng bằng [Shape.get_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/get_image/) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với hình ảnh chỉ chứa đoạn, hãy sử dụng `Paragraph.get_image`.
+Kết xuất toàn bộ hình dạng bằng [Shape.get_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/get_image/) vẫn hữu ích khi đầu ra cần bao gồm màu nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với ảnh chỉ chứa đoạn, hãy sử dụng `Paragraph.get_image`.
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Tôi có thể tắt hoàn toàn việc ngắt dòng trong một khung văn bản không?**
+**Tôi có thể tắt hoàn toàn việc gập dòng trong khung văn bản không?**
 
-Có. Đặt [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframeformat/wrap_text/) để tắt việc gập, vì vậy các dòng sẽ không ngắt ở cạnh khung văn bản.
+Có. Đặt [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/vi/python-net/aspose.slides/textframeformat/wrap_text/) để tắt gập, vì vậy các dòng sẽ không ngắt ở cạnh khung văn bản.
 
-**Làm thế nào để tôi lấy chính xác giới hạn trên slide của một đoạn cụ thể?**
+**Làm sao tôi lấy được vị trí chính xác trên slide của một đoạn cụ thể?**
 
-Sử dụng [Paragraph.get_rect](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/get_rect/) để lấy hình chữ nhật bao quanh của đoạn. [Portion.get_rect](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/get_rect/) cung cấp giới hạn của một phần riêng lẻ.
+Sử dụng [Paragraph.get_rect](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraph/get_rect/) để lấy hình chữ nhật bao quanh đoạn. [Portion.get_rect](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portion/get_rect/) cung cấp giới hạn của một phần riêng lẻ.
 
-**Nơi nào điều chỉnh căn chỉnh đoạn (trái, phải, giữa hoặc căn đều)?**
+**Vị trí căn chỉnh đoạn (trái, phải, giữa, hoặc căn đều) được kiểm soát ở đâu?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/alignment/) là một cài đặt mức đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng phần riêng lẻ.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/paragraphformat/alignment/) là cài đặt cấp đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng riêng lẻ của các phần.
 
-**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
+**Tôi có thể đặt ngôn ngữ kiểm tra cho một phần của đoạn không?**
 
 Có. Đặt [PortionFormat.language_id](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portionformat/language_id/) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

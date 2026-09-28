@@ -1,6 +1,6 @@
 ---
 title: Διαχείριση παραγράφων κειμένου PowerPoint σε Python μέσω Java
-linktitle: Διαχείριση παραγράφου
+linktitle: Διαχείριση Παραγράφου
 type: docs
 weight: 40
 url: /el/python-java/manage-paragraph/
@@ -14,10 +14,10 @@ keywords:
 - διαχείριση παραγράφου
 - διαχείριση κουκίδας
 - εσοχή παραγράφου
-- κρεματή εσοχή
+- εσοχή κρεμού
 - κουκίδα παραγράφου
-- αριθμημένη λίστα
-- λίστα με κουκίδες
+- αριθμημένη λίsta
+- λίsta με κουκίδες
 - ιδιότητες παραγράφου
 - εισαγωγή HTML
 - κείμενο σε HTML
@@ -30,35 +30,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφου με το Aspose.Slides για Python μέσω Java."
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για Python μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Python via Java αντιπροσωπεύει το κείμενο ως μια ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
+Το Aspose.Slides για Python μέσω Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) αντιπροσωπεύει το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
-* [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματά της και στη μορφοποίηση επιπέδου παραγράφου.
-* [Portion](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/) αντιπροσωπεύει μια σειρά κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει το δικό του κείμενο και μορφοποίηση σε επίπεδο χαρακτήρων.
+* [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) αντιπροσωπεύει το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή των παραγράφων του.
+* [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και στη μορφοποίηση επιπέδου παραγράφου.
+* [Portion](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/) αντιπροσωπεύει ένα τμήμα κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει τη δική του μορφοποίηση κειμένου και χαρακτήρων.
 
-Έτσι, μια παράγραφος μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις, χρησιμοποιώντας πολλαπλά τμήματα.
+Μια παράγραφος, επομένως, μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλη μορφοποίηση χρησιμοποιώντας πολλαπλά τμήματα.
 
 ## **Δημιουργία και Μορφοποίηση Παραγράφων**
 
 ### **Δημιουργία Παραγράφων με Πολλαπλά Τμήματα**
 
-Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, η καθεμία από τις οποίες περιέχει τρία τμήματα:
+Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, η κάθε μία περιέχει τρία τμήματα:
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
 2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) στη διαφάνεια.
 4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) του σχήματος.
 5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) στο πλαίσιο κειμένου.
-6. Προσθέστε αρκετά αντικείμενα [Portion](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφο περιέχει ήδη ένα κενό τμήμα.
-7. Ορίστε το κείμενο για κάθε τμήμα.
-8. Εφαρμόστε μορφοποίηση σε επίπεδο χαρακτήρων μέσω του [Portion.getPortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/#getPortionFormat).
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+6. Προσθέστε αρκετά αντικείμενα [Portion](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
+7. Ορίστε το κείμενο κάθε τμήματος.
+8. Εφαρμόστε μορφοποίηση επιπέδου χαρακτήρων μέσω του [Portion.getPortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/#getPortionFormat).
+9. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-Αυτό το παράδειγμα Python υλοποιεί τα βήματα:
+This Python example implements the steps:
 
 ```python
 import jpype
@@ -110,26 +110,26 @@ finally:
     presentation.dispose()
 ```
 
-## **Δημιουργία Λιστών με Κουκίδες και Αριθμούς**
+## **Δημιουργία Κουκίδων και Αριθμημένων Λιστών**
 
 ### **Δημιουργία Λίστας με Κουκίδες ή Αριθμούς**
 
-Οι κουκίδες και η αρίθμηση κάνουν τα σχετικά στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/).
+Οι κουκίδες και η αρίθμηση καθιστούν τα σχετιζόμενα στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/).
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
 2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) στην επιλεγμένη διαφάνεια.
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) στη επιλεγμένη διαφάνεια.
 4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-6. Δημιουργήστε μια [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) για μια κουκίδα συμβόλου.
-7. Ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#setType) σε [BulletType.Symbol](https://reference.aspose.com/slides/el/python-java/aspose.slides/bullettype/#Symbol) και καθορίστε τον χαρακτήρα της κουκίδας.
-8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα της κουκίδας και το ύψος της κουκίδας.
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) για μια σύμβολο-κουκίδα.
+7. Ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#setType) σε [BulletType.Symbol](https://reference.aspose.com/slides/el/python-java/aspose.slides/bullettype/#Symbol) και καθορίστε το χαρακτήρα της κουκίδας.
+8. Ορίστε το κείμενο της παραγράφου, το εσοχή, το χρώμα της κουκίδας και το ύψος της κουκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
 10. Δημιουργήστε μια δεύτερη παράγραφο και ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#setType) σε [BulletType.Numbered](https://reference.aspose.com/slides/el/python-java/aspose.slides/bullettype/#Numbered).
-11. Διαμορφώστε το στυλ αριθμημένης κουκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-12. Αποθηκεύστε την παρουσίαση.
+11. Διαμορφώστε το στυλ της αριθμημένης κουκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+12. Αποθηκεύστε την παρουσία.
 
-Αυτό το παράδειγμα Python δημιουργεί μια κουκίδα σύμβολο και μια αριθμημένη κουκίδα:
+This Python example creates a symbol bullet and a numbered bullet:
 
 ```python
 import jpype
@@ -172,22 +172,22 @@ finally:
     presentation.dispose()
 ```
 
-### **Χρήση Κουκίδων με Εικόνες**
+### **Χρήση Κουκίδων Εικόνας**
 
-Οι κουκίδες με εικόνα σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+Οι κουκίδες εικόνας σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί ενός συμβόλου ή αριθμού.
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
 2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
 3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) και προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) του.
 4. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
 5. Φορτώστε την εικόνα της κουκίδας και προσθέστε την στη συλλογή εικόνων της παρουσίασης ως [PPImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/ppimage/).
-6. Δημιουργήστε μια [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) και ορίστε το κείμενό της.
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) και ορίστε το κείμενό του.
 7. Ορίστε το [BulletFormat.setType](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#setType) σε [BulletType.Picture](https://reference.aspose.com/slides/el/python-java/aspose.slides/bullettype/#Picture).
-8. Αντιστοιχίστε την εικόνα μέσω του [BulletFormat.getPicture](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#getPicture) και ορίστε το ύψος της κουκίδας.
+8. Αναθέστε την εικόνα μέσω του [BulletFormat.getPicture](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#getPicture) και ορίστε το ύψος της κουκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+10. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-Αυτό το παράδειγμα Python δημιουργεί μια κουκίδα με εικόνα:
+This Python example creates a picture bullet:
 
 ```python
 import jpype
@@ -221,17 +221,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Δημιουργία Πολυεπίπεδης Λίστας**
+### **Δημιουργία Πολλαπλών Επιπέδων Λίστας**
 
-Ορίστε το [ParagraphFormat.setDepth](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setDepth) για να τοποθετήσετε παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
+Ορίστε το [ParagraphFormat.setDepth](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setDepth) για να τοποθετήσετε τις παραγράφους σε διαφορετικά επίπεδα λίστας. Το κορυφαίο επίπεδο έχει βάθος `0`.
 
 1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
 2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) και διαγράψτε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
-3. Δημιουργήστε τέσσερις παραγράφους και διαμορφώστε τα σύμβολα των κουκίδων τους.
-4. Ορίστε τις τιμές του [ParagraphFormat.setDepth](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setDepth) σε `0`, `1`, `2` και `3`.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
+3. Δημιουργήστε τέσσερις παραγραφές και ρυθμίστε τα σύμβολα των κουκίδων τους.
+4. Ορίστε τις τιμές τους [ParagraphFormat.setDepth](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setDepth) σε `0`, `1`, `2` και `3`.
+5. Προσθέστε τις παραγραφές στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
 
-Αυτό το παράδειγμα Python δημιουργεί μια λίστα με τέσσερα επίπεδα κουκίδων:
+This Python example creates a four-level bulleted list:
 
 ```python
 import jpype
@@ -286,17 +286,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Έναρξη Στοιχείων Αριθμημένης Λίστας με Προσαρμοσμένες Τιμές**
+### **Έναρξη Αριθμημένων Στοιχείων Λίστας με Προσαρμοσμένες Τιμές**
 
 Χρησιμοποιήστε το [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
 
 1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) σε μια διαφάνεια.
-2. Διαγράψτε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
+2. Καθαρίστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
 3. Δημιουργήστε τρεις αριθμημένες παραγράφους.
 4. Ορίστε το [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/el/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
 
-Αυτό το παράδειγμα Python αντιστοιχίζει έναν προσαρμοσμένο αριθμό έναρξης σε κάθε παράγραφο:
+This Python example assigns a custom starting number to each paragraph:
 
 ```python
 import jpype
@@ -333,25 +333,25 @@ finally:
     presentation.dispose()
 ```
 
-## **Έλεγχος Διάταξης Παραγράφου και Ιδιοτήτων Τέλους**
+## **Έλεγχος Διάταξης Παραγράφων και Ιδιοτήτων Τέλους**
 
 ### **Ορισμός Εσοχής Πρώτης Γραμμής**
 
 Χρησιμοποιήστε το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
-Χρησιμοποιήστε το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setMarginLeft) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) όταν χρειάζεται να μετακινήσετε μόνο την πρώτη γραμμή.
+Χρησιμοποιήστε το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setMarginLeft) όταν θέλετε να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί αρκετές παραγράφους και εφαρμόζει διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) για να δείξει πώς η εσοχή της πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
+Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) για να δείξει πώς η εσοχή της πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-2. Προσπελάστε τη στοχοποιημένη διαφάνεια.
+2. Προσπελάστε τη διαφάνεια-στόχο.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) στη διαφάνεια.
 4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε αρκετές παραγράφους και ορίστε διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) για αυτές.
+5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) για αυτές.
 6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+7. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-Αυτός ο κώδικας δείχνει πώς να ορίσετε μια εσοχή παραγράφου:
+This code shows you how to set a paragraph indent:
 
 ```python
 import jpype
@@ -399,28 +399,28 @@ finally:
     presentation.dispose()
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Η εσοχή της πρώτης γραμμής των παραγράφων](first_line_indent.png)
+![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
 
-### **Ορισμός Κρεματής Εσοχής**
+### **Ορισμός Εσοχής Κρεμού**
 
-Η κρεματή εσοχή είναι μια διάταξη παραγράφου στην οποία η πρώτη γραμμή αρχίζει αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το αποτέλεσμα με το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent). Δώστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
+Η εσοχή κρεμού είναι μια διάταξη παραγράφου όπου η πρώτη γραμμή ξεκινά στα αριστερά των υπόλοιπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent). Δώστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή προς τα αριστερά ως προς το σώμα της παραγράφου.
 
-Στην πράξη, το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setMarginLeft) ορίζει τη θέση του αριστερού περιθωρίου του σώματος της παραγράφου, ενώ το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεματή εσοχή, δώστε μια θετική τιμή στο [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setMarginLeft) και μια αρνητική τιμή στο [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent).
+Στην πράξη, το [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setMarginLeft) καθορίζει τη θέση αριστερά του σώματος της παραγράφου, ενώ το [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) καθορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε εσοχή κρεμού, δώστε μια θετική τιμή στο [ParagraphFormat.setMarginLeft] και μια αρνητική τιμή στο [ParagraphFormat.setIndent].
 
-Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, ορολογικές καταχωρίσεις και άλλες παραγράφους όπου οι αναδιπλώσεις γραμμών πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, καταχωρίσεις γλωσσολογίου και άλλες παραγράφους όπου οι γραμμές που γυρίζονται πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου και όχι κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-2. Προσπελάστε τη στοχοποιημένη διαφάνεια.
+2. Προσπελάστε τη διαφάνεια-στόχο.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) στη διαφάνεια.
 4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
 5. Δημιουργήστε παραγράφους και δώστε μια θετική τιμή στο [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setMarginLeft) για κάθε παράγραφο.
-6. Δώστε μια αρνητική τιμή στο [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) για να δημιουργήσετε το εφέ της κρεματής εσοχής.
+6. Δώστε μια αρνητική τιμή στο [ParagraphFormat.setIndent](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setIndent) για να δημιουργήσετε το εφέ εσοχής κρεμού.
 7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+8. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-Αυτός ο κώδικας δείχνει πώς να ορίσετε κρεματή εσοχή για μια παράγραφο:
+This code shows you how to set a hanging indent for a paragraph:
 
 ```python
 import jpype
@@ -461,20 +461,20 @@ finally:
     presentation.dispose()
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Η κρεματή εσοχή των παραγράφων](hanging_indent.png)
+![Η εσοχή κρεμού των παραγράφων](hanging_indent.png)
 
 ### **Ορισμός Ιδιοτήτων Τέλους Παραγράφου**
 
-Το [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) ελέγχει τη μορφοποίηση του σημε'iωδίου τέλους της παραγράφου. Το παρακάτω παράδειγμα αναθέτει μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σήμα τέλους της δεύτερης παραγράφου:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) ελέγχει τη μορφοποίηση του σημείου τέλους της παραγράφου. Το παρακάτω παράδειγμα αντιστοιχεί μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σημείο τέλους της δεύτερης παραγράφου:
 
 1. Φορτώστε μια [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) και διαγράψτε την προεπιλεγμένη παράγραφο.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) και διαγράψτε την προεπιλεγμένη του παράγραφο.
 3. Δημιουργήστε δύο παραγράφους και προσθέστε τμήματα κειμένου σε αυτές.
-4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/portionformat/) για το σήμα τέλους της δεύτερης παραγράφου.
+4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/portionformat/) για το σημείο τέλους της δεύτερης παραγράφου.
 5. Ορίστε το [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseportionformat/#setFontHeight) και το [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseportionformat/#setLatinFont).
-6. Αναθέστε τη μορφοποίηση με το [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) και αποθηκεύστε την παρουσίαση.
+6. Κατανείμετε τη μορφοποίηση με το [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) και αποθηκεύστε την παρουσία.
 
 ```python
 import jpype
@@ -511,11 +511,13 @@ finally:
 
 ## **Καταμέτρηση Απεικονιζόμενων Γραμμών**
 
-Χρησιμοποιήστε το [Paragraph.getLinesCount](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#getLinesCount) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο όταν ελέγχετε το μήκος του κειμένου και τη διάταξη σε πρότυπα παρουσιάσεων.
+Για κανόνες παραγράφων που επηρεάζουν την αυτόματη αναδίπλωση και τη στίξη στο τέλος γραμμών, δείτε [Control Line Breaking](/slides/el/python-java/text-formatting/#control-line-breaking) και [Control Hanging Punctuation](/slides/el/python-java/text-formatting/#control-hanging-punctuation).
 
-Μια παράγραφος είναι ένα στοιχείο στο [TextFrame.getParagraphs](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getParagraphs), και μπορεί να καταλαμβάνει πολλές απεικονιζόμενες γραμμές. Ένα ρητό αλλαγή γραμμής μέσα σε μια παράγραφο δημιουργεί νέα γραμμή χωρίς να δημιουργεί άλλη παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς την εισαγωγή ρητών αλλαγών γραμμής στο κείμενο. Έτσι, η καταμέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον αριθμό των απεικονιζόμενων γραμμών.
+Χρησιμοποιήστε το [Paragraph.getLinesCount](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#getLinesCount) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο κατά τον έλεγχο του μήκους κειμένου και της διάταξης σε πρότυπα παρουσίασης.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενώνει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με μια πιο σύντομη συμβολοσειρά. Η αναδίπλωση είναι ενεργοποιημένη και η αυτόματη προσαρμογή (autofit) είναι απενεργοποιημένη ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς αυτόματη σμίκρυνση του κειμένου ή αλλαγή μεγέθους του σχήματος. Οι διαστάσεις του σχήματος είναι σε points. Τέλος, το παράδειγμα προσθέτει μια άλλη παράγραφο και αθροίζει τους αριθμούς γραμμών σε όλο το πλαίσιο κειμένου.
+Μια παράγραφος είναι ένα στοιχείο στο [TextFrame.getParagraphs](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getParagraphs) και μπορεί να καταλάβει πολλές απεικονιζόμενες γραμμές. Μια ρητή αλλαγή γραμμής εντός μιας παραγράφου προκαλεί νέα γραμμή χωρίς τη δημιουργία νέας παραγράφου. Η αυτόματη αναδίπλωση δημιουργεί γραμμές με βάση το διαθέσιμο πλάτος χωρίς να εισάγει ρητές αλλαγές γραμμής στο κείμενο. Συνεπώς, η μέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον αριθμό των απεικονιζόμενων γραμμών.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενεύει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με μια πιο σύντομη συμβολοσειρά. Η αναδίπλωση είναι ενεργοποιημένη και η αυτόματη προσαρμογή είναι απενεργοποιημένη ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς να μικραίνει αυτόματα το κείμενο ή να αλλάζει το μέγεθος του σχήματος. Οι διαστάσεις του σχήματος δίνονται σε points. Τέλος, το παράδειγμα προσθέτει μια ακόμη παράγραφο και αθροίζει τις μετρήσεις γραμμών σε όλο το πλαίσιο κειμένου.
 
 ```python
 import jpype
@@ -559,11 +561,11 @@ finally:
     presentation.dispose()
 ```
 
-Με αυτό το κείμενο και αυτές τις διαστάσεις, η στενωση του σχήματος αυξάνει τον αριθμό των γραμμών, ενώ η αντικατάσταση του κειμένου με τη σύντομη συμβολοσειρά τον μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα και την αντικατάσταση γραμματοσειρών, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις autofit. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το στοχευόμενο περιβάλλον όταν ελέγχετε ένα πρότυπο.
+Με αυτό το κείμενο και αυτές τις διαστάσεις, η στένωση του σχήματος αυξάνει τον αριθμό γραμμών, ενώ η αντικατάσταση του κειμένου με τη σύντομη συμβολοσειρά τον μειώνει. Οι ακριβείς μετρήσεις μπορούν να διαφέρουν ανάλογα με τη διαθεσιμότητα γραμματοσειρών και τις αντικαταστάσεις, το μέγεθος της γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις αυτόματης προσαρμογής. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον στόχο όταν ελέγχετε ένα πρότυπο.
 
-Ο μόνος αριθμός γραμμών δεν καθορίζει εάν το κείμενο υπερχειλίζει το περιέκτη του. Το διαθέσιμο ύψος, το ύψος των γραμμών, η απόσταση παραγράφων και γραμμών, και η συμπεριφορά autofit επίσης παίζουν ρόλο· ακόμη και μια μόνο γραμμή μπορεί να υπερβεί το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
+Ο μόνος αριθμός γραμμών δεν καθορίζει αν το κείμενο υπερχειλίζει το δοχείο του. Το διαθέσιμο ύψος, το ύψος των γραμμών, η απόσταση μεταξύ παραγράφων και γραμμών, καθώς και η συμπεριφορά αυτόματης προσαρμογής παίζουν επίσης ρόλο· ακόμη και μια μόνο γραμμή μπορεί να ξεπεράσει το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
 
-## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφου**
+## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφων**
 
 ### **Εισαγωγή Κειμένου HTML σε Παραγράφους**
 
@@ -571,12 +573,10 @@ finally:
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
 2. Προσπελάστε μια διαφάνεια και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/).
-3. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) και διαγράψτε την προεπιλεγμένη παράγραφο.
-4. Διαβάστε το πηγαίο αρχείο HTML.
-5. Περνάτε τη συμβολοσειρά HTML στο [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphcollection/#addFromHtml).
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτό το παράδειγμα Python εισάγει HTML σε ένα πλαίσιο κειμένου:
+3. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) του σχήματος και διαγράψτε την προεπιλεγμένη παράγραφο.
+4. Διαβάστε το αρχείο HTML πηγής.
+5. Περάστε τη συμβολοσειρά HTML στο [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphcollection/#addFromHtml).
+6. Αποθηκεύστε την τροποποιημένη παρουσία.
 
 ```python
 import jpype
@@ -608,15 +608,13 @@ finally:
 
 ### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
 
-Χρησιμοποιήστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphcollection/#exportToHtml) για να εξάγετε μια επιλεγμένη περιοχή παραγράφων ως HTML.
+Χρησιμοποιήστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphcollection/#exportToHtml) για να εξάγετε ένα επιλεγμένο εύρος παραγράφων ως HTML.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσίαση.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσία.
 2. Προσπελάστε τη διαφάνεια και βρείτε το [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/) που περιέχει το κείμενο.
 3. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/).
-4. Καλέστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphcollection/#exportToHtml) με τον δείκτη της αρχικής παραγράφου και τον αριθμό των παραγράφων προς εξαγωγή.
-5. Γράψτε τη επιστρεφόμενη συμβολοσειρά HTML σε αρχείο.
-
-Αυτό το παράδειγμα Python εξάγει όλες τις παραγράφους από το πρώτο σχήμα κειμένου:
+4. Καλέστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphcollection/#exportToHtml) με τον δείκτη εκκίνησης της παραγράφου και τον αριθμό των παραγράφων προς εξαγωγή.
+5. Γράψτε τη συμβολοσειρά HTML που επιστρέφεται σε ένα αρχείο.
 
 ```python
 import jpype
@@ -651,17 +649,17 @@ finally:
 
 ### **Απόδοση Παραγράφου ως Εικόνας**
 
-Το [Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) αποδίδει απευθείας μια μεμονωμένη παράγραφο και επιστρέφει ένα αντικείμενο εικόνας. Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με τη μέθοδο `save`. Δεν χρειάζεται να αποδώσετε το περιέχον σχήμα ή να περικόψετε ένα bitmap χειροκίνητα.
+[Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) αποδίδει άμεσα μια μεμονωμένη παράγραφο και επιστρέφει ένα αντικείμενο εικόνας. Αποθηκεύστε το αποτέλεσμα σε ένα αρχείο ή ροή με τη μέθοδο `save`. Δεν χρειάζεται να αποδώσετε το περιβάλλον σχήματος ή να περικόψετε ένα bitmap χειροκίνητα.
 
-Το [Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) μπορεί να επιστρέψει `None` αν η παράγραφος δεν βρεθεί στη γονική συλλογή της, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την επιστρεφόμενη εικόνα μετά τη χρήση.
+[Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) μπορεί να επιστρέψει `None` εάν η παράγραφος δεν βρεθεί στη γονική συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την επιστρεφόμενη εικόνα μετά τη χρήση.
 
 #### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
 
-Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης που ονομάζεται sample.pptx με μια διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
+Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
 
 ![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
 
-Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφος σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG. Το μπλοκ `finally` εξασφαλίζει ότι η εικόνα απελευθερώνεται σωστά.
+Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφο σε ένα συνηθισμένο πλαίσιο κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG. Το μπλοκ `finally` διασφαλίζει ότι η εικόνα απελευθερώνεται σωστά.
 
 ```python
 import jpype
@@ -696,13 +694,13 @@ finally:
     presentation.dispose()
 ```
 
-Το αποτέλεσμα:
+The result:
 
 ![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
 
-#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλιμάκωση**
+#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλίμακα**
 
-Χρησιμοποιήστε την υπερφόρτωση του [Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) που δέχεται τις παραμέτρους `scale_x` και `scale_y` για να ορίσετε τους οριζόντιους και κάθετους παράγοντες κλίμακας. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
+Χρησιμοποιήστε την υπερφόρτωση του [Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) που δέχεται παραμέτρους `scale_x` και `scale_y` για να ορίσετε τους οριζόντιους και κάθετους συντελεστές κλίμακας. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
 
 ```python
 import jpype
@@ -733,24 +731,24 @@ finally:
     presentation.dispose()
 ```
 
-Ένας παράγοντας κλίμακας `1` διατηρεί τον άξονα αυτόν στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλά από τις προεπιλεγμένες διαστάσεις, με αποτέλεσμα τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι παράγοντες γενικά παράγουν πιο καθαρό κείμενο για ζουμ ή εξαγωγή υψηλής ανάλυσης, αλλά αυξάνουν και τη χρήση μνήμης και το μέγεθος του αρχείου. Παράγοντες κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερη λεπτομέρεια. Χρησιμοποιήστε ίσους παράγοντες για να διατηρήσετε το λόγο διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι παράγοντες τεντώνουν το αποτέλεσμα ανεξάρτητα.
+Ένας συντελεστής κλίμακας `1` διατηρεί αυτόν τον άξονα στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` και για τους δύο συντελεστές παράγει μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλάσια από τις προεπιλεγμένες διαστάσεις, με τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι συντελεστές γενικά παράγουν πιο καθαρό κείμενο για ζουμ ή έξοδο υψηλής ανάλυσης, αλλά αυξάνουν τη μνήμη και το μέγεθος του αρχείου. Συντελεστές κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερη λεπτομέρεια. Χρησιμοποιήστε ίσους συντελεστές για να διατηρήσετε το λόγο διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι συντελεστές τεντώνουν το αποτέλεσμα ανεξάρτητα.
 
-Η απόδοση ολόκληρου σχήματος με το [Shape.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getImage) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο παραγράφου, χρησιμοποιήστε το [Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/).
+Η απόδοση ολόκληρου σχήματος με το [Shape.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getImage) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο-παραγράφου, χρησιμοποιήστε το [Paragraph.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/).
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Μπορώ να απενεργοποιήσω πλήρως την αναδίπλωση γραμμής μέσα σε ένα πλαίσιο κειμένου;**
+**Μπορώ να απενεργοποιήσω εντελώς την αναδίπλωση γραμμής μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναί. Ορίστε το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#setWrapText) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάζουν στα άκρα του πλαισίου κειμένου.
+Ναι. Ορίστε το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#setWrapText) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάζουν στα άκρα του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τα ακριβή όρια μιας συγκεκριμένης παραγράφου στο slide;**
+**Πώς μπορώ να λάβω τα ακριβή όρια μιας συγκεκριμένης παραγράφου στην διαφάνεια;**
 
-Χρησιμοποιήστε το [Paragraph.getRect](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#getRect) για να λάβετε το ορθογώνιο περιορισμού της παραγράφου. Το [Portion.getRect](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/#getRect) παρέχει τα όρια ενός μεμονωμένου τμήματος.
+Χρησιμοποιήστε το [Paragraph.getRect](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/#getRect) για να λάβετε το ορθογώνιο που περιβάλλει την παράγραφο. Το [Portion.getRect](https://reference.aspose.com/slides/el/python-java/aspose.slides/portion/#getRect) παρέχει τα όρια ενός μεμονωμένου τμήματος.
 
-**Πού ελέγχεται η στοίχιση της παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης στοίχιση);**
+**Πού ελέγχεται η στοίχιση της παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης ευθυγράμμιση);**
 
-Το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setAlignment) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε όλη την παράγραφο, ανεξαρτήτως μορφοποίησης μεμονωμένων τμημάτων.
+Το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setAlignment) είναι μια ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο, ανεξάρτητα από τη μορφοποίηση των μεμονωμένων τμημάτων.
 
 **Μπορώ να ορίσω τη γλώσσα ελέγχου για μέρος μιας παραγράφου;**
 
-Ναί. Ορίστε το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseportionformat/#setLanguageId) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.
+Ναι. Ορίστε το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseportionformat/#setLanguageId) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.

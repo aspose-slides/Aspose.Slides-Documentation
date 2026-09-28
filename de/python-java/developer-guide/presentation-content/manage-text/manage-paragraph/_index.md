@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Textabsätze in Python über Java verwalten
+title: PowerPoint-Textabsätze in Python via Java verwalten
 linktitle: Absatz verwalten
 type: docs
 weight: 40
@@ -8,57 +8,57 @@ aliases:
   - /python-java/paragraph/
   - /python-java/portion/
 keywords:
-  - Text hinzufügen
-  - Absatz hinzufügen
-  - Text verwalten
-  - Absatz verwalten
-  - Aufzählungszeichen verwalten
-  - Absatzeinrückung
-  - hängende Einrückung
-  - Absatz‑Aufzählungszeichen
-  - nummerierte Liste
-  - Aufzählungsliste
-  - Absatzeigenschaften
-  - HTML importieren
-  - Text zu HTML
-  - Absatz zu HTML
-  - Absatz zu Bild
-  - Text zu Bild
-  - Absatz exportieren
-  - PowerPoint
-  - Präsentation
-  - Python
-  - Java
-  - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für Python über Java Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einrückungen, HTML‑Inhalte und Absatzbilder erstellen und formatieren."
+- Text hinzufügen
+- Absatz hinzufügen
+- Text verwalten
+- Absatz verwalten
+- Aufzählungszeichen verwalten
+- Absatzeinzug
+- hängender Einzug
+- Absatz-Aufzählungszeichen
+- nummerierte Liste
+- Aufzählungsliste
+- Absatzeigenschaften
+- HTML importieren
+- Text zu HTML
+- Absatz zu HTML
+- Absatz zu Bild
+- Text zu Bild
+- Absatz exportieren
+- PowerPoint
+- Präsentation
+- Python
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie mit Aspose.Slides für Python via Java Absätze, Portionen, Aufzählungszeichen, nummerierte Listen, Einzüge, HTML‑Inhalte und Absatz‑Bilder erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides for Python via Java stellt Text als eine Hierarchie von TextFrames, Paragraphs und Portionen dar:
+Aspose.Slides für Python via Java stellt Text als Hierarchie von Textfeldern, Absätzen und Portionen dar:
 
-* [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) stellt den Textcontainer in einer Form dar und bietet Zugriff auf ihre Absatzsammlung.
-* [Paragraph](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) stellt einen Absatz in einem TextFrame dar und bietet Zugriff auf seine Portionen und die absatzbezogene Formatierung.
-* [Portion](https://reference.aspose.com/slides/de/python-java/aspose.slides/portion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann eigenen Text und Zeichenformatierung besitzen.
+* [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) stellt den Textcontainer in einer Form dar und bietet Zugriff auf die Absatzsammlung.
+* [Paragraph](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) stellt einen Absatz in einem Textfeld dar und bietet Zugriff auf seine Portionen und die Absatzformatierung.
+* [Portion](https://reference.aspose.com/slides/de/python-java/aspose.slides/portion/) stellt einen Textlauf innerhalb eines Absatzes dar. Jede Portion kann ihren eigenen Text und Zeichenformatierung besitzen.
 
-Ein Absatz kann daher Text mit unterschiedlichen Schriften, Farben, Größen und weiterer Formatierung enthalten, indem mehrere Portionen verwendet werden.
+Ein Absatz kann daher Text mit unterschiedlichen Schriftarten, Farben, Größen und weiterer Formatierung enthalten, indem mehrere Portionen verwendet werden.
 
 ## **Absätze erstellen und formatieren**
 
 ### **Absätze mit mehreren Portionen erstellen**
 
-Die folgenden Schritte erstellen ein TextFrame mit drei Absätzen, die jeweils drei Portionen enthalten:
+Die folgenden Schritte erstellen ein Textfeld mit drei Absätzen, die jeweils drei Portionen enthalten:
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die entsprechende Folie zu.
-3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame] der Form zu.
-5. Verwenden Sie den Standardabsatz und fügen Sie dem TextFrame zwei weitere [Paragraph](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/)‑Objekte hinzu.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie der Folie eine rechteckige [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) der Form zu.
+5. Verwenden Sie den Standardabsatz und fügen Sie dem Textfeld zwei weitere [Paragraph](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/)‑Objekte hinzu.
 6. Fügen Sie ausreichend [Portion](https://reference.aspose.com/slides/de/python-java/aspose.slides/portion/)‑Objekte hinzu, sodass jeder Absatz drei Portionen enthält. Der Standardabsatz enthält bereits eine leere Portion.
 7. Setzen Sie den Text jeder Portion.
-8. Wenden Sie Zeichenformatierungen über [Portion.getPortionFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/portion/#getPortionFormat) an.
-9. Speichern Sie die geänderte Präsentation.
+8. Wenden Sie Zeichenformatierung über [Portion.getPortionFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/portion/#getPortionFormat) an.
+9. Speichern Sie die modifizierte Präsentation.
 
-Dieses Python‑Beispiel implementiert die Schritte:
+This Python example implements the steps:
 
 ```python
 import jpype
@@ -110,26 +110,26 @@ finally:
     presentation.dispose()
 ```
 
-## **Aufzählungs‑ und nummerierte Listen erstellen**
+## **Aufzählungs- und nummerierte Listen erstellen**
 
 ### **Eine Aufzählungs‑ oder nummerierte Liste erstellen**
 
-Aufzählungszeichen und Nummerierungen erleichtern das Scannen zusammenhängender Elemente. In Aspose.Slides werden Listeneinstellungen über [BulletFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/) definiert.
+Aufzählungszeichen und Nummerierung erleichtern das Durchsuchen zusammengehöriger Elemente. In Aspose.Slides werden Listeneinstellungen über [BulletFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/) definiert.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die entsprechende Folie zu.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
 3. Fügen Sie der ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame] der Form zu.
-5. Entfernen Sie den Standardabsatz aus dem TextFrame.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) der Form zu.
+5. Entfernen Sie den Standardabsatz aus dem Textfeld.
 6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) für ein Symbol‑Aufzählungszeichen.
-7. Setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setType) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/python-java/aspose.slides/bullettype/#Symbol) und geben Sie das Aufzählungszeichen‑Zeichen an.
-8. Legen Sie den Absatztext, Einzug, Aufzählungsfarbe und Aufzählungsgröße fest.
-9. Fügen Sie den Absatz dem TextFrame hinzu.
+7. Setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setType) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/python-java/aspose.slides/bullettype/#Symbol) und geben Sie das Aufzählungszeichen‑Symbol an.
+8. Legen Sie den Absatztext, den Einzug, die Aufzählungszeichenfarbe und die Aufzählungszeichenhöhe fest.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
 10. Erstellen Sie einen zweiten Absatz und setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setType) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/python-java/aspose.slides/bullettype/#Numbered).
-11. Konfigurieren Sie den nummerierten Aufzählungsstil und fügen Sie den Absatz dem TextFrame hinzu.
+11. Konfigurieren Sie den Stil des nummerierten Aufzählungszeichens und fügen Sie den Absatz dem Textfeld hinzu.
 12. Speichern Sie die Präsentation.
 
-Dieses Python‑Beispiel erstellt ein Symbol‑Aufzählungszeichen und ein nummeriertes Aufzählungszeichen:
+This Python example creates a symbol bullet and a numbered bullet:
 
 ```python
 import jpype
@@ -174,18 +174,18 @@ finally:
 
 ### **Bild‑Aufzählungszeichen verwenden**
 
+Bild‑Aufzählungszeichen ermöglichen die Verwendung eines benutzerdefinierten Bildes anstelle eines Symbols oder einer Nummer.
+
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die entsprechende Folie zu.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
 3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu und greifen Sie auf dessen [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) zu.
-4. Entfernen Sie den Standardabsatz aus dem TextFrame.
-5. Laden Sie das Aufzählungsbild und fügen Sie es der Bildsammlung der Präsentation als [PPImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/ppimage/) hinzu.
+4. Entfernen Sie den Standardabsatz aus dem Textfeld.
+5. Laden Sie das Aufzählungszeichen‑Bild und fügen Sie es der Bildsammlung der Präsentation als [PPImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/ppimage/) hinzu.
 6. Erstellen Sie einen [Paragraph](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) und setzen Sie dessen Text.
 7. Setzen Sie [BulletFormat.setType](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setType) auf [BulletType.Picture](https://reference.aspose.com/slides/de/python-java/aspose.slides/bullettype/#Picture).
-8. Weisen Sie das Bild über [BulletFormat.getPicture](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#getPicture) zu und setzen Sie die Aufzählungsgröße.
-9. Fügen Sie den Absatz dem TextFrame hinzu.
-10. Speichern Sie die geänderte Präsentation.
-
-Dieses Python‑Beispiel erstellt ein Bild‑Aufzählungszeichen:
+8. Weisen Sie das Bild über [BulletFormat.getPicture](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#getPicture) zu und setzen Sie die Aufzählungszeichenhöhe.
+9. Fügen Sie den Absatz dem Textfeld hinzu.
+10. Speichern Sie die modifizierte Präsentation.
 
 ```python
 import jpype
@@ -219,17 +219,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Mehrstufige Liste erstellen**
+### **Eine mehrstufige Liste erstellen**
 
 Setzen Sie [ParagraphFormat.setDepth](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setDepth), um Absätze auf verschiedenen Ebenen einer Liste zu platzieren. Die oberste Ebene hat die Tiefe `0`.
 
 1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) und greifen Sie eine Folie ab.
-2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu und löschen Sie den Standardabsatz aus dessen TextFrame.
+2. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu und entfernen Sie den Standardabsatz aus dessen Textfeld.
 3. Erstellen Sie vier Absätze und konfigurieren Sie deren Aufzählungssymbole.
 4. Setzen Sie deren [ParagraphFormat.setDepth](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setDepth)‑Werte auf `0`, `1`, `2` und `3`.
-5. Fügen Sie die Absätze dem TextFrame hinzu und speichern Sie die Präsentation.
-
-Dieses Python‑Beispiel erstellt eine vierstufige Aufzählungsliste:
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
 ```python
 import jpype
@@ -284,17 +282,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Nummerierte Listenelemente mit benutzerdefinierten Werten beginnen**
+### **Nummerierte Listenelemente mit benutzerdefinierten Werten starten**
 
-Verwenden Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith), um die anfängliche Nummer für einen nummerierten Absatz festzulegen.
+Verwenden Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith), um die für einen nummerierten Absatz angezeigte Anfangszahl festzulegen.
 
 1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) und fügen Sie einer Folie ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu.
-2. Löschen Sie den Standardabsatz aus dem TextFrame der Form.
+2. Entfernen Sie den Standardabsatz aus dem Textfeld der Form.
 3. Erstellen Sie drei nummerierte Absätze.
-4. Setzen Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) für die jeweiligen Absätze auf `2`, `3` bzw. `7`.
-5. Fügen Sie die Absätze dem TextFrame hinzu und speichern Sie die Präsentation.
-
-Dieses Python‑Beispiel weist jedem Absatz eine benutzerdefinierte Startnummer zu:
+4. Setzen Sie [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) für die jeweiligen Absätze auf `2`, `3` und `7`.
+5. Fügen Sie die Absätze dem Textfeld hinzu und speichern Sie die Präsentation.
 
 ```python
 import jpype
@@ -333,23 +329,23 @@ finally:
 
 ## **Absatzlayout und End‑Eigenschaften steuern**
 
-### **Einrückung der ersten Zeile festlegen**
+### **Ein Erstzeileneinzug festlegen**
 
-Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent), um die Einrückung der ersten Zeile eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die restlichen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent), um den Erstzeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
 
-Verwenden Sie [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setMarginLeft), wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent), wenn Sie nur die erste Zeile verschieben möchten.
+Verwenden Sie [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setMarginLeft), wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent), wenn Sie nur die erste Zeile verschieben wollen.
 
-Das nachstehende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [ParagraphFormat.setIndent]‑Werte an, um zu demonstrieren, wie die Einrückung der ersten Zeile das Absatzlayout beeinflusst.
+Das folgende Beispiel erstellt mehrere Absätze und wendet unterschiedliche [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent)‑Werte an, um zu demonstrieren, wie sich der Erstzeileneinzug auf das Absatzlayout auswirkt.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/).
 2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame] der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent)‑Werte für sie.
-6. Fügen Sie die Absätze dem TextFrame hinzu.
-7. Speichern Sie die geänderte Präsentation.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
+5. Erstellen Sie mehrere Absätze und setzen Sie für sie unterschiedliche [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent)‑Werte.
+6. Fügen Sie die Absätze dem Textfeld hinzu.
+7. Speichern Sie die modifizierte Präsentation.
 
-Dieser Code zeigt, wie man eine Absatz‑Einrückung festlegt:
+Dieser Code zeigt, wie Sie einen Absatz‑Einzug festlegen:
 
 ```python
 import jpype
@@ -379,13 +375,13 @@ try:
     first_paragraph.getParagraphFormat().setIndent(0.0)
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
     third_paragraph = Paragraph()
     third_paragraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.")
-    third_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     third_paragraph.getParagraphFormat().setMarginLeft(20.0)
     third_paragraph.getParagraphFormat().setIndent(40.0)
@@ -399,26 +395,26 @@ finally:
 
 Das Ergebnis:
 
-![Die Einrückung der ersten Zeile der Absätze](first_line_indent.png)
+![Der Erstzeileneinzug der Absätze](first_line_indent.png)
 
-### **Hängende Einrückung festlegen**
+### **Einen hängenden Einzug festlegen**
 
-Eine hängende Einrückung ist ein Absatzlayout, bei dem die erste Zeile links von den restlichen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent). Übergeben Sie einen negativen Wert, um die erste Zeile relativ zum Absatzkörper nach links zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent). Übergeben Sie einen negativen Wert, um die erste Zeile relativ zum Absatzkörper nach links zu verschieben.
 
-In der Praxis definiert [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setMarginLeft) die linke Position des Absatzkörpers und [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent) die Position der ersten Zeile relativ zu diesem Rand. Um eine hängende Einrückung zu erzeugen, übergeben Sie einen positiven Wert an [ParagraphFormat.setMarginLeft] und einen negativen Wert an [ParagraphFormat.setIndent].
+In der Praxis legt [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setMarginLeft) die linke Position des Absatzkörpers fest, und [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, übergeben Sie einen positiven Wert an [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setMarginLeft) und einen negativen Wert an [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent).
 
-Diese Formatierung ist nützlich für Bibliografien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
+Diese Formatierung ist nützlich für Bibliografien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper ausgerichtet sein müssen, nicht unter dem ersten Zeichen der ersten Zeile.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/).
 2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu.
-4. Greifen Sie auf das [TextFrame] der Form zu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie Absätze und übergeben Sie für jeden Absatz einen positiven Wert an [ParagraphFormat.setMarginLeft].
-6. Übergeben Sie einen negativen Wert an [ParagraphFormat.setIndent], um den Effekt der hängenden Einrückung zu erzeugen.
-7. Fügen Sie die Absätze dem TextFrame hinzu.
-8. Speichern Sie die geänderte Präsentation.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
+5. Erstellen Sie Absätze und übergeben Sie für jeden Absatz einen positiven Wert an [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setMarginLeft).
+6. Übergeben Sie einen negativen Wert an [ParagraphFormat.setIndent](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setIndent), um den hängenden Einzug zu erzeugen.
+7. Fügen Sie die Absätze dem Textfeld hinzu.
+8. Speichern Sie die modifizierte Präsentation.
 
-Dieser Code zeigt, wie man für einen Absatz eine hängende Einrückung festlegt:
+Dieser Code zeigt, wie Sie einen hängenden Einzug für einen Absatz festlegen:
 
 ```python
 import jpype
@@ -461,9 +457,9 @@ finally:
 
 Das Ergebnis:
 
-![Die hängende Einrückung der Absätze](hanging_indent.png)
+![Der hängende Einzug der Absätze](hanging_indent.png)
 
-### **Endabsatz‑Lauf‑Eigenschaften festlegen**
+### **Endparagraph‑Lauf‑Eigenschaften festlegen**
 
 [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) steuert die Formatierung des Absatzendzeichens. Das folgende Beispiel weist dem Endzeichen des zweiten Absatzes eine Schriftgröße und eine lateinische Schrift zu:
 
@@ -509,11 +505,13 @@ finally:
 
 ## **Gerenderte Zeilen zählen**
 
-Verwenden Sie [Paragraph.getLinesCount](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/#getLinesCount), um die nach der Textlayout‑Phase von einem Absatz belegten Zeilen zu zählen, einschließlich automatischem Zeilenumbruch. Dies ist nützlich beim Überprüfen von Textlänge und Layout in Präsentationsvorlagen.
+Für Absatzregeln, die automatischen Zeilenumbruch und Interpunktion am Zeilenende beeinflussen, siehe [Control Line Breaking](/slides/de/python-java/text-formatting/#control-line-breaking) und [Control Hanging Punctuation](/slides/de/python-java/text-formatting/#control-hanging-punctuation).
 
-Ein Absatz ist ein Element in [TextFrame.getParagraphs](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/#getParagraphs) und kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatischer Zeilenumbruch erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbrüche in den Text einzufügen. Das Zählen von Absätzen oder Zeilenumbruchs‑Zeichen liefert somit nicht die gerenderte Zeilenzahl.
+Verwenden Sie [Paragraph.getLinesCount](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/#getLinesCount), um die von einem Absatz nach Textlayout belegten Zeilen zu zählen, einschließlich automatischem Umbruch. Dies ist nützlich, um Textlänge und Layout in Präsentationsvorlagen zu prüfen.
 
-Das folgende Beispiel erstellt eine Textform, zählt deren Zeilen, verkleinert die Form und ersetzt anschließend den Text durch einen kürzeren String. Zeilenumbruch ist aktiviert und Autofit deaktiviert, sodass die Breite der Form den Umbruch steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Die Formabmessungen werden in Punkten angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen über das TextFrame.
+Ein Absatz ist ein Element in [TextFrame.getParagraphs](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/#getParagraphs), und er kann mehrere gerenderte Zeilen belegen. Ein expliziter Zeilenumbruch innerhalb eines Absatzes erzwingt eine neue Zeile, ohne einen weiteren Absatz zu erzeugen. Automatischer Umbruch erzeugt Zeilen basierend auf der verfügbaren Breite, ohne explizite Zeilenumbruch‑Zeichen in den Text einzufügen. Das Zählen von Absätzen oder Zeilenumbruch‑Zeichen liefert daher nicht die gerenderte Zeilenzahl.
+
+Das folgende Beispiel erstellt eine Textform, zählt deren Zeilen, verkleinert die Form und ersetzt anschließend den Text durch einen kürzeren String. Der Umbruch ist aktiviert und AutoFit deaktiviert, sodass die Formbreite den Umbruch steuert, ohne den Text automatisch zu verkleinern oder die Form zu skalieren. Die Formabmessungen sind in Punkt angegeben. Abschließend fügt das Beispiel einen weiteren Absatz hinzu und summiert die Zeilenzahlen im Textfeld.
 
 ```python
 import jpype
@@ -557,24 +555,22 @@ finally:
     presentation.dispose()
 ```
 
-Mit diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch den kurzen String sie reduziert. Exakte Zählungen können je nach Schriftverfügbarkeit und -ersetzung, Schriftgröße, Rändern, Einrückung, Zeilenumbruch und Autofit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriftarten und Layouteinstellungen, wenn Sie eine Vorlage prüfen.
+Bei diesem Text und diesen Abmessungen erhöht das Verengen der Form die Zeilenzahl, während das Ersetzen des Textes durch den kurzen String sie verringert. Exakte Zählungen können je nach Schriftverfügbarkeit und -ersetzung, Schriftgröße, Rändern, Einzügen, Umbruch‑ und AutoFit‑Einstellungen variieren. Verwenden Sie die für die Zielumgebung vorgesehenen Schriften und Layout‑Einstellungen beim Prüfen einer Vorlage.
 
-Die Zeilenzahl allein bestimmt nicht, ob Text seinen Container überläuft. Auch die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das Autofit‑Verhalten sind relevant; selbst eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn Zeilenumbruch deaktiviert ist.
+Die Zeilenzahl allein bestimmt nicht, ob der Text seinen Container überläuft. Die verfügbare Höhe, Zeilenhöhen, Absatz‑ und Zeilenabstände sowie das AutoFit‑Verhalten sind ebenfalls wichtig; selbst eine einzelne Zeile kann die verfügbare Breite überschreiten, wenn der Umbruch deaktiviert ist.
 
 ## **Absatzinhalt importieren und exportieren**
 
 ### **HTML‑Text in Absätze importieren**
 
-Verwenden Sie [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphcollection/#addFromHtml), um HTML‑Markup in Absätze und Portionen eines TextFrames zu konvertieren.
+Verwenden Sie [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphcollection/#addFromHtml), um HTML‑Markup in Absätze und Portionen in einem Textfeld zu konvertieren.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/).
 2. Greifen Sie eine Folie ab und fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) hinzu.
-3. Greifen Sie auf das [TextFrame] der Form zu und löschen Sie den Standardabsatz.
+3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) der Form zu und entfernen Sie den Standardabsatz.
 4. Lesen Sie die Quell‑HTML‑Datei.
-5. Übergeben Sie den HTML‑String an [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphcollection/#addFromHtml).
-6. Speichern Sie die geänderte Präsentation.
-
-Dieses Python‑Beispiel importiert HTML in ein Textfeld:
+5. Übergeben Sie die HTML‑Zeichenkette an [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphcollection/#addFromHtml).
+6. Speichern Sie die modifizierte Präsentation.
 
 ```python
 import jpype
@@ -610,11 +606,9 @@ Verwenden Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/sl
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) und laden Sie die gewünschte Präsentation.
 2. Greifen Sie die Folie ab und finden Sie das [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/), das den Text enthält.
-3. Greifen Sie auf das [TextFrame] der Form zu.
+3. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframe/) der Form zu.
 4. Rufen Sie [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphcollection/#exportToHtml) mit dem Start‑Absatz‑Index und der Anzahl der zu exportierenden Absätze auf.
-5. Schreiben Sie den zurückgegebenen HTML‑String in eine Datei.
-
-Dieses Python‑Beispiel exportiert alle Absätze aus dem ersten Textfeld:
+5. Schreiben Sie die zurückgegebene HTML‑Zeichenkette in eine Datei.
 
 ```python
 import jpype
@@ -651,15 +645,15 @@ finally:
 
 [Paragraph.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) rendert einen einzelnen Absatz direkt und gibt ein Bildobjekt zurück. Speichern Sie das Ergebnis mit der Methode `save` in einer Datei oder einem Stream. Sie müssen nicht die enthaltende Form rendern oder ein Bitmap manuell zuschneiden.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) kann `None` zurückgeben, wenn der Absatz in seiner übergeordneten Sammlung nicht gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis vor dem Speichern und geben Sie das zurückgegebene Bild nach Gebrauch wieder frei.
+[Paragraph.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) kann `None` zurückgeben, wenn der Absatz nicht in seiner übergeordneten Sammlung gefunden wird, keine gültigen Render‑Grenzen hat oder nicht gerendert werden kann. Prüfen Sie das Ergebnis, bevor Sie es speichern, und geben Sie das zurückgegebene Bild nach der Verwendung frei.
 
-#### **Absatz mit Standardskala rendern**
+#### **Einen Absatz im Standardmaßstab rendern**
 
-Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, wobei die erste Form ein Textfeld mit drei Absätzen ist.
+Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, bei der die erste Form ein Textfeld mit drei Absätzen ist.
 
 ![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
 
-Das folgende Beispiel rendert den zweiten Absatz in einem normalen Textfeld mit der Standardskala und speichert das zurückgegebene Bild im PNG‑Format. Der `finally`‑Block sorgt dafür, dass das Bild korrekt freigegeben wird.
+Das folgende Beispiel rendert den zweiten Absatz in einer normalen Textform im Standardmaßstab und speichert das zurückgegebene Bild im PNG‑Format. Der `finally`‑Block sorgt dafür, dass das Bild korrekt freigegeben wird.
 
 ```python
 import jpype
@@ -698,9 +692,9 @@ Das Ergebnis:
 
 ![Das Absatzbild](paragraph_to_image_output.png)
 
-#### **Absatz in einer Tabellenzelle mit Skalierung rendern**
+#### **Einen Absatz in einer Tabellenzelle mit Skalierung rendern**
 
-Verwenden Sie die Überladung von [Paragraph.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/), die die Parameter `scale_x` und `scale_y` akzeptiert, um die horizontale und vertikale Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in der ersten Zelle mit dem doppelten der Standard‑Breite und -Höhe und speichert das Ergebnis als PNG‑Bild.
+Verwenden Sie die Überladung von [Paragraph.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/) die die Parameter `scale_x` und `scale_y` akzeptiert, um die horizontalen und vertikalen Skalierungsfaktoren festzulegen. Das folgende Beispiel erstellt eine Tabelle, rendert den Absatz in deren erster Zelle mit der doppelten Standardbreite und -höhe und speichert das Ergebnis als PNG‑Bild.
 
 ```python
 import jpype
@@ -731,23 +725,23 @@ finally:
     presentation.dispose()
 ```
 
-Ein Skalierungsfaktor von `1` hält die jeweilige Achse bei ihrer Standard‑Pixelgröße. Zum Beispiel erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa doppelt so groß sind wie die Standard‑Abmessungen, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Vergrößerungen oder hochauflösende Ausgaben, erhöhen jedoch Speicherverbrauch und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes beizubehalten; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe unabhängig voneinander.
+Ein Skalierungsfaktor von `1` behält diese Achse bei ihrer Standard‑Pixelgröße. Zum Beispiel erzeugt `2` für beide Faktoren ein Bild, dessen Breite und Höhe etwa das Doppelte der Standardmaße betragen, was zu viermal so vielen Pixeln führt. Größere Faktoren erzeugen im Allgemeinen schärferen Text für Zoom‑ oder hochauflösende Ausgaben, erhöhen jedoch Speicherverbrauch und Dateigröße. Faktoren unter `1` erzeugen kleinere Bilder mit weniger Details. Verwenden Sie gleiche Faktoren, um das Seitenverhältnis des Absatzes beizubehalten; unterschiedliche horizontale und vertikale Faktoren strecken die Ausgabe separat.
 
-Das Rendern einer gesamten Form mit [Shape.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getImage) bleibt nützlich, wenn die Ausgabe die Füllung, den Rand oder anderen visuellen Kontext der Form enthalten muss. Für ein Bild, das nur den Absatz enthält, verwenden Sie [Paragraph.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/).
+Das Rendern einer gesamten Form mit [Shape.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getImage) bleibt nützlich, wenn die Ausgabe die Füllung, den Rand oder anderen visuellen Kontext der Form enthalten muss. Für ein Bild, das ausschließlich den Absatz enthält, verwenden Sie [Paragraph.getImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/).
 
 ## **FAQ**
 
-**Kann ich das Zeilenumbruch in einem Textfeld vollständig deaktivieren?**
+**Kann ich den automatischen Zeilenumbruch innerhalb eines Textfeldes vollständig deaktivieren?**
 
-Ja. Setzen Sie [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframeformat/#setWrapText), um den Umbruch zu deaktivieren, sodass Zeilen nicht an den Rändern des Textfelds umgebrochen werden.
+Ja. Setzen Sie [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/de/python-java/aspose.slides/textframeformat/#setWrapText), um den Umbruch zu deaktivieren, sodass Zeilen nicht an den Rändern des Textfeldes umgebrochen werden.
 
-**Wie kann ich die genauen On‑Slide‑Grenzen eines bestimmten Absatzes erhalten?**
+**Wie kann ich die genauen Folien‑Grenzen eines bestimmten Absatzes ermitteln?**
 
 Verwenden Sie [Paragraph.getRect](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraph/#getRect), um das Begrenzungsrechteck des Absatzes abzurufen. [Portion.getRect](https://reference.aspose.com/slides/de/python-java/aspose.slides/portion/#getRect) liefert die Grenzen einer einzelnen Portion.
 
 **Wo wird die Absatzausrichtung (links, rechts, zentriert oder Blocksatz) gesteuert?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setAlignment) ist eine Absatz‑Einstellung und gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/de/python-java/aspose.slides/paragraphformat/#setAlignment) ist eine Absatz‑Einstellung und gilt für den gesamten Absatz, ungeachtet der Formatierung einzelner Portionen.
 
 **Kann ich die Korrektursprache für einen Teil eines Absatzes festlegen?**
 

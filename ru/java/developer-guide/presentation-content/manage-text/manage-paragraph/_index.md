@@ -1,5 +1,5 @@
 ---
-title: Управление текстовыми абзацами PowerPoint в Java
+title: Управление абзацами текста PowerPoint в Java
 linktitle: Управление абзацем
 type: docs
 weight: 40
@@ -10,9 +10,9 @@ aliases:
 keywords:
 - добавить текст
 - добавить абзац
-- управлять текстом
-- управлять абзацем
-- управлять маркером
+- управление текстом
+- управление абзацем
+- управление маркером
 - отступ абзаца
 - висячий отступ
 - маркер абзаца
@@ -37,22 +37,22 @@ Aspose.Slides for Java представляет текст как иерархи
 
 * [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) представляет контейнер текста в фигуре и предоставляет доступ к её коллекции абзацев.
 * [IParagraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/) представляет один абзац в текстовом фрейме и предоставляет доступ к его фрагментам и форматированию уровня абзаца.
-* [IPortion](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportion/) представляет последовательность текста внутри абзаца. Каждый фрагмент может иметь собственный текст и форматирование уровня символов.
+* [IPortion](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportion/) представляет текстовый фрагмент внутри абзаца. Каждый фрагмент может иметь собственный текст и форматирование уровня символов.
 
-Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько фрагментов.
+Таким образом, абзац может содержать текст разными шрифтами, цветами, размерами и другим форматированием, используя несколько фрагментов.
 
 ## **Создание и форматирование абзацев**
 
 ### **Создание абзацев с несколькими фрагментами**
 
-Следующие шаги создают текстовый фрейм с тремя абзацами, каждый из которых содержит три фрагмента:
+Следующие шаги создают текстовый фрейм с тремя абзацами, каждый из которых содержит по три фрагмента:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/).
-2. Получите доступ к нужному слайду по его индексу.
+2. Получите нужный слайд по его индексу.
 3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) на слайд.
-4. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) формы.
-5. Используйте абзац по умолчанию и добавьте ещё два объекта [IParagraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/) в текстовый фрейм.
-6. Добавьте достаточное количество объектов [IPortion](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportion/) для каждого абзаца, чтобы они содержали по три фрагмента. Абзац по умолчанию уже содержит один пустой фрагмент.
+4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) фигуры.
+5. Используйте абзац по умолчанию и добавьте два дополнительных объекта [IParagraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/) в текстовый фрейм.
+6. Добавьте достаточное количество объектов [IPortion](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportion/) для каждого абзаца, чтобы в нём было три фрагмента. Абзац по умолчанию уже содержит один пустой фрагмент.
 7. Установите текст для каждого фрагмента.
 8. Примените форматирование уровня символов через [IPortion.getPortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportion/#getPortionFormat--).
 9. Сохраните изменённую презентацию.
@@ -117,22 +117,22 @@ try {
 
 ### **Создание маркированного или нумерованного списка**
 
-Маркированные списки и нумерация облегчают просмотр связанных элементов. В Aspose.Slides настройки списка определяются через [IBulletFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/).
+Маркеры и нумерация упрощают восприятие связанных элементов. В Aspose.Slides настройки списка определяются через [IBulletFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/).
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/).
-2. Получите доступ к нужному слайду по его индексу.
-3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) к выбранному слайду.
-4. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) формы.
+2. Получите нужный слайд по его индексу.
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) на выбранный слайд.
+4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) фигуры.
 5. Удалите абзац по умолчанию из текстового фрейма.
 6. Создайте [Paragraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraph/) для символа маркера.
-7. Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-int-) в [BulletType.Symbol](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/) и укажите символ маркера.
+7. Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-int-) в значение [BulletType.Symbol](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/) и укажите символ маркера.
 8. Установите текст абзаца, отступ, цвет маркера и высоту маркера.
 9. Добавьте абзац в текстовый фрейм.
-10. Создайте второй абзац и установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-int-) в [BulletType.Numbered](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/).
+10. Создайте второй абзац и установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-int-) в значение [BulletType.Numbered](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/).
 11. Настройте стиль нумерованного маркера и добавьте абзац в текстовый фрейм.
 12. Сохраните презентацию.
 
-Этот пример на Java создаёт символный маркер и нумерованный маркер:
+Этот пример на Java создаёт символический маркер и нумерованный маркер:
 
 ```java
 import com.aspose.slides.*;
@@ -173,22 +173,18 @@ try {
 }
 ```
 
-### **Использование графических маркеров**
-
-Графические маркеры позволяют использовать собственное изображение вместо символа или числа.
+### **Использование изображений в качестве маркеров**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/).
-2. Получите доступ к нужному слайду по его индексу.
-3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) и получите доступ к его [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/).
+2. Получите нужный слайд по его индексу.
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) и получите его [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/).
 4. Удалите абзац по умолчанию из текстового фрейма.
 5. Загрузите изображение маркера и добавьте его в коллекцию изображений презентации как [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/).
-6. Создайте [Paragraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraph/) и установите его текст.
-7. Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-int-) в [BulletType.Picture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/).
-8. Назначьте изображение через [IBulletFormat.getPicture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#getPicture--) и установите высоту маркера.
+6. Создайте [Paragraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraph/) и задайте его текст.
+7. Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-int-) в значение [BulletType.Picture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/).
+8. Назначьте изображение через [IBulletFormat.getPicture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#getPicture--) и задайте высоту маркера.
 9. Добавьте абзац в текстовый фрейм.
 10. Сохраните изменённую презентацию.
-
-Этот пример на Java создаёт графический маркер:
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +221,13 @@ try {
 
 ### **Создание многоуровневого списка**
 
-Установите [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setDepth-short-) , чтобы разместить абзацы на разных уровнях списка. Верхний уровень имеет глубину `0`.
+Установите [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setDepth-short-) для размещения абзацев на разных уровнях списка. Верхний уровень имеет глубину `0`.
 
-1. Создайте [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и получите доступ к слайду.
-2. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) и удалите абзац по умолчанию из его текстового фрейма.
+1. Создайте [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и получите слайд.
+2. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) и очистите абзац по умолчанию из его текстового фрейма.
 3. Создайте четыре абзаца и настройте их символы маркеров.
-4. Установите их значения [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setDepth-short-) в `0`, `1`, `2` и `3`.
+4. Установите их значения [IParagraphFormat.setDepth] в `0`, `1`, `2` и `3`.
 5. Добавьте абзацы в текстовый фрейм и сохраните презентацию.
-
-Этот пример на Java создаёт четырёхуровневый маркированный список:
 
 ```java
 import com.aspose.slides.*;
@@ -289,17 +283,15 @@ try {
 }
 ```
 
-### **Начало нумерованных пунктов списка с пользовательских значений**
+### **Начало нумерованных элементов списка с пользовательских значений**
 
-Используйте [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) , чтобы задать начальный номер, отображаемый для нумерованного абзаца.
+Используйте [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) для установки начального номера, отображаемого для нумерованного абзаца.
 
 1. Создайте [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) на слайд.
-2. Удалите абзац по умолчанию из текстового фрейма формы.
+2. Очистите абзац по умолчанию из текстового фрейма фигуры.
 3. Создайте три нумерованных абзаца.
-4. Установите [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) в `2`, `3` и `7` для соответствующих абзацев.
+4. Установите [IBulletFormat.setNumberedBulletStartWith] в `2`, `3` и `7` для соответствующих абзацев.
 5. Добавьте абзацы в текстовый фрейм и сохраните презентацию.
-
-Этот пример на Java назначает пользовательский начальный номер каждому абзацу:
 
 ```java
 import com.aspose.slides.*;
@@ -339,21 +331,19 @@ try {
 
 ### **Установка отступа первой строки**
 
-Используйте [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , чтобы управлять отступом первой строки абзаца. Этот метод перемещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, в то время как остальные строки остаются выровнены по телу абзаца.
+Используйте [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) для управления отступом первой строки абзаца. Этот метод перемещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, остальные строки остаются выровненными по телу абзаца.
 
-Используйте [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) , когда необходимо переместить весь абзац. Используйте [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , когда нужно переместить только первую строку.
+Используйте [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) когда нужно переместить весь абзац. Используйте [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) когда нужно переместить только первую строку.
 
-Ниже приведён пример, создающий несколько абзацев и применяющий различные значения [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , чтобы продемонстрировать, как отступ первой строки влияет на макет абзаца.
+Пример ниже создаёт несколько абзацев и применяет разные значения [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) для демонстрации влияния отступа первой строки на макет абзаца.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/).
-2. Получите доступ к целевому слайду.
+2. Получите целевой слайд.
 3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) на слайд.
-4. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) формы и удалите абзац по умолчанию.
-5. Создайте несколько абзацев и задайте им различные значения [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-).
+4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) фигуры и удалите абзац по умолчанию.
+5. Создайте несколько абзацев и задайте им различные значения [IParagraphFormat.setIndent].
 6. Добавьте абзацы в текстовый фрейм.
 7. Сохраните изменённую презентацию.
-
-Этот код показывает, как установить отступ абзаца:
 
 ```java
 import com.aspose.slides.*;
@@ -409,22 +399,20 @@ try {
 
 ### **Установка висячего отступа**
 
-Висячий отступ — это макет абзаца, при котором первая строка начинается левее остальных строк. В Aspose.Slides вы создаёте этот эффект с помощью [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Передайте отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
+Висячий отступ — это макет абзаца, при котором первая строка начинается левее остальных строк. В Aspose.Slides создаётся с помощью [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Передайте отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
 
-На практике [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) определяет левую позицию тела абзаца, а [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) определяет позицию первой строки относительно этого поля. Чтобы создать висячий отступ, передайте положительное значение `setMarginLeft` и отрицательное значение `setIndent`.
+На практике [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) определяет левую позицию тела абзаца, а [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) — позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение `setMarginLeft` и отрицательное значение `setIndent`.
 
-Такое форматирование полезно для библиографий, ссылок, глоссарных записей и других абзацев, где перенесённые строки должны выравниваться под телом абзаца, а не под первым символом первой строки.
+Это форматирование удобно для библиографий, ссылок, статей глоссария и других абзацев, где строки‑переносы должны выравниваться под телом абзаца, а не под первым символом первой строки.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/).
-2. Получите доступ к целевому слайду.
+2. Получите целевой слайд.
 3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) на слайд.
-4. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) формы и удалите абзац по умолчанию.
-5. Создайте абзацы и передайте положительное значение [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) для каждого абзаца.
-6. Передайте отрицательное значение [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setIndent-float-) , чтобы создать эффект висячего отступа.
+4. Получите [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) фигуры и удалите абзац по умолчанию.
+5. Создайте абзацы и передайте положительное значение в [IParagraphFormat.setMarginLeft] для каждого абзаца.
+6. Передайте отрицательное значение в [IParagraphFormat.setIndent] для создания эффекта висячего отступа.
 7. Добавьте абзацы в текстовый фрейм.
 8. Сохраните изменённую презентацию.
-
-Этот код показывает, как установить висячий отступ для абзаца:
 
 ```java
 import com.aspose.slides.*;
@@ -470,16 +458,16 @@ try {
 
 ![Висячий отступ абзацев](hanging_indent.png)
 
-### **Установка свойств конечного фрагмента абзаца**
+### **Установка свойств конца абзаца**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) управляет форматированием знака конца абзаца. Следующий пример назначает размер шрифта и латинский шрифт знаку конца второго абзаца:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) управляет форматированием конечного маркера абзаца. В следующем примере задаётся размер шрифта и латинский шрифт для конечного маркера второго абзаца:
 
-1. Загрузите [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и получите доступ к слайду.
+1. Загрузите [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и получите слайд.
 2. Добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) и очистите его абзац по умолчанию.
 3. Создайте два абзаца и добавьте к ним текстовые фрагменты.
-4. Создайте [PortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/portionformat/) для знака конца второго абзаца.
+4. Создайте [PortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/portionformat/) для конечного маркера второго абзаца.
 5. Установите [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) и [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Назначьте формат с помощью [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) и сохраните презентацию.
+6. Присвойте формат с помощью [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) и сохраните презентацию.
 
 ```java
 import com.aspose.slides.*;
@@ -511,13 +499,15 @@ try {
 }
 ```
 
-## **Подсчёт отрендеренных строк**
+## **Подсчёт отрисованных строк**
 
-Используйте [IParagraph.getLinesCount](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getLinesCount--) , чтобы подсчитать строки, занимаемые абзацем после размещения текста, включая автоматический перенос. Это полезно при проверке длины текста и макета в шаблонах презентаций.
+Для правил абзаца, влияющих на автоматический перенос и пунктуацию в концах строк, см. [Control Line Breaking](/slides/ru/java/text-formatting/#control-line-breaking) и [Control Hanging Punctuation](/slides/ru/java/text-formatting/#control-hanging-punctuation).
 
-Абзац является одним элементом в [ITextFrame.getParagraphs](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#getParagraphs--) и может занимать несколько отрендеренных строк. Явный разрыв строки внутри абзаца заставляет перейти на новую строку без создания отдельного абзаца. Автоматический перенос создает строки на основе доступной ширины без вставки явных разрывов строк в текст. Поэтому подсчёт абзацев или символов разрыва строк не даёт количества отрендеренных строк.
+Используйте [IParagraph.getLinesCount](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getLinesCount--) для подсчёта строк, занимаемых абзацем после раскладки текста, включая автоматический перенос. Это полезно при проверке длины текста и макета в шаблонах презентаций.
 
-Следующий пример создаёт текстовую форму, подсчитывает её строки, сужает форму, а затем заменяет текст более короткой строкой. Перенос включён, а автообрезка отключена, чтобы ширина формы контролировала перенос без автоматического уменьшения текста или изменения размеров формы. Размеры формы указаны в пунктах. В конце пример добавляет ещё один абзац и суммирует количество строк по всему текстовому фрейму.
+Абзац — это один элемент в [ITextFrame.getParagraphs](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#getParagraphs--), и он может занимать несколько отрисованных строк. Явный разрыв строки внутри абзаца заставляет перейти на новую строку без создания нового абзаца. Автоматический перенос создаёт строки на основе доступной ширины без вставки явных разрывов в текст. Поэтому подсчёт абзацев или символов разрыва строки не даёт реального количества отрисованных строк.
+
+Следующий пример создаёт текстовую фигуру, считает её строки, сужает фигуру, а затем заменяет текст более короткой строкой. Перенос включён, автоподгонка отключена, поэтому ширина фигуры контролирует перенос без автоматического сжатия текста или изменения размеров фигуры. Размеры указаны в пунктах. Затем пример добавляет ещё один абзац и суммирует количество строк во всём текстовом фрейме.
 
 ```java
 import com.aspose.slides.*;
@@ -557,24 +547,22 @@ try {
 }
 ```
 
-При таком тексте и этих размерах сужение формы увеличивает количество строк, а замена текста короткой строкой уменьшает его. Точные подсчёты могут варьироваться в зависимости от доступности и замены шрифтов, размера шрифта, полей, отступов, переноса и настроек автообрезки. При проверке шаблона используйте шрифты и настройки макета, предназначенные для целевой среды.
+С указанным текстом и размерами сужение фигуры увеличивает количество строк, а замена текста короткой строкой уменьшает его. Точные счётчики могут варьироваться в зависимости от доступных шрифтов и их замен, размера шрифта, полей, отступов, переноса и настроек автоподгонки. При проверке шаблона используйте шрифты и параметры макета, предназначенные для целевой среды.
 
-Только количество строк не определяет, выходит ли текст за пределы контейнера. Важны также доступная высота, высота строк, межабзацевый и межстрочный интервал, а также поведение автообрезки; даже одна строка может превышать доступную ширину при отключённом переносе.
+Само количество строк не определяет, выходит ли текст за пределы контейнера. Важны доступная высота, высота строк, интервалы между абзацами и строками, а также поведение автоподгонки; даже одна строка может превысить доступную ширину, если перенос отключён.
 
 ## **Импорт и экспорт содержимого абзаца**
 
-### **Импорт HTML-текста в абзацы**
+### **Импорт HTML‑текста в абзацы**
 
-Используйте [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) , чтобы преобразовать разметку HTML в абзацы и фрагменты в текстовом фрейме.
+Используйте [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) для преобразования HTML‑разметки в абзацы и фрагменты внутри текстового фрейма.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/).
-2. Получите доступ к слайду и добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/).
-3. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) формы и очистите его абзац по умолчанию.
-4. Прочитайте исходный HTML-файл.
+2. Получите слайд и добавьте [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/).
+3. Получите [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) фигуры и очистите его абзац по умолчанию.
+4. Прочитайте исходный HTML‑файл.
 5. Передайте строку HTML в [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Сохраните изменённую презентацию.
-
-Этот пример на Java импортирует HTML в текстовый фрейм:
 
 ```java
 import com.aspose.slides.*;
@@ -607,15 +595,13 @@ try {
 
 ### **Экспорт текста абзаца в HTML**
 
-Используйте [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) , чтобы экспортировать выбранный диапазон абзацев в виде HTML.
+Используйте [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) для экспорта выбранного диапазона абзацев в HTML.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и загрузите необходимую презентацию.
-2. Получите доступ к слайду и найдите [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) , содержащий текст.
-3. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/).
-4. Вызовите [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions/) , указав индекс начального абзаца и количество абзацев для экспорта.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и загрузите нужную презентацию.
+2. Получите слайд и найдите [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/), содержащий текст.
+3. Получите [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/).
+4. Вызовите [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ru/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) с индексом начального абзаца и количеством абзацев для экспорта.
 5. Запишите возвращённую строку HTML в файл.
-
-Этот пример на Java экспортирует все абзацы из первой текстовой формы:
 
 ```java
 import com.aspose.slides.*;
@@ -650,19 +636,19 @@ try {
 }
 ```
 
-### **Отрисовка абзаца в виде изображения**
+### **Отображение абзаца как изображения**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage--) непосредственно отрисовывает отдельный абзац и возвращает [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/). Сохраните результат в файл или поток с помощью [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/#save-java.lang.String-int-) . Нет необходимости отрисовывать содержащую форму или вручную обрезать растровое изображение.
+[IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage--) отображает отдельный абзац напрямую и возвращает [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/). Сохраните результат в файл или поток с помощью [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Не требуется рендерить содержащую фигуру или вручную обрезать bitmap.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage--) может вернуть `null`, если абзац не найден в родительской коллекции, не имеет корректных границ отрисовки или не может быть отрисован. Проверьте результат перед сохранением и освободите возвращённое изображение после использования.
+[IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage--) может вернуть `null`, если абзац не найден в родительской коллекции, не имеет корректных границ рендеринга или не может быть отрендерен. Проверьте результат перед сохранением и освободите полученное изображение после использования.
 
-#### **Отрисовка абзаца в масштабе по умолчанию**
+#### **Отображение абзаца в масштабе по умолчанию**
 
-Предположим, у нас есть файл презентации sample.pptx с одним слайдом, где первая форма — это текстовое поле, содержащее три абзаца.
+Предположим, у нас есть файл презентации sample.pptx с одним слайдом, где первая фигура — текстовое поле с тремя абзацами.
 
 ![Текстовое поле с тремя абзацами](paragraph_to_image_input.png)
 
-Следующий пример отрисовывает второй абзац в обычной текстовой форме в масштабе по умолчанию и сохраняет полученное изображение в формате PNG. Блок `finally` гарантирует корректное освобождение изображения.
+Следующий пример отображает второй абзац в обычной текстовой фигуре в масштабе по умолчанию и сохраняет полученное изображение в формате PNG. Блок `finally` гарантирует правильное освобождение изображения.
 
 ```java
 import com.aspose.slides.*;
@@ -702,9 +688,9 @@ try {
 
 ![Изображение абзаца](paragraph_to_image_output.png)
 
-#### **Отрисовка абзаца в ячейке таблицы с масштабированием**
+#### **Отображение абзаца в ячейке таблицы с масштабированием**
 
-Используйте перегрузку [IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage-float-float-) , принимающую параметры `float scaleX` и `float scaleY`, чтобы задать горизонтальные и вертикальные коэффициенты масштабирования. Следующий пример создаёт таблицу, отрисовывает абзац в её первой ячейке с двойной шириной и высотой по сравнению с масштабом по умолчанию и сохраняет результат в виде PNG‑изображения.
+Используйте перегрузку [IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage-float-float-) с параметрами `float scaleX` и `float scaleY` для установки горизонтального и вертикального коэффициентов масштабирования. Пример создаёт таблицу, рендерит абзац в её первой ячейке с двойной шириной и высотой по сравнению с масштабом по умолчанию и сохраняет результат в PNG‑изображение.
 
 ```java
 import com.aspose.slides.*;
@@ -734,24 +720,24 @@ try {
 }
 ```
 
-Коэффициент масштабирования `1` сохраняет размер оси по умолчанию в пикселях. Например, `2` для обоих коэффициентов создаёт изображение, ширина и высота которого примерно вдвое превышают размеры по умолчанию, что приводит к четырёхкратному количеству пикселей. Большие коэффициенты обычно дают более чёткий текст при увеличении или выводе в высоком разрешении, но также увеличивают использование памяти и размер файла. Коэффициенты ниже `1` дают более мелкие изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить пропорции абзаца; различный горизонтальный и вертикальный коэффициенты растягивают вывод независимо.
+Коэффициент `1` оставляет ось в её исходном размере в пикселях. Например, `2` для обеих осей даёт изображение, ширина и высота которого примерно в два раза больше стандартных, что приводит к четырёмкратному увеличению количества пикселей. Большие коэффициенты обычно дают более чёткий текст при масштабировании или выводе в высоком разрешении, но также увеличивают потребление памяти и размер файла. Коэффициенты ниже `1` дают уменьшенные изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить пропорции абзаца; разные горизонтальные и вертикальные коэффициенты растягивают вывод независимо.
 
-Отрисовка всей формы с помощью [IShape.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getImage--) остаётся полезной, когда вывод должен включать заливку, контур или другой визуальный контекст формы. Для изображения только абзаца используйте [IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage--).
+Отображение целой фигуры с помощью [IShape.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getImage--) остаётся полезным, когда необходимо включить заливку, границу или другой визуальный контекст фигуры. Для изображения только абзаца используйте [IParagraph.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getImage--).
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Могу ли я полностью отключить перенос строк внутри текстового фрейма?**
+**Можно ли полностью отключить перенос строк внутри текстового фрейма?**
 
-Да. Установите [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) , чтобы отключить перенос, и строки не будут разрываться у границ текстового фрейма.
+Да. Установите [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) — это отключит перенос, и строки не будут разрываться по краям текстового фрейма.
 
 **Как получить точные границы конкретного абзаца на слайде?**
 
-Используйте [IParagraph.getRect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getRect--) , чтобы получить ограничивающий прямоугольник абзаца. [IPortion.getRect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportion/#getRect--) предоставляет границы отдельного фрагмента.
+Используйте [IParagraph.getRect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getRect--) для получения ограничивающего прямоугольника абзаца. [IPortion.getRect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportion/#getRect--) предоставляет границы отдельного фрагмента.
 
 **Где управляется выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) — это настройка уровня абзаца и применяется к всему абзацу независимо от форматирования отдельных фрагментов.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) — это настройка уровня абзаца и применяется ко всему абзацу независимо от форматирования отдельных фрагментов.
 
-**Можно ли задать язык проверки орфографии для части абзаца?**
+**Можно ли установить язык проверки орфографии для части абзаца?**
 
-Да. Установите [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) для отдельных фрагментов, чтобы один абзац мог содержать текст на разных языках.
+Да. Установите [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) для отдельных фрагментов, так что один абзац может содержать текст на нескольких языках.

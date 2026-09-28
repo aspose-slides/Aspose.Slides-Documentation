@@ -10,7 +10,7 @@ keywords:
 - textbakgrund
 - texttransparens
 - teckenavstånd
-- teckensnittsegenskaper
+- fontegenskaper
 - teckensnittsfamilj
 - textrotation
 - rotationsvinkel
@@ -25,23 +25,23 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Formatera och stilisera text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för C++. Anpassa teckensnitt, färger, justering och mer."
+description: "Formatera och stilistiskt anpassa text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för C++. Anpassa teckensnitt, färger, justering och mer."
 ---
 ## **Översikt**
 
-Denna artikel visar hur du formaterar text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för C++. Den täcker bakgrundsfärger, transparens, teckenavstånd, teckensnittsegenskaper, rotation, styckeavstånd, autofit‑beteende, textankring, tabbstopp och språkinställningar.
+Den här artikeln visar hur du formaterar text i PowerPoint- och OpenDocument‑presentationer med Aspose.Slides för C++. Den täcker bakgrundsfärger, transparens, teckenavstånd, teckensnittsegenskaper, rotation, styckeavstånd, autofit‑beteende, textförankring, tabbstopp och språkinställningar.
 
-I exemplen nedan använder vi en fil med namnet "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
+Om inte annat anges använder exemplen [sample.pptx](sample.pptx). Den första formen på den första bilden är en textruta, och dess första stycke innehåller texten som visas nedan. Både bild‑ och formindex är nollbaserade. Exempel som markerar fetstilta delar använder den effektiva formateringen, inklusive ärvd fetstil:
 
 ![Exempeltext](sample_text.png)
 
-För att hitta och markera bokstavlig text eller reguljära uttryck, se [Sök och ersätt text](/slides/sv/cpp/search-and-replace-text/).
+För att hitta och markera bokstavlig text eller reguljära uttryck‑träffar, se [Sök och ersätt text](/slides/sv/cpp/search-and-replace-text/).
 
-## **Ange textbakgrundsfärg**
+## **Ställ in textbakgrundsfärg**
 
-Använd [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) för att ange standardmarkeringsfärgen för ett stycke, eller använd [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) för enskilda textdelar.
+Använd [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) för att ange standardmarkeringsfärgen för ett stycke, eller använd [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) för enskilda textrader.
 
-Följande kodexempel visar hur du anger bakgrundsfärgen för hela **stycket**:
+Följande exempel anger en ljusgrå markering som standard för det första stycket. Explicita markeringsfärger på enskilda delar har företräde framför detta standardvärde:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -54,18 +54,20 @@ Följande kodexempel visar hur du anger bakgrundsfärgen för hela **stycket**:
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
+
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Ställ in markeringsfärgen för hela stycket.
+// Ange markeringsfärgen för hela stycket.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -76,7 +78,7 @@ Resultatet:
 
 ![Det gråa stycket](gray_paragraph.png)
 
-Kodexemplet nedan demonstrerar hur du anger bakgrundsfärgen för **textdelar med fet stil**:
+Kodexemplet nedan visar hur man anger bakgrundsfärgen för **textrader med fet stil**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -91,13 +93,15 @@ Kodexemplet nedan demonstrerar hur du anger bakgrundsfärgen för **textdelar me
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
+
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
 int portionCount = portions->get_Count();
@@ -109,7 +113,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Ställ in markeringsfärgen för textdelen.
+        // Ange markeringsfärgen för textraden.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -120,13 +124,13 @@ presentation->Dispose();
 
 Resultatet:
 
-![De gråa textdelarna](gray_text_portions.png)
+![De gråa textraderna](gray_text_portions.png)
 
 ## **Justera textstycken**
 
-Använd [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_alignment/) för att ange styckejustering inom en textruta. Värdet kan vara centrerat, vänsterjusterat, högerjusterat, justerat osv.
+Använd [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_alignment/) för att ange styckejustering inom en textram. Värdet kan vara centrerat, vänsterjusterat, högerjusterat, justerat osv.
 
-Följande kodexempel visar hur du justerar stycket till **centrum**:
+Följande kodexempel visar hur man justerar stycket till **centrum**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -137,16 +141,16 @@ Följande kodexempel visar hur du justerar stycket till **centrum**:
 #include <DOM/Presentation.h>
 #include <DOM/TextAlignment.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-
-// Ställ in styckets justering till centrum.
+// Ställ in justeringen av stycket till centrerat.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -157,11 +161,11 @@ Resultatet:
 
 ![Det justerade stycket](aligned_paragraph.png)
 
-## **Ange transparens för text**
+## **Ställ in transparens för text**
 
-Texttransparens styrs via alfakomponenten i den färg som tilldelas via [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/get_fillformat/). I exemplen nedan är `alpha = 50` ett ARGB alfa‑kanalvärde på skalan 0‑255, inte en transparensprocent.
+Texttransparens styrs via alfakomponenten i färgen som tilldelas via [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/get_fillformat/). I exemplen nedan är `alpha = 50` ett ARGB‑alfa‑värde på skalan 0–255, inte en transparensprocent.
 
-Kodexemplet nedan visar hur du applicerar transparens på **hela stycket**:
+Kodexemplet nedan visar hur man tillämpar transparens på **hela stycket**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -176,19 +180,21 @@ Kodexemplet nedan visar hur du applicerar transparens på **hela stycket**:
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 int alpha = 50;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
+
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Ställ in fyllnadsfärgen för texten till en transparent färg.
+// Ställ in fyllnadsfärgen för texten till transparent färg.
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -202,7 +208,7 @@ Resultatet:
 
 ![Det transparenta stycket](transparent_paragraph.png)
 
-Följande kodexempel visar hur du applicerar transparens på **textdelar med fet stil**:
+Följande kodexempel visar hur man tillämpar transparens på **textrader med fet stil**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -219,15 +225,17 @@ Följande kodexempel visar hur du applicerar transparens på **textdelar med fet
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 int alpha = 50;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
+
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
 int portionCount = portions->get_Count();
@@ -238,7 +246,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Ställ in transparensen för textdelen.
+        // Ställ in transparensen för textraden.
         portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
         auto baseColor = System::Drawing::Color::get_Black();
         auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -252,13 +260,13 @@ presentation->Dispose();
 
 Resultatet:
 
-![De transparenta textdelarna](transparent_text_portions.png)
+![De transparenta textraderna](transparent_text_portions.png)
 
-## **Ange teckenavstånd för text**
+## **Ställ in teckenavstånd för text**
 
-Använd [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/set_spacing/) för att öka eller minska avståndet mellan tecken i en textruta.
+Använd [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/set_spacing/) för att öka eller minska avståndet mellan tecken i en textruta. Exemplen lägger till 3 punkter avstånd; negativa värden minskar avståndet.
 
-Följande C++-kod visar hur du ökar teckenavståndet i **hela stycket**:
+Följande C++‑kod visar hur man ökar teckenavståndet i **hela stycket**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -269,17 +277,17 @@ Följande C++-kod visar hur du ökar teckenavståndet i **hela stycket**:
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-
 // Obs: Använd negativa värden för att komprimera teckenavståndet.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Utöka teckenavståndet.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Expandera teckenavståndet.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -289,7 +297,7 @@ Resultatet:
 
 ![Teckenavståndet i stycket](character_spacing_in_paragraph.png)
 
-Kodexemplet nedan visar hur du ökar teckenavståndet i **textdelar med fet stil**:
+Kodexemplet nedan visar hur man ökar teckenavståndet i **textrader med fet stil**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -302,13 +310,15 @@ Kodexemplet nedan visar hur du ökar teckenavståndet i **textdelar med fet stil
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
+
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
 int portionCount = portions->get_Count();
@@ -320,7 +330,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     if (portionFormat->GetEffective()->get_FontBold())
     {
         // Obs: Använd negativa värden för att komprimera teckenavståndet.
-        portionFormat->set_Spacing(3.0f); // Utöka teckenavståndet.
+        portionFormat->set_Spacing(3.0f); // Expandera teckenavståndet.
     }
 }
 
@@ -330,17 +340,18 @@ presentation->Dispose();
 
 Resultatet:
 
-![Teckenavståndet i textdelarna](character_spacing_in_text_portions.png)
+![Teckenavståndet i textraderna](character_spacing_in_text_portions.png)
 
-### **Inaktivera kerning för specifika typsnitt**
+### **Inaktivera kerning för specifika teckensnitt**
 
-I vissa fall kan text som renderas av Aspose.Slides se något tätare ut än samma text som visas i PowerPoint. Detta kan ske eftersom PowerPoint kan ignorera kerningdata för vissa typsnitt, även när typsnittet innehåller giltig kerninginformation och kerning är aktiverat i PowerPoints inställningar.
+I vissa fall kan text som renderas av Aspose.Slides se något tajtare ut än samma text i PowerPoint. Detta kan hända eftersom PowerPoint kan ignorera kerning‑data för vissa teckensnitt, även när teckensnittet innehåller giltig kerninginformation och kerning är aktiverad i PowerPoints inställningar.
 
-För att få den renderade utskriften att ligga närmare PowerPoint i sådana fall kan du inaktivera kerning för textdelar som använder det berörda typsnittet. Använd [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) för att ange ett värde som är betydligt större än den faktiska teckenstorleken:
+För att göra den renderade utdata närmare PowerPoint i sådana fall kan du inaktivera kerning för textrader som använder det berörda teckensnittet. Använd [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) för att ange ett värde större än den faktiska teckensnittsstorleken. Detta exempel kräver "presentation.pptx" med en textruta som den första formen på den första bilden. Det kontrollerar effektiva typsnittsnamn, inklusive ärvda teckensnitt, och sätter ett tröskelvärde på 100 punkter för delar som använder Roboto. Detta inaktiverar kerning för matchande delar med en teckensnittsstorlek under 100 punkter:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IFontData.h>
+#include <DOM/IPortionFormatEffectiveData.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -350,12 +361,13 @@ För att få den renderade utskriften att ligga närmare PowerPoint i sådana fa
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 System::String targetFont = u"Roboto";
 auto textFrame = autoShape->get_TextFrame();
@@ -372,9 +384,10 @@ for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
     {
         auto portion = paragraph->get_Portion(portionIndex);
         auto portionFormat = portion->get_PortionFormat();
-        auto latinFont = portionFormat->get_LatinFont();
-        auto eastAsianFont = portionFormat->get_EastAsianFont();
-        auto complexScriptFont = portionFormat->get_ComplexScriptFont();
+        auto textFormat = portionFormat->GetEffective();
+        auto latinFont = textFormat->get_LatinFont();
+        auto eastAsianFont = textFormat->get_EastAsianFont();
+        auto complexScriptFont = textFormat->get_ComplexScriptFont();
 
         bool isLatinFont = latinFont != nullptr && latinFont->get_FontName() == targetFont;
         bool isEastAsianFont = eastAsianFont != nullptr && eastAsianFont->get_FontName() == targetFont;
@@ -391,13 +404,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Den här inställningen hindrar kerning från att tillämpas på matchande textdelar och kan hjälpa till att anpassa Aspose.Slides-rendering med PowerPoints visuella utdata för typsnitt som påverkas av detta PowerPoint‑specifika beteende.
+För matchande text under tröskelvärdet förhindrar denna inställning kerning och kan hjälpa Aspose.Slides‑renderingen att motsvara PowerPoints visuella utslag för teckensnitt som påverkas av detta PowerPoint‑specifika beteende.
 
-## **Hantera textteckensnittsegenskaper**
+## **Hantera textens fontegenskaper**
 
-Teckensnittsegenskaper kan sättas på styckennivå via [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) eller på enskilda portioner via [IPortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iportionformat/).
+Fontegenskaper kan anges på stycke‑nivå via [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) eller på enskilda delar via [IPortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iportionformat/).
 
-Följande kod sätter teckensnittet och textstilen för hela stycket: den tillämpar teckenstorlek, fet, kursiv, prickad understrykning och teckensnittet Times New Roman på alla portioner i stycket.
+Följande exempel anger det första styckets standardfont till 12 punkts Times New Roman med fet, kursiv och prickad understrykning. Explicita formateringar på enskilda delar har företräde framför dessa standarder.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -411,17 +424,18 @@ Följande kod sätter teckensnittet och textstilen för hela stycket: den tillä
 #include <DOM/Presentation.h>
 #include <DOM/TextUnderlineType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Ställ in teckensnittsegenskaper för stycket.
+// Ställ in fontegenskaperna för stycket.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -435,9 +449,9 @@ presentation->Dispose();
 
 Resultatet:
 
-![Teckensnittsegenskaperna för stycket](font_properties_for_paragraph.png)
+![Fontegenskaperna för stycket](font_properties_for_paragraph.png)
 
-Kodexemplet nedan tillämpar liknande egenskaper på **textdelar med fet stil**:
+Följande exempel applicerar 13 punkts Times New Roman, kursiv formatering och en prickad understrykning på delar vars effektiva formatering är fet:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -453,12 +467,13 @@ Kodexemplet nedan tillämpar liknande egenskaper på **textdelar med fet stil**:
 #include <DOM/Presentation.h>
 #include <DOM/TextUnderlineType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
@@ -471,7 +486,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Ställ in teckensnittsegenskaper för textdelen.
+        // Ställ in fontegenskaperna för textraden.
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -485,13 +500,13 @@ presentation->Dispose();
 
 Resultatet:
 
-![Teckensnittsegenskaperna för textdelarna](font_properties_for_text_portions.png)
+![Fontegenskaperna för textraderna](font_properties_for_text_portions.png)
 
-## **Ange textrotation**
+## **Ställ in textrotation**
 
 Använd [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_textverticaltype/) för att ange en fördefinierad textorientering inom en form.
 
-Följande kodexempel sätter textorienteringen i formen till [TextVerticalType::Vertical270](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textverticaltype/), vilket roterar texten **90 grader moturs**:
+Följande kodexempel anger textorienteringen i formen till [TextVerticalType::Vertical270](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textverticaltype/), vilket roterar texten **90 grader moturs**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -501,14 +516,14 @@ Följande kodexempel sätter textorienteringen i formen till [TextVerticalType::
 #include <DOM/Presentation.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_TextVerticalType(TextVerticalType::Vertical270);
 
 presentation->Save(u"text_rotation.pptx", SaveFormat::Pptx);
@@ -519,9 +534,9 @@ Resultatet:
 
 ![Textrotationen](text_rotation.png)
 
-## **Ange anpassad rotation för textramar**
+## **Ställ in anpassad rotation för textramar**
 
-Använd [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_rotationangle/) för att ange en anpassad rotationsvinkel för en [ITextFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframe/).
+Använd [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_rotationangle/) för att ange en anpassad rotationsvinkel för ett [ITextFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframe/).
 
 Kodexemplet nedan roterar textramen med 3 grader medurs inom formen:
 
@@ -532,14 +547,14 @@ Kodexemplet nedan roterar textramen med 3 grader medurs inom formen:
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_RotationAngle(3.0f);
 
 presentation->Save(u"custom_text_rotation.pptx", SaveFormat::Pptx);
@@ -550,14 +565,14 @@ Resultatet:
 
 ![Den anpassade textrotationen](custom_text_rotation.png)
 
-## **Ange radavstånd för stycken**
+## **Ställ in radavstånd för stycken**
 
-Aspose.Slides tillhandahåller [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_spacebefore/) och [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_spacewithin/) för att styra styckeavstånd. Metoderna används på följande sätt:
+Aspose.Slides tillhandahåller [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_spacebefore/) och [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_spacewithin/) för att styra styckeavstånd. Dessa metoder används på följande sätt:
 
-* Använd ett positivt värde för att ange radavstånd som en procentsats av radens höjd.
+* Använd ett positivt värde för att ange radavstånd som en procentandel av radens höjd.  
 * Använd ett negativt värde för att ange radavstånd i punkter.
 
-Följande kodexempel visar hur du specificerar radavståndet inom stycket:
+Följande exempel sätter avståndet inom det första stycket till 200 % av radens höjd (dubbelt radavstånd):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -567,15 +582,16 @@ Följande kodexempel visar hur du specificerar radavståndet inom stycket:
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
-auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
+
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 paragraph->get_ParagraphFormat()->set_SpaceWithin(200.0f);
 
 presentation->Save(u"line_spacing.pptx", SaveFormat::Pptx);
@@ -584,11 +600,139 @@ presentation->Dispose();
 
 Resultatet:
 
-![Radavståndet inom stycket](line_spacing.png)
+![Radavståndet i stycket](line_spacing.png)
 
-## **Ange Autofit‑typ för textramar**
+## **Styr radbrytning**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_autofittype/) bestämmer hur text beter sig när den överskrider behållarens gränser. Använd den för att kontrollera om texten krymper, flödar över eller automatiskt ändrar formens storlek.
+Regler för radbrytning i stycken är användbara i smala textblock och presentationer som blandar latin och östasiatisk text. Följande metoder tillhör [IParagraphFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/), så de gäller hela stycket:
+
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) styr radbrytningsregler för latinsk text. I blandad text kan en förändring också påverka var intilliggande östasiatisk text och interpunktion radbryts.  
+- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) styr radbrytningsregler för östasiatisk text, inklusive restriktioner för tecken i början och slutet av en rad.
+
+Dessa regler ersätter inte [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_wraptext/), som möjliggör automatiskt radbrytning inom en textram. De påverkar layouten när radbrytning sker; de infogar inte radbrytningstecken. En explicit radbrytning tvingar en ny rad i stycket oberoende av tillgänglig bredd.
+
+Följande självständiga exempel skapar ett smalt textblock med kinesisk och latin text. Det sätter båda radbrytningsreglerna explicit och sparar "line_breaking.pptx". För att experimentera med någon av reglerna, ändra värdet som skickas till dess setter samtidigt som de andra inställningarna lämnas oförändrade. Exemplet använder 24‑punkts Arial och SimSun med en rambredd på 160 punkter och noll horisontella marginaler för textramen. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_autofittype/) anropas med [TextAutofitType::None](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textautofittype/) så att textstorlek och ramdimensioner förblir fasta.
+
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 160.0f, 300.0f);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto textFrame = shape->get_TextFrame();
+textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::True);
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+textFrame->get_TextFrameFormat()->set_MarginLeft(0);
+textFrame->get_TextFrameFormat()->set_MarginRight(0);
+
+auto paragraph = textFrame->get_Paragraph(0);
+paragraph->set_Text(u"中文排版测试，PowerPoint 中文演示。");
+
+auto format = paragraph->get_ParagraphFormat();
+format->set_Alignment(TextAlignment::Left);
+auto portionFormat = format->get_DefaultPortionFormat();
+portionFormat->set_FontHeight(24.0f);
+auto latinFont = System::MakeObject<FontData>(u"Arial");
+portionFormat->set_LatinFont(latinFont);
+auto eastAsianFont = System::MakeObject<FontData>(u"SimSun");
+portionFormat->set_EastAsianFont(eastAsianFont);
+portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+format->set_LatinLineBreak(NullableBool::False);
+format->set_EastAsianLineBreak(NullableBool::True);
+
+presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Styr hängande skiljetecken**
+
+[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) låter behöriga skiljetecken sträcka sig förbi textradens högra kant istället för att uppta nästa rad. Det gäller hela stycket och skiljer sig från hängande indrag.
+
+Följande självständiga exempel aktiverar hängande skiljetecken i en 100‑punkts bred textram och sparar "hanging_punctuation.pptx". Med 24‑punkts Arial och noll horisontella marginaler för textramen förblir den avslutande punkten efter "sentence" och sträcker sig förbi den högra textkanten. Skicka [NullableBool::False](https://reference.aspose.com/slides/sv/cpp/aspose.slides/nullablebool/) till setter‑metoden för att jämföra: med dessa inställningar hamnar punkten på en egen rad. Radbrytning är påslagen och autofit avstängd för att hålla den tillgängliga bredden fast.
+
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 200.0f);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto textFrame = shape->get_TextFrame();
+textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::True);
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+textFrame->get_TextFrameFormat()->set_MarginLeft(0);
+textFrame->get_TextFrameFormat()->set_MarginRight(0);
+
+auto paragraph = textFrame->get_Paragraph(0);
+paragraph->set_Text(u"Simple text, next sentence.");
+
+auto format = paragraph->get_ParagraphFormat();
+format->set_Alignment(TextAlignment::Left);
+auto portionFormat = format->get_DefaultPortionFormat();
+portionFormat->set_FontHeight(24.0f);
+auto latinFont = System::MakeObject<FontData>(u"Arial");
+portionFormat->set_LatinFont(latinFont);
+portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+format->set_HangingPunctuation(NullableBool::True);
+
+presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Inte varje skiljetecken kan hänga. Det synliga resultatet beror på teckensnitt och layout: förändring av teckensnitt, tillgänglig bredd, marginaler eller autofit‑inställningar kan ta bort den synliga skillnaden.
+
+## **Ange autofit‑typ för textramar**
+
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_autofittype/) bestämmer hur text beter sig när den överskrider behållarens gränser. Använd den för att styra om texten skall krympas, flöda över eller automatiskt anpassa formen. Följande exempel konfigurerar formen så att den anpassas för att passa sin text och sparar resultatet till "autofit_type.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -598,25 +742,25 @@ Resultatet:
 #include <DOM/Presentation.h>
 #include <DOM/TextAutofitType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
 
 presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-För att räkna rader efter automatisk radbrytning och se hur text‑ eller formbredden ändrar resultatet, se [Räkna renderade rader](/slides/sv/cpp/manage-paragraph/). Antal rader visar inte om texten överflödar sin behållare.
+För att räkna rader efter automatisk radbrytning och se hur text‑ eller formbredd förändrar resultatet, se [Count Rendered Lines](/slides/sv/cpp/manage-paragraph/). Antalet rader visar inte i sig om texten överskrider behållaren.
 
 ## **Ange ankare för textramar**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_anchoringtype/) definierar hur text placeras vertikalt inne i en form, till exempel högst upp, i mitten eller längst ner.
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_anchoringtype/) definierar hur text placeras vertikalt i en form, t.ex. högst upp, i mitten eller längst ner. Följande exempel förankrar texten längst ner i den första formen och sparar resultatet till "text_anchor.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -626,23 +770,23 @@ För att räkna rader efter automatisk radbrytning och se hur text‑ eller form
 #include <DOM/Presentation.h>
 #include <DOM/TextAnchorType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Bottom);
 
 presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ange texttabulering**
+## **Ställ in texttabulering**
 
-Använd [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) och [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_tabs/) för att konfigurera tabbstopp i ett stycke.
+Använd [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) och [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_tabs/) för att konfigurera tabbstopp i ett stycke. Följande exempel sätter standardtabbsteg till 100 punkter och lägger till ett vänsterjusterat tabbstopp vid 30 punkter. Dessa inställningar påverkar text som innehåller tabulatortecken.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -654,15 +798,16 @@ Använd [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slid
 #include <DOM/Presentation.h>
 #include <DOM/TabAlignment.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
-auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
+
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 paragraph->get_ParagraphFormat()->set_DefaultTabSize(100.0f);
 paragraph->get_ParagraphFormat()->get_Tabs()->Add(30.0f, TabAlignment::Left);
 
@@ -672,13 +817,13 @@ presentation->Dispose();
 
 Resultatet:
 
-![Stycketabbar](paragraph_tabs.png)
+![Styckets tabulatorer](paragraph_tabs.png)
 
-## **Ange korrekturlagningsspråk**
+## **Ange språk för korrekturläsning**
 
-Aspose.Slides tillhandahåller [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/set_languageid/), vilket låter dig ange korrekturlagningsspråket för en textdel. Korrekturlagningsspråket bestämmer vilket språk som används för stavnings- och grammatikkontroller i PowerPoint.
+Aspose.Slides tillhandahåller [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/set_languageid/), vilket låter dig ange språk för korrekturläsning för en textrad. Språket för korrekturläsning bestämmer vilket språk som används för stavnings‑ och grammatikkontroller i PowerPoint.
 
-Följande kodexempel visar hur du anger korrekturlagningsspråket för en textdel:
+Följande exempel kräver "presentation.pptx" med en textruta som den första formen på den första bilden och minst ett stycke. Det ersätter det första styckets innehåll med "1。", sätter SimSun som teckensnitt och anger förenklad kinesisk korrekturläsningsspråk (`zh-CN`). Det sparar resultatet till "proofing_language.pptx":
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -691,12 +836,13 @@ Följande kodexempel visar hur du anger korrekturlagningsspråket för en textde
 #include <DOM/Portion.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
@@ -710,10 +856,10 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Set the Id of a proofing language.
+// Ställ in språk för korrekturläsning till förenklad kinesiska.
 portionFormat->set_LanguageId(u"zh-CN");
 
-textPortion->set_Text(u"1.");
+textPortion->set_Text(u"1。");
 paragraph->get_Portions()->Add(textPortion);
 
 presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
@@ -722,7 +868,7 @@ presentation->Dispose();
 
 ## **Ange standardspråk**
 
-Använd [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) för att definiera standardspråket för text som skapas när en presentation laddas eller skapas.
+Använd [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) för att definiera standardspråk för text som skapas vid inläsning eller skapande av en presentation. Följande exempel skapar en presentation med amerikansk engelska som standardspråk för text, lägger till en textruta och skriver ut `en-US` för dess första textrad.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -736,6 +882,7 @@ Använd [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/sli
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 
 auto loadOptions = System::MakeObject<LoadOptions>();
@@ -744,11 +891,11 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// Add a new rectangle shape with text.
+// Lägg till en ny rektangelform med text.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
-// Check the first portion language.
+// Kontrollera det första textradens språk.
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 auto languageId = portion->get_PortionFormat()->get_LanguageId();
 System::Console::WriteLine(languageId);
@@ -758,9 +905,9 @@ presentation->Dispose();
 
 ## **Ange standardtextstil**
 
-För att tillämpa standardtextformatering på presentationsnivå, använd [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
+För att tillämpa standardformatering på presentationens nivå, använd [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-Följande kodexempel visar hur du anger ett standardfett typsnitt med storleken 14 pt för all text på alla bilder i en ny presentation.
+Följande exempel anger ett 14‑punkts fetstiligt teckensnitt som standard för toppnivå‑stycken i en ny presentation och sparar den till "default_text_style.pptx". Text kan ärva dessa standarder såvida inte mer specifik formatering åsidosätter dem.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -769,12 +916,13 @@ Följande kodexempel visar hur du anger ett standardfett typsnitt med storleken 
 #include <DOM/NullableBool.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// Hämta paragrafformatet på högsta nivån.
+// Hämta paragrafformatet på översta nivån.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -788,15 +936,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Extrahera text med All‑Caps‑effekt**
+## **Extrahera text med All‑Caps‑effekten**
 
-I PowerPoint får du text att visas enbart med stora bokstäver på bilden när du använder **All Caps**‑teckenseffekt, även om den ursprungligen skrevs med gemener. När du hämtar en sådan textdel med Aspose.Slides returnerar biblioteket texten exakt som den angavs. För att matcha den visade texten, kontrollera [TextCapType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textcaptype/) och konvertera den returnerade strängen till versaler när värdet är [TextCapType::All](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textcaptype/).
+I PowerPoint gör **All Caps**‑effekten att text visas med enbart versaler på bilden även om den ursprungligen skrevs med gemener. När du hämtar en sådan textrad med Aspose.Slides returnerar biblioteket exakt den text som angavs. För att matcha den visade texten, kontrollera [TextCapType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textcaptype/) och konvertera den returnerade strängen till versaler när värdet är [TextCapType::All](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textcaptype/).
 
-Låt oss säga att vi har följande textruta på den första bilden i filen sample2.pptx.
+Detta exempel kräver "sample2.pptx" med en textruta som den första formen på den första bilden. Dess första stycke har en textrad som innehåller "Hello, Aspose!" med All Caps‑effekten applicerad, som visas nedan.
 
 ![All Caps‑effekten](all_caps_effect.png)
 
-Kodexemplet nedan visar hur du extraherar texten med **All Caps**‑effekten tillämpad:
+Kodexemplet nedan visar hur du extraherar texten med **All Caps**‑effekten applicerad:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -809,11 +957,12 @@ Kodexemplet nedan visar hur du extraherar texten med **All Caps**‑effekten til
 #include <DOM/Presentation.h>
 #include <DOM/TextCapType.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 
 auto presentation = System::MakeObject<Presentation>(u"sample2.pptx");
-
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 
@@ -839,10 +988,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Hur ändrar man text i en tabell på en bild?**
+**Hur ändrar jag text i en tabell på en bild?**
 
-För att ändra text i en tabell på en bild, använd [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/). Iterera genom cellerna och uppdatera varje cell via [ICell::get_TextFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icell/get_textframe/) och styckeformatering via [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+För att ändra text i en tabell på en bild, använd [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/). Iterera genom cellerna och uppdatera varje cell via [ICell::get_TextFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icell/get_textframe/) samt styckeformatering via [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**Hur applicerar man en färggradient på text i en PowerPoint‑bild?**
+**Hur applicerar jag en gradientfärg på text i en PowerPoint‑bild?**
 
 För att applicera en gradientfärg på text, använd [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Sätt [IFillFormat::set_FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifillformat/set_filltype/) till [FillType::Gradient](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) och konfigurera gradientstopp, riktning och transparens.

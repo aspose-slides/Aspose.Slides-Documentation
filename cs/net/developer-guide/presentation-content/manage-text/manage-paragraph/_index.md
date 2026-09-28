@@ -1,5 +1,5 @@
 ---
-title: Spravovat textové odstavce PowerPointu v .NET
+title: Spravovat odstavce textu PowerPointu v .NET
 linktitle: Spravovat odstavec
 type: docs
 weight: 40
@@ -30,32 +30,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro .NET."
+description: "Zjistěte, jak vytvářet a formátovat odstavce, úseky, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro .NET."
 ---
 ## **Přehled**
 
-Aspose.Slides pro .NET představuje text jako hierarchii textových rámců, odstavců a částí:
+Aspose.Slides for .NET představuje text jako hierarchii textových rámců, odstavců a úseků:
 
-* [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) představuje kontejner textu ve tvaru a poskytuje přístup ke kolekci odstavců.
-* [IParagraph](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
-* [IPortion](https://reference.aspose.com/slides/cs/net/aspose.slides/iportion/) představuje běh textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
+* [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
+* [IParagraph](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho úsekům a formátování na úrovni odstavce.
+* [IPortion](https://reference.aspose.com/slides/cs/net/aspose.slides/iportion/) představuje úsek textu v odstavci. Každý úsek může mít vlastní text a formátování na úrovni znaků.
 
-Odstavec tedy může obsahovat text s různými fonty, barvami, velikostmi a dalším formátováním pomocí více částí.
+Proto může odstavec obsahovat text s různými fonty, barvami, velikostmi a dalšími formátováními pomocí více úseků.
 
 ## **Vytváření a formátování odstavců**
 
-### **Vytváření odstavců s více částmi**
+### **Vytvoření odstavců s více úseky**
 
-Následující kroky vytvoří textový rámec se třemi odstavci, přičemž každý obsahuje tři části:
+Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři úseky:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
 2. Získejte odkaz na požadovaný snímek pomocí jeho indexu.
-3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) na snímek.
+3. Přidejte k snímku obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) tvaru.
 5. Použijte výchozí odstavec a přidejte dva další objekty [IParagraph](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/) do textového rámce.
-6. Přidejte dostatek objektů [IPortion](https://reference.aspose.com/slides/cs/net/aspose.slides/iportion/) tak, aby každý odstavec obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
-7. Nastavte text každé části.
-8. Použijte formátování na úrovni znaků pomocí [IPortion.PortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iportion/portionformat/).
+6. Přidejte dostatek objektů [IPortion](https://reference.aspose.com/slides/cs/net/aspose.slides/iportion/) tak, aby každý odstavec obsahoval tři úseky. Výchozí odstavec již obsahuje jeden prázdný úsek.
+7. Nastavte text pro každý úsek.
+8. Aplikujte formátování na úrovni znaků prostřednictvím [IPortion.PortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iportion/portionformat/).
 9. Uložte upravenou prezentaci.
 
 Tento příklad v C# implementuje kroky:
@@ -120,12 +120,12 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ### **Vytvoření odrážkového nebo číslovaného seznamu**
 
-Odrážky a číslování usnadňují prohlížení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [IBulletFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibulletformat/).
+Odrážky a číslování usnadňují přehled souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [IBulletFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibulletformat/).
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
 2. Získejte odkaz na požadovaný snímek pomocí jeho indexu.
-3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) na vybraný snímek.
-4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) tvaru.
+3. Přidejte k snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/).
 5. Odstraňte výchozí odstavec z textového rámce.
 6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraph/) pro symbolickou odrážku.
 7. Nastavte [IBulletFormat.Type](https://reference.aspose.com/slides/cs/net/aspose.slides/ibulletformat/type/) na [BulletType.Symbol](https://reference.aspose.com/slides/cs/net/aspose.slides/bullettype/) a určete znak odrážky.
@@ -135,7 +135,7 @@ Odrážky a číslování usnadňují prohlížení souvisejících položek. V 
 11. Nastavte styl číslované odrážky a přidejte odstavec do textového rámce.
 12. Uložte prezentaci.
 
-Tento příklad v C# vytváří symbolickou odrážku a číslovanou odrážku:
+Tento příklad v C# vytvoří symbolickou odrážku a číslovanou odrážku:
 
 ```csharp
 using System;
@@ -187,7 +187,7 @@ Obrázkové odrážky vám umožňují použít vlastní obrázek místo symbolu
 9. Přidejte odstavec do textového rámce.
 10. Uložte upravenou prezentaci.
 
-Tento příklad v C# vytváří obrázkovou odrážku:
+Tento příklad v C# vytvoří obrázkovou odrážku:
 
 ```csharp
 using Aspose.Slides;
@@ -213,17 +213,17 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **Vytvoření vícestupňového seznamu**
+### **Vytvoření víceúrovňového seznamu**
 
 Nastavte [IParagraphFormat.Depth](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/depth/) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
 
-1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a získáte snímek.
-2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) a vymažte výchozí odstavec z jejího textového rámce.
-3. Vytvořte čtyři odstavce a nastavte jejich symboly odrážek.
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a přistupte ke snímku.
+2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) a vymažte výchozí odstavec z jeho textového rámce.
+3. Vytvořte čtyři odstavce a nakonfigurujte jejich symboly odrážek.
 4. Nastavte jejich hodnoty [IParagraphFormat.Depth](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/depth/) na `0`, `1`, `2` a `3`.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento příklad v C# vytváří čtyřúrovňový odrážkový seznam:
+Tento příklad v C# vytvoří čtyřúrovňový odrážkový seznam:
 
 ```csharp
 using System;
@@ -273,9 +273,9 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Zahájení číslovaných položek seznamu vlastními hodnotami**
+### **Nastavení počátečních hodnot číslovaného seznamu**
 
-Použijte [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/cs/net/aspose.slides/ibulletformat/numberedbulletstartwith/) pro nastavení úvodního čísla zobrazovaného u číslovaného odstavce.
+Použijte [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/cs/net/aspose.slides/ibulletformat/numberedbulletstartwith/) pro nastavení počátečního čísla zobrazovaného u číslovaného odstavce.
 
 1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) na snímek.
 2. Vymažte výchozí odstavec z textového rámce tvaru.
@@ -283,7 +283,7 @@ Použijte [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/s
 4. Nastavte [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/cs/net/aspose.slides/ibulletformat/numberedbulletstartwith/) na `2`, `3` a `7` pro příslušné odstavce.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento příklad v C# přiřazuje vlastní počáteční číslo každému odstavci:
+Tento příklad v C# přiřadí vlastní počáteční číslo každému odstavci:
 
 ```csharp
 using Aspose.Slides;
@@ -317,17 +317,17 @@ presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 
 ### **Nastavení odsazení první řádky**
 
-Použijte vlastnost [IParagraphFormat.Indent] pro řízení odsazení první řádky odstavce. Tato vlastnost posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco ostatní řádky zůstávají zarovnané k tělu odstavce.
+Použijte vlastnost [IParagraphFormat.Indent](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/indent/) k řízení odsazení první řádky odstavce. Tato vlastnost posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco ostatní řádky zůstávají zarovnány k tělu odstavce.
 
-Použijte [IParagraphFormat.MarginLeft], pokud potřebujete přesunout celý odstavec. Použijte [IParagraphFormat.Indent], pokud potřebujete přesunout jen první řádek.
+Použijte [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/marginleft/) když potřebujete posunout celý odstavec. Použijte [IParagraphFormat.Indent](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/indent/) když chcete posunout pouze první řádek.
 
-Níže uvedený příklad vytvoří několik odstavců a aplikuje různé hodnoty [IParagraphFormat.Indent] k demonstraci, jak odsazení první řádky ovlivňuje rozvržení odstavce.
+Níže uvedený příklad vytvoří několik odstavců a použije různé hodnoty [IParagraphFormat.Indent](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/indent/) k ukázání, jak odsazení první řádky ovlivňuje rozvržení odstavce.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
 2. Získejte cílový snímek.
-3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) na snímek.
+3. Přidejte k snímku obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
-5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [Indent].
+5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [Indent](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/indent/).
 6. Přidejte odstavce do textového rámce.
 7. Uložte upravenou prezentaci.
 
@@ -380,18 +380,18 @@ Výsledek:
 
 ### **Nastavení zavěšeného odsazení**
 
-Zavěšené odsazení je rozvržení odstavce, při kterém první řádek začíná vlevo od zbytku řádků. V Aspose.Slides vytvoříte tento efekt pomocí vlastnosti [IParagraphFormat.Indent]. Nastavte `Indent` na zápornou hodnotu pro posunutí první řádky doleva vzhledem k tělu odstavce.
+Zavěšené odsazení je rozvržení odstavce, ve kterém první řádek začíná vlevo od zbytku řádků. V Aspose.Slides tento efekt vytvoříte pomocí vlastnosti [IParagraphFormat.Indent](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/indent). Nastavte `Indent` na zápornou hodnotu, aby se první řádek posunul vlevo vzhledem k tělu odstavce.
 
-V praxi [IParagraphFormat.MarginLeft] určuje levý pozici těla odstavce a [IParagraphFormat.Indent] určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
+V praxi [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/marginleft) určuje levou pozici těla odstavce a [IParagraphFormat.Indent](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/indent) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
 
-Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a další odstavce, kde musí zalomené řádky být zarovnané pod tělo odstavce místo pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, odkazy, glosářové položky a další odstavce, kde zabalené řádky musí být zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
 2. Získejte cílový snímek.
-3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) na snímek.
+3. Přidejte k snímku obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
-5. Vytvořte odstavce a nastavte kladnou hodnotu [MarginLeft] pro každý odstavec.
-6. Nastavte zápornou hodnotu [Indent] pro vytvoření efektu zavěšeného odsazení.
+5. Vytvořte odstavce a nastavte pro každý odstavec kladnou hodnotu [MarginLeft](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/marginleft/).
+6. Nastavte zápornou hodnotu [Indent](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/indent/) k vytvoření efektu zavěšeného odsazení.
 7. Přidejte odstavce do textového rámce.
 8. Uložte upravenou prezentaci.
 
@@ -437,12 +437,12 @@ Výsledek:
 
 ### **Nastavení koncových vlastností odstavce**
 
-Vlastnost [IParagraph.EndParagraphPortionFormat] řídí formátování koncového znaku odstavce. Následující příklad přiřadí velikost písma a latinský font koncovému znaku druhého odstavce:
+Vlastnost [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/endparagraphportionformat/) řídí formátování koncového značky odstavce. Následující příklad přiřadí velikost písma a latinské písmo ke koncové značce druhého odstavce:
 
-1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) a získejte snímek.
-2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape) a vymažte jeho výchozí odstavec.
-3. Vytvořte dva odstavce a přidejte do nich textové části.
-4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/portionformat/) pro koncový znak druhého odstavce.
+1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a přistupte ke snímku.
+2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) a vymažte jeho výchozí odstavec.
+3. Vytvořte dva odstavce a přidejte do nich textové úseky.
+4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/portionformat/) pro koncovou značku druhého odstavce.
 5. Nastavte [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/fontheight/) a [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/latinfont/).
 6. Přiřaďte formát k [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/endparagraphportionformat/) a uložte prezentaci.
 
@@ -475,11 +475,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Počítání vykreslených řádků**
 
-Použijte [IParagraph.GetLinesCount](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getlinescount/) k spočítání řádků obsazených odstavcem po rozložení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
+Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na konci řádků, viz [Control Line Breaking](/slides/cs/net/text-formatting/#control-line-breaking) a [Control Hanging Punctuation](/slides/cs/net/text-formatting/#control-hanging-punctuation).
 
-Odsek je jednou položkou v [ITextFrame.Paragraphs](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/paragraphs/), a může zabírat několik vykreslených řádků. Výslovné zalomení řádky v odstavci vynutí nový řádek, aniž by vytvořilo další odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by do textu vkládalo výslovné znaky zalomení. Počítání odstavců nebo znaků zalomení proto nedává počet vykreslených řádků.
+Použijte [IParagraph.GetLinesCount](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getlinescount/) k počítání řádků obsazených odstavcem po rozvržení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
 
-Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a poté nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení je zakázáno, takže šířka tvaru řídí zalamování bez automatického zmenšování textu nebo měnění velikosti tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
+Odstavec je jednou položkou v [ITextFrame.Paragraphs](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/paragraphs/) a může obsazovat několik vykreslených řádků. Výslovný konec řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořil další odstavec. Automatické zalamování vytváří řádky podle dostupné šířky, aniž by vkládalo výslovné konce řádků do textu. Počítání odstavců nebo znaků konce řádku tedy nedává počet vykreslených řádků.
+
+Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a následně nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení je zakázáno, takže šířka tvaru řídí zalamování, aniž by se text automaticky zmenšoval nebo měnil velikost tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
 
 ```csharp
 using System;
@@ -516,21 +518,21 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Při tomto textu a těchto rozměrech zúžení tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti a nahrazení fontů, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte fonty a nastavení rozvržení určené pro cílové prostředí při kontrole šablony.
+S tímto textem a těmito rozměry zúžení tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti a substituce fontů, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte fonty a nastavení rozvržení určené pro cílové prostředí při kontrole šablony.
 
-Počet řádků samotný neurčuje, zda text přesahuje svůj kontejner. Důležitá je také dostupná výška, výška řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, pokud je zalamování zakázáno.
+Samotný počet řádků neurčuje, zda text přeplňuje svůj kontejner. Důležité jsou také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, pokud je zalamování zakázáno.
 
 ## **Import a export obsahu odstavců**
 
 ### **Import HTML textu do odstavců**
 
-Použijte [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraphcollection/addfromhtml/) k převodu HTML značek na odstavce a části v textovém rámci.
+Použijte [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraphcollection/addfromhtml/) k převodu HTML značek na odstavce a úseky v textovém rámci.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
 2. Získejte snímek a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) tvaru a vymažte jeho výchozí odstavec.
-4. Načtěte zdrojový HTML soubor.
-5. Předávejte řetězec HTML metodě [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraphcollection/addfromhtml/).
+3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
+4. Přečtěte zdrojový HTML soubor.
+5. Předávejte HTML řetězec metodě [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraphcollection/addfromhtml/).
 6. Uložte upravenou prezentaci.
 
 Tento příklad v C# importuje HTML do textového rámce:
@@ -560,7 +562,7 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 Použijte [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraphcollection/exporttohtml/) k exportu vybraného rozsahu odstavců jako HTML.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) a načtěte požadovanou prezentaci.
-2. Získejte snímek a najděte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/), který obsahuje text.
+2. Získejte snímek a najděte [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape), který obsahuje text.
 3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/).
 4. Zavolejte [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraphcollection/exporttohtml/) s indexem počátečního odstavce a počtem odstavců k exportu.
 5. Zapište vrácený HTML řetězec do souboru.
@@ -591,9 +593,9 @@ else
 
 ### **Vykreslení odstavce jako obrázku**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getimage/) přímo vykreslí jednotlivý odstavec a vrátí [IImage]. Výsledek uložte do souboru nebo streamu pomocí [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/). Není třeba vykreslovat obalující tvar nebo ručně ořezávat bitmapu.
+[IParagraph.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getimage/) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/). Uložte výsledek do souboru nebo proudu pomocí [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/). Není nutné vykreslovat obsahující tvar ani ručně ořezávat bitmapu.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getimage/) může vrátit `null`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné vykreslovací ohraničení nebo jej nelze vykreslit. Výsledek zkontrolujte před uložením a po použití uvolněte vrácený obrázek.
+[IParagraph.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getimage/) může vrátit `null`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné vykreslovací ohraničení nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
 
 #### **Vykreslení odstavce ve výchozím měřítku**
 
@@ -601,7 +603,7 @@ Předpokládejme, že máme soubor prezentace nazvaný sample.pptx s jedním sn�
 
 ![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG. Deklarace `using` zajišťuje správné uvolnění obrázku.
+Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG. Deklarace `using` zajišťuje, že obrázek bude řádně uvolněn.
 
 ```csharp
 using System;
@@ -638,7 +640,7 @@ Výsledek:
 
 #### **Vykreslení odstavce v buňce tabulky se škálováním**
 
-Použijte přetížení [IParagraph.GetImage], které přijímá parametry `float scaleX` a `float scaleY`, pro nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce na dvojnásobek výchozí šířky a výšky a uloží výsledek jako PNG obrázek.
+Použijte přetížení [IParagraph.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getimage/), které přijímá parametry `float scaleX` a `float scaleY` pro nastavení horizontálních a vertikálních faktorů měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce dvakrát ve výchozí šířce a výšce a výsledek uloží jako PNG obrázek.
 
 ```csharp
 using System;
@@ -664,24 +666,24 @@ else
 }
 ```
 
-Faktor měřítka `1` udržuje danou osu na výchozí velikosti pixelu. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobkem výchozích rozměrů, což vede ke čtyřnásobnému počtu pixelů. Větší faktory obecně poskytují ostřejší text pro zoom nebo výstup ve vysokém rozlišení, ale také zvyšují paměťovou náročnost a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s méně podrobným zobrazením. Používejte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory roztažením výstup nezávisle.
+Faktor měřítka `1` zachová danou osu v její výchozí velikosti v pixelech. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobky výchozích rozměrů, což vede ke čtyřnásobnému počtu pixelů. Větší faktory obecně poskytují ostřejší text pro přiblížení nebo výstup ve vysokém rozlišení, ale také zvyšují paměťovou náročnost a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s menšími detaily. Použijte stejné faktory pro zachování poměru stran odstavce; odlišné horizontální a vertikální faktory roztačí výstup nezávisle.
 
-Vykreslení celého tvaru pomocí [IShape.GetImage] zůstává užitečné, pokud výstup musí zahrnovat výplň tvaru, ohraničení nebo jiný vizuální kontext. Pro obrázek obsahující pouze odstavec použijte [IParagraph.GetImage].
+Vykreslení celého tvaru pomocí [IShape.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/getimage/) zůstává užitečné, když výstup musí zahrnovat výplň, ohraničení nebo další vizuální kontext tvaru. Pro obrázek obsahující jen odstavec použijte [IParagraph.GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getimage/).
 
 ## **Často kladené otázky**
 
 **Mohu zcela zakázat zalamování řádků uvnitř textového rámce?**
 
-Ano. Nastavte [ITextFrameFormat.WrapText], aby se zakázalo zalamování, takže řádky nebudou přerušeny na okrajích textového rámce.
+Ano. Nastavte [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/wraptext/) a zakážete zalamování, takže řádky se nebudou lámat na okrajích textového rámce.
 
-**Jak mohu získat přesné ohraničení konkrétního odstavce na snímku?**
+**Jak mohu získat přesné hranice konkrétního odstavce na snímku?**
 
-Použijte [IParagraph.GetRect] k získání ohraničujícího obdélníku odstavce. [IPortion.GetRect] poskytuje ohraničení jednotlivé části.
+Použijte [IParagraph.GetRect](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/getrect/) k získání ohraničujícího obdélníku odstavce. [IPortion.GetRect](https://reference.aspose.com/slides/cs/net/aspose.slides/iportion/getrect/) poskytuje hranice jednotlivého úseku.
 
 **Kde se řídí zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
 
-[IParagraphFormat.Alignment] je nastavení na úrovni odstavce a aplikuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/alignment/) je nastavení na úrovni odstavce a vztahuje se na celý odstavec bez ohledu na formátování jednotlivých úseků.
 
 **Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
 
-Ano. Nastavte [IBasePortionFormat.LanguageId] pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.
+Ano. Nastavte [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/languageid/) pro jednotlivé úseky, takže jeden odstavec může obsahovat text v několika jazycích.

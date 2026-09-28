@@ -1,6 +1,6 @@
 ---
 title: Quản lý các đoạn văn bản PowerPoint trong .NET
-linktitle: Quản lý Đoạn văn
+linktitle: Quản lý Đoạn
 type: docs
 weight: 40
 url: /vi/net/manage-paragraph/
@@ -8,57 +8,57 @@ aliases:
   - /net/paragraph/
   - /net/portion/
 keywords:
-  - thêm văn bản
-  - thêm đoạn văn
-  - quản lý văn bản
-  - quản lý đoạn văn
-  - quản lý dấu đầu dòng
-  - thụt lề đoạn
-  - thụt lề treo
-  - dấu đầu dòng đoạn
-  - danh sách đánh số
-  - danh sách đánh dấu
-  - thuộc tính đoạn văn
-  - nhập HTML
-  - văn bản sang HTML
-  - đoạn sang HTML
-  - đoạn sang hình ảnh
-  - văn bản sang hình ảnh
-  - xuất đoạn văn
-  - PowerPoint
-  - bản trình bày
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn văn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn văn với Aspose.Slides cho .NET."
+- thêm văn bản
+- thêm đoạn
+- quản lý văn bản
+- quản lý đoạn
+- quản lý dấu đầu dòng
+- thụt lề đoạn
+- thụt lề treo
+- dấu đầu dòng đoạn
+- danh sách đánh số
+- danh sách đánh dấu
+- thuộc tính đoạn
+- nhập HTML
+- văn bản sang HTML
+- đoạn sang HTML
+- đoạn sang hình ảnh
+- văn bản sang hình ảnh
+- xuất đoạn
+- PowerPoint
+- bản trình chiếu
+- .NET
+- C#
+- Aspose.Slides
+description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho .NET."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for .NET biểu diễn văn bản dưới dạng một hệ thống phân cấp gồm các khung văn bản, đoạn văn và phần:
+Aspose.Slides for .NET đại diện cho văn bản như một cấu trúc phân cấp của khung văn bản, đoạn văn và phần:
 
-* [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn văn của nó.
-* [IParagraph](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/) đại diện cho một đoạn văn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức đoạn.
-* [IPortion](https://reference.aspose.com/slides/vi/net/aspose.slides/iportion/) đại diện cho một đoạn chạy văn bản trong một đoạn. Mỗi phần có thể có văn bản riêng và định dạng ở mức ký tự.
+* [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) đại diện cho container văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn văn của nó.
+* [IParagraph](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/) đại diện cho một đoạn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức đoạn.
+* [IPortion](https://reference.aspose.com/slides/vi/net/aspose.slides/iportion/) đại diện cho một dải văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
 
-Do đó, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
+Một đoạn văn do đó có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Tạo và Định dạng Đoạn văn**
+## **Tạo và Định dạng Đoạn Văn**
 
 ### **Tạo Đoạn Văn với Nhiều Phần**
 
 Các bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation).
-2. Truy cập tham chiếu của slide liên quan bằng chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) của hình.
-5. Sử dụng đoạn mặc định và thêm hai đối tượng [IParagraph](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/) nữa vào khung văn bản.
-6. Thêm đủ các đối tượng [IPortion](https://reference.aspose.com/slides/vi/net/aspose.slides/iportion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần trống.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) .
+2. Truy cập tham chiếu của slide liên quan thông qua chỉ mục của nó.
+3. Thêm một [IAutoShape] hình chữ nhật vào slide.
+4. Truy cập [ITextFrame] của hình dạng.
+5. Sử dụng đoạn mặc định và thêm hai đối tượng [IParagraph] nữa vào khung văn bản.
+6. Thêm đủ đối tượng [IPortion] cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần trống.
 7. Đặt văn bản cho mỗi phần.
-8. Áp dụng định dạng ở mức ký tự thông qua [IPortion.PortionFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/iportion/portionformat/).
-9. Lưu bản trình bày đã chỉnh sửa.
+8. Áp dụng định dạng cấp ký tự qua [IPortion.PortionFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/iportion/portionformat/).
+9. Lưu bản trình chiếu đã sửa đổi.
 
-Ví dụ C# sau thực hiện các bước này:
+Ví dụ C# sau thực hiện các bước:
 
 ```csharp
 using System.Drawing;
@@ -120,22 +120,22 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ### **Tạo Danh sách Đánh dấu hoặc Đánh số**
 
-Các dấu đầu dòng và đánh số giúp việc quét các mục liên quan trở nên dễ dàng hơn. Trong Aspose.Slides, cài đặt danh sách được định nghĩa thông qua [IBulletFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/).
+Các dấu đánh dấu và đánh số giúp việc quét các mục liên quan dễ dàng hơn. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [IBulletFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/).
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation).
-2. Truy cập tham chiếu của slide liên quan bằng chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide đã chọn.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) .
+2. Truy cập tham chiếu của slide liên quan thông qua chỉ mục của nó.
+3. Thêm một [IAutoShape] vào slide đã chọn.
+4. Truy cập [ITextFrame] của hình dạng.
 5. Xóa đoạn mặc định khỏi khung văn bản.
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraph/) cho dấu đầu dòng ký hiệu.
-7. Đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
-8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
+6. Tạo một [Paragraph] cho một dấu bullet ký hiệu.
+7. Đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/) và chỉ định ký tự bullet.
+8. Đặt văn bản đoạn, thụt lề, màu bullet và chiều cao bullet.
 9. Thêm đoạn vào khung văn bản.
 10. Tạo một đoạn thứ hai và đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/).
-11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn vào khung văn bản.
-12. Lưu bản trình bày.
+11. Cấu hình kiểu bullet đánh số và thêm đoạn vào khung văn bản.
+12. Lưu bản trình chiếu.
 
-Ví dụ C# này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
+Ví dụ C# này tạo một bullet ký hiệu và một bullet đánh số:
 
 ```csharp
 using System;
@@ -172,22 +172,22 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Sử dụng Dấu đầu dòng Hình ảnh**
+### **Sử dụng Bullet Hình Ảnh**
 
-Dấu đầu dòng hình ảnh cho phép bạn sử dụng hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
+Bullet hình ảnh cho phép bạn sử dụng hình ảnh tùy chỉnh thay cho ký hiệu hoặc số.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation).
-2. Truy cập tham chiếu của slide liên quan bằng chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) và truy cập [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) .
+2. Truy cập tham chiếu của slide liên quan thông qua chỉ mục của nó.
+3. Thêm một [IAutoShape] và truy cập [ITextFrame] của nó.
 4. Xóa đoạn mặc định khỏi khung văn bản.
-5. Tải hình ảnh dấu đầu dòng và thêm nó vào bộ sưu tập hình ảnh của bản trình bày dưới dạng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/).
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraph/) và đặt văn bản của nó.
+5. Tải hình ảnh bullet và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu như một [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/).
+6. Tạo một [Paragraph] và đặt văn bản cho nó.
 7. Đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/).
-8. Gán hình ảnh qua [IBulletFormat.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/picture/) và đặt chiều cao dấu đầu dòng.
+8. Gán hình ảnh qua [IBulletFormat.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/picture/) và đặt chiều cao bullet.
 9. Thêm đoạn vào khung văn bản.
-10. Lưu bản trình bày đã chỉnh sửa.
+10. Lưu bản trình chiếu đã sửa đổi.
 
-Ví dụ C# này tạo một dấu đầu dòng hình ảnh:
+Ví dụ C# này tạo một bullet hình ảnh:
 
 ```csharp
 using Aspose.Slides;
@@ -215,13 +215,13 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **Tạo Danh sách Đa cấp**
 
-Đặt [IParagraphFormat.Depth](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/depth/) để đặt các đoạn ở các cấp độ khác nhau của một danh sách. Cấp cao nhất có độ sâu `0`.
+Đặt [IParagraphFormat.Depth](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/depth/) để đặt các đoạn ở các cấp độ khác nhau của danh sách. Cấp cao nhất có độ sâu `0`.
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
-3. Tạo bốn đoạn và cấu hình các ký hiệu dấu đầu dòng của chúng.
-4. Đặt giá trị [IParagraphFormat.Depth](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/depth/) thành `0`, `1`, `2` và `3`.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình bày.
+2. Thêm một [IAutoShape] và xóa đoạn mặc định khỏi khung văn bản của nó.
+3. Tạo bốn đoạn và cấu hình ký hiệu bullet của chúng.
+4. Đặt giá trị [IParagraphFormat.Depth](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/depth/) của chúng thành `0`, `1`, `2`, và `3`.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
 Ví dụ C# này tạo một danh sách đánh dấu bốn cấp:
 
@@ -275,13 +275,13 @@ presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 
 ### **Bắt đầu các mục danh sách đánh số với giá trị tùy chỉnh**
 
-Sử dụng [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) để đặt số khởi đầu hiển thị cho một đoạn đánh số.
+Sử dụng [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) để đặt số ban đầu hiển thị cho một đoạn đánh số.
 
-1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào một slide.
-2. Xóa đoạn mặc định khỏi khung văn bản của hình.
+1. Tạo một [Presentation] và thêm một [IAutoShape] vào một slide.
+2. Xóa đoạn mặc định khỏi khung văn bản của hình dạng.
 3. Tạo ba đoạn đánh số.
-4. Đặt [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) thành `2`, `3` và `7` cho các đoạn tương ứng.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình bày.
+4. Đặt [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) thành `2`, `3`, và `7` cho các đoạn tương ứng.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
 Ví dụ C# này gán một số bắt đầu tùy chỉnh cho mỗi đoạn:
 
@@ -317,21 +317,21 @@ presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 
 ### **Đặt Thụt Lề Dòng Đầu**
 
-Sử dụng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) để kiểm soát thụt lề dòng đầu của một đoạn. Thuộc tính này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương dịch dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn chỉnh với phần thân đoạn.
+Sử dụng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) để kiểm soát thụt lề dòng đầu của một đoạn. Thuộc tính này chỉ di chuyển dòng đầu so với lề trái của đoạn. Giá trị dương dịch dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
 
-Sử dụng [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/marginleft/) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) khi bạn chỉ cần di chuyển dòng đầu tiên.
+Sử dụng [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/marginleft/) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) khi bạn chỉ cần di chuyển dòng đầu.
 
 Ví dụ dưới đây tạo một số đoạn và áp dụng các giá trị [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) khác nhau để minh họa cách thụt lề dòng đầu ảnh hưởng đến bố cục đoạn.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
 2. Truy cập slide mục tiêu.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) của hình và xóa đoạn mặc định.
+3. Thêm một [IAutoShape] hình chữ nhật vào slide.
+4. Truy cập [ITextFrame] của hình dạng và xóa đoạn mặc định.
 5. Tạo một số đoạn và đặt các giá trị [Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) khác nhau cho chúng.
 6. Thêm các đoạn vào khung văn bản.
-7. Lưu bản trình bày đã chỉnh sửa.
+7. Lưu bản trình chiếu đã sửa đổi.
 
-Đoạn mã này cho bạn thấy cách đặt thụt lề cho một đoạn:
+Mã này cho bạn thấy cách đặt thụt lề cho một đoạn:
 
 ```csharp
 using System.Drawing;
@@ -380,22 +380,22 @@ Kết quả:
 
 ### **Đặt Thụt Lề Treo**
 
-Thụt lề treo là một bố cục đoạn trong đó dòng đầu tiên bắt đầu bên trái các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/). Đặt `Indent` thành giá trị âm để di chuyển dòng đầu tiên sang trái so với phần thân đoạn.
+A hanging indent là bố cục đoạn trong đó dòng đầu bắt đầu ở bên trái các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/). Đặt `Indent` thành giá trị âm để di chuyển dòng đầu sang trái so với thân đoạn.
 
-Thực tế, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/marginleft/) xác định vị trí bên trái của phần thân đoạn, trong khi [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) xác định vị trí của dòng đầu tiên so với lề đó. Để tạo thụt lề treo, đặt giá trị `MarginLeft` dương và giá trị `Indent` âm.
+In thực tế, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/marginleft/) xác định vị trí trái của thân đoạn, và [IParagraphFormat.Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đặt giá trị `MarginLeft` dương và giá trị `Indent` âm.
 
-Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác nơi các dòng được ngắt phải căn dưới phần thân đoạn chứ không phải dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác nơi các dòng gói cần căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
 2. Truy cập slide mục tiêu.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) của hình và xóa đoạn mặc định.
+3. Thêm một [IAutoShape] hình chữ nhật vào slide.
+4. Truy cập [ITextFrame] của hình dạng và xóa đoạn mặc định.
 5. Tạo các đoạn và đặt giá trị [MarginLeft](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/marginleft/) dương cho mỗi đoạn.
 6. Đặt giá trị [Indent](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/indent/) âm để tạo hiệu ứng thụt lề treo.
 7. Thêm các đoạn vào khung văn bản.
-8. Lưu bản trình bày đã chỉnh sửa.
+8. Lưu bản trình chiếu đã sửa đổi.
 
-Đoạn mã này cho bạn thấy cách đặt thụt lề treo cho một đoạn:
+Mã này cho bạn thấy cách đặt thụt lề treo cho một đoạn:
 
 ```csharp
 using System.Drawing;
@@ -435,16 +435,16 @@ Kết quả:
 
 ![Thụt lề treo của các đoạn](hanging_indent.png)
 
-### **Đặt Thuộc tính Chạy Đoạn Kết thúc**
+### **Đặt Thuộc tính Chạy Kết Thúc Đoạn**
 
 Thuộc tính [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/endparagraphportionformat/) kiểm soát định dạng của ký tự kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho ký tự kết thúc của đoạn thứ hai:
 
-1. Tải một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) và xóa đoạn mặc định của nó.
+1. Tải một [Presentation] và truy cập một slide.
+2. Thêm một [IAutoShape] và xóa đoạn mặc định của nó.
 3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
-4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/portionformat/) cho ký tự kết thúc của đoạn thứ hai.
-5. Đặt [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseportionformat/fontheight/) và [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseportionformat/latinfont/).
-6. Gán định dạng cho [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/endparagraphportionformat/) và lưu bản trình bày.
+4. Tạo một [PortionFormat] cho ký tự kết thúc của đoạn thứ hai.
+5. Đặt [IBasePortionFormat.FontHeight] và [IBasePortionFormat.LatinFont].
+6. Gán định dạng cho [IParagraph.EndParagraphPortionFormat] và lưu bản trình chiếu.
 
 ```csharp
 using Aspose.Slides;
@@ -473,13 +473,15 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-## **Đếm Số Dòng Được Render**
+## **Đếm Các Dòng Được Kết Xuất**
 
-Sử dụng [IParagraph.GetLinesCount](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getlinescount/) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc tự động ngắt dòng. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong mẫu bản trình bày.
+Đối với các quy tắc đoạn ảnh hưởng đến việc gói tự động và dấu câu ở cuối dòng, xem [Kiểm soát ngắt dòng](/slides/vi/net/text-formatting/#control-line-breaking) và [Kiểm soát dấu câu treo](/slides/vi/net/text-formatting/#control-hanging-punctuation).
 
-Một đoạn là một mục trong [ITextFrame.Paragraphs](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/paragraphs/), và nó có thể chiếm nhiều dòng được render. Một ký tự ngắt dòng rõ ràng trong đoạn buộc tạo một dòng mới mà không tạo thêm đoạn. Việc tự động ngắt dòng tạo các dòng dựa trên chiều rộng có sẵn mà không chèn ký tự ngắt dòng vào văn bản. Do đó, đếm số đoạn hoặc ký tự ngắt dòng không cho số dòng đã render.
+Sử dụng [IParagraph.GetLinesCount](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getlinescount/) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc gói tự động. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong các mẫu trình chiếu.
 
-Ví dụ sau tạo một hình dạng văn bản, đếm số dòng của nó, thu hẹp hình dạng, và sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Việc ngắt dòng được bật và tự động điều chỉnh kích thước (autofit) bị tắt để chiều rộng hình dạng kiểm soát việc ngắt dòng mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn nữa và tổng hợp số dòng trên toàn bộ khung văn bản.
+Một đoạn là một mục trong [ITextFrame.Paragraphs](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/paragraphs/), và nó có thể chiếm nhiều dòng được kết xuất. Một ngắt dòng rõ ràng trong một đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc gói tự động tạo các dòng dựa trên độ rộng khả dụng mà không chèn ký tự ngắt dòng vào văn bản. Do đó, đếm số đoạn hoặc ký tự ngắt dòng không cho số dòng kết xuất.
+
+Ví dụ sau tạo một hình dạng văn bản, đếm số dòng của nó, thu hẹp hình dạng, và sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Gói được bật và tự động co giãn bị tắt để độ rộng của hình dạng kiểm soát việc gói mà không thu nhỏ tự động văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và tổng hợp số dòng qua khung văn bản.
 
 ```csharp
 using System;
@@ -516,9 +518,9 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Với văn bản và các kích thước này, việc thu hẹp hình dạng làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn làm giảm số dòng. Số đếm chính xác có thể thay đổi tùy vào việc có sẵn phông chữ và thay thế, kích thước phông, lề, thụt lề, ngắt dòng và cài đặt autofit. Hãy sử dụng phông và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra mẫu.
+Với đoạn văn bản này và các kích thước này, thu hẹp hình dạng sẽ tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn sẽ giảm số dòng. Số đếm chính xác có thể thay đổi tùy thuộc vào sự có sẵn và thay thế phông chữ, kích thước phông chữ, lề, thụt lề, gói và cài đặt tự động co giãn. Sử dụng các phông chữ và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra mẫu.
 
-Số dòng một mình không quyết định liệu văn bản có tràn ra khỏi vùng chứa hay không. Chiều cao khả dụng, độ cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt việc ngắt dòng.
+Số dòng một mình không xác định liệu văn bản có tràn ra ngoài vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi tự động co giãn cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt gói.
 
 ## **Nhập và Xuất Nội dung Đoạn**
 
@@ -528,10 +530,12 @@ Sử dụng [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slide
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) .
 2. Truy cập một slide và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) .
-3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) của hình và xóa đoạn mặc định.
+3. Truy cập [ITextFrame] của hình dạng và xóa đoạn mặc định.
 4. Đọc tệp HTML nguồn.
 5. Chuyển chuỗi HTML cho [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraphcollection/addfromhtml/) .
-6. Lưu bản trình bày đã chỉnh sửa.
+6. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ C# này nhập HTML vào một khung văn bản:
 
 ```csharp
 using System.IO;
@@ -553,15 +557,17 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Xuất Văn bản Đoạn thành HTML**
+### **Xuất Văn bản Đoạn ra HTML**
 
-Sử dụng [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraphcollection/exporttohtml/) để xuất một phạm vi các đoạn đã chọn dưới dạng HTML.
+Sử dụng [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraphcollection/exporttohtml/) để xuất một phạm vi đoạn đã chọn dưới dạng HTML.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) và tải bản trình bày mong muốn.
-2. Truy cập slide và tìm [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) chứa văn bản.
-3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) của hình.
-4. Gọi [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraphcollection/exporttohtml/) với chỉ mục đoạn bắt đầu và số đoạn cần xuất.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) và tải bản trình chiếu mong muốn.
+2. Truy cập slide và tìm [IAutoShape] chứa văn bản.
+3. Truy cập [ITextFrame] của hình dạng.
+4. Gọi [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/vi/net/aspose.slides/paragraphcollection/exporttohtml/) với chỉ số đoạn bắt đầu và số lượng đoạn cần xuất.
 5. Ghi chuỗi HTML trả về vào tệp.
+
+Ví dụ C# này xuất tất cả các đoạn từ hình dạng văn bản đầu tiên:
 
 ```csharp
 using System;
@@ -585,19 +591,19 @@ else
 }
 ```
 
-### **Render một Đoạn thành Hình ảnh**
+### **Kết xuất Đoạn dưới dạng Hình ảnh**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/) render trực tiếp một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/save/). Bạn không cần render hình dạng chứa hoặc cắt bitmap thủ công.
+[IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/) kết xuất trực tiếp một đoạn riêng lẻ và trả về một [IImage]. Lưu kết quả vào tệp hoặc luồng bằng [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/save/). Bạn không cần phải kết xuất hình dạng chứa hoặc cắt thủ công bitmap.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/) có thể trả về `null` nếu đoạn không thể được tìm thấy trong bộ sưu tập cha, không có giới hạn render hợp lệ, hoặc không thể render. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh trả về sau khi sử dụng.
+[IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/) có thể trả về `null` nếu không tìm thấy đoạn trong bộ sưu tập cha, không có giới hạn kết xuất hợp lệ, hoặc không thể kết xuất. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh trả về sau khi sử dụng.
 
-#### **Render một Đoạn ở Tỷ lệ Mặc định**
+#### **Kết xuất Đoạn ở Tỷ lệ Mặc định**
 
-Giả sử chúng ta có một tệp bản trình bày tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
+Giả sử chúng ta có một tệp trình chiếu tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
 
 ![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
 
-Ví dụ sau render đoạn thứ hai trong một hình dạng văn bản thường ở tỷ lệ mặc định và lưu hình ảnh trả về ở định dạng PNG. Câu lệnh `using` đảm bảo hình ảnh được giải phóng đúng cách.
+Ví dụ sau kết xuất đoạn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu hình ảnh trả về ở định dạng PNG. Câu lệnh `using` đảm bảo hình ảnh được giải phóng đúng cách.
 
 ```csharp
 using System;
@@ -632,9 +638,9 @@ Kết quả:
 
 ![Hình ảnh đoạn](paragraph_to_image_output.png)
 
-#### **Render một Đoạn trong Ô Bảng với Tỷ lệ**
+#### **Kết xuất Đoạn trong Ô Bảng với Tỷ lệ**
 
-Sử dụng phương thức overload của [IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/) chấp nhận các tham số `float scaleX` và `float scaleY` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, render đoạn trong ô đầu tiên của nó với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng ảnh PNG.
+Sử dụng phiên bản quá tải của [IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/) chấp nhận các tham số `float scaleX` và `float scaleY` để đặt hệ số tỷ lệ chiều ngang và dọc. Ví dụ sau tạo một bảng, kết xuất đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng ảnh PNG.
 
 ```csharp
 using System;
@@ -660,20 +666,24 @@ else
 }
 ```
 
-Một hệ số tỷ lệ `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra một hình ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, dẫn đến bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất đầu ra độ phân giải cao, nhưng chúng cũng tăng tiêu thụ bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ra hình ảnh nhỏ hơn với ít chi tiết. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số tỷ lệ `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, dẫn đến bốn lần nhiều pixel hơn. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho phóng to hoặc đầu ra độ phân giải cao, nhưng chúng cũng làm tăng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
 
-Render toàn bộ hình dạng bằng [IShape.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/getimage/) vẫn hữu ích khi đầu ra cần bao gồm màu nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với hình ảnh chỉ chứa đoạn, sử dụng [IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/).
+Việc kết xuất toàn bộ hình dạng bằng [IShape.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/getimage/) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với ảnh chỉ chứa đoạn, sử dụng [IParagraph.GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getimage/).
 
-## **CÂU HỎI THƯỜNG GẶP**
+## **Câu hỏi thường gặp**
 
-**Can I completely disable line wrapping inside a text frame?**  
-Có. Đặt [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/wraptext/) để tắt việc ngắt dòng sao cho các dòng không bị cắt ở các cạnh của khung văn bản.
+**Tôi có thể tắt hoàn toàn việc gói dòng trong một khung văn bản không?**
 
-**How can I get the exact on-slide bounds of a specific paragraph?**  
-Sử dụng [IParagraph.GetRect](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getrect/) để lấy hình chữ nhật giới hạn của đoạn. [IPortion.GetRect](https://reference.aspose.com/slides/vi/net/aspose.slides/iportion/getrect/) cung cấp giới hạn của một phần riêng lẻ.
+Có. Đặt [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/wraptext/) để tắt gói, vì vậy các dòng không ngắt ở các cạnh của khung văn bản.
 
-**Where is paragraph alignment (left, right, center, or justify) controlled?**  
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/alignment/) là cài đặt ở mức đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng của các phần riêng lẻ.
+**Làm thế nào để tôi lấy được giới hạn chính xác trên slide của một đoạn cụ thể?**
 
-**Can I set the proofing language for part of a paragraph?**  
+Sử dụng [IParagraph.GetRect](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/getrect/) để lấy hình chữ nhật bao quanh của đoạn. [IPortion.GetRect](https://reference.aspose.com/slides/vi/net/aspose.slides/iportion/getrect/) cung cấp giới hạn của một phần riêng lẻ.
+
+**Căn chỉnh đoạn (trái, phải, giữa hoặc căn đều) được kiểm soát ở đâu?**
+
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/alignment/) là cài đặt mức đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng của các phần riêng lẻ.
+
+**Tôi có thể đặt ngôn ngữ kiểm tra cho một phần của đoạn không?**
+
 Có. Đặt [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseportionformat/languageid/) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

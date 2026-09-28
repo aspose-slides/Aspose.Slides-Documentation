@@ -1,5 +1,5 @@
 ---
-title: Spravovat text odstavců PowerPoint v C++
+title: Správa odstavců textu PowerPoint v C++
 linktitle: Spravovat odstavec
 type: docs
 weight: 40
@@ -14,7 +14,7 @@ keywords:
 - spravovat odstavec
 - spravovat odrážku
 - odsazení odstavce
-- zavěšené odsazení
+- závěsné odsazení
 - odrážka odstavce
 - číslovaný seznam
 - odrážkový seznam
@@ -29,32 +29,32 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců s Aspose.Slides pro C++."
+description: "Naučte se, jak vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Aspose.Slides for C++ představuje text jako hierarchii textových rámců, odstavců a částí:
+Aspose.Slides pro C++ představuje text jako hierarchii textových rámců, odstavců a částí:
 
 * [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
 * [IParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
-* [IPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/) představuje běh textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
+* [IPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/) představuje textový úsek v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
 
-Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a dalším formátováním pomocí několika částí.
+Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a dalšími formátováními pomocí více částí.
 
-## **Vytváření a formátování odstavců**
+## **Vytvoření a formátování odstavců**
 
-### **Vytváření odstavců s více částmi**
+### **Vytvoření odstavců s více částmi**
 
 Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři části:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-2. Získejte referenci na požadovaný snímek pomocí jeho indexu.
-3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) na snímek.
+2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
+3. Přidejte na snímek obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
 4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru.
-5. Použijte výchozí odstavec a přidejte dva další objekty [IParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/) do textového rámce.
-6. Přidejte dostatečný počet objektů [IPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/) tak, aby každý odstavec obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
-7. Nastavte text každé části.
-8. Použijte formátování na úrovni znaků pomocí [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/get_portionformat/).
+5. Použijte výchozí odstavec a přidejte další dva objekty [IParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/) do textového rámce.
+6. Přidejte dostatek objektů [IPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/) pro každý odstavec, aby obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
+7. Nastavte text pro každou část.
+8. Použijte formátování na úrovni znaků prostřednictvím [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/get_portionformat/).
 9. Uložte upravenou prezentaci.
 
 Tento příklad v C++ implementuje kroky:
@@ -131,17 +131,17 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Vytváření odrážkových a číslovaných seznamů**
+## **Vytvoření odrážek a číslovaných seznamů**
 
 ### **Vytvoření odrážkového nebo číslovaného seznamu**
 
 Odrážky a číslování usnadňují prohlížení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [IBulletFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/).
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-2. Získejte referenci na požadovaný snímek pomocí jeho indexu.
+2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
 3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) na vybraný snímek.
-4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru.
-5. Odeberte výchozí odstavec z textového rámce.
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/).
+5. Odstraňte výchozí odstavec z textového rámce.
 6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/paragraph/) pro symbolickou odrážku.
 7. Nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Symbol](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/) a určete znak odrážky.
 8. Nastavte text odstavce, odsazení, barvu odrážky a výšku odrážky.
@@ -205,20 +205,18 @@ presentation->Dispose();
 
 ### **Použití obrázkových odrážek**
 
-Obrázkové odrážky umožňují místo symbolu nebo čísla použít vlastní obrázek.
+Obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu nebo čísla.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-2. Získejte referenci na požadovaný snímek pomocí jeho indexu.
+2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
 3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) a získejte jeho [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/).
-4. Odeberte výchozí odstavec z textového rámce.
+4. Odstraňte výchozí odstavec z textového rámce.
 5. Načtěte obrázek odrážky a přidejte jej do kolekce obrázků prezentace jako [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/).
 6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/paragraph/) a nastavte jeho text.
 7. Nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Picture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/).
 8. Přiřaďte obrázek pomocí [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidespicture/set_image/) a nastavte výšku odrážky.
 9. Přidejte odstavec do textového rámce.
 10. Uložte upravenou prezentaci.
-
-Tento příklad v C++ vytváří obrázkovou odrážku:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -268,8 +266,6 @@ Nastavte [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cs/cp
 3. Vytvořte čtyři odstavce a nakonfigurujte jejich symboly odrážek.
 4. Nastavte jejich hodnoty [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_depth/) na `0`, `1`, `2` a `3`.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
-
-Tento příklad v C++ vytváří čtyřúrovňový odrážkový seznam:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -337,15 +333,13 @@ presentation->Dispose();
 
 ### **Zahájení číslovaných položek seznamu vlastními hodnotami**
 
-Použijte [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) pro nastavení počátečního čísla zobrazeného pro číslovaný odstavec.
+Použijte [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) pro nastavení počátečního čísla zobrazeného u číslovaného odstavce.
 
 1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) na snímek.
 2. Vymažte výchozí odstavec z textového rámce tvaru.
 3. Vytvořte tři číslované odstavce.
 4. Nastavte [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) na `2`, `3` a `7` pro příslušné odstavce.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
-
-Tento příklad v C++ přiřazuje vlastní počáteční číslo každému odstavci:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -388,25 +382,23 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Řízení rozložení odstavců a koncových vlastností**
+## **Řízení rozvržení odstavce a koncových vlastností**
 
 ### **Nastavení odsazení první řádky**
 
-Použijte [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) pro ovládání odsazení první řádky odstavce. Tato metoda posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbývající řádky zůstanou zarovnané k tělu odstavce.
+Použijte [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) pro řízení odsazení první řádky odstavce. Tato metoda posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco ostatní řádky zůstávají zarovnány k tělu odstavce.
 
-Použijte [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_marginleft/) když potřebujete posunout celý odstavec. Použijte [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) když chcete posunout jen první řádek.
+Použijte [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_marginleft/), když potřebujete posunout celý odstavec. Použijte [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/), když potřebujete posunout jen první řádek.
 
-Níže uvedený příklad vytvoří několik odstavců a použije různé hodnoty [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) pro demonstraci, jak odsazení první řádky ovlivňuje rozložení odstavce.
+Níže uvedený příklad vytvoří několik odstavců a použije různé hodnoty [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/), aby ukázal, jak odsazení první řádky ovlivňuje rozvržení odstavce.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
 2. Získejte cílový snímek.
 3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) na snímek.
-4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru a odeberte výchozí odstavec.
-5. Vytvořte několik odstavců a nastavte jim různé hodnoty [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/).
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/).
 6. Přidejte odstavce do textového rámce.
 7. Uložte upravenou prezentaci.
-
-Tento kód ukazuje, jak nastavit odsazení odstavce:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -466,26 +458,24 @@ presentation->Dispose();
 
 Výsledek:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Odsazení první řádky odstavců](first_line_indent.png)
 
-### **Nastavení zavěšeného odsazení**
+### **Nastavení závěsného odsazení**
 
-Zavěšené odsazení je rozložení odstavce, při kterém první řádek začíná vlevo od zbývajících řádků. V Aspose.Slides tento efekt vytvoříte pomocí [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/). Nastavte odsazení na zápornou hodnotu, aby se první řádek posunul doleva vzhledem k tělu odstavce.
+Závěsné odsazení je rozvržení odstavce, ve kterém první řádek začíná vlevo od zbývajících řádků. V Aspose.Slides vytvoříte tento efekt pomocí [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/). Nastavte odsazení na zápornou hodnotu, aby se první řádek posunul doleva vzhledem k tělu odstavce.
 
-V praxi [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_marginleft/) určuje levý okraj těla odstavce a [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení nastavte kladnou hodnotu left margin a zápornou hodnotu odsazení.
+In practice, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_marginleft/) určuje levou pozici těla odstavce a [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření závěsného odsazení nastavte kladnou hodnotu margin-left a zápornou hodnotu indent.
 
-Toto formátování je užitečné u bibliografií, odkazů, glosářových položek a dalších odstavců, kde musí být zalomené řádky zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, odkazy, glosářové položky a další odstavce, kde zalomené řádky musí být zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
 2. Získejte cílový snímek.
 3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) na snímek.
-4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru a odeberte výchozí odstavec.
-5. Vytvořte odstavce a nastavte kladnou hodnotu [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_marginleft/) pro každý odstavec.
-6. Nastavte zápornou hodnotu [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) pro vytvoření efektu zavěšeného odsazení.
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte odstavce a nastavte pro každý odstavec kladnou hodnotu [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_marginleft/).
+6. Nastavte zápornou hodnotu [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_indent/) pro vytvoření efektu závěsného odsazení.
 7. Přidejte odstavce do textového rámce.
 8. Uložte upravenou prezentaci.
-
-Tento kód ukazuje, jak nastavit zavěšené odsazení odstavce:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -537,15 +527,15 @@ presentation->Dispose();
 
 Výsledek:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Závěsné odsazení odstavců](hanging_indent.png)
 
-### **Nastavení koncových vlastností odstavce**
+### **Nastavení vlastností koncové části odstavce**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) řídí formátování koncového znaku odstavce. Následující příklad přiřadí velikost písma a latinské písmo koncovému znaku druhého odstavce:
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) řídí formátování koncového znaku odstavce. Následující příklad přiřadí velikost písma a latinské písmo ke koncovému znaku druhého odstavce:
 
 1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) a získejte snímek.
 2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) a vymažte jeho výchozí odstavec.
-3. Vytvořte dva odstavce a přidejte do nich textové části.
+3. Vytvořte dva odstavce a přidejte k nim textové části.
 4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/portionformat/) pro koncový znak druhého odstavce.
 5. Nastavte [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibaseportionformat/set_fontheight/) a [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibaseportionformat/set_latinfont/).
 6. Přiřaďte formát pomocí [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) a uložte prezentaci.
@@ -592,11 +582,13 @@ presentation->Dispose();
 
 ## **Počítání vykreslených řádků**
 
-Použijte [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getlinescount/) pro spočítání řádků obsazených odstavcem po rozložení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozložení v šablonách prezentací.
+Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na koncích řádků, viz [Control Line Breaking](/slides/cs/cpp/text-formatting/#control-line-breaking) a [Control Hanging Punctuation](/slides/cs/cpp/text-formatting/#control-hanging-punctuation).
 
-Odstavec je jednou položkou v [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_paragraphs/), a může zabírat několik vykreslených řádků. Výslovný zalomení řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořil další odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by do textu vkládalo explicitní znaky nových řádků. Proto počítání odstavců nebo znaků zalomení nedává počet vykreslených řádků.
+Použijte [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getlinescount/) k počítání řádků obsazených odstavcem po rozvržení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
 
-Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a poté nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení je zakázáno, takže šířka tvaru řídí zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
+Odstavec je jednou položkou v [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_paragraphs/) a může zabírat několik vykreslených řádků. Výslovný zalomení řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořil další odstavec. Automatické zalamování vytváří řádky podle dostupné šířky, aniž by do textu vkládalo výslovné znaky zalomení. Proto počítání odstavců nebo znaků zalomení řádku neposkytuje počet vykreslených řádků.
+
+Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a poté nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení vypnuto, takže šířka tvaru řídí zalamování, aniž by automaticky zmenšovala text nebo měnila velikost tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -644,24 +636,22 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-S tímto textem a těmito rozměry zúžení tvaru zvýší počet řádků, zatímco nahrazení textu krátkým řetězcem jej sníží. Přesné počty se mohou lišit podle dostupnosti a náhrady písma, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte písma a nastavení rozložení určená pro cílové prostředí při kontrole šablony.
+S tímto textem a těmito rozměry zúžení tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti a náhrady písem, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Při kontrole šablony použijte písma a nastavení rozvržení určené pro cílové prostředí.
 
-Samotný počet řádků neurčuje, zda text přesahuje svůj kontejner. Důležité jsou také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, když je zalamování zakázáno.
+Samotný počet řádků neurčuje, zda text přesahuje svůj kontejner. Důležitá je také dostupná výška, výška řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, když je zalamování zakázáno.
 
 ## **Import a export obsahu odstavců**
 
 ### **Import HTML textu do odstavců**
 
-Použijte [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/addfromhtml/) pro převod HTML značek na odstavce a části v textovém rámci.
+Použijte [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/addfromhtml/) k převodu HTML značek na odstavce a části v textovém rámci.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
 2. Získejte snímek a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
 3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru a vymažte jeho výchozí odstavec.
 4. Načtěte zdrojový HTML soubor.
-5. Předávejte HTML řetězec metodě [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
+5. Předávejte řetězec HTML metodě [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
 6. Uložte upravenou prezentaci.
-
-Tento příklad v C++ importuje HTML do textového rámce:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -696,15 +686,13 @@ presentation->Dispose();
 
 ### **Export textu odstavce do HTML**
 
-Použijte [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/exporttohtml/) pro export vybraného rozsahu odstavců jako HTML.
+Použijte [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/exporttohtml/) k exportu vybraného rozsahu odstavců jako HTML.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) a načtěte požadovanou prezentaci.
-2. Získejte snímek a najděte [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/), která obsahuje text.
+2. Získejte snímek a najděte [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/), který obsahuje text.
 3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) tvaru.
-4. Zavolejte [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/exporttohtml/) s počátečním indexem odstavce a počtem odstavců k exportu.
+4. Vyvolejte [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphcollection/exporttohtml/) s indexem počátečního odstavce a počtem odstavců k exportu.
 5. Zapište vrácený HTML řetězec do souboru.
-
-Tento příklad v C++ exportuje všechny odstavce z první textové tabulky:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -742,15 +730,15 @@ presentation->Dispose();
 
 ### **Vykreslení odstavce jako obrázku**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/save/). Nemusíte vykreslovat obsahující tvar ani ručně ořezávat bitmapu.
+[IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/) přímo vykreslí jednotlivý odstavec a vrátí [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/save/). Není nutné vykreslovat obsahující tvar nebo ručně ořezávat bitmapu.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/) může vrátit `nullptr`, pokud odstavec nelze najít v jeho nadřazené kolekci, nemá platné vykreslovací ohraničení nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
+[IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/) může vrátit `nullptr`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné rozměry pro vykreslení nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
 
 #### **Vykreslení odstavce ve výchozím měřítku**
 
-Předpokládejme, že máme soubor prezentace s názvem sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
+Předpokládejme, že máme soubor prezentace nazvaný sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
 Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG.
 
@@ -795,11 +783,11 @@ presentation->Dispose();
 
 Výsledek:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Obrázek odstavce](paragraph_to_image_output.png)
 
 #### **Vykreslení odstavce v buňce tabulky se škálováním**
 
-Použijte přetížení [IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/), které přijímá parametry `float scaleX` a `float scaleY` pro nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v první buňce dvakrát širší a vyšší než výchozí a výsledek uloží jako PNG obrázek.
+Použijte přetížení [IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/), které přijímá parametry `float scaleX` a `float scaleY` pro nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce při dvojnásobné šířce a výšce oproti výchozím a uloží výsledek jako PNG obrázek.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -836,24 +824,24 @@ else
 presentation->Dispose();
 ```
 
-Měřítko `1` zachová výchozí velikost v pixelech. Například `2` pro oba faktory vytvoří obrázek, jehož šířka i výška jsou přibližně dvojnásobné oproti výchozím rozměrům, což vede ke čtyřnásobnému počtu pixelů. Větší faktory obecně poskytují ostřejší text pro zvětšení nebo výstup ve vysokém rozlišení, ale také zvyšují spotřebu paměti a velikost souboru. Faktory menší než `1` vytvoří menší obrázky s méně podrobným zobrazením. Použijte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory roztačí výstup nezávisle.
+Faktor měřítka `1` zachová tuto osu na její výchozí velikosti v pixelech. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobné oproti výchozím rozměrům, což vede k čtyřnásobnému počtu pixelů. Větší faktory obecně vytvářejí ostřejší text pro zvětšení nebo výstup ve vysokém rozlišení, ale také zvyšují paměťovou náročnost a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s menšími detaily. Použijte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory roztaží výstup nezávisle.
 
-Vykreslování celého tvaru pomocí [IShape::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getimage/) zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo jiný vizuální kontext tvaru. Pro obrázek pouze s odstavcem použijte [IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/).
+Vykreslení celého tvaru pomocí [IShape::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getimage/) je užitečné, když výstup musí zahrnovat výplň tvaru, okraj nebo jiný vizuální kontext. Pro obrázek pouze s odstavcem použijte [IParagraph::GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getimage/).
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
 **Mohu úplně zakázat zalamování řádků v textovém rámci?**
 
-Ano. Použijte [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/set_wraptext/) pro zakázání zalamování, aby řádky neprobíhaly na okrajích textového rámce.
+Ano. Použijte [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/set_wraptext/) k zakázání zalamování, aby řádky neprobíhaly na okrajích textového rámce.
 
-**Jak získám přesné umístění konkrétního odstavce na snímku?**
+**Jak mohu získat přesné hranice konkrétního odstavce na snímku?**
 
-Použijte [IParagraph::GetRect](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getrect/) pro získání ohraničujícího obdélníku odstavce. [IPortion::GetRect](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/getrect/) poskytuje ohraničení jednotlivé části.
+Použijte [IParagraph::GetRect](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/getrect/) pro získání ohraničujícího obdélníku odstavce. [IPortion::GetRect](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportion/getrect/) poskytuje hranice jednotlivé části.
 
 **Kde se řídí zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
 
 [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_alignment/) je nastavení na úrovni odstavce a platí pro celý odstavec bez ohledu na formátování jednotlivých částí.
 
-**Mohu nastavit jazyk kontroly pravopisu jen pro část odstavce?**
+**Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
 
 Ano. Použijte [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibaseportionformat/set_languageid/) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.

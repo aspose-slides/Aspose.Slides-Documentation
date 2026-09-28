@@ -12,52 +12,52 @@ keywords:
 - bekezdés hozzáadása
 - szöveg kezelése
 - bekezdés kezelése
-- bullet kezelése
-- bekezdés behúzás
+- felsorolás kezelése
+- bekezdés behúzása
 - függő behúzás
-- bekezdés bullet
+- bekezdés felsorolás
 - számozott lista
-- felsorolt lista
-- bekezdés tulajdonságok
+- felsoroláslista
+- bekezdés tulajdonságai
 - HTML importálása
-- szöveg HTML-re
-- bekezdés HTML-re
-- bekezdés képre
-- szöveg képre
+- szöveg HTML-be
+- bekezdés HTML-be
+- bekezdés képpé
+- szöveg képpé
 - bekezdés exportálása
 - PowerPoint
-- prezentáció
+- bemutató
 - PHP
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, szakaszokat, bullet‑eket, számozott listákat, behúzásokat, HTML tartalmat és bekezdés képeket az Aspose.Slides for PHP via Java segítségével."
+description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, részeket, felsorolásokat, számozott listákat, behúzásokat, HTML tartalmakat és bekezdés képeket az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for PHP via Java a szöveget a szövegkeretek, bekezdések és szakaszok hierarchiájaként ábrázolja:
+Az Aspose.Slides for PHP via Java a szöveget szövegdobozok, bekezdések és részletek hierarchiájaként ábrázolja:
 
-* [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) a formákban lévő szövegtárolót képviseli, és hozzáférést biztosít a bekezdésgyűjteményéhez.
-* [Paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/) egy bekezdést jelöl egy szövegkeretben, és hozzáférést biztosít a szakaszaihoz és a bekezdésszintű formázáshoz.
-* [Portion](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portion/) egy szövegfolyamot képvisel egy bekezdésen belül. Minden szakasz saját szöveggel és karakter-szintű formázással rendelkezhet.
+* [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) egy alakzat szövegtárolója, és hozzáférést biztosít a bekezdésgyűjteményéhez.
+* [Paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/) egy bekezdést képvisel egy szövegdobozban, és hozzáférést biztosít a részleteihez és a bekezdés-szintű formázáshoz.
+* [Portion](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portion/) egy szövegszakaszt képvisel egy bekezdésen belül. Minden részlet saját szöveggel és karakter-szintű formázással rendelkezhet.
 
-Egy bekezdés tehát több szakasz használatával tartalmazhat különböző betűtípusú, színű, méretű és egyéb formázású szöveget.
+Ezáltal egy bekezdés több részlet használatával különböző betűtípusú, színű, méretű és egyéb formázású szöveget tartalmazhat.
 
 ## **Bekezdések létrehozása és formázása**
 
-### **Több szakaszos bekezdések létrehozása**
+### **Több részlettel rendelkező bekezdések létrehozása**
 
-Az alábbi lépések egy szövegkeretet hoznak létre három bekezdéssel, amelyek mindegyike három szakaszt tartalmaz:
+A következő lépések egy szövegdobozt hoznak létre három bekezdéssel, amely mindegyike három részt tartalmaz:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Érje el a megfelelő diát indexe alapján.
-3. Adjon hozzá egy téglalap alakú [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet a diához.
-4. Szerezze meg a forma [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) részét.
-5. Használja az alapértelmezett bekezdést, és adjon hozzá két további [Paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/) objektumot a szövegkerethez.
-6. Adjon elegendő [Portion](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portion/) objektumot minden bekezdéshez, hogy három szakaszt tartalmazzanak. Az alapértelmezett bekezdés már egy üres szakaszt tartalmaz.
-7. Állítsa be minden szakasz szövegét.
-8. Alkalmazzon karakter-szintű formázást a [Portion::getPortionFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portion/#getPortionFormat--) segítségével.
+1. Hozzon létre egy példányt a [Presentation] osztályból.
+2. Hozzáférés a megfelelő diához az indexén keresztül.
+3. Hozzon egy téglalap alakú [AutoShape]-t a diára.
+4. Hozzáférés az alakzat [TextFrame]-hez.
+5. Használja az alapértelmezett bekezdést, és adjon hozzá két további [Paragraph] objektumot a szövegdobozhoz.
+6. Hozzon elegendő [Portion] objektumot minden bekezdéshez, hogy három részt tartalmazzanak. Az alapértelmezett bekezdés már egy üres részt tartalmaz.
+7. Állítsa be minden részlet szövegét.
+8. Alkalmazza a karakter-szintű formázást a [Portion::getPortionFormat] segítségével.
 9. Mentse a módosított bemutatót.
 
-Ez a PHP példa a fenti lépéseket valósítja meg:
+Ez a PHP példa a lépéseket valósítja meg:
 
 ```php
 use aspose\slides\FillType;
@@ -118,26 +118,26 @@ try {
 }
 ```
 
-## **Felsorolás és számozott lista létrehozása**
+## **Felsorolások és számozott listák létrehozása**
 
 ### **Felsorolás vagy számozott lista létrehozása**
 
-A felsorolás‑ és számozási jelek segítenek a kapcsolódó elemek gyors áttekintésében. Az Aspose.Slides‑ben a lista beállításait a [BulletFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bulletformat/) határozza meg.
+A felsorolások és a számozás megkönnyítik a kapcsolódó elemek átláthatóbbá tételét. Az Aspose.Slides‑ben a lista beállításait a [BulletFormat] határozza meg.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Érje el a megfelelő diát indexe alapján.
-3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet a kiválasztott diára.
-4. Szerezze meg a forma [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) részét.
-5. Távolítsa el az alapértelmezett bekezdést a szövegkeretből.
-6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/) elemet egy szimbólum‑bullethez.
-7. Állítsa be a [BulletFormat::setType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bulletformat/#setType-int-) értékét a [BulletType::Symbol](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bullettype/) típusra, és adja meg a bullet karaktert.
-8. Állítsa be a bekezdés szövegét, behúzását, bullet színét és magasságát.
-9. Adja hozzá a bekezdést a szövegkerethez.
-10. Hozzon létre egy második bekezdést, és állítsa be a [BulletFormat::setType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bulletformat/#setType-int-) értékét a [BulletType::Numbered](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bullettype/) típusra.
-11. Konfigurálja a számozott bullet stílusát, és adja hozzá a bekezdést a szövegkerethez.
+1. Hozzon létre egy példányt a [Presentation] osztályból.
+2. Hozzáférés a megfelelő diához az indexén keresztül.
+3. Hozzon egy [AutoShape]-t a kiválasztott diára.
+4. Hozzáférés az alakzat [TextFrame]-hez.
+5. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
+6. Hozzon létre egy [Paragraph]-t egy szimbólum felsoroláshoz.
+7. Állítsa a [BulletFormat::setType] értékét [BulletType::Symbol]-ra, és adja meg a felsorolás karakterét.
+8. Állítsa be a bekezdés szövegét, behúzását, a felsorolás színét és magasságát.
+9. Adja hozzá a bekezdést a szövegdobozhoz.
+10. Hozzon létre egy második bekezdést, és állítsa a [BulletFormat::setType] értékét [BulletType::Numbered]-ra.
+11. Konfigurálja a számozott felsorolás stílusát, majd adja hozzá a bekezdést a szövegdobozhoz.
 12. Mentse a bemutatót.
 
-Ez a PHP példa egy szimbólum‑bulletet és egy számozott bulletet hoz létre:
+Ez a PHP példa egy szimbólum felsorolást és egy számozott felsorolást hoz létre:
 
 ```php
 use aspose\slides\BulletType;
@@ -184,22 +184,22 @@ try {
 }
 ```
 
-### **Képes bullet használata**
+### **Képes felsorolások használata**
 
-A képes bullet lehetővé teszi egy egyedi kép használatát szimbólum vagy szám helyett.
+A képes felsorolások lehetővé teszik egyedi kép használatát szimbólum vagy szám helyett.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Érje el a megfelelő diát indexe alapján.
-3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet, és szerezze meg annak [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) részét.
-4. Távolítsa el az alapértelmezett bekezdést a szövegkeretből.
-5. Töltse be a bullet képet, és adja hozzá a bemutató képgyűjteményéhez [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) formájában.
-6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/) elemet, és állítsa be a szövegét.
-7. Állítsa be a [BulletFormat::setType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bulletformat/#setType-int-) értékét a [BulletType::Picture](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bullettype/) típusra.
-8. Azonosítsa a képet a [BulletFormat::getPicture](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bulletformat/#getPicture--) segítségével, és állítsa be a bullet magasságát.
-9. Adja hozzá a bekezdést a szövegkerethez.
+1. Hozzon létre egy példányt a [Presentation] osztályból.
+2. Hozzáférés a megfelelő diához az indexén keresztül.
+3. Hozzon egy [AutoShape]-t, és férjen hozzá a [TextFrame]-hez.
+4. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
+5. Töltse be a felsorolás képet, és adja hozzá a bemutató képgyűjteményéhez [PPImage]-ként.
+6. Hozzon létre egy [Paragraph]-t, és állítsa be a szövegét.
+7. Állítsa a [BulletFormat::setType] értékét [BulletType::Picture]-ra.
+8. Adja hozzárendelésként a képet a [BulletFormat::getPicture] segítségével, és állítsa be a felsorolás magasságát.
+9. Adja hozzá a bekezdést a szövegdobozhoz.
 10. Mentse a módosított bemutatót.
 
-Ez a PHP példa egy képes bulletet hoz létre:
+Ez a PHP példa egy képes felsorolást hoz létre:
 
 ```php
 use aspose\slides\BulletType;
@@ -240,13 +240,13 @@ try {
 
 ### **Többszintű lista létrehozása**
 
-Állítsa be a [ParagraphFormat::setDepth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setDepth-short-) értékét, hogy a bekezdéseket a lista különböző szintjeire helyezze. A legfelső szint mélysége `0`.
+A [ParagraphFormat::setDepth] beállításával a bekezdéseket a lista különböző szintjeire helyezheti. A legfelső szint mélysége `0`.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumot, és érje el egy diát.
-2. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet, és törölje az alapértelmezett bekezdést a szövegkeretéből.
-3. Hozzon létre négy bekezdést, és konfigurálja azok bullet szimbólumait.
-4. Állítsa be a [ParagraphFormat::setDepth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setDepth-short-) értékeket `0`, `1`, `2` és `3`‑ra.
-5. Adja hozzá a bekezdéseket a szövegkerethez, majd mentse a bemutatót.
+1. Hozzon létre egy [Presentation]-t, és férjen hozzá egy diához.
+2. Hozzon egy [AutoShape]-t, és tisztítsa meg a szövegdoboz alapértelmezett bekezdését.
+3. Hozzon létre négy bekezdést, és állítsa be a felsorolás szimbólumait.
+4. Állítsa be a [ParagraphFormat::setDepth] értékeket `0`, `1`, `2` és `3`‑ra.
+5. Adja hozzá a bekezdéseket a szövegdobozhoz, majd mentse a bemutatót.
 
 Ez a PHP példa egy négyszintű felsorolást hoz létre:
 
@@ -308,17 +308,17 @@ try {
 }
 ```
 
-### **Számozott listaelemek egyedi kezdőértékkel**
+### **Számozott listaelemek indítása egyedi értékekkel**
 
-Használja a [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) metódust a számozott bekezdés kezdeti számának megadásához.
+A [BulletFormat::setNumberedBulletStartWith] használatával beállíthatja a számozott bekezdés kezdeti számát.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumot, és adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet egy diához.
-2. Törölje a forma szövegkeretéből az alapértelmezett bekezdést.
+1. Hozzon létre egy [Presentation]-t, és adjon egy [AutoShape]-t egy diához.
+2. Tisztítsa meg az alakzat szövegdobozának alapértelmezett bekezdését.
 3. Hozzon létre három számozott bekezdést.
-4. Állítsa be a [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/hu/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) értékét `2`, `3` és `7`‑re a megfelelő bekezdéseknél.
-5. Adja hozzá a bekezdéseket a szövegkerethez, majd mentse a bemutatót.
+4. Állítsa a [BulletFormat::setNumberedBulletStartWith] értékét `2`, `3` és `7`‑re a megfelelő bekezdésekhez.
+5. Adja hozzá a bekezdéseket a szövegdobozhoz, majd mentse a bemutatót.
 
-Ez a PHP példa minden bekezdéshez egyedi kezdőszámot rendel:
+Ez a PHP példa minden bekezdéshez egyedi kezdőszámot állít be:
 
 ```php
 use aspose\slides\BulletType;
@@ -357,22 +357,22 @@ try {
 }
 ```
 
-## **Bekezdéselrendezés és végjellemzők vezérlése**
+## **Bekezdés elrendezés és végjellemzők vezérlése**
 
 ### **Első sor behúzásának beállítása**
 
-Használja a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setIndent-float-) metódust a bekezdés első sorának behúzásának szabályozásához. Ez a módszer csak az első sort mozgatja a bekezdés bal margójához képest. Pozitív érték esetén az első sor jobbra tolódik, míg a többi sor a bekezdés törzséhez igazodik.
+A [ParagraphFormat::setIndent] használatával szabályozhatja egy bekezdés első sorának behúzását. Ez a módszer csak az első sort mozdítja el a bekezdés bal margójához képest. Pozitív érték esetén az első sor jobbra tolódik, míg a többi sor a bekezdés törzséhez igazodik.
 
-Ha az egész bekezdést szeretné eltolni, használja a [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) metódust. Ha csak az első sort kívánja eltolni, használja a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setIndent-float-) metódust.
+Ha az egész bekezdést szeretné eltolni, használja a [ParagraphFormat::setMarginLeft]‑t. Ha csak az első sort akarja eltolni, használja a [ParagraphFormat::setIndent]‑t.
 
-Az alábbi példa több bekezdést hoz létre, és különböző [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setIndent-float-) értékekkel mutatja be, hogyan befolyásolja a első sor behúzása a bekezdés elrendezését.
+Az alábbi példa több bekezdést hoz létre, és különböző [ParagraphFormat::setIndent] értékeket alkalmaz, hogy bemutassa, hogyan befolyásolja az első sor behúzása a bekezdés elrendezését.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Érje el a cél diát.
-3. Adjon hozzá egy téglalap alakú [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet a diához.
-4. Szerezze meg a forma [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) részét, és távolítsa el az alapértelmezett bekezdést.
-5. Hozzon létre több bekezdést, és állítson be különböző [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setIndent-float-) értékeket.
-6. Adja hozzá a bekezdéseket a szövegkerethez.
+1. Hozzon létre egy példányt a [Presentation] osztályból.
+2. Hozzáférés a céldiához.
+3. Hozzon egy téglalap alakú [AutoShape]-t a diára.
+4. Hozzáférés az alakzat [TextFrame]-hez, és távolítsa el az alapértelmezett bekezdést.
+5. Hozzon létre több bekezdést, és állítson be különböző [ParagraphFormat::setIndent] értékeket számukra.
+6. Adja hozzá a bekezdéseket a szövegdobozhoz.
 7. Mentse a módosított bemutatót.
 
 Ez a PHP kód megmutatja, hogyan állíthat be bekezdésbehúzást:
@@ -435,19 +435,19 @@ Az eredmény:
 
 ### **Függő behúzás beállítása**
 
-A függő behúzás olyan bekezdéselrendezés, ahol az első sor balra kezdődik a többi sorhoz képest. Az Aspose.Slides‑ben ezt a hatást a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setIndent-float-) segítségével hozhatja létre. Negatív érték megadása az első sort balra tolja a bekezdés törzséhez képest.
+A függő behúzás egy olyan bekezdéselrendezés, ahol az első sor balra indul a többi sorhoz képest. Az Aspose.Slides‑ben ezt a hatást a [ParagraphFormat::setIndent] segítségével hozhatja létre. Negatív érték megadásával az első sor balra kerül a bekezdés törzséhez képest.
 
-Gyakorlatban a [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) határozza meg a bekezdés törzsének bal pozícióját, míg a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setIndent-float-) az első sor pozícióját a már megadott margóhoz képest. Függő behúzás létrehozásához pozitív értéket adjon a `setMarginLeft`‑nek, és negatív értéket a `setIndent`‑nek.
+A gyakorlatban a [ParagraphFormat::setMarginLeft] határozza meg a bekezdés törzs bal pozícióját, a [ParagraphFormat::setIndent] pedig az első sor relatív helyzetét ehhez a margóhoz képest. Függő behúzás létrehozásához adjon pozitív értéket a `setMarginLeft`‑nek, és negatív értéket a `setIndent`‑nek.
 
-Ez a formázás hasznos bibliográfiák, hivatkozások, szójegyzékek és egyéb bekezdések esetén, ahol a sortöréseknek a bekezdés törzsének alá kell illeszkedniük, nem pedig az első sor első karakteréhez.
+Ez a formázás hasznos bibliográfiák, hivatkozások, szószedetek és egyéb bekezdések esetén, ahol a sortöréses soroknak a bekezdés törzsének alá kell illeszkedniük, nem pedig az első sor első karaktere alá.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Érje el a cél diát.
-3. Adjon hozzá egy téglalap [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet a diához.
-4. Szerezze meg a forma [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) részét, és távolítsa el az alapértelmezett bekezdést.
-5. Hozzon létre bekezdéseket, és a [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) számára adjon meg pozitív értéket minden bekezdésnél.
-6. A [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setIndent-float-) számára adjon meg negatív értéket a függő behúzás létrehozásához.
-7. Adja hozzá a bekezdéseket a szövegkerethez.
+1. Hozzon létre egy példányt a [Presentation] osztályból.
+2. Hozzáférés a céldiához.
+3. Hozzon egy téglalap alakú [AutoShape]-t a diára.
+4. Hozzáférés az alakzat [TextFrame]-hez, és távolítsa el az alapértelmezett bekezdést.
+5. Hozzon létre bekezdéseket, és adjon minden bekezdéshez pozitív értéket a [ParagraphFormat::setMarginLeft]‑nek.
+6. Adjon negatív értéket a [ParagraphFormat::setIndent]‑nek a függő behúzás létrehozásához.
+7. Adja hozzá a bekezdéseket a szövegdobozhoz.
 8. Mentse a módosított bemutatót.
 
 Ez a PHP kód megmutatja, hogyan állíthat be függő behúzást egy bekezdéshez:
@@ -500,16 +500,16 @@ Az eredmény:
 
 ![A bekezdések függő behúzása](hanging_indent.png)
 
-### **A bekezdés befejező tulajdonságainak beállítása**
+### **Bekezdés végjellemzőinek beállítása**
 
-A [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) szabályozza a bekezdés zárójelzésének formázását. Az alábbi PHP példa betűméretet és latin betűtípust állít be a második bekezdés zárójelzésére:
+A [Paragraph::setEndParagraphPortionFormat] szabályozza a bekezdés végjeleinek formázását. Az alábbi PHP példa egy betűméretet és latin betűtípust állít be a második bekezdés végjele számára:
 
-1. Töltsön be egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumot, és érje el egy diát.
-2. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet, és törölje annak alapértelmezett bekezdését.
-3. Hozzon létre két bekezdést, és adjon hozzá szövegszakaszokat.
-4. Hozzon létre egy [PortionFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portionformat/) objektumot a második bekezdés zárójelzéséhez.
-5. Állítsa be a [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) és a [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-) értékeket.
-6. Rendelje hozzá a formázást a [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) metódussal, majd mentse a bemutatót.
+1. Töltsön be egy [Presentation]‑t, és férjen hozzá egy diához.
+2. Adjon egy [AutoShape]-t, és törölje annak alapértelmezett bekezdését.
+3. Hozzon létre két bekezdést, és adjon hozzá szövegrészeket.
+4. Hozzon létre egy [PortionFormat]-ot a második bekezdés végjeléhez.
+5. Állítsa be a [BasePortionFormat::setFontHeight] és a [BasePortionFormat::setLatinFont] értékeket.
+6. Rendelje hozzá a formátumot a [Paragraph::setEndParagraphPortionFormat]‑nel, majd mentse a bemutatót.
 
 ```php
 use aspose\slides\FontData;
@@ -549,11 +549,13 @@ try {
 
 ## **Megjelenített sorok számlálása**
 
-Használja a [Paragraph::getLinesCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#getLinesCount--) metódust a bekezdés által a szövegelrendezés után elfoglalt sorok számának meghatározásához, beleértve az automatikus sortörést. Ez akkor hasznos, ha a szöveg hosszát és elrendezését kell ellenőrizni a prezentációs sablonokban.
+A bekezdés szabályok, amelyek az automatikus sortörést és a sorvégi írásjelek kezelését befolyásolják, lásd a [Sorok tördelésének vezérlése](/slides/hu/php-java/text-formatting/#control-line-breaking) és a [Függő központozás vezérlése](/slides/hu/php-java/text-formatting/#control-hanging-punctuation) című oldalakon.
 
-Egy bekezdés egy elem a [TextFrame::getParagraphs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#getParagraphs--) gyűjteményében, és több megjelenített sort is elfoglalhat. Egy explicit sortörés egy bekezdésen belül új sort hoz létre anélkül, hogy új bekezdést generálna. Az automatikus sortörés a rendelkezésre álló szélesség alapján hoz létre sorokat, anélkül, hogy explicit sortörő karaktereket illesztene a szövegbe. Ennek megfelelően a bekezdések vagy sortörő karakterek számlálása nem adja meg a tényleges megjelenített sorok számát.
+Használja a [Paragraph::getLinesCount]‑t, hogy megszámolja egy bekezdés által a szöveg elrendezése után foglalt sorokat, beleértve az automatikus sortörést. Ez akkor hasznos, ha a szöveg hossza és elrendezése ellenőrzése a prezentációs sablonokban történik.
 
-Az alábbi példa létrehoz egy szöveges formát, megszámolja a sorait, szűkíti a formát, majd a szöveget egy rövidebb karakterláncra cseréli. A sortörés engedélyezett, az automatikus illesztés (autofit) le van tiltva, így a forma szélessége szabályozza a sortörést, anélkül, hogy a szöveg vagy a forma automatikusan zsugorodna. A forma méretei pontban vannak megadva. Végül a példa egy további bekezdést ad hozzá, és összeadja a sorok számát a szövegkereten belül.
+A bekezdés a [TextFrame::getParagraphs] egy eleme, és több megjelenített sort is elfoglalhat. Egy explicita sortörés a bekezdésen belül új sort hoz létre anélkül, hogy új bekezdést generálna. Az automatikus sortörés a rendelkezésre álló szélesség alapján hoz létre sorokat, anélkül, hogy a szövegbe explicita sortörést illesztene. Így a bekezdések vagy sortörés karakterek számlálása nem adja meg a megjelenített sorok számát.
+
+Az alábbi példa egy szövegalakzatot hoz létre, megszámolja a sorait, szűkíti az alakzatot, majd rövidebb szövegre cseréli. A sortörés be van kapcsolva, a méretezés automatikus igazítása le van tiltva, így a forma szélessége szabályozza a sortörést anélkül, hogy a szöveget automatikusan kicsinyítené vagy az alakzat méretét módosítaná. A forma méretei pontban vannak megadva. Végül a példa egy további bekezdést ad hozzá, és összeadja a sorok számát a szövegdobozon belül.
 
 ```php
 use aspose\slides\NullableBool;
@@ -598,24 +600,24 @@ try {
 }
 ```
 
-Ezzel a szöveggel és ezekkel a méretekkel a forma szűkítése növeli a sorok számát, míg a rövid szövegre cserélés csökkenti azt. A pontos számok változhatnak a betűtípus elérhetősége és helyettesítése, betűméret, margók, behúzás, sortörés és autofit beállítások függvényében. A sablon ellenőrzésekor használja a célnak megfelelő betűtípusokat és elrendezési beállításokat.
+Ezzel a szöveggel és ezekkel a méretekkel a forma szűkítése növeli a sorok számát, míg a rövid szövegre cserélés csökkenti azt. A pontos számok a betűtípusok elérhetőségétől, a helyettesítésektől, a betűmérettől, a margóktól, a behúzásoktól, a sorcímzéstől és az automatikus igazítás beállításaitól függnek. A sablon ellenőrzésekor használja a célnyelv környezetéhez tervezett betűtípusokat és elrendezési beállításokat.
 
-A sorok száma önmagában nem határozza meg, hogy a szöveg túllépi-e a tárolóját. A rendelkezésre álló magasság, sormagasság, bekezdés‑ és sor‑köz, valamint az autofit viselkedés is szerepet játszik; még egyetlen sor is túlságosan széles lehet, ha a sortörés ki van kapcsolva.
+A sorok száma önmagában nem határozza meg, hogy a szöveg túllépi‑e a tárolóját. A rendelkezésre álló magasság, a sormagasság, a bekezdés‑ és sorköz, valamint az automatikus igazítás viselkedése is számít; még egyetlen sor is túlságosan széles lehet, ha a sortörés ki van kapcsolva.
 
 ## **Bekezdés tartalmának importálása és exportálása**
 
 ### **HTML szöveg importálása bekezdésekbe**
 
-Használja a [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metódust a HTML megjelölés bekezdésekké és szakaszokká való konvertálásához egy szövegkeretben.
+A [ParagraphCollection::addFromHtml] használatával a HTML‑mark-upot átalakíthatja bekezdésekké és részekké egy szövegdobozban.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2. Érje el egy diát, és adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet.
-3. Szerezze meg a forma [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) részét, és távolítsa el az alapértelmezett bekezdést.
-4. Olvassa be a forrás HTML‑fájlt.
-5. Adja át a HTML‑szöveget a [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metódusnak.
+1. Hozzon létre egy példányt a [Presentation] osztályból.
+2. Hozzáférés egy diához, és adjon egy [AutoShape]-t.
+3. Hozzáférés az alakzat [TextFrame]-hez, és törölje az alapértelmezett bekezdést.
+4. Olvassa be a forrás‑HTML‑fájlt.
+5. Adja át a HTML‑szöveget a [ParagraphCollection::addFromHtml]‑nek.
 6. Mentse a módosított bemutatót.
 
-Ez a PHP példa HTML‑t importál egy szövegkeretbe:
+Ez a PHP példa a HTML‑t importálja egy szövegdobozba:
 
 ```php
 use aspose\slides\FillType;
@@ -646,15 +648,15 @@ try {
 
 ### **Bekezdés szövegének exportálása HTML‑be**
 
-Használja a [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metódust a kiválasztott bekezdéstartomány HTML‑ként történő exportálásához.
+A [ParagraphCollection::exportToHtml] használatával egy kiválasztott bekezdéssort exportálhat HTML‑ként.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból, és töltse be a kívánt bemutatót.
-2. Érje el a diát, és keresse meg azt az [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet, amely a szöveget tartalmazza.
-3. Szerezze meg a forma [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) részét.
-4. Hívja meg a [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metódust a kezdő bekezdésindex és az exportálandó bekezdések számának megadásával.
+1. Hozzon létre egy példányt a [Presentation] osztályból, és töltse be a kívánt bemutatót.
+2. Hozzáférés a diához, és keresse meg a szöveget tartalmazó [AutoShape]-t.
+3. Hozzáférés az alakzat [TextFrame]-hez.
+4. Hívja meg a [ParagraphCollection::exportToHtml]‑t a kezdő bekezdés indexével és az exportálandó bekezdések számával.
 5. Írja a visszaadott HTML‑szöveget egy fájlba.
 
-Ez a PHP példa az első szöveges forma összes bekezdését exportálja:
+Ez a PHP példa az első szövegalakzat összes bekezdését exportálja:
 
 ```php
 use aspose\slides\Presentation;
@@ -684,17 +686,17 @@ try {
 
 ### **Bekezdés renderelése képként**
 
-A [Paragraph::getImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#getImage--) egy egyedi bekezdést renderel közvetlenül, és egy [IImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/) objektumot ad vissza. Mentse az eredményt fájlba vagy streambe a [IImage::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/#save-java.lang.String-int-) segítségével. Nem szükséges a szülő forma renderelése vagy bitmap manuális kivágása.
+A [Paragraph::getImage] közvetlenül egy bekezdést renderel, és egy [IImage] objektumot ad vissza. A kép menthető fájlba vagy stream‑be a [IImage::save]‑val. Nem szükséges a tartalmazó alakzatot renderelni vagy bitmapet manuálisan kivágni.
 
-A [Paragraph::getImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#getImage--) `null`‑t adhat vissza, ha a bekezdés nem található meg a szülő gyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt a mentés előtt, és a kép használata után szabadítsa fel.
+A [Paragraph::getImage] `null`‑t adhat vissza, ha a bekezdés nem található a szülőgyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt mentés előtt, és a használat után szabadítsa fel a visszakapott képet.
 
-#### **Bekezdés renderelése alapértelmezett méretezéssel**
+#### **Bekezdés renderelése alapértelmezett méretezésben**
 
-Tegyük fel, hogy van egy `sample.pptx` nevű bemutatófájl egy diával, ahol az első forma egy három bekezdést tartalmazó szövegdoboz.
+Tegyük fel, hogy van egy sample.pptx nevű prezentációfájl egy diával, ahol az első alakzat egy három bekezdést tartalmazó szövegdoboz.
 
 ![A három bekezdést tartalmazó szövegdoboz](paragraph_to_image_input.png)
 
-Az alábbi PHP példa a második bekezdést egy szabályos szövegformában alapértelmezett méretezéssel rendereli, majd a visszakapott képet PNG formátumban menti. A `finally` blokk biztosítja, hogy a kép helyesen legyen felszabadítva.
+Az alábbi PHP példa a második bekezdést egy szabályos szövegalakzatban alapértelmezett méretezésben rendereli, és PNG formátumban menti a kapott képet. A `finally` blokk biztosítja, hogy a kép helyesen legyen felszabadítva.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -736,7 +738,7 @@ Az eredmény:
 
 #### **Bekezdés renderelése táblázatcellában méretezéssel**
 
-Használja a [Paragraph::getImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#getImage-float-float-) túlterhetést, amely a `$scaleX` és `$scaleY` paramétereket fogadja a vízszintes és függőleges skálázási tényezők beállításához. Az alábbi PHP példa egy táblázatot hoz létre, a bekezdést az első cellájában kétszeres alapmérettel rendereli, majd az eredményt PNG képként menti.
+Használja a [Paragraph::getImage]‑t, amely a `$scaleX` és `$scaleY` paramétereket fogadja, hogy beállítsa a horizontális és vertikális skálafaktorokat. Az alábbi PHP példa létrehoz egy táblázatot, a bekezdést az első cellájában kétszeres alapméretű szélességgel és magassággal rendereli, majd PNG képként menti az eredményt.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -767,24 +769,24 @@ try {
 }
 ```
 
-Az `1` skálázási tényező megtartja az adott tengely alap pixelméretét. Például a `2` mindkét tényezőnél olyan képet eredményez, amelynek szélessége és magassága megközelítőleg kétszerese az alapméreteknek, így négyzetesére nő a pixel számnak. A nagyobb tényezők általában élesebb szöveget eredményeznek nagyítás vagy nagy felbontású kimenet esetén, de a memóriát és a fájlméretet is növelik. Az `1`‑nél kisebb tényezők kisebb, részletmentesebb képeket adnak. Használjon egyenlő tényezőket a bekezdés arányának megőrzéséhez; a különböző vízszintes és függőleges tényezők önállóan nyújtják a kimenetet.
+Az 1‑es skálafaktor megtartja az adott tengely alappixelméretét. Például a 2‑es érték mindkét tengelyen egy képet eredményez, amelynek szélessége és magassága körülbelül kétszerese az alapméreteknek, ezáltal négyzetes pixelarányú. A nagyobb faktort általában élesebb szöveghez használják nagy felbontású kimenet vagy nagyítás esetén, de a memóriahasználatot és a fájlméretet is növelik. 1‑nél kisebb faktort kisebb, kevésbé részletgazdag képekhez használunk. Egyenlő faktorok esetén a bekezdés arányait megőrizhetjük; eltérő horizontális és vertikális faktort alkalmazva a kimenet külön-külön nyúlik.
 
-Az egész forma renderelése a [Shape::getImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/#getImage--) segítségével akkor hasznos, ha a kimenetnek tartalmaznia kell a forma kitöltését, keretét vagy egyéb vizuális kontextusát. A csak bekezdésre korlátozott képhez használja a [Paragraph::getImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#getImage--) metódust.
+Egy egész alakzat renderelése a [Shape::getImage]‑vel akkor is hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, keretét vagy más vizuális kontextusát. Ha csak a bekezdésre van szükség, használja a [Paragraph::getImage]‑t.
 
 ## **GYIK**
 
-**Teljesen letilthatom a sortörést egy szövegkereten belül?**
+**Letilthatom teljesen a sorok automatikus tördelését egy szövegdobozban?**
 
-Igen. A [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/#setWrapText-byte-) beállításával letilthatja a sortörést, így a sorok nem törnek a szövegkeret szélei mentén.
+Igen. Állítsa a [TextFrameFormat::setWrapText] értékét, hogy letiltsa a tördelést, így a sorok nem törnek meg a szövegdoboz szélén.
 
-**Hogyan kaphatom meg egy adott bekezdés pontos dián lévő határait?**
+**Hogyan kaphatom meg egy adott bekezdés pontos helyi határait a dián?**
 
-Használja a [Paragraph::getRect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/#getRect--) metódust a bekezdés határoló téglalapjának lekéréséhez. A [Portion::getRect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portion/#getRect--) egy egyedi szakasz határait adja vissza.
+Használja a [Paragraph::getRect]‑et a bekezdés körülhatároló téglalap lekéréséhez. A [Portion::getRect] egyedi részlet határait adja vissza.
 
 **Hol szabályozható a bekezdés igazítása (balra, jobbra, középre vagy sorkizárt)?**
 
-A [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/#setAlignment-int-) bekezdés‑szintű beállítás, amely a teljes bekezdésre vonatkozik, függetlenül az egyes szakaszok formázásától.
+A [ParagraphFormat::setAlignment] egy bekezdés‑szintű beállítás, amely a teljes bekezdésre vonatkozik, függetlenül az egyedi részletek formázásától.
 
-**Beállíthatom a helyesírási nyelvet a bekezdés egy részére?**
+**Beállíthatok lektorálási nyelvet a bekezdés egy részére?**
 
-Igen. Állítsa be a [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) értékét egyedi szakaszokra, így egy bekezdés több nyelven írt szöveget is tartalmazhat.
+Igen. Állítsa a [BasePortionFormat::setLanguageId]‑t egyedi részletekhez, így egy bekezdés több nyelven írt szöveget tartalmazhat.

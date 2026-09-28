@@ -5,19 +5,19 @@ type: docs
 weight: 50
 url: /cs/java/text-formatting/
 keywords:
-- zarovnání odstavce
+- zarovnat odstavec
 - styl textu
 - pozadí textu
 - průhlednost textu
-- rozestup znaků
+- mezera mezi znaky
 - vlastnosti písma
 - rodina písma
-- otočení textu
-- úhel otočení
-- textový rámeček
+- rotace textu
+- úhel rotace
+- textový rámec
 - řádkování
 - vlastnost automatického přizpůsobení
-- ukotvení textového rámečku
+- ukotvení textového rámce
 - tabulace textu
 - výchozí jazyk
 - PowerPoint
@@ -29,19 +29,19 @@ description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDoc
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Java. Pokrývá barvy pozadí, průhlednost, rozestup znaků, vlastnosti písma, otáčení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, zarážky tabulátorů a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Java. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otáčení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-Ve příkladech níže použijeme soubor pojmenovaný "sample.pptx", který obsahuje jediný textový rámeček na první snímku s následujícím textem:
+Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). Prvním tvarem na první snímku je textové pole a jeho první odstavec obsahuje text zobrazený níže. Indexy snímků i tvarů jsou nulové. Příklady, které vybírají tučné úseky, používají účinné formátování, včetně zděděného tučného formátování:
 
-![Sample text](sample_text.png)
+![Ukázkový text](sample_text.png)
 
-Pro vyhledání a zvýraznění doslovného textu nebo shod regulárního výrazu viz [Vyhledat a nahradit text](/slides/cs/java/search-and-replace-text/).
+Pro vyhledání a zvýraznění doslovného textu nebo shod regulárních výrazů viz [Vyhledávání a nahrazování textu](/slides/cs/java/search-and-replace-text/).
 
-## **Nastavit barvu pozadí textu**
+## **Nastavení barvy pozadí textu**
 
-Použijte [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) pro jednotlivé části textu.
+Použijte [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) k nastavení výchozí barvy zvýraznění pro odstavec nebo [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) pro jednotlivé úseky textu.
 
-Následující ukázka kódu ukazuje, jak nastavit barvu pozadí pro **celý odstavec**:
+Následující příklad nastaví světle šedé zvýraznění jako výchozí pro první odstavec. Výslovné barvy zvýraznění na jednotlivých úsecích mají přednost před tímto výchozím nastavením:
 
 ```java
 import com.aspose.slides.*;
@@ -50,6 +50,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -66,7 +67,7 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Následující ukázka kódu demonstruje, jak nastavit barvu pozadí pro **části textu s tučným písmem**:
+Ukázka kódu níže demonstruje, jak nastavit barvu pozadí pro **úseky textu s tučným písmem**:
 
 ```java
 import com.aspose.slides.*;
@@ -75,12 +76,13 @@ import java.awt.Color;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Nastavit barvu zvýraznění pro část textu.
+            // Nastavit barvu zvýraznění pro úsek textu.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -93,11 +95,11 @@ try {
 
 Výsledek:
 
-![Šedé části textu](gray_text_portions.png)
+![Šedé úseky textu](gray_text_portions.png)
 
-## **Zarovnat odstavce textu**
+## **Zarovnání odstavců textu**
 
-Použijte [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku a podobně.
+Použijte [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná doleva, doprava, do bloku atd.
 
 Následující ukázka kódu ukazuje, jak zarovnat odstavec do **středu**:
 
@@ -107,6 +109,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -123,11 +126,11 @@ Výsledek:
 
 ![Zarovnaný odstavec](aligned_paragraph.png)
 
-## **Nastavit průhlednost textu**
+## **Nastavení průhlednosti textu**
 
-Průhlednost textu se řídí alfa komponentou barvy přiřazené pomocí [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu ARGB na stupnici 0–255, nikoli procento průhlednosti.
+Průhlednost textu se řídí alfa složkou barvy přiřazené pomocí [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). V níže uvedených příkladech je `alpha = 50` hodnota kanálu ARGB v rozsahu 0–255, nikoli procento průhlednosti.
 
-Následující ukázka kódu ukazuje, jak použít průhlednost na **celý odstavec**:
+Ukázka kódu níže ukazuje, jak použít průhlednost na **celý odstavec**:
 
 ```java
 import com.aspose.slides.*;
@@ -138,6 +141,7 @@ int alpha = 50;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -155,7 +159,7 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Následující ukázka kódu ukazuje, jak použít průhlednost na **části textu s tučným písmem**:
+Následující ukázka kódu ukazuje, jak použít průhlednost na **úseky textu s tučným písmem**:
 
 ```java
 import com.aspose.slides.*;
@@ -166,12 +170,13 @@ int alpha = 50;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Nastavit průhlednost části textu.
+            // Nastavit průhlednost úseku textu.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -185,13 +190,13 @@ try {
 
 Výsledek:
 
-![Průhledné části textu](transparent_text_portions.png)
+![Průhledné úseky textu](transparent_text_portions.png)
 
-## **Nastavit rozestup znaků v textu**
+## **Nastavení mezery mezi znaky pro text**
 
-Použijte [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) k rozšíření nebo zúžení mezery mezi znaky v textovém rámečku.
+Použijte [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) k rozšíření nebo zúžení mezery mezi znaky v textovém poli. Příklady přidávají 3 body mezery; záporné hodnoty text zhušťují.
 
-Následující Java kód ukazuje, jak rozšířit rozestup znaků v **celém odstavci**:
+Následující Java kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
 
 ```java
 import com.aspose.slides.*;
@@ -199,11 +204,12 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Poznámka: Použijte záporné hodnoty pro zmenšení rozestupu znaků.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Zvětšit rozestup znaků.
+    // Poznámka: Používejte záporné hodnoty pro zmenšení mezery mezi znaky.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozšířit mezeru mezi znaky.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -213,9 +219,9 @@ try {
 
 Výsledek:
 
-![Rozestup znaků v odstavci](character_spacing_in_paragraph.png)
+![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
 
-Následující ukázka kódu ukazuje, jak rozšířit rozestup znaků v **částech textu s tučným písmem**:
+Ukázka kódu níže ukazuje, jak rozšířit mezeru mezi znaky v **úsecích textu s tučným písmem**:
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +229,14 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Poznámka: Použijte záporné hodnoty pro zmenšení rozestupu znaků.
-            portion.getPortionFormat().setSpacing(3); // Zvětšit rozestup znaků.
+            // Poznámka: Používejte záporné hodnoty pro zmenšení mezery mezi znaky.
+            portion.getPortionFormat().setSpacing(3); // Rozšířit mezeru mezi znaky.
         }
     }
 
@@ -241,13 +248,13 @@ try {
 
 Výsledek:
 
-![Rozestup znaků v částech textu](character_spacing_in_text_portions.png)
+![Mezera mezi znaky v úsecích textu](character_spacing_in_text_portions.png)
 
-### **Zakázat kerning pro konkrétní písma**
+### **Zakázat kerning pro konkrétní fonty**
 
-V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může docházet, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určité fonty, i když font obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
 
-Aby výstup vykreslený v takových případech byl blíže PowerPointu, můžete zakázat kerning pro části textu, které používají ovlivněné písmo. Nastavte [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) na hodnotu výrazně větší než skutečná velikost písma:
+Aby byl výstup renderingu bližší PowerPointu, můžete zakázat kerning pro úseky textu, které používají dotčený font. Nastavte [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) na hodnotu větší než skutečná velikost písma. Tento příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na první snímku. Kontroluje účinná jména fontů, včetně zděděných fontů, a nastavuje práh 100 bodů pro úseky, které používají Roboto. Tím se zakáže kerning pro odpovídající úseky s velikostí písma pod 100 bodů:
 
 ```java
 import com.aspose.slides.*;
@@ -255,12 +262,13 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
     for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
         for (IPortion portion : paragraph.getPortions()) {
-            IPortionFormat portionFormat = portion.getPortionFormat();
+            IPortionFormatEffectiveData portionFormat = portion.getPortionFormat().getEffective();
 
             if ((portionFormat.getLatinFont() != null &&
                  portionFormat.getLatinFont().getFontName().equals(targetFont)) ||
@@ -268,7 +276,7 @@ try {
                  portionFormat.getEastAsianFont().getFontName().equals(targetFont)) ||
                 (portionFormat.getComplexScriptFont() != null &&
                  portionFormat.getComplexScriptFont().getFontName().equals(targetFont))) {
-                portionFormat.setKerningMinimalSize(100);
+                portion.getPortionFormat().setKerningMinimalSize(100);
             }
         }
     }
@@ -279,13 +287,13 @@ try {
 }
 ```
 
-Toto nastavení zabraňuje aplikaci kerningu na odpovídající části textu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma, na která tento specifický PowerPointový režim působí.
+Pro text pod prahovou hodnotou toto nastavení zabraňuje kerningu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu u fontů, na které se toto specifické chování PowerPointu vztahuje.
 
-## **Spravovat vlastnosti písma textu**
+## **Správa vlastností písma textu**
 
-Vlastnosti písma lze nastavit na úrovni odstavce pomocí [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) nebo na jednotlivých částech pomocí [IPortionFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iportionformat/).
+Vlastnosti písma lze nastavit na úrovni odstavce pomocí [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) nebo na jednotlivých úsecích pomocí [IPortionFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iportionformat/).
 
-Následující kód nastavuje písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučné, kurzívu, tečkované podtržení a písmo Times New Roman na všechny části v odstavci.
+Následující příklad nastaví výchozí písmo prvního odstavce na 12‑bodové Times New Roman s tučným, kurzívovým a tečkovaným podtržením. Výslovné formátování na jednotlivých úsecích má přednost před těmito výchozími nastaveními:
 
 ```java
 import com.aspose.slides.*;
@@ -293,6 +301,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -313,7 +322,7 @@ Výsledek:
 
 ![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
 
-Následující ukázka kódu aplikuje podobné vlastnosti na **části textu s tučným písmem**:
+Následující příklad použije 13‑bodové Times New Roman, kurzívu a tečkované podtržení na úseky, jejichž účinné formátování je tučné:
 
 ```java
 import com.aspose.slides.*;
@@ -321,12 +330,13 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Nastavit vlastnosti písma pro část textu.
+            // Nastavit vlastnosti písma pro úsek textu.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -342,13 +352,13 @@ try {
 
 Výsledek:
 
-![Vlastnosti písma pro části textu](font_properties_for_text_portions.png)
+![Vlastnosti písma pro úseky textu](font_properties_for_text_portions.png)
 
-## **Nastavit otočení textu**
+## **Nastavení rotace textu**
 
 Použijte [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) k nastavení předdefinované orientace textu uvnitř tvaru.
 
-Následující ukázka kódu nastaví orientaci textu v tvaru na `Vertical270`, což otočí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující ukázka kódu nastaví orientaci textu ve tvaru na [TextVerticalType.Vertical270](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textverticaltype/), což otáčí text **90 stupňů proti směru hodinových ručiček**:
 
 ```java
 import com.aspose.slides.*;
@@ -356,8 +366,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
     presentation.save("text_rotation.pptx", SaveFormat.Pptx);
@@ -368,13 +378,13 @@ try {
 
 Výsledek:
 
-![Otočení textu](text_rotation.png)
+![Rotace textu](text_rotation.png)
 
-## **Nastavit vlastní otočení pro textové rámečky**
+## **Nastavení vlastní rotace pro textové rámy**
 
-Použijte [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) k nastavení vlastního úhlu otočení pro [ITextFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframe/).
+Použijte [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) k nastavení vlastní úhlu rotace pro [ITextFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframe/).
 
-Následující ukázka kódu otočí textový rámeček o 3 stupně po směru hodinových ručiček uvnitř tvaru:
+Ukázka kódu níže otáčí textový rám o 3 stupně po směru hodinových ručiček uvnitř tvaru:
 
 ```java
 import com.aspose.slides.*;
@@ -382,8 +392,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
     presentation.save("custom_text_rotation.pptx", SaveFormat.Pptx);
@@ -394,16 +404,16 @@ try {
 
 Výsledek:
 
-![Vlastní otočení textu](custom_text_rotation.png)
+![Vlastní rotace textu](custom_text_rotation.png)
 
-## **Nastavit řádkování odstavců**
+## **Nastavení řádkování odstavců**
 
-Aspose.Slides poskytuje [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) a [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) k řízení mezer odstavců. Tyto vlastnosti se používají následovně:
+Aspose.Slides poskytuje [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) a [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) k řízení mezery odstavců. Tyto vlastnosti se používají následovně:
 
-* Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
-* Použijte zápornou hodnotu k určení řádkování v bodech.
+* Použijte kladnou hodnotu pro specifikaci řádkování jako procenta výšky řádku.
+* Použijte zápornou hodnotu pro specifikaci řádkování v bodech.
 
-Následující ukázka kódu ukazuje, jak specifikovat řádkování uvnitř odstavce:
+Následující příklad nastaví mezeru uvnitř prvního odstavce na 200 % výšky řádku (dvojnásobné řádkování):
 
 ```java
 import com.aspose.slides.*;
@@ -411,9 +421,10 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
+
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setSpaceWithin(200);
 
     presentation.save("line_spacing.pptx", SaveFormat.Pptx);
@@ -426,9 +437,101 @@ Výsledek:
 
 ![Řádkování v odstavci](line_spacing.png)
 
-## **Nastavit typ automatického přizpůsobení pro textové rámečky**
+## **Řízení zalamování řádků**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej ke kontrole, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru.
+Pravidla pro zalamování řádků odstavce jsou užitečná v úzkých textových blocích a prezentacích, které kombinují latinský a východněasijský text. Následující metody patří do [IParagraphFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/), takže se vztahují na celý odstavec:
+
+- [setLatinLineBreak](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) řídí pravidla pro latinské zalamování řádků. V smíšeném textu může jeho změna také změnit, kde se zalamuje sousední východněasijský text a interpunkce.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) řídí pravidla pro východněasijské zalamování řádků, včetně omezení znaků na začátku a konci řádku.
+
+Tato pravidla nenahrazují [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), která umožňuje automatické zalomení uvnitř textového rámu. Ovlivňují rozložení při zalomení; nevkládají znaky konce řádku. Výslovné zalomení řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
+
+Následující samostatný příklad vytvoří úzký textový blok obsahující čínštinu a latinku. Explicitně nastaví obě možnosti zalamování a uloží soubor "line_breaking.pptx". Pro experimentování s některým z pravidel změňte odpovídající hodnotu při zachování druhého nastavení. Příklad používá 24‑bodové Arial a SimSun, šířku rámu 160 bodů a nulové horizontální okraje textového rámu. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) je voláno s [TextAutofitType.None](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textautofittype/), aby velikost textu a rozměry rámu zůstaly pevné.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 160, 300);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(NullableBool.True);
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("中文排版测试，PowerPoint 中文演示。");
+
+    IParagraphFormat format = paragraph.getParagraphFormat();
+    format.setAlignment(TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    FontData latinFont = new FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    FontData eastAsianFont = new FontData("SimSun");
+    format.getDefaultPortionFormat().setEastAsianFont(eastAsianFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    format.setLatinLineBreak(NullableBool.False);
+    format.setEastAsianLineBreak(NullableBool.True);
+
+    presentation.save("line_breaking.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Řízení visící interpunkce**
+
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) umožňuje oprávněné interpunkci přesahovat pravý okraj řádku textu místo toho, aby zabírala následující řádek. Používá se na celý odstavec a liší se od visícího odsazení.
+
+Následující samostatný příklad povolí visící interpunkci v textovém rámci o šířce 100 bodů a uloží soubor "hanging_punctuation.pptx". S 24‑bodovým Arial a nulovými horizontálními okraji textového rámu zůstane konečná tečka za slovem „sentence“ a přesáhne pravý okraj textu. Nastavte vlastnost na [NullableBool.False](https://reference.aspose.com/slides/cs/java/com.aspose.slides/nullablebool/) pro srovnání: s těmito nastaveními tečka zaujímá samostatný řádek. Zalamování je povoleno a automatické přizpůsobení je zakázáno, aby byla šířka zachována.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 100, 200);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(NullableBool.True);
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+    textFrame.getTextFrameFormat().setMarginLeft(0);
+    textFrame.getTextFrameFormat().setMarginRight(0);
+
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.setText("Simple text, next sentence.");
+
+    IParagraphFormat format = paragraph.getParagraphFormat();
+    format.setAlignment(TextAlignment.Left);
+    format.getDefaultPortionFormat().setFontHeight(24);
+    FontData latinFont = new FontData("Arial");
+    format.getDefaultPortionFormat().setLatinFont(latinFont);
+    format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    format.setHangingPunctuation(NullableBool.True);
+
+    presentation.save("hanging_punctuation.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ne každá interpunkční značka může viset. Viditelný výsledek závisí na dostupnosti fontu a rozložení: změna fontu, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může rozdíl odstranit.
+
+## **Nastavení typu automatického přizpůsobení pro textové rámy**
+
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenšuje, přeteká nebo automaticky mění velikost tvaru. Následující příklad konfiguruje tvar tak, aby se změnil velikost podle textu, a uloží výsledek do souboru "autofit_type.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -436,8 +539,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
     presentation.save("autofit_type.pptx", SaveFormat.Pptx);
@@ -446,11 +549,11 @@ try {
 }
 ```
 
-Pro spočítání řádků po automatickém zalomení a zjištění, jak se mění šířka textu nebo tvaru, viz [Počítat vykreslené řádky](/slides/cs/java/manage-paragraph/). Samotný počet řádků neurčuje, zda text přesahuje svůj kontejner.
+Pro počítání řádků po automatickém zalomení a sledování, jak se změnou šířky textu nebo tvaru výsledek mění, viz [Počítání vykreslených řádků](/slides/cs/java/manage-paragraph/). Pouze počet řádků neindikuje, zda text přesahuje svůj kontejner.
 
-## **Nastavit ukotvení textových rámečků**
+## **Nastavení ukotvení textových rámců**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole. Následující příklad ukotví text ke spodní části prvního tvaru a uloží výsledek do souboru "text_anchor.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -458,8 +561,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
     presentation.save("text_anchor.pptx", SaveFormat.Pptx);
@@ -468,9 +571,9 @@ try {
 }
 ```
 
-## **Nastavit tabulaci textu**
+## **Nastavení tabulace textu**
 
-Použijte [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) a [IParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getTabs--) k nastavení zarážek tabulátoru v odstavci.
+Použijte [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) a [IParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getTabs--) k nastavení tabulátorů v odstavci. Následující příklad nastaví výchozí interval tabulátoru na 100 bodů a přidá levě zarovnaný tabulátor na 30 bodech. Tato nastavení ovlivňují text obsahující znaky tabulátoru.
 
 ```java
 import com.aspose.slides.*;
@@ -478,9 +581,10 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
+    
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().setDefaultTabSize(100);
     paragraph.getParagraphFormat().getTabs().add(30, TabAlignment.Left);
 
@@ -492,13 +596,13 @@ try {
 
 Výsledek:
 
-![Zarážky odstavce](paragraph_tabs.png)
+![Záložky odstavce](paragraph_tabs.png)
 
-## **Nastavit jazyk kontroly pravopisu**
+## **Nastavení jazyka pro kontrolu pravopisu**
 
-Aspose.Slides poskytuje [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), který umožňuje nastavit jazyk kontroly pravopisu pro část textu. Jazyk kontroly pravopisu určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), který umožňuje nastavit jazyk kontroly pravopisu pro úsek textu. Jazyk kontroly pravopisu určuje jazyk použitého pravopisného a gramatického kontroloru v PowerPointu.
 
-Následující ukázka kódu ukazuje, jak nastavit jazyk kontroly pravopisu pro část textu:
+Následující příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na první snímku a alespoň jedním odstavcem. Nahrazuje obsah prvního odstavce textem „1。“, nastaví SimSun jako jeho písmo a přiřadí zjednodušený čínský jazyk kontroly pravopisu (`zh-CN`). Výsledek uloží do souboru "proofing_language.pptx":
 
 ```java
 import com.aspose.slides.*;
@@ -518,7 +622,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Nastavit Id jazykové kontroly.
+    // Nastavit Id jazyka pro kontrolu pravopisu.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -530,9 +634,9 @@ try {
 }
 ```
 
-## **Nastavit výchozí jazyk**
+## **Nastavení výchozího jazyka**
 
-Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) k definování výchozího jazyka pro text vytvořený během načítání nebo vytváření prezentace.
+Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) k definování výchozího jazyka pro text vytvořený při načítání nebo vytváření prezentace. Následující příklad vytváří prezentaci s americkou angličtinou jako výchozím jazykem textu, přidá textové pole a vytiskne `en-US` pro jeho první úsek textu.
 
 ```java
 import com.aspose.slides.*;
@@ -548,7 +652,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Zkontrolovat jazyk první části textu.
+    // Zkontrolovat jazyk prvního úseku.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -556,11 +660,11 @@ try {
 }
 ```
 
-## **Nastavit výchozí styl textu**
+## **Nastavení výchozího textového stylu**
 
-Pro aplikaci výchozího formátování textu na úrovni celé prezentace použijte [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Pro aplikaci výchozího formátování textu na úrovni prezentace použijte [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Následující ukázka kódu ukazuje, jak nastavit výchozí tučné písmo o velikosti 14 pt pro veškerý text napříč snímky v nové prezentaci.
+Následující příklad nastaví 14‑bodové tučné písmo jako výchozí pro odstavce nejvyšší úrovně v nové prezentaci a uloží jej do souboru "default_text_style.pptx". Text může tato výchozí nastavení dědit, pokud je nepřepíše konkrétnější formátování.
 
 ```java
 import com.aspose.slides.*;
@@ -581,15 +685,15 @@ try {
 }
 ```
 
-## **Extrahovat text s efektem Všechna velká písmena**
+## **Extrahování textu s efektem Všech Velkých Písmen**
 
-V PowerPointu aplikace efektu **All Caps** (všechna velká písmena) způsobí, že se text na snímku zobrazí velkými písmeny, i když byl původně zadán malými. Když takovou část textu získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro shodu s zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textcaptype/) a pokud je hodnota `All`, převedete vrácený řetězec na velká písmena.
+V PowerPointu aplikace **All Caps** (všechna velká písmena) způsobí, že se text na snímku zobrazuje velkými písmeny, i když byl původně zadán malými. Když takový úsek textu získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro shodu s zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/textcaptype/) a převedete vrácený řetězec na velká písmena, když je hodnota `All`.
 
-Řekněme, že máme následující textový rámeček na první snímku souboru sample2.pptx.
+Tento příklad vyžaduje soubor "sample2.pptx" s textovým polem jako prvním tvarem na první snímku. První úsek prvního odstavce obsahuje „Hello, Aspose!“ s aplikovaným efektem All Caps, jak je zobrazeno níže.
 
-![Efekt Všechna velká písmena](all_caps_effect.png)
+![Efekt Všech Velkých Písmen](all_caps_effect.png)
 
-Následující ukázka kódu ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
+Ukázka kódu níže ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
 
 ```java
 import com.aspose.slides.*;
@@ -597,6 +701,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample2.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
@@ -619,12 +724,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Často kladené otázky**
+## **Časté dotazy**
 
-**Jak upravit text v tabulce na snímku?**
+**Jak mohu upravit text v tabulce na snímku?**
 
 Pro úpravu textu v tabulce na snímku použijte [ITable](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itable/). Procházejte buňky a aktualizujte každou buňku pomocí [ICell.getTextFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icell/#getTextFrame--) a formátování odstavců pomocí [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Jak aplikovat gradientní barvu na text v PowerPoint snímku?**
+**Jak mohu aplikovat gradientovou barvu na text na snímku PowerPoint?**
 
-Pro aplikaci gradientní barvy na text použijte [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Nastavte [IFillFormat.setFillType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ifillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/cs/java/com.aspose.slides/filltype/) a nakonfigurujte gradientní zarážky, směr a průhlednost.
+Pro aplikaci gradientové barvy na text použijte [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Nastavte [IFillFormat.setFillType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ifillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/cs/java/com.aspose.slides/filltype/) a nakonfigurujte gradientové zastavení, směr a průhlednost.

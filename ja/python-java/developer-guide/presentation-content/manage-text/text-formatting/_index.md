@@ -1,48 +1,48 @@
 ---
-title: "Python via Java でプレゼンテーションのテキストをフォーマット"
-linktitle: "テキスト書式設定"
+title: Python via Java でプレゼンテーションテキストをフォーマット
+linktitle: テキスト書式設定
 type: docs
 weight: 50
 url: /ja/python-java/text-formatting/
 keywords:
-  - "段落の配置"
-  - "テキストスタイル"
-  - "テキスト背景"
-  - "テキスト透明度"
-  - "文字間隔"
-  - "フォントプロパティ"
-  - "フォントファミリ"
-  - "テキスト回転"
-  - "回転角度"
-  - "テキストフレーム"
-  - "行間隔"
-  - "オートフィットプロパティ"
-  - "テキストフレームのアンカー"
-  - "テキストタブ設定"
-  - "デフォルト言語"
-  - "PowerPoint"
-  - "OpenDocument"
-  - "プレゼンテーション"
-  - "Python"
-  - "Java"
-  - "Aspose.Slides"
-description: "Python via Java 用 Aspose.Slides を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
+- 段落の配置
+- テキストスタイル
+- テキスト背景
+- テキストの透明度
+- 文字間隔
+- フォントプロパティ
+- フォントファミリ
+- テキスト回転
+- 回転角度
+- テキストフレーム
+- 行間
+- オートフィットプロパティ
+- テキストフレームアンカー
+- テキストタブ設定
+- 既定言語
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Python via Java を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Python via Java を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストを書式設定する方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブストップ、言語設定について説明します。
+このドキュメントでは、Aspose.Slides for Python via Java を使用して PowerPoint および OpenDocument プレゼンテーションのテキストを書式設定する方法を示します。背景色、透明度、文字間隔、フォント プロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブストップ、言語設定について解説します。
 
-以下の例では、最初のスライドに単一のテキスト ボックスが含まれ、次のテキストが入っている「sample.pptx」ファイルを使用します。
+特に指定がない限り、例は [sample.pptx](sample.pptx) を使用します。最初のスライドの最初のシェイプはテキスト ボックスで、最初の段落に以下のテキストが含まれます。スライドおよびシェイプのインデックスは 0 ベースです。太字部分を選択する例は、継承された太字書式を含む有効な書式設定を使用します:
 
 ![サンプルテキスト](sample_text.png)
 
-リテラルテキストや正規表現の一致を検索してハイライトする方法については、[テキストの検索と置換](/slides/ja/python-java/search-and-replace-text/) を参照してください。
+リテラルテキストや正規表現の一致箇所を検索してハイライトする方法については、[テキストの検索と置換](/slides/ja/python-java/search-and-replace-text/) を参照してください。
 
-## **テキストの背景色の設定**
+## **テキストの背景色を設定する**
 
-段落のデフォルトハイライト色を設定するには [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を使用し、個々のテキスト部分のハイライト色を設定するには [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) を使用します。
+段落の既定ハイライト色を設定するには [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を使用し、個々のテキスト部分のハイライト色を設定するには [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#getHighlightColor) を使用します。
 
-次のコード例は **段落全体** の背景色を設定する方法を示しています。
+次の例では、最初の段落の既定ハイライト色としてライトグレーを設定します。個別の部分に明示的に設定されたハイライト色はこの既定を上書きします:
 
 ```python
 import jpype
@@ -57,6 +57,7 @@ from java.awt import Color
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -70,9 +71,9 @@ finally:
 
 結果:
 
-![グレーの段落](gray_paragraph.png)
+![灰色の段落](gray_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** の背景色を設定する方法を示しています。
+以下のコード例は **太字フォントのテキスト部分** の背景色を設定する方法を示します:
 
 ```python
 import jpype
@@ -87,6 +88,7 @@ from java.awt import Color
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -102,13 +104,13 @@ finally:
 
 結果:
 
-![グレーのテキスト部分](gray_text_portions.png)
+![灰色のテキスト部分](gray_text_portions.png)
 
 ## **テキスト段落の配置**
 
-テキスト フレーム内の段落配置を設定するには [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setAlignment) を使用します。値には中央揃え、左揃え、右揃え、均等割付などがあります。
+テキスト フレーム内の段落配置を設定するには [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setAlignment) を使用します。設定できる値には中央揃え、左揃え、右揃え、両端揃えなどがあります。
 
-次のコード例は段落を **中央** に揃える方法を示しています。
+次のコード例は段落を **中央** に揃える方法を示します:
 
 ```python
 import jpype
@@ -122,6 +124,7 @@ from asposeslides.api import Presentation, SaveFormat, TextAlignment
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -135,13 +138,13 @@ finally:
 
 結果:
 
-![整列された段落](aligned_paragraph.png)
+![揃えられた段落](aligned_paragraph.png)
 
-## **テキストの透明度の設定**
+## **テキストの透明度を設定する**
 
-テキストの透明度は [PortionFormat.getFillFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) に割り当てられた色のアルファ成分で制御します。以下の例で `alpha = 50` は 0–255 のスケールでの ARGB アルファ値であり、透明度パーセンテージではありません。
+テキストの透明度は [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#getFillFormat) に割り当てられた色のアルファ成分で制御します。以下の例では `alpha = 50` は 0〜255 のスケールでの ARGB アルファ値であり、透明度のパーセンテージではありません。
 
-次のコード例は **段落全体** に透明度を適用する方法を示しています。
+次のコード例は **段落全体** に透明度を適用する方法を示します:
 
 ```python
 import jpype
@@ -159,6 +162,7 @@ text_color = Color(0, 0, 0, alpha)
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -175,7 +179,7 @@ finally:
 
 ![透明な段落](transparent_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** に透明度を適用する方法を示しています。
+次のコード例は **太字フォントのテキスト部分** に透明度を適用する方法を示します:
 
 ```python
 import jpype
@@ -193,6 +197,7 @@ text_color = Color(0, 0, 0, alpha)
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -211,14 +216,14 @@ finally:
 
 ![透明なテキスト部分](transparent_text_portions.png)
 
-## **テキストの文字間隔の設定**
+## **テキストの文字間隔を設定する**
 
-テキスト ボックス内の文字間隔を拡張または縮小するには [PortionFormat.setSpacing](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) を使用します。
+テキスト ボックス内の文字間隔を拡大または縮小するには [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setSpacing) を使用します。以下の例では 3 ポイントの間隔を追加しています。負の値を指定すると文字が詰まります。
 
-次の Python コードは **段落全体** の文字間隔を拡大する方法を示しています。
+次の Python コードは **段落全体** の文字間隔を拡大する方法を示します:
 
 ```python
-import jpasejes
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -229,6 +234,7 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -244,7 +250,7 @@ finally:
 
 ![段落内の文字間隔](character_spacing_in_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** の文字間隔を拡大する方法を示しています。
+次のコード例は **太字フォントのテキスト部分** の文字間隔を拡大する方法を示します:
 
 ```python
 import jpype
@@ -258,6 +264,7 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -277,9 +284,9 @@ finally:
 
 ### **特定フォントのカーニングを無効にする**
 
-場合によっては、Aspose.Slides がレンダリングしたテキストが PowerPoint の表示と比べてやや詰まって見えることがあります。これは PowerPoint が一部のフォントのカーニング情報を無視するためです（フォントに有効なカーニング情報が含まれていても、PowerPoint の設定でカーニングが有効になっていても）。
+場合によっては、Aspose.Slides が描画するテキストが PowerPoint で表示されるテキストよりも僅かに詰まって見えることがあります。これは PowerPoint が特定フォントのカーニング情報を無視するために起こります。
 
-このようなケースで PowerPoint に近い表示にするには、影響を受けるフォントを使用しているテキスト部分のカーニングを無効にします。実際のフォントサイズよりはるかに大きい値を [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) に設定します。
+このような場合、影響を受けたフォントを使用するテキスト部分のカーニングを無効にできます。 [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) を実際のフォントサイズより大きな値に設定します。以下の例は、最初のスライドの最初のシェイプがテキスト ボックスである "presentation.pptx" を使用し、効果的なフォント名を確認して、Roboto が使用されている部分に対して 100 ポイント以下の場合にカーニングを無効にします:
 
 ```python
 import jpype
@@ -293,28 +300,29 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("presentation.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     target_font = "Roboto"
 
     for paragraph in auto_shape.getTextFrame().getParagraphs():
         for portion in paragraph.getPortions():
-            portion_format = portion.getPortionFormat()
+            portion_format = portion.getPortionFormat().getEffective()
             fonts = (portion_format.getLatinFont(), portion_format.getEastAsianFont(), portion_format.getComplexScriptFont())
             if any(font is not None and font.getFontName() == target_font for font in fonts):
-                portion_format.setKerningMinimalSize(100)
+                portion.getPortionFormat().setKerningMinimalSize(100)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-この設定により、該当テキスト部分へのカーニング適用が防止され、PowerPoint 特有の動作の影響を受けるフォントでの表示差を縮小できます。
+この設定により、閾値未満のテキストではカーニングが行われず、PowerPoint の特定の動作によって生じる差異を減らすことができます。
 
-## **テキストフォントプロパティの管理**
+## **テキスト フォント プロパティの管理**
 
-フォントプロパティは [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) で段落レベルに、または個々の部分に対しては [PortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) で設定できます。
+フォント プロパティは、[ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を使用して段落レベルで設定するか、[PortionFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) を使用して個々の部分で設定できます。
 
-次のコードは段落全体のフォントとテキストスタイルを設定します。フォントサイズ、太字、斜体、点線下線、そして Times New Roman フォントが段落内のすべての部分に適用されます。
+次の例は、最初の段落の既定フォントを 12 ポイントの Times New Roman に設定し、太字、斜体、点線下線を適用します。個別の部分で明示的に設定された書式は既定を書き換えます:
 
 ```python
 import jpype
@@ -328,6 +336,7 @@ from asposeslides.api import FontData, NullableBool, Presentation, SaveFormat, T
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -346,22 +355,23 @@ finally:
 
 結果:
 
-![段落のフォントプロパティ](font_properties_for_paragraph.png)
+![段落のフォント プロパティ](font_properties_for_paragraph.png)
 
-以下のコード例は **太字フォントのテキスト部分** に同様のプロパティを適用します。
+次の例は、効果的に太字となっている部分に対して 13 ポイントの Times New Roman、斜体、点線下線を適用します:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpruntime.startJVM()
 
 from asposeslides.api import FontData, NullableBool, Presentation, SaveFormat, TextUnderlineType
 
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -381,13 +391,13 @@ finally:
 
 結果:
 
-![テキスト部分のフォントプロパティ](font_properties_for_text_portions.png)
+![テキスト部分のフォント プロパティ](font_properties_for_text_portions.png)
 
-## **テキストの回転の設定**
+## **テキストの回転を設定する**
 
-テキストの向きを事前定義されたものに設定するには [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setTextVerticalType) を使用します。
+[TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setTextVerticalType) を使用して、シェイプ内のテキストの事前定義された向きを設定できます。
 
-次のコード例はシェイプ内のテキスト向きを `Vertical270` に設定し、テキストを **時計回りに 90 度** 回転させます。
+次のコード例は、シェイプ内のテキスト向きを [TextVerticalType.Vertical270](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textverticaltype/) に設定し、テキストを **90 度反時計回り** に回転させます:
 
 ```python
 import jpype
@@ -401,8 +411,8 @@ from asposeslides.api import Presentation, SaveFormat, TextVerticalType
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
     auto_shape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270)
 
     presentation.save("text_rotation.pptx", SaveFormat.Pptx)
@@ -414,11 +424,11 @@ finally:
 
 ![テキストの回転](text_rotation.png)
 
-## **テキスト フレームのカスタム回転の設定**
+## **テキスト フレームのカスタム回転を設定する**
 
-[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setRotationAngle) を使用して、[TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) の任意の回転角度を設定できます。
+[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setRotationAngle) を使用して、[TextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/) のカスタム回転角度を設定できます。
 
-次のコード例はシェイプ内のテキスト フレームを時計回りに 3 度回転させます。
+次のコード例は、シェイプ内のテキスト フレームを時計回りに 3 度回転させます:
 
 ```python
 import jpype
@@ -432,8 +442,8 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
     auto_shape.getTextFrame().getTextFrameFormat().setRotationAngle(3)
 
     presentation.save("custom_text_rotation.pptx", SaveFormat.Pptx)
@@ -443,16 +453,16 @@ finally:
 
 結果:
 
-![カスタムテキスト回転](custom_text_rotation.png)
+![カスタム テキスト回転](custom_text_rotation.png)
 
-## **段落の行間隔の設定**
+## **段落の行間を設定する**
 
-Aspose.Slides は [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setSpaceAfter)、[ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setSpaceBefore)、および [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setSpaceWithin) を提供し、段落間隔を制御します。使用方法は次のとおりです。
+Aspose.Slides は [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setSpaceAfter)、[ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setSpaceBefore)、[ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setSpaceWithin) を提供し、段落間隔を制御します。これらのプロパティは次のように使用します。
 
-* 正の値を使用すると、行間隔を行の高さのパーセンテージで指定します。
-* 負の値を使用すると、行間隔をポイントで指定します。
+* 正の値は行の高さのパーセンテージとして行間を指定します。  
+* 負の値はポイント単位で行間を指定します。
 
-次のコード例は段落内の行間隔を指定する方法を示しています。
+次の例は、最初の段落の行間を行高さの 200%（二重行間）に設定します:
 
 ```python
 import jpype
@@ -466,9 +476,10 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
+
+    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
     paragraph.getParagraphFormat().setSpaceWithin(200)
 
     presentation.save("line_spacing.pptx", SaveFormat.Pptx)
@@ -478,11 +489,113 @@ finally:
 
 結果:
 
-![段落内の行間隔](line_spacing.png)
+![段落内の行間](line_spacing.png)
 
-## **テキスト フレームのオートフィット タイプの設定**
+## **改行の制御**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setAutofitType) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小、はみ出し、またはシェイプを自動的にリサイズするかを制御できます。
+段落の改行規則は、狭いテキスト領域やラテン文字と東アジア文字が混在するプレゼンテーションで有用です。以下のメソッドは [ParagraphFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/) に属し、段落全体に適用されます。
+
+- [setLatinLineBreak](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) はラテン文字の改行規則を制御します。混在テキストの場合、これを変更すると隣接する東アジア文字や句読点の改行位置も変わることがあります。  
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) は東アジア文字の改行規則を制御し、行頭・行末文字の制限を含みます。
+
+これらの規則は [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setWrapText) の自動折り返し機能を置き換えるものではなく、折り返しが発生した際のレイアウトに影響します。明示的な改行文字は、利用可能幅に関係なく段落内に新しい行を強制します。
+
+次の自己完結型サンプルは、中国語とラテン文字を含む狭いテキストブロックを作成し、両方の改行オプションを明示的に設定して "line_breaking.pptx" として保存します。どちらか一方の規則だけを試したい場合は、もう一方の設定を変更せずに保持してください。例では 24 ポイントの Arial と SimSun を使用し、フレーム幅 160 ポイント、水平マージン 0 に設定しています。[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setAutofitType) は [TextAutofitType.None_](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textautofittype/) に設定し、テキストサイズとフレームサイズを固定しています。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Presentation, SaveFormat, ShapeType, TextAlignment, TextAutofitType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 160, 300)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+
+    text_frame = shape.getTextFrame()
+    text_frame.getTextFrameFormat().setWrapText(NullableBool.True_)
+    text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+    text_frame.getTextFrameFormat().setMarginLeft(0)
+    text_frame.getTextFrameFormat().setMarginRight(0)
+
+    paragraph = text_frame.getParagraphs().get_Item(0)
+    paragraph.setText("中文排版测试，PowerPoint 中文演示。")
+
+    paragraph_format = paragraph.getParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Left)
+    paragraph_format.getDefaultPortionFormat().setFontHeight(24)
+    latin_font = FontData("Arial")
+    paragraph_format.getDefaultPortionFormat().setLatinFont(latin_font)
+    east_asian_font = FontData("SimSun")
+    paragraph_format.getDefaultPortionFormat().setEastAsianFont(east_asian_font)
+    paragraph_format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    paragraph_format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    paragraph_format.setLatinLineBreak(NullableBool.False_)
+    paragraph_format.setEastAsianLineBreak(NullableBool.True_)
+
+    presentation.save("line_breaking.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **ハンギング句読点の制御**
+
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) を使用すると、対象となる句読点がテキスト行の右端をはみ出すように表示でき、次の行に回り込むことを防ぎます。これは段落全体に適用され、ハンギングインデントとは異なります。
+
+次の自己完結型サンプルは、幅 100 ポイントのテキストフレームでハンギング句読点を有効にし、"hanging_punctuation.pptx" として保存します。24 ポイントの Arial と水平マージン 0 の設定で、最後のピリオドは "sentence" の後に残り、右端をはみ出します。比較のためにプロパティを [NullableBool.False_](https://reference.aspose.com/slides/ja/python-java/aspose.slides/nullablebool/) に設定すると、ピリオドが別行に表示されます。折り返しは有効、オートフィットは無効にして幅を固定しています。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Presentation, SaveFormat, ShapeType, TextAlignment, TextAutofitType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 100, 200)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+
+    text_frame = shape.getTextFrame()
+    text_frame.getTextFrameFormat().setWrapText(NullableBool.True_)
+    text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+    text_frame.getTextFrameFormat().setMarginLeft(0)
+    text_frame.getTextFrameFormat().setMarginRight(0)
+
+    paragraph = text_frame.getParagraphs().get_Item(0)
+    paragraph.setText("Simple text, next sentence.")
+
+    paragraph_format = paragraph.getParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Left)
+    paragraph_format.getDefaultPortionFormat().setFontHeight(24)
+    latin_font = FontData("Arial")
+    paragraph_format.getDefaultPortionFormat().setLatinFont(latin_font)
+    paragraph_format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    paragraph_format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+    paragraph_format.setHangingPunctuation(NullableBool.True_)
+
+    presentation.save("hanging_punctuation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+すべての句読点がハンギングできるわけではありません。見た目はフォントの可用性やレイアウト条件（フォント、幅、マージン、オートフィット設定）によって変わります。
+
+## **テキスト フレームのオートフィット タイプを設定する**
+
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setAutofitType) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小するか、オーバーフローさせるか、シェイプを自動的にリサイズさせるかを制御できます。次の例はシェイプをテキストに合わせてリサイズするよう構成し、結果を "autofit_type.pptx" に保存します。
 
 ```python
 import jpype
@@ -496,8 +609,8 @@ from asposeslides.api import Presentation, SaveFormat, TextAutofitType
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
     auto_shape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape)
 
     presentation.save("autofit_type.pptx", SaveFormat.Pptx)
@@ -505,11 +618,11 @@ finally:
     presentation.dispose()
 ```
 
-自動折り返し後の行数をカウントし、テキストまたはシェイプの幅が結果に与える影響を確認する方法は、[レンダリングされた行のカウント](/slides/ja/python-java/manage-paragraph/) を参照してください。行数だけではテキストがコンテナからはみ出しているかどうかは判断できません。
+自動折り返し後の行数をカウントし、テキストまたはシェイプ幅の変化が結果に与える影響を確認するには、[Count Rendered Lines](/slides/ja/python-java/manage-paragraph/) を参照してください。行数だけではテキストがコンテナをはみ出しているかは判断できません。
 
-## **テキスト フレームのアンカー設定**
+## **テキスト フレームのアンカーを設定する**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setAnchoringType) は、シェイプ内でテキストが垂直方向に配置される位置（上部、中央、下部など）を定義します。
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#setAnchoringType) は、シェイプ内でテキストを垂直方向に配置する方法（上部、中央、下部など）を定義します。次の例はテキストを最初のシェイプの下部に固定し、結果を "text_anchor.pptx" として保存します。
 
 ```python
 import jpype
@@ -523,8 +636,8 @@ from asposeslides.api import Presentation, SaveFormat, TextAnchorType
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
     auto_shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom)
 
     presentation.save("text_anchor.pptx", SaveFormat.Pptx)
@@ -534,7 +647,7 @@ finally:
 
 ## **テキストのタブ設定**
 
-段落内のタブストップを構成するには、[ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) と [ParagraphFormat.getTabs](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#getTabs) を使用します。
+[ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) と [ParagraphFormat.getTabs](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraphformat/#getTabs) を使用して段落のタブストップを構成できます。次の例はデフォルトタブ幅を 100 ポイントに設定し、30 ポイント位置に左揃えタブストップを追加します。これらの設定はタブ文字を含むテキストに影響します。
 
 ```python
 import jpype
@@ -548,9 +661,10 @@ from asposeslides.api import Presentation, SaveFormat, TabAlignment
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
+
+    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
     paragraph.getParagraphFormat().setDefaultTabSize(100)
     paragraph.getParagraphFormat().getTabs().add(30, TabAlignment.Left)
 
@@ -563,11 +677,11 @@ finally:
 
 ![段落のタブ](paragraph_tabs.png)
 
-## **校正言語の設定**
+## **校正言語を設定する**
 
-Aspose.Slides は [PortionFormat.setLanguageId](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) を提供し、テキスト部分の校正言語を設定できます。校正言語は PowerPoint のスペルチェックおよび文法チェックで使用される言語を決定します。
+Aspose.Slides は [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#setLanguageId) を提供し、テキスト部分の校正言語を設定できます。校正言語は PowerPoint のスペルチェックや文法チェックに使用される言語を決定します。
 
-次のコード例はテキスト部分の校正言語を設定する方法を示しています。
+次の例は "presentation.pptx"（最初のスライドの最初のシェイプがテキストボックスで、少なくとも 1 つの段落がある）を使用し、最初の段落の内容を "1。" に置き換え、フォントを SimSun に設定し、校正言語を簡体字中国語 (`zh-CN`) に割り当てます。結果は "proofing_language.pptx" として保存されます。
 
 ```python
 import jpype
@@ -581,6 +695,7 @@ from asposeslides.api import FontData, Portion, Presentation, SaveFormat
 presentation = Presentation("presentation.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().get_Item(0)
 
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
@@ -604,9 +719,9 @@ finally:
     presentation.dispose()
 ```
 
-## **デフォルト言語の設定**
+## **既定言語を設定する**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) を使用して、プレゼンテーションの読み込みまたは作成時に作成されるテキストのデフォルト言語を定義します。
+[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) を使用すると、プレゼンテーションの読み込みまたは作成時に新規テキストに適用される既定言語を定義できます。次の例は既定テキスト言語を米国英語に設定したプレゼンテーションを作成し、テキスト ボックスを追加して最初のテキスト部分の言語コードとして `en-US` を出力します。
 
 ```python
 import jpype
@@ -635,11 +750,11 @@ finally:
     presentation.dispose()
 ```
 
-## **デフォルトテキスト スタイルの設定**
+## **既定テキスト スタイルを設定する**
 
-プレゼンテーション レベルでデフォルトのテキスト書式設定を適用するには、[Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getDefaultTextStyle) を使用します。
+プレゼンテーション レベルで既定のテキスト書式を適用するには、[Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getDefaultTextStyle) を使用します。
 
-次のコード例は新しいプレゼンテーションのすべてのスライドで、太字でサイズ 14 pt のデフォルトフォントを設定する方法を示しています。
+次の例は新規プレゼンテーションの最上位段落に対して 14 ポイントの太字フォントを既定スタイルとして設定し、結果を "default_text_style.pptx" に保存します。テキストはより具体的な書式設定が上書きしない限り、これらの既定を継承します。
 
 ```python
 import jpype
@@ -664,15 +779,15 @@ finally:
     presentation.dispose()
 ```
 
-## **All-Caps 効果を持つテキストの抽出**
+## **すべて大文字効果でテキストを抽出する**
 
-PowerPoint では **All Caps** フォント効果を適用すると、スライド上のテキストが大文字で表示されますが、元のテキストは小文字で入力されています。Aspose.Slides でそのテキスト部分を取得すると、入力されたままの文字列が返されます。表示されたテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textcaptype/) を確認し、値が `All` の場合は返された文字列を大文字に変換します。
+PowerPoint では **All Caps** フォント効果を適用すると、元の文字が小文字で入力されていてもスライド上では大文字で表示されます。Aspose.Slides でそのテキスト部分を取得すると、入力時のままの文字列が返されます。表示通りに取得するには、[TextCapType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textcaptype/) を確認し、値が `All` の場合は取得した文字列を大文字に変換します。
 
-以下は sample2.pptx の最初のスライドにあるテキスト ボックスの例です。
+この例は "sample2.pptx"（最初のスライドの最初のシェイプがテキストボックス）を使用し、最初の段落の最初の部分に All Caps 効果が適用された "Hello, Aspose!" が含まれています。
 
 ![All Caps 効果](all_caps_effect.png)
 
-次のコード例は **All Caps** 効果が適用されたテキストを抽出する方法を示しています。
+次のコード例は **All Caps** 効果が適用されたテキストを抽出する方法を示します:
 
 ```python
 import jpype
@@ -686,6 +801,7 @@ from asposeslides.api import Presentation, TextCapType
 presentation = Presentation("sample2.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+    
     auto_shape = slide.getShapes().get_Item(0)
     text_portion = auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
 
@@ -708,10 +824,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**スライド上の表のテキストを変更するにはどうすればよいですか？**
+**スライド上のテーブルのテキストを変更するにはどうすればよいですか？**
 
-スライド上の表のテキストを変更するには、[Table](https://reference.aspose.com/slides/ja/python-java/aspose.slides/table/) を使用します。セルを反復処理し、各セルを [Cell.getTextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/cell/#getTextFrame) で取得し、[Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#getParagraphFormat) で段落書式を更新します。
+テーブルのテキストを変更するには、[Table](https://reference.aspose.com/slides/ja/python-java/aspose.slides/table/) を使用します。セルを反復処理し、各セルを [Cell.getTextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/cell/#getTextFrame) で取得し、段落書式は [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/#getParagraphFormat) で更新します。
 
-**PowerPoint スライドのテキストにグラデーションカラーを適用するにはどうすればよいですか？**
+**PowerPoint スライドのテキストにグラデーション カラーを適用するにはどうすればよいですか？**
 
-グラデーションカラーを適用するには、[PortionFormat.getFillFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/portionformat/) を使用します。[FillFormat.setFillType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/fillformat/#setFillType) を [FillType.Gradient](https://reference.aspose.com/slides/ja/python-java/aspose.slides/filltype/#Gradient) に設定し、グラデーションストップ、方向、透明度を構成します。
+テキストにグラデーション カラーを適用するには、[BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseportionformat/#getFillFormat) を使用します。次に、[FillFormat.setFillType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/fillformat/#setFillType) を [FillType.Gradient](https://reference.aspose.com/slides/ja/python-java/aspose.slides/filltype/) に設定し、グラデーション ストップ、方向、透明度を構成します。

@@ -15,7 +15,7 @@ keywords:
 - zarządzaj wypunktowaniem
 - wcięcie akapitu
 - wcięcie wiszące
-- wypunktowanie akapitu
+- punkt akapitu
 - lista numerowana
 - lista wypunktowana
 - właściwości akapitu
@@ -30,35 +30,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Androida w Java."
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Androida w języku Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Android via Java przedstawia tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
+Aspose.Slides for Android via Java reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
 * [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) reprezentuje kontener tekstowy w kształcie i zapewnia dostęp do jego kolekcji akapitów.
 * [IParagraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
 * [IPortion](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iportion/) reprezentuje ciąg tekstowy w obrębie akapitu. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
 
-Dlatego akapit może zawierać tekst w różnych czcionkach, kolorach, rozmiarach i innych formatach, używając wielu fragmentów.
+Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatowaniach, używając wielu fragmentów.
 
 ## **Tworzenie i formatowanie akapitów**
 
 ### **Tworzenie akapitów z wieloma fragmentami**
 
-Poniższe kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy fragmenty:
+Po następujących krokach zostanie utworzona ramka tekstowa z trzema akapitami, z których każdy zawiera trzy fragmenty:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
+2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
 3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) do slajdu.
 4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) kształtu.
-5. Użyj domyślnego akapitu i dodaj dwa kolejne obiekty [IParagraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/) do ramki tekstowej.
-6. Dodaj wystarczającą liczbę obiektów [IPortion](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iportion/) aby każdy akapit zawierał trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
+5. Użyj domyślnego akapitu i dodaj dwa dodatkowe obiekty [IParagraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/) do ramki tekstowej.
+6. Dodaj wystarczającą liczbę obiektów [IPortion](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iportion/) , aby każdy akapit zawierał trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
 7. Ustaw tekst każdego fragmentu.
-8. Zastosuj formatowanie na poziomie znaków przy użyciu [IPortion.getPortionFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
+8. Zastosuj formatowanie na poziomie znaków za pomocą [IPortion.getPortionFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
 9. Zapisz zmodyfikowaną prezentację.
 
-Ten przykład Android via Java implementuje te kroki:
+Poniższy przykład Android za pomocą Java realizuje te kroki:
 
 ```java
 import com.aspose.slides.*;
@@ -116,24 +116,24 @@ try {
 
 ## **Tworzenie list wypunktowanych i numerowanych**
 
-### **Utworzenie listy wypunktowanej lub numerowanej**
+### **Tworzenie listy wypunktowanej lub numerowanej**
 
 Punkty i numeracja ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy definiowane są za pomocą [IBulletFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/).
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
-3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) do slajdu.
-4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) kształtu.
+2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
+3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) do wybranego slajdu.
+4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/).
 5. Usuń domyślny akapit z ramki tekstowej.
-6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraph/) dla symbolu wypunktowania.
-7. Ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Symbol](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/) i określ znak wypunktowania.
-8. Ustaw tekst akapitu, wcięcie, kolor wypunktowania i wysokość wypunktowania.
+6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraph/) dla symbolu punktu.
+7. Ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Symbol](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/) i określ znak punktu.
+8. Ustaw tekst akapitu, wcięcie, kolor punktu i wysokość punktu.
 9. Dodaj akapit do ramki tekstowej.
 10. Utwórz drugi akapit i ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/).
-11. Skonfiguruj styl numerowanego wypunktowania i dodaj akapit do ramki tekstowej.
+11. Skonfiguruj styl numerowanego punktu i dodaj akapit do ramki tekstowej.
 12. Zapisz prezentację.
 
-Ten przykład Android via Java tworzy symbol wypunktowania i numerowane wypunktowanie:
+Poniższy przykład Android za pomocą Java tworzy symbol punktu i numerowany punkt:
 
 ```java
 import com.aspose.slides.*;
@@ -174,22 +174,20 @@ try {
 }
 ```
 
-### **Użycie wypunktowań obrazkowych**
+### **Użycie punktów graficznych**
 
-Wypunktowania obrazkowe pozwalają używać własnego obrazu zamiast symbolu lub liczby.
+Punkty graficzne pozwalają używać własnego obrazu zamiast symbolu lub liczby.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu przez jego indeks.
+2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
 3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) i uzyskaj dostęp do jego [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/).
 4. Usuń domyślny akapit z ramki tekstowej.
-5. Załaduj obraz wypunktowania i dodaj go do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/).
+5. Wczytaj obraz punktu i dodaj go do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/).
 6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraph/) i ustaw jego tekst.
 7. Ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Picture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/).
-8. Przypisz obraz za pomocą [IBulletFormat.getPicture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#getPicture--) i ustaw wysokość wypunktowania.
+8. Przypisz obraz za pomocą [IBulletFormat.getPicture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#getPicture--) i ustaw wysokość punktu.
 9. Dodaj akapit do ramki tekstowej.
 10. Zapisz zmodyfikowaną prezentację.
-
-Ten przykład Android via Java tworzy wypunktowanie obrazkowe:
 
 ```java
 import com.aspose.slides.*;
@@ -224,17 +222,15 @@ try {
 }
 ```
 
-### **Utworzenie listy wielopoziomowej**
+### **Tworzenie listy wielopoziomowej**
 
-Ustaw [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
+Ustaw [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) , aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
 1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
 2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) i usuń domyślny akapit z jego ramki tekstowej.
-3. Utwórz cztery akapity i skonfiguruj ich symbole wypunktowania.
+3. Utwórz cztery akapity i skonfiguruj ich symbole punktów.
 4. Ustaw ich wartości [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) na `0`, `1`, `2` i `3`.
 5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
-
-Ten przykład Android via Java tworzy czteropoziomową listę wypunktowaną:
 
 ```java
 import com.aspose.slides.*;
@@ -292,15 +288,13 @@ try {
 
 ### **Rozpoczęcie elementów listy numerowanej od niestandardowych wartości**
 
-Użyj [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
+Użyj [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) , aby ustawić początkową liczbę wyświetlaną dla numerowanego akapitu.
 
 1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) do slajdu.
 2. Usuń domyślny akapit z ramki tekstowej kształtu.
 3. Utwórz trzy numerowane akapity.
 4. Ustaw [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) na `2`, `3` i `7` dla odpowiednich akapitów.
 5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
-
-Ten przykład Android via Java przypisuje niestandardowy numer początkowy każdemu akapitowi:
 
 ```java
 import com.aspose.slides.*;
@@ -340,17 +334,17 @@ try {
 
 ### **Ustawienie wcięcia pierwszej linii**
 
-Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) aby kontrolować wcięcie pierwszej linii akapitu. Ta metoda przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Pozytywna wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do treści akapitu.
+Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) , aby kontrolować wcięcie pierwszej linii akapitu. Ta metoda przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do treści akapitu.
 
-Użyj [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) gdy potrzebujesz przesunąć tylko pierwszą linię.
+Użyj [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) , gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) , gdy potrzebujesz przesunąć tylko pierwszą linię.
 
-Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [IParagraphFormat.setIndent], aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
+Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [IParagraphFormat.setIndent] , aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
 3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) do slajdu.
 4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
-5. Utwórz kilka akapitów i ustaw różne wartości [IParagraphFormat.setIndent] dla nich.
+5. Utwórz kilka akapitów i ustaw dla nich różne wartości [IParagraphFormat.setIndent].
 6. Dodaj akapity do ramki tekstowej.
 7. Zapisz zmodyfikowaną prezentację.
 
@@ -404,22 +398,22 @@ try {
 
 Wynik:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Wcięcie pierwszej linii akapitów](first_line_indent.png)
 
 ### **Ustawienie wcięcia wiszącego**
 
-Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą [IParagraphFormat.setIndent]. Podaj ujemną wartość, aby przesunąć pierwszą linię w lewo względem treści akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Przekaż ujemną wartość, aby przesunąć pierwszą linię w lewo względem treści akapitu.
 
-W praktyce [IParagraphFormat.setMarginLeft] określa lewą pozycję treści akapitu, a [IParagraphFormat.setIndent] określa pozycję pierwszej linii względem tego marginesu. Aby utworzyć wcięcie wiszące, podaj dodatnią wartość do `setMarginLeft` i ujemną do `setIndent`.
+W praktyce [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) określa lewą pozycję ciała akapitu, a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) określa pozycję pierwszej linii względem tego marginesu. Aby stworzyć wcięcie wiszące, przekaż dodatnią wartość do `setMarginLeft` oraz ujemną wartość do `setIndent`.
 
-To formatowanie jest przydatne w bibliografiach, odniesieniach, hasłach słownika i innych akapitach, gdzie zawijane linie muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, gdzie zawijane linie muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
 3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) do slajdu.
 4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
-5. Utwórz akapity i podaj dodatnią wartość do [IParagraphFormat.setMarginLeft] dla każdego akapitu.
-6. Podaj ujemną wartość do [IParagraphFormat.setIndent], aby uzyskać efekt wcięcia wiszącego.
+5. Utwórz akapity i przekaż dodatnią wartość do [IParagraphFormat.setMarginLeft] dla każdego akapitu.
+6. Przekaż ujemną wartość do [IParagraphFormat.setIndent], aby uzyskać efekt wcięcia wiszącego.
 7. Dodaj akapity do ramki tekstowej.
 8. Zapisz zmodyfikowaną prezentację.
 
@@ -465,18 +459,18 @@ try {
 
 Wynik:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Wcięcie wiszące akapitów](hanging_indent.png)
 
 ### **Ustawienie właściwości końcowego fragmentu akapitu**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kontroluje formatowanie znaku końcowego akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kontroluje formatowanie znaku końca akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
 
 1. Wczytaj [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
 2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) i usuń jego domyślny akapit.
 3. Utwórz dwa akapity i dodaj do nich fragmenty tekstu.
 4. Utwórz [PortionFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/portionformat/) dla znaku końcowego drugiego akapitu.
 5. Ustaw [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) oraz [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Przypisz format przy użyciu [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) i zapisz prezentację.
+6. Przypisz format za pomocą [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) i zapisz prezentację.
 
 ```java
 import com.aspose.slides.*;
@@ -508,13 +502,15 @@ try {
 }
 ```
 
-## **Liczenie renderowanych wierszy**
+## **Liczenie renderowanych linii**
 
-Użyj [IParagraph.getLinesCount](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) aby policzyć wiersze zajmowane przez akapit po układzie tekstu, włącznie z automatycznym zawijaniem. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
+W odniesieniu do reguł akapitu wpływających na automatyczne zawijanie i interpunkcję na końcach linii, zobacz [Control Line Breaking](/slides/pl/androidjava/text-formatting/#control-line-breaking) oraz [Control Hanging Punctuation](/slides/pl/androidjava/text-formatting/#control-hanging-punctuation).
 
-Akapit jest jednym elementem w [ITextFrame.getParagraphs](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/#getParagraphs--), i może zajmować kilka renderowanych wierszy. Jawne podzielenie linii w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy wiersze na podstawie dostępnej szerokości, nie wstawiając jawnych znaków podziału linii do tekstu. Zliczanie akapitów lub znaków podziału linii nie daje więc liczby renderowanych wierszy.
+Użyj [IParagraph.getLinesCount](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) , aby policzyć linie zajmowane przez akapit po ułożeniu tekstu, w tym automatyczne zawijanie. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
 
-Poniższy przykład tworzy kształt tekstowy, liczy jego wiersze, zwęża kształt, a następnie zastępuje tekst krótszym ciągiem. Zawijanie jest włączone, a autofit wyłączony, aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Wymiary kształtu podane są w punktach. Na końcu przykład dodaje kolejny akapit i sumuje liczbę wierszy w całej ramce tekstowej.
+Akapit jest jednym elementem w [ITextFrame.getParagraphs](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/#getParagraphs--) i może zajmować kilka renderowanych linii. Jawny podział wiersza w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy linie na podstawie dostępnej szerokości, nie wstawiając jawnych znaków podziału wiersza do tekstu. Dlatego liczenie akapitów lub znaków podziału wiersza nie daje liczby renderowanych linii.
+
+Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zastępuje tekst krótszym ciągiem. Zawijanie jest włączone, a autofit wyłączony, tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Wymiary kształtu podane są w punktach. Na koniec przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
 
 ```java
 import com.aspose.slides.*;
@@ -554,24 +550,22 @@ try {
 }
 ```
 
-Przy tym tekście i tych wymiarach zwężanie kształtu zwiększa liczbę wierszy, a zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności czcionek i ich podstawień, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień autofit. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy sprawdzaniu szablonu.
+Przy tym tekście i tych wymiarach zwężanie kształtu zwiększa liczbę linii, natomiast zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności i zastępowania czcionek, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień autofit. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska podczas sprawdzania szablonu.
 
-Sama liczba wierszy nie określa, czy tekst wykracza poza pojemnik. Ważna jest dostępna wysokość, wysokość wierszy, odstępy między akapitami i wierszami oraz zachowanie autofit; nawet pojedynczy wiersz może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
+Liczba linii sama w sobie nie określa, czy tekst wykracza poza swój kontener. Ważne są także dostępna wysokość, wysokość linii, odstępy między akapitami i liniami oraz zachowanie autofit; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
 
 ## **Import i eksport treści akapitu**
 
 ### **Importowanie tekstu HTML do akapitów**
 
-Użyj [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) aby przekonwertować znacznik HTML na akapity i fragmenty w ramce tekstowej.
+Użyj [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) , aby przekonwertować znacznik HTML na akapity i fragmenty w ramce tekstowej.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
 2. Uzyskaj dostęp do slajdu i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/).
-3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) i usuń jego domyślny akapit.
-4. Odczytaj źródłowy plik HTML.
-5. Przekaż ciąg HTML do [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) kształtu i usuń jego domyślny akapit.
+4. Odczytaj plik źródłowy HTML.
+5. Przekaż łańcuch HTML do [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Zapisz zmodyfikowaną prezentację.
-
-Ten przykład Android via Java importuje HTML do ramki tekstowej:
 
 ```java
 import com.aspose.slides.*;
@@ -602,17 +596,15 @@ try {
 }
 ```
 
-### **Eksportowanie tekstu akapitu do HTML**
+### **Eksport tekstu akapitu do HTML**
 
-Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) aby wyeksportować wybrany zakres akapitów jako HTML.
+Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) , aby wyeksportować wybrany zakres akapitów jako HTML.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) i wczytaj żądaną prezentację.
 2. Uzyskaj dostęp do slajdu i znajdź [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) zawierający tekst.
 3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/).
-4. Wywołaj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) podając indeks początkowego akapitu oraz liczbę akapitów do wyeksportowania.
-5. Zapisz zwrócony ciąg HTML do pliku.
-
-Ten przykład Android via Java eksportuje wszystkie akapity z pierwszego kształtu tekstowego:
+4. Wywołaj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) z indeksem początkowego akapitu i liczbą akapitów do eksportu.
+5. Zapisz zwrócony łańcuch HTML do pliku.
 
 ```java
 import com.aspose.slides.*;
@@ -649,9 +641,9 @@ try {
 
 ### **Renderowanie akapitu jako obrazu**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage--) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia przy użyciu [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Nie musisz renderować otaczającego kształtu ani ręcznie przycinać bitmapy.
+[IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage--) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia za pomocą [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Nie musisz renderować otaczającego kształtu ani ręcznie przycinać bitmapy.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage--) może zwrócić `null`, jeśli akapit nie zostanie odnaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
+[IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage--) może zwrócić `null`, jeśli akapitu nie można znaleźć w kolekcji rodzica, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
 
 #### **Renderowanie akapitu w domyślnej skali**
 
@@ -659,7 +651,7 @@ Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, gdz
 
 ![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-Poniższy przykład renderuje drugi akapit w zwykłym polu tekstowym w domyślnej skali i zapisuje zwrócony obraz w formacie PNG. Blok `finally` zapewnia prawidłowe zwolnienie obrazu.
+Poniższy przykład renderuje drugi akapit w zwykłym kształcie tekstowym w domyślnej skali i zapisuje zwrócony obraz w formacie PNG. Blok `finally` zapewnia prawidłowe zwolnienie obrazu.
 
 ```java
 import com.aspose.slides.*;
@@ -699,9 +691,9 @@ Wynik:
 
 ![Obraz akapitu](paragraph_to_image_output.png)
 
-#### **Renderowanie akapitu w komórce tabeli z skalowaniem**
+#### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-Użyj przeciążenia [IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) przyjmującego parametry `float scaleX` i `float scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy podwojonej szerokości i wysokości oraz zapisuje wynik jako obraz PNG.
+Użyj przeciążenia [IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) , które przyjmuje parametry `float scaleX` i `float scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce dwukrotnie zwiększając domyślną szerokość i wysokość, i zapisuje wynik jako obraz PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -731,20 +723,24 @@ try {
 }
 ```
 
-Czynnik skali `1` utrzymuje daną oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu czynników powoduje, że szerokość i wysokość obrazu są w przybliżeniu dwa razy większe od domyślnych wymiarów, co skutkuje czterokrotnością liczby pikseli. Większe czynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają także zużycie pamięci i rozmiar pliku. Czynniki poniżej `1` dają mniejsze obrazy z mniejszą ilością detali. Używaj równych czynników, aby zachować proporcje akapitu; różne czynniki poziome i pionowe rozciągają wyjście niezależnie.
+Współczynnik skali `1` utrzymuje daną oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników powoduje, że obraz ma szerokość i wysokość w przybliżeniu dwa razy większe od domyślnych wymiarów, co daje czterokrotnie więcej pikseli. Większe współczynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` generują mniejsze obrazy z mniejszą ilością detali. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wyjście niezależnie.
 
-Renderowanie całego kształtu za pomocą [IShape.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/#getImage--) pozostaje użyteczne, gdy wynik musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu zawierającego wyłącznie akapit użyj [IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage--).
+Renderowanie całego kształtu za pomocą [IShape.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/#getImage--) pozostaje przydatne, gdy wynik musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu zawierającego wyłącznie akapit, użyj [IParagraph.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getImage--).
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć zawijanie linii wewnątrz ramki tekstowej?**  
-Tak. Ustaw [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) aby wyłączyć zawijanie, tak aby linie nie łamały się przy krawędziach ramki tekstowej.
+**Czy mogę całkowicie wyłączyć zawijanie linii w ramce tekstowej?**
 
-**Jak mogę uzyskać dokładne granice konkretnego akapitu na slajdzie?**  
-Użyj [IParagraph.getRect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getRect--) aby pobrać prostokąt ograniczający akapit. [IPortion.getRect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iportion/#getRect--) udostępnia granice pojedynczego fragmentu.
+Tak. Ustaw [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) , aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane przy krawędziach ramki tekstowej.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub wyjustowane)?**  
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) jest ustawieniem na poziomie akapitu i stosuje się do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+**Jak mogę uzyskać dokładne granice konkretnego akapitu na slajdzie?**
 
-**Czy mogę ustawić język korekty dla części akapitu?**  
-Tak. Ustaw [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) dla poszczególnych fragmentów, dzięki czemu jeden akapit może zawierać tekst w wielu językach.
+Użyj [IParagraph.getRect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getRect--) , aby pobrać prostokąt graniczący akapit. [IPortion.getRect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iportion/#getRect--) dostarcza granice pojedynczego fragmentu.
+
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, środkowe lub wyjustowane)?**
+
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) jest ustawieniem na poziomie akapitu i dotyczy całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+
+**Czy mogę ustawić język korekty dla części akapitu?**
+
+Tak. Ustaw [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) dla poszczególnych fragmentów, aby jeden akapit mógł zawierać tekst w wielu językach.

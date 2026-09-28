@@ -1,6 +1,6 @@
 ---
-title: "Beheer PowerPoint-tekstalinea's in PHP"
-linktitle: "Beheer alinea"
+title: Beheer PowerPoint-tekstalinea's in PHP
+linktitle: Beheer alinea
 type: docs
 weight: 40
 url: /nl/php-java/manage-paragraph/
@@ -13,12 +13,12 @@ keywords:
 - tekst beheren
 - alinea beheren
 - opsommingsteken beheren
-- alinea‑insprong
-- hangende insprong
-- alinea‑opsommingsteken
+- alinea-inspringing
+- hangende inspringing
+- alinea-opsommingsteken
 - genummerde lijst
-- opsomminglijst
-- alinea‑eigenschappen
+- opsommingslijst
+- alinea-eigenschappen
 - HTML importeren
 - tekst naar HTML
 - alinea naar HTML
@@ -29,33 +29,33 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u alinea's, gedeelten, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen kunt maken en opmaken met Aspose.Slides voor PHP via Java."
+description: "Leer hoe u alinea's, fragmenten, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen kunt maken en opmaken met Aspose.Slides voor PHP via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor PHP via Java stelt tekst voor als een hiërarchie van tekstframes, alinea's en gedeelten:
+Aspose.Slides for PHP via Java vertegenwoordigt tekst als een hiërarchie van tekstkaders, alinea's en fragmenten:
 
 * [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/) vertegenwoordigt de tekstcontainer in een vorm en biedt toegang tot de alinea‑collectie.
-* [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstframe en biedt toegang tot de gedeelten en alinea‑opmaak.
-* [Portion](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portion/) vertegenwoordigt een tekstfragment binnen een alinea. Elk gedeelte kan eigen tekst en teken‑niveau opmaak hebben.
+* [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstkader en biedt toegang tot de fragmenten en de alinea‑niveau opmaak.
+* [Portion](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portion/) vertegenwoordigt een tekstreeks binnen een alinea. Elk fragment kan zijn eigen tekst en teken‑niveau opmaak hebben.
 
-Een alinea kan daarom tekst bevatten met verschillende lettertypen, kleuren, groottes en andere opmaak door meerdere gedeelten te gebruiken.
+Een alinea kan daardoor tekst bevatten met verschillende lettertypen, kleuren, groottes en andere opmaak door meerdere fragmenten te gebruiken.
 
 ## **Alinea's maken en opmaken**
 
-### **Alinea's maken met meerdere gedeelten**
+### **Alinea's maken met meerdere fragmenten**
 
-De volgende stappen maken een tekstframe met drie alinea's, elk met drie gedeelten:
+De volgende stappen maken een tekstkader met drie alinea's, elk met drie fragmenten:
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan.
-2. Toegang tot de betreffende slide via de index.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de slide.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/) van de vorm.
-5. Gebruik de standaardalinea en voeg twee extra [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/)‑objecten toe aan het tekstframe.
-6. Voeg voldoende [Portion](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portion/)‑objecten toe zodat elke alinea drie gedeelten bevat. De standaardalinea bevat al één leeg gedeelte.
-7. Stel de tekst van elk gedeelte in.
-8. Pas teken‑niveau opmaak toe via [Portion::getPortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portion/#getPortionFormat--).
-9. Sla de gewijzigde presentatie op.
+1. Maak een instantie van de klasse [Presentation] aan.
+2. Toegang krijgen tot de betreffende dia via de index.
+3. Voeg een rechthoekige [AutoShape] toe aan de dia.
+4. Toegang krijgen tot de [TextFrame] van de vorm.
+5. Gebruik de standaard alinea en voeg twee extra [Paragraph]-objecten toe aan het tekstkader.
+6. Voeg voldoende [Portion]-objecten toe zodat elke alinea drie fragmenten bevat. De standaard alinea bevat al één lege fragment.
+7. Stel de tekst van elk fragment in.
+8. Pas teken‑niveau opmaak toe via [Portion::getPortionFormat].
+9. Sla de aangepaste presentatie op.
 
 Dit PHP‑voorbeeld implementeert de stappen:
 
@@ -118,26 +118,26 @@ try {
 }
 ```
 
-## **Genummerde en opsommingstekens maken**
+## **Lijsten met opsommingstekens en genummerde items maken**
 
-### **Een opsomming met opsommingstekens of nummering maken**
+### **Een opsomming of genummerde lijst maken**
 
-Opsommingstekens en nummering maken gerelateerde items makkelijker te scannen. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bulletformat/).
+Opsommingstekens en nummering maken gerelateerde items gemakkelijker om te scannen. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat].
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan.
-2. Toegang tot de betreffende slide via de index.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de geselecteerde slide.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/) van de vorm.
-5. Verwijder de standaardalinea uit het tekstframe.
-6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
-7. Stel [BulletFormat::setType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bulletformat/#setType-int-) in op [BulletType::Symbol](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bullettype/) en geef het opsommingsteken‑karakter op.
+1. Maak een instantie van de klasse [Presentation] aan.
+2. Toegang krijgen tot de betreffende dia via de index.
+3. Voeg een [AutoShape] toe aan de geselecteerde dia.
+4. Toegang krijgen tot de [TextFrame] van de vorm.
+5. Verwijder de standaard alinea uit het tekstkader.
+6. Maak een [Paragraph] aan voor een symbool‑opsommingsteken.
+7. Stel [BulletFormat::setType] in op [BulletType::Symbol] en geef het opsommingsteken‑karakter op.
 8. Stel de alinea‑tekst, inspringing, kleur van het opsommingsteken en hoogte van het opsommingsteken in.
-9. Voeg de alinea toe aan het tekstframe.
-10. Maak een tweede alinea en stel [BulletFormat::setType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bulletformat/#setType-int-) in op [BulletType::Numbered](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bullettype/).
-11. Configureer de stijl van de genummerde opsomming en voeg de alinea toe aan het tekstframe.
+9. Voeg de alinea toe aan het tekstkader.
+10. Maak een tweede alinea aan en stel [BulletFormat::setType] in op [BulletType::Numbered].
+11. Configureer de stijl van het genummerde opsommingsteken en voeg de alinea toe aan het tekstkader.
 12. Sla de presentatie op.
 
-Dit PHP‑voorbeeld maakt een symbool‑opsommingsteken en een genummerde opsomming:
+Dit PHP‑voorbeeld maakt een symbool‑opsommingsteken en een genummerd opsommingsteken:
 
 ```php
 use aspose\slides\BulletType;
@@ -186,20 +186,20 @@ try {
 
 ### **Afbeeldings‑opsommingstekens gebruiken**
 
-Afbeeldings‑opsommingstekens maken het mogelijk een aangepaste afbeelding te gebruiken in plaats van een symbool of cijfer.
+Afbeeldings‑opsommingstekens laten je een aangepast beeld gebruiken in plaats van een symbool of cijfer.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan.
-2. Toegang tot de betreffende slide via de index.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe en benader het [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/).
-4. Verwijder de standaardalinea uit het tekstframe.
-5. Laad de opsommingsteken‑afbeelding en voeg deze toe aan de afbeeldingscollectie van de presentatie als een [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/).
-6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/) en stel de tekst in.
-7. Stel [BulletFormat::setType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bulletformat/#setType-int-) in op [BulletType::Picture](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bullettype/).
-8. Wijs de afbeelding toe via [BulletFormat::getPicture](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bulletformat/#getPicture--) en stel de hoogte van het opsommingsteken in.
-9. Voeg de alinea toe aan het tekstframe.
-10. Sla de gewijzigde presentatie op.
+1. Maak een instantie van de klasse [Presentation] aan.
+2. Toegang krijgen tot de betreffende dia via de index.
+3. Voeg een [AutoShape] toe en krijg toegang tot de [TextFrame] ervan.
+4. Verwijder de standaard alinea uit het tekstkader.
+5. Laad de afbeelding voor het opsommingsteken en voeg deze toe aan de afbeeldingenverzameling van de presentatie als een [PPImage].
+6. Maak een [Paragraph] aan en stel de tekst ervan in.
+7. Stel [BulletFormat::setType] in op [BulletType::Picture].
+8. Wijs de afbeelding toe via [BulletFormat::getPicture] en stel de hoogte van het opsommingsteken in.
+9. Voeg de alinea toe aan het tekstkader.
+10. Sla de aangepaste presentatie op.
 
-Dit PHP‑voorbeeld maakt een afbeelding‑opsommingsteken:
+Dit PHP‑voorbeeld maakt een afbeeldings‑opsommingsteken:
 
 ```php
 use aspose\slides\BulletType;
@@ -238,17 +238,17 @@ try {
 }
 ```
 
-### **Een meervoudig niveau‑lijst maken**
+### **Een meerlagige lijst maken**
 
-Stel [ParagraphFormat::setDepth](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setDepth-short-) in om alinea's op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
+Stel [ParagraphFormat::setDepth] in om alinea's op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) en open een slide.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe en verwijder de standaardalinea uit het tekstframe.
-3. Maak vier alinea's en configureer hun opsommingsteken‑symbolen.
-4. Stel hun [ParagraphFormat::setDepth](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setDepth-short-) waarden in op `0`, `1`, `2` en `3`.
-5. Voeg de alinea's toe aan het tekstframe en sla de presentatie op.
+1. Maak een [Presentation] aan en krijg een dia.
+2. Voeg een [AutoShape] toe en wis de standaard alinea uit het tekstkader.
+3. Maak vier alinea's aan en configureer hun opsommingsteken‑symbolen.
+4. Stel hun [ParagraphFormat::setDepth]-waarden in op `0`, `1`, `2` en `3`.
+5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
 
-Dit PHP‑voorbeeld maakt een vier‑niveaus opsomminglijst:
+Dit PHP‑voorbeeld maakt een opsomming met vier niveaus:
 
 ```php
 use aspose\slides\BulletType;
@@ -310,13 +310,13 @@ try {
 
 ### **Genummerde lijstitems starten met aangepaste waarden**
 
-Gebruik [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) om het beginnummer in te stellen dat voor een genummerde alinea wordt weergegeven.
+Gebruik [BulletFormat::setNumberedBulletStartWith] om het beginnummer voor een genummerde alinea in te stellen.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) en voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan een slide.
-2. Verwijder de standaardalinea uit het tekstframe van de vorm.
-3. Maak drie genummerde alinea's.
-4. Stel [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) in op `2`, `3` en `7` voor de respectieve alinea's.
-5. Voeg de alinea's toe aan het tekstframe en sla de presentatie op.
+1. Maak een [Presentation] aan en voeg een [AutoShape] toe aan een dia.
+2. Verwijder de standaard alinea uit het tekstkader van de vorm.
+3. Maak drie genummerde alinea's aan.
+4. Stel [BulletFormat::setNumberedBulletStartWith] in op `2`, `3` en `7` voor de respectieve alinea's.
+5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
 
 Dit PHP‑voorbeeld kent een aangepast startnummer toe aan elke alinea:
 
@@ -357,25 +357,25 @@ try {
 }
 ```
 
-## **Paragraaf‑lay-out en eind‑eigenschappen beheren**
+## **Alinea‑lay-out en eind‑eigenschappen beheren**
 
-### **Eerste‑regels‑insprong instellen**
+### **Eerste‑lijninspringing instellen**
 
-Gebruik [ParagraphFormat::setIndent](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setIndent-float-) om de eerste‑regels‑insprong van een alinea te regelen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
+Gebruik [ParagraphFormat::setIndent] om de eerste‑lijninspringing van een alinea te regelen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde schuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
 
-Gebruik [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) wanneer u de gehele alinea wilt verplaatsen. Gebruik [ParagraphFormat::setIndent](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setIndent-float-) wanneer u alleen de eerste regel wilt verplaatsen.
+Gebruik [ParagraphFormat::setMarginLeft] wanneer je de hele alinea wilt verplaatsen. Gebruik [ParagraphFormat::setIndent] wanneer je alleen de eerste regel wilt verplaatsen.
 
-Het onderstaande voorbeeld maakt verschillende alinea's en past verschillende [ParagraphFormat::setIndent]-waarden toe om te laten zien hoe de eerste‑regels‑insprong de lay‑out van een alinea beïnvloedt.
+Het onderstaande voorbeeld maakt verschillende alinea's en past verschillende [ParagraphFormat::setIndent]-waarden toe om te laten zien hoe de eerste‑lijninspringing de alinea‑lay-out beïnvloedt.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-2. Open de doel‑slide.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de slide.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+1. Maak een instantie van de [Presentation] klasse.
+2. Toegang krijgen tot de doel-dia.
+3. Voeg een rechthoekige [AutoShape] toe aan de dia.
+4. Toegang krijgen tot de [TextFrame] van de vorm en verwijder de standaard alinea.
 5. Maak verschillende alinea's en stel verschillende [ParagraphFormat::setIndent]-waarden voor hen in.
-6. Voeg de alinea's toe aan het tekstframe.
-7. Sla de gewijzigde presentatie op.
+6. Voeg de alinea's toe aan het tekstkader.
+7. Sla de aangepaste presentatie op.
 
-Deze PHP‑code laat zien hoe u een alinea‑insprong instelt:
+Deze PHP‑code toont hoe je een alinea‑inspringing instelt:
 
 ```php
 use aspose\slides\FillType;
@@ -431,26 +431,26 @@ try {
 
 Het resultaat:
 
-![De eerste‑regels‑insprong van de alinea's](first_line_indent.png)
+![De eerste‑lijninspringing van de alinea's](first_line_indent.png)
 
-### **Hangende insprong instellen**
+### **Hangende inspringing instellen**
 
-Een hangende insprong is een alinea‑lay‑out waarbij de eerste regel links begint ten opzichte van de resterende regels. In Aspose.Slides creëert u dit effect met [ParagraphFormat::setIndent](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setIndent-float-). Geef een negatieve waarde op om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
+Een hangende inspringing is een alinea‑lay-out waarbij de eerste regel links begint van de resterende regels. In Aspose.Slides creëer je dit effect met [ParagraphFormat::setIndent]. Geef een negatieve waarde op om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
 
-In de praktijk definieert [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) de linkerpositie van de alinea‑inhoud, en definieert [ParagraphFormat::setIndent](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setIndent-float-) de positie van de eerste regel ten opzichte van die marge. Om een hangende insprong te maken, geeft u een positieve waarde aan `setMarginLeft` en een negatieve waarde aan `setIndent`.
+In de praktijk bepaalt [ParagraphFormat::setMarginLeft] de linkse positie van de alinea‑inhoud, en bepaalt [ParagraphFormat::setIndent] de positie van de eerste regel ten opzichte van die marge. Om een hangende inspringing te creëren, geef je een positieve waarde aan `setMarginLeft` en een negatieve waarde aan `setIndent`.
 
-Deze opmaak is nuttig voor bibliografieën, referenties, glossarium‑items en andere alinea's waarbij gewikkelde regels moeten uitlijnen onder de alinea‑inhoud in plaats van onder het eerste teken van de eerste regel.
+Deze opmaak is nuttig voor bibliografieën, referenties, woordenlijst‑items en andere alinea's waarbij omslagen onder de alinea‑inhoud moeten uitgelijnd worden en niet onder het eerste teken van de eerste regel.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-2. Open de doel‑slide.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de slide.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+1. Maak een instantie van de [Presentation] klasse.
+2. Toegang krijgen tot de doel-dia.
+3. Voeg een rechthoekige [AutoShape] toe aan de dia.
+4. Toegang krijgen tot de [TextFrame] van de vorm en verwijder de standaard alinea.
 5. Maak alinea's en geef een positieve waarde aan [ParagraphFormat::setMarginLeft] voor elke alinea.
-6. Geef een negatieve waarde aan [ParagraphFormat::setIndent] om het effect van een hangende insprong te verkrijgen.
-7. Voeg de alinea's toe aan het tekstframe.
-8. Sla de gewijzigde presentatie op.
+6. Geef een negatieve waarde aan [ParagraphFormat::setIndent] om het hangende‑inspringing‑effect te creëren.
+7. Voeg de alinea's toe aan het tekstkader.
+8. Sla de aangepaste presentatie op.
 
-Deze PHP‑code laat zien hoe u een hangende insprong voor een alinea instelt:
+Deze PHP‑code toont hoe je een hangende inspringing voor een alinea instelt:
 
 ```php
 use aspose\slides\FillType;
@@ -498,18 +498,18 @@ try {
 
 Het resultaat:
 
-![De hangende insprong van de alinea's](hanging_indent.png)
+![De hangende inspringing van de alinea's](hanging_indent.png)
 
-### **Eind‑paragraaf‑run‑eigenschappen instellen**
+### **Eigenschappen voor het einde van een alinea instellen**
 
-[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) regelt de opmaak van het eind‑teken van een alinea. Het volgende PHP‑voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eind‑teken van de tweede alinea:
+[Paragraph::setEndParagraphPortionFormat] regelt de opmaak van het alinea‑eindteken. Het volgende PHP‑voorbeeld wijst een lettergrootte en een Latijns lettertype toe aan het eindteken van de tweede alinea:
 
-1. Laad een [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) en open een slide.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe en verwijder de standaardalinea.
-3. Maak twee alinea's en voeg tekstgedeelten toe.
-4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portionformat/) voor het eind‑teken van de tweede alinea.
-5. Stel [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) en [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-) in.
-6. Ken het format toe met [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) en sla de presentatie op.
+1. Laad een [Presentation] en krijg een dia.
+2. Voeg een [AutoShape] toe en verwijder de standaard alinea.
+3. Maak twee alinea's aan en voeg tekstfragmenten toe.
+4. Maak een [PortionFormat] voor het eindteken van de tweede alinea.
+5. Stel [BasePortionFormat::setFontHeight] en [BasePortionFormat::setLatinFont] in.
+6. Wijs de opmaak toe met [Paragraph::setEndParagraphPortionFormat] en sla de presentatie op.
 
 ```php
 use aspose\slides\FontData;
@@ -547,13 +547,15 @@ try {
 }
 ```
 
-## **Weergegeven regels tellen**
+## **Getelde weergegeven regels**
 
-Gebruik [Paragraph::getLinesCount](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#getLinesCount--) om het aantal regels te tellen dat een alinea inneemt na tekstopmaak, inclusief automatische regelafbreking. Dit is nuttig bij het controleren van de tekstlengte en lay‑out in presentatiesjablonen.
+Voor alinea‑regels die automatische woordafbreking en interpunctie bij regeleindes beïnvloeden, zie [Control Line Breaking](/slides/nl/php-java/text-formatting/#control-line-breaking) en [Control Hanging Punctuation](/slides/nl/php-java/text-formatting/#control-hanging-punctuation).
 
-Een alinea is één item in [TextFrame::getParagraphs](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/#getParagraphs--), en kan meerdere weergeefde regels innemen. Een expliciete regelafbreking binnen een alinea dwingt een nieuwe regel af zonder een nieuwe alinea te maken. Automatische regelafbreking maakt regels op basis van de beschikbare breedte zonder expliciete regelafbrekingen in de tekst toe te voegen. Het tellen van alinea's of regel‑afbreek‑tekens geeft daarom niet het aantal weergeefde regels.
+Gebruik [Paragraph::getLinesCount] om het aantal regels te tellen dat een alinea inneemt na tekstlay-out, inclusief automatische woordafbreking. Dit is handig bij het controleren van de tekstlengte en lay-out in presentatiesjablonen.
 
-Het volgende voorbeeld maakt een tekstvorm, telt de regels, vernauwt de vorm en vervangt vervolgens de tekst door een kortere tekenreeks. Regelafbreking is ingeschakeld en autofit is uitgeschakeld zodat de breedte van de vorm de afbreking bepaalt zonder de tekst automatisch te verkleinen of de vorm te herschalen. De afmetingen van de vorm zijn in punten. Ten slotte voegt het voorbeeld een extra alinea toe en telt de regelaantallen op over het tekstframe.
+Een alinea is één item in [TextFrame::getParagraphs] en kan meerdere weergegeven regels innemen. Een expliciete regeleinde binnen een alinea dwingt een nieuwe regel af zonder een extra alinea te maken. Automatische woordafbreking maakt regels op basis van de beschikbare breedte zonder expliciete regeleinden in de tekst in te voegen. Het tellen van alinea's of regeleinde‑karakters levert daarom niet het aantal weergegeven regels op.
+
+Het volgende voorbeeld maakt een tekstvorm, telt de regels, vernauwt de vorm en vervangt vervolgens de tekst door een kortere tekenreeks. Woordafbreking is ingeschakeld en autofit uitgeschakeld zodat de breedte van de vorm de afbreking bepaalt zonder de tekst automatisch te verkleinen of de vorm te schalen. De afmetingen van de vorm zijn in punten. Ten slotte voegt het voorbeeld nog een alinea toe en telt de regelaantallen van alle alinea's in het tekstkader op.
 
 ```php
 use aspose\slides\NullableBool;
@@ -598,24 +600,24 @@ try {
 }
 ```
 
-Met deze tekst en deze afmetingen verhoogt het vernauwen van de vorm het aantal regels, terwijl het vervangen van de tekst door de korte tekenreeks het aantal vermindert. Precieze tellingen kunnen variëren afhankelijk van de beschikbaarheid en substitutie van lettertypen, lettergrootte, marges, inspringingen, regelafbreking en autofit‑instellingen. Gebruik de lettertypen en lay‑outinstellingen die voor de doelsituatie bedoeld zijn bij het controleren van een sjabloon.
+Met deze tekst en deze afmetingen vergroot het vernauwen van de vorm het aantal regels, terwijl het vervangen van de tekst door de korte tekenreeks het aantal verlaagt. Exacte aantallen kunnen variëren afhankelijk van de beschikbaarheid en substitutie van lettertypen, lettergrootte, marges, inspringing, afbreking en autofit‑instellingen. Gebruik de lettertypen en lay‑outinstellingen die bedoeld zijn voor de doelomgeving bij het controleren van een sjabloon.
 
-Het aantal regels alleen bepaalt niet of de tekst buiten de container overlopen. De beschikbare hoogte, regelhoogtes, alinea‑ en regel‑afstand, en het gedrag van autofit zijn ook van belang; zelfs een enkele regel kan de beschikbare breedte overschrijden wanneer regelafbreking is uitgeschakeld.
+Het aantal regels alleen bepaalt niet of de tekst buiten de container stroomt. De beschikbare hoogte, regelhoogtes, alinea‑ en regelafstand, en autofit‑gedrag zijn ook van belang; zelfs één regel kan de beschikbare breedte overschrijden wanneer afbreking is uitgeschakeld.
 
-## **Paragraaf‑inhoud importeren en exporteren**
+## **Paragraafinhoud importeren en exporteren**
 
 ### **HTML‑tekst importeren in alinea's**
 
-Gebruik [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) om HTML‑opmaak te converteren naar alinea's en gedeelten in een tekstframe.
+Gebruik [ParagraphCollection::addFromHtml] om HTML‑opmaak te converteren naar alinea's en fragmenten in een tekstkader.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-2. Open een slide en voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe.
-3. Benader het [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+1. Maak een instantie van de [Presentation] klasse.
+2. Toegang krijgen tot een dia en voeg een [AutoShape] toe.
+3. Toegang krijgen tot de [TextFrame] van de vorm en wis de standaard alinea.
 4. Lees het bron‑HTML‑bestand.
-5. Geef de HTML‑string door aan [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Sla de gewijzigde presentatie op.
+5. Geef de HTML‑string door aan [ParagraphCollection::addFromHtml].
+6. Sla de aangepaste presentatie op.
 
-Dit PHP‑voorbeeld importeert HTML in een tekstframe:
+Dit PHP‑voorbeeld importeert HTML in een tekstkader:
 
 ```php
 use aspose\slides\FillType;
@@ -644,15 +646,15 @@ try {
 }
 ```
 
-### **Paragraaf‑tekst exporteren naar HTML**
+### **Alinea‑tekst exporteren naar HTML**
 
-Gebruik [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) om een geselecteerd bereik van alinea's als HTML te exporteren.
+Gebruik [ParagraphCollection::exportToHtml] om een geselecteerd bereik van alinea's als HTML te exporteren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan en laad de gewenste presentatie.
-2. Open de slide en zoek de [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) die de tekst bevat.
-3. Benader het [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/).
-4. Roep [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) aan met de start‑alinea‑index en het aantal te exporteren alinea's.
-5. Schrijf de teruggegeven HTML‑string naar een bestand.
+1. Maak een instantie van de [Presentation] klasse en laad de gewenste presentatie.
+2. Toegang krijgen tot de dia en vind de [AutoShape] die de tekst bevat.
+3. Toegang krijgen tot de [TextFrame] van de vorm.
+4. Roep [ParagraphCollection::exportToHtml] aan met de start‑alinea‑index en het aantal te exporteren alinea's.
+5. Schrijf de geretourneerde HTML‑string naar een bestand.
 
 Dit PHP‑voorbeeld exporteert alle alinea's van de eerste tekstvorm:
 
@@ -682,17 +684,19 @@ try {
 }
 ```
 
-### **Een alinea renderen als afbeelding**
+### **Een alinea renderen als een afbeelding**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#getImage--) rendert een individuele alinea direct en retourneert een [IImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/iimage/). Sla het resultaat op in een bestand of stream met [IImage::save](https://reference.aspose.com/slides/nl/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Het is niet nodig om de omvattende vorm te renderen of handmatig een bitmap bij te snijden.
+[Paragraph::getImage] rendert een individuele alinea rechtstreeks en retourneert een [IImage]. Sla het resultaat op in een bestand of stream met [IImage::save]. Je hoeft de omvattende vorm niet te renderen of handmatig een bitmap bij te snijden.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#getImage--) kan `null` teruggeven als de alinea niet gevonden kan worden in de bovenliggende collectie, geen geldige render‑grenzen heeft, of niet kan worden gerenderd. Controleer het resultaat vóór het opslaan en maak de geretourneerde afbeelding na gebruik vrij.
+[Paragraph::getImage] kan `null` teruggeven als de alinea niet gevonden wordt in de bovenliggende collectie, geen geldige render‑afmetingen heeft, of niet kan worden gerenderd. Controleer het resultaat voordat je het opslaat en maak de geretourneerde afbeelding na gebruik vrij.
 
-#### **Een alinea renderen op de standaard schaal**
+#### **Een alinea renderen op standaardschaal**
 
-Laten we aannemen dat we een presentatiedocument hebben genaamd sample.pptx met één slide, waarbij de eerste vorm een tekstvak is dat drie alinea's bevat.
+Laten we aannemen dat we een presentatiedocument hebben genaamd sample.pptx met één dia, waarbij de eerste vorm een tekstvak is dat drie alinea's bevat.
 
-Het volgende PHP‑voorbeeld rendert de tweede alinea in een reguliere tekstvorm op de standaard schaal en slaat de geretourneerde afbeelding op in PNG‑formaat. Het `finally`‑blok zorgt ervoor dat de afbeelding correct wordt vrijgegeven.
+![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
+
+Het volgende PHP‑voorbeeld rendert de tweede alinea in een gewone tekstvorm op de standaard schaal en slaat de geretourneerde afbeelding op in PNG‑formaat. Het `finally`‑blok zorgt ervoor dat de afbeelding correct wordt vrijgemaakt.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -732,9 +736,9 @@ Het resultaat:
 
 ![De alinea‑afbeelding](paragraph_to_image_output.png)
 
-#### **Een alinea renderen in een tabelcel met schalen**
+#### **Een alinea renderen in een tabelcel met schaling**
 
-Gebruik de overload van [Paragraph::getImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#getImage-float-float-) die de parameters `$scaleX` en `$scaleY` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende PHP‑voorbeeld maakt een tabel, rendert de alinea in de eerste cel op het dubbele van de standaard breedte en hoogte, en slaat het resultaat op als PNG‑afbeelding.
+Gebruik de overload van [Paragraph::getImage] die de parameters `$scaleX` en `$scaleY` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende PHP‑voorbeeld maakt een tabel, rendert de alinea in de eerste cel op twee keer de standaard breedte en hoogte, en slaat het resultaat op als een PNG‑afbeelding.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -765,24 +769,24 @@ try {
 }
 ```
 
-Een schaalfactor van `1` behoudt die as op de standaard pixelgrootte. Bijvoorbeeld, `2` voor beide factoren produceert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn van de standaard afmetingen, resulterend in vier keer zoveel pixels. Grotere factoren geven doorgaans scherpere tekst voor zoomen of hoge resolutie‑output, maar verhogen ook het geheugen‑ en bestands‑gebruik. Factoren onder `1` produceren kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken de output onafhankelijk uit.
+Een schaalfactor van `1` behoudt die as op de standaard pixelaantal. Bijvoorbeeld, `2` voor beide factoren levert een afbeelding op waarvan breedte en hoogte ongeveer twee keer de standaardafmetingen zijn, resulterend in vier keer zoveel pixels. Grotere factoren geven doorgaans scherpere tekst voor inzoomen of hoge‑resolutie‑output, maar verhogen tevens het geheugenverbruik en de bestandsgrootte. Factoren onder `1` produceren kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken de output onafhankelijk uit.
 
-Het renderen van een volledige vorm met [Shape::getImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage--) blijft nuttig wanneer de output de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding die alleen de alinea bevat, gebruik [Paragraph::getImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#getImage--).
+Het renderen van een volledige vorm met [Shape::getImage] blijft nuttig wanneer de output de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding die alleen de alinea toont, gebruik je [Paragraph::getImage].
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik regelafbreking volledig uitschakelen binnen een tekstframe?**
+**Kan ik de woordafbreking binnen een tekstkader volledig uitschakelen?**
 
-Ja. Stel [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframeformat/#setWrapText-byte-) in om afbreken uit te schakelen zodat regels niet bij de randen van het tekstframe afbreken.
+Ja. Stel [TextFrameFormat::setWrapText] in om afbreking uit te schakelen zodat regels niet worden afgebroken aan de randen van het tekstkader.
 
-**Hoe kan ik de exacte grenzen van een specifieke alinea op de slide verkrijgen?**
+**Hoe krijg ik de exacte on‑slide‑grenzen van een specifieke alinea?**
 
-Gebruik [Paragraph::getRect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/#getRect--) om de begrenzende rechthoek van de alinea op te halen. [Portion::getRect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portion/#getRect--) geeft de grenzen van een individueel gedeelte.
+Gebruik [Paragraph::getRect] om het begrenzende rechthoek van de alinea op te halen. [Portion::getRect] geeft de grenzen van een afzonderlijk fragment.
 
 **Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of uitgevuld) geregeld?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/#setAlignment-int-) is een instelling op alinea‑niveau en wordt toegepast op de gehele alinea, ongeacht de opmaak van individuele gedeelten.
+[ParagraphFormat::setAlignment] is een instelling op alinea‑niveau en wordt toegepast op de hele alinea ongeacht de opmaak van individuele fragmenten.
 
-**Kan ik de taal voor proeflezen voor een deel van een alinea instellen?**
+**Kan ik de proefleestaal voor een deel van een alinea instellen?**
 
-Ja. Stel [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) in voor individuele gedeelten, zodat één alinea tekst in meerdere talen kan bevatten.
+Ja. Stel [BasePortionFormat::setLanguageId] in voor afzonderlijke fragmenten, zodat één alinea tekst in meerdere talen kan bevatten.

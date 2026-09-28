@@ -1,5 +1,5 @@
 ---
-title: Formater le texte d'une présentation en .NET
+title: Mise en forme du texte de présentation en .NET
 linktitle: Mise en forme du texte
 type: docs
 weight: 50
@@ -16,7 +16,7 @@ keywords:
 - angle de rotation
 - cadre de texte
 - interligne
-- propriété d’ajustement automatique
+- propriété d'ajustement automatique
 - ancrage du cadre de texte
 - tabulation du texte
 - langue par défaut
@@ -26,94 +26,94 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Formatez et stylisez le texte dans les présentations PowerPoint et OpenDocument à l’aide d’Aspose.Slides pour .NET. Personnalisez les polices, les couleurs, l’alignement et plus encore."
+description: "Formatez et stylisez le texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour .NET. Personnalisez les polices, les couleurs, l'alignement et plus encore."
 ---
 ## **Vue d'ensemble**
 
-Cet article montre comment mettre en forme du texte dans les présentations PowerPoint et OpenDocument à l’aide d’Aspose.Slides pour .NET. Il couvre les couleurs d’arrière-plan, la transparence, l’espacement des caractères, les propriétés de police, la rotation, l’espacement des paragraphes, le comportement d’ajustement automatique, l’ancrage du texte, les taquets de tabulation et les paramètres de langue.
+Cet article montre comment mettre en forme du texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour .NET. Il couvre les couleurs d'arrière-plan, la transparence, l'espacement des caractères, les propriétés de police, la rotation, l'espacement des paragraphes, le comportement d'ajustement automatique, l'ancrage du texte, les tabulations et les paramètres de langue.
 
-Dans les exemples ci‑dessous, nous utiliserons un fichier nommé **sample.pptx**, qui contient une seule zone de texte sur la première diapositive avec le texte suivant :
+Sauf indication contraire, les exemples utilisent [sample.pptx](sample.pptx). La première forme de la première diapositive est une zone de texte, et son premier paragraphe contient le texte affiché ci-dessous. Les indices des diapositives et des formes sont basés sur zéro. Les exemples qui sélectionnent des portions en gras utilisent le formatage effectif, y compris le formatage gras hérité :
 
 ![Texte d'exemple](sample_text.png)
 
-Pour rechercher et mettre en surbrillance du texte littéral ou des correspondances d’expression régulière, voir [Rechercher et remplacer du texte](/slides/fr/net/search-and-replace-text/).
+Pour rechercher et mettre en surbrillance du texte littéral ou des correspondances d'expressions régulières, voir [Recherche et remplacement de texte](/slides/fr/net/search-and-replace-text/).
 
 ## **Définir la couleur d'arrière-plan du texte**
 
-Utilisez [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/defaultportionformat/) pour définir la couleur de surbrillance par défaut d’un paragraphe, ou utilisez [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/highlightcolor/) pour des portions de texte individuelles.
+Utilisez [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/defaultportionformat/) pour définir la couleur de surbrillance par défaut d'un paragraphe, ou utilisez [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/highlightcolor/) pour des portions de texte individuelles.
 
-L’exemple de code suivant montre comment définir la couleur d’arrière‑plan pour le **paragraphe complet** :
+L'exemple suivant définit une surbrillance gris clair comme valeur par défaut pour le premier paragraphe. Les couleurs de surbrillance explicites sur les portions individuelles ont la priorité sur cette valeur par défaut :
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Définir la couleur de surbrillance pour le paragraphe complet.
-    paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
-}
+// Définir la couleur de surbrillance pour le paragraphe entier.
+paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
+
+presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
 ![Le paragraphe gris](gray_paragraph.png)
 
-L’exemple de code ci‑dessous montre comment définir la couleur d’arrière‑plan pour les **portions de texte en gras** :
+L'exemple de code ci-dessous montre comment définir la couleur d'arrière-plan pour **les portions de texte avec une police en gras** :
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-
-    foreach (var portion in paragraph.Portions)
+    if (portion.PortionFormat.GetEffective().FontBold)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
-        {
-            // Définir la couleur de surbrillance pour la portion de texte.
-            portion.PortionFormat.HighlightColor.Color = Color.LightGray;
-        }
+        // Définir la couleur de surbrillance pour la portion de texte.
+        portion.PortionFormat.HighlightColor.Color = Color.LightGray;
     }
-
-    presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
-![Les portions de texte gris](gray_text_portions.png)
+![Les portions de texte grises](gray_text_portions.png)
 
 ## **Aligner les paragraphes de texte**
 
-Utilisez [IParagraphFormat.Alignment](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/alignment/) pour définir l’alignement du paragraphe dans un cadre de texte. La valeur peut être centrée, alignée à gauche, alignée à droite, justifiée, etc.
+Utilisez [IParagraphFormat.Alignment](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/alignment/) pour définir l'alignement du paragraphe dans un cadre de texte. La valeur peut être centrée, alignée à gauche, alignée à droite, justifiée, etc.
 
-L’exemple de code suivant montre comment aligner le paragraphe au **centre** :
+L'exemple de code suivant montre comment aligner le paragraphe au **centre** :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Définir l'alignement du paragraphe au centre.
-    paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
-}
+// Définir l'alignement du paragraphe au centre.
+paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
+
+presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
@@ -122,212 +122,214 @@ Le résultat :
 
 ## **Définir la transparence du texte**
 
-La transparence du texte est contrôlée via le composant alpha de la couleur affectée à [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/fillformat/). Dans les exemples ci‑dessous, `alpha = 50` est une valeur du canal alpha ARGB sur l’échelle 0–255, et non un pourcentage de transparence.
+La transparence du texte est contrôlée via le composant alpha de la couleur attribuée à [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/fillformat/). Dans les exemples ci‑dessous, `alpha = 50` est une valeur de canal alpha ARGB sur l'échelle 0–255, et non un pourcentage de transparence.
 
-L’exemple de code suivant montre comment appliquer la transparence au **paragraphe complet** :
+L'exemple de code ci‑dessous montre comment appliquer la transparence au **paragraphe entier** :
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-int alpha = 50;
+var alpha = 50;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Définir la couleur de remplissage du texte sur une couleur transparente.
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
-}
+// Définir un remplissage noir semi‑transparent pour le texte.
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+
+presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
 ![Le paragraphe transparent](transparent_paragraph.png)
 
-L’exemple de code suivant montre comment appliquer la transparence aux **portions de texte en gras** :
+L'exemple de code suivant montre comment appliquer la transparence aux **portions de texte avec une police en gras** :
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-int alpha = 50;
+var alpha = 50;
 
-using (var presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-
-    foreach (var portion in paragraph.Portions)
+    if (portion.PortionFormat.GetEffective().FontBold)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
-        {
-            // Définir la transparence de la portion de texte.
-            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
-        }
+        // Définir la transparence de la portion de texte.
+        portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+        portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
     }
-
-    presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
 ![Les portions de texte transparentes](transparent_text_portions.png)
 
-## **Définir l’espacement des caractères du texte**
+## **Définir l'espacement des caractères pour le texte**
 
-Utilisez [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/spacing/) pour élargir ou réduire l’espacement entre les caractères dans une zone de texte.
+Utilisez [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/spacing/) pour augmenter ou réduire l'espacement entre les caractères dans une zone de texte. Les exemples ajoutent 3 points d'espacement ; les valeurs négatives condensent le texte.
 
-Le code C# suivant montre comment élargir l’espacement des caractères dans le **paragraphe complet** :
+Le code C# suivant montre comment augmenter l'espacement des caractères dans le **paragraphe entier** :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Remarque: utilisez des valeurs negatives pour comprimer l'espacement des caracteres.
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Étendre l'espacement des caracteres.
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
-}
+// Remarque: utilisez des valeurs négatives pour compresser l'espacement des caractères.
+paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Étendre l'espacement des caractères.
+
+presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
-![L’espacement des caractères dans le paragraphe](character_spacing_in_paragraph.png)
+![L'espacement des caractères dans le paragraphe](character_spacing_in_paragraph.png)
 
-L’exemple de code ci‑dessous montre comment élargir l’espacement des caractères dans les **portions de texte en gras** :
+L'exemple de code ci‑dessous montre comment augmenter l'espacement des caractères dans les **portions de texte avec une police en gras** :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    foreach (var portion in paragraph.Portions)
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
+{
+    if (portion.PortionFormat.GetEffective().FontBold)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
-        {
-            // Remarque : utilisez des valeurs négatives pour compresser l'espacement des caractères.
-            portion.PortionFormat.Spacing = 3;  // Étendre l'espacement des caractères.
-        }
+        // Remarque: utilisez des valeurs négatives pour compresser l'espacement des caractères.
+        portion.PortionFormat.Spacing = 3;  // Étendre l'espacement des caractères.
     }
-
-    presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
-![L’espacement des caractères dans les portions de texte](character_spacing_in_text_portions.png)
+![L'espacement des caractères dans les portions de texte](character_spacing_in_text_portions.png)
 
 ### **Désactiver le crénage pour des polices spécifiques**
 
-Dans certains cas, le texte rendu par Aspose.Slides peut sembler légèrement plus serré que le même texte affiché dans PowerPoint. Cela peut se produire parce que PowerPoint peut ignorer les données de crénage pour certaines polices, même si la police contient des informations de crénage valides et que le crénage est activé dans les paramètres de PowerPoint.
+Dans certains cas, le texte rendu par Aspose.Slides peut paraître légèrement plus serré que le même texte affiché dans PowerPoint. Cela peut se produire parce que PowerPoint peut ignorer les données de crénage pour certaines polices, même lorsque la police contient des informations de crénage valides et que le crénage est activé dans les paramètres de PowerPoint.
 
-Pour que le rendu se rapproche de PowerPoint dans ces cas, vous pouvez désactiver le crénage pour les portions de texte qui utilisent la police concernée. Définissez [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/kerningminimalsize/) à une valeur nettement supérieure à la taille réelle de la police :
+Pour que le rendu soit plus proche de PowerPoint dans ces cas, vous pouvez désactiver le crénage pour les portions de texte qui utilisent la police concernée. Définissez [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/kerningminimalsize/) à une valeur supérieure à la taille réelle de la police. Cet exemple nécessite « presentation.pptx » contenant une zone de texte comme première forme de la première diapositive. Il vérifie les noms de police effectifs, y compris les polices héritées, et définit un seuil de 100 points pour les portions utilisant Roboto. Cela désactive le crénage pour les portions correspondantes dont la taille de police est inférieure à 100 points :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("presentation.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var targetFont = "Roboto";
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
 
-    foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+var autoShape = (IAutoShape)slide.Shapes[0];
+var targetFont = "Roboto";
+
+foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+{
+    foreach (var portion in paragraph.Portions)
     {
-        foreach (var portion in paragraph.Portions)
+        var textFormat = portion.PortionFormat.GetEffective();
+        
+        var usesTargetFont = textFormat.LatinFont?.FontName == targetFont || 
+            textFormat.EastAsianFont?.FontName == targetFont || 
+            textFormat.ComplexScriptFont?.FontName == targetFont;
+
+        if (usesTargetFont)
         {
-            if ((portion.PortionFormat.LatinFont != null &&
-                 portion.PortionFormat.LatinFont.FontName == targetFont) ||
-                (portion.PortionFormat.EastAsianFont != null &&
-                 portion.PortionFormat.EastAsianFont.FontName == targetFont) ||
-                (portion.PortionFormat.ComplexScriptFont != null &&
-                 portion.PortionFormat.ComplexScriptFont.FontName == targetFont))
-            {
-                portion.PortionFormat.KerningMinimalSize = 100;
-            }
+            portion.PortionFormat.KerningMinimalSize = 100;
         }
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-Ce paramètre empêche l’application du crénage aux portions de texte correspondantes et peut aider à aligner le rendu d’Aspose.Slides avec la sortie visuelle de PowerPoint pour les polices affectées par ce comportement spécifique à PowerPoint.
+Pour le texte correspondant en dessous du seuil, ce paramètre empêche le crénage et peut aider à aligner le rendu d'Aspose.Slides avec la sortie visuelle de PowerPoint pour les polices concernées par ce comportement spécifique à PowerPoint.
 
 ## **Gérer les propriétés de police du texte**
 
 Les propriétés de police peuvent être définies au niveau du paragraphe via [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/defaultportionformat/) ou sur des portions individuelles via [IPortionFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iportionformat/).
 
-Le code suivant définit la police et le style du texte pour le **paragraphe complet** : il applique la taille de police, le gras, l’italique, le soulignement pointillé et la police Times New Roman à toutes les portions du paragraphe.
+L'exemple suivant définit la police par défaut du premier paragraphe à Times New Roman 12 points avec gras, italique et soulignement pointillé. Le formatage explicite sur les portions individuelles a priorité sur ces valeurs par défaut.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Définir les propriétés de police pour le paragraphe.
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontUnderline = TextUnderlineType.Dotted;
-    paragraph.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Times New Roman");
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
-}
+// Définir les propriétés de police pour le paragraphe.
+var portionFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
+portionFormat.FontHeight = 12;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontItalic = NullableBool.True;
+portionFormat.FontUnderline = TextUnderlineType.Dotted;
+portionFormat.LatinFont = new FontData("Times New Roman");
+
+presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
 ![Les propriétés de police du paragraphe](font_properties_for_paragraph.png)
 
-L’exemple de code ci‑dessous applique des propriétés similaires aux **portions de texte en gras** :
+L'exemple suivant applique Times New Roman 13 points, format italique et soulignement pointillé aux portions dont le format effectif est gras :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+foreach (var portion in paragraph.Portions)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-
-    foreach (var portion in paragraph.Portions)
+    if (portion.PortionFormat.GetEffective().FontBold)
     {
-        if (portion.PortionFormat.GetEffective().FontBold)
-        {
-            // Définir les propriétés de police pour la portion de texte.
-            portion.PortionFormat.FontHeight = 13;
-            portion.PortionFormat.FontItalic = NullableBool.True;
-            portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
-            portion.PortionFormat.LatinFont = new FontData("Times New Roman");
-        }
+        // Définir les propriétés de police pour la portion de texte.
+        portion.PortionFormat.FontHeight = 13;
+        portion.PortionFormat.FontItalic = NullableBool.True;
+        portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
+        portion.PortionFormat.LatinFont = new FontData("Times New Roman");
     }
-
-    presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
@@ -338,20 +340,19 @@ Le résultat :
 
 Utilisez [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/textverticaltype/) pour définir une orientation de texte prédéfinie dans une forme.
 
-L’exemple de code suivant définit l’orientation du texte dans la forme sur `Vertical270`, ce qui fait pivoter le texte de **90 degrés dans le sens inverse des aiguilles d’une montre** :
+L'exemple de code suivant définit l'orientation du texte dans la forme à [TextVerticalType.Vertical270](https://reference.aspose.com/slides/fr/net/aspose.slides/textverticaltype/), ce qui fait pivoter le texte de **90 degrés dans le sens inverse des aiguilles d'une montre** :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
 
-    presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
@@ -362,225 +363,301 @@ Le résultat :
 
 Utilisez [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/rotationangle/) pour définir un angle de rotation personnalisé pour un [ITextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/).
 
-L’exemple de code ci‑dessus fait pivoter le cadre de texte de 3 degrés dans le sens des aiguilles d’une montre à l’intérieur de la forme :
+L'exemple de code ci‑dessus fait pivoter le cadre de texte de 3 degrés dans le sens des aiguilles d'une montre à l'intérieur de la forme :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.RotationAngle = 3;
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.RotationAngle = 3;
 
-    presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
-![La rotation personnalisée du texte](custom_text_rotation.png)
+![La rotation de texte personnalisée](custom_text_rotation.png)
 
-## **Définir l’interligne des paragraphes**
+## **Définir l'espacement des lignes des paragraphes**
 
-Aspose.Slides fournit [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/spacebefore/), et [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/spacewithin/) pour contrôler l’espacement des paragraphes. Ces propriétés sont utilisées comme suit :
+Aspose.Slides fournit [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/spacebefore/) et [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/spacewithin/) pour contrôler l'espacement des paragraphes. Ces propriétés sont utilisées comme suit :
 
-* Utilisez une valeur positive pour spécifier l’interligne en pourcentage de la hauteur de ligne.
-* Utilisez une valeur négative pour spécifier l’interligne en points.
+* Utilisez une valeur positive pour spécifier l'espacement des lignes en pourcentage de la hauteur de ligne.
+* Utilisez une valeur négative pour spécifier l'espacement des lignes en points.
 
-L’exemple de code suivant montre comment spécifier l’interligne à l’intérieur du paragraphe :
+L'exemple suivant définit l'espacement à l'intérieur du premier paragraphe à 200 % de la hauteur de ligne (double interligne) :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    paragraph.ParagraphFormat.SpaceWithin = 200;
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
-}
+paragraph.ParagraphFormat.SpaceWithin = 200;
+
+presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
-![L’interligne à l’intérieur du paragraphe](line_spacing.png)
+![L'espacement des lignes dans le paragraphe](line_spacing.png)
 
-## **Définir le type d’ajustement automatique pour les cadres de texte**
+## **Contrôler le retour à la ligne**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/autofittype/) détermine comment le texte se comporte lorsqu’il dépasse les limites de son conteneur. Utilisez‑le pour contrôler si le texte se rétrécit, déborde ou redimensionne automatiquement la forme.
+Les règles de retour à la ligne des paragraphes sont utiles dans les blocs de texte étroits et les présentations qui mélangent du texte latin et asiatique. Les propriétés suivantes appartiennent à [IParagraphFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/), elles s'appliquent donc à un paragraphe entier :
+
+- [LatinLineBreak](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/latinlinebreak/) contrôle les règles de retour à la ligne du texte latin. Dans un texte mixte, le modifier peut également changer la façon dont le texte asiatique adjacent et la ponctuation sont enveloppés.
+- [EastAsianLineBreak](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/eastasianlinebreak/) contrôle les règles de retour à la ligne du texte asiatique, y compris les restrictions sur les caractères au début et à la fin d'une ligne.
+
+Ces règles ne remplacent pas [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/wraptext/), qui active le renvoi à la ligne automatique dans un cadre de texte. Elles influencent la mise en page lorsque le renvoi à la ligne se produit ; elles n'insèrent pas de caractères de saut de ligne. Un saut de ligne explicite force une nouvelle ligne dans le paragraphe indépendamment de la largeur disponible.
+
+L'exemple autonome suivant crée un bloc de texte étroit contenant du chinois et du texte latin. Il définit explicitement les deux propriétés de retour à la ligne et enregistre "line_breaking.pptx". Pour expérimenter chaque règle, modifiez la valeur de cette propriété tout en conservant les autres paramètres inchangés. L'exemple utilise Arial 24 points et SimSun avec une largeur de cadre de 160 points et aucune marge horizontale du cadre de texte. [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/autofittype/) est définie sur [TextAutofitType.None](https://reference.aspose.com/slides/fr/net/aspose.slides/textautofittype/) afin que la taille du texte et les dimensions du cadre restent fixes.
 
 ```cs
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 160, 300);
+shape.FillFormat.FillType = FillType.NoFill;
 
-    presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
-}
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+textFrame.TextFrameFormat.MarginLeft = 0;
+textFrame.TextFrameFormat.MarginRight = 0;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.Text = "中文排版测试，PowerPoint 中文演示。";
+
+var format = paragraph.ParagraphFormat;
+format.Alignment = TextAlignment.Left;
+format.DefaultPortionFormat.FontHeight = 24;
+format.DefaultPortionFormat.LatinFont = new FontData("Arial");
+format.DefaultPortionFormat.EastAsianFont = new FontData("SimSun");
+format.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+format.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+format.LatinLineBreak = NullableBool.False;
+format.EastAsianLineBreak = NullableBool.True;
+
+presentation.Save("line_breaking.pptx", SaveFormat.Pptx);
 ```
 
-Pour compter les lignes après le retour à la ligne automatique et voir comment la largeur du texte ou de la forme change le résultat, voir [Compter les lignes rendues](/slides/fr/net/manage-paragraph/). Le nombre de lignes à lui seul n’indique pas si le texte déborde de son conteneur.
+## **Contrôler la ponctuation suspendue**
 
-## **Définir l’ancrage des cadres de texte**
+[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/hangingpunctuation/) permet à la ponctuation admissible de dépasser le bord droit de la ligne de texte au lieu d'occuper la ligne suivante. Elle s'applique à l'ensemble du paragraphe et diffère d'un retrait suspendu.
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/anchoringtype/) définit la position verticale du texte à l’intérieur d’une forme, par exemple en haut, au centre ou en bas.
+L'exemple autonome suivant active la ponctuation suspendue dans un cadre de texte de 100 points de large et enregistre "hanging_punctuation.pptx". Avec Arial 24 points et aucune marge horizontale du cadre de texte, le point final reste après "sentence" et dépasse le bord droit du texte. Définissez la propriété sur [NullableBool.False](https://reference.aspose.com/slides/fr/net/aspose.slides/nullablebool/) pour comparer : avec ces réglages, le point occupe une ligne distincte. Le renvoi à la ligne est activé et l'ajustement automatique désactivé afin de garder la largeur disponible fixe.
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 200);
+shape.FillFormat.FillType = FillType.NoFill;
+
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.WrapText = NullableBool.True;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+textFrame.TextFrameFormat.MarginLeft = 0;
+textFrame.TextFrameFormat.MarginRight = 0;
+
+var paragraph = textFrame.Paragraphs[0];
+paragraph.Text = "Simple text, next sentence.";
+
+var format = paragraph.ParagraphFormat;
+format.Alignment = TextAlignment.Left;
+format.DefaultPortionFormat.FontHeight = 24;
+format.DefaultPortionFormat.LatinFont = new FontData("Arial");
+format.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+format.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+format.HangingPunctuation = NullableBool.True;
+
+presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
+```
+
+Toutes les marques de ponctuation ne peuvent pas être suspendues. Les [conditions de police et de mise en page décrites ci‑above](#conditions-and-limitations) s'appliquent également à cette comparaison : changer la police, la largeur disponible, les marges ou les paramètres d'ajustement automatique peut supprimer la différence visible.
+
+## **Définir le type d'ajustement automatique pour les cadres de texte**
+
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/autofittype/) détermine le comportement du texte lorsqu'il dépasse les limites de son conteneur. Utilisez-le pour contrôler si le texte se rétrécit, dépasse ou redimensionne automatiquement la forme. L'exemple suivant configure la forme pour qu'elle soit redimensionnée afin de contenir son texte et enregistre le résultat dans "autofit_type.pptx".
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 
-    presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
-}
+presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
+```
+
+Pour compter les lignes après le renvoi à la ligne automatique et voir comment la largeur du texte ou de la forme modifie le résultat, voir [Compter les lignes rendues](/slides/fr/net/manage-paragraph/). Le nombre de lignes à lui seul n'indique pas si le texte dépasse son conteneur.
+
+## **Définir l'ancrage des cadres de texte**
+
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/anchoringtype/) définit comment le texte est positionné verticalement à l'intérieur d'une forme, par exemple en haut, au milieu ou en bas. L'exemple suivant ancre le texte en bas de la première forme et enregistre le résultat dans "text_anchor.pptx".
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
+
+presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
 ```
 
 ## **Définir la tabulation du texte**
 
-Utilisez [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/defaulttabsize/) et [IParagraphFormat.Tabs](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/tabs/) pour configurer les taquets de tabulation dans un paragraphe.
+Utilisez [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/defaulttabsize/) et [IParagraphFormat.Tabs](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/tabs/) pour configurer les tabulations dans un paragraphe. L'exemple suivant définit l'intervalle de tabulation par défaut à 100 points et ajoute un arrêt de tabulation aligné à gauche à 30 points. Ces paramètres affectent le texte contenant des caractères de tabulation.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    paragraph.ParagraphFormat.DefaultTabSize = 100;
-    paragraph.ParagraphFormat.Tabs.Add(30, TabAlignment.Left);
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+paragraph.ParagraphFormat.DefaultTabSize = 100;
+paragraph.ParagraphFormat.Tabs.Add(30, TabAlignment.Left);
 
-    presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
-}
+presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
 ```
 
 Le résultat :
 
-![Les taquets du paragraphe](paragraph_tabs.png)
+![Les tabulations du paragraphe](paragraph_tabs.png)
 
 ## **Définir la langue de vérification**
 
-Aspose.Slides fournit [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/languageid/), qui permet de définir la langue de vérification pour une portion de texte. La langue de vérification détermine la langue utilisée pour les vérifications d’orthographe et de grammaire dans PowerPoint.
+Aspose.Slides fournit [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/languageid/), qui vous permet de définir la langue de vérification pour une portion de texte. La langue de vérification détermine la langue utilisée pour les contrôles orthographiques et grammaticaux dans PowerPoint.
 
-L’exemple de code suivant montre comment définir la langue de vérification pour une portion de texte :
+L'exemple suivant nécessite "presentation.pptx" contenant une zone de texte comme première forme de la première diapositive et au moins un paragraphe. Il remplace le contenu du premier paragraphe par "1。", définit SimSun comme police et assigne la langue de vérification chinois simplifié (`zh-CN`). Il enregistre le résultat dans "proofing_language.pptx" :
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("presentation.pptx"))
-{
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
 
-    var paragraph = autoShape.TextFrame.Paragraphs[0];
-    paragraph.Portions.Clear();
+var autoShape = (IAutoShape)slide.Shapes[0];
+var paragraph = autoShape.TextFrame.Paragraphs[0];
+paragraph.Portions.Clear();
 
-    var font = new FontData("SimSun");
+var font = new FontData("SimSun");
 
-    var textPortion = new Portion();
-    textPortion.PortionFormat.ComplexScriptFont = font;
-    textPortion.PortionFormat.EastAsianFont = font;
-    textPortion.PortionFormat.LatinFont = font;
+var textPortion = new Portion();
+textPortion.PortionFormat.ComplexScriptFont = font;
+textPortion.PortionFormat.EastAsianFont = font;
+textPortion.PortionFormat.LatinFont = font;
 
-    // Définir l'Id d'une langue de vérification.
-    textPortion.PortionFormat.LanguageId = "zh-CN";
+// Définir la langue de vérification sur le chinois simplifié.
+textPortion.PortionFormat.LanguageId = "zh-CN";
 
-    textPortion.Text = "1。";
-    paragraph.Portions.Add(textPortion);
+textPortion.Text = "1。";
+paragraph.Portions.Add(textPortion);
 
-    presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
-}
+presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 ```
 
 ## **Définir la langue par défaut**
 
-Utilisez [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/defaulttextlanguage/) pour définir la langue par défaut du texte créé lors du chargement ou de la création d’une présentation.
+Utilisez [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/defaulttextlanguage/) pour définir la langue par défaut du texte créé lors du chargement ou de la création d'une présentation. L'exemple suivant crée une présentation avec l'anglais américain comme langue de texte par défaut, ajoute une zone de texte et affiche `en-US` pour sa première portion de texte.
 
 ```cs
+using System;
 using Aspose.Slides;
 
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
 
-using (var presentation = new Presentation(loadOptions))
-{
-    var slide = presentation.Slides[0];
+using var presentation = new Presentation(loadOptions);
+var slide = presentation.Slides[0];
 
-    // Ajouter une nouvelle forme rectangulaire avec du texte.
-    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
-    shape.TextFrame.Text = "Sample text";
+// Ajouter une nouvelle forme rectangle avec du texte.
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
+shape.TextFrame.Text = "Sample text";
 
-    // Vérifier la langue de la première portion.
-    var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-    Console.WriteLine(portion.PortionFormat.LanguageId);
-}
+// Vérifier la langue de la première portion.
+var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+Console.WriteLine(portion.PortionFormat.LanguageId);
 ```
 
 ## **Définir le style de texte par défaut**
 
 Pour appliquer un formatage de texte par défaut au niveau de la présentation, utilisez [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-L’exemple de code suivant montre comment définir une police en gras de 14 pt par défaut pour tout le texte des diapositives d’une nouvelle présentation.
+L'exemple suivant définit une police en gras de 14 points comme valeur par défaut pour les paragraphes de niveau supérieur dans une nouvelle présentation et l'enregistre dans "default_text_style.pptx". Le texte peut hériter de ces valeurs par défaut sauf si un formatage plus spécifique les remplace.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation())
+using var presentation = new Presentation();
+// Récupérer le format de paragraphe de niveau supérieur.
+var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
+
+if (paragraphFormat != null)
 {
-    // Récupérer le format de paragraphe de niveau supérieur.
-    var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
-
-    if (paragraphFormat != null)
-    {
-        paragraphFormat.DefaultPortionFormat.FontHeight = 14;
-        paragraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
-    }
-
-    presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
+    paragraphFormat.DefaultPortionFormat.FontHeight = 14;
+    paragraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
 }
+
+presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 ```
 
-## **Extraire du texte avec l’effet tout‑majuscules**
+## **Extraire le texte avec l'effet majuscules**
 
-Dans PowerPoint, appliquer l’effet de police **Tout en majuscules** fait apparaître le texte en majuscules sur la diapositive même s’il a été saisi en minuscules. Lorsque vous récupérez une telle portion de texte avec Aspose.Slides, la bibliothèque renvoie le texte exactement tel qu’il a été saisi. Pour correspondre au texte affiché, vérifiez [TextCapType](https://reference.aspose.com/slides/fr/net/aspose.slides/textcaptype/) et convertissez la chaîne renvoyée en majuscules lorsque la valeur est `All`.
+Dans PowerPoint, appliquer l'effet de police **All Caps** (tout en majuscules) fait apparaître le texte en majuscules sur la diapositive même s'il a été saisi initialement en minuscules. Lorsque vous récupérez une telle portion de texte avec Aspose.Slides, la bibliothèque renvoie le texte exactement tel qu'il a été saisi. Pour faire correspondre le texte affiché, vérifiez [TextCapType](https://reference.aspose.com/slides/fr/net/aspose.slides/textcaptype/) et convertissez la chaîne renvoyée en majuscules lorsque la valeur est `All`.
 
-Supposons que nous ayons la zone de texte suivante sur la première diapositive du fichier **sample2.pptx**.
+Cet exemple nécessite "sample2.pptx" avec une zone de texte comme première forme de la première diapositive. La première portion du premier paragraphe contient "Hello, Aspose!" avec l'effet All Caps appliqué, comme illustré ci‑dessous.
 
-![L’effet Tout en majuscules](all_caps_effect.png)
+![L'effet All Caps](all_caps_effect.png)
 
-L’exemple de code ci‑dessus montre comment extraire le texte avec l’effet **Tout en majuscules** appliqué :
+L'exemple de code ci‑dessous montre comment extraire le texte avec l'effet **All Caps** appliqué :
 
 ```cs
+using System;
 using Aspose.Slides;
 
-using (var presentation = new Presentation("sample2.pptx"))
+using var presentation = new Presentation("sample2.pptx");
+var slide = presentation.Slides[0];
+
+var autoShape = (IAutoShape)slide.Shapes[0];
+var textPortion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+
+Console.WriteLine($"Original text: {textPortion.Text}");
+
+var textFormat = textPortion.PortionFormat.GetEffective();
+if (textFormat.TextCapType == TextCapType.All)
 {
-    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var textPortion = autoShape.TextFrame.Paragraphs[0].Portions[0];
-
-    Console.WriteLine($"Original text: {textPortion.Text}");
-
-    var textFormat = textPortion.PortionFormat.GetEffective();
-    if (textFormat.TextCapType == TextCapType.All)
-    {
-        var text = textPortion.Text.ToUpper();
-        Console.WriteLine($"All-Caps effect: {text}");
-    }
+    var text = textPortion.Text.ToUpper();
+    Console.WriteLine($"All-Caps effect: {text}");
 }
 ```
 
@@ -593,10 +670,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Comment modifier du texte dans un tableau sur une diapositive ?**
+**Comment modifier le texte dans un tableau sur une diapositive ?**
 
-Pour modifier du texte dans un tableau sur une diapositive, utilisez [ITable](https://reference.aspose.com/slides/fr/net/aspose.slides/itable/). Parcourez les cellules et mettez à jour chaque cellule via [ICell.TextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/icell/textframe/) et le format de paragraphe via [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraph/paragraphformat/).
+Pour modifier le texte dans un tableau sur une diapositive, utilisez [ITable](https://reference.aspose.com/slides/fr/net/aspose.slides/itable/). Parcourez les cellules et mettez à jour chaque cellule via [ICell.TextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/icell/textframe/) et le formatage des paragraphes via [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraph/paragraphformat/).
 
-**Comment appliquer une couleur dégradée au texte dans une diapositive PowerPoint ?**
+**Comment appliquer une couleur dégradée au texte sur une diapositive PowerPoint ?**
 
 Pour appliquer une couleur dégradée au texte, utilisez [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ibaseportionformat/fillformat/). Définissez [IFillFormat.FillType](https://reference.aspose.com/slides/fr/net/aspose.slides/ifillformat/filltype/) sur [FillType.Gradient](https://reference.aspose.com/slides/fr/net/aspose.slides/filltype/) et configurez les arrêts du dégradé, la direction et la transparence.

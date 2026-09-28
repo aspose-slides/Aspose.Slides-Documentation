@@ -8,54 +8,54 @@ aliases:
   - /androidjava/paragraph/
   - /androidjava/portion/
 keywords:
-  - metin ekle
-  - paragraf ekle
-  - metni yönet
-  - paragrafı yönet
-  - madde işaretini yönet
-  - paragraf girintisi
-  - asılı girinti
-  - paragraf madde işareti
-  - numaralı liste
-  - madde işaretli liste
-  - paragraf özellikleri
-  - HTML içe aktar
-  - metni HTML'e
-  - paragrafı HTML'e
-  - paragrafı görüntüye
-  - metni görüntüye
-  - paragrafı dışa aktar
-  - PowerPoint
-  - sunum
-  - Android
-  - Java
-  - Aspose.Slides
+- metin ekle
+- paragraf ekle
+- metni yönet
+- paragrafı yönet
+- madde işaretini yönet
+- paragraf girintisi
+- asılı girinti
+- paragraf madde işareti
+- numaralı liste
+- madde işaretli liste
+- paragraf özellikleri
+- HTML içe aktar
+- metni HTML'ye
+- paragrafı HTML'ye
+- paragrafı görüntüye
+- metni görüntüye
+- paragrafı dışa aktar
+- PowerPoint
+- sunum
+- Android
+- Java
+- Aspose.Slides
 description: "Aspose.Slides for Android via Java ile paragraflar, bölümler, madde işaretleri, numaralı listeler, girintiler, HTML içeriği ve paragraf görüntüleri oluşturmayı ve biçimlendirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
 Aspose.Slides for Android via Java, metni metin çerçeveleri, paragraflar ve bölümler hiyerarşisi olarak temsil eder:
 
-* [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) bir şekildeki metin kapsayıcısını temsil eder ve paragraf koleksiyonuna erişim sağlar.
-* [IParagraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/) bir metin çerçevesindeki bir paragrafı temsil eder ve bölümlerine ve paragraf‑düzeyinde biçimlendirmeye erişim sağlar.
-* [IPortion](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/) bir paragraftaki metin akışını temsil eder. Her bölüm kendi metnine ve karakter‑düzeyinde biçimlendirmeye sahip olabilir.
+* [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) bir şeklin içindeki metin kapsayıcısını temsil eder ve paragraf koleksiyonuna erişim sağlar.
+* [IParagraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/) bir metin çerçevesindeki bir paragrafı temsil eder ve bölümlerine ve paragraf düzeyinde biçimlendirmeye erişim sağlar.
+* [IPortion](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/) bir paragrafta metin akışını temsil eder. Her bölüm kendi metnine ve karakter düzeyinde biçimlendirmeye sahip olabilir.
 
 Bu nedenle bir paragraf, birden çok bölüm kullanarak farklı yazı tipleri, renkler, boyutlar ve diğer biçimlendirmeler içeren metin barındırabilir.
 
-## **Paragraflar Oluşturma ve Biçimlendirme**
+## **Paragrafları Oluşturma ve Biçimlendirme**
 
-### **Birden Çok Bölüm İçeren Paragraflar Oluşturma**
+### **Birden Çok Bölüm ile Paragraflar Oluşturma**
 
-Aşağıdaki adımlar, her biri üç bölüm içeren üç paragrafla bir metin çerçevesi oluşturur:
+İşlem adımları, her biri üç bölüm içeren üç paragrafla bir metin çerçevesi oluşturur:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slayta indeks üzerinden erişin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta indeks aracılığıyla erişin.
 3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) öğesine erişin.
-5. Varsayılan paragrafı kullanın ve metin çerçevesine iki ek [IParagraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/) nesnesi ekleyin.
-6. Her paragrafın üç bölüm içermesi için yeterli sayıda [IPortion](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
+5. Varsayılan paragrafı kullanın ve metin çerçevesine iki tane daha [IParagraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/) nesnesi ekleyin.
+6. Her paragrafın üç bölüm içerebilmesi için yeterli sayıda [IPortion](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/) nesnesi ekleyin. Varsayılan paragraf zaten bir boş bölüm içerir.
 7. Her bölümün metnini ayarlayın.
-8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/#getPortionFormat--) aracılığıyla karakter‑düzeyinde biçimlendirme uygulayın.
+8. Karakter düzeyinde biçimlendirmeyi [IPortion.getPortionFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/#getPortionFormat--) aracılığıyla uygulayın.
 9. Değiştirilmiş sunumu kaydedin.
 
 Bu Android via Java örneği adımları uygular:
@@ -118,22 +118,22 @@ try {
 
 ### **Madde İşaretli veya Numaralı Liste Oluşturma**
 
-Madde işaretleri ve numaralar, ilgili öğelerin daha kolay taranmasını sağlar. Aspose.Slides içinde, liste ayarları [IBulletFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/) aracılığıyla tanımlanır.
+Madde işaretleri ve numaralar, ilgili öğelerin daha kolay gözden geçirilmesini sağlar. Aspose.Slides'te liste ayarları [IBulletFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/) aracılığıyla tanımlanır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slayta indeks üzerinden erişin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta indeks aracılığıyla erişin.
 3. Seçili slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) öğesine erişin.
 5. Metin çerçevesinden varsayılan paragrafı kaldırın.
-6. Sembolik bir madde işareti için bir [Paragraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraph/) oluşturun.
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-int-) değerini [BulletType.Symbol](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirtin.
-8. Paragraf metnini, girintiyi, madde işareti rengini ve madde işareti yüksekliğini ayarlayın.
+6. Sembol madde işareti için bir [Paragraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraph/) oluşturun.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-int-) metodunu [BulletType.Symbol](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın ve madde işareti karakterini belirtin.
+8. Paragraf metnini, girintiyi, madde işareti rengini ve yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
-10. İkinci bir paragraf oluşturun ve [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-int-) değerini [BulletType.Numbered](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın.
+10. İkinci bir paragraf oluşturun ve [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-int-) metodunu [BulletType.Numbered](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın.
 11. Numaralı madde işareti stilini yapılandırın ve paragrafı metin çerçevesine ekleyin.
 12. Sunumu kaydedin.
 
-Bu Android via Java örneği bir sembolik madde işareti ve bir numaralı madde işareti oluşturur:
+Bu Android via Java örneği bir sembol madde işareti ve bir numaralı madde işareti oluşturur:
 
 ```java
 import com.aspose.slides.*;
@@ -176,16 +176,16 @@ try {
 
 ### **Resim Madde İşaretleri Kullanma**
 
-Resim madde işaretleri, sembol veya sayı yerine özel bir görüntü kullanmanıza olanak tanır.
+Resim madde işaretleri, bir sembol veya sayı yerine özel bir görüntü kullanmanızı sağlar.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. İlgili slayta indeks üzerinden erişin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İlgili slayta indeks aracılığıyla erişin.
 3. Bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin ve onun [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) öğesine erişin.
 4. Metin çerçevesinden varsayılan paragrafı kaldırın.
 5. Madde işareti görüntüsünü yükleyin ve sunumun görüntü koleksiyonuna bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) olarak ekleyin.
 6. Bir [Paragraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraph/) oluşturun ve metnini ayarlayın.
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-int-) değerini [BulletType.Picture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın.
-8. Görüntüyü [IBulletFormat.getPicture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#getPicture--) aracılığıyla atayın ve madde işareti yüksekliğini ayarlayın.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-int-) metodunu [BulletType.Picture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın.
+8. Görüntüyü [IBulletFormat.getPicture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#getPicture--) ile atayın ve madde işareti yüksekliğini ayarlayın.
 9. Paragrafı metin çerçevesine ekleyin.
 10. Değiştirilmiş sunumu kaydedin.
 
@@ -224,14 +224,14 @@ try {
 }
 ```
 
-### **Çok Seviyeli Liste Oluşturma**
+### **Çok Düzeyli Liste Oluşturma**
 
-Paragrafları bir listenin farklı seviyelerinde konumlandırmak için [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) ayarlanır. Üst seviye derinliği `0` olarak tanımlanır.
+Paragrafları bir listenin farklı seviyelerine yerleştirmek için [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) ayarlayın. En üst seviye derinliği `0` dır.
 
 1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) oluşturun ve bir slayta erişin.
 2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin ve metin çerçevesindeki varsayılan paragrafı temizleyin.
 3. Dört paragraf oluşturun ve madde işareti sembollerini yapılandırın.
-4. [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) değerlerini sırasıyla `0`, `1`, `2` ve `3` olarak ayarlayın.
+4. Bunların [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) değerlerini `0`, `1`, `2` ve `3` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu Android via Java örneği dört seviyeli bir madde işaretli liste oluşturur:
@@ -292,12 +292,12 @@ try {
 
 ### **Numaralı Liste Öğelerini Özel Değerlerle Başlatma**
 
-Numaralı bir paragraf için görüntülenecek başlangıç numarasını ayarlamak amacıyla [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) kullanılır.
+Numaralı bir paragraf için gösterilecek ilk numarayı ayarlamak üzere [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) kullanın.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) oluşturun ve bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) slayta ekleyin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) oluşturun ve bir slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 2. Şeklin metin çerçevesindeki varsayılan paragrafı temizleyin.
 3. Üç numaralı paragraf oluşturun.
-4. İlgili paragraflar için [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) değerlerini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
+4. İlgili paragraflar için [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) değerini sırasıyla `2`, `3` ve `7` olarak ayarlayın.
 5. Paragrafları metin çerçevesine ekleyin ve sunumu kaydedin.
 
 Bu Android via Java örneği her paragraf için özel bir başlangıç numarası atar:
@@ -340,21 +340,21 @@ try {
 
 ### **İlk Satır Girintisi Ayarlama**
 
-Paragrafın ilk satır girintisini kontrol etmek için [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) kullanılır. Bu yöntem, sadece ilk satırı paragrafın sol kenar boşluğuna göre kaydırır. Pozitif bir değer ilk satırı sağa kaydırır, geri kalan satırlar paragraf gövdesiyle hizalı kalır.
+Paragrafın ilk satır girintisini kontrol etmek için [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) kullanın. Bu yöntem yalnızca ilk satırı paragrafın sol kenar boşluğuna göre hareket ettirir. Pozitif bir değer ilk satırı sağa kaydırırken, kalan satırlar paragraf gövdesine hizalı kalır.
 
-Bütün paragrafı taşımak istediğinizde [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) kullanılmalı, sadece ilk satırı taşımak istediğinizde ise [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) kullanılmalıdır.
+Tüm paragrafı taşımak istediğinizde [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) kullanın. Sadece ilk satırı taşımak istediğinizde [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) kullanın.
 
-Aşağıdaki örnek birkaç paragraf oluşturur ve farklı [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) değerleri uygulayarak ilk satır girintisinin paragraf düzenini nasıl etkilediğini gösterir.
+Aşağıdaki örnek birkaç paragraf oluşturur ve farklı [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) değerleri uygulayarak ilk satır girintisinin paragraf düzenine nasıl etki ettiğini gösterir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
 3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
-5. Çeşitli paragraflar oluşturun ve her biri için farklı [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) değerleri ayarlayın.
+5. Birçok paragraf oluşturun ve her biri için farklı [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) değerleri ayarlayın.
 6. Paragrafları metin çerçevesine ekleyin.
 7. Değiştirilmiş sunumu kaydedin.
 
-Bu kod, bir paragraf girintisinin nasıl ayarlanacağını gösterir:
+Bu kod bir paragraf girintisinin nasıl ayarlanacağını gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -410,22 +410,22 @@ Sonuç:
 
 ### **Asılı Girinti Ayarlama**
 
-Asılı girinti, ilk satırın geri kalan satırların solundan başladığı bir paragraf düzenidir. Aspose.Slides içinde bu etkiyi [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ile oluşturursunuz; negatif bir değer ilk satırı paragraf gövdesine göre sola kaydırır.
+Asılı girinti, ilk satırın kalan satırların solunda başladığı bir paragraf düzenidir. Aspose.Slides'te bu etkiyi [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ile oluşturursunuz. İlk satırı paragraf gövdesine göre sola kaydırmak için negatif bir değer gönderin.
 
-Pratikte, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) paragraf gövdesinin sol konumunu, [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ise ilk satırın bu kenar boşluğuna göre konumunu tanımlar. Asılı bir girinti oluşturmak için `setMarginLeft`a pozitif bir değer, `setIndent`e negatif bir değer verilir.
+Uygulamada, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) paragraf gövdesinin sol konumunu belirler ve [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ilk satırın bu kenar boşluğuna göre konumunu tanımlar. Asılı bir girinti oluşturmak için `setMarginLeft`'a pozitif, `setIndent`'a negatif bir değer gönderin.
 
-Bu biçimlendirme, bibliyografiler, referanslar, sözlük girişleri ve satırların paragraf gövdesi hizasında, ilk satırın ilk karakteri hizasında olmaması gereken diğer paragraflar için yararlıdır.
+Bu biçimlendirme, bibliyografiler, referanslar, sözlük girişleri ve sarılmış satırların paragraf gövdesinin altına hizalanması gereken diğer paragraflar için faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Hedef slayta erişin.
 3. Slayta dikdörtgen bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 4. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı kaldırın.
-5. Paragraflar oluşturun ve her biri için [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) değerine pozitif bir değer verin.
-6. Asılı girinti etkisini yaratmak için [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) değerine negatif bir değer verin.
+5. Paragraflar oluşturun ve her biri için [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) metoduna pozitif bir değer gönderin.
+6. Asılı girinti etkisini oluşturmak için [IParagraphFormat.setIndent](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metoduna negatif bir değer gönderin.
 7. Paragrafları metin çerçevesine ekleyin.
 8. Değiştirilmiş sunumu kaydedin.
 
-Bu kod, bir paragraf için asılı girintinin nasıl ayarlanacağını gösterir:
+Bu kod bir paragraf için asılı girintinin nasıl ayarlanacağını gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -471,15 +471,15 @@ Sonuç:
 
 ![Paragrafların asılı girintisi](hanging_indent.png)
 
-### **Paragraf Sonu Çalışma Özelliklerini Ayarlama**
+### **Paragraf Sonu Çalıştırma Özelliklerini Ayarlama**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki örnek, ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) paragraf son işaretinin biçimlendirmesini kontrol eder. Aşağıdaki örnek ikinci paragrafın son işaretine bir yazı tipi boyutu ve Latin yazı tipi atar:
 
 1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) yükleyin ve bir slayta erişin.
 2. Bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin ve varsayılan paragrafını temizleyin.
-3. İki paragraf oluşturun ve bunlara metin bölümleri ekleyin.
+3. İki paragraf oluşturun ve her birine metin bölümleri ekleyin.
 4. İkinci paragrafın son işareti için bir [PortionFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/portionformat/) oluşturun.
-5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) ve [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) ayarlarını yapın.
+5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) ve [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) ayarlayın.
 6. Formatı [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ile atayın ve sunumu kaydedin.
 
 ```java
@@ -512,13 +512,15 @@ try {
 }
 ```
 
-## **Çizilen Satırları Sayma**
+## **Render Edilen Satırları Sayma**
 
-[IParagraph.getLinesCount](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) metin yerleşimi sonrasında bir paragrafın işgal ettiği satır sayısını, otomatik satır kaydırma dahil, saymak için kullanılır. Bu, sunum şablonlarında metin uzunluğunu ve düzenini kontrol ederken faydalıdır.
+Satır sonlarındaki otomatik kaydırma ve noktalama işaretlerini etkileyen paragraf kuralları için [Control Line Breaking](/slides/tr/androidjava/text-formatting/#control-line-breaking) ve [Control Hanging Punctuation](/slides/tr/androidjava/text-formatting/#control-hanging-punctuation) bölümlerine bakın.
 
-Bir paragraf, [ITextFrame.getParagraphs](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/#getParagraphs--) içinde bulunan bir öğedir ve birkaç çizilmiş satır kaplayabilir. Paragraf içinde açık bir satır sonu, yeni bir paragraf oluşturmadan yeni bir satır zorlar. Otomatik kaydırma, metnin içine açık satır sonu eklemeden mevcut genişliğe göre satırlar oluşturur. Bu nedenle, paragraf sayısını ya da satır sonu karakterlerini saymak, gerçek çizilen satır sayısını vermez.
+[IParagraph.getLinesCount](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) metodunu, metin yerleşiminden sonra bir paragrafın kapladığı satır sayısını, otomatik kaydırma dahil, saymak için kullanın. Bu, sunum şablonlarında metin uzunluğunu ve yerleşimini kontrol ederken kullanışlıdır.
 
-Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma etkinleştirilmiş ve otomatik sığdırma devre dışı bırakılmıştır; bu sayede şekil genişliği, metni otomatik olarak küçültmeden kaydırmayı kontrol eder. Şekil boyutları puan cinsindendir. Son olarak örnek, başka bir paragraf ekler ve metin çerçevesindeki satır sayılarını toplar.
+Bir paragraf, [ITextFrame.getParagraphs](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/#getParagraphs--) içinde bir öğedir ve birkaç render edilen satır kaplayabilir. Bir paragraf içinde açık bir satır sonu, yeni bir satır oluşturur ancak yeni bir paragraf oluşturmaz. Otomatik kaydırma, mevcut genişliğe göre satırları oluşturur ve metne açık satır sonu eklemez. Bu nedenle paragrafları veya satır sonu karakterlerini saymak, render edilen satır sayısını vermez.
+
+Aşağıdaki örnek bir metin şekli oluşturur, satırlarını sayar, şekli daraltır ve ardından metni daha kısa bir dizeyle değiştirir. Kaydırma etkinleştirilmiş ve autofit devre dışı bırakılmıştır, böylece şekil genişliği kaydırmayı kontrol eder ve metin otomatik olarak küçülmez veya şekil yeniden boyutlandırılmaz. Şekil boyutları puan cinsindendir. Son olarak, örnek bir paragraf daha ekler ve metin çerçevesindeki satır sayılarını toplar.
 
 ```java
 import com.aspose.slides.*;
@@ -558,24 +560,24 @@ try {
 }
 ```
 
-Bu metin ve bu boyutlarla, şekli daraltmak satır sayısını artırırken, kısa dizeyle değiştirmek sayıyı azaltır. Gerçek sayılar, kullanılan yazı tipine, yazı tipi boyutuna, kenar boşluklarına, girintilere, kaydırmaya ve otomatik sığdırma ayarlarına bağlı olarak değişebilir; hedef ortam için planlanan yazı tipleri ve düzen ayarları kullanılmalıdır.
+Bu metin ve bu boyutlarla şekli daraltmak satır sayısını artırırken, metni kısa dizeyle değiştirmek azaltır. Tam sayılar, yazı tipi bulunabilirliği ve ikamesi, yazı tipi boyutu, kenar boşlukları, girinti, kaydırma ve autofit ayarlarına göre değişebilir; bir şablonu kontrol ederken hedef ortam için tasarlanmış yazı tiplerini ve yerleşim ayarlarını kullanın.
 
-Satır sayısı tek başına metnin konteynerini taşır mı belirlemez. Kullanılabilir yükseklik, satır yükseklikleri, paragraf ve satır aralığı ve otomatik sığdırma davranışı da önemlidir; kaydırma devre dışı bırakıldığında tek bir satır bile mevcut genişliği aşabilir.
+Satır sayısı tek başına metnin konteyneri aşıp aşmadığını belirlemez. Kullanılabilir yükseklik, satır yüksekliği, paragraf ve satır aralığı ve autofit davranışı da önemlidir; kaydırma devre dışı bırakıldığında tek bir satır bile mevcut genişliği aşabilir.
 
-## **Paragraf İçeriğini İçe/Dışa Aktarma**
+## **Paragraf İçeriğini İçe ve Dışa Aktarma**
 
-### **HTML Metnini Paragraflara İçeri Aktarma**
+### **HTML Metnini Paragraflara İçe Aktarma**
 
-[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) kullanarak HTML işaretlemesini bir metin çerçevesindeki paragraflara ve bölümlere dönüştürebilirsiniz.
+HTML işaretlemesini bir metin çerçevesindeki paragraflara ve bölümlere dönüştürmek için [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) kullanın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Bir slayta erişin ve bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) öğesine erişin ve varsayılan paragrafı temizleyin.
 4. Kaynak HTML dosyasını okuyun.
 5. HTML dizesini [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metoduna gönderin.
 6. Değiştirilmiş sunumu kaydedin.
 
-Bu Android via Java örneği HTML'i bir metin çerçevesine içe aktarır:
+Bu Android via Java örneği HTML'i bir metin çerçevesine aktarır:
 
 ```java
 import com.aspose.slides.*;
@@ -606,15 +608,15 @@ try {
 }
 ```
 
-### **Paragraf Metnini HTML Olarak Dışa Aktarma**
+### **Paragraf Metnini HTML'ye Dışa Aktarma**
 
-[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) kullanarak seçilen paragraf aralığını HTML olarak dışa aktarabilirsiniz.
+Seçili bir paragraf aralığını HTML olarak dışa aktarmak için [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) kullanın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve istenen sunumu yükleyin.
-2. Slayta erişin ve metni içeren [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) öğesini bulun.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve istenen sunumu yükleyin.
+2. Slayta erişin ve metni içeren [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) bulun.
 3. Şeklin [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) öğesine erişin.
 4. Başlangıç paragrafı indeksi ve dışa aktarılacak paragraf sayısını belirterek [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metodunu çağırın.
-5. Dönen HTML dizesini bir dosyaya yazın.
+5. Döndürülen HTML dizesini bir dosyaya yazın.
 
 Bu Android via Java örneği ilk metin şeklinin tüm paragraflarını dışa aktarır:
 
@@ -651,19 +653,19 @@ try {
 }
 ```
 
-### **Paragrafı Görüntü Olarak Renderleme**
+### **Bir Paragrafı Görüntü Olarak Render Etme**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage--) tek bir paragrafı doğrudan render eder ve bir [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) döndürür. Sonucu bir dosyaya veya akıma [IImage.save](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) ile kaydedebilirsiniz. İçeren şekli render etmenize veya bitmap'i manuel olarak kırpmanıza gerek yoktur.
+[IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage--) tek bir paragrafı doğrudan render eder ve bir [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) döndürür. Sonucu bir dosyaya veya akışa [IImage.save](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) ile kaydedin. İçeren şekli render etmenize veya bitmap'i manuel olarak kırpmanıza gerek yoktur.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage--) paragraf bulunamazsa, geçerli bir render sınırı yoksa veya render edilemezse `null` döndürebilir. Kaydetmeden önce sonucu kontrol edin ve kullanımdan sonra dönen görüntüyü serbest bırakın.
+[IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage--) paragraf ebeveyn koleksiyonunda bulunamazsa, geçerli bir render sınırı yoksa veya render edilemiyorsa `null` dönebilir. Kaydetmeden önce sonucu kontrol edin ve kullanımdan sonra döndürülen görüntüyü serbest bırakın.
 
-#### **Varsayılan Ölçekte Paragraf Renderleme**
+#### **Varsayılan Ölçekte Bir Paragrafı Render Etme**
 
-sample.pptx adlı bir sunum dosyamız olduğunu ve bir slaytı olduğunu varsayalım; ilk şekil üç paragraf içeren bir metin kutusudur.
+sample.pptx adında bir sunum dosyamız olduğunu ve bir slaytı olduğunu, ilk şeklinin üç paragraf içeren bir metin kutusu olduğunu varsayalım.
 
 ![Üç paragraf içeren metin kutusu](paragraph_to_image_input.png)
 
-Aşağıdaki örnek, ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekte render eder ve sonucu PNG formatında kaydeder. `finally` bloğu görüntünün doğru şekilde serbest bırakılmasını sağlar.
+Aşağıdaki örnek, ikinci paragrafı normal bir metin şekli içinde varsayılan ölçekte render eder ve döndürülen görüntüyü PNG formatında kaydeder. `finally` bloğu görüntünün doğru şekilde serbest bırakılmasını sağlar.
 
 ```java
 import com.aspose.slides.*;
@@ -701,11 +703,11 @@ try {
 
 Sonuç:
 
-![Paragraf resmi](paragraph_to_image_output.png)
+![Paragraf görüntüsü](paragraph_to_image_output.png)
 
-#### **Tablo Hücresinde Ölçekleme ile Paragraf Renderleme**
+#### **Ölçeklendirme ile Bir Tablo Hücresinde Paragraf Render Etme**
 
-Yatay ve dikey ölçek faktörlerini ayarlamak için `float scaleX` ve `float scaleY` parametrelerini kabul eden [IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) aşırı yüklemesini kullanın. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişliğinin ve yüksekliğinin iki katı ölçekle render eder ve sonucu PNG resmi olarak kaydeder.
+Yatay ve dikey ölçek faktörlerini ayarlamak için `float scaleX` ve `float scaleY` parametrelerini kabul eden [IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) aşırı yüklemesini kullanın. Aşağıdaki örnek bir tablo oluşturur, paragrafı ilk hücresinde varsayılan genişliğinin ve yüksekliğinin iki katı ölçekte render eder ve sonucu PNG görüntüsü olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -735,24 +737,20 @@ try {
 }
 ```
 
-`1` ölçek faktörü ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` kullanmak, genişlik ve yüksekliği yaklaşık iki katına çıkaran bir görüntü üretir; bu da piksel sayısını dört katına çıkarır. Daha yüksek faktörler, yakınlaştırma veya yüksek çözünürlükte çıktılar için daha keskin metin üretir, ancak bellek kullanımı ve dosya boyutunu da artırır. `1`'in altındaki faktörler daha az ayrıntılı, daha küçük görüntüler üretir. En-boy oranını korumak için eşit faktörler kullanın; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
+Bir ölçek faktörü `1`, ekseni varsayılan piksel boyutunda tutar. Örneğin, her iki faktör için `2` kullanmak, genişliği ve yüksekliği yaklaşık iki kat olan bir görüntü oluşturur, bu da piksel sayısının dört katına çıkar. Daha büyük faktörler, yakınlaştırma veya yüksek çözünürlüklü çıktılar için genellikle daha net metin üretir, ancak bellek kullanımını ve dosya boyutunu da artırır. `1`'in altındaki faktörler, daha az ayrıntılı daha küçük görüntüler üretir. En‑boy oranını korumak için eşit faktörler kullanın; farklı yatay ve dikey faktörler çıktıyı bağımsız olarak uzatır.
 
-[IShape.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getImage--) ile bir bütün şekli render etmek, çıktının şeklin doldurması, kenarlığı veya diğer görsel bağlamı içermesi gerektiğinde hâlâ faydalıdır. Sadece paragraf görüntüsü için [IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage--) kullanılmalıdır.
+Bir bütün şekli [IShape.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getImage--) ile render etmek, çıktının şeklin doldurulması, kenarlığı veya diğer görsel bağlamını içermesi gerektiğinde faydalı olmaya devam eder. Yalnızca paragraf görüntüsü için [IParagraph.getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getImage--) kullanın.
 
 ## **SSS**
 
-**Bir metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**
+**Bir metin çerçevesi içinde satır kaydırmayı tamamen devre dışı bırakabilir miyim?**  
+Evet. Satırların metin çerçevesinin kenarlarında kırılmaması için kaydırmayı devre dışı bırakmak üzere [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) ayarlayın.
 
-Evet. Satır kaydırmayı devre dışı bırakmak için [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) değerini ayarlayın; böylece satırlar metin çerçevesinin kenarlarında kırılmaz.
+**Belirli bir paragrafın slayt üzerindeki kesin sınırlarını nasıl alabilirim?**  
+Paragrafın sınırlayıcı dikdörtgenini elde etmek için [IParagraph.getRect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getRect--) kullanın. [IPortion.getRect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/#getRect--) ise tek bir bölümün sınırlarını sağlar.
 
-**Belirli bir paragrafın slayt üzerindeki kesin sınırlarını nasıl alabilirim?**
+**Paragraf hizalaması (sol, sağ, ortalanmış veya iki yana yaslanmış) nerede kontrol edilir?**  
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) paragraf düzeyinde bir ayardır ve bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
 
-Paragrafın sınırlayıcı dikdörtgenini almak için [IParagraph.getRect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getRect--) metodunu kullanın. Tek bir bölümün sınırlarını almak için [IPortion.getRect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iportion/#getRect--) metodunu kullanabilirsiniz.
-
-**Paragraf hizalaması (sol, sağ, ortalanmış veya iki yana yaslı) nerede kontrol edilir?**
-
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) paragraf‑düzeyinde bir ayardır ve bireysel bölüm biçimlendirmesinden bağımsız olarak tüm paragrafı etkiler.
-
-**Paragrafın bir kısmı için doğrulama dili ayarlayabilir miyim?**
-
-Evet. Bireysel bölümler için [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) ayarlanabilir; böylece bir paragraf içinde birden çok dil kullanılabilir.
+**Bir paragrafın bir kısmı için dil denetimi ayarlayabilir miyim?**  
+Evet. Bireysel bölümler için [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) ayarlayın; böylece bir paragraf birden çok dilde metin içerebilir.

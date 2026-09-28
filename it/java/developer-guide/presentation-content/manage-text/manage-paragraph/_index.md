@@ -1,6 +1,6 @@
 ---
 title: Gestire i paragrafi di testo PowerPoint in Java
-linktitle: Gestire Paragrafo
+linktitle: Gestisci Paragrafo
 type: docs
 weight: 40
 url: /it/java/manage-paragraph/
@@ -8,51 +8,51 @@ aliases:
   - /java/paragraph/
   - /java/portion/
 keywords:
-- aggiungere testo
-- aggiungere paragrafo
-- gestire testo
-- gestire paragrafo
-- gestire punto elenco
-- rientro del paragrafo
-- rientro sospeso
-- punto elenco del paragrafo
+- aggiungi testo
+- aggiungi paragrafo
+- gestisci testo
+- gestisci paragrafo
+- gestisci punto elenco
+- rientro paragrafo
+- rientro sporgente
+- punto elenco
 - elenco numerato
 - elenco puntato
-- proprietà del paragrafo
-- importare HTML
+- proprietà paragrafo
+- importa HTML
 - testo in HTML
 - paragrafo in HTML
 - paragrafo in immagine
 - testo in immagine
-- esportare paragrafo
+- esporta paragrafo
 - PowerPoint
 - presentazione
 - Java
 - Aspose.Slides
-description: "Scopri come creare e formattare paragrafi, porzioni, punti elenco, elenchi numerati, rientri, contenuti HTML e immagini dei paragrafi con Aspose.Slides per Java."
+description: "Impara come creare e formattare paragrafi, porzioni, punti elenco, elenchi numerati, rientri, contenuto HTML e immagini dei paragrafi con Aspose.Slides per Java."
 ---
 ## **Panoramica**
 
 Aspose.Slides for Java rappresenta il testo come una gerarchia di riquadri di testo, paragrafi e porzioni:
 
-* [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) rappresenta il contenitore di testo in una forma e fornisce l'accesso alla sua raccolta di paragrafi.
+* [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) rappresenta il contenitore di testo in una forma e fornisce l'accesso alla sua collezione di paragrafi.
 * [IParagraph](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/) rappresenta un paragrafo in un riquadro di testo e fornisce l'accesso alle sue porzioni e alla formattazione a livello di paragrafo.
-* [IPortion](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportion/) rappresenta un frammento di testo all'interno di un paragrafo. Ogni porzione può avere il proprio testo e la formattazione a livello di carattere.
+* [IPortion](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportion/) rappresenta un run di testo all'interno di un paragrafo. Ogni porzione può avere il proprio testo e la formattazione a livello di carattere.
 
-Un paragrafo può quindi contenere testo con font, colori, dimensioni e altre formattazioni diversi utilizzando più porzioni.
+Un paragrafo può quindi contenere testo con diversi caratteri, colori, dimensioni e altra formattazione usando più porzioni.
 
-## **Creare e Formattare i Paragrafi**
+## **Crea e formatta i paragrafi**
 
-### **Creare Paragrafi con Più Porzioni**
+### **Crea paragrafi con più porzioni**
 
-I passaggi seguenti creano un riquadro di testo con tre paragrafi, ciascuno contenente tre porzioni:
+I seguenti passaggi creano un riquadro di testo con tre paragrafi, ciascuno contenente tre porzioni:
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-2. Accedi alla diapositiva rilevante tramite il suo indice.
+2. Accedi alla diapositiva pertinente tramite il suo indice.
 3. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) rettangolare alla diapositiva.
 4. Accedi al [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) della forma.
 5. Usa il paragrafo predefinito e aggiungi altri due oggetti [IParagraph](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/) al riquadro di testo.
-6. Aggiungi sufficienti oggetti [IPortion](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportion/) affinché ogni paragrafo contenga tre porzioni. Il paragrafo predefinito contiene già una porzione vuota.
+6. Aggiungi un numero sufficiente di oggetti [IPortion](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportion/) per ciascun paragrafo affinché contenga tre porzioni. Il paragrafo predefinito contiene già una porzione vuota.
 7. Imposta il testo di ogni porzione.
 8. Applica la formattazione a livello di carattere tramite [IPortion.getPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportion/#getPortionFormat--).
 9. Salva la presentazione modificata.
@@ -113,20 +113,20 @@ try {
 }
 ```
 
-## **Creare Elenchi Puntati e Numerati**
+## **Crea elenchi puntati e numerati**
 
-### **Creare un Elenco Puntato o Numerato**
+### **Crea un elenco puntato o numerato**
 
-I punti elenco e la numerazione rendono gli elementi correlati più facili da scansionare. In Aspose.Slides, le impostazioni dell'elenco sono definite tramite [IBulletFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/).
+I punti elenco e la numerazione rendono gli elementi correlati più facili da leggere. In Aspose.Slides, le impostazioni dell'elenco sono definite tramite [IBulletFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/).
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-2. Accedi alla diapositiva rilevante tramite il suo indice.
+2. Accedi alla diapositiva pertinente tramite il suo indice.
 3. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) alla diapositiva selezionata.
 4. Accedi al [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) della forma.
 5. Rimuovi il paragrafo predefinito dal riquadro di testo.
 6. Crea un [Paragraph](https://reference.aspose.com/slides/it/java/com.aspose.slides/paragraph/) per un punto simbolo.
 7. Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-int-) su [BulletType.Symbol](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/) e specifica il carattere del punto.
-8. Imposta il testo del paragrafo, l'indentazione, il colore del punto e l'altezza del punto.
+8. Imposta il testo del paragrafo, il rientro, il colore del punto e l'altezza del punto.
 9. Aggiungi il paragrafo al riquadro di testo.
 10. Crea un secondo paragrafo e imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-int-) su [BulletType.Numbered](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/).
 11. Configura lo stile del punto numerato e aggiungi il paragrafo al riquadro di testo.
@@ -173,15 +173,15 @@ try {
 }
 ```
 
-### **Usare Punti Immagine**
+### **Usa punti immagine**
 
 I punti immagine consentono di utilizzare un'immagine personalizzata al posto di un simbolo o di un numero.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-2. Accedi alla diapositiva rilevante tramite il suo indice.
+2. Accedi alla diapositiva pertinente tramite il suo indice.
 3. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) e accedi al suo [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/).
 4. Rimuovi il paragrafo predefinito dal riquadro di testo.
-5. Carica l'immagine del punto e aggiungila alla raccolta di immagini della presentazione come [IPPImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/).
+5. Carica l'immagine del punto e aggiungila alla collezione di immagini della presentazione come [IPPImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/).
 6. Crea un [Paragraph](https://reference.aspose.com/slides/it/java/com.aspose.slides/paragraph/) e imposta il suo testo.
 7. Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-int-) su [BulletType.Picture](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/).
 8. Assegna l'immagine tramite [IBulletFormat.getPicture](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#getPicture--) e imposta l'altezza del punto.
@@ -223,14 +223,14 @@ try {
 }
 ```
 
-### **Creare un Elenco Multilivello**
+### **Crea un elenco a più livelli**
 
-Imposta [IParagraphFormat.setDepth](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDepth-short-) per posizionare i paragrafi a diversi livelli di un elenco. Il livello superiore ha una profondità di `0`.
+Imposta [IParagraphFormat.setDepth](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDepth-short-) per posizionare i paragrafi a diversi livelli di un elenco. Il livello più alto ha una profondità di `0`.
 
 1. Crea una [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) e accedi a una diapositiva.
 2. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) e rimuovi il paragrafo predefinito dal suo riquadro di testo.
 3. Crea quattro paragrafi e configura i loro simboli di punto.
-4. Imposta i loro valori [IParagraphFormat.setDepth](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDepth-short-) a `0`, `1`, `2` e `3`.
+4. Imposta i loro valori [IParagraphFormat.setDepth](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDepth-short-) su `0`, `1`, `2` e `3`.
 5. Aggiungi i paragrafi al riquadro di testo e salva la presentazione.
 
 Questo esempio Java crea un elenco puntato a quattro livelli:
@@ -289,17 +289,17 @@ try {
 }
 ```
 
-### **Avviare gli Elementi Numerati dell'Elenco con Valori Personalizzati**
+### **Inizia gli elementi di un elenco numerato con valori personalizzati**
 
 Usa [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) per impostare il numero iniziale visualizzato per un paragrafo numerato.
 
 1. Crea una [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) e aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) a una diapositiva.
 2. Rimuovi il paragrafo predefinito dal riquadro di testo della forma.
 3. Crea tre paragrafi numerati.
-4. Imposta [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) a `2`, `3` e `7` per i rispettivi paragrafi.
+4. Imposta [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) su `2`, `3` e `7` per i rispettivi paragrafi.
 5. Aggiungi i paragrafi al riquadro di testo e salva la presentazione.
 
-Questo esempio Java assegna un numero di avvio personalizzato a ciascun paragrafo:
+Questo esempio Java assegna un numero di partenza personalizzato a ciascun paragrafo:
 
 ```java
 import com.aspose.slides.*;
@@ -335,25 +335,25 @@ try {
 }
 ```
 
-## **Controllare Layout del Paragrafo e Proprietà di Fine**
+## **Controllo del layout del paragrafo e delle proprietà di fine**
 
-### **Impostare un'Indentazione della Prima Linea**
+### **Imposta un rientro della prima riga**
 
-Usa [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) per controllare l'indentazione della prima linea di un paragrafo. Questo metodo sposta solo la prima linea rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima linea verso destra, mentre le linee rimanenti rimangono allineate al corpo del paragrafo.
+Usa [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) per controllare il rientro della prima riga di un paragrafo. Questo metodo sposta solo la prima riga rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima riga a destra, mentre le righe rimanenti rimangono allineate al corpo del paragrafo.
 
-Usa [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) quando devi spostare l'intero paragrafo. Usa [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) quando devi spostare solo la prima linea.
+Usa [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) quando devi spostare l'intero paragrafo. Usa [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) quando devi spostare solo la prima riga.
 
-L'esempio sotto crea diversi paragrafi e applica valori differenti di [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) per dimostrare come l'indentazione della prima linea influisce sul layout del paragrafo.
+L'esempio seguente crea diversi paragrafi e applica diversi valori di [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) per dimostrare come il rientro della prima riga influisce sul layout del paragrafo.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-2. Accedi alla diapositiva di destinazione.
+2. Accedi alla diapositiva target.
 3. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) rettangolare alla diapositiva.
 4. Accedi al [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) della forma e rimuovi il paragrafo predefinito.
 5. Crea diversi paragrafi e imposta valori diversi di [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) per ciascuno.
 6. Aggiungi i paragrafi al riquadro di testo.
 7. Salva la presentazione modificata.
 
-Questo codice mostra come impostare l'indentazione di un paragrafo:
+Questo codice mostra come impostare un rientro del paragrafo:
 
 ```java
 import com.aspose.slides.*;
@@ -405,26 +405,26 @@ try {
 
 Il risultato:
 
-![L'indentazione della prima linea dei paragrafi](first_line_indent.png)
+![Il rientro della prima riga dei paragrafi](first_line_indent.png)
 
-### **Impostare un'Indentazione Sospesa**
+### **Imposta un rientro sporgente**
 
-Un'indentazione sospesa è un layout di paragrafo in cui la prima linea inizia a sinistra delle linee rimanenti. In Aspose.Slides, crei questo effetto con [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Passa un valore negativo per spostare la prima linea a sinistra rispetto al corpo del paragrafo.
+Un rientro sporgente è un layout di paragrafo in cui la prima riga inizia a sinistra rispetto alle righe rimanenti. In Aspose.Slides, crei questo effetto con [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Passa un valore negativo per spostare la prima riga a sinistra rispetto al corpo del paragrafo.
 
-In pratica, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) definisce la posizione sinistra del corpo del paragrafo, e [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) definisce la posizione della prima linea rispetto a quel margine. Per creare un'indentazione sospesa, passa un valore positivo a `setMarginLeft` e un valore negativo a `setIndent`.
+In pratica, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) definisce la posizione sinistra del corpo del paragrafo, e [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) definisce la posizione della prima riga rispetto a quel margine. Per creare un rientro sporgente, passa un valore positivo a `setMarginLeft` e un valore negativo a `setIndent`.
 
-Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le linee interrotte devono allinearsi sotto il corpo del paragrafo anziché sotto il primo carattere della prima linea.
+Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le righe a capo devono allinearsi sotto il corpo del paragrafo anziché sotto il primo carattere della prima riga.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-2. Accedi alla diapositiva di destinazione.
+2. Accedi alla diapositiva target.
 3. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) rettangolare alla diapositiva.
 4. Accedi al [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) della forma e rimuovi il paragrafo predefinito.
 5. Crea paragrafi e passa un valore positivo a [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) per ciascun paragrafo.
-6. Passa un valore negativo a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) per creare l'effetto di indentazione sospesa.
+6. Passa un valore negativo a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setIndent-float-) per creare l'effetto di rientro sporgente.
 7. Aggiungi i paragrafi al riquadro di testo.
 8. Salva la presentazione modificata.
 
-Questo codice mostra come impostare un'indentazione sospesa per un paragrafo:
+Questo codice mostra come impostare un rientro sporgente per un paragrafo:
 
 ```java
 import com.aspose.slides.*;
@@ -468,18 +468,18 @@ try {
 
 Il risultato:
 
-![L'indentazione sospesa dei paragrafi](hanging_indent.png)
+![Il rientro sporgente dei paragrafi](hanging_indent.png)
 
-### **Impostare le Proprietà di Esecuzione di Fine Paragrafo**
+### **Imposta le proprietà di esecuzione alla fine del paragrafo**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) controlla la formattazione del segno di fine paragrafo. L'esempio seguente assegna una dimensione del font e un font latino al segno di fine del secondo paragrafo:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) controlla la formattazione del segno di fine paragrafo. Il seguente esempio assegna una dimensione del carattere e un font latino al segno di fine del secondo paragrafo:
 
 1. Carica una [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) e accedi a una diapositiva.
-2. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) e rimuovi il suo paragrafo predefinito.
+2. Aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) e cancella il suo paragrafo predefinito.
 3. Crea due paragrafi e aggiungi porzioni di testo a ciascuno.
 4. Crea un [PortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/portionformat/) per il segno di fine del secondo paragrafo.
 5. Imposta [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) e [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Assegna la formattazione con [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) e salva la presentazione.
+6. Assegna il formato con [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) e salva la presentazione.
 
 ```java
 import com.aspose.slides.*;
@@ -511,13 +511,15 @@ try {
 }
 ```
 
-## **Contare le Linee Renderizzate**
+## **Conta le linee renderizzate**
 
-Usa [IParagraph.getLinesCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getLinesCount--) per contare le linee occupate da un paragrafo dopo il layout del testo, inclusa la formattazione automatica a capo. È utile quando si verifica la lunghezza del testo e il layout nei modelli di presentazione.
+Per le regole di paragrafo che influenzano l'avvolgimento automatico e la punteggiatura alla fine delle righe, vedere [Controllo dell'interruzione di riga](/slides/it/java/text-formatting/#control-line-breaking) e [Controllo della punteggiatura sospesa](/slides/it/java/text-formatting/#control-hanging-punctuation).
 
-Un paragrafo è un elemento in [ITextFrame.getParagraphs](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParagraphs--), e può occupare diverse linee renderizzate. Un'interruzione di riga esplicita all'interno di un paragrafo forza una nuova linea senza creare un altro paragrafo. La formattazione automatica crea linee in base alla larghezza disponibile senza inserire interruzioni di riga esplicite nel testo. Pertanto, contare i paragrafi o i caratteri di interruzione di riga non fornisce il conteggio delle linee renderizzate.
+Usa [IParagraph.getLinesCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getLinesCount--) per contare le righe occupate da un paragrafo dopo il layout del testo, includendo l'avvolgimento automatico. Questo è utile quando si verifica la lunghezza del testo e il layout nei modelli di presentazione.
 
-L'esempio seguente crea una forma di testo, conta le sue linee, restringe la forma e poi sostituisce il testo con una stringa più corta. Il wrapping è abilitato e l'autofit è disabilitato in modo che la larghezza della forma controlli il wrapping senza ridurre automaticamente il testo o ridimensionare la forma. Le dimensioni della forma sono in punti. Infine, l'esempio aggiunge un altro paragrafo e somma i conteggi delle linee all'interno del riquadro di testo.
+Un paragrafo è un elemento in [ITextFrame.getParagraphs](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParagraphs--) e può occupare diverse righe renderizzate. Un'interruzione di linea esplicita all'interno di un paragrafo forza una nuova riga senza creare un altro paragrafo. L'avvolgimento automatico crea righe in base alla larghezza disponibile senza inserire interruzioni di linea esplicite nel testo. Pertanto, contare i paragrafi o i caratteri di interruzione di riga non fornisce il conteggio delle righe renderizzate.
+
+Il seguente esempio crea una forma di testo, ne conta le righe, restringe la forma e poi sostituisce il testo con una stringa più corta. L'avvolgimento è abilitato e l'autoadattamento è disabilitato in modo che la larghezza della forma controlli l'avvolgimento senza ridurre automaticamente il testo o ridimensionare la forma. Le dimensioni della forma sono in punti. Infine, l'esempio aggiunge un altro paragrafo e somma i conteggi delle righe nell'intero riquadro di testo.
 
 ```java
 import com.aspose.slides.*;
@@ -557,20 +559,20 @@ try {
 }
 ```
 
-Con questo testo e queste dimensioni, restringere la forma aumenta il conteggio delle linee, mentre sostituire il testo con la stringa breve lo riduce. I conteggi esatti possono variare in base alla disponibilità e sostituzione dei font, dimensione del font, margini, indentazione, wrapping e impostazioni di autofit. Usa i font e le impostazioni di layout destinati all'ambiente target quando verifichi un modello.
+Con questo testo e queste dimensioni, restringere la forma aumenta il conteggio delle righe, mentre sostituire il testo con la stringa corta lo riduce. I conteggi esatti possono variare in base alla disponibilità e sostituzione dei font, alla dimensione del carattere, ai margini, all'indentazione, all'avvolgimento e alle impostazioni di autoadattamento. Usa i font e le impostazioni di layout previste per l'ambiente di destinazione quando verifichi un modello.
 
-Il solo conteggio delle linee non determina se il testo supera il contenitore. Anche l'altezza disponibile, le altezze delle linee, la spaziatura di paragrafo e di linea e il comportamento di autofit sono importanti; anche una singola linea può eccedere la larghezza disponibile quando il wrapping è disabilitato.
+Il solo conteggio delle righe non determina se il testo supera il contenitore. Anche l'altezza disponibile, l'altezza delle linee, la spaziatura del paragrafo e delle linee e il comportamento di autoadattamento sono importanti; anche una singola riga può superare la larghezza disponibile quando l'avvolgimento è disabilitato.
 
-## **Importare ed Esportare il Contenuto dei Paragrafi**
+## **Importa ed esporta il contenuto del paragrafo**
 
-### **Importare Testo HTML nei Paragrafi**
+### **Importa testo HTML nei paragrafi**
 
 Usa [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/it/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) per convertire il markup HTML in paragrafi e porzioni in un riquadro di testo.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
 2. Accedi a una diapositiva e aggiungi una [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/).
-3. Accedi al [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) della forma e rimuovi il paragrafo predefinito.
-4. Leggi il file HTML di origine.
+3. Accedi al [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) della forma e rimuovi il suo paragrafo predefinito.
+4. Leggi il file HTML sorgente.
 5. Passa la stringa HTML a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/it/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Salva la presentazione modificata.
 
@@ -605,15 +607,15 @@ try {
 }
 ```
 
-### **Esportare il Testo del Paragrafo in HTML**
+### **Esporta il testo del paragrafo in HTML**
 
 Usa [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/it/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) per esportare un intervallo selezionato di paragrafi come HTML.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) e carica la presentazione desiderata.
 2. Accedi alla diapositiva e trova la [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) che contiene il testo.
 3. Accedi al [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) della forma.
-4. Chiama [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/it/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) specificando l'indice del paragrafo iniziale e il numero di paragrafi da esportare.
-5. Scrivi la stringa HTML restituita su un file.
+4. Chiama [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/it/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) con l'indice del paragrafo iniziale e il numero di paragrafi da esportare.
+5. Scrivi la stringa HTML restituita in un file.
 
 Questo esempio Java esporta tutti i paragrafi dalla prima forma di testo:
 
@@ -650,19 +652,19 @@ try {
 }
 ```
 
-### **Renderizzare un Paragrafo come Immagine**
+### **Renderizza un paragrafo come immagine**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage--) renderizza direttamente un singolo paragrafo e restituisce un [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/). Salva il risultato in un file o stream con [IImage.save](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Non è necessario renderizzare la forma contenente o ritagliare manualmente un bitmap.
+[IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage--) renderizza direttamente un singolo paragrafo e restituisce un [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/). Salva il risultato in un file o stream con [IImage.save](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Non è necessario renderizzare la forma contenente o ritagliare manualmente una bitmap.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage--) può restituire `null` se il paragrafo non è trovato nella sua collezione genitore, non ha limiti di rendering validi o non può essere renderizzato. Controlla il risultato prima di salvarlo e rilascia l'immagine restituita dopo l'uso.
+[IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage--) può restituire `null` se il paragrafo non può essere trovato nella sua collezione genitore, non ha limiti di rendering validi, o non può essere renderizzato. Controlla il risultato prima di salvarlo e rilascia l'immagine restituita dopo l'uso.
 
-#### **Renderizzare un Paragrafo alla Scala Predefinita**
+#### **Renderizza un paragrafo alla scala predefinita**
 
 Supponiamo di avere un file di presentazione chiamato sample.pptx con una diapositiva, dove la prima forma è una casella di testo contenente tre paragrafi.
 
 ![La casella di testo con tre paragrafi](paragraph_to_image_input.png)
 
-L'esempio seguente renderizza il secondo paragrafo in una forma di testo regolare alla scala predefinita e salva l'immagine restituita in formato PNG. Il blocco `finally` garantisce che l'immagine venga rilasciata correttamente.
+Il seguente esempio renderizza il secondo paragrafo in una forma di testo regolare alla scala predefinita e salva l'immagine restituita in formato PNG. Il blocco `finally` garantisce che l'immagine venga rilasciata correttamente.
 
 ```java
 import com.aspose.slides.*;
@@ -702,9 +704,9 @@ Il risultato:
 
 ![L'immagine del paragrafo](paragraph_to_image_output.png)
 
-#### **Renderizzare un Paragrafo in una Cella di Tabella con Scaling**
+#### **Renderizza un paragrafo in una cella di tabella con scala**
 
-Usa la sovraccarico di [IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage-float-float-) che accetta i parametri `float scaleX` e `float scaleY` per impostare i fattori di scala orizzontale e verticale. L'esempio seguente crea una tabella, renderizza il paragrafo nella sua prima cella con il doppio della larghezza e dell'altezza predefinite e salva il risultato come immagine PNG.
+Usa la sovraccarico di [IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage-float-float-) che accetta i parametri `float scaleX` e `float scaleY` per impostare i fattori di scala orizzontale e verticale. Il seguente esempio crea una tabella, renderizza il paragrafo nella sua prima cella a una larghezza e altezza doppie rispetto al valore predefinito, e salva il risultato come immagine PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -734,21 +736,21 @@ try {
 }
 ```
 
-Un fattore di scala di `1` mantiene quell'asse alla dimensione pixel predefinita. Per esempio, `2` per entrambi i fattori produce un'immagine la cui larghezza e altezza sono circa doppie rispetto alle dimensioni predefinite, risultando in quattro volte più pixel. Fattori più grandi solitamente producono testo più nitido per lo zoom o output ad alta risoluzione, ma aumentano anche l'uso di memoria e la dimensione del file. Fattori inferiori a `1` producono immagini più piccole con meno dettaglio. Usa fattori uguali per preservare il rapporto d'aspetto del paragrafo; fattori orizzontali e verticali diversi allungano l'output indipendentemente.
+Un fattore di scala di `1` mantiene quell'asse alla sua dimensione pixel predefinita. Per esempio, `2` per entrambi i fattori produce un'immagine la cui larghezza e altezza sono circa il doppio delle dimensioni predefinite, risultando in quattro volte più pixel. Fattori più grandi producono generalmente testo più nitido per lo zoom o uscite ad alta risoluzione, ma aumentano anche l'uso di memoria e le dimensioni del file. Fattori inferiori a `1` producono immagini più piccole con meno dettaglio. Usa fattori uguali per preservare il rapporto d'aspetto del paragrafo; fattori orizzontali e verticali diversi allungano l'output indipendentemente.
 
-Renderizzare un'intera forma con [IShape.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getImage--) resta utile quando l'output deve includere il riempimento, il bordo o altro contesto visivo della forma. Per un'immagine contenente solo il paragrafo, usa [IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage--).
+Renderizzare un'intera forma con [IShape.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getImage--) è ancora utile quando l'output deve includere il riempimento, il bordo o altro contesto visivo della forma. Per un'immagine solo del paragrafo, usa [IParagraph.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getImage--).
 
 ## **FAQ**
 
-**Posso disabilitare completamente l'andare a capo automatico all'interno di un riquadro di testo?**
+**Posso disabilitare completamente l'interruzione di riga all'interno di un riquadro di testo?**
 
-Sì. Imposta [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) per disabilitare il wrapping così le linee non si interrompono ai bordi del riquadro di testo.
+Sì. Imposta [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) per disabilitare l'avvolgimento in modo che le righe non si interrompano ai bordi del riquadro di testo.
 
-**Come posso ottenere i limiti esatti sullo slide di uno specifico paragrafo?**
+**Come posso ottenere i limiti esatti sullo slide di un paragrafo specifico?**
 
 Usa [IParagraph.getRect](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getRect--) per recuperare il rettangolo di delimitazione del paragrafo. [IPortion.getRect](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportion/#getRect--) fornisce i limiti di una singola porzione.
 
-**Dove è controllata l'allineamento del paragrafo (sinistra, destra, centro o giustificato)?**
+**Dove è controllato l'allineamento del paragrafo (sinistra, destra, centro o giustificato)?**
 
 [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) è un'impostazione a livello di paragrafo e si applica all'intero paragrafo indipendentemente dalla formattazione delle singole porzioni.
 

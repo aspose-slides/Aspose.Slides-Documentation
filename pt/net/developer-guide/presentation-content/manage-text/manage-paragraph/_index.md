@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Parágrafos de Texto do PowerPoint em .NET
-linktitle: Gerenciar Parágrafo
+title: Gerenciar parágrafos de texto do PowerPoint em .NET
+linktitle: Gerenciar parágrafo
 type: docs
 weight: 40
 url: /pt/net/manage-paragraph/
@@ -30,32 +30,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda como criar e formatar parágrafos, trechos, marcadores, listas numeradas, recuos, conteúdo HTML e imagens de parágrafos com Aspose.Slides para .NET."
+description: "Aprenda como criar e formatar parágrafos, porções, marcadores, listas numeradas, recuos, conteúdo HTML e imagens de parágrafos com Aspose.Slides para .NET."
 ---
 ## **Visão geral**
 
-Aspose.Slides for .NET representa o texto como uma hierarquia de quadros de texto, parágrafos e trechos:
+Aspose.Slides para .NET representa o texto como uma hierarquia de quadros de texto, parágrafos e porções:
 
 * [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) representa o contêiner de texto em uma forma e fornece acesso à sua coleção de parágrafos.
-* [IParagraph](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/) representa um único parágrafo em um quadro de texto e fornece acesso aos seus trechos e à formatação ao nível do parágrafo.
-* [IPortion](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/) representa uma sequência de texto dentro de um parágrafo. Cada trecho pode ter seu próprio texto e formatação ao nível de caractere.
+* [IParagraph](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/) representa um parágrafo em um quadro de texto e fornece acesso às suas porções e à formatação ao nível do parágrafo.
+* [IPortion](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/) representa uma sequência de texto dentro de um parágrafo. Cada porção pode ter seu próprio texto e formatação ao nível de caractere.
 
-Um parágrafo, portanto, pode conter texto com diferentes fontes, cores, tamanhos e outras formatações usando vários trechos.
+Um parágrafo, portanto, pode conter texto com diferentes fontes, cores, tamanhos e outras formatações usando várias porções.
 
 ## **Criar e formatar parágrafos**
 
-### **Criar parágrafos com múltiplos trechos**
+### **Criar parágrafos com várias porções**
 
-Os passos a seguir criam um quadro de texto com três parágrafos, cada um contendo três trechos:
+As etapas a seguir criam um quadro de texto com três parágrafos, cada um contendo três porções:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
-2. Acesse a referência do slide relevante pelo seu índice.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) retangular ao slide.
+2. Acesse a referência do slide relevante por meio do seu índice.
+3. Adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) retangular ao slide.
 4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) da forma.
 5. Use o parágrafo padrão e adicione mais dois objetos [IParagraph](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/) ao quadro de texto.
-6. Adicione objetos [IPortion](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/) suficientes para que cada parágrafo contenha três trechos. O parágrafo padrão já contém um trecho vazio.
-7. Defina o texto de cada trecho.
-8. Aplique formatação ao nível de caractere através de [IPortion.PortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/portionformat/).
+6. Adicione objetos [IPortion](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/) suficientes para que cada parágrafo contenha três porções. O parágrafo padrão já contém uma porção vazia.
+7. Defina o texto de cada porção.
+8. Aplique formatação ao nível de caractere por meio de [IPortion.PortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/portionformat/).
 9. Salve a apresentação modificada.
 
 Este exemplo em C# implementa as etapas:
@@ -118,13 +118,13 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ## **Criar listas com marcadores e numeração**
 
-### **Criar uma lista com marcadores ou numeração**
+### **Criar uma lista com marcadores ou numerada**
 
-Marcadores e numeração facilitam a leitura de itens relacionados. No Aspose.Slides, as configurações de lista são definidas através de [IBulletFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/).
+Marcadores e numeração facilitam a leitura de itens relacionados. No Aspose.Slides, as configurações de lista são definidas por meio de [IBulletFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/).
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
-2. Acesse a referência do slide relevante pelo seu índice.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) ao slide selecionado.
+2. Acesse a referência do slide relevante por meio do seu índice.
+3. Adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) ao slide selecionado.
 4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) da forma.
 5. Remova o parágrafo padrão do quadro de texto.
 6. Crie um [Paragraph](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraph/) para um marcador de símbolo.
@@ -132,7 +132,7 @@ Marcadores e numeração facilitam a leitura de itens relacionados. No Aspose.Sl
 8. Defina o texto do parágrafo, recuo, cor do marcador e altura do marcador.
 9. Adicione o parágrafo ao quadro de texto.
 10. Crie um segundo parágrafo e defina [IBulletFormat.Type](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/type/) como [BulletType.Numbered](https://reference.aspose.com/slides/pt/net/aspose.slides/bullettype/).
-11. Configure o estilo de marcador numerado e adicione o parágrafo ao quadro de texto.
+11. Configure o estilo do marcador numerado e adicione o parágrafo ao quadro de texto.
 12. Salve a apresentação.
 
 Este exemplo em C# cria um marcador de símbolo e um marcador numerado:
@@ -177,8 +177,8 @@ presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 Marcadores de imagem permitem usar uma imagem personalizada em vez de um símbolo ou número.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
-2. Acesse a referência do slide relevante pelo seu índice.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) e acesse seu [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/).
+2. Acesse a referência do slide relevante por meio do seu índice.
+3. Adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) e acesse seu [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/).
 4. Remova o parágrafo padrão do quadro de texto.
 5. Carregue a imagem do marcador e adicione-a à coleção de imagens da apresentação como um [IPPImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/).
 6. Crie um [Paragraph](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraph/) e defina seu texto.
@@ -218,12 +218,12 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 Defina [IParagraphFormat.Depth](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/depth/) para posicionar parágrafos em diferentes níveis de uma lista. O nível superior tem profundidade `0`.
 
 1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) e acesse um slide.
-2. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) e limpe o parágrafo padrão do seu quadro de texto.
+2. Adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) e limpe o parágrafo padrão de seu quadro de texto.
 3. Crie quatro parágrafos e configure seus símbolos de marcador.
-4. Defina seus valores de [IParagraphFormat.Depth](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/depth/) como `0`, `1`, `2` e `3`.
+4. Defina seus valores [IParagraphFormat.Depth](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/depth/) como `0`, `1`, `2` e `3`.
 5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
 
-Este exemplo em C# cria uma lista de marcadores com quatro níveis:
+Este exemplo em C# cria uma lista com marcadores de quatro níveis:
 
 ```csharp
 using System;
@@ -277,7 +277,7 @@ presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 
 Use [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/numberedbulletstartwith/) para definir o número inicial exibido para um parágrafo numerado.
 
-1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) e adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) a um slide.
+1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) e adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) a um slide.
 2. Limpe o parágrafo padrão do quadro de texto da forma.
 3. Crie três parágrafos numerados.
 4. Defina [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/pt/net/aspose.slides/ibulletformat/numberedbulletstartwith/) como `2`, `3` e `7` para os respectivos parágrafos.
@@ -313,7 +313,7 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Controlar layout e propriedades de fim do parágrafo**
+## **Controlar layout e propriedades de término do parágrafo**
 
 ### **Definir recuo da primeira linha**
 
@@ -321,13 +321,13 @@ Use a propriedade [IParagraphFormat.Indent](https://reference.aspose.com/slides/
 
 Use [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/marginleft/) quando precisar mover todo o parágrafo. Use [IParagraphFormat.Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/) quando precisar mover apenas a primeira linha.
 
-O exemplo abaixo cria vários parágrafos e aplica valores diferentes de [IParagraphFormat.Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/) para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
+O exemplo abaixo cria vários parágrafos e aplica diferentes valores de [IParagraphFormat.Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/) para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) .
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
 2. Acesse o slide de destino.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) retangular ao slide.
+3. Adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) retangular ao slide.
 4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) da forma e remova o parágrafo padrão.
-5. Crie vários parágrafos e defina valores diferentes de [Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/) para eles.
+5. Crie vários parágrafos e defina diferentes valores de [Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/) para eles.
 6. Adicione os parágrafos ao quadro de texto.
 7. Salve a apresentação modificada.
 
@@ -376,19 +376,19 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 O resultado:
 
-![A indentação da primeira linha dos parágrafos](first_line_indent.png)
+![O recuo da primeira linha dos parágrafos](first_line_indent.png)
 
 ### **Definir recuo suspenso**
 
-Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, cria‑se esse efeito com a propriedade [IParagraphFormat.Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/). Defina `Indent` com um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
+Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com a propriedade [IParagraphFormat.Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/). Defina `Indent` como um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
 
 Na prática, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/marginleft/) define a posição esquerda do corpo do parágrafo, e [IParagraphFormat.Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/) define a posição da primeira linha em relação a essa margem. Para criar um recuo suspenso, defina um valor positivo em `MarginLeft` e um valor negativo em `Indent`.
 
-Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde linhas quebradas precisam alinhar‑se ao corpo do parágrafo em vez ao primeiro caractere da primeira linha.
+Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde as linhas continuadas devem alinhar-se sob o corpo do parágrafo e não sob o primeiro caractere da primeira linha.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) .
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
 2. Acesse o slide de destino.
-3. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) retangular ao slide.
+3. Adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) retangular ao slide.
 4. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) da forma e remova o parágrafo padrão.
 5. Crie parágrafos e defina um valor positivo de [MarginLeft](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/marginleft/) para cada parágrafo.
 6. Defina um valor negativo de [Indent](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/indent/) para criar o efeito de recuo suspenso.
@@ -437,12 +437,12 @@ O resultado:
 
 ### **Definir propriedades de execução do final do parágrafo**
 
-A propriedade [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/endparagraphportionformat/) controla a formatação da marca de final do parágrafo. O exemplo a seguir atribui tamanho de fonte e fonte latina à marca de final do segundo parágrafo:
+A propriedade [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/endparagraphportionformat/) controla a formatação da marca de fim do parágrafo. O exemplo a seguir atribui tamanho de fonte e fonte latina à marca de fim do segundo parágrafo:
 
 1. Carregue uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) e acesse um slide.
-2. Adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) e limpe seu parágrafo padrão.
-3. Crie dois parágrafos e adicione trechos de texto a eles.
-4. Crie um [PortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/portionformat/) para a marca de final do segundo parágrafo.
+2. Adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) e limpe seu parágrafo padrão.
+3. Crie dois parágrafos e adicione porções de texto a eles.
+4. Crie um [PortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/portionformat/) para a marca de fim do segundo parágrafo.
 5. Defina [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseportionformat/fontheight/) e [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseportionformat/latinfont/).
 6. Atribua o formato a [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/endparagraphportionformat/) e salve a apresentação.
 
@@ -475,11 +475,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Contar linhas renderizadas**
 
+Para regras de parágrafo que afetam a quebra automática e pontuação no final das linhas, veja [Control Line Breaking](/slides/pt/net/text-formatting/#control-line-breaking) e [Control Hanging Punctuation](/slides/pt/net/text-formatting/#control-hanging-punctuation).
+
 Use [IParagraph.GetLinesCount](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getlinescount/) para contar as linhas ocupadas por um parágrafo após o layout do texto, incluindo a quebra automática. Isso é útil ao verificar o comprimento e o layout do texto em modelos de apresentação.
 
-Um parágrafo é um item em [ITextFrame.Paragraphs](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/paragraphs/), e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras explícitas no texto. Portanto, contar parágrafos ou caracteres de quebra de linha não fornece a contagem de linhas renderizadas.
+Um parágrafo é um item em [ITextFrame.Paragraphs](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/paragraphs/), e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras de linha explícitas no texto. Portanto, contar parágrafos ou caracteres de quebra de linha não fornece a contagem de linhas renderizadas.
 
-O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e então substitui o texto por uma string mais curta. A quebra automática está ativada e o ajuste automático está desativado para que a largura da forma controle a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma são em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
+O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e, em seguida, substitui o texto por uma cadeia mais curta. A quebra automática está habilitada e o ajuste automático está desabilitado para que a largura da forma controle a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma são em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
 
 ```csharp
 using System;
@@ -516,21 +518,21 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Com esse texto e essas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela string curta a reduz. Contagens exatas podem variar com a disponibilidade de fontes e substituição, tamanho da fonte, margens, recuo, quebra automática e configurações de ajuste automático. Use as fontes e configurações de layout previstas para o ambiente de destino ao validar um modelo.
+Com esse texto e essas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela cadeia curta a reduz. Contagens exatas podem variar conforme a disponibilidade e substituição de fontes, tamanho da fonte, margens, recuos, quebra e configurações de ajuste automático. Use as fontes e configurações de layout previstas para o ambiente de destino ao verificar um modelo.
 
-A contagem de linhas por si só não determina se o texto excede seu contêiner. A altura disponível, alturas das linhas, espaçamento de parágrafos e linhas, e o comportamento de ajuste automático também são importantes; mesmo uma única linha pode ultrapassar a largura disponível quando a quebra automática está desativada.
+A contagem de linhas por si só não determina se o texto transborda seu contêiner. A altura disponível, alturas de linha, espaçamento de parágrafo e linha e o comportamento de ajuste automático também são importantes; até mesmo uma única linha pode exceder a largura disponível quando a quebra automática está desativada.
 
 ## **Importar e exportar conteúdo de parágrafos**
 
 ### **Importar texto HTML para parágrafos**
 
-Use [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraphcollection/addfromhtml/) para converter marcação HTML em parágrafos e trechos em um quadro de texto.
+Use [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraphcollection/addfromhtml/) para converter marcação HTML em parágrafos e porções em um quadro de texto.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation) .
-2. Acesse um slide e adicione um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) .
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
+2. Acesse um slide e adicione uma [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/).
 3. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) da forma e limpe seu parágrafo padrão.
 4. Leia o arquivo HTML de origem.
-5. Passe a string HTML para [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraphcollection/addfromhtml/) .
+5. Passe a string HTML para [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraphcollection/addfromhtml/).
 6. Salve a apresentação modificada.
 
 Este exemplo em C# importa HTML para um quadro de texto:
@@ -560,9 +562,9 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 Use [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraphcollection/exporttohtml/) para exportar um intervalo selecionado de parágrafos como HTML.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation) e carregue a apresentação desejada.
-2. Acesse o slide e encontre o [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) que contém o texto.
+2. Acesse o slide e encontre a [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) que contém o texto.
 3. Acesse o [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) da forma.
-4. Chame [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraphcollection/exporttohtml/) passando o índice do parágrafo inicial e o número de parágrafos a exportar.
+4. Chame [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/pt/net/aspose.slides/paragraphcollection/exporttohtml/) indicando o índice do parágrafo inicial e o número de parágrafos a exportar.
 5. Grave a string HTML retornada em um arquivo.
 
 Este exemplo em C# exporta todos os parágrafos da primeira forma de texto:
@@ -591,9 +593,9 @@ else
 
 ### **Renderizar um parágrafo como imagem**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/) renderiza um parágrafo individualmente e retorna um [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/). Salve o resultado em um arquivo ou fluxo com [IImage.Save](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/save/). Não é necessário renderizar a forma que contém o parágrafo ou recortar manualmente um bitmap.
+[IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/) renderiza diretamente um parágrafo individual e devolve um [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/). Salve o resultado em um arquivo ou stream com [IImage.Save](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/save/). Você não precisa renderizar a forma que contém o parágrafo nem recortar um bitmap manualmente.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/) pode retornar `null` se o parágrafo não for encontrado na coleção pai, não possuir limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e libere a imagem retornada após o uso.
+[IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/) pode devolver `null` se o parágrafo não for encontrado na coleção pai, não possuir limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e descarte a imagem retornada após o uso.
 
 #### **Renderizar um parágrafo na escala padrão**
 
@@ -636,9 +638,9 @@ O resultado:
 
 ![A imagem do parágrafo](paragraph_to_image_output.png)
 
-#### **Renderizar um parágrafo em célula de tabela com escala**
+#### **Renderizar um parágrafo em uma célula de tabela com dimensionamento**
 
-Use a sobrecarga de [IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/) que aceita os parâmetros `float scaleX` e `float scaleY` para definir os fatores de escala horizontal e vertical. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão e salva o resultado como imagem PNG.
+Use a sobrecarga de [IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/) que aceita os parâmetros `float scaleX` e `float scaleY` para definir os fatores de escala horizontal e vertical. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão, e salva o resultado como imagem PNG.
 
 ```csharp
 using System;
@@ -664,9 +666,9 @@ else
 }
 ```
 
-Um fator de escala `1` mantém esse eixo no tamanho padrão de pixel. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente duas vezes as dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores horizontais e verticais diferentes esticam a saída independentemente.
+Um fator de escala `1` mantém esse eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores horizontais e verticais diferentes esticam a saída independentemente.
 
-Renderizar uma forma inteira com [IShape.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/getimage/) continua útil quando a saída deve incluir o preenchimento, borda ou outro contexto visual da forma. Para uma imagem apenas do parágrafo, use [IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/) .
+Renderizar uma forma completa com [IShape.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/getimage/) continua útil quando a saída deve incluir o preenchimento, a borda ou outro contexto visual da forma. Para uma imagem contendo apenas o parágrafo, use [IParagraph.GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
@@ -674,14 +676,14 @@ Renderizar uma forma inteira com [IShape.GetImage](https://reference.aspose.com/
 
 Sim. Defina [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat/wraptext/) para desativar a quebra, de modo que as linhas não se quebrem nas bordas do quadro de texto.
 
-**Como obter os limites exatos de um parágrafo específico no slide?**
+**Como obter as coordenadas exatas de um parágrafo específico no slide?**
 
-Use [IParagraph.GetRect](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getrect/) para recuperar o retângulo delimitador do parágrafo. [IPortion.GetRect](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/getrect/) fornece os limites de um trecho individual.
+Use [IParagraph.GetRect](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/getrect/) para recuperar o retângulo delimitador do parágrafo. [IPortion.GetRect](https://reference.aspose.com/slides/pt/net/aspose.slides/iportion/getrect/) fornece os limites de uma porção individual.
 
 **Onde é controlado o alinhamento do parágrafo (esquerda, direita, centralizado ou justificado)?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/alignment/) é uma configuração ao nível do parágrafo e se aplica a todo o parágrafo, independentemente da formatação individual dos trechos.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/alignment/) é uma configuração ao nível do parágrafo e se aplica a todo o parágrafo, independentemente da formatação de porções individuais.
 
 **Posso definir o idioma de revisão para parte de um parágrafo?**
 
-Sim. Defina [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseportionformat/languageid/) para trechos individuais, permitindo que um parágrafo contenha texto em vários idiomas.
+Sim. Defina [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseportionformat/languageid/) para porções individuais, permitindo que um parágrafo contenha texto em vários idiomas.
