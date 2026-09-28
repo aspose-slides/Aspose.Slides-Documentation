@@ -7,9 +7,9 @@ description: "Leer wat de evaluatieversie van Aspose.Slides voor JasperReports t
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides voor JasperReports is beschikbaar als een gratis, tijdonbeperkte evaluatie vanaf de [download page](https://releases.aspose.com/slides/nl/jasperreport/). De evaluatie‑ en gelicentieerde versies van het product zijn dezelfde download.
+Aspose.Slides voor JasperReports is beschikbaar als een gratis, tijdonbeperkte evaluatie vanaf de [download page](https://releases.aspose.com/slides/jasperreport/). De evaluatie‑ en gelicentieerde versies van het product zijn dezelfde download.
 
-Wanneer u tevreden bent met de evaluatie, [buy a license](https://purchase.aspose.com/pricing/slides/nl/jasperreports/). Zorg ervoor dat u de abonnementsvoorwaarden begrijpt en ermee akkoord gaat.
+Wanneer u tevreden bent met de evaluatie, [buy a license](https://purchase.aspose.com/pricing/slides/jasperreports/). Zorg ervoor dat u de abonnementsvoorwaarden begrijpt en ermee akkoord gaat.
 
 De licentie is beschikbaar voor download vanaf de bestelpagina nadat de bestelling betaald is. De licentie is een platte tekst, digitaal ondertekend XML‑bestand dat informatie bevat zoals de klantnaam, het gekochte product en het licentietype. Wijzig de inhoud van het licentiebestand op geen enkele manier: dit maakt de licentie ongeldig.
 

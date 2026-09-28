@@ -64,12 +64,12 @@ Het exporteert een ingevuld rapport naar PPT en PPTX, één dia per rapportpagin
 <hr>
 <p>REFERENTIE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/nl/jasperreport/release-notes/">Release-opmerkingen</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/jasperreport/">Downloaden</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Release-opmerkingen</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Downloaden</a></li>
 </ul>
 <p>ONDERSTEUNING</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/nl/11">Gratis ondersteuningsforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Het exporteert een ingevuld rapport naar PPT en PPTX, één dia per rapportpagin
 
 Deze stappen compileren een één-regel‑rapport, vullen het, en exporteren het naar PPTX met JasperReports 6.16.0 vanaf Maven Central. U heeft JDK 11 of hoger en Apache Maven nodig.
 
-1. Download het ZIP‑bestand van de [downloadpagina](https://releases.aspose.com/slides/nl/jasperreport/) en pak het uit. De *lib*-map bevat één submap per reeks JasperReports‑versies, en elke map bevat de jar voor die reeks. Voor JasperReports 6.16.0, kopieer *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* naar een lege projectmap.
+1. Download het ZIP‑bestand van de [downloadpagina](https://releases.aspose.com/slides/jasperreport/) en pak het uit. De *lib*-map bevat één submap per reeks JasperReports‑versies, en elke map bevat de jar voor die reeks. Voor JasperReports 6.16.0, kopieer *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* naar een lege projectmap.
 
 2. De jar zit in het ZIP‑bestand in plaats van in een Maven‑repository, dus installeer hem in uw lokale Maven‑repository. Voer dit commando uit in de projectmap:
 

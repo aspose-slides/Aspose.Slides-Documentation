@@ -7,7 +7,7 @@ description: "Kies de Aspose.Slides for JasperReports-jars die overeenkomen met 
 ---
 ## **Kies de jars voor je JasperReports‑versie**
 
-Aspose.Slides for JasperReports wordt gedistribueerd als een ZIP‑bestand op de [downloadpagina](https://releases.aspose.com/slides/nl/jasperreport/). De *lib*‑map bevat één submap per reeks JasperReports‑versies. Neem de jars uit de submap die overeenkomt met de JasperReports‑versie die je gebruikt:
+Aspose.Slides for JasperReports wordt gedistribueerd als een ZIP‑bestand op de [downloadpagina](https://releases.aspose.com/slides/jasperreport/). De *lib*‑map bevat één submap per reeks JasperReports‑versies. Neem de jars uit de submap die overeenkomt met de JasperReports‑versie die je gebruikt:
 
 | JasperReports‑versie | Submap van *lib* |
 | :- | :- |
