@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services はレポートサーバー内でレンダ�
 
 32 ビットと 64 ビットのレポートサーバーの両方をサポートしています。SQL Server 2005 は独自のビルドを使用し、以降のバージョンおよび Power BI Report Server は同じビルドを使用します。[Install Manually](/slides/ja/reportingservices/install-manually/) ではコピーすべきファイルが示されています。
 
-このリストにないレポートサーバー バージョンを使用している場合は、デプロイ前に[free support forum](https://forum.aspose.com/c/slides/ja/11)で質問してください。
+このリストにないレポートサーバー バージョンを使用している場合は、デプロイ前に[free support forum](https://forum.aspose.com/c/slides/11)で質問してください。
 
 ## **レポートサーバーエディション**
 

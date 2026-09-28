@@ -13,11 +13,11 @@ description: "Aspose.Slides for Reporting Services にライセンス ファイ�
 ---
 ## **ライセンスサポート**
 
-Aspose.Slides for Reporting Services の評価版は、購入版と同じパッケージで、[its download page](https://releases.aspose.com/slides/ja/reportingservices/) から入手でき、同等の機能を提供します。ライセンスがない場合、評価モードで動作し、エクスポートされたプレゼンテーションに評価用の透かしが挿入されます。
+Aspose.Slides for Reporting Services の評価版は、購入版と同じパッケージで、[its download page](https://releases.aspose.com/slides/reportingservices/) から入手でき、同等の機能を提供します。ライセンスがない場合、評価モードで動作し、エクスポートされたプレゼンテーションに評価用の透かしが挿入されます。
 
 評価版は、ライセンス ファイルをレポート サーバーにコピーするとライセンスが適用されます。コードは不要です。
 
-評価に満足したら、[purchase a license](https://purchase.aspose.com/pricing/slides/ja/reporting-services/) してください。さまざまなサブスクリプションタイプをご確認いただくことを推奨します。ご質問がある場合は、Aspose の営業チームまでお問い合わせください。
+評価に満足したら、[purchase a license](https://purchase.aspose.com/pricing/slides/reporting-services/) してください。さまざまなサブスクリプションタイプをご確認いただくことを推奨します。ご質問がある場合は、Aspose の営業チームまでお問い合わせください。
 
 ## **Aspose.Slides for Reporting Services のライセンス**
 

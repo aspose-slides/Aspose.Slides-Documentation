@@ -63,12 +63,12 @@ Aspose.Slides for Reporting Services は、Microsoft SQL Server Reporting Servic
 <hr>
 <p>リファレンス</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ja/reportingservices/release-notes/">リリースノート</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/reportingservices/">ダウンロード</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">リリースノート</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートヘルプデスク</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for Reporting Services は、Microsoft SQL Server Reporting Servic
 コードを書く必要はありません。拡張機能をレポートサーバーにインストールすると、そのサーバー上のすべてのページングレポートのエクスポートリストに形式が表示されます。
 
 1. レポートサーバーが .NET Framework 3.5 を含む[システム要件](/slides/ja/reportingservices/system-requirements/)を満たしていることを確認してください。
-1. [ダウンロードページ](https://releases.aspose.com/slides/ja/reportingservices/)から MSI インストーラー *Aspose.Slides for Reporting Services* をダウンロードします。代わりに手動でインストールする場合は、ZIP パッケージ *Aspose.Slides for Reporting Services (DLLs Only)* をダウンロードしてください。
+1. [ダウンロードページ](https://releases.aspose.com/slides/reportingservices/)から MSI インストーラー *Aspose.Slides for Reporting Services* をダウンロードします。代わりに手動でインストールする場合は、ZIP パッケージ *Aspose.Slides for Reporting Services (DLLs Only)* をダウンロードしてください。
 1. 拡張機能をレポートサーバーにインストールします。管理者として MSI を実行します（[MSI インストーラーでインストール](/slides/ja/reportingservices/install-with-msi-installer/) を参照）。ZIP パッケージの場合は[手動でインストール](/slides/ja/reportingservices/install-manually/) を実行してください。
 1. ブラウザーでレポートサーバーの Web ポータル（SQL Server 2014 以前では Report Manager）を開きます。デフォルトのアドレスは `https://<ComputerName>/reports` です。
 1. ページングレポートを開きます。レポートツールバーで **エクスポート** リストを開き、**PPTX - PowerPoint 2007 Presentation via Aspose.Slides** を選択します。ツールバーに別個の **エクスポート** ボタンがある場合（Report Manager のように）、それを選択してください。

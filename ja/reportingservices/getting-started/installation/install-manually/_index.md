@@ -14,7 +14,7 @@ description: "DLL のみが含まれる ZIP パッケージから Aspose.Slides 
 ---
 ## **概要**
 
-MSI インストーラを使用せず、ZIP パッケージ *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* から Aspose.Slides for Reporting Services をインストールするには、以下の手順に従ってください。ダウンロードページは[ダウンロードページ](https://releases.aspose.com/slides/ja/reportingservices/)。これらは[MSI インストーラ](/slides/ja/reportingservices/install-with-msi-installer/)と同じ拡張機能を登録します。各レポートサーバー インスタンスごとに繰り返してください。
+MSI インストーラを使用せず、ZIP パッケージ *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* から Aspose.Slides for Reporting Services をインストールするには、以下の手順に従ってください。ダウンロードページは[ダウンロードページ](https://releases.aspose.com/slides/reportingservices/)。これらは[MSI インストーラ](/slides/ja/reportingservices/install-with-msi-installer/)と同じ拡張機能を登録します。各レポートサーバー インスタンスごとに繰り返してください。
 
 開始する前に、[システム要件](/slides/ja/reportingservices/system-requirements/)を確認してください。レポートサーバー上でローカル管理者権限が必要です。
 

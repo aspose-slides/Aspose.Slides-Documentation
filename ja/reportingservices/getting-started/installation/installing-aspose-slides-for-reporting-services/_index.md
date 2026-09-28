@@ -16,7 +16,7 @@ description: "レポート サーバー上で Aspose.Slides for Reporting Servic
 
 Aspose.Slides for Reporting Services はレポート サーバー自体にインストールされます。開始する前に、[システム要件](/slides/ja/reportingservices/system-requirements/) を確認してください。
 
-[ダウンロードページ](https://releases.aspose.com/slides/ja/reportingservices/) では、各リリースごとに 2 つのパッケージが提供されています。
+[ダウンロードページ](https://releases.aspose.com/slides/reportingservices/) では、各リリースごとに 2 つのパッケージが提供されています。
 
 - **Aspose.Slides for Reporting Services XX.XX** — MSI インストーラです。マシン上のレポート サーバー インスタンスを検出し、選択したものに拡張機能をコピーし、構成ファイルを更新します。[MSI インストーラでインストール](/slides/ja/reportingservices/install-with-msi-installer/) を参照してください。
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — 手動インストール用の ZIP パッケージです。アセンブリを 1 つコピーし、構成ファイルを 2 つ編集します。[手動でインストール](/slides/ja/reportingservices/install-manually/) を参照してください。
