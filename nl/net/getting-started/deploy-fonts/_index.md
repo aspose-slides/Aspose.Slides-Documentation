@@ -56,7 +56,7 @@ De volgende console‑applicatie meldt de lettertypen die Aspose.Slides in de hu
 </Project>
 ```
 
-*Program.cs* voegt één tekstvak per lettertype‑naam toe aan een dia en wijst het lettertype toe via de [LatinFont](https://reference.aspose.com/slides/nl/net/aspose.slides/baseportionformat/latinfont/)‑eigenschap. De lettertype‑namen komen van de opdrachtregel; zonder argumenten controleert de applicatie Calibri, Arial en Times New Roman. Het print de mappen waarin Aspose.Slides naar lettertypen zoekt ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/getfontfolders/)), rendert de dia naar *output/fonts.pdf*, en drukt de vervangingen af die gerapporteerd worden door [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/). De twee optionele stappen aan het begin, het laden van een *fonts*‑map en het lezen van een `DEFAULT_FONT`‑variabele, worden later in dit artikel uitgelegd.
+*Program.cs* voegt één tekstvak per lettertype‑naam toe aan een dia en wijst het lettertype toe via de [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/)‑eigenschap. De lettertype‑namen komen van de opdrachtregel; zonder argumenten controleert de applicatie Calibri, Arial en Times New Roman. Het print de mappen waarin Aspose.Slides naar lettertypen zoekt ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), rendert de dia naar *output/fonts.pdf*, en drukt de vervangingen af die gerapporteerd worden door [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). De twee optionele stappen aan het begin, het laden van een *fonts*‑map en het lezen van een `DEFAULT_FONT`‑variabele, worden later in dit artikel uitgelegd.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Lettertypen laden vanuit de applicatie‑map**
 
-In plaats van de lettertypen in de image te installeren, kun je ze met de applicatie meeleveren en laden met [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfonts/). De lettertypen zijn dan alleen beschikbaar voor Aspose.Slides, en ze worden samen met de applicatie verspreid. *FontCheck* doet dit: *FontCheck.csproj* kopieert de *fonts*‑map naar de applicatie‑output, en *Program.cs* geeft die map door aan `LoadExternalFonts` voordat de presentatie wordt aangemaakt. [Custom Font](/slides/nl/net/custom-font/) beschrijft de andere manieren om lettertypen aan te leveren, zoals laden vanuit geheugen.
+In plaats van de lettertypen in de image te installeren, kun je ze met de applicatie meeleveren en laden met [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). De lettertypen zijn dan alleen beschikbaar voor Aspose.Slides, en ze worden samen met de applicatie verspreid. *FontCheck* doet dit: *FontCheck.csproj* kopieert de *fonts*‑map naar de applicatie‑output, en *Program.cs* geeft die map door aan `LoadExternalFonts` voordat de presentatie wordt aangemaakt. [Custom Font](/slides/nl/net/custom-font/) beschrijft de andere manieren om lettertypen aan te leveren, zoals laden vanuit geheugen.
 
 Herbouw de image, en controleer dan Calibri en Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Standaardlettertype instellen voor ontbrekende lettertypen**
 
-Wanneer een lettertype ontbreekt, gebruikt Aspose.Slides een vervanger die het zelf kiest. Om zelf een keuze te maken, stel je de eigenschap [DefaultRegularFont](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/defaultregularfont/) van [LoadOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/) in en geef je de opties door aan de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑constructor. *FontCheck* leest de lettertype‑naam uit de omgeving‑variabele `DEFAULT_FONT`. Met Carlito geladen, gebruik je het voor ontbrekende lettertypen:
+Wanneer een lettertype ontbreekt, gebruikt Aspose.Slides een vervanger die het zelf kiest. Om zelf een keuze te maken, stel je de eigenschap [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) van [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) in en geef je de opties door aan de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑constructor. *FontCheck* leest de lettertype‑naam uit de omgeving‑variabele `DEFAULT_FONT`. Met Carlito geladen, gebruik je het voor ontbrekende lettertypen:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Het standaardlettertype vervangt elk ontbrekend lettertype. Om individuele lettertypen in kaart te brengen, bijvoorbeeld Arial naar Liberation Sans en Calibri naar Carlito, gebruik je [font substitution rules](/slides/nl/net/font-substitution/). Regels wijzigen de gerenderde output, maar `GetSubstitutions` weerspiegelt ze niet, dus controleer de lettertypen in het uitvoerbestand. Voor Aziatische tekst stel je ook [DefaultAsianFont](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/defaultasianfont/) in; zie [Default Font](/slides/nl/net/default-font/).
+Het standaardlettertype vervangt elk ontbrekend lettertype. Om individuele lettertypen in kaart te brengen, bijvoorbeeld Arial naar Liberation Sans en Calibri naar Carlito, gebruik je [font substitution rules](/slides/nl/net/font-substitution/). Regels wijzigen de gerenderde output, maar `GetSubstitutions` weerspiegelt ze niet, dus controleer de lettertypen in het uitvoerbestand. Voor Aziatische tekst stel je ook [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/) in; zie [Default Font](/slides/nl/net/default-font/).
 
 ## **Lettertypen installeren op Alpine Linux**
 

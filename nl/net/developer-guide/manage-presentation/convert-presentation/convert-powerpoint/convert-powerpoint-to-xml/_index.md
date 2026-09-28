@@ -24,7 +24,7 @@ description: "Converteer PowerPoint- en OpenDocument-presentaties naar PowerPoin
 
 Aspose.Slides voor .NET kan PowerPoint‑presentaties converteren naar het PowerPoint XML‑presentatieformaat. XML‑output is handig wanneer u een tekstgebaseerde representatie nodig heeft om de presentatiestructuur te inspecteren, gegenereerde documenten te troubleshooten, output te vergelijken in geautomatiseerde tests, of te integreren met een workflow die XML consumeert in plaats van een presentatiedossier.
 
-Gebruik de [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/)‑methode met de `Xml`‑waarde uit de [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/)-enumeratie. U kunt het resultaat rechtstreeks naar een bestand of naar een stream schrijven.
+Gebruik de [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)‑methode met de `Xml`‑waarde uit de [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)-enumeratie. U kunt het resultaat rechtstreeks naar een bestand of naar een stream schrijven.
 
 {{% alert color="info" title="Note" %}}
 
@@ -34,7 +34,7 @@ Gebruik de [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose
 
 ## **Converteer een presentatie naar een XML‑bestand**
 
-Laad een bronpresentatie met de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse en geef vervolgens het uitvoerpad en `SaveFormat.Xml` mee aan [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/). De bron kan elk presentatie‑formaat zijn dat ondersteund wordt voor laden, zoals PPT, PPTX of ODP.
+Laad een bronpresentatie met de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑klasse en geef vervolgens het uitvoerpad en `SaveFormat.Xml` mee aan [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). De bron kan elk presentatie‑formaat zijn dat ondersteund wordt voor laden, zoals PPT, PPTX of ODP.
 
 Het volgende voorbeeld converteert een PPTX‑presentatie naar een XML‑bestand:
 
@@ -48,7 +48,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **Schrijf de XML‑output naar een stream**
 
-Gebruik de stream‑overload van [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/) wanneer de XML in het geheugen moet blijven of moet worden doorgegeven aan een andere component, zoals een webservice, opslagprovider of XML‑verwerkingspipeline. Het volgende voorbeeld schrijft het resultaat naar een [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) en zet de positie terug voor later lezen:
+Gebruik de stream‑overload van [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) wanneer de XML in het geheugen moet blijven of moet worden doorgegeven aan een andere component, zoals een webservice, opslagprovider of XML‑verwerkingspipeline. Het volgende voorbeeld schrijft het resultaat naar een [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) en zet de positie terug voor later lezen:
 
 ```csharp
 using System.IO;
@@ -87,11 +87,11 @@ Nee. PPTX is een pakket dat meerdere Office Open XML‑onderdelen bevat, terwijl
 
 **Kan ik de XML‑output opslaan zonder een bestand op schijf aan te maken?**
 
-Ja. Geef een schrijfbare stream mee aan [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/). Gebruik bijvoorbeeld een [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) voor verwerking in het geheugen.
+Ja. Geef een schrijfbare stream mee aan [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Gebruik bijvoorbeeld een [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) voor verwerking in het geheugen.
 
 **Kan Aspose.Slides het geëxporteerde XML‑bestand opnieuw laden?**
 
-Ja. Geef het XML‑bestand of een stream mee aan de constructor van [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/sourceformat/) geeft vervolgens `SourceFormat.Xml` terug. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) meldt `LoadFormat.Unknown` voor dit formaat, dus gebruik dit niet om te beslissen of een XML‑bestand geopend kan worden.
+Ja. Geef het XML‑bestand of een stream mee aan de constructor van [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) geeft vervolgens `SourceFormat.Xml` terug. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) meldt `LoadFormat.Unknown` voor dit formaat, dus gebruik dit niet om te beslissen of een XML‑bestand geopend kan worden.
 
 **Renderen XML‑conversies elke dia als een pagina of afbeelding?**
 

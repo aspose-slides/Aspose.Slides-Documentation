@@ -28,7 +28,7 @@ U kunt het te gebruiken lettertype definiëren wanneer een specifiek lettertype 
 
 ## **Lettertype‑substituties ophalen**
 
-Gebruik de [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/)‑methode om te bepalen welke lettertypen worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsubstitutioninfo/)-objecten die de originele en de vervangende lettertype­namen identificeren.
+Gebruik de [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/)‑methode om te bepalen welke lettertypen worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/)-objecten die de originele en de vervangende lettertype­namen identificeren.
 
 Het volgende C#‑voorbeeld geeft alle lettertype‑substituties voor een presentatie weer:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Lettertype‑substituties voor geselecteerde dia's ophalen**
 
-Gebruik de [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/)‑overload met een `int[] slides`‑argument om alleen de substituties te inspecteren die nodig zijn om specifieke dia's te renderen. Dit is handig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia's zoekt die afhankelijk zijn van niet‑beschikbare lettertypen, een minimaal lettertype‑pakket voor een server of container voorbereidt, of render‑verschillen diagnosticeert zonder ongerelateerde dia's te verwerken.
+Gebruik de [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/)‑overload met een `int[] slides`‑argument om alleen de substituties te inspecteren die nodig zijn om specifieke dia's te renderen. Dit is handig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia's zoekt die afhankelijk zijn van niet‑beschikbare lettertypen, een minimaal lettertype‑pakket voor een server of container voorbereidt, of render‑verschillen diagnosticeert zonder ongerelateerde dia's te verwerken.
 
-De `slides`‑array bevat één‑gebaseerde dia‑indexen: `1` identificeert de eerste dia. In tegenstelling tot de indexeur van de [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/)‑collectie, die nul‑gebaseerd is, wordt dezelfde dia benaderd als `presentation.Slides[0]`. Houd dit verschil in gedachten bij het bouwen van de array om één‑off‑by‑one‑fouten te vermijden.
+De `slides`‑array bevat één‑gebaseerde dia‑indexen: `1` identificeert de eerste dia. In tegenstelling tot de indexeur van de [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)‑collectie, die nul‑gebaseerd is, wordt dezelfde dia benaderd als `presentation.Slides[0]`. Houd dit verschil in gedachten bij het bouwen van de array om één‑off‑by‑one‑fouten te vermijden.
 
-Roep de overload aan via de [Presentation.FontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/fontsmanager/)‑eigenschap. Deze retourneert alleen de substituties die tijdens het renderen van de geselecteerde dia's zijn vastgesteld. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsubstitutioninfo/)-object dat de originele en vervangende lettertype­namen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving en [extern geladen lettertypen](/slides/nl/net/custom-font/). Substitutieregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsubstrulecollection/) wijzigen de gerenderde output maar worden niet weergegeven in het resultaat.
+Roep de overload aan via de [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/)‑eigenschap. Deze retourneert alleen de substituties die tijdens het renderen van de geselecteerde dia's zijn vastgesteld. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/)-object dat de originele en vervangende lettertype­namen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving en [extern geladen lettertypen](/slides/nl/net/custom-font/). Substitutieregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) wijzigen de gerenderde output maar worden niet weergegeven in het resultaat.
 
 Dezelfde substitutie kan door meer dan één geselecteerde dia worden vereist. Dedupliceer de resultaten wanneer u een lettertype‑inventaris of pre‑flight‑rapport maakt. Het volgende voorbeeld rapporteert elke geretourneerde substitutie en maakt vervolgens een gesorteerde lijst van unieke lettertype‑toewijzingen:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-De [IFontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/)-interface biedt beide overloads. Kies er één op basis van de reikwijdte van de render‑operatie:
+De [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/)-interface biedt beide overloads. Kies er één op basis van de reikwijdte van de render‑operatie:
 
 | Overload | Wanneer gebruiken |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/) zonder argumenten | U heeft substituties nodig voor de volledige presentatie. |
-| [GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/) met `int[] slides` | U heeft substituties nodig voor een geselecteerd bereik, incrementele controle, of gedeeltelijke export. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) zonder argumenten | U heeft substituties nodig voor de volledige presentatie. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) met `int[] slides` | U heeft substituties nodig voor een geselecteerd bereik, incrementele controle, of gedeeltelijke export. |
 
 ## **Lettertype‑substitutieregels instellen**
 
@@ -94,9 +94,9 @@ Om het lettertype op te geven dat Aspose.Slides moet gebruiken wanneer een bronl
 
 1. Laad de presentatie.
 2. Maak lettertype‑definities voor het bron‑ en het vervangende lettertype.
-3. Maak een [FontSubstRule](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsubstrule/) met de [WhenInaccessible](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsubstcondition/)‑voorwaarde.
-4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsubstrulecollection/).
-5. Wijs de collectie toe aan de eigenschap [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+3. Maak een [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) met de [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/)‑voorwaarde.
+4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).
+5. Wijs de collectie toe aan de eigenschap [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).
 6. Render of converteer de presentatie.
 
 Het volgende C#‑voorbeeld vervangt `Arial` door `SomeRareFont` wanneer `SomeRareFont` niet beschikbaar is, en rendert vervolgens de eerste dia om het resultaat te verifiëren. Het vervangende lettertype moet beschikbaar zijn voor Aspose.Slides.
@@ -160,4 +160,4 @@ Ja. Geïnstalleerde lettertypen en zoeklocaties voor lettertypen verschillen per
 
 **Hoe kan ik de lettertype‑selectie consistent houden bij batch‑conversies?**
 
-Gebruik dezelfde lettertype‑bestanden en -versies op elke machine of container, [laad vereiste externe lettertypen](/slides/nl/net/custom-font/), en [embed lettertypen](/slides/nl/net/embedded-font/) wanneer de licentie dit toelaat. U kunt ook [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/) aanroepen vóór export om onverwachte substituties te identificeren.
+Gebruik dezelfde lettertype‑bestanden en -versies op elke machine of container, [laad vereiste externe lettertypen](/slides/nl/net/custom-font/), en [embed lettertypen](/slides/nl/net/embedded-font/) wanneer de licentie dit toelaat. U kunt ook [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) aanroepen vóór export om onverwachte substituties te identificeren.

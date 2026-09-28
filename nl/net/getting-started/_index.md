@@ -62,7 +62,7 @@ Zonder licentie draait Aspose.Slides in evaluatiemodus: het voegt een watermerk 
 
 ## **Hulp krijgen**
 
-[Productondersteuning](/slides/nl/net/product-support/) legt uit hoe je een vraag stelt op het [gratis ondersteuningsforum](https://forum.aspose.com/c/slides/nl/11) en wat je moet vermelden wanneer je een probleem meldt.
+[Productondersteuning](/slides/nl/net/product-support/) legt uit hoe je een vraag stelt op het [gratis ondersteuningsforum](https://forum.aspose.com/c/slides/11) en wat je moet vermelden wanneer je een probleem meldt.
 
 ## **FAQ**
 

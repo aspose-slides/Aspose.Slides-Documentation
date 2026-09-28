@@ -123,7 +123,7 @@ De functies van Aspose.Slides voor .NET kunnen in de volgende groepen worden ond
 ## **Technische ondersteuning**
 Aspose biedt onbeperkte gratis technische ondersteuning voor al haar producten. De ondersteuning is beschikbaar voor alle gebruikers (ook voor gebruikers met evaluatie‑pakketten). Als u hulp nodig heeft bij Aspose.Slides voor .NET, overweeg dan het volgende:
 
-- Het belangrijkste kanaal voor ondersteuning is de [Aspose Forums](https://forum.aspose.com/). Plaats uw vraag in het [Aspose.Slides‑forum](https://forum.aspose.com/c/slides/nl/11) — en er wordt binnen enkele uren antwoord gegeven. Het Aspose.Slides‑ondersteuningsteam beantwoordt vragen die op het forum zijn geplaatst rechtstreeks.
+- Het belangrijkste kanaal voor ondersteuning is de [Aspose Forums](https://forum.aspose.com/). Plaats uw vraag in het [Aspose.Slides‑forum](https://forum.aspose.com/c/slides/11) — en er wordt binnen enkele uren antwoord gegeven. Het Aspose.Slides‑ondersteuningsteam beantwoordt vragen die op het forum zijn geplaatst rechtstreeks.
 - Let op dat Aspose geen technische ondersteuning via de telefoon biedt. Telefonische ondersteuning is alleen beschikbaar voor verkoop‑ en aankoopvragen.
 - Wanneer u een reactie op het forum verwacht, heb geduld en houd rekening met tijdzone‑verschillen.
 
@@ -143,10 +143,10 @@ Deze tabel geeft belangrijke technische bronnen voor Aspose.Slides voor .NET wee
 
 |**Bron**|**Beschrijving**|
 | :- | :- |
-|[Aspose.Slides voor .NET startpagina](https://products.aspose.com/slides/nl/net/)|Product‑startpagina.|
-|[Aspose.Slides‑blog](https://blog.aspose.com/category/slides/nl/)|Bekijk deze pagina regelmatig voor informatie over nieuwe releases en handige tips over Aspose.Slides.|
+|[Aspose.Slides voor .NET startpagina](https://products.aspose.com/slides/net/)|Product‑startpagina.|
+|[Aspose.Slides‑blog](https://blog.aspose.com/category/slides/)|Bekijk deze pagina regelmatig voor informatie over nieuwe releases en handige tips over Aspose.Slides.|
 |[Aspose.Slides voor .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download hier de nieuwste versie van Aspose.Slides. We brengen regelmatig nieuwe versies uit.|
-|[Aspose.Slides‑ondersteuningsforum](https://forum.aspose.com/c/slides/nl/11)|Plaats hier uw vragen en problemen voor een snelle oplossing.|
+|[Aspose.Slides‑ondersteuningsforum](https://forum.aspose.com/c/slides/11)|Plaats hier uw vragen en problemen voor een snelle oplossing.|
 |[Aspose.Slides voor .NET productdocumentatie](/slides/nl/net/)|Volledige online documentatie die dit document en de Aspose.Slides‑API‑referentie bevat.|
 
 ## **Vertrouwens‑niveau‑vereisten**
@@ -157,7 +157,7 @@ Op .NET Framework vereist Aspose.Slides volledige vertrouwen en draait het niet 
 
 ### Ondersteunt het PDF‑conformiteitsniveaus voor archivering en toegankelijkheid (PDF/A en PDF/UA)?
 
-Ja. U kunt opslaan naar PDF met PDF/A‑2a/2b/2u, PDF/A‑3a/3b, evenals PDF/UA door de [PDF‑exportopties](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/) te configureren.
+Ja. U kunt opslaan naar PDF met PDF/A‑2a/2b/2u, PDF/A‑3a/3b, evenals PDF/UA door de [PDF‑exportopties](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) te configureren.
 
 ### Is er een mechanisme voor lettertype‑substitutie en ondersteuning voor aangepaste lettertypen om correcte weergave te garanderen?
 
@@ -177,7 +177,7 @@ Ja, u kunt verschillende documenten parallel verwerken in afzonderlijke threads;
 
 ### Worden macro’s behouden en kan ik VBA beheren in PPTM/PPSM‑bestanden?
 
-Ja. Presentaties met macro’s [worden ondersteund](/slides/nl/net/presentation-via-vba/), en u kunt [VBA‑projecten inspecteren en beheren](https://reference.aspose.com/slides/nl/net/aspose.slides.vba/) in die bestanden.
+Ja. Presentaties met macro’s [worden ondersteund](/slides/nl/net/presentation-via-vba/), en u kunt [VBA‑projecten inspecteren en beheren](https://reference.aspose.com/slides/net/aspose.slides.vba/) in die bestanden.
 
 ### Kan ik PDF of HTML terug converteren naar PowerPoint‑dia’s?
 
@@ -185,7 +185,7 @@ Ja. U kunt [PDF‑pagina’s of HTML‑inhoud importeren](/slides/nl/net/import-
 
 ### Wordt XPS‑export ondersteund, en kan ik de kwaliteit en inhoud van de XPS‑output regelen?
 
-Ja. [Exporteren naar XPS](/slides/nl/net/convert-powerpoint-to-xps/) is beschikbaar, en [opslaan‑opties](https://reference.aspose.com/slides/nl/net/aspose.slides.export/xpsoptions/) laten u de output‑kwaliteit en inbegrepen inhoud afstemmen.
+Ja. [Exporteren naar XPS](/slides/nl/net/convert-powerpoint-to-xps/) is beschikbaar, en [opslaan‑opties](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) laten u de output‑kwaliteit en inbegrepen inhoud afstemmen.
 
 ### Kan ik dia’s naar afbeeldingen converteren en de output‑kwaliteit regelen?
 

@@ -22,7 +22,7 @@ description: "Waarom een OLE-object dat met Aspose.Slides voor .NET is toegevoeg
 ---
 ## **Introductie**
 
-Met Aspose.Slides voor .NET, wanneer je een [OleObjectFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/oleobjectframe/) aan een dia toevoegt, wordt er een "EMBEDDED OLE OBJECT"-bericht getoond op de gegenereerde dia. Dit bericht is opzettelijk en GEEN bug.
+Met Aspose.Slides voor .NET, wanneer je een [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) aan een dia toevoegt, wordt er een "EMBEDDED OLE OBJECT"-bericht getoond op de gegenereerde dia. Dit bericht is opzettelijk en GEEN bug.
 
 Voor meer informatie over het werken met OLE-objecten, zie [OLE beheren](/slides/nl/net/manage-ole/).
 
@@ -30,7 +30,7 @@ Voor meer informatie over het werken met OLE-objecten, zie [OLE beheren](/slides
 
 Aspose.Slides toont het "EMBEDDED OLE OBJECT"-bericht om je te laten weten dat het OLE-object is gewijzigd en dat de voorbeeldafbeelding moet worden bijgewerkt.
 
-Bijvoorbeeld, als je een Microsoft Excel-grafiek toevoegt als een [OleObjectFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/oleobjectframe/) aan een dia (voor meer details, zie het artikel "Manage OLE") en vervolgens de presentatie opent in Microsoft PowerPoint, zie je deze afbeelding op de dia:
+Bijvoorbeeld, als je een Microsoft Excel-grafiek toevoegt als een [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) aan een dia (voor meer details, zie het artikel "Manage OLE") en vervolgens de presentatie opent in Microsoft PowerPoint, zie je deze afbeelding op de dia:
 
 ![OLE-object bericht](OLE_object_message.png)
 

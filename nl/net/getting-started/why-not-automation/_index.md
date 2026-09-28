@@ -123,6 +123,6 @@ Onze teams staan altijd open en flexibel bij het bieden van ondersteuning — en
 
 Hoewel dit artikel enkele van de belangrijkste redenen heeft behandeld waarom Aspose‑componenten een betere keuze zijn dan Office‑Automatisering, moet u begrijpen dat er nog veel, veel meer voordelen zijn. We hebben alleen enkele van de belangrijkste voordelen besproken.
 
-Bovendien bieden alle Aspose‑producten en -componenten een risicovrije, vrijblijvende [Evaluatieversie](https://releases.aspose.com/slides/nl/net/). We moedigen u aan om van de evaluatie gebruik te maken om te zien wat Aspose voor uw applicaties of bedrijf kan betekenen.
+Bovendien bieden alle Aspose‑producten en -componenten een risicovrije, vrijblijvende [Evaluatieversie](https://releases.aspose.com/slides/net/). We moedigen u aan om van de evaluatie gebruik te maken om te zien wat Aspose voor uw applicaties of bedrijf kan betekenen.
 
 {{% /alert %}}

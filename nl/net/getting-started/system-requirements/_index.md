@@ -68,7 +68,7 @@ De Linux‑library van het pakket vereist de `fontconfig`‑library:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Zonder deze library mislukt het aanmaken van een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) met een `TypeInitializationException` waarvan de interne `DllNotFoundException` meldt dat `libfontconfig.so.1` niet geopend kan worden.
+Zonder deze library mislukt het aanmaken van een [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) met een `TypeInitializationException` waarvan de interne `DllNotFoundException` meldt dat `libfontconfig.so.1` niet geopend kan worden.
 
 Minimale basis‑images bevatten `fontconfig` soms ook niet. De AWS Lambda‑basis‑image voor .NET 8 bijvoorbeeld bevat noch `fontconfig` noch enige lettertypen. Installeer in een container‑image die hierop is gebaseerd `dnf install -y fontconfig`, waarmee ook de Noto Sans‑lettertypen worden geïnstalleerd.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Globalisatie‑ondersteuning**
 
-Beide pakketten hebben .NET‑globalisatie‑ondersteuning nodig, die .NET op Linux levert via de ICU‑libraries. In [globalization‑invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) leidt het aanmaken van een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) tot `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Beide pakketten hebben .NET‑globalisatie‑ondersteuning nodig, die .NET op Linux levert via de ICU‑libraries. In [globalization‑invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) leidt het aanmaken van een [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) tot `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Sommige container‑images schakelen deze modus in. De .NET‑runtime‑images voor Alpine Linux (`runtime-deps`, `runtime` en `aspnet`) stellen bijvoorbeeld `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` in en bevatten geen ICU. Installeer in een image die hierop is gebaseerd ICU en schakel de modus uit:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Het programma voegt een rechthoek met tekst toe aan de eerste dia en slaat de presentatie op als *hello.pptx* met de [Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/)‑methode. Vervolgens rendert het de dia met [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/getimage/) en slaat het resultaat op als *hello.png* met [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/) in het [ImageFormat.Png](https://reference.aspose.com/slides/nl/net/aspose.slides/imageformat/)-formaat. De schaalfactoren van 1 renderen één pixel per punt, dus de standaard 720 × 540‑punt dia wordt een 720 × 540‑pixel afbeelding, met de tekst zichtbaar binnen de rechthoek. Zonder licentie dragen beide bestanden een evaluatiewatermerk; zie [Licensing](/slides/nl/net/licensing/). Als een vereiste ontbreekt, stopt het programma met een van de in [Linux](#linux) beschreven excepties.
+Het programma voegt een rechthoek met tekst toe aan de eerste dia en slaat de presentatie op als *hello.pptx* met de [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)‑methode. Vervolgens rendert het de dia met [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) en slaat het resultaat op als *hello.png* met [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) in het [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/)-formaat. De schaalfactoren van 1 renderen één pixel per punt, dus de standaard 720 × 540‑punt dia wordt een 720 × 540‑pixel afbeelding, met de tekst zichtbaar binnen de rechthoek. Zonder licentie dragen beide bestanden een evaluatiewatermerk; zie [Licensing](/slides/nl/net/licensing/). Als een vereiste ontbreekt, stopt het programma met een van de in [Linux](#linux) beschreven excepties.
 
 ## **Ontwikkel­tools**
 

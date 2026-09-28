@@ -59,7 +59,7 @@ Maak een map met de naam *HelloSlidesDocker* en voeg de onderstaande drie bestan
 </Project>
 ```
 
-*Program.cs* maakt een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/), voegt een rechthoek met tekst toe aan de eerste dia, en slaat de presentatie twee keer op met de [Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/)‑methode: als PPTX en als PDF. Beide bestanden worden naar de *output*‑map onder de werkmap geschreven. De applicatie lijst vervolgens de lettertypen op die werden vervangen tijdens het renderen van de PDF, via [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/), zodat je kunt zien of de container de lettertypen heeft die de presentatie gebruikt.
+*Program.cs* maakt een [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), voegt een rechthoek met tekst toe aan de eerste dia, en slaat de presentatie twee keer op met de [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)‑methode: als PPTX en als PDF. Beide bestanden worden naar de *output*‑map onder de werkmap geschreven. De applicatie lijst vervolgens de lettertypen op die werden vervangen tijdens het renderen van de PDF, via [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), zodat je kunt zien of de container de lettertypen heeft die de presentatie gebruikt.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ De Alpine‑fase installeert drie pakketten en wijzigt één instelling:
 - `font-dejavu` levert lettertypen. Zonder enige lettertype stopt de conversie met `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` en `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` leveren cultuurspecificaties. De Alpine‑.NET‑images draaien standaard in globalisatie‑invariante modus, en in die modus stopt Aspose.Slides met een `CultureNotFoundException` voor `en-US`.
 
-Bouw, start en kopieer de output met dezelfde commando’s als hierboven. Op deze image geeft de applicatie alleen de `Saved`‑regel weer: met Aspose.Slides.NET op Linux kiest fontconfig een vervanging voor een missend lettertype, en [GetSubstitutions](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontsmanager/getsubstitutions/) vermeldt deze niet. [Lettertypen implementeren](/slides/nl/net/deploy-fonts/) laat zien hoe je kunt controleren welk lettertype gebruikt wordt.
+Bouw, start en kopieer de output met dezelfde commando’s als hierboven. Op deze image geeft de applicatie alleen de `Saved`‑regel weer: met Aspose.Slides.NET op Linux kiest fontconfig een vervanging voor een missend lettertype, en [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) vermeldt deze niet. [Lettertypen implementeren](/slides/nl/net/deploy-fonts/) laat zien hoe je kunt controleren welk lettertype gebruikt wordt.
 
 ## **FAQ**
 
