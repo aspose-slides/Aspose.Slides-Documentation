@@ -13,7 +13,7 @@ description: "متوجه شوید نسخه ارزیابی Aspose.Slides برای
 ---
 ## **نسخه ارزیابی**
 
-شما می‌توانید Aspose.Slides برای Reporting Services را برای ارزیابی از [صفحه دانلود آن](https://releases.aspose.com/slides/fa/reportingservices/) دریافت کنید. دانلود ارزیابی همان دانلود خریداری شده است. وقتی یک فایل مجوز را به سرور گزارش کپی کنید، نسخه دارای لایسنس می‌شود — بدون نیاز به کد؛ برای جزئیات به [Licensing](/slides/fa/reportingservices/license-aspose-slides-for-reporting-services/) مراجعه کنید.
+شما می‌توانید Aspose.Slides برای Reporting Services را برای ارزیابی از [صفحه دانلود آن](https://releases.aspose.com/slides/reportingservices/) دریافت کنید. دانلود ارزیابی همان دانلود خریداری شده است. وقتی یک فایل مجوز را به سرور گزارش کپی کنید، نسخه دارای لایسنس می‌شود — بدون نیاز به کد؛ برای جزئیات به [Licensing](/slides/fa/reportingservices/license-aspose-slides-for-reporting-services/) مراجعه کنید.
 
 نسخه ارزیابی (بدون مجوز) تمام عملکردهای محصول را فراهم می‌کند، اما یک واترمارک ارزیابی به ارائه‌های صادر شده اضافه می‌کند.
 

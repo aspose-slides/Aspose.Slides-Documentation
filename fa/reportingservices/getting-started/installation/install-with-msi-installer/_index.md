@@ -15,7 +15,7 @@ description: "Aspose.Slides برای خدمات گزارش‌دهی را با ن
 
 نصب‌کننده MSI ساده‌ترین راه برای نصب Aspose.Slides for Reporting Services است. این برنامه به .NET Framework 3.5 و حقوق مدیر بر روی سرور گزارش نیاز دارد؛ مراجعه کنید به [نیازمندی‌های سیستم](/slides/fa/reportingservices/system-requirements/).
 
-1. نرم‌افزار نصب MSI، *Aspose.Slides for Reporting Services XX.XX* را از [صفحه دانلود](https://releases.aspose.com/slides/fa/reportingservices/) دانلود کنید و آن را به سرور گزارش کپی کنید.
+1. نرم‌افزار نصب MSI، *Aspose.Slides for Reporting Services XX.XX* را از [صفحه دانلود](https://releases.aspose.com/slides/reportingservices/) دانلود کنید و آن را به سرور گزارش کپی کنید.
 2. به عنوان کاربر مدیر اجرا کنید. اگر .NET Framework 3.5 موجود نباشد، نصب‌کننده با پیامی متوقف می‌شود؛ ویژگی‌های .NET Framework 3.5 را نصب کنید و دوباره اجرا کنید.
 3. توافق‌نامهٔ مجوز را بپذیرید.
 4. در صفحه **Custom Setup**، درخت ویژگی‌ها هر نمونهٔ SQL Server Reporting Services و Power BI Report Server را که نصب‌کننده روی ماشین شناسایی می‌کند لیست می‌کند. برای اینکه یک نمونه بدون تغییر بماند، روی آیکون آن کلیک کنید و **Entire feature will be unavailable** را انتخاب کنید. نسخه‌های Express از افزونه‌های رندرینگ پشتیبانی نمی‌کنند، بنابراین نمونهٔ Express را انتخاب نکنید. نصب‌کننده نمونه‌های Express سرور SQL Server 2016 و قبلی را مخفی می‌کند.

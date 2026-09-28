@@ -63,12 +63,12 @@ Aspose.Slides برای سرویس‌های گزارش‌دهی یک افزونه
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/fa/reportingservices/release-notes/">یادداشت‌های انتشار</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/reportingservices/">دانلود</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">دانلود</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">پشتیبانی تجاری</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides برای سرویس‌های گزارش‌دهی یک افزونه
 نیازی به نوشتن کد نیست: افزونه را روی سرور گزارش نصب می‌کنید و فرمت‌های آن در فهرست صادرات هر گزارش صفحه‌بندی‌شده روی آن سرور ظاهر می‌شوند.
 
 1. بررسی کنید که سرور گزارش الزامات [نیازمندی‌های سیستم](/slides/fa/reportingservices/system-requirements/) را برآورده می‌کند، شامل .NET Framework 3.5.  
-1. از [صفحه دانلود](https://releases.aspose.com/slides/fa/reportingservices/)، نصب‌کننده MSI، *Aspose.Slides برای سرویس‌های گزارش‌دهی* را دانلود کنید. برای نصب دستی، بسته ZIP، *Aspose.Slides برای سرویس‌های گزارش‌دهی (فقط DLLها)* را دانلود کنید.  
+1. از [صفحه دانلود](https://releases.aspose.com/slides/reportingservices/)، نصب‌کننده MSI، *Aspose.Slides برای سرویس‌های گزارش‌دهی* را دانلود کنید. برای نصب دستی، بسته ZIP، *Aspose.Slides برای سرویس‌های گزارش‌دهی (فقط DLLها)* را دانلود کنید.  
 1. افزونه را روی سرور گزارش نصب کنید: MSI را به عنوان مدیر اجرا کنید، همان‌طور که در [نصب با MSI installer](/slides/fa/reportingservices/install-with-msi-installer/) توضیح داده شده است، یا برای بسته ZIP، [نصب دستی](/slides/fa/reportingservices/install-manually/) را دنبال کنید.  
 1. در مرورگر، پورتال وب سرور گزارش را باز کنید (Report Manager در SQL Server 2014 و قبل از آن). به‌ طور پیش‌فرض، آدرس آن `https://<ComputerName>/reports` است.  
 1. یک گزارش صفحه‌بندی‌شده باز کنید. در نوار ابزار گزارش، فهرست **Export** را باز کنید و **PPTX - PowerPoint 2007 Presentation via Aspose.Slides** را انتخاب کنید. اگر نوار ابزار دکمهٔ جداگانهٔ **Export** دارد، همان‌طور که Report Manager دارد، آن را انتخاب کنید.  

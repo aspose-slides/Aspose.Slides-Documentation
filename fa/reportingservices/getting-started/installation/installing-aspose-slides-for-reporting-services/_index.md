@@ -16,7 +16,7 @@ description: "نحوه نصب Aspose.Slides for Reporting Services را بر ر�
 
 Aspose.Slides for Reporting Services بر روی سرور گزارش نصب می‌شود. قبل از شروع، [نیازمندی‌های سیستم](/slides/fa/reportingservices/system-requirements/) را بررسی کنید.
 
-[صفحه دانلود](https://releases.aspose.com/slides/fa/reportingservices/) برای هر نسخه دو بسته ارائه می‌دهد:
+[صفحه دانلود](https://releases.aspose.com/slides/reportingservices/) برای هر نسخه دو بسته ارائه می‌دهد:
 
 - **Aspose.Slides for Reporting Services XX.XX** — یک نصب‌کننده MSI. این ابزار نمونه‌های سرور گزارش را روی ماشین شناسایی می‌کند، پسوند را به نمونه‌های انتخابی شما کپی می‌کند و فایل‌های پیکربندی آن‌ها را به‌روزرسانی می‌کند. برای جزئیات به [نصب با نصب‌کننده MSI](/slides/fa/reportingservices/install-with-msi-installer/) مراجعه کنید.
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — یک بسته ZIP برای نصب دستی: یک اسمبلی را کپی می‌کنید و دو فایل پیکربندی را ویرایش می‌کنید. برای جزئیات به [نصب به‌صورت دستی](/slides/fa/reportingservices/install-manually/) مراجعه کنید.

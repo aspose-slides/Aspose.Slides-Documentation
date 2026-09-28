@@ -14,7 +14,7 @@ description: "Aspose.Slides برای Reporting Services را به صورت دس�
 ---
 ## **نمای کلی**
 
-برای نصب Aspose.Slides برای Reporting Services بدون استفاده از MSI installer، از بسته ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* موجود در [صفحه دانلود](https://releases.aspose.com/slides/fa/reportingservices/) پیروی کنید. این‌ها همان افزونه‌ها را همانند [MSI installer](/slides/fa/reportingservices/install-with-msi-installer/) ثبت می‌کنند. این مراحل را برای هر نمونه سرور گزارش تکرار کنید.
+برای نصب Aspose.Slides برای Reporting Services بدون استفاده از MSI installer، از بسته ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* موجود در [صفحه دانلود](https://releases.aspose.com/slides/reportingservices/) پیروی کنید. این‌ها همان افزونه‌ها را همانند [MSI installer](/slides/fa/reportingservices/install-with-msi-installer/) ثبت می‌کنند. این مراحل را برای هر نمونه سرور گزارش تکرار کنید.
 
 قبل از شروع، [نیازهای سیستم](/slides/fa/reportingservices/system-requirements/) را بررسی کنید. برای سرور گزارش نیاز به حقوق مدیر محلی دارید.
 
