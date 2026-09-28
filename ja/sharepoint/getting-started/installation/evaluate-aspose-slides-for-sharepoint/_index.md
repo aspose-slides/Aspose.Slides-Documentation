@@ -11,7 +11,7 @@ description: "Aspose.Slides for SharePoint を通常のダウンロードで評�
 
 {{% /alert %}}
 
-Aspose.Slides for SharePoint の評価版と有料版は同じダウンロードです。[Aspose.Slides for SharePoint をダウンロード](https://releases.aspose.com/slides/ja/sharepoint/)、[インストール](/slides/ja/sharepoint/installing-aspose-slides-for-sharepoint/)、デフォルトで評価モードで動作します。
+Aspose.Slides for SharePoint の評価版と有料版は同じダウンロードです。[Aspose.Slides for SharePoint をダウンロード](https://releases.aspose.com/slides/sharepoint/)、[インストール](/slides/ja/sharepoint/installing-aspose-slides-for-sharepoint/)、デフォルトで評価モードで動作します。
 
 評価モードでは、変換されたドキュメントに評価用の透かしが付加されます。ライセンスを購入したら、評価版にインストールしたライセンスソリューションを上書きインストールしてください。[Aspose.Slides for SharePoint ライセンスのインストール](/slides/ja/sharepoint/installing-aspose-slides-for-sharepoint-license/)、Aspose.Slides for SharePoint はライセンスモードで動作します。
 

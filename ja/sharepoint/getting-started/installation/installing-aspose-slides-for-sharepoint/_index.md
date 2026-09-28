@@ -7,7 +7,7 @@ description: "SharePoint ファームに Aspose.Slides for SharePoint をイン�
 ---
 ## **パッケージ内容**
 
-Aspose.Slides for SharePoint は [download page](https://releases.aspose.com/slides/ja/sharepoint/) から ZIP アーカイブとしてダウンロードされます。アーカイブにはサポートされている各 SharePoint バージョン用の SharePoint ソリューション パッケージ (WSP) とセットアップ プログラムが 1 つずつ含まれています。
+Aspose.Slides for SharePoint は [download page](https://releases.aspose.com/slides/sharepoint/) から ZIP アーカイブとしてダウンロードされます。アーカイブにはサポートされている各 SharePoint バージョン用の SharePoint ソリューション パッケージ (WSP) とセットアップ プログラムが 1 つずつ含まれています。
 
 | SharePoint version | Setup program | Solution package |
 | :- | :- | :- |

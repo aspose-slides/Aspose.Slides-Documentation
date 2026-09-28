@@ -57,12 +57,12 @@ PPT および PPTX ファイルを PDF、TIFF、XPS、HTML、SWF、ODP に、ま
 <hr>
 <p>参照</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ja/sharepoint/release-notes/">リリースノート</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/sharepoint/">ダウンロード</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">リリースノート</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートヘルプデスク</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ PPT および PPTX ファイルを PDF、TIFF、XPS、HTML、SWF、ODP に、ま
 
 Aspose.Slides for SharePoint はファームに一度インストールされ、アクティブ化された任意のドキュメント ライブラリから使用できます：
 
-1. [download page](https://releases.aspose.com/slides/ja/sharepoint/) から ZIP アーカイブをダウンロードし、SharePoint ファーム内のサーバーに解凍します。
+1. [download page](https://releases.aspose.com/slides/sharepoint/) から ZIP アーカイブをダウンロードし、SharePoint ファーム内のサーバーに解凍します。
 2. SharePoint のバージョンに合わせたセットアップ プログラムを実行します：*Setup2007.exe*、*Setup2010.exe*、*Setup2013.exe*、*Setup2016.exe* または *Setup2019.exe*。SharePoint ソリューションをインストールおよび展開できるアカウントを使用してください。ライセンス契約に同意し、機能を有効化するサイト コレクションを選択し、セットアップにソリューションの展開を任せます。各画面の説明は[Installation](/slides/ja/sharepoint/installing-aspose-slides-for-sharepoint/)にあります。
 3. それらのサイト コレクションのいずれかでドキュメント ライブラリを開き、PPT または PPTX ファイルのメニューを開き、**Convert via Aspose.Slides** を選択します。SharePoint 2007 ではメニュー項目は **Convert with Aspose.Slides** という名前です。
 4. **Convert to** の下で **PDF - Adobe Portable Document** を選択します。必要に応じて宛先ファイル名とフォルダーを変更し、**Convert** をクリックします。

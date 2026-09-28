@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint は次の入力形式を変換します。
 
 {{% alert color="info" title="Note" %}}
 
-ドキュメントを変換するには、Aspose.Slides for SharePoint は組み込みの [Aspose.Slides for .NET](https://products.aspose.com/slides/ja/net/) を利用します。
+ドキュメントを変換するには、Aspose.Slides for SharePoint は組み込みの [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) を利用します。
 
 {{% /alert %}}
 

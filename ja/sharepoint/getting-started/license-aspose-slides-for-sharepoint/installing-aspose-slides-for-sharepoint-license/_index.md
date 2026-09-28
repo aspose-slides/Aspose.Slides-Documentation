@@ -7,7 +7,7 @@ description: "SharePoint ファームに Aspose.Slides for SharePoint のライ�
 ---
 {{% alert color="info" title="Note" %}}
 
-評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/ja/sharepoint/)できます。購入前に、ライセンスのサブスクリプション条件を理解し、同意していることをご確認ください。注文が支払われると、ライセンスはメールで送信されます。
+評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/pricing/slides/sharepoint/)できます。購入前に、ライセンスのサブスクリプション条件を理解し、同意していることをご確認ください。注文が支払われると、ライセンスはメールで送信されます。
 
 ライセンスは通常の SharePoint ソリューション パッケージを含む ZIP アーカイブです。アーカイブには以下が含まれます:
 
