@@ -7,7 +7,7 @@ description: "選取與您的 JasperReports 版本相符的 Aspose.Slides for Ja
 ---
 ## **選擇適用於您的 JasperReports 版本的 JAR 檔案**
 
-Aspose.Slides for JasperReports 以 ZIP 檔案形式提供，位於[下載頁面](https://releases.aspose.com/slides/zh-hant/jasperreport/)。其 *lib* 資料夾依 JasperReports 版本區間有一個子資料夾。請從符合您使用的 JasperReports 版本的子資料夾取得 JAR 檔案：
+Aspose.Slides for JasperReports 以 ZIP 檔案形式提供，位於[下載頁面](https://releases.aspose.com/slides/jasperreport/)。其 *lib* 資料夾依 JasperReports 版本區間有一個子資料夾。請從符合您使用的 JasperReports 版本的子資料夾取得 JAR 檔案：
 
 | JasperReports 版本 | *lib* 子資料夾 |
 | :- | :- |

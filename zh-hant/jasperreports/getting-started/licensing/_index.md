@@ -7,9 +7,9 @@ description: "了解 Aspose.Slides for JasperReports 評估版在匯出檔案中
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports 可於[download page](https://releases.aspose.com/slides/zh-hant/jasperreport/)免費且時間無限制地評估。評估版與授權版使用相同的下載檔案。
+Aspose.Slides for JasperReports 可於[download page](https://releases.aspose.com/slides/jasperreport/)免費且時間無限制地評估。評估版與授權版使用相同的下載檔案。
 
-當您對評估滿意時，[buy a license](https://purchase.aspose.com/pricing/slides/zh-hant/jasperreports/)。請確保您已了解並同意訂閱條款。
+當您對評估滿意時，[buy a license](https://purchase.aspose.com/pricing/slides/jasperreports/)。請確保您已了解並同意訂閱條款。
 
 授權於訂單完成付款後可從訂單頁面下載。授權是一個純文字、經數位簽名的 XML 檔案，內含客戶名稱、購買的產品與授權類型等資訊。切勿以任何方式修改授權檔案內容：這會使授權失效。
 
