@@ -1,40 +1,41 @@
 ---
-title: Declaration
+title: Trust Level Requirements
 type: docs
-weight: 110
+weight: 190
 url: /net/declaration/
 keywords:
-- declaration
-- components
+- trust level
 - Full Trust permission
-- registry settings
-- system files
+- partial trust
+- Medium Trust
+- code access security
+- ASP.NET
+- .NET Framework
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn about Aspose.Slides for .NET trust requirements, permissions, and hosting limitations so you can safely deploy apps that process PPT, PPTX and ODP on servers."
+description: "Which code access security trust level Aspose.Slides for .NET needs: full trust on .NET Framework, and no trust setting on .NET 6 and later."
 ---
 
-{{% alert color="info" %}} 
+## **Overview**
 
-All Aspose .NET components require the Full Trust permission set because they sometimes have to access registry settings, system files, and files stored in other locations (besides the virtual directory) for certain operations (parsing fonts, for example). Moreover, Aspose .NET Components are based on core .NET system classes, which require the Full Trust permission set in many cases. 
+Code access security (CAS) trust levels exist only in .NET Framework. This article explains what they mean for Aspose.Slides for .NET: the library needs full trust on .NET Framework, and on .NET 6 and later there is no trust level to configure.
 
-{{% /alert %}} 
+## **.NET Framework**
 
-Internet Service Providers, which host multiple applications from different companies, mostly enforce the Medium Trust security level. In a .NET 2.0 case, such a security level applies these constraints: 
+Aspose.Slides requires full trust on .NET Framework. It does not run under partial trust, such as an ASP.NET application configured for Medium Trust (`<trust level="Medium" />`): creating a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) object fails with a `SecurityException`.
 
-- OleDbPermission is not available. This means you cannot use the ADO.NET managed OLE DB data provider to access databases.
-- EventLogPermission is not available. This means you cannot access the Windows event log.
-- ReflectionPermission is not available. This means you cannot use reflection.
-- RegistryPermission is not available. This means you cannot access the registry.
-- WebPermission is restricted. This means your application can only communicate with an address or the range of addresses that you defined in the <trust> element.
-- FileIOPermission is restricted. This means you can only access files in your application's virtual directory hierarchy.
+Microsoft no longer treats ASP.NET partial trust as a way to isolate applications from each other, and recommends running applications in separate application pools instead. See [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 
-{{% alert color="info" %}} 
+## **.NET 6 and Later**
 
-Due to the reasons above, Aspose .NET components can only be used on servers that grant the Full Trust permission set. 
+Code access security is not available on .NET 6 and later, so there is no trust level to grant. Aspose.Slides runs with the permissions of the account that runs your application. To restrict what an application can access, Microsoft recommends operating-system boundaries, such as user accounts, containers, or virtual machines. See [Code access security (CAS)](https://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#code-access-security-cas).
 
-{{% /alert %}}
+## **FAQ**
+
+**Can I use Aspose.Slides with a hosting provider that runs ASP.NET applications in Medium Trust?**
+
+Not in Medium Trust. On .NET Framework, the application that uses Aspose.Slides must run with full trust.

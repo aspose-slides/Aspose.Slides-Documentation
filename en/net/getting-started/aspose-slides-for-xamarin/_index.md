@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides for Xamarin
+title: Aspose.Slides for Xamarin (Historical)
+linktitle: Xamarin (Historical)
 type: docs
-weight: 150
+weight: 200
 url: /net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,20 +14,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Build Xamarin mobile apps in C# to view, edit, and convert presentations with Aspose.Slides, supporting rich features for PPT, PPTX and ODP on Android."
+description: "Historical: how Aspose.Slides for .NET versions 20.2 to 22.10 supported Xamarin.Android through a separate library. Current versions do not include it."
 ---
+
+{{% alert color="info" title="Note" %}}
+
+This is a historical page. Versions 20.2 to 22.10 of the Aspose.Slides.NET package included a separate Xamarin.Android library, *Aspose.Slides.Droid.dll*, which the code on this page uses. Later versions do not include it: the current package contains builds for .NET Framework 4.6.2, .NET 6, and .NET Standard 2.0 only. Microsoft ended support for all Xamarin SDKs on May 1, 2024; see the [Xamarin support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
+
+{{% /alert %}}
 
 ## **Introduction**
 
-Xamarin is a framework used for mobile development in .NET C#. Xamarin has tools and libraries that extend the capabilities of the .NET platform. It allows developers to build applications for the **Android** operating system. 
+Xamarin is a framework used for mobile development in .NET C#. Xamarin has tools and libraries that extend the capabilities of the .NET platform. It allows developers to build applications for the **Android** operating system.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
 
 {{% /alert %}}
 
-Aspose.Slides API works on the Xamarin platform. To achieve this, the Aspose.Slides .NET package adds a separate DLL for Xamarin. Aspose.Slides for Xamarin supports most of the features available in the .NET version:
+Aspose.Slides API worked on the Xamarin platform. To achieve this, the Aspose.Slides.NET package, in versions 20.2 to 22.10, added a separate DLL for Xamarin. Aspose.Slides for Xamarin supported most of the features available in the .NET version:
 
 - converting and viewing presentations.
 - editing contents in presentations: text, shapes, charts, SmartArt, audio/video, fonts, etc.
@@ -36,26 +43,26 @@ Aspose.Slides API works on the Xamarin platform. To achieve this, the Aspose.Sli
 
 We provided a comparison of the full features in another section close to the bottom of this page.
 
-In Aspose.Slides for Xamarin API, the classes, namespaces, logic, and behavior are as similar as possible to the .NET version. You can migrate your Aspose.Slides .NET applications to Xamarin with minimal costs.
+In Aspose.Slides for Xamarin API, the classes, namespaces, logic, and behavior were as similar as possible to the .NET version. You could migrate your Aspose.Slides .NET applications to Xamarin with minimal costs.
 
 
 ## **Quick Example**
-You can use Aspose.Slides for Xamarin to build and utilize your C# application through Slides for Android.
+You could use Aspose.Slides for Xamarin to build and utilize your C# application through Slides for Android.
 
 We are providing an example of Android via Xamarin application that uses Aspose.Slides to display presentation slides and adds a new shape on the slide on touch. You can find the full source of the examples on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Let’s start by creating a Xamarin Android App:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Creating a Xamarin Android app](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
 First, we create a content layout that will contain an image view, Prev, and Next buttons:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Content layout with an image view and Prev and Next buttons](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 
 
 **XML - content_main.xml - Create content layout**
-``` 
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -270,7 +277,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -294,7 +301,7 @@ Finally, let’s implement a function to add an ellipse shape on a touch on the 
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -317,7 +324,7 @@ Finally, let’s implement a function to add an ellipse shape on a touch on the 
 
 Each click on the presentation slide causes a random colored ellipse to be added:
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+![Slide with ellipses added by touch](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 
 ## **Supported Features**
@@ -401,4 +408,3 @@ Each click on the presentation slide causes a random colored ellipse to be added
 |**Animation Features:** | | |
 |Export animation to SWF |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Export animation to HTML |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-

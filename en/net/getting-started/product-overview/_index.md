@@ -1,7 +1,7 @@
 ---
 title: Product Overview
 type: docs
-weight: 10
+weight: 92
 url: /net/product-overview/
 keywords:
 - product overview
@@ -34,12 +34,12 @@ With Aspose.Slides, developers can open presentations from different sources, sa
 
 ## **Why You Should Use Aspose.Slides for .NET**
 
-- Aspose.Slides for .NET is the first and only component that provides the functionalities required to manage PowerPoint® documents. 
-- Aspose.Slides for .NET offers a lot of key features such as managing texts, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and other formats, and many more capabilities. 
-- Aspose.Slides for .NET not only lets you open PowerPoint files from different sources but also allows you to save your presentations in a variety of ways. For example, you can save your presentations in PPT; you can also save your slides as images. 
+- Aspose.Slides for .NET is the first and only component that provides the functionalities required to manage PowerPoint® documents.
+- Aspose.Slides for .NET offers a lot of key features such as managing texts, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and other formats, and many more capabilities.
+- Aspose.Slides for .NET not only lets you open PowerPoint files from different sources but also allows you to save your presentations in a variety of ways. For example, you can save your presentations in PPT; you can also save your slides as images.
 
-- Aspose.Slides for .NET gives you almost all the features you may or may not find in Microsoft PowerPoint. Given the versatility of Aspose.Slides for .NET, besides tables and different kinds of shapes, you get to use it to add different kinds of frames—text, audio, and video frames—to your slides. 
-- Aspose.Slides for .NET is developed using Managed C#. You can use Aspose.Slides for .NET with any .NET language like C#, VB.NET, J#, etc. Aspose.Slides for .NET can also be used with any kind of application—web or Windows application. 
+- Aspose.Slides for .NET gives you almost all the features you may or may not find in Microsoft PowerPoint. Given the versatility of Aspose.Slides for .NET, besides tables and different kinds of shapes, you get to use it to add different kinds of frames—text, audio, and video frames—to your slides.
+- Aspose.Slides for .NET is developed using Managed C#. You can use Aspose.Slides for .NET with any .NET language like C#, VB.NET, J#, etc. Aspose.Slides for .NET can also be used with any kind of application—web or Windows application.
 - Aspose.Slides for .NET also provides fully featured demos and working examples to help developers get a better understanding of the API.
 
 
@@ -126,17 +126,17 @@ Aspose provides unlimited free technical support for all its products. The suppo
 
 If you have an issue with Aspose.Slides for .NET, follow these guidelines to resolve it in the most efficient manner:
 
-- Check and confirm that you are using the latest Aspose.Slides for .NET version first before reporting the issue. Perhaps, the issue you experienced was already resolved in an update.  
+- Check and confirm that you are using the latest Aspose.Slides for .NET version first before reporting the issue. Perhaps, the issue you experienced was already resolved in an update.
 
   See [Aspose.Slides download](https://www.nuget.org/packages/Aspose.Slides.NET/) to get information on the latest product version.
 
-- Before reporting an issue, you may want to go through our forums, this documentation, and the API Reference. Perhaps, the answer to your question was provided already. 
+- Before reporting an issue, you may want to go through our forums, this documentation, and the API Reference. Perhaps, the answer to your question was provided already.
 
-- When reporting an issue, please include the original document and (if possible) a fragment of your code pertaining to the problem. If you need to attach multiple files, put them in a ZIP package. 
+- When reporting an issue, please include the original document and (if possible) a fragment of your code pertaining to the problem. If you need to attach multiple files, put them in a ZIP package.
 
   You can safely attach your documents in Aspose.Forums because only you and Aspose developers have access to the attached files.
 
-- Create and use one thread for a specific issue. If you experience another issue, you have to create another thread to report it. 
+- Create and use one thread for a specific issue. If you experience another issue, you have to create another thread to report it.
 
 This table lists important Aspose.Slides for .NET technical resources.
 
@@ -147,19 +147,9 @@ This table lists important Aspose.Slides for .NET technical resources.
 |[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download the latest version of Aspose.Slides here. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Post your questions and issues here for a speedy resolution.|
 |[Aspose.Slides for .NET product documentation](/slides/net/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|
-## **Declaration**
-All Aspose .NET components require the Full Trust permission set. The reason: Aspose .NET components need top privileges to access registry settings, system files, and virtual directories to execute certain operations like parsing of fonts and similar tasks. Moreover, Aspose .NET Components are based on the core .NET system classes, which also require the Full Trust permission set in many cases. 
+## **Trust Level Requirements**
 
-Internet Service Providers hosting multiple applications from different companies mostly enforce Medium Trust security level. In a case involving NET 2.0, that security level applies these constraints:
-
-- OleDbPermission is not available. This means you cannot use the ADO.NET managed OLE DB data provider to access databases.
-- EventLogPermission is not available. This means you cannot access the Windows event log.
-- ReflectionPermission is not available. This means you cannot use reflection.
-- RegistryPermission is not available. This means you cannot access the registry.
-- WebPermission is restricted. This means your application can only communicate with an address or the range of addresses that you defined in the <trust> element.
-- FileIOPermission is restricted. This means you can only access files in your application's virtual directory hierarchy.
-
-Due to the reasons above, Aspose .NET components can only be used on servers that grant the Full Trust permission set. 
+On .NET Framework, Aspose.Slides requires full trust and does not run under ASP.NET partial trust such as Medium Trust. On .NET 6 and later there is no trust level to configure. See [Trust Level Requirements](/slides/net/declaration/).
 
 ## **FAQ**
 

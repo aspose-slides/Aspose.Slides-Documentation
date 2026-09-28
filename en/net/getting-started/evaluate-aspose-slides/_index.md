@@ -1,7 +1,7 @@
 ---
 title: Evaluate Aspose.Slides
 type: docs
-weight: 120
+weight: 75
 url: /net/evaluate-aspose-slides/
 keywords:
 - evaluate Aspose.Slides

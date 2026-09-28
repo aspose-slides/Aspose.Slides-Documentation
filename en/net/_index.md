@@ -13,7 +13,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Start here: install Aspose.Slides for .NET, create a first presentation, and find the guides for common tasks, the API reference and support."
+description: "Start here: install Aspose.Slides for .NET, create a first presentation, and find the guides for common tasks, deployment and the API reference."
 is_root: true
 ---
 
@@ -35,11 +35,13 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 <ul>
 <li><a href="/slides/net/installation/">Installation</a></li>
 <li><a href="/slides/net/create-presentation/">Create your first presentation</a></li>
+<li><a href="/slides/net/system-requirements/">System requirements</a></li>
 <li><a href="/slides/net/getting-started/">Getting started guide</a></li>
 </ul>
 <p>EVALUATE</p>
 <ul>
 <li><a href="/slides/net/supported-file-formats/">Supported file formats</a></li>
+<li><a href="/slides/net/features-overview/">Features overview</a></li>
 <li><a href="/slides/net/evaluate-aspose-slides/">Trial limitations</a></li>
 <li><a href="/slides/net/licensing/">Licensing</a></li>
 </ul>
@@ -70,13 +72,21 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Reference &amp; Support</b></p>
+<p><b>Deploy &amp; Support</b></p>
 <hr>
+<p>DEPLOY</p>
+<ul>
+<li><a href="/slides/net/net6/">Cross-platform (.NET 6+)</a></li>
+<li><a href="/slides/net/how-to-run-aspose-slides-in-docker/">Run in Docker</a></li>
+<li><a href="/slides/net/deploy-fonts/">Fonts</a></li>
+<li><a href="/slides/net/security/">Security</a></li>
+</ul>
 <p>REFERENCE</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/net/">API reference</a></li>
 <li><a href="https://releases.aspose.com/slides/net/release-notes/">Release notes</a></li>
 <li><a href="/slides/net/known-issues/">Known issues</a></li>
+<li><a href="/slides/net/api-limitations/">Output metadata limitations</a></li>
 <li><a href="https://releases.aspose.com/slides/net/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
@@ -88,6 +98,8 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 </div>
 
 ------
+
+<a name="your-first-presentation"></a>
 
 ## **Your first presentation**
 

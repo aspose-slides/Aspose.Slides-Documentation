@@ -49,7 +49,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **Write the XML Output to a Stream**
 
-Use the stream overload of [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) when the XML must remain in memory or be passed to another component, such as a web service, storage provider, or XML processing pipeline. The following example writes the result to a [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) and rewinds it for subsequent reading:
+Use the stream overload of [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) when the XML must remain in memory or be passed to another component, such as a web service, storage provider, or XML processing pipeline. The following example writes the result to a [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) and rewinds it for subsequent reading:
 
 ```csharp
 using System.IO;
@@ -74,11 +74,11 @@ Choose the output format according to how the result will be used:
 | PowerPoint XML (`.xml`) | A PowerPoint XML Presentation | Inspecting structure, troubleshooting, comparing generated output, and XML-based integration |
 | PPT (`.ppt`) | A legacy binary presentation file | Compatibility with older PowerPoint workflows |
 | PPTX (`.pptx`) | An Office Open XML package containing multiple parts | Regular PowerPoint editing and presentation exchange |
-| PDF or TIFF | Fixed-layout pages or a multi-page image | Viewing, printing, and archiving |
+| PDF or TIFF | Fixed-layout pages or TIFF images | Viewing, printing, and archiving |
 | PNG, JPEG, or SVG | A rendered representation of an individual slide | Thumbnails, previews, and image assets |
 | HTML or HTML5 | Web-oriented presentation output | Browser viewing and web publishing |
 
-Unlike PPT and PPTX, XML output is primarily intended for inspection and data-oriented workflows. Unlike PDF, TIFF, HTML, and slide image formats, it represents presentation data rather than rendering slides as pages or visual assets. The [supported file formats](/slides/net/supported-file-formats/) table lists PowerPoint XML Presentation as a save-only format, so do not use it when a workflow must load the exported file back into Aspose.Slides for continued editing.
+Unlike PPT and PPTX, XML output is primarily intended for inspection and data-oriented workflows. Unlike PDF, TIFF, HTML, and slide image formats, it represents presentation data rather than rendering slides as pages or visual assets. The [supported file formats](/slides/net/supported-file-formats/) table lists every format that Aspose.Slides can load, import, save, or render.
 
 ## **FAQ**
 
@@ -88,11 +88,11 @@ No. PPTX is a package containing multiple Office Open XML parts, whereas `SaveFo
 
 **Can I save the XML output without creating a file on disk?**
 
-Yes. Pass a writable stream to [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). For example, use a [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) for in-memory processing.
+Yes. Pass a writable stream to [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). For example, use a [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) for in-memory processing.
 
 **Can Aspose.Slides load the exported XML file again?**
 
-No. PowerPoint XML Presentation is currently supported for saving but not for loading. Use PPTX or another supported presentation format when round-trip editing is required.
+Yes. Pass the XML file or a stream to the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) constructor. [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) then returns `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) reports `LoadFormat.Unknown` for this format, so do not use it to decide whether an XML file can be opened.
 
 **Does XML conversion render each slide as a page or image?**
 
