@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint převádí následující vstupní formáty:
 
 {{% alert color="info" title="Note" %}}
 
-Pro převod dokumentů Aspose.Slides for SharePoint spoléhá na vestavěnou verzi [Aspose.Slides for .NET](https://products.aspose.com/slides/cs/net/).
+Pro převod dokumentů Aspose.Slides for SharePoint spoléhá na vestavěnou verzi [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 

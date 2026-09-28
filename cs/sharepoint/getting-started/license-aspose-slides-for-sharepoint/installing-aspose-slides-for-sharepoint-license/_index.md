@@ -7,7 +7,7 @@ description: "Nainstalujte licenci Aspose.Slides pro SharePoint na farmu SharePo
 ---
 {{% alert color="info" title="Note" %}}
 
-Jakmile budete spokojeni s hodnocením, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cs/sharepoint/). Před nákupem se ujistěte, že rozumíte podmínkám předplatného licence a souhlasíte s nimi. Licence vám bude zaslána e‑mailem po zaplacení objednávky.
+Jakmile budete spokojeni s hodnocením, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/sharepoint/). Před nákupem se ujistěte, že rozumíte podmínkám předplatného licence a souhlasíte s nimi. Licence vám bude zaslána e‑mailem po zaplacení objednávky.
 
 Licence je archiv ZIP obsahující běžný balíček řešení SharePoint. Archiv obsahuje:
 

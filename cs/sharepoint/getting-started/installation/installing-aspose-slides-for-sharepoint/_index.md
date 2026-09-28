@@ -7,7 +7,7 @@ description: "Nainstalujte Aspose.Slides for SharePoint na farmu SharePoint: vyb
 ---
 ## **Obsah balíčku**
 
-Aspose.Slides for SharePoint se stahuje ze [stránky ke stažení](https://releases.aspose.com/slides/cs/sharepoint/) jako archiv ZIP. Archiv obsahuje jeden balíček řešení SharePoint (WSP) a jeden instalační program pro každou podporovanou verzi SharePoint:
+Aspose.Slides for SharePoint se stahuje ze [stránky ke stažení](https://releases.aspose.com/slides/sharepoint/) jako archiv ZIP. Archiv obsahuje jeden balíček řešení SharePoint (WSP) a jeden instalační program pro každou podporovanou verzi SharePoint:
 
 | Verze SharePoint | Instalační program | Balíček řešení |
 | :- | :- | :- |
