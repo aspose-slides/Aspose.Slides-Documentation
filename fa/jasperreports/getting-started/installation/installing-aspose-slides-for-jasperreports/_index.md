@@ -7,7 +7,7 @@ description: "جاروهای Aspose.Slides برای JasperReports که با نس
 ---
 ## **جاروهای مورد نیاز برای نسخه JasperReports خود را انتخاب کنید**
 
-Aspose.Slides for JasperReports به‌صورت یک فایل ZIP در [صفحه دانلود](https://releases.aspose.com/slides/fa/jasperreport/) توزیع می‌شود. پوشه *lib* آن یک زیرپوشه برای هر بازهٔ نسخهٔ JasperReports دارد. جاروها را از زیرپوشه‌ای بردارید که نسخهٔ JasperReports شما را پوشش می‌دهد:
+Aspose.Slides for JasperReports به‌صورت یک فایل ZIP در [صفحه دانلود](https://releases.aspose.com/slides/jasperreport/) توزیع می‌شود. پوشه *lib* آن یک زیرپوشه برای هر بازهٔ نسخهٔ JasperReports دارد. جاروها را از زیرپوشه‌ای بردارید که نسخهٔ JasperReports شما را پوشش می‌دهد:
 
 | نسخه JasperReports | زیرپوشه‌ی *lib* |
 | :- | :- |
