@@ -3,16 +3,15 @@ title: Evaluate Aspose.Slides
 type: docs
 weight: 80
 url: /jasperreports/evaluate-aspose-slides/
+description: "See what the evaluation version of Aspose.Slides for JasperReports adds to exported files, and how to export without it."
 ---
 
-You can easily download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download. The evaluation version simply becomes licensed when you add a few lines of code to apply the license.
+You can download Aspose.Slides for JasperReports for evaluation from the [download page](https://releases.aspose.com/slides/jasperreport/). The evaluation download is the same as the licensed one: it becomes licensed when you apply a license, as described in [Licensing](/slides/jasperreports/licensing/).
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save, and limits to one slide when extracting the text from presentation slides.
+Without a license, the exporters still export every page of the report, but they place an evaluation watermark at the center of each slide or page. The watermark reads "Evaluation only.", "Created with Aspose.Slides for JasperReports" followed by the product version, and a copyright line. It appears in all four output formats: PPT, PPTX, PDF and HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![A report exported without a license, with the evaluation watermark at the center of the slide](evaluate-aspose-slides_1.png)
 
-{{% alert color="info" %}} 
-
-If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+To test Aspose.Slides for JasperReports without the evaluation watermark, request a 30-day [temporary license](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}

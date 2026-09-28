@@ -3,39 +3,29 @@ title: Product Overview
 type: docs
 weight: 10
 url: /jasperreports/product-overview/
+description: "Learn what Aspose.Slides for JasperReports does, which JasperReports versions and output formats it supports, and what its two jars are for."
 ---
 
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Welcome to the Aspose.Slides for JasperReports!**
-
-Aspose.Slides for JasperReports is a library specially designed and developed for developers who need to easily export reports from JasperReports to Microsoft PowerPoint Presentation (PPT) and Microsoft PowerPoint Show (PPS) formats in their Java applications. All report features are converted with the highest degree of precision to Microsoft PowerPoint presentations. Aspose.Slides for JasperReports includes support for JasperReports 5+.
-
 ## **Product Description**
-JasperReports and JasperServer do not have built-in abilities to export reports as Microsoft PowerPoint presentations, but Aspose.Slides for JasperReports, gives you access to two additional export formats: 
 
-- PPT – PowerPoint Presentation via Aspose.Slides
-- PPS - PowerPoint Show via Aspose.Slides
-- PPTX – PowerPoint Presentation via Aspose.Slides
-- PPSX - PowerPoint Show via Aspose.Slides
+Aspose.Slides for JasperReports exports reports from JasperReports to PowerPoint presentations, in Java applications and in JasperReports Server, without Microsoft PowerPoint. It supports JasperReports 3.7.2 to 6.16.0, with a separate jar for each range of versions — see [Installing Aspose.Slides for JasperReports](/slides/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Aspose.Slides for JasperReports internally uses our 100% pure Java libraries Aspose.Slides for Java and Aspose.Metafiles for Java, world-class libraries for server-side presentations and metafiles processing.
+It exports a filled report to four formats, one slide or page per report page:
 
-Aspose.Slides for JasperReports makes it possible to export any report in PPT or PPS format.
+- PPT – PowerPoint 97–2003 presentation
+- PPTX – PowerPoint presentation (Office Open XML)
+- PDF
+- HTML
+
+The product has two parts:
+
+- The library jar adds the exporters `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` and `ASHtmlExporter` to JasperReports Library.
+- The server jar provides export actions for the same four formats, which you register in JasperReports Server — see [Integration with JasperServer](/slides/jasperreports/integration-with-jasperserver/).
 
 ### **Output Example**
-The ASPptExporter class extends the ASAbstractExporter class so it can be used in the same way as any other standard exporters. This short example shows typical code and screenshot of a report viewed in MS PowerPoint. Detailed examples can be found in the provided demo reports. 
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+The exporters extend JasperReports' own exporter classes and are used the same way: pass them the filled report and the output file, then call `exportReport`. For a complete program that fills a report and exports it to PPTX, see [Your first export](/slides/jasperreports/#your-first-export); for all four formats, see [PPT, PPTX, PDF and HTML Export](/slides/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**Presentation generated with JasperReports xmldatasource demo** 
-
-![Presentation generated with JasperReports](product-overview_2.png)
+![A report exported to a presentation without a license, with the evaluation watermark at the center of the slide](product-overview_2.png)
