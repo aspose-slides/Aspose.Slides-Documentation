@@ -76,7 +76,7 @@ No. PowerPoint no es necesario; Aspose.Slides es un motor independiente para cre
 
 **¿Cómo funciona el multihilo? ¿Se puede paralelizar el procesamiento?**
 
-Es seguro procesar documentos diferentes en hilos distintos; el mismo objeto [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/) no debe ser usado por [varios hilos](/slides/es/net/multithreading/) al mismo tiempo.
+Es seguro procesar documentos diferentes en hilos distintos; el mismo objeto [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) no debe ser usado por [varios hilos](/slides/es/net/multithreading/) al mismo tiempo.
 
 **¿Se admiten contraseñas de archivo y cifrado?**
 

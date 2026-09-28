@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-En Debian y Ubuntu, `libfontconfig1` también instala las fuentes DejaVu, por lo que el texto se muestra sin paquetes de fuentes adicionales. Sin `fontconfig`, la creación de una [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/) falla con una `TypeInitializationException` cuyo `DllNotFoundException` interno indica que no se puede abrir `libfontconfig.so.1`. [System Requirements](/slides/es/net/system-requirements/) incluye un programa breve que verifica la configuración.
+En Debian y Ubuntu, `libfontconfig1` también instala las fuentes DejaVu, por lo que el texto se muestra sin paquetes de fuentes adicionales. Sin `fontconfig`, la creación de una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) falla con una `TypeInitializationException` cuyo `DllNotFoundException` interno indica que no se puede abrir `libfontconfig.so.1`. [System Requirements](/slides/es/net/system-requirements/) incluye un programa breve que verifica la configuración.
 
 ## **Nube y hosts de contenedores**
 
@@ -68,7 +68,7 @@ Para guías específicas de plataformas cloud, consulte [Aspose.Slides on Cloud 
 
 Un proyecto que utiliza Aspose.Slides.NET6.CrossPlatform también puede referenciar System.Drawing.Common, ya sea directamente o a través de otro paquete. La versión actual de Aspose.Slides no expone tipos públicos en los espacios de nombres `System`, por lo que ambas bibliotecas no entran en conflicto y puede importar los espacios de nombres `Aspose.Slides` y `System.Drawing` en el mismo archivo.
 
-Si el compilador informa el error CS0433 porque un tipo como `Image` o `Graphics` existe tanto en Aspose.Slides como en System.Drawing.Common, su proyecto está usando una versión anterior de Aspose.Slides. Actualice el paquete a la última versión. Aspose.Slides devuelve imágenes renderizadas como objetos [IImage](https://reference.aspose.com/slides/es/net/aspose.slides/iimage/), que se describen en [Modern API](/slides/es/net/modern-api/).
+Si el compilador informa el error CS0433 porque un tipo como `Image` o `Graphics` existe tanto en Aspose.Slides como en System.Drawing.Common, su proyecto está usando una versión anterior de Aspose.Slides. Actualice el paquete a la última versión. Aspose.Slides devuelve imágenes renderizadas como objetos [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/), que se describen en [Modern API](/slides/es/net/modern-api/).
 
 ## **FAQ**
 

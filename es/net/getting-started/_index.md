@@ -62,7 +62,7 @@ Sin una licencia, Aspose.Slides se ejecuta en modo de evaluación: añade una ma
 
 ## **Obtener ayuda**
 
-[Soporte del producto](/slides/es/net/product-support/) explica cómo hacer una pregunta en el [foro de soporte gratuito](https://forum.aspose.com/c/slides/es/11) y qué incluir al informar de un problema.
+[Soporte del producto](/slides/es/net/product-support/) explica cómo hacer una pregunta en el [foro de soporte gratuito](https://forum.aspose.com/c/slides/11) y qué incluir al informar de un problema.
 
 ## **Preguntas frecuentes**
 

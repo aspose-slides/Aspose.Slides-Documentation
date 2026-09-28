@@ -110,5 +110,5 @@ Nuestros equipos están siempre abiertos y son flexibles al ofrecer asistencia, 
 {{% alert color="info" title="Note" %}}
 Aunque este artículo cubrió algunos de los puntos clave que explican por qué los componentes de Aspose son una mejor elección que la Automatización de Office, debe comprender que existen muchos, muchos más beneficios. Solo hemos repasado algunas de las principales ventajas.
 
-Además, todos los productos y componentes de Aspose ofrecen una [Versión de Evaluación](https://releases.aspose.com/slides/es/net/) sin riesgos y sin compromiso. Le animamos a aprovechar la evaluación para ver lo que Aspose puede hacer por sus aplicaciones o su negocio.
+Además, todos los productos y componentes de Aspose ofrecen una [Versión de Evaluación](https://releases.aspose.com/slides/net/) sin riesgos y sin compromiso. Le animamos a aprovechar la evaluación para ver lo que Aspose puede hacer por sus aplicaciones o su negocio.
 {{% /alert %}}

@@ -56,7 +56,7 @@ La siguiente aplicación de consola informa de las fuentes que Aspose.Slides sus
 </Project>
 ```
 
-*Program.cs* añade un cuadro de texto por cada nombre de fuente a una diapositiva y asigna la fuente mediante la propiedad [LatinFont](https://reference.aspose.com/slides/es/net/aspose.slides/baseportionformat/latinfont/). Los nombres de fuente provienen de la línea de comandos; sin argumentos, la aplicación comprueba Calibri, Arial y Times New Roman. Imprime las carpetas donde Aspose.Slides busca fuentes ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/es/net/aspose.slides/fontsloader/getfontfolders/)), renderiza la diapositiva a *output/fonts.pdf* y muestra las sustituciones reportadas por [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getsubstitutions/). Los dos pasos opcionales al inicio, cargar una carpeta *fonts* y leer una variable `DEFAULT_FONT`, se explican más adelante en este artículo.
+*Program.cs* añade un cuadro de texto por cada nombre de fuente a una diapositiva y asigna la fuente mediante la propiedad [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Los nombres de fuente provienen de la línea de comandos; sin argumentos, la aplicación comprueba Calibri, Arial y Times New Roman. Imprime las carpetas donde Aspose.Slides busca fuentes ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), renderiza la diapositiva a *output/fonts.pdf* y muestra las sustituciones reportadas por [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Los dos pasos opcionales al inicio, cargar una carpeta *fonts* y leer una variable `DEFAULT_FONT`, se explican más adelante en este artículo.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Cargar fuentes desde la carpeta de la aplicación**
 
-En lugar de instalar las fuentes en la imagen, puede enviarlas con la aplicación y cargarlas con [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/es/net/aspose.slides/fontsloader/loadexternalfonts/). Las fuentes estarán entonces disponibles solo para Aspose.Slides, y se despliegan junto con la aplicación. *FontCheck* hace esto: *FontCheck.csproj* copia la carpeta *fonts* a la salida de la aplicación, y *Program.cs* pasa esa carpeta a `LoadExternalFonts` antes de crear la presentación. [Fuente personalizada](/slides/es/net/custom-font/) describe otras formas de proporcionar fuentes, como cargarlas desde memoria.
+En lugar de instalar las fuentes en la imagen, puede enviarlas con la aplicación y cargarlas con [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Las fuentes estarán entonces disponibles solo para Aspose.Slides, y se despliegan junto con la aplicación. *FontCheck* hace esto: *FontCheck.csproj* copia la carpeta *fonts* a la salida de la aplicación, y *Program.cs* pasa esa carpeta a `LoadExternalFonts` antes de crear la presentación. [Fuente personalizada](/slides/es/net/custom-font/) describe otras formas de proporcionar fuentes, como cargarlas desde memoria.
 
 Reconstruya la imagen, luego compruebe Calibri y Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Establecer una fuente predeterminada para fuentes faltantes**
 
-Cuando falta una fuente, Aspose.Slides usa una sustitución que elige por sí mismo. Para elegirla usted, establezca la propiedad [DefaultRegularFont](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/defaultregularfont/) de [LoadOptions](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/) y pase las opciones al constructor de [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/). *FontCheck* lee el nombre de la fuente de la variable de entorno `DEFAULT_FONT`. Con Carlito cargado, úsela para fuentes faltantes:
+Cuando falta una fuente, Aspose.Slides usa una sustitución que elige por sí mismo. Para elegirla usted, establezca la propiedad [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) de [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) y pase las opciones al constructor de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* lee el nombre de la fuente de la variable de entorno `DEFAULT_FONT`. Con Carlito cargado, úsela para fuentes faltantes:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-La fuente predeterminada sustituye cada fuente faltante. Para asignar fuentes individuales, por ejemplo Arial a Liberation Sans y Calibri a Carlito, use [reglas de sustitución de fuentes](/slides/es/net/font-substitution/). Las reglas cambian la salida renderizada, pero `GetSubstitutions` no las refleja, así que compruebe las fuentes en el archivo de salida. Para texto asiático, establezca también [DefaultAsianFont](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/defaultasianfont/); consulte [Fuente predeterminada](/slides/es/net/default-font/).
+La fuente predeterminada sustituye cada fuente faltante. Para asignar fuentes individuales, por ejemplo Arial a Liberation Sans y Calibri a Carlito, use [reglas de sustitución de fuentes](/slides/es/net/font-substitution/). Las reglas cambian la salida renderizada, pero `GetSubstitutions` no las refleja, así que compruebe las fuentes en el archivo de salida. Para texto asiático, establezca también [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); consulte [Fuente predeterminada](/slides/es/net/default-font/).
 
 ## **Instalar fuentes en Alpine Linux**
 

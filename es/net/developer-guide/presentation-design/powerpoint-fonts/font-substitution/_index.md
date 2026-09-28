@@ -28,7 +28,7 @@ Puede definir la fuente que se debe usar cuando una fuente concreta no está dis
 
 ## **Obtener sustituciones de fuentes**
 
-Utilice el método [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getsubstitutions/) para determinar qué fuentes serán sustituidas cuando la presentación se renderice. El método devuelve objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/es/net/aspose.slides/fontsubstitutioninfo/) que identifican los nombres de la fuente original y la fuente sustituta.
+Utilice el método [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) para determinar qué fuentes serán sustituidas cuando la presentación se renderice. El método devuelve objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) que identifican los nombres de la fuente original y la fuente sustituta.
 
 El siguiente ejemplo en C# enumera todas las sustituciones de fuentes para una presentación:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Obtener sustituciones de fuentes para diapositivas seleccionadas**
 
-Utilice la sobrecarga [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getsubstitutions/) con un argumento `int[] slides` para inspeccionar solo las sustituciones necesarias para renderizar diapositivas específicas. Esto es útil cuando está renderizando o exportando parte de una presentación, comprobando una presentación grande de forma incremental, localizando diapositivas que dependen de fuentes no disponibles, preparando un paquete de fuentes mínimo para un servidor o contenedor, o diagnosticando diferencias de renderizado sin procesar diapositivas no relacionadas.
+Utilice la sobrecarga [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) con un argumento `int[] slides` para inspeccionar solo las sustituciones necesarias para renderizar diapositivas específicas. Esto es útil cuando está renderizando o exportando parte de una presentación, comprobando una presentación grande de forma incremental, localizando diapositivas que dependen de fuentes no disponibles, preparando un paquete de fuentes mínimo para un servidor o contenedor, o diagnosticando diferencias de renderizado sin procesar diapositivas no relacionadas.
 
-La matriz `slides` contiene índices de diapositivas basados en uno: `1` identifica la primera diapositiva. En contraste, el indexador de la colección [Presentation.Slides](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/slides/es/) está basado en cero, por lo que esa misma diapositiva se accede como `presentation.Slides[0]`. Tenga en cuenta esta diferencia al construir la matriz para evitar errores de desbordamiento de uno.
+La matriz `slides` contiene índices de diapositivas basados en uno: `1` identifica la primera diapositiva. En contraste, el indexador de la colección [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) está basado en cero, por lo que esa misma diapositiva se accede como `presentation.Slides[0]`. Tenga en cuenta esta diferencia al construir la matriz para evitar errores de desbordamiento de uno.
 
-Llame a la sobrecarga mediante la propiedad [Presentation.FontsManager](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/fontsmanager/). Devuelve solo las sustituciones determinadas mientras se renderizan las diapositivas seleccionadas. Cada resultado es un objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/es/net/aspose.slides/fontsubstitutioninfo/) que contiene los nombres de la fuente original y la fuente sustituta. El resultado refleja el entorno de fuentes actual y las [fuentes cargadas externamente](/slides/es/net/custom-font/). Las reglas de sustitución almacenadas en una [IFontSubstRuleCollection](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsubstrulecollection/) modifican la salida renderizada pero no se reflejan en el resultado.
+Llame a la sobrecarga mediante la propiedad [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Devuelve solo las sustituciones determinadas mientras se renderizan las diapositivas seleccionadas. Cada resultado es un objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) que contiene los nombres de la fuente original y la fuente sustituta. El resultado refleja el entorno de fuentes actual y las [fuentes cargadas externamente](/slides/es/net/custom-font/). Las reglas de sustitución almacenadas en una [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) modifican la salida renderizada pero no se reflejan en el resultado.
 
 La misma sustitución puede ser requerida por más de una diapositiva seleccionada. Desduplicar los resultados cuando cree un inventario de fuentes o un informe de pre‑vuelo. El siguiente ejemplo muestra cada sustitución devuelta y luego crea una lista ordenada de asignaciones de fuentes únicas:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-La interfaz [IFontsManager](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/) proporciona ambas sobrecargas. Elija una según el alcance de la operación de renderizado:
+La interfaz [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) proporciona ambas sobrecargas. Elija una según el alcance de la operación de renderizado:
 
 | Sobrecarga | Cuándo usarla |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getsubstitutions/) sin argumentos | Necesita sustituciones para toda la presentación. |
-| [GetSubstitutions](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getsubstitutions/) con `int[] slides` | Necesita sustituciones para un rango seleccionado, comprobación incremental o exportación parcial. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) sin argumentos | Necesita sustituciones para toda la presentación. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) con `int[] slides` | Necesita sustituciones para un rango seleccionado, comprobación incremental o exportación parcial. |
 
 ## **Establecer reglas de sustitución de fuentes**
 
@@ -94,9 +94,9 @@ Para especificar la fuente que Aspose.Slides debe usar cuando una fuente origen 
 
 1. Cargue la presentación.
 2. Cree definiciones de fuentes para las fuentes origen y sustituta.
-3. Cree una [FontSubstRule](https://reference.aspose.com/slides/es/net/aspose.slides/fontsubstrule/) con la condición [WhenInaccessible](https://reference.aspose.com/slides/es/net/aspose.slides/fontsubstcondition/).
-4. Añada la regla a una [FontSubstRuleCollection](https://reference.aspose.com/slides/es/net/aspose.slides/fontsubstrulecollection/).
-5. Asigne la colección a la propiedad [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/es/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+3. Cree una [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) con la condición [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).
+4. Añada la regla a una [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).
+5. Asigne la colección a la propiedad [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).
 6. Renderice o convierta la presentación.
 
 El siguiente ejemplo en C# sustituye `Arial` por `SomeRareFont` cuando `SomeRareFont` no está disponible, y luego renderiza la primera diapositiva para verificar el resultado. La fuente sustituta debe estar disponible para Aspose.Slides.
@@ -160,4 +160,4 @@ Sí. Las fuentes instaladas y las ubicaciones de búsqueda de fuentes difieren s
 
 **¿Cómo puedo hacer que la selección de fuentes sea coherente en conversiones por lotes?**
 
-Utilice los mismos archivos y versiones de fuentes en cada máquina o contenedor, [cargue las fuentes externas requeridas](/slides/es/net/custom-font/) y [incorpore fuentes](/slides/es/net/embedded-font/) cuando la licencia lo permita. También puede llamar a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getsubstitutions/) antes de la exportación para identificar sustituciones inesperadas.
+Utilice los mismos archivos y versiones de fuentes en cada máquina o contenedor, [cargue las fuentes externas requeridas](/slides/es/net/custom-font/) y [incorpore fuentes](/slides/es/net/embedded-font/) cuando la licencia lo permita. También puede llamar a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) antes de la exportación para identificar sustituciones inesperadas.
