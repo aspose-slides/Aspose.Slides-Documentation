@@ -57,7 +57,7 @@ dependencies {
 
 ### **Επιλογή έκδοσης**
 
-Το Aspose.Slides for Android via Java δεν είναι κατασκευασμένο για κάθε έκδοση στο αποθετήριο. Οι εκδόσεις του δημοσιεύονται μόνο για ορισμένες εκδόσεις του Aspose.Slides for Java, και μια έκδοση χωρίς Android κατασκευή αποτυγχάνει στην ανάλυση. Επιλέξτε μια έκδοση που εμφανίζεται στη [σελίδα λήψης του Aspose.Slides for Android via Java](https://releases.aspose.com/slides/el/androidjava/).
+Το Aspose.Slides for Android via Java δεν είναι κατασκευασμένο για κάθε έκδοση στο αποθετήριο. Οι εκδόσεις του δημοσιεύονται μόνο για ορισμένες εκδόσεις του Aspose.Slides for Java, και μια έκδοση χωρίς Android κατασκευή αποτυγχάνει στην ανάλυση. Επιλέξτε μια έκδοση που εμφανίζεται στη [σελίδα λήψης του Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/).
 
 ### **Σενάρια κατασκευής Groovy**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### Πώς μπορώ να επαληθεύσω ότι το Aspose.Slides ενσωματώθηκε σωστά;
 
-Κατασκευάστε το έργο σας, δημιουργήστε μια κενή [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) και αποθηκεύστε τη με νέο όνομα. Αν το αρχείο δημιουργηθεί χωρίς να προκύψουν εξαιρέσεις, η βιβλιοθήκη έχει ενσωματωθεί επιτυχώς.
+Κατασκευάστε το έργο σας, δημιουργήστε μια κενή [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) και αποθηκεύστε τη με νέο όνομα. Αν το αρχείο δημιουργηθεί χωρίς να προκύψουν εξαιρέσεις, η βιβλιοθήκη έχει ενσωματωθεί επιτυχώς.
 
 ### Πώς μπορώ να περιορίσω την κατανάλωση μνήμης κατά την επεξεργασία μεγάλων παρουσιάσεων;
 
-Καλέστε τη μέθοδο [dispose](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#dispose--) κάθε αντικειμένου [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) σε ένα μπλοκ `finally` για άμεση απελευθέρωση των πόρων του, και επεξεργαστείτε μία μεγάλη παρουσίαση τη φορά. Αυτό βοηθά στην αποφυγή σφαλμάτων “έλλειψη μνήμης” και διατηρεί τη συνολική χρήση μνήμης προβλέψιμη κατά τις μαζικές λειτουργίες.
+Καλέστε τη μέθοδο [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) κάθε αντικειμένου [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) σε ένα μπλοκ `finally` για άμεση απελευθέρωση των πόρων του, και επεξεργαστείτε μία μεγάλη παρουσίαση τη φορά. Αυτό βοηθά στην αποφυγή σφαλμάτων “έλλειψη μνήμης” και διατηρεί τη συνολική χρήση μνήμης προβλέψιμη κατά τις μαζικές λειτουργίες.
 
 ### Μπορώ να εξαιρέσω ανεπιθύμητες μορφές εξαγωγής για να μειώσω το τελικό μέγεθος του JAR;
 

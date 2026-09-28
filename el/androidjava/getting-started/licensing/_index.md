@@ -23,12 +23,12 @@ description: "Εφαρμόστε, διαχειριστείτε και αντιμ
 
 Το Aspose.Slides μπορεί να χρησιμοποιηθεί σε λειτουργία αξιολόγησης ή με έγκυρη άδεια. Η έκδοση αξιολόγησης παρέχει την ίδια λειτουργικότητα με την έκδοση με άδεια, αλλά προσθέτει υδατογράφημα αξιολόγησης σε κάθε διαφάνεια κάθε παρουσίασης που αποθηκεύει και περικόπτει το κείμενο που διαβάζει ο κώδικάς σας από παρουσιάσεις.
 
-Αυτό το άρθρο εξηγεί πώς λειτουργούν οι άδειες στο Aspose.Slides και πώς να εφαρμόσετε μια άδεια πριν χρησιμοποιήσετε τη βιβλιοθήκη. Μια άδεια μπορεί να φορτωθεί από αρχείο, ροή ή ενσωματωμένο πόρο χρησιμοποιώντας την κλάση [Άδεια](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/license/). Το άρθρο επίσης δείχνει πώς να επαληθεύσετε εάν μια άδεια έχει εφαρμοστεί σωστά.
+Αυτό το άρθρο εξηγεί πώς λειτουργούν οι άδειες στο Aspose.Slides και πώς να εφαρμόσετε μια άδεια πριν χρησιμοποιήσετε τη βιβλιοθήκη. Μια άδεια μπορεί να φορτωθεί από αρχείο, ροή ή ενσωματωμένο πόρο χρησιμοποιώντας την κλάση [Άδεια](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/). Το άρθρο επίσης δείχνει πώς να επαληθεύσετε εάν μια άδεια έχει εφαρμοστεί σωστά.
 
 {{% alert color="info" title="Note" %}}
-Μπορείτε να κατεβάσετε μια έκδοση αξιολόγησης του **Aspose.Slides for Android via Java** από τη [σελίδα λήψης](https://releases.aspose.com/slides/el/androidjava/). Η έκδοση αξιολόγησης παρέχει τις ίδιες λειτουργίες με την εκδοχή με άδεια του προϊόντος. Το πακέτο αξιολόγησης είναι το ίδιο με το αγορασμένο πακέτο. Η έκδοση αξιολόγησης γίνεται απλώς με άδεια μετά την προσθήκη μερικών γραμμών κώδικα (για την εφαρμογή της άδειας).
+Μπορείτε να κατεβάσετε μια έκδοση αξιολόγησης του **Aspose.Slides for Android via Java** από τη [σελίδα λήψης](https://releases.aspose.com/slides/androidjava/). Η έκδοση αξιολόγησης παρέχει τις ίδιες λειτουργίες με την εκδοχή με άδεια του προϊόντος. Το πακέτο αξιολόγησης είναι το ίδιο με το αγορασμένο πακέτο. Η έκδοση αξιολόγησης γίνεται απλώς με άδεια μετά την προσθήκη μερικών γραμμών κώδικα (για την εφαρμογή της άδειας).
 
-Μόλις είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/pricing/slides/el/android-java/). Σας συνιστούμε να εξετάσετε τους διαφορετικούς τύπους συνδρομής. Αν έχετε ερωτήσεις, επικοινωνήστε με την ομάδα πωλήσεων της Aspose.
+Μόλις είστε ικανοποιημένοι με την αξιολόγησή σας του **Aspose.Slides**, μπορείτε να [αγοράσετε μια άδεια](https://purchase.aspose.com/pricing/slides/android-java/). Σας συνιστούμε να εξετάσετε τους διαφορετικούς τύπους συνδρομής. Αν έχετε ερωτήσεις, επικοινωνήστε με την ομάδα πωλήσεων της Aspose.
 
 Κάθε άδεια Aspose περιλαμβάνει μια ετήσια συνδρομή για δωρεάν αναβαθμίσεις σε νέες εκδόσεις ή διορθώσεις που κυκλοφορούν εντός της περιόδου της συνδρομής. Οι χρήστες με προϊόντα με άδεια (ή ακόμη και εκδόσεις αξιολόγησης) λαμβάνουν δωρεάν και απεριόριστη τεχνική υποστήριξη.
 {{% /alert %}}
@@ -57,7 +57,7 @@ description: "Εφαρμόστε, διαχειριστείτε και αντιμ
 Μια άδεια μπορεί να φορτωθεί από **αρχείο** ή **ροή**.
 
 {{% alert color="info" title="Note" %}}
-Το Aspose.Slides παρέχει την κλάση [Άδεια](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/license/) για λειτουργίες αδειοδότησης.
+Το Aspose.Slides παρέχει την κλάση [Άδεια](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) για λειτουργίες αδειοδότησης.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -83,9 +83,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Εάν τοποθετήσετε το αρχείο άδειας σε διαφορετικό φάκελο, όταν καλέσετε τη μέθοδο [setLicense](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-), το όνομα του αρχείου άδειας στο τέλος της καθορισμένης διαδρομής πρέπει να είναι το ίδιο με το όνομα του αρχείου άδειας σας.
+Εάν τοποθετήσετε το αρχείο άδειας σε διαφορετικό φάκελο, όταν καλέσετε τη μέθοδο [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-), το όνομα του αρχείου άδειας στο τέλος της καθορισμένης διαδρομής πρέπει να είναι το ίδιο με το όνομα του αρχείου άδειας σας.
 
-Για παράδειγμα, μπορείτε να αλλάξετε το όνομα του αρχείου άδειας σε *Aspose.Slides.Android.via.Java.lic.xml*. Στη συνέχεια, στον κώδικά σας, πρέπει να περάσετε τη διαδρομή του αρχείου (τελειώνοντας με *Aspose.Slides.Android.via.Java.lic.xml*) στη μέθοδο [setLicense](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Για παράδειγμα, μπορείτε να αλλάξετε το όνομα του αρχείου άδειας σε *Aspose.Slides.Android.via.Java.lic.xml*. Στη συνέχεια, στον κώδικά σας, πρέπει να περάσετε τη διαδρομή του αρχείου (τελειώνοντας με *Aspose.Slides.Android.via.Java.lic.xml*) στη μέθοδο [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 {{% /alert %}}
 
 ### **Ροή**
@@ -102,7 +102,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Ροή από τα Assets της Εφαρμογής**
 
-Σε μια εφαρμογή Android, τοποθετήστε το αρχείο άδειας στον φάκελο *assets* του module της εφαρμογής, *app/src/main/assets*, ώστε να συσκευαστεί στο APK. Ανοίξτε το αρχείο με τη μέθοδο [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) και περάστε τη ροή στη μέθοδο [setLicense](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Ο κώδικας εκτελείται μέσα σε μια `Activity`, για παράδειγμα στη μέθοδο `onCreate`, πριν η εφαρμογή χρησιμοποιήσει το Aspose.Slides:
+Σε μια εφαρμογή Android, τοποθετήστε το αρχείο άδειας στον φάκελο *assets* του module της εφαρμογής, *app/src/main/assets*, ώστε να συσκευαστεί στο APK. Ανοίξτε το αρχείο με τη μέθοδο [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) και περάστε τη ροή στη μέθοδο [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Ο κώδικας εκτελείται μέσα σε μια `Activity`, για παράδειγμα στη μέθοδο `onCreate`, πριν η εφαρμογή χρησιμοποιήσει το Aspose.Slides:
 
 ```java
 import android.util.Log;
@@ -139,7 +139,7 @@ if (license.isLicensed())
 ## **Ασφάλεια νήματος**
 
 {{% alert color="warning" title="Warning" %}}
-Η μέθοδος [setLicense](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) δεν είναι ασφαλής για νήματα. Εάν αυτή η μέθοδος πρέπει να κληθεί ταυτόχρονα από πολλά νήματα, μπορεί να θέλετε να χρησιμοποιήσετε primitives συγχρονισμού (όπως κλειδαριά) για να αποφύγετε προβλήματα.
+Η μέθοδος [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) δεν είναι ασφαλής για νήματα. Εάν αυτή η μέθοδος πρέπει να κληθεί ταυτόχρονα από πολλά νήματα, μπορεί να θέλετε να χρησιμοποιήσετε primitives συγχρονισμού (όπως κλειδαριά) για να αποφύγετε προβλήματα.
 {{% /alert %}}
 
 ## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**

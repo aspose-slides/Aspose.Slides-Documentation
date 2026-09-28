@@ -72,14 +72,14 @@ Aspose.Slides για Android μέσω Java είναι μια βιβλιοθήκ�
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/el/androidjava/">Αναφορά API</a></li>
-<li><a href="https://releases.aspose.com/slides/el/androidjava/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">Αναφορά API</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Σημειώσεις έκδοσης</a></li>
 <li><a href="/slides/el/androidjava/known-issues/">Γνωστά προβλήματα</a></li>
-<li><a href="https://releases.aspose.com/slides/el/androidjava/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Πληρωμένη υπηρεσία υποστήριξης</a></li>
 </ul>
 </div>

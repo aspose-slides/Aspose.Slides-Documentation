@@ -31,10 +31,10 @@ description: "Δημιουργήστε παρουσιάσεις σε Java με A
 
 Για να δημιουργήσετε μια παρουσίαση και να τοποθετήσετε ένα πλαίσιο κειμένου στην πρώτη της διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/). Μια νέα παρουσία ήδη περιέχει μία κενή διαφάνεια.  
-2. Αποκτήστε αυτή τη διαφάνεια από τη [slide collection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/) με το ευρετήριο 0.  
-3. Προσθέστε ένα ορθογώνιο σχήμα με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) της [shape collection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/) και ορίστε το κείμενο του [text frame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) με τη μέθοδο [setText](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) με μορφή [SaveFormat.Pptx](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/saveformat/).
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Μια νέα παρουσία ήδη περιέχει μία κενή διαφάνεια.  
+2. Αποκτήστε αυτή τη διαφάνεια από τη [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) με το ευρετήριο 0.  
+3. Προσθέστε ένα ορθογώνιο σχήμα με τη μέθοδο [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) της [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) και ορίστε το κείμενο του [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) με τη μέθοδο [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX με τη μέθοδο [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) με μορφή [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Ο κώδικας εκτελείται μέσα σε μια `Activity`, π.χ. στη μέθοδο `onCreate`. Αποθηκεύει το αρχείο στον κατάλογο που επιστρέφει η μέθοδος [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()), δηλαδή στην ιδιωτική αποθήκευση της εφαρμογής σας, στην οποία μπορεί να γράψει χωρίς να ζητήσει άδεια.
 
