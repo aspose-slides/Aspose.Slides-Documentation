@@ -16,7 +16,7 @@ description: "Pilih cara menginstal Aspose.Slides for Reporting Services pada se
 
 Aspose.Slides for Reporting Services diinstal pada server laporan itu sendiri. Sebelum Anda memulai, periksa [persyaratan sistem](/slides/id/reportingservices/system-requirements/).
 
-Halaman [unduhan](https://releases.aspose.com/slides/id/reportingservices/) menawarkan dua paket untuk setiap rilis:
+Halaman [unduhan](https://releases.aspose.com/slides/reportingservices/) menawarkan dua paket untuk setiap rilis:
 
 - **Aspose.Slides for Reporting Services XX.XX** — installer MSI. Ia mendeteksi instance server laporan pada mesin, menyalin ekstensi ke yang Anda pilih, dan memperbarui file konfigurasi mereka. Lihat [Instal dengan Installer MSI](/slides/id/reportingservices/install-with-msi-installer/).
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — paket ZIP untuk instalasi manual: Anda menyalin satu assembly dan mengedit dua file konfigurasi. Lihat [Instal Secara Manual](/slides/id/reportingservices/install-manually/).

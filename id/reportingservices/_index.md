@@ -63,12 +63,12 @@ Ini mengekspor laporan ke presentasi PPT, PPTX, PPS, dan PPSX serta pertunjukan 
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/id/reportingservices/release-notes/">Catatan rilis</a></li>
-<li><a href="https://releases.aspose.com/slides/id/reportingservices/">Unduh</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Catatan rilis</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Ini mengekspor laporan ke presentasi PPT, PPTX, PPS, dan PPSX serta pertunjukan 
 Tidak ada kode yang perlu ditulis: Anda menginstal ekstensi di server laporan, dan formatnya muncul dalam daftar ekspor setiap laporan berhalaman di server tersebut.
 
 1. Pastikan server laporan memenuhi [persyaratan sistem](/slides/id/reportingservices/system-requirements/), termasuk .NET Framework 3.5.  
-1. Dari [halaman unduhan](https://releases.aspose.com/slides/id/reportingservices/), unduh penginstal MSI, *Aspose.Slides for Reporting Services*. Untuk menginstal secara manual, unduh paket ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.  
+1. Dari [halaman unduhan](https://releases.aspose.com/slides/reportingservices/), unduh penginstal MSI, *Aspose.Slides for Reporting Services*. Untuk menginstal secara manual, unduh paket ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.  
 1. Instal ekstensi di server laporan: jalankan MSI sebagai administrator, seperti yang dijelaskan dalam [Instal dengan penginstal MSI](/slides/id/reportingservices/install-with-msi-installer/), atau ikuti [Instal secara manual](/slides/id/reportingservices/install-manually/) untuk paket ZIP.  
 1. Di browser, buka portal web server laporan (Report Manager pada SQL Server 2014 dan sebelumnya). Secara default, alamatnya `https://<ComputerName>/reports`.  
 1. Buka laporan berhalaman. Pada bilah alat laporan, buka daftar **Export** dan pilih **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Jika bilah alat memiliki tombol **Export** terpisah, seperti pada Report Manager, pilih tombol tersebut.  

@@ -15,7 +15,7 @@ description: "Instal Aspose.Slides for Reporting Services dengan penginstal MSI-
 
 Penginstal MSI adalah cara termudah untuk menginstal Aspose.Slides for Reporting Services. Ia memerlukan .NET Framework 3.5 dan hak administrator pada server laporan; lihat [Persyaratan Sistem](/slides/id/reportingservices/system-requirements/).
 
-1. Unduh penginstal MSI, *Aspose.Slides for Reporting Services XX.XX*, dari [halaman unduhan](https://releases.aspose.com/slides/id/reportingservices/) dan salin ke server laporan.
+1. Unduh penginstal MSI, *Aspose.Slides for Reporting Services XX.XX*, dari [halaman unduhan](https://releases.aspose.com/slides/reportingservices/) dan salin ke server laporan.
 2. Jalankan sebagai administrator. Jika .NET Framework 3.5 tidak ada, penginstal berhenti dengan pesan; instal fitur .NET Framework 3.5 dan jalankan kembali.
 3. Terima perjanjian lisensi.
 4. Pada halaman **Custom Setup**, pohon fitur menampilkan setiap instance SQL Server Reporting Services dan Power BI Report Server yang terdeteksi oleh penginstal pada mesin. Untuk membiarkan sebuah instance tidak berubah, klik ikonnya dan pilih **Entire feature will be unavailable**. Edisi Express tidak mendukung ekstensi rendering, jadi jangan pilih instance Express. Penginstal menyembunyikan instance Express dari SQL Server 2016 dan sebelumnya.

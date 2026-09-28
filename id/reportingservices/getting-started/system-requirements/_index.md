@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services berjalan di dalam server laporan sebagai ek
 
 Server laporan 32-bit dan 64-bit keduanya didukung. SQL Server 2005 menggunakan build ekstensi tersendiri; semua versi selanjutnya dan Power BI Report Server menggunakan build yang sama. [Instal Manual](/slides/id/reportingservices/install-manually/) menunjukkan file mana yang harus disalin.
 
-Jika versi server laporan Anda tidak ada dalam daftar ini, tanyakan di [forum dukungan gratis](https://forum.aspose.com/c/slides/id/11) sebelum Anda melakukan penyebaran.
+Jika versi server laporan Anda tidak ada dalam daftar ini, tanyakan di [forum dukungan gratis](https://forum.aspose.com/c/slides/11) sebelum Anda melakukan penyebaran.
 
 ## **Edisi Server Laporan**
 

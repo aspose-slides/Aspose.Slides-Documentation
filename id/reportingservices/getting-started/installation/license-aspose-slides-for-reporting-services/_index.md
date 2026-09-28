@@ -13,11 +13,11 @@ description: "Terapkan lisensi ke Aspose.Slides for Reporting Services dengan me
 ---
 ## **Dukungan Lisensi**
 
-Versi evaluasi Aspose.Slides for Reporting Services adalah paket yang sama dengan yang dibeli, dari [halaman unduhannya](https://releases.aspose.com/slides/id/reportingservices/), dan menyediakan fungsionalitas yang sama. Tanpa lisensi, ia beroperasi dalam mode evaluasi dan menyisipkan watermark evaluasi ke dalam presentasi yang diekspor.
+Versi evaluasi Aspose.Slides for Reporting Services adalah paket yang sama dengan yang dibeli, dari [halaman unduhannya](https://releases.aspose.com/slides/reportingservices/), dan menyediakan fungsionalitas yang sama. Tanpa lisensi, ia beroperasi dalam mode evaluasi dan menyisipkan watermark evaluasi ke dalam presentasi yang diekspor.
 
 Versi evaluasi menjadi berlisensi ketika Anda menyalin file lisensi ke server laporan. Tidak ada kode yang terlibat.
 
-Setelah Anda puas dengan evaluasi, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/id/reporting-services/). Kami menyarankan Anda meninjau berbagai tipe langganan. Jika ada pertanyaan, hubungi tim penjualan Aspose.
+Setelah Anda puas dengan evaluasi, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/reporting-services/). Kami menyarankan Anda meninjau berbagai tipe langganan. Jika ada pertanyaan, hubungi tim penjualan Aspose.
 
 ## **Lisensi di Aspose.Slides for Reporting Services**
 

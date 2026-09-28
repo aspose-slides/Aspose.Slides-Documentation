@@ -13,7 +13,7 @@ description: "Ketahui bagaimana versi evaluasi Aspose.Slides for Reporting Servi
 ---
 ## **Versi Evaluasi**
 
-Anda dapat mengunduh Aspose.Slides for Reporting Services untuk evaluasi dari [halaman unduhannya](https://releases.aspose.com/slides/id/reportingservices/). Unduhan evaluasi sama dengan unduhan yang dibeli. Produk menjadi berlisensi ketika Anda menyalin file lisensi ke server laporan — tidak ada kode yang terlibat; lihat [Lisensi](/slides/id/reportingservices/license-aspose-slides-for-reporting-services/).
+Anda dapat mengunduh Aspose.Slides for Reporting Services untuk evaluasi dari [halaman unduhannya](https://releases.aspose.com/slides/reportingservices/). Unduhan evaluasi sama dengan unduhan yang dibeli. Produk menjadi berlisensi ketika Anda menyalin file lisensi ke server laporan — tidak ada kode yang terlibat; lihat [Lisensi](/slides/id/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Versi evaluasi (tanpa lisensi) menyediakan semua fungsi produk secara lengkap, namun menambahkan watermark evaluasi pada presentasi yang diekspor.
 
