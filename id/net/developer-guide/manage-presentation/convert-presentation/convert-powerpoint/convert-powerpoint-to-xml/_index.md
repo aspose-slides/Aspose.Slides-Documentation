@@ -24,7 +24,7 @@ description: "Mengonversi presentasi PowerPoint dan OpenDocument menjadi file at
 
 Aspose.Slides untuk .NET dapat mengonversi presentasi PowerPoint ke format PowerPoint XML Presentation. Output XML berguna ketika Anda memerlukan representasi berbasis teks untuk memeriksa struktur presentasi, memecahkan masalah dokumen yang dihasilkan, membandingkan output dalam pengujian otomatis, atau mengintegrasikan dengan alur kerja yang mengonsumsi XML bukan paket presentasi.
 
-Gunakan metode [Presentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/) dengan nilai `Xml` dari enumerasi [SaveFormat](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/). Anda dapat menulis hasilnya langsung ke file atau ke stream.
+Gunakan metode [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) dengan nilai `Xml` dari enumerasi [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). Anda dapat menulis hasilnya langsung ke file atau ke stream.
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` menghasilkan PowerPoint XML Presentation. Itu tidak mengekstrak bagian Office Open XML individu yang disimpan di dalam paket PPTX. Jika Anda membutuhkan bagian paket PPTX yang tepat, seperti `ppt/presentation.xml` atau file XML slide individu, periksa paket PPTX itu sendiri.
@@ -32,7 +32,7 @@ Gunakan metode [Presentation.Save](https://reference.aspose.com/slides/id/net/as
 
 ## **Mengonversi Presentasi ke File XML**
 
-Muat presentasi sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) , lalu berikan jalur output dan `SaveFormat.Xml` ke [Presentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/). Sumber dapat berupa format presentasi apa pun yang didukung untuk pemuatan, seperti PPT, PPTX, atau ODP.
+Muat presentasi sumber dengan kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) , lalu berikan jalur output dan `SaveFormat.Xml` ke [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Sumber dapat berupa format presentasi apa pun yang didukung untuk pemuatan, seperti PPT, PPTX, atau ODP.
 
 Contoh berikut mengonversi presentasi PPTX menjadi file XML:
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **Menulis Output XML ke Stream**
 
-Gunakan overload stream dari [Presentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/) ketika XML harus tetap berada di memori atau diteruskan ke komponen lain, seperti layanan web, penyedia penyimpanan, atau pipeline pemrosesan XML. Contoh berikut menulis hasil ke [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) dan mengatur posisi kembali untuk membaca selanjutnya:
+Gunakan overload stream dari [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ketika XML harus tetap berada di memori atau diteruskan ke komponen lain, seperti layanan web, penyedia penyimpanan, atau pipeline pemrosesan XML. Contoh berikut menulis hasil ke [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) dan mengatur posisi kembali untuk membaca selanjutnya:
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ Tidak. PPTX adalah paket yang berisi banyak bagian Office Open XML, sedangkan `S
 
 **Apakah saya dapat menyimpan output XML tanpa membuat file di disk?**
 
-Ya. Berikan stream yang dapat ditulis ke [Presentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/). Misalnya, gunakan [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) untuk pemrosesan dalam memori.
+Ya. Berikan stream yang dapat ditulis ke [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Misalnya, gunakan [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) untuk pemrosesan dalam memori.
 
 **Apakah Aspose.Slides dapat memuat file XML yang diekspor kembali?**
 
-Ya. Berikan file XML atau stream ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/sourceformat/) kemudian mengembalikan `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/id/net/aspose.slides/presentationfactory/getpresentationinfo/) melaporkan `LoadFormat.Unknown` untuk format ini, sehingga jangan gunakan nilai tersebut untuk menentukan apakah file XML dapat dibuka.
+Ya. Berikan file XML atau stream ke konstruktor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) kemudian mengembalikan `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) melaporkan `LoadFormat.Unknown` untuk format ini, sehingga jangan gunakan nilai tersebut untuk menentukan apakah file XML dapat dibuka.
 
 **Apakah konversi XML merender setiap slide sebagai halaman atau gambar?**
 

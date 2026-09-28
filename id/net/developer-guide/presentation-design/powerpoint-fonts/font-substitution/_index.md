@@ -28,7 +28,7 @@ Anda dapat menentukan font yang akan digunakan ketika font tertentu tidak tersed
 
 ## **Dapatkan Penggantian Font**
 
-Gunakan metode [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) untuk menentukan font mana yang akan digantikan saat presentasi dirender. Metode ini mengembalikan objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstitutioninfo/) yang mengidentifikasi nama font asli dan pengganti.
+Gunakan metode [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) untuk menentukan font mana yang akan digantikan saat presentasi dirender. Metode ini mengembalikan objek [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) yang mengidentifikasi nama font asli dan pengganti.
 
 Contoh C# berikut mencantumkan semua penggantian font untuk sebuah presentasi:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Dapatkan Penggantian Font untuk Slide Terpilih**
 
-Gunakan overload [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) dengan argumen `int[] slides` untuk memeriksa hanya penggantian yang diperlukan untuk merender slide tertentu. Ini berguna ketika Anda merender atau mengekspor bagian dari presentasi, memeriksa presentasi besar secara bertahap, menemukan slide yang bergantung pada font yang tidak tersedia, menyiapkan paket font minimal untuk server atau kontainer, atau mendiagnosis perbedaan render tanpa memproses slide yang tidak terkait.
+Gunakan overload [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) dengan argumen `int[] slides` untuk memeriksa hanya penggantian yang diperlukan untuk merender slide tertentu. Ini berguna ketika Anda merender atau mengekspor bagian dari presentasi, memeriksa presentasi besar secara bertahap, menemukan slide yang bergantung pada font yang tidak tersedia, menyiapkan paket font minimal untuk server atau kontainer, atau mendiagnosis perbedaan render tanpa memproses slide yang tidak terkait.
 
-Array `slides` berisi indeks slide berbasis satu: `1` mengidentifikasi slide pertama. Sebaliknya, pengindeks koleksi [Presentation.Slides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slides/id/) berbasis nol, sehingga slide yang sama diakses sebagai `presentation.Slides[0]`. Ingat perbedaan ini saat membuat array untuk menghindari kesalahan satu offset.
+Array `slides` berisi indeks slide berbasis satu: `1` mengidentifikasi slide pertama. Sebaliknya, pengindeks koleksi [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) berbasis nol, sehingga slide yang sama diakses sebagai `presentation.Slides[0]`. Ingat perbedaan ini saat membuat array untuk menghindari kesalahan satu offset.
 
-Panggil overload melalui properti [Presentation.FontsManager](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/fontsmanager/). Ini mengembalikan hanya penggantian yang ditentukan selama merender slide terpilih. Setiap hasil adalah objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstitutioninfo/) yang berisi nama font asli dan pengganti. Hasil mencerminkan lingkungan font saat ini dan [font yang dimuat secara eksternal](/slides/id/net/custom-font/). Aturan penggantian yang disimpan dalam [IFontSubstRuleCollection](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsubstrulecollection/) mengubah output yang dirender tetapi tidak tercermin dalam hasil.
+Panggil overload melalui properti [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Ini mengembalikan hanya penggantian yang ditentukan selama merender slide terpilih. Setiap hasil adalah objek [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) yang berisi nama font asli dan pengganti. Hasil mencerminkan lingkungan font saat ini dan [font yang dimuat secara eksternal](/slides/id/net/custom-font/). Aturan penggantian yang disimpan dalam [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) mengubah output yang dirender tetapi tidak tercermin dalam hasil.
 
 Penggantian yang sama dapat diperlukan oleh lebih dari satu slide terpilih. Hapus duplikat hasil ketika Anda membuat inventaris font atau laporan preflight. Contoh berikut melaporkan setiap penggantian yang dikembalikan dan kemudian membuat daftar terurut dari pemetaan font unik:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Antarmuka [IFontsManager](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/) menyediakan kedua overload. Pilih salah satu sesuai dengan lingkup operasi rendering:
+Antarmuka [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) menyediakan kedua overload. Pilih salah satu sesuai dengan lingkup operasi rendering:
 
 | Overload | Digunakan ketika |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Anda memerlukan penggantian untuk seluruh presentasi. |
-| [GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Anda memerlukan penggantian untuk rentang terpilih, pemeriksaan bertahap, atau ekspor parsial. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Anda memerlukan penggantian untuk seluruh presentasi. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Anda memerlukan penggantian untuk rentang terpilih, pemeriksaan bertahap, atau ekspor parsial. |
 
 ## **Atur Aturan Penggantian Font**
 
@@ -94,9 +94,9 @@ Untuk menentukan font yang harus digunakan Aspose.Slides ketika font sumber tida
 
 1. Muat presentasi.
 2. Buat definisi font untuk font sumber dan pengganti.
-3. Buat sebuah [FontSubstRule](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstrule/) dengan kondisi [WhenInaccessible](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstcondition/).
-4. Tambahkan aturan ke dalam [FontSubstRuleCollection](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstrulecollection/).
-5. Tetapkan koleksi ke properti [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/id/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+3. Buat sebuah [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) dengan kondisi [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).
+4. Tambahkan aturan ke dalam [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).
+5. Tetapkan koleksi ke properti [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).
 6. Render atau konversi presentasi.
 
 Contoh C# berikut menggantikan `Arial` dengan `SomeRareFont` ketika `SomeRareFont` tidak tersedia, dan kemudian merender slide pertama untuk memverifikasi hasilnya. Font pengganti harus tersedia untuk Aspose.Slides.
@@ -160,4 +160,4 @@ Ya. Font yang terpasang dan lokasi pencarian font berbeda antar sistem operasi, 
 
 **Bagaimana cara membuat pemilihan font konsisten dalam konversi batch?**
 
-Gunakan file font dan versi yang sama pada setiap mesin atau kontainer, [muat font eksternal yang diperlukan](/slides/id/net/custom-font/), dan [sematkan font](/slides/id/net/embedded-font/) bila lisensi mengizinkan. Anda juga dapat memanggil [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) sebelum ekspor untuk mengidentifikasi substitusi yang tidak terduga.
+Gunakan file font dan versi yang sama pada setiap mesin atau kontainer, [muat font eksternal yang diperlukan](/slides/id/net/custom-font/), dan [sematkan font](/slides/id/net/embedded-font/) bila lisensi mengizinkan. Anda juga dapat memanggil [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) sebelum ekspor untuk mengidentifikasi substitusi yang tidak terduga.

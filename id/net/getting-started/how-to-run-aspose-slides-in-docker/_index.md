@@ -59,7 +59,7 @@ Buat folder bernama *HelloSlidesDocker* dan tambahkan tiga file berikut ke dalam
 </Project>
 ```
 
-*Program.cs* membuat sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/), menambahkan persegi panjang dengan teks ke slide pertama, dan menyimpan presentasi dua kali dengan metode [Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/): sebagai PPTX dan sebagai PDF. Kedua file ditempatkan di folder *output* di bawah direktori kerja. Aplikasi kemudian mencantumkan font yang diganti saat PDF dirender, menggunakan [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/), sehingga Anda dapat melihat apakah kontainer memiliki font yang digunakan presentasi.
+*Program.cs* membuat sebuah [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), menambahkan persegi panjang dengan teks ke slide pertama, dan menyimpan presentasi dua kali dengan metode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): sebagai PPTX dan sebagai PDF. Kedua file ditempatkan di folder *output* di bawah direktori kerja. Aplikasi kemudian mencantumkan font yang diganti saat PDF dirender, menggunakan [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), sehingga Anda dapat melihat apakah kontainer memiliki font yang digunakan presentasi.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Tahap Alpine menginstal tiga paket dan mengubah satu pengaturan:
 - `font-dejavu` menyediakan font. Tanpa font apa pun, konversi berhenti dengan `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` dan `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` menyediakan data budaya. Gambar .NET Alpine berjalan dalam mode globalisasi‑invariant secara default, dan dalam mode itu Aspose.Slides berhenti dengan `CultureNotFoundException` untuk `en-US`.
 
-Bangun, jalankan, dan salin output dengan perintah yang sama seperti di atas. Pada gambar ini, aplikasi hanya mencetak baris `Saved`: dengan Aspose.Slides.NET di Linux, fontconfig memilih pengganti untuk font yang hilang, dan [GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) tidak mencantumkannya. [Sebarkan Font](/slides/id/net/deploy-fonts/) menunjukkan cara memeriksa font yang digunakan.
+Bangun, jalankan, dan salin output dengan perintah yang sama seperti di atas. Pada gambar ini, aplikasi hanya mencetak baris `Saved`: dengan Aspose.Slides.NET di Linux, fontconfig memilih pengganti untuk font yang hilang, dan [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) tidak mencantumkannya. [Sebarkan Font](/slides/id/net/deploy-fonts/) menunjukkan cara memeriksa font yang digunakan.
 
 ## **Tanya Jawab**
 

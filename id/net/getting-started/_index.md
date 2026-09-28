@@ -62,7 +62,7 @@ Tanpa lisensi, Aspose.Slides berjalan dalam mode evaluasi: menambahkan watermark
 
 ## **Dapatkan Bantuan**
 
-[Dukungan Produk](/slides/id/net/product-support/) menjelaskan cara mengajukan pertanyaan di [forum dukungan gratis](https://forum.aspose.com/c/slides/id/11) dan apa yang perlu disertakan saat melaporkan masalah.
+[Dukungan Produk](/slides/id/net/product-support/) menjelaskan cara mengajukan pertanyaan di [forum dukungan gratis](https://forum.aspose.com/c/slides/11) dan apa yang perlu disertakan saat melaporkan masalah.
 
 ## **FAQ**
 

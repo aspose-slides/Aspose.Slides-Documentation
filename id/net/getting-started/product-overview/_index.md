@@ -123,7 +123,7 @@ Fitur Aspose.Slides untuk .NET dapat dibagi menjadi grup berikut:
 ## **Dukungan Teknis**
 Aspose menyediakan dukungan teknis gratis tak terbatas untuk semua produknya. Dukungan tersedia untuk semua pengguna (termasuk pengguna paket evaluasi). Jika Anda membutuhkan bantuan dengan Aspose.Slides untuk .NET, pertimbangkan hal berikut:
 
-- Saluran utama untuk dukungan adalah [Forum Aspose](https://forum.aspose.com/). Posting pertanyaan Anda di [forum Aspose.Slides](https://forum.aspose.com/c/slides/id/11)—dan akan dijawab dalam beberapa jam. Tim dukungan Aspose.Slides langsung menjawab pertanyaan yang diposting di forum.
+- Saluran utama untuk dukungan adalah [Forum Aspose](https://forum.aspose.com/). Posting pertanyaan Anda di [forum Aspose.Slides](https://forum.aspose.com/c/slides/11)—dan akan dijawab dalam beberapa jam. Tim dukungan Aspose.Slides langsung menjawab pertanyaan yang diposting di forum.
 - Harap dicatat bahwa Aspose tidak menyediakan dukungan teknis melalui telepon. Dukungan telepon hanya tersedia untuk pertanyaan penjualan dan pembelian.
 - Saat menunggu balasan di forum, harap bersabar dan pertimbangkan perbedaan zona waktu.
 
@@ -145,10 +145,10 @@ Tabel ini mencantumkan sumber daya teknis penting Aspose.Slides untuk .NET.
 
 |**Sumber Daya**|**Deskripsi**|
 | :- | :- |
-|[Beranda Aspose.Slides untuk .NET](https://products.aspose.com/slides/id/net/)|Halaman utama produk.|
-|[Blog Aspose.Slides](https://blog.aspose.com/category/slides/id/)|Periksa halaman ini secara berkala untuk informasi tentang rilis terbaru dan tip berguna tentang Aspose.Slides.|
+|[Beranda Aspose.Slides untuk .NET](https://products.aspose.com/slides/net/)|Halaman utama produk.|
+|[Blog Aspose.Slides](https://blog.aspose.com/category/slides/)|Periksa halaman ini secara berkala untuk informasi tentang rilis terbaru dan tip berguna tentang Aspose.Slides.|
 |[Unduh Aspose.Slides untuk .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Unduh versi terbaru Aspose.Slides di sini. Kami sering merilis versi baru.|
-|[Forum dukungan Aspose.Slides](https://forum.aspose.com/c/slides/id/11)|Posting pertanyaan dan masalah Anda di sini untuk resolusi cepat.|
+|[Forum dukungan Aspose.Slides](https://forum.aspose.com/c/slides/11)|Posting pertanyaan dan masalah Anda di sini untuk resolusi cepat.|
 |[Dokumentasi produk Aspose.Slides untuk .NET](/slides/id/net/)|Dokumentasi online lengkap yang berisi dokumen ini dan Referensi API Aspose.Slides.|
 
 ## **Persyaratan Tingkat Kepercayaan**
@@ -158,7 +158,7 @@ Pada .NET Framework, Aspose.Slides memerlukan kepercayaan penuh dan tidak berjal
 ## **Tanya Jawab**
 
 ### Apakah mendukung level konformitas PDF untuk pengarsipan dan aksesibilitas (PDF/A dan PDF/UA)?
-Ya. Anda dapat menyimpan ke PDF dengan PDF/A-2a/2b/2u, PDF/A-3a/3b, serta PDF/UA dengan mengonfigurasi [opsi ekspor PDF](https://reference.aspose.com/slides/id/net/aspose.slides.export/pdfoptions/).
+Ya. Anda dapat menyimpan ke PDF dengan PDF/A-2a/2b/2u, PDF/A-3a/3b, serta PDF/UA dengan mengonfigurasi [opsi ekspor PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ### Apakah ada mekanisme substitusi font dan dukungan untuk font khusus untuk memastikan rendering yang tepat?
 Ya. Perpustakaan memungkinkan Anda [memuat font khusus](/slides/id/net/custom-font/) dan [mendefinisikan aturan fallback](/slides/id/net/fallback-font/) sehingga glif yang hilang dapat digantikan secara andal selama konversi dan rendering.
@@ -173,13 +173,13 @@ Tidak. Aspose.Slides adalah mesin mandiri; PowerPoint tidak diperlukan di server
 Ya, Anda dapat memproses dokumen berbeda secara paralel di thread terpisah; cukup hindari penggunaan instance presentasi yang sama secara bersamaan [antar thread](/slides/id/net/multithreading/).
 
 ### Apakah makro dipertahankan dan bisakah saya mengelola VBA di file PPTM/PPSM?
-Ya. Presentasi dengan makro [didukung](/slides/id/net/presentation-via-vba/), dan Anda dapat [memeriksa serta mengelola proyek VBA](https://reference.aspose.com/slides/id/net/aspose.slides.vba/) dalam file tersebut.
+Ya. Presentasi dengan makro [didukung](/slides/id/net/presentation-via-vba/), dan Anda dapat [memeriksa serta mengelola proyek VBA](https://reference.aspose.com/slides/net/aspose.slides.vba/) dalam file tersebut.
 
 ### Bisakah saya mengonversi PDF atau HTML kembali menjadi slide PowerPoint?
 Ya. Anda dapat [mengimpor halaman PDF atau konten HTML](/slides/id/net/import-presentation/) untuk membuat atau mengisi slide dalam sebuah presentasi.
 
 ### Apakah ekspor XPS didukung, dan bisakah saya mengontrol kualitas serta konten output XPS?
-Ya. [Ekspor ke XPS](/slides/id/net/convert-powerpoint-to-xps/) tersedia, dan [opsi penyimpanan](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions/) memungkinkan Anda menyesuaikan kualitas output dan konten yang disertakan.
+Ya. [Ekspor ke XPS](/slides/id/net/convert-powerpoint-to-xps/) tersedia, dan [opsi penyimpanan](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) memungkinkan Anda menyesuaikan kualitas output dan konten yang disertakan.
 
 ### Bisakah saya mengonversi slide ke gambar dan mengontrol kualitas output?
 Ya. Slide dapat [dirender ke PNG, JPEG, GIF, BMP, TIFF](/slides/id/net/convert-powerpoint-to-png/) dan format lain dengan kontrol terperinci atas ukuran dan kualitas.

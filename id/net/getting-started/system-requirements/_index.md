@@ -68,7 +68,7 @@ Pustaka Linux paket memerlukan pustaka `fontconfig`:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Tanpa itu, pembuatan sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) gagal dengan `TypeInitializationException` yang berisi `DllNotFoundException` yang melaporkan bahwa `libfontconfig.so.1` tidak dapat dibuka.
+Tanpa itu, pembuatan sebuah [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) gagal dengan `TypeInitializationException` yang berisi `DllNotFoundException` yang melaporkan bahwa `libfontconfig.so.1` tidak dapat dibuka.
 
 Gambar dasar minimal mungkin juga tidak menyertakan `fontconfig`. Misalnya, gambar dasar AWS Lambda untuk .NET 8 tidak mengandung `fontconfig` maupun font apa pun. Pada gambar kontainer yang dibangun di atasnya, jalankan `dnf install -y fontconfig`, yang juga memasang font Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Dukungan Globalisasi**
 
-Kedua paket memerlukan dukungan globalisasi .NET, yang disediakan .NET di Linux melalui pustaka ICU. Dalam [mode globalization‑invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), pembuatan sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) gagal dengan `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Kedua paket memerlukan dukungan globalisasi .NET, yang disediakan .NET di Linux melalui pustaka ICU. Dalam [mode globalization‑invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), pembuatan sebuah [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) gagal dengan `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Beberapa gambar kontainer mengaktifkan mode ini. Misalnya, gambar runtime .NET untuk Alpine Linux (`runtime-deps`, `runtime`, dan `aspnet`) menetapkan `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` dan tidak menyertakan ICU. Pada gambar yang dibangun di atasnya, instal ICU dan matikan mode tersebut:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Program menambahkan persegi panjang dengan teks ke slide pertama dan menyimpan presentasi sebagai *hello.pptx* dengan metode [Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/). Selanjutnya program merender slide dengan [GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/slide/getimage/) dan menyimpan hasilnya sebagai *hello.png* dengan [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/save/) dalam format [ImageFormat.Png](https://reference.aspose.com/slides/id/net/aspose.slides/imageformat/). Faktor skala 1 menghasilkan satu piksel per point, sehingga slide default 720 × 540 point menjadi gambar 720 × 540 piksel, dengan teks terlihat di dalam persegi panjang. Tanpa lisensi, kedua berkas tersebut juga menampilkan watermark evaluasi; lihat [Licensing](/slides/id/net/licensing/). Jika ada persyaratan yang hilang, program akan berhenti dengan salah satu pengecualian yang dijelaskan di [Linux](#linux).
+Program menambahkan persegi panjang dengan teks ke slide pertama dan menyimpan presentasi sebagai *hello.pptx* dengan metode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Selanjutnya program merender slide dengan [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) dan menyimpan hasilnya sebagai *hello.png* dengan [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) dalam format [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Faktor skala 1 menghasilkan satu piksel per point, sehingga slide default 720 × 540 point menjadi gambar 720 × 540 piksel, dengan teks terlihat di dalam persegi panjang. Tanpa lisensi, kedua berkas tersebut juga menampilkan watermark evaluasi; lihat [Licensing](/slides/id/net/licensing/). Jika ada persyaratan yang hilang, program akan berhenti dengan salah satu pengecualian yang dijelaskan di [Linux](#linux).
 
 ## **Alat Pengembangan**
 

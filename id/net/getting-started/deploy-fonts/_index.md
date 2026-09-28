@@ -56,7 +56,7 @@ Aplikasi konsol berikut melaporkan font yang digantikan oleh Aspose.Slides dalam
 </Project>
 ```
 
-*Program.cs* menambahkan satu kotak teks per nama font ke slide dan menetapkan font melalui properti [LatinFont](https://reference.aspose.com/slides/id/net/aspose.slides/baseportionformat/latinfont/). Nama font diambil dari baris perintah; tanpa argumen, aplikasi memeriksa Calibri, Arial, dan Times New Roman. Ia mencetak folder tempat Aspose.Slides mencari font ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/id/net/aspose.slides/fontsloader/getfontfolders/)), merender slide ke *output/fonts.pdf*, dan mencetak substitusi yang dilaporkan oleh [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/). Dua langkah opsional di awal, memuat folder *fonts* dan membaca variabel `DEFAULT_FONT`, dijelaskan lebih lanjut dalam artikel ini.
+*Program.cs* menambahkan satu kotak teks per nama font ke slide dan menetapkan font melalui properti [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Nama font diambil dari baris perintah; tanpa argumen, aplikasi memeriksa Calibri, Arial, dan Times New Roman. Ia mencetak folder tempat Aspose.Slides mencari font ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), merender slide ke *output/fonts.pdf*, dan mencetak substitusi yang dilaporkan oleh [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Dua langkah opsional di awal, memuat folder *fonts* dan membaca variabel `DEFAULT_FONT`, dijelaskan lebih lanjut dalam artikel ini.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Muat Font dari Folder Aplikasi**
 
-Alih-alih memasang font dalam image, Anda dapat mengirimnya bersama aplikasi dan memuatnya dengan [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/id/net/aspose.slides/fontsloader/loadexternalfonts/). Font kemudian hanya tersedia untuk Aspose.Slides, dan mereka dideploy bersama aplikasi. *FontCheck* melakukan hal ini: *FontCheck.csproj* menyalin folder *fonts* ke output aplikasi, dan *Program.cs* mengirim folder tersebut ke `LoadExternalFonts` sebelum membuat presentasi. [Custom Font](/slides/id/net/custom-font/) menjelaskan cara lain untuk menyediakan font, seperti memuatnya dari memori.
+Alih-alih memasang font dalam image, Anda dapat mengirimnya bersama aplikasi dan memuatnya dengan [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Font kemudian hanya tersedia untuk Aspose.Slides, dan mereka dideploy bersama aplikasi. *FontCheck* melakukan hal ini: *FontCheck.csproj* menyalin folder *fonts* ke output aplikasi, dan *Program.cs* mengirim folder tersebut ke `LoadExternalFonts` sebelum membuat presentasi. [Custom Font](/slides/id/net/custom-font/) menjelaskan cara lain untuk menyediakan font, seperti memuatnya dari memori.
 
 Bangun kembali image, lalu periksa Calibri dan Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Atur Font Default untuk Font yang Hilang**
 
-Ketika sebuah font tidak ada, Aspose.Slides menggunakan font pengganti yang dipilihnya sendiri. Untuk memilihnya sendiri, atur properti [DefaultRegularFont](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/defaultregularfont/) pada [LoadOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/) dan kirim opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). *FontCheck* membaca nama font dari variabel lingkungan `DEFAULT_FONT`. Dengan Carlito dimuat, gunakan ia untuk font yang hilang:
+Ketika sebuah font tidak ada, Aspose.Slides menggunakan font pengganti yang dipilihnya sendiri. Untuk memilihnya sendiri, atur properti [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) pada [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) dan kirim opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* membaca nama font dari variabel lingkungan `DEFAULT_FONT`. Dengan Carlito dimuat, gunakan ia untuk font yang hilang:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Font default menggantikan setiap font yang hilang. Untuk memetakan font individu, misalnya Arial ke Liberation Sans dan Calibri ke Carlito, gunakan [aturan substitusi font](/slides/id/net/font-substitution/). Aturan mengubah output yang dirender, tetapi `GetSubstitutions` tidak mencerminkannya, jadi periksa font dalam file output sebagai gantinya. Untuk teks Asia, juga atur [DefaultAsianFont](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/defaultasianfont/); lihat [Default Font](/slides/id/net/default-font/).
+Font default menggantikan setiap font yang hilang. Untuk memetakan font individu, misalnya Arial ke Liberation Sans dan Calibri ke Carlito, gunakan [aturan substitusi font](/slides/id/net/font-substitution/). Aturan mengubah output yang dirender, tetapi `GetSubstitutions` tidak mencerminkannya, jadi periksa font dalam file output sebagai gantinya. Untuk teks Asia, juga atur [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); lihat [Default Font](/slides/id/net/default-font/).
 
 ## **Pasang Font pada Alpine Linux**
 

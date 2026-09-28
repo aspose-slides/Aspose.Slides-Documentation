@@ -14,7 +14,7 @@ description: "Historis: masalah yang diketahui dipublikasikan dengan Aspose.Slid
 ---
 {{% alert color="info" title="Note" %}}
 
-Ini adalah halaman historis. Halaman ini mencantumkan masalah yang diketahui yang dipublikasikan dengan Aspose.Slides untuk .NET 14.1.0, dirilis pada tahun 2014, dan tidak menggambarkan versi saat ini. Untuk perubahan di setiap versi, lihat [release notes](https://releases.aspose.com/slides/id/net/release-notes/).
+Ini adalah halaman historis. Halaman ini mencantumkan masalah yang diketahui yang dipublikasikan dengan Aspose.Slides untuk .NET 14.1.0, dirilis pada tahun 2014, dan tidak menggambarkan versi saat ini. Untuk perubahan di setiap versi, lihat [release notes](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 

@@ -25,7 +25,7 @@ Level kepercayaan Code Access Security (CAS) hanya ada di .NET Framework. Artike
 
 ## **.NET Framework**
 
-Aspose.Slides memerlukan kepercayaan penuh pada .NET Framework. Ia tidak berjalan di bawah kepercayaan parsial, seperti aplikasi ASP.NET yang dikonfigurasi untuk Medium Trust (`<trust level="Medium" />`): pembuatan objek [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) gagal dengan `SecurityException`.
+Aspose.Slides memerlukan kepercayaan penuh pada .NET Framework. Ia tidak berjalan di bawah kepercayaan parsial, seperti aplikasi ASP.NET yang dikonfigurasi untuk Medium Trust (`<trust level="Medium" />`): pembuatan objek [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) gagal dengan `SecurityException`.
 
 Microsoft tidak lagi memperlakukan ASP.NET partial trust sebagai cara untuk mengisolasi aplikasi satu sama lain, dan menyarankan menjalankan aplikasi dalam kumpulan aplikasi terpisah. Lihat [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 
