@@ -13,7 +13,7 @@ description: "Ontdek hoe de evaluatieversie van Aspose.Slides for Reporting Serv
 ---
 ## **Evaluatieversie**
 
-U kunt Aspose.Slides for Reporting Services voor evaluatie downloaden vanaf de [downloadpagina](https://releases.aspose.com/slides/nl/reportingservices/). De evaluatiedownload is dezelfde als de betaalde download. Het wordt gelicentieerd zodra u een licentiebestand naar de rapportserver kopieert — er is geen code nodig; zie [Licensering](/slides/nl/reportingservices/license-aspose-slides-for-reporting-services/).
+U kunt Aspose.Slides for Reporting Services voor evaluatie downloaden vanaf de [downloadpagina](https://releases.aspose.com/slides/reportingservices/). De evaluatiedownload is dezelfde als de betaalde download. Het wordt gelicentieerd zodra u een licentiebestand naar de rapportserver kopieert — er is geen code nodig; zie [Licensering](/slides/nl/reportingservices/license-aspose-slides-for-reporting-services/).
 
 De evaluatieversie (zonder licentie) biedt de volledige functionaliteit van het product, maar voegt een evaluatiewatermerk toe aan geëxporteerde presentaties.
 

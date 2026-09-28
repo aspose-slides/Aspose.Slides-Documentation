@@ -13,11 +13,11 @@ description: "Pas een licentie toe op Aspose.Slides for Reporting Services door 
 ---
 ## **Licentieondersteuning**
 
-De evaluatieversie van Aspose.Slides for Reporting Services is hetzelfde pakket als de aangeschafte, van [its download page](https://releases.aspose.com/slides/nl/reportingservices/), en biedt dezelfde functionaliteit. Zonder licentie werkt het in evaluatiemodus en voegt het een evaluatiewatermerk toe aan geëxporteerde presentaties.
+De evaluatieversie van Aspose.Slides for Reporting Services is hetzelfde pakket als de aangeschafte, van [its download page](https://releases.aspose.com/slides/reportingservices/), en biedt dezelfde functionaliteit. Zonder licentie werkt het in evaluatiemodus en voegt het een evaluatiewatermerk toe aan geëxporteerde presentaties.
 
 De evaluatieversie wordt gelicensureerd wanneer u een licentiebestand naar de rapportserver kopieert. Er is geen code bij betrokken.
 
-Wanneer u tevreden bent met uw evaluatie, kunt u [purchase a license](https://purchase.aspose.com/pricing/slides/nl/reporting-services/). We raden u aan de verschillende abonnementstypen door te nemen. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
+Wanneer u tevreden bent met uw evaluatie, kunt u [purchase a license](https://purchase.aspose.com/pricing/slides/reporting-services/). We raden u aan de verschillende abonnementstypen door te nemen. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
 
 ## **Licensering in Aspose.Slides for Reporting Services**
 

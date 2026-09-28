@@ -63,12 +63,12 @@ Het exporteert rapporten naar PPT-, PPTX-, PPS- en PPSX‑presentaties en diavoo
 <hr>
 <p>REFERENTIE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/nl/reportingservices/release-notes/">Release-notities</a></li>
-<li><a href="https://releases.aspose.com/slides/nl/reportingservices/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Release-notities</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Download</a></li>
 </ul>
 <p>ONDERSTEUNING</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/nl/11">Gratis ondersteuningsforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis ondersteuningsforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betaalde ondersteuningshelpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Het exporteert rapporten naar PPT-, PPTX-, PPS- en PPSX‑presentaties en diavoo
 Er is geen code nodig: u installeert de extensie op de rapportserver en de formaten verschijnen in de exportlijst van elk gepagineerd rapport op die server.
 
 1. Controleer of de rapportserver voldoet aan de [systeemvereisten](/slides/nl/reportingservices/system-requirements/), inclusief .NET Framework 3.5.
-1. Van de [downloadpagina](https://releases.aspose.com/slides/nl/reportingservices/), download de MSI‑installer, *Aspose.Slides for Reporting Services*. Om handmatig te installeren, download het ZIP‑pakket, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. Van de [downloadpagina](https://releases.aspose.com/slides/reportingservices/), download de MSI‑installer, *Aspose.Slides for Reporting Services*. Om handmatig te installeren, download het ZIP‑pakket, *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. Installeer de extensie op de rapportserver: voer de MSI uit als beheerder, zoals beschreven in [Installeren met de MSI‑installer](/slides/nl/reportingservices/install-with-msi-installer/), of volg [Handmatig installeren](/slides/nl/reportingservices/install-manually/) voor het ZIP‑pakket.
 1. Open in een browser de webportal van de rapportserver (Report Manager op SQL Server 2014 en eerder). Standaard is het adres `https://<ComputerName>/reports`.
 1. Open een gepagineerd rapport. Open op de rapportwerkbalk de lijst **Export** en selecteer **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Als de werkbalk een aparte **Export**‑knop heeft, zoals bij Report Manager, selecteer die dan.
