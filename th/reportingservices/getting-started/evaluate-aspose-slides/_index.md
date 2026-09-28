@@ -13,7 +13,7 @@ description: "ค้นหาวิธีที่เวอร์ชันทด
 ---
 ## **เวอร์ชันทดลอง**
 
-คุณสามารถดาวน์โหลด Aspose.Slides for Reporting Services สำหรับการทดลองจาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/reportingservices/). การดาวน์โหลดแบบทดลองเหมือนกับการดาวน์โหลดที่ซื้อแล้ว มันจะได้รับใบอนุญาตเมื่อคุณคัดลอกไฟล์ใบอนุญาตไปยังเซิร์ฟเวอร์รายงาน — ไม่ต้องใช้โค้ด; ดูที่ [การให้สิทธิ์](/slides/th/reportingservices/license-aspose-slides-for-reporting-services/).
+คุณสามารถดาวน์โหลด Aspose.Slides for Reporting Services สำหรับการทดลองจาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/reportingservices/). การดาวน์โหลดแบบทดลองเหมือนกับการดาวน์โหลดที่ซื้อแล้ว มันจะได้รับใบอนุญาตเมื่อคุณคัดลอกไฟล์ใบอนุญาตไปยังเซิร์ฟเวอร์รายงาน — ไม่ต้องใช้โค้ด; ดูที่ [การให้สิทธิ์](/slides/th/reportingservices/license-aspose-slides-for-reporting-services/).
 
 เวอร์ชันทดลอง (โดยไม่มีใบอนุญาต) ให้ฟังก์ชันการทำงานของผลิตภัณฑ์เต็มรูปแบบ แต่จะใส่น้ำลายน้ำการทดลองลงในงานนำเสนอที่ส่งออก.
 

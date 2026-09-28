@@ -15,7 +15,7 @@ description: "ติดตั้ง Aspose.Slides for Reporting Services ด้�
 
 MSI installer เป็นวิธีที่ง่ายที่สุดในการติดตั้ง Aspose.Slides for Reporting Services. จำเป็นต้องมี .NET Framework 3.5 และสิทธิ์ผู้ดูแลระบบบนเซิร์ฟเวอร์รายงาน; ดู [ความต้องการระบบ](/slides/th/reportingservices/system-requirements/).
 
-1. ดาวน์โหลด MSI installer, *Aspose.Slides for Reporting Services XX.XX*, จาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/reportingservices/) แล้วคัดลอกไปยังเซิร์ฟเวอร์รายงาน.
+1. ดาวน์โหลด MSI installer, *Aspose.Slides for Reporting Services XX.XX*, จาก [หน้าดาวน์โหลด](https://releases.aspose.com/slides/reportingservices/) แล้วคัดลอกไปยังเซิร์ฟเวอร์รายงาน.
 1. เรียกใช้โดยเป็นผู้ดูแลระบบ. หากไม่มี .NET Framework 3.5 ตัวติดตั้งจะหยุดพร้อมข้อความ; ให้ติดตั้งคุณลักษณะของ .NET Framework 3.5 แล้วเรียกใช้อีกครั้ง.
 1. ยอมรับข้อตกลงการใช้งาน.
 1. บนหน้า **Custom Setup**, ต้นไม้ฟีเจอร์จะแสดงแต่ละอินสแตนซ์ของ SQL Server Reporting Services และ Power BI Report Server ที่ตัวติดตั้งตรวจพบบนเครื่อง. เพื่อคงอินสแตนซ์เดิมไว้, คลิกไอคอนของมันและเลือก **Entire feature will be unavailable**. รุ่น Express ไม่รองรับส่วนขยายการแสดงผล, ดังนั้นอย่าเลือกอินสแตนซ์ Express. ตัวติดตั้งจะซ่อนอินสแตนซ์ Express ของ SQL Server 2016 และก่อนหน้า.

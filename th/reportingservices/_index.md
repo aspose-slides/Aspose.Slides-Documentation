@@ -63,12 +63,12 @@ Aspose.Slides for Reporting Services เป็นส่วนขยายกา�
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/th/reportingservices/release-notes/">บันทึกประจำรุ่น</a></li>
-<li><a href="https://releases.aspose.com/slides/th/reportingservices/">ดาวน์โหลด</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">บันทึกประจำรุ่น</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">ดาวน์โหลด</a></li>
 </ul>
 <p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรัมสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรัมสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบชำระเงิน</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for Reporting Services เป็นส่วนขยายกา�
 ไม่มีโค้ดให้เขียน: คุณทำการติดตั้งส่วนขยายบนเซิร์ฟเวอร์รายงาน และรูปแบบต่าง ๆ จะปรากฏในรายการส่งออกรายงานแบบหน้ากระดาษทุกอันบนเซิร์ฟเวอร์นั้น
 
 1. ตรวจสอบว่าเซิร์ฟเวอร์รายงานตรงตาม [ความต้องการของระบบ](/slides/th/reportingservices/system-requirements/), รวมถึง .NET Framework 3.5.
-1. จาก [หน้า ดาวน์โหลด](https://releases.aspose.com/slides/th/reportingservices/), ดาวน์โหลดตัวติดตั้ง MSI, *Aspose.Slides for Reporting Services*. หากต้องการติดตั้งด้วยตนเอง, ดาวน์โหลดแพคเกจ ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. จาก [หน้า ดาวน์โหลด](https://releases.aspose.com/slides/reportingservices/), ดาวน์โหลดตัวติดตั้ง MSI, *Aspose.Slides for Reporting Services*. หากต้องการติดตั้งด้วยตนเอง, ดาวน์โหลดแพคเกจ ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. ติดตั้งส่วนขยายบนเซิร์ฟเวอร์รายงาน: รันไฟล์ MSI ในฐานะผู้ดูแลระบบ ตามที่อธิบายใน [ติดตั้งด้วยตัวติดตั้ง MSI](/slides/th/reportingservices/install-with-msi-installer/), หรือทำตามขั้นตอนใน [ติดตั้งด้วยตนเอง](/slides/th/reportingservices/install-manually/) สำหรับแพคเกจ ZIP.
 1. ในเบราว์เซอร์, เปิดพอร์ทัลเว็บของเซิร์ฟเวอร์รายงาน (Report Manager บน SQL Server 2014 และก่อนหน้า). โดยค่าเริ่มต้น, ที่อยู่คือ `https://<ComputerName>/reports`.
 1. เปิดรายงานแบบหน้ากระดาษ. บนแถบเครื่องมือของรายงาน, เปิดรายการ **Export** แล้วเลือก **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. หากแถบเครื่องมือมีปุ่ม **Export** แยกต่างหาก, เช่นเดียวกับ Report Manager, ให้คลิกที่ปุ่มนั้น.
