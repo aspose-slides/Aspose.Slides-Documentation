@@ -23,15 +23,15 @@ description: "Zastosuj, zarządzaj i rozwiąż problemy z licencjami w Aspose.Sl
 
 Aspose.Slides można używać w trybie ewaluacyjnym lub z ważną licencją. Wersja ewaluacyjna zapewnia taką samą funkcjonalność jak wersja licencjonowana, ale dodaje znak wodny ewaluacji do każdego slajdu każdej prezentacji, którą zapisuje, oraz obcina tekst odczytywany przez Twój kod z prezentacji.
 
-Ten artykuł wyjaśnia, jak działa licencjonowanie w Aspose.Slides i jak zastosować licencję przed użyciem biblioteki. Licencję można załadować z pliku, strumienia lub zasobu osadzonego przy użyciu klasy [License](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/license/). Artykuł pokazuje także, jak zweryfikować, czy licencja została poprawnie zastosowana.
+Ten artykuł wyjaśnia, jak działa licencjonowanie w Aspose.Slides i jak zastosować licencję przed użyciem biblioteki. Licencję można załadować z pliku, strumienia lub zasobu osadzonego przy użyciu klasy [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/). Artykuł pokazuje także, jak zweryfikować, czy licencja została poprawnie zastosowana.
 
 ## **Ewaluacja Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
 
-Możesz pobrać wersję ewaluacyjną **Aspose.Slides for Android via Java** z jego [strony pobierania](https://releases.aspose.com/slides/pl/androidjava/). Wersja ewaluacyjna oferuje taką samą funkcjonalność jak licencjonowana wersja produktu. Pakiet ewaluacyjny jest taki sam jak zakupiony pakiet. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku wierszy kodu (w celu zastosowania licencji).
+Możesz pobrać wersję ewaluacyjną **Aspose.Slides for Android via Java** z jego [strony pobierania](https://releases.aspose.com/slides/androidjava/). Wersja ewaluacyjna oferuje taką samą funkcjonalność jak licencjonowana wersja produktu. Pakiet ewaluacyjny jest taki sam jak zakupiony pakiet. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku wierszy kodu (w celu zastosowania licencji).
 
-Gdy będziesz zadowolony z ewaluacji **Aspose.Slides**, możesz [zakupić licencję](https://purchase.aspose.com/pricing/slides/pl/android-java/). Zachęcamy do zapoznania się z różnymi typami subskrypcji. Jeśli masz pytania, skontaktuj się z zespołem sprzedaży Aspose.
+Gdy będziesz zadowolony z ewaluacji **Aspose.Slides**, możesz [zakupić licencję](https://purchase.aspose.com/pricing/slides/android-java/). Zachęcamy do zapoznania się z różnymi typami subskrypcji. Jeśli masz pytania, skontaktuj się z zespołem sprzedaży Aspose.
 
 Każda licencja Aspose obejmuje roczną subskrypcję uprawniającą do bezpłatnych aktualizacji do nowych wersji lub poprawek wydanych w okresie subskrypcji. Użytkownicy posiadający licencjonowane produkty (lub nawet wersje ewaluacyjne) otrzymują bezpłatne i nieograniczone wsparcie techniczne.
 
@@ -64,7 +64,7 @@ Licencję można załadować z **pliku** lub **strumienia**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides udostępnia klasę [License](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/license/) do operacji licencjonowania.
+Aspose.Slides udostępnia klasę [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) do operacji licencjonowania.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Jeśli umieścisz plik licencji w innym katalogu, przy wywołaniu metody [setLicense](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) nazwa pliku licencji na końcu podanej ścieżki musi być taka sama jak nazwa Twojego pliku licencji.
+Jeśli umieścisz plik licencji w innym katalogu, przy wywołaniu metody [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) nazwa pliku licencji na końcu podanej ścieżki musi być taka sama jak nazwa Twojego pliku licencji.
 
-Na przykład możesz zmienić nazwę pliku licencji na *Aspose.Slides.Android.via.Java.lic.xml*. Wtedy w kodzie musisz przekazać ścieżkę do pliku (kończącą się *Aspose.Slides.Android.via.Java.lic.xml*) do metody [setLicense](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Na przykład możesz zmienić nazwę pliku licencji na *Aspose.Slides.Android.via.Java.lic.xml*. Wtedy w kodzie musisz przekazać ścieżkę do pliku (kończącą się *Aspose.Slides.Android.via.Java.lic.xml*) do metody [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -116,7 +116,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Strumień z zasobów aplikacji**
 
-W aplikacji Android umieść plik licencji w folderze *assets* modułu aplikacji, *app/src/main/assets*, aby został spakowany do pliku APK. Otwórz plik metodą [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) i przekaż strumień do metody [setLicense](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Kod uruchamiany jest wewnątrz `Activity`, np. w metodzie `onCreate`, przed użyciem Aspose.Slides przez aplikację:
+W aplikacji Android umieść plik licencji w folderze *assets* modułu aplikacji, *app/src/main/assets*, aby został spakowany do pliku APK. Otwórz plik metodą [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) i przekaż strumień do metody [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Kod uruchamiany jest wewnątrz `Activity`, np. w metodzie `onCreate`, przed użyciem Aspose.Slides przez aplikację:
 
 ```java
 import android.util.Log;
@@ -154,7 +154,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-Metoda [setLicense](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) nie jest bezpieczna wątkowo. Jeśli metoda ta ma być wywoływana jednocześnie z wielu wątków, warto użyć prymitywów synchronizacji (np. blokady), aby uniknąć problemów.
+Metoda [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) nie jest bezpieczna wątkowo. Jeśli metoda ta ma być wywoływana jednocześnie z wielu wątków, warto użyć prymitywów synchronizacji (np. blokady), aby uniknąć problemów.
 
 {{% /alert %}}
 

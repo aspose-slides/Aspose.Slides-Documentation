@@ -31,10 +31,10 @@ Zanim rozpoczniesz, dodaj Aspose.Slides do swojego projektu Android z repozytori
 
 Aby utworzyć prezentację i umieścić pole tekstowe na jej pierwszym slajdzie, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.  
-2. Uzyskaj ten slajd z [slide collection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/) według jego indeksu, 0.  
-3. Dodaj prostokąt przy użyciu metody [addAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) z [shape collection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishapecollection/) i ustaw tekst jego [text frame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) metodą [setText](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Zapisz prezentację jako plik PPTX metodą [save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) w formacie [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/saveformat/).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Nowa prezentacja już zawiera jeden pusty slajd.  
+2. Uzyskaj ten slajd z [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) według jego indeksu, 0.  
+3. Dodaj prostokąt przy użyciu metody [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) z [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) i ustaw tekst jego [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) metodą [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Zapisz prezentację jako plik PPTX metodą [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) w formacie [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Kod uruchamiany jest wewnątrz `Activity`, np. w jej metodzie `onCreate`. Zapisuje plik do katalogu zwracanego przez metodę [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) – prywatnej pamięci aplikacji, do której można zapisywać bez żądania żadnych uprawnień.
 

@@ -57,7 +57,7 @@ Następnie zsynchronizuj projekt z plikami Gradle, aby Gradle pobrał bibliotek�
 
 ### **Wybierz wersję**
 
-Aspose.Slides for Android via Java nie jest budowany dla każdej wersji w repozytorium. Jego kompilacje są publikowane tylko dla niektórych wersji Aspose.Slides for Java, a wersja bez kompilacji Android nie zostanie znaleziona. Wybierz wersję wymienioną na [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/pl/androidjava/).
+Aspose.Slides for Android via Java nie jest budowany dla każdej wersji w repozytorium. Jego kompilacje są publikowane tylko dla niektórych wersji Aspose.Slides for Java, a wersja bez kompilacji Android nie zostanie znaleziona. Wybierz wersję wymienioną na [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/androidjava/).
 
 ### **Skrypty budowania Groovy**
 
@@ -108,11 +108,11 @@ Od 2018 roku wersjonowanie Aspose.Slides for Android via Java jest zgodne z wers
 
 ### Jak mogę zweryfikować, że Aspose.Slides jest poprawnie zintegrowany?
 
-Zbuduj projekt, utwórz pustą [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) i zapisz ją pod nową nazwą. Jeśli plik zostanie utworzony bez wyjątków, biblioteka została pomyślnie zintegrowana.
+Zbuduj projekt, utwórz pustą [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) i zapisz ją pod nową nazwą. Jeśli plik zostanie utworzony bez wyjątków, biblioteka została pomyślnie zintegrowana.
 
 ### Jak mogę ograniczyć zużycie pamięci podczas przetwarzania dużych prezentacji?
 
-Wywołaj metodę [dispose](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#dispose--) każdego obiektu [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) w bloku `finally`, aby szybko zwolnić jego zasoby, i przetwarzaj jedną dużą prezentację na raz. Pomaga to zapobiegać błędom braku pamięci i utrzymuje przewidywalne zużycie pamięci podczas operacji wsadowych.
+Wywołaj metodę [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) każdego obiektu [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) w bloku `finally`, aby szybko zwolnić jego zasoby, i przetwarzaj jedną dużą prezentację na raz. Pomaga to zapobiegać błędom braku pamięci i utrzymuje przewidywalne zużycie pamięci podczas operacji wsadowych.
 
 ### Czy mogę wykluczyć niechciane formaty eksportu, aby zmniejszyć ostateczny rozmiar JAR?
 
