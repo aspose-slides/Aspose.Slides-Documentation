@@ -28,16 +28,16 @@ Aspose.Slides هي مجموعة من المكتبات لإنشاء وعرض وت
 <hr>
 <p>.NET</p>
 <ul>
-<li><a href="/slides/ar/net/"><b>Aspose.Slides for .NET</b></a><br>لتطبيقات .NET.<br><small><a href="/slides/ar/net/installation/">التثبيت</a> · <a href="/slides/ar/net/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/net/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/net/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/net/"><b>Aspose.Slides for .NET</b></a><br>لتطبيقات .NET.<br><small><a href="/slides/ar/net/installation/">التثبيت</a> · <a href="/slides/ar/net/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/net/">مرجع API</a> · <a href="https://releases.aspose.com/slides/net/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 <p>جافا</p>
 <ul>
-<li><a href="/slides/ar/java/"><b>Aspose.Slides for Java</b></a><br>لتطبيقات جافا.<br><small><a href="/slides/ar/java/installation/">التثبيت</a> · <a href="/slides/ar/java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/java/release-notes/">ملاحظات الإصدار</a></small></li>
-<li><a href="/slides/ar/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>لتطبيقات أندرويد.<br><small><a href="/slides/ar/androidjava/install-aspose-slides-for-android-via-java/">التثبيت</a> · <a href="/slides/ar/androidjava/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/androidjava/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/androidjava/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/java/"><b>Aspose.Slides for Java</b></a><br>لتطبيقات جافا.<br><small><a href="/slides/ar/java/installation/">التثبيت</a> · <a href="/slides/ar/java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/java/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>لتطبيقات أندرويد.<br><small><a href="/slides/ar/androidjava/install-aspose-slides-for-android-via-java/">التثبيت</a> · <a href="/slides/ar/androidjava/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/androidjava/">مرجع API</a> · <a href="https://releases.aspose.com/slides/androidjava/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 <p>C++</p>
 <ul>
-<li><a href="/slides/ar/cpp/"><b>Aspose.Slides for C++</b></a><br>لتطبيقات C++.<br><small><a href="/slides/ar/cpp/installation/">التثبيت</a> · <a href="/slides/ar/cpp/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/cpp/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/cpp/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/cpp/"><b>Aspose.Slides for C++</b></a><br>لتطبيقات C++.<br><small><a href="/slides/ar/cpp/installation/">التثبيت</a> · <a href="/slides/ar/cpp/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/cpp/">مرجع API</a> · <a href="https://releases.aspose.com/slides/cpp/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -45,17 +45,17 @@ Aspose.Slides هي مجموعة من المكتبات لإنشاء وعرض وت
 <hr>
 <p>بايثون</p>
 <ul>
-<li><a href="/slides/ar/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>يتضمن بيئة تشغيل .NET التي يستخدمها.<br><small><a href="/slides/ar/python-net/installation/">التثبيت</a> · <a href="/slides/ar/python-net/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/python-net/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/python-net/release-notes/">ملاحظات الإصدار</a></small></li>
-<li><a href="/slides/ar/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>تشغل مكتبة Java عبر JPype.<br><small><a href="/slides/ar/python-java/installation/">التثبيت</a> · <a href="/slides/ar/python-java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/python-java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/python-java/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>يتضمن بيئة تشغيل .NET التي يستخدمها.<br><small><a href="/slides/ar/python-net/installation/">التثبيت</a> · <a href="/slides/ar/python-net/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/python-net/">مرجع API</a> · <a href="https://releases.aspose.com/slides/python-net/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>تشغل مكتبة Java عبر JPype.<br><small><a href="/slides/ar/python-java/installation/">التثبيت</a> · <a href="/slides/ar/python-java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/python-java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/python-java/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 <p>Node.js</p>
 <ul>
-<li><a href="/slides/ar/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>تشغل مكتبة Java في آلة افتراضية Java.<br><small><a href="/slides/ar/nodejs-java/installation/">التثبيت</a> · <a href="/slides/ar/nodejs-java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/nodejs-java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/nodejs-java/release-notes/">ملاحظات الإصدار</a></small></li>
-<li><a href="/slides/ar/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>تشغل مكتبة .NET عبر edge-js.<br><small><a href="/slides/ar/nodejs-net/installation/">التثبيت</a> · <a href="/slides/ar/nodejs-net/developer-guide/">دليل المطور</a> · <a href="/slides/ar/nodejs-net/api-reference/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/nodejs-net/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>تشغل مكتبة Java في آلة افتراضية Java.<br><small><a href="/slides/ar/nodejs-java/installation/">التثبيت</a> · <a href="/slides/ar/nodejs-java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/nodejs-java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>تشغل مكتبة .NET عبر edge-js.<br><small><a href="/slides/ar/nodejs-net/installation/">التثبيت</a> · <a href="/slides/ar/nodejs-net/developer-guide/">دليل المطور</a> · <a href="/slides/ar/nodejs-net/api-reference/">مرجع API</a> · <a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 <p>PHP</p>
 <ul>
-<li><a href="/slides/ar/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>تستدعي مكتبة Java عبر جسر PHP/Java.<br><small><a href="/slides/ar/php-java/installation/">التثبيت</a> · <a href="/slides/ar/php-java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/ar/php-java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/ar/php-java/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>تستدعي مكتبة Java عبر جسر PHP/Java.<br><small><a href="/slides/ar/php-java/installation/">التثبيت</a> · <a href="/slides/ar/php-java/getting-started/">البدء</a> · <a href="https://reference.aspose.com/slides/php-java/">مرجع API</a> · <a href="https://releases.aspose.com/slides/php-java/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -63,12 +63,12 @@ Aspose.Slides هي مجموعة من المكتبات لإنشاء وعرض وت
 <hr>
 <p>التقارير</p>
 <ul>
-<li><a href="/slides/ar/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>يصدّر تقارير JasperReports إلى PowerPoint.<br><small><a href="/slides/ar/jasperreports/installing-aspose-slides-for-jasperreports/">التثبيت</a> · <a href="https://releases.aspose.com/slides/ar/jasperreport/release-notes/">ملاحظات الإصدار</a></small></li>
-<li><a href="/slides/ar/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>يصدّر تقارير SQL Server Reporting Services إلى PowerPoint.<br><small><a href="/slides/ar/reportingservices/installing-aspose-slides-for-reporting-services/">التثبيت</a> · <a href="https://releases.aspose.com/slides/ar/reportingservices/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>يصدّر تقارير JasperReports إلى PowerPoint.<br><small><a href="/slides/ar/jasperreports/installing-aspose-slides-for-jasperreports/">التثبيت</a> · <a href="https://releases.aspose.com/slides/jasperreport/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>يصدّر تقارير SQL Server Reporting Services إلى PowerPoint.<br><small><a href="/slides/ar/reportingservices/installing-aspose-slides-for-reporting-services/">التثبيت</a> · <a href="https://releases.aspose.com/slides/reportingservices/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 <p>SharePoint</p>
 <ul>
-<li><a href="/slides/ar/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>يقوم بتحويل العروض التقديمية في مواقع SharePoint.<br><small><a href="/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint/">التثبيت</a> · <a href="https://releases.aspose.com/slides/ar/sharepoint/release-notes/">ملاحظات الإصدار</a></small></li>
+<li><a href="/slides/ar/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>يقوم بتحويل العروض التقديمية في مواقع SharePoint.<br><small><a href="/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint/">التثبيت</a> · <a href="https://releases.aspose.com/slides/sharepoint/release-notes/">ملاحظات الإصدار</a></small></li>
 </ul>
 </div>
 </div>
