@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-در Debian و Ubuntu، `libfontconfig1` همچنین فونت‌های DejaVu را نصب می‌کند، بنابراین متن بدون بسته‌های فونت اضافی رندر می‌شود. بدون `fontconfig`، ایجاد یک [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) با `TypeInitializationException` که `DllNotFoundException` داخلی آن گزارش می‌دهد `libfontconfig.so.1` باز نشد، شکست می‌خورد. [System Requirements](/slides/fa/net/system-requirements/) برنامهٔ کوتاهی شامل می‌شود که تنظیمات را بررسی می‌کند.
+در Debian و Ubuntu، `libfontconfig1` همچنین فونت‌های DejaVu را نصب می‌کند، بنابراین متن بدون بسته‌های فونت اضافی رندر می‌شود. بدون `fontconfig`، ایجاد یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) با `TypeInitializationException` که `DllNotFoundException` داخلی آن گزارش می‌دهد `libfontconfig.so.1` باز نشد، شکست می‌خورد. [System Requirements](/slides/fa/net/system-requirements/) برنامهٔ کوتاهی شامل می‌شود که تنظیمات را بررسی می‌کند.
 
 ## **پلتفرم‌های ابری و میزبانی کانتینر**
 
@@ -68,7 +68,7 @@ dotnet add package Aspose.Slides.NET6.CrossPlatform
 
 پروژه‌ای که از Aspose.Slides.NET6.CrossPlatform استفاده می‌کند می‌تواند همچنین System.Drawing.Common را مستقیماً یا از طریق بستهٔ دیگری ارجاع دهد. نسخهٔ فعلی Aspose.Slides هیچ نوع عمومی در فضاهای‌نام `System` ارائه نمی‌دهد، بنابراین دو کتابخانه تداخل ندارند و می‌توانید فضای‌نام‌های `Aspose.Slides` و `System.Drawing` را در یک فایل وارد کنید.
 
-اگر کامپایر خطای CS0433 را گزارش دهد زیرا نوعی مانند `Image` یا `Graphics` هم در Aspose.Slides و هم در System.Drawing.Common وجود دارد، پروژهٔ شما از نسخهٔ قدیمی Aspose.Slides استفاده می‌کند. بسته را به آخرین نسخه به‌روز کنید. Aspose.Slides تصاویر رندر شده را به‌صورت اشیای [IImage](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/) برمی‌گرداند که در [Modern API](/slides/fa/net/modern-api/) توصیف شده‌اند.
+اگر کامپایر خطای CS0433 را گزارش دهد زیرا نوعی مانند `Image` یا `Graphics` هم در Aspose.Slides و هم در System.Drawing.Common وجود دارد، پروژهٔ شما از نسخهٔ قدیمی Aspose.Slides استفاده می‌کند. بسته را به آخرین نسخه به‌روز کنید. Aspose.Slides تصاویر رندر شده را به‌صورت اشیای [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) برمی‌گرداند که در [Modern API](/slides/fa/net/modern-api/) توصیف شده‌اند.
 
 ## **سوالات متداول**
 

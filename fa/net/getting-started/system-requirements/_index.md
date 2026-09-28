@@ -68,7 +68,7 @@ Aspose.Slides.NET6.CrossPlatform بر روی Alpine Linux یا توزیع‌ها
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-بدون آن، ایجاد یک [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) با `TypeInitializationException` که داخل آن `DllNotFoundException` می‌گوید `libfontconfig.so.1` قابل باز شدن نیست، شکست می‌خورد.
+بدون آن، ایجاد یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) با `TypeInitializationException` که داخل آن `DllNotFoundException` می‌گوید `libfontconfig.so.1` قابل باز شدن نیست، شکست می‌خورد.
 
 تصاویر پایهٔ حداقل ممکن ممکن است `fontconfig` را نیز نداشته باشند. به‌عنوان مثال، تصویر پایهٔ AWS Lambda برای .NET 8، نه `fontconfig` و نه فونت دارد. در یک تصویر کانتینری ساخته‌شده بر پایهٔ آن، دستور `dnf install -y fontconfig` را اجرا کنید که همچنین فونت‌های Noto Sans را نصب می‌کند.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **پشتیبانی از بومی‌سازی**
 
-هر دو بسته به پشتیبانی بومی‌سازی .NET نیاز دارند که .NET بر روی لینوکس از طریق کتابخانه‌های ICU فراهم می‌کند. در [حالت جهانی‌سازی-غیر‌متغیر](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)، ایجاد یک [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) با `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` شکست می‌خورد.
+هر دو بسته به پشتیبانی بومی‌سازی .NET نیاز دارند که .NET بر روی لینوکس از طریق کتابخانه‌های ICU فراهم می‌کند. در [حالت جهانی‌سازی-غیر‌متغیر](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)، ایجاد یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) با `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` شکست می‌خورد.
 
 برخی تصاویر کانتینر این حالت را فعال می‌کنند. به‌عنوان مثال، تصاویر زمان‌اجرای .NET برای Alpine Linux (`runtime-deps`, `runtime` و `aspnet`) متغیر `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` را تنظیم می‌کنند و ICU را شامل نمی‌شوند. در یک تصویر ساخته‌شده بر پایهٔ آن‌ها، ICU را نصب کنید و حالت را غیرفعال کنید:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-این برنامه یک مستطیل با متن را به اولین اسلاید اضافه می‌کند و ارائه را با متد [Save](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/save/) به نام *hello.pptx* ذخیره می‌نماید. سپس اسلاید را با [GetImage](https://reference.aspose.com/slides/fa/net/aspose.slides/slide/getimage/) رندر می‌کند و نتیجه را به نام *hello.png* با [IImage.Save](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/save/) در قالب [ImageFormat.Png](https://reference.aspose.com/slides/fa/net/aspose.slides/imageformat/) ذخیره می‌کند. عوامل مقیاس ۱، یک پیکسل برای هر پوینت رندر می‌کند، بنابراین اسلاید پیش‌فرض ۷۲۰ × ۵۴۰ پوینت به تصویر ۷۲۰ × ۵۴۰ پیکسل تبدیل می‌شود و متن داخل مستطیل قابل مشاهده است. بدون لایسنس، هر دو فایل دارای واترمارک ارزیابی هستند؛ به [Licensing](/slides/fa/net/licensing/) مراجعه کنید. اگر پیش‌نیازی موجود نباشد، برنامه با یکی از استثناهای توصیف‌شده در بخش [Linux](#linux) متوقف می‌شود.
+این برنامه یک مستطیل با متن را به اولین اسلاید اضافه می‌کند و ارائه را با متد [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) به نام *hello.pptx* ذخیره می‌نماید. سپس اسلاید را با [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) رندر می‌کند و نتیجه را به نام *hello.png* با [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) در قالب [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) ذخیره می‌کند. عوامل مقیاس ۱، یک پیکسل برای هر پوینت رندر می‌کند، بنابراین اسلاید پیش‌فرض ۷۲۰ × ۵۴۰ پوینت به تصویر ۷۲۰ × ۵۴۰ پیکسل تبدیل می‌شود و متن داخل مستطیل قابل مشاهده است. بدون لایسنس، هر دو فایل دارای واترمارک ارزیابی هستند؛ به [Licensing](/slides/fa/net/licensing/) مراجعه کنید. اگر پیش‌نیازی موجود نباشد، برنامه با یکی از استثناهای توصیف‌شده در بخش [Linux](#linux) متوقف می‌شود.
 
 ## **ابزارهای توسعه**
 

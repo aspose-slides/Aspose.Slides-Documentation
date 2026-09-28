@@ -56,7 +56,7 @@ Aspose.Slides متن را با قلم‌هایی که در دسترس آن هس�
 </Project>
 ```
 
-*Program.cs* برای هر نام قلم یک جعبهٔ متن به اسلاید اضافه می‌کند و قلم را از طریق ویژگی [LatinFont](https://reference.aspose.com/slides/fa/net/aspose.slides/baseportionformat/latinfont/) اختصاص می‌دهد. نام‌های قلم از خط فرمان می‌آید؛ بدون آرگومان، برنامه Calibri، Arial و Times New Roman را بررسی می‌کند. پوشه‌هایی که Aspose.Slides در جستجوی قلم‌ها در آن‌ها می‌گردد را چاپ می‌کند ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsloader/getfontfolders/))، اسلاید را به *output/fonts.pdf* رندر می‌کند و جایگزین‌های گزارش‌شده توسط [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) را چاپ می‌کند. دو مرحلهٔ اختیاری در ابتدا، بارگذاری پوشهٔ *fonts* و خواندن متغیر `DEFAULT_FONT`، بعدا در این مقاله توضیح داده می‌شوند.
+*Program.cs* برای هر نام قلم یک جعبهٔ متن به اسلاید اضافه می‌کند و قلم را از طریق ویژگی [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/) اختصاص می‌دهد. نام‌های قلم از خط فرمان می‌آید؛ بدون آرگومان، برنامه Calibri، Arial و Times New Roman را بررسی می‌کند. پوشه‌هایی که Aspose.Slides در جستجوی قلم‌ها در آن‌ها می‌گردد را چاپ می‌کند ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/))، اسلاید را به *output/fonts.pdf* رندر می‌کند و جایگزین‌های گزارش‌شده توسط [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) را چاپ می‌کند. دو مرحلهٔ اختیاری در ابتدا، بارگذاری پوشهٔ *fonts* و خواندن متغیر `DEFAULT_FONT`، بعدا در این مقاله توضیح داده می‌شوند.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **بارگذاری قلم‌ها از پوشهٔ برنامه**
 
-به‌جای نصب قلم‌ها در تصویر، می‌توانید آن‌ها را همراه برنامه بفرستید و با [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsloader/loadexternalfonts/) بارگذاری کنید. سپس قلم‌ها فقط برای Aspose.Slides در دسترس خواهند بود و همراه با برنامه مستقر می‌شوند. *FontCheck* این کار را انجام می‌دهد: *FontCheck.csproj* پوشهٔ *fonts* را به خروجی برنامه کپی می‌کند و *Program.cs* قبل از ایجاد ارائه، آن پوشه را به `LoadExternalFonts` می‌فرستد. [Custom Font](/slides/fa/net/custom-font/) روش‌های دیگر تأمین قلم‌ها را توصیف می‌کند، مانند بارگذاری از حافظه.
+به‌جای نصب قلم‌ها در تصویر، می‌توانید آن‌ها را همراه برنامه بفرستید و با [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) بارگذاری کنید. سپس قلم‌ها فقط برای Aspose.Slides در دسترس خواهند بود و همراه با برنامه مستقر می‌شوند. *FontCheck* این کار را انجام می‌دهد: *FontCheck.csproj* پوشهٔ *fonts* را به خروجی برنامه کپی می‌کند و *Program.cs* قبل از ایجاد ارائه، آن پوشه را به `LoadExternalFonts` می‌فرستد. [Custom Font](/slides/fa/net/custom-font/) روش‌های دیگر تأمین قلم‌ها را توصیف می‌کند، مانند بارگذاری از حافظه.
 
 تصویر را دوباره بسازید، سپس Calibri و Carlito را بررسی کنید:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **تنظیم یک قلم پیش‌فرض برای قلم‌های گمشده**
 
-وقتی قلمی وجود نداشته باشد، Aspose.Slides از یک جایگزین که خود انتخاب می‌کند استفاده می‌کند. برای انتخاب آن به‌صورت دستی، ویژگی [DefaultRegularFont](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/defaultregularfont/) را در [LoadOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/) تنظیم کنید و گزینه‌ها را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) پاس بدهید. *FontCheck* نام قلم را از متغیر محیطی `DEFAULT_FONT` می‌خواند. با بارگذاری Carlito، از آن برای قلم‌های گمشده استفاده کنید:
+وقتی قلمی وجود نداشته باشد، Aspose.Slides از یک جایگزین که خود انتخاب می‌کند استفاده می‌کند. برای انتخاب آن به‌صورت دستی، ویژگی [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) را در [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) تنظیم کنید و گزینه‌ها را به سازندهٔ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) پاس بدهید. *FontCheck* نام قلم را از متغیر محیطی `DEFAULT_FONT` می‌خواند. با بارگذاری Carlito، از آن برای قلم‌های گمشده استفاده کنید:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check

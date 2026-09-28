@@ -77,7 +77,7 @@ Aspose.Slides به شما امکان می‌دهد تقریباً تمام مح�
 
 **چندنخی (multithreading) چگونه کار می‌کند؟ آیا می‌توان پردازش را همزمان‌سازی کرد؟**
 
-امکان پردازش اسناد مختلف در نخ‌های متفاوت وجود دارد؛ شیء [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) یکسان نباید همزمان توسط [چندین نخ](/slides/fa/net/multithreading/) استفاده شود.
+امکان پردازش اسناد مختلف در نخ‌های متفاوت وجود دارد؛ شیء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) یکسان نباید همزمان توسط [چندین نخ](/slides/fa/net/multithreading/) استفاده شود.
 
 **آیا پسوردهای فایل و رمزنگاری پشتیبانی می‌شوند؟**
 

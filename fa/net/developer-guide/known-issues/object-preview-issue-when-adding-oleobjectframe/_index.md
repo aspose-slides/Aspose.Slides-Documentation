@@ -22,7 +22,7 @@ description: "دلیل نمایش نگهدارنده EMBEDDED OLE OBJECT برا�
 ---
 ## **مقدمه**
 
-با استفاده از Aspose.Slides برای .NET، هنگامی که یک [OleObjectFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/oleobjectframe/) را به اسلاید اضافه می‌کنید، پیام «EMBEDDED OLE OBJECT» بر روی اسلاید خروجی نمایش داده می‌شود. این پیام عمدی است و یک اشکال نیست.
+با استفاده از Aspose.Slides برای .NET، هنگامی که یک [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) را به اسلاید اضافه می‌کنید، پیام «EMBEDDED OLE OBJECT» بر روی اسلاید خروجی نمایش داده می‌شود. این پیام عمدی است و یک اشکال نیست.
 
 برای اطلاعات بیشتر درباره کار با اشیاء OLE، به [Manage OLE](/slides/fa/net/manage-ole/) مراجعه کنید.
 
@@ -30,7 +30,7 @@ description: "دلیل نمایش نگهدارنده EMBEDDED OLE OBJECT برا�
 
 Aspose.Slides پیام «EMBEDDED OLE OBJECT» را نمایش می‌دهد تا به شما اطلاع دهد که شیء OLE تغییر کرده و تصویر پیش‌نمایش باید به‌روزرسانی شود.
 
-به عنوان مثال، اگر یک نمودار Microsoft Excel را به‌عنوان یک [OleObjectFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/oleobjectframe/) به اسلاید اضافه کنید (برای جزئیات بیشتر، مقاله «Manage OLE» را ببینید) و سپس ارائه را در Microsoft PowerPoint باز کنید، این تصویر را روی اسلاید خواهید دید:
+به عنوان مثال، اگر یک نمودار Microsoft Excel را به‌عنوان یک [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) به اسلاید اضافه کنید (برای جزئیات بیشتر، مقاله «Manage OLE» را ببینید) و سپس ارائه را در Microsoft PowerPoint باز کنید، این تصویر را روی اسلاید خواهید دید:
 
 ![پیام شیء OLE](OLE_object_message.png)
 

@@ -123,7 +123,7 @@ Aspose.Slides یک API مدیریت Microsoft PowerPoint® است که به بر
 ## **پشتیبانی فنی**
 Aspose پشتیبانی فنی نامحدود و رایگان برای تمام محصولات خود ارائه می‌دهد. این پشتیبانی برای تمام کاربران (از جمله کاربران با بسته‌های ارزیابی) در دسترس است. اگر به کمک برای Aspose.Slides برای .NET نیاز دارید، نکات زیر را در نظر بگیرید:
 
-- مسیر اصلی پشتیبانی، [فروم Aspose](https://forum.aspose.com/) است. سؤال خود را در [فروم Aspose.Slides](https://forum.aspose.com/c/slides/fa/11) ارسال کنید—و پاسخ آن ظرف چند ساعت خواهد آمد. تیم پشتیبانی Aspose.Slides به‌صورت مستقیم به سؤالات ارسال‌شده در فروم پاسخ می‌دهد.
+- مسیر اصلی پشتیبانی، [فروم Aspose](https://forum.aspose.com/) است. سؤال خود را در [فروم Aspose.Slides](https://forum.aspose.com/c/slides/11) ارسال کنید—و پاسخ آن ظرف چند ساعت خواهد آمد. تیم پشتیبانی Aspose.Slides به‌صورت مستقیم به سؤالات ارسال‌شده در فروم پاسخ می‌دهد.
 - لطفاً توجه داشته باشید که Aspose پشتیبانی فنی از طریق تلفن ارائه نمی‌دهد. پشتیبانی تلفنی تنها برای سؤالات فروش و خرید موجود است.
 - هنگام انتظار برای پاسخ در فروم‌ها، صبور باشید و اختلافات منطقه‌زمانی را در نظر بگیرید.
 
@@ -145,10 +145,10 @@ Aspose پشتیبانی فنی نامحدود و رایگان برای تمام 
 
 |**منبع**|**توضیح**|
 | :- | :- |
-|[صفحه اصلی Aspose.Slides برای .NET](https://products.aspose.com/slides/fa/net/)|صفحه اصلی محصول.|
-|[وبلاگ Aspose.Slide](https://blog.aspose.com/category/slides/fa/)|به‌صورت منظم این صفحه را برای اطلاعات درباره نسخه‌های جدید و نکات مفید Aspose.Slides چک کنید.|
+|[صفحه اصلی Aspose.Slides برای .NET](https://products.aspose.com/slides/net/)|صفحه اصلی محصول.|
+|[وبلاگ Aspose.Slide](https://blog.aspose.com/category/slides/)|به‌صورت منظم این صفحه را برای اطلاعات درباره نسخه‌های جدید و نکات مفید Aspose.Slides چک کنید.|
 |[دانلود Aspose.Slides برای .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|آخرین نسخه Aspose.Slides را اینجا دانلود کنید. ما به‌طور مکرر نسخه‌های جدید منتشر می‌کنیم.|
-|[فروم پشتیبانی Aspose.Slides](https://forum.aspose.com/c/slides/fa/11)|سؤالات و مشکلات خود را اینجا ارسال کنید تا به‌سرعت حل شوند.|
+|[فروم پشتیبانی Aspose.Slides](https://forum.aspose.com/c/slides/11)|سؤالات و مشکلات خود را اینجا ارسال کنید تا به‌سرعت حل شوند.|
 |[مستندات محصول Aspose.Slides برای .NET](/slides/fa/net/)|مستندات آنلاین کامل شامل این سند و API Reference Aspose.Slides.|
 ## **نیازمندی‌های سطح اعتمادی**
 
@@ -158,7 +158,7 @@ Aspose پشتیبانی فنی نامحدود و رایگان برای تمام 
 
 ### آیا سطوح انطباق PDF برای بایگانی و دسترس‌پذیری (PDF/A و PDF/UA) را پشتیبانی می‌کند؟
 
-بله. می‌توانید با تنظیم [گزینه‌های خروجی PDF](https://reference.aspose.com/slides/fa/net/aspose.slides.export/pdfoptions/) به PDF/A‑2a/2b/2u، PDF/A‑3a/3b و همچنین PDF/UA ذخیره کنید.
+بله. می‌توانید با تنظیم [گزینه‌های خروجی PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) به PDF/A‑2a/2b/2u، PDF/A‑3a/3b و همچنین PDF/UA ذخیره کنید.
 
 ### آیا مکانیزم جایگزینی قلم و پشتیبانی از قلم‌های سفارشی برای رندر صحیح وجود دارد؟
 

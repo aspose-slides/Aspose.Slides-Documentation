@@ -25,7 +25,7 @@ description: "سطح اعتماد امنیت دسترسی به کد که Aspose.
 
 ## **.NET Framework**
 
-Aspose.Slides برای .NET Framework به اعتماد کامل نیاز دارد. این کتابخانه تحت اعتماد جزئی، مانند برنامه ASP.NET که برای Medium Trust (`<trust level="Medium" />`) پیکربندی شده است، اجرا نمی‌شود: ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) با خطای `SecurityException` مواجه می‌شود.
+Aspose.Slides برای .NET Framework به اعتماد کامل نیاز دارد. این کتابخانه تحت اعتماد جزئی، مانند برنامه ASP.NET که برای Medium Trust (`<trust level="Medium" />`) پیکربندی شده است، اجرا نمی‌شود: ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) با خطای `SecurityException` مواجه می‌شود.
 
 Microsoft دیگر اعتماد جزئی ASP.NET را به عنوان روشی برای جداسازی برنامه‌ها از یکدیگر در نظر نمی‌گیرد و به‌جای آن پیشنهاد می‌کند برنامه‌ها در استخرهای جداگانه اجرا شوند. ببینید [اعتماد جزئی ASP.NET تضمین‌کننده جداسازی برنامه‌ها نیست](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

@@ -59,7 +59,7 @@ Aspose.Slides.NET6.CrossPlatform بر روی Alpine Linux اجرا نمی‌شو
 </Project>
 ```
 
-*Program.cs* یک [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد می‌کند، یک مستطیل با متن به اسلاید اول اضافه می‌کند و ارائه را دو بار با روش [Save](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/save/) ذخیره می‌کند: به صورت PPTX و به صورت PDF. هر دو فایل در پوشهٔ *output* تحت پوشهٔ کاری قرار می‌گیرند. سپس برنامهٔ کاربردی فونت‌هایی را که در حین رندر PDF جایگزین شدند، با استفاده از [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) فهرست می‌کند تا بتوانید ببینید که آیا کانتینر فونت‌های مورد استفادهٔ ارائه را دارد یا خیر.
+*Program.cs* یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ایجاد می‌کند، یک مستطیل با متن به اسلاید اول اضافه می‌کند و ارائه را دو بار با روش [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ذخیره می‌کند: به صورت PPTX و به صورت PDF. هر دو فایل در پوشهٔ *output* تحت پوشهٔ کاری قرار می‌گیرند. سپس برنامهٔ کاربردی فونت‌هایی را که در حین رندر PDF جایگزین شدند، با استفاده از [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) فهرست می‌کند تا بتوانید ببینید که آیا کانتینر فونت‌های مورد استفادهٔ ارائه را دارد یا خیر.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-
 - `font-dejavu` فونت‌ها را فراهم می‌کند. بدون هر فونت، تبدیل با `System.ArgumentException: Font '?' cannot be found` متوقف می‌شود.
 - `icu-libs` و `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` داده‌های فرهنگی را فراهم می‌کنند. تصاویر .NET بر پایه Alpine به‌صورت پیش‌فرض در حالت globalization‑invariant اجرا می‌شوند و در آن حالت Aspose.Slides با `CultureNotFoundException` برای `en-US` متوقف می‌شود.
 
-با همان دستورات بالا برنامه را بسازید، اجرا کنید و خروجی را کپی نمایید. در این تصویر، برنامه تنها خط `Saved` را چاپ می‌کند: با Aspose.Slides.NET در لینوکس، fontconfig جایگزین فونت گمشده را انتخاب می‌کند و [GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) آن را فهرست نمی‌کند. [استقرار فونت‌ها](/slides/fa/net/deploy-fonts/) نحوهٔ بررسی فونت استفاده‌شده را نشان می‌دهد.
+با همان دستورات بالا برنامه را بسازید، اجرا کنید و خروجی را کپی نمایید. در این تصویر، برنامه تنها خط `Saved` را چاپ می‌کند: با Aspose.Slides.NET در لینوکس، fontconfig جایگزین فونت گمشده را انتخاب می‌کند و [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) آن را فهرست نمی‌کند. [استقرار فونت‌ها](/slides/fa/net/deploy-fonts/) نحوهٔ بررسی فونت استفاده‌شده را نشان می‌دهد.
 
 ## **سوالات متداول**
 
