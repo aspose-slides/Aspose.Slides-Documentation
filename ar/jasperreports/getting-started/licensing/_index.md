@@ -3,61 +3,61 @@ title: الترخيص
 type: docs
 weight: 50
 url: /ar/jasperreports/licensing/
+description: "تعرف على ما تضيفه نسخة التقييم من Aspose.Slides for JasperReports إلى الملفات المصدرة، وكيفية تطبيق ترخيص في JasperReports و JasperReports Server."
 ---
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for JasperReports متاح كتقييم مجاني غير محدود الوقت من [صفحة التحميل](https://releases.aspose.com/slides/ar/jasperreport/). نسخة التقييم والنسخة المرخصة من المنتج هما نفس ملف التحميل.
 
-{{% alert color="primary" %}} 
+عند رضاك عن التقييم، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/ar/jasperreports/). تأكد من أنك تفهم وتوافق على شروط الاشتراك.
 
-Aspose.Slides لـ JasperReports متاح كتقييم مجاني غير محدود المدة من [صفحة التحميل](https://downloads.aspose.com/slides/jasperreport). النسخ التجريبية والترخيصية للمنتج هي نفس النسخة التي يتم تحميلها.
+يمكن تنزيل الترخيص من صفحة الطلب بعد إتمام الدفع. الترخيص هو ملف XML نصي واضح موقع رقمياً يحتوي على معلومات مثل اسم العميل، المنتج المشتراى ونوع الترخيص. لا تقم بتعديل محتوى ملف الترخيص بأي شكل: فإن ذلك يبطل الترخيص.
 
-عندما تكون راضيًا عن التقييم، [اشترِ ترخيصًا](https://purchase.aspose.com/buy). تأكد من فهمك وامتناك لشروط الاشتراك.
-
-الترخيص متاح للتنزيل من صفحة الطلب بعد دفع طلب الشراء. الترخيص هو ملف XML موقع رقميًا يحتوي على معلومات مثل اسم العميل، والمنتج المشتراة ونوع الترخيص. لا تقم بتعديل محتوى ملف الترخيص بأي شكل من الأشكال: القيام بذلك يبطل الترخيص.
-
-قم بتنزيل الترخيص إلى جهاز الكمبيوتر الخاص بك وانسخه إلى المجلد المناسب (على سبيل المثال، مجلد التطبيق الخاص بك أو **JasperReports\lib**).
+حمّل الترخيص على جهازك وانسخه إلى المجلد المناسب (على سبيل المثال مجلد التطبيق الخاص بك أو **JasperReports\lib**).
+{{% /alert %}}
 
 ## **قيود النسخة التجريبية**
-توفر النسخة التجريبية من Aspose.Slides (بدون ترخيص محدد) جميع وظائف المنتج، ولكن (عند حفظ العروض التقديمية الخاصة بك) تقوم بإدخال علامة مائية تجريبية في وسط كل شريحة كما هو موضح في الشكل أدناه:
+النسخة التجريبية من Aspose.Slides for JasperReports (بدون ترخيص محدد) تقوم بتصدير كل صفحة من التقرير، لكنها تضيف علامة مائية تقييم في مركز كل شريحة أو صفحة، في جميع تنسيقات الإخراج الأربعة (PPT, PPTX, PDF و HTML)، كما هو موضح في الشكل أدناه. راجع [تقييم Aspose.Slides](/slides/ar/jasperreports/evaluate-aspose-slides/) للتفاصيل.
 
-![todo:image_alt_text](evaluation_watermark.png) 
+![علامة مائية التقييم في مركز الشريحة المصدرة](evaluation_watermark.png)
 
-## **تطبيق الترخيص**
-هناك عدة طرق لتطبيق الترخيص، يعتمد ذلك على ما إذا كنت تعمل على JasperReports أو JasperServer.
+## **تطبيق ترخيص**
+هناك عدة طرق لتطبيق الترخيص، اعتماداً على ما إذا كنت تعمل على JasperReports أو JasperServer.
 
-### **تطبيق الترخيص لـ JasperReports**
-استخدم مكالمة مباشرة لطريقة setLicense مشابهة لما هو موجود في Aspose.Slides لـ Java.
+### **تطبيق ترخيص لـ JasperReports**
+استدعِ طريقة `setLicense` من الفئة `License` مع تدفق يقرأ ملف الترخيص، كما في Aspose.Slides for Java:
 
 ```java
+import java.io.FileInputStream;
+
 import com.aspose.slides.jasperreports.License;
 
-..... 
+public class ApplyLicense {
+    public static void main(String[] args) {
+        try {
+            // إنشاء كائن تدفق يحتوي على ملف الترخيص.
+            FileInputStream fstream = new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 
-try {
-    //إنشاء كائن دفق يحتوي على ملف الترخيص
-    FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
-	
-    //Instantiate the License class
-    License license = new License();
-	
-    //Set the license through the stream object
-    license.setLicense(fstream);
-} catch(Exception ex) {
-    System.out.println(ex.toString());
+            // إنشاء كائن من فئة License.
+            License license = new License();
+
+            // تعيين الترخيص عبر كائن التدفق.
+            license.setLicense(fstream);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+    }
 }
 ```
 
-أو، قم بتعيين معلمة المصدر في الكود.
+أو، مرّر مسار ملف الترخيص إلى المُصدِّر في معلمة `ASExporterParameters.PPT_LICENSE`. في هذا المقتطف، `jasperPrint` هو تقرير مملوء، كما في [تصديرك الأول](/slides/ar/jasperreports/#your-first-export):
 
 ```java
-ASPptExporter exporter = new ASPptExporter (); 
+ASPptExporter exporter = new ASPptExporter();
+exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "report.ppt");
 exporter.setParameter(ASExporterParameters.PPT_LICENSE, "Aspose.Slides.JasperReports.Developer.lic");
 exporter.exportReport();
 ```
 
-### **تطبيق الترخيص على JasperServer**
-قم بتعيين معلمة المصدر في applicationContext.xml.
-
-``` xml
-<bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">
-    <property name="licenseFile" value="C:/jasperserver-3.0/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
-</bean>
-```
+### **تطبيق ترخيص على JasperServer**
+عيّن خاصية `licenseFile` للـ bean `pptExportParameters` في *applicationContext.xml* إلى مسار ملف الترخيص، كما هو موضح في [التكامل مع JasperServer](/slides/ar/jasperreports/integration-with-jasperserver/#set-font-mapping-and-the-license).

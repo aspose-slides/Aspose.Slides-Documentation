@@ -1,15 +1,16 @@
 ---
-title: Aspose.Slides'ı Değerlendir
+title: Aspose.Slides'i Değerlendirin
 type: docs
 weight: 80
 url: /tr/jasperreports/evaluate-aspose-slides/
+description: "Aspose.Slides for JasperReports'in değerlendirme sürümünün dışa aktarılan dosyalara neler eklediğini ve bunu olmadan nasıl dışa aktarılacağını görün."
 ---
-Aspose.Slides'ı değerlendirme amaçlı olarak kolayca indirebilirsiniz. Değerlendirme indirmesi, satın alınan indirme ile aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
+Aspose.Slides for JasperReports'i değerlendirme için [indirme sayfasından](https://releases.aspose.com/slides/tr/jasperreport/) indirebilirsiniz. Değerlendirme indirmesi, lisanslı sürümle aynıdır: bir lisans uyguladığınızda lisanslı hâle gelir, bu [Licensing](/slides/tr/jasperreports/licensing/) bölümünde açıklanmıştır.
 
-Aspose.Slides'ın değerlendirme sürümü (lisans belirtilmediğinde) tam ürün işlevselliği sağlar, ancak belgeyi açtığınızda ve kaydettiğinizde belgenin üst kısmına bir değerlendirme filigranı ekler ve sunum slaytlarından metin çıkarılırken yalnızca bir slaytla sınırlı kalır.
+Bir lisans olmadan, dışa aktarıcılar raporun her sayfasını yine dışa aktarır, ancak her slayt veya sayfanın ortasına bir değerlendirme filigranı ekler. Filigran, "Evaluation only.", "Created with Aspose.Slides for JasperReports" ifadesini ürün sürümüyle birlikte ve bir telif hakkı satırını içerir. Dört çıktı formatının tamamında görünür: PPT, PPTX, PDF ve HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Lisans olmadan dışa aktarılmış bir rapor, slaydın ortasındaki değerlendirme filigranı](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Değerlendirme sürümü sınırlamaları olmadan Aspose.Slides'ı test etmek istiyorsanız, 30 günlük Geçici Lisans da talep edebilirsiniz. Lütfen [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) adresine bakın.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for JasperReports'i değerlendirme filigranı olmadan test etmek için, 30 günlük bir [temporary license](https://purchase.aspose.com/temporary-license) isteyin.
 {{% /alert %}}

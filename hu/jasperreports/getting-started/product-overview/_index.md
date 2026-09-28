@@ -1,40 +1,30 @@
 ---
-title: Termék áttekintése
+title: Termékáttekintés
 type: docs
 weight: 10
 url: /hu/jasperreports/product-overview/
+description: "Ismerje meg, mit csinál az Aspose.Slides for JasperReports, mely JasperReports verziókat és kimeneti formátumokat támogat, és mire szolgálnak a két jar fájljai."
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Üdvözöljük az Aspose.Slides for JasperReports-ben!**
+## **Termékleírás**
 
-Az Aspose.Slides for JasperReports egy olyan könyvtár, amelyet kifejezetten fejlesztők számára terveztek és fejlesztettek, akiknek egyszerűen kell exportálniuk a JasperReports jelentéseket Microsoft PowerPoint előadás (PPT) és Microsoft PowerPoint bemutató (PPS) formátumokba Java alkalmazásaikban. A jelentés minden funkciója a legnagyobb pontossággal kerül átalakításra Microsoft PowerPoint prezentációkká. Az Aspose.Slides for JasperReports támogatja a JasperReports 5+ verziókat.
+Az Aspose.Slides for JasperReports a JasperReports jelentéseket PowerPoint prezentációkká exportálja Java alkalmazásokban és a JasperReports Server‑ben, a Microsoft PowerPoint nélkül. Támogatja a JasperReports 3.7.2‑től 6.16.0‑ig terjedő verziókat, minden verziócsoporthoz külön jar fájlt – lásd az [Installing Aspose.Slides for JasperReports](/slides/hu/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-## **A termék leírása**
-JasperReports és JasperServer nem rendelkeznek beépített képességekkel a jelentések Microsoft PowerPoint prezentációként történő exportálásához, de az Aspose.Slides for JasperReports hozzáférést biztosít két további exportformátumhoz: 
+Exportál egy kitöltött jelentést négy formátumba, oldalanként egy diát vagy oldalt:
 
-- PPT – PowerPoint előadás az Aspose.Slides segítségével
-- PPS – PowerPoint bemutató az Aspose.Slides segítségével
-- PPTX – PowerPoint előadás az Aspose.Slides segítségével
-- PPSX – PowerPoint bemutató az Aspose.Slides segítségével
+- PPT – PowerPoint 97–2003 prezentáció
+- PPTX – PowerPoint prezentáció (Office Open XML)
+- PDF
+- HTML
 
-Az Aspose.Slides for JasperReports belsőleg a 100%-ban tiszta Java könyvtárainkat, az Aspose.Slides for Java és az Aspose.Metafiles for Java-t használja, melyek világszínvonalú könyvtárak szerveroldali prezentációk és metafájlok feldolgozásához.
+A termék két részből áll:
 
-Az Aspose.Slides for JasperReports lehetővé teszi, hogy bármely jelentést PPT vagy PPS formátumban exportáljon.
+- A könyvtári jar hozzáadja az `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` és `ASHtmlExporter` exportereket a JasperReports Library-hez.
+- A szerver jar exportálási műveleteket biztosít ugyanazokra a négy formátumra, amelyeket a JasperReports Server‑ben regisztrálhat – lásd az [Integration with JasperServer](/slides/hu/jasperreports/integration-with-jasperserver/).
 
 ### **Kimeneti példa**
-Az ASPptExporter osztály az ASAbstractExporter osztályból származik, így ugyanúgy használható, mint bármely más szabványos exportáló. Ez a rövid példa tipikus kódot és egy screenshotot mutat egy MS PowerPoint-ban megnyitott jelentésről. Részletes példákat a mellékelt demo jelentésekben talál.
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+Az exporterek a JasperReports saját exportáló osztályait öröklik, és ugyanúgy használhatók: átadja nekik a kitöltött jelentést és a kimeneti fájlt, majd meghívja az `exportReport`-et. Egy komplett programhoz, amely kitölt egy jelentést és PPTX‑be exportálja, lásd a [Your first export](/slides/hu/jasperreports/#your-first-export); a négy formátumhoz egyaránt, lásd a [PPT, PPTX, PDF and HTML Export](/slides/hu/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**Az JasperReports xmldatasource demóval generált prezentáció** 
-
-![Az JasperReports által generált prezentáció](product-overview_2.png)
+![Egy jelentés, amely licenc nélkül lett exportálva egy prezentációba, a középpontjában az értékelő vízjel látható](product-overview_2.png)

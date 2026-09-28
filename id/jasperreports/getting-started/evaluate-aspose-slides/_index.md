@@ -3,15 +3,14 @@ title: Evaluasi Aspose.Slides
 type: docs
 weight: 80
 url: /id/jasperreports/evaluate-aspose-slides/
+description: "Lihat apa yang ditambahkan oleh versi evaluasi Aspose.Slides untuk JasperReports ke file yang diekspor, dan cara mengekspor tanpa itu."
 ---
-Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Unduhan evaluasi sama dengan unduhan berbayar. Versi evaluasi cukup menjadi berlisensi ketika Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
+Anda dapat mengunduh Aspose.Slides for JasperReports untuk evaluasi dari [halaman unduhan](https://releases.aspose.com/slides/id/jasperreport/). Unduhan evaluasi sama dengan yang berlisensi: akan menjadi berlisensi ketika Anda menerapkan lisensi, seperti dijelaskan di [Lisensi](/slides/id/jasperreports/licensing/).
 
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan fungsi lengkap produk, tetapi menambahkan watermark evaluasi di bagian atas dokumen saat dibuka dan disimpan, serta membatasi satu slide ketika mengekstrak teks dari slide presentasi.
+Tanpa lisensi, pengekspor masih mengekspor setiap halaman laporan, tetapi mereka menambahkan watermark evaluasi di tengah setiap slide atau halaman. Watermark tersebut berisi “Evaluation only.”, “Created with Aspose.Slides for JasperReports” diikuti versi produk, dan baris hak cipta. Watermark muncul dalam keempat format keluaran: PPT, PPTX, PDF, dan HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Laporan yang diekspor tanpa lisensi, dengan watermark evaluasi di tengah slide](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-
-Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda juga dapat meminta Lisensi Sementara selama 30 hari. Silakan lihat [Bagaimana cara mendapatkan Lisensi Sementara?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+Untuk menguji Aspose.Slides for JasperReports tanpa watermark evaluasi, minta [lisensi sementara](https://purchase.aspose.com/temporary-license) selama 30 hari.
 {{% /alert %}}

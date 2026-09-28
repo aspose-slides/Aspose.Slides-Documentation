@@ -1,17 +1,16 @@
 ---
-title: Az Aspose.Slides értékelése
+title: Aspose.Slides kiértékelése
 type: docs
 weight: 80
 url: /hu/jasperreports/evaluate-aspose-slides/
+description: "Tekintse meg, hogy az Aspose.Slides for JasperReports értékelő változata mit ad hozzá az exportált fájlokhoz, valamint hogyan lehet anélkül exportálni."
 ---
-Az Aspose.Slides értékelési verzióját egyszerűen letöltheti. Az értékelési letöltés megegyezik a megvásárolt letöltéssel. Az értékelési verzió licenccé válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
+Az Aspose.Slides for JasperReports értékelő változatát letöltheti a [letöltési oldalról](https://releases.aspose.com/slides/hu/jasperreport/). Az értékelő letöltés megegyezik a licencelt változattal: licenccel rendelkezésre kerül, ha licencet alkalmaz, ahogy a [Licencelés](/slides/hu/jasperreports/licensing/) részben le van írva.
 
-Az Aspose.Slides értékelési verziója (licit nélkül) teljes termékfunkciókat biztosít, azonban megnyitáskor és mentéskor egy értékelési vízjelet helyez el a dokumentum tetején, és a prezentációs diák szövegeinek kinyerésekor csak egy diát enged meg.
+Licenc nélkül az exportálók továbbra is exportálják a jelentés minden oldalát, de egy értékelő vízjelet helyeznek el minden dián vagy oldalon a középpontban. A vízjel a következőket tartalmazza: „Evaluation only.”, „Created with Aspose.Slides for JasperReports” a termékverzióval, valamint egy szerzői jogi sor. A négy kimeneti formátumban is megjelenik: PPT, PPTX, PDF és HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Licenc nélküli exportált jelentés, az értékelő vízjellel a dia közepén](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-
-Ha az Aspose.Slides-t az értékelési verzió korlátai nélkül szeretné tesztelni, kérhet egy 30 napos ideiglenes licencet is. További információért tekintse meg a [Hogyan szerezhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) című oldalt.
-
+{{% alert color="info" title="Note" %}}
+Az Aspose.Slides for JasperReports értékelő vízjel nélküli teszteléséhez kérjen egy 30 napos [ideiglenes licencet](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}

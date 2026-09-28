@@ -3,16 +3,14 @@ title: 评估 Aspose.Slides
 type: docs
 weight: 80
 url: /zh/jasperreports/evaluate-aspose-slides/
+description: "了解 Aspose.Slides for JasperReports 评估版在导出文件中添加了什么，以及如何在不包含评估内容的情况下导出。"
 ---
+您可以从[download page](https://releases.aspose.com/slides/zh/jasperreport/)下载 Aspose.Slides for JasperReports 进行评估。评估版下载与授权版相同：在应用许可证后，它将变为授权版，详见[Licensing](/slides/zh/jasperreports/licensing/)。
 
-您可以轻松下载 Aspose.Slides 进行评估。评估下载与购买下载相同。评估版本只需添加几行代码以应用许可证，即可变为获得许可的版本。
+如果没有许可证，导出器仍会导出报告的每一页，但会在每张幻灯片或页面的中心放置评估水印。水印内容为“仅供评估。”、“使用 Aspose.Slides for JasperReports 创建”，后面跟随产品版本以及版权行。它会出现在所有四种输出格式中：PPT、PPTX、PDF 和 HTML。
 
-Aspose.Slides 的评估版本（未指定许可证）提供完整的产品功能，但在打开和保存文档时会在文档顶部插入评估水印，并在从演示幻灯片中提取文本时限制为一张幻灯片。
+![未授权导出的报告，幻灯片中心带有评估水印](evaluate-aspose-slides_1.png)
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-如果您想在没有评估版本限制的情况下测试 Aspose.Slides，您还可以申请 30 天的临时许可证。请参阅 [如何获得临时许可证？](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+要测试 Aspose.Slides for JasperReports 并去除评估水印，请申请 30 天的[temporary license](https://purchase.aspose.com/temporary-license)。
 {{% /alert %}}

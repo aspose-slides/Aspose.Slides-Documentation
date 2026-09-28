@@ -3,29 +3,21 @@ title: Desteklenen Dosya Biçimleri
 type: docs
 weight: 20
 url: /tr/jasperreports/supported-file-formats/
+description: "Aspose.Slides for JasperReports'un girdi olarak neyi kabul ettiğini ve raporları hangi dosya biçimlerine dışa aktardığını görün."
 ---
-## **Desteklenen Microsoft PowerPoint Sürümleri**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint Mac için
-- Office 365
+## **Giriş**
 
+Aspose.Slides for JasperReports raporları dışa aktarır; mevcut sunumları dönüştürmez. Dışa aktarıcıları, doldurulmuş bir JasperReports raporu (`JasperPrint`) alır; bu, `JasperFillManager` sonucudur veya *.jrprint* dosyasından yüklenmiş bir doldurulmuş rapordur.
 
-## **Desteklenen Dosya Biçimleri**
-Aşağıdaki tablo, Aspose.Slides for JasperReports'un yükleyebileceği ve kaydedebileceği dosya biçimlerini gösterir.
+## **Çıktı Biçimleri**
 
-|**Biçim**|**Açıklama**|**Yükle**|**Kaydet**|**Notlar**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint sunumu 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint slayt gösterisi 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint sunumu 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint slayt gösterisi 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Taşınabilir Belge Biçimi||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|HTML Biçimi||{{< emoticons/tick >}}||
+Aşağıdaki tablo, Aspose.Slides for JasperReports'un bir raporu dışa aktardığı biçimleri ve her birini yazan dışa aktarıcı sınıfını listeler.
+
+|**Biçim**|**Açıklama**|**Dışa Aktarıcı**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97–2003 sunumu; rapor sayfası başına bir slayt|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint sunumu (Office Open XML); rapor sayfası başına bir slayt|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Taşınabilir Belge Biçimi; rapor sayfası başına bir PDF sayfası|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|Her rapor sayfası için bir SVG görüntüsü içeren tek bir HTML dosyası|`ASHtmlExporter`|
+
+PPS ve PPSX slayt gösterisi biçimleri için bir dışa aktarıcı yoktur. PPTX dışa aktarımına *.ppsx* dosya adı vermek hâlâ bir PPTX sunumu üretir, slayt gösterisi değil. Her dışa aktarıcının nasıl kullanıldığını görmek için, [PPT, PPTX, PDF ve HTML Dışa Aktarma](/slides/tr/jasperreports/ppt-pptx-pdf-and-html-export/) sayfasına bakın.

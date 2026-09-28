@@ -3,38 +3,28 @@ title: Produktöversikt
 type: docs
 weight: 10
 url: /sv/jasperreports/product-overview/
+description: "Lär dig vad Aspose.Slides for JasperReports gör, vilka JasperReports-versioner och utdataformat den stöder, och vad dess två jar-filer är till för."
 ---
-![Aspose.Slides för JasperReports](product-overview_1.png)
-
-## **Välkommen till Aspose.Slides för JasperReports!**
-
-Aspose.Slides för JasperReports är ett bibliotek som är speciellt utformat och utvecklat för utvecklare som behöver enkelt exportera rapporter från JasperReports till Microsoft PowerPoint Presentation (PPT) och Microsoft PowerPoint Show (PPS)-format i sina Java-applikationer. Alla rapportfunktioner konverteras med högsta precision till Microsoft PowerPoint-presentationer. Aspose.Slides för JasperReports inkluderar stöd för JasperReports 5+.
+![Aspose.Slides for JasperReports](product-overview_1.png)
 
 ## **Produktbeskrivning**
-JasperReports och JasperServer har inte inbyggda möjligheter att exportera rapporter som Microsoft PowerPoint-presentationer, men Aspose.Slides för JasperReports ger dig åtkomst till två ytterligare exportformat:
 
-- PPT – PowerPoint-presentation via Aspose.Slides
-- PPS – PowerPoint-show via Aspose.Slides
-- PPTX – PowerPoint-presentation via Aspose.Slides
-- PPSX – PowerPoint-show via Aspose.Slides
+Aspose.Slides for JasperReports exporterar rapporter från JasperReports till PowerPoint-presentationer, i Java‑applikationer och i JasperReports Server, utan Microsoft PowerPoint. Den stöder JasperReports 3.7.2 till 6.16.0, med en separat jar för varje versionintervall — se [Installera Aspose.Slides for JasperReports](/slides/sv/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Aspose.Slides för JasperReports använder internt våra 100 % rena Java-bibliotek Aspose.Slides for Java och Aspose.Metafiles for Java, världsledande bibliotek för server-side-presentationer och metafilshantering.
+Den exporterar en ifylld rapport till fyra format, en bild eller sida per rapportssida:
 
-Aspose.Slides för JasperReports gör det möjligt att exportera vilken rapport som helst i PPT- eller PPS-format.
+- PPT – PowerPoint‑presentation 97–2003
+- PPTX – PowerPoint‑presentation (Office Open XML)
+- PDF
+- HTML
+
+Produkten består av två delar:
+
+- Biblioteks‑jar‑filen lägger till exportörerna `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` och `ASHtmlExporter` i JasperReports Library.
+- Server‑jar‑filen tillhandahåller exportåtgärder för samma fyra format, som du registrerar i JasperReports Server — se [Integration med JasperServer](/slides/sv/jasperreports/integration-with-jasperserver/).
 
 ### **Exempel på utdata**
-Klassen ASPptExporter ärver klassen ASAbstractExporter så att den kan användas på samma sätt som alla andra standardexportörer. Detta korta exempel visar typisk kod och en skärmdump av en rapport som visas i MS PowerPoint. Detaljerade exempel finns i de medföljande demorapporterna.
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+Exportörerna ärver JasperReports egna exporterarklasser och används på samma sätt: skicka dem den ifyllda rapporten och output‑filen, och anropa sedan `exportReport`. För ett komplett program som fyller i en rapport och exporterar den till PPTX, se [Din första export](/slides/sv/jasperreports/#your-first-export); för alla fyra format, se [PPT, PPTX, PDF‑ och HTML‑export](/slides/sv/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**Presentation genererad med JasperReports xmldatasource-demo** 
-
-![Presentation genererad med JasperReports](product-overview_2.png)
+![En rapport exporterad till en presentation utan licens, med utvärderingsvattenstämpel i mitten av bilden](product-overview_2.png)

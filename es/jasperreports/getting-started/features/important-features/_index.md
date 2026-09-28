@@ -1,16 +1,16 @@
 ---
-title: Características Importantes
+title: Características importantes
 type: docs
 weight: 10
 url: /es/jasperreports/important-features/
+description: "Vea las principales características de Aspose.Slides for JasperReports: exportación PPT, PPTX, PDF y HTML, fidelidad al diseño del informe, implementación, licenciamiento y soporte."
 ---
+Esta sección proporciona una descripción detallada de las características de Aspose.Slides for JasperReports. Haz clic en los enlaces de la tabla para obtener más información sobre las características.
 
-Esta sección proporciona una descripción detallada de las características de Aspose.Slides para JasperReports. Haga clic en los enlaces de la tabla para obtener más información sobre las características.
-
-|**Característica** |**Descripción** |
+|**Características**|**Descripción**|
 | :- | :- |
-|[Exportación a PPT, PPS, PPTX y PPSX](/slides/es/jasperreports/ppt-pptx-pdf-and-html-export/)|Exportar informes como presentaciones de Microsoft PowerPoint desde su aplicación sin usar Microsoft PowerPoint. |
-|Alta Fidelidad al Diseño del Informe|Los informes PPT y PPS tienen el mismo diseño y apariencia que PDF y otros formatos. |
-|Despliegue Fácil y Ligero|Aspose.Slides para JasperReport es un exportador de JasperReport y JasperServer a formato Microsoft PowerPoint. |
-|[Licenciamiento Simple y Asequible](/slides/es/jasperreports/licensing/)|Una licencia por servidor o una licencia para todos sus servidores. Desarrolladores ilimitados. |
-|[Soporte Técnico Gratuito de Clase Mundial](/slides/es/jasperreports/technical-support/)|Soporte técnico ilimitado es proporcionado directamente por los desarrolladores que trabajan en el producto |
+|[Exportación PPT, PPTX, PDF y HTML](/slides/es/jasperreports/ppt-pptx-pdf-and-html-export/)|Exporta informes como presentaciones PPT y PPTX, documentos PDF y archivos HTML desde tu aplicación sin utilizar Microsoft PowerPoint.|
+|High Fidelity to the Report Design|Los informes PPT y PPTX tienen el mismo diseño y aspecto que los PDF y otros formatos.|
+|Easy and Lightweight Deployment|Aspose.Slides for JasperReports es un exportador de JasperReports y JasperServer al formato Microsoft PowerPoint.|
+|[Licenciamiento simple y asequible](/slides/es/jasperreports/licensing/)|Una licencia por servidor o una licencia para todos tus servidores.|
+|[Soporte técnico gratuito de clase mundial](/slides/es/jasperreports/technical-support/)|Se proporciona soporte técnico ilimitado directamente por los desarrolladores que trabajan en el producto.|

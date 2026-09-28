@@ -3,15 +3,14 @@ title: Avaliar Aspose.Slides
 type: docs
 weight: 80
 url: /pt/jasperreports/evaluate-aspose-slides/
+description: "Veja o que a versão de avaliação do Aspose.Slides for JasperReports adiciona aos arquivos exportados e como exportar sem ela."
 ---
-Você pode baixar o Aspose.Slides para avaliação com facilidade. O download de avaliação é idêntico ao download adquirido. A versão de avaliação simplesmente se torna licenciada ao adicionar algumas linhas de código para aplicar a licença.
+Você pode baixar o Aspose.Slides for JasperReports para avaliação na [página de download](https://releases.aspose.com/slides/pt/jasperreport/). O download de avaliação é o mesmo que o licenciado: ele se torna licenciado quando você aplica uma licença, conforme descrito em [Licensing](/slides/pt/jasperreports/licensing/).
 
-A versão de avaliação do Aspose.Slides (sem uma licença especificada) oferece funcionalidade completa do produto, mas insere uma marca d’água de avaliação no topo do documento ao abrir e salvar, e limita a um slide ao extrair o texto dos slides da apresentação.
+Sem uma licença, os exportadores ainda exportam cada página do relatório, mas inserem uma marca d'água de avaliação no centro de cada slide ou página. A marca d'água exibe "Evaluation only.", "Created with Aspose.Slides for JasperReports" seguido da versão do produto e de uma linha de copyright. Ela aparece nos quatro formatos de saída: PPT, PPTX, PDF e HTML.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Um relatório exportado sem licença, com a marca d'água de avaliação no centro do slide](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-
-Se você deseja testar o Aspose.Slides sem as limitações da versão de avaliação, também pode solicitar uma Licença Temporária de 30 dias. Consulte [Como obter uma Licença Temporária?](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+Para testar o Aspose.Slides for JasperReports sem a marca d'água de avaliação, solicite uma [licença temporária](https://purchase.aspose.com/temporary-license) de 30 dias.
 {{% /alert %}}

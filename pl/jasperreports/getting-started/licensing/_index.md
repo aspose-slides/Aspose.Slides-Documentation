@@ -3,60 +3,62 @@ title: Licencjonowanie
 type: docs
 weight: 50
 url: /pl/jasperreports/licensing/
+description: "Dowiedz się, co wersja ewaluacyjna Aspose.Slides for JasperReports dodaje do wyeksportowanych plików oraz jak zastosować licencję w JasperReports i JasperReports Server."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports jest dostępny jako nieograniczona czasowo wersja ewaluacyjna za darmo ze [strony pobierania](https://downloads.aspose.com/slides/pl/jasperreport). Wersja ewaluacyjna i wersje licencjonowane produktu są tym samym plikiem do pobrania.
+Aspose.Slides for JasperReports jest dostępny jako bezpłatna, nieograniczona czasowo wersja ewaluacyjna ze [strony pobierania](https://releases.aspose.com/slides/pl/jasperreport/). Wersje ewaluacyjna i licencjonowana produktu są dostępne do pobrania z tego samego linku.
 
-Gdy będziesz zadowolony z wersji ewaluacyjnej, [kup licencję](https://purchase.aspose.com/buy). Upewnij się, że rozumiesz i zgadzasz się na warunki subskrypcji.
+Gdy będziesz zadowolony z wersji ewaluacyjnej, [kup licencję](https://purchase.aspose.com/pricing/slides/pl/jasperreports/). Upewnij się, że rozumiesz i akceptujesz warunki subskrypcji.
 
-Licencja jest dostępna do pobrania ze strony zamówienia po dokonaniu płatności. Licencja jest plikiem tekstowym XML, cyfrowo podpisanym, który zawiera informacje takie jak nazwa klienta, zakupiony produkt oraz typ licencji. Nie modyfikuj w żaden sposób zawartości pliku licencji: spowoduje to unieważnienie licencji.
+Licencja jest dostępna do pobrania z strony zamówienia po opłaceniu zamówienia. Licencja jest plikiem XML w formie czystego tekstu, cyfrowo podpisanym, który zawiera informacje takie jak nazwa klienta, zakupiony produkt i typ licencji. Nie modyfikuj w żaden sposób zawartości pliku licencji: spowoduje to unieważnienie licencji.
 
 Pobierz licencję na swój komputer i skopiuj ją do odpowiedniego folderu (na przykład do folderu aplikacji lub **JasperReports\lib**).
+{{% /alert %}}
 
-## **Ograniczenia wersji ewaluacyjnej**
-Wersja ewaluacyjna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale (podczas zapisywania prezentacji) wstawia znak wodny ewaluacji w centrum każdego slajdu, jak pokazano na rysunku poniżej:
+## **Evaluation Version Limitation**
+Wersja ewaluacyjna Aspose.Slides for JasperReports (bez określonej licencji) eksportuje każdą stronę raportu, ale umieszcza znak wodny ewaluacji na środku każdego slajdu lub strony, we wszystkich czterech formatach wyjściowych (PPT, PPTX, PDF i HTML), jak pokazano na rysunku poniżej. Zobacz [Oceń Aspose.Slides](/slides/pl/jasperreports/evaluate-aspose-slides/) po szczegóły.
 
-![todo:image_alt_text](evaluation_watermark.png) 
+![Znak wodny wersji ewaluacyjnej na środku wyeksportowanego slajdu](evaluation_watermark.png)
 
-## **Stosowanie licencji**
-Istnieje kilka sposobów zastosowania licencji, w zależności od tego, czy pracujesz z JasperReports, czy z JasperServer.
+## **Applying a License**
+Istnieje kilka sposobów zastosowania licencji, w zależności od tego, czy pracujesz z JasperReports, czy JasperServer.
 
-### **Stosowanie licencji dla JasperReports**
-Użyj bezpośredniego wywołania metody setLicense, podobnie jak w Aspose.Slides dla języka Java.
+### **Applying a License for JasperReports**
+Wywołaj metodę `setLicense` klasy `License` przekazując strumień odczytujący plik licencji, tak jak w Aspose.Slides for Java:
 
 ```java
+import java.io.FileInputStream;
+
 import com.aspose.slides.jasperreports.License;
 
-..... 
+public class ApplyLicense {
+    public static void main(String[] args) {
+        try {
+            // Utwórz obiekt strumienia zawierający plik licencji.
+            FileInputStream fstream = new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 
-try {
-    //Utwórz obiekt strumienia zawierający plik licencji
-    FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
-	
-    //Zainicjuj klasę License
-    License license = new License();
-	
-    //Ustaw licencję za pomocą obiektu strumienia
-    license.setLicense(fstream);
-} catch(Exception ex) {
-    System.out.println(ex.toString());
+            // Utwórz instancję klasy License.
+            License license = new License();
+
+            // Ustaw licencję za pomocą obiektu strumienia.
+            license.setLicense(fstream);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+    }
 }
 ```
 
-Lub ustaw parametr eksportera w kodzie.
+Lub przekaż ścieżkę do pliku licencji eksportującemu w parametrze `ASExporterParameters.PPT_LICENSE`. W tym fragmencie `jasperPrint` jest wypełnionym raportem, tak jak w [Twój pierwszy eksport](/slides/pl/jasperreports/#your-first-export):
 
 ```java
-ASPptExporter exporter = new ASPptExporter (); 
+ASPptExporter exporter = new ASPptExporter();
+exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "report.ppt");
 exporter.setParameter(ASExporterParameters.PPT_LICENSE, "Aspose.Slides.JasperReports.Developer.lic");
 exporter.exportReport();
 ```
 
-### **Stosowanie licencji w JasperServer**
-Ustaw parametr eksportera w pliku applicationContext.xml.
-
-``` xml
-<bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">
-    <property name="licenseFile" value="C:/jasperserver-3.0/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
-</bean>
-```
+### **Applying a License on JasperServer**
+Ustaw właściwość `licenseFile` bean-a `pptExportParameters` w *applicationContext.xml* na ścieżkę pliku licencji, jak pokazano w [Integracja z JasperServer](/slides/pl/jasperreports/integration-with-jasperserver/#set-font-mapping-and-the-license).

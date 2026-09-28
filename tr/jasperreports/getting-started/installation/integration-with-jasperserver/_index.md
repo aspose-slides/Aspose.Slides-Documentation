@@ -3,20 +3,21 @@ title: JasperServer ile Entegrasyon
 type: docs
 weight: 45
 url: /tr/jasperreports/integration-with-jasperserver/
+description: "Aspose.Slides for JasperReports dışa aktarıcılarını JasperReports Server'a ekleyin: jar'ları kopyalayın, PowerPoint dışa aktarıcısını kaydedin ve yazı tipi eşlemesini ve lisansı ayarlayın."
 ---
-{{% alert color="primary" %}} 
+## **Jar'ları Kopyala**
 
-Aspose.Slides for JasperReports'u JasperServer ile bütünleştirmek için birkaç ek adım atmak ve JasperServer yapılandırma dosyalarını güncellemek gerekir. Bu makale nasıl yapılacağını açıklar.
+Her iki jar'ı — *aspose.slides.jasperreports.library-xx.x.jar* ve *aspose.slides.jasperreports.server-xx.x.jar* — **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** konumuna kopyalayın. İndirme paketindeki *lib* klasörünün aynı alt klasöründen alın: sunucunuzun çalıştığı JasperReports sürümünü kapsayanı. Sürüm aralıkları için [Installing Aspose.Slides for JasperReports](/slides/tr/jasperreports/installing-aspose-slides-for-jasperreports/) sayfasına bakın.
 
-{{% /alert %}} 
+## **Dışa Aktarıcıyı Kaydet**
 
-1. Yeni dışa aktarıcı özelliklerini **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** yapılandırma dosyasına ekleyin.
+Yeni dışa aktarıcı bean'lerini **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** yapılandırma dosyasına ekleyin. `ASPptReportExporter` sınıfı sunucu jar'ında bulunur; aynı jar ayrıca `ASPptxReportExporter`, `ASPdfReportExporter` ve `ASHtmlReportExporter` içerir.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
     <property name="exportParameters" ref="pptExportParameters"/>
     <property name="setResponseContentLength" value="true"/>
-</bean> 
+</bean>
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
     <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
@@ -27,24 +28,29 @@ Aspose.Slides for JasperReports'u JasperServer ile bütünleştirmek için birka
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- exporterConfigMap'e bu girişi ekleyin -->
+    <!-- exporterConfigMap'e bu girişi ekle -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
-2. **aspose.slides.jasperreports.jar** dosyasını **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** dizinine kopyalayın.
-3. Yazı tipi eşleme özelliğini kullanmak için, **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** dosyasını aşağıdaki gibi güncelleyin.
+## **Yazı Tipi Eşlemesini ve Lisansı Ayarla**
+
+`pptExportParameters` bean'ini **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** içinde dışa aktarıcının başvurduğu şekilde tanımlayın. `fontMap` özelliği raporlarda kullanılan yazı tipi adlarını sunuma yazılan yazı tiplerine eşler ve `licenseFile` özelliği lisans dosyanızın yolunu belirler.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
     <property name="fontMap">
         <util:map id="fontMap">
-            <entry key="sansserif" value="Arial"/>
-            <entry key="serif" value="Times New Roman"/>
-            <entry key="monospaced" value="Courier"/>
+            <entry key="SansSerif" value="Arial"/>
+            <entry key="Serif" value="Times New Roman"/>
+            <entry key="Monospaced" value="Courier New"/>
         </util:map>
     </property>
     <property name="needAlterText" value="false"/>
     <property name="licenseFile" value="C:/jasperserver-XX/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
 </bean>
 ```
+
+{{% alert color="warning" title="Warning" %}}
+Her `fontMap` anahtarını, raporun yazı tipini adlandırdığı şekilde, büyük/küçük harf duyarlılığıyla tam olarak yazın: `sansserif` anahtarı JasperReports'ın varsayılan yazı tipi `SansSerif`'i değiştirmez. Her değer, Java'nın sunucuda bulabildiği bir yazı tipi olmalı; aksi takdirde dışa aktarıcılar girdiyi yok sayar. Örneğin Windows'ta Java `Courier New`'u bulur ama `Courier`'ı bulamaz. [Map fonts](/slides/tr/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts) bölümüne bakın.
+{{% /alert %}}

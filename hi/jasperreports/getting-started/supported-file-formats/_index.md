@@ -3,28 +3,21 @@ title: समर्थित फ़ाइल स्वरूप
 type: docs
 weight: 20
 url: /hi/jasperreports/supported-file-formats/
+description: "Aspose.Slides for JasperReports द्वारा इनपुट क्या लिया जाता है और किन फ़ाइल स्वरूपों में यह रिपोर्ट निर्यात करता है, देखें।"
 ---
-## **समर्थित Microsoft PowerPoint संस्करण**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint MAC के लिए
-- Office 365
+## **इनपुट**
 
-## **समर्थित फ़ाइल प्रारूप**
-निम्न तालिका उन फ़ाइल स्वरूपों को दर्शाती है जिन्हें Aspose.Slides for JasperReports लोड और सहेज सकता है।
+Aspose.Slides for JasperReports रिपोर्ट निर्यात करता है; यह मौजूदा प्रस्तुतियों को बदलता नहीं है। इसके एक्सपोर्टर एक भरे हुए JasperReports रिपोर्ट (`JasperPrint`) को लेते हैं, जैसे कि `JasperFillManager` का परिणाम या *.jrprint* फ़ाइल से लोड किया गया भरा हुआ रिपोर्ट।
 
-|**प्रारूप**|**विवरण**|**लोड**|**सहेजें**|**टिप्पणियाँ**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint प्रस्तुति 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint स्लाइडशो 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint प्रस्तुति 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint स्लाइडशो 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|पोर्टेबल डॉक्यूमेंट फ़ॉर्मेट| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|HTML फ़ॉर्मेट| |{{< emoticons/tick >}}| |
+## **आउटपुट स्वरूप**
+
+निम्न तालिका उन स्वरूपों को सूचीबद्ध करती है, जिन्हें Aspose.Slides for JasperReports रिपोर्ट निर्यात करता है, और वह एक्सपोर्टर क्लास जो प्रत्येक को लिखता है।
+
+|**फ़ॉर्मेट**|**विवरण**|**एक्सपोर्टर**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97–2003 प्रस्तुति; प्रत्येक रिपोर्ट पृष्ठ पर एक स्लाइड|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint प्रस्तुति (Office Open XML); प्रत्येक रिपोर्ट पृष्ठ पर एक स्लाइड|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format; प्रत्येक रिपोर्ट पृष्ठ पर एक PDF पृष्ठ|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|एक एकल HTML फ़ाइल जिसमें प्रत्येक रिपोर्ट पृष्ठ पर एक SVG छवि है|`ASHtmlExporter`|
+
+PPS और PPSX स्लाइड शो स्वरूपों के लिए कोई एक्सपोर्टर नहीं है। PPTX निर्यात को *.ppsx* फ़ाइल नाम देने पर भी यह PPTX प्रस्तुति बनाता है, स्लाइड शो नहीं। यह देखने के लिए कि प्रत्येक एक्सपोर्टर कैसे उपयोग किया जाता है, देखें [PPT, PPTX, PDF and HTML Export](/slides/hi/jasperreports/ppt-pptx-pdf-and-html-export/).

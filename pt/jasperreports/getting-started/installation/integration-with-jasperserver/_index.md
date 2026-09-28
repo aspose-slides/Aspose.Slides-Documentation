@@ -3,20 +3,21 @@ title: Integração com JasperServer
 type: docs
 weight: 45
 url: /pt/jasperreports/integration-with-jasperserver/
+description: "Adicione os exportadores do Aspose.Slides for JasperReports ao JasperReports Server: copie os jars, registre o exportador PowerPoint e configure o mapeamento de fontes e a licença."
 ---
-{{% alert color="primary" %}} 
+## **Copiar os jars**
 
-Para integrar Aspose.Slides for JasperReports ao JasperServer, é necessário executar várias etapas adicionais e atualizar os arquivos de configuração do JasperServer. Este artigo explica como.
+Copie ambos os jars — *aspose.slides.jasperreports.library-xx.x.jar* e *aspose.slides.jasperreports.server-xx.x.jar* — para **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**. Pegue‑os da mesma subpasta da pasta *lib* do download: a que corresponde à versão do JasperReports que seu servidor está executando. Consulte [Installing Aspose.Slides for JasperReports](/slides/pt/jasperreports/installing-aspose-slides-for-jasperreports/) para as faixas de versão.
 
-{{% /alert %}} 
+## **Registrar o exportador**
 
-1. Adicione novas propriedades de exportação ao arquivo de configuração **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
+Adicione os novos beans do exportador ao arquivo de configuração **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**. A classe `ASPptReportExporter` está no jar do servidor; o mesmo jar também contém `ASPptxReportExporter`, `ASPdfReportExporter` e `ASHtmlReportExporter`.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
     <property name="exportParameters" ref="pptExportParameters"/>
     <property name="setResponseContentLength" value="true"/>
-</bean> 
+</bean>
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
     <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
@@ -32,20 +33,24 @@ Para integrar Aspose.Slides for JasperReports ao JasperServer, é necessário ex
 </util:map>
 ```
 
-2. Copie **aspose.slides.jasperreports.jar** para **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
+## **Definir mapeamento de fontes e a licença**
 
-3. Para usar o recurso de mapeamento de fontes, atualize **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** conforme abaixo.
+Defina o bean `pptExportParameters` ao qual o exportador se refere em **%INSTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml**. Sua propriedade `fontMap` mapeia os nomes das fontes usados nos relatórios para as fontes gravadas na apresentação, e sua propriedade `licenseFile` define o caminho para o seu arquivo de licença.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
     <property name="fontMap">
         <util:map id="fontMap">
-            <entry key="sansserif" value="Arial"/>
-            <entry key="serif" value="Times New Roman"/>
-            <entry key="monospaced" value="Courier"/>
+            <entry key="SansSerif" value="Arial"/>
+            <entry key="Serif" value="Times New Roman"/>
+            <entry key="Monospaced" value="Courier New"/>
         </util:map>
     </property>
     <property name="needAlterText" value="false"/>
     <property name="licenseFile" value="C:/jasperserver-XX/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
 </bean>
 ```
+
+{{% alert color="warning" title="Aviso" %}}
+Escreva cada chave `fontMap` exatamente como os nomes da fonte nos relatórios, incluindo maiúsculas e minúsculas: uma chave `sansserif` não substitui a fonte padrão do JasperReports, `SansSerif`. Cada valor deve ser uma fonte que o Java encontre no servidor, caso contrário os exportadores ignoram a entrada. No Windows, por exemplo, o Java encontra `Courier New` mas não `Courier`. Consulte [Map fonts](/slides/pt/jasperreports/ppt-pptx-pdf-and-html-export/#map-fonts).
+{{% /alert %}}

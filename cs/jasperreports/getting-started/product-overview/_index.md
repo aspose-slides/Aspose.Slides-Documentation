@@ -3,38 +3,28 @@ title: Přehled produktu
 type: docs
 weight: 10
 url: /cs/jasperreports/product-overview/
+description: "Zjistěte, co Aspose.Slides for JasperReports dělá, které verze JasperReports a výstupní formáty podporuje a k čemu slouží jeho dva jar soubory."
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Vítejte v Aspose.Slides for JasperReports!**
-
-Aspose.Slides for JasperReports je knihovna speciálně navržená a vyvinutá pro vývojáře, kteří potřebují snadno exportovat zprávy z JasperReports do formátů Microsoft PowerPoint Presentation (PPT) a Microsoft PowerPoint Show (PPS) ve svých Java aplikacích. Všechny funkce zpráv jsou převáděny s nejvyšší přesností do prezentací Microsoft PowerPoint. Aspose.Slides for JasperReports podporuje JasperReports 5+.
-
 ## **Popis produktu**
-JasperReports a JasperServer nemají vestavěnou funkci pro export zpráv jako prezentace Microsoft PowerPoint, ale Aspose.Slides for JasperReports vám poskytuje přístup ke dvěma dalším exportním formátům:
 
-- PPT – PowerPoint prezentace přes Aspose.Slides
-- PPS – PowerPoint ukázka přes Aspose.Slides
-- PPTX – PowerPoint prezentace přes Aspose.Slides
-- PPSX – PowerPoint ukázka přes Aspose.Slides
+Aspose.Slides for JasperReports exportuje sestavy z JasperReports do prezentací PowerPoint, v Java aplikacích a v JasperReports Server, bez Microsoft PowerPoint. Podporuje JasperReports 3.7.2 až 6.16.0, s samostatným jar souborem pro každé rozmezí verzí — viz [Instalace Aspose.Slides for JasperReports](/slides/cs/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Aspose.Slides for JasperReports interně používá naše 100 % čisté Java knihovny Aspose.Slides for Java a Aspose.Metafiles for Java, špičkové knihovny pro serverové zpracování prezentací a metafiles.
+Exportuje vyplněnou sestavu do čtyř formátů, jeden snímek nebo stránka na stránku sestavy:
 
-Aspose.Slides for JasperReports umožňuje exportovat jakoukoli zprávu do formátu PPT nebo PPS.
+- PPT – prezentace PowerPoint 97–2003
+- PPTX – prezentace PowerPoint (Office Open XML)
+- PDF
+- HTML
+
+Produkt se skládá ze dvou částí:
+
+- Knihovna jar přidává exportéry `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` a `ASHtmlExporter` do JasperReports Library.
+- Server jar poskytuje akce exportu pro stejné čtyři formáty, které zaregistrujete v JasperReports Server — viz [Integrace s JasperServer](/slides/cs/jasperreports/integration-with-jasperserver/).
 
 ### **Příklad výstupu**
-Třída ASPptExporter rozšiřuje třídu ASAbstractExporter, takže ji lze použít stejným způsobem jako ostatní standardní exportéry. Tento krátký příklad ukazuje typický kód a snímek obrazovky zprávy zobrazené v MS PowerPoint. Podrobné příklady lze nalézt v dodaných demo zprávách.
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+Exportéry rozšiřují vlastní třídy exportérů JasperReports a používají se stejným způsobem: předáte jim vyplněnou sestavu a výstupní soubor, poté zavoláte `exportReport`. Kompletní program, který vyplní sestavu a exportuje ji do PPTX, najdete v [Vašem prvním exportu](/slides/cs/jasperreports/#your-first-export); pro všechny čtyři formáty viz [Export PPT, PPTX, PDF a HTML](/slides/cs/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**Prezentace vygenerovaná pomocí JasperReports xmldatasource demo** 
-
-![Prezentace vygenerovaná pomocí JasperReports](product-overview_2.png)
+![Sestava exportovaná do prezentace bez licence, s hodnotícím vodoznakem uprostřed snímku](product-overview_2.png)

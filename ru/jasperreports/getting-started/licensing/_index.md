@@ -3,61 +3,62 @@ title: Лицензирование
 type: docs
 weight: 50
 url: /ru/jasperreports/licensing/
+description: "Узнайте, что версия оценки Aspose.Slides for JasperReports добавляет в экспортированные файлы и как применить лицензию в JasperReports и JasperReports Server."
 ---
+{{% alert color="info" title="Примечание" %}}
 
-{{% alert color="primary" %}} 
+Aspose.Slides for JasperReports доступен в виде бесплатной, неограниченной по времени оценки со [страницы загрузки](https://releases.aspose.com/slides/ru/jasperreport/). Оценочная и лицензированная версии продукта предоставляются из одной и той же загрузки.
 
-Aspose.Slides для JasperReports доступен как бесплатная версия без ограничения по времени с [страницы загрузки](https://downloads.aspose.com/slides/jasperreport). Версии для оценки и лицензированные версии продукта имеют одну и ту же загрузку.
+Если вы удовлетворены оценкой, [приобретите лицензию](https://purchase.aspose.com/pricing/slides/ru/jasperreports/). Убедитесь, что вы понимаете и соглашаетесь с условиями подписки.
 
-Когда вы будете довольны оценочной версией, [купите лицензию](https://purchase.aspose.com/buy). Убедитесь, что вы понимаете и соглашаетесь с условиями подписки.
+Лицензия становится доступной для скачивания со страницы заказа после оплаты заказа. Лицензия представляет собой обычный текстовый, цифрово подписанный XML-файл, содержащий такие данные, как имя клиента, приобретённый продукт и тип лицензии. Не изменяйте содержимое файла лицензии никоим образом: это делает лицензию недействительной.
 
-Лицензия доступна для загрузки со страницы заказа после того, как заказ будет оплачен. Лицензия представляет собой файл XML в открытом текстовом формате, подписанный в цифровом виде, который содержит информацию, такую как имя клиента, купленный продукт и тип лицензии. Не изменяйте содержание файла лицензии никаким образом: это делает лицензию недействительной.
+Скачайте лицензию на свой компьютер и скопируйте её в соответствующую папку (например, в папку вашего приложения или **JasperReports\lib**).
+{{% /alert %}}
 
-Скачайте лицензию на ваш компьютер и скопируйте ее в соответствующую папку (например, вашу папку приложения или **JasperReports\lib**).
+## **Ограничения версии оценки**
+Оценочная версия Aspose.Slides for JasperReports (без указанной лицензии) экспортирует каждую страницу отчёта, однако добавляет оценочный водяной знак в центр каждого слайда или страницы во всех четырёх выходных форматах (PPT, PPTX, PDF и HTML), как показано на рисунке ниже. Подробнее см. [Оценить Aspose.Slides](/slides/ru/jasperreports/evaluate-aspose-slides/).
 
-## **Ограничения оценочной версии**
-Оценочная версия Aspose.Slides (без указанной лицензии) предоставляет полную функциональность продукта, но (когда вы сохраняете свои презентации) вставляет водяной знак оценки в центре каждого слайда, как показано на рисунке ниже:
-
-![todo:image_alt_text](evaluation_watermark.png) 
+![Водяной знак оценки в центре экспортированного слайда](evaluation_watermark.png)
 
 ## **Применение лицензии**
 Существует несколько способов применения лицензии, в зависимости от того, работаете ли вы с JasperReports или JasperServer.
 
 ### **Применение лицензии для JasperReports**
-Используйте прямой вызов метода setLicense, аналогичный Aspose.Slides для Java.
+Вызовите метод `setLicense` класса `License`, передав поток, читающий файл лицензии, как в Aspose.Slides for Java:
 
 ```java
+import java.io.FileInputStream;
+
 import com.aspose.slides.jasperreports.License;
 
-..... 
+public class ApplyLicense {
+    public static void main(String[] args) {
+        try {
+            // Создайте объект потока, содержащий файл лицензии.
+            FileInputStream fstream = new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 
-try {
-    //Создайте объект потока, содержащий файл лицензии
-    FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
-	
-    //Создайте экземпляр класса License
-    License license = new License();
-	
-    //Установите лицензию через объект потока
-    license.setLicense(fstream);
-} catch(Exception ex) {
-    System.out.println(ex.toString());
+            // Создайте экземпляр класса License.
+            License license = new License();
+
+            // Установите лицензию через объект потока.
+            license.setLicense(fstream);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+    }
 }
 ```
 
-Или установите параметр экспортера в коде.
+Либо передайте путь к файлу лицензии экспортеру в параметр `ASExporterParameters.PPT_LICENSE`. В этом фрагменте `jasperPrint` представляет собой заполненный отчёт, как в [Ваш первый экспорт](/slides/ru/jasperreports/#your-first-export):
 
 ```java
-ASPptExporter exporter = new ASPptExporter (); 
+ASPptExporter exporter = new ASPptExporter();
+exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "report.ppt");
 exporter.setParameter(ASExporterParameters.PPT_LICENSE, "Aspose.Slides.JasperReports.Developer.lic");
 exporter.exportReport();
 ```
 
 ### **Применение лицензии на JasperServer**
-Установите параметр экспортера в applicationContext.xml.
-
-``` xml
-<bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">
-    <property name="licenseFile" value="C:/jasperserver-3.0/apache-tomcat/webapps/jasperserver/WEB-INF/Aspose.Slides.JasperReports.Developer.lic"/>
-</bean>
-```
+Установите свойство `licenseFile` бина `pptExportParameters` в *applicationContext.xml* в путь к файлу лицензии, как показано в [Интеграции с JasperServer](/slides/ru/jasperreports/integration-with-jasperserver/#set-font-mapping-and-the-license).

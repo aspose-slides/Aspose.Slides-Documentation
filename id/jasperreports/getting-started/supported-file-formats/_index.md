@@ -3,29 +3,21 @@ title: Format File yang Didukung
 type: docs
 weight: 20
 url: /id/jasperreports/supported-file-formats/
+description: "Lihat apa yang diterima Aspose.Slides for JasperReports sebagai input dan format file apa yang digunakannya untuk mengekspor laporan."
 ---
-## **Versi Microsoft PowerPoint yang Didukung**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
-- Office 365
+## **Input**
 
+Aspose.Slides for JasperReports mengekspor laporan; tidak mengonversi presentasi yang ada. Ekspornya menerima laporan JasperReports yang sudah terisi (`JasperPrint`), seperti hasil dari `JasperFillManager` atau laporan terisi yang dimuat dari file *.jrprint*.
 
-## **Format File yang Didukung**
-Tabel berikut menunjukkan format file yang dapat dimuat dan disimpan oleh Aspose.Slides untuk JasperReports.
+## **Format Output**
 
-|**Format**|**Deskripsi**|**Muat**|**Simpan**|**Catatan**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentasi PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|SlideShow PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentasi PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|SlideShow PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Format Dokumen Portabel||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|Format HTML||{{< emoticons/tick >}}||
+Tabel berikut mencantumkan format yang diekspor oleh Aspose.Slides for JasperReports, serta kelas ekspor yang menulis masing‑masing.
+
+|**Format**|**Deskripsi**|**Ekspor**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentasi PowerPoint 97–2003; satu slide per halaman laporan|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentasi PowerPoint (Office Open XML); satu slide per halaman laporan|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format; satu halaman PDF per halaman laporan|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|Satu file HTML dengan satu gambar SVG per halaman laporan|`ASHtmlExporter`|
+
+Tidak ada ekspor untuk format slide show PPS dan PPSX. Memberi ekspor PPTX nama file *.ppsx* tetap menghasilkan presentasi PPTX, bukan slide show. Untuk melihat cara penggunaan tiap ekspor, lihat [Ekspor PPT, PPTX, PDF, dan HTML](/slides/id/jasperreports/ppt-pptx-pdf-and-html-export/).

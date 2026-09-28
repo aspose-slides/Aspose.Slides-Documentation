@@ -3,38 +3,28 @@ title: उत्पाद अवलोकन
 type: docs
 weight: 10
 url: /hi/jasperreports/product-overview/
+description: "जानेँ कि Aspose.Slides for JasperReports क्या करता है, यह कौन से JasperReports संस्करणों और आउटपुट फ़ॉर्मेट्स को समर्थन देता है, और इसके दो जार किस लिए हैं।"
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Aspose.Slides for JasperReports में आपका स्वागत है!**
-
-Aspose.Slides for JasperReports एक लाइब्रेरी है जो विशेष रूप से उन डेवलपर्स के लिए डिज़ाइन और विकसित की गई है जिन्हें अपने Java अनुप्रयोगों में JasperReports से Microsoft PowerPoint Presentation (PPT) और Microsoft PowerPoint Show (PPS) फ़ॉर्मैट में रिपोर्ट निर्यात करना आसान होना चाहिए। सभी रिपोर्ट सुविधाएँ उच्चतम सटीकता के साथ Microsoft PowerPoint प्रस्तुतियों में परिवर्तित की जाती हैं। Aspose.Slides for JasperReports JasperReports 5+ का समर्थन करता है।
-
 ## **उत्पाद विवरण**
-JasperReports और JasperServer में Microsoft PowerPoint प्रस्तुतियों के रूप में रिपोर्ट निर्यात करने की बिल्ट‑इन क्षमता नहीं है, लेकिन Aspose.Slides for JasperReports आपको दो अतिरिक्त निर्यात फ़ॉर्मैट प्रदान करता है:
 
-- PPT – Aspose.Slides के माध्यम से PowerPoint Presentation
-- PPS – Aspose.Slides के माध्यम से PowerPoint Show
-- PPTX – Aspose.Slides के माध्यम से PowerPoint Presentation
-- PPSX – Aspose.Slides के माध्यम से PowerPoint Show
+Aspose.Slides for JasperReports JasperReports से रिपोर्ट को PowerPoint प्रस्तुतियों में निर्यात करता है, Java अनुप्रयोगों और JasperReports Server में, Microsoft PowerPoint के बिना। यह JasperReports 3.7.2 से 6.16.0 तक का समर्थन करता है, प्रत्येक संस्करण रेंज के लिए अलग जार उपलब्ध है — देखें [Aspose.Slides for JasperReports स्थापित करना](/slides/hi/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Aspose.Slides for JasperReports आंतरिक रूप से हमारे 100% शुद्ध Java लाइब्रेरी Aspose.Slides for Java और Aspose.Metafiles for Java का उपयोग करता है, जो सर्वर‑साइड प्रस्तुतियों और मेटाफाइल प्रोसेसिंग के लिए विश्व‑स्तरीय लाइब्रेरी हैं।
+यह भरें हुई रिपोर्ट को चार प्रारूपों में निर्यात करता है, प्रत्येक रिपोर्ट पृष्ठ पर एक स्लाइड या पृष्ठ:
 
-Aspose.Slides for JasperReports किसी भी रिपोर्ट को PPT या PPS फ़ॉर्मैट में निर्यात करना संभव बनाता है।
+- PPT – PowerPoint 97–2003 प्रस्तुति
+- PPTX – PowerPoint प्रस्तुति (Office Open XML)
+- PDF
+- HTML
+
+उत्पाद के दो भाग हैं:
+
+- लाइब्रेरी जार `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` और `ASHtmlExporter` एक्सपोर्टर्स को JasperReports लाइब्रेरी में जोड़ता है।
+- सर्वर जार समान चार प्रारूपों के लिए निर्यात कार्य प्रदान करता है, जिन्हें आप JasperReports Server में पंजीकृत करते हैं — देखें [JasperServer के साथ एकीकरण](/slides/hi/jasperreports/integration-with-jasperserver/).
 
 ### **आउटपुट उदाहरण**
-ASPptExporter क्लास ASAbstractExporter क्लास का विस्तार करती है इसलिए इसे किसी भी अन्य मानक एक्सपोर्टर की तरह ही उपयोग किया जा सकता है। यह छोटा उदाहरण सामान्य कोड और MS PowerPoint में देखी गई रिपोर्ट का स्क्रीनशॉट दिखाता है। विस्तृत उदाहरण प्रदान किए गए डेमो रिपोर्ट में पाए जा सकते हैं।
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+एक्सपोर्टर्स JasperReports की अपनी एक्सपोर्टर क्लासों का विस्तार करते हैं और उसी तरीके से उपयोग किए जाते हैं: उन्हें भरें हुई रिपोर्ट और आउटपुट फ़ाइल पास करें, फिर `exportReport` को कॉल करें। एक पूर्ण प्रोग्राम के लिए जो रिपोर्ट को भरता है और उसे PPTX में निर्यात करता है, देखें [आपका पहला निर्यात](/slides/hi/jasperreports/#your-first-export); सभी चार प्रारूपों के लिए, देखें [PPT, PPTX, PDF और HTML निर्यात](/slides/hi/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**JasperReports xmldatasource डेमो के साथ उत्पन्न प्रस्तुति**
-
-![JasperReports के साथ उत्पन्न प्रस्तुति](product-overview_2.png)
+![लाइसेंस के बिना एक रिपोर्ट को प्रस्तुति में निर्यात किया गया, स्लाइड के केंद्र में मूल्यांकन वाटरमार्क के साथ](product-overview_2.png)

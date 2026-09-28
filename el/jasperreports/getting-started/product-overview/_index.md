@@ -1,40 +1,30 @@
 ---
-title: Επισκόπηση προϊόντος
+title: Επισκόπηση Προϊόντος
 type: docs
 weight: 10
 url: /el/jasperreports/product-overview/
+description: "Μάθετε τι κάνει το Aspose.Slides for JasperReports, ποιες εκδόσεις του JasperReports και μορφές εξόδου υποστηρίζει, και για ποιο σκοπό χρησιμεύουν τα δύο αρχεία jar του."
 ---
-![Aspose.Slides για JasperReports](product-overview_1.png)
-
-## **Καλώς ήρθατε στο Aspose.Slides για JasperReports!**
-
-Aspose.Slides για JasperReports είναι μια βιβλιοθήκη ειδικά σχεδιασμένη και αναπτυγμένη για προγραμματιστές που χρειάζονται εύκολη εξαγωγή αναφορών από το JasperReports σε μορφές Microsoft PowerPoint Presentation (PPT) και Microsoft PowerPoint Show (PPS) στις εφαρμογές Java τους. Όλες οι δυνατότητες της αναφοράς μετατρέπονται με το υψηλότερο επίπεδο ακρίβειας σε παρουσιάσεις Microsoft PowerPoint. Το Aspose.Slides για JasperReports περιλαμβάνει υποστήριξη για JasperReports 5+.
+![Aspose.Slides for JasperReports](product-overview_1.png)
 
 ## **Περιγραφή προϊόντος**
-Το JasperReports και το JasperServer δεν διαθέτουν ενσωματωμένες δυνατότητες εξαγωγής αναφορών ως παρουσιάσεις Microsoft PowerPoint, αλλά το Aspose.Slides για JasperReports σας δίνει πρόσβαση σε δύο επιπλέον μορφές εξαγωγής:
 
-- PPT – Παρουσίαση PowerPoint μέσω Aspose.Slides
-- PPS – Παρουσίαση PowerPoint Show μέσω Aspose.Slides
-- PPTX – Παρουσίαση PowerPoint μέσω Aspose.Slides
-- PPSX – Παρουσίαση PowerPoint Show μέσω Aspose.Slides
+Το Aspose.Slides for JasperReports εξάγει αναφορές από το JasperReports σε παρουσιάσεις PowerPoint, σε εφαρμογές Java και στο JasperReports Server, χωρίς το Microsoft PowerPoint. Υποστηρίζει το JasperReports 3.7.2 έως 6.16.0, με ξεχωριστό jar για κάθε εύρος εκδόσεων — δείτε [Εγκατάσταση Aspose.Slides for JasperReports](/slides/el/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Το Aspose.Slides για JasperReports χρησιμοποιεί εσωτερικά τις 100% καθαρές βιβλιοθήκες Java Aspose.Slides για Java και Aspose.Metafiles για Java, βιβλιοθήκες παγκόσμιας κλάσης για επεξεργασία παρουσιάσεων και μετααρχείων από τη μεριά του διακομιστή.
+Εξάγει μια γεμάτη αναφορά σε τέσσερις μορφές, μία διαφάνεια ή σελίδα ανά σελίδα της αναφοράς:
 
-Το Aspose.Slides για JasperReports καθιστά δυνατόν τον εξαγωγή οποιασδήποτε αναφοράς σε μορφή PPT ή PPS.
+- PPT – Παρουσίαση PowerPoint 97–2003
+- PPTX – Παρουσίαση PowerPoint (Office Open XML)
+- PDF
+- HTML
+
+Το προϊόν αποτελείται από δύο μέρη:
+
+- Το αρχείο jar της βιβλιοθήκης προσθέτει τους εξαγωγείς `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` και `ASHtmlExporter` στη βιβλιοθήκη JasperReports.
+- Το αρχείο jar του διακομιστή παρέχει ενέργειες εξαγωγής για τις ίδιες τέσσερις μορφές, τις οποίες εγγράφετε στο JasperReports Server — δείτε [Ενσωμάτωση με JasperServer](/slides/el/jasperreports/integration-with-jasperserver/).
 
 ### **Παράδειγμα εξόδου**
-Η κλάση ASPptExporter κληρονομεί την κλάση ASAbstractExporter ώστε να μπορεί να χρησιμοποιηθεί με τον ίδιο τρόπο όπως οποιοσδήποτε άλλος τυπικός εξαγωγέας. Αυτό το σύντομο παράδειγμα δείχνει τυπικό κώδικα και στιγμιότυπο οθόνης μιας αναφοράς που προβλήθηκε στο MS PowerPoint. Αναλυτικά παραδείγματα μπορούν να βρεθούν στις παρεχόμενες δοκιμαστικές αναφορές.
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+Οι εξαγωγείς επεκτείνουν τις δικές τους κλάσεις εξαγωγέα του JasperReports και χρησιμοποιούνται με τον ίδιο τρόπο: παρέχετε την γεμάτη αναφορά και το αρχείο εξόδου, στη συνέχεια καλέστε `exportReport`. Για ένα πλήρες πρόγραμμα που γεμίζει μια αναφορά και την εξάγει σε PPTX, δείτε [Η πρώτη σας εξαγωγή](/slides/el/jasperreports/#your-first-export); για όλες τις τέσσερις μορφές, δείτε [Εξαγωγή PPT, PPTX, PDF και HTML](/slides/el/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**Παρουσίαση που δημιουργήθηκε με το demo xmldatasource του JasperReports** 
-
-![Παρουσίαση που δημιουργήθηκε με JasperReports](product-overview_2.png)
+![Μια αναφορά που εξάγεται σε παρουσίαση χωρίς άδεια, με το υδατογράφημα αξιολόγησης στο κέντρο της διαφάνειας](product-overview_2.png)

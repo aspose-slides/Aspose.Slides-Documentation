@@ -3,30 +3,21 @@ title: Поддерживаемые форматы файлов
 type: docs
 weight: 20
 url: /ru/jasperreports/supported-file-formats/
+description: "Посмотрите, какие входные данные принимает Aspose.Slides for JasperReports и в какие форматы файлов он экспортирует отчёты."
 ---
+## **Ввод**
 
-## **Поддерживаемые версии Microsoft PowerPoint**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint для MAC
-- Office 365
+Aspose.Slides for JasperReports экспортирует отчёты; он не преобразует существующие презентации. Его экспортеры принимают заполненный JasperReports отчёт (`JasperPrint`), такой как результат `JasperFillManager` или заполненный отчёт, загруженный из файла *.jrprint*.
 
+## **Форматы вывода**
 
-## **Поддерживаемые форматы файлов**
-В следующей таблице указаны форматы файлов, которые Aspose.Slides для JasperReports может загружать и сохранять.
+В следующей таблице перечислены форматы, в которые Aspose.Slides for JasperReports экспортирует отчёт, и класс‑экспортер, который записывает каждый из них.
 
-|**Формат**|**Описание**|**Загрузка**|**Сохранение**|**Примечания**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Презентация PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Слайд-шоу PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Презентация PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Слайд-шоу PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Формат переносимого документа| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Формат HTML| |{{< emoticons/tick >}}| |
+|**Формат**|**Описание**|**Экспортер**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Презентация PowerPoint 97–2003; один слайд на страницу отчёта|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Презентация PowerPoint (Office Open XML); один слайд на страницу отчёта|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Формат Portable Document Format; одна страница PDF на страницу отчёта|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|Один файл HTML с одним изображением SVG на страницу отчёта|`ASHtmlExporter`|
+
+Экспортеров для форматов показов слайдов PPS и PPSX нет. Если задать экспортируемому PPTX имя файла *.ppsx*, будет создана презентация PPTX, а не показ слайдов. Чтобы увидеть, как используется каждый экспортер, см. [PPT, PPTX, PDF and HTML Export](/slides/ru/jasperreports/ppt-pptx-pdf-and-html-export/).

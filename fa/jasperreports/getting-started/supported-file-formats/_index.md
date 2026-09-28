@@ -3,29 +3,21 @@ title: قالب‌های فایل پشتیبانی‌شده
 type: docs
 weight: 20
 url: /fa/jasperreports/supported-file-formats/
+description: "مشاهده کنید Aspose.Slides for JasperReports چه ورودی می‌گیرد و به چه قالب‌های فایل گزارش‌ها را صادر می‌کند."
 ---
-## **نسخه‌های پشتیبانی‌شده مایکروسافت پاورپوینت**
-- مایکروسافت پاورپوینت 97
-- مایکروسافت پاورپوینت 2000
-- مایکروسافت پاورپوینت XP
-- مایکروسافت پاورپوینت 2003
-- مایکروسافت پاورپوینت 2007
-- مایکروسافت پاورپوینت 2010
-- مایکروسافت پاورپوینت 2013
-- مایکروسافت پاورپوینت 2016
-- مایکروسافت پاورپوینت 2019
-- مایکروسافت پاورپوینت برای MAC
-- Office 365
+## **ورودی**
 
+Aspose.Slides for JasperReports گزارش‌ها را صادر می‌کند؛ اما ارائه‌های موجود را تبدیل نمی‌کند. خروجی‌کننده‌های آن یک گزارش پر شده JasperReports (`JasperPrint`) را می‌گیرند، مانند نتیجهٔ `JasperFillManager` یا گزارشی پر شده که از یک فایل *.jrprint* بارگذاری شده است.
 
-## **قالب‌های فایل پشتیبانی‌شده**
-جدول زیر قالب‌های فایل را نشان می‌دهد که Aspose.Slides برای JasperReports می‌تواند بارگذاری و ذخیره کند.
+## **قالب‌های خروجی**
 
-|**قالب**|**توضیح**|**بارگذاری**|**ذخیره**|**یادداشت‌ها**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|ارائه پاورپوینت 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|اسلایدشو پاورپوینت 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|ارائه پاورپوینت 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|اسلایدشو پاورپوینت 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|قالب سند قابل‌حمل| |{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|قالب HTML| |{{< emoticons/tick >}}||
+جدول زیر قالب‌هایی را که Aspose.Slides for JasperReports یک گزارش را به آن‌ها صادر می‌کند، و کلاس خروجی‌کننده‌ای که هر یک را می‌نویسد، فهرست می‌کند.
+
+|**قالب**|**توضیح**|**خروجی‌کننده**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|ارائه PowerPoint 97–2003؛ یک اسلاید برای هر صفحهٔ گزارش|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|ارائه PowerPoint (Office Open XML)؛ یک اسلاید برای هر صفحهٔ گزارش|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|قالب سند قابل حمل (PDF)؛ یک صفحه PDF برای هر صفحهٔ گزارش|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|یک فایل HTML واحد با یک تصویر SVG برای هر صفحهٔ گزارش|`ASHtmlExporter`|
+
+هیچ خروجی‌کننده‌ای برای قالب‌های اسلاید شو PPS و PPSX وجود ندارد. اختصاص یک نام فایل *.ppsx* به خروجی PPTX همچنان یک ارائه PPTX تولید می‌کند، نه یک اسلاید شو. برای مشاهدهٔ نحوه استفاده از هر خروجی‌کننده، به [صدور PPT، PPTX، PDF و HTML](/slides/fa/jasperreports/ppt-pptx-pdf-and-html-export/) مراجعه کنید.

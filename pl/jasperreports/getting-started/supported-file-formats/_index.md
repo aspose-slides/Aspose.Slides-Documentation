@@ -3,29 +3,21 @@ title: Obsługiwane formaty plików
 type: docs
 weight: 20
 url: /pl/jasperreports/supported-file-formats/
+description: "Zobacz, co Aspose.Slides for JasperReports przyjmuje jako dane wejściowe i do jakich formatów plików eksportuje raporty."
 ---
-## **Obsługiwane wersje Microsoft PowerPoint**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint dla MAC
-- Office 365
+## **Input**
 
+Aspose.Slides for JasperReports eksportuje raporty; nie konwertuje istniejących prezentacji. Jego eksporterzy przyjmują wypełniony raport JasperReports (`JasperPrint`), taki jak wynik `JasperFillManager` lub wypełniony raport załadowany z pliku *.jrprint*.
 
-## **Obsługiwane formaty plików**
-Poniższa tabela wskazuje formaty plików, które Aspose.Slides for JasperReports może ładować i zapisywać.
+## **Formaty wyjściowe**
 
-|**Format**|**Opis**|**Wczytaj**|**Zapisz**|**Uwagi**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Prezentacja PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Pokaz slajdów PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Prezentacja PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Pokaz slajdów PowerPoint 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|Format HTML||{{< emoticons/tick >}}||
+Poniższa tabela przedstawia formaty, do których Aspose.Slides for JasperReports eksportuje raport, oraz klasę eksportera zapisującą każdy z nich.
+
+|**Format**|**Opis**|**Eksporter**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Prezentacja PowerPoint 97–2003; jeden slajd na stronę raportu|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Prezentacja PowerPoint (Office Open XML); jeden slajd na stronę raportu|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format; jedna strona PDF na stronę raportu|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|Pojedynczy plik HTML z jednym obrazem SVG na stronę raportu|`ASHtmlExporter`|
+
+Nie ma eksportera dla formatów pokazu slajdów PPS i PPSX. Nadanie eksportowi PPTX nazwy pliku *.ppsx* nadal tworzy prezentację PPTX, a nie pokaz slajdów. Aby zobaczyć, jak używany jest każdy eksporter, zobacz [Eksport PPT, PPTX, PDF i HTML](/slides/pl/jasperreports/ppt-pptx-pdf-and-html-export/).

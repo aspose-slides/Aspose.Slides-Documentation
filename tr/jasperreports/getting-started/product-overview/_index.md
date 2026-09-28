@@ -1,40 +1,30 @@
 ---
-title: Ürün Genel Bakış
+title: Ürün Genel Bakışı
 type: docs
 weight: 10
 url: /tr/jasperreports/product-overview/
+description: "Aspose.Slides for JasperReports'ın ne yaptığını, hangi JasperReports sürümlerini ve çıktı formatlarını desteklediğini ve iki jar'ının ne amaçla kullanıldığını öğrenin."
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Aspose.Slides for JasperReports'e Hoş Geldiniz!**
-
-Aspose.Slides for JasperReports, Java uygulamalarında JasperReports'dan Microsoft PowerPoint Sunumu (PPT) ve Microsoft PowerPoint Gösterimi (PPS) biçimlerine raporları kolayca dışa aktarmak isteyen geliştiriciler için özel olarak tasarlanmış ve geliştirilmiş bir kütüphanedir. Tüm rapor özellikleri, Microsoft PowerPoint sunumlarına en yüksek doğrulukla dönüştürülür. Aspose.Slides for JasperReports, JasperReports 5+ desteği içerir.
-
 ## **Ürün Açıklaması**
-JasperReports ve JasperServer, raporları Microsoft PowerPoint sunumları olarak dışa aktarmak için yerleşik yeteneklere sahip değildir, ancak Aspose.Slides for JasperReports size iki ek dışa aktarma formatı sunar:
 
-- PPT – Aspose.Slides aracılığıyla PowerPoint Sunumu
-- PPS – Aspose.Slides aracılığıyla PowerPoint Gösterimi
-- PPTX – Aspose.Slides aracılığıyla PowerPoint Sunumu
-- PPSX – Aspose.Slides aracılığıyla PowerPoint Gösterimi
+Aspose.Slides for JasperReports, Microsoft PowerPoint olmadan, JasperReports'tan PowerPoint sunumlarına raporları dışa aktarır; Java uygulamalarında ve JasperReports Server'da çalışır. JasperReports 3.7.2'den 6.16.0'e kadar destekler; her sürüm aralığı için ayrı bir jar bulunur — bakınız [Installing Aspose.Slides for JasperReports](/slides/tr/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Aspose.Slides for JasperReports, %100 saf Java kütüphanelerimiz olan Aspose.Slides for Java ve Aspose.Metafiles for Java'ı dahili olarak kullanır; bu kütüphaneler sunucu tarafı sunumları ve metafile işleme konusunda dünya sınıfıdır.
+Doldurulmuş bir raporu dört formata dışa aktarır, rapor sayfası başına bir slayt veya sayfa:
 
-Aspose.Slides for JasperReports, herhangi bir raporu PPT veya PPS formatında dışa aktarmayı mümkün kılar.
+- PPT – PowerPoint 97–2003 sunumu
+- PPTX – PowerPoint sunumu (Office Open XML)
+- PDF
+- HTML
+
+Ürünün iki bölümü vardır:
+
+- Kütüphane jar'ı, JasperReports Library'ye `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` ve `ASHtmlExporter` dışa aktarıcılarını ekler.
+- Sunucu jar'ı aynı dört format için dışa aktarma eylemleri sağlar; bunları JasperReports Server'da kaydolursunuz — bakınız [Integration with JasperServer](/slides/tr/jasperreports/integration-with-jasperserver/).
 
 ### **Çıktı Örneği**
-ASPptExporter sınıfı, ASAbstractExporter sınıfını genişletir, böylece diğer standart dışa aktarıcılar gibi kullanılabilir. Bu kısa örnek, tipik kodu ve MS PowerPoint'te görüntülenen bir raporun ekran görüntüsünü gösterir. Ayrıntılı örnekler sağlanan demo raporlarında bulunabilir.
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+Dışa aktarıcılar, JasperReports'ın kendi dışa aktarıcı sınıflarını genişletir ve aynı şekilde kullanılır: doldurulmuş raporu ve çıktı dosyasını onlara verin, ardından `exportReport` metodunu çağırın. Raporu dolduran ve PPTX olarak dışa aktaran tam bir program için bakınız [Your first export](/slides/tr/jasperreports/#your-first-export); dört formatın tamamı için bakınız [PPT, PPTX, PDF and HTML Export](/slides/tr/jasperreports/ppt-pptx-pdf-and-html-export/).
 
-**JasperReports xmldatasource demosu ile oluşturulan sunum** 
-
-![JasperReports ile oluşturulan sunum](product-overview_2.png)
+![Lisans olmadan bir sunuma dışa aktarılmış rapor, slaytın ortasında değerlendirme filigranı ile](product-overview_2.png)

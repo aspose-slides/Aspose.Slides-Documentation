@@ -3,13 +3,14 @@ title: 評估 Aspose.Slides
 type: docs
 weight: 80
 url: /zh-hant/jasperreports/evaluate-aspose-slides/
+description: "了解 Aspose.Slides for JasperReports 評估版會在匯出檔案中加入什麼，以及如何在不含此功能的情況下匯出。"
 ---
-您可以輕鬆下載 Aspose.Slides 以評估。評估下載與購買下載相同。只要在程式碼中加入幾行以套用授權，即可將評估版轉為授權版。
+您可以從[下載頁面](https://releases.aspose.com/slides/zh-hant/jasperreport/)下載 Aspose.Slides for JasperReports 供評估使用。評估下載與授權版相同：當您套用授權時，它會變為授權版，如[授權](/slides/zh-hant/jasperreports/licensing/)中所述。
 
-Aspose.Slides 的評估版（未指定授權）提供完整的產品功能，但在開啟和儲存文件時，會在文件頂部插入評估水印，且在從簡報投影片中提取文字時僅限於一張投影片。
+未授權時，匯出器仍會匯出報表的每一頁，但會在每張投影片或頁面的中央放置評估浮水印。浮水印顯示「僅供評估。」、「使用 Aspose.Slides for JasperReports 建立」以及產品版本，並附有版權行。此浮水印會出現在四種輸出格式中：PPT、PPTX、PDF 和 HTML。
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![未授權匯出的報表，浮水印位於投影片中央](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-如果您想在沒有評估版限制的情況下測試 Aspose.Slides，也可以申請 30 天的臨時授權。請參考[How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Note" %}}
+若要測試 Aspose.Slides for JasperReports 並移除評估浮水印，請申請 30 天的[臨時授權](https://purchase.aspose.com/temporary-license)。
 {{% /alert %}}

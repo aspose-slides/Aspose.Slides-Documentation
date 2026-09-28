@@ -1,32 +1,23 @@
 ---
-title: Unterstützte Dateiformate
+title: "Unterstützte Dateiformate"
 type: docs
 weight: 20
 url: /de/jasperreports/supported-file-formats/
+description: "Siehe, welche Eingaben Aspose.Slides for JasperReports akzeptiert und in welche Dateiformate es Berichte exportiert."
 ---
+## **Eingabe**
 
-## **Unterstützte Microsoft PowerPoint-Versionen**
-- Microsoft PowerPoint 97
-- Microsoft PowerPoint 2000
-- Microsoft PowerPoint XP
-- Microsoft PowerPoint 2003
-- Microsoft PowerPoint 2007
-- Microsoft PowerPoint 2010
-- Microsoft PowerPoint 2013
-- Microsoft PowerPoint 2016
-- Microsoft PowerPoint 2019
-- Microsoft PowerPoint für MAC
-- Office 365
+Aspose.Slides for JasperReports exportiert Berichte; es konvertiert keine vorhandenen Präsentationen. Seine Exporter übernehmen einen gefüllten JasperReports‑Bericht (`JasperPrint`), wie das Ergebnis von `JasperFillManager` oder einen gefüllten Bericht, der aus einer *.jrprint*‑Datei geladen wurde.
 
+## **Ausgabeformate**
 
-## **Unterstützte Dateiformate**
-Die folgende Tabelle zeigt die Dateiformate, die Aspose.Slides für JasperReports laden und speichern kann.
+Die folgende Tabelle listet die Formate auf, in die Aspose.Slides for JasperReports einen Bericht exportiert, sowie die Exporter‑Klasse, die jedes davon schreibt.
 
-|**Format**|**Beschreibung**|**Laden**|**Speichern**|**Bemerkungen**|
-| :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint-Präsentation 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint-Präsentation 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint-Präsentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint-Präsentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|HTML-Format| |{{< emoticons/tick >}}| |
+|**Format**|**Beschreibung**|**Exporter**|
+| :- | :- | :- |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint‑Präsentation 97–2003; eine Folie pro Berichtsseite|`ASPptExporter`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint‑Präsentation (Office Open XML); eine Folie pro Berichtsseite|`ASPptxExporter`|
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format; eine PDF‑Seite pro Berichtsseite|`ASPdfExporter`|
+|[HTML](https://docs.fileformat.com/web/html/)|Eine einzelne HTML‑Datei mit einem SVG‑Bild pro Berichtsseite|`ASHtmlExporter`|
+
+Für die PPS‑ und PPSX‑Diashow‑Formate gibt es keinen Exporter. Wenn man einer PPTX‑Exportdatei den Dateinamen *.ppsx* gibt, wird weiterhin eine PPTX‑Präsentation erstellt und keine Diashow. Um zu sehen, wie jeder Exporter verwendet wird, siehe [PPT, PPTX, PDF und HTML Export](/slides/de/jasperreports/ppt-pptx-pdf-and-html-export/).

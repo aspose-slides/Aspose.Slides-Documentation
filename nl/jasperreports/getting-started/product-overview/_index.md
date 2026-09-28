@@ -3,38 +3,28 @@ title: Productoverzicht
 type: docs
 weight: 10
 url: /nl/jasperreports/product-overview/
+description: "Leer wat Aspose.Slides for JasperReports doet, welke JasperReports‑versies en uitvoerformaten het ondersteunt, en waarvoor de twee jar‑bestanden dienen."
 ---
 ![Aspose.Slides for JasperReports](product-overview_1.png)
 
-## **Welkom bij de Aspose.Slides for JasperReports!**
-
-Aspose.Slides for JasperReports is een bibliotheek speciaal ontworpen en ontwikkeld voor ontwikkelaars die eenvoudig rapporten van JasperReports naar Microsoft PowerPoint Presentation (PPT) en Microsoft PowerPoint Show (PPS) formaten moeten exporteren in hun Java‑applicaties. Alle rapportfuncties worden met de hoogste precisie omgezet naar Microsoft PowerPoint‑presentaties. Aspose.Slides for JasperReports bevat ondersteuning voor JasperReports 5+.
-
 ## **Productbeschrijving**
-JasperReports en JasperServer hebben geen ingebouwde mogelijkheden om rapporten te exporteren als Microsoft PowerPoint‑presentaties, maar Aspose.Slides for JasperReports geeft u toegang tot twee aanvullende exportformaten:
 
-- PPT – PowerPoint Presentation via Aspose.Slides
-- PPS – PowerPoint Show via Aspose.Slides
-- PPTX – PowerPoint Presentation via Aspose.Slides
-- PPSX – PowerPoint Show via Aspose.Slides
+Aspose.Slides for JasperReports exporteert rapporten van JasperReports naar PowerPoint‑presentaties, in Java‑toepassingen en in JasperReports Server, zonder Microsoft PowerPoint. Het ondersteunt JasperReports 3.7.2 tot 6.16.0, met een aparte jar voor elk versie‑bereik — zie [Installatie van Aspose.Slides for JasperReports](/slides/nl/jasperreports/installing-aspose-slides-for-jasperreports/).
 
-Aspose.Slides for JasperReports maakt intern gebruik van onze 100 % pure Java‑bibliotheken Aspose.Slides for Java en Aspose.Metafiles for Java, wereldklasse bibliotheken voor server‑side presentaties en metafile‑verwerking.
+Het exporteert een gevuld rapport naar vier formaten, één dia of pagina per rapportpagina:
 
-Aspose.Slides for JasperReports maakt het mogelijk om elk rapport te exporteren in PPT‑ of PPS‑formaat.
+- PPT – PowerPoint 97–2003‑presentatie
+- PPTX – PowerPoint‑presentatie (Office Open XML)
+- PDF
+- HTML
 
-### **Voorbeeld van de uitvoer**
-De ASPptExporter‑klasse erft van de ASAbstractExporter‑klasse, zodat hij op dezelfde manier kan worden gebruikt als alle andere standaard exporters. Dit korte voorbeeld toont typische code en een screenshot van een rapport bekeken in MS PowerPoint. Gedetailleerde voorbeelden zijn te vinden in de meegeleverde demo‑rapporten.
+Het product bestaat uit twee delen:
 
-``` java
-File sourceFile = new File(fileName); 
-JasperPrint jasperPrint = (JasperPrint)JRLoader.loadObject(sourceFile);
-File destFile = new File(sourceFile.getParent(), jasperPrint.getName() + ".ppt");
-ASPptExporter exporter = new ASPptExporter();
-exporter.setParameter(JRExporterParameter.JASER_PRINT, jasperPrint);
-exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, destFile.toString());
-exporter.exportReport();
-```
+- De library‑jar voegt de exporters `ASPptExporter`, `ASPptxExporter`, `ASPdfExporter` en `ASHtmlExporter` toe aan JasperReports Library.
+- De server‑jar biedt export‑acties voor dezelfde vier formaten, die je registreert in JasperReports Server — zie [Integratie met JasperServer](/slides/nl/jasperreports/integration-with-jasperserver/).
 
-**Presentatie gegenereerd met JasperReports xmldatasource demo**
+### **Uitvoervoorbeeld**
 
-![Presentatie gegenereerd met JasperReports](product-overview_2.png)
+De exporters breiden de eigen exporter‑klassen van JasperReports uit en worden op dezelfde manier gebruikt: geef ze het gevulde rapport en het uitvoerbestand, en roep vervolgens `exportReport` aan. Voor een compleet programma dat een rapport vult en het exporteert naar PPTX, zie [Uw eerste export](/slides/nl/jasperreports/#your-first-export); voor alle vier formaten, zie [PPT, PPTX, PDF en HTML‑export](/slides/nl/jasperreports/ppt-pptx-pdf-and-html-export/).
+
+![Een rapport geëxporteerd naar een presentatie zonder licentie, met het evaluatiewatermerk in het midden van de dia](product-overview_2.png)
