@@ -64,12 +64,12 @@ Es exportiert einen ausgefüllten Bericht nach PPT und PPTX, eine Folie pro Beri
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/de/jasperreport/release-notes/">Versionshinweise</a></li>
-<li><a href="https://releases.aspose.com/slides/de/jasperreport/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Versionshinweise</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/de/11">Kostenloses Support‑Forum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Kostenloses Support‑Forum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Kostenpflichtiger Support‑Helpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Es exportiert einen ausgefüllten Bericht nach PPT und PPTX, eine Folie pro Beri
 
 Diese Schritte erstellen einen einzeiligen Bericht, füllen ihn und exportieren ihn nach PPTX mit JasperReports 6.16.0 aus dem Maven‑Central. Sie benötigen JDK 11 oder höher sowie Apache Maven.
 
-1. Laden Sie das ZIP von der [Download‑Seite](https://releases.aspose.com/slides/de/jasperreport/) herunter und entpacken Sie es. Sein *lib*-Ordner enthält je nach JasperReports‑Version einen Unterordner, und jeder enthält die entsprechende JAR‑Datei. Für JasperReports 6.16.0 kopieren Sie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* in einen leeren Projektordner.
+1. Laden Sie das ZIP von der [Download‑Seite](https://releases.aspose.com/slides/jasperreport/) herunter und entpacken Sie es. Sein *lib*-Ordner enthält je nach JasperReports‑Version einen Unterordner, und jeder enthält die entsprechende JAR‑Datei. Für JasperReports 6.16.0 kopieren Sie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* in einen leeren Projektordner.
 
 2. Die JAR‑Datei befindet sich im ZIP und nicht in einem Maven‑Repository, daher installieren Sie sie in Ihr lokales Maven‑Repository. Führen Sie diesen Befehl im Projektordner aus:
 

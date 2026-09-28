@@ -7,9 +7,9 @@ description: "Erfahren Sie, welche Ergänzungen die Evaluierungsversion von Aspo
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides für JasperReports ist als kostenlose, zeitlich unbegrenzte Evaluation von der [Download-Seite](https://releases.aspose.com/slides/de/jasperreport/) verfügbar. Die Evaluierungs- und Lizenzversionen des Produkts werden über denselben Download bereitgestellt.
+Aspose.Slides für JasperReports ist als kostenlose, zeitlich unbegrenzte Evaluation von der [Download-Seite](https://releases.aspose.com/slides/jasperreport/) verfügbar. Die Evaluierungs- und Lizenzversionen des Produkts werden über denselben Download bereitgestellt.
 
-Wenn Sie mit der Evaluation zufrieden sind, [kaufen Sie eine Lizenz](https://purchase.aspose.com/pricing/slides/de/jasperreports/). Stellen Sie sicher, dass Sie die Abonnementbedingungen verstanden haben und diesen zustimmen.
+Wenn Sie mit der Evaluation zufrieden sind, [kaufen Sie eine Lizenz](https://purchase.aspose.com/pricing/slides/jasperreports/). Stellen Sie sicher, dass Sie die Abonnementbedingungen verstanden haben und diesen zustimmen.
 
 Die Lizenz steht zum Download auf der Bestellseite zur Verfügung, nachdem die Bestellung bezahlt wurde. Die Lizenz ist eine Klartext, digital signierte XML-Datei, die Informationen wie den Kundennamen, das gekaufte Produkt und den Lizenztyp enthält. Ändern Sie den Inhalt der Lizenzdatei in keiner Weise: Dies würde die Lizenz ungültig machen.
 
