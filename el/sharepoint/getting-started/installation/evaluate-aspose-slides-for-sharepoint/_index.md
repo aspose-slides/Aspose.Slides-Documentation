@@ -11,7 +11,7 @@ description: "Αξιολογήστε το Aspose.Slides for SharePoint με τη
 
 {{% /alert %}}
 
-Η αξιολόγηση και η εμπορική έκδοση του Aspose.Slides for SharePoint είναι το ίδιο αρχείο λήψης. [Κάντε λήψη του Aspose.Slides for SharePoint](https://releases.aspose.com/slides/el/sharepoint/), [εγκαταστήστε το](/slides/el/sharepoint/installing-aspose-slides-for-sharepoint/), και λειτουργεί στην κατάσταση αξιολόγησης από προεπιλογή.
+Η αξιολόγηση και η εμπορική έκδοση του Aspose.Slides for SharePoint είναι το ίδιο αρχείο λήψης. [Κάντε λήψη του Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [εγκαταστήστε το](/slides/el/sharepoint/installing-aspose-slides-for-sharepoint/), και λειτουργεί στην κατάσταση αξιολόγησης από προεπιλογή.
 
 Σε κατάσταση αξιολόγησης, το μετατρεπόμενο έγγραφο περιέχει υδατογράφημα αξιολόγησης. Όταν έχετε αγοράσει άδεια, εγκαταστήστε τη λύση άδειας πάνω από το εγκατεστημένο αντίγραφο αξιολόγησης, όπως περιγράφεται στο [Εγκατάσταση άδειας Aspose.Slides for SharePoint](/slides/el/sharepoint/installing-aspose-slides-for-sharepoint-license/), και το Aspose.Slides for SharePoint λειτουργεί σε κατάσταση αδειοδότησης.
 

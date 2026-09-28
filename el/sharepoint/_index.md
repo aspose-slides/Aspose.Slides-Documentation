@@ -56,12 +56,12 @@ is_root: true
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/el/sharepoint/release-notes/">Σημειώσεις έκδοσης</a></li>
-<li><a href="https://releases.aspose.com/slides/el/sharepoint/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Πληρωμένη υπηρεσία υποστήριξης</a></li>
 </ul>
 </div>
@@ -73,7 +73,7 @@ is_root: true
 
 Το Aspose.Slides for SharePoint εγκαθίσταται μία φορά στο farm και έπειτα χρησιμοποιείται από οποιαδήποτε βιβλιοθήκη εγγράφων όπου έχει ενεργοποιηθεί:
 
-1. Κατεβάστε το αρχείο ZIP από τη [σελίδα λήψης](https://releases.aspose.com/slides/el/sharepoint/) και αποσυμπιέστε το σε διακομιστή του farm SharePoint.
+1. Κατεβάστε το αρχείο ZIP από τη [σελίδα λήψης](https://releases.aspose.com/slides/sharepoint/) και αποσυμπιέστε το σε διακομιστή του farm SharePoint.
 2. Εκτελέστε το πρόγραμμα εγκατάστασης που ταιριάζει με την έκδοση του SharePoint σας: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* ή *Setup2019.exe*. Χρησιμοποιήστε λογαριασμό που μπορεί να εγκαθιστά και να αναπτύσσει λύσεις SharePoint. Αποδεχτείτε τη συμφωνία άδειας, επιλέξτε τις συλλογές τοποθεσιών όπου θα ενεργοποιηθεί η δυνατότητα και αφήστε το πρόγραμμα εγκατάστασης να αναπτύξει τη λύση. Κάθε οθόνη περιγράφεται στην [Installation](/slides/el/sharepoint/installing-aspose-slides-for-sharepoint/).
 3. Ανοίξτε μια βιβλιοθήκη εγγράφων σε μία από τις συλλογές τοποθεσιών, ανοίξτε το μενού ενός αρχείου PPT ή PPTX και επιλέξτε **Convert via Aspose.Slides**. Στο SharePoint 2007, το στοιχείο μενού ονομάζεται **Convert with Aspose.Slides**.
 4. Στην περιοχή **Convert to**, επιλέξτε **PDF - Adobe Portable Document**. Αλλάξτε το όνομα του αρχείου προορισμού και το φάκελο εάν χρειάζεται, και κάντε κλικ στο **Convert**.

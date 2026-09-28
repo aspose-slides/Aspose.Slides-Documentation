@@ -20,7 +20,7 @@ description: "Οι μορφές εισόδου που δέχεται το Aspose
 
 {{% alert color="info" title="Note" %}}
 
-Για τη μετατροπή εγγράφων, το Aspose.Slides for SharePoint βασίζεται σε μια ενσωματωμένη έκδοση του [Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/).
+Για τη μετατροπή εγγράφων, το Aspose.Slides for SharePoint βασίζεται σε μια ενσωματωμένη έκδοση του [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 

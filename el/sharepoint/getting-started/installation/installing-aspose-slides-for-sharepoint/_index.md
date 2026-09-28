@@ -7,7 +7,7 @@ description: "Εγκαταστήστε το Aspose.Slides for SharePoint σε α
 ---
 ## **Περιεχόμενα Πακέτου**
 
-Το Aspose.Slides for SharePoint κατεβάζεται από τη [σελίδα λήψης](https://releases.aspose.com/slides/el/sharepoint/) ως αρχείο ZIP. Το αρχείο περιέχει ένα πακέτο λύσης SharePoint (WSP) και ένα πρόγραμμα εγκατάστασης για κάθε υποστηριζόμενη έκδοση του SharePoint:
+Το Aspose.Slides for SharePoint κατεβάζεται από τη [σελίδα λήψης](https://releases.aspose.com/slides/sharepoint/) ως αρχείο ZIP. Το αρχείο περιέχει ένα πακέτο λύσης SharePoint (WSP) και ένα πρόγραμμα εγκατάστασης για κάθε υποστηριζόμενη έκδοση του SharePoint:
 
 | Έκδοση SharePoint | Πρόγραμμα εγκατάστασης | Πακέτο λύσης |
 | :- | :- | :- |
